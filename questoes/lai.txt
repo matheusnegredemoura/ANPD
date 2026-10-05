@@ -1,0 +1,224 @@
+bloco: lai
+// Lei de Acesso à Informação (Lei nº 12.527/2011) e Decreto nº 7.724/2012. Conferidas com fontes/lai.txt e fontes/dec7724.txt.
+// A interface com a LGPD (informação pessoal, art. 31) é o ponto que mais cai em prova de proteção de dados.
+
+=== lai-01
+gab: C
+ref: lai 3
+trecho: observância da publicidade como preceito geral e do sigilo como exceção
+trecho: divulgação de informações de interesse público, independentemente de solicitações
+armadilha: literal
+dif: 1
+enunciado: São diretrizes da Lei de Acesso à Informação a observância da publicidade como preceito geral e do sigilo como exceção e a divulgação de informações de interesse público independentemente de solicitações.
+comentario: Art. 3º, I e II. A divulgação independentemente de pedido é a transparência ativa (art. 8º); a resposta a pedidos é a transparência passiva (arts. 10 a 14).
+pesquisar: Transparência ativa × transparência passiva
+
+=== lai-02
+gab: E
+ref: lai 4, IV
+trecho: informação pessoal: aquela relacionada à pessoa natural identificada ou identificável
+armadilha: comparacao
+dif: 2
+enunciado: A Lei de Acesso à Informação define informação pessoal de forma mais restrita que a LGPD, limitando-a aos dados de pessoa natural já identificada.
+comentario: Art. 4º, IV: informação pessoal é a relacionada à pessoa natural identificada ou identificável, conceito igual ao de dado pessoal da LGPD (art. 5º, I). O Decreto 7.724 (art. 3º, V) restringe a informação pessoal protegida à relativa à intimidade, vida privada, honra e imagem.
+
+=== lai-03
+gab: C
+ref: lai 2
+trecho: Aplicam-se as disposições desta Lei, no que couber, às entidades privadas sem fins lucrativos que recebam, para realização de ações de interesse público, recursos públicos
+trecho: A publicidade a que estão submetidas as entidades citadas no caput refere-se à parcela dos recursos públicos recebidos e à sua destinação
+armadilha: excecao
+dif: 2
+enunciado: A Lei de Acesso à Informação aplica-se, no que couber, a entidades privadas sem fins lucrativos que recebam recursos públicos para ações de interesse público, mas a publicidade se limita à parcela dos recursos recebidos e à sua destinação.
+comentario: Art. 2º e parágrafo único. Órgãos dos três Poderes, Tribunais de Contas, Ministério Público e toda a administração indireta se submetem integralmente (art. 1º, parágrafo único).
+
+=== lai-04
+gab: E
+ref: lai 10, § 3º
+trecho: São vedadas quaisquer exigências relativas aos motivos determinantes da solicitação de informações de interesse público.
+armadilha: literal
+dif: 1
+enunciado: O pedido de acesso a informações de interesse público deve conter a identificação do requerente e a justificativa do pedido, sob pena de não conhecimento.
+comentario: Art. 10: o pedido deve conter identificação e especificação da informação, mas é vedado exigir os motivos (§ 3º), e a identificação não pode ter exigências que inviabilizem o pedido (§ 1º).
+
+=== lai-05
+gab: C
+ref: lai 11
+trecho: em prazo não superior a 20 (vinte) dias
+trecho: O prazo referido no § 1º poderá ser prorrogado por mais 10 (dez) dias, mediante justificativa expressa, da qual será cientificado o requerente.
+armadilha: numero
+dif: 1
+enunciado: Não sendo possível o acesso imediato à informação, o órgão deve responder em até vinte dias, prazo prorrogável por mais dez dias mediante justificativa expressa comunicada ao requerente.
+comentario: Art. 11, §§ 1º e 2º. Prazo máximo total: 30 dias. Recurso: 10 dias da ciência, decidido em 5 dias (art. 15).
+
+=== lai-06
+gab: E
+ref: lai 15
+trecho: poderá o interessado interpor recurso contra a decisão no prazo de 10 (dez) dias a contar da sua ciência
+trecho: que deverá se manifestar no prazo de 5 (cinco) dias
+armadilha: numero
+dif: 2
+enunciado: Negado o acesso à informação, o interessado pode recorrer em quinze dias à autoridade hierarquicamente superior, que tem dez dias para decidir.
+comentario: Art. 15: recurso em 10 dias da ciência, à autoridade superior, que decide em 5 dias. No Executivo federal, depois de ao menos uma autoridade superior, cabe recurso à CGU (art. 16, § 1º) e, desta, à Comissão Mista de Reavaliação de Informações (§ 3º).
+
+=== lai-07
+gab: C
+ref: lai 12
+trecho: O serviço de busca e de fornecimento de informação é gratuito.
+trecho: poderá cobrar exclusivamente o valor necessário ao ressarcimento dos custos dos serviços e dos materiais utilizados
+armadilha: excecao
+dif: 2
+enunciado: O serviço de busca e fornecimento de informação é gratuito, podendo o órgão cobrar só o ressarcimento dos custos de reprodução de documentos, do qual fica isento quem não puder pagá-lo sem prejuízo do sustento próprio ou da família.
+comentario: Art. 12 e §§ 1º e 2º (redação da Lei 14.129/2021, a Lei do Governo Digital).
+
+=== lai-08
+gab: E
+ref: lai 21
+trecho: Não poderá ser negado acesso à informação necessária à tutela judicial ou administrativa de direitos fundamentais.
+trecho: As informações ou documentos que versem sobre condutas que impliquem violação dos direitos humanos praticada por agentes públicos ou a mando de autoridades públicas não poderão ser objeto de restrição de acesso.
+armadilha: excecao
+dif: 2
+enunciado: Documentos sobre violações de direitos humanos praticadas por agentes públicos podem ser classificados como ultrassecretos, ficando inacessíveis por até vinte e cinco anos.
+comentario: Art. 21, parágrafo único: informações sobre violação de direitos humanos por agentes públicos não podem ter acesso restrito. E não se nega informação necessária à tutela de direitos fundamentais (caput).
+
+=== lai-09
+gab: C
+ref: lai 24
+trecho: ultrassecreta: 25 (vinte e cinco) anos
+trecho: secreta: 15 (quinze) anos
+trecho: reservada: 5 (cinco) anos
+armadilha: numero
+dif: 1
+enunciado: Os prazos máximos de restrição de acesso à informação classificada são de 25 anos para a ultrassecreta, 15 anos para a secreta e 5 anos para a reservada, contados da data de sua produção.
+comentario: Art. 24, § 1º. A ultrassecreta admite uma única prorrogação pela Comissão Mista de Reavaliação (art. 35, § 1º, III, e § 2º). Transcorrido o prazo, a informação torna-se automaticamente pública (§ 4º).
+
+=== lai-10
+gab: E
+ref: lai 24, § 1º
+trecho: vigoram a partir da data de sua produção
+armadilha: numero
+dif: 2
+enunciado: Os prazos de sigilo da informação classificada contam-se a partir da data da decisão de classificação.
+comentario: Art. 24, § 1º: os prazos vigoram a partir da data de produção da informação. Se o prazo for reduzido na reavaliação, o novo prazo mantém como termo inicial a data da produção (art. 29, § 3º).
+
+=== lai-11
+gab: C
+ref: lai 24, § 2º
+trecho: As informações que puderem colocar em risco a segurança do Presidente e Vice-Presidente da República e respectivos cônjuges e filhos(as) serão classificadas como reservadas e ficarão sob sigilo até o término do mandato em exercício ou do último mandato, em caso de reeleição.
+armadilha: literal
+dif: 3
+enunciado: As informações que possam pôr em risco a segurança do Presidente e do Vice-Presidente da República e de seus cônjuges e filhos são classificadas como reservadas e ficam sob sigilo até o término do mandato em exercício ou do último, em caso de reeleição.
+comentario: Art. 24, § 2º. O termo final pode ser um evento, desde que ocorra antes do prazo máximo (§ 3º).
+
+=== lai-12
+gab: E
+ref: lai 27
+trecho: no grau de secreto, das autoridades referidas no inciso I, dos titulares de autarquias, fundações ou empresas públicas e sociedades de economia mista
+armadilha: sujeito
+dif: 3
+enunciado: No Executivo federal, o dirigente máximo de uma autarquia, como a ANPD, pode classificar informação no grau ultrassecreto.
+comentario: Art. 27: ultrassecreto é só para Presidente, Vice, Ministros e equiparados, Comandantes das Forças e chefes de missões no exterior (I). Titulares de autarquias classificam até o grau secreto (II). Ultrassecreto e secreto podem ser delegados, vedada a subdelegação (§ 1º).
+
+=== lai-13
+gab: C
+ref: lai 31
+trecho: terão seu acesso restrito, independentemente de classificação de sigilo e pelo prazo máximo de 100 (cem) anos a contar da sua data de produção, a agentes públicos legalmente autorizados e à pessoa a que elas se referirem
+armadilha: numero
+dif: 1
+enunciado: As informações pessoais relativas à intimidade, vida privada, honra e imagem têm acesso restrito, independentemente de classificação de sigilo, pelo prazo máximo de cem anos da sua produção, a agentes públicos autorizados e à pessoa a que se referem.
+comentario: Art. 31, § 1º, I. Informação pessoal não se classifica: a restrição decorre da lei. Terceiros só acessam com previsão legal ou consentimento expresso (II), salvo as hipóteses do § 3º.
+pesquisar: LAI × LGPD: informação pessoal, transparência e o art. 23 da LGPD
+
+=== lai-14
+gab: E
+ref: lai 31, § 4º
+trecho: A restrição de acesso à informação relativa à vida privada, honra e imagem de pessoa não poderá ser invocada com o intuito de prejudicar processo de apuração de irregularidades em que o titular das informações estiver envolvido
+armadilha: excecao
+dif: 2
+enunciado: O servidor investigado em processo de apuração de irregularidades pode invocar a proteção de suas informações pessoais para impedir o acesso da comissão a documentos sobre sua vida privada relacionados aos fatos.
+comentario: Art. 31, § 4º: a restrição não pode ser invocada para prejudicar apuração de irregularidades em que o titular esteja envolvido, nem ações de recuperação de fatos históricos de maior relevância.
+
+=== lai-15
+gab: C
+ref: lai 31, § 3º
+trecho: O consentimento referido no inciso II do § 1º não será exigido quando as informações forem necessárias
+trecho: à proteção do interesse público e geral preponderante
+armadilha: rol
+dif: 2
+enunciado: O consentimento da pessoa para acesso de terceiros às suas informações pessoais é dispensado, entre outros casos, para o cumprimento de ordem judicial, a defesa de direitos humanos e a proteção do interesse público e geral preponderante.
+comentario: Art. 31, § 3º, III a V. Também para diagnóstico médico de pessoa incapaz (I) e estatísticas e pesquisas de evidente interesse público, sem identificar a pessoa (II).
+
+=== lai-16
+gab: C
+ref: lai 32
+trecho: infrações administrativas, que deverão ser apenadas, no mínimo, com suspensão
+armadilha: literal
+dif: 3
+enunciado: Recusar-se a fornecer informação requerida nos termos da LAI ou retardar deliberadamente seu fornecimento é conduta ilícita que, para fins da Lei nº 8.112/1990, constitui infração administrativa apenada, no mínimo, com suspensão.
+comentario: Art. 32, I e § 1º, II. O agente pode também responder por improbidade (§ 2º). Divulgar indevidamente informação sigilosa ou pessoal também é ilícito (IV).
+
+=== lai-17
+gab: E
+ref: lai 34
+trecho: Os órgãos e entidades públicas respondem diretamente pelos danos causados em decorrência da divulgação não autorizada ou utilização indevida de informações sigilosas ou informações pessoais
+armadilha: sujeito
+dif: 2
+enunciado: Pelos danos causados pela divulgação não autorizada de informações pessoais, responde apenas o servidor que a causou, não o órgão público.
+comentario: Art. 34: o órgão ou entidade responde diretamente, com apuração de responsabilidade funcional em caso de dolo ou culpa e direito de regresso. É a responsabilidade objetiva do art. 37, § 6º, da Constituição.
+
+=== lai-18
+gab: C
+ref: lai 38
+trecho: Aplica-se, no que couber, a Lei nº 9.507, de 12 de novembro de 1997, em relação à informação de pessoa, física ou jurídica, constante de registro ou banco de dados de entidades governamentais ou de caráter público.
+armadilha: literal
+dif: 3
+enunciado: A LAI manda aplicar, no que couber, a lei do habeas data à informação de pessoa física ou jurídica constante de registro ou banco de dados de entidades governamentais ou de caráter público.
+comentario: Art. 38. A Lei 9.507/1997 regula o habeas data (CF, art. 5º, LXXII), cuja petição inicial deve provar a recusa administrativa ou o decurso de prazo sem decisão: mais de dez dias para o acesso, mais de quinze para a retificação (art. 8º, parágrafo único).
+
+=== lai-19
+gab: E
+ref: lai 7, § 3º
+trecho: O direito de acesso aos documentos ou às informações neles contidas utilizados como fundamento da tomada de decisão e do ato administrativo será assegurado com a edição do ato decisório respectivo.
+armadilha: literal
+dif: 3
+enunciado: Pareceres e notas técnicas que fundamentam um ato administrativo ficam com acesso restrito mesmo depois da edição do ato decisório, por serem documentos preparatórios.
+comentario: Art. 7º, § 3º: o acesso a documentos que fundamentam a decisão é assegurado com a edição do ato. O Decreto 7.724 define documento preparatório (art. 3º, XII) e segue a mesma lógica.
+
+=== lai-20
+gab: C
+ref: dec7724 13
+trecho: genéricos
+trecho: desproporcionais ou desarrazoados
+trecho: que exijam trabalhos adicionais de análise, interpretação ou consolidação de dados e informações
+armadilha: rol
+dif: 2
+enunciado: Pelo Decreto nº 7.724/2012, não são atendidos pedidos de acesso genéricos, desproporcionais ou desarrazoados, ou que exijam trabalhos adicionais de análise, interpretação ou consolidação de dados que não sejam de competência do órgão.
+comentario: Art. 13. No último caso, o órgão indica, se souber, onde estão as informações para o próprio requerente tratá-las (parágrafo único).
+
+=== lai-21
+gab: E
+ref: dec7724 22
+trecho: No caso de omissão de resposta ao pedido de acesso à informação, o requerente poderá apresentar reclamação no prazo de dez dias à autoridade de monitoramento
+trecho: O prazo para apresentar reclamação começará trinta dias após a apresentação do pedido.
+armadilha: numero
+dif: 3
+enunciado: Diante da omissão de resposta ao pedido de acesso, o requerente pode apresentar reclamação à autoridade de monitoramento a partir do décimo dia após o pedido.
+comentario: Art. 22, § 1º: o prazo de 10 dias para a reclamação começa 30 dias após o pedido (20 + 10 de prorrogação). A autoridade de monitoramento é a do art. 40 da LAI e decide em 5 dias.
+
+=== lai-22
+gab: C
+ref: dec7724 58
+trecho: for possível o tratamento e a proteção do dado por meio da ocultação, da anonimização ou da pseudonimização das informações pessoais relativas à intimidade, à vida privada, à honra e à imagem
+armadilha: literal
+dif: 3
+enunciado: Pelo Decreto nº 7.724/2012, a restrição de acesso a informações pessoais não pode ser invocada quando for possível proteger o dado por ocultação, anonimização ou pseudonimização das informações relativas à intimidade, vida privada, honra e imagem.
+comentario: Art. 58, III, incluído pelo Decreto 11.527/2023. Aproxima a LAI da LGPD: em vez de negar o documento inteiro, entrega-se com tarja ou anonimização. Os conceitos de anonimização e pseudonimização estão na LGPD (arts. 5º, XI, e 13, § 4º).
+
+=== lai-23
+gab: C
+ref: dec7724 61
+trecho: A utilização de informação pessoal por terceiros vincula-se à finalidade e à destinação que fundamentaram a autorização do acesso, vedada sua utilização de maneira diversa.
+armadilha: literal
+dif: 2
+enunciado: O acesso de terceiros a informação pessoal depende de termo de responsabilidade, e o uso da informação fica vinculado à finalidade e à destinação que fundamentaram a autorização.
+comentario: Art. 61, caput e § 1º. Lembra o princípio da finalidade da LGPD (art. 6º, I). O pedido de terceiro exige comprovação de consentimento por procuração ou de outra hipótese legal (art. 60, parágrafo único).
