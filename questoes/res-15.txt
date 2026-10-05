@@ -1,0 +1,189 @@
+bloco: res-15-2024
+// Resolução CD/ANPD nº 15/2024 — Regulamento de Comunicação de Incidente de Segurança. Conferidas com fontes/res15.txt.
+// Complementa r15-01 a r15-05 (em resolucoes.txt).
+
+=== r15-06
+gab: E
+ref: res15 5
+trecho: quando puder afetar significativamente interesses e direitos fundamentais dos titulares e, cumulativamente, envolver, pelo menos, um dos seguintes critérios
+trecho: dados de autenticação em sistemas
+armadilha: extrapolacao
+dif: 2
+enunciado: Todo incidente de segurança que envolva dados de autenticação em sistemas, como senhas e tokens, deve ser comunicado à ANPD, independentemente de poder afetar significativamente os direitos dos titulares.
+comentario: Art. 5º: o risco ou dano relevante exige dois elementos cumulativos: poder afetar significativamente interesses e direitos fundamentais e envolver ao menos um critério (dados sensíveis; de crianças, adolescentes ou idosos; financeiros; de autenticação; protegidos por sigilo; em larga escala). O critério sozinho não basta. Compare com a classificação da infração grave na Res. 4/2023 (art. 8º, § 3º), que tem a mesma lógica.
+pesquisar: Avaliação de risco de incidente: guia da ANPD e formulário CIS
+
+=== r15-07
+gab: C
+ref: res15 3, XII
+trecho: incidente de segurança: qualquer evento adverso confirmado, relacionado à violação das propriedades de confidencialidade, integridade, disponibilidade e autenticidade da segurança de dados pessoais
+armadilha: conceito
+dif: 2
+enunciado: Para o regulamento da ANPD, incidente de segurança é qualquer evento adverso confirmado, relacionado à violação da confidencialidade, da integridade, da disponibilidade e da autenticidade da segurança de dados pessoais.
+comentario: Art. 3º, XII. Repare em confirmado: mera suspeita não é incidente para fins de comunicação. As quatro propriedades estão definidas no mesmo artigo (incisos II, V, XI e XIII).
+pesquisar: Tríade CID (confidencialidade, integridade, disponibilidade) e autenticidade
+
+=== r15-08
+gab: E
+ref: res15 3, XIII
+trecho: integridade: propriedade pela qual se assegura que o dado pessoal não foi modificado ou destruído de maneira não autorizada ou acidental
+trecho: disponibilidade: propriedade pela qual se assegura que o dado pessoal esteja acessível e utilizável, sob demanda
+armadilha: conceito
+dif: 2
+enunciado: No regulamento de incidentes da ANPD, integridade é a propriedade pela qual se assegura que o dado pessoal esteja acessível e utilizável, sob demanda, por pessoa ou sistema autorizado.
+comentario: O item descreve a disponibilidade (art. 3º, XI). Integridade é a garantia de que o dado não foi modificado ou destruído de maneira não autorizada ou acidental (art. 3º, XIII). Um ataque de ransomware que só criptografa os dados afeta a disponibilidade; um vazamento afeta a confidencialidade.
+
+=== r15-09
+gab: C
+ref: res15 9
+trecho: A comunicação de incidente de segurança ao titular deverá ser realizada pelo controlador no prazo de três dias úteis contados do conhecimento pelo controlador de que o incidente afetou dados pessoais
+armadilha: numero
+dif: 1
+enunciado: A comunicação do incidente ao titular deve ser feita pelo controlador em três dias úteis, contados do conhecimento de que o incidente afetou dados pessoais, o mesmo prazo da comunicação à ANPD.
+comentario: Art. 9º, caput, e art. 6º. Os dois prazos são de três dias úteis e contam em dobro para agentes de pequeno porte (arts. 6º, § 8º, e 9º, § 6º).
+
+=== r15-10
+gab: E
+ref: res15 9, § 1º
+trecho: ocorrer de forma direta e individualizada, caso seja possível identificá-los
+trecho: pelo período de, no mínimo, três meses
+armadilha: rol
+dif: 2
+enunciado: Na comunicação de incidente aos titulares, o controlador pode escolher livremente entre a comunicação individual e a publicação em seu sítio eletrônico, mantida esta por no mínimo trinta dias.
+comentario: Art. 9º, §§ 1º a 3º: a regra é a comunicação direta e individualizada (telefone, e-mail, mensagem, carta), quando possível identificar os titulares; só se inviável é que se usam os meios de divulgação (sítio, aplicativos, redes sociais), por no mínimo três meses.
+
+=== r15-11
+gab: C
+ref: res15 9, § 4º
+trecho: O controlador deverá juntar ao processo de comunicação de incidente uma declaração de que foi realizada a comunicação aos titulares, constando os meios de comunicação ou divulgação utilizados, em até três dias úteis, contados do término do prazo de que trata o caput deste artigo.
+armadilha: numero
+dif: 3
+enunciado: O controlador deve juntar ao processo de comunicação de incidente declaração de que comunicou os titulares, com os meios utilizados, em até três dias úteis do término do prazo para essa comunicação.
+comentario: Art. 9º, § 4º. Incluir recomendações para reverter ou mitigar os efeitos na comunicação ao titular pode ser considerado boa prática para fins de dosimetria (§ 5º; LGPD, art. 52, § 1º, IX).
+
+=== r15-12
+gab: C
+ref: res15 6, § 2º
+trecho: o número de titulares afetados, discriminando, quando aplicável, o número de crianças, de adolescentes ou de idosos
+trecho: os motivos da demora, no caso de a comunicação não ter sido realizada no prazo previsto no caput deste artigo
+armadilha: rol
+dif: 2
+enunciado: A comunicação de incidente à ANPD deve informar, entre outros dados, o número de titulares afetados, discriminando crianças, adolescentes e idosos quando aplicável, e os motivos da demora, se a comunicação não for feita no prazo.
+comentario: Art. 6º, § 2º, II e V. O rol tem 12 incisos e amplia o do art. 48, § 1º, da LGPD (que tem 6). Entre os acréscimos: identificação do operador, causa principal e total de titulares tratados nas atividades afetadas.
+
+=== r15-13
+gab: E
+ref: res15 6, § 3º
+trecho: As informações poderão ser complementadas, de maneira fundamentada, no prazo de vinte dias úteis, a contar da data da comunicação.
+armadilha: numero
+dif: 2
+enunciado: As informações da comunicação de incidente podem ser complementadas, de maneira fundamentada, em até dez dias corridos da comunicação.
+comentario: Art. 6º, § 3º: vinte dias úteis da comunicação, prazo que conta em dobro para agentes de pequeno porte (§ 8º).
+
+=== r15-14
+gab: C
+ref: res15 6, § 5º
+trecho: A comunicação de incidente de segurança deverá ser realizada pelo controlador, por meio do encarregado, acompanhada de documento comprobatório de vínculo contratual, empregatício ou funcional, ou por meio de representante constituído
+trecho: a ANPD poderá apurar a ocorrência do incidente de segurança por meio do procedimento de apuração de incidente de segurança
+armadilha: literal
+dif: 3
+enunciado: A comunicação de incidente é feita pelo controlador por meio do encarregado, com documento que comprove seu vínculo, ou por representante constituído, com instrumento de poderes; se os documentos não forem apresentados no prazo, a ANPD pode apurar o incidente pelo procedimento de apuração.
+comentario: Art. 6º, §§ 5º a 7º. A comunicação usa formulário eletrônico da ANPD (§ 4º) e só se considera formalizada com esses documentos (art. 13, II).
+
+=== r15-15
+gab: E
+ref: res15 7
+trecho: Cabe ao controlador solicitar à ANPD, de maneira fundamentada, o sigilo de informações protegidas por lei
+armadilha: sujeito
+dif: 2
+enunciado: As informações sobre segredo comercial e industrial enviadas na comunicação de incidente ficam automaticamente sob sigilo, cabendo à ANPD identificá-las de ofício.
+comentario: Art. 7º: cabe ao controlador pedir o sigilo, de forma fundamentada, indicando as informações cujo acesso deve ser restringido. É a mesma lógica da Res. 1/2021 (art. 5º, § 2º).
+
+=== r15-16
+gab: C
+ref: res15 8
+trecho: inclusive o registro das operações de tratamento dos dados pessoais afetados pelo incidente, o relatório de impacto à proteção de dados pessoais (RIPD) e o relatório de tratamento do incidente
+armadilha: literal
+dif: 2
+enunciado: A ANPD pode, a qualquer tempo, pedir ao controlador informações adicionais sobre o incidente, inclusive o registro das operações de tratamento dos dados afetados, o relatório de impacto à proteção de dados pessoais e o relatório de tratamento do incidente.
+comentario: Art. 8º. O relatório de tratamento do incidente é definido no art. 3º, XIX, como documento com cópias de dados e informações relevantes para descrever o incidente e as providências adotadas.
+
+=== r15-17
+gab: E
+ref: res15 10, § 2º
+trecho: Os prazos de guarda previstos neste artigo não se aplicam às entidades previstas no art. 23 da LGPD, desde que sejam observadas as regras aplicáveis aos documentos de guarda permanente
+armadilha: excecao
+dif: 3
+enunciado: O prazo mínimo de cinco anos de guarda do registro de incidentes aplica-se igualmente a todos os controladores, inclusive às pessoas jurídicas de direito público referidas no art. 23 da LGPD, sem exceção.
+comentario: Art. 10, § 2º: o prazo não se aplica às entidades do art. 23 da LGPD (Poder Público), desde que observem as regras de documentos de guarda permanente (tabela de temporalidade ou Conselho Nacional de Arquivos).
+
+=== r15-18
+gab: C
+ref: res15 13
+trecho: de ofício, no caso de procedimento de apuração de incidente de segurança
+trecho: com o recebimento da comunicação, devidamente formalizada
+armadilha: conceito
+dif: 2
+enunciado: O processo de comunicação de incidente de segurança na ANPD pode iniciar-se de ofício, no procedimento de apuração de incidente não comunicado, ou com o recebimento da comunicação devidamente formalizada, no procedimento de comunicação.
+comentario: Art. 13 e art. 3º, XVI a XVIII: o processo de comunicação de incidente abrange os dois procedimentos. Aplicam-se, no que couber, as regras da Res. 1/2021 (art. 11, parágrafo único).
+
+=== r15-19
+gab: C
+ref: res15 15
+trecho: a ANPD poderá determinar ao controlador, com ou sem a sua prévia manifestação, a adoção imediata de medidas preventivas necessárias para salvaguardar direitos dos titulares
+trecho: A ANPD poderá fixar multa diária para assegurar o cumprimento da determinação prevista no caput
+armadilha: literal
+dif: 3
+enunciado: No processo de comunicação de incidente, a ANPD pode determinar ao controlador, mesmo sem sua prévia manifestação, medidas preventivas imediatas para evitar dano grave e irreparável, e fixar multa diária para assegurar o cumprimento.
+comentario: Art. 15 e parágrafo único, com multa diária na forma da Res. 4/2023 (art. 16). É uma cautelar administrativa, ligada ao art. 45 da Lei 9.784 (providências acauteladoras sem prévia manifestação em caso de risco iminente).
+pesquisar: Medidas acautelatórias no processo administrativo (Lei 9.784, art. 45)
+
+=== r15-20
+gab: E
+ref: res15 19, § 6º
+trecho: A ampla divulgação do incidente não se confunde com a sanção de publicização da infração de que trata no art. 52, IV, da LGPD.
+armadilha: conceito
+dif: 2
+enunciado: A determinação de ampla divulgação do incidente em meios de comunicação, feita pela ANPD ao controlador, equivale à sanção de publicização da infração prevista na LGPD.
+comentario: Art. 19, § 6º, e art. 22: a ampla divulgação não se confunde com a publicização (sanção do art. 52, IV) e não constitui sanção; equipara-se às medidas preventivas da Res. 1/2021. Ela é cabível quando a comunicação do controlador não alcança parcela significativa dos titulares, às expensas dele (§ 3º; LGPD, art. 48, § 2º, I).
+
+=== r15-21
+gab: C
+ref: res15 19, § 5º
+trecho: mídia escrita impressa
+trecho: radiodifusão de sons e de sons e imagens
+trecho: transmissão de informações pela Internet
+armadilha: rol
+dif: 3
+enunciado: A ampla divulgação do incidente pode ser feita por mídia escrita impressa, por radiodifusão de sons ou de sons e imagens ou por transmissão pela internet, de modo compatível com a abrangência de atuação do controlador e a localização dos titulares.
+comentario: Art. 19, §§ 4º e 5º. As providências determinadas devem ser diretamente relacionadas ao incidente (§ 2º).
+
+=== r15-22
+gab: E
+ref: res15 23
+trecho: caso a ANPD considere que o incidente não possui potencial para acarretar risco ou dano relevante aos titulares
+trecho: mesmo com a declaração da extinção do processo de comunicação de incidente de segurança, a ANPD poderá determinar a adoção de medidas de segurança diretamente relacionadas ao incidente
+armadilha: excecao
+dif: 3
+enunciado: Extinto o processo de comunicação de incidente porque o incidente não tem potencial de risco ou dano relevante, a ANPD fica impedida de determinar qualquer outra medida ao controlador relacionada àquele incidente.
+comentario: Art. 23, II e parágrafo único: mesmo extinto o processo nessa hipótese, a ANPD pode determinar medidas de segurança diretamente relacionadas ao incidente. Outras causas de extinção: falta de evidências (com reabertura se surgirem fatos novos), incidente sem dados pessoais, mitigação completa e comunicação feita com as providências cabíveis.
+
+=== r15-23
+gab: C
+ref: res15 17
+trecho: Constatada a ocorrência de incidente de segurança, a ANPD determinará ao controlador o envio da comunicação à Autoridade e aos titulares
+trecho: A ANPD poderá, ainda, instaurar processo administrativo sancionador para apurar o descumprimento do previsto nos arts. 6º e 9º deste Regulamento.
+armadilha: literal
+dif: 2
+enunciado: Constatado, em procedimento de apuração, incidente não comunicado, a ANPD determina ao controlador o envio da comunicação à agência e aos titulares e pode instaurar processo sancionador pelo descumprimento dos deveres de comunicação.
+comentario: Art. 17 e § 1º. Feita a comunicação, segue-se o procedimento de comunicação (§ 2º). A avaliação da ocorrência usa os critérios do art. 5º (art. 16, § 2º).
+
+=== r15-24
+gab: E
+ref: res15 3, XV
+trecho: natureza dos dados pessoais: classificação de dados pessoais em gerais ou sensíveis
+trecho: categoria de dados pessoais: classificação dos dados pessoais de acordo com o contexto de sua utilização
+armadilha: conceito
+dif: 3
+enunciado: No regulamento de incidentes da ANPD, natureza dos dados pessoais é a classificação de acordo com o contexto de sua utilização, como dados de identificação, de autenticação e financeiros.
+comentario: O item descreve a categoria (art. 3º, III). Natureza é a classificação em dados gerais ou sensíveis (art. 3º, XV). A comunicação à ANPD deve descrever as duas (art. 6º, § 2º, I).
