@@ -1966,6 +1966,7 @@ function renderAjustes() {
     '<div class="cartao"><h2>Backup do progresso</h2><p class="pequeno">Salve um arquivo com todo o seu progresso. Se a gravação na conta falhar, ou se você trocar de aparelho, é só restaurar.</p>' +
     '<div class="linha-btns"><button class="btn primario" data-acao="backup-baixar">Baixar backup (.json)</button><button class="btn" data-acao="backup-mostrar">Copiar como texto</button></div>' +
     '<div class="campo"><label for="arquivo-backup">Restaurar de um arquivo</label><input id="arquivo-backup" type="file" accept=".json,application/json" data-acao="backup-arquivo"></div>' +
+    '<div class="campo"><label for="texto-backup">Ou restaurar colando o texto do backup</label><textarea id="texto-backup" class="area-texto" placeholder="Cole aqui o texto copiado em “Copiar como texto”"></textarea><div class="linha-btns"><button class="btn" data-acao="backup-colado">Restaurar do texto</button></div></div>' +
     '<div id="zona-backup"></div></div>' +
     '<div class="cartao"><h2>Diagnóstico da gravação</h2><p class="pequeno mudo">Use quando o progresso não aparecer em outro aparelho ou surgir mensagem de erro.</p><div class="tabela-env"><table class="tabela diag"><tbody>' +
     linha('Onde o progresso está', Store.modo === 'nuvem' ? 'Na sua conta e neste navegador' : 'Só neste navegador', Store.modo === 'nuvem') +
@@ -2002,11 +2003,11 @@ function mostrarTexto(destino, conteudo, rotulo) {
 }
 function restaurar(texto) {
   let d;
-  try { d = JSON.parse(texto); } catch (e) { avisar('!', 'Arquivo inválido', 'Não é um backup do Painel ANPD.'); return; }
-  if (!d || d.app !== 'painel-anpd' || !d.perfil) { avisar('!', 'Arquivo inválido', 'Não é um backup do Painel ANPD.'); return; }
+  try { d = JSON.parse(String(texto).trim()); } catch (e) { avisar('!', 'Backup inválido', 'Não é um backup do Painel ANPD (confira se o texto foi copiado inteiro).'); return; }
+  if (!d || d.app !== 'painel-anpd' || !d.perfil) { avisar('!', 'Backup inválido', 'Não é um backup do Painel ANPD.'); return; }
   backupPendente = d;
   const z = document.getElementById('zona-backup');
-  const resumo = 'Backup de ' + esc(fmtData(String(d.exportado).slice(0, 10), { day: '2-digit', month: '2-digit', year: 'numeric' })) + ': ' + fmtNum(d.perfil.xp || 0) + ' XP, ' + Object.keys(d.itens || {}).length + ' questões e ' + Object.keys(d.cards || {}).length + ' cards com histórico.';
+  const resumo = 'Backup de ' + esc(fmtData(String(d.exportado).slice(0, 10), { day: '2-digit', month: '2-digit', year: 'numeric' })) + ': ' + fmtNum(d.perfil.xp || 0) + ' XP, ' + pl(Object.keys(d.itens || {}).length, 'questão', 'questões') + ' e ' + pl(Object.keys(d.cards || {}).length, 'card', 'cards') + ' com histórico.';
   if (z) z.innerHTML = '<div class="cartao destaque"><p>' + resumo + '</p><p class="pequeno mudo">Restaurar substitui o progresso atual.</p><div class="linha-btns"><button class="btn primario" data-acao="backup-confirmar">Restaurar</button><button class="btn" data-acao="mais" data-sub="ajustes">Cancelar</button></div></div>';
 }
 
@@ -2044,7 +2045,10 @@ document.addEventListener('click', async (ev) => {
   const a = alvo.dataset.acao;
   if (alvo.tagName === 'INPUT' || alvo.tagName === 'SELECT') return;
   switch (a) {
-    case 'ir': ir(alvo.dataset.vista); break;
+    case 'ir':
+      // A aba Mais sempre abre o menu do Mais, não a última página aberta lá dentro
+      if (alvo.classList.contains('aba') && alvo.dataset.vista === 'mais') { UI.mais = 'menu'; UI.subtema = null; if (UI.vista === 'mais') { renderMais(); window.scrollTo(0, 0); break; } }
+      ir(alvo.dataset.vista); break;
     case 'mais': fecharFolha(); UI.mais = alvo.dataset.sub || 'menu'; if (UI.vista !== 'mais') ir('mais'); else { renderMais(); window.scrollTo(0, 0); } break;
     case 'iniciar-dia': iniciarDia(alvo.dataset.dia); break;
     case 'iniciar-revisao': iniciarSessao({ modo: 'revisao', n: 30 }); break;
@@ -2200,7 +2204,8 @@ document.addEventListener('click', async (ev) => {
       if (r === null) mostrarTexto('zona-backup', backupTexto(), 'O download não está disponível aqui. Copie o texto e guarde num arquivo .json.');
       break;
     }
-    case 'backup-mostrar': mostrarTexto('zona-backup', backupTexto(), 'Copie e guarde este texto. Para restaurar, salve-o como .json e use “Restaurar de um arquivo”.'); break;
+    case 'backup-mostrar': mostrarTexto('zona-backup', backupTexto(), 'Copie e guarde este texto. Para restaurar, cole-o em “Ou restaurar colando o texto do backup”, aqui mesmo.'); break;
+    case 'backup-colado': { const t = document.getElementById('texto-backup'); if (!t || !t.value.trim()) avisar('!', 'Nada colado', 'Cole o texto do backup no campo acima.'); else restaurar(t.value); break; }
     case 'backup-confirmar': {
       const d = backupPendente;
       if (!d) break;
