@@ -502,3 +502,5 @@ details.apoio-det[open] summary{margin-bottom:8px}
 .lista-chave{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;line-height:1.5}
 .lista-chave.armadilhas li::marker{color:var(--errado)}
 button.dom-linha{appearance:none;border:0;background:none;width:100%;padding:0;text-align:left;color:inherit;font:inherit;cursor:pointer}
+/* Durante a sessão, os avisos sobem para o topo e não cobrem os botões do rodapé da folha de respostas */
+.sessao:not([hidden]) ~ .avisos{top:calc(env(safe-area-inset-top,0px) + 64px);bottom:auto}

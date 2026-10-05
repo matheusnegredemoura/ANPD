@@ -647,6 +647,54 @@ function nIntercaladas() {
 
 /* ================= Sessões ================= */
 let relogioTimer = null;
+// Como na prova, os itens do mesmo texto de apoio vêm em sequência, na ordem do caderno. Em sessões montadas pelo app,
+// o bloco é completado com itens irmãos ainda não vistos (até 5 por texto), e saem itens inéditos sem texto para manter o tamanho.
+const POR_APOIO = agrupar(Q.filter((q) => q.ap != null), (q) => q.ap);
+const ORDEM_Q = new Map(Q.map((q, i) => [q.id, i]));
+function emBlocosDeTexto(itens, puxar) {
+  const usados = new Set(itens.map((q) => q.id));
+  const irmaos = (ap, k) => {
+    const extra = (POR_APOIO.get(ap) || []).filter((x) => !usados.has(x.id) && !rec(x.id)).slice(0, Math.max(0, k));
+    extra.forEach((x) => usados.add(x.id));
+    return extra;
+  };
+  const doCaderno = (g) => g.sort((a, b) => ORDEM_Q.get(a.id) - ORDEM_Q.get(b.id));
+  const ordemTextos = [...new Set(itens.filter((q) => q.ap != null).map((q) => q.ap))];
+  const blocos = new Map();
+  if (!puxar) {
+    for (const ap of ordemTextos) blocos.set(ap, doCaderno(itens.filter((q) => q.ap === ap)));
+  } else {
+    // Poucos textos com vários itens cada, como no caderno: blocos de 3 a 5 itens (ou o que o texto tiver),
+    // até 40% da sessão. Itens já vistos de outros textos continuam (são revisão); os inéditos excedentes saem.
+    const nSemTexto = itens.filter((q) => q.ap == null).length;
+    const teto = Math.max(Math.round(itens.length * 0.4), itens.length - nSemTexto);
+    let total = 0;
+    for (const ap of ordemTextos) {
+      let g = itens.filter((q) => q.ap === ap);
+      const vistos = g.filter((q) => rec(q.id));
+      if (total >= teto) { if (vistos.length) { blocos.set(ap, doCaderno(vistos)); total += vistos.length; } continue; }
+      if (g.length < 3) g = g.concat(irmaos(ap, Math.min(5, teto - total) - g.length));
+      const cabe = Math.max(vistos.length, teto - total);
+      if (g.length > cabe) g = vistos.concat(g.filter((q) => !rec(q.id)).slice(0, cabe - vistos.length));
+      blocos.set(ap, doCaderno(g));
+      total += g.length;
+    }
+    // Itens sem texto preenchem o resto, revisões primeiro
+    const semTexto = itens.filter((q) => q.ap == null);
+    const vagas = Math.max(0, itens.length - total);
+    const ficam = new Set(semTexto.filter((q) => rec(q.id)).concat(semTexto.filter((q) => !rec(q.id))).slice(0, Math.max(vagas, semTexto.filter((q) => rec(q.id)).length)).map((q) => q.id));
+    itens = itens.filter((q) => (q.ap == null ? ficam.has(q.id) : blocos.has(q.ap)));
+  }
+  const feitos = new Set();
+  const out = [];
+  for (const q of itens) {
+    if (q.ap == null) { out.push(q); continue; }
+    if (feitos.has(q.ap) || !blocos.has(q.ap)) continue;
+    feitos.add(q.ap);
+    out.push(...blocos.get(q.ap));
+  }
+  return out;
+}
 function iniciarSessao(cfg) {
   let itens;
   if (cfg.modo === 'cards') {
@@ -672,6 +720,7 @@ function iniciarSessao(cfg) {
   else if (cfg.modo === 'relampago') itens = embaralhar(poolDe(cfg.blocos));
   else itens = selecionar(poolDe(cfg.blocos), cfg.n || 20, cfg.filtro || 'mistas');
   if (!itens.length) { avisar('!', 'Sem itens', 'Nenhuma questão disponível com esse filtro.'); return; }
+  if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && cfg.modo !== 'revisao');
   sessao = novaSessao(cfg, itens.map((q) => q.id));
   abrirSessao();
 }
