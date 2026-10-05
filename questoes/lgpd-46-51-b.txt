@@ -1,0 +1,95 @@
+bloco: lgpd-46-51
+// Segunda leva de segurança, incidentes e governança (arts. 46 a 51).
+
+=== lgpd2-46-01
+gab: E
+ref: lgpd 46
+trecho: aptas a proteger os dados pessoais de acessos não autorizados e de situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou qualquer forma de tratamento inadequado ou ilícito
+armadilha: extrapolacao
+dif: 2
+enunciado: As medidas de segurança exigidas dos agentes de tratamento destinam-se a proteger os dados pessoais apenas contra condutas ilícitas de terceiros, não alcançando situações acidentais de perda ou destruição.
+comentario: O art. 46 alcança expressamente “situações acidentais ou ilícitas” de destruição, perda, alteração e comunicação, além de acessos não autorizados.
+
+=== lgpd2-46-02
+gab: C
+ref: lgpd 46, § 1º
+trecho: considerados a natureza das informações tratadas, as características específicas do tratamento e o estado atual da tecnologia, especialmente no caso de dados pessoais sensíveis
+armadilha: literal
+dif: 2
+enunciado: Ao dispor sobre padrões técnicos mínimos de segurança, a autoridade nacional considerará a natureza das informações tratadas, as características específicas do tratamento e o estado atual da tecnologia, especialmente no caso de dados pessoais sensíveis.
+comentario: Art. 46, § 1º, que também manda observar os princípios do art. 6º. Note o verbo “poderá dispor”: é faculdade da autoridade.
+pesquisar: Guia orientativo de segurança da informação para agentes de pequeno porte (ANPD)
+
+=== lgpd2-48-01
+gab: C
+ref: lgpd 48, § 1º
+trecho: A comunicação será feita em prazo razoável, conforme definido pela autoridade nacional
+armadilha: numero
+dif: 2
+enunciado: A LGPD não fixa em horas ou dias o prazo para a comunicação de incidente de segurança, determinando que ela seja feita em prazo razoável, conforme definido pela autoridade nacional.
+comentario: Art. 48, § 1º. O prazo em dias foi fixado em regulamento da ANPD sobre comunicação de incidentes (Resolução CD/ANPD nº 15/2024), não na lei. As 72 horas são do GDPR (art. 33).
+pesquisar: Prazo de comunicação de incidente na Resolução CD/ANPD 15/2024
+
+=== lgpd2-48-02
+gab: C
+ref: lgpd 48, § 1º, V
+trecho: os motivos da demora, no caso de a comunicação não ter sido imediata
+armadilha: rol
+dif: 2
+enunciado: Se a comunicação do incidente de segurança não tiver sido imediata, ela deverá mencionar os motivos da demora.
+comentario: Art. 48, § 1º, V. O conteúdo mínimo tem seis itens: dados afetados, titulares envolvidos, medidas de proteção, riscos, motivos da demora e medidas de reversão ou mitigação.
+
+=== lgpd2-48-03
+gab: C
+ref: lgpd 48, § 3º
+trecho: será avaliada eventual comprovação de que foram adotadas medidas técnicas adequadas que tornem os dados pessoais afetados ininteligíveis
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: houve furto de notebook com banco de dados de clientes, mas o disco estava integralmente criptografado com chave guardada em outro local. Assertiva: a comprovação dessa medida técnica será considerada pela autoridade nacional no juízo de gravidade do incidente.
+comentario: Art. 48, § 3º: medidas que tornem os dados ininteligíveis para terceiros não autorizados entram no juízo de gravidade. A lei não diz que a criptografia dispensa automaticamente a comunicação.
+pesquisar: Criptografia e incidentes de segurança
+
+=== lgpd2-50-01
+gab: C
+ref: lgpd 50, § 1º
+trecho: a natureza, o escopo, a finalidade e a probabilidade e a gravidade dos riscos e dos benefícios decorrentes de tratamento de dados do titular
+armadilha: literal
+dif: 2
+enunciado: Ao estabelecer regras de boas práticas, o controlador e o operador levarão em consideração, em relação ao tratamento e aos dados, a natureza, o escopo, a finalidade e a probabilidade e a gravidade dos riscos e dos benefícios decorrentes do tratamento.
+comentario: Art. 50, § 1º. A abordagem baseada em risco aparece aqui, no art. 44 e no art. 52, § 1º.
+
+=== lgpd2-50-02
+gab: E
+ref: lgpd 50, § 2º
+trecho: Na aplicação dos princípios indicados nos incisos VII e VIII do caput do art. 6º desta Lei, o controlador, observados a estrutura, a escala e o volume de suas operações, bem como a sensibilidade dos dados tratados e a probabilidade e a gravidade dos danos para os titulares dos dados, poderá:
+armadilha: absoluto
+dif: 3
+enunciado: Na aplicação dos princípios da segurança e da prevenção, todo controlador, qualquer que seja seu porte, deverá implementar programa de governança em privacidade com os requisitos mínimos previstos na LGPD.
+comentario: O § 2º diz que o controlador “poderá” implementar o programa, observados estrutura, escala, volume e sensibilidade dos dados. Os incisos VII e VIII do art. 6º são, de fato, segurança e prevenção.
+
+=== lgpd2-50-03
+gab: E
+ref: lgpd 50, § 2º, I, h
+trecho: seja atualizado constantemente com base em informações obtidas a partir de monitoramento contínuo e avaliações periódicas
+armadilha: numero
+dif: 2
+enunciado: O programa de governança em privacidade deve, no mínimo, ser atualizado a cada dois anos, com base em auditoria externa independente.
+comentario: A alínea h fala em atualização constante, com base em monitoramento contínuo e avaliações periódicas. Não há prazo bienal nem exigência de auditoria externa.
+
+=== lgpd2-50-04
+gab: C
+ref: lgpd 50, § 2º, I, e
+trecho: tenha o objetivo de estabelecer relação de confiança com o titular, por meio de atuação transparente e que assegure mecanismos de participação do titular
+armadilha: rol
+dif: 2
+enunciado: O programa de governança em privacidade deve ter o objetivo de estabelecer relação de confiança com o titular, por meio de atuação transparente e que assegure mecanismos de participação do titular.
+comentario: Art. 50, § 2º, I, e. São oito alíneas (a a h); vale lembrar das palavras-chave de cada uma.
+
+=== lgpd2-51-01
+gab: C
+ref: lgpd 51
+trecho: A autoridade nacional estimulará a adoção de padrões técnicos que facilitem o controle pelos titulares dos seus dados pessoais.
+armadilha: literal
+dif: 1
+enunciado: A autoridade nacional estimulará a adoção de padrões técnicos que facilitem o controle pelos titulares dos seus dados pessoais.
+comentario: Art. 51, literal. O verbo é “estimulará”: itens que trocam por “imporá” ou “exigirá” ficam errados.

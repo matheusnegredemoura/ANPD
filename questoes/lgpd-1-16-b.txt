@@ -1,0 +1,245 @@
+bloco: lgpd-5-11
+// Segunda leva dos arts. 1º a 16 e das disposições finais (60 a 65): fundamentos, aplicação, princípios, bases legais e término.
+
+=== lgpd2-2-01
+gab: C
+ref: lgpd 2, III
+bloco: lgpd-1-4-14
+trecho: a liberdade de expressão, de informação, de comunicação e de opinião
+armadilha: rol
+dif: 1
+enunciado: A liberdade de expressão, de informação, de comunicação e de opinião é um dos fundamentos da disciplina da proteção de dados pessoais.
+comentario: Art. 2º, III. Os sete fundamentos: privacidade; autodeterminação informativa; liberdades de expressão e informação; intimidade, honra e imagem; desenvolvimento e inovação; livre iniciativa, concorrência e consumidor; direitos humanos, personalidade, dignidade e cidadania.
+
+=== lgpd2-2-02
+gab: E
+ref: lgpd 2, VII
+bloco: lgpd-1-4-14
+trecho: os direitos humanos, o livre desenvolvimento da personalidade, a dignidade e o exercício da cidadania pelas pessoas naturais
+armadilha: sujeito
+dif: 2
+enunciado: O exercício da cidadania pelas pessoas naturais e jurídicas figura entre os fundamentos da disciplina da proteção de dados pessoais.
+comentario: O art. 2º, VII, fala em exercício da cidadania “pelas pessoas naturais”. A LGPD protege dados de pessoa natural; a inclusão de pessoas jurídicas torna o item errado.
+
+=== lgpd2-3-01
+gab: E
+ref: lgpd 3
+bloco: lgpd-1-4-14
+trecho: independentemente do meio, do país de sua sede ou do país onde estejam localizados os dados
+armadilha: extrapolacao
+dif: 1
+enunciado: A LGPD aplica-se somente às operações de tratamento realizadas por pessoas com sede no Brasil e cujos dados estejam armazenados em território nacional.
+comentario: O art. 3º aplica a lei independentemente do meio, do país de sede do agente ou do país onde estejam os dados, desde que presente uma das três conexões com o território nacional.
+
+=== lgpd2-3-02
+gab: C
+ref: lgpd 3, § 2º
+bloco: lgpd-1-4-14
+trecho: Excetua-se do disposto no inciso I deste artigo o tratamento de dados previsto no inciso IV do caput do art. 4º desta Lei.
+armadilha: excecao
+dif: 3
+enunciado: O critério de aplicação da LGPD baseado na realização da operação de tratamento no território nacional não alcança os dados provenientes de fora do país que apenas transitem pelo Brasil, nas condições do inciso IV do art. 4º.
+comentario: Art. 3º, § 2º, combinado com o art. 4º, IV: dados vindos do exterior, sem comunicação ou compartilhamento com agentes brasileiros e sem transferência a terceiro país, e desde que o país de origem tenha proteção adequada.
+pesquisar: Dados em trânsito e data centers no Brasil (art. 4º, IV, LGPD)
+
+=== lgpd2-4-01
+gab: C
+ref: lgpd 4, II
+bloco: lgpd-1-4-14
+trecho: a) jornalístico e artísticos
+armadilha: rol
+dif: 1
+enunciado: A LGPD não se aplica ao tratamento de dados pessoais realizado para fins exclusivamente jornalísticos e artísticos.
+comentario: Art. 4º, II, a. Atenção ao “exclusivamente”: se houver também finalidade comercial, a exclusão deixa de valer.
+
+=== lgpd2-4-02
+gab: C
+ref: lgpd 4, III
+bloco: lgpd-1-4-14
+trecho: d) atividades de investigação e repressão de infrações penais
+armadilha: rol
+dif: 1
+enunciado: Está fora do alcance da LGPD o tratamento de dados realizado para fins exclusivos de atividades de investigação e repressão de infrações penais, que deve ser regido por legislação específica.
+comentario: Art. 4º, III, d, e § 1º. Enquanto a legislação específica não vier (discute-se a chamada LGPD Penal), a lei já manda observar o devido processo, os princípios e os direitos do titular.
+pesquisar: Anteprojeto de LGPD Penal
+
+=== lgpd2-4-03
+gab: E
+ref: lgpd 4, § 3º
+bloco: lgpd-1-4-14
+trecho: A autoridade nacional emitirá opiniões técnicas ou recomendações referentes às exceções previstas no inciso III do caput deste artigo e deverá solicitar aos responsáveis relatórios de impacto à proteção de dados pessoais.
+armadilha: extrapolacao
+dif: 2
+enunciado: Por estarem fora do âmbito da LGPD, os tratamentos para fins exclusivos de segurança pública e defesa nacional não sofrem nenhuma atuação da autoridade nacional.
+comentario: O § 3º do art. 4º manda a autoridade nacional emitir opiniões técnicas ou recomendações sobre essas exceções e solicitar relatórios de impacto aos responsáveis.
+
+=== lgpd2-6-01
+gab: C
+ref: lgpd 6, VI
+trecho: transparência: garantia, aos titulares, de informações claras, precisas e facilmente acessíveis sobre a realização do tratamento e os respectivos agentes de tratamento, observados os segredos comercial e industrial
+armadilha: conceito
+dif: 1
+enunciado: O princípio da transparência garante aos titulares informações claras, precisas e facilmente acessíveis sobre a realização do tratamento e os respectivos agentes de tratamento, observados os segredos comercial e industrial.
+comentario: Art. 6º, VI. Não confunda com qualidade dos dados (V), que trata de exatidão, clareza, relevância e atualização dos próprios dados.
+
+=== lgpd2-6-02
+gab: C
+ref: lgpd 6, VIII
+trecho: prevenção: adoção de medidas para prevenir a ocorrência de danos em virtude do tratamento de dados pessoais
+armadilha: conceito
+dif: 1
+enunciado: Pelo princípio da prevenção, devem ser adotadas medidas para prevenir a ocorrência de danos em virtude do tratamento de dados pessoais.
+comentario: Art. 6º, VIII. Segurança (VII) trata das medidas técnicas e administrativas contra acessos não autorizados e incidentes; prevenção é mais ampla, voltada a evitar danos.
+
+=== lgpd2-6-03
+gab: C
+ref: lgpd 6, V
+trecho: qualidade dos dados: garantia, aos titulares, de exatidão, clareza, relevância e atualização dos dados
+armadilha: conceito
+dif: 1
+enunciado: O princípio da qualidade dos dados garante aos titulares exatidão, clareza, relevância e atualização dos dados, de acordo com a necessidade e para o cumprimento da finalidade do tratamento.
+comentario: Art. 6º, V. Bancas trocam esse conteúdo com transparência e livre acesso.
+
+=== lgpd2-6-04
+gab: E
+ref: lgpd 6, I
+trecho: sem possibilidade de tratamento posterior de forma incompatível com essas finalidades
+armadilha: absoluto
+dif: 2
+enunciado: Pelo princípio da finalidade, é vedado qualquer tratamento posterior dos dados pessoais, ainda que compatível com as finalidades informadas ao titular.
+comentario: O princípio da finalidade veda o tratamento posterior “de forma incompatível” com as finalidades. Tratamento posterior compatível é admitido; veja também o art. 7º, § 7º.
+
+=== lgpd2-6-05
+gab: C
+ref: lgpd 6, III
+trecho: limitação do tratamento ao mínimo necessário para a realização de suas finalidades, com abrangência dos dados pertinentes, proporcionais e não excessivos em relação às finalidades do tratamento de dados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: para enviar boletim informativo gratuito por e-mail, um portal exige do usuário nome, e-mail, CPF, renda mensal e religião. Assertiva: a exigência de CPF, renda e religião afronta o princípio da necessidade.
+comentario: Necessidade (art. 6º, III): mínimo necessário, com dados pertinentes, proporcionais e não excessivos. Religião ainda é dado sensível (art. 5º, II).
+
+=== lgpd2-7-01
+gab: E
+ref: lgpd 7, VI
+trecho: para o exercício regular de direitos em processo judicial, administrativo ou arbitral
+armadilha: rol
+dif: 2
+enunciado: O exercício regular de direitos autoriza o tratamento de dados pessoais apenas em processo judicial, excluídos os processos administrativos e arbitrais.
+comentario: Art. 7º, VI: processo judicial, administrativo ou arbitral, este nos termos da Lei de Arbitragem.
+
+=== lgpd2-7-02
+gab: C
+ref: lgpd 7, IV
+trecho: para a realização de estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais
+armadilha: literal
+dif: 1
+enunciado: O tratamento de dados pessoais pode ser realizado para estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais.
+comentario: Art. 7º, IV. O “sempre que possível” impede itens que digam que a anonimização é sempre obrigatória. Órgão de pesquisa está definido no art. 5º, XVIII.
+
+=== lgpd2-7-03
+gab: C
+ref: lgpd 7, § 3º
+trecho: O tratamento de dados pessoais cujo acesso é público deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização.
+armadilha: literal
+dif: 2
+enunciado: O tratamento de dados pessoais cujo acesso é público deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização.
+comentario: Art. 7º, § 3º. Dado público não é dado livre: a finalidade original da disponibilização continua importando.
+pesquisar: Raspagem de dados públicos (web scraping) e LGPD
+
+=== lgpd2-7-04
+gab: E
+ref: lgpd 7, IX
+trecho: exceto no caso de prevalecerem direitos e liberdades fundamentais do titular que exijam a proteção dos dados pessoais
+armadilha: excecao
+dif: 2
+enunciado: Havendo interesse legítimo do controlador, o tratamento é autorizado ainda que prevaleçam direitos e liberdades fundamentais do titular que exijam a proteção dos dados.
+comentario: Art. 7º, IX: o legítimo interesse cede quando prevalecerem direitos e liberdades fundamentais do titular. Daí a necessidade do teste de balanceamento.
+pesquisar: Teste de balanceamento do legítimo interesse (guia da ANPD)
+
+=== lgpd2-11-01
+gab: C
+ref: lgpd 11, II, d
+trecho: exercício regular de direitos, inclusive em contrato e em processo judicial, administrativo e arbitral
+armadilha: comparacao
+dif: 3
+enunciado: Embora a execução de contrato não figure entre as hipóteses de tratamento de dados sensíveis, o exercício regular de direitos, inclusive em contrato, autoriza esse tratamento sem consentimento quando indispensável.
+comentario: Art. 11, II, d. É a diferença clássica entre os arts. 7º e 11: o art. 11 não tem execução de contrato, legítimo interesse nem proteção do crédito, mas tem o exercício regular de direitos “inclusive em contrato” e a prevenção à fraude.
+
+=== lgpd2-11-02
+gab: E
+ref: lgpd 11, I
+trecho: quando o titular ou seu responsável legal consentir, de forma específica e destacada, para finalidades específicas
+armadilha: comparacao
+dif: 2
+enunciado: O consentimento para o tratamento de dados sensíveis segue a mesma forma do consentimento para dados comuns, bastando a manifestação livre, informada e inequívoca do titular.
+comentario: Para dados sensíveis, o art. 11, I, exige consentimento “de forma específica e destacada, para finalidades específicas”, requisito a mais em relação à definição geral do art. 5º, XII.
+
+=== lgpd2-11-03
+gab: C
+ref: lgpd 11, § 3º
+trecho: poderá ser objeto de vedação ou de regulamentação por parte da autoridade nacional, ouvidos os órgãos setoriais do Poder Público
+armadilha: literal
+dif: 3
+enunciado: A comunicação ou o uso compartilhado de dados pessoais sensíveis entre controladores com objetivo de obter vantagem econômica poderá ser vedado ou regulamentado pela autoridade nacional, ouvidos os órgãos setoriais do Poder Público.
+comentario: Art. 11, § 3º. Para dados de saúde, a própria lei já veda esse compartilhamento, com exceções (§ 4º).
+
+=== lgpd2-15-01
+gab: C
+ref: lgpd 15, I
+bloco: lgpd-12-16
+trecho: verificação de que a finalidade foi alcançada ou de que os dados deixaram de ser necessários ou pertinentes ao alcance da finalidade específica almejada
+armadilha: rol
+dif: 2
+enunciado: O término do tratamento ocorre quando se verifica que a finalidade foi alcançada ou que os dados deixaram de ser necessários ou pertinentes ao alcance da finalidade específica almejada.
+comentario: Art. 15, I. As quatro hipóteses de término: finalidade alcançada ou dados desnecessários; fim do período; comunicação do titular; determinação da autoridade por violação à lei.
+
+=== lgpd2-16-01
+gab: C
+ref: lgpd 16, IV
+bloco: lgpd-12-16
+trecho: uso exclusivo do controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados
+armadilha: excecao
+dif: 2
+enunciado: Após o término do tratamento, o controlador pode conservar os dados para seu uso exclusivo, vedado o acesso por terceiro, desde que os dados estejam anonimizados.
+comentario: Art. 16, IV. Duas condições cumulativas: uso exclusivo do controlador e anonimização.
+
+=== lgpd2-16-02
+gab: E
+ref: lgpd 16, III
+bloco: lgpd-12-16
+trecho: transferência a terceiro, desde que respeitados os requisitos de tratamento de dados dispostos nesta Lei
+armadilha: absoluto
+dif: 2
+enunciado: Encerrado o tratamento, é vedada a conservação dos dados para transferência a terceiro em qualquer hipótese.
+comentario: O art. 16, III, autoriza a conservação para transferência a terceiro, desde que respeitados os requisitos de tratamento da LGPD.
+
+=== lgpd2-60-01
+gab: C
+ref: lgpd 60
+bloco: lgpd-1-4-14
+trecho: exclusão definitiva dos dados pessoais que tiver fornecido a determinada aplicação de internet, a seu requerimento, ao término da relação entre as partes, ressalvadas as hipóteses de guarda obrigatória de registros
+armadilha: literal
+dif: 3
+enunciado: A LGPD alterou o Marco Civil da Internet para assegurar ao usuário a exclusão definitiva, a seu requerimento e ao término da relação entre as partes, dos dados pessoais fornecidos a aplicação de internet, ressalvadas as hipóteses de guarda obrigatória de registros.
+comentario: Art. 60 da LGPD, que deu nova redação ao art. 7º, X, do Marco Civil (Lei nº 12.965/2014). A guarda obrigatória de registros está nos arts. 13 e 15 do Marco Civil.
+pesquisar: Guarda de registros de conexão e de acesso no Marco Civil da Internet
+
+=== lgpd2-62-01
+gab: C
+ref: lgpd 62
+bloco: lgpd-1-4-14
+trecho: A autoridade nacional e o Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (Inep), no âmbito de suas competências, editarão regulamentos específicos
+armadilha: literal
+dif: 3
+enunciado: A autoridade nacional e o Inep, no âmbito de suas competências, editarão regulamentos específicos para o acesso a dados tratados pela União relativos à avaliação da educação, incluídos os referentes ao Sinaes.
+comentario: Art. 62. Dispositivo pouco lido, que menciona a LDB e a Lei do Sinaes (Lei nº 10.861/2004).
+
+=== lgpd2-65-01
+gab: C
+ref: lgpd 65, I
+bloco: lgpd-1-4-14
+trecho: dia 28 de dezembro de 2018, quanto aos arts. 55-A, 55-B, 55-C, 55-D, 55-E, 55-F, 55-G, 55-H, 55-I, 55-J, 55-K, 55-L, 58-A e 58-B
+armadilha: numero
+dif: 2
+enunciado: Os dispositivos da LGPD que tratam da ANPD e do CNPD entraram em vigor em 28 de dezembro de 2018.
+comentario: Art. 65, I. As sanções (arts. 52 a 54) vigoram desde 1º de agosto de 2021 (I-A), e os demais artigos, 24 meses após a publicação (II).
