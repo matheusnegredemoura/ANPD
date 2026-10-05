@@ -6,7 +6,7 @@ O app publicado fica em <https://claude.ai/artifact/J5WjnHRjrWxyMfa9fL7xpw> e sa
 
 ## O método
 
-A aba **Hoje** monta um roteiro de cinco passos, nesta ordem:
+A aba **Hoje** monta um roteiro de cinco passos, nesta ordem (a leitura do dia tem no máximo 25 artigos, escolhidos pelos seus erros, pelo que falta ler e pelo que mais cai):
 
 1. **Revisar o que venceu**: a lista curta de questões erradas e os cards vencidos.
 2. **Questões do dia**: o bloco do cronograma de 11 semanas (05/10 a 22/12/2026).
@@ -22,7 +22,8 @@ A página Mais → Método explica o porquê de cada passo e a estratégia de ch
 - **Trecho literal conferido.** 1.032 itens citam o trecho da norma que decide o gabarito, e o build falha se o trecho não existir no artigo citado. 192 itens são de doutrina ou de texto de apoio. 25 citam fontes ainda não anexadas (decisões do STF e do TJUE e, nos itens reais, LGT, Lei 8.987/1995, E-Ciber e resoluções da Anatel) e aparecem com o aviso “confira na fonte”.
 - **Treino comentado**: gabarito, comentário, tipo de armadilha, trecho da lei e termos para pesquisar logo depois de cada item.
 - **Itens reais do Cebraspe**: treino com comentário, prova na ordem do caderno e treino por disciplina. A página **Mais → Como o Cebraspe cobra** traz a estrutura e a pontuação do edital da Anatel 2024, o padrão de cobrança de cada disciplina com exemplos, o padrão de resposta da discursiva e as provas recomendadas.
-- **Revisão espaçada das questões**: o item errado volta em 0, 1, 3, 7, 16 e 35 dias; o acerto de primeira volta em 16 dias.
+- **Revisão espaçada das questões**: o item errado volta em 0, 1, 3, 7, 16 e 35 dias; o acerto de primeira volta em 16 dias. Os acertos antigos vencidos entram na revisão do dia (até 10 por dia, os mais atrasados primeiro) e em até um quarto das sessões; quando a lista curta vencida passa de 40, a sessão de questões novas encolhe.
+- **Treino de discursiva**: cinco temas da ANPD no formato do Cebraspe (30 linhas e 20 pontos; 15 linhas e 10 pontos), com contador de linhas, correção por quesitos com conceitos crescentes e nota estimada com o desconto de português do edital. Uma discursiva por semana no cronograma.
 - **509 cards cloze** (421 notas) de todas as normas anexadas, com agendamento no estilo do Anki (Errei, Difícil, Bom, Fácil), limite diário de cards novos e exportação para o Anki (`dist/anki-lgpd-cloze.txt`).
 - **Lei seca grifada de 50 normas** em sete grupos: LGPD e normas da ANPD; ECA Digital, internet e plataformas; regulação, agências e carreira; Constituição; direito administrativo; segurança da informação (com o NIST CSF 2.0); direito comparado (GDPR, no texto oficial em inglês, e Convenção 108+). Busca em todas as normas, estrelas de importância, ranking dos artigos mais cobrados e camadas de grifo (o que cai, prazos e números, palavras de alerta, deve × pode, seus erros), que também reconhecem o inglês.
 - **Glossário de 99 termos**, marcados nas questões e nos cards, e a lista **Para pesquisar**, que recebe sozinha os termos das questões erradas.
@@ -40,6 +41,7 @@ cloze/                  notas cloze
 glossario/termos.txt    glossário
 dados/cronograma.json   cronograma diário das 11 semanas
 dados/cebraspe.json     página Como o Cebraspe cobra (cada item citado precisa existir no banco)
+dados/discursivas.json  temas de discursiva com quesitos (cada quesito precisa de um conceito por nota)
 src/                    app.html, app.css e app.js
 scripts/                validador, build e testes
 dist/                   app gerado (index.html completo; artifact.html para publicar; arquivo do Anki)

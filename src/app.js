@@ -54,8 +54,15 @@ function regexTermo(padroes) {
 }
 
 const INTERVALOS = [0, 1, 3, 7, 16, 35];
+// Manutenção: itens já dominados (nível 3 ou mais) que venceram voltam aos poucos, no máximo este número por dia,
+// para a carga de revisão caber no dia; os mais atrasados vêm primeiro.
+const MANUTENCAO_DIA = 10;
+// Leitura do dia: acima deste número de artigos, o app escolhe os que você errou, os ainda não lidos e os mais cobrados
+const LEITURA_MAX = 25;
+// Lista curta vencida acima deste número torna o dia pesado: a sessão de questões novas encolhe
+const REVISOES_DIA_PESADO = 40;
 const MIN_DIA_ATIVO = 10;
-const DOCS = ['perfil', 'itens', 'cards', 'simulados', 'pesquisa'];
+const DOCS = ['perfil', 'itens', 'cards', 'simulados', 'pesquisa', 'discursivas'];
 const CHAVE_LOCAL = 'painel-anpd-v3';
 const CHAVE_LOCAL_ANTIGA = 'painel-anpd-v2';
 const CHAVE_UI = 'painel-anpd-ui';
@@ -65,6 +72,9 @@ const PESOS_PROVA = { lgpd: 0.42, regulacao: 0.15, eca: 0.08, seginfo: 0.08, dir
 // Blocos que não entram no simulado de prova completa (conteúdo de outra agência, útil só para ver o estilo da banca)
 const FORA_DA_PROVA = new Set(['anatel-setorial']);
 const REAIS = Q.filter((q) => q.o);
+// Discursiva: temas com quesitos; a linha manuscrita da folha de texto definitivo é estimada em 70 caracteres
+const TEMAS_DISC = (D.discursivas && D.discursivas.temas) || [];
+const CARACTERES_LINHA = 70;
 
 const NIVEIS = [
   [0, 'Titular de dados'], [120, 'Curioso do art. 18'], [300, 'Operador(a)'], [600, 'Controlador(a)'],
@@ -149,8 +159,9 @@ function fmtIntervalo(d) {
 function perfilPadrao() {
   return { xp: 0, meta: 30, novosCards: 20, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: hojeISO() };
 }
-const S = { perfil: perfilPadrao(), itens: {}, cards: {}, simulados: [], pesquisa: {} };
+const S = { perfil: perfilPadrao(), itens: {}, cards: {}, simulados: [], pesquisa: {}, disc: {} };
 const UI = Object.assign({ lei: 'lgpd', vista: 'hoje', modo: 'treino', n: 20, filtro: 'mistas', prova: 'blocos', blocos: P1.slice(), blocosCards: [], faseAberta: null, camadas: { cai: true, num: true, alerta: true, verbo: true, erro: true } }, lerLS(CHAVE_UI) || {});
+UI.discTema = null; UI.discFase = null; UI.discAval = {}; UI.discNE = 0;
 UI.artSel = null; UI.busca = ''; UI.mais = 'menu'; UI.leiFila = null; UI.ranking = false; UI.filtroPesq = 'pendentes'; UI.buscaGloss = ''; UI.folhaArt = null; UI.folhaQ = null;
 if (!UI.camadas) UI.camadas = { cai: true, num: true, alerta: true, verbo: true, erro: true };
 let sessao = null;
@@ -162,19 +173,23 @@ function salvarUI() {
 // O progresso fica no banco do Artifact (por usuário) e, sempre, também neste navegador.
 const Store = {
   modo: 'local', dev: Math.random().toString(36).slice(2, 10), refs: {}, timer: {}, gravando: {}, fila: {}, ultimoT: {}, erro: null,
+  // Quando cada documento mudou neste navegador: na abertura, a cópia mais nova (conta ou navegador) prevalece
+  tLocal: {},
   diag: { claude: false, db: '—', user: '—', id: '—', leitura: '—', gravacao: '—', navegador: '—' },
   carregarLocal() {
     const l = lerLS(CHAVE_LOCAL) || lerLS(CHAVE_LOCAL_ANTIGA);
     if (!l) return false;
-    if (l.perfil) S.perfil = Object.assign(perfilPadrao(), l.perfil);
+    if (l.perfil) { S.perfil = Object.assign(perfilPadrao(), l.perfil); podarPerfil(); }
     if (l.itens) S.itens = l.itens;
     if (l.cards) S.cards = l.cards;
     if (l.simulados) S.simulados = l.simulados;
     if (l.pesquisa) S.pesquisa = l.pesquisa;
+    if (l.disc) S.disc = l.disc;
+    this.tLocal = l.t || {};
     return true;
   },
   guardarLocal() {
-    const ok = gravarLS(CHAVE_LOCAL, { perfil: S.perfil, itens: S.itens, cards: S.cards, simulados: S.simulados, pesquisa: S.pesquisa });
+    const ok = gravarLS(CHAVE_LOCAL, { perfil: S.perfil, itens: S.itens, cards: S.cards, simulados: S.simulados, pesquisa: S.pesquisa, disc: S.disc, t: this.tLocal });
     this.diag.navegador = ok ? 'ok' : 'bloqueado';
   },
   dados(n) {
@@ -182,18 +197,22 @@ const Store = {
     if (n === 'itens') return { q: S.itens };
     if (n === 'cards') return { c: S.cards };
     if (n === 'simulados') return { lista: S.simulados };
+    if (n === 'discursivas') return { d: S.disc };
     return { p: S.pesquisa };
   },
   aplicar(n, corpo) {
     if (!corpo || !corpo.dados) return;
     if (corpo.t && this.ultimoT[n] && corpo.t <= this.ultimoT[n]) return;
     this.ultimoT[n] = corpo.t || Date.now();
+    this.tLocal[n] = this.ultimoT[n];
     const d = corpo.dados;
     if (n === 'perfil') S.perfil = Object.assign(perfilPadrao(), d);
     else if (n === 'itens') S.itens = d.q || {};
     else if (n === 'cards') S.cards = d.c || {};
     else if (n === 'simulados') S.simulados = d.lista || [];
+    else if (n === 'discursivas') S.disc = d.d || {};
     else S.pesquisa = d.p || {};
+    if (n === 'perfil') podarPerfil();
     this.guardarLocal();
   },
   async iniciar() {
@@ -219,7 +238,11 @@ const Store = {
         if (!temLocal) await migrarPainelAntigo(db, user);
         DOCS.forEach((n) => this.gravar(n));
       } else {
-        snaps.forEach((s, i) => { if (s.exists) this.aplicar(DOCS[i], s.data()); else this.gravar(DOCS[i]); });
+        // Cópia da conta mais antiga que a deste navegador (por exemplo, uma gravação que falhou): envia a local
+        snaps.forEach((s, i) => {
+          const n = DOCS[i], d = s.exists ? s.data() : null;
+          if (d && !(this.tLocal[n] && d.t && this.tLocal[n] > d.t)) this.aplicar(n, d); else this.gravar(n);
+        });
       }
       DOCS.forEach((n) => {
         this.refs[n].onSnapshot((s) => {
@@ -239,6 +262,8 @@ const Store = {
   },
   pronto() { renderTudo(); },
   salvar(...nomes) {
+    const agora = Date.now();
+    for (const n of nomes) this.tLocal[n] = agora;
     this.guardarLocal();
     if (this.modo !== 'nuvem') return;
     for (const n of nomes) { clearTimeout(this.timer[n]); this.timer[n] = setTimeout(() => this.gravar(n), 1200); }
@@ -296,6 +321,13 @@ function dominioBloco(bid) {
   return qs.reduce((s, q) => s + dominioItem(q.id), 0) / qs.length;
 }
 function listaCurta() { return Q.filter((q) => emRevisao(q.id)); }
+function dominadoVencido(id) { const r = rec(id); return !!r && r[0] >= 3 && r[1] <= HOJE(); }
+function manutencaoFeitaHoje() { const d = S.perfil.dias[hojeISO()]; return (d && d.m) || 0; }
+// Itens dominados vencidos que entram hoje (respeitando o limite diário), dos mais atrasados para os mais recentes
+function manutencaoHoje() {
+  const resta = Math.max(0, MANUTENCAO_DIA - manutencaoFeitaHoje());
+  return resta ? Q.filter((q) => dominadoVencido(q.id)).sort((a, b) => rec(a.id)[1] - rec(b.id)[1]).slice(0, resta) : [];
+}
 function listaVencida() { return Q.filter((q) => vencida(q.id)).sort((a, b) => rec(a.id)[1] - rec(b.id)[1]); }
 function nivelDe(xp) {
   let i = 0;
@@ -315,6 +347,11 @@ function diaLog(iso) {
   if (d.n == null) d.n = 0;
   if (!d.a) d.a = [];
   return d;
+}
+// Só a lista de artigos lidos de hoje é usada; as antigas saem para o documento do perfil não crescer sem limite
+function podarPerfil() {
+  const limite = isoDeNum(HOJE() - 14);
+  for (const [iso, d] of Object.entries(S.perfil.dias || {})) if (iso < limite && d.a && d.a.length) d.a = [];
 }
 function ativo(iso) { const d = S.perfil.dias[iso]; return !!d && (d.r + (d.k || 0) / 2) >= MIN_DIA_ATIVO; }
 function sequencia() {
@@ -343,6 +380,7 @@ function registrar(q, resp, duvida) {
   const r = S.itens[q.id] ? S.itens[q.id].slice() : [-1, 0, 0, 0, 0, 0, 0];
   const antes = r[0];
   const estavaNaLista = antes >= 0 && antes < 3;
+  const eraManutencao = antes >= 3 && r[1] <= hoje;
   let ok = null;
   if (resp === 'B') r[0] = 0;
   else {
@@ -360,6 +398,7 @@ function registrar(q, resp, duvida) {
   if (estavaNaLista && r[0] >= 3) S.perfil.saidos = (S.perfil.saidos || 0) + 1;
   const d = diaLog();
   if (resp === 'B') d.b = (d.b || 0) + 1; else { d.r++; if (ok) d.c++; else d.e++; }
+  if (eraManutencao) d.m = (d.m || 0) + 1;
   if (ok === false) sugerirPesquisaDoErro(q);
   return ok;
 }
@@ -433,7 +472,8 @@ function calcularCard(id, nota) {
     else if (nota === 3) { ivl = ivl < 1 ? 1 : Math.max(ivl + 1, Math.round((ivl * ease) / 100)); reps++; }
     else { ease += 15; ivl = ivl < 1 ? 3 : Math.max(ivl + 2, Math.round(((ivl * ease) / 100) * 1.3)); reps++; }
   }
-  return [HOJE() + ivl, ivl, ease, reps, lapses, HOJE()];
+  // "Errei" (intervalo 0) volta no fim da própria sessão e, depois, amanhã
+  return [HOJE() + Math.max(1, ivl), ivl, ease, reps, lapses, HOJE()];
 }
 function avaliarCard(id, nota) {
   const novo = cardNovo(id);
@@ -504,20 +544,24 @@ function poolDe(blocos) {
 }
 function selecionar(pool, n, filtro) {
   const hoje = HOJE();
-  const venc = [], novas = [], lista = [], resto = [];
+  const venc = [], novas = [], lista = [], domV = [], resto = [];
   for (const q of pool) {
     const r = rec(q.id);
     if (!r || r[0] < 0) novas.push(q);
     else if (r[0] < 3 && r[1] <= hoje) venc.push(q);
     else if (r[0] < 3) lista.push(q);
+    else if (r[1] <= hoje) domV.push(q);
     else resto.push(q);
   }
   embaralhar(venc); embaralhar(novas); embaralhar(lista);
+  domV.sort((a, b) => rec(a.id)[1] - rec(b.id)[1]);
   resto.sort((a, b) => rec(a.id)[1] - rec(b.id)[1]);
+  // Itens dominados que venceram: até um quarto da sessão, antes das inéditas (revisão espaçada intercalada)
+  const cota = Math.ceil(n / 4);
   let ordem;
-  if (filtro === 'novas') ordem = novas.concat(venc, lista, resto);
+  if (filtro === 'novas') ordem = novas.concat(venc, domV, lista, resto);
   else if (filtro === 'erradas') ordem = pool.filter((q) => { const r = rec(q.id); return r && r[3] > 0; }).sort((a, b) => rec(b.id)[3] - rec(a.id)[3]);
-  else ordem = venc.concat(novas, lista, resto);
+  else ordem = venc.concat(domV.slice(0, cota), novas, lista, domV.slice(cota), resto);
   return embaralhar(ordem.slice(0, n));
 }
 function selecionarProva(n) {
@@ -548,9 +592,10 @@ function iniciarSessao(cfg) {
   }
   if (cfg.modo === 'revisao') {
     const v = listaVencida();
+    const m = manutencaoHoje();
     const l = listaCurta().filter((q) => !vencida(q.id));
-    itens = embaralhar(v.concat(embaralhar(l)).slice(0, cfg.n || 30));
-    if (!itens.length) { avisar('LC', 'Lista curta vazia', 'Nenhum erro pendente. Siga com questões novas.'); return; }
+    itens = embaralhar(v.concat(m, embaralhar(l)).slice(0, cfg.n || 30));
+    if (!itens.length) { avisar('LC', 'Nada para revisar', 'Lista curta vazia e nenhum acerto antigo vencido. Siga com questões novas.'); return; }
   } else if (cfg.ids) itens = cfg.ids.map((id) => QI.get(id)).filter(Boolean);
   else if (cfg.prova) itens = selecionarProva(cfg.n || 60);
   else if (cfg.modo === 'relampago') itens = embaralhar(poolDe(cfg.blocos));
@@ -744,14 +789,26 @@ function contextoHoje() {
   return { tipo: 'fim' };
 }
 function blocosDoDia(dia) { return dia && dia.blocos ? dia.blocos : []; }
-function artigosDoDia(dia) {
-  const arts = [];
+function artigoVivo(k) { return ARTI.has(k) && !/^Art\. [\d\-A-Zº]+\.? \((VETADO|Revogado)/.test(ARTI.get(k).texto); }
+// Leitura do dia: todos os artigos dos blocos do dia, se couberem em LEITURA_MAX; senão, uma seleção
+// equilibrada entre os blocos: primeiro os artigos de questões que estão na sua lista curta, depois os
+// nunca lidos (o que foi lido pela primeira vez hoje continua contando como não lido), depois os mais cobrados.
+function leituraDoDia(dia) {
+  const porBloco = [], todos = [];
   for (const b of blocosDoDia(dia)) {
-    const bl = BI.get(b);
-    for (const a of (bl && bl.artigos) || []) { const k = chave(bl.lei || 'lgpd', a); if (!arts.includes(k)) arts.push(k); }
+    const bl = BI.get(b), lista = [];
+    for (const a of (bl && bl.artigos) || []) { const k = chave(bl.lei || 'lgpd', a); if (artigoVivo(k) && !todos.includes(k)) { todos.push(k); lista.push(k); } }
+    if (lista.length) porBloco.push(lista);
   }
-  return arts.filter((k) => ARTI.has(k) && !/^Art\. [\d\-A-Zº]+\.? \((VETADO|Revogado)/.test(ARTI.get(k).texto));
+  if (todos.length <= LEITURA_MAX) return { arts: todos, total: todos.length };
+  const hoje = hojeISO(), lidos = S.perfil.lidos || {};
+  const prio = (k) => ((POR_ART.get(k) || []).some((q) => emRevisao(q.id)) ? 1000 : 0) + (lidos[k] && lidos[k] !== hoje ? 0 : 100) + importancia(k);
+  const filas = porBloco.map((l) => l.slice().sort((x, y) => prio(y) - prio(x)));
+  const escolhidos = new Set();
+  for (let i = 0; escolhidos.size < LEITURA_MAX && filas.some((f) => f.length); i++) { const k = filas[i % filas.length].shift(); if (k) escolhidos.add(k); }
+  return { arts: todos.filter((k) => escolhidos.has(k)), total: todos.length };
 }
+function artigosDoDia(dia) { return leituraDoDia(dia).arts; }
 function rotulosArts(arts) {
   if (arts.length <= 3) return arts.map(nomeArt).join(', ');
   const a0 = ARTI.get(arts[0]), a1 = ARTI.get(arts[arts.length - 1]);
@@ -773,29 +830,32 @@ function roteiroHoje() {
   const d = S.perfil.dias[hojeISO()] || { r: 0, k: 0, n: 0, a: [] };
   const blocos = blocosDoDia(dia);
   const venc = listaVencida().length;
+  const manut = manutencaoHoje().length;
   const cardsV = cardsVencidos().length;
-  const arts = artigosDoDia(dia);
+  const leitura = leituraDoDia(dia);
+  const arts = leitura.arts;
   const lidosHoje = (d.a || []).filter((a) => arts.includes(a)).length;
   const cardsBlocos = blocos.filter((b) => (CARDS_POR_BLOCO.get(b) || []).length);
   const novosDisp = cardsNovos(cardsBlocos.length ? cardsBlocos : null).length;
   const pesqHoje = Object.values(S.pesquisa).filter((p) => p.s && p.f === hojeISO()).length;
   const passos = [];
   passos.push({
-    titulo: 'Revisar o que venceu', feito: venc === 0 && cardsV === 0,
-    texto: venc || cardsV ? (venc ? pl(venc, 'questão da lista curta vence', 'questões da lista curta vencem') : 'Nenhuma questão vencida') + ' · ' + (cardsV ? pl(cardsV, 'card vence', 'cards vencem') : 'nenhum card vencido') + ' hoje.' : 'Nada vencido. A revisão espaçada traz de volta o que você errou na hora certa.',
-    botoes: (venc ? '<button class="btn pequeno primario" data-acao="iniciar-revisao">Questões (' + venc + ')</button>' : '') + (cardsV ? '<button class="btn pequeno' + (venc ? '' : ' primario') + '" data-acao="cards-revisao">Cards (' + cardsV + ')</button>' : ''),
+    titulo: 'Revisar o que venceu', feito: venc === 0 && manut === 0 && cardsV === 0,
+    texto: venc || manut || cardsV ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'acerto antigo para confirmar', 'acertos antigos para confirmar') : '', cardsV ? pl(cardsV, 'card', 'cards') : ''].filter(Boolean).join(' · ') + ' vencem hoje.' : 'Nada vencido. A revisão espaçada traz de volta o que você errou e, depois de semanas, o que acertou.',
+    botoes: (venc + manut ? '<button class="btn pequeno primario" data-acao="iniciar-revisao">Questões (' + (venc + manut) + ')</button>' : '') + (cardsV ? '<button class="btn pequeno' + (venc + manut ? '' : ' primario') + '" data-acao="cards-revisao">Cards (' + cardsV + ')</button>' : ''),
   });
   if (dia) {
     const feito = !!S.perfil.feitos[dia.data];
+    const nDia = nItensDoDia(dia);
     passos.push({ titulo: dia.modo === 'simulado' ? 'Simulado do dia' : dia.modo === 'revisao' ? 'Sessão de revisão do dia' : 'Questões do dia', feito,
-      texto: dia.atividade, botoes: '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' + (feito ? 'Outra rodada' : 'Começar') + ' · ' + esc(rotuloModoDia(dia)) + '</button>' });
+      texto: dia.atividade + (dia.modo === 'treino' && nDia < dia.n ? ' Dia pesado: ' + pl(venc, 'revisão vencida', 'revisões vencidas') + ', então a sessão cai de ' + dia.n + ' para ' + nDia + ' itens. Revisar primeiro evita acumular esquecimento.' : ''), botoes: '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' + (feito ? 'Outra rodada' : 'Começar') + ' · ' + esc(rotuloModoDia(Object.assign({}, dia, { n: nDia }))) + '</button>' });
   } else {
     passos.push({ titulo: 'Questões livres', feito: d.r >= S.perfil.meta, texto: 'Sem sessão programada para hoje. Uma rodada leve mantém a sequência.',
       botoes: '<button class="btn pequeno primario" data-acao="treino-rapido">Treino de 20 itens</button>' });
   }
   if (arts.length) {
     passos.push({ titulo: 'Lei seca grifada', feito: lidosHoje >= arts.length,
-      texto: 'Leia na literalidade: ' + rotulosArts(arts) + '. Lidos hoje: ' + lidosHoje + ' de ' + arts.length + '.',
+      texto: (leitura.total > arts.length ? 'Leia na literalidade ' + arts.length + ' dos ' + leitura.total + ' artigos dos blocos do dia: os ligados à sua lista curta, os ainda não lidos e os mais cobrados.' : 'Leia na literalidade: ' + rotulosArts(arts) + '.') + ' Lidos hoje: ' + lidosHoje + ' de ' + arts.length + '.',
       botoes: '<button class="btn pequeno" data-acao="ler-dia">Ler em sequência</button>' });
   } else {
     passos.push({ titulo: 'Lei seca grifada', feito: (d.a || []).length >= 3, texto: 'Abra os artigos das questões que você errou. Os grifos mostram prazos, palavras de alerta e o que mais cai.',
@@ -803,7 +863,7 @@ function roteiroHoje() {
   }
   const metaNovos = Math.min(novosDisp + (d.n || 0), S.perfil.novosCards || 20, 10);
   passos.push({ titulo: 'Cards cloze', feito: (d.n || 0) >= metaNovos && cardsV === 0,
-    texto: (cardsBlocos.length ? 'Lacunas dos artigos do dia. ' : 'Lacunas da LGPD. ') + 'Novos hoje: ' + (d.n || 0) + ' de ' + (S.perfil.novosCards || 20) + '.',
+    texto: (cardsBlocos.length ? 'Lacunas dos artigos do dia. ' : 'Lacunas de todas as normas. ') + 'Novos hoje: ' + (d.n || 0) + ' de ' + (S.perfil.novosCards || 20) + '.',
     botoes: '<button class="btn pequeno" data-acao="cards-dia">Estudar cards</button>' });
   const sugest = sugestoesDoDia(blocos);
   passos.push({ titulo: 'Para pesquisar', feito: pesqHoje > 0,
@@ -836,6 +896,7 @@ function renderHoje() {
     '<button class="modo" data-acao="abrir-modo" data-modo="simulado"><b>Simulado Cebraspe</b><span>Uma errada anula uma certa. Prova completa com os pesos do plano ou só os seus blocos.</span><span class="num">' + pl(S.simulados.length, 'simulado feito', 'simulados feitos') + '</span></button>' +
     '<button class="modo" data-acao="relampago" data-blocos="' + P1.join(',') + '"><b>Relâmpago 90 s</b><span>Quantos itens da prioridade 1 você acerta em um minuto e meio?</span><span class="num">Recorde: ' + (S.perfil.recordes.relampago || 0) + '</span></button>' +
     '<button class="modo" data-acao="ir" data-vista="cards"><b>Cards cloze</b><span>A letra da lei com lacunas, no estilo do Anki, com revisão espaçada.</span><span class="num">' + CARDS.length + ' cards</span></button>' +
+    '<button class="modo" data-acao="mais" data-sub="discursiva"><b>Discursiva</b><span>Escreva no limite de linhas e corrija pelos quesitos do padrão de resposta.</span><span class="num">' + pl(TEMAS_DISC.length, 'tema', 'temas') + '</span></button>' +
     '<button class="modo" data-acao="abrir-modo" data-modo="treino"><b>Treino livre</b><span>Escolha blocos e receba gabarito comentado a cada item.</span><span class="num">' + Q.length + ' questões</span></button></div></div>';
   const faltam = diaNum(D.cronograma.edital) - HOJE();
   const edital = '<div class="cartao"><div class="contagem"><span class="grande">' + Math.max(0, faltam) + '</span><span>' +
@@ -854,7 +915,7 @@ function iniciarDia(data) {
   if (!dia) return;
   const titulo = fmtData(dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' }) + ' · ' + (dia.modo === 'revisao' ? 'Revisão' : dia.modo === 'simulado' ? 'Simulado' : 'Treino do dia');
   if (dia.modo === 'revisao') {
-    if (!listaCurta().length) { iniciarSessao({ modo: 'treino', n: Math.min(dia.n, 20), blocos: [], filtro: 'mistas', titulo, dia: dia.data }); return; }
+    if (!listaCurta().length && !manutencaoHoje().length) { iniciarSessao({ modo: 'treino', n: Math.min(dia.n, 20), blocos: [], filtro: 'mistas', titulo, dia: dia.data }); return; }
     iniciarSessao({ modo: 'revisao', n: dia.n, titulo, dia: dia.data });
     return;
   }
@@ -862,7 +923,13 @@ function iniciarDia(data) {
     iniciarSessao({ modo: 'simulado', n: dia.n, blocos: dia.blocos, prova: !dia.blocos.length, titulo, dia: dia.data, minutos: Math.round(dia.n * 1.5) });
     return;
   }
-  iniciarSessao({ modo: 'treino', n: dia.n, blocos: dia.blocos, filtro: 'mistas', titulo, dia: dia.data });
+  iniciarSessao({ modo: 'treino', n: nItensDoDia(dia), blocos: dia.blocos, filtro: 'mistas', titulo, dia: dia.data });
+}
+// Em dia pesado (lista curta vencida acima de REVISOES_DIA_PESADO), a sessão de questões do dia encolhe, até o mínimo de 10
+function nItensDoDia(dia) {
+  if (dia.modo !== 'treino') return dia.n;
+  const excesso = listaVencida().length - REVISOES_DIA_PESADO;
+  return excesso > 0 ? Math.max(Math.min(10, dia.n), dia.n - Math.ceil(excesso / 2)) : dia.n;
 }
 
 /* ================= Questões (montar sessão) ================= */
@@ -939,7 +1006,7 @@ function renderCards() {
   const novos = cardsNovos(blocos).length;
   const rest = novosRestantesHoje();
   const vistos = CARDS.filter((c) => S.cards[c.id]).length;
-  let html = '<div class="secao"><div class="secao-cab"><h2>Cards cloze da LGPD</h2><span class="mudo pequeno mono">' + CARDS.length + ' cards · ' + NOTAS.length + ' notas</span></div>' +
+  let html = '<div class="secao"><div class="secao-cab"><h2>Cards cloze da lei seca</h2><span class="mudo pequeno mono">' + CARDS.length + ' cards · ' + NOTAS.length + ' notas</span></div>' +
     '<p class="mudo pequeno">Cada card esconde uma palavra-chave do texto literal da lei. Responda de cabeça, revele e diga como foi: Errei, Difícil, Bom ou Fácil. O intervalo até a próxima revisão cresce a cada acerto, como no Anki.</p></div>';
   html += '<div class="contadores"><div class="rev"><b>' + venc + '</b><span>para revisar hoje</span></div><div class="nov"><b>' + Math.min(rest, novos) + '</b><span>novos liberados hoje</span></div><div><b>' + vistos + '</b><span>já estudados</span></div></div>';
   html += '<div class="linha-btns"><button class="btn primario" data-acao="cards-iniciar"' + (venc || (rest && novos) ? '' : ' disabled') + '>Estudar (' + (venc + Math.min(rest, novos)) + ')</button>' +
@@ -947,17 +1014,17 @@ function renderCards() {
   if (!rest) html += '<p class="pequeno mudo">Limite de cards novos de hoje atingido (' + (S.perfil.novosCards || 20) + '). Ajuste em Mais → Ajustes.</p>';
   html += '<div class="secao"><div class="secao-cab"><h2>Baralhos</h2><span class="mudo pequeno">Nenhum marcado = todos</span></div>' +
     listaBlocos(sel, 'toggle-bloco-card', (b) => CARDS_POR_BLOCO.get(b.id) || [], (b) => dominioCardsBloco(b.id)) + '</div>';
-  html += '<div class="cartao"><h2>Levar para o Anki</h2><p class="pequeno">Baixe o arquivo e importe no Anki (Arquivo → Importar). Ele já vem com o tipo de nota Cloze e o baralho “ANPD::LGPD (lei seca)”. O progresso do Anki não volta para o app.</p>' +
+  html += '<div class="cartao"><h2>Levar para o Anki</h2><p class="pequeno">Baixe o arquivo e importe no Anki (Arquivo → Importar). Ele já vem com o tipo de nota Cloze e o baralho “ANPD::Lei seca”, com etiquetas do bloco e da norma. O progresso do Anki não volta para o app.</p>' +
     '<div class="linha-btns"><button class="btn" data-acao="exportar-anki">Baixar arquivo do Anki (.txt)</button></div></div>';
   document.getElementById('vista-cards').innerHTML = html;
 }
 function exportarAnkiTexto() {
-  const linhas = ['#separator:tab', '#html:true', '#notetype:Cloze', '#deck:ANPD::LGPD (lei seca)', '#tags column:3', '#columns:Text\tBack Extra\tTags'];
+  const linhas = ['#separator:tab', '#html:true', '#notetype:Cloze', '#deck:ANPD::Lei seca', '#tags column:3', '#columns:Text\tBack Extra\tTags'];
   const limpa = (s) => String(s).replace(/[\t\n\r]+/g, ' ');
   for (const n of NOTAS) {
     let auto = 0;
     const texto = n.t.replace(RE_LACUNA, (m, num, t) => '{{c' + (num ? num : ++auto) + '::' + t + '}}');
-    linhas.push([limpa(texto), limpa(n.r + (n.dc ? ' · dica: ' + n.dc : '')), n.b].join('\t'));
+    linhas.push([limpa(texto), limpa(n.r + (n.dc ? ' · dica: ' + n.dc : '')), n.b + ' ' + n.l].join('\t'));
   }
   return linhas.join('\n') + '\n';
 }
@@ -1065,7 +1132,7 @@ function renderCardSessao(card) {
   if (!sessao.revelado) {
     html += '<button class="btn primario largo" data-acao="revelar">Mostrar resposta</button><p class="atalhos">Espaço ou Enter = mostrar</p>';
   } else {
-    html += '<div class="notas-card">' + [[1, 'Errei'], [2, 'Difícil'], [3, 'Bom'], [4, 'Fácil']].map(([n, t]) => '<button class="n' + n + '" data-acao="avaliar" data-n="' + n + '">' + t + '<small>' + fmtIntervalo(calcularCard(card.id, n)[1]) + '</small></button>').join('') + '</div>';
+    html += '<div class="notas-card">' + [[1, 'Errei'], [2, 'Difícil'], [3, 'Bom'], [4, 'Fácil']].map(([n, t]) => '<button class="n' + n + '" data-acao="avaliar" data-n="' + n + '">' + t + '<small>' + (n === 1 ? 'agora' : fmtIntervalo(calcularCard(card.id, n)[1])) + '</small></button>').join('') + '</div>';
     html += '<p class="atalhos">Teclado: 1 Errei · 2 Difícil · 3 Bom · 4 Fácil</p>';
     const kn = nota.art ? chave(nota.l || 'lgpd', nota.art) : null;
     if (kn && ARTI.get(kn)) html += '<div><button class="linkish" data-acao="ver-art" data-art="' + esc(kn) + '">Ler inteiro, grifado: ' + esc(nomeArt(kn)) + '</button></div>';
@@ -1249,7 +1316,7 @@ function seletorLei() {
   return '<label class="rotulo" for="sel-lei">Norma</label><select id="sel-lei" class="sel-lei" data-acao="sel-lei">' +
     GRUPOS.map((g) => '<optgroup label="' + esc(g.nome) + '">' + g.ids.map((id) => '<option value="' + esc(id) + '"' + (id === UI.lei ? ' selected' : '') + '>' + esc(LEIS[id].nome) + '</option>').join('') + '</optgroup>').join('') + '</select>';
 }
-function primeiraLinha(a) { return a.texto.split('\n')[0].replace(/^(Art\.|CLÁUSULA|APÊNDICE|ENUNCIADO)\s*[\dIVXL\-A-Zº°o.]+\s*/, '').replace(/^[IVXL]+ - /, ''); }
+function primeiraLinha(a) { const ls = a.texto.split('\n'); return (/^Article \d+$/.test(ls[0]) && ls[1] ? ls[1] : ls[0]).replace(/^(Art\.|CLÁUSULA|APÊNDICE|ENUNCIADO)\s*[\dIVXL\-A-Zº°o.]+\s*/, '').replace(/^[IVXL]+ - /, ''); }
 function renderLei() {
   const el = document.getElementById('vista-lei');
   if (!Object.keys(LEIS).length) { el.innerHTML = '<p class="vazio-msg">Nenhum texto legal anexado ainda.</p>'; return; }
@@ -1347,6 +1414,7 @@ function renderMais() {
   else if (sub === 'glossario') el.innerHTML = voltarMais() + renderGlossario();
   else if (sub === 'metodo') el.innerHTML = voltarMais() + renderMetodo();
   else if (sub === 'cebraspe') el.innerHTML = voltarMais() + renderCebraspe();
+  else if (sub === 'discursiva') el.innerHTML = (UI.discTema ? '' : voltarMais()) + renderDiscursiva();
   else if (sub === 'ajustes') el.innerHTML = voltarMais() + renderAjustes();
   else {
     const pend = Object.values(S.pesquisa).filter((p) => !p.s).length;
@@ -1354,6 +1422,7 @@ function renderMais() {
     el.innerHTML = '<div class="secao-cab"><h2>Mais</h2></div><div class="menu-mais">' +
       item('metodo', '1·2', 'Método', 'Como estudar com o app para passar') +
       item('cebraspe', 'C/E', 'Como o Cebraspe cobra', 'A prova, o padrão por disciplina, itens reais e discursiva') +
+      item('discursiva', '✎', 'Treino de discursiva', TEMAS_DISC.length + ' temas com quesitos no padrão Cebraspe, contador de linhas e nota estimada') +
       item('progresso', '▥', 'Progresso', 'Domínio por bloco, constância, onde você cai, conquistas') +
       item('plano', '▦', 'Plano e cronograma', '11 semanas até 22/12, status dos blocos, textos que faltam') +
       item('pesquisar', '?', 'Para pesquisar', pend ? pl(pend, 'tema pendente', 'temas pendentes') + ' na sua lista' : 'Temas e termos para entender melhor') +
@@ -1480,20 +1549,82 @@ function renderMetodo() {
     '<li><b>Cards cloze.</b> As lacunas tiram a palavra exata do texto da lei. Faça os novos do dia e responda de cabeça antes de revelar.</li>' +
     '<li><b>Para pesquisar.</b> Os termos das questões erradas entram sozinhos na sua lista. Pesquise um tema por dia e marque como entendido.</li></ol>' +
     '<h3>Regras que não se negociam</h3><ul>' +
-    '<li>O acerto de primeira só volta depois de semanas. O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça.</li>' +
-    '<li>Errou, leia o artigo inteiro. O botão “Ler o artigo inteiro, grifado” aparece depois de cada questão e de cada card.</li>' +
+    '<li>O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça.</li>' +
+    '<li>O acerto também volta, para confirmar que não foi sorte: o acerto de primeira volta em 16 dias, e cada confirmação seguinte espaça mais (35 dias). Esses acertos antigos entram na revisão do dia, no máximo ' + MANUTENCAO_DIA + ' por dia, os mais atrasados primeiro, e ocupam até um quarto das sessões de questões.</li>' +
+    '<li>Revisão vem antes de questão nova. Quando a lista curta vencida passa de ' + REVISOES_DIA_PESADO + ' itens, a sessão de questões novas do dia encolhe sozinha.</li>' +
+    '<li>Errou, leia o artigo inteiro. O botão “Ler inteiro, grifado” aparece depois de cada questão e de cada card. A leitura do dia tem no máximo ' + LEITURA_MAX + ' artigos: quando os blocos do dia têm mais, o app escolhe os ligados à sua lista curta, os ainda não lidos e os mais cobrados.</li>' +
     '<li>Domingo é livre por padrão e não quebra a sequência.</li>' +
     '<li>Não pule a revisão para fazer questões novas: a lista curta cresce e o esquecimento come o que você estudou.</li></ul>' +
     '<h3>Estratégia Cebraspe</h3><ul>' +
     '<li>Uma errada anula uma certa; em branco vale zero. Chutar só compensa quando sua chance de acerto passa de 50%.</li>' +
     '<li>A aba Progresso mostra a sua taxa de acerto quando marca dúvida. Acima de 50%, chute; abaixo, deixe em branco.</li>' +
     '<li>Desconfie de palavras absolutas (sempre, nunca, somente, exclusivamente) e de itens que acrescentam algo à lei.</li>' +
-    '<li>A partir da Fase 2, faça ao menos um simulado de prova completa por semana.</li></ul>' +
+    '<li>A partir da Fase 2, faça ao menos um simulado de prova completa por semana.</li>' +
+    '<li>Discursiva toda semana, no sábado longo: escreva sem consulta, no tempo e no limite de linhas, e corrija pelos quesitos. Na Anatel 2024 ela valia 30 pontos e eliminava quem fizesse menos de 15.</li></ul>' +
     '<h3>Semana típica</h3><p>Segunda e terça: bloco de prioridade da vez. Quarta: uma resolução da ANPD. Quinta: tronco regulatório (Lei 13.848/2019 e Lei 9.784/1999). Sexta: revisão da lista curta. Sábado: bloco longo ou simulado. Domingo: livre.</p>' +
     '<h3>Quando o edital sair</h3><p>O cronograma genérico para. O conteúdo programático oficial passa a mandar, os simulados ficam maiores e a revisão espaçada continua todos os dias. Cole o edital na conversa com o Claude para reorganizar os blocos.</p>' +
     '<h3>Questões marcadas para conferir</h3><p>' + pl(Q.filter((q) => q.v === 0).length, 'item cita', 'itens citam') + ' fontes ainda não coladas no app: decisões do STF e do TJUE e, nos itens reais da Anatel, a LGT, a Lei 8.987, a E-Ciber e resoluções da Anatel. Eles mostram o aviso “confira na fonte” e só viram definitivos quando o texto oficial for anexado e cada trecho for conferido. Nos itens reais, o gabarito é o oficial; o que falta conferir é a referência do comentário.</p>' +
     '<h3>Como a banca cobra</h3><p>A página Como o Cebraspe cobra, aqui em Mais, mostra o formato da prova, o padrão de cada disciplina com itens reais e o que pontua na discursiva.</p></div>';
 }
+/* ================= Discursiva ================= */
+function linhasEstimadas(texto) {
+  return String(texto || '').split('\n').reduce((n, p) => n + (p.trim() ? Math.ceil(p.length / CARACTERES_LINHA) : 0), 0);
+}
+function estadoDisc(id) { return (S.disc[id] ||= { rascunho: '', tentativas: [] }); }
+function contadorDisc(t) {
+  const txt = estadoDisc(t.id).rascunho, l = linhasEstimadas(txt), palavras = (txt.match(/\S+/g) || []).length;
+  return 'Linhas estimadas: <b>' + l + '</b> de ' + t.linhas + ' · ' + pl(palavras, 'palavra', 'palavras') +
+    (l > t.linhas ? ' · <span class="no">passou do limite: o que exceder é desconsiderado na correção</span>' : l && l < Math.ceil(t.linhas * 0.7) ? ' · texto curto: o desconto por erro pesa mais' : '');
+}
+function notaDisc(t) {
+  const aval = UI.discAval || {};
+  const somaMax = t.quesitos.reduce((n, q) => n + q.max, 0);
+  const soma = t.quesitos.reduce((n, q, i) => n + (aval[i] || 0), 0);
+  const nc = (soma / somaMax) * t.pontos;
+  const tl = Math.max(1, Math.min(t.linhas, linhasEstimadas(estadoDisc(t.id).rascunho)));
+  const ne = Math.max(0, Number(UI.discNE) || 0);
+  const desc = (t.fatorErro * ne) / tl;
+  return { nc, desc, nq: Math.max(0, nc - desc), tl, ne, completo: t.quesitos.every((q, i) => aval[i] != null) };
+}
+function resultadoDisc(t) {
+  const r = notaDisc(t);
+  const f = (x) => x.toFixed(2).replace('.', ',');
+  return '<b>Nota estimada: ' + f(r.nq) + ' de ' + t.pontos + '</b><span>Conteúdo ' + f(r.nc) + ' − desconto de português ' + f(r.desc) + ' (' + t.fatorErro + ' × ' + r.ne + ' erros ÷ ' + r.tl + ' linhas)' + (r.completo ? '' : ' · marque um conceito em cada quesito') + '</span>';
+}
+function renderDiscursiva() {
+  const t = TEMAS_DISC.find((x) => x.id === UI.discTema);
+  if (!t) {
+    UI.discTema = null;
+    return '<div class="prosa"><h2>Treino de discursiva</h2><p>' + esc((D.discursivas || {}).fonte || '') + '</p><p>Escreva como na prova: sem consulta, no tempo sugerido e dentro do limite de linhas. Depois corrija pelos quesitos com honestidade. O conceito máximo exige explicar, não só citar.</p></div>' +
+      TEMAS_DISC.map((x) => {
+        const tent = estadoDisc(x.id).tentativas, ult = tent[0];
+        return '<div class="cartao disc-tema"><div class="secao-cab"><h2>' + esc(x.titulo) + '</h2><span class="selo mono">' + x.linhas + ' linhas · ' + x.pontos + ' pts</span></div>' +
+          '<p class="pequeno mudo">Tempo sugerido: ' + x.minutos + ' min · ' + (ult ? 'última nota ' + ult.nq.toFixed(2).replace('.', ',') + ' de ' + x.pontos + ' em ' + esc(fmtData(ult.d, { day: '2-digit', month: '2-digit' })) + ' · ' + pl(tent.length, 'tentativa', 'tentativas') : 'ainda não feito') + '</p>' +
+          '<div class="linha-btns"><button class="btn primario" data-acao="disc-abrir" data-t="' + esc(x.id) + '">' + (estadoDisc(x.id).rascunho ? 'Continuar' : 'Escrever') + '</button></div></div>';
+      }).join('');
+  }
+  const st = estadoDisc(t.id), corrigindo = UI.discFase === 'correcao';
+  let html = '<button class="btn pequeno voltar" data-acao="disc-voltar">← Temas</button>' +
+    '<div class="cartao"><span class="rotulo">Discursiva · até ' + t.linhas + ' linhas · ' + t.pontos + ' pontos · tempo sugerido ' + t.minutos + ' min</span><h2>' + esc(t.titulo) + '</h2>' +
+    '<p>' + esc(t.comando) + '</p><ol class="lista-cb">' + t.aspectos.map((a) => '<li>' + esc(a) + '</li>').join('') + '</ol></div>' +
+    '<label class="rotulo" for="disc-texto">Seu texto</label><textarea id="disc-texto" class="disc-area" rows="16" spellcheck="false"' + (corrigindo ? ' readonly' : '') + ' placeholder="Escreva aqui, em parágrafos, um para cada aspecto do comando.">' + esc(st.rascunho) + '</textarea>' +
+    '<p class="pequeno mudo" id="disc-cont">' + contadorDisc(t) + '</p>';
+  if (!corrigindo) {
+    html += '<div class="linha-btns"><button class="btn primario" data-acao="disc-corrigir">Terminei: corrigir pelos quesitos</button><button class="btn" data-acao="disc-limpar">Apagar e recomeçar</button></div>';
+    return html;
+  }
+  const aval = UI.discAval || {};
+  html += '<div class="cartao"><h2>Correção pelos quesitos</h2><p class="pequeno mudo">Releia o seu texto procurando cada elemento esperado. Citar sem explicar fica no conceito mais baixo.</p>' +
+    t.quesitos.map((q, i) => '<fieldset class="quesito"><legend><b>Quesito ' + (i + 1) + ' · ' + esc(q.titulo) + '</b> <span class="mono pequeno mudo">0 a ' + q.max + '</span></legend>' +
+      '<details><summary>O que precisava aparecer</summary><ul class="lista-cb">' + q.esperado.map((e) => '<li>' + esc(e) + '</li>').join('') + '</ul></details>' +
+      q.conceitos.map((c, k) => '<label class="conceito"><input type="radio" name="disc-q' + i + '" data-acao="disc-conceito" data-q="' + i + '" value="' + k + '"' + (aval[i] === k ? ' checked' : '') + '><span><b>' + k + '</b> ' + esc(c) + '</span></label>').join('') + '</fieldset>').join('') +
+    '<div class="campo"><label for="disc-ne">Erros de português que você encontrou ao reler (grafia, acentuação, pontuação, concordância, regência)</label><input id="disc-ne" type="number" min="0" step="1" inputmode="numeric" value="' + esc(UI.discNE || 0) + '"></div>' +
+    '<div class="disc-res" id="disc-res">' + resultadoDisc(t) + '</div>' +
+    '<div class="linha-btns"><button class="btn primario" data-acao="disc-salvar">Salvar resultado</button><button class="btn" data-acao="disc-editar">Voltar a editar</button></div></div>';
+  if (st.tentativas.length) html += '<div class="cartao"><h2>Tentativas anteriores</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Data</th><th>Linhas</th><th>Erros</th><th>Nota</th></tr></thead><tbody>' + st.tentativas.map((x) => '<tr><td>' + esc(fmtData(x.d, { day: '2-digit', month: '2-digit' })) + '</td><td class="num">' + x.tl + '</td><td class="num">' + x.ne + '</td><td class="num">' + x.nq.toFixed(2).replace('.', ',') + '</td></tr>').join('') + '</tbody></table></div></div>';
+  return html;
+}
+let timerDisc = null;
 function numItem(q) { const m = /item (\d+)/.exec(q.pv || ''); return m ? 'Item ' + m[1] : q.id; }
 function renderCebraspe() {
   const cb = D.cebraspe;
@@ -1549,13 +1680,13 @@ function renderAjustes() {
     '</tbody></table></div><p class="pequeno">Se o banco aparecer como indisponível: abra o app pelo link do claude.ai com a sua conta conectada (não por arquivo baixado), no navegador ou no app do Claude, e confira as permissões do artifact. Enquanto isso, o progresso fica neste navegador e o backup em arquivo garante que nada se perca.</p>' +
     '<div class="linha-btns"><button class="btn" data-acao="permissoes">Abrir permissões do app</button><button class="btn" data-acao="tentar-gravar">Tentar gravar de novo</button></div></div>' +
     '<div class="cartao"><h2>Banco de conteúdo</h2><p class="pequeno mudo">' + Q.length + ' questões · ' + CARDS.length + ' cards cloze · ' + GLOSS.length + ' termos · versão ' + esc(D.versao) + '</p></div>' +
-    '<div class="cartao"><h2>Recomeçar do zero</h2><p class="pequeno mudo">Apaga XP, respostas, cards, sequência, simulados e lista de pesquisa.</p><div id="zona-zerar"><button class="btn" data-acao="zerar">Zerar progresso</button></div></div>';
+    '<div class="cartao"><h2>Recomeçar do zero</h2><p class="pequeno mudo">Apaga XP, respostas, cards, sequência, simulados, discursivas e lista de pesquisa.</p><div id="zona-zerar"><button class="btn" data-acao="zerar">Zerar progresso</button></div></div>';
 }
 
 /* ================= Backup ================= */
 let backupPendente = null;
 function backupTexto() {
-  return JSON.stringify({ app: 'painel-anpd', versao: 3, exportado: new Date().toISOString(), perfil: S.perfil, itens: S.itens, cards: S.cards, simulados: S.simulados, pesquisa: S.pesquisa });
+  return JSON.stringify({ app: 'painel-anpd', versao: 3, exportado: new Date().toISOString(), perfil: S.perfil, itens: S.itens, cards: S.cards, simulados: S.simulados, pesquisa: S.pesquisa, disc: S.disc });
 }
 async function salvarArquivo(nome, conteudo) {
   let dl = null;
@@ -1649,7 +1780,7 @@ document.addEventListener('click', async (ev) => {
     case 'confirmar-saida': fecharSessao(); break;
     case 'fechar-sessao': fecharSessao(); break;
     case 'refazer-erros': {
-      const ids = sessao.ids.filter((id) => (sessao.resp[id] || 'B') !== QI.get(id).g);
+      const ids = sessao.ids.filter((id) => (sessao.modo !== 'relampago' || sessao.resp[id]) && (sessao.resp[id] || 'B') !== QI.get(id).g);
       fecharSessao();
       iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Refazer erros' });
       break;
@@ -1693,6 +1824,27 @@ document.addEventListener('click', async (ev) => {
       if (ids.length) iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Itens reais · ' + ((DISC.find((x) => x.id === d.id) || {}).nome || d.id) });
       break;
     }
+    case 'disc-abrir': UI.discTema = alvo.dataset.t; UI.discFase = 'escrita'; UI.discAval = {}; UI.discNE = 0; renderMais(); window.scrollTo(0, 0); break;
+    case 'disc-voltar': UI.discTema = null; UI.discFase = null; renderMais(); window.scrollTo(0, 0); break;
+    case 'disc-corrigir':
+      if (!estadoDisc(UI.discTema).rascunho.trim()) { avisar('!', 'Texto vazio', 'Escreva a resposta antes de corrigir.'); break; }
+      UI.discFase = 'correcao'; renderMais(); break;
+    case 'disc-editar': UI.discFase = 'escrita'; renderMais(); break;
+    case 'disc-limpar': { const t = estadoDisc(UI.discTema); t.rascunho = ''; Store.salvar('discursivas'); renderMais(); break; }
+    case 'disc-salvar': {
+      const t = TEMAS_DISC.find((x) => x.id === UI.discTema);
+      if (!t) break;
+      const r = notaDisc(t);
+      if (!r.completo) { avisar('!', 'Falta conceito', 'Marque um conceito em cada quesito antes de salvar.'); break; }
+      const st = estadoDisc(t.id);
+      st.tentativas.unshift({ d: hojeISO(), nc: Math.round(r.nc * 100) / 100, ne: r.ne, tl: r.tl, nq: Math.round(r.nq * 100) / 100, q: t.quesitos.map((q, i) => UI.discAval[i]) });
+      st.tentativas = st.tentativas.slice(0, 8);
+      ganharXP(30);
+      Store.salvar('discursivas', 'perfil');
+      avisar('✎', 'Discursiva salva', r.nq.toFixed(2).replace('.', ',') + ' de ' + t.pontos + ' · +30 XP');
+      renderMais();
+      break;
+    }
     case 'rolar': { const el = document.getElementById(alvo.dataset.alvo); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); break; }
     case 'reais': {
       const ids = REAIS.filter((q) => alvo.dataset.modo === 'treino' || !FORA_DA_PROVA.has(q.b)).map((q) => q.id);
@@ -1727,7 +1879,7 @@ document.addEventListener('click', async (ev) => {
     case 'backup-confirmar': {
       const d = backupPendente;
       if (!d) break;
-      S.perfil = Object.assign(perfilPadrao(), d.perfil); S.itens = d.itens || {}; S.cards = d.cards || {}; S.simulados = d.simulados || []; S.pesquisa = d.pesquisa || {};
+      S.perfil = Object.assign(perfilPadrao(), d.perfil); S.itens = d.itens || {}; S.cards = d.cards || {}; S.simulados = d.simulados || []; S.pesquisa = d.pesquisa || {}; S.disc = d.disc || {};
       backupPendente = null;
       Store.salvarTudo(); renderTudo(); avisar('↺', 'Progresso restaurado', fmtNum(S.perfil.xp) + ' XP');
       break;
@@ -1751,7 +1903,7 @@ document.addEventListener('click', async (ev) => {
     case 'zerar': document.getElementById('zona-zerar').innerHTML = '<p><b>Tem certeza?</b> Não dá para desfazer. Baixe um backup antes.</p><div class="linha-btns"><button class="btn primario" data-acao="confirmar-zerar">Apagar tudo</button><button class="btn" data-acao="mais" data-sub="ajustes">Cancelar</button></div>'; break;
     case 'confirmar-zerar':
       S.perfil = Object.assign(perfilPadrao(), { status: S.perfil.status, meta: S.perfil.meta, novosCards: S.perfil.novosCards });
-      S.itens = {}; S.cards = {}; S.simulados = []; S.pesquisa = {};
+      S.itens = {}; S.cards = {}; S.simulados = []; S.pesquisa = {}; S.disc = {};
       Store.salvarTudo(); renderTudo(); avisar('0', 'Progresso zerado', 'Os status dos blocos foram mantidos.');
       break;
     default: break;
@@ -1770,6 +1922,12 @@ document.addEventListener('change', (ev) => {
     salvarUI();
     if (a === 'toggle-bloco') renderQuestoes(); else renderCards();
   } else if (a === 'duvida' && sessao) sessao.duv[sessao.ids[sessao.i]] = alvo.checked;
+  else if (a === 'disc-conceito') {
+    UI.discAval = UI.discAval || {};
+    UI.discAval[Number(alvo.dataset.q)] = Number(alvo.value);
+    const t = TEMAS_DISC.find((x) => x.id === UI.discTema), el = document.getElementById('disc-res');
+    if (t && el) el.innerHTML = resultadoDisc(t);
+  }
   else if (a === 'dia-feito') { if (alvo.checked) S.perfil.feitos[alvo.dataset.dia] = 1; else delete S.perfil.feitos[alvo.dataset.dia]; Store.salvar('perfil'); renderMais(); }
   else if (a === 'pesq-feito') {
     const p = S.pesquisa[alvo.dataset.k];
@@ -1784,6 +1942,18 @@ document.addEventListener('change', (ev) => {
 });
 document.addEventListener('input', (ev) => {
   const id = ev.target.id;
+  if (id === 'disc-texto' || id === 'disc-ne') {
+    const t = TEMAS_DISC.find((x) => x.id === UI.discTema);
+    if (!t) return;
+    if (id === 'disc-ne') { UI.discNE = ev.target.value; const el = document.getElementById('disc-res'); if (el) el.innerHTML = resultadoDisc(t); return; }
+    estadoDisc(t.id).rascunho = ev.target.value;
+    const c = document.getElementById('disc-cont');
+    if (c) c.innerHTML = contadorDisc(t);
+    // Rascunho salvo um segundo depois da última tecla
+    clearTimeout(timerDisc);
+    timerDisc = setTimeout(() => Store.salvar('discursivas'), 1000);
+    return;
+  }
   if (id !== 'busca-lei' && id !== 'busca-gloss') return;
   const pos = ev.target.selectionStart;
   if (id === 'busca-lei') { UI.busca = ev.target.value; renderLei(); } else { UI.buscaGloss = ev.target.value; renderMais(); }

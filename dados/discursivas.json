@@ -1,0 +1,302 @@
+{
+  "fonte": "Formato do edital da Anatel 2024 (Cebraspe): questão longa de até 30 linhas valendo 20 pontos e questão curta de até 15 linhas valendo 10 pontos. Nota de cada questão = conteúdo − desconto de português (4 × erros ÷ linhas na longa; 2 × erros ÷ linhas na curta). Os quesitos abaixo seguem o estilo dos padrões de resposta do Cebraspe, com conceitos crescentes; os elementos esperados citam o dispositivo que os sustenta.",
+  "temas": [
+    {
+      "id": "sancoes",
+      "titulo": "Sanções da LGPD e dosimetria",
+      "linhas": 30,
+      "pontos": 20,
+      "fatorErro": 4,
+      "minutos": 60,
+      "comando": "A Lei Geral de Proteção de Dados Pessoais atribuiu à ANPD a competência para aplicar sanções administrativas aos agentes de tratamento. Redija um texto dissertativo acerca da aplicação de sanções pela ANPD. Em seu texto, aborde os seguintes aspectos:",
+      "aspectos": [
+        "sanções administrativas previstas na LGPD e condição para a aplicação das mais gravosas;",
+        "parâmetros e critérios a serem considerados na aplicação das sanções;",
+        "classificação das infrações e cálculo da multa simples segundo o regulamento de dosimetria da ANPD."
+      ],
+      "quesitos": [
+        {
+          "titulo": "Sanções e gradação",
+          "max": 3,
+          "esperado": [
+            "Advertência, com indicação de prazo para medidas corretivas; multa simples; multa diária; publicização da infração; bloqueio e eliminação dos dados a que se refere a infração; suspensão parcial do funcionamento do banco de dados e suspensão da atividade de tratamento, por até 6 meses prorrogáveis por igual período; proibição parcial ou total de atividades de tratamento (LGPD, art. 52, I a XII).",
+            "Multa simples de até 2% do faturamento da pessoa jurídica, grupo ou conglomerado no Brasil no último exercício, excluídos os tributos, limitada a R$ 50 milhões por infração (art. 52, II).",
+            "As suspensões e a proibição só podem ser aplicadas depois de imposta, no mesmo caso concreto, ao menos uma das sanções dos incisos II a VI (art. 52, § 6º, I)."
+          ],
+          "conceitos": [
+            "Não citou sanções ou o fez de forma totalmente equivocada.",
+            "Citou poucas sanções, sem os limites da multa simples.",
+            "Citou a maioria das sanções e os limites da multa simples.",
+            "Citou as sanções e os limites da multa e explicou a gradação exigida para as suspensões e a proibição."
+          ]
+        },
+        {
+          "titulo": "Parâmetros e critérios",
+          "max": 3,
+          "esperado": [
+            "Aplicação após procedimento administrativo que assegure ampla defesa, de forma gradativa, isolada ou cumulativa, conforme as peculiaridades do caso (art. 52, § 1º, caput).",
+            "Critérios: gravidade e natureza das infrações e dos direitos afetados; boa-fé; vantagem auferida ou pretendida; condição econômica; reincidência; grau do dano; cooperação; mecanismos internos para minimizar o dano; política de boas práticas e governança; pronta adoção de medidas corretivas; proporcionalidade entre a gravidade da falta e a intensidade da sanção (art. 52, § 1º, I a XI)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Citou critérios de forma solta, sem relacioná-los à aplicação das sanções.",
+            "Citou corretamente ao menos quatro critérios.",
+            "Citou ao menos quatro critérios e mencionou o procedimento com ampla defesa e a aplicação gradativa, isolada ou cumulativa."
+          ]
+        },
+        {
+          "titulo": "Classificação e cálculo da multa (Res. CD/ANPD 4/2023)",
+          "max": 4,
+          "esperado": [
+            "Infrações leves, médias ou graves (art. 8º). Média: pode afetar significativamente interesses e direitos fundamentais dos titulares. Grave: além disso, envolve, por exemplo, larga escala, vantagem econômica, risco à vida, dados sensíveis ou de crianças, adolescentes ou idosos, tratamento sem hipótese legal, efeitos discriminatórios ou práticas irregulares sistemáticas; ou constitui obstrução à fiscalização (art. 8º, § 3º).",
+            "Valor-base da multa simples a partir da classificação da infração, do faturamento no ramo de atividade em que ocorreu e do grau do dano (art. 11 e Apêndice I).",
+            "Agravantes, como reincidência e medidas descumpridas (art. 12), e atenuantes, como cessação da infração, boas práticas, medidas de mitigação e cooperação ou boa-fé (art. 13).",
+            "Limites: não inferior aos mínimos do Apêndice II (ou o dobro da vantagem, quando estimável) e até 2% do faturamento ou R$ 50 milhões (art. 15)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Mencionou a classificação das infrações sem explicá-la.",
+            "Explicou a classificação das infrações.",
+            "Explicou a classificação e os elementos do valor-base.",
+            "Explicou a classificação, o valor-base, as agravantes e atenuantes e os limites da multa."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "incidente",
+      "titulo": "Comunicação de incidente de segurança",
+      "linhas": 30,
+      "pontos": 20,
+      "fatorErro": 4,
+      "minutos": 60,
+      "comando": "Um controlador de dados descobre que um acesso não autorizado expôs dados de autenticação de milhares de clientes. Com base na LGPD e no regulamento da ANPD sobre incidentes de segurança, redija um texto dissertativo que aborde os seguintes aspectos:",
+      "aspectos": [
+        "critérios para identificar o incidente que deve ser comunicado;",
+        "prazo e conteúdo da comunicação à ANPD e aos titulares;",
+        "registro do incidente e providências que a ANPD pode determinar."
+      ],
+      "quesitos": [
+        {
+          "titulo": "Quando comunicar",
+          "max": 3,
+          "esperado": [
+            "O controlador deve comunicar à ANPD e ao titular o incidente que possa acarretar risco ou dano relevante aos titulares (LGPD, art. 48, caput).",
+            "Há risco ou dano relevante quando o incidente puder afetar significativamente interesses e direitos fundamentais e, cumulativamente, envolver ao menos um critério: dados sensíveis; dados de crianças, adolescentes ou idosos; dados financeiros; dados de autenticação em sistemas; dados protegidos por sigilo; dados em larga escala (Res. CD/ANPD 15/2024, art. 5º).",
+            "No caso do comando, os dados de autenticação e a escala indicam comunicação obrigatória, se houver possibilidade de afetar significativamente os titulares."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Mencionou o dever de comunicar sem indicar o critério de risco ou dano relevante.",
+            "Indicou o critério de risco ou dano relevante e citou ao menos dois dos critérios do regulamento.",
+            "Explicou a regra cumulativa (afetação significativa mais um critério) e aplicou-a ao caso."
+          ]
+        },
+        {
+          "titulo": "Prazo e conteúdo",
+          "max": 4,
+          "esperado": [
+            "Prazo de três dias úteis, contado do conhecimento de que o incidente afetou dados pessoais, para a ANPD e para os titulares (Res. 15/2024, arts. 6º e 9º); em dobro para agentes de pequeno porte (art. 6º, § 8º, e art. 9º, § 6º).",
+            "Conteúdo mínimo à ANPD: natureza e categoria dos dados, número de titulares, medidas de segurança antes e depois do incidente, riscos e impactos, motivos da demora, medidas de mitigação, datas, dados do encarregado, entre outros (art. 6º, § 2º; LGPD, art. 48, § 1º). Complementação fundamentada em até vinte dias úteis (art. 6º, § 3º).",
+            "Comunicação ao titular em linguagem simples, de forma direta e individualizada quando possível (art. 9º, § 1º)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Mencionou prazo ou conteúdo de forma imprecisa.",
+            "Indicou corretamente o prazo de três dias úteis.",
+            "Indicou o prazo e ao menos quatro elementos do conteúdo.",
+            "Indicou o prazo e seu termo inicial, ao menos quatro elementos do conteúdo e a forma de comunicação ao titular."
+          ]
+        },
+        {
+          "titulo": "Registro e providências da ANPD",
+          "max": 3,
+          "esperado": [
+            "Registro de todo incidente, inclusive o não comunicado, por no mínimo cinco anos, com data, circunstâncias, dados e titulares afetados, avaliação de risco, medidas e motivos da não comunicação (Res. 15/2024, art. 10).",
+            "A ANPD verifica a gravidade e pode determinar ampla divulgação do fato e medidas para reverter ou mitigar os efeitos (LGPD, art. 48, § 2º).",
+            "No juízo de gravidade, pesa a comprovação de medidas que tornem os dados ininteligíveis para terceiros não autorizados (art. 48, § 3º)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Mencionou o registro ou as providências sem desenvolver.",
+            "Explicou o registro (com o prazo mínimo) ou as providências da ANPD.",
+            "Explicou o registro e as providências da ANPD."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agencias-air",
+      "titulo": "Natureza especial das agências e análise de impacto regulatório",
+      "linhas": 30,
+      "pontos": 20,
+      "fatorErro": 4,
+      "minutos": 60,
+      "comando": "A ANPD é autarquia de natureza especial, nos termos da Lei nº 13.848/2019, e seus regulamentos devem ser precedidos de consulta e audiência públicas e de análise de impacto regulatório (AIR). Redija um texto dissertativo que aborde os seguintes aspectos:",
+      "aspectos": [
+        "elementos que caracterizam a natureza especial das agências reguladoras;",
+        "conceito de AIR, casos de obrigatoriedade e hipóteses de dispensa;",
+        "conteúdo do relatório de AIR e metodologias admitidas."
+      ],
+      "quesitos": [
+        {
+          "titulo": "Natureza especial",
+          "max": 3,
+          "esperado": [
+            "Ausência de tutela ou de subordinação hierárquica; autonomia funcional, decisória, administrativa e financeira; investidura a termo dos dirigentes e estabilidade durante os mandatos (Lei 13.848/2019, art. 3º).",
+            "A ANPD é autarquia de natureza especial, vinculada ao Ministério da Justiça e Segurança Pública, com autonomia funcional, técnica, decisória, administrativa e financeira, nos termos da Lei 13.848 (LGPD, art. 55-A)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Mencionou autonomia de forma genérica.",
+            "Citou corretamente ao menos três elementos da natureza especial.",
+            "Citou os elementos e relacionou-os à ANPD."
+          ]
+        },
+        {
+          "titulo": "AIR: conceito, obrigatoriedade e dispensa",
+          "max": 4,
+          "esperado": [
+            "AIR é o procedimento de avaliação prévia à edição do ato normativo, a partir da definição do problema regulatório, com informações sobre seus prováveis efeitos (Decreto 10.411/2020, art. 2º, I). Difere da avaliação de resultado regulatório, feita depois (art. 2º, III).",
+            "Obrigatória para a adoção e a alteração de atos normativos de interesse geral dos agentes econômicos, consumidores ou usuários (Lei 13.848, art. 6º; Decreto 10.411, art. 3º).",
+            "Dispensa por decisão fundamentada, por exemplo em urgência, baixo impacto, norma superior que não admita alternativas ou atualização de normas obsoletas, com nota técnica ou documento equivalente (Decreto 10.411, art. 4º e § 1º)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Conceituou a AIR de forma imprecisa.",
+            "Conceituou corretamente a AIR como avaliação prévia.",
+            "Conceituou a AIR e indicou quando é obrigatória.",
+            "Conceituou a AIR, indicou a obrigatoriedade e ao menos duas hipóteses de dispensa, com a nota técnica."
+          ]
+        },
+        {
+          "titulo": "Relatório e metodologias",
+          "max": 3,
+          "esperado": [
+            "O relatório de AIR traz, entre outros: problema regulatório, causas e extensão; afetados; fundamentação legal; objetivos; alternativas, incluindo a não ação e soluções não normativas; impactos e custos regulatórios; experiência internacional; comparação das alternativas com metodologia justificada; estratégia de implementação, monitoramento e avaliação (Decreto 10.411, art. 6º).",
+            "Metodologias: análise multicritério, de custo-benefício, de custo-efetividade, de custo, de risco ou risco-risco, ou outra justificada (art. 7º)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Citou elementos do relatório ou metodologias de forma genérica.",
+            "Citou ao menos quatro elementos do relatório ou três metodologias.",
+            "Citou ao menos quatro elementos do relatório e três metodologias."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transferencia",
+      "titulo": "Transferência internacional de dados",
+      "linhas": 15,
+      "pontos": 10,
+      "fatorErro": 2,
+      "minutos": 30,
+      "comando": "Uma empresa brasileira pretende enviar dados de clientes para um prestador de serviço em nuvem sediado no exterior. Redija um texto dissertativo que aborde os seguintes aspectos:",
+      "aspectos": [
+        "hipóteses em que a LGPD permite a transferência internacional de dados;",
+        "regras para o uso das cláusulas-padrão contratuais aprovadas pela ANPD;",
+        "decisão de adequação e exemplo de sua aplicação pela ANPD."
+      ],
+      "quesitos": [
+        {
+          "titulo": "Hipóteses de transferência",
+          "max": 4,
+          "esperado": [
+            "Rol do art. 33 da LGPD (transferência somente nos casos listados): país ou organismo com grau de proteção adequado; garantias oferecidas e comprovadas pelo controlador (cláusulas específicas, cláusulas-padrão, normas corporativas globais, selos, certificados e códigos de conduta); cooperação jurídica internacional; proteção da vida; autorização da ANPD; acordo de cooperação internacional; execução de política pública; consentimento específico e em destaque; hipóteses do art. 7º, II, V e VI."
+          ],
+          "conceitos": [
+            "Não atendeu ao solicitado ou o fez de forma totalmente equivocada.",
+            "Citou corretamente uma hipótese.",
+            "Citou corretamente duas hipóteses.",
+            "Citou corretamente três hipóteses.",
+            "Citou corretamente ao menos quatro hipóteses e indicou que o rol é fechado (somente nesses casos)."
+          ]
+        },
+        {
+          "titulo": "Cláusulas-padrão",
+          "max": 2,
+          "esperado": [
+            "Adoção integral e sem alteração do texto do Anexo II da Res. CD/ANPD 19/2024, em contrato entre exportador e importador (Regulamento, art. 16).",
+            "Quem usava cláusulas contratuais teve até 12 meses da publicação da Res. 19/2024 para incorporar as cláusulas-padrão (Res. 19/2024, art. 2º, parágrafo único)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Mencionou as cláusulas-padrão sem a regra da adoção integral.",
+            "Explicou a adoção integral e sem alteração do texto aprovado pela ANPD."
+          ]
+        },
+        {
+          "titulo": "Adequação",
+          "max": 2,
+          "esperado": [
+            "A ANPD avalia o nível de proteção do país ou organismo considerando legislação, natureza dos dados, princípios e direitos, medidas de segurança e garantias judiciais e institucionais (LGPD, art. 34).",
+            "A Res. CD/ANPD 32/2026 reconheceu a União Europeia como organismo internacional com proteção adequada, alcançando também Islândia, Liechtenstein e Noruega, e não se aplica a fins exclusivos de segurança pública, defesa nacional, segurança do Estado ou investigação e repressão penal (arts. 1º e 2º)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Explicou a adequação sem exemplo ou citou o exemplo sem explicar.",
+            "Explicou a adequação e citou corretamente a decisão relativa à União Europeia."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "encarregado",
+      "titulo": "Encarregado pelo tratamento de dados",
+      "linhas": 15,
+      "pontos": 10,
+      "fatorErro": 2,
+      "minutos": 30,
+      "comando": "Redija um texto dissertativo sobre o encarregado pelo tratamento de dados pessoais, abordando os seguintes aspectos:",
+      "aspectos": [
+        "forma de indicação e quem pode ser encarregado;",
+        "atividades do encarregado e deveres de atuação;",
+        "regra aplicável aos agentes de tratamento de pequeno porte."
+      ],
+      "quesitos": [
+        {
+          "titulo": "Indicação",
+          "max": 3,
+          "esperado": [
+            "O controlador deve indicar encarregado (LGPD, art. 41), por ato formal escrito, datado e assinado (Res. CD/ANPD 18/2024, art. 3º).",
+            "Pode ser pessoa natural, do quadro ou externa, ou pessoa jurídica (art. 12). Identidade e contato divulgados publicamente (LGPD, art. 41, § 1º). Substituto formal nas ausências (art. 4º).",
+            "Para o operador, a indicação é facultativa e conta como boa prática de governança (art. 6º)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Mencionou a obrigação de indicar sem a forma.",
+            "Indicou a obrigação e a forma do ato de indicação.",
+            "Indicou a obrigação, a forma e quem pode ser encarregado."
+          ]
+        },
+        {
+          "titulo": "Atividades",
+          "max": 3,
+          "esperado": [
+            "Aceitar reclamações e comunicações dos titulares; receber comunicações da ANPD e adotar providências; orientar funcionários e contratados; executar as demais atribuições (LGPD, art. 41, § 2º; Res. 18/2024, art. 15).",
+            "Atuação com ética, integridade e autonomia técnica, evitando conflito de interesse (Res. 18/2024, art. 18)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Citou uma atividade.",
+            "Citou ao menos três atividades.",
+            "Citou ao menos três atividades e os deveres de atuação (autonomia técnica, conflito de interesse)."
+          ]
+        },
+        {
+          "titulo": "Pequeno porte",
+          "max": 2,
+          "esperado": [
+            "Agentes de pequeno porte não são obrigados a indicar encarregado, mas devem disponibilizar canal de comunicação com o titular; indicar voluntariamente conta como boa prática (Res. CD/ANPD 2/2022, art. 11)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Mencionou a dispensa sem o canal de comunicação.",
+            "Explicou a dispensa e o dever de manter canal de comunicação com o titular."
+          ]
+        }
+      ]
+    }
+  ]
+}

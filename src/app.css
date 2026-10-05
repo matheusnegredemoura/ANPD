@@ -450,3 +450,17 @@ details.apoio-det[open] summary{margin-bottom:8px}
 .inferencia{border-left:3px solid var(--gold);background:var(--gold-bg);padding:8px 12px;border-radius:0 8px 8px 0}
 .chip.item-real{font-family:var(--f-mono);font-weight:500}
 .cb-tabela td:first-child{font-weight:700}
+
+/* Treino de discursiva */
+.disc-area{width:100%;box-sizing:border-box;min-height:18rem;font:1rem/1.6 var(--f-titulo);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;resize:vertical}
+.disc-area:focus{outline:2px solid var(--accent);outline-offset:1px}
+.disc-area[readonly]{background:var(--surface-2)}
+#disc-cont .no{color:var(--errado);font-weight:700}
+.quesito{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.quesito legend{padding:0 4px}
+.quesito details summary{cursor:pointer;color:var(--accent);font-weight:700;font-size:.88rem}
+.conceito{display:flex;gap:8px;align-items:flex-start;font-size:.92rem;line-height:1.45;cursor:pointer}
+.conceito input{margin-top:3px}
+.disc-res{display:flex;flex-direction:column;gap:4px;padding:12px;border-radius:10px;background:var(--accent-2);color:var(--ink)}
+.disc-res span{font-size:.85rem;color:var(--ink-2)}
+#disc-ne{width:6rem}

@@ -131,6 +131,12 @@ export function montarDados() {
     if (!discs.has(d.id)) errosCb.push(`cebraspe.json: disciplina inexistente ${d.id}`);
     for (const id of [...d.itens, ...d.exemplos]) if (!ids.has(id)) errosCb.push(`cebraspe.json (${d.id}): item inexistente ${id}`);
   }
+  // Discursiva: cada quesito precisa de um conceito para cada nota de 0 até o máximo
+  const discursivas = JSON.parse(ler('dados', 'discursivas.json'));
+  for (const t of discursivas.temas) {
+    if (!t.id || !t.comando || !t.aspectos.length || ![15, 30].includes(t.linhas) || !t.pontos || !t.fatorErro) errosCb.push(`discursivas.json (${t.id}): campos obrigatórios`);
+    for (const q of t.quesitos) if (q.conceitos.length !== q.max + 1 || !q.esperado.length) errosCb.push(`discursivas.json (${t.id}, ${q.titulo}): ${q.conceitos.length} conceitos para nota máxima ${q.max}`);
+  }
   if (errosCb.length) {
     for (const e of errosCb) console.error('ERRO: ' + e);
     throw new Error(`${errosCb.length} erro(s) em dados/cebraspe.json.`);
@@ -163,6 +169,7 @@ export function montarDados() {
     faltam: faltam || [],
     cronograma,
     cebraspe,
+    discursivas,
     cloze,
     glossario: gloss,
   };
