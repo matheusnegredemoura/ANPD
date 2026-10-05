@@ -72,6 +72,7 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html,body{background:var(--bg)}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{color:var(--ink);font-family:var(--f-corpo);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
 button,input,select{font:inherit;color:inherit}
 h1,h2,h3{font-family:var(--f-titulo);font-weight:600;line-height:1.2;text-wrap:balance;margin:0}
@@ -117,9 +118,7 @@ p{margin:0}
 .cartao.destaque{border-color:var(--accent);box-shadow:var(--sombra)}
 
 .btn{appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 16px;font-weight:700;font-size:.92rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;text-decoration:none;color:var(--ink)}
-.btn:hover{border-color:var(--accent)}
 .btn.primario{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.btn.primario:hover{filter:brightness(1.06)}
 .btn.fantasma{background:transparent}
 .btn.pequeno{min-height:34px;padding:6px 12px;font-size:.84rem}
 .btn.largo{width:100%}
@@ -165,7 +164,6 @@ p{margin:0}
 
 .grade-modos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .modo{appearance:none;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:14px;cursor:pointer;display:flex;flex-direction:column;gap:6px;min-height:118px;color:var(--ink)}
-.modo:hover{border-color:var(--accent)}
 .modo b{font-family:var(--f-titulo);font-size:1.08rem;font-weight:600}
 .modo span{font-size:.84rem;color:var(--ink-2);line-height:1.4}
 .modo .num{margin-top:auto;font-family:var(--f-mono);font-size:.78rem;color:var(--accent);font-weight:600}
@@ -220,9 +218,8 @@ details.apoio-det[open] summary{margin-bottom:8px}
 .respostas{display:flex;gap:12px}
 .bolha{flex:1;appearance:none;border:2px solid var(--ink-2);background:var(--surface);border-radius:999px;min-height:56px;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;font-weight:700;font-size:.98rem;letter-spacing:.03em;color:var(--ink);transition:background .15s,border-color .15s,transform .1s}
 .bolha .oval{width:26px;height:18px;border-radius:50%;border:2px solid currentColor;display:grid;place-items:center;font-family:var(--f-mono);font-size:.72rem}
-.bolha:hover{transform:translateY(-1px)}
-.bolha.c:hover,.bolha.c.marcada{border-color:var(--certo);color:var(--certo)}
-.bolha.e:hover,.bolha.e.marcada{border-color:var(--errado);color:var(--errado)}
+.bolha.c.marcada{border-color:var(--certo);color:var(--certo)}
+.bolha.e.marcada{border-color:var(--errado);color:var(--errado)}
 .bolha.b{flex:0 0 auto;padding-inline:16px;border-style:dashed;color:var(--ink-2);border-color:var(--ink-3)}
 .bolha.marcada .oval{background:currentColor}
 .bolha.marcada .oval span{color:var(--surface)}
@@ -271,7 +268,6 @@ details.apoio-det[open] summary{margin-bottom:8px}
 .capitulo h3{font-size:.95rem;font-family:var(--f-corpo);font-weight:700;color:var(--ink-2);padding-top:6px}
 .artigos{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:6px}
 .art-btn{appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 4px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font-family:var(--f-mono);font-size:.82rem;font-weight:600;color:var(--ink)}
-.art-btn:hover{border-color:var(--accent)}
 .art-btn .pontos{display:flex;gap:2px;height:6px}
 .art-btn .pontos i{width:6px;height:6px;border-radius:50%;background:var(--surface-2)}
 .art-btn .pontos i.ok{background:var(--certo)}
@@ -293,7 +289,7 @@ details.apoio-det[open] summary{margin-bottom:8px}
 
 /* Folha lateral / inferior */
 .folha{position:fixed;inset:0;z-index:40;display:flex;align-items:flex-end;justify-content:center;background:rgba(10,18,16,.45)}
-.folha-painel{background:var(--bg);width:100%;max-width:760px;max-height:88vh;border-radius:16px 16px 0 0;overflow-y:auto;padding:18px 16px calc(env(safe-area-inset-bottom,0px) + 22px);display:flex;flex-direction:column;gap:14px;box-shadow:var(--sombra)}
+.folha-painel{background:var(--bg);width:100%;max-width:760px;max-height:88vh;max-height:88dvh;border-radius:16px 16px 0 0;overflow-y:auto;padding:18px 16px calc(env(safe-area-inset-bottom,0px) + 22px);display:flex;flex-direction:column;gap:14px;box-shadow:var(--sombra)}
 .folha-cab{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
 .folha-cab h2{font-size:1.25rem}
 @media (min-width:820px){.folha{align-items:center}.folha-painel{border-radius:16px;max-height:84vh}}
@@ -497,7 +493,6 @@ details.apoio-det[open] summary{margin-bottom:8px}
 .lista-st button{appearance:none;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 12px;cursor:pointer;display:flex;gap:10px;align-items:center;color:var(--ink);font:inherit}
 .lista-st button::before{content:counter(st);flex-shrink:0;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);color:var(--ink-2);font-family:var(--f-mono);font-size:.78rem}
 .lista-st button .txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
-.lista-st button:hover{border-color:var(--accent)}
 .selo.st-dominado{background:var(--certo-bg);color:var(--certo)}
 .selo.st-curso{background:var(--gold-bg);color:var(--gold)}
 .selo.st-novo{background:var(--accent-2);color:var(--accent)}
@@ -509,6 +504,21 @@ details.apoio-det[open] summary{margin-bottom:8px}
 button.dom-linha{appearance:none;border:0;background:none;width:100%;padding:0;text-align:left;color:inherit;font:inherit;cursor:pointer}
 /* Durante a sessão, os avisos sobem para o topo e não cobrem os botões do rodapé da folha de respostas */
 .sessao:not([hidden]) ~ .avisos{top:calc(env(safe-area-inset-top,0px) + 64px);bottom:auto}
+
+/* Toque: o hover só existe com mouse (no celular ele "gruda" no último lugar tocado e a bolha parece marcada) */
+@media (hover:hover){
+.btn:hover,.modo:hover,.art-btn:hover,.lista-st button:hover{border-color:var(--accent)}
+.btn.primario:hover{filter:brightness(1.06)}
+.bolha:hover{transform:translateY(-1px)}
+.bolha.c:hover{border-color:var(--certo);color:var(--certo)}
+.bolha.e:hover{border-color:var(--errado);color:var(--errado)}
+}
+/* Dedo: área de toque maior sem mudar o desenho; campo de texto com 16px para o iPhone não dar zoom */
+@media (pointer:coarse){
+.linkish,.link-ext{position:relative}
+.linkish::after,.link-ext::after{content:"";position:absolute;inset:-10px -6px}
+.area-texto,input[type=number],input[type=text],input[type=search],textarea,select{font-size:16px}
+}
 
 </style>
 
@@ -2857,8 +2867,10 @@ document.addEventListener('keydown', (ev) => {
   else if (sessao.modo === 'simulado' && k === 'arrowleft' && sessao.i > 0) { sessao.i--; renderSessao(); }
 });
 document.addEventListener('pointerover', (ev) => {
-  const c = ev.target.closest && ev.target.closest('[data-dica]');
   let dica = document.getElementById('dica');
+  // No toque a dica não teria como sumir: só aparece com mouse
+  if (ev.pointerType && ev.pointerType !== 'mouse') { if (dica) dica.remove(); return; }
+  const c = ev.target.closest && ev.target.closest('[data-dica]');
   if (!c) { if (dica) dica.remove(); return; }
   if (!dica) { dica = document.createElement('div'); dica.id = 'dica'; dica.className = 'dica'; document.body.appendChild(dica); }
   dica.textContent = c.dataset.dica;

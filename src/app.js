@@ -2305,8 +2305,10 @@ document.addEventListener('keydown', (ev) => {
   else if (sessao.modo === 'simulado' && k === 'arrowleft' && sessao.i > 0) { sessao.i--; renderSessao(); }
 });
 document.addEventListener('pointerover', (ev) => {
-  const c = ev.target.closest && ev.target.closest('[data-dica]');
   let dica = document.getElementById('dica');
+  // No toque a dica não teria como sumir: só aparece com mouse
+  if (ev.pointerType && ev.pointerType !== 'mouse') { if (dica) dica.remove(); return; }
+  const c = ev.target.closest && ev.target.closest('[data-dica]');
   if (!c) { if (dica) dica.remove(); return; }
   if (!dica) { dica = document.createElement('div'); dica.id = 'dica'; dica.className = 'dica'; document.body.appendChild(dica); }
   dica.textContent = c.dataset.dica;
