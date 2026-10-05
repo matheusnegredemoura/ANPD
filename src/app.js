@@ -204,6 +204,7 @@ const Store = {
     if (!l) return false;
     if (l.perfil) { S.perfil = Object.assign(perfilPadrao(), l.perfil); podarPerfil(); }
     if (l.itens) S.itens = l.itens;
+    corrigirAcertosDoMesmoDia();
     if (l.cards) S.cards = l.cards;
     if (l.simulados) S.simulados = l.simulados;
     if (l.pesquisa) S.pesquisa = l.pesquisa;
@@ -230,7 +231,7 @@ const Store = {
     this.tLocal[n] = this.ultimoT[n];
     const d = corpo.dados;
     if (n === 'perfil') S.perfil = Object.assign(perfilPadrao(), d);
-    else if (n === 'itens') S.itens = d.q || {};
+    else if (n === 'itens') { S.itens = d.q || {}; if (!(S.perfil.migr && S.perfil.migr.mesmoDia)) { corrigirAcertosDoMesmoDia(); Store.salvar('itens', 'perfil'); } }
     else if (n === 'cards') S.cards = d.c || {};
     else if (n === 'simulados') S.simulados = d.lista || [];
     else if (n === 'discursivas') S.disc = d.d || {};
@@ -372,6 +373,13 @@ function diaLog(iso) {
   return d;
 }
 // Só a lista de artigos lidos de hoje é usada; as antigas saem para o documento do perfil não crescer sem limite
+function corrigirAcertosDoMesmoDia() {
+  if (S.perfil.migr && S.perfil.migr.mesmoDia) return;
+  let n = 0;
+  for (const r of Object.values(S.itens)) if (r[0] === 2 && r[3] > 0 && r[1] - r[4] === 3) { r[0] = 1; r[1] = r[4] + 1; n++; }
+  S.perfil.migr = Object.assign({}, S.perfil.migr, { mesmoDia: hojeISO() });
+  if (n) setTimeout(() => Store.salvar('itens', 'perfil'), 0);
+}
 function podarPerfil() {
   const limite = isoDeNum(HOJE() - 14);
   for (const [iso, d] of Object.entries(S.perfil.dias || {})) if (iso < limite && d.a && d.a.length) d.a = [];
@@ -404,6 +412,8 @@ function registrar(q, resp, duvida) {
   const antes = r[0];
   const estavaNaLista = antes >= 0 && antes < 3;
   const eraManutencao = antes >= 3 && r[1] <= hoje;
+  // Responder de novo no mesmo dia não é revisão espaçada: o acerto repetido não sobe de nível
+  const jaRespondidoHoje = antes >= 0 && r[4] === hoje;
   let ok = null;
   if (resp === 'B') r[0] = 0;
   else {
@@ -411,7 +421,8 @@ function registrar(q, resp, duvida) {
     if (ok) {
       r[2]++;
       if (antes < 0) r[0] = duvida ? 2 : 4;
-      else r[0] = duvida ? Math.max(1, Math.min(antes, 2)) : Math.min(5, antes + 1);
+      else if (duvida) r[0] = Math.max(1, Math.min(antes, 2));
+      else r[0] = jaRespondidoHoje ? Math.max(1, antes) : Math.min(5, antes + 1);
       if (duvida) r[5]++;
     } else { r[3]++; r[0] = 0; if (duvida) r[6]++; }
   }
@@ -1303,6 +1314,8 @@ function textoLei(a, qExtras) {
   for (const c of CARDS_POR_ART.get(a.k) || []) cai.push(c.nota.t.replace(RE_LACUNA, '$2'));
   for (const id of qExtras || []) { const q = QI.get(id); if (q) extras.push(...q.t); }
   return a.texto.split('\n').map((linha, k) => {
+    // Vetos não têm valor de estudo: a linha aparece apagada e sem grifo
+    if (/^(?:Art\. [\dA-Zº-]+\.?|§ \d+º|Parágrafo único\.?|[IVXL]+(?:-[A-Z])? -|[a-z]\))\s*\(VETADO\)/.test(linha)) return '<p class="par vetado">' + esc(linha) + '</p>';
     let rs = [];
     if (cam.cai) rs = rs.concat(rangesTexto(linha, cai, 'g-cai'));
     rs = rs.concat(rangesTexto(linha, extras, 'g-cai'));

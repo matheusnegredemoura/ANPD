@@ -26,7 +26,7 @@ export const ARMADILHAS = {
   extrapolacao: 'Acrescenta o que a lei não diz',
   excecao: 'Exceção esquecida ou invertida',
   conceito: 'Conceito ou definição',
-  vetado: 'Dispositivo vetado ou revogado',
+  revogado: 'Dispositivo revogado ou alterado',
   caso: 'Caso concreto',
   comparacao: 'Comparação entre regimes',
   interpretacao: 'Interpretação de texto',
