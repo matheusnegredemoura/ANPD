@@ -1418,7 +1418,7 @@ function renderMetodo() {
     '<li><b>Cards cloze.</b> As lacunas tiram a palavra exata do texto da lei. Faça os novos do dia e responda de cabeça antes de revelar.</li>' +
     '<li><b>Para pesquisar.</b> Os termos das questões erradas entram sozinhos na sua lista. Pesquise um tema por dia e marque como entendido.</li></ol>' +
     '<h3>Regras que não se negociam</h3><ul>' +
-    '<li>O acerto de primeira não volta para revisão; o erro volta até você acertar duas vezes, em dias diferentes.</li>' +
+    '<li>O acerto de primeira só volta depois de semanas. O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça.</li>' +
     '<li>Errou, leia o artigo inteiro. O botão “Ler o artigo inteiro, grifado” aparece depois de cada questão e de cada card.</li>' +
     '<li>Domingo é livre por padrão e não quebra a sequência.</li>' +
     '<li>Não pule a revisão para fazer questões novas: a lista curta cresce e o esquecimento come o que você estudou.</li></ul>' +
@@ -1429,7 +1429,7 @@ function renderMetodo() {
     '<li>A partir da Fase 2, faça ao menos um simulado de prova completa por semana.</li></ul>' +
     '<h3>Semana típica</h3><p>Segunda e terça: bloco de prioridade da vez. Quarta: uma resolução da ANPD. Quinta: tronco regulatório (Lei 13.848/2019 e Lei 9.784/1999). Sexta: revisão da lista curta. Sábado: bloco longo ou simulado. Domingo: livre.</p>' +
     '<h3>Quando o edital sair</h3><p>O cronograma genérico para. O conteúdo programático oficial passa a mandar, os simulados ficam maiores e a revisão espaçada continua todos os dias. Cole o edital na conversa com o Claude para reorganizar os blocos.</p>' +
-    '<h3>Questões marcadas para conferir</h3><p>Questões sobre normas ainda não coladas no app (Lei 9.784/1999, Lei 13.848/2019, ECA Digital, Constituição, GDPR, resoluções) mostram o aviso “confira na fonte”. Elas foram escritas com cuidado, mas só viram definitivas quando o texto oficial for anexado e cada trecho for conferido.</p></div>';
+    '<h3>Questões marcadas para conferir</h3><p>Questões sobre normas ainda não coladas no app (Lei 9.784/1999, Lei 13.848/2019, LINDB, ECA Digital, Constituição, GDPR e resoluções da ANPD) mostram o aviso “confira na fonte”. Elas foram escritas com cuidado, mas só viram definitivas quando o texto oficial for anexado e cada trecho for conferido.</p></div>';
 }
 function renderAjustes() {
   const metas = [10, 20, 30, 40, 60], novos = [5, 10, 20, 30, 50];
