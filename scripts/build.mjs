@@ -5,6 +5,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ARMADILHAS, parseRef } from './lib/questoes.mjs';
+import { LEIS } from './lib/leis.mjs';
 import { validar } from './validar.mjs';
 import { lacunas, paraAnki, semMarcas } from './lib/cloze.mjs';
 
@@ -38,6 +39,9 @@ const NOMES_FONTE = {
   tjue: 'TJUE',
 };
 
+// Unidades que não são artigos
+const UNIDADE = { res19c: 'cláusula', res4ap: 'Apêndice', enun1: 'Enunciado' };
+
 function rotuloArtigo(art) {
   if (/^\d$/.test(art)) return `art. ${art}º`;
   return `art. ${art}`;
@@ -56,10 +60,15 @@ export function rotuloRef(ref) {
     const apelido = { 'C-311/18': 'Schrems II', 'C-362/14': 'Schrems I' }[caso];
     return 'TJUE · ' + caso + (apelido ? ' (' + apelido + ')' : '');
   }
-  if (r.lei === 'res30' || r.lei === 'res31') return NOMES_FONTE[r.lei];
-  const nome = NOMES_FONTE[r.lei] || r.lei.toUpperCase();
+  if ((r.lei === 'res30' || r.lei === 'res31') && !/^(\d|Anexo)/.test(r.art || '')) return NOMES_FONTE[r.lei];
+  const nome = NOMES_FONTE[r.lei] || (LEIS[r.lei] && LEIS[r.lei].curto) || r.lei.toUpperCase();
   if (!r.art) return nome;
-  const art = /^\d/.test(r.art) ? rotuloArtigo(r.art) : r.art;
+  let art;
+  if (UNIDADE[r.lei]) art = UNIDADE[r.lei] + ' ' + r.art;
+  else if (r.lei === 'dec1171' && /^[IVXL]+$/.test(r.art)) art = 'item ' + r.art;
+  else art = /^\d/.test(r.art) ? rotuloArtigo(r.art) : r.art;
+  // "cláusula 16" com dispositivo "cláusula 16.1": basta o dispositivo
+  if (r.disp && r.disp.toLowerCase().startsWith(art.split(' ')[0].toLowerCase() + ' ')) return `${nome}, ${r.disp}`;
   return `${nome}, ${art}${r.disp ? ', ' + r.disp : ''}`;
 }
 

@@ -1,35 +1,41 @@
 bloco: res-15-2024
-// Resoluções do CD/ANPD. Questões PROVISÓRIAS, escritas a partir de resumos de escritórios e do portal da ANPD,
-// sem o texto das resoluções anexado. Envie os PDFs para converter em questões verificadas.
+// Resoluções do CD/ANPD. Conferidas com os textos de fontes/ (res2, res4, res15, res18);
+// r15-05, r18-03 e r4-03 foram reescritas para a redação exata das resoluções.
 
 === r15-01
 gab: C
-ref: res15
+ref: res15 6
+trecho: A comunicação de incidente de segurança à ANPD deverá ser realizada pelo controlador no prazo de três dias úteis
+trecho: O prazo a que se refere o caput será contado do conhecimento pelo controlador de que o incidente afetou dados pessoais
 armadilha: numero
 dif: 1
 enunciado: Segundo o regulamento de comunicação de incidentes da ANPD, a comunicação à autoridade deve ser feita pelo controlador em três dias úteis, contados do conhecimento de que o incidente afetou dados pessoais.
-comentario: A Resolução CD/ANPD nº 15/2024 deu concretude ao “prazo razoável” do art. 48, § 1º, da LGPD.
+comentario: Art. 6º, caput e § 1º, da Resolução CD/ANPD nº 15/2024, que deu concretude ao “prazo razoável” do art. 48, § 1º, da LGPD. Ressalva-se prazo previsto em legislação específica, e o prazo conta em dobro para agentes de pequeno porte (§ 8º). As informações podem ser complementadas em 20 dias úteis (§ 3º).
 pesquisar: Formulário de comunicação de incidente de segurança (CIS) da ANPD
 
 === r15-02
 gab: E
-ref: res15
+ref: res15 6
+trecho: no prazo de três dias úteis
+trecho: será contado do conhecimento pelo controlador de que o incidente afetou dados pessoais
 armadilha: comparacao
 dif: 1
 enunciado: Assim como no GDPR, o regulamento da ANPD fixa o prazo de 72 horas, contado da ocorrência do incidente, para a comunicação à autoridade.
-comentario: São três dias úteis, contados do conhecimento pelo controlador de que o incidente afetou dados pessoais. As 72 horas são do GDPR (art. 33).
+comentario: São três dias úteis, contados do conhecimento pelo controlador de que o incidente afetou dados pessoais (art. 6º, caput e § 1º). As 72 horas são do GDPR (art. 33), contadas de quando o controlador toma conhecimento da violação.
 
 === r15-03
 gab: C
-ref: res15
+ref: res15 10
+trecho: O controlador deverá manter o registro do incidente de segurança, inclusive daquele não comunicado à ANPD e aos titulares, pelo prazo mínimo de cinco anos, contado a partir da data do registro
 armadilha: numero
 dif: 2
 enunciado: O controlador deve manter registro dos incidentes de segurança, inclusive dos que não foram comunicados à ANPD e aos titulares, pelo prazo mínimo de cinco anos.
-comentario: O registro permite demonstrar a avaliação feita e conversa com o princípio da responsabilização e prestação de contas (art. 6º, X, da LGPD).
+comentario: Art. 10. O registro inclui, por exemplo, a avaliação do risco e os motivos da ausência de comunicação, quando for o caso (§ 1º, V e VIII), e serve ao princípio da responsabilização e prestação de contas (art. 6º, X, da LGPD).
 
 === r15-04
 gab: E
-ref: res15
+ref: res15 10
+trecho: inclusive daquele não comunicado à ANPD e aos titulares
 armadilha: extrapolacao
 dif: 2
 enunciado: Segundo a Resolução CD/ANPD nº 15/2024, o dever de registro alcança apenas os incidentes que foram comunicados à ANPD, por presumirem risco relevante.
@@ -37,98 +43,116 @@ comentario: O registro abrange também os incidentes não comunicados.
 
 === r15-05
 gab: C
-ref: res15
+ref: res15 5
+trecho: quando puder afetar significativamente interesses e direitos fundamentais dos titulares e, cumulativamente, envolver, pelo menos, um dos seguintes critérios
+trecho: dados pessoais sensíveis
+trecho: dados de crianças, de adolescentes ou de idosos
+trecho: dados financeiros
+trecho: dados em larga escala
 armadilha: conceito
 dif: 2
-enunciado: Na avaliação de se o incidente pode acarretar risco ou dano relevante, consideram-se fatores como a natureza e a sensibilidade dos dados, o número de titulares afetados e o perfil desses titulares.
-comentario: Confira no texto a lista completa, que inclui dados sensíveis, dados de crianças, adolescentes e idosos, dados financeiros e tratamento em larga escala.
+enunciado: Segundo a Resolução CD/ANPD nº 15/2024, o incidente de segurança pode acarretar risco ou dano relevante quando puder afetar significativamente interesses e direitos fundamentais dos titulares e, cumulativamente, envolver ao menos um critério, como dados sensíveis, dados de crianças, de adolescentes ou de idosos, dados financeiros ou dados em larga escala.
+comentario: Art. 5º. Os seis critérios são: dados sensíveis; de crianças, adolescentes ou idosos; financeiros; de autenticação em sistemas; protegidos por sigilo legal, judicial ou profissional; e em larga escala. A afetação significativa é cumulativa com pelo menos um deles.
 
 === r2-01
 gab: C
-ref: res2
+ref: res2 2
+trecho: agentes de tratamento de pequeno porte: microempresas, empresas de pequeno porte, startups, pessoas jurídicas de direito privado, inclusive sem fins lucrativos, nos termos da legislação vigente, bem como pessoas naturais e entes privados despersonalizados
 bloco: res-2-2022
 armadilha: conceito
 dif: 1
 enunciado: Para o regulamento da ANPD, podem ser agentes de tratamento de pequeno porte, entre outros, microempresas, empresas de pequeno porte, startups, pessoas jurídicas de direito privado sem fins lucrativos, pessoas naturais e entes privados despersonalizados.
-comentario: Resolução CD/ANPD nº 2/2022, editada com base no art. 55-J, XVIII, da LGPD.
+comentario: Art. 2º, I, da Resolução CD/ANPD nº 2/2022, editada com base no art. 55-J, XVIII, da LGPD (art. 1º da resolução).
 
 === r2-02
 gab: C
-ref: res2
+ref: res2 4
+trecho: será considerado de alto risco o tratamento de dados pessoais que atender cumulativamente a pelo menos um critério geral e um critério específico
 bloco: res-2-2022
 armadilha: conceito
 dif: 2
 enunciado: Considera-se de alto risco o tratamento que atender, cumulativamente, a pelo menos um critério geral e a pelo menos um critério específico previstos no regulamento de agentes de pequeno porte.
-comentario: Critérios gerais: larga escala ou afetação significativa de direitos. Específicos: tecnologias emergentes, vigilância de zonas públicas, decisões automatizadas, dados sensíveis ou de crianças, adolescentes e idosos. Confira a redação exata.
+comentario: Art. 4º. Critérios gerais: larga escala ou possibilidade de afetar significativamente interesses e direitos fundamentais. Específicos: tecnologias emergentes ou inovadoras, vigilância ou controle de zonas acessíveis ao público, decisões unicamente automatizadas e dados sensíveis ou de crianças, adolescentes e idosos.
 pesquisar: Critérios gerais e específicos de alto risco (Resolução CD/ANPD 2/2022)
 
 === r2-03
 gab: E
-ref: res2
+ref: res2 3
+trecho: Não poderão se beneficiar do tratamento jurídico diferenciado previsto neste Regulamento os agentes de tratamento de pequeno porte que
+trecho: realizem tratamento de alto risco para os titulares, ressalvada a hipótese prevista no art. 8º
 bloco: res-2-2022
 armadilha: excecao
 dif: 2
 enunciado: O agente de tratamento de pequeno porte que realiza tratamento de alto risco mantém todos os benefícios do regime diferenciado, por força de seu porte econômico.
-comentario: Quem realiza tratamento de alto risco não pode se beneficiar do tratamento jurídico diferenciado do regulamento, qualquer que seja o porte.
+comentario: Art. 3º, I: quem realiza tratamento de alto risco não se beneficia do regime diferenciado, ressalvada só a faculdade do art. 8º (organizar-se por entidades de representação para negociação, mediação e conciliação de reclamações). Também ficam de fora os que ultrapassam os limites de receita bruta (incisos II e III).
 
 === r2-04
 gab: C
-ref: res2
+ref: res2 11
+trecho: Os agentes de tratamento de pequeno porte não são obrigados a indicar o encarregado pelo tratamento de dados pessoais exigido no art. 41 da LGPD
 bloco: res-2-2022
 armadilha: excecao
 dif: 1
 enunciado: Os agentes de tratamento de pequeno porte não são obrigados a indicar o encarregado exigido pelo art. 41 da LGPD.
-comentario: A dispensa vem com o dever de manter canal de comunicação com o titular. A base legal é o art. 41, § 3º, da LGPD.
+comentario: Art. 11. Quem não indicar encarregado deve manter canal de comunicação com o titular (§ 1º), e a indicação voluntária conta como política de boas práticas (§ 2º). A resolução cita como fundamento o art. 55-J, XVIII, da LGPD (art. 1º); a dispensa do encarregado se encaixa na previsão do art. 41, § 3º, da LGPD.
 
 === r2-05
 gab: E
-ref: res2
+ref: res2 11
+trecho: Os agentes de tratamento de pequeno porte não são obrigados a indicar o encarregado
 bloco: res-2-2022
 armadilha: absoluto
 dif: 1
 enunciado: A microempresa que trata dados pessoais sem alto risco deve indicar encarregado, sob pena de multa, pois a LGPD não admite exceção a esse dever.
-comentario: O art. 41, § 3º, da LGPD permite dispensa por norma da ANPD, e a Resolução CD/ANPD nº 2/2022 dispensou os agentes de pequeno porte.
+comentario: O art. 41, § 3º, da LGPD admite hipóteses de dispensa por norma da ANPD, e a Resolução CD/ANPD nº 2/2022 (art. 11) dispensou os agentes de pequeno porte que não realizem tratamento de alto risco nem ultrapassem os limites de receita (art. 3º). A microempresa do item está nesse caso.
 
 === r2-06
 gab: C
-ref: res2
+ref: res2 5
+trecho: Caberá ao agente de tratamento de pequeno porte, quando solicitado pela ANPD, comprovar que se enquadra nas disposições do art. 2º e do art. 3º deste regulamento em até quinze dias
 bloco: res-2-2022
 armadilha: numero
 dif: 3
 enunciado: Quando solicitado pela ANPD, o agente de tratamento de pequeno porte deve comprovar, em até quinze dias, que se enquadra no regime diferenciado.
-comentario: Prazo citado nos resumos do regulamento; confira no texto.
+comentario: Art. 5º da Resolução CD/ANPD nº 2/2022.
 
 === r18-01
 gab: C
-ref: res18
+ref: res18 3
+trecho: A indicação do encarregado deve ser realizada por ato formal do agente de tratamento, do qual constem as formas de atuação e as atividades a serem desempenhadas
+trecho: Entende-se por ato formal o documento escrito, datado e assinado
 bloco: res-18-2024
 armadilha: conceito
 dif: 2
 enunciado: A indicação do encarregado deve ser feita por ato formal do agente de tratamento, documento escrito, datado e assinado, do qual constem as formas de atuação e as atividades a desempenhar.
-comentario: Resolução CD/ANPD nº 18/2024. O documento deve ser apresentado à ANPD quando solicitado.
+comentario: Art. 3º, caput e § 1º, da Resolução CD/ANPD nº 18/2024. O documento deve ser apresentado à ANPD quando solicitado (§ 2º).
 pesquisar: Resolução CD/ANPD 18/2024: deveres do agente em relação ao encarregado
 
 === r18-02
 gab: E
-ref: res18
+ref: res18 12
+trecho: uma pessoa natural, integrante do quadro organizacional do agente de tratamento ou externo a esse
+trecho: uma pessoa jurídica
 bloco: res-18-2024
 armadilha: conceito
 dif: 2
 enunciado: O encarregado deve ser obrigatoriamente pessoa natural com vínculo empregatício com o controlador.
-comentario: O regulamento admite pessoa natural ou jurídica, integrante do quadro ou externa (encarregado como serviço).
+comentario: Art. 12: o encarregado pode ser pessoa natural, do quadro ou externa, ou pessoa jurídica (encarregado como serviço).
 
 === r18-03
 gab: C
-ref: res18
+ref: res18 19
+trecho: O encarregado poderá acumular funções e exercer as suas atividades para mais de um agente de tratamento, desde que seja possível o pleno atendimento de suas atribuições relacionadas a cada agente de tratamento e inexista conflito de interesse
 bloco: res-18-2024
 armadilha: conceito
 dif: 2
-enunciado: O encarregado pode acumular outras funções na organização, desde que não haja conflito de interesse.
-comentario: O conflito de interesse é o limite. Exemplo típico de risco: acumular com cargos que decidem sobre o próprio tratamento de dados.
+enunciado: O encarregado pode acumular funções e atuar para mais de um agente de tratamento, desde que seja possível o pleno atendimento de suas atribuições relacionadas a cada agente e inexista conflito de interesse.
+comentario: Art. 19. São duas condições cumulativas: pleno atendimento das atribuições e ausência de conflito de interesse. O conflito pode surgir, por exemplo, ao acumular o papel de encarregado com atividades de decisão estratégica sobre o tratamento de dados (§ 1º, II), e é verificado no caso concreto (§ 2º).
 
 === r18-04
 gab: E
-ref: res18
+ref: res18 3
+trecho: O documento referido no caput deverá ser apresentado à ANPD, quando solicitado
 bloco: res-18-2024
 armadilha: extrapolacao
 dif: 2
@@ -137,17 +161,21 @@ comentario: Não há registro ou homologação prévia: o ato formal é apresent
 
 === r4-01
 gab: C
-ref: res4
+ref: res4 8
+trecho: As infrações são classificadas, segundo a gravidade e a natureza das infrações e dos direitos pessoais afetados, em
 bloco: res-4-2023
 armadilha: rol
 dif: 1
 enunciado: O regulamento de dosimetria da ANPD classifica as infrações, conforme a gravidade e a natureza das infrações e dos direitos pessoais afetados, em leves, médias ou graves.
-comentario: Resolução CD/ANPD nº 4/2023, que cumpre o art. 53 da LGPD.
+comentario: Art. 8º da Resolução CD/ANPD nº 4/2023, que cumpre o art. 53 da LGPD. A infração é leve quando não for média nem grave (§ 1º).
 pesquisar: Quando a infração é grave na Resolução CD/ANPD 4/2023
 
 === r4-02
 gab: E
-ref: res4
+ref: res4 8
+trecho: I - leve;
+trecho: II - média; ou
+trecho: III - grave.
 bloco: res-4-2023
 armadilha: rol
 dif: 1
@@ -156,18 +184,22 @@ comentario: São três níveis: leve, média e grave.
 
 === r4-03
 gab: C
-ref: res4
+ref: res4 2
+trecho: reincidência específica: repetição de infração pelo mesmo infrator ao mesmo dispositivo legal ou regulamentar, no período de 5 (cinco) anos
+trecho: reincidência genérica: cometimento de infração pelo mesmo infrator, independentemente do dispositivo legal ou regulamentar, no período de 5 (cinco) anos
 bloco: res-4-2023
 armadilha: conceito
 dif: 3
-enunciado: No regulamento de dosimetria da ANPD, a reincidência é específica quando o agente repete a infração ao mesmo dispositivo e genérica quando infringe qualquer norma de proteção de dados, considerado em ambos os casos um período de cinco anos.
-comentario: O período é contado do trânsito em julgado administrativo da condenação anterior até a nova infração; confira a redação exata da reincidência genérica. A reincidência é critério do art. 52, § 1º, V, da LGPD.
+enunciado: No regulamento de dosimetria da ANPD, a reincidência é específica quando o infrator repete a infração ao mesmo dispositivo legal ou regulamentar e genérica quando comete infração independentemente do dispositivo, considerado em ambos os casos o período de cinco anos.
+comentario: Art. 2º, VIII e IX. O período de cinco anos conta do trânsito em julgado do processo sancionador anterior até a data da nova infração, e a genérica exclui os casos de específica. A reincidência é critério do art. 52, § 1º, V, da LGPD.
 
 === r4-04
 gab: C
-ref: res4
+ref: res4 11
+trecho: Para a definição do valor-base da multa simples será utilizada, para cada infração cometida, a metodologia descrita no Apêndice I deste Regulamento
+trecho: a classificação da infração
 bloco: res-4-2023
 armadilha: conceito
 dif: 2
 enunciado: No cálculo da multa, o regulamento de dosimetria parte de um valor-base, definido a partir da classificação da infração, sobre o qual incidem circunstâncias agravantes e atenuantes.
-comentario: O cálculo segue etapas, e o resultado respeita os limites do art. 52, II, da LGPD (2% do faturamento no Brasil, limitado a R$ 50 milhões por infração).
+comentario: Art. 11: o valor-base usa a classificação da infração, o faturamento no ramo de atividade e o grau do dano (Apêndice I). Depois, Vmulta = Vbase × (1 + agravantes − atenuantes), ajustada aos limites: mínimo do Apêndice II ou o dobro da vantagem auferida; máximo de 2% do faturamento, limitado a R$ 50 milhões por infração.

@@ -74,8 +74,10 @@ export function validar({ silencioso = false } = {}) {
 
   // Blocos: artigos citados precisam existir
   for (const b of blocos) {
+    const lei = b.lei || 'lgpd';
+    if (!LEIS[lei]) erros.push(`blocos.json · ${b.id}: lei desconhecida ${lei}`);
     for (const a of b.artigos || []) {
-      if (leis.lgpd && !leis.lgpd.idx.get(a)) erros.push(`blocos.json · ${b.id}: artigo ${a} não existe na LGPD`);
+      if (leis[lei] && !leis[lei].idx.get(a)) erros.push(`blocos.json · ${b.id}: artigo ${a} não existe em ${lei}`);
     }
   }
 

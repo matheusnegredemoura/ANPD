@@ -1,44 +1,50 @@
 bloco: eca-digital
-// ECA Digital (Lei nº 15.211/2025) e decretos. Questões PROVISÓRIAS: escritas a partir de fontes secundárias
-// (escritórios, Agência Gov, Senado), sem o texto da lei anexado. Conferir na fonte antes de confiar 100%.
+// ECA Digital (Lei nº 15.211/2025) e decretos. Conferidas com os textos de fontes/ (lei15211, dec12622);
+// eca-01 e eca-02 foram reescritas para o alcance exato do art. 9º, § 1º.
 
 === eca-01
 gab: C
-ref: lei15211
+ref: lei15211 9, § 1º
+trecho: que disponibilizarem conteúdo, produto ou serviço cuja oferta ou acesso seja impróprio, inadequado ou proibido para menores de 18 (dezoito) anos de idade
+trecho: deverão ser adotados mecanismos confiáveis de verificação de idade a cada acesso do usuário ao conteúdo, produto ou serviço de que trata o caput deste artigo, vedada a autodeclaração
 armadilha: literal
 dif: 1
-enunciado: O ECA Digital exige que os fornecedores de produtos e serviços digitais direcionados a crianças e adolescentes, ou de acesso provável por eles, adotem mecanismos confiáveis de verificação de idade, vedada a autodeclaração.
-comentario: A vedação da autodeclaração é o ponto mais citado da lei. As fontes citam meios como documento oficial, cartão de pagamento e reconhecimento facial.
-pesquisar: Mecanismos de verificação etária aceitos no ECA Digital
+enunciado: Pelo ECA Digital, os fornecedores que disponibilizarem conteúdo, produto ou serviço impróprio, inadequado ou proibido para menores de 18 anos devem adotar mecanismos confiáveis de verificação de idade a cada acesso do usuário, vedada a autodeclaração.
+comentario: Art. 9º, caput e § 1º. Atenção ao alcance: a verificação a cada acesso, vedada a autodeclaração, está ligada ao conteúdo impróprio, inadequado ou proibido para menores de 18 anos (o § 2º cita o material pornográfico). A lei não lista os meios aceitos; o Decreto nº 12.880/2026 (art. 2º, V e VII) define verificação de idade como procedimento de alto grau de confiabilidade, nos termos estabelecidos pela ANPD, e autodeclaração como a mera indicação da idade pelo próprio usuário, sem evidências adicionais.
+pesquisar: Verificação de idade × autodeclaração (Lei 15.211, art. 9º; Decreto 12.880, art. 2º)
 
 === eca-02
 gab: E
-ref: lei15211
+ref: lei15211 9, § 1º
+trecho: deverão ser adotados mecanismos confiáveis de verificação de idade a cada acesso do usuário ao conteúdo, produto ou serviço de que trata o caput deste artigo, vedada a autodeclaração
 armadilha: extrapolacao
 dif: 1
-enunciado: Para o ECA Digital, a autodeclaração de idade pelo usuário é meio suficiente de verificação etária, desde que acompanhada de termo de responsabilidade aceito pelo usuário.
-comentario: A lei veda a autodeclaração como mecanismo de verificação de idade, com ou sem termo de responsabilidade.
+enunciado: No acesso a conteúdo impróprio, inadequado ou proibido para menores de 18 anos, o ECA Digital admite a autodeclaração de idade como mecanismo de verificação, desde que acompanhada de termo de responsabilidade aceito pelo usuário.
+comentario: O art. 9º, § 1º, exige mecanismos confiáveis de verificação de idade a cada acesso e veda a autodeclaração, sem exceção para termo de responsabilidade.
 
 === eca-03
 gab: C
-ref: lei15211
+ref: lei15211 1
+trecho: aplica-se a todo produto ou serviço de tecnologia da informação direcionado a crianças e a adolescentes no País ou de acesso provável por eles
 armadilha: conceito
 dif: 2
 enunciado: O ECA Digital alcança não apenas serviços direcionados a crianças e adolescentes, mas também aqueles de acesso provável por esse público.
-comentario: O critério de acesso provável amplia o alcance da lei para além dos produtos feitos para o público infantil, como redes sociais e jogos de uso geral.
+comentario: Art. 1º. O parágrafo único define acesso provável: suficiente probabilidade de uso e atratividade, considerável facilidade de acesso e significativo grau de risco, em especial em serviços de interação social e compartilhamento de informações em larga escala. Por isso a lei alcança redes sociais e jogos de uso geral.
 pesquisar: Conceito de acesso provável no ECA Digital
 
 === eca-04
 gab: C
-ref: lei15211
+ref: lei15211 24
+trecho: deverão garantir que usuários ou contas de crianças e de adolescentes de até 16 (dezesseis) anos de idade estejam vinculados ao usuário ou à conta de um de seus responsáveis legais
 armadilha: literal
 dif: 2
 enunciado: Segundo o ECA Digital, contas de crianças e de adolescentes de até 16 anos de idade devem estar vinculadas à conta de um de seus responsáveis legais.
-comentario: A vinculação a responsável até os 16 anos é uma das regras centrais de supervisão parental. Confira no texto o alcance exato (tipos de provedor abrangidos).
+comentario: Art. 24, caput: vale para os provedores de produtos ou serviços direcionados a crianças e adolescentes ou de acesso provável por eles. Sem conta de responsável, o provedor deve impedir que a supervisão parental seja rebaixada para nível menor de proteção (§ 5º).
 
 === eca-05
 gab: E
-ref: lei15211
+ref: lei15211 24
+trecho: de até 16 (dezesseis) anos de idade
 armadilha: numero
 dif: 2
 enunciado: A vinculação obrigatória da conta do usuário à conta de responsável legal, prevista no ECA Digital, limita-se às crianças de até 12 anos de idade.
@@ -46,15 +52,17 @@ comentario: O marco etário da vinculação é de até 16 anos, alcançando tamb
 
 === eca-06
 gab: C
-ref: lei15211
+ref: lei15211 20
+trecho: São vedadas as caixas de recompensa (loot boxes) oferecidas em jogos eletrônicos direcionados a crianças e a adolescentes ou de acesso provável por eles
 armadilha: literal
 dif: 1
 enunciado: O ECA Digital proíbe as caixas de recompensa, conhecidas como loot boxes, em jogos eletrônicos direcionados a crianças e adolescentes ou de acesso provável por eles.
-comentario: A vedação das loot boxes foi uma das mudanças de maior impacto para o mercado de jogos.
+comentario: Art. 20, nos termos da respectiva classificação indicativa. O Decreto nº 12.880/2026 (art. 23) exige verificação de idade dos usuários nos jogos com caixas de recompensa e permite versões sem elas.
 
 === eca-07
 gab: E
-ref: lei15211
+ref: lei15211 20
+trecho: São vedadas as caixas de recompensa (loot boxes)
 armadilha: extrapolacao
 dif: 2
 enunciado: As caixas de recompensa em jogos eletrônicos de acesso provável por crianças são permitidas pelo ECA Digital, desde que haja consentimento específico de um dos pais ou responsável.
@@ -62,33 +70,38 @@ comentario: O ECA Digital proíbe as loot boxes nesses jogos. O consentimento pa
 
 === eca-08
 gab: C
-ref: lei15211
+ref: lei15211 22
+trecho: é vedada a utilização de técnicas de perfilamento para direcionamento de publicidade comercial a crianças e a adolescentes
 armadilha: literal
 dif: 2
 enunciado: O ECA Digital veda o uso de técnicas de perfilamento para o direcionamento de publicidade comercial a crianças e adolescentes.
-comentario: A vedação alcança o perfilamento e o uso de tecnologias como análise emocional e realidade aumentada ou virtual para esse fim.
+comentario: Art. 22. A vedação alcança também o emprego de análise emocional, de realidade aumentada, de realidade estendida e de realidade virtual para esse fim.
 pesquisar: Publicidade infantil: Resolução Conanda 163/2014 e ECA Digital
 
 === eca-09
 gab: C
-ref: lei15211
+ref: lei15211 35
+trecho: multa simples, de até 10% (dez por cento) do faturamento do grupo econômico no Brasil no seu último exercício
 armadilha: comparacao
 dif: 2
 enunciado: A multa simples prevista no ECA Digital pode chegar a 10% do faturamento do grupo econômico no Brasil, percentual superior ao teto de 2% previsto para a multa simples da LGPD.
-comentario: As fontes indicam multa de até 10% do faturamento no Brasil, com limite de R$ 50 milhões por infração, além de advertência, suspensão temporária e proibição de atividades.
+comentario: Art. 35, II: até 10% do faturamento do grupo econômico no Brasil no último exercício ou, sem faturamento, de R$ 10 a R$ 1.000 por usuário cadastrado, limitada a R$ 50 milhões por infração. As outras sanções são advertência (com prazo de até 30 dias para correção), suspensão temporária e proibição das atividades. Na LGPD, a multa simples é de até 2% (art. 52, II).
 pesquisar: Sanções do ECA Digital × sanções da LGPD
 
 === eca-10
 gab: C
-ref: lei15211
+ref: lei15211 31
+trecho: que possuírem mais de 1.000.000 (um milhão) de usuários nessa faixa etária registrados, com conexão de internet no território nacional, deverão elaborar relatórios semestrais, em língua portuguesa
 armadilha: numero
 dif: 2
 enunciado: Provedores com mais de um milhão de usuários crianças e adolescentes no Brasil devem publicar relatórios semestrais de transparência, em língua portuguesa.
-comentario: Os relatórios tratam de canais de denúncia, moderação de conteúdo e de contas, denúncias recebidas e medidas de proteção. O primeiro cobriu o primeiro semestre de 2026.
+comentario: Art. 31. Os relatórios, publicados no sítio do provedor, trazem os canais de denúncia, a quantidade de denúncias e de moderações, as medidas de identificação de contas infantis, os aprimoramentos de proteção de dados e de consentimento parental e os resultados das avaliações de risco.
 
 === eca-11
 gab: E
-ref: lei15211
+ref: lei15211 31
+trecho: mais de 1.000.000 (um milhão) de usuários
+trecho: relatórios semestrais
 armadilha: numero
 dif: 2
 enunciado: Pelo ECA Digital, apenas provedores com mais de dez milhões de usuários menores de idade estão obrigados a publicar relatórios de transparência, com periodicidade anual.
@@ -96,15 +109,17 @@ comentario: O corte é de um milhão de usuários crianças e adolescentes, e a 
 
 === eca-12
 gab: C
-ref: dec12622
+ref: dec12622 2
+trecho: A ANPD fica designada como a autoridade administrativa autônoma de proteção dos direitos de crianças e de adolescentes no ambiente digital
 armadilha: sujeito
 dif: 1
 enunciado: O Decreto nº 12.622/2025 designou a ANPD como autoridade administrativa autônoma de proteção dos direitos de crianças e adolescentes no ambiente digital, para os fins do ECA Digital.
-comentario: O decreto regulamentou o § 6º do art. 35 da Lei nº 15.211/2025. Depois, a Lei nº 15.352/2026 transformou a ANPD em agência reguladora e consolidou essas atribuições.
+comentario: Art. 2º do Decreto nº 12.622/2025, que regulamenta o art. 35, § 6º, da Lei nº 15.211/2025 (art. 1º do decreto). O Decreto nº 8.771/2016, alterado pelo Decreto nº 12.975/2026 (art. 19-A), também atribui à ANPD a regulação e a fiscalização dos deveres dos provedores de aplicações previstos na Lei nº 15.211/2025.
 
 === eca-13
 gab: E
-ref: dec12622
+ref: dec12622 2
+trecho: A ANPD fica designada como a autoridade administrativa autônoma de proteção dos direitos de crianças e de adolescentes no ambiente digital
 armadilha: sujeito
 dif: 1
 enunciado: A fiscalização administrativa do ECA Digital foi atribuída ao Conselho Nacional dos Direitos da Criança e do Adolescente (Conanda), cabendo à ANPD apenas a proteção de dados pessoais de crianças.
@@ -112,17 +127,19 @@ comentario: A autoridade administrativa autônoma do ECA Digital é a ANPD (Decr
 
 === eca-14
 gab: C
-ref: dec12622
+ref: dec12622 3
+trecho: A suspensão temporária e a proibição de exercício das atividades previstas na Lei nº 15.211, de 17 de setembro de 2025, quando não implementadas diretamente pelo infrator, serão realizadas por meio de ordem de bloqueio
 armadilha: literal
 dif: 3
 enunciado: Segundo o Decreto nº 12.622/2025, as sanções de suspensão temporária e de proibição de atividades previstas no ECA Digital, quando não cumpridas diretamente pelo infrator, serão efetivadas por meio de ordens de bloqueio.
-comentario: O decreto também definiu competências para o recebimento das ordens judiciais de bloqueio.
+comentario: Art. 3º. Para as ordens judiciais de bloqueio, cabe à Anatel receber e distribuir as ordens às prestadoras de conexão, e ao CGI.br receber as relativas aos nomes de domínio “.br” (§ 1º).
 
 === eca-15
 gab: C
-ref: lei15352
+ref: lei15211 41-A
+trecho: Esta Lei entra em vigor em 17 de março de 2026
 armadilha: literal
 dif: 2
 enunciado: O ECA Digital entrou em vigor em 17 de março de 2026.
-comentario: A vigência foi fixada pela Lei nº 15.352/2026, a mesma que transformou a ANPD em Agência Nacional de Proteção de Dados.
+comentario: O art. 41-A foi incluído na Lei nº 15.211/2025 pelo art. 19 da Lei nº 15.352/2026, a mesma que transformou a ANPD em Agência Nacional de Proteção de Dados.
 pesquisar: Histórico da vigência do ECA Digital (MP e Lei 15.352/2026)
