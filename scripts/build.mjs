@@ -143,9 +143,33 @@ export function montarDados() {
     if (!t.id || !t.comando || !t.aspectos.length || ![15, 30].includes(t.linhas) || !t.pontos || !t.fatorErro) errosCb.push(`discursivas.json (${t.id}): campos obrigatórios`);
     for (const q of t.quesitos) if (q.conceitos.length !== q.max + 1 || !q.esperado.length) errosCb.push(`discursivas.json (${t.id}, ${q.titulo}): ${q.conceitos.length} conceitos para nota máxima ${q.max}`);
   }
+  // Trilhas: subtemas únicos, artigos existentes e todo tema de trilha usado nas questões precisa existir
+  const trilhas = JSON.parse(ler('dados', 'trilhas.json')).trilhas;
+  const subtemas = new Set();
+  const prefixos = new Set();
+  for (const t of trilhas) {
+    for (const st of t.subtemas) {
+      if (subtemas.has(st.id)) errosCb.push(`trilhas.json: subtema repetido ${st.id}`);
+      subtemas.add(st.id);
+      prefixos.add(st.id.split('-')[0] + '-');
+      if (!st.nome || !st.aula || !st.aula.length || !st.chave || !st.armadilhas) errosCb.push(`trilhas.json (${st.id}): campos obrigatórios`);
+      st.arts = (st.artigos || []).map((k) => {
+        const [l, a] = k.split(':');
+        const ok = leis[l] && leis[l].lei.artigos.some((x) => x.id === a);
+        if (!ok) errosCb.push(`trilhas.json (${st.id}): artigo inexistente ${k}`);
+        return l === 'lgpd' ? a : k;
+      });
+      delete st.artigos;
+    }
+  }
+  for (const q of lista) {
+    if (!q.tm) continue;
+    const pre = q.tm.split('-')[0] + '-';
+    if (prefixos.has(pre) && !subtemas.has(q.tm)) errosCb.push(`${q.id}: tema de trilha inexistente ${q.tm}`);
+  }
   if (errosCb.length) {
     for (const e of errosCb) console.error('ERRO: ' + e);
-    throw new Error(`${errosCb.length} erro(s) em dados/cebraspe.json.`);
+    throw new Error(`${errosCb.length} erro(s) em dados/cebraspe.json, discursivas.json ou trilhas.json.`);
   }
   const cloze = notas.map((n) => {
     const r = parseRef(n.ref);
@@ -176,6 +200,7 @@ export function montarDados() {
     cronograma,
     cebraspe,
     discursivas,
+    trilhas,
     cloze,
     glossario: gloss,
   };

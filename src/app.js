@@ -931,6 +931,14 @@ function roteiroHoje() {
       texto: nInt + ' itens misturando as matérias básicas (português, inglês, constitucional, administrativo, ética, LAI e processo administrativo) e os blocos que você já estudou. Misturar obriga a reconhecer o tipo de questão, e isso fixa mais.' + (nInt < (S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas) ? ' Dia pesado: a sessão ficou menor.' : ''),
       botoes: '<button class="btn pequeno primario" data-acao="intercaladas">' + (S.perfil.feitos[chaveInt] ? 'Outra rodada' : 'Começar') + ' · ' + nInt + ' itens</button>' });
   }
+  const std = subtemaDoDia();
+  if (std) {
+    const e = estadoSubtema(std.id), chT = 't:' + hojeISO();
+    passos.push({ titulo: 'Trilha de Direito do zero', feito: !!S.perfil.feitos[chT],
+      texto: 'Subtema de hoje: ' + std.nome + ' (' + ROTULO_ST[e.status] + (e.resp ? ', acerto atual ' + Math.round(e.acerto * 100) + '%' : '') + '). Comece pelas questões, mesmo sem saber a matéria; depois leia a aula curta e pratique até dominar.',
+      botoes: '<button class="btn pequeno primario" data-acao="trilha-sessao" data-st="' + esc(std.id) + '" data-tipo="' + (e.novos ? 'pre' : 'pratica') + '">' + (e.novos ? 'Pré-teste · ' + pl(Math.min(8, e.novos), 'item', 'itens') : 'Praticar · ' + pl(Math.min(20, e.n), 'item', 'itens')) + '</button>' +
+        '<button class="btn pequeno" data-acao="subtema" data-st="' + esc(std.id) + '">Aula e subtema</button>' });
+  }
   if (!dia) {
     passos.push({ titulo: 'Questões livres', feito: d.r >= S.perfil.meta, texto: 'Sem sessão programada para hoje. Uma rodada leve mantém a sequência.',
       botoes: '<button class="btn pequeno primario" data-acao="treino-rapido">Treino de 20 itens</button>' });
@@ -1181,6 +1189,7 @@ function renderExplicacao(q) {
       (q.art && ARTI.get(chave(q.l, q.art)) ? '<div><button class="linkish" data-acao="ver-art" data-art="' + esc(chave(q.l, q.art)) + '" data-q="' + esc(q.id) + '">Ler inteiro, grifado: ' + esc(nomeArt(chave(q.l, q.art))) + '</button></div>' : '') + '</div>';
   } else html += '<div class="citacao"><span class="fonte">Fonte: ' + esc(q.r) + '</span></div>';
   if (q.v === 0) html += '<p class="aviso-conferir">Texto oficial ainda não anexado ao app: confira esta referência na fonte antes de confiar nela.</p>';
+  if (q.tm && SUBTEMAS.get(q.tm)) html += '<p class="pequeno"><button class="linkish" data-acao="aula-folha" data-st="' + esc(q.tm) + '">Rever a aula: ' + esc(SUBTEMAS.get(q.tm).nome) + '</button></p>';
   html += blocoPesquisar(q.e + ' ' + q.c, q.p, 'questão ' + q.id);
   const ct = CONTEST.find((x) => x.q === q.id);
   html += '<div class="contestar"><button class="linkish pequeno" data-acao="contestar" data-q="' + esc(q.id) + '">' + (ct ? 'Contestação enviada (' + esc(STATUS_CONTEST[ct.status] || ct.status) + ') · ver' : 'Contestar este item') + '</button></div>';
@@ -1502,11 +1511,13 @@ function renderMais() {
   else if (sub === 'cebraspe') el.innerHTML = voltarMais() + renderCebraspe();
   else if (sub === 'discursiva') el.innerHTML = (UI.discTema ? '' : voltarMais()) + renderDiscursiva();
   else if (sub === 'contestacoes') el.innerHTML = voltarMais() + renderContestacoes();
+  else if (sub === 'trilha') el.innerHTML = (UI.subtema ? '' : voltarMais()) + renderTrilhas();
   else if (sub === 'ajustes') el.innerHTML = voltarMais() + renderAjustes();
   else {
     const pend = Object.values(S.pesquisa).filter((p) => !p.s).length;
     const item = (s, ic, t, d) => '<button data-acao="mais" data-sub="' + s + '"><span class="ic">' + ic + '</span><span class="tx"><b>' + t + '</b><span class="s">' + d + '</span></span><span class="mudo">›</span></button>';
     el.innerHTML = '<div class="secao-cab"><h2>Mais</h2></div><div class="menu-mais">' +
+      item('trilha', '§', 'Trilhas do zero', 'Direito constitucional e administrativo por subtema: pré-teste, aula, prática e domínio') +
       item('metodo', '1·2', 'Método', 'Como estudar com o app para passar') +
       item('cebraspe', 'C/E', 'Como o Cebraspe cobra', 'A prova, o padrão por disciplina, itens reais e discursiva') +
       item('discursiva', '✎', 'Treino de discursiva', TEMAS_DISC.length + ' temas com quesitos no padrão Cebraspe, contador de linhas e nota estimada') +
@@ -1530,6 +1541,11 @@ function renderProgresso() {
     html += '<div class="dom-linha"><span class="nome">' + esc(b.nome) + '</span>' + barra(dmn) + '<span class="val">' + Math.round(dmn * 100) + '%</span></div>';
   });
   html += '</div><p class="pequeno mudo">Acerto de primeira vale 80%; o item chega a 100% quando você confirma o acerto na revisão seguinte. Erro zera.</p></div>';
+  for (const t of TRILHAS) {
+    html += '<div class="cartao"><div class="secao-cab"><h2>Domínio por subtema · ' + esc(t.nome.replace(/ do zero$/, '')) + '</h2><span class="mudo pequeno">acerto atual</span></div><div class="dominio">' +
+      t.subtemas.map((st) => { const e = estadoSubtema(st.id); return '<button class="dom-linha" data-acao="subtema" data-st="' + esc(st.id) + '"><span class="nome">' + esc(st.nome) + '</span>' + barra(e.acerto * (e.n ? e.resp / e.n : 0)) + '<span class="val">' + (e.status === 'dominado' ? '✓' : e.resp + '/' + e.n) + '</span></button>'; }).join('') +
+      '</div><p class="pequeno mudo">A barra combina quanto do subtema você já respondeu e quanto acerta hoje. ✓ = dominado.</p></div>';
+  }
   const porDisc = {};
   for (const q of Q) { const r = rec(q.id); if (!r || r[0] < 0) continue; const dd = (BI.get(q.b) || {}).disciplina; const x = (porDisc[dd] ||= { c: 0, e: 0 }); x.c += r[2]; x.e += r[3]; }
   const discs = Object.entries(porDisc).filter(([, v]) => v.c + v.e >= 3);
@@ -1701,6 +1717,100 @@ function renderContestacoes() {
   return '<div class="secao-cab"><h2>Minhas contestações</h2><span class="mudo pequeno">' + lista.length + '</span></div>' +
     '<p class="mudo pequeno">Toda contestação é lida na rodada seguinte de revisão do banco. Procedente, o item é corrigido ou retirado; a resposta aparece aqui.</p>' +
     (lista.length ? '<div class="lista-rev">' + lista.map((c) => '<button data-acao="contestar" data-q="' + esc(c.q) + '"><span class="marca-res ' + (c.status === 'procedente' || c.status === 'anulado' ? 'C' : c.status === 'improcedente' ? 'E' : 'B') + '">' + (c.status === 'aberta' || c.status === 'pendente' ? '…' : c.status === 'improcedente' ? '✗' : '✓') + '</span><span class="txt"><b>' + esc(c.q) + '</b> · ' + esc(STATUS_CONTEST[c.status] || c.status) + (QI.get(c.q) ? ' · ' + esc(QI.get(c.q).e.slice(0, 90)) + '…' : '') + '</span></button>').join('') + '</div>' : '<p class="vazio-msg">Nenhuma contestação ainda. O botão “Contestar este item” fica logo abaixo do comentário de cada questão.</p>');
+}
+
+/* ================= Trilhas de estudo do zero ================= */
+// Cada subtema reúne aula, pontos-chave, armadilhas e as questões marcadas com o mesmo tema.
+// Domínio: respondeu ao menos 70% dos itens (mínimo de 10, ou todos se houver menos) e acerta hoje 80% ou mais deles.
+const TRILHAS = (D.trilhas || []).filter((t) => t.subtemas && t.subtemas.length);
+const SUBTEMAS = new Map(TRILHAS.flatMap((t) => t.subtemas.map((st) => [st.id, Object.assign({ trilha: t.id }, st)])));
+const POR_TEMA = agrupar(Q.filter((q) => q.tm), (q) => q.tm);
+function estadoSubtema(id) {
+  const qs = POR_TEMA.get(id) || [];
+  const resp = qs.filter((q) => { const r = rec(q.id); return r && r[0] >= 0; });
+  const certos = resp.filter((q) => rec(q.id)[0] >= 1).length;
+  const n = qs.length, minimo = Math.min(n, Math.max(10, Math.ceil(n * 0.7)));
+  const acerto = resp.length ? certos / resp.length : 0;
+  const status = !n ? 'vazio' : !resp.length ? 'novo' : resp.length >= minimo && acerto >= 0.8 ? 'dominado' : 'curso';
+  return { n, resp: resp.length, certos, acerto, minimo, status, novos: qs.filter((q) => !rec(q.id)).length, erros: resp.length - certos };
+}
+const ROTULO_ST = { vazio: 'sem itens ainda', novo: 'não começado', curso: 'em curso', dominado: 'dominado' };
+function proximoSubtema(trilhaId) {
+  const t = TRILHAS.find((x) => x.id === trilhaId);
+  if (!t) return null;
+  return t.subtemas.find((st) => { const e = estadoSubtema(st.id); return e.n && e.status !== 'dominado'; }) || null;
+}
+// Alterna as trilhas de direito dia a dia; se uma estiver toda dominada, fica a outra
+function subtemaDoDia() {
+  const ordem = ['constitucional', 'administrativo'].filter((id) => TRILHAS.some((t) => t.id === id));
+  if (!ordem.length) return null;
+  const dia = Math.floor(Date.parse(hojeISO() + 'T12:00:00Z') / 864e5);
+  for (let k = 0; k < ordem.length; k++) {
+    const st = proximoSubtema(ordem[(dia + k) % ordem.length]);
+    if (st) return SUBTEMAS.get(st.id);
+  }
+  return null;
+}
+// Pré-teste: itens ainda não vistos primeiro; prática: não vistos, depois os errados, depois os vencidos
+function idsSubtema(id, tipo, n) {
+  const qs = POR_TEMA.get(id) || [];
+  if (tipo === 'erros') return embaralhar(qs.filter((q) => { const r = rec(q.id); return r && r[0] === 0; }).map((q) => q.id));
+  const novos = embaralhar(qs.filter((q) => !rec(q.id)));
+  const errados = embaralhar(qs.filter((q) => { const r = rec(q.id); return r && r[0] === 0; }));
+  const resto = embaralhar(qs.filter((q) => { const r = rec(q.id); return r && r[0] > 0; })).sort((a, b) => rec(a.id)[1] - rec(b.id)[1]);
+  const ordem = tipo === 'pre' ? novos.concat(errados) : novos.concat(errados, resto);
+  return ordem.slice(0, n).map((q) => q.id);
+}
+function chipEstado(e) {
+  return '<span class="selo st-' + e.status + '">' + esc(ROTULO_ST[e.status]) + '</span>';
+}
+function folhaAula(id) {
+  const st = SUBTEMAS.get(id);
+  if (!st) return;
+  const html = cabFolha('Aula', st.nome) + st.aula.map((p) => '<p>' + esc(p) + '</p>').join('') +
+    '<h3>Pontos-chave</h3><ul class="lista-chave">' + st.chave.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul>' +
+    '<h3>Armadilhas</h3><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul>';
+  abrirFolha(html, 'Aula: ' + st.nome);
+}
+function renderTrilhas() {
+  if (UI.subtema && SUBTEMAS.get(UI.subtema)) return renderSubtema(UI.subtema);
+  let html = '<div class="secao-cab"><h2>Trilhas do zero</h2></div>' +
+    '<p class="mudo">Para quem está começando a matéria. Em cada subtema: faça primeiro as questões (pré-teste, mesmo sem saber), depois leia a aula e então pratique até dominar. Errar antes de estudar faz a explicação grudar mais.</p>';
+  for (const t of TRILHAS) {
+    const est = t.subtemas.map((st) => estadoSubtema(st.id));
+    const dom = est.filter((e) => e.status === 'dominado').length;
+    html += '<div class="cartao trilha"><div class="secao-cab"><h2>' + esc(t.nome) + '</h2><span class="mudo pequeno">' + dom + ' de ' + t.subtemas.length + ' dominados</span></div>' +
+      '<p class="pequeno mudo">' + esc(t.resumo) + '</p><ol class="lista-st">' +
+      t.subtemas.map((st, i) => {
+        const e = est[i];
+        return '<li><button data-acao="subtema" data-st="' + esc(st.id) + '"><span class="txt"><b>' + esc(st.nome) + '</b><span class="pequeno mudo">' + pl(e.n, 'questão', 'questões') + (e.resp ? ' · respondidas ' + e.resp + ' · acerto atual ' + Math.round(e.acerto * 100) + '%' : '') + '</span></span>' + chipEstado(e) + '</button></li>';
+      }).join('') + '</ol></div>';
+  }
+  return html;
+}
+function renderSubtema(id) {
+  const st = SUBTEMAS.get(id), e = estadoSubtema(id);
+  const t = TRILHAS.find((x) => x.id === st.trilha);
+  const pos = t.subtemas.findIndex((x) => x.id === id);
+  const prox = t.subtemas[pos + 1];
+  let html = '<button class="btn pequeno voltar" data-acao="subtema" data-st="">← Trilhas</button>' +
+    '<div class="cartao destaque"><span class="rotulo">Subtema ' + (pos + 1) + ' de ' + t.subtemas.length + '</span><h2 class="titulo-st">' + esc(st.nome) + '</h2><p>' + esc(st.resumo) + '</p>' +
+    '<div class="linha-st">' + chipEstado(e) + '<span class="pequeno mudo">' + pl(e.n, 'questão', 'questões') + ' · ' + e.resp + ' respondidas · ' + (e.resp ? 'acerto atual ' + Math.round(e.acerto * 100) + '%' : 'nenhuma respondida') + ' · domínio pede ' + e.minimo + ' respondidas com 80% de acerto</span></div>' +
+    '<div class="linha-btns">' +
+    (e.novos ? '<button class="btn primario" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pre">1. Pré-teste · ' + Math.min(8, e.novos) + ' itens</button>' : '') +
+    '<button class="btn" data-acao="rolar" data-alvo="aula-' + esc(id) + '">' + (e.novos ? '2. ' : '') + 'Aula</button>' +
+    (e.n ? '<button class="btn' + (e.novos ? '' : ' primario') + '" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pratica">' + (e.novos ? '3. ' : '') + 'Praticar · ' + Math.min(20, e.n) + ' itens</button>' : '') +
+    (e.erros ? '<button class="btn" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="erros">Refazer erros · ' + e.erros + '</button>' : '') +
+    '</div></div>';
+  html += '<div class="cartao aula" id="aula-' + esc(id) + '"><h2>Aula</h2>' + st.aula.map((p) => '<p>' + esc(p) + '</p>').join('') + '</div>';
+  html += '<div class="cartao"><h2>Pontos-chave</h2><ul class="lista-chave">' + st.chave.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul></div>';
+  html += '<div class="cartao"><h2>Como o Cebraspe tenta te derrubar</h2><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul></div>';
+  const arts = (st.arts || []).filter((k) => ARTI.get(k));
+  if (arts.length) html += '<div class="cartao"><h2>Lei seca deste subtema</h2><div class="chips">' + arts.map((k) => '<button class="chip" data-acao="abrir-art" data-art="' + esc(k) + '">' + esc(nomeArt(k)) + '</button>').join('') + '</div><p class="pequeno mudo">Leia com os grifos depois da aula: prazos, exceções e palavras de alerta são o que a banca troca.</p></div>';
+  const reais = (POR_TEMA.get(id) || []).filter((q) => q.o).length;
+  if (reais) html += '<p class="pequeno mudo">' + pl(reais, 'item real', 'itens reais') + ' do Cebraspe neste subtema, misturados aos demais.</p>';
+  if (prox) html += '<div class="linha-btns"><button class="btn" data-acao="subtema" data-st="' + esc(prox.id) + '">Próximo: ' + esc(prox.nome) + ' ›</button></div>';
+  return html;
 }
 
 /* ================= Discursiva ================= */
@@ -1986,6 +2096,16 @@ document.addEventListener('click', async (ev) => {
       break;
     }
     case 'contestar': folhaContestar(alvo.dataset.q); break;
+    case 'subtema': fecharFolha(); UI.subtema = alvo.dataset.st || null; UI.mais = 'trilha'; if (UI.vista !== 'mais') ir('mais'); else renderMais(); window.scrollTo(0, 0); break;
+    case 'aula-folha': folhaAula(alvo.dataset.st); break;
+    case 'trilha-sessao': {
+      const st = SUBTEMAS.get(alvo.dataset.st), tipo = alvo.dataset.tipo;
+      const ids = idsSubtema(st.id, tipo, tipo === 'pre' ? 8 : 20);
+      if (!ids.length) { avisar('§', 'Nada para fazer aqui', tipo === 'erros' ? 'Você não tem erros pendentes neste subtema.' : 'Todos os itens já foram vistos: use Praticar.'); break; }
+      fecharFolha();
+      iniciarSessao({ modo: 'treino', ids, titulo: (tipo === 'pre' ? 'Pré-teste · ' : tipo === 'erros' ? 'Erros · ' : 'Prática · ') + st.nome, dia: 't:' + hojeISO() });
+      break;
+    }
     case 'contestar-enviar': {
       const motivo = (document.querySelector('input[name="contest-motivo"]:checked') || {}).value || 'outro';
       const texto = (document.getElementById('contest-texto') || {}).value || '';
