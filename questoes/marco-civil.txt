@@ -1,0 +1,278 @@
+bloco: marco-civil
+// Marco Civil da Internet (Lei nº 12.965/2014) e Decreto nº 8.771/2016, com as alterações do Decreto nº 12.975/2026.
+// Conferidas com fontes/mci.txt e fontes/dec8771.txt.
+
+=== mci-01
+gab: C
+ref: mci 3
+trecho: proteção da privacidade
+trecho: proteção dos dados pessoais, na forma da lei
+trecho: preservação e garantia da neutralidade de rede
+armadilha: rol
+dif: 1
+enunciado: Entre os princípios da disciplina do uso da internet no Brasil estão a proteção da privacidade, a proteção dos dados pessoais, na forma da lei, e a preservação e garantia da neutralidade de rede.
+comentario: Art. 3º, II a IV. Atenção à diferença: o fundamento do art. 2º é o respeito à liberdade de expressão (e mais seis itens); os princípios estão no art. 3º; os objetivos, no art. 4º.
+
+=== mci-02
+gab: E
+ref: mci 5
+trecho: registro de conexão: o conjunto de informações referentes à data e hora de início e término de uma conexão à internet, sua duração e o endereço IP utilizado pelo terminal
+trecho: registros de acesso a aplicações de internet: o conjunto de informações referentes à data e hora de uso de uma determinada aplicação de internet a partir de um determinado endereço IP
+armadilha: conceito
+dif: 2
+enunciado: No Marco Civil da Internet, registro de conexão é o conjunto de informações referentes à data e hora de uso de uma determinada aplicação de internet a partir de um determinado endereço IP.
+comentario: O item descreve o registro de acesso a aplicações (art. 5º, VIII). Registro de conexão é a data e hora de início e término da conexão, sua duração e o IP usado (VI). A distinção define quem guarda o quê: provedor de conexão guarda registros de conexão (1 ano); provedor de aplicação, registros de acesso a aplicações (6 meses).
+
+=== mci-03
+gab: C
+ref: mci 7
+trecho: não suspensão da conexão à internet, salvo por débito diretamente decorrente de sua utilização
+trecho: exclusão definitiva dos dados pessoais que tiver fornecido a determinada aplicação de internet, a seu requerimento, ao término da relação entre as partes
+armadilha: literal
+dif: 2
+enunciado: O Marco Civil assegura ao usuário a não suspensão da conexão, salvo por débito decorrente de sua utilização, e a exclusão definitiva dos dados pessoais fornecidos a uma aplicação, a seu requerimento, ao término da relação, ressalvada a guarda obrigatória de registros.
+comentario: Art. 7º, IV e X (redação da LGPD). O acesso à internet é essencial ao exercício da cidadania (caput).
+
+=== mci-04
+gab: E
+ref: mci 7
+trecho: consentimento expresso sobre coleta, uso, armazenamento e tratamento de dados pessoais, que deverá ocorrer de forma destacada das demais cláusulas contratuais
+trecho: salvo mediante consentimento livre, expresso e informado ou nas hipóteses previstas em lei
+armadilha: comparacao
+dif: 3
+enunciado: Pelo Marco Civil, o fornecimento a terceiros de dados pessoais e de registros de conexão do usuário é sempre vedado, mesmo com seu consentimento.
+comentario: Art. 7º, VII: o fornecimento a terceiros é vedado salvo mediante consentimento livre, expresso e informado ou nas hipóteses legais. Depois da LGPD, o consentimento é só uma das bases legais (LGPD, art. 7º), e a LGPD aplica-se também ao ambiente digital (art. 1º).
+
+=== mci-05
+gab: C
+ref: mci 9
+trecho: O responsável pela transmissão, comutação ou roteamento tem o dever de tratar de forma isonômica quaisquer pacotes de dados, sem distinção por conteúdo, origem e destino, serviço, terminal ou aplicação.
+trecho: requisitos técnicos indispensáveis à prestação adequada dos serviços e aplicações
+trecho: priorização de serviços de emergência
+armadilha: excecao
+dif: 2
+enunciado: Pela neutralidade de rede, quem transmite, comuta ou roteia deve tratar de forma isonômica quaisquer pacotes de dados, e a discriminação ou degradação do tráfego só pode decorrer de requisitos técnicos indispensáveis ou da priorização de serviços de emergência.
+comentario: Art. 9º, caput e § 1º. O Decreto 8.771 detalha: os requisitos técnicos são segurança da rede (spam, negação de serviço) e congestionamento excepcional (art. 5º, § 1º), e são vedados acordos que priorizem pacotes por arranjos comerciais (art. 9º, II).
+pesquisar: Neutralidade de rede e zero rating
+
+=== mci-06
+gab: E
+ref: mci 10
+trecho: O provedor responsável pela guarda somente será obrigado a disponibilizar os registros mencionados no caput, de forma autônoma ou associados a dados pessoais ou a outras informações que possam contribuir para a identificação do usuário ou do terminal, mediante ordem judicial
+trecho: O disposto no caput não impede o acesso aos dados cadastrais que informem qualificação pessoal, filiação e endereço, na forma da lei, pelas autoridades administrativas que detenham competência legal para a sua requisição.
+armadilha: excecao
+dif: 3
+enunciado: Pelo Marco Civil, tanto os registros de conexão quanto os dados cadastrais de qualificação pessoal, filiação e endereço só podem ser fornecidos mediante ordem judicial.
+comentario: Art. 10, §§ 1º e 3º: registros exigem ordem judicial; dados cadastrais (qualificação pessoal, filiação e endereço) podem ser requisitados por autoridades administrativas com competência legal expressa, que devem indicar o fundamento e a motivação (Decreto 8.771, art. 11).
+
+=== mci-07
+gab: C
+ref: mci 11
+trecho: aplica-se mesmo que as atividades sejam realizadas por pessoa jurídica sediada no exterior, desde que oferte serviço ao público brasileiro ou pelo menos uma integrante do mesmo grupo econômico possua estabelecimento no Brasil
+armadilha: literal
+dif: 2
+enunciado: O dever de respeitar a legislação brasileira na coleta e no tratamento de dados por provedores aplica-se mesmo a pessoa jurídica sediada no exterior, desde que oferte serviço ao público brasileiro ou que uma integrante do grupo econômico tenha estabelecimento no Brasil.
+comentario: Art. 11, § 2º. Compare com a aplicação territorial da LGPD (art. 3º), que usa critérios semelhantes: tratamento no Brasil, oferta de bens ou serviços a indivíduos no Brasil, dados coletados no país.
+
+=== mci-08
+gab: C
+ref: mci 12
+trecho: multa de até 10% (dez por cento) do faturamento do grupo econômico no Brasil no seu último exercício, excluídos os tributos
+armadilha: comparacao
+dif: 2
+enunciado: As infrações aos arts. 10 e 11 do Marco Civil sujeitam o infrator, entre outras sanções, a multa de até 10% do faturamento do grupo econômico no Brasil no último exercício, excluídos os tributos.
+comentario: Art. 12, II. As demais: advertência, suspensão temporária e proibição das atividades do art. 11. Compare: LGPD, até 2% limitada a R$ 50 milhões; ECA Digital, até 10% ou de R$ 10 a R$ 1.000 por usuário, limitada a R$ 50 milhões. O Decreto 8.771, art. 19-A, deu à ANPD competência para apurar infrações aos arts. 10 a 12.
+
+=== mci-09
+gab: E
+ref: mci 13
+trecho: cabe ao administrador de sistema autônomo respectivo o dever de manter os registros de conexão, sob sigilo, em ambiente controlado e de segurança, pelo prazo de 1 (um) ano
+armadilha: numero
+dif: 1
+enunciado: O provedor de conexão deve guardar os registros de conexão pelo prazo de seis meses, e o provedor de aplicações, os registros de acesso a aplicações por um ano.
+comentario: Os prazos estão invertidos: registros de conexão, 1 ano (art. 13); registros de acesso a aplicações, 6 meses (art. 15). Na provisão de conexão é vedado guardar registros de acesso a aplicações (art. 14).
+
+=== mci-10
+gab: C
+ref: mci 13
+trecho: a autoridade requerente terá o prazo de 60 (sessenta) dias, contados a partir do requerimento, para ingressar com o pedido de autorização judicial de acesso aos registros
+trecho: Em qualquer hipótese, a disponibilização ao requerente dos registros de que trata este artigo deverá ser precedida de autorização judicial
+armadilha: numero
+dif: 3
+enunciado: A autoridade policial, administrativa ou o Ministério Público pode requerer cautelarmente a guarda dos registros de conexão por prazo superior a um ano, mas tem sessenta dias para pedir autorização judicial de acesso, e a disponibilização dos registros sempre depende de autorização judicial.
+comentario: Art. 13, §§ 2º, 3º e 5º. O requerimento perde eficácia se o pedido judicial for indeferido ou não for protocolado em 60 dias (§ 4º).
+
+=== mci-11
+gab: E
+ref: mci 14
+trecho: Na provisão de conexão, onerosa ou gratuita, é vedado guardar os registros de acesso a aplicações de internet.
+armadilha: literal
+dif: 2
+enunciado: O provedor de conexão à internet pode guardar os registros de acesso a aplicações de internet de seus usuários, desde que o faça sob sigilo e por até seis meses.
+comentario: Art. 14: na provisão de conexão é vedado guardar registros de acesso a aplicações. Isso impede que a operadora monte o histórico de navegação do usuário.
+
+=== mci-12
+gab: C
+ref: mci 18
+trecho: O provedor de conexão à internet não será responsabilizado civilmente por danos decorrentes de conteúdo gerado por terceiros.
+armadilha: literal
+dif: 1
+enunciado: O provedor de conexão à internet não é responsabilizado civilmente por danos decorrentes de conteúdo gerado por terceiros.
+comentario: Art. 18. Já o provedor de aplicações responde, pela regra do art. 19, se descumprir ordem judicial específica de remoção; o Decreto 12.975/2026 criou deveres de cuidado adicionais (Decreto 8.771, arts. 16-A a 16-P).
+
+=== mci-13
+gab: E
+ref: mci 19
+trecho: o provedor de aplicações de internet somente poderá ser responsabilizado civilmente por danos decorrentes de conteúdo gerado por terceiros se, após ordem judicial específica, não tomar as providências
+armadilha: literal
+dif: 2
+enunciado: Pelo texto do art. 19 do Marco Civil, o provedor de aplicações responde civilmente por conteúdo de terceiros se, após simples notificação extrajudicial do ofendido, não remover o conteúdo.
+comentario: Art. 19: a regra do texto legal exige ordem judicial específica. As exceções legais são a cena de nudez ou ato sexual privado (art. 21, notificação do participante) e os regimes especiais do ECA Digital (art. 29). O STF, no Tema 987 (2025), declarou o art. 19 parcialmente inconstitucional, e o Decreto 12.975/2026 regulou deveres de cuidado; em prova de lei seca, vale o texto.
+pesquisar: STF, Tema 987 e Tema 533: responsabilidade de plataformas (2025)
+
+=== mci-14
+gab: C
+ref: mci 21
+trecho: será responsabilizado subsidiariamente pela violação da intimidade decorrente da divulgação, sem autorização de seus participantes, de imagens, de vídeos ou de outros materiais contendo cenas de nudez ou de atos sexuais de caráter privado
+armadilha: excecao
+dif: 2
+enunciado: O provedor de aplicações responde subsidiariamente pela divulgação não autorizada de cenas de nudez ou atos sexuais de caráter privado quando, após notificação do participante ou de seu representante legal, deixar de indisponibilizar o conteúdo de forma diligente.
+comentario: Art. 21: exceção ao art. 19, sem necessidade de ordem judicial. A notificação deve identificar especificamente o material e a legitimidade do pedido, sob pena de nulidade (parágrafo único).
+
+=== mci-15
+gab: C
+ref: mci 22
+trecho: fundados indícios da ocorrência do ilícito
+trecho: período ao qual se referem os registros
+armadilha: rol
+dif: 3
+enunciado: O pedido judicial de fornecimento de registros de conexão ou de acesso a aplicações deve conter, sob pena de inadmissibilidade, fundados indícios do ilícito, justificativa motivada da utilidade dos registros e o período a que se referem.
+comentario: Art. 22, parágrafo único, I a III. O juiz deve garantir o sigilo e pode decretar segredo de justiça (art. 23).
+
+=== d8771-01
+gab: C
+ref: dec8771 19-A
+trecho: A Agência Nacional de Proteção de Dados – ANPD atuará na regulação, na fiscalização e na apuração de infrações quanto à garantia dos direitos dos usuários e ao cumprimento dos deveres dos provedores de aplicações de internet
+trecho: da Lei nº 15.211, de 17 de setembro de 2025
+armadilha: sujeito
+dif: 2
+enunciado: Com o Decreto nº 12.975/2026, a ANPD passou a atuar na regulação, fiscalização e apuração de infrações quanto aos direitos dos usuários e aos deveres dos provedores de aplicações de internet, nos termos do Marco Civil, da LGPD e do ECA Digital.
+comentario: Art. 19-A do Decreto 8.771/2016, incluído pelo Decreto 12.975/2026, especialmente quanto aos arts. 10 a 12 do Marco Civil e aos novos arts. 16-A a 16-P. A Anatel cuida da neutralidade e das telecomunicações (arts. 5º, § 2º, e 17), a Senacon do consumidor (art. 18) e o SBDC da concorrência (art. 19).
+pesquisar: Decreto 12.975/2026 e a nova competência da ANPD sobre plataformas
+
+=== d8771-02
+gab: E
+ref: dec8771 5
+trecho: tratamento de questões de segurança de redes, tais como restrição ao envio de mensagens em massa ( spam ) e controle de ataques de negação de serviço
+trecho: A Agência Nacional de Telecomunicações - Anatel atuará na fiscalização e na apuração de infrações quanto aos requisitos técnicos elencados neste artigo
+armadilha: sujeito
+dif: 2
+enunciado: Cabe à ANPD fiscalizar e apurar infrações quanto aos requisitos técnicos que justificam a discriminação de tráfego, como a contenção de spam e de ataques de negação de serviço.
+comentario: Art. 5º, § 2º: nesse ponto atua a Anatel, consideradas as diretrizes do CGI.br. A ANPD atua sobre os direitos dos usuários e os deveres dos provedores de aplicações (art. 19-A).
+
+=== d8771-03
+gab: C
+ref: dec8771 9
+trecho: priorizem pacotes de dados em razão de arranjos comerciais
+trecho: privilegiem aplicações ofertadas pelo próprio responsável pela transmissão, pela comutação ou pelo roteamento ou por empresas integrantes de seu grupo econômico
+armadilha: rol
+dif: 2
+enunciado: O Decreto nº 8.771/2016 veda condutas ou acordos entre quem transmite os dados e provedores de aplicação que priorizem pacotes por arranjos comerciais ou privilegiem aplicações do próprio grupo econômico do responsável pela transmissão.
+comentario: Art. 9º, II e III. A priorização de emergência é gratuita e restrita às comunicações com serviços de emergência e alertas de desastre (art. 8º).
+
+=== d8771-04
+gab: E
+ref: dec8771 11
+trecho: sendo vedados pedidos coletivos que sejam genéricos ou inespecíficos
+trecho: a qualificação pessoal, entendida como nome, prenome, estado civil e profissão do usuário
+armadilha: extrapolacao
+dif: 3
+enunciado: A autoridade administrativa competente pode requisitar ao provedor os dados cadastrais de todos os usuários de determinado bairro, desde que indique o fundamento legal de sua competência.
+comentario: Art. 11, § 3º: os pedidos devem especificar os indivíduos e as informações desejadas, vedados pedidos coletivos genéricos ou inespecíficos. Dados cadastrais são filiação, endereço e qualificação pessoal (nome, prenome, estado civil e profissão) (§ 2º).
+
+=== d8771-05
+gab: C
+ref: dec8771 13
+trecho: a previsão de mecanismos de autenticação de acesso aos registros, usando, por exemplo, sistemas de autenticação dupla
+trecho: o uso de soluções de gestão dos registros por meio de técnicas que garantam a inviolabilidade dos dados, como encriptação ou medidas de proteção equivalentes
+armadilha: rol
+dif: 2
+enunciado: Entre os padrões de segurança que os provedores devem observar na guarda de dados e comunicações estão a autenticação de acesso aos registros, por exemplo com autenticação dupla, o inventário detalhado dos acessos e o uso de encriptação ou medidas equivalentes.
+comentario: Art. 13, I a IV. Os provedores devem ainda reter a menor quantidade possível de dados e excluí-los ao fim da finalidade ou do prazo legal (§ 2º), ideia próxima do princípio da necessidade da LGPD.
+
+=== d8771-06
+gab: C
+ref: dec8771 15-A
+trecho: abrangerá a porta lógica de origem associada sempre que necessário para a identificação inequívoca do terminal de origem
+trecho: O dever de guarda da porta lógica de origem independerá de prévia requisição e recairá autonomamente sobre cada provedor.
+armadilha: literal
+dif: 3
+enunciado: Pelo Decreto nº 12.975/2026, o dever de guarda de registros de endereço IP abrange a porta lógica de origem, quando necessária para identificar inequivocamente o terminal, e independe de prévia requisição.
+comentario: Art. 15-A do Decreto 8.771. Com o compartilhamento de IPs (CGNAT), o IP sozinho não identifica o usuário; a porta lógica completa a identificação. O fornecimento segue os arts. 10 e 22 do Marco Civil (ordem judicial).
+pesquisar: Porta lógica de origem e CGNAT
+
+=== d8771-07
+gab: E
+ref: dec8771 16-B
+trecho: serão responsabilizados em caso de falha sistêmica na indisponibilização imediata de conteúdo
+trecho: A existência de conteúdos ilícitos referidos no caput de forma isolada não caracteriza, por si só, falha sistêmica
+armadilha: absoluto
+dif: 3
+enunciado: Pelo Decreto nº 8.771/2016, com a redação de 2026, a simples existência de um conteúdo de incitação ao suicídio na plataforma caracteriza falha sistêmica e gera a responsabilização do provedor.
+comentario: Art. 16-B, § 3º: conteúdo isolado não caracteriza, por si só, falha sistêmica (aplica-se o art. 16-G, de remoção após notificação). Falha sistêmica é não comprovar medidas adequadas de prevenção ou remoção, com os níveis mais elevados de segurança e capazes de inibir a circulação massiva (§ 1º).
+
+=== d8771-08
+gab: C
+ref: dec8771 16-G
+trecho: o conteúdo gerado por terceiros que configure crime conforme a legislação nacional, excetuados os crimes contra a honra
+armadilha: excecao
+dif: 3
+enunciado: Notificado, o provedor de aplicações deve indisponibilizar conteúdo de terceiros que configure crime, salvo os crimes contra a honra, que continuam a depender de ordem judicial específica para a responsabilização do provedor.
+comentario: Art. 16-G, combinado com o art. 16-J, I. O provedor pode manter o conteúdo se, após análise diligente, houver dúvida razoável sobre seu caráter criminoso (art. 16-G, § 1º), considerado o contexto, a liberdade religiosa e a finalidade informativa, crítica, satírica ou de paródia (§ 2º).
+
+=== d8771-09
+gab: C
+ref: dec8771 16-L
+trecho: Presume-se a responsabilidade do provedor de aplicações de internet quando o conteúdo ilícito for veiculado em anúncios, impulsionamentos pagos ou distribuído por meio de redes artificiais de distribuição de conteúdos, independentemente de notificação.
+armadilha: literal
+dif: 2
+enunciado: Presume-se a responsabilidade do provedor de aplicações quando o conteúdo ilícito for veiculado em anúncio, impulsionamento pago ou rede artificial de distribuição, independentemente de notificação, salvo se comprovar atuação diligente e em tempo razoável.
+comentario: Art. 16-L e parágrafo único. Os provedores de anúncios devem guardar por um ano as informações de cada anúncio e anunciante (art. 16-M).
+
+=== d8771-10
+gab: E
+ref: dec8771 16-O
+trecho: serviços de mensageria instantânea, exclusivamente quanto às comunicações interpessoais
+trecho: Os deveres previstos nos art. 16-B a art. 16-J não se aplicam às seguintes categorias de serviços
+armadilha: excecao
+dif: 3
+enunciado: Os deveres de cuidado e de indisponibilização de conteúdo criminoso do Decreto nº 8.771/2016 aplicam-se integralmente às conversas privadas em serviços de mensageria instantânea.
+comentario: Art. 16-O: os arts. 16-B a 16-J não se aplicam a e-mail, a mensageria instantânea quanto às comunicações interpessoais (protegidas pelo sigilo do art. 5º, XII, da CF) e a videoconferência em grupo restrito. Grupos abertos e difusão pública não estão na exceção.
+
+=== d8771-11
+gab: C
+ref: dec8771 16-I
+trecho: É vedada à autoridade competente a notificação de provedores de aplicações de internet para moderação de conteúdos criminosos ou ilícitos de forma isolada.
+armadilha: literal
+dif: 3
+enunciado: Na apuração da responsabilidade administrativa do provedor, a autoridade avalia a atuação diligente, proporcional e célere no tratamento das notificações, sendo-lhe vedado notificar provedores para moderar conteúdos de forma isolada.
+comentario: Art. 16-I e parágrafo único. A supervisão é sistêmica, não caso a caso: também é vedada a responsabilização fundada só na manutenção ou remoção isolada de um conteúdo.
+
+=== d8771-12
+gab: E
+ref: dec8771 16-A
+trecho: constituir e manter sede e representante legal no País
+trecho: O representante legal de que trata o inciso I do caput será constituído na forma de pessoa jurídica
+armadilha: literal
+dif: 2
+enunciado: O provedor de aplicações estrangeiro pode cumprir o dever de representação no Brasil indicando como representante legal uma pessoa natural residente no país.
+comentario: Art. 16-A, I e parágrafo único: o provedor deve ter sede e representante legal no País, e o representante será pessoa jurídica, com contatos acessíveis no sítio do representado. Deve ainda manter canal de denúncia permanente e coibir redes artificiais de distribuição (II e III).
+
+=== d8771-13
+gab: C
+ref: dec8771 16-N
+trecho: o conteúdo que não for claramente identificável pelo usuário como publicidade será considerado publicidade enganosa
+armadilha: conceito
+dif: 2
+enunciado: Para fins do dever de indisponibilização de publicidade enganosa, abusiva ou fraudulenta, o conteúdo que não for claramente identificável pelo usuário como publicidade é considerado publicidade enganosa.
+comentario: Art. 16-N, § 2º. A notificação pode vir de autoridade do Sistema Nacional de Defesa do Consumidor ou, se ligada a políticas públicas, da AGU (§ 1º). Liga-se ao art. 36 do CDC (identificação da publicidade).
