@@ -6,6 +6,9 @@ import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { GRUPOS_LEIS, LEIS, carregarLei, indicePorArtigo, normalizar } from './lib/leis.mjs';
 import { ARMADILHAS, lerTodas, parseRef } from './lib/questoes.mjs';
+
+// Refs que não apontam para norma anexada (doutrina, jurisprudência, textos de apoio). Qualquer outro id fora de leis.mjs é erro de digitação.
+const REFS_SEM_TEXTO = new Set(['doutrina', 'stf', 'gdpr', 'tjue', 'texto']);
 import { lacunas, lerCloze, lerGlossario, semMarcas } from './lib/cloze.mjs';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -55,6 +58,8 @@ export function validar({ silencioso = false } = {}) {
       }
     } else if (q.trecho.length && LEIS[ref.lei]) {
       avisos.push(`${q.id}: ${ref.lei} ainda não tem texto em fontes/ — trecho não conferido`);
+    } else if (!LEIS[ref.lei] && !REFS_SEM_TEXTO.has(ref.lei)) {
+      err(q, `norma desconhecida na ref: ${ref.lei} (use um id de leis.mjs ou ${[...REFS_SEM_TEXTO].join(', ')})`);
     }
   }
 
