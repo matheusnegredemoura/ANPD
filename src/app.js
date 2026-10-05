@@ -166,8 +166,31 @@ UI.artSel = null; UI.busca = ''; UI.mais = 'menu'; UI.leiFila = null; UI.ranking
 if (!UI.camadas) UI.camadas = { cai: true, num: true, alerta: true, verbo: true, erro: true };
 let sessao = null;
 function salvarUI() {
-  gravarLS(CHAVE_UI, { vista: UI.vista, modo: UI.modo, n: UI.n, filtro: UI.filtro, prova: UI.prova, blocos: UI.blocos, blocosCards: UI.blocosCards, camadas: UI.camadas, lei: UI.lei });
+  gravarLS(CHAVE_UI, { vista: UI.vista, modo: UI.modo, n: UI.n, filtro: UI.filtro, prova: UI.prova, blocos: UI.blocos, blocosCards: UI.blocosCards, camadas: UI.camadas, lei: UI.lei, tema: UI.tema });
 }
+// Tema: 'auto' segue o aparelho e o claude.ai; 'horario' fica escuro das 19h às 6h. A escolha vale para este aparelho.
+const TEMAS = [['auto', 'Automático'], ['claro', 'Claro'], ['escuro', 'Escuro'], ['horario', 'Noturno pelo horário']];
+function temaDaVez() {
+  if (UI.tema === 'claro' || UI.tema === 'escuro') return UI.tema;
+  if (UI.tema === 'horario') { const h = new Date().getHours(); return h >= 19 || h < 6 ? 'escuro' : 'claro'; }
+  return null;
+}
+function aplicarTema() {
+  const t = temaDaVez(), raiz = document.documentElement;
+  if (t) raiz.dataset.tema = t; else delete raiz.dataset.tema;
+}
+function temaEscuroAtivo() {
+  const raiz = document.documentElement;
+  if (raiz.dataset.tema) return raiz.dataset.tema === 'escuro';
+  if (raiz.dataset.theme) return raiz.dataset.theme === 'dark';
+  return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+}
+if (!TEMAS.some(([v]) => v === UI.tema)) UI.tema = 'auto';
+aplicarTema();
+// Em Automático, o ícone do topo acompanha a troca de tema do aparelho
+try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => renderTopo()); } catch (e) { /* navegador antigo */ }
+// No modo pelo horário, confere a hora a cada minuto
+setInterval(() => { if (UI.tema === 'horario') { const antes = document.documentElement.dataset.tema; aplicarTema(); if (antes !== document.documentElement.dataset.tema) renderTopo(); } }, 60000);
 
 /* ================= Persistência ================= */
 // O progresso fica no banco do Artifact (por usuário) e, sempre, também neste navegador.
@@ -758,6 +781,8 @@ function avisar(ic, titulo, texto) {
 
 /* ================= Componentes ================= */
 function iconeFogo() { return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 3.5 5 6 5 11a5 5 0 0 1-10 0c0-2.2 1-3.8 2.3-5 .2 1.6 1 2.7 2.2 3.1C11 8.5 11.3 5.2 12 2z"/></svg>'; }
+function iconeLua() { return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>'; }
+function iconeSol() { return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'; }
 function iconeEngrenagem() { return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>'; }
 function anel(valor, total) {
   const r = 36, circ = 2 * Math.PI * r, f = Math.min(1, total ? valor / total : 0);
@@ -776,6 +801,7 @@ function renderTopo() {
     '<div class="marca"><b>Painel ANPD</b><span>Especialista em Regulação de Proteção de Dados · Nível ' + nv.n + '</span></div>' +
     '<div class="status"><span class="pilula fogo' + (seq ? '' : ' apagado') + '" title="Dias seguidos de estudo">' + iconeFogo() + seq + '</span>' +
     '<span class="pilula xp" title="Pontos de experiência">' + fmtNum(S.perfil.xp) + ' XP</span>' +
+    '<button class="icone-btn" data-acao="tema-alternar" aria-label="' + (temaEscuroAtivo() ? 'Usar tema claro' : 'Usar modo noturno') + '" title="' + (temaEscuroAtivo() ? 'Tema claro' : 'Modo noturno') + '">' + (temaEscuroAtivo() ? iconeSol() : iconeLua()) + '</button>' +
     '<button class="icone-btn" data-acao="mais" data-sub="ajustes" aria-label="Ajustes">' + iconeEngrenagem() + '</button></div>';
 }
 
@@ -1663,6 +1689,7 @@ function renderAjustes() {
   const linha = (rot, val, ok) => '<tr><td>' + rot + '</td><td class="' + (ok === true ? 'ok' : ok === false ? 'no' : '') + '">' + esc(val) + '</td></tr>';
   const st = (v) => (v === 'ok' ? true : v === '—' ? null : false);
   return '<div class="secao-cab"><h2>Ajustes</h2></div>' +
+    '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha vale para este aparelho.</p></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' + metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div></div>' +
     '<div class="campo"><span class="rot">Cards novos por dia</span><div class="chips">' + novos.map((m) => '<button class="chip" data-acao="novos-cards" data-n="' + m + '" aria-pressed="' + ((S.perfil.novosCards || 20) === m) + '">' + m + '</button>').join('') + '</div><p class="pequeno mudo">Cada card novo volta várias vezes nos dias seguintes. 20 por dia é o equilíbrio para quem tem 1h45 de estudo.</p></div></div>' +
     '<div class="cartao"><h2>Backup do progresso</h2><p class="pequeno">Salve um arquivo com todo o seu progresso. Se a gravação na conta falhar, ou se você trocar de aparelho, é só restaurar.</p>' +
@@ -1868,6 +1895,8 @@ document.addEventListener('click', async (ev) => {
     }
     case 'fase': UI.faseAberta = UI.faseAberta === alvo.dataset.fase ? '' : alvo.dataset.fase; renderMais(); break;
     case 'status': { const b = alvo.dataset.bloco; S.perfil.status[b] = STATUS_CICLO[S.perfil.status[b] || 'nao']; Store.salvar('perfil'); renderMais(); break; }
+    case 'tema': UI.tema = alvo.dataset.tema; salvarUI(); aplicarTema(); renderTudo(); break;
+    case 'tema-alternar': UI.tema = temaEscuroAtivo() ? 'claro' : 'escuro'; salvarUI(); aplicarTema(); renderTudo(); break;
     case 'meta': S.perfil.meta = Number(alvo.dataset.meta); Store.salvar('perfil'); renderTudo(); break;
     case 'novos-cards': S.perfil.novosCards = Number(alvo.dataset.n); Store.salvar('perfil'); renderTudo(); break;
     case 'backup-baixar': {

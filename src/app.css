@@ -49,6 +49,20 @@
   --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
   color-scheme:dark;
 }
+/* Tema escolhido no app (botão de lua no topo ou Mais → Ajustes): vem depois e prevalece sobre o do aparelho e o do claude.ai */
+:root[data-tema="escuro"]{
+  --bg:#0e1513; --surface:#151f1c; --surface-2:#1c2925; --ink:#e3ebe7; --ink-2:#a2b5ad; --ink-3:#7f938b;
+  --line:#2a3a35; --accent:#52cfbe; --accent-2:#163a35; --accent-ink:#04201c; --gold:#e6b04b; --gold-bg:#3a2c10;
+  --certo:#72cf98; --certo-bg:#14321f; --errado:#f08a77; --errado-bg:#3d1d17; --mark:#5a4512;
+  --calor-0:#1c2925; --calor-1:#1d4a43; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
+  --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+  color-scheme:dark;
+}
+:root[data-tema="claro"]{
+  --bg:#edf1ee; --surface:#ffffff; --surface-2:#e1e8e4; --ink:#13211d; --ink-2:#4b5f57; --ink-3:#6f8179; --line:#c6d1cb; --accent:#0c6b66; --accent-2:#d6ebe7; --accent-ink:#ffffff; --gold:#94600a; --gold-bg:#f4e6c7; --certo:#1f7445; --certo-bg:#dcefe3; --errado:#ad3726; --errado-bg:#f7dfda; --mark:#fbe3a6; --calor-0:#dfe7e3; --calor-1:#a9d6cd; --calor-2:#5fb3a6; --calor-3:#1f8a80; --calor-4:#0b5a55; --sombra:0 1px 2px rgba(19,33,29,.06),0 6px 20px rgba(19,33,29,.06);
+  color-scheme:light;
+}
+
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -68,9 +82,10 @@ p{margin:0}
 /* Cabeçalho */
 .topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);margin-inline:-16px;padding:12px 16px 10px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
 .marca{display:flex;flex-direction:column;min-width:0;flex:1}
-.marca b{font-family:var(--f-titulo);font-size:1.25rem;font-weight:700;letter-spacing:-.01em}
+.marca b{font-family:var(--f-titulo);font-size:1.25rem;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
 .marca span{font-size:.78rem;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .status{display:flex;align-items:center;gap:8px;flex-shrink:0}
+@media (max-width:380px){.status{gap:5px}.status .pilula{padding:4px 7px}.marca b{font-size:1.12rem}}
 .pilula{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-family:var(--f-mono);font-size:.8rem;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
 .pilula svg{width:15px;height:15px}
 .pilula.fogo{color:var(--gold)}
