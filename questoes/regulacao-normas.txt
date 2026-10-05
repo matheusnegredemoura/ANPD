@@ -1,0 +1,153 @@
+bloco: regulacao-teoria
+// Normas de qualidade regulatória: Decreto nº 10.411/2020 (AIR), Lei nº 13.874/2019 (Liberdade Econômica),
+// LC nº 182/2021 (sandbox) e Decreto nº 9.830/2019 (LINDB). Conferidas com fontes/.
+
+=== air-01
+gab: C
+ref: dec10411 3
+trecho: A edição, a alteração ou a revogação de atos normativos de interesse geral de agentes econômicos ou de usuários dos serviços prestados, por órgãos e entidades da administração pública federal direta, autárquica e fundacional será precedida de AIR.
+armadilha: literal
+dif: 1
+enunciado: A edição, a alteração ou a revogação de atos normativos de interesse geral de agentes econômicos ou de usuários de serviços, por órgãos e entidades da administração federal direta, autárquica e fundacional, deve ser precedida de AIR.
+comentario: Art. 3º do Decreto 10.411, que regulamenta o art. 5º da Lei 13.874 e o art. 6º da Lei 13.848. Para a ANPD, a exigência também está no art. 55-J, § 2º, da LGPD.
+
+=== air-02
+gab: E
+ref: dec10411 3, § 2º
+trecho: de natureza administrativa, cujos efeitos sejam restritos ao âmbito interno do órgão ou da entidade
+trecho: que disponham sobre segurança nacional
+armadilha: excecao
+dif: 2
+enunciado: A exigência de AIR alcança inclusive os atos normativos de natureza administrativa com efeitos restritos ao âmbito interno do órgão e os que disponham sobre segurança nacional.
+comentario: Art. 3º, § 2º: a AIR não se aplica a atos de efeitos internos, de efeitos concretos, de execução orçamentária, de política cambial e monetária, de segurança nacional e de mera consolidação. Não confundir com a dispensa do art. 4º, que exige decisão fundamentada.
+pesquisar: AIR: não incidência (art. 3º, § 2º) × dispensa (art. 4º) no Decreto 10.411
+
+=== air-03
+gab: C
+ref: dec10411 4
+trecho: A AIR poderá ser dispensada, desde que haja decisão fundamentada do órgão ou da entidade competente
+trecho: urgência
+trecho: ato normativo considerado de baixo impacto
+armadilha: rol
+dif: 2
+enunciado: A AIR pode ser dispensada por decisão fundamentada em casos como urgência, ato normativo de baixo impacto ou ato que reduza exigências com o objetivo de diminuir custos regulatórios.
+comentario: Art. 4º, I, III e VII. Na dispensa, elabora-se nota técnica que fundamente a proposta (§ 1º); se a dispensa for por urgência, o ato passa por avaliação de resultado regulatório (ARR) em até três anos (art. 12).
+
+=== air-04
+gab: E
+ref: dec10411 12
+trecho: Os atos normativos cuja AIR tenha sido dispensada em razão de urgência serão objeto de ARR no prazo de três anos, contado da data de sua entrada em vigor.
+armadilha: numero
+dif: 2
+enunciado: Os atos normativos editados com dispensa de AIR por urgência devem passar por avaliação de resultado regulatório em até cinco anos da entrada em vigor.
+comentario: Art. 12: três anos. Os cinco anos aparecem em outro ponto: a vigência mínima como critério de escolha de atos para a agenda de ARR (art. 13, § 3º, V).
+
+=== air-05
+gab: C
+ref: dec10411 6
+trecho: descrição das alternativas possíveis ao enfrentamento do problema regulatório identificado, consideradas as opções de não ação, de soluções normativas e de, sempre que possível, soluções não normativas
+trecho: mapeamento da experiência internacional quanto às medidas adotadas para a resolução do problema regulatório identificado
+armadilha: rol
+dif: 2
+enunciado: O relatório de AIR deve considerar, entre as alternativas para enfrentar o problema regulatório, a opção de não ação e, sempre que possível, soluções não normativas, além de mapear a experiência internacional.
+comentario: Art. 6º, VI e IX. O relatório começa por sumário executivo em linguagem simples e pela identificação do problema regulatório, com causas e extensão (I e II), e inclui os impactos sobre microempresas e empresas de pequeno porte (VII-A).
+
+=== air-06
+gab: C
+ref: dec10411 7
+trecho: análise multicritério
+trecho: análise de custo-benefício
+trecho: análise risco-risco
+armadilha: rol
+dif: 2
+enunciado: Na elaboração da AIR, adota-se uma metodologia específica, como análise multicritério, custo-benefício, custo-efetividade, custo, risco ou risco-risco, podendo o órgão escolher outra desde que justifique ser a mais adequada.
+comentario: Art. 7º e § 2º. A escolha da metodologia deve ser justificada e apresentar o comparativo entre as alternativas (§ 1º).
+pesquisar: Métodos de AIR: custo-benefício, custo-efetividade, multicritério e risco-risco
+
+=== air-07
+gab: E
+ref: dec10411 15
+trecho: O relatório de AIR não vincula a tomada de decisão
+trecho: As decisões contrárias às alternativas sugeridas no relatório de AIR deverão ser fundamentadas pela autoridade competente
+armadilha: extrapolacao
+dif: 2
+enunciado: A autoridade competente fica vinculada à alternativa sugerida no relatório de AIR, não podendo optar pela não ação.
+comentario: Art. 15, §§ 2º e 3º: o relatório subsidia, mas não vincula; a autoridade pode adotar a alternativa sugerida, pedir complementação ou adotar alternativa contrária, inclusive não ação, fundamentando a decisão contrária.
+
+=== air-08
+gab: C
+ref: dec10411 9
+trecho: quarenta e cinco dias, para os demais casos
+trecho: vedado o anonimato
+armadilha: numero
+dif: 3
+enunciado: Ressalvados os casos de urgência, a consulta pública sobre minuta de ato normativo dura no mínimo 45 dias, ou 60 se impactar significativamente o comércio internacional, e admite manifestações de qualquer pessoa, brasileira ou estrangeira, vedado o anonimato.
+comentario: Art. 9º, §§ 2º e 6º (redação do Decreto 11.243/2022). A consulta é feita no portal Participa + Brasil (art. 10) e não obriga o órgão a adotar as contribuições (art. 11).
+
+=== air-09
+gab: E
+ref: lei13874 4
+trecho: exigir especificação técnica que não seja necessária para atingir o fim desejado
+trecho: aumentar os custos de transação sem demonstração de benefícios
+armadilha: conceito
+dif: 2
+enunciado: Pela Lei de Liberdade Econômica, a regulação que aumente custos de transação configura, por si só, abuso do poder regulatório, ainda que demonstrados os benefícios.
+comentario: Art. 4º, V: o abuso é aumentar custos de transação sem demonstração de benefícios. Outras hipóteses: criar reserva de mercado, impedir a entrada de competidores, exigir especificação técnica desnecessária e impedir ou retardar a inovação (I a IV).
+pesquisar: Abuso do poder regulatório (Lei 13.874, art. 4º)
+
+=== air-10
+gab: C
+ref: lei13874 2
+trecho: a intervenção subsidiária e excepcional do Estado sobre o exercício de atividades econômicas
+trecho: o reconhecimento da vulnerabilidade do particular perante o Estado
+armadilha: rol
+dif: 2
+enunciado: São princípios da Lei de Liberdade Econômica a liberdade como garantia no exercício de atividades econômicas, a boa-fé do particular perante o poder público, a intervenção subsidiária e excepcional do Estado e o reconhecimento da vulnerabilidade do particular perante o Estado.
+comentario: Art. 2º, I a IV. A vulnerabilidade do particular pode ser afastada em casos de má-fé, hipersuficiência ou reincidência (parágrafo único).
+
+=== air-11
+gab: E
+ref: lei13874 1, § 3º
+trecho: não se aplica ao direito tributário e ao direito financeiro
+armadilha: excecao
+dif: 3
+enunciado: A Declaração de Direitos de Liberdade Econômica aplica-se integralmente ao direito tributário e ao direito financeiro.
+comentario: Art. 1º, § 3º (redação da Lei 14.195/2021): os Capítulos I a III não se aplicam ao direito tributário e ao financeiro, ressalvado o direito de arquivar documentos em meio digital (art. 3º, X).
+
+=== air-12
+gab: C
+ref: lc182 2
+trecho: conjunto de condições especiais simplificadas para que as pessoas jurídicas participantes possam receber autorização temporária dos órgãos ou das entidades com competência de regulamentação setorial
+armadilha: conceito
+dif: 2
+enunciado: Sandbox regulatório é o conjunto de condições especiais simplificadas para que pessoas jurídicas participantes recebam autorização temporária do regulador setorial para desenvolver modelos de negócios inovadores e testar técnicas e tecnologias experimentais.
+comentario: Art. 2º, II, da LC 182/2021. O regulador pode afastar a incidência de normas sob sua competência para a entidade regulada (art. 11), fixando critérios de seleção, duração e alcance da suspensão e as normas abrangidas (art. 11, § 3º).
+pesquisar: Sandbox regulatório de IA e proteção de dados da ANPD
+
+=== air-13
+gab: E
+ref: lc182 11
+trecho: afastar a incidência de normas sob sua competência em relação à entidade regulada ou aos grupos de entidades reguladas
+armadilha: extrapolacao
+dif: 3
+enunciado: No sandbox regulatório da LC nº 182/2021, o regulador setorial pode afastar a incidência de quaisquer normas, inclusive de leis de outros setores, em favor das entidades participantes.
+comentario: Art. 11: o regulador afasta a incidência de normas sob sua competência, individualmente ou em colaboração com outros reguladores (§ 1º).
+
+=== air-14
+gab: C
+ref: dec9830 3
+trecho: consideram-se valores jurídicos abstratos aqueles previstos em normas jurídicas com alto grau de indeterminação e abstração
+armadilha: conceito
+dif: 2
+enunciado: Para o Decreto nº 9.830/2019, que regulamenta a LINDB, valores jurídicos abstratos são os previstos em normas com alto grau de indeterminação e abstração, e a decisão que se basear exclusivamente neles deve considerar suas consequências práticas.
+comentario: Art. 3º, caput e § 1º, que regulamenta o art. 20 da LINDB. A motivação deve demonstrar necessidade e adequação da medida, consideradas as alternativas (§ 3º). A Res. CD/ANPD 4/2023 repete a regra ao afastar a dosimetria (art. 27, parágrafo único).
+
+=== air-15
+gab: E
+ref: dec9830 10
+trecho: não poderá conferir desoneração permanente de dever ou condicionamento de direito reconhecido por orientação geral
+trecho: O compromisso firmado somente produzirá efeitos a partir de sua publicação.
+armadilha: extrapolacao
+dif: 3
+enunciado: O compromisso do art. 26 da LINDB, regulamentado pelo Decreto nº 9.830/2019, pode conferir ao interessado desoneração permanente de dever reconhecido por orientação geral e produz efeitos desde a assinatura.
+comentario: Art. 10, § 2º, II, e § 3º: o compromisso não pode conferir desoneração permanente e só produz efeitos a partir da publicação. Exige oitiva do órgão jurídico, consulta pública quando cabível e razões de relevante interesse geral (caput).
