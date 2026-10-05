@@ -18,11 +18,13 @@ A página Mais → Método explica o porquê de cada passo e a estratégia de ch
 
 ## O que tem
 
-- **749 questões originais.** 414 são de LGPD (arts. 1º a 65, com a redação da Lei nº 15.352/2026) e citam o trecho literal que decide o gabarito; o build falha se o trecho não existir no artigo. As demais cobrem Leis 9.784/1999, 13.848/2019 e 9.986/2000, LINDB, resoluções da ANPD, ECA Digital, Constituição, GDPR, regulação, segurança da informação, economia e estatística, português e inglês. Questões de normas ainda não anexadas ao app aparecem com o aviso “confira na fonte”. O gabarito está equilibrado (55% certo).
+- **1.249 itens certo/errado.** 1.135 foram escritos para o banco e 114 são itens reais do Cebraspe (Anatel 2024, Conhecimentos Básicos e Específicos do cargo 6), com o gabarito oficial definitivo, o texto de apoio e o comando da banca. Por disciplina: LGPD e normas da ANPD 617, regulação 179, direito administrativo e constitucional 114, ECA Digital e plataformas 94, segurança da informação 73, português e inglês 54, direito comparado 48, gestão pública e dados 40, economia 30. O gabarito está equilibrado (55% certo).
+- **Trecho literal conferido.** 1.032 itens citam o trecho da norma que decide o gabarito, e o build falha se o trecho não existir no artigo citado. 192 itens são de doutrina ou de texto de apoio. 25 citam fontes ainda não anexadas (decisões do STF e do TJUE e, nos itens reais, LGT, Lei 8.987/1995, E-Ciber e resoluções da Anatel) e aparecem com o aviso “confira na fonte”.
 - **Treino comentado**: gabarito, comentário, tipo de armadilha, trecho da lei e termos para pesquisar logo depois de cada item.
+- **Itens reais do Cebraspe**: treino com comentário, prova na ordem do caderno e treino por disciplina. A página **Mais → Como o Cebraspe cobra** traz a estrutura e a pontuação do edital da Anatel 2024, o padrão de cobrança de cada disciplina com exemplos, o padrão de resposta da discursiva e as provas recomendadas.
 - **Revisão espaçada das questões**: o item errado volta em 0, 1, 3, 7, 16 e 35 dias; o acerto de primeira volta em 16 dias.
-- **233 cards cloze** de LGPD (202 notas), com agendamento no estilo do Anki (Errei, Difícil, Bom, Fácil), limite diário de cards novos e exportação para o Anki (`dist/anki-lgpd-cloze.txt`).
-- **Lei seca grifada**: a LGPD inteira, com busca, estrelas de importância, ranking dos artigos mais cobrados e camadas de grifo (o que cai, prazos e números, palavras de alerta, deve × pode, seus erros).
+- **509 cards cloze** (421 notas) de todas as normas anexadas, com agendamento no estilo do Anki (Errei, Difícil, Bom, Fácil), limite diário de cards novos e exportação para o Anki (`dist/anki-lgpd-cloze.txt`).
+- **Lei seca grifada de 50 normas** em sete grupos: LGPD e normas da ANPD; ECA Digital, internet e plataformas; regulação, agências e carreira; Constituição; direito administrativo; segurança da informação (com o NIST CSF 2.0); direito comparado (GDPR, no texto oficial em inglês, e Convenção 108+). Busca em todas as normas, estrelas de importância, ranking dos artigos mais cobrados e camadas de grifo (o que cai, prazos e números, palavras de alerta, deve × pode, seus erros), que também reconhecem o inglês.
 - **Glossário de 99 termos**, marcados nas questões e nos cards, e a lista **Para pesquisar**, que recebe sozinha os termos das questões erradas.
 - **Simulados Cebraspe**: uma errada anula uma certa, com prova completa nos pesos do plano, resultado por disciplina e análise do chute.
 - **Relâmpago 90 s**, XP, níveis, sequência de dias e conquistas.
@@ -31,15 +33,16 @@ A página Mais → Método explica o porquê de cada passo e a estratégia de ch
 ## Estrutura
 
 ```
-fontes/                textos legais usados para conferir as questões (hoje: LGPD compilada)
-questoes/              banco de questões, em texto simples
-questoes/blocos.json   disciplinas e blocos (com os textos que ainda faltam)
-cloze/                 notas cloze da LGPD
-glossario/termos.txt   glossário
-dados/cronograma.json  cronograma diário das 11 semanas
-src/                   app.html, app.css e app.js
-scripts/               validador, build e testes
-dist/                  app gerado (index.html completo; artifact.html para publicar; arquivo do Anki)
+fontes/                 textos oficiais usados para conferir questões e cards (50 normas)
+questoes/               banco de questões, em texto simples (reais-*.txt: itens reais do Cebraspe)
+questoes/blocos.json    disciplinas e blocos (com os textos que ainda faltam)
+cloze/                  notas cloze
+glossario/termos.txt    glossário
+dados/cronograma.json   cronograma diário das 11 semanas
+dados/cebraspe.json     página Como o Cebraspe cobra (cada item citado precisa existir no banco)
+src/                    app.html, app.css e app.js
+scripts/                validador, build e testes
+dist/                   app gerado (index.html completo; artifact.html para publicar; arquivo do Anki)
 ```
 
 ## Formato de uma questão
@@ -56,7 +59,7 @@ comentario: O prazo do inciso II do art. 19 é de até 15 dias ...
 pesquisar: Prazos de atendimento ao titular
 ```
 
-`trecho` pode se repetir e precisa existir literalmente no artigo citado em `ref` sempre que o texto da lei estiver em `fontes/`. `pesquisar` (opcional, pode repetir) sugere um tema para a lista Para pesquisar. Uma questão pode trocar de bloco com `bloco:` próprio. Tipos de armadilha: `literal`, `rol`, `numero`, `sujeito`, `absoluto`, `extrapolacao`, `excecao`, `conceito`, `vetado`, `caso`, `comparacao`, `interpretacao`.
+`trecho` pode se repetir e precisa existir literalmente no artigo citado em `ref` sempre que o texto da lei estiver em `fontes/`. Itens reais levam `origem: real` e `prova:` (obrigatório), e podem ter `comando:` (a frase de comando da banca) e `apoio:` (o texto de apoio, ou `@NOME` para usar um `apoio_NOME:` definido no cabeçalho do arquivo). `pesquisar` (opcional, pode repetir) sugere um tema para a lista Para pesquisar. Uma questão pode trocar de bloco com `bloco:` próprio. Tipos de armadilha: `literal`, `rol`, `numero`, `sujeito`, `absoluto`, `extrapolacao`, `excecao`, `conceito`, `vetado`, `caso`, `comparacao`, `interpretacao`.
 
 ## Formato de um card cloze
 
@@ -79,9 +82,4 @@ Não há dependências externas: só Node 18 ou mais novo.
 
 ## Textos que ainda faltam
 
-Cada texto anexado converte as questões provisórias em conferidas e permite cards cloze:
-
-- Lei nº 15.352/2026 (texto integral, para a carreira e as mudanças na Lei nº 13.848/2019 e na Lei nº 9.986/2000)
-- Lei nº 13.848/2019, Lei nº 9.986/2000 e Lei nº 9.784/1999 (textos compilados)
-- Resoluções CD/ANPD nº 1/2021, 2/2022, 4/2023, 15/2024, 18/2024, 19/2024 e 32/2026
-- Lei nº 15.211/2025 (ECA Digital) e Decretos nº 12.622/2025, 12.880/2026 e 12.881/2026
+A lista atualizada fica em `questoes/blocos.json` (campo `faltam`) e aparece no app em Mais → Plano. Cada documento novo vira questões e cards conferidos contra a letra da norma ou contra o gabarito oficial.
