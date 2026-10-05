@@ -10,31 +10,31 @@
   <header class="topo" id="topo"></header>
   <main class="conteudo" id="conteudo" tabindex="-1">
     <section class="vista" id="vista-hoje" aria-label="Hoje"></section>
-    <section class="vista" id="vista-treinar" aria-label="Treinar" hidden></section>
+    <section class="vista" id="vista-questoes" aria-label="Questões" hidden></section>
+    <section class="vista" id="vista-cards" aria-label="Cards" hidden></section>
     <section class="vista" id="vista-lei" aria-label="Lei seca" hidden></section>
-    <section class="vista" id="vista-progresso" aria-label="Progresso" hidden></section>
-    <section class="vista" id="vista-plano" aria-label="Plano" hidden></section>
+    <section class="vista" id="vista-mais" aria-label="Mais" hidden></section>
   </main>
   <nav class="abas" id="abas" aria-label="Seções">
     <button class="aba" data-acao="ir" data-vista="hoje" aria-current="page">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg>
       <span>Hoje</span>
     </button>
-    <button class="aba" data-acao="ir" data-vista="treinar">
+    <button class="aba" data-acao="ir" data-vista="questoes">
       <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="7.5" cy="8" rx="3.5" ry="2.6"/><ellipse cx="16.5" cy="8" rx="3.5" ry="2.6"/><ellipse cx="7.5" cy="16" rx="3.5" ry="2.6"/><ellipse cx="16.5" cy="16" rx="3.5" ry="2.6"/></svg>
-      <span>Treinar</span>
+      <span>Questões</span>
+    </button>
+    <button class="aba" data-acao="ir" data-vista="cards">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="7" width="13" height="13" rx="1.5"/><path d="M7.5 4h11a2 2 0 0 1 2 2v11"/><path d="M7 13.5h6"/></svg>
+      <span>Cards</span>
     </button>
     <button class="aba" data-acao="ir" data-vista="lei">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h9l5 5v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm8 0v5h6M8 13h8M8 17h6"/></svg>
       <span>Lei seca</span>
     </button>
-    <button class="aba" data-acao="ir" data-vista="progresso">
+    <button class="aba" data-acao="ir" data-vista="mais">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11M10 20V5M15 20v-7M20 20V8"/></svg>
-      <span>Progresso</span>
-    </button>
-    <button class="aba" data-acao="ir" data-vista="plano">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>
-      <span>Plano</span>
+      <span>Mais</span>
     </button>
   </nav>
   <div class="sessao" id="sessao" hidden role="dialog" aria-modal="true" aria-label="Sessão de questões"></div>

@@ -29,7 +29,7 @@ export const ARMADILHAS = {
   interpretacao: 'Interpretação de texto',
 };
 
-const CAMPOS_MULTIPLOS = new Set(['trecho']);
+const CAMPOS_MULTIPLOS = new Set(['trecho', 'pesquisar']);
 
 export function lerArquivoQuestoes(caminho) {
   const bruto = readFileSync(caminho, 'utf8');
@@ -50,7 +50,7 @@ export function lerArquivoQuestoes(caminho) {
   for (const b of blocos.slice(1)) {
     const linhas = b.split('\n');
     const id = linhas[0].trim();
-    const q = { id, bloco: cabecalho.bloco, trecho: [], arquivo: caminho };
+    const q = { id, bloco: cabecalho.bloco, trecho: [], pesquisar: [], arquivo: caminho };
     if (cabecalho.apoio) q.apoio = cabecalho.apoio;
     let ultimo = null;
     for (const linha of linhas.slice(1)) {

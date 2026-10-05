@@ -6,6 +6,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ARMADILHAS, parseRef } from './lib/questoes.mjs';
 import { validar } from './validar.mjs';
+import { lacunas, paraAnki, semMarcas } from './lib/cloze.mjs';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ler = (...p) => readFileSync(join(RAIZ, ...p), 'utf8');
@@ -19,6 +20,14 @@ const NOMES_FONTE = {
   res31: 'Res. CD/ANPD 31/2025',
   decreto: 'Decreto',
   lc: 'LC',
+  lei9784: 'Lei 9.784/1999',
+  lei13848: 'Lei 13.848/2019',
+  lei9986: 'Lei 9.986/2000',
+  lei15211: 'ECA Digital (Lei 15.211/2025)',
+  lei15352: 'Lei 15.352/2026',
+  dec12880: 'Decreto 12.880/2026',
+  dec12622: 'Decreto 12.622/2025',
+  stj: 'STJ',
   stf: 'STF',
   tjue: 'TJUE',
 };
@@ -44,7 +53,9 @@ export function rotuloRef(ref) {
   return `${nome}, ${art}${r.disp ? ', ' + r.disp : ''}`;
 }
 
-function compactar(questoes) {
+const FONTES_SEM_CONFERIR = new Set(['doutrina', 'texto']);
+
+function compactar(questoes, leisAnexadas) {
   const apoios = [];
   const lista = questoes.map((q) => {
     const r = parseRef(q.ref);
@@ -66,20 +77,33 @@ function compactar(questoes) {
       e: q.enunciado,
       c: q.comentario,
       ap,
+      p: q.pesquisar && q.pesquisar.length ? q.pesquisar : undefined,
+      v: leisAnexadas.has(r.lei) || FONTES_SEM_CONFERIR.has(r.lei) ? undefined : 0,
     };
   });
   return { lista, apoios };
 }
 
 export function montarDados() {
-  const { questoes, erros, leis } = validar({ silencioso: true });
+  const { questoes, erros, leis, notas, glossario } = validar({ silencioso: true });
   if (erros.length) {
     for (const e of erros) console.error('ERRO: ' + e);
     throw new Error(`${erros.length} erro(s) no banco de questões; corrija antes do build.`);
   }
   const { disciplinas, blocos } = JSON.parse(ler('questoes', 'blocos.json'));
   const cronograma = JSON.parse(ler('dados', 'cronograma.json'));
-  const { lista, apoios } = compactar(questoes);
+  const { lista, apoios } = compactar(questoes, new Set(Object.keys(leis)));
+  const cloze = notas.map((n) => {
+    const r = parseRef(n.ref);
+    return { id: n.id, b: n.bloco, art: r.art, r: rotuloRef(n.ref), t: n.texto, dc: n.dica || undefined };
+  });
+  // Frequência de cada termo do glossário nas questões: termos raros são sinalizados primeiro
+  const textos = lista.map((q) => (q.e + ' ' + q.c).toLowerCase());
+  const gloss = glossario.map((t) => {
+    const re = regexTermo(t.padroes);
+    const n = textos.filter((x) => re.test(x)).length;
+    return { t: t.termo, p: t.padroes, d: t.def, s: t.busca, f: Math.round((n / textos.length) * 1000) / 1000 };
+  });
   const lei = {};
   for (const [id, { lei: l }] of Object.entries(leis)) {
     lei[id] = { nome: l.nome, curto: l.curto, url: l.url, artigos: l.artigos };
@@ -93,7 +117,24 @@ export function montarDados() {
     apoios,
     lei,
     cronograma,
+    cloze,
+    glossario: gloss,
   };
+}
+
+export function regexTermo(padroes) {
+  const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp('(?<![\\p{L}\\d])(?:' + padroes.map(esc).join('|') + ')(?![\\p{L}\\d])', 'iu');
+}
+
+export function exportarAnki(dados) {
+  const linhas = ['#separator:tab', '#html:true', '#notetype:Cloze', '#deck:ANPD::LGPD (lei seca)', '#tags column:3', '#columns:Text\tBack Extra\tTags'];
+  const limpa = (s) => String(s).replace(/[\t\n\r]+/g, ' ');
+  for (const n of dados.cloze) {
+    const extra = n.r + (n.dc ? ' · dica: ' + n.dc : '');
+    linhas.push([limpa(paraAnki(n.t)), limpa(extra), n.b].join('\t'));
+  }
+  return linhas.join('\n') + '\n';
 }
 
 function jsonSeguro(obj) {
@@ -116,8 +157,10 @@ function build() {
     '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">' +
     '</head><body>' + pagina + '</body></html>';
   writeFileSync(join(RAIZ, 'dist', 'index.html'), completo);
+  writeFileSync(join(RAIZ, 'dist', 'anki-lgpd-cloze.txt'), exportarAnki(dados));
   const kb = (Buffer.byteLength(pagina) / 1024).toFixed(0);
-  console.log(`dist/artifact.html e dist/index.html gerados (${dados.questoes.length} questões, ${kb} KB).`);
+  const cards = dados.cloze.reduce((s, n) => s + new Set(lacunas(n.t).map((l) => l.n)).size, 0);
+  console.log(`dist/ gerado: ${dados.questoes.length} questões, ${cards} cards, ${dados.glossario.length} termos, ${kb} KB.`);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) build();

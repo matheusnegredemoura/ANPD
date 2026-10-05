@@ -6,6 +6,7 @@ import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { LEIS, carregarLei, indicePorArtigo, normalizar } from './lib/leis.mjs';
 import { ARMADILHAS, lerTodas, parseRef } from './lib/questoes.mjs';
+import { lacunas, lerCloze, lerGlossario, semMarcas } from './lib/cloze.mjs';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -71,8 +72,42 @@ export function validar({ silencioso = false } = {}) {
     }
   }
 
+  // Blocos: artigos citados precisam existir
+  for (const b of blocos) {
+    for (const a of b.artigos || []) {
+      if (leis.lgpd && !leis.lgpd.idx.get(a)) erros.push(`blocos.json · ${b.id}: artigo ${a} não existe na LGPD`);
+    }
+  }
+
+  // Cards cloze: texto sem lacunas precisa existir no artigo citado
+  const notas = lerCloze(RAIZ);
+  const idsNotas = new Map();
+  for (const n of notas) {
+    const onde = `${relative(RAIZ, n.arquivo)}:${n.linha}`;
+    if (idsNotas.has(n.id)) erros.push(`${onde}: card repetido (igual à linha ${idsNotas.get(n.id)})`);
+    idsNotas.set(n.id, n.linha);
+    if (!n.bloco || !idsBlocos.has(n.bloco)) erros.push(`${onde}: bloco inválido ${n.bloco}`);
+    const ls = lacunas(n.texto);
+    if (!ls.length) erros.push(`${onde}: card sem lacuna {{...}}`);
+    const ref = parseRef(n.ref);
+    const fonte = ref && leis[ref.lei];
+    if (!fonte) { erros.push(`${onde}: lei sem texto anexado (${n.ref})`); continue; }
+    const art = fonte.idx.get(ref.art);
+    if (!art) { erros.push(`${onde}: artigo ${ref.art} não existe`); continue; }
+    if (!normalizar(art.texto).includes(normalizar(semMarcas(n.texto)))) erros.push(`${onde}: texto não encontrado no ${art.rotulo}: «${semMarcas(n.texto)}»`);
+  }
+
+  // Glossário
+  const glossario = lerGlossario(RAIZ);
+  const termosVistos = new Set();
+  for (const t of glossario) {
+    if (termosVistos.has(t.termo)) erros.push(`glossário: termo repetido ${t.termo}`);
+    termosVistos.add(t.termo);
+    if (!t.def || t.def.length < 25) erros.push(`glossário: definição curta demais em ${t.termo}`);
+  }
+
   if (!silencioso) {
-    console.log(`Questões: ${questoes.length}`);
+    console.log(`Questões: ${questoes.length} · cards cloze: ${notas.length} notas / ${notas.reduce((s, n) => s + new Set(lacunas(n.texto).map((l) => l.n)).size, 0)} cards · glossário: ${glossario.length} termos`);
     for (const b of blocos) {
       const s = porBloco[b.id];
       if (s) console.log(`  ${b.id.padEnd(18)} ${String(s.total).padStart(4)}  (${s.C} C / ${s.E} E)`);
@@ -81,7 +116,7 @@ export function validar({ silencioso = false } = {}) {
     for (const e of erros) console.error('ERRO: ' + e);
     console.log(erros.length ? `\n${erros.length} erro(s).` : '\nTudo certo.');
   }
-  return { questoes, erros, avisos, leis, blocos };
+  return { questoes, erros, avisos, leis, blocos, notas, glossario };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
