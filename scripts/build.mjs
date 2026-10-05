@@ -15,7 +15,13 @@ const NOMES_FONTE = {
   lgpd: 'LGPD',
   cf: 'CF/88',
   gdpr: 'GDPR',
+  res1: 'Res. CD/ANPD 1/2021',
+  res2: 'Res. CD/ANPD 2/2022',
+  res4: 'Res. CD/ANPD 4/2023',
+  res15: 'Res. CD/ANPD 15/2024',
+  res18: 'Res. CD/ANPD 18/2024',
   res19: 'Res. CD/ANPD 19/2024',
+  lindb: 'LINDB (Decreto-Lei 4.657/1942)',
   res30: 'Res. CD/ANPD 30/2025',
   res31: 'Res. CD/ANPD 31/2025',
   decreto: 'Decreto',
@@ -45,7 +51,11 @@ export function rotuloRef(ref) {
   if (r.lei === 'decreto') return 'Decreto nº ' + r.art.replace(/(\d+)(\d{3})$/, '$1.$2') + '/2020';
   if (r.lei === 'lc') return 'Lei Complementar nº ' + r.art + '/2021';
   if (r.lei === 'stf') return 'STF · ' + ref.slice(4).trim();
-  if (r.lei === 'tjue') return 'TJUE · ' + ref.slice(5).trim() + ' (Schrems II)';
+  if (r.lei === 'tjue') {
+    const caso = ref.slice(5).trim();
+    const apelido = { 'C-311/18': 'Schrems II', 'C-362/14': 'Schrems I' }[caso];
+    return 'TJUE · ' + caso + (apelido ? ' (' + apelido + ')' : '');
+  }
   if (r.lei === 'res30' || r.lei === 'res31') return NOMES_FONTE[r.lei];
   const nome = NOMES_FONTE[r.lei] || r.lei.toUpperCase();
   if (!r.art) return nome;

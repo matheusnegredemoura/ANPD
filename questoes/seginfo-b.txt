@@ -1,0 +1,148 @@
+bloco: seginfo
+// Segunda leva de segurança da informação e técnicas de privacidade.
+
+=== si2-01
+gab: E
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: Na criptografia simétrica, cada participante possui um par de chaves, uma pública e outra privada, matematicamente relacionadas.
+comentario: Isso descreve a criptografia assimétrica. Na simétrica, a mesma chave secreta cifra e decifra (exemplo: AES). Exemplo de assimétrica: RSA.
+
+=== si2-02
+gab: C
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: O protocolo TLS protege dados em trânsito, ao passo que a criptografia de disco ou de banco de dados protege dados em repouso.
+comentario: Em trânsito × em repouso é distinção básica para avaliar medidas de segurança (LGPD, art. 46) e o juízo de gravidade de incidentes (art. 48, § 3º).
+
+=== si2-03
+gab: E
+ref: doutrina pseudonimização
+armadilha: conceito
+dif: 2
+enunciado: Dados pseudonimizados equiparam-se a dados anonimizados e, por isso, ficam fora do alcance da LGPD.
+comentario: A pseudonimização mantém informação adicional que permite a reassociação, guardada pelo controlador (LGPD, art. 13, § 4º). O dado continua pessoal. No GDPR é igual (considerando 26).
+
+=== si2-04
+gab: C
+ref: doutrina privacidade diferencial
+armadilha: conceito
+dif: 3
+enunciado: A privacidade diferencial adiciona ruído calibrado aos resultados de consultas ou análises, de modo a limitar o que se pode inferir sobre a presença ou os dados de um indivíduo específico na base.
+comentario: Técnica usada, por exemplo, pelo Censo dos EUA de 2020. O parâmetro épsilon controla o equilíbrio entre privacidade e utilidade.
+pesquisar: Privacidade diferencial e o parâmetro épsilon
+
+=== si2-05
+gab: E
+ref: doutrina anonimização
+armadilha: conceito
+dif: 3
+enunciado: Uma base que atende ao k-anonimato está protegida contra o ataque de homogeneidade, ainda que todos os registros de um mesmo grupo compartilhem o mesmo valor sensível.
+comentario: Se todos os k registros do grupo têm o mesmo diagnóstico, o atacante descobre o dado sensível sem saber qual é o registro. A l-diversidade e a t-proximidade surgiram para tratar essa falha.
+
+=== si2-06
+gab: C
+ref: doutrina anonimização
+armadilha: conceito
+dif: 2
+enunciado: A reidentificação por ligação ocorre quando uma base supostamente anonimizada é cruzada com outra base que contém quase-identificadores, como CEP, data de nascimento e sexo.
+comentario: Caso clássico de Latanya Sweeney, que reidentificou o prontuário de um governador combinando dados de saúde com o cadastro eleitoral. Por isso a LGPD fala em meios técnicos razoáveis (art. 12).
+pesquisar: Latanya Sweeney e a reidentificação por quase-identificadores
+
+=== si2-07
+gab: C
+ref: doutrina ameaças
+armadilha: conceito
+dif: 1
+enunciado: O phishing é técnica de engenharia social em que o atacante se passa por entidade confiável para induzir a vítima a fornecer credenciais ou a executar ação maliciosa.
+comentario: Variações: spear phishing (alvo específico), whaling (altos executivos), smishing (SMS), vishing (voz).
+
+=== si2-08
+gab: E
+ref: doutrina backup
+armadilha: conceito
+dif: 2
+enunciado: O backup incremental copia todos os dados a cada execução, independentemente de terem sido alterados.
+comentario: Isso é o backup completo. O incremental copia o que mudou desde o último backup de qualquer tipo; o diferencial, o que mudou desde o último completo.
+
+=== si2-09
+gab: C
+ref: doutrina backup
+armadilha: conceito
+dif: 2
+enunciado: Para restaurar um ambiente a partir de backups diferenciais, bastam o último backup completo e o último backup diferencial.
+comentario: O diferencial acumula as mudanças desde o último completo. No incremental, é preciso o completo e todos os incrementais posteriores, em ordem.
+
+=== si2-10
+gab: C
+ref: doutrina zero trust
+armadilha: conceito
+dif: 2
+enunciado: O modelo de confiança zero parte da premissa de que nenhum usuário ou dispositivo deve ser considerado confiável apenas por estar dentro do perímetro da rede corporativa.
+comentario: Lema: nunca confie, sempre verifique. Referência: NIST SP 800-207.
+
+=== si2-11
+gab: E
+ref: doutrina redes
+armadilha: conceito
+dif: 2
+enunciado: O firewall de filtragem de pacotes sem estado inspeciona o conteúdo das mensagens da camada de aplicação para bloquear comandos maliciosos.
+comentario: O filtro de pacotes atua nas camadas de rede e transporte (endereços, portas, protocolos). Inspeção de conteúdo de aplicação é feita por firewalls de aplicação (WAF) ou de próxima geração.
+
+=== si2-12
+gab: C
+ref: doutrina ameaças
+armadilha: conceito
+dif: 2
+enunciado: A injeção de SQL explora entradas não validadas para executar comandos no banco de dados, e o uso de consultas parametrizadas é medida eficaz de prevenção.
+comentario: Vulnerabilidade presente há anos no OWASP Top 10 (categoria Injection).
+
+=== si2-13
+gab: E
+ref: doutrina hash
+armadilha: conceito
+dif: 3
+enunciado: Para armazenar senhas, basta aplicar uma única vez a função SHA-256, sendo desnecessário o uso de sal, pois o hash já é irreversível.
+comentario: Sem sal, senhas iguais geram o mesmo resumo e ficam expostas a tabelas pré-computadas. Recomenda-se sal aleatório e funções lentas próprias para senhas, como bcrypt, scrypt ou Argon2.
+
+=== si2-14
+gab: C
+ref: doutrina normas ISO
+armadilha: conceito
+dif: 2
+enunciado: A norma ISO/IEC 27701 estende os requisitos das normas ISO/IEC 27001 e 27002 para a gestão da privacidade da informação.
+comentario: Especifica o sistema de gestão da privacidade da informação (SGPI ou PIMS), útil para demonstrar conformidade com LGPD e GDPR.
+
+=== si2-15
+gab: C
+ref: doutrina controle de acesso
+armadilha: conceito
+dif: 2
+enunciado: No controle de acesso baseado em papéis, as permissões são associadas a funções, e os usuários as recebem ao serem vinculados a essas funções.
+comentario: RBAC facilita aplicar o menor privilégio e revisar acessos, medidas típicas de segurança administrativa.
+
+=== si2-16
+gab: C
+ref: doutrina DLP
+armadilha: conceito
+dif: 2
+enunciado: Ferramentas de prevenção de perda de dados (DLP) monitoram e podem bloquear a saída não autorizada de informações sensíveis por e-mail, nuvem ou dispositivos removíveis.
+comentario: DLP ajuda a prevenir incidentes de vazamento, ligando-se ao princípio da prevenção (LGPD, art. 6º, VIII).
+
+=== si2-17
+gab: E
+ref: doutrina ameaças
+armadilha: conceito
+dif: 2
+enunciado: Ataque de negação de serviço distribuído (DDoS) tem como objetivo principal a exfiltração de dados pessoais armazenados no servidor atacado.
+comentario: O DDoS ataca a disponibilidade, sobrecarregando o serviço. Pode servir de distração para outros ataques, mas seu objetivo direto não é a exfiltração.
+
+=== si2-18
+gab: C
+ref: doutrina minimização
+armadilha: conceito
+dif: 1
+enunciado: Coletar e reter apenas os dados necessários reduz a superfície de ataque e o impacto potencial de um incidente de segurança.
+comentario: Ponte entre o princípio da necessidade (LGPD, art. 6º, III) e a segurança: dado que não existe não vaza.

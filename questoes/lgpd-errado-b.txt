@@ -1,0 +1,108 @@
+bloco: lgpd-5-11
+// Itens ERRADO de conceitos e definições, para equilibrar o gabarito do banco (o Cebraspe distribui C e E de forma parecida).
+
+=== lgpd3-5-01
+gab: E
+ref: lgpd 5, X
+trecho: tratamento: toda operação realizada com dados pessoais, como as que se referem a coleta, produção, recepção, classificação, utilização, acesso, reprodução, transmissão, distribuição, processamento, arquivamento, armazenamento, eliminação
+armadilha: conceito
+dif: 1
+enunciado: O mero armazenamento ou arquivamento de dados pessoais, sem nenhum uso ativo, não configura tratamento para os fins da LGPD.
+comentario: Arquivamento e armazenamento estão expressamente no conceito de tratamento (art. 5º, X), que abrange “toda operação realizada com dados pessoais”. Até a eliminação é tratamento.
+
+=== lgpd3-5-02
+gab: E
+ref: lgpd 5, IV
+trecho: banco de dados: conjunto estruturado de dados pessoais, estabelecido em um ou em vários locais, em suporte eletrônico ou físico
+armadilha: conceito
+dif: 1
+enunciado: Para a LGPD, banco de dados é o conjunto estruturado de dados pessoais mantido em suporte eletrônico, não abrangendo arquivos físicos em papel.
+comentario: O art. 5º, IV, inclui suporte eletrônico ou físico, em um ou em vários locais. Fichários em papel também são banco de dados.
+
+=== lgpd3-5-03
+gab: E
+ref: lgpd 5, IX
+trecho: agentes de tratamento: o controlador e o operador
+armadilha: conceito
+dif: 1
+enunciado: São agentes de tratamento, na definição da LGPD, o controlador, o operador e o encarregado.
+comentario: Agentes de tratamento são só o controlador e o operador (art. 5º, IX). O encarregado é canal de comunicação (VIII), não agente.
+
+=== lgpd3-5-04
+gab: E
+ref: lgpd 5, VII
+trecho: operador: pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do controlador
+armadilha: conceito
+dif: 2
+enunciado: O operador é a pessoa natural ou jurídica que realiza o tratamento de dados pessoais em nome próprio, segundo seus próprios interesses e finalidades.
+comentario: O operador trata dados “em nome do controlador” (art. 5º, VII). Quem trata para finalidades próprias decide sobre o tratamento e, por isso, é controlador.
+
+=== lgpd3-1-01
+gab: E
+ref: lgpd 1
+bloco: lgpd-1-4-14
+trecho: por pessoa natural ou por pessoa jurídica de direito público ou privado
+armadilha: sujeito
+dif: 1
+enunciado: A LGPD dispõe sobre o tratamento de dados pessoais realizado por pessoas naturais e por pessoas jurídicas de direito privado, não alcançando as pessoas jurídicas de direito público, regidas pela Lei de Acesso à Informação.
+comentario: O art. 1º inclui pessoas jurídicas de direito público, que têm até capítulo próprio na LGPD (arts. 23 a 32).
+
+=== lgpd3-1-02
+gab: E
+ref: lgpd 1, parágrafo único
+bloco: lgpd-1-4-14
+trecho: As normas gerais contidas nesta Lei são de interesse nacional e devem ser observadas pela União, Estados, Distrito Federal e Municípios.
+armadilha: sujeito
+dif: 1
+enunciado: As normas gerais da LGPD são de interesse federal e vinculam apenas a União e suas entidades, cabendo a cada ente federativo editar sua própria lei geral de proteção de dados.
+comentario: As normas gerais são de interesse nacional e devem ser observadas por União, Estados, DF e Municípios (art. 1º, parágrafo único). Além disso, legislar sobre o tema é privativo da União (CF, art. 22, XXX).
+
+=== lgpd3-14-01
+gab: E
+ref: lgpd 14, § 3º
+bloco: lgpd-1-4-14
+trecho: quando a coleta for necessária para contatar os pais ou o responsável legal, utilizados uma única vez e sem armazenamento
+armadilha: excecao
+dif: 2
+enunciado: Os dados de criança coletados sem consentimento parental para contatar os pais podem ser armazenados pelo controlador para contatos futuros, desde que não sejam repassados a terceiros.
+comentario: O § 3º do art. 14 exige uso uma única vez e sem armazenamento. A outra exceção é a coleta para a proteção da criança.
+
+=== lgpd3-14-02
+gab: E
+ref: lgpd 14, § 5º
+bloco: lgpd-1-4-14
+trecho: O controlador deve realizar todos os esforços razoáveis para verificar que o consentimento a que se refere o § 1º deste artigo foi dado pelo responsável pela criança, consideradas as tecnologias disponíveis.
+armadilha: absoluto
+dif: 2
+enunciado: O controlador responde objetivamente se não garantir, de forma absoluta e infalível, que o consentimento para tratamento de dados de criança foi dado pelo responsável legal.
+comentario: A LGPD exige “todos os esforços razoáveis”, consideradas as tecnologias disponíveis (art. 14, § 5º): dever de meio, não garantia absoluta. Para serviços digitais, veja também o ECA Digital.
+
+=== lgpd3-14-03
+gab: E
+ref: lgpd 14, § 6º
+bloco: lgpd-1-4-14
+trecho: de forma a proporcionar a informação necessária aos pais ou ao responsável legal e adequada ao entendimento da criança
+armadilha: extrapolacao
+dif: 2
+enunciado: As informações sobre o tratamento de dados de crianças devem ser dirigidas exclusivamente aos pais, dispensada sua adaptação ao entendimento da criança.
+comentario: O § 6º manda informar os pais e, também, de forma adequada ao entendimento da criança, com recursos audiovisuais quando adequado.
+
+=== lgpd3-55m-01
+gab: E
+ref: lgpd 55-M, I
+bloco: lgpd-55
+trecho: que lhe forem transferidos pelos órgãos da Presidência da República
+armadilha: sujeito
+dif: 3
+enunciado: Na literalidade da LGPD, constituem o patrimônio da ANPD os bens e os direitos que lhe forem transferidos pelo Ministério da Justiça e Segurança Pública e os que venha a adquirir ou a incorporar.
+comentario: O art. 55-M, I, fala em bens transferidos “pelos órgãos da Presidência da República”, memória da época em que a ANPD integrava a Presidência. A vinculação atual ao MJSP (art. 55-A) não mudou esse inciso.
+
+=== lgpd3-58a-01
+gab: E
+ref: lgpd 58-A
+bloco: lgpd-55
+trecho: VII - 3 (três) de entidades da sociedade civil com atuação relacionada a proteção de dados pessoais
+armadilha: rol
+dif: 1
+enunciado: O CNPD é composto exclusivamente de representantes do poder público, indicados pelos titulares dos respectivos órgãos.
+comentario: Dos 23 membros, 13 vêm de fora do poder público: sociedade civil (3), instituições científicas (3), confederações sindicais (3), setor empresarial (2) e setor laboral (2).

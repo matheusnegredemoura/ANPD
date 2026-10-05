@@ -409,3 +409,88 @@ busca: contraditório ampla defesa processo administrativo sancionador Súmula V
 padroes: nota líquida | anula uma certa | uma errada anula
 def: Nas provas certo/errado do Cebraspe, cada item errado anula um certo; em branco vale zero. Chutar só compensa quando a chance de acerto passa de 50%.
 busca: nota líquida Cebraspe estratégia chute deixar em branco
+
+=== Delegação × avocação
+padroes: delegação | delegar | avocação | avocar
+def: Delegação transfere parte da competência a outro órgão, mesmo sem hierarquia, e é revogável a qualquer tempo; não se delegam atos normativos, decisão de recursos e competências exclusivas. Avocação puxa para o superior, em caráter temporário e excepcional, a competência de órgão hierarquicamente inferior (Lei 9.784/1999, arts. 11 a 15).
+busca: delegação avocação competência Lei 9.784 art. 13 vedações
+
+=== Agenda regulatória
+padroes: agenda regulatória
+def: Instrumento de planejamento da atividade normativa da agência, com os temas prioritários a regulamentar no período, alinhado ao plano estratégico e integrado ao plano de gestão anual (Lei 13.848/2019, art. 21).
+busca: agenda regulatória ANPD vigente temas
+
+=== Plano estratégico e plano de gestão
+padroes: plano estratégico | plano de gestão
+def: O plano estratégico da agência reguladora é quadrienal e fixa objetivos, metas e resultados esperados; o plano de gestão anual consolida o planejamento do ano, alinhado ao estratégico (Lei 13.848/2019, arts. 17 e 18).
+busca: plano estratégico quadrienal plano de gestão anual Lei 13.848
+
+=== Lista tríplice
+padroes: lista tríplice | pré-seleção
+def: Na escolha de dirigentes de agências reguladoras, uma comissão de seleção faz processo público de pré-seleção e forma lista de três nomes; o Presidente escolhe e o Senado aprova (Lei 9.986/2000, com a redação da Lei 13.848/2019).
+busca: lista tríplice dirigentes agências reguladoras comissão de seleção Lei 9.986
+
+=== Mandatos não coincidentes
+padroes: não coincidentes | não coincidência | escalonados | coincidência dos mandatos
+def: Mandatos que vencem em datas diferentes, para que o colegiado se renove aos poucos e nenhum governo nomeie todos os dirigentes de uma vez. A LGPD escalonou os primeiros mandatos da ANPD em 2, 3, 4, 5 e 6 anos (art. 55-D, § 4º).
+busca: mandatos não coincidentes agências reguladoras autonomia
+
+=== Consequencialismo (LINDB)
+padroes: consequências práticas | valores jurídicos abstratos | consequencialismo
+def: Dever de considerar as consequências práticas da decisão e de não decidir com base apenas em valores jurídicos abstratos (LINDB, arts. 20 e 21, incluídos pela Lei 13.655/2018).
+busca: LINDB art. 20 consequências práticas valores jurídicos abstratos Lei 13.655
+
+=== Erro grosseiro
+padroes: erro grosseiro
+def: Erro manifesto, evidente e inescusável, praticado com culpa grave. Pelo art. 28 da LINDB, o agente público só responde pessoalmente por decisões ou opiniões técnicas em caso de dolo ou erro grosseiro.
+busca: erro grosseiro art. 28 LINDB TCU culpa grave
+
+=== Convalidação
+padroes: convalidação | convalidados | convalidar
+def: Correção de ato com defeito sanável, com efeitos retroativos, quando não houver lesão ao interesse público nem prejuízo a terceiros (Lei 9.784/1999, art. 55). Vícios de competência (não exclusiva) e de forma (não essencial) costumam ser sanáveis.
+busca: convalidação atos administrativos vícios sanáveis competência forma
+
+=== Teoria dos motivos determinantes
+padroes: motivos determinantes | motivo falso | motivo inexistente
+def: Os motivos declarados vinculam a validade do ato: se forem falsos ou inexistentes, o ato é nulo, ainda que a motivação não fosse obrigatória.
+busca: teoria dos motivos determinantes exoneração ad nutum
+
+=== Efeito suspensivo
+padroes: efeito suspensivo
+def: Efeito do recurso que impede a execução da decisão até o julgamento. No processo administrativo federal, a regra é o recurso sem efeito suspensivo, que a autoridade pode conceder diante de justo receio de prejuízo de difícil reparação (Lei 9.784/1999, art. 61).
+busca: efeito suspensivo recurso administrativo art. 61 Lei 9.784
+
+=== Reserva de jurisdição
+padroes: reserva de jurisdição | interceptação
+def: Matérias que só o Judiciário pode decidir, como interceptação telefônica, busca domiciliar e prisão (fora o flagrante). CPIs podem quebrar sigilos bancário, fiscal e de registros telefônicos, mas não determinar interceptação.
+busca: reserva de jurisdição CPI interceptação telefônica STF
+
+=== Privacidade diferencial
+padroes: privacidade diferencial
+def: Técnica que adiciona ruído calibrado aos resultados de consultas para limitar o que se pode inferir sobre qualquer indivíduo da base; o parâmetro épsilon mede o equilíbrio entre privacidade e utilidade.
+busca: privacidade diferencial épsilon exemplo censo
+
+=== Backup completo, incremental e diferencial
+padroes: backup incremental | backup diferencial | backups diferenciais | backup completo
+def: Completo copia tudo; incremental copia o que mudou desde o último backup de qualquer tipo (restauração exige toda a cadeia); diferencial copia o que mudou desde o último completo (basta o completo e o último diferencial).
+busca: backup completo incremental diferencial diferença restauração
+
+=== Confiança zero
+padroes: confiança zero | zero trust
+def: Modelo de segurança em que nenhum usuário ou dispositivo é confiável por estar dentro da rede: toda solicitação é autenticada e autorizada (NIST SP 800-207).
+busca: zero trust NIST 800-207 princípios
+
+=== Seleção adversa × risco moral
+padroes: seleção adversa | risco moral
+def: Seleção adversa vem de informação oculta antes do contrato (quem compra seguro sabe mais do próprio risco). Risco moral vem de ação oculta depois do contrato (quem tem seguro se descuida).
+busca: seleção adversa risco moral diferença exemplos
+
+=== Acesso provável
+padroes: acesso provável | likely to be accessed
+def: Critério do ECA Digital e do código de design do Reino Unido: a lei alcança não só serviços feitos para crianças, mas também os que elas provavelmente usam, como redes sociais e jogos de uso geral.
+busca: acesso provável ECA Digital likely to be accessed children code
+
+=== Avaliação de resultado regulatório (ARR)
+padroes: avaliação de resultado regulatório | ARR
+def: Avaliação, depois da vigência, dos efeitos de um ato normativo, para verificar se atingiu os objetivos. Completa a AIR, que é prévia (Decreto 10.411/2020).
+busca: avaliação de resultado regulatório ARR Decreto 10.411

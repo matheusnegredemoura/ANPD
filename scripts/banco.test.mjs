@@ -28,4 +28,31 @@ test('rótulos de referência', () => {
   assert.equal(rotuloRef('lgpd 55-J, § 2º'), 'LGPD, art. 55-J, § 2º');
   assert.equal(rotuloRef('res19 Anexo II, cláusula 16.1'), 'Res. CD/ANPD 19/2024, Anexo II, cláusula 16.1');
   assert.equal(rotuloRef('decreto 10411'), 'Decreto nº 10.411/2020');
+  assert.equal(rotuloRef('tjue C-311/18'), 'TJUE · C-311/18 (Schrems II)');
+  assert.equal(rotuloRef('res15'), 'Res. CD/ANPD 15/2024');
+});
+
+test('gabarito equilibrado entre certo e errado', () => {
+  const { questoes } = validar({ silencioso: true });
+  const c = questoes.filter((q) => q.gab === 'C').length / questoes.length;
+  assert.ok(c >= 0.4 && c <= 0.6, 'proporção de C fora de 40–60%: ' + (c * 100).toFixed(1) + '%');
+});
+
+test('questões de lei não anexada saem marcadas para conferir', () => {
+  const d = montarDados();
+  const anexadas = new Set(Object.keys(d.lei));
+  for (const q of d.questoes) {
+    if (anexadas.has(q.l) || q.l === 'doutrina' || q.l === 'texto') assert.equal(q.v, undefined, q.id);
+    else assert.equal(q.v, 0, q.id);
+  }
+});
+
+test('cards cloze e exportação do Anki', async () => {
+  const { exportarAnki } = await import('./build.mjs');
+  const d = montarDados();
+  const txt = exportarAnki(d);
+  const linhas = txt.trim().split('\n');
+  assert.equal(linhas[2], '#notetype:Cloze');
+  assert.equal(linhas.length - 6, d.cloze.length);
+  for (const l of linhas.slice(6)) assert.match(l.split('\t')[0], /\{\{c1::/);
 });
