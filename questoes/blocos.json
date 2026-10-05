@@ -1,0 +1,42 @@
+{
+  "disciplinas": [
+    { "id": "lgpd", "nome": "LGPD e normas da ANPD", "peso": "MÁXIMO" },
+    { "id": "regulacao", "nome": "Regulação e processo sancionador", "peso": "ALTO" },
+    { "id": "eca", "nome": "ECA Digital, plataformas e IA", "peso": "ALTO" },
+    { "id": "seginfo", "nome": "Segurança da informação e privacidade", "peso": "MÉDIO-ALTO" },
+    { "id": "direito", "nome": "Direito administrativo e constitucional", "peso": "MÉDIO" },
+    { "id": "comparado", "nome": "Comparado e transferência internacional (GDPR)", "peso": "MÉDIO" },
+    { "id": "economia", "nome": "Economia, estatística e avaliação", "peso": "MÉDIO" },
+    { "id": "linguas", "nome": "Português e inglês", "peso": "BASE" },
+    { "id": "contabil", "nome": "Contabilidade e finanças públicas", "peso": "BAIXO" }
+  ],
+  "blocos": [
+    { "id": "lgpd-17-22", "disciplina": "lgpd", "nome": "Direitos do titular e decisão automatizada", "dispositivos": "LGPD, arts. 17 a 22", "prioridade": 1, "legado": 1 },
+    { "id": "lgpd-52-54", "disciplina": "lgpd", "nome": "Sanções administrativas e dosimetria", "dispositivos": "LGPD, arts. 52 a 54", "prioridade": 1, "legado": 2 },
+    { "id": "lgpd-55", "disciplina": "lgpd", "nome": "A própria ANPD e o CNPD", "dispositivos": "LGPD, arts. 55-A a 58-B", "prioridade": 1, "legado": 3 },
+    { "id": "lgpd-33-36", "disciplina": "lgpd", "nome": "Transferência internacional", "dispositivos": "LGPD, arts. 33 a 36", "prioridade": 1, "legado": 4 },
+    { "id": "lgpd-5-11", "disciplina": "lgpd", "nome": "Conceitos, princípios, bases legais e dado sensível", "dispositivos": "LGPD, arts. 5º a 11", "prioridade": 2, "legado": 5 },
+    { "id": "lgpd-12-16", "disciplina": "lgpd", "nome": "Anonimização, pesquisa em saúde e término do tratamento", "dispositivos": "LGPD, arts. 12, 13, 15 e 16", "prioridade": 2 },
+    { "id": "lgpd-23-32", "disciplina": "lgpd", "nome": "Tratamento pelo Poder Público", "dispositivos": "LGPD, arts. 23 a 32", "prioridade": 2, "legado": 6 },
+    { "id": "lgpd-46-51", "disciplina": "lgpd", "nome": "Segurança, incidentes e boas práticas", "dispositivos": "LGPD, arts. 46 a 51", "prioridade": 2, "legado": 7 },
+    { "id": "lgpd-37-45", "disciplina": "lgpd", "nome": "Agentes de tratamento, encarregado e responsabilidade", "dispositivos": "LGPD, arts. 37 a 45", "prioridade": 3, "legado": 8 },
+    { "id": "lgpd-1-4-14", "disciplina": "lgpd", "nome": "Aplicação, exceções, crianças e vigência", "dispositivos": "LGPD, arts. 1º a 4º, 14 e 60 a 65", "prioridade": 3, "legado": 9 },
+    { "id": "res-1-2021", "disciplina": "lgpd", "nome": "Resolução CD/ANPD nº 1/2021 — fiscalização e processo sancionador", "dispositivos": "Resolução 1/2021", "prioridade": 1, "legado": 10, "aguardando": "Resolução CD/ANPD nº 1/2021" },
+    { "id": "res-4-2023", "disciplina": "lgpd", "nome": "Resolução CD/ANPD nº 4/2023 — dosimetria", "dispositivos": "Resolução 4/2023", "prioridade": 1, "legado": 11, "aguardando": "Resolução CD/ANPD nº 4/2023" },
+    { "id": "res-15-2024", "disciplina": "lgpd", "nome": "Resolução CD/ANPD nº 15/2024 — incidente de segurança", "dispositivos": "Resolução 15/2024", "prioridade": 1, "legado": 12, "aguardando": "Resolução CD/ANPD nº 15/2024" },
+    { "id": "res-19-2024", "disciplina": "lgpd", "nome": "Resolução CD/ANPD nº 19/2024 — transferência internacional", "dispositivos": "Resolução 19/2024", "prioridade": 2, "legado": 13, "aguardando": "Resolução CD/ANPD nº 19/2024 (para ampliar além das 5 questões atuais)" },
+    { "id": "res-18-2024", "disciplina": "lgpd", "nome": "Resolução CD/ANPD nº 18/2024 — encarregado", "dispositivos": "Resolução 18/2024", "prioridade": 2, "legado": 14, "aguardando": "Resolução CD/ANPD nº 18/2024" },
+    { "id": "res-2-2022", "disciplina": "lgpd", "nome": "Resolução CD/ANPD nº 2/2022 — pequeno porte", "dispositivos": "Resolução 2/2022", "prioridade": 3, "legado": 15, "aguardando": "Resolução CD/ANPD nº 2/2022" },
+    { "id": "res-32-2026", "disciplina": "lgpd", "nome": "Resolução CD/ANPD nº 32/2026 — adequação da União Europeia", "dispositivos": "Resolução 32/2026", "prioridade": 3, "legado": 16, "aguardando": "Resolução CD/ANPD nº 32/2026" },
+    { "id": "lei-13848", "disciplina": "regulacao", "nome": "Lei nº 13.848/2019 — agências reguladoras", "dispositivos": "Lei 13.848/2019", "prioridade": 1, "legado": 17, "aguardando": "Lei nº 13.848/2019 (texto compilado)" },
+    { "id": "lei-9784", "disciplina": "regulacao", "nome": "Lei nº 9.784/1999 — processo administrativo", "dispositivos": "Lei 9.784/1999", "prioridade": 1, "legado": 18, "aguardando": "Lei nº 9.784/1999 (texto compilado)" },
+    { "id": "regulacao-teoria", "disciplina": "regulacao", "nome": "Teoria da regulação e análise de impacto", "dispositivos": "Doutrina", "prioridade": 2 },
+    { "id": "eca-digital", "disciplina": "eca", "nome": "ECA Digital e decretos", "dispositivos": "Lei 15.211/2025, Decretos 12.622/2025 e 12.880/2026", "prioridade": 1, "legado": 19, "aguardando": "Lei nº 15.211/2025 e Decretos nº 12.622/2025 e 12.880/2026" },
+    { "id": "seginfo", "disciplina": "seginfo", "nome": "Segurança da informação e privacidade desde a concepção", "dispositivos": "Doutrina e normas técnicas", "prioridade": 2 },
+    { "id": "constitucional", "disciplina": "direito", "nome": "Proteção de dados na Constituição", "dispositivos": "CF/88", "prioridade": 2, "legado": 20 },
+    { "id": "gdpr", "disciplina": "comparado", "nome": "GDPR comparado", "dispositivos": "Regulamento (UE) 2016/679", "prioridade": 2, "legado": 21 },
+    { "id": "economia", "disciplina": "economia", "nome": "Economia da regulação e estatística", "dispositivos": "Doutrina", "prioridade": 3, "legado": 22 },
+    { "id": "ingles", "disciplina": "linguas", "nome": "Inglês técnico", "dispositivos": "Compreensão de texto", "prioridade": 3, "legado": 23 },
+    { "id": "portugues", "disciplina": "linguas", "nome": "Língua portuguesa", "dispositivos": "Gramática e interpretação", "prioridade": 3 }
+  ]
+}

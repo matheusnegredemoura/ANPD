@@ -1,0 +1,212 @@
+bloco: lgpd-37-45
+// Agentes de tratamento, encarregado, responsabilidade e ressarcimento de danos (arts. 37 a 45).
+
+=== lgpd-37-01
+gab: C
+ref: lgpd 37
+trecho: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem, especialmente quando baseado no legítimo interesse
+armadilha: literal
+dif: 1
+enunciado: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem, especialmente quando baseado no legítimo interesse.
+comentario: Art. 37. O registro das operações (inventário de dados) é a primeira coisa que uma auditoria pede.
+
+=== lgpd-37-02
+gab: E
+ref: lgpd 37
+trecho: O controlador e o operador devem manter registro das operações
+armadilha: sujeito
+dif: 1
+enunciado: O dever de manter registro das operações de tratamento de dados pessoais é exclusivo do controlador, cabendo ao operador apenas seguir suas instruções.
+comentario: O art. 37 impõe o registro ao controlador e ao operador.
+
+=== lgpd-38-01
+gab: C
+ref: lgpd 38
+trecho: A autoridade nacional poderá determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais, inclusive de dados sensíveis
+armadilha: literal
+dif: 1
+enunciado: A autoridade nacional pode determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais, inclusive de dados sensíveis, referente a suas operações de tratamento.
+comentario: Caput do art. 38. Observados os segredos comercial e industrial e nos termos de regulamento.
+
+=== lgpd-38-02
+gab: E
+ref: lgpd 38, parágrafo único
+trecho: o relatório deverá conter, no mínimo, a descrição dos tipos de dados coletados, a metodologia utilizada para a coleta e para a garantia da segurança das informações e a análise do controlador com relação a medidas, salvaguardas e mecanismos de mitigação de risco adotados
+armadilha: extrapolacao
+dif: 2
+enunciado: O relatório de impacto à proteção de dados pessoais deve conter, no mínimo, a identificação nominal de todos os titulares cujos dados são tratados.
+comentario: O conteúdo mínimo do parágrafo único do art. 38 é: tipos de dados coletados, metodologia de coleta e de segurança, e análise do controlador sobre medidas, salvaguardas e mitigação de risco. Lista nominal de titulares não entra.
+
+=== lgpd-39-01
+gab: C
+ref: lgpd 39
+trecho: O operador deverá realizar o tratamento segundo as instruções fornecidas pelo controlador, que verificará a observância das próprias instruções e das normas sobre a matéria
+armadilha: literal
+dif: 1
+enunciado: O operador deve realizar o tratamento segundo as instruções fornecidas pelo controlador, que verificará a observância das próprias instruções e das normas sobre a matéria.
+comentario: Art. 39. Se o operador descumpre instruções lícitas, passa a responder solidariamente como se fosse controlador (art. 42, § 1º, I).
+
+=== lgpd-40-01
+gab: C
+ref: lgpd 40
+trecho: A autoridade nacional poderá dispor sobre padrões de interoperabilidade para fins de portabilidade, livre acesso aos dados e segurança, assim como sobre o tempo de guarda dos registros
+armadilha: literal
+dif: 2
+enunciado: A autoridade nacional pode dispor sobre padrões de interoperabilidade para fins de portabilidade, livre acesso aos dados e segurança, bem como sobre o tempo de guarda dos registros.
+comentario: Art. 40, tendo em vista especialmente a necessidade e a transparência.
+
+=== lgpd-41-01
+gab: C
+ref: lgpd 41, § 1º
+trecho: A identidade e as informações de contato do encarregado deverão ser divulgadas publicamente, de forma clara e objetiva, preferencialmente no sítio eletrônico do controlador
+armadilha: literal
+dif: 1
+enunciado: A identidade e as informações de contato do encarregado devem ser divulgadas publicamente, de forma clara e objetiva, preferencialmente no sítio eletrônico do controlador.
+comentario: Art. 41, § 1º. A Resolução CD/ANPD nº 18/2024 detalha a atuação do encarregado.
+
+=== lgpd-41-02
+gab: E
+ref: lgpd 41, § 1º
+trecho: deverão ser divulgadas publicamente
+armadilha: extrapolacao
+dif: 1
+enunciado: A identidade do encarregado deve ser informada exclusivamente à autoridade nacional, preservando-se o sigilo perante os titulares.
+comentario: O § 1º do art. 41 manda divulgar publicamente a identidade e o contato do encarregado. Ele é o canal de comunicação com os titulares.
+
+=== lgpd-41-03
+gab: C
+ref: lgpd 41, § 2º
+trecho: aceitar reclamações e comunicações dos titulares, prestar esclarecimentos e adotar providências
+trecho: orientar os funcionários e os contratados da entidade a respeito das práticas a serem tomadas em relação à proteção de dados pessoais
+armadilha: rol
+dif: 2
+enunciado: Entre as atividades do encarregado estão aceitar reclamações e comunicações dos titulares, prestar esclarecimentos e adotar providências, e orientar os funcionários e os contratados da entidade sobre as práticas de proteção de dados.
+comentario: Incisos I e III do art. 41, § 2º. Os outros dois: receber comunicações da ANPD e adotar providências; e executar demais atribuições do controlador ou de normas complementares.
+
+=== lgpd-41-04
+gab: E
+ref: lgpd 41, § 3º
+trecho: inclusive hipóteses de dispensa da necessidade de sua indicação, conforme a natureza e o porte da entidade ou o volume de operações de tratamento de dados
+armadilha: extrapolacao
+dif: 2
+enunciado: A LGPD veda que a autoridade nacional dispense qualquer controlador da indicação de encarregado.
+comentario: O § 3º do art. 41 autoriza a ANPD a prever hipóteses de dispensa, conforme natureza e porte da entidade ou volume de operações. A Resolução CD/ANPD nº 2/2022 usa essa autorização para agentes de pequeno porte.
+
+=== lgpd-41-05
+gab: E
+ref: lgpd 41, § 2º, II
+trecho: receber comunicações da autoridade nacional e adotar providências
+armadilha: sujeito
+dif: 2
+enunciado: Compete ao encarregado aplicar sanções disciplinares aos empregados do controlador que violarem a política de privacidade.
+comentario: As atividades do encarregado (art. 41, § 2º) são de comunicação, orientação e providências. Poder disciplinar é do empregador, não está na lista.
+
+=== lgpd-42-01
+gab: C
+ref: lgpd 42
+trecho: causar a outrem dano patrimonial, moral, individual ou coletivo, em violação à legislação de proteção de dados pessoais, é obrigado a repará-lo
+armadilha: literal
+dif: 1
+enunciado: O controlador ou o operador que, em razão do exercício de atividade de tratamento de dados pessoais, causar a outrem dano patrimonial, moral, individual ou coletivo, em violação à legislação de proteção de dados, é obrigado a repará-lo.
+comentario: Caput do art. 42. Alcança dano patrimonial e moral, individual e coletivo.
+
+=== lgpd-42-02
+gab: C
+ref: lgpd 42, § 1º, I
+trecho: o operador responde solidariamente pelos danos causados pelo tratamento quando descumprir as obrigações da legislação de proteção de dados ou quando não tiver seguido as instruções lícitas do controlador, hipótese em que o operador equipara-se ao controlador
+armadilha: excecao
+dif: 2
+enunciado: O operador responde solidariamente pelos danos causados pelo tratamento quando descumprir as obrigações da legislação de proteção de dados ou não seguir as instruções lícitas do controlador, hipótese em que se equipara ao controlador.
+comentario: Art. 42, § 1º, I. Ressalvadas as excludentes do art. 43.
+
+=== lgpd-42-03
+gab: E
+ref: lgpd 42, § 1º, I
+trecho: quando descumprir as obrigações da legislação de proteção de dados ou quando não tiver seguido as instruções lícitas do controlador
+armadilha: absoluto
+dif: 2
+enunciado: O operador responde solidariamente com o controlador por qualquer dano causado pelo tratamento, ainda que tenha cumprido a legislação e seguido as instruções lícitas recebidas.
+comentario: A solidariedade do operador depende de descumprimento da lei ou das instruções lícitas do controlador (art. 42, § 1º, I).
+
+=== lgpd-42-04
+gab: C
+ref: lgpd 42, § 1º, II
+trecho: os controladores que estiverem diretamente envolvidos no tratamento do qual decorreram danos ao titular dos dados respondem solidariamente
+armadilha: literal
+dif: 2
+enunciado: Os controladores diretamente envolvidos no tratamento do qual decorreram danos ao titular respondem solidariamente, salvo as excludentes previstas na LGPD.
+comentario: Art. 42, § 1º, II. Caso típico: controladoria conjunta.
+
+=== lgpd-42-05
+gab: E
+ref: lgpd 42, § 2º
+trecho: O juiz, no processo civil, poderá inverter o ônus da prova a favor do titular dos dados quando, a seu juízo, for verossímil a alegação, houver hipossuficiência para fins de produção de prova ou quando a produção de prova pelo titular resultar-lhe excessivamente onerosa
+armadilha: absoluto
+dif: 2
+enunciado: Nas ações de reparação de danos fundadas na LGPD, a inversão do ônus da prova em favor do titular é automática e obrigatória.
+comentario: O § 2º do art. 42 diz que o juiz “poderá” inverter, a seu juízo, quando houver verossimilhança, hipossuficiência ou prova excessivamente onerosa. É faculdade judicial, não regra automática.
+
+=== lgpd-42-06
+gab: C
+ref: lgpd 42, § 4º
+trecho: Aquele que reparar o dano ao titular tem direito de regresso contra os demais responsáveis, na medida de sua participação no evento danoso
+armadilha: literal
+dif: 2
+enunciado: Aquele que reparar o dano ao titular tem direito de regresso contra os demais responsáveis, na medida de sua participação no evento danoso.
+comentario: Art. 42, § 4º. A solidariedade protege o titular; entre os responsáveis, o prejuízo se divide pela participação de cada um.
+
+=== lgpd-43-01
+gab: C
+ref: lgpd 43
+trecho: que não realizaram o tratamento de dados pessoais que lhes é atribuído
+trecho: que o dano é decorrente de culpa exclusiva do titular dos dados ou de terceiro
+armadilha: rol
+dif: 2
+enunciado: Os agentes de tratamento não são responsabilizados quando provarem que não realizaram o tratamento que lhes é atribuído ou que o dano decorre de culpa exclusiva do titular ou de terceiro.
+comentario: Incisos I e III do art. 43. O inciso II: realizaram o tratamento, mas não houve violação à legislação. O ônus da prova é do agente (“quando provarem”).
+
+=== lgpd-43-02
+gab: E
+ref: lgpd 43
+trecho: Os agentes de tratamento só não serão responsabilizados quando provarem
+armadilha: rol
+dif: 3
+enunciado: O caso fortuito e a força maior estão expressamente previstos no art. 43 da LGPD como excludentes de responsabilidade dos agentes de tratamento.
+comentario: O art. 43 traz três excludentes, e caso fortuito ou força maior não estão entre elas. O “só” do caput reforça que a lista é fechada.
+
+=== lgpd-43-03
+gab: E
+ref: lgpd 43, III
+trecho: que o dano é decorrente de culpa exclusiva do titular dos dados ou de terceiro
+armadilha: conceito
+dif: 2
+enunciado: A culpa concorrente do titular dos dados exclui a responsabilidade do agente de tratamento pelo dano.
+comentario: O inciso III do art. 43 exige culpa exclusiva do titular ou de terceiro. Culpa concorrente pode, no máximo, reduzir a indenização pelas regras gerais, mas não exclui a responsabilidade.
+
+=== lgpd-44-01
+gab: C
+ref: lgpd 44
+trecho: quando não fornecer a segurança que o titular dele pode esperar, consideradas as circunstâncias relevantes
+trecho: as técnicas de tratamento de dados pessoais disponíveis à época em que foi realizado
+armadilha: literal
+dif: 2
+enunciado: O tratamento de dados pessoais é irregular quando não fornece a segurança que o titular dele pode esperar, consideradas circunstâncias como o modo de realização, os riscos razoavelmente esperados e as técnicas disponíveis à época.
+comentario: Art. 44. O critério das técnicas disponíveis à época evita que se julgue um tratamento antigo com a tecnologia de hoje.
+
+=== lgpd-44-02
+gab: E
+ref: lgpd 44, parágrafo único
+trecho: Responde pelos danos decorrentes da violação da segurança dos dados o controlador ou o operador que, ao deixar de adotar as medidas de segurança previstas no art. 46 desta Lei, der causa ao dano
+armadilha: sujeito
+dif: 2
+enunciado: Responde pelos danos decorrentes da violação da segurança dos dados apenas o controlador, ainda que tenha sido o operador quem deixou de adotar as medidas de segurança do art. 46 e deu causa ao dano.
+comentario: O parágrafo único do art. 44 responsabiliza o controlador ou o operador que, ao deixar de adotar as medidas do art. 46, der causa ao dano.
+
+=== lgpd-45-01
+gab: E
+ref: lgpd 45
+trecho: As hipóteses de violação do direito do titular no âmbito das relações de consumo permanecem sujeitas às regras de responsabilidade previstas na legislação pertinente
+armadilha: comparacao
+dif: 2
+enunciado: Nas relações de consumo, as violações de direitos do titular de dados submetem-se exclusivamente às regras de responsabilidade da LGPD, afastado o Código de Defesa do Consumidor.
+comentario: O art. 45 mantém as regras de responsabilidade da legislação pertinente nas relações de consumo, isto é, o CDC continua aplicável.

@@ -1,0 +1,114 @@
+bloco: economia
+// Economia da regulação, estatística e avaliação de políticas.
+
+=== eco-01
+gab: C
+ref: doutrina externalidades
+armadilha: conceito
+dif: 1
+enunciado: Externalidade negativa ocorre quando a atividade de um agente impõe custos a terceiros que não são refletidos no preço de mercado.
+comentario: Um vazamento de dados é exemplo: o custo recai sobre os titulares, não sobre quem deixou de investir em segurança. Multas e responsabilidade civil buscam internalizar esse custo.
+
+=== eco-02
+gab: C
+ref: doutrina bens públicos
+armadilha: conceito
+dif: 1
+enunciado: Bens públicos puros caracterizam-se pela não rivalidade no consumo e pela não exclusividade.
+comentario: Não rival: o uso de um não reduz o do outro. Não excludente: não dá para impedir quem não paga. Exemplo: defesa nacional.
+
+=== eco-03
+gab: E
+ref: doutrina bens públicos
+armadilha: conceito
+dif: 1
+enunciado: Bens públicos puros são rivais no consumo e excludentes, razão pela qual o mercado tende a ofertá-los em quantidade ótima.
+comentario: É o contrário: bens públicos são não rivais e não excludentes, e por isso o mercado tende a ofertá-los abaixo do ótimo (problema do carona).
+
+=== eco-04
+gab: C
+ref: doutrina assimetria de informação
+armadilha: conceito
+dif: 2
+enunciado: A seleção adversa decorre de informação oculta antes da celebração do contrato, ao passo que o risco moral decorre de ação oculta após a celebração do contrato.
+comentario: Seleção adversa é ex ante; risco moral é ex post. Ambos são consequências da assimetria de informação.
+
+=== eco-05
+gab: E
+ref: doutrina assimetria de informação
+armadilha: conceito
+dif: 2
+enunciado: A seleção adversa ocorre após a celebração do contrato, quando uma das partes muda seu comportamento por estar protegida contra riscos.
+comentario: Mudança de comportamento depois do contrato é risco moral. Seleção adversa acontece antes.
+
+=== eco-06
+gab: C
+ref: doutrina estatística descritiva
+armadilha: conceito
+dif: 1
+enunciado: A mediana é medida de tendência central menos sensível a valores extremos do que a média aritmética.
+comentario: Por isso a mediana é preferida para variáveis assimétricas, como renda ou valor de multas aplicadas.
+
+=== eco-07
+gab: E
+ref: doutrina testes de hipótese
+armadilha: conceito
+dif: 2
+enunciado: O erro do tipo I consiste em não rejeitar a hipótese nula quando ela é falsa.
+comentario: Isso é o erro do tipo II. O erro do tipo I é rejeitar a hipótese nula verdadeira, e sua probabilidade máxima é o nível de significância.
+
+=== eco-08
+gab: C
+ref: doutrina testes de hipótese
+armadilha: conceito
+dif: 2
+enunciado: O valor-p é a probabilidade de se obter resultado tão ou mais extremo que o observado, supondo verdadeira a hipótese nula.
+comentario: Valor-p pequeno indica que o resultado seria improvável se a hipótese nula fosse verdadeira. Ele não é a probabilidade de a hipótese nula ser verdadeira.
+
+=== eco-09
+gab: E
+ref: doutrina correlação
+armadilha: conceito
+dif: 1
+enunciado: A existência de forte correlação entre duas variáveis demonstra que uma é causa da outra.
+comentario: Correlação não implica causalidade: pode haver variável omitida, causalidade reversa ou coincidência.
+
+=== eco-10
+gab: E
+ref: doutrina estatística descritiva
+armadilha: conceito
+dif: 2
+enunciado: O desvio padrão é a média dos quadrados dos desvios em relação à média.
+comentario: Essa é a variância (populacional). O desvio padrão é a raiz quadrada da variância e tem a mesma unidade dos dados.
+
+=== eco-11
+gab: C
+ref: doutrina análise custo-benefício
+armadilha: conceito
+dif: 2
+enunciado: Em análise custo-benefício, valor presente líquido positivo indica que os benefícios descontados superam os custos descontados.
+comentario: É um dos métodos previstos para comparar alternativas na análise de impacto regulatório (Decreto nº 10.411/2020).
+
+=== eco-12
+gab: C
+ref: doutrina mercados digitais
+armadilha: conceito
+dif: 2
+enunciado: Efeitos de rede e economias de escala tendem a favorecer a concentração em mercados digitais, e a portabilidade de dados pode reduzir os custos de troca do consumidor.
+comentario: A portabilidade da LGPD (art. 18, V) tem também função concorrencial: dificulta o aprisionamento (lock-in) do usuário.
+
+=== eco-13
+gab: C
+ref: doutrina avaliação de impacto
+armadilha: conceito
+dif: 3
+enunciado: O método de diferenças em diferenças estima o efeito de uma intervenção comparando a variação no tempo do grupo tratado com a variação do grupo de controle, sob a hipótese de tendências paralelas.
+comentario: Sem a hipótese de tendências paralelas, a diferença observada pode refletir trajetórias que já eram diferentes antes da intervenção.
+
+=== eco-14
+gab: C
+ref: doutrina avaliação de impacto
+armadilha: conceito
+dif: 2
+enunciado: Em experimentos aleatorizados, a atribuição aleatória ao grupo de tratamento tende a eliminar o viés de seleção, tornando os grupos comparáveis em média.
+comentario: É por isso que o experimento aleatorizado é considerado o padrão-ouro em avaliação de impacto.

@@ -1,0 +1,101 @@
+bloco: lgpd-17-22
+// As 10 questões do Painel ANPD original (Banco de Questões da doc), mantidas com os ids painel-01 a painel-10.
+// painel-02 foi reescrita: a versão antiga falava em “diretoria executiva” e “caráter consultivo”, termos que a lei não usa.
+// painel-06 a painel-10 (Resolução 19/2024) foram conferidas na sessão anterior; o texto da resolução ainda não está em fontes/.
+
+=== painel-01
+bloco: lgpd-52-54
+gab: C
+ref: lgpd 52, § 3º
+trecho: O disposto nos incisos I, IV, V, VI, X, XI e XII do caput deste artigo poderá ser aplicado às entidades e aos órgãos públicos
+armadilha: rol
+dif: 2
+enunciado: A LGPD veda a aplicação de multa simples ou diária, no âmbito do processo administrativo sancionador conduzido pela ANPD, a órgãos e entidades públicas.
+comentario: Atenção ao mecanismo: o art. 52, § 3º, não usa a palavra “veda”. Ele lista os incisos aplicáveis a entidades e órgãos públicos (I, IV, V, VI, X, XI e XII), e a multa simples e a multa diária (incisos II e III) ficam fora da lista. É essa omissão num rol taxativo que impede a multa contra ente público, e é esse tipo de troca (“a lei proíbe” por “a lei lista o permitido, e X não está na lista”) que o Cebraspe usa para decidir um item.
+
+=== painel-02
+bloco: lgpd-55
+gab: C
+ref: lgpd 55-C
+trecho: I - Conselho Diretor, órgão máximo de direção
+trecho: II - Conselho Nacional de Proteção de Dados Pessoais e da Privacidade
+armadilha: rol
+dif: 2
+enunciado: A LGPD inclui na composição da ANPD, ao lado do Conselho Diretor, seu órgão máximo de direção, o Conselho Nacional de Proteção de Dados Pessoais e da Privacidade, integrado por representantes do poder público e da sociedade civil.
+comentario: Art. 55-C, I e II, e art. 58-A (23 representantes, do Executivo, do Legislativo, do CNJ, do CNMP, do CGI.br, da sociedade civil, da academia, do setor produtivo e do setor laboral). Esta questão substitui a versão antiga do painel, que chamava o Conselho Diretor de “diretoria executiva” e atribuía ao CNPD “caráter consultivo”, termos que não estão na lei e poderiam tornar o item errado.
+
+=== painel-03
+gab: C
+ref: lgpd 18
+trecho: confirmação da existência de tratamento
+trecho: correção de dados incompletos, inexatos ou desatualizados
+trecho: portabilidade dos dados a outro fornecedor de serviço ou produto
+armadilha: rol
+dif: 1
+enunciado: Entre os direitos do titular previstos na LGPD estão a confirmação da existência de tratamento, o acesso aos dados, a correção de dados incompletos ou desatualizados e a portabilidade dos dados a outro fornecedor de serviço.
+comentario: Rol do art. 18. O Cebraspe costuma testar se algum direito parecido, mas não previsto no rol, foi incluído de propósito no item. Vale decorar os nove incisos.
+
+=== painel-04
+bloco: lgpd-33-36
+gab: C
+ref: lgpd 33
+trecho: A transferência internacional de dados pessoais somente é permitida nos seguintes casos
+armadilha: rol
+dif: 1
+enunciado: Como regra geral, a transferência internacional de dados pessoais pela LGPD depende de uma das hipóteses legais específicas (como adequação do país de destino, cláusulas-padrão contratuais ou consentimento específico do titular), não bastando o mero acordo entre o controlador brasileiro e o destinatário estrangeiro.
+comentario: Espírito do art. 33: a transferência é exceção regrada, não livre pactuação. O consentimento do inciso VIII, aliás, precisa ser específico e em destaque, com informação prévia sobre o caráter internacional.
+
+=== painel-05
+gab: C
+ref: lgpd 20
+trecho: O titular dos dados tem direito a solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado de dados pessoais que afetem seus interesses
+trecho: § 3º (VETADO)
+armadilha: vetado
+dif: 1
+enunciado: O titular de dados pessoais tem direito a solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado que afetem seus interesses, incluídas as que definem perfil pessoal, profissional, de consumo ou de crédito.
+comentario: Caput do art. 20. O § 3º, que trataria da revisão por pessoa natural, foi incluído pela Lei nº 13.853/2019 e vetado: hoje o art. 20 tem só caput, § 1º e § 2º em vigor. Um item que afirme que “a lei exige revisão por pessoa natural” estaria errado.
+
+=== painel-06
+bloco: res-19-2024
+gab: E
+ref: res19 6
+armadilha: conceito
+dif: 2
+enunciado: Nos termos do Regulamento de Transferência Internacional de Dados (Resolução CD/ANPD nº 19/2024), a coleta de dados pessoais realizada diretamente no exterior por agente de tratamento estrangeiro, sem qualquer intermediação de agente de tratamento situado no território nacional, configura transferência internacional de dados para todos os efeitos.
+comentario: O art. 6º do Regulamento é expresso: “a coleta internacional de dados não caracteriza transferência internacional de dados”. São duas figuras distintas: a coleta internacional segue as hipóteses do art. 3º da LGPD, não o regime do art. 33. Separar coleta de transferência é a pegadinha central deste artigo.
+
+=== painel-07
+bloco: res-19-2024
+gab: E
+ref: res19 16
+armadilha: extrapolacao
+dif: 2
+enunciado: O agente de tratamento que fundamentar uma transferência internacional de dados nas cláusulas-padrão contratuais aprovadas pela ANPD pode adaptar o texto das cláusulas mandatórias (Seção II do Anexo II), desde que preserve nível de proteção equivalente ao exigido pela LGPD.
+comentario: O art. 16 é categórico: a validade pressupõe “a adoção integral e sem alteração do texto” das cláusulas do Anexo II. A Seção II se chama “Cláusulas Mandatórias”; só a Seção I (campos de identificação) e a Seção IV (cláusulas adicionais, que não podem contrariar as Seções I a III) admitem preenchimento pelas partes.
+
+=== painel-08
+bloco: res-19-2024
+gab: E
+ref: res19 Anexo II, cláusula 16.1
+armadilha: numero
+dif: 2
+enunciado: Segundo as cláusulas-padrão contratuais aprovadas pela ANPD, a comunicação à ANPD e aos titulares sobre incidente de segurança que possa acarretar risco ou dano relevante deve ocorrer no prazo de 2 (dois) dias úteis, contado da identificação do incidente.
+comentario: O prazo correto é de 3 (três) dias úteis, não 2 (Cláusula 16.1 do Anexo II). Prazo exato é o tipo de detalhe que o Cebraspe testa trocando o número. Não confunda com o prazo de 15 dias para responder ao titular sobre a íntegra das cláusulas (art. 17, § 1º, e Cláusula 15.3).
+
+=== painel-09
+bloco: res-19-2024
+gab: E
+ref: res19 13
+armadilha: comparacao
+dif: 3
+enunciado: Qualquer pessoa jurídica de direito privado interessada pode requerer diretamente à ANPD a instauração de procedimento de decisão de adequação do nível de proteção de dados de país estrangeiro, da mesma forma como pode fazê-lo em relação ao reconhecimento de equivalência de cláusulas-padrão contratuais estrangeiras.
+comentario: São regimes diferentes. A decisão de adequação (art. 13, I) só pode ser instaurada de ofício pelo Conselho Diretor ou por solicitação das pessoas jurídicas de direito público referidas na Lei de Acesso à Informação. Já o reconhecimento de equivalência de cláusulas-padrão (art. 18, § 1º, I) admite “requerimento dos interessados”, inclusive privados.
+
+=== painel-10
+bloco: res-19-2024
+gab: C
+ref: res19 34
+armadilha: literal
+dif: 2
+enunciado: Das decisões do Conselho Diretor da ANPD nos procedimentos de decisão de adequação, de equivalência de cláusulas-padrão ou de aprovação de cláusulas específicas e normas corporativas globais, cabe pedido de reconsideração fundamentado, no prazo de 10 dias úteis contados da ciência oficial pelo interessado, nos termos do Anexo da Resolução CD/ANPD nº 1/2021.
+comentario: É o art. 34 do Regulamento, e mostra como as resoluções se encaixam: o prazo e o rito remetem ao art. 12 do Anexo da Resolução CD/ANPD nº 1/2021, a mesma resolução do processo de fiscalização e sancionador.

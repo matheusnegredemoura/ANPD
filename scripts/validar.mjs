@@ -1,0 +1,90 @@
+// Valida o banco de questões: campos obrigatórios, ids únicos, blocos existentes
+// e, para questões com lei anexada em fontes/, se cada trecho citado existe
+// literalmente no artigo indicado. Sai com código 1 se houver erro.
+import { readFileSync } from 'node:fs';
+import { dirname, join, relative } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { LEIS, carregarLei, indicePorArtigo, normalizar } from './lib/leis.mjs';
+import { ARMADILHAS, lerTodas, parseRef } from './lib/questoes.mjs';
+
+const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
+
+export function validar({ silencioso = false } = {}) {
+  const { blocos } = JSON.parse(readFileSync(join(RAIZ, 'questoes', 'blocos.json'), 'utf8'));
+  const idsBlocos = new Set(blocos.map((b) => b.id));
+  const leis = {};
+  for (const id of Object.keys(LEIS)) {
+    const lei = carregarLei(RAIZ, id);
+    if (lei) leis[id] = { lei, idx: indicePorArtigo(lei) };
+  }
+
+  const questoes = lerTodas(RAIZ);
+  const erros = [];
+  const avisos = [];
+  const vistos = new Map();
+  const err = (q, msg) => erros.push(`${relative(RAIZ, q.arquivo)} · ${q.id}: ${msg}`);
+
+  for (const q of questoes) {
+    if (vistos.has(q.id)) err(q, `id repetido (também em ${relative(RAIZ, vistos.get(q.id))})`);
+    vistos.set(q.id, q.arquivo);
+    if (!q.bloco || !idsBlocos.has(q.bloco)) err(q, `bloco inválido: ${q.bloco}`);
+    if (!['C', 'E'].includes(q.gab)) err(q, `gab deve ser C ou E (veio ${q.gab})`);
+    if (!q.enunciado || q.enunciado.length < 30) err(q, 'enunciado ausente ou curto demais');
+    if (!q.comentario || q.comentario.length < 30) err(q, 'comentário ausente ou curto demais');
+    if (q.armadilha && !ARMADILHAS[q.armadilha]) err(q, `armadilha desconhecida: ${q.armadilha}`);
+    if (q.dif && !['1', '2', '3'].includes(q.dif)) err(q, `dif deve ser 1, 2 ou 3`);
+    if (/"/.test(q.enunciado || '')) err(q, 'use aspas curvas “ ” no enunciado');
+
+    const ref = parseRef(q.ref);
+    if (!ref) {
+      err(q, 'ref ausente');
+      continue;
+    }
+    const fonte = leis[ref.lei];
+    if (fonte) {
+      const art = fonte.idx.get(ref.art);
+      if (!art) {
+        err(q, `artigo ${ref.art} não existe em ${ref.lei}`);
+        continue;
+      }
+      if (!q.trecho.length) err(q, 'questão de lei anexada precisa de ao menos um trecho literal');
+      const alvo = normalizar(art.texto);
+      for (const t of q.trecho) {
+        if (!alvo.includes(normalizar(t))) err(q, `trecho não encontrado no ${art.rotulo}: «${t}»`);
+      }
+    } else if (q.trecho.length && LEIS[ref.lei]) {
+      avisos.push(`${q.id}: ${ref.lei} ainda não tem texto em fontes/ — trecho não conferido`);
+    }
+  }
+
+  // Estatística por bloco: total e equilíbrio certo/errado
+  const porBloco = {};
+  for (const q of questoes) {
+    const s = (porBloco[q.bloco] ||= { total: 0, C: 0, E: 0 });
+    s.total++;
+    s[q.gab] = (s[q.gab] || 0) + 1;
+  }
+  for (const [b, s] of Object.entries(porBloco)) {
+    if (s.total >= 10) {
+      const pc = s.C / s.total;
+      if (pc < 0.3 || pc > 0.7) avisos.push(`${b}: gabarito desequilibrado (${s.C} C × ${s.E} E)`);
+    }
+  }
+
+  if (!silencioso) {
+    console.log(`Questões: ${questoes.length}`);
+    for (const b of blocos) {
+      const s = porBloco[b.id];
+      if (s) console.log(`  ${b.id.padEnd(18)} ${String(s.total).padStart(4)}  (${s.C} C / ${s.E} E)`);
+    }
+    for (const a of avisos) console.log('aviso: ' + a);
+    for (const e of erros) console.error('ERRO: ' + e);
+    console.log(erros.length ? `\n${erros.length} erro(s).` : '\nTudo certo.');
+  }
+  return { questoes, erros, avisos, leis, blocos };
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const { erros } = validar();
+  process.exit(erros.length ? 1 : 0);
+}

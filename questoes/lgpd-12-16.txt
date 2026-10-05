@@ -1,0 +1,150 @@
+bloco: lgpd-12-16
+// Anonimização, pesquisa em saúde pública e término do tratamento (arts. 12, 13, 15 e 16).
+
+=== lgpd-12-01
+gab: C
+ref: lgpd 12
+trecho: Os dados anonimizados não serão considerados dados pessoais para os fins desta Lei, salvo quando o processo de anonimização ao qual foram submetidos for revertido, utilizando exclusivamente meios próprios, ou quando, com esforços razoáveis, puder ser revertido
+armadilha: excecao
+dif: 2
+enunciado: Dados anonimizados não são considerados dados pessoais para os fins da LGPD, salvo quando o processo de anonimização for revertido com meios próprios ou puder ser revertido com esforços razoáveis.
+comentario: Caput do art. 12. A regra tem duas exceções; a segunda (reversível com esforços razoáveis) é a que pega a maior parte dos casos práticos de anonimização mal feita.
+
+=== lgpd-12-02
+gab: E
+ref: lgpd 12
+trecho: salvo quando o processo de anonimização ao qual foram submetidos for revertido
+armadilha: absoluto
+dif: 1
+enunciado: Uma vez anonimizados, os dados nunca mais são considerados dados pessoais para os fins da LGPD.
+comentario: O art. 12 ressalva a reversão efetiva e a reversibilidade com esforços razoáveis. “Nunca” torna o item errado.
+
+=== lgpd-12-03
+gab: C
+ref: lgpd 12, § 1º
+trecho: tais como custo e tempo necessários para reverter o processo de anonimização, de acordo com as tecnologias disponíveis, e a utilização exclusiva de meios próprios
+armadilha: literal
+dif: 2
+enunciado: A determinação do que seja razoável para reverter a anonimização deve considerar fatores objetivos, como custo e tempo necessários, de acordo com as tecnologias disponíveis.
+comentario: Art. 12, § 1º. Como a tecnologia muda, um dado anonimizado hoje pode deixar de sê-lo amanhã, o que exige reavaliação periódica.
+
+=== lgpd-12-04
+gab: C
+ref: lgpd 12, § 2º
+trecho: Poderão ser igualmente considerados como dados pessoais, para os fins desta Lei, aqueles utilizados para formação do perfil comportamental de determinada pessoa natural, se identificada
+armadilha: literal
+dif: 2
+enunciado: Podem ser considerados dados pessoais, para os fins da LGPD, aqueles utilizados para formação do perfil comportamental de determinada pessoa natural, se identificada.
+comentario: Art. 12, § 2º. Dialoga com o art. 20 (decisões automatizadas que definem perfil).
+
+=== lgpd-12-05
+gab: E
+ref: lgpd 12, § 3º
+trecho: A autoridade nacional poderá dispor sobre padrões e técnicas utilizados em processos de anonimização e realizar verificações acerca de sua segurança, ouvido o Conselho Nacional de Proteção de Dados Pessoais
+armadilha: sujeito
+dif: 3
+enunciado: A autoridade nacional pode dispor sobre padrões e técnicas de anonimização e verificar sua segurança, ouvido o Comitê Gestor da Internet no Brasil.
+comentario: O § 3º do art. 12 manda ouvir o Conselho Nacional de Proteção de Dados Pessoais. Esse dispositivo está na Fase 1 da Agenda Regulatória 2025-2026 da ANPD.
+
+=== lgpd-13-01
+gab: C
+ref: lgpd 13
+trecho: que serão tratados exclusivamente dentro do órgão e estritamente para a finalidade de realização de estudos e pesquisas e mantidos em ambiente controlado e seguro
+armadilha: literal
+dif: 2
+enunciado: Em estudos em saúde pública, os órgãos de pesquisa podem acessar bases de dados pessoais, que devem ser tratados exclusivamente dentro do órgão, estritamente para os estudos, e mantidos em ambiente controlado e seguro.
+comentario: Caput do art. 13. As práticas de segurança devem incluir, sempre que possível, anonimização ou pseudonimização, e respeitar padrões éticos de pesquisa.
+
+=== lgpd-13-02
+gab: E
+ref: lgpd 13, § 2º
+trecho: não permitida, em circunstância alguma, a transferência dos dados a terceiro
+armadilha: extrapolacao
+dif: 2
+enunciado: O órgão de pesquisa que acessa bases de dados para estudos em saúde pública pode transferir os dados a terceiro, desde que mediante convênio e para a mesma finalidade.
+comentario: O § 2º do art. 13 proíbe a transferência a terceiro “em circunstância alguma”. O órgão de pesquisa é o responsável pela segurança.
+
+=== lgpd-13-03
+gab: C
+ref: lgpd 13, § 4º
+trecho: a pseudonimização é o tratamento por meio do qual um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo, senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro
+armadilha: conceito
+dif: 2
+enunciado: Pseudonimização é o tratamento pelo qual um dado perde a possibilidade de associação a um indivíduo, senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro.
+comentario: Art. 13, § 4º. É a única definição de pseudonimização na lei e fica fora do art. 5º.
+
+=== lgpd-13-04
+gab: E
+ref: lgpd 13, § 4º
+trecho: senão pelo uso de informação adicional mantida separadamente pelo controlador
+armadilha: conceito
+dif: 3
+enunciado: Conforme a definição do art. 13, § 4º, da LGPD, o dado pseudonimizado não pode ser associado a um indivíduo nem mesmo com o uso de informação adicional mantida pelo controlador, razão pela qual equivale ao dado anonimizado.
+comentario: O dado pseudonimizado pode ser reassociado com a informação adicional guardada à parte. Por isso continua sendo dado pessoal, ao contrário do anonimizado (art. 12).
+
+=== lgpd-13-05
+gab: E
+ref: lgpd 13, § 1º
+trecho: em nenhuma hipótese poderá revelar dados pessoais
+armadilha: excecao
+dif: 2
+enunciado: A divulgação dos resultados de estudo em saúde pública pode revelar dados pessoais quando houver relevante interesse público e autorização do comitê de ética.
+comentario: O § 1º do art. 13 diz que a divulgação “em nenhuma hipótese poderá revelar dados pessoais”.
+
+=== lgpd-15-01
+gab: C
+ref: lgpd 15
+trecho: verificação de que a finalidade foi alcançada ou de que os dados deixaram de ser necessários ou pertinentes ao alcance da finalidade específica almejada
+trecho: fim do período de tratamento
+trecho: determinação da autoridade nacional, quando houver violação ao disposto nesta Lei
+armadilha: rol
+dif: 2
+enunciado: O término do tratamento ocorre, entre outras hipóteses, quando a finalidade é alcançada, com o fim do período de tratamento e por determinação da autoridade nacional quando houver violação à LGPD.
+comentario: Incisos I, II e IV do art. 15. O inciso III trata da comunicação do titular, inclusive revogação do consentimento, resguardado o interesse público.
+
+=== lgpd-15-02
+gab: E
+ref: lgpd 15, IV
+trecho: determinação da autoridade nacional, quando houver violação ao disposto nesta Lei
+armadilha: excecao
+dif: 2
+enunciado: A autoridade nacional pode determinar o término do tratamento de dados a qualquer tempo, por conveniência e oportunidade, independentemente de violação à LGPD.
+comentario: O art. 15, IV, condiciona a determinação da ANPD à existência de violação à lei.
+
+=== lgpd-15-03
+gab: C
+ref: lgpd 15, III
+trecho: comunicação do titular, inclusive no exercício de seu direito de revogação do consentimento conforme disposto no § 5º do art. 8º desta Lei, resguardado o interesse público
+armadilha: excecao
+dif: 3
+enunciado: A comunicação do titular, inclusive para revogar o consentimento, leva ao término do tratamento, resguardado o interesse público.
+comentario: Art. 15, III. A ressalva do interesse público é o detalhe que costuma ser retirado.
+
+=== lgpd-16-01
+gab: C
+ref: lgpd 16
+trecho: autorizada a conservação para as seguintes finalidades
+trecho: cumprimento de obrigação legal ou regulatória pelo controlador
+trecho: uso exclusivo do controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados
+armadilha: rol
+dif: 2
+enunciado: Após o término do tratamento, a conservação dos dados é autorizada para cumprimento de obrigação legal ou regulatória e para uso exclusivo do controlador, vedado o acesso por terceiro e desde que anonimizados os dados.
+comentario: Incisos I e IV do art. 16. O rol completo: obrigação legal ou regulatória; estudo por órgão de pesquisa; transferência a terceiro respeitados os requisitos da lei; uso exclusivo do controlador com dados anonimizados.
+
+=== lgpd-16-02
+gab: E
+ref: lgpd 16, IV
+trecho: uso exclusivo do controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados
+armadilha: conceito
+dif: 3
+enunciado: Após o término do tratamento, o controlador pode conservar os dados para uso próprio, permitido o acesso por terceiros, desde que os dados estejam pseudonimizados.
+comentario: O inciso IV do art. 16 exige uso exclusivo do controlador, veda o acesso por terceiro e exige anonimização. Pseudonimização não basta.
+
+=== lgpd-16-03
+gab: E
+ref: lgpd 16
+trecho: Os dados pessoais serão eliminados após o término de seu tratamento, no âmbito e nos limites técnicos das atividades, autorizada a conservação
+armadilha: absoluto
+dif: 1
+enunciado: Encerrado o tratamento, os dados pessoais devem ser eliminados imediatamente, sem possibilidade de conservação.
+comentario: O art. 16 manda eliminar, mas autoriza a conservação em quatro finalidades. O artigo também fala em “no âmbito e nos limites técnicos das atividades”.

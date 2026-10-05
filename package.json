@@ -1,0 +1,12 @@
+{
+  "name": "anpd-estudos",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Aplicativo de estudo por questões para o concurso de Especialista em Regulação de Proteção de Dados (ANPD).",
+  "scripts": {
+    "validar": "node scripts/validar.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test scripts/banco.test.mjs"
+  }
+}
