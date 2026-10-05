@@ -39,6 +39,11 @@ const NOMES_FONTE = {
   lei8987: 'Lei 8.987/1995',
   anatel: 'Resolução da Anatel',
   eciber: 'E-Ciber (Decreto 10.222/2020)',
+  lei14133: 'Lei 14.133/2021 (licitações e contratos)',
+  lei14129: 'Lei 14.129/2021 (Governo Digital)',
+  mrpr: 'Manual de Redação da Presidência da República',
+  lei13303: 'Lei 13.303/2016 (estatais)',
+  dl200: 'Decreto-Lei 200/1967',
   stf: 'STF',
   tjue: 'TJUE',
 };
@@ -108,6 +113,7 @@ function compactar(questoes, leisAnexadas) {
       o: q.origem === 'real' ? 1 : undefined,
       pv: q.prova || undefined,
       cm: q.comando || undefined,
+      tm: q.tema || undefined,
       v: leisAnexadas.has(r.lei) || FONTES_SEM_CONFERIR.has(r.lei) ? undefined : 0,
     };
   });

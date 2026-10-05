@@ -69,8 +69,17 @@ const CHAVE_LOCAL = 'painel-anpd-v3';
 const CHAVE_LOCAL_ANTIGA = 'painel-anpd-v2';
 const CHAVE_UI = 'painel-anpd-ui';
 const P1 = ['lgpd-17-22', 'lgpd-52-54', 'lgpd-55', 'lgpd-33-36'];
-// Distribuição da prova completa simulada (proporção por disciplina, segue os pesos do plano)
-const PESOS_PROVA = { lgpd: 0.42, regulacao: 0.15, eca: 0.08, seginfo: 0.08, direito: 0.09, comparado: 0.05, economia: 0.04, gestao: 0.04, linguas: 0.05 };
+// Prova completa simulada: itens por disciplina numa prova de 120 (50 básicos + 70 específicos), estimativa
+// feita sobre a estrutura da Anatel 2024 e da ANAC 2024 até sair o edital da ANPD
+const ITENS_PROVA = { linguas: 21, direito: 19, regulacao: 14, lgpd: 34, eca: 8, seginfo: 8, gestao: 8, comparado: 4, economia: 4 };
+const TOTAL_PROVA = Object.values(ITENS_PROVA).reduce((a, b) => a + b, 0);
+// Cotas por disciplina para n itens, pelo método do maior resto (a soma dá exatamente n)
+function cotasProva(n) {
+  const base = Object.entries(ITENS_PROVA).map(([d, k]) => { const x = (n * k) / TOTAL_PROVA; return [d, Math.floor(x), x - Math.floor(x)]; });
+  let falta = n - base.reduce((a, b) => a + b[1], 0);
+  base.slice().sort((a, b) => b[2] - a[2]).forEach((b) => { if (falta > 0) { b[1]++; falta--; } });
+  return base.map(([d, k]) => [d, k]);
+}
 // Blocos que não entram no simulado de prova completa (conteúdo de outra agência, útil só para ver o estilo da banca)
 const FORA_DA_PROVA = new Set(['anatel-setorial']);
 const REAIS = Q.filter((q) => q.o);
@@ -605,9 +614,9 @@ function selecionar(pool, n, filtro) {
 function selecionarProva(n) {
   const escolhidos = [];
   const usados = new Set();
-  for (const [disc, peso] of Object.entries(PESOS_PROVA)) {
+  for (const [disc, k] of cotasProva(n)) {
     const pool = Q.filter((q) => { const b = BI.get(q.b); return b && b.disciplina === disc && !FORA_DA_PROVA.has(b.id); });
-    selecionar(pool, Math.min(pool.length, Math.round(n * peso)), 'mistas').forEach((q) => { escolhidos.push(q); usados.add(q.id); });
+    selecionar(pool, Math.min(pool.length, k), 'mistas').forEach((q) => { escolhidos.push(q); usados.add(q.id); });
   }
   if (escolhidos.length < n) selecionar(Q.filter((q) => !usados.has(q.id) && !FORA_DA_PROVA.has(q.b)), n - escolhidos.length, 'mistas').forEach((q) => escolhidos.push(q));
   return embaralhar(escolhidos.slice(0, n));
@@ -966,7 +975,7 @@ function renderHoje() {
   const nivel = '<div class="cartao"><div class="nivel"><div class="insignia">' + nv.n + '</div><div class="info"><div class="titulo">' + esc(nv.nome) + '</div>' +
     barra((S.perfil.xp - nv.base) / (nv.prox - nv.base), 'ouro') + '<div class="pequeno mudo mono">' + fmtNum(S.perfil.xp) + ' / ' + fmtNum(nv.prox) + ' XP · faltam ' + fmtNum(nv.prox - S.perfil.xp) + '</div></div></div></div>';
   const modos = '<div class="secao"><div class="secao-cab"><h2>Modos de jogo</h2></div><div class="grade-modos">' +
-    '<button class="modo" data-acao="abrir-modo" data-modo="simulado"><b>Simulado Cebraspe</b><span>Uma errada anula uma certa. Prova completa com os pesos do plano ou só os seus blocos.</span><span class="num">' + pl(S.simulados.length, 'simulado feito', 'simulados feitos') + '</span></button>' +
+    '<button class="modo" data-acao="abrir-modo" data-modo="simulado"><b>Simulado Cebraspe</b><span>Uma errada anula uma certa. Prova completa na proporção estimada da prova ou só os seus blocos.</span><span class="num">' + pl(S.simulados.length, 'simulado feito', 'simulados feitos') + '</span></button>' +
     '<button class="modo" data-acao="relampago" data-blocos="' + P1.join(',') + '"><b>Relâmpago 90 s</b><span>Quantos itens da prioridade 1 você acerta em um minuto e meio?</span><span class="num">Recorde: ' + (S.perfil.recordes.relampago || 0) + '</span></button>' +
     '<button class="modo" data-acao="ir" data-vista="cards"><b>Cards cloze</b><span>A letra da lei com lacunas, no estilo do Anki, com revisão espaçada.</span><span class="num">' + CARDS.length + ' cards</span></button>' +
     '<button class="modo" data-acao="mais" data-sub="discursiva"><b>Discursiva</b><span>Escreva no limite de linhas e corrija pelos quesitos do padrão de resposta.</span><span class="num">' + pl(TEMAS_DISC.length, 'tema', 'temas') + '</span></button>' +
@@ -1023,9 +1032,9 @@ function renderQuestoes() {
     }[modo]) + '</p></div>';
   if (modo === 'simulado') {
     html += '<div class="campo"><span class="rot">Composição</span><div class="chips">' +
-      '<button class="chip" data-acao="set-prova" data-prova="prova" aria-pressed="' + usarProva + '">Prova completa (pesos do plano)</button>' +
+      '<button class="chip" data-acao="set-prova" data-prova="prova" aria-pressed="' + usarProva + '">Prova completa (básicos + específicos)</button>' +
       '<button class="chip" data-acao="set-prova" data-prova="blocos" aria-pressed="' + !usarProva + '">Só os blocos marcados</button></div>' +
-      (usarProva ? '<p class="pequeno mudo">' + Object.entries(PESOS_PROVA).map(([d, p]) => esc(DI.get(d).nome) + ' ' + Math.round(p * 100) + '%').join(' · ') + '</p>' : '') + '</div>';
+      (usarProva ? '<p class="pequeno mudo">Numa prova de ' + TOTAL_PROVA + ' itens: ' + Object.entries(ITENS_PROVA).map(([d, k]) => esc(DI.get(d).nome) + ' ' + k).join(' · ') + '. Estimativa sobre as provas da Anatel e da ANAC de 2024 (50 itens básicos e 70 específicos); muda quando sair o edital da ANPD.</p>' : '') + '</div>';
   }
   if (modo !== 'relampago') html += '<div class="campo"><span class="rot">Quantidade de itens</span><div class="chips">' + ns.map((n) => '<button class="chip" data-acao="set-n" data-n="' + n + '" aria-pressed="' + (UI.n === n) + '">' + n + '</button>').join('') + '</div></div>';
   if (modo === 'treino') html += '<div class="campo"><span class="rot">Quais itens</span><div class="chips">' + [['mistas', 'Vencidas + inéditas'], ['novas', 'Só inéditas'], ['erradas', 'Só as que já errei']].map(([v, t]) => '<button class="chip" data-acao="set-filtro" data-filtro="' + v + '" aria-pressed="' + (UI.filtro === v) + '">' + t + '</button>').join('') + '</div></div>';

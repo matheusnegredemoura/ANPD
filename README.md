@@ -27,7 +27,7 @@ A página Mais → Método explica o porquê de cada passo e a estratégia de ch
 - **509 cards cloze** (421 notas) de todas as normas anexadas, com agendamento no estilo do Anki (Errei, Difícil, Bom, Fácil), limite diário de cards novos e exportação para o Anki (`dist/anki-lgpd-cloze.txt`).
 - **Lei seca grifada de 50 normas** em sete grupos: LGPD e normas da ANPD; ECA Digital, internet e plataformas; regulação, agências e carreira; Constituição; direito administrativo; segurança da informação (com o NIST CSF 2.0); direito comparado (GDPR, no texto oficial em inglês, e Convenção 108+). Busca em todas as normas, estrelas de importância, ranking dos artigos mais cobrados e camadas de grifo (o que cai, prazos e números, palavras de alerta, deve × pode, seus erros), que também reconhecem o inglês.
 - **Glossário de 99 termos**, marcados nas questões e nos cards, e a lista **Para pesquisar**, que recebe sozinha os termos das questões erradas.
-- **Simulados Cebraspe**: uma errada anula uma certa, com prova completa nos pesos do plano, resultado por disciplina e análise do chute.
+- **Simulados Cebraspe**: uma errada anula uma certa, com prova completa na proporção estimada (50 itens básicos e 70 específicos, como Anatel e ANAC 2024), resultado por disciplina e análise do chute.
 - **Relâmpago 90 s**, XP, níveis, sequência de dias e conquistas.
 - **Ajustes**: metas, backup em arquivo, restauração e diagnóstico da gravação na conta.
 
