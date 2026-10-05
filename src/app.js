@@ -1182,9 +1182,10 @@ function importancia(id) {
   return qs * 2 + cs + bonus;
 }
 function estrelas(id) { const s = importancia(id); return s >= 16 ? 3 : s >= 8 ? 2 : s >= 3 ? 1 : 0; }
-const RE_NUM = /(?:R\$\s?)?\d[\d.,]*%?\s\([^)]+\)(?:\s(?:dias|meses|anos|horas))?|\d{1,2}º? de [a-zç]+ de \d{4}/g;
-const RE_ALERTA = /(?<![\p{L}])(?:somente|exclusivamente|exclusiva|exclusivos|vedad[oa]s?|salvo|exceto|ressalvad[oa]s?|desde que|em nenhuma hipótese|em nenhum caso|em circunstância alguma|independentemente|não se aplica|sem prejuízo|só não|apenas|sempre que possível|a qualquer momento|imediatamente|nul[oa]s?|gratuita|sem custos)(?![\p{L}])/giu;
-const RE_VERBO = /(?<![\p{L}])(?:deverá|deverão|deve|devem|poderá|poderão|pode|podem|compete|competem|cabe|obriga-se|é obrigado)(?![\p{L}])/giu;
+// Os grifos também reconhecem o inglês do GDPR (EUR, %, prazos em horas e anos, shall/may, unless, only...)
+const RE_NUM = /(?:R\$\s?)?\d[\d.,]*%?\s\([^)]+\)(?:\s(?:dias|meses|anos|horas))?|\d{1,2}º? de [a-zç]+ de \d{4}|\d{1,3}(?: \d{3})+ EUR|\d+ %|\b\d+ (?:hours|days|weeks|months|years)\b|\d{1,2} (?:January|February|March|April|May|June|July|August|September|October|November|December) \d{4}/g;
+const RE_ALERTA = /(?<![\p{L}])(?:somente|exclusivamente|exclusiva|exclusivos|vedad[oa]s?|salvo|exceto|ressalvad[oa]s?|desde que|em nenhuma hipótese|em nenhum caso|em circunstância alguma|independentemente|não se aplica|sem prejuízo|só não|apenas|sempre que possível|a qualquer momento|imediatamente|nul[oa]s?|gratuita|sem custos|only|solely|exclusively|unless|except|prohibited|shall not|not apply|without prejudice|in any case|regardless|irrespective|free of charge|without undue delay)(?![\p{L}])/giu;
+const RE_VERBO = /(?<![\p{L}])(?:deverá|deverão|deve|devem|poderá|poderão|pode|podem|compete|competem|cabe|obriga-se|é obrigado|shall|may|must)(?![\p{L}])/giu;
 function rangesRegex(linha, re, cls) {
   const out = [];
   re.lastIndex = 0;
@@ -1229,7 +1230,8 @@ function textoLei(a, qExtras) {
     let cls = 'par';
     if (k === 0) cls = 'caput';
     else if (/^[IVXL]+(-[A-Z])?\s-/.test(linha)) cls = 'inc';
-    else if (/^[a-z]\)/.test(linha)) cls = 'ali';
+    else if (/^[a-z]\)/.test(linha) || /^\((?:[a-z]{1,2}|[ivx]+)\) /.test(linha)) cls = 'ali';
+    else if (/^\(\d+\) /.test(linha)) cls = 'inc';
     return '<p class="' + cls + '">' + html + '</p>';
   }).join('');
 }
@@ -1488,7 +1490,7 @@ function renderMetodo() {
     '<li>A partir da Fase 2, faça ao menos um simulado de prova completa por semana.</li></ul>' +
     '<h3>Semana típica</h3><p>Segunda e terça: bloco de prioridade da vez. Quarta: uma resolução da ANPD. Quinta: tronco regulatório (Lei 13.848/2019 e Lei 9.784/1999). Sexta: revisão da lista curta. Sábado: bloco longo ou simulado. Domingo: livre.</p>' +
     '<h3>Quando o edital sair</h3><p>O cronograma genérico para. O conteúdo programático oficial passa a mandar, os simulados ficam maiores e a revisão espaçada continua todos os dias. Cole o edital na conversa com o Claude para reorganizar os blocos.</p>' +
-    '<h3>Questões marcadas para conferir</h3><p>' + pl(Q.filter((q) => q.v === 0).length, 'item cita', 'itens citam') + ' fontes ainda não coladas no app: o GDPR, decisões do STF e do TJUE e, nos itens reais da Anatel, a LGT, a Lei 8.987, a E-Ciber e resoluções da Anatel. Eles mostram o aviso “confira na fonte” e só viram definitivos quando o texto oficial for anexado e cada trecho for conferido. Nos itens reais, o gabarito é o oficial; o que falta conferir é a referência do comentário.</p>' +
+    '<h3>Questões marcadas para conferir</h3><p>' + pl(Q.filter((q) => q.v === 0).length, 'item cita', 'itens citam') + ' fontes ainda não coladas no app: decisões do STF e do TJUE e, nos itens reais da Anatel, a LGT, a Lei 8.987, a E-Ciber e resoluções da Anatel. Eles mostram o aviso “confira na fonte” e só viram definitivos quando o texto oficial for anexado e cada trecho for conferido. Nos itens reais, o gabarito é o oficial; o que falta conferir é a referência do comentário.</p>' +
     '<h3>Como a banca cobra</h3><p>A página Como o Cebraspe cobra, aqui em Mais, mostra o formato da prova, o padrão de cada disciplina com itens reais e o que pontua na discursiva.</p></div>';
 }
 function numItem(q) { const m = /item (\d+)/.exec(q.pv || ''); return m ? 'Item ' + m[1] : q.id; }

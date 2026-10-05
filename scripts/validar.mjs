@@ -8,7 +8,7 @@ import { GRUPOS_LEIS, LEIS, carregarLei, indicePorArtigo, normalizar } from './l
 import { ARMADILHAS, lerTodas, parseRef } from './lib/questoes.mjs';
 
 // Refs que não apontam para norma anexada (doutrina, jurisprudência, textos de apoio). Qualquer outro id fora de leis.mjs é erro de digitação.
-const REFS_SEM_TEXTO = new Set(['doutrina', 'stf', 'gdpr', 'tjue', 'texto', 'lgt', 'lei8987', 'anatel', 'eciber']);
+const REFS_SEM_TEXTO = new Set(['doutrina', 'stf', 'tjue', 'texto', 'lgt', 'lei8987', 'anatel', 'eciber']);
 import { lacunas, lerCloze, lerGlossario, semMarcas } from './lib/cloze.mjs';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');

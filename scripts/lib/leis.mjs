@@ -281,6 +281,18 @@ export const LEIS = {
     curto: 'Dec. 10.748',
     url: 'https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/decreto/d10748.htm',
   },
+  gdpr: {
+    arquivo: 'gdpr.txt',
+    nome: 'GDPR — Regulamento (UE) 2016/679 (texto oficial em inglês)',
+    curto: 'GDPR',
+    url: 'https://eur-lex.europa.eu/eli/reg/2016/679/oj',
+  },
+  conv108: {
+    arquivo: 'conv108.txt',
+    nome: 'Convenção 108+ do Conselho da Europa — versão atualizada (2018)',
+    curto: 'Convenção 108+',
+    url: 'https://www.coe.int/en/web/data-protection/convention108-and-protocol',
+  },
   ingsi1: {
     arquivo: 'in-gsi1.txt',
     nome: 'Instrução Normativa GSI/PR nº 1/2020 — Gestão da segurança da informação',
@@ -297,6 +309,7 @@ export const GRUPOS_LEIS = [
   ['Constituição', ['cf88']],
   ['Direito administrativo', ['lei9784', 'lindb', 'dec9830', 'lai', 'dec7724', 'lei13460', 'lei8429', 'lei12846', 'lei12813', 'lei8112', 'dec1171', 'lei9507']],
   ['Segurança da informação', ['dec12572', 'dec11856', 'dec10748', 'ingsi1']],
+  ['Direito comparado (Europa)', ['gdpr', 'conv108']],
 ];
 
 // Unidade da norma: artigo, cláusula (cláusulas-padrão), apêndice, anexo ou enunciado.
@@ -304,7 +317,9 @@ export const GRUPOS_LEIS = [
 const RE_ARTIGO = /^(Art\.|CLÁUSULA|APÊNDICE|ANEXO|ENUNCIADO)\s*(?:(\d+)\s*[ºo°]?(-[A-Z](?![a-zà-ú]))?|([IVXL]+)\b)?(?:º|o|°|\.)?\.?\s*/;
 const ROTULO_UNIDADE = { 'Art.': 'Art. ', CLÁUSULA: 'Cláusula ', APÊNDICE: 'Apêndice ', ANEXO: 'Anexo', ENUNCIADO: 'Enunciado ' };
 // Títulos, capítulos e seções; em caixa mista ("Título I", como no ECA), só quando seguidos de número romano ou "Único".
-const RE_ESTRUTURA = /^(?:(LIVRO|TÍTULO|CAPÍTULO|SEÇÃO|Seção|Subseção|SUBSEÇÃO)\b|(Livro|Título|Capítulo)\s+(?:[IVXL]+|Únic[oa])\b|(Parte (?:Geral|Especial))$)/;
+const RE_ESTRUTURA = /^(?:(LIVRO|TÍTULO|CAPÍTULO|SEÇÃO|Seção|Subseção|SUBSEÇÃO)\b|(Livro|Título|Capítulo)\s+(?:[IVXL]+|Únic[oa])\b|(Parte (?:Geral|Especial))$|(CHAPTER [IVXL]+|Section \d+)$)/;
+// Normas europeias: "Article 4" sozinho na linha (GDPR, em inglês) ou "Artigo 4 – Título" (Convenção 108+).
+const RE_ARTICLE = /^(?:Article (\d+)$|Artigo (\d+)(?:\.º)? [–—] )/;
 // Itens em algarismo romano que são a unidade da norma (Código de Ética do Decreto nº 1.171/1994).
 const RE_ITEM = /^([IVXL]+) - /;
 
@@ -335,7 +350,7 @@ export function carregarLei(raiz, id) {
     if (!linha.trim() || linha.startsWith('#')) continue;
     const e = linha.match(RE_ESTRUTURA);
     if (e) {
-      const tipo = e[3] ? 'livro' : (e[1] || e[2]).toLowerCase();
+      const tipo = e[3] ? 'livro' : e[4] ? (e[4].startsWith('CHAPTER') ? 'capítulo' : 'seção') : (e[1] || e[2]).toLowerCase();
       if (tipo === 'livro') { pos.livro = linha; pos.titulo = pos.capitulo = pos.secao = pos.subsecao = ''; ultimo = 'livro'; }
       else if (tipo === 'título') { pos.titulo = linha; pos.capitulo = pos.secao = pos.subsecao = ''; ultimo = 'titulo'; }
       else if (tipo === 'capítulo') { pos.capitulo = linha; pos.secao = pos.subsecao = ''; ultimo = 'capitulo'; }
@@ -344,7 +359,8 @@ export function carregarLei(raiz, id) {
       atual = null;
       continue;
     }
-    const m = linha.match(RE_ARTIGO);
+    const ing = linha.match(RE_ARTICLE);
+    const m = ing ? [linha, 'Art.', ing[1] || ing[2]] : linha.match(RE_ARTIGO);
     const num = m && (m[2] ? m[2] + (m[3] || '') : m[4]);
     const item = meta.itens && noAnexo && linha.match(RE_ITEM);
     if ((m && (num || m[1] === 'ANEXO')) || item) {

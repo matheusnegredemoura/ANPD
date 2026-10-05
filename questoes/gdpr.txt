@@ -1,9 +1,11 @@
 bloco: gdpr
-// GDPR — Regulamento (UE) 2016/679, comparado com a LGPD. Texto do GDPR ainda não anexado; referências por artigo.
+// GDPR — Regulamento (UE) 2016/679, comparado com a LGPD. Trechos conferidos no texto oficial em inglês (fontes/gdpr.txt).
 
 === gdpr-01
 gab: C
 ref: gdpr 99
+trecho: It shall apply from 25 May 2018.
+trecho: directly applicable in all Member States
 armadilha: numero
 dif: 1
 enunciado: O Regulamento Geral sobre a Proteção de Dados da União Europeia (GDPR), adotado em 2016, passou a ser aplicável em maio de 2018.
@@ -12,6 +14,8 @@ comentario: O GDPR é o Regulamento (UE) 2016/679 e se aplica desde 25 de maio d
 === gdpr-02
 gab: C
 ref: gdpr 6
+trecho: Processing shall be lawful only if and to the extent that at least one of the following applies:
+trecho: (f) processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party
 armadilha: comparacao
 dif: 2
 enunciado: O GDPR prevê seis bases legais para o tratamento de dados pessoais comuns, ao passo que a LGPD prevê dez.
@@ -20,6 +24,7 @@ comentario: GDPR, art. 6º, 1: consentimento, contrato, obrigação legal, inter
 === gdpr-03
 gab: E
 ref: gdpr 6
+trecho: Processing shall be lawful only if and to the extent that at least one of the following applies:
 armadilha: comparacao
 dif: 2
 enunciado: Assim como a LGPD, o GDPR prevê a proteção do crédito como base legal autônoma para o tratamento de dados pessoais.
@@ -28,6 +33,8 @@ comentario: A proteção do crédito (LGPD, art. 7º, X) é criação brasileira
 === gdpr-04
 gab: C
 ref: gdpr 33
+trecho: the controller shall without undue delay and, where feasible, not later than 72 hours after having become aware of it, notify the personal data breach to the supervisory authority
+trecho: unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons
 armadilha: numero
 dif: 1
 enunciado: No GDPR, o controlador deve notificar a violação de dados pessoais à autoridade de controle sem demora injustificada e, sempre que possível, até 72 horas após ter tomado conhecimento dela, salvo se a violação não for suscetível de resultar em risco.
@@ -36,6 +43,7 @@ comentario: Art. 33, 1, do GDPR. Na LGPD, o art. 48 fala em “prazo razoável, 
 === gdpr-05
 gab: E
 ref: gdpr 34
+trecho: When the personal data breach is likely to result in a high risk to the rights and freedoms of natural persons, the controller shall communicate the personal data breach to the data subject without undue delay.
 armadilha: comparacao
 dif: 2
 enunciado: O GDPR fixa o mesmo prazo de 72 horas para a comunicação da violação de dados à autoridade de controle e aos titulares afetados.
@@ -44,6 +52,7 @@ comentario: As 72 horas são para a autoridade (art. 33). A comunicação ao tit
 === gdpr-06
 gab: C
 ref: gdpr 83
+trecho: up to 20 000 000 EUR, or in the case of an undertaking, up to 4 % of the total worldwide annual turnover of the preceding financial year, whichever is higher
 armadilha: numero
 dif: 2
 enunciado: No GDPR, as infrações mais graves podem ser punidas com multa de até 20 milhões de euros ou até 4% do volume de negócios anual a nível mundial do exercício anterior, consoante o montante mais elevado.
@@ -52,6 +61,7 @@ comentario: Art. 83, 5. Compare com a LGPD: até 2% do faturamento no Brasil, li
 === gdpr-07
 gab: E
 ref: gdpr 83
+trecho: up to 4 % of the total worldwide annual turnover of the preceding financial year
 armadilha: comparacao
 dif: 2
 enunciado: Tal como na LGPD, as multas do GDPR têm como base o faturamento obtido no país em que ocorreu a infração, limitado a 2%.
@@ -60,6 +70,8 @@ comentario: O GDPR usa o volume de negócios mundial (até 4% ou 2%, conforme a 
 === gdpr-08
 gab: C
 ref: gdpr 37
+trecho: (a) the processing is carried out by a public authority or body, except for courts acting in their judicial capacity;
+trecho: require regular and systematic monitoring of data subjects on a large scale
 armadilha: comparacao
 dif: 3
 enunciado: O GDPR exige a designação de encarregado da proteção de dados em hipóteses específicas, como tratamento por autoridade pública e monitoramento regular e sistemático de titulares em grande escala, enquanto a LGPD adota como regra a indicação de encarregado pelo controlador, admitidas dispensas pela autoridade nacional.
@@ -68,6 +80,7 @@ comentario: GDPR, art. 37, 1; LGPD, art. 41, caput e § 3º. A lógica é invers
 === gdpr-09
 gab: C
 ref: gdpr 45
+trecho: where the Commission has decided that the third country, a territory or one or more specified sectors within that third country, or the international organisation in question ensures an adequate level of protection
 armadilha: sujeito
 dif: 2
 enunciado: No GDPR, as decisões de adequação que reconhecem o nível de proteção de país terceiro são adotadas pela Comissão Europeia.
@@ -76,14 +89,19 @@ comentario: Art. 45 do GDPR. No Brasil, a avaliação é da ANPD (LGPD, art. 34)
 === gdpr-10
 gab: E
 ref: gdpr 45
+trecho: where the Commission has decided that the third country
+trecho: The Commission, after assessing the adequacy of the level of protection, may decide, by means of implementing act
 armadilha: sujeito
 dif: 2
 enunciado: No GDPR, cada autoridade nacional de proteção de dados decide, isoladamente, sobre a adequação do nível de proteção de países terceiros.
-comentario: A decisão de adequação é da Comissão Europeia (art. 45). As autoridades nacionais e o Comitê Europeu emitem pareceres, mas não decidem.
+comentario: A decisão de adequação é da Comissão Europeia, por ato de execução (art. 45, 3). O Comitê Europeu para a Proteção de Dados, que reúne as autoridades nacionais, só dá parecer à Comissão (art. 70, 1, s).
 
 === gdpr-11
 gab: C
 ref: gdpr 46
+trecho: In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards
+trecho: (b) binding corporate rules in accordance with Article 47;
+trecho: (c) standard data protection clauses adopted by the Commission
 armadilha: comparacao
 dif: 2
 enunciado: Na ausência de decisão de adequação, o GDPR admite transferências internacionais com garantias adequadas, como cláusulas-padrão de proteção de dados e regras vinculativas aplicáveis às empresas, figuras equivalentes às cláusulas-padrão e às normas corporativas globais da LGPD.
@@ -92,6 +110,8 @@ comentario: GDPR, arts. 46 e 47 (binding corporate rules). LGPD, art. 33, II, �
 === gdpr-12
 gab: E
 ref: gdpr 17
+trecho: Right to erasure (‘right to be forgotten’)
+trecho: The data subject shall have the right to obtain from the controller the erasure of personal data concerning him or her without undue delay
 armadilha: extrapolacao
 dif: 1
 enunciado: O GDPR não prevê expressamente direito do titular ao apagamento de seus dados, que decorre apenas da jurisprudência europeia.
@@ -100,6 +120,9 @@ comentario: O art. 17 do GDPR prevê expressamente o direito ao apagamento, conh
 === gdpr-13
 gab: E
 ref: gdpr 22
+trecho: The data subject shall have the right not to be subject to a decision based solely on automated processing
+trecho: Paragraph 1 shall not apply if the decision:
+trecho: (c) is based on the data subject's explicit consent.
 armadilha: absoluto
 dif: 3
 enunciado: O GDPR proíbe, sem exceções, que o titular seja submetido a decisão baseada exclusivamente em tratamento automatizado que produza efeitos jurídicos sobre ele.
@@ -108,6 +131,7 @@ comentario: O art. 22, 2, admite exceções: necessidade para contrato, autoriza
 === gdpr-14
 gab: C
 ref: gdpr 35
+trecho: is likely to result in a high risk to the rights and freedoms of natural persons, the controller shall, prior to the processing, carry out an assessment of the impact of the envisaged processing operations on the protection of personal data
 armadilha: comparacao
 dif: 2
 enunciado: O GDPR exige avaliação de impacto sobre a proteção de dados quando o tratamento for suscetível de implicar elevado risco para os direitos e liberdades das pessoas, figura próxima ao relatório de impacto da LGPD.
@@ -116,6 +140,8 @@ comentario: GDPR, art. 35. Na LGPD, o relatório de impacto é exigível pela AN
 === gdpr-15
 gab: C
 ref: gdpr 8
+trecho: the processing of the personal data of a child shall be lawful where the child is at least 16 years old
+trecho: Member States may provide by law for a lower age for those purposes provided that such lower age is not below 13 years.
 armadilha: numero
 dif: 3
 enunciado: No GDPR, o consentimento da criança para serviços da sociedade da informação é válido a partir dos 16 anos, podendo os Estados-membros fixar idade inferior, desde que não abaixo de 13 anos.
@@ -124,6 +150,8 @@ comentario: Art. 8º, 1, do GDPR. A LGPD não fixa idade: exige consentimento de
 === gdpr-16
 gab: E
 ref: gdpr 8
+trecho: the processing of the personal data of a child shall be lawful where the child is at least 16 years old
+trecho: Member States may provide by law for a lower age for those purposes provided that such lower age is not below 13 years.
 armadilha: numero
 dif: 2
 enunciado: O GDPR fixa em 13 anos, de modo uniforme para toda a União Europeia, a idade a partir da qual a criança pode consentir com serviços da sociedade da informação.
@@ -132,6 +160,8 @@ comentario: A regra é 16 anos, com faculdade de cada Estado-membro reduzir até
 === gdpr-17
 gab: C
 ref: gdpr 3
+trecho: This Regulation applies to the processing of personal data of data subjects who are in the Union by a controller or processor not established in the Union, where the processing activities are related to:
+trecho: (b) the monitoring of their behaviour as far as their behaviour takes place within the Union.
 armadilha: comparacao
 dif: 2
 enunciado: O GDPR aplica-se a controlador não estabelecido na União quando o tratamento estiver relacionado à oferta de bens ou serviços a titulares que se encontrem na União ou ao controle do seu comportamento, lógica semelhante à do art. 3º da LGPD.
@@ -140,6 +170,8 @@ comentario: GDPR, art. 3º, 2. A LGPD também tem alcance extraterritorial (art.
 === gdpr-18
 gab: C
 ref: gdpr 25
+trecho: Data protection by design and by default
+trecho: both at the time of the determination of the means for processing and at the time of the processing itself, implement appropriate technical and organisational measures
 armadilha: conceito
 dif: 1
 enunciado: O GDPR consagra a proteção de dados desde a concepção e por padrão, exigindo medidas técnicas e organizativas adequadas tanto no momento de definir os meios de tratamento quanto no próprio tratamento.
@@ -148,6 +180,7 @@ comentario: Art. 25 do GDPR. Na LGPD, o art. 46, § 2º, exige medidas desde a f
 === gdpr-19
 gab: E
 ref: gdpr 68
+trecho: is hereby established as a body of the Union and shall have legal personality
 armadilha: conceito
 dif: 3
 enunciado: O Comitê Europeu para a Proteção de Dados é órgão consultivo do Parlamento Europeu, desprovido de personalidade jurídica.
@@ -164,6 +197,7 @@ comentario: Schrems II invalidou o Privacy Shield (decisão de adequação dos E
 === gdpr-21
 gab: C
 ref: gdpr 56
+trecho: shall be competent to act as lead supervisory authority for the cross-border processing carried out by that controller or processor
 armadilha: conceito
 dif: 3
 enunciado: Diferentemente do modelo brasileiro, de autoridade nacional única, o GDPR distribui a fiscalização entre autoridades de controle dos Estados-membros e prevê, para tratamentos transfronteiriços, a figura da autoridade de controle principal.
