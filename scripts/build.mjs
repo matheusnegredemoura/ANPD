@@ -35,6 +35,10 @@ const NOMES_FONTE = {
   dec12880: 'Decreto 12.880/2026',
   dec12622: 'Decreto 12.622/2025',
   stj: 'STJ',
+  lgt: 'Lei 9.472/1997 (LGT)',
+  lei8987: 'Lei 8.987/1995',
+  anatel: 'Resolução da Anatel',
+  eciber: 'E-Ciber (Decreto 10.222/2020)',
   stf: 'STF',
   tjue: 'TJUE',
 };
@@ -97,6 +101,9 @@ function compactar(questoes, leisAnexadas) {
       c: q.comentario,
       ap,
       p: q.pesquisar && q.pesquisar.length ? q.pesquisar : undefined,
+      o: q.origem === 'real' ? 1 : undefined,
+      pv: q.prova || undefined,
+      cm: q.comando || undefined,
       v: leisAnexadas.has(r.lei) || FONTES_SEM_CONFERIR.has(r.lei) ? undefined : 0,
     };
   });
@@ -112,6 +119,18 @@ export function montarDados() {
   const { disciplinas, blocos, faltam } = JSON.parse(ler('questoes', 'blocos.json'));
   const cronograma = JSON.parse(ler('dados', 'cronograma.json'));
   const { lista, apoios } = compactar(questoes, new Set(Object.keys(leis)));
+  // Página "Como o Cebraspe cobra": cada disciplina e cada item real citado precisam existir no banco
+  const cebraspe = JSON.parse(ler('dados', 'cebraspe.json'));
+  const ids = new Set(lista.map((q) => q.id)), discs = new Set(disciplinas.map((d) => d.id));
+  const errosCb = [];
+  for (const d of cebraspe.disciplinas) {
+    if (!discs.has(d.id)) errosCb.push(`cebraspe.json: disciplina inexistente ${d.id}`);
+    for (const id of [...d.itens, ...d.exemplos]) if (!ids.has(id)) errosCb.push(`cebraspe.json (${d.id}): item inexistente ${id}`);
+  }
+  if (errosCb.length) {
+    for (const e of errosCb) console.error('ERRO: ' + e);
+    throw new Error(`${errosCb.length} erro(s) em dados/cebraspe.json.`);
+  }
   const cloze = notas.map((n) => {
     const r = parseRef(n.ref);
     return { id: n.id, b: n.bloco, l: r.lei, art: r.art, r: rotuloRef(n.ref), t: n.texto, dc: n.dica || undefined };
@@ -139,6 +158,7 @@ export function montarDados() {
     grupos,
     faltam: faltam || [],
     cronograma,
+    cebraspe,
     cloze,
     glossario: gloss,
   };

@@ -61,7 +61,10 @@ const CHAVE_LOCAL_ANTIGA = 'painel-anpd-v2';
 const CHAVE_UI = 'painel-anpd-ui';
 const P1 = ['lgpd-17-22', 'lgpd-52-54', 'lgpd-55', 'lgpd-33-36'];
 // Distribuição da prova completa simulada (proporção por disciplina, segue os pesos do plano)
-const PESOS_PROVA = { lgpd: 0.45, regulacao: 0.15, eca: 0.07, seginfo: 0.08, direito: 0.09, comparado: 0.06, economia: 0.05, linguas: 0.05 };
+const PESOS_PROVA = { lgpd: 0.42, regulacao: 0.15, eca: 0.08, seginfo: 0.08, direito: 0.09, comparado: 0.05, economia: 0.04, gestao: 0.04, linguas: 0.05 };
+// Blocos que não entram no simulado de prova completa (conteúdo de outra agência, útil só para ver o estilo da banca)
+const FORA_DA_PROVA = new Set(['anatel-setorial']);
+const REAIS = Q.filter((q) => q.o);
 
 const NIVEIS = [
   [0, 'Titular de dados'], [120, 'Curioso do art. 18'], [300, 'Operador(a)'], [600, 'Controlador(a)'],
@@ -520,10 +523,10 @@ function selecionarProva(n) {
   const escolhidos = [];
   const usados = new Set();
   for (const [disc, peso] of Object.entries(PESOS_PROVA)) {
-    const pool = Q.filter((q) => { const b = BI.get(q.b); return b && b.disciplina === disc; });
+    const pool = Q.filter((q) => { const b = BI.get(q.b); return b && b.disciplina === disc && !FORA_DA_PROVA.has(b.id); });
     selecionar(pool, Math.min(pool.length, Math.round(n * peso)), 'mistas').forEach((q) => { escolhidos.push(q); usados.add(q.id); });
   }
-  if (escolhidos.length < n) selecionar(Q.filter((q) => !usados.has(q.id)), n - escolhidos.length, 'mistas').forEach((q) => escolhidos.push(q));
+  if (escolhidos.length < n) selecionar(Q.filter((q) => !usados.has(q.id) && !FORA_DA_PROVA.has(q.b)), n - escolhidos.length, 'mistas').forEach((q) => escolhidos.push(q));
   return embaralhar(escolhidos.slice(0, n));
 }
 
@@ -891,6 +894,7 @@ function renderQuestoes() {
     html += listaBlocos(sel, 'toggle-bloco', (b) => POR_BLOCO.get(b.id) || [], (b) => dominioBloco(b.id)) + '</div>';
   }
   html += '<button class="btn primario largo" data-acao="comecar"' + (pool.length || usarProva ? '' : ' disabled') + '>Começar ' + esc({ treino: 'treino', simulado: 'simulado', relampago: 'relâmpago' }[modo]) + '</button>';
+  if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais do Cebraspe</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas anteriores, com gabarito oficial definitivo e comentário. Servem para calibrar o estilo da banca; os de telecomunicações ficam fora do simulado de prova completa.</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
   if (!usarProva && !UI.blocos.length) html += '<p class="mudo pequeno">Nenhum bloco marcado: a sessão usa o banco inteiro.</p>';
   document.getElementById('vista-questoes').innerHTML = html;
 }
@@ -989,10 +993,16 @@ function renderApoio(q, aberto) {
   if (q.ap < 0) return '';
   return '<details class="apoio-det"' + (aberto ? ' open' : '') + '><summary>Texto de apoio</summary><div class="apoio">' + D.apoios[q.ap].split('\n').map((p) => '<p>' + esc(p) + '</p>').join('') + '</div></details>';
 }
+// Itens reais de prova: selo com a origem e o comando da banca que antecede o item
+function seloReal(q) { return q.o ? '<span class="selo real" title="' + esc(q.pv || '') + '">Item real Cebraspe</span>' : ''; }
+// Ordem do caderno: conhecimentos básicos antes dos específicos, depois pelo número do item
+function ordemProva(q) { const m = /item (\d+)/.exec(q.pv || ''); return (/Básicos/.test(q.pv || '') ? 0 : 1000) + (m ? Number(m[1]) : 999); }
+function renderComando(q) { return q.cm ? '<p class="comando">' + esc(q.cm) + '</p>' : ''; }
 function renderItem(q) {
   const id = q.id, sim = sessao.modo === 'simulado', marcada = sessao.resp[id];
-  let html = '<article class="item"><div class="item-cab"><span class="selo mono">' + esc(nomeBloco(q.b)) + '</span><span class="item-num">' + esc(q.id) + '</span></div>';
+  let html = '<article class="item"><div class="item-cab"><span class="selo mono">' + esc(nomeBloco(q.b)) + '</span>' + seloReal(q) + '<span class="item-num">' + esc(q.id) + '</span></div>';
   html += renderApoio(q, sessao.i === 0 || sim || !sessao.ids.slice(0, sessao.i).some((x) => QI.get(x).ap === q.ap));
+  html += renderComando(q);
   html += '<p class="enunciado">' + (sessao.revelado ? marcarTermos(q.e, 3) : esc(q.e)) + '</p>';
   if (sessao.flash) {
     html += '<div class="veredito ' + sessao.flash + '"><span>' + (sessao.flash === 'ok' ? 'Certo' : 'Errado: gabarito ' + (q.g === 'C' ? 'CERTO' : 'ERRADO')) + '</span>' + (sessao.ultimoGanho ? '<span class="ganho">+' + sessao.ultimoGanho + ' XP</span>' : '') + '</div>';
@@ -1013,7 +1023,8 @@ function renderItem(q) {
   return html + '</article>';
 }
 function renderExplicacao(q) {
-  let html = '<div class="explica"><span class="gab">Gabarito: ' + (q.g === 'C' ? 'certo' : 'errado') + ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</span>';
+  let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? ' oficial' : '') + ': ' + (q.g === 'C' ? 'certo' : 'errado') + ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</span>';
+  if (q.o) html += '<p class="pequeno mudo">' + esc(q.pv) + '</p>';
   html += '<p>' + marcarTermos(q.c, 3) + '</p>';
   if (q.t && q.t.length) {
     html += '<div class="citacao">' + q.t.map((t) => '<q>' + esc(t) + '</q>').join('') + '<span class="fonte">' + esc(q.r) + '</span>' +
@@ -1129,7 +1140,7 @@ function fecharFolha() { const f = document.getElementById('folha'); f.hidden = 
 function cabFolha(rotulo, titulo) { return '<div class="folha-cab"><div><span class="rotulo">' + esc(rotulo) + '</span><h2>' + esc(titulo) + '</h2></div><button class="btn pequeno" data-acao="fechar-folha">Fechar</button></div>'; }
 function folhaItem(id, resp) {
   const q = QI.get(id);
-  let html = cabFolha(nomeBloco(q.b), q.id) + renderApoio(q, false) + '<p class="enunciado">' + marcarTermos(q.e, 3) + '</p>';
+  let html = cabFolha(nomeBloco(q.b), q.id) + renderApoio(q, false) + renderComando(q) + '<p class="enunciado">' + marcarTermos(q.e, 3) + '</p>';
   if (resp) html += '<div class="veredito ' + (resp !== 'B' && resp === q.g ? 'ok' : 'no') + '"><span>' + (resp === 'B' ? 'Em branco.' : 'Você marcou ' + (resp === 'C' ? 'CERTO' : 'ERRADO') + '.') + ' Gabarito: ' + (q.g === 'C' ? 'CERTO' : 'ERRADO') + '.</span></div>';
   abrirFolha(html + renderExplicacao(q), 'Item ' + q.id);
 }
@@ -1332,12 +1343,14 @@ function renderMais() {
   else if (sub === 'pesquisar') el.innerHTML = voltarMais() + renderPesquisar();
   else if (sub === 'glossario') el.innerHTML = voltarMais() + renderGlossario();
   else if (sub === 'metodo') el.innerHTML = voltarMais() + renderMetodo();
+  else if (sub === 'cebraspe') el.innerHTML = voltarMais() + renderCebraspe();
   else if (sub === 'ajustes') el.innerHTML = voltarMais() + renderAjustes();
   else {
     const pend = Object.values(S.pesquisa).filter((p) => !p.s).length;
     const item = (s, ic, t, d) => '<button data-acao="mais" data-sub="' + s + '"><span class="ic">' + ic + '</span><span class="tx"><b>' + t + '</b><span class="s">' + d + '</span></span><span class="mudo">›</span></button>';
     el.innerHTML = '<div class="secao-cab"><h2>Mais</h2></div><div class="menu-mais">' +
       item('metodo', '1·2', 'Método', 'Como estudar com o app para passar') +
+      item('cebraspe', 'C/E', 'Como o Cebraspe cobra', 'A prova, o padrão por disciplina, itens reais e discursiva') +
       item('progresso', '▥', 'Progresso', 'Domínio por bloco, constância, onde você cai, conquistas') +
       item('plano', '▦', 'Plano e cronograma', '11 semanas até 22/12, status dos blocos, textos que faltam') +
       item('pesquisar', '?', 'Para pesquisar', pend ? pl(pend, 'tema pendente', 'temas pendentes') + ' na sua lista' : 'Temas e termos para entender melhor') +
@@ -1475,7 +1488,40 @@ function renderMetodo() {
     '<li>A partir da Fase 2, faça ao menos um simulado de prova completa por semana.</li></ul>' +
     '<h3>Semana típica</h3><p>Segunda e terça: bloco de prioridade da vez. Quarta: uma resolução da ANPD. Quinta: tronco regulatório (Lei 13.848/2019 e Lei 9.784/1999). Sexta: revisão da lista curta. Sábado: bloco longo ou simulado. Domingo: livre.</p>' +
     '<h3>Quando o edital sair</h3><p>O cronograma genérico para. O conteúdo programático oficial passa a mandar, os simulados ficam maiores e a revisão espaçada continua todos os dias. Cole o edital na conversa com o Claude para reorganizar os blocos.</p>' +
-    '<h3>Questões marcadas para conferir</h3><p>Questões sobre normas ainda não coladas no app (Lei 9.784/1999, Lei 13.848/2019, LINDB, ECA Digital, Constituição, GDPR e resoluções da ANPD) mostram o aviso “confira na fonte”. Elas foram escritas com cuidado, mas só viram definitivas quando o texto oficial for anexado e cada trecho for conferido.</p></div>';
+    '<h3>Questões marcadas para conferir</h3><p>' + pl(Q.filter((q) => q.v === 0).length, 'item cita', 'itens citam') + ' fontes ainda não coladas no app: o GDPR, decisões do STF e do TJUE e, nos itens reais da Anatel, a LGT, a Lei 8.987, a E-Ciber e resoluções da Anatel. Eles mostram o aviso “confira na fonte” e só viram definitivos quando o texto oficial for anexado e cada trecho for conferido. Nos itens reais, o gabarito é o oficial; o que falta conferir é a referência do comentário.</p>' +
+    '<h3>Como a banca cobra</h3><p>A página Como o Cebraspe cobra, aqui em Mais, mostra o formato da prova, o padrão de cada disciplina com itens reais e o que pontua na discursiva.</p></div>';
+}
+function numItem(q) { const m = /item (\d+)/.exec(q.pv || ''); return m ? 'Item ' + m[1] : q.id; }
+function renderCebraspe() {
+  const cb = D.cebraspe;
+  if (!cb) return '<p class="mudo">Dados da banca indisponíveis nesta versão.</p>';
+  const li = (t) => '<li>' + esc(t) + '</li>';
+  const nC = REAIS.filter((q) => q.g === 'C').length;
+  const chip = (id) => { const q = QI.get(id); return q ? '<button class="chip item-real" data-acao="revisar-item" data-q="' + esc(id) + '" title="' + esc(q.pv || '') + '">' + esc(numItem(q)) + ' · ' + (q.g === 'C' ? 'certo' : 'errado') + '</button>' : ''; };
+  let html = '<div class="prosa"><h2>Como o Cebraspe cobra</h2><p>' + esc(cb.fonte) + '</p></div>';
+  html += '<div class="chips cb-nav">' + cb.disciplinas.map((d) => { const x = DISC.find((y) => y.id === d.id); return x ? '<button class="chip" data-acao="rolar" data-alvo="cb-' + esc(d.id) + '">' + esc(x.nome) + '</button>' : ''; }).join('') + '<button class="chip" data-acao="rolar" data-alvo="cb-discursiva">Discursiva</button><button class="chip" data-acao="rolar" data-alvo="cb-provas">Provas para mandar</button></div>';
+  html += '<div class="cartao"><h2>A prova e a pontuação</h2><div class="tabela-env"><table class="tabela cb-tabela"><thead><tr><th>Prova</th><th>Tamanho</th><th>Corte</th></tr></thead><tbody>' +
+    cb.estrutura.map((e) => '<tr><td>' + esc(e.prova) + '</td><td>' + esc(e.itens) + '</td><td>' + esc(e.corte) + '</td></tr>').join('') + '</tbody></table></div>' +
+    '<ul class="lista-cb">' + cb.regras.map(li).join('') + '</ul>' +
+    '<p class="pequeno mudo">No banco: ' + pl(REAIS.length, 'item real', 'itens reais') + ', ' + nC + ' com gabarito certo e ' + (REAIS.length - nC) + ' com gabarito errado.</p></div>';
+  for (const d of cb.disciplinas) {
+    const x = DISC.find((y) => y.id === d.id);
+    if (!x) continue;
+    html += '<div class="cartao cb-disc" id="cb-' + esc(d.id) + '"><div class="secao-cab"><h2>' + esc(x.nome) + '</h2><span class="selo">peso ' + esc(x.peso.toLowerCase()) + '</span></div>' +
+      '<p><b>Na Anatel 2024.</b> ' + esc(d.anatel) + '</p>' +
+      (d.como.length ? '<h3>Como a banca cobrou</h3><ul class="lista-cb">' + d.como.map(li).join('') + '</ul>' : '') +
+      (d.inferencia ? '<p class="inferencia"><b>Aposta para a ANPD</b> (inferência, sem prova anterior). ' + esc(d.inferencia) + '</p>' : '') +
+      '<p><b>Como treinar.</b> ' + esc(d.treino) + '</p>' +
+      (d.exemplos.length ? '<div class="campo"><span class="rot">Abrir item real</span><div class="chips">' + d.exemplos.map(chip).join('') + '</div></div>' : '') +
+      (d.itens.length ? '<div class="linha-btns"><button class="btn" data-acao="reais-disc" data-d="' + esc(d.id) + '">Treinar ' + pl(d.itens.length, 'item real', 'itens reais') + (d.rotuloItens ? ' · ' + esc(d.rotuloItens) : '') + '</button></div>' : '<p class="pequeno mudo">Sem item real desta matéria no banco ainda.</p>') + '</div>';
+  }
+  const ds = cb.discursiva;
+  html += '<div class="cartao cb-disc" id="cb-discursiva"><h2>Discursiva</h2><ul class="lista-cb">' + ds.formato.map(li).join('') + '</ul>' +
+    '<h3>O que caiu e como foi pontuado</h3><ul class="lista-cb">' + ds.caiu.map(li).join('') + '</ul>' +
+    '<h3>O que isso ensina</h3><ul class="lista-cb">' + ds.licoes.map(li).join('') + '</ul>' +
+    '<p class="inferencia"><b>Aposta para a ANPD</b> (inferência). ' + esc(ds.inferencia) + '</p></div>';
+  html += '<div class="cartao cb-disc" id="cb-provas"><h2>Provas para mandar</h2><p class="mudo pequeno">Cebraspe, mais recentes primeiro. Para cada uma: o caderno, o gabarito definitivo (não o preliminar) e o padrão de resposta da discursiva, se houver. Cada prova enviada vira itens reais com gabarito oficial e atualiza esta página.</p><ol class="lista-cb">' + cb.provas.map(li).join('') + '</ol></div>';
+  return html;
 }
 function renderAjustes() {
   const metas = [10, 20, 30, 40, 60], novos = [5, 10, 20, 30, 50];
@@ -1638,6 +1684,18 @@ document.addEventListener('click', async (ev) => {
       break;
     case 'treinar-art': { const ids = (POR_ART.get(alvo.dataset.art) || []).map((q) => q.id); iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Questões · ' + nomeArt(alvo.dataset.art) }); break; }
     case 'cards-art': iniciarCards((CARDS_POR_ART.get(alvo.dataset.art) || []).map((c) => c.id), 'Cards · ' + nomeArt(alvo.dataset.art)); break;
+    case 'reais-disc': {
+      const d = (D.cebraspe ? D.cebraspe.disciplinas : []).find((x) => x.id === alvo.dataset.d);
+      const ids = d ? d.itens.filter((id) => QI.has(id)) : [];
+      if (ids.length) iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Itens reais · ' + ((DISC.find((x) => x.id === d.id) || {}).nome || d.id) });
+      break;
+    }
+    case 'rolar': { const el = document.getElementById(alvo.dataset.alvo); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); break; }
+    case 'reais': {
+      const ids = REAIS.filter((q) => alvo.dataset.modo === 'treino' || !FORA_DA_PROVA.has(q.b)).map((q) => q.id);
+      iniciarSessao({ modo: alvo.dataset.modo, ids: alvo.dataset.modo === 'simulado' ? ids.sort((a, b) => ordemProva(QI.get(a)) - ordemProva(QI.get(b))) : embaralhar(ids), titulo: 'Itens reais do Cebraspe' });
+      break;
+    }
     case 'cards-iniciar': iniciarSessao({ modo: 'cards', blocos: UI.blocosCards, novos: novosRestantesHoje() }); break;
     case 'cards-so-revisao': iniciarSessao({ modo: 'cards', blocos: UI.blocosCards, soRevisao: true }); break;
     case 'cards-revisao': iniciarSessao({ modo: 'cards', soRevisao: true, titulo: 'Cards vencidos' }); break;

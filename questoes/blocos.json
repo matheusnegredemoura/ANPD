@@ -36,6 +36,11 @@
       "peso": "MÉDIO"
     },
     {
+      "id": "gestao",
+      "nome": "Gestão pública, políticas públicas e dados",
+      "peso": "MÉDIO"
+    },
+    {
       "id": "linguas",
       "nome": "Português e inglês",
       "peso": "BASE"
@@ -1016,6 +1021,41 @@
         "Colocação pronominal: casos de próclise obrigatória",
         "Crase: casos obrigatórios e proibidos",
         "Funções do pronome relativo “que”"
+      ]
+    },
+    {
+      "id": "gestao-publica",
+      "disciplina": "gestao",
+      "nome": "Políticas públicas, gestão estratégica, projetos, processos e riscos",
+      "dispositivos": "Doutrina (Secchi, PMBOK, BSC, SWOT, ODS, ESG)",
+      "prioridade": 3,
+      "pesquisar": [
+        "Leonardo Secchi, Políticas públicas: conceitos, esquemas de análise, casos práticos",
+        "Ciclo de políticas públicas: agenda, formulação, implementação, avaliação",
+        "PMBOK: planos de gerenciamento do projeto"
+      ]
+    },
+    {
+      "id": "dados-bi",
+      "disciplina": "gestao",
+      "nome": "Dados, qualidade de dados, BI e governança de dados",
+      "dispositivos": "Doutrina (bancos de dados, qualidade, BI/BA, governança de dados)",
+      "prioridade": 3,
+      "pesquisar": [
+        "Dimensões da qualidade de dados (DAMA-DMBOK)",
+        "Business intelligence × business analytics",
+        "Bancos de dados NoSQL de documentos"
+      ]
+    },
+    {
+      "id": "anatel-setorial",
+      "disciplina": "regulacao",
+      "nome": "Regulação setorial de telecomunicações (itens reais Anatel 2024)",
+      "dispositivos": "Lei 9.472/1997 (LGT), Lei 8.987/1995 e resoluções da Anatel",
+      "prioridade": 3,
+      "pesquisar": [
+        "Lei Geral de Telecomunicações (Lei 9.472/1997)",
+        "Plano Geral de Metas de Competição (Res. Anatel 600/2012)"
       ]
     }
   ],

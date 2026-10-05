@@ -8,7 +8,7 @@ import { GRUPOS_LEIS, LEIS, carregarLei, indicePorArtigo, normalizar } from './l
 import { ARMADILHAS, lerTodas, parseRef } from './lib/questoes.mjs';
 
 // Refs que não apontam para norma anexada (doutrina, jurisprudência, textos de apoio). Qualquer outro id fora de leis.mjs é erro de digitação.
-const REFS_SEM_TEXTO = new Set(['doutrina', 'stf', 'gdpr', 'tjue', 'texto']);
+const REFS_SEM_TEXTO = new Set(['doutrina', 'stf', 'gdpr', 'tjue', 'texto', 'lgt', 'lei8987', 'anatel', 'eciber']);
 import { lacunas, lerCloze, lerGlossario, semMarcas } from './lib/cloze.mjs';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -38,6 +38,9 @@ export function validar({ silencioso = false } = {}) {
     if (q.armadilha && !ARMADILHAS[q.armadilha]) err(q, `armadilha desconhecida: ${q.armadilha}`);
     if (q.dif && !['1', '2', '3'].includes(q.dif)) err(q, `dif deve ser 1, 2 ou 3`);
     if (/"/.test(q.enunciado || '')) err(q, 'use aspas curvas “ ” no enunciado');
+    if (q.erroApoio) err(q, q.erroApoio);
+    if (q.origem && !['original', 'adaptada', 'real'].includes(q.origem)) err(q, `origem desconhecida: ${q.origem}`);
+    if (q.origem === 'real' && !q.prova) err(q, 'item real precisa de "prova:" (banca, órgão, ano, caderno e número do item)');
 
     const ref = parseRef(q.ref);
     if (!ref) {

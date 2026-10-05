@@ -1,0 +1,161 @@
+{
+  "fonte": "Concurso Anatel 2024 (Edital nº 1 – Anatel, de 19 de janeiro de 2024; aplicação em 15/09/2024), cargo 6, Especialista em Regulação, especialidade Geral: cadernos de Conhecimentos Básicos e Específicos, gabaritos definitivos e padrão definitivo da discursiva. É a única prova com itens reais no banco por enquanto; cada prova nova que você mandar entra nesta página.",
+  "estrutura": [
+    { "prova": "P1 · Objetiva · Conhecimentos básicos", "itens": "50 itens", "corte": "mínimo de 10 pontos" },
+    { "prova": "P2 · Objetiva · Conhecimentos específicos", "itens": "70 itens", "corte": "mínimo de 21 pontos" },
+    { "prova": "P1 + P2", "itens": "120 itens", "corte": "mínimo de 36 pontos no conjunto" },
+    { "prova": "P3 · Discursiva", "itens": "2 questões (30 pontos)", "corte": "mínimo de 15 pontos" }
+  ],
+  "regras": [
+    "Cada item vale 1 ponto se a marcação concordar com o gabarito definitivo, menos 1 ponto se discordar, e zero em branco ou com marcação dupla (edital, subitem 8.11.2).",
+    "Com chance de acerto p, o valor esperado de marcar é 2p − 1: só compensa marcar quando p passa de 50%. A taxa de acerto das suas dúvidas, na aba Progresso, diz se o seu chute passa disso.",
+    "Os itens vêm agrupados sob um comando (“Julgue os itens a seguir, à luz da Lei…”, “Com relação ao texto…”). O comando delimita o que se julga: leia-o antes do item.",
+    "Só se corrigem as discursivas dos mais bem classificados nas objetivas, em número fixado no edital. Quem fica fora dessa lista está eliminado: passar no corte mínimo das objetivas não basta.",
+    "Item incompleto não é item errado. Na Anatel 2024, o item 38 omitiu parte do art. 36 da Lei 9.784 e foi dado como certo. Marque errado quando o item contradiz a norma ou restringe o que ela diz (“apenas”, “circunscrevem-se”, item 120).",
+    "Nos itens reais deste banco, o gabarito oficial ficou exatamente meio a meio. Não existe tendência a certo ou a errado que valha como estratégia."
+  ],
+  "disciplinas": [
+    {
+      "id": "lgpd",
+      "anatel": "Não há prova anterior da ANPD. O paralelo na Anatel 2024 é a lei e os regulamentos do próprio setor: Lei Geral de Telecomunicações (itens 30 a 33 e 90) e resoluções da Anatel (100, 111 a 117 e 119), 14 itens no total.",
+      "como": [
+        "Texto da norma quase literal, com uma peça trocada: o nome do órgão (Conselho Administrativo no lugar de Conselho Diretor, item 33), a periodicidade (reunião semestral no lugar de trimestral, item 97, da PNCiber) ou o limite numérico (fidelização de no máximo doze meses, item 117, que estava certo).",
+        "Os regulamentos do regulador caem no detalhe: nove itens vieram de resoluções da Anatel (consumidor, competição, espectro e serviços). O paralelo para a ANPD são as resoluções de fiscalização e sanção, dosimetria, incidente de segurança, encarregado, pequeno porte e transferência internacional.",
+        "Alteração legislativa recente é cobrada: o item 90 testou a mudança da LGT que passou a admitir mais de uma prorrogação das concessões. Na LGPD, isso aponta para as alterações da Lei 13.853/2019 e da Lei 15.352/2026 (conversão da MP 1.317/2025), que fez da ANPD agência reguladora."
+      ],
+      "inferencia": "Sem prova da ANPD, a aposta é que a LGPD e as resoluções da ANPD façam o papel que a LGT e as resoluções da Anatel fizeram: o maior bloco jurídico da prova específica, cobrado na letra.",
+      "treino": "Lei seca grifada e cards cloze para a palavra exata; depois, questões por artigo. Sempre que errar, abra o artigo inteiro.",
+      "exemplos": ["an24-33", "an24-117", "an24-90", "an24-119"],
+      "itens": ["an24-30", "an24-31", "an24-32", "an24-33", "an24-90", "an24-100", "an24-111", "an24-112", "an24-113", "an24-114", "an24-115", "an24-116", "an24-117", "an24-119"],
+      "rotuloItens": "itens da lei setorial (telecom)"
+    },
+    {
+      "id": "regulacao",
+      "anatel": "18 itens: teoria da regulação e agências (24 a 29), Lei 13.848/2019 (25, 37, 118 e 120), Lei 9.784/1999 (38) e economia da regulação, regulação responsiva e sandbox (87 a 95).",
+      "como": [
+        "Conceito com uma inversão: a análise de impacto regulatório, que é prévia, descrita como avaliação do resultado da norma já editada (item 29); a regulação por incentivos e o preço-teto descritos como cobertura dos custos reais (itens 93 e 94).",
+        "Lei 13.848 na letra: vinculação sem subordinação ao ministério (item 25), delegação interna com reexame pelo colegiado (item 118) e o rol das metas do plano de gestão anual, em que “circunscrevem-se” corta um dos três grupos (item 120).",
+        "Lei 9.784: ônus da prova do interessado e recusa de provas impertinentes e desnecessárias (arts. 36 e 38, § 2º; item 38). O item omitiu o dever de instrução do órgão e mesmo assim foi dado como certo."
+      ],
+      "treino": "Lei 13.848 e Lei 9.784 na lei seca, com cloze. Para a teoria, treine o bloco de teoria da regulação e anote cada par trocado (ex ante × ex post, custo do serviço × preço-teto).",
+      "exemplos": ["an24-29", "an24-120", "an24-94", "an24-25"],
+      "itens": ["an24-24", "an24-25", "an24-26", "an24-27", "an24-28", "an24-29", "an24-37", "an24-38", "an24-87", "an24-88", "an24-89", "an24-91", "an24-92", "an24-93", "an24-94", "an24-95", "an24-118", "an24-120"]
+    },
+    {
+      "id": "eca",
+      "anatel": "Não caiu como lei. O tema veio como sociedade digital (itens 79 a 81 e 85: redes sociais, streaming, ética das plataformas e consumidor digital) e no texto CB1A1 da prova básica, que cita a DSA, a DMA, o Marco Civil e a LGPD.",
+      "como": [
+        "Afirmações gerais sobre plataformas que exageram: redes sociais em que “imperam a igualdade e a equidade” (item 79) e consumidor digital que decide “independentemente” dos valores da empresa (item 85), ambas erradas.",
+        "As afirmações moderadas, que descrevem riscos e características reconhecidos (privacidade, desinformação, conteúdo sob demanda), vieram certas (itens 80 e 81)."
+      ],
+      "inferencia": "A ANPD é a autoridade do ECA Digital. A aposta é que a Lei 15.211/2025 e o Decreto 12.880/2026 caiam na letra, como a LGT caiu para a Anatel: deveres dos fornecedores, prazos, sujeitos e sanções.",
+      "treino": "ECA Digital e decretos na lei seca, com cloze; questões do bloco ECA Digital; Marco Civil para os deveres de guarda de registros.",
+      "exemplos": ["an24-79", "an24-85", "an24-81"],
+      "itens": ["an24-79", "an24-80", "an24-81", "an24-85"]
+    },
+    {
+      "id": "seginfo",
+      "anatel": "4 itens: Política Nacional de Cibersegurança, Decreto 11.856/2023 (96 e 97), e Estratégia Nacional de Segurança Cibernética, E-Ciber (98 e 99).",
+      "como": [
+        "Política pública cobrada na letra: objetivos (item 96), periodicidade de reunião do comitê (item 97, trimestral e não semestral), papel dos centros de resposta a incidentes (item 98) e ações estratégicas (item 99)."
+      ],
+      "treino": "Decretos 11.856/2023, 12.572/2025 e 10.748/2021 e a IN GSI 1/2020 na lei seca, com cloze; questões do bloco de segurança da informação. Para normas técnicas (ISO 27001 e 27002), use as provas de TI recomendadas abaixo.",
+      "exemplos": ["an24-97", "an24-96", "an24-98"],
+      "itens": ["an24-96", "an24-97", "an24-98", "an24-99"]
+    },
+    {
+      "id": "direito",
+      "anatel": "16 itens: Constituição (43 a 50), poder normativo das agências (34 e 36), Lei de Acesso à Informação (42, 82 e 83) e concessão de serviço público, Lei 8.987/1995 (40, 41 e 86).",
+      "como": [
+        "Constituição na letra com rito e quórum trocados: sessão unicameral e dois terços no lugar de dois turnos em cada Casa e três quintos (item 45).",
+        "Fórmula de um capítulo transplantada para outro: a ordem econômica do art. 170 apresentada como ordem social (item 48).",
+        "Classificação cobrada de cabeça: princípio sensível × cláusula pétrea (item 47). Emenda recente conta: a EC 131/2023 mudou a perda de nacionalidade (item 43).",
+        "Sujeito trocado: agência reguladora editando decreto (item 36); empresa privada contratada no lugar de entidade sem fins lucrativos na LAI (item 42)."
+      ],
+      "treino": "Constituição (direitos fundamentais, administração pública, ordem econômica e social), LAI e Lei 9.784 na lei seca, com cloze; questões dos blocos de direito.",
+      "exemplos": ["an24-45", "an24-47", "an24-36", "an24-42"],
+      "itens": ["an24-34", "an24-36", "an24-40", "an24-41", "an24-42", "an24-43", "an24-44", "an24-45", "an24-46", "an24-47", "an24-48", "an24-49", "an24-50", "an24-82", "an24-83", "an24-86"]
+    },
+    {
+      "id": "comparado",
+      "anatel": "Sem item específico. A regulação estrangeira entrou como contexto: o texto CB1A1 apresenta a DSA e a DMA europeias como referência para outros países.",
+      "como": [],
+      "inferencia": "Sem prova anterior. A aposta são itens de comparação LGPD × GDPR com um instituto transplantado de um regime para o outro (prazo de comunicação de incidente, bases legais, papel do encarregado) e itens sobre a decisão de adequação da União Europeia e a Resolução CD/ANPD 32/2026.",
+      "treino": "Questões do bloco GDPR, armadilha “comparação entre regimes”. Mande o texto do GDPR em português para os itens deixarem de ser marcados para conferir.",
+      "exemplos": [],
+      "itens": []
+    },
+    {
+      "id": "economia",
+      "anatel": "Na especialidade Geral, a economia veio como economia da regulação: 7 itens (24, 87 a 89 e 93 a 95), também contados em Regulação. A especialidade Economia da mesma prova cobrou micro, macro e estatística com mais profundidade.",
+      "como": [
+        "Conceito com inversão: monopólio natural (item 87), conflito agente-principal por assimetria de informação (item 88), preço-teto e regulação por incentivos (itens 93 e 94).",
+        "Estatística, quando cai, vem como conta: a banca dá os dados e o item afirma um valor. Treina-se fazendo a conta, não lendo teoria."
+      ],
+      "treino": "Bloco de economia e estatística. Para estatística, as provas do Bacen 2024 e do TCU 2025 são a melhor fonte.",
+      "exemplos": ["an24-87", "an24-88", "an24-94"],
+      "itens": ["an24-24", "an24-87", "an24-88", "an24-89", "an24-93", "an24-94", "an24-95"]
+    },
+    {
+      "id": "gestao",
+      "anatel": "O maior bloco do específico, com 40 itens: políticas públicas (51 a 58), indicadores, BSC e SWOT (59 a 64), processos, projetos e riscos (65 a 73), ODS e ESG (74 a 77), sociedade digital (79 a 81 e 85) e dados, BI e governança de dados (101 a 109).",
+      "como": [
+        "Definição de manual com uma palavra que restringe ou exagera: “apenas” (itens 67 e 72), “substituir” no lugar de complementar (item 61), “desconsiderando” o ambiente externo (item 64).",
+        "Políticas públicas cobram tipologias e abordagens pelo nome: Bozeman e Pandey (item 51), abordagem estatista × multicêntrica (itens 53 e 54), agenda política × agenda institucional (item 57).",
+        "Dados: dimensão de qualidade trocada, com consistência descrita como precisão (item 105); BI × analytics (item 107); tipos de banco de dados (item 103)."
+      ],
+      "treino": "Bloco de gestão pública e bloco de dados e BI. Monte um quadro de pares que a banca troca (agenda política × institucional, eficácia × eficiência × efetividade, ex ante × ex post).",
+      "exemplos": ["an24-61", "an24-72", "an24-57", "an24-105"],
+      "itens": ["an24-51", "an24-52", "an24-53", "an24-54", "an24-55", "an24-56", "an24-57", "an24-58", "an24-59", "an24-60", "an24-61", "an24-62", "an24-63", "an24-64", "an24-65", "an24-66", "an24-67", "an24-68", "an24-69", "an24-70", "an24-71", "an24-72", "an24-73", "an24-74", "an24-75", "an24-76", "an24-77", "an24-79", "an24-80", "an24-81", "an24-85", "an24-101", "an24-102", "an24-103", "an24-104", "an24-105", "an24-106", "an24-107", "an24-108", "an24-109"]
+    },
+    {
+      "id": "linguas",
+      "anatel": "23 itens da prova básica: 15 de português (1 a 15, sobre dois textos) e 8 de inglês (16 a 23, sobre dois textos; o item 19 foi anulado).",
+      "como": [
+        "Reescrita: “estariam mantidas a correção gramatical e a coerência caso se substituísse…” (itens 2 a 5 e 12 a 14). Compare a frase nova com a original palavra por palavra.",
+        "Gramática dentro do texto: vírgula entre termos coordenados (item 1), regência e pronome oblíquo (item 11), referência de pronome (item 6).",
+        "Interpretação: a armadilha é a extrapolação, quando o item afirma mais do que o texto diz (itens 7 e 9).",
+        "Inglês é só leitura: sinônimo no contexto (itens 16 e 20) e o que o texto afirma (17, 18 e 21 a 23). Não houve item de gramática solta."
+      ],
+      "treino": "Treine os 22 itens reais com comentário e, depois, as provas recentes recomendadas abaixo. Português e inglês só se treinam com texto e item da própria banca.",
+      "exemplos": ["an24-11", "an24-07", "an24-20", "an24-22"],
+      "itens": ["an24-01", "an24-02", "an24-03", "an24-04", "an24-05", "an24-06", "an24-07", "an24-08", "an24-09", "an24-10", "an24-11", "an24-12", "an24-13", "an24-14", "an24-15", "an24-16", "an24-17", "an24-18", "an24-20", "an24-21", "an24-22", "an24-23"]
+    },
+    {
+      "id": "contabil",
+      "anatel": "Não caiu na especialidade Geral; a Anatel teve uma especialidade própria de Ciências Contábeis.",
+      "como": [],
+      "inferencia": "Peso baixo até o edital dizer o contrário. Se o edital trouxer orçamento e finanças públicas, mande a Lei de Responsabilidade Fiscal e a Lei 4.320/1964 para entrarem na lei seca.",
+      "treino": "Nada por enquanto.",
+      "exemplos": [],
+      "itens": []
+    }
+  ],
+  "discursiva": {
+    "formato": [
+      "Anatel 2024: 30 pontos em duas questões. Questão 1, até 30 linhas e 20 pontos, sobre tema dos conhecimentos específicos. Questão 2, até 15 linhas e 10 pontos, sobre telecomunicações, conectividade e comunicações digitais. Aprovação com 15 pontos no total.",
+      "Nota de cada questão: conteúdo menos o desconto de português, NQ1 = NC − 4 × NE ÷ TL e NQ2 = NC − 2 × NE ÷ TL, em que NE é o número de erros e TL o número de linhas escritas. O mesmo número de erros pesa mais num texto curto.",
+      "Texto fora do espaço ou além do limite de linhas é desconsiderado. Fuga ao tema, texto em branco ou marca identificadora dão nota zero."
+    ],
+    "caiu": [
+      "Questão 1: projeto, com três quesitos: conceito de projeto (conceitos de 0 a 3), escopo (0 a 3) e fases do ciclo de vida (0 a 4: mencionar sem descrever vale 1; cada fase descrita corretamente sobe um conceito, até três fases).",
+      "Questão 2: conectividade significativa (0 a 4, um conceito por elemento argumentado: qualidade da conexão, dispositivos, habilidades digitais, segurança e custo acessível), uma capacidade da rede IMT-2030 (0 a 2) e uma tecnologia emergente que a sustente (0 a 2). Citar sem justificar vale 1; citar e justificar vale 2."
+    ],
+    "licoes": [
+      "Cada pedido do comando vira um quesito com escada de conceitos. Responda cada pedido em parágrafo próprio, na ordem do comando.",
+      "Mencionar não basta: o conceito máximo exige descrever ou justificar.",
+      "Quando o quesito conta elementos (“citou 3 dos itens”), escreva todos os que souber, cada um com uma frase de explicação."
+    ],
+    "inferencia": "Para a ANPD, a aposta é uma questão longa sobre tema central do cargo (processo sancionador e dosimetria, incidente de segurança, transferência internacional ou relatório de impacto) e uma curta sobre sociedade digital (ECA Digital, inteligência artificial ou plataformas)."
+  },
+  "provas": [
+    "TCU 2025, Auditor (prova em 22/02/2026): a prova federal mais recente do Cebraspe, com economia, estatística, contabilidade e administração pública.",
+    "ANM 2025, Especialista em Recursos Minerais (16/02/2025): agência reguladora recente.",
+    "Bacen 2024, Analista de Economia e Finanças e Analista de TI (04/08/2024): a melhor fonte de economia, estatística, inglês e TI.",
+    "Anvisa 2024 e ANAC 2024 (03/03/2024), Especialista em Regulação; a da ANAC teve discursiva de situação-problema.",
+    "ANTT (edital de 2023), Especialista em Regulação.",
+    "STM 2025 (Analista de TI) e Embrapa 2025: segurança da informação ao lado da LGPD.",
+    "Agepar 2026, Especialista em Regulação, com aplicação prevista para 18/10/2026.",
+    "Os outros cadernos da Anatel 2024, principalmente o da especialidade Economia."
+  ]
+}

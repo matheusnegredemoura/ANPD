@@ -11,6 +11,9 @@
 //   enunciado: ...
 //   comentario: ...
 //   origem: original | adaptada | real   (opcional; padrão: original)
+//   prova: Cebraspe · Anatel 2024 · ... · item 12   (obrigatório quando origem: real)
+//   comando: frase de comando da banca que antecede o item (opcional)
+//   apoio: texto de apoio do item, ou @NOME para usar "apoio_NOME:" definido no cabeçalho do arquivo
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -64,6 +67,12 @@ export function lerArquivoQuestoes(caminho) {
       } else if (ultimo && !CAMPOS_MULTIPLOS.has(ultimo)) {
         q[ultimo] += '\n' + linha.trim();
       }
+    }
+    // Apoio nomeado: "apoio: @CB1A1" usa o texto definido no cabeçalho do arquivo em "apoio_CB1A1:"
+    if (q.apoio && q.apoio.startsWith('@')) {
+      const nome = q.apoio.slice(1).trim();
+      q.apoio = cabecalho['apoio_' + nome];
+      if (!q.apoio) q.erroApoio = `apoio nomeado inexistente: @${nome}`;
     }
     questoes.push(q);
   }

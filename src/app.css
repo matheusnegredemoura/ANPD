@@ -116,6 +116,7 @@ p{margin:0}
 .selo.p2{background:var(--gold-bg);color:var(--gold)}
 .selo.ok{background:var(--certo-bg);color:var(--certo)}
 .selo.mono{font-family:var(--f-mono);font-weight:500}
+.selo.real{background:var(--gold-bg);color:var(--gold)}
 
 /* Hoje */
 .heroi{display:grid;grid-template-columns:1fr auto;gap:14px 18px;align-items:start}
@@ -191,6 +192,7 @@ p{margin:0}
 .item-cab{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 .item-num{font-family:var(--f-mono);font-size:.8rem;color:var(--ink-2)}
 .enunciado{font-family:var(--f-titulo);font-size:1.16rem;line-height:1.55;font-weight:400}
+.comando{font-size:.9rem;line-height:1.5;color:var(--ink-2);font-style:italic;margin:0}
 .apoio{border-left:3px solid var(--line);padding:4px 0 4px 12px;font-family:var(--f-titulo);font-size:1rem;line-height:1.6;color:var(--ink);display:flex;flex-direction:column;gap:8px}
 details.apoio-det summary{cursor:pointer;font-weight:700;color:var(--accent);font-size:.88rem}
 details.apoio-det[open] summary{margin-bottom:8px}
@@ -435,3 +437,16 @@ details.apoio-det[open] summary{margin-bottom:8px}
 .grupo-pesq[open] summary::before{transform:rotate(90deg)}
 .grupo-pesq summary span:first-of-type{flex:1;min-width:0}
 .grupo-pesq .grupo-blocos{padding-bottom:10px}
+
+/* Itens reais e página Como o Cebraspe cobra */
+.cartao.reais{border-color:var(--gold);border-style:dashed}
+.cartao.reais h2{color:var(--gold)}
+.cb-nav{margin-block:4px 2px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.cb-nav .chip{white-space:nowrap;flex:none}
+.cb-disc{scroll-margin-top:84px}
+.cb-disc h3{font-size:1rem;margin:2px 0 0}
+.cb-disc p{margin:0;line-height:1.55;max-width:68ch}
+.lista-cb{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;line-height:1.55;max-width:68ch}
+.inferencia{border-left:3px solid var(--gold);background:var(--gold-bg);padding:8px 12px;border-radius:0 8px 8px 0}
+.chip.item-real{font-family:var(--f-mono);font-weight:500}
+.cb-tabela td:first-child{font-weight:700}
