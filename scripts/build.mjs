@@ -64,6 +64,10 @@ export function rotuloRef(ref) {
     const apelido = { 'C-311/18': 'Schrems II', 'C-362/14': 'Schrems I' }[caso];
     return 'TJUE · ' + caso + (apelido ? ' (' + apelido + ')' : '');
   }
+  if (r.lei === 'nistcsf' && r.art) {
+    const sec = /^S(\d)$/.exec(r.art);
+    return 'NIST CSF 2.0, ' + (sec ? 'seção ' + sec[1] : r.art === 'A' ? 'Apêndice A' : r.art === 'C' ? 'Apêndice C (glossário)' : r.art) + (r.disp ? ', ' + r.disp : '');
+  }
   if ((r.lei === 'res30' || r.lei === 'res31') && !/^(\d|Anexo)/.test(r.art || '')) return NOMES_FONTE[r.lei];
   const nome = NOMES_FONTE[r.lei] || (LEIS[r.lei] && LEIS[r.lei].curto) || r.lei.toUpperCase();
   if (!r.art) return nome;

@@ -130,7 +130,8 @@ function rotuloArt(k) {
   const r = a ? a.rotulo : 'Art. ' + k;
   return /^Art\. \d$/.test(r) ? r + 'º' : r;
 }
-function minusc(s) { return s.charAt(0).toLowerCase() + s.slice(1); }
+// Minúscula só na palavra comum ("Art." vira "art."); siglas como "GV.OC" ficam como estão
+function minusc(s) { return /^\p{Lu}\p{Ll}/u.test(s) ? s.charAt(0).toLowerCase() + s.slice(1) : s; }
 // "art. 5º" na LGPD; "CF/88, art. 5º" nas demais normas
 function nomeArt(k) { const a = ARTI.get(k); return (a && a.lei !== 'lgpd' ? LEIS[a.lei].curto + ', ' : '') + minusc(rotuloArt(k)); }
 function busca(q) { return 'https://www.google.com/search?q=' + encodeURIComponent(q); }

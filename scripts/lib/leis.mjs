@@ -287,6 +287,13 @@ export const LEIS = {
     curto: 'GDPR',
     url: 'https://eur-lex.europa.eu/eli/reg/2016/679/oj',
   },
+  nistcsf: {
+    arquivo: 'nistcsf.txt',
+    nome: 'NIST Cybersecurity Framework (CSF) 2.0 — NIST CSWP 29 (2024)',
+    curto: 'NIST CSF 2.0',
+    url: 'https://doi.org/10.6028/NIST.CSWP.29',
+    marcadores: true,
+  },
   conv108: {
     arquivo: 'conv108.txt',
     nome: 'Convenção 108+ do Conselho da Europa — versão atualizada (2018)',
@@ -308,7 +315,7 @@ export const GRUPOS_LEIS = [
   ['Regulação, agências e carreira', ['lei13848', 'lei9986', 'lei10871', 'dec10411', 'lei13874', 'lc182']],
   ['Constituição', ['cf88']],
   ['Direito administrativo', ['lei9784', 'lindb', 'dec9830', 'lai', 'dec7724', 'lei13460', 'lei8429', 'lei12846', 'lei12813', 'lei8112', 'dec1171', 'lei9507']],
-  ['Segurança da informação', ['dec12572', 'dec11856', 'dec10748', 'ingsi1']],
+  ['Segurança da informação', ['dec12572', 'dec11856', 'dec10748', 'ingsi1', 'nistcsf']],
   ['Direito comparado (Europa)', ['gdpr', 'conv108']],
 ];
 
@@ -359,6 +366,11 @@ export function carregarLei(raiz, id) {
       atual = null;
       continue;
     }
+    // Documentos sem artigos (NIST CSF): "@grupo Nome" abre um grupo e "@unidade ID Rótulo" abre uma unidade
+    const grp = meta.marcadores && linha.match(/^@grupo (.+)$/);
+    if (grp) { pos.capitulo = grp[1]; pos.secao = ''; atual = null; ultimo = null; continue; }
+    const uni = meta.marcadores && linha.match(/^@unidade (\S+) (.+)$/);
+    if (uni) { atual = { id: uni[1], rotulo: uni[2], estrutura: [pos.capitulo].filter(Boolean), linhas: [] }; artigos.push(atual); continue; }
     const ing = linha.match(RE_ARTICLE);
     const m = ing ? [linha, 'Art.', ing[1] || ing[2]] : linha.match(RE_ARTIGO);
     const num = m && (m[2] ? m[2] + (m[3] || '') : m[4]);

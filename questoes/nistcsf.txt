@@ -1,0 +1,155 @@
+bloco: seginfo
+// NIST Cybersecurity Framework (CSF) 2.0 (NIST CSWP 29, 2024). Trechos conferidos no documento oficial em inglês (fontes/nistcsf.txt).
+
+=== nist-01
+gab: C
+ref: nistcsf S2
+trecho: The CSF Core Functions — GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND, and RECOVER — organize cybersecurity outcomes at their highest level.
+armadilha: rol
+dif: 1
+enunciado: O NIST Cybersecurity Framework 2.0 organiza os resultados de cibersegurança, em seu nível mais alto, em seis funções: governar, identificar, proteger, detectar, responder e recuperar.
+comentario: Seção 2 do CSF 2.0. A função GOVERN (governar) é a novidade da versão 2.0; a versão 1.1 tinha cinco funções.
+pesquisar: Mudanças do NIST CSF 1.1 para o CSF 2.0
+
+=== nist-02
+gab: E
+ref: nistcsf S2
+trecho: the order and size of Functions, Categories, and Subcategories in the Core does not imply the sequence or importance of achieving them
+armadilha: extrapolacao
+dif: 2
+enunciado: No NIST CSF 2.0, a ordem das funções, categorias e subcategorias do Core indica a sequência em que os resultados devem ser alcançados e a importância relativa de cada um.
+comentario: A Seção 2 diz o contrário: a ordem e o tamanho das funções, categorias e subcategorias não implicam sequência nem importância.
+
+=== nist-03
+gab: E
+ref: nistcsf S2
+trecho: These outcomes are not a checklist of actions to perform; specific actions taken to achieve an outcome will vary by organization and use case
+armadilha: conceito
+dif: 1
+enunciado: O Core do NIST CSF 2.0 é uma lista de verificação de ações obrigatórias, idênticas para qualquer organização que o adote.
+comentario: O Core é uma taxonomia de resultados, não um checklist. As ações para alcançar cada resultado variam conforme a organização e o caso de uso (Seção 2).
+
+=== nist-04
+gab: C
+ref: nistcsf S2
+trecho: GOVERN is in the center of the wheel because it informs how an organization will implement the other five Functions.
+armadilha: literal
+dif: 2
+enunciado: Na representação em roda das funções do NIST CSF 2.0, a função governar ocupa o centro porque orienta como a organização implementará as outras cinco funções.
+comentario: Seção 2, Figura 2. A governança inclui contexto organizacional, estratégia de gestão de riscos, papéis e responsabilidades, política, supervisão e gestão de riscos da cadeia de suprimentos.
+
+=== nist-05
+gab: E
+ref: nistcsf S1
+trecho: It does not prescribe outcomes nor how they may be achieved.
+armadilha: extrapolacao
+dif: 2
+enunciado: O NIST CSF 2.0 prescreve os resultados de cibersegurança que cada organização deve atingir e define os controles obrigatórios para alcançá-los.
+comentario: Seção 1: o documento descreve resultados desejáveis, sem prescrever os resultados nem a forma de alcançá-los. Práticas e controles aparecem nos recursos online complementares (referências informativas, exemplos de implementação, guias de início rápido).
+
+=== nist-06
+gab: C
+ref: nistcsf S1
+trecho: The CSF is designed to be used by organizations of all sizes and sectors, including industry, government, academia, and nonprofit organizations
+trecho: may be adopted voluntarily and through governmental policies and mandates
+armadilha: literal
+dif: 1
+enunciado: O NIST CSF 2.0 foi concebido para organizações de todos os portes e setores, inclusive governo, e pode ser adotado voluntariamente ou por meio de políticas e determinações governamentais.
+comentario: Seção 1 do CSF 2.0. A versão 1.1 tinha foco declarado em infraestruturas críticas; a 2.0 se apresenta como referência para qualquer organização.
+
+=== nist-07
+gab: C
+ref: nistcsf S3
+trecho: reflect an organization’s practices for managing cybersecurity risk as Partial (Tier 1), Risk Informed (Tier 2), Repeatable (Tier 3), and Adaptive (Tier 4)
+trecho: Tiers characterize the rigor of an organization’s cybersecurity risk governance and management practices
+armadilha: rol
+dif: 2
+enunciado: No NIST CSF 2.0, os Tiers caracterizam o rigor das práticas de governança e de gestão de riscos de cibersegurança da organização, em quatro níveis: parcial, informado por riscos, repetível e adaptativo.
+comentario: Seção 3.2. Os Tiers descrevem uma progressão de respostas informais e ad hoc até abordagens ágeis, informadas por riscos e em melhoria contínua. Não são níveis de maturidade obrigatórios: a subida de Tier é recomendada quando os riscos ou as exigências forem maiores ou quando a relação custo-benefício indicar.
+
+=== nist-08
+gab: E
+ref: nistcsf S3
+trecho: A Current Profile specifies the Core outcomes that an organization is currently achieving
+trecho: A Target Profile specifies the desired outcomes that an organization has selected and prioritized
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, o perfil-alvo (Target Profile) descreve os resultados do Core que a organização já alcança atualmente.
+comentario: Quem descreve o que a organização já alcança é o perfil atual (Current Profile). O perfil-alvo traz os resultados desejados, escolhidos e priorizados. A análise de lacunas entre os dois gera o plano de ação (Seção 3.1).
+
+=== nist-09
+gab: C
+ref: nistcsf C
+trecho: A baseline of CSF outcomes that is created and published to address shared interests and goals among a number of organizations.
+trecho: An organization can use a Community Profile as the basis for its own Target Profile.
+armadilha: conceito
+dif: 2
+enunciado: Perfil de comunidade, no NIST CSF 2.0, é uma linha de base de resultados publicada para atender a interesses e objetivos comuns de várias organizações, e pode servir de base para o perfil-alvo de uma organização.
+comentario: Glossário do CSF 2.0 (Apêndice C). Costuma ser feito para um setor, subsetor, tecnologia, tipo de ameaça ou outro caso de uso.
+
+=== nist-10
+gab: E
+ref: nistcsf S2
+trecho: GOVERN addresses an understanding of organizational context; the establishment of cybersecurity strategy and cybersecurity supply chain risk management
+armadilha: sujeito
+dif: 2
+enunciado: No NIST CSF 2.0, a gestão de riscos de cibersegurança da cadeia de suprimentos integra a função identificar.
+comentario: Está na função governar, categoria GV.SC (Seção 2 e Apêndice A). Na função identificar ficam gestão de ativos (ID.AM), avaliação de riscos (ID.RA) e melhoria (ID.IM).
+
+=== nist-11
+gab: C
+ref: nistcsf PR.DS
+trecho: PR.DS-01: The confidentiality, integrity, and availability of data-at-rest are protected
+trecho: PR.DS-02: The confidentiality, integrity, and availability of data-in-transit are protected
+trecho: PR.DS-10: The confidentiality, integrity, and availability of data-in-use are protected
+armadilha: literal
+dif: 2
+enunciado: No NIST CSF 2.0, a proteção da confidencialidade, da integridade e da disponibilidade dos dados em repouso, em trânsito e em uso consta da categoria segurança de dados (PR.DS), da função proteger.
+comentario: Apêndice A, categoria PR.DS. Repare na numeração com lacunas (01, 02, 10, 11): segundo o próprio Apêndice A, as lacunas indicam subcategorias da versão 1.1 que foram realocadas.
+
+=== nist-12
+gab: E
+ref: nistcsf S2
+trecho: RESPOND supports the ability to contain the effects of cybersecurity incidents.
+trecho: DETECT enables the timely discovery and analysis of anomalies, indicators of compromise, and other potentially adverse events
+armadilha: sujeito
+dif: 2
+enunciado: No NIST CSF 2.0, conter os efeitos dos incidentes de cibersegurança é resultado típico da função detectar.
+comentario: Conter os efeitos é da função responder. Detectar cuida da descoberta e da análise oportunas de anomalias, indicadores de comprometimento e outros eventos potencialmente adversos (Seção 2).
+
+=== nist-13
+gab: C
+ref: nistcsf C
+trecho: A group of more specific outcomes of technical and management cybersecurity activities that comprise a CSF Category.
+armadilha: conceito
+dif: 1
+enunciado: No glossário do NIST CSF 2.0, subcategoria é um grupo de resultados mais específicos de atividades técnicas e de gestão de cibersegurança que compõem uma categoria.
+comentario: Hierarquia do Core: função (nível mais alto), categoria e subcategoria (Apêndice C).
+
+=== nist-14
+gab: E
+ref: nistcsf GV.OC
+trecho: GV.OC-03: Legal, regulatory, and contractual requirements regarding cybersecurity — including privacy and civil liberties obligations — are understood and managed
+armadilha: excecao
+dif: 2
+enunciado: A subcategoria GV.OC-03 do NIST CSF 2.0 trata apenas dos requisitos contratuais de cibersegurança, deixando de fora as obrigações de privacidade.
+comentario: GV.OC-03 abrange requisitos legais, regulatórios e contratuais, inclusive obrigações de privacidade e de liberdades civis. Para um órgão brasileiro, é aqui que entra o cumprimento da LGPD dentro do CSF.
+
+=== nist-15
+gab: E
+ref: nistcsf S1
+trecho: The CSF’s taxonomy and referenced standards, guidelines, and practices are not country-specific
+armadilha: extrapolacao
+dif: 1
+enunciado: Por ter sido elaborado pelo NIST, o CSF 2.0 aplica-se somente a organizações sediadas nos Estados Unidos.
+comentario: A Seção 1 afirma que a taxonomia e as referências do CSF não são específicas de um país e que versões anteriores foram usadas por governos e organizações dentro e fora dos Estados Unidos.
+
+=== nist-16
+gab: C
+ref: nistcsf RS.MA
+trecho: RS.MA-02: Incident reports are triaged and validated
+trecho: RS.MA-03: Incidents are categorized and prioritized
+armadilha: literal
+dif: 2
+enunciado: Na categoria gestão de incidentes (RS.MA) da função responder, o NIST CSF 2.0 prevê a triagem e a validação dos relatos de incidentes, bem como a categorização e a priorização dos incidentes.
+comentario: Apêndice A, RS.MA-02 e RS.MA-03. Compare com a Resolução CD/ANPD nº 15/2024, que trata da comunicação de incidentes à ANPD.
