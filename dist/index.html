@@ -488,6 +488,9 @@ details.apoio-det[open] summary{margin-bottom:8px}
 /* Dispositivo vetado: só para manter a numeração, sem grifo */
 .texto-lei .vetado{color:var(--ink-3);font-size:.86em}
 
+/* Contestação */
+.contestar{display:flex;justify-content:flex-end}
+
 </style>
 
 <div class="app" id="app">
@@ -785,6 +788,7 @@ const Store = {
     this.diag.id = uid ? 'ok' : 'sem identidade (entre na conta)';
     if (!uid) return this.pronto();
     try {
+      this.db = db; this.uid = uid;
       const col = db.collection('data/users/' + uid);
       DOCS.forEach((n) => { this.refs[n] = col.doc(n); });
       const snaps = await Promise.all(DOCS.map((n) => this.refs[n].get()));
@@ -815,6 +819,7 @@ const Store = {
       this.modo = 'local';
     }
     this.pronto();
+    enviarContestacoesPendentes();
   },
   pronto() { renderTudo(); },
   salvar(...nomes) {
@@ -1701,6 +1706,8 @@ function renderExplicacao(q) {
   } else html += '<div class="citacao"><span class="fonte">Fonte: ' + esc(q.r) + '</span></div>';
   if (q.v === 0) html += '<p class="aviso-conferir">Texto oficial ainda não anexado ao app: confira esta referência na fonte antes de confiar nela.</p>';
   html += blocoPesquisar(q.e + ' ' + q.c, q.p, 'questão ' + q.id);
+  const ct = CONTEST.find((x) => x.q === q.id);
+  html += '<div class="contestar"><button class="linkish pequeno" data-acao="contestar" data-q="' + esc(q.id) + '">' + (ct ? 'Contestação enviada (' + esc(STATUS_CONTEST[ct.status] || ct.status) + ') · ver' : 'Contestar este item') + '</button></div>';
   return html + '</div>';
 }
 function blocoPesquisar(texto, extras, origem) {
@@ -2018,6 +2025,7 @@ function renderMais() {
   else if (sub === 'metodo') el.innerHTML = voltarMais() + renderMetodo();
   else if (sub === 'cebraspe') el.innerHTML = voltarMais() + renderCebraspe();
   else if (sub === 'discursiva') el.innerHTML = (UI.discTema ? '' : voltarMais()) + renderDiscursiva();
+  else if (sub === 'contestacoes') el.innerHTML = voltarMais() + renderContestacoes();
   else if (sub === 'ajustes') el.innerHTML = voltarMais() + renderAjustes();
   else {
     const pend = Object.values(S.pesquisa).filter((p) => !p.s).length;
@@ -2030,6 +2038,7 @@ function renderMais() {
       item('plano', '▦', 'Plano e cronograma', '11 semanas até 22/12, status dos blocos, textos que faltam') +
       item('pesquisar', '?', 'Para pesquisar', pend ? pl(pend, 'tema pendente', 'temas pendentes') + ' na sua lista' : 'Temas e termos para entender melhor') +
       item('glossario', 'Aa', 'Glossário', GLOSS.length + ' termos com definição e busca sugerida') +
+      item('contestacoes', '!', 'Minhas contestações', CONTEST.length ? pl(CONTEST.length, 'contestação', 'contestações') + ', ' + CONTEST.filter((c) => c.status === 'aberta' || c.status === 'pendente').length + ' em aberto' : 'Itens que você apontou como errados e a resposta') +
       item('ajustes', '⚙', 'Ajustes, backup e diagnóstico', 'Metas, salvar progresso em arquivo, conferir a gravação') + '</div>';
   }
 }
@@ -2170,6 +2179,54 @@ function renderMetodo() {
     '<h3>Questões marcadas para conferir</h3><p>' + pl(Q.filter((q) => q.v === 0).length, 'item cita', 'itens citam') + ' fontes ainda não coladas no app: decisões do STF e do TJUE e, nos itens reais da Anatel, a LGT, a Lei 8.987, a E-Ciber e resoluções da Anatel. Eles mostram o aviso “confira na fonte” e só viram definitivos quando o texto oficial for anexado e cada trecho for conferido. Nos itens reais, o gabarito é o oficial; o que falta conferir é a referência do comentário.</p>' +
     '<h3>Como a banca cobra</h3><p>A página Como o Cebraspe cobra, aqui em Mais, mostra o formato da prova, o padrão de cada disciplina com itens reais e o que pontua na discursiva.</p></div>';
 }
+/* ================= Contestação de itens ================= */
+// Cada contestação fica neste navegador e numa coleção compartilhada do banco do app, onde o Claude lê,
+// corrige o item na rodada seguinte e devolve status e resposta.
+const CHAVE_CONTEST = 'painel-anpd-contestacoes';
+const MOTIVOS_CONTEST = [['gabarito', 'O gabarito está errado'], ['comentario', 'O comentário ou o trecho está errado'], ['desatualizado', 'A norma mudou ou foi revogada'], ['ambiguo', 'O enunciado é ambíguo'], ['outro', 'Outro motivo']];
+const STATUS_CONTEST = { aberta: 'aberta', pendente: 'aguardando envio', procedente: 'procedente, item corrigido', improcedente: 'improcedente', anulado: 'item retirado do banco' };
+const CONTEST = lerLS(CHAVE_CONTEST) || [];
+function gravarContest() { gravarLS(CHAVE_CONTEST, CONTEST); }
+function folhaContestar(id) {
+  const q = QI.get(id), ct = CONTEST.find((x) => x.q === id);
+  let html = cabFolha('Contestar item', id) + (q ? '<p class="enunciado">' + esc(q.e) + '</p><p class="pequeno mudo">Gabarito ' + (q.g === 'C' ? 'certo' : 'errado') + ' · ' + esc(q.r) + '</p>' : '<p class="mudo">Este item não está mais no banco.</p>');
+  if (ct) {
+    html += '<div class="cartao"><p><b>Status:</b> ' + esc(STATUS_CONTEST[ct.status] || ct.status) + ' · enviada em ' + esc(fmtData(ct.data.slice(0, 10), { day: '2-digit', month: '2-digit' })) + '</p><p><b>Motivo:</b> ' + esc((MOTIVOS_CONTEST.find((m) => m[0] === ct.motivo) || [0, ct.motivo])[1]) + '</p>' + (ct.texto ? '<p>' + esc(ct.texto) + '</p>' : '') + (ct.resposta ? '<p><b>Resposta:</b> ' + esc(ct.resposta) + '</p>' : '<p class="pequeno mudo">A resposta aparece aqui quando o item for revisto.</p>') + '</div>';
+  } else if (q) {
+    html += '<fieldset class="quesito"><legend><b>Motivo</b></legend>' + MOTIVOS_CONTEST.map(([v, t], i) => '<label class="conceito"><input type="radio" name="contest-motivo" value="' + v + '"' + (i ? '' : ' checked') + '><span>' + esc(t) + '</span></label>').join('') + '</fieldset>' +
+      '<div class="campo"><label for="contest-texto">Explique (de preferência com o artigo ou a fonte)</label><textarea id="contest-texto" class="disc-area" rows="4" style="min-height:6rem"></textarea></div>' +
+      '<div class="linha-btns"><button class="btn primario" data-acao="contestar-enviar" data-q="' + esc(id) + '">Enviar contestação</button></div>';
+  }
+  abrirFolha(html, 'Contestar ' + id);
+}
+async function enviarContestacao(rec) {
+  if (!Store.db || !Store.uid) { rec.status = 'pendente'; return false; }
+  try {
+    const ref = await Store.db.collection('contestacoes').add({ q: rec.q, motivo: rec.motivo, texto: rec.texto, data: rec.data, versao: rec.versao, uid: Store.uid, status: 'aberta', resposta: '' });
+    rec.id = ref.id; rec.status = 'aberta'; return true;
+  } catch (e) { rec.status = 'pendente'; return false; }
+}
+// Ao abrir o app: envia as pendentes e traz status e respostas das já enviadas
+async function enviarContestacoesPendentes() {
+  if (!Store.db || !Store.uid) return;
+  let mudou = false;
+  for (const c of CONTEST) if (c.status === 'pendente') { await enviarContestacao(c); mudou = true; }
+  try {
+    const snap = await Store.db.collection('contestacoes').where('uid', '==', Store.uid).get();
+    for (const d of snap.docs) {
+      const x = d.data(), c = CONTEST.find((y) => y.id === d.id);
+      if (c && (c.status !== x.status || c.resposta !== x.resposta)) { c.status = x.status; c.resposta = x.resposta || ''; mudou = true; }
+    }
+  } catch (e) { /* sem leitura: fica o que está no navegador */ }
+  if (mudou) { gravarContest(); if (UI.vista === 'mais') renderMais(); }
+}
+function renderContestacoes() {
+  const lista = CONTEST.slice().sort((a, b) => (a.data < b.data ? 1 : -1));
+  return '<div class="secao-cab"><h2>Minhas contestações</h2><span class="mudo pequeno">' + lista.length + '</span></div>' +
+    '<p class="mudo pequeno">Toda contestação é lida na rodada seguinte de revisão do banco. Procedente, o item é corrigido ou retirado; a resposta aparece aqui.</p>' +
+    (lista.length ? '<div class="lista-rev">' + lista.map((c) => '<button data-acao="contestar" data-q="' + esc(c.q) + '"><span class="marca-res ' + (c.status === 'procedente' || c.status === 'anulado' ? 'C' : c.status === 'improcedente' ? 'E' : 'B') + '">' + (c.status === 'aberta' || c.status === 'pendente' ? '…' : c.status === 'improcedente' ? '✗' : '✓') + '</span><span class="txt"><b>' + esc(c.q) + '</b> · ' + esc(STATUS_CONTEST[c.status] || c.status) + (QI.get(c.q) ? ' · ' + esc(QI.get(c.q).e.slice(0, 90)) + '…' : '') + '</span></button>').join('') + '</div>' : '<p class="vazio-msg">Nenhuma contestação ainda. O botão “Contestar este item” fica logo abaixo do comentário de cada questão.</p>');
+}
+
 /* ================= Discursiva ================= */
 function linhasEstimadas(texto) {
   return String(texto || '').split('\n').reduce((n, p) => n + (p.trim() ? Math.ceil(p.length / CARACTERES_LINHA) : 0), 0);
@@ -2292,7 +2349,7 @@ function renderAjustes() {
 /* ================= Backup ================= */
 let backupPendente = null;
 function backupTexto() {
-  return JSON.stringify({ app: 'painel-anpd', versao: 3, exportado: new Date().toISOString(), perfil: S.perfil, itens: S.itens, cards: S.cards, simulados: S.simulados, pesquisa: S.pesquisa, disc: S.disc });
+  return JSON.stringify({ app: 'painel-anpd', versao: 3, exportado: new Date().toISOString(), perfil: S.perfil, itens: S.itens, cards: S.cards, simulados: S.simulados, pesquisa: S.pesquisa, disc: S.disc, contestacoes: CONTEST });
 }
 async function salvarArquivo(nome, conteudo) {
   let dl = null;
@@ -2450,6 +2507,19 @@ document.addEventListener('click', async (ev) => {
       Store.salvar('discursivas', 'perfil');
       avisar('✎', 'Discursiva salva', r.nq.toFixed(2).replace('.', ',') + ' de ' + t.pontos + ' · +30 XP');
       renderMais();
+      break;
+    }
+    case 'contestar': folhaContestar(alvo.dataset.q); break;
+    case 'contestar-enviar': {
+      const motivo = (document.querySelector('input[name="contest-motivo"]:checked') || {}).value || 'outro';
+      const texto = (document.getElementById('contest-texto') || {}).value || '';
+      const rec = { q: alvo.dataset.q, motivo, texto: texto.trim().slice(0, 2000), data: new Date().toISOString(), versao: D.versao, status: 'pendente', resposta: '' };
+      CONTEST.push(rec); gravarContest();
+      alvo.disabled = true;
+      const ok = await enviarContestacao(rec);
+      gravarContest();
+      avisar('!', ok ? 'Contestação enviada' : 'Contestação guardada', ok ? 'O item será revisto na próxima rodada.' : 'Sem conexão com o banco agora: ela será enviada quando o app abrir conectado.');
+      folhaContestar(rec.q);
       break;
     }
     case 'rolar': { const el = document.getElementById(alvo.dataset.alvo); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); break; }
