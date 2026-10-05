@@ -61,6 +61,8 @@ const MANUTENCAO_DIA = 10;
 const LEITURA_MAX = 25;
 // Lista curta vencida acima deste número torna o dia pesado: a sessão de questões novas encolhe
 const REVISOES_DIA_PESADO = 40;
+// Intercalação: matérias básicas, treinadas todo dia, e blocos já estudados no cronograma, misturados na mesma sessão
+const BLOCOS_BASICOS = ['portugues', 'ingles', 'constitucional', 'administrativo', 'lai', 'etica-improbidade', 'lei-9784'];
 const MIN_DIA_ATIVO = 10;
 const DOCS = ['perfil', 'itens', 'cards', 'simulados', 'pesquisa', 'discursivas'];
 const CHAVE_LOCAL = 'painel-anpd-v3';
@@ -157,7 +159,7 @@ function fmtIntervalo(d) {
 
 /* ================= Estado ================= */
 function perfilPadrao() {
-  return { xp: 0, meta: 30, novosCards: 20, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: hojeISO() };
+  return { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: hojeISO() };
 }
 const S = { perfil: perfilPadrao(), itens: {}, cards: {}, simulados: [], pesquisa: {}, disc: {} };
 const UI = Object.assign({ lei: 'lgpd', vista: 'hoje', modo: 'treino', n: 20, filtro: 'mistas', prova: 'blocos', blocos: P1.slice(), blocosCards: [], faseAberta: null, camadas: { cai: true, num: true, alerta: true, verbo: true, erro: true } }, lerLS(CHAVE_UI) || {});
@@ -609,6 +611,29 @@ function selecionarProva(n) {
   return embaralhar(escolhidos.slice(0, n));
 }
 
+// Blocos já vistos no cronograma (dias anteriores a hoje), fora as básicas
+function blocosEstudados() {
+  const h = hojeISO();
+  return [...new Set(DIAS.filter((d) => d.data < h).flatMap((d) => d.blocos || []))].filter((b) => !BLOCOS_BASICOS.includes(b) && !FORA_DA_PROVA.has(b) && (POR_BLOCO.get(b) || []).length);
+}
+// Metade das matérias básicas, metade dos blocos já estudados, tudo misturado
+function selecionarIntercaladas(n) {
+  const estudados = new Set(blocosEstudados());
+  const basicas = new Set(BLOCOS_BASICOS);
+  const poolB = Q.filter((q) => basicas.has(q.b));
+  const poolE = Q.filter((q) => estudados.has(q.b));
+  const a = selecionar(poolB, poolE.length ? Math.ceil(n / 2) : n, 'mistas');
+  const usados = new Set(a.map((q) => q.id));
+  const b = poolE.length ? selecionar(poolE.filter((q) => !usados.has(q.id)), n - a.length, 'mistas') : [];
+  return embaralhar(a.concat(b));
+}
+// Tamanho das intercaladas: o escolhido em Ajustes, menor em dia pesado (até o mínimo de 10)
+function nIntercaladas() {
+  const base = S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas;
+  const excesso = listaVencida().length - REVISOES_DIA_PESADO;
+  return excesso > 0 ? Math.max(Math.min(10, base), base - Math.ceil(excesso / 2)) : base;
+}
+
 /* ================= Sessões ================= */
 let relogioTimer = null;
 function iniciarSessao(cfg) {
@@ -631,6 +656,7 @@ function iniciarSessao(cfg) {
     itens = embaralhar(v.concat(m, embaralhar(l)).slice(0, cfg.n || 30));
     if (!itens.length) { avisar('LC', 'Nada para revisar', 'Lista curta vazia e nenhum acerto antigo vencido. Siga com questões novas.'); return; }
   } else if (cfg.ids) itens = cfg.ids.map((id) => QI.get(id)).filter(Boolean);
+  else if (cfg.intercalado) itens = selecionarIntercaladas(cfg.n || 30);
   else if (cfg.prova) itens = selecionarProva(cfg.n || 60);
   else if (cfg.modo === 'relampago') itens = embaralhar(poolDe(cfg.blocos));
   else itens = selecionar(poolDe(cfg.blocos), cfg.n || 20, cfg.filtro || 'mistas');
@@ -886,7 +912,15 @@ function roteiroHoje() {
     const nDia = nItensDoDia(dia);
     passos.push({ titulo: dia.modo === 'simulado' ? 'Simulado do dia' : dia.modo === 'revisao' ? 'Sessão de revisão do dia' : 'Questões do dia', feito,
       texto: dia.atividade + (dia.modo === 'treino' && nDia < dia.n ? ' Dia pesado: ' + pl(venc, 'revisão vencida', 'revisões vencidas') + ', então a sessão cai de ' + dia.n + ' para ' + nDia + ' itens. Revisar primeiro evita acumular esquecimento.' : ''), botoes: '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' + (feito ? 'Outra rodada' : 'Começar') + ' · ' + esc(rotuloModoDia(Object.assign({}, dia, { n: nDia }))) + '</button>' });
-  } else {
+  }
+  const nInt = nIntercaladas();
+  if (nInt > 0) {
+    const chaveInt = 'i:' + hojeISO();
+    passos.push({ titulo: 'Questões intercaladas', feito: !!S.perfil.feitos[chaveInt],
+      texto: nInt + ' itens misturando as matérias básicas (português, inglês, constitucional, administrativo, ética, LAI e processo administrativo) e os blocos que você já estudou. Misturar obriga a reconhecer o tipo de questão, e isso fixa mais.' + (nInt < (S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas) ? ' Dia pesado: a sessão ficou menor.' : ''),
+      botoes: '<button class="btn pequeno primario" data-acao="intercaladas">' + (S.perfil.feitos[chaveInt] ? 'Outra rodada' : 'Começar') + ' · ' + nInt + ' itens</button>' });
+  }
+  if (!dia) {
     passos.push({ titulo: 'Questões livres', feito: d.r >= S.perfil.meta, texto: 'Sem sessão programada para hoje. Uma rodada leve mantém a sequência.',
       botoes: '<button class="btn pequeno primario" data-acao="treino-rapido">Treino de 20 itens</button>' });
   }
@@ -1590,6 +1624,7 @@ function renderMetodo() {
     '<h3>Regras que não se negociam</h3><ul>' +
     '<li>O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça.</li>' +
     '<li>O acerto também volta, para confirmar que não foi sorte: o acerto de primeira volta em 16 dias, e cada confirmação seguinte espaça mais (35 dias). Esses acertos antigos entram na revisão do dia, no máximo ' + MANUTENCAO_DIA + ' por dia, os mais atrasados primeiro, e ocupam até um quarto das sessões de questões.</li>' +
+    '<li>Intercale. Todo dia há uma sessão que mistura as matérias básicas com os blocos já estudados. Assunto novo entra em bloco; o que você já viu volta misturado, porque misturar obriga a reconhecer o tipo de questão e fixa mais (prática intercalada, somada à revisão espaçada e à recuperação ativa).</li>' +
     '<li>Revisão vem antes de questão nova. Quando a lista curta vencida passa de ' + REVISOES_DIA_PESADO + ' itens, a sessão de questões novas do dia encolhe sozinha.</li>' +
     '<li>Errou, leia o artigo inteiro. O botão “Ler inteiro, grifado” aparece depois de cada questão e de cada card. A leitura do dia tem no máximo ' + LEITURA_MAX + ' artigos: quando os blocos do dia têm mais, o app escolhe os ligados à sua lista curta, os ainda não lidos e os mais cobrados.</li>' +
     '<li>Domingo é livre por padrão e não quebra a sequência.</li>' +
@@ -1697,13 +1732,14 @@ function renderCebraspe() {
   return html;
 }
 function renderAjustes() {
-  const metas = [10, 20, 30, 40, 60], novos = [5, 10, 20, 30, 50];
+  const metas = [20, 30, 40, 60, 90], novos = [5, 10, 15, 20, 30], inter = [0, 20, 30, 40, 50];
   const dg = Store.diag;
   const linha = (rot, val, ok) => '<tr><td>' + rot + '</td><td class="' + (ok === true ? 'ok' : ok === false ? 'no' : '') + '">' + esc(val) + '</td></tr>';
   const st = (v) => (v === 'ok' ? true : v === '—' ? null : false);
   return '<div class="secao-cab"><h2>Ajustes</h2></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha vale para este aparelho.</p></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' + metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div></div>' +
+    '<div class="campo"><span class="rot">Questões intercaladas por dia</span><div class="chips">' + inter.map((m) => '<button class="chip" data-acao="intercaladas-n" data-n="' + m + '" aria-pressed="' + ((S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas) === m) + '">' + (m || 'Desligar') + '</button>').join('') + '</div><p class="pequeno mudo">Metade das matérias básicas, metade dos blocos já estudados, misturadas. Em dia pesado de revisão a sessão encolhe sozinha.</p></div>' +
     '<div class="campo"><span class="rot">Cards novos por dia</span><div class="chips">' + novos.map((m) => '<button class="chip" data-acao="novos-cards" data-n="' + m + '" aria-pressed="' + ((S.perfil.novosCards || 20) === m) + '">' + m + '</button>').join('') + '</div><p class="pequeno mudo">Cada card novo volta várias vezes nos dias seguintes. 20 por dia é o equilíbrio para quem tem 1h45 de estudo.</p></div></div>' +
     '<div class="cartao"><h2>Backup do progresso</h2><p class="pequeno">Salve um arquivo com todo o seu progresso. Se a gravação na conta falhar, ou se você trocar de aparelho, é só restaurar.</p>' +
     '<div class="linha-btns"><button class="btn primario" data-acao="backup-baixar">Baixar backup (.json)</button><button class="btn" data-acao="backup-mostrar">Copiar como texto</button></div>' +
@@ -1790,6 +1826,7 @@ document.addEventListener('click', async (ev) => {
     case 'mais': fecharFolha(); UI.mais = alvo.dataset.sub || 'menu'; if (UI.vista !== 'mais') ir('mais'); else { renderMais(); window.scrollTo(0, 0); } break;
     case 'iniciar-dia': iniciarDia(alvo.dataset.dia); break;
     case 'iniciar-revisao': iniciarSessao({ modo: 'revisao', n: 30 }); break;
+    case 'intercaladas': iniciarSessao({ modo: 'treino', intercalado: true, n: nIntercaladas(), titulo: 'Questões intercaladas', dia: 'i:' + hojeISO() }); break;
     case 'treino-rapido': iniciarSessao({ modo: 'treino', n: 20, blocos: [], filtro: 'mistas' }); break;
     case 'abrir-modo': UI.modo = alvo.dataset.modo; if (UI.modo === 'simulado') UI.prova = 'prova'; ir('questoes'); break;
     case 'relampago': iniciarSessao({ modo: 'relampago', blocos: (alvo.dataset.blocos || '').split(',').filter(Boolean) }); break;
@@ -1911,6 +1948,7 @@ document.addEventListener('click', async (ev) => {
     case 'tema': UI.tema = alvo.dataset.tema; salvarUI(); aplicarTema(); renderTudo(); break;
     case 'tema-alternar': UI.tema = temaEscuroAtivo() ? 'claro' : 'escuro'; salvarUI(); aplicarTema(); renderTudo(); break;
     case 'meta': S.perfil.meta = Number(alvo.dataset.meta); Store.salvar('perfil'); renderTudo(); break;
+    case 'intercaladas-n': S.perfil.intercaladas = Number(alvo.dataset.n); Store.salvar('perfil'); renderTudo(); break;
     case 'novos-cards': S.perfil.novosCards = Number(alvo.dataset.n); Store.salvar('perfil'); renderTudo(); break;
     case 'backup-baixar': {
       const r = await salvarArquivo('painel-anpd-backup-' + hojeISO() + '.json', backupTexto());
