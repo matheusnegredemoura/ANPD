@@ -1,0 +1,216 @@
+bloco: eca-digital
+// Decreto nº 12.880/2026 — regulamenta o ECA Digital e institui a Política Nacional de Promoção e Proteção dos
+// Direitos da Criança e do Adolescente no Ambiente Digital. Conferidas com fontes/dec12880.txt.
+
+=== d12880-01
+gab: C
+ref: dec12880 1
+trecho: Competem à Agência Nacional de Proteção de Dados - ANPD a regulamentação e a fiscalização do disposto na Lei nº 15.211, de 17 de setembro de 2025
+armadilha: sujeito
+dif: 1
+enunciado: Pelo Decreto nº 12.880/2026, competem à ANPD a regulamentação e a fiscalização do ECA Digital, sem prejuízo das competências de outros órgãos do sistema de garantia de direitos da criança e do adolescente.
+comentario: Art. 1º, parágrafo único. O Decreto 12.622/2025 já designara a ANPD como autoridade administrativa autônoma (art. 2º); a Estrutura Regimental de 2026 incorporou a missão.
+
+=== d12880-02
+gab: E
+ref: dec12880 2
+trecho: verificação de idade - procedimento específico de aferição de idade de alto grau de confiabilidade
+trecho: aferição de idade - termo geral referente aos procedimentos destinados a verificar, estimar ou inferir
+armadilha: conceito
+dif: 2
+enunciado: No Decreto nº 12.880/2026, aferição de idade é o procedimento específico, de alto grau de confiabilidade, baseado na conferência da veracidade do atributo etário, enquanto verificação de idade é o termo geral que abrange estimativa e inferência.
+comentario: Os conceitos estão trocados. Aferição é o gênero (verificar, estimar ou inferir a idade, art. 2º, IV); verificação é a espécie de alto grau de confiabilidade, nos termos da ANPD (art. 2º, V). A autodeclaração é a mera indicação pelo próprio usuário, sem evidências (VII).
+pesquisar: Aferição × verificação × estimativa de idade (age assurance, age verification, age estimation)
+
+=== d12880-03
+gab: C
+ref: dec12880 2
+trecho: sinal de idade - informação ou credencial indicativa que atesta a idade ou a faixa etária de um usuário aos fornecedores
+trecho: sem revelar dados pessoais adicionais
+armadilha: conceito
+dif: 2
+enunciado: No Decreto nº 12.880/2026, sinal de idade é a informação ou credencial que atesta a idade ou a faixa etária do usuário aos fornecedores, sem revelar dados pessoais adicionais.
+comentario: Art. 2º, VI. O art. 25, § 1º, reforça: o sinal se limita ao estritamente necessário para confirmar a idade mínima, vedado enviar data de nascimento exata, identidade civil ou dados de perfilamento.
+
+=== d12880-04
+gab: E
+ref: dec12880 7
+trecho: Ato da Ministra de Estado dos Direitos Humanos e da Cidadania instituirá comitê intersetorial
+armadilha: sujeito
+dif: 3
+enunciado: O comitê intersetorial que coordena a Política Nacional de Promoção e Proteção dos Direitos da Criança e do Adolescente no Ambiente Digital é instituído por ato do Diretor-Presidente da ANPD.
+comentario: Art. 7º: o comitê é instituído por ato da Ministra dos Direitos Humanos e da Cidadania. A ANPD integra o comitê (§ 2º, VII), ao lado de MJSP, Saúde, Educação, MCTI, MGI, Secom e Conanda. O plano da Política é trienal (art. 6º, I).
+
+=== d12880-05
+gab: C
+ref: dec12880 9
+trecho: a ocultação de pontos naturais de parada
+trecho: o acionamento de novos conteúdos sem solicitação
+trecho: a oferta de recompensas pelo tempo de uso
+armadilha: rol
+dif: 2
+enunciado: O Decreto nº 12.880/2026 considera mecanismos de incentivo ao uso excessivo ou compulsivo a ocultação de pontos naturais de parada, o acionamento de novos conteúdos sem solicitação, a oferta de recompensas pelo tempo de uso e as notificações excessivas.
+comentario: Art. 9º, parágrafo único, I a IV. Rolagem infinita e reprodução automática são exemplos práticos dos dois primeiros incisos. Liga-se ao art. 8º, IV, e ao art. 17, § 4º, II, do ECA Digital.
+
+=== d12880-06
+gab: C
+ref: dec12880 10
+trecho: quaisquer arquiteturas de escolha, fluxos de interação ou funcionalidades que tenham por objetivo ou efeito empregar táticas que interfiram na autonomia decisória do usuário
+trecho: obstrução, ao dificultar ou impedir o fluxo de tarefas do usuário
+armadilha: conceito
+dif: 3
+enunciado: Pelo Decreto nº 12.880/2026, são práticas manipulativas as arquiteturas de escolha que tenham por objetivo ou efeito interferir na autonomia decisória do usuário, como a obstrução, que dificulta a interrupção do uso ou o cancelamento de serviços por caminhos excessivamente complexos.
+comentario: Art. 10, parágrafo único, I. Os outros exemplos são a exploração de vulnerabilidades cognitivas (urgências fabricadas, pressões emocionais) e o prejuízo ao exercício de direitos (ocultar controles de privacidade). A ANPD regulamenta a segurança por padrão e coíbe essas práticas (caput).
+
+=== d12880-07
+gab: E
+ref: dec12880 11
+trecho: ser transparentes na interação de crianças e adolescentes quanto a seu caráter sintético e automatizado
+trecho: A ANPD regulamentará e fiscalizará o disposto neste artigo.
+armadilha: extrapolacao
+dif: 2
+enunciado: O Decreto nº 12.880/2026 proíbe que crianças e adolescentes interajam com modelos de linguagem e agentes conversacionais de inteligência artificial.
+comentario: Art. 11: o decreto não proíbe; exige que esses sistemas sejam transparentes sobre seu caráter sintético e automatizado, previnam a manipulação comportamental, avaliem o risco algorítmico e tenham salvaguardas ao desenvolvimento, sob regulamentação e fiscalização da ANPD.
+
+=== d12880-08
+gab: C
+ref: dec12880 12, § 1º
+trecho: A política de classificação indicativa, de competência do Ministério da Justiça e Segurança Pública
+armadilha: sujeito
+dif: 2
+enunciado: A política de classificação indicativa, que deve considerar os riscos à privacidade, à segurança e à saúde de crianças e adolescentes em ambientes digitais, é de competência do Ministério da Justiça e Segurança Pública.
+comentario: Art. 12, § 1º. A classificação de jogos e aplicativos informa a faixa etária e riscos como interação entre usuários, loot boxes, estímulo ao uso compulsivo, microtransações e práticas manipulativas (§ 2º).
+
+=== d12880-09
+gab: E
+ref: dec12880 15
+trecho: serviços ou aplicações com finalidade precípua de marcar encontros ou iniciar relacionamentos de cunho sexual
+trecho: vedar a criação de contas e perfis por crianças e adolescentes
+armadilha: rol
+dif: 3
+enunciado: O Decreto nº 12.880/2026 lista como proibidos para crianças e adolescentes armas, bebidas alcoólicas e apostas, mas não alcança aplicativos de encontros, que dependem apenas de classificação indicativa.
+comentario: Art. 15, § 1º, X: são proibidos serviços ou aplicações com finalidade precípua de marcar encontros ou relacionamentos de cunho sexual. Para os incisos VI a X (apostas, loot boxes, pornografia, acompanhantes e encontros), o fornecedor deve vedar contas de crianças e adolescentes e remover as existentes (§ 2º).
+
+=== d12880-10
+gab: C
+ref: dec12880 16
+trecho: Equipara-se a conteúdo pornográfico a interação com sistemas que permitam diálogos, produção ou troca de vídeos e imagens, de forma artificial ou automatizada, de teor sexualmente explícito
+armadilha: literal
+dif: 2
+enunciado: Para o Decreto nº 12.880/2026, equipara-se a conteúdo pornográfico a interação com sistemas que permitam diálogos ou produção de vídeos e imagens, de forma artificial ou automatizada, de teor sexualmente explícito.
+comentario: Art. 16, § 4º, que alcança chatbots e geradores de imagem de teor sexual. Não é pornográfico o conteúdo educativo, artístico, informativo ou jornalístico nas condições do § 2º (como livros sem imagens e reprodução de música).
+
+=== d12880-11
+gab: E
+ref: dec12880 17
+trecho: exigir verificação de idade para desbloqueio, vedada a mera autodeclaração
+trecho: ocultar, desfocar ou não exibir, por padrão, conteúdo pornográfico
+armadilha: literal
+dif: 2
+enunciado: Plataforma que permite a visualização de conteúdo pornográfico pode liberá-lo ao usuário não cadastrado mediante simples declaração de que é maior de 18 anos.
+comentario: Art. 17: para usuário não cadastrado, com idade não verificada ou conta de criança ou adolescente, o fornecedor deve ocultar, desfocar ou não exibir o conteúdo por padrão, ou exigir verificação de idade para desbloqueio, vedada a mera autodeclaração (também art. 9º, § 1º, do ECA Digital).
+
+=== d12880-12
+gab: C
+ref: dec12880 19
+trecho: criar versões sem esse conteúdo, produto ou serviço ou publicidade relacionada a tais conteúdos, produtos ou serviços, hipótese em que fica dispensada a verificação de idade
+armadilha: excecao
+dif: 3
+enunciado: Rede social que disponibilize conteúdo proibido para crianças e adolescentes pode, em vez de verificar a idade dos usuários, criar versões sem esse conteúdo e sem a publicidade a ele relacionada, hipótese em que fica dispensada a verificação de idade.
+comentario: Art. 19, I e II. A alternativa é adotar verificação de idade efetiva nos termos da ANPD, vedada a autodeclaração. Para usuário não cadastrado ou não autenticado, aplica-se a versão sem o conteúdo (§ 1º). A ANPD pode reenquadrar um serviço como rede social (§ 2º).
+
+=== d12880-13
+gab: C
+ref: dec12880 24, § 3º
+trecho: vedado o armazenamento, a retenção ou qualquer forma de conservação da imagem, da cópia do documento ou da informação, que deverá ser eliminada de modo imediato e irreversível após a captura da informação necessária
+armadilha: literal
+dif: 2
+enunciado: Na aferição de idade por documento, o tratamento deve limitar-se ao dado da idade ou da faixa etária, vedada a conservação da imagem ou cópia do documento, que deve ser eliminada de modo imediato e irreversível após a captura da informação.
+comentario: Art. 24, § 3º: aplicação concreta do princípio da necessidade (LGPD, art. 6º, III). Os princípios da aferição incluem proporcionalidade ao risco, minimização, vedação de rastreabilidade do histórico de verificações e interoperabilidade (art. 24, I a XI).
+
+=== d12880-14
+gab: E
+ref: dec12880 25
+trecho: vedado o envio de data de nascimento exata, da identidade civil ou de dados de perfilamento do usuário
+trecho: gratuitamente
+armadilha: extrapolacao
+dif: 2
+enunciado: As lojas de aplicações e os sistemas operacionais podem cobrar pelo fornecimento do sinal de idade e enviar aos fornecedores a data de nascimento exata do usuário, para maior precisão.
+comentario: Art. 25, caput e § 1º: o sinal de idade é fornecido gratuitamente e limitado ao estritamente necessário, vedados a data de nascimento exata, a identidade civil e os dados de perfilamento.
+
+=== d12880-15
+gab: C
+ref: dec12880 25, § 4º
+trecho: Caso a informação da aferição de idade realizada pelo fornecedor de produtos ou serviços de tecnologia da informação divirja do sinal de idade enviado pela loja de aplicativo ou pelo sistema operacional, o fornecedor deverá adotar as medidas correspondentes à alternativa mais protetiva a crianças e adolescentes.
+armadilha: caso
+dif: 3
+enunciado: Se a aferição de idade feita pelo próprio aplicativo indicar 15 anos e o sinal da loja de aplicativos indicar 18, o fornecedor deve adotar as medidas correspondentes à alternativa mais protetiva, tratando o usuário como adolescente.
+comentario: Art. 25, § 4º. E receber o sinal não isenta o fornecedor da responsabilidade pela efetividade da adequação etária (art. 26, § 3º).
+
+=== d12880-16
+gab: E
+ref: dec12880 30
+trecho: A ANPD disciplinará o processo de certificação de soluções técnicas de aferição de idade
+trecho: poderá fazê-lo diretamente ou por meio do reconhecimento de entidades acreditadoras
+armadilha: sujeito
+dif: 3
+enunciado: O processo de certificação de soluções técnicas de aferição de idade é disciplinado exclusivamente pelo Inmetro, sem participação da ANPD.
+comentario: Art. 30: a ANPD disciplina a certificação, diretamente ou reconhecendo entidades acreditadoras. O MGI pode oferecer solução pública e gratuita de verificação de idade (art. 28).
+
+=== d12880-17
+gab: C
+ref: dec12880 34
+trecho: deverão requerer dos seus usuários autorização judicial regularmente emitida nos termos do disposto no art. 149 da Lei nº 8.069
+trecho: Verificada a ausência da autorização judicial referida no caput, o fornecedor deverá retirar imediatamente o conteúdo.
+armadilha: literal
+dif: 3
+enunciado: Quando o conteúdo monetizado ou impulsionado explorar, de forma habitual, a imagem ou a rotina de criança ou adolescente, o fornecedor deve exigir do usuário autorização judicial nos termos do art. 149 do ECA e retirar imediatamente o conteúdo se ela faltar.
+comentario: Art. 34 e § 1º. É a disciplina dos chamados influenciadores mirins. Vale para monetização ou impulsionamento iniciados a partir de noventa dias da publicação do decreto (§ 2º).
+pesquisar: Trabalho artístico infantil e autorização judicial (ECA, art. 149)
+
+=== d12880-18
+gab: E
+ref: dec12880 36
+trecho: A Polícia Federal é a autoridade competente para recebimento centralizado, processamento, triagem e gerenciamento dos relatórios de notificação de conteúdo
+armadilha: sujeito
+dif: 2
+enunciado: A ANPD é a autoridade competente para receber de forma centralizada e fazer a triagem dos relatórios de notificação de conteúdo de exploração e abuso sexual de crianças e adolescentes.
+comentario: Art. 36: é a Polícia Federal, no Centro Nacional de Triagem de Notificações, cuja criação o decreto autoriza (art. 37). A ANPD regula e fiscaliza o ECA Digital, mas a persecução penal fica com a polícia.
+
+=== d12880-19
+gab: C
+ref: dec12880 40
+trecho: As penalidades não serão aplicadas nas hipóteses de descumprimento decorrente de falha isolada ou residual, inerente ao estado da técnica e à natureza da operação
+armadilha: excecao
+dif: 3
+enunciado: Pelo Decreto nº 12.880/2026, o descumprimento dos deveres de remover e comunicar conteúdos de abuso sexual infantil sujeita o fornecedor a sanções quando houver falha reincidente na moderação, mas não em caso de falha isolada ou residual, inerente ao estado da técnica.
+comentario: Art. 40 e §§ 1º e 2º. A falha reincidente é a negligência ou insuficiência dos mecanismos de resposta a violações graves; a dosimetria segue o art. 35, § 1º, do ECA Digital.
+
+=== d12880-20
+gab: C
+ref: dec12880 43
+trecho: por autoridades policiais, no exercício das competências previstas no art. 144 da Constituição
+trecho: Os conselhos tutelares, constituídos na forma prevista na Lei nº 8.069, de 13 de julho de 1990, deverão provocar o Ministério Público
+armadilha: sujeito
+dif: 3
+enunciado: Pelo Decreto nº 12.880/2026, a retirada imediata de conteúdo, independentemente de ordem judicial, é devida quando a denúncia partir da vítima ou de seus representantes, do Ministério Público, de autoridades policiais ou de entidades habilitadas; os conselhos tutelares devem provocar o Ministério Público.
+comentario: Art. 43, I a IV e parágrafo único. O decreto acrescenta as autoridades policiais ao rol do art. 29 da lei. As entidades de defesa são habilitadas pela ANPD, com requisitos cumulativos (sem fins lucrativos, independência dos fornecedores, experiência e procedimentos internos de qualidade, art. 44).
+
+=== d12880-21
+gab: E
+ref: dec12880 48
+trecho: A ANPD habilitará, por meio de edital público, instituições acadêmicas, científicas, tecnológicas, de inovação ou jornalísticas
+trecho: declaração de inexistência de finalidade comercial
+armadilha: extrapolacao
+dif: 2
+enunciado: O acesso de pesquisadores aos dados dos grandes provedores, previsto no ECA Digital, depende de convênio individual com cada empresa, podendo os dados ser usados para fins comerciais se houver contrapartida.
+comentario: Art. 48: a ANPD habilita as instituições por edital público, exigindo plano de pesquisa, qualificação, governança e segurança e declaração de inexistência de finalidade comercial. O art. 31, parágrafo único, da lei veda o uso comercial dos dados.
+
+=== d12880-22
+gab: C
+ref: dec12880 50
+trecho: Este produto permite acesso à internet. Conteúdos da internet podem apresentar riscos a crianças e adolescentes. O uso do produto requer supervisão parental.
+armadilha: literal
+dif: 3
+enunciado: Até regulamentação da ANPD, a embalagem de equipamentos eletrônicos com acesso à internet direcionados exclusivamente a crianças e adolescentes deve trazer a mensagem: Este produto permite acesso à internet. Conteúdos da internet podem apresentar riscos a crianças e adolescentes. O uso do produto requer supervisão parental.
+comentario: Art. 50, § 1º, com prazo de trinta dias da publicação para os fabricantes e importadores (caput), não aplicável aos equipamentos produzidos ou importados até a publicação (§ 2º). Regulamenta o art. 38 do ECA Digital.
