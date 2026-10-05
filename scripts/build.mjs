@@ -5,7 +5,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ARMADILHAS, parseRef } from './lib/questoes.mjs';
-import { LEIS } from './lib/leis.mjs';
+import { GRUPOS_LEIS, LEIS } from './lib/leis.mjs';
 import { validar } from './validar.mjs';
 import { lacunas, paraAnki, semMarcas } from './lib/cloze.mjs';
 
@@ -88,7 +88,7 @@ function compactar(questoes, leisAnexadas) {
       b: q.bloco,
       g: q.gab,
       l: r.lei,
-      art: r.lei === 'lgpd' ? r.art : null,
+      art: leisAnexadas.has(r.lei) ? r.art : null,
       r: rotuloRef(q.ref),
       t: q.trecho,
       a: q.armadilha || 'literal',
@@ -109,12 +109,12 @@ export function montarDados() {
     for (const e of erros) console.error('ERRO: ' + e);
     throw new Error(`${erros.length} erro(s) no banco de questões; corrija antes do build.`);
   }
-  const { disciplinas, blocos } = JSON.parse(ler('questoes', 'blocos.json'));
+  const { disciplinas, blocos, faltam } = JSON.parse(ler('questoes', 'blocos.json'));
   const cronograma = JSON.parse(ler('dados', 'cronograma.json'));
   const { lista, apoios } = compactar(questoes, new Set(Object.keys(leis)));
   const cloze = notas.map((n) => {
     const r = parseRef(n.ref);
-    return { id: n.id, b: n.bloco, art: r.art, r: rotuloRef(n.ref), t: n.texto, dc: n.dica || undefined };
+    return { id: n.id, b: n.bloco, l: r.lei, art: r.art, r: rotuloRef(n.ref), t: n.texto, dc: n.dica || undefined };
   });
   // Frequência de cada termo do glossário nas questões: termos raros são sinalizados primeiro
   const textos = lista.map((q) => (q.e + ' ' + q.c).toLowerCase());
@@ -127,6 +127,7 @@ export function montarDados() {
   for (const [id, { lei: l }] of Object.entries(leis)) {
     lei[id] = { nome: l.nome, curto: l.curto, url: l.url, artigos: l.artigos };
   }
+  const grupos = GRUPOS_LEIS.map(([nome, ids]) => ({ nome, ids: ids.filter((id) => lei[id]) })).filter((g) => g.ids.length);
   return {
     versao: new Date().toISOString().slice(0, 10),
     disciplinas,
@@ -135,6 +136,8 @@ export function montarDados() {
     questoes: lista,
     apoios,
     lei,
+    grupos,
+    faltam: faltam || [],
     cronograma,
     cloze,
     glossario: gloss,
@@ -147,11 +150,11 @@ export function regexTermo(padroes) {
 }
 
 export function exportarAnki(dados) {
-  const linhas = ['#separator:tab', '#html:true', '#notetype:Cloze', '#deck:ANPD::LGPD (lei seca)', '#tags column:3', '#columns:Text\tBack Extra\tTags'];
+  const linhas = ['#separator:tab', '#html:true', '#notetype:Cloze', '#deck:ANPD::Lei seca', '#tags column:3', '#columns:Text\tBack Extra\tTags'];
   const limpa = (s) => String(s).replace(/[\t\n\r]+/g, ' ');
   for (const n of dados.cloze) {
     const extra = n.r + (n.dc ? ' · dica: ' + n.dc : '');
-    linhas.push([limpa(paraAnki(n.t)), limpa(extra), n.b].join('\t'));
+    linhas.push([limpa(paraAnki(n.t)), limpa(extra), n.b + ' ' + n.l].join('\t'));
   }
   return linhas.join('\n') + '\n';
 }

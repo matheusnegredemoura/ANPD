@@ -9,11 +9,18 @@ const BLOCOS = D.blocos;
 const BI = new Map(BLOCOS.map((b) => [b.id, b]));
 const DISC = D.disciplinas;
 const DI = new Map(DISC.map((d) => [d.id, d]));
-const LEI = D.lei.lgpd;
+// Lei seca: várias normas. A chave de um artigo é o id na LGPD ("18") e "norma:id" nas demais ("cf88:5"),
+// o que mantém válidos os artigos lidos guardados antes de haver outras normas.
+const LEIS = D.lei || {};
+const GRUPOS = D.grupos || [{ nome: 'Normas', ids: Object.keys(LEIS) }];
+function chave(lei, art) { return lei === 'lgpd' ? art : lei + ':' + art; }
+const ARTI = new Map();
+for (const [id, l] of Object.entries(LEIS)) for (const a of l.artigos) { a.lei = id; a.k = chave(id, a.id); ARTI.set(a.k, a); }
+const LEI = LEIS.lgpd;
 const ARTS = LEI ? LEI.artigos : [];
-const ARTI = new Map(ARTS.map((a) => [a.id, a]));
+function artsDe(lei) { return LEIS[lei] ? LEIS[lei].artigos : []; }
 const POR_BLOCO = agrupar(Q, (q) => q.b);
-const POR_ART = agrupar(Q.filter((q) => q.l === 'lgpd' && q.art), (q) => q.art);
+const POR_ART = agrupar(Q.filter((q) => q.art && LEIS[q.l]), (q) => chave(q.l, q.art));
 const DIAS = [];
 D.cronograma.fases.forEach((f) => f.semanas.forEach((s) => s.dias.forEach((d) => DIAS.push(Object.assign({ fase: f.id }, d)))));
 DIAS.sort((a, b) => (a.data < b.data ? -1 : 1));
@@ -34,7 +41,10 @@ NOTAS.forEach((nota) => {
 });
 const CI = new Map(CARDS.map((c) => [c.id, c]));
 const CARDS_POR_BLOCO = agrupar(CARDS, (c) => c.nota.b);
-const CARDS_POR_ART = agrupar(CARDS, (c) => c.nota.art);
+const CARDS_POR_ART = agrupar(CARDS.filter((c) => c.nota.art), (c) => chave(c.nota.l || 'lgpd', c.nota.art));
+// Bloco do cronograma que cobre cada artigo (para o peso do artigo no ranking)
+const BLOCO_DO_ART = new Map();
+for (const b of BLOCOS) for (const a of b.artigos || []) { const k = chave(b.lei || 'lgpd', a); if (!BLOCO_DO_ART.has(k)) BLOCO_DO_ART.set(k, b); }
 
 // Glossário com expressão regular por termo
 const GLOSS = (D.glossario || []).map((g, i) => Object.assign({ i, re: regexTermo(g.p) }, g));
@@ -76,7 +86,7 @@ const CONQ = [
   { id: 'sim1', ic: 'S', nome: 'Primeiro simulado', desc: 'Entregou um simulado.' },
   { id: 'sim70', ic: '70', nome: 'Nota de corte', desc: 'Nota líquida de 70% ou mais em simulado de 30+ itens.' },
   { id: 'relampago15', ic: 'R', nome: 'Relâmpago', desc: 'Nota líquida de 15 ou mais no modo relâmpago.' },
-  { id: 'lei20', ic: '§', nome: 'Lei seca', desc: 'Abriu 20 artigos da LGPD no leitor.' },
+  { id: 'lei20', ic: '§', nome: 'Lei seca', desc: 'Abriu 20 artigos no leitor da lei seca.' },
   { id: 'leitodas', ic: '§§', nome: 'Lei inteira', desc: 'Abriu todos os artigos da LGPD no leitor.' },
   { id: 'lista25', ic: 'LC', nome: 'Lista curta', desc: 'Tirou 25 itens da lista de erros.' },
   { id: 'pesq10', ic: '?!', nome: 'Curiosidade', desc: 'Marcou 10 temas como pesquisados e entendidos.' },
@@ -112,7 +122,14 @@ function fmtNum(n) { return Number(n).toLocaleString('pt-BR'); }
 function fmtTempo(seg) { seg = Math.max(0, Math.round(seg)); return String(Math.floor(seg / 60)).padStart(2, '0') + ':' + String(seg % 60).padStart(2, '0'); }
 function lerLS(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }
 function gravarLS(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }
-function rotuloArt(id) { return /^\d$/.test(id) ? 'Art. ' + id + 'º' : 'Art. ' + id; }
+function rotuloArt(k) {
+  const a = ARTI.get(k);
+  const r = a ? a.rotulo : 'Art. ' + k;
+  return /^Art\. \d$/.test(r) ? r + 'º' : r;
+}
+function minusc(s) { return s.charAt(0).toLowerCase() + s.slice(1); }
+// "art. 5º" na LGPD; "CF/88, art. 5º" nas demais normas
+function nomeArt(k) { const a = ARTI.get(k); return (a && a.lei !== 'lgpd' ? LEIS[a.lei].curto + ', ' : '') + minusc(rotuloArt(k)); }
 function busca(q) { return 'https://www.google.com/search?q=' + encodeURIComponent(q); }
 function nomeBloco(bid) { const b = BI.get(bid); return b ? b.nome : bid; }
 function fmtIntervalo(d) {
@@ -129,12 +146,12 @@ function perfilPadrao() {
   return { xp: 0, meta: 30, novosCards: 20, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: hojeISO() };
 }
 const S = { perfil: perfilPadrao(), itens: {}, cards: {}, simulados: [], pesquisa: {} };
-const UI = Object.assign({ vista: 'hoje', modo: 'treino', n: 20, filtro: 'mistas', prova: 'blocos', blocos: P1.slice(), blocosCards: [], faseAberta: null, camadas: { cai: true, num: true, alerta: true, verbo: true, erro: true } }, lerLS(CHAVE_UI) || {});
+const UI = Object.assign({ lei: 'lgpd', vista: 'hoje', modo: 'treino', n: 20, filtro: 'mistas', prova: 'blocos', blocos: P1.slice(), blocosCards: [], faseAberta: null, camadas: { cai: true, num: true, alerta: true, verbo: true, erro: true } }, lerLS(CHAVE_UI) || {});
 UI.artSel = null; UI.busca = ''; UI.mais = 'menu'; UI.leiFila = null; UI.ranking = false; UI.filtroPesq = 'pendentes'; UI.buscaGloss = ''; UI.folhaArt = null; UI.folhaQ = null;
 if (!UI.camadas) UI.camadas = { cai: true, num: true, alerta: true, verbo: true, erro: true };
 let sessao = null;
 function salvarUI() {
-  gravarLS(CHAVE_UI, { vista: UI.vista, modo: UI.modo, n: UI.n, filtro: UI.filtro, prova: UI.prova, blocos: UI.blocos, blocosCards: UI.blocosCards, camadas: UI.camadas });
+  gravarLS(CHAVE_UI, { vista: UI.vista, modo: UI.modo, n: UI.n, filtro: UI.filtro, prova: UI.prova, blocos: UI.blocos, blocosCards: UI.blocosCards, camadas: UI.camadas, lei: UI.lei });
 }
 
 /* ================= Persistência ================= */
@@ -378,9 +395,9 @@ function verificarConquistas(ctx) {
   if (S.simulados.length) conquistar('sim1');
   if (S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.7)) conquistar('sim70');
   if ((S.perfil.recordes.relampago || 0) >= 15) conquistar('relampago15');
-  const lidos = Object.keys(S.perfil.lidos || {}).length;
-  if (lidos >= 20) conquistar('lei20');
-  if (ARTS.length && lidos >= ARTS.length) conquistar('leitodas');
+  const lidos = S.perfil.lidos || {};
+  if (Object.keys(lidos).length >= 20) conquistar('lei20');
+  if (ARTS.length && ARTS.every((a) => lidos[a.k])) conquistar('leitodas');
   if ((S.perfil.saidos || 0) >= 25) conquistar('lista25');
   if (Object.values(S.pesquisa).filter((p) => p.s).length >= 10) conquistar('pesq10');
   if (BLOCOS.some((b) => (dominioBloco(b.id) || 0) >= 0.8)) conquistar('bloco80');
@@ -725,12 +742,17 @@ function contextoHoje() {
 function blocosDoDia(dia) { return dia && dia.blocos ? dia.blocos : []; }
 function artigosDoDia(dia) {
   const arts = [];
-  for (const b of blocosDoDia(dia)) for (const a of (BI.get(b) && BI.get(b).artigos) || []) if (!arts.includes(a)) arts.push(a);
-  return arts.filter((a) => ARTI.has(a) && !/^Art\. [\d\-A-Z]+\.? \((VETADO|Revogado)/.test(ARTI.get(a).texto));
+  for (const b of blocosDoDia(dia)) {
+    const bl = BI.get(b);
+    for (const a of (bl && bl.artigos) || []) { const k = chave(bl.lei || 'lgpd', a); if (!arts.includes(k)) arts.push(k); }
+  }
+  return arts.filter((k) => ARTI.has(k) && !/^Art\. [\d\-A-Zº]+\.? \((VETADO|Revogado)/.test(ARTI.get(k).texto));
 }
 function rotulosArts(arts) {
-  if (arts.length <= 3) return arts.map((a) => rotuloArt(a).toLowerCase()).join(', ');
-  return 'arts. ' + arts[0] + ' a ' + arts[arts.length - 1] + ' (' + arts.length + ' artigos)';
+  if (arts.length <= 3) return arts.map(nomeArt).join(', ');
+  const a0 = ARTI.get(arts[0]), a1 = ARTI.get(arts[arts.length - 1]);
+  const pref = a0.lei !== 'lgpd' && a0.lei === a1.lei ? LEIS[a0.lei].curto + ', ' : '';
+  return pref + 'arts. ' + a0.id + ' a ' + a1.id + ' (' + arts.length + ' artigos)';
 }
 function sugestoesDoDia(blocos) {
   const fonte = (blocos.length ? blocos : P1).flatMap((b) => (BI.get(b) && BI.get(b).pesquisar) || []);
@@ -995,7 +1017,7 @@ function renderExplicacao(q) {
   html += '<p>' + marcarTermos(q.c, 3) + '</p>';
   if (q.t && q.t.length) {
     html += '<div class="citacao">' + q.t.map((t) => '<q>' + esc(t) + '</q>').join('') + '<span class="fonte">' + esc(q.r) + '</span>' +
-      (q.art && ARTI.get(q.art) ? '<div><button class="linkish" data-acao="ver-art" data-art="' + esc(q.art) + '" data-q="' + esc(q.id) + '">Ler o ' + esc(rotuloArt(q.art).toLowerCase()) + ' inteiro, grifado</button></div>' : '') + '</div>';
+      (q.art && ARTI.get(chave(q.l, q.art)) ? '<div><button class="linkish" data-acao="ver-art" data-art="' + esc(chave(q.l, q.art)) + '" data-q="' + esc(q.id) + '">Ler inteiro, grifado: ' + esc(nomeArt(chave(q.l, q.art))) + '</button></div>' : '') + '</div>';
   } else html += '<div class="citacao"><span class="fonte">Fonte: ' + esc(q.r) + '</span></div>';
   if (q.v === 0) html += '<p class="aviso-conferir">Texto oficial ainda não anexado ao app: confira esta referência na fonte antes de confiar nela.</p>';
   html += blocoPesquisar(q.e + ' ' + q.c, q.p, 'questão ' + q.id);
@@ -1033,7 +1055,8 @@ function renderCardSessao(card) {
   } else {
     html += '<div class="notas-card">' + [[1, 'Errei'], [2, 'Difícil'], [3, 'Bom'], [4, 'Fácil']].map(([n, t]) => '<button class="n' + n + '" data-acao="avaliar" data-n="' + n + '">' + t + '<small>' + fmtIntervalo(calcularCard(card.id, n)[1]) + '</small></button>').join('') + '</div>';
     html += '<p class="atalhos">Teclado: 1 Errei · 2 Difícil · 3 Bom · 4 Fácil</p>';
-    if (nota.art && ARTI.get(nota.art)) html += '<div><button class="linkish" data-acao="ver-art" data-art="' + esc(nota.art) + '">Ler o ' + esc(rotuloArt(nota.art).toLowerCase()) + ' inteiro, grifado</button></div>';
+    const kn = nota.art ? chave(nota.l || 'lgpd', nota.art) : null;
+    if (kn && ARTI.get(kn)) html += '<div><button class="linkish" data-acao="ver-art" data-art="' + esc(kn) + '">Ler inteiro, grifado: ' + esc(nomeArt(kn)) + '</button></div>';
     html += blocoPesquisar(nota.t.replace(RE_LACUNA, '$2'), null, 'card');
   }
   return html + '</article>';
@@ -1114,7 +1137,7 @@ function folhaArtigo(art, qid) {
   const a = ARTI.get(art);
   if (!a) return;
   marcarLido(art);
-  abrirFolha(cabFolha(LEI.curto, rotuloArt(art)) + '<p class="pequeno mudo">' + esc(a.estrutura.join(' · ')) + '</p>' + legendaCamadas() +
+  abrirFolha(cabFolha(LEIS[a.lei].curto, rotuloArt(art)) + '<p class="pequeno mudo">' + esc(a.estrutura.join(' · ')) + '</p>' + legendaCamadas() +
     '<div class="texto-lei">' + textoLei(a, qid ? [qid] : []) + '</div>', rotuloArt(art));
   UI.folhaArt = art;
   UI.folhaQ = qid || null;
@@ -1143,7 +1166,7 @@ function marcarLido(art) {
 function importancia(id) {
   const qs = (POR_ART.get(id) || []).length;
   const cs = (CARDS_POR_ART.get(id) || []).length;
-  const b = BLOCOS.find((x) => (x.artigos || []).includes(id));
+  const b = BLOCO_DO_ART.get(id);
   const bonus = b ? (b.prioridade === 1 ? 4 : b.prioridade === 2 ? 2 : 0) : 0;
   return qs * 2 + cs + bonus;
 }
@@ -1170,8 +1193,8 @@ function rangesTexto(linha, trechos, cls) {
 function textoLei(a, qExtras) {
   const cam = UI.camadas;
   const erros = [], cai = [], extras = [];
-  for (const q of POR_ART.get(a.id) || []) { const r = rec(q.id); if (r && r[3] > 0) erros.push(...q.t); cai.push(...q.t); }
-  for (const c of CARDS_POR_ART.get(a.id) || []) cai.push(c.nota.t.replace(RE_LACUNA, '$2'));
+  for (const q of POR_ART.get(a.k) || []) { const r = rec(q.id); if (r && r[3] > 0) erros.push(...q.t); cai.push(...q.t); }
+  for (const c of CARDS_POR_ART.get(a.k) || []) cai.push(c.nota.t.replace(RE_LACUNA, '$2'));
   for (const id of qExtras || []) { const q = QI.get(id); if (q) extras.push(...q.t); }
   return a.texto.split('\n').map((linha, k) => {
     let rs = [];
@@ -1208,68 +1231,91 @@ function legendaCamadas() {
     item('alerta', 'Palavras de alerta', 'background:var(--errado)') + item('verbo', 'Deve × pode', 'border:1.5px dotted var(--ink)') +
     item('erro', 'Meus erros', 'background:var(--errado-bg);box-shadow:inset 0 -2px 0 var(--errado)') + '</div>';
 }
+function seletorLei() {
+  return '<label class="rotulo" for="sel-lei">Norma</label><select id="sel-lei" class="sel-lei" data-acao="sel-lei">' +
+    GRUPOS.map((g) => '<optgroup label="' + esc(g.nome) + '">' + g.ids.map((id) => '<option value="' + esc(id) + '"' + (id === UI.lei ? ' selected' : '') + '>' + esc(LEIS[id].nome) + '</option>').join('') + '</optgroup>').join('') + '</select>';
+}
+function primeiraLinha(a) { return a.texto.split('\n')[0].replace(/^(Art\.|CLÁUSULA|APÊNDICE|ENUNCIADO)\s*[\dIVXL\-A-Zº°o.]+\s*/, '').replace(/^[IVXL]+ - /, ''); }
 function renderLei() {
   const el = document.getElementById('vista-lei');
-  if (!LEI) { el.innerHTML = '<p class="vazio-msg">Nenhum texto legal anexado ainda.</p>'; return; }
-  if (UI.artSel) { el.innerHTML = renderArtigo(UI.artSel); return; }
-  let html = '<div class="secao"><div class="secao-cab"><h2>' + esc(LEI.nome) + '</h2><a class="pequeno" href="' + esc(LEI.url) + '" target="_blank" rel="noopener">Planalto ↗</a></div>' +
-    '<input class="busca" id="busca-lei" type="search" placeholder="Buscar na lei (ex.: quinze dias, encarregado, Senado)" value="' + esc(UI.busca) + '" aria-label="Buscar na LGPD">' +
-    '<div class="chips"><button class="chip" data-acao="ranking" aria-pressed="' + UI.ranking + '">Mais importantes primeiro</button><button class="chip" data-acao="ler-tudo">Ler do art. 1º em diante</button></div>' +
+  if (!Object.keys(LEIS).length) { el.innerHTML = '<p class="vazio-msg">Nenhum texto legal anexado ainda.</p>'; return; }
+  if (!LEIS[UI.lei]) UI.lei = LEIS.lgpd ? 'lgpd' : Object.keys(LEIS)[0];
+  if (UI.artSel && ARTI.get(UI.artSel)) { el.innerHTML = renderArtigo(UI.artSel); return; }
+  UI.artSel = null;
+  const L = LEIS[UI.lei];
+  const arts = L.artigos;
+  const lidos = arts.filter((a) => S.perfil.lidos && S.perfil.lidos[a.k]).length;
+  let html = '<div class="secao"><div class="sel-lei-caixa">' + seletorLei() + '</div>' +
+    '<div class="secao-cab"><h2>' + esc(L.nome) + '</h2><a class="pequeno" href="' + esc(L.url) + '" target="_blank" rel="noopener">Fonte oficial ↗</a></div>' +
+    '<p class="pequeno mudo">' + pl(arts.length, 'unidade', 'unidades') + ' · ' + lidos + ' lida' + (lidos === 1 ? '' : 's') + ' · ' + pl((arts.reduce((n, a) => n + (POR_ART.get(a.k) || []).length, 0)), 'questão ligada', 'questões ligadas') + '</p>' +
+    '<input class="busca" id="busca-lei" type="search" placeholder="Buscar em todas as normas (ex.: quinze dias, encarregado, Senado)" value="' + esc(UI.busca) + '" aria-label="Buscar em todas as normas">' +
+    '<div class="chips"><button class="chip" data-acao="ranking" aria-pressed="' + UI.ranking + '">Mais importantes primeiro</button><button class="chip" data-acao="ler-tudo">Ler do início</button></div>' +
     '<p class="pequeno mudo">Estrelas: quanto o artigo pesa no banco (questões, cards e prioridade do bloco). Pontos: as questões sobre ele (verde dominada, vermelho na lista curta, cinza não respondida).</p></div>';
   if (UI.busca.trim().length >= 3) html += '<div class="resultado-busca">' + buscarLei(UI.busca) + '</div>';
   else if (UI.ranking) {
-    const top = ARTS.map((a) => ({ a, s: importancia(a.id) })).filter((x) => x.s > 0).sort((x, y) => y.s - x.s).slice(0, 30);
-    html += '<div class="ranking">' + top.map(({ a }) => '<button data-acao="abrir-art" data-art="' + esc(a.id) + '"><b>' + esc(rotuloArt(a.id)) + '</b><span class="t">' + esc(a.texto.split('\n')[0].replace(/^Art\.\s*[\d\-A-Zº.]+\s*/, '').slice(0, 90)) + '</span><span class="estrelas">' + '★'.repeat(estrelas(a.id)) + '</span></button>').join('') + '</div>';
+    const top = arts.map((a) => ({ a, s: importancia(a.k) })).filter((x) => x.s > 0).sort((x, y) => y.s - x.s).slice(0, 30);
+    html += top.length
+      ? '<div class="ranking">' + top.map(({ a }) => '<button data-acao="abrir-art" data-art="' + esc(a.k) + '"><b>' + esc(rotuloArt(a.k)) + '</b><span class="t">' + esc(primeiraLinha(a).slice(0, 90)) + '</span><span class="estrelas">' + '★'.repeat(estrelas(a.k)) + '</span></button>').join('') + '</div>'
+      : '<p class="vazio-msg">Ainda não há questões nem cards ligados a esta norma para montar o ranking.</p>';
   } else {
     let atual = null, aberto = false;
-    for (const a of ARTS) {
+    for (const a of arts) {
       const cap = a.estrutura[0] || '';
-      if (cap !== atual) {
+      if (cap !== atual || !aberto) {
         if (aberto) html += '</div></div>';
-        html += '<div class="capitulo"><h3>' + esc(cap.replace(/\s*\(Redação dada[^)]*\)/, '')) + '</h3><div class="artigos">';
+        html += '<div class="capitulo">' + (cap ? '<h3>' + esc(cap.replace(/\s*\(Redação dada[^)]*\)/, '')) + '</h3>' : '') + '<div class="artigos">';
         aberto = true; atual = cap;
       }
-      const qs = POR_ART.get(a.id) || [];
+      const qs = POR_ART.get(a.k) || [];
       const pontos = qs.slice(0, 6).map((q) => { const r = rec(q.id); return '<i class="' + (!r || r[0] < 0 ? 'nv' : r[0] >= 3 ? 'ok' : 'no') + '"></i>'; }).join('');
-      const vetado = /\((VETADO|Revogado)/.test(a.texto.split('\n')[0]);
-      const est = estrelas(a.id);
-      html += '<button class="art-btn' + (S.perfil.lidos && S.perfil.lidos[a.id] ? ' lido' : '') + '" data-acao="abrir-art" data-art="' + esc(a.id) + '"' + (vetado ? ' style="opacity:.5"' : '') + '>' + esc(a.id) + (est ? '<span class="estrelas">' + '★'.repeat(est) + '</span>' : '') + '<span class="pontos">' + pontos + '</span></button>';
+      const vetado = /\((VETADO|Revogad[oa])/.test(a.texto.split('\n')[0]);
+      const est = estrelas(a.k);
+      html += '<button class="art-btn' + (S.perfil.lidos && S.perfil.lidos[a.k] ? ' lido' : '') + '" data-acao="abrir-art" data-art="' + esc(a.k) + '"' + (vetado ? ' style="opacity:.5"' : '') + ' aria-label="' + esc(rotuloArt(a.k)) + '">' + esc(a.id) + (est ? '<span class="estrelas">' + '★'.repeat(est) + '</span>' : '') + '<span class="pontos">' + pontos + '</span></button>';
     }
     if (aberto) html += '</div></div>';
   }
   el.innerHTML = html;
 }
+// Busca em todas as normas: a norma aberta vem primeiro; no máximo 60 resultados
 function buscarLei(termo) {
   const palavras = semAcento(termo.trim()).split(/[^a-z0-9º]+/).filter(Boolean);
   if (!palavras.length) return '';
   const re = new RegExp(palavras.map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('[^a-z0-9º]+'));
+  const ordem = [UI.lei].concat(GRUPOS.flatMap((g) => g.ids).filter((id) => id !== UI.lei));
   const res = [];
-  for (const a of ARTS) {
-    const m = re.exec(semAcento(a.texto));
-    if (m) {
+  let total = 0;
+  for (const id of ordem) {
+    for (const a of artsDe(id)) {
+      if (!a.sa) a.sa = semAcento(a.texto);
+      const m = re.exec(a.sa);
+      if (!m) continue;
+      total++;
+      if (res.length >= 60) continue;
       const ini = Math.max(0, m.index - 60);
-      res.push('<button data-acao="abrir-art" data-art="' + esc(a.id) + '"><b>' + esc(rotuloArt(a.id)) + '</b><span>' + esc((ini ? '…' : '') + a.texto.slice(ini, m.index + m[0].length + 90).replace(/\n/g, ' ') + '…') + '</span></button>');
+      res.push('<button data-acao="abrir-art" data-art="' + esc(a.k) + '"><b>' + esc(id === UI.lei ? rotuloArt(a.k) : LEIS[id].curto + ' · ' + rotuloArt(a.k)) + '</b><span>' + esc((ini ? '…' : '') + a.texto.slice(ini, m.index + m[0].length + 90).replace(/\n/g, ' ') + '…') + '</span></button>');
     }
   }
-  return res.length ? res.join('') : '<p class="vazio-msg">Nada encontrado para “' + esc(termo) + '”.</p>';
+  if (!res.length) return '<p class="vazio-msg">Nada encontrado para “' + esc(termo) + '”.</p>';
+  return (total > res.length ? '<p class="pequeno mudo">' + total + ' resultados; mostrando os 60 primeiros (norma aberta primeiro).</p>' : '') + res.join('');
 }
-function renderArtigo(id) {
-  const a = ARTI.get(id);
-  const fila = UI.leiFila && UI.leiFila.includes(id) ? UI.leiFila : null;
-  const seq = fila || ARTS.map((x) => x.id);
-  const idx = seq.indexOf(id);
+function renderArtigo(k) {
+  const a = ARTI.get(k);
+  const L = LEIS[a.lei];
+  const fila = UI.leiFila && UI.leiFila.includes(k) ? UI.leiFila : null;
+  const seq = fila || artsDe(a.lei).map((x) => x.k);
+  const idx = seq.indexOf(k);
   const ant = idx > 0 ? seq[idx - 1] : null, prox = idx < seq.length - 1 ? seq[idx + 1] : null;
-  const qs = POR_ART.get(id) || [];
-  const cs = CARDS_POR_ART.get(id) || [];
-  let html = '<div class="secao-cab"><button class="btn pequeno" data-acao="voltar-lei">Todos os artigos</button><div class="linha-btns">' +
+  const qs = POR_ART.get(k) || [];
+  const cs = CARDS_POR_ART.get(k) || [];
+  let html = '<div class="secao-cab"><button class="btn pequeno" data-acao="voltar-lei">' + esc(L.curto) + ': todos os artigos</button><div class="linha-btns">' +
     '<button class="btn pequeno" data-acao="nav-art" data-art="' + esc(ant || '') + '"' + (ant ? '' : ' disabled') + ' aria-label="Artigo anterior">←</button>' +
     '<button class="btn pequeno" data-acao="nav-art" data-art="' + esc(prox || '') + '"' + (prox ? '' : ' disabled') + ' aria-label="Próximo artigo">→</button></div></div>';
   if (fila) html += '<div class="fila-leitura"><span>Leitura do dia: ' + (idx + 1) + ' de ' + fila.length + '</span>' + (prox ? '' : '<button class="btn pequeno" data-acao="fim-fila">Concluir leitura</button>') + '</div>';
-  const est = estrelas(id);
-  html += '<div class="cartao"><span class="rotulo">' + esc(a.estrutura.join(' · ')) + '</span><h2>' + esc(rotuloArt(id)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +
+  const est = estrelas(k);
+  html += '<div class="cartao"><span class="rotulo">' + esc([L.curto].concat(a.estrutura).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +
     legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div><div class="linha-btns">';
-  if (qs.length) html += '<button class="btn primario" data-acao="treinar-art" data-art="' + esc(id) + '">Questões deste artigo (' + qs.length + ')</button>';
-  if (cs.length) html += '<button class="btn" data-acao="cards-art" data-art="' + esc(id) + '">Cards deste artigo (' + cs.length + ')</button>';
+  if (qs.length) html += '<button class="btn primario" data-acao="treinar-art" data-art="' + esc(k) + '">Questões deste artigo (' + qs.length + ')</button>';
+  if (cs.length) html += '<button class="btn" data-acao="cards-art" data-art="' + esc(k) + '">Cards deste artigo (' + cs.length + ')</button>';
   html += '</div>';
   if (!qs.length && !cs.length) html += '<p class="mudo pequeno">Nenhuma questão ou card do banco cita este artigo diretamente.</p>';
   const termos = termosDe(a.texto, 5, 0.5);
@@ -1372,7 +1418,7 @@ function renderPlano() {
     html += '<tr><td>' + esc(b.nome) + '<br><span class="pequeno mudo">' + esc(b.dispositivos) + '</span></td><td class="num">' + (dmn === null ? '—' : Math.round(dmn * 100) + '%') + '</td><td><button class="selo status-btn' + (st === 'concluido' ? ' ok' : st === 'andamento' ? ' p2' : '') + '" data-acao="status" data-bloco="' + b.id + '">' + STATUS_ROT[st] + '</button></td></tr>';
   });
   html += '</tbody></table></div></div>';
-  html += '<div class="cartao"><h2>Textos que faltam</h2><p class="mudo">Cada texto colado na conversa com o Claude vira questões e cards conferidos contra a letra da norma.</p><ul>' + BLOCOS.filter((b) => b.aguardando).map((b) => '<li>' + esc(b.aguardando) + '</li>').join('') + '</ul></div>';
+  html += '<div class="cartao"><h2>Textos que faltam</h2><p class="mudo">A lei seca já tem ' + Object.keys(LEIS).length + ' normas. Cada documento novo enviado ao Claude vira questões e cards conferidos contra a letra da norma ou contra o gabarito oficial.</p><ul>' + (D.faltam || []).map((t) => '<li>' + esc(t) + '</li>').join('') + '</ul></div>';
   return html;
 }
 function renderPesquisar() {
@@ -1505,7 +1551,9 @@ function renderTudo() {
   if (sessao) renderSessao();
 }
 function abrirArtigo(art, fila) {
+  if (!ARTI.get(art)) return;
   UI.artSel = art;
+  UI.lei = ARTI.get(art).lei;
   if (fila !== undefined) UI.leiFila = fila;
   marcarLido(art);
   if (UI.vista !== 'lei') ir('lei'); else { renderLei(); window.scrollTo(0, 0); }
@@ -1516,7 +1564,7 @@ document.addEventListener('click', async (ev) => {
   const alvo = ev.target.closest('[data-acao]');
   if (!alvo) { if (ev.target.id === 'folha') fecharFolha(); return; }
   const a = alvo.dataset.acao;
-  if (alvo.tagName === 'INPUT') return;
+  if (alvo.tagName === 'INPUT' || alvo.tagName === 'SELECT') return;
   switch (a) {
     case 'ir': ir(alvo.dataset.vista); break;
     case 'mais': fecharFolha(); UI.mais = alvo.dataset.sub || 'menu'; if (UI.vista !== 'mais') ir('mais'); else { renderMais(); window.scrollTo(0, 0); } break;
@@ -1578,9 +1626,9 @@ document.addEventListener('click', async (ev) => {
     case 'filtro-pesq': UI.filtroPesq = alvo.dataset.f; renderMais(); break;
     case 'abrir-art': abrirArtigo(alvo.dataset.art, null); break;
     case 'nav-art': if (alvo.dataset.art) abrirArtigo(alvo.dataset.art); break;
-    case 'voltar-lei': UI.artSel = null; UI.leiFila = null; renderLei(); break;
+    case 'voltar-lei': if (UI.artSel && ARTI.get(UI.artSel)) UI.lei = ARTI.get(UI.artSel).lei; UI.artSel = null; UI.leiFila = null; renderLei(); window.scrollTo(0, 0); break;
     case 'ler-dia': { const ctx = contextoHoje(); const arts = artigosDoDia(ctx.tipo === 'dia' ? ctx.dia : null); if (arts.length) abrirArtigo(arts[0], arts); break; }
-    case 'ler-tudo': abrirArtigo(ARTS[0].id, null); break;
+    case 'ler-tudo': if (artsDe(UI.lei).length) abrirArtigo(artsDe(UI.lei)[0].k, null); break;
     case 'fim-fila': UI.leiFila = null; UI.artSel = null; avisar('§', 'Leitura do dia concluída', 'Agora os cards cloze desses artigos.'); ir('hoje'); break;
     case 'ranking': UI.ranking = !UI.ranking; renderLei(); break;
     case 'camada':
@@ -1588,8 +1636,8 @@ document.addEventListener('click', async (ev) => {
       salvarUI();
       if (alvo.closest('#folha') && UI.folhaArt) folhaArtigo(UI.folhaArt, UI.folhaQ); else renderLei();
       break;
-    case 'treinar-art': { const ids = (POR_ART.get(alvo.dataset.art) || []).map((q) => q.id); iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: rotuloArt(alvo.dataset.art) + ' da LGPD' }); break; }
-    case 'cards-art': iniciarCards((CARDS_POR_ART.get(alvo.dataset.art) || []).map((c) => c.id), 'Cards do ' + rotuloArt(alvo.dataset.art).toLowerCase()); break;
+    case 'treinar-art': { const ids = (POR_ART.get(alvo.dataset.art) || []).map((q) => q.id); iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Questões · ' + nomeArt(alvo.dataset.art) }); break; }
+    case 'cards-art': iniciarCards((CARDS_POR_ART.get(alvo.dataset.art) || []).map((c) => c.id), 'Cards · ' + nomeArt(alvo.dataset.art)); break;
     case 'cards-iniciar': iniciarSessao({ modo: 'cards', blocos: UI.blocosCards, novos: novosRestantesHoje() }); break;
     case 'cards-so-revisao': iniciarSessao({ modo: 'cards', blocos: UI.blocosCards, soRevisao: true }); break;
     case 'cards-revisao': iniciarSessao({ modo: 'cards', soRevisao: true, titulo: 'Cards vencidos' }); break;
@@ -1652,6 +1700,7 @@ document.addEventListener('change', (ev) => {
   const alvo = ev.target.closest('[data-acao]');
   if (!alvo) return;
   const a = alvo.dataset.acao;
+  if (a === 'sel-lei') { UI.lei = alvo.value; UI.artSel = null; UI.leiFila = null; salvarUI(); renderLei(); return; }
   if (a === 'toggle-bloco' || a === 'toggle-bloco-card') {
     const chave = a === 'toggle-bloco' ? 'blocos' : 'blocosCards';
     const set = new Set(UI[chave]);

@@ -4,7 +4,7 @@
 import { readFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { LEIS, carregarLei, indicePorArtigo, normalizar } from './lib/leis.mjs';
+import { GRUPOS_LEIS, LEIS, carregarLei, indicePorArtigo, normalizar } from './lib/leis.mjs';
 import { ARMADILHAS, lerTodas, parseRef } from './lib/questoes.mjs';
 import { lacunas, lerCloze, lerGlossario, semMarcas } from './lib/cloze.mjs';
 
@@ -71,6 +71,14 @@ export function validar({ silencioso = false } = {}) {
       if (pc < 0.3 || pc > 0.7) avisos.push(`${b}: gabarito desequilibrado (${s.C} C × ${s.E} E)`);
     }
   }
+
+  // Cada norma aparece em exatamente um grupo do seletor da lei seca
+  const nosGrupos = GRUPOS_LEIS.flatMap(([, ids]) => ids);
+  for (const id of Object.keys(LEIS)) {
+    const n = nosGrupos.filter((x) => x === id).length;
+    if (n !== 1) erros.push(`leis.mjs · ${id}: aparece ${n} vez(es) em GRUPOS_LEIS`);
+  }
+  for (const id of nosGrupos) if (!LEIS[id]) erros.push(`leis.mjs · GRUPOS_LEIS cita norma desconhecida ${id}`);
 
   // Blocos: artigos citados precisam existir
   for (const b of blocos) {
