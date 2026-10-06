@@ -1,0 +1,176 @@
+// Inteligência artificial e proteção de dados, lote B: conceitos de aprendizado de máquina (sobreajuste,
+// métricas, modelos de linguagem), tecnologias de reforço da privacidade (aprendizado federado, privacidade
+// diferencial, dados sintéticos), regulamento europeu de IA e a LGPD aplicada ao treinamento e ao uso de IA.
+// O processo seletivo da ANPD cobrou IA em três questões. Itens escritos para o banco.
+
+bloco: ia
+
+=== ia-01
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Ocorre sobreajuste (overfitting) quando o modelo se ajusta tanto aos dados de treinamento, inclusive ao ruído, que passa a ter desempenho ruim em dados novos.
+comentario: Certo. O modelo memoriza em vez de generalizar. Validação com dados separados e regularização ajudam a evitar o problema.
+
+=== ia-02
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: O sobreajuste ocorre quando o modelo é simples demais para capturar os padrões presentes nos dados.
+comentario: Errado. Modelo simples demais, que falha até nos dados de treinamento, sofre de subajuste (underfitting). Sobreajuste é o excesso de ajuste aos dados de treinamento.
+
+=== ia-03
+gab: C
+ref: lgpd 6
+trecho: não discriminação: impossibilidade de realização do tratamento para fins discriminatórios ilícitos ou abusivos
+armadilha: conceito
+dif: 2
+enunciado: Modelos treinados com dados históricos podem reproduzir discriminações presentes nesses dados, o que atrai o princípio da não discriminação da LGPD, que veda tratamento para fins discriminatórios ilícitos ou abusivos.
+comentario: Certo: art. 6º, IX. O viés algorítmico não exige intenção: o efeito discriminatório já pode configurar tratamento abusivo. A ANPD pode auditar aspectos discriminatórios (art. 20, § 2º).
+
+=== ia-04
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Modelos de linguagem de grande porte geram texto estimando, a cada passo, a continuação mais provável, e podem produzir afirmações falsas com aparência de verdade, as chamadas alucinações.
+comentario: Certo. Por isso respostas de IA generativa sobre pessoas podem gerar dados pessoais inexatos, o que se liga ao princípio da qualidade dos dados.
+
+=== ia-05
+gab: E
+ref: doutrina
+armadilha: extrapolacao
+dif: 2
+enunciado: Como geram texto de forma estatística, modelos de linguagem não são capazes de memorizar nem de reproduzir dados pessoais presentes em seu conjunto de treinamento.
+comentario: Errado. Há casos documentados de memorização e reprodução de trechos de treinamento, inclusive dados pessoais. É um dos riscos que justificam cautela com dados pessoais no treinamento.
+
+=== ia-06
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: No aprendizado federado, o modelo é treinado nos dispositivos ou servidores onde os dados estão, e apenas os parâmetros atualizados são compartilhados, sem centralizar os dados brutos.
+comentario: Certo. É tecnologia de reforço da privacidade: reduz a exposição, mas não elimina riscos, porque os parâmetros podem vazar informação.
+
+=== ia-07
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: A privacidade diferencial adiciona ruído calibrado aos resultados de consultas ou ao treinamento, de modo que o resultado praticamente não revele se um indivíduo específico está na base.
+comentario: Certo. O parâmetro épsilon mede a perda de privacidade: quanto menor, mais ruído e mais proteção, com menos precisão.
+
+=== ia-08
+gab: E
+ref: lgpd 13
+trecho: senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro
+armadilha: conceito
+dif: 2
+enunciado: Pseudonimizar os dados usados no treinamento de um modelo os torna anonimizados e, portanto, fora do alcance da LGPD.
+comentario: Errado. Pseudonimização mantém a possibilidade de reidentificação pela informação adicional guardada pelo controlador (art. 13, § 4º): o dado segue pessoal. É boa medida de segurança, não saída da lei.
+
+=== ia-09
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: O regulamento europeu de inteligência artificial adota abordagem baseada em risco, com práticas de risco inaceitável proibidas, sistemas de alto risco sujeitos a requisitos rigorosos, obrigações de transparência para certos sistemas e regras mínimas para os demais.
+comentario: Certo. O Regulamento (UE) 2024/1689 entrou em vigor em agosto de 2024, com aplicação escalonada: as proibições valem desde fevereiro de 2025.
+
+=== ia-10
+gab: E
+ref: doutrina
+armadilha: absoluto
+dif: 2
+enunciado: O regulamento europeu de inteligência artificial proíbe todos os sistemas de pontuação de crédito e todos os usos de reconhecimento biométrico.
+comentario: Errado. Avaliação de crédito de pessoas naturais é, em regra, alto risco, com requisitos, e não prática proibida. Os usos biométricos são proibidos apenas em hipóteses específicas, como a identificação biométrica remota em tempo real em espaços públicos para fins policiais, salvo exceções.
+
+=== ia-11
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Técnicas de explicabilidade, como LIME e SHAP, estimam a contribuição de cada variável para uma decisão do modelo e podem apoiar o dever de informar critérios de decisões automatizadas.
+comentario: Certo. Ajudam a cumprir o art. 20, § 1º, da LGPD, embora não tornem o modelo totalmente transparente.
+
+=== ia-12
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 12
+trecho: quando, com esforços razoáveis, puder ser revertido
+armadilha: excecao
+dif: 2
+enunciado: Dados sintéticos podem reduzir o uso de dados pessoais reais no treinamento de modelos, mas, se permitirem reidentificar pessoas com esforços razoáveis, continuam sujeitos à LGPD.
+comentario: Certo: art. 12. Dados sintéticos gerados a partir de bases reais podem reter padrões individuais; a avaliação de reidentificação é indispensável.
+
+=== ia-13
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Em classificação com classes muito desbalanceadas, como detecção de fraudes raras, a acurácia é métrica suficiente para avaliar o modelo.
+comentario: Errado. Se 99% dos casos são legítimos, um modelo que diz sempre legítimo tem 99% de acurácia e não detecta nada. Usam-se precisão, revocação (recall) e F1.
+
+=== ia-14
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Revocação (recall) é a proporção de casos positivos reais que o modelo conseguiu identificar, e precisão é a proporção de acertos entre os casos que o modelo classificou como positivos.
+comentario: Certo. Num filtro de denúncias, alta revocação evita perder casos graves; alta precisão evita sobrecarregar a fiscalização com alarmes falsos.
+
+=== ia-15
+gab: E
+ref: lgpd 11
+trecho: realização de estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais sensíveis
+armadilha: extrapolacao
+dif: 2
+enunciado: O treinamento de modelo de IA com dados de saúde dispensa hipótese legal de tratamento quando a finalidade declarada é de pesquisa.
+comentario: Errado. Dado de saúde é sensível e exige hipótese do art. 11, como consentimento específico ou estudo por órgão de pesquisa, com anonimização sempre que possível (inciso II, c). Declarar finalidade de pesquisa não basta.
+
+=== ia-16
+gab: C
+bloco: lgpd-37-45
+ref: lgpd 38
+trecho: A autoridade nacional poderá determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais
+armadilha: sujeito
+dif: 1
+enunciado: A ANPD pode determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais sobre tratamento realizado por sistema de inteligência artificial.
+comentario: Certo: art. 38. Sistemas de IA que tratam dados sensíveis ou tomam decisões relevantes são candidatos naturais ao relatório.
+
+=== ia-17
+gab: E
+ref: doutrina
+armadilha: extrapolacao
+dif: 1
+enunciado: A LGPD contém capítulo específico que regula o desenvolvimento e o uso de sistemas de inteligência artificial.
+comentario: Errado. A LGPD é tecnologicamente neutra. O ponto mais ligado à IA é o art. 20 (decisões automatizadas), somado aos princípios, às bases legais e ao relatório de impacto.
+
+=== ia-18
+gab: C
+bloco: lgpd-5-11
+ref: lgpd 5
+trecho: dado genético ou biométrico, quando vinculado a uma pessoa natural
+armadilha: conceito
+dif: 1
+enunciado: Sistemas de reconhecimento facial tratam dado biométrico, que é dado pessoal sensível quando vinculado a uma pessoa natural.
+comentario: Certo: art. 5º, II. O tratamento exige hipótese do art. 11; o legítimo interesse não se aplica a dados sensíveis.
+
+=== ia-19
+gab: E
+ref: lgpd 7
+trecho: O tratamento de dados pessoais cujo acesso é público deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização
+armadilha: absoluto
+dif: 2
+enunciado: A raspagem de dados pessoais publicados na internet para treinar modelos de IA é sempre lícita, porque os dados já estão publicamente disponíveis.
+comentario: Errado. Dado de acesso público continua pessoal: o tratamento deve considerar a finalidade, a boa-fé e o interesse público da disponibilização (art. 7º, § 3º), e novas finalidades exigem propósito legítimo e específico (§ 7º).
+
+=== ia-20
+gab: C
+ref: doutrina
+armadilha: caso
+dif: 2
+enunciado: Servidor que insere dados pessoais de cidadãos em ferramenta de IA generativa hospedada no exterior pode estar promovendo compartilhamento e transferência internacional de dados, sujeitos às regras da LGPD.
+comentario: Certo. Disponibilizar dados a outro agente é transferência; se ele está no exterior, valem os arts. 33 a 36 e a Resolução 19/2024. Por isso órgãos públicos editam políticas sobre o uso de IA generativa.
