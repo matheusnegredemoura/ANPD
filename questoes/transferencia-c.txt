@@ -1,0 +1,288 @@
+// Transferência internacional, lote C: Regulamento da Resolução CD/ANPD 19/2024 nos pontos que o banco ainda
+// não cobria (diretrizes, definições, dados vindos do exterior, trânsito e retorno, mínimo necessário,
+// documento ao titular, equivalência de cláusulas estrangeiras, cláusulas específicas, normas corporativas
+// globais, reconsideração) e casos integrados com a LGPD. Trechos conferidos em fontes/res19.txt e lgpd.txt.
+
+bloco: res-19-2024
+
+apoio_NUVEM2: Uma rede de clínicas com sede em São Paulo contratou empresa sediada no Canadá para hospedar, em servidores localizados naquele país, os prontuários eletrônicos dos pacientes. O contrato incorpora integralmente as cláusulas-padrão contratuais aprovadas pela ANPD. A empresa canadense pretende ainda repassar parte dos dados a uma subcontratada nos Estados Unidos da América para serviços de cópia de segurança. Um paciente pediu à clínica, por e-mail, a íntegra das cláusulas que regem a transferência.
+
+=== ti-01
+gab: C
+ref: res19 2
+trecho: independentemente do país onde estejam localizados os dados pessoais objeto da transferência, inclusive após o término do tratamento e nas hipóteses de transferências posteriores
+armadilha: literal
+dif: 2
+enunciado: Entre as diretrizes do regulamento de transferência internacional da ANPD está a garantia de nível de proteção equivalente ao da legislação nacional, independentemente do país onde estejam os dados, inclusive após o término do tratamento e nas transferências posteriores.
+comentario: Certo: Resolução 19/2024, art. 2º, I. A proteção acompanha o dado: vale no destino, depois do fim do tratamento e se o importador repassar os dados a terceiro (transferência posterior).
+
+=== ti-02
+gab: C
+ref: res19 2
+trecho: promoção do livre fluxo transfronteiriço de dados com confiança
+armadilha: literal
+dif: 2
+enunciado: O regulamento de transferência internacional da ANPD tem entre suas diretrizes a promoção do livre fluxo transfronteiriço de dados com confiança, com observância aos direitos dos titulares.
+comentario: Certo: art. 2º, III. O regulamento busca equilíbrio: procedimentos simples e interoperáveis (inciso II), sem perder as garantias aos titulares.
+
+=== ti-03
+gab: E
+ref: res19 3
+trecho: importador: agente de tratamento, localizado em país estrangeiro ou que seja organismo internacional, que recebe dados pessoais transferidos por exportador
+armadilha: conceito
+dif: 2
+enunciado: Para o regulamento da ANPD, importador é o agente de tratamento localizado no território nacional que recebe dados pessoais vindos do exterior.
+comentario: Errado. Importador é o agente localizado em país estrangeiro, ou que seja organismo internacional, que recebe dados transferidos pelo exportador (art. 3º, II). O exportador é que pode estar no Brasil ou no exterior (inciso I).
+
+=== ti-04
+gab: C
+ref: res19 3
+trecho: transferência: operação de tratamento por meio da qual um agente de tratamento transmite, compartilha ou disponibiliza acesso a dados pessoais a outro agente de tratamento
+armadilha: conceito
+dif: 2
+enunciado: No regulamento da ANPD, transferência é a operação pela qual um agente de tratamento transmite, compartilha ou disponibiliza acesso a dados pessoais a outro agente de tratamento.
+comentario: Certo: art. 3º, III. Disponibilizar acesso remoto também é transferência; por isso permitir que equipe estrangeira consulte uma base no Brasil pode caracterizar transferência internacional.
+
+=== ti-05
+gab: C
+ref: res19 3
+trecho: entidade responsável: sociedade empresária, com sede no Brasil, que responde por qualquer violação de norma corporativa global
+armadilha: sujeito
+dif: 3
+enunciado: Nas normas corporativas globais, a entidade responsável é sociedade empresária com sede no Brasil que responde por qualquer violação da norma, ainda que decorrente de ato de membro do grupo sediado em outro país.
+comentario: Certo: art. 3º, VII. O titular brasileiro tem a quem cobrar no país, mesmo que a violação tenha ocorrido no exterior.
+
+=== ti-06
+gab: E
+ref: res19 5
+trecho: A transferência internacional de dados será caracterizada quando o exportador transferir dados pessoais para o importador
+armadilha: conceito
+dif: 2
+enunciado: A transferência internacional de dados se caracteriza sempre que dados pessoais de brasileiros estiverem armazenados fora do país, ainda que coletados diretamente pelo agente estrangeiro.
+comentario: Errado. A transferência se caracteriza quando o exportador transfere dados ao importador (art. 5º). Coleta feita diretamente pelo agente no exterior é coleta internacional e não caracteriza transferência (art. 6º), embora possa atrair a LGPD pelo art. 3º.
+
+=== ti-07
+gab: C
+ref: res19 8
+trecho: Aplica-se a Lei nº 13.709, de 14 de agosto de 2018, aos dados pessoais provenientes do exterior sempre que estes sejam objeto de tratamento no território nacional
+armadilha: excecao
+dif: 2
+enunciado: A LGPD aplica-se aos dados pessoais provenientes do exterior sempre que forem objeto de tratamento no território nacional, ressalvadas hipóteses específicas, como o simples trânsito sem comunicação a agente situado no Brasil.
+comentario: Certo: art. 8º, caput e § 1º, I. A regra é aplicar a LGPD; as exceções são o mero trânsito e o retorno ao país de origem nas condições do inciso II.
+
+=== ti-08
+gab: E
+ref: res19 8
+trecho: retorno dos dados pessoais, objeto de tratamento no território nacional, exclusivamente ao país ou organismo internacional de proveniência, desde que
+armadilha: excecao
+dif: 3
+enunciado: Dados vindos do exterior e tratados no Brasil deixam de se submeter à LGPD quando retornam ao país de origem, qualquer que seja o nível de proteção de dados desse país.
+comentario: Errado. A exceção do retorno exige, cumulativamente, que o país de origem tenha decisão de adequação da ANPD, que sua lei se aplique à operação e que a decisão de adequação preveja expressamente a não aplicação da LGPD (art. 8º, § 1º, II).
+
+=== ti-09
+gab: C
+ref: res19 9
+trecho: A transferência internacional de dados deverá se limitar ao mínimo necessário para o alcance de suas finalidades
+armadilha: literal
+dif: 2
+enunciado: A transferência internacional de dados deve limitar-se ao mínimo necessário para o alcance de suas finalidades, abrangendo apenas dados pertinentes, proporcionais e não excessivos.
+comentario: Certo: art. 9º, parágrafo único. É o princípio da necessidade (LGPD, art. 6º, III) aplicado à transferência.
+
+=== ti-10
+gab: E
+ref: res19 9
+trecho: um dos seguintes mecanismos válidos de realização da transferência internacional
+armadilha: rol
+dif: 2
+enunciado: Basta que a transferência internacional esteja amparada em mecanismo válido, como as cláusulas-padrão contratuais, sendo dispensável hipótese legal de tratamento dos arts. 7º ou 11 da LGPD.
+comentario: Errado. O art. 9º exige as duas coisas: uma hipótese legal de tratamento (art. 7º ou 11) e um mecanismo de transferência. O mecanismo legitima o envio ao exterior; a hipótese legal, o próprio tratamento.
+
+=== ti-11
+gab: C
+ref: res19 10
+trecho: A ANPD poderá reconhecer, mediante decisão de adequação, a equivalência do nível de proteção de dados pessoais de país estrangeiro ou de organismo internacional com a legislação nacional
+armadilha: conceito
+dif: 1
+enunciado: A decisão de adequação da ANPD reconhece a equivalência do nível de proteção de dados de país estrangeiro ou de organismo internacional com a legislação nacional.
+comentario: Certo: art. 10. A primeira decisão de adequação da ANPD foi a da União Europeia (Resolução 32/2026).
+
+=== ti-12
+gab: C
+ref: res19 11
+trecho: a existência e o efetivo funcionamento de um órgão regulador independente
+armadilha: literal
+dif: 2
+enunciado: Na avaliação das garantias judiciais e institucionais do país estrangeiro, a ANPD considera, entre outros fatores, a existência e o efetivo funcionamento de órgão regulador independente de proteção de dados.
+comentario: Certo: art. 11, § 3º. Não basta a lei no papel: é preciso autoridade independente que a faça cumprir.
+
+=== ti-13
+gab: E
+ref: res19 13
+trecho: A decisão de adequação será proferida por Resolução do Conselho Diretor e publicada na página da ANPD na Internet
+armadilha: sujeito
+dif: 2
+enunciado: A decisão de adequação é proferida pela área técnica competente da ANPD, dispensada a manifestação da Procuradoria Federal Especializada.
+comentario: Errado. A área técnica instrui e opina; depois da manifestação da Procuradoria Federal Especializada, o Conselho Diretor delibera, e a decisão sai por Resolução (art. 13, II e III e § 2º).
+
+=== ti-14
+gab: C
+ref: res19 15
+trecho: estabelecem garantias mínimas e condições válidas para a realização de transferências internacionais de dados
+armadilha: conceito
+dif: 1
+enunciado: As cláusulas-padrão contratuais aprovadas pela ANPD estabelecem garantias mínimas e condições válidas para transferências internacionais fundadas no art. 33, II, b, da LGPD.
+comentario: Certo: art. 15. Estão no Anexo II da Resolução 19/2024 e são o mecanismo mais usado por empresas brasileiras.
+
+=== ti-15
+gab: E
+ref: res19 16
+trecho: pressupõe a adoção integral e sem alteração do texto disponibilizado no Anexo II
+armadilha: extrapolacao
+dif: 2
+enunciado: Para reduzir custos, o exportador pode adaptar a redação das cláusulas-padrão contratuais da ANPD, desde que preserve o nível de proteção previsto.
+comentario: Errado. A validade da transferência com base nas cláusulas-padrão pressupõe adoção integral e sem alteração do texto (art. 16). Quem precisa de redação diferente deve pedir aprovação de cláusulas contratuais específicas.
+
+=== ti-16
+gab: C
+ref: res19 16
+trecho: não poderão excluir, modificar ou contrariar, direta ou indiretamente, o disposto nas cláusulas-padrão contratuais
+armadilha: literal
+dif: 2
+enunciado: As demais disposições do contrato que incorpora as cláusulas-padrão, ou de contratos coligados, não podem excluir, modificar ou contrariar, direta ou indiretamente, o disposto nessas cláusulas.
+comentario: Certo: art. 16, § 2º. As partes podem acrescentar disposições, mas sem esvaziar as garantias das cláusulas-padrão.
+
+=== ti-17
+gab: E
+ref: res19 17
+trecho: O prazo para atendimento da solicitação é de 15 (quinze) dias
+armadilha: numero
+dif: 2
+enunciado: Solicitada pelo titular a íntegra das cláusulas usadas na transferência internacional, o controlador deve atendê-lo em até 30 dias, salvo prazo diverso em regulamento da ANPD.
+comentario: Errado. O prazo é de 15 dias (art. 17, § 1º), ressalvado prazo distinto em regulamentação específica, observados os segredos comercial e industrial.
+
+=== ti-18
+gab: C
+ref: res19 17
+trecho: o direito de peticionar contra o controlador perante a ANPD
+armadilha: rol
+dif: 2
+enunciado: O controlador deve publicar em sua página na internet documento em linguagem simples sobre a transferência internacional, que informe, entre outros pontos, o país de destino, a finalidade e os meios de exercício dos direitos, incluindo o direito de peticionar à ANPD.
+comentario: Certo: art. 17, § 2º. O documento pode estar em página própria ou integrado, com destaque, à política de privacidade (§ 3º).
+
+=== ti-19
+gab: C
+ref: res19 18
+trecho: A ANPD poderá reconhecer a equivalência de cláusulas-padrão contratuais de outros países ou de organismos internacionais com as cláusulas previstas no Anexo II
+armadilha: conceito
+dif: 2
+enunciado: A ANPD pode reconhecer a equivalência de cláusulas-padrão contratuais de outros países ou de organismos internacionais com as suas, e as cláusulas reconhecidas passam a ser mecanismo válido de transferência.
+comentario: Certo: arts. 18 e 20. O requerimento traz as cláusulas traduzidas, a legislação e os guias da autoridade estrangeira e análise comparativa (art. 18, § 4º).
+
+=== ti-20
+gab: E
+ref: res19 21
+trecho: somente serão aprovadas quando a transferência internacional de dados não puder ser realizada por meio das cláusulas-padrão contratuais
+armadilha: excecao
+dif: 2
+enunciado: As cláusulas contratuais específicas podem ser escolhidas livremente pelo controlador como alternativa às cláusulas-padrão, bastando comunicá-las à ANPD.
+comentario: Errado. São excepcionais: só se aprovam quando a transferência não puder ocorrer pelas cláusulas-padrão, por circunstâncias de fato ou de direito comprovadas (art. 21, § 1º), e dependem de aprovação prévia da ANPD (art. 24).
+
+=== ti-21
+gab: C
+ref: res19 21
+trecho: deverão prever a aplicação da legislação nacional de proteção de dados pessoais à transferência internacional de dados e a sua submissão à fiscalização da ANPD
+armadilha: literal
+dif: 2
+enunciado: As cláusulas contratuais específicas devem prever a aplicação da legislação nacional de proteção de dados à transferência e sua submissão à fiscalização da ANPD.
+comentario: Certo: art. 21, § 2º. E devem adotar, sempre que possível, a redação das cláusulas-padrão, indicando e justificando as específicas (art. 23).
+
+=== ti-22
+gab: E
+ref: res19 25
+trecho: A norma corporativa global constitui mecanismo válido para realizar transferências internacionais de dados pessoais apenas para as organizações ou países abrangidos
+armadilha: extrapolacao
+dif: 2
+enunciado: As normas corporativas globais aprovadas pela ANPD autorizam transferências do grupo empresarial para qualquer destinatário, inclusive empresas que não integram o grupo.
+comentario: Errado. Destinam-se a transferências entre organizações do mesmo grupo ou conglomerado e valem apenas para as organizações ou países abrangidos (art. 25 e parágrafo único).
+
+=== ti-23
+gab: C
+ref: res19 27
+trecho: determinação da natureza vinculante da norma corporativa global para todos os integrantes do grupo ou conglomerado de empresas que as subscreverem, inclusive para seus funcionários
+armadilha: rol
+dif: 3
+enunciado: As normas corporativas globais devem conter, entre outros elementos, a natureza vinculante da norma para todos os integrantes do grupo que a subscreverem, inclusive seus funcionários, e a indicação da entidade responsável.
+comentario: Certo: art. 27, IV e V. O conteúdo mínimo inclui ainda as transferências abrangidas, os países de destino, a estrutura do grupo e os direitos dos titulares.
+
+=== ti-24
+gab: E
+ref: res19 33
+trecho: As alterações nas cláusulas contratuais específicas e nas normas corporativas globais dependem de prévia aprovação da ANPD
+armadilha: excecao
+dif: 2
+enunciado: Alterações em normas corporativas globais já aprovadas dispensam nova aprovação da ANPD quando não afetarem as garantias, bastando registro interno do grupo.
+comentario: Errado. Toda alteração depende de prévia aprovação (art. 33); o que o Conselho Diretor pode fazer é criar procedimento simplificado para as alterações que não afetem as garantias (parágrafo único).
+
+=== ti-25
+gab: C
+ref: res19 34
+trecho: Caberá pedido de reconsideração das decisões do Conselho Diretor, devidamente fundamentado, no prazo de 10 (dez) dias úteis
+armadilha: numero
+dif: 2
+enunciado: Cabe pedido de reconsideração, no prazo de 10 dias úteis, das decisões do Conselho Diretor sobre adequação, equivalência de cláusulas-padrão e aprovação de cláusulas específicas e normas corporativas globais.
+comentario: Certo: art. 34, com remissão ao art. 12 do Regulamento da Resolução 1/2021. Como o Conselho Diretor é a última instância da ANPD, o pedido é de reconsideração, não recurso hierárquico.
+
+=== ti-26
+gab: C
+ref: res19 16
+trecho: pressupõe a adoção integral e sem alteração do texto disponibilizado no Anexo II
+apoio: @NUVEM2
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre transferência internacional de dados, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: A hospedagem dos prontuários no Canadá é transferência internacional de dados, validamente amparada nas cláusulas-padrão, desde que adotadas sem alteração e haja hipótese legal para tratar os dados de saúde.
+comentario: Certo. A clínica (exportadora) transmite dados ao importador no exterior (art. 5º); as cláusulas-padrão integrais são mecanismo válido (art. 16), mas é preciso também hipótese do art. 11, por serem dados sensíveis (art. 9º, I).
+
+=== ti-27
+gab: E
+ref: res19 2
+trecho: inclusive após o término do tratamento e nas hipóteses de transferências posteriores
+apoio: @NUVEM2
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre transferência internacional de dados, julgue os itens a seguir.
+armadilha: caso
+dif: 3
+enunciado: Como a LGPD regula apenas a transferência feita a partir do Brasil, o repasse dos dados pela empresa canadense à subcontratada nos Estados Unidos da América fica fora do alcance da legislação brasileira.
+comentario: Errado. As garantias acompanham os dados nas transferências posteriores (art. 2º, I), e as cláusulas-padrão disciplinam esse repasse. A empresa canadense só pode transferir adiante nas condições pactuadas, mantendo o nível de proteção.
+
+=== ti-28
+gab: C
+ref: res19 17
+trecho: O prazo para atendimento da solicitação é de 15 (quinze) dias
+apoio: @NUVEM2
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre transferência internacional de dados, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: A clínica deve entregar ao paciente a íntegra das cláusulas usadas na transferência em até 15 dias, observados os segredos comercial e industrial.
+comentario: Certo: art. 17, caput e § 1º. Independentemente do pedido, a clínica deve manter publicado o documento em linguagem simples sobre a transferência (§ 2º).
+
+=== ti-29
+gab: E
+bloco: lgpd-33-36
+ref: lgpd 33
+trecho: quando a autoridade nacional autorizar a transferência
+apoio: @NUVEM2
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre transferência internacional de dados, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Além das cláusulas-padrão, a clínica precisa obter autorização específica da ANPD para cada transferência ao Canadá.
+comentario: Errado. A autorização da ANPD é uma hipótese autônoma do art. 33 (inciso V), não um requisito adicional. Com as cláusulas-padrão integrais (inciso II, b), não há necessidade de autorização caso a caso.
+
+=== ti-30
+gab: C
+bloco: lgpd-33-36
+ref: lgpd 34
+trecho: a existência de garantias judiciais e institucionais para o respeito aos direitos de proteção de dados pessoais
+armadilha: rol
+dif: 2
+enunciado: Na avaliação do nível de proteção de país estrangeiro, a ANPD leva em conta as normas gerais e setoriais do país, a natureza dos dados, a observância dos princípios e direitos, as medidas de segurança e as garantias judiciais e institucionais.
+comentario: Certo: LGPD, art. 34, I a VI, que também admite outras circunstâncias específicas da transferência. A Resolução 19/2024 (arts. 11 e 12) detalha esses critérios.

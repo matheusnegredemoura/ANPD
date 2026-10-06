@@ -1,0 +1,367 @@
+// Sanções e dosimetria, lote C: Resolução CD/ANPD 4/2023 nos pontos menos cobertos (definições, órgãos
+// públicos, classificação, faturamento, agravantes e atenuantes, limites, multa diária, pagamento,
+// publicização, bloqueio, suspensão e proibição) e dois casos de cálculo pela fórmula do Apêndice I.
+// Trechos conferidos em fontes/res4.txt e res4ap.txt.
+
+bloco: res-4-2023
+
+apoio_DOSE: Ao fim de processo administrativo sancionador, a ANPD classificou como grave a infração cometida por uma operadora de planos de saúde e fixou o grau do dano em 3. No último exercício, o faturamento bruto do ramo de atividade em que ocorreu a infração foi de R$ 230 milhões, dos quais R$ 30 milhões de tributos. Ficaram comprovadas uma reincidência genérica e o descumprimento de uma medida corretiva; como atenuantes, a empresa cessou a infração depois de instaurado o processo sancionador, mas antes da decisão de primeira instância, e cooperou com a fiscalização. Não há vantagem econômica estimável.
+apoio_DOSE2: Uma empresa com faturamento de R$ 30 milhões no último exercício, já excluídos os tributos, cometeu infração classificada como média, com grau do dano 1, sem circunstâncias agravantes. Ela cessou a infração antes da instauração de procedimento preparatório e comprovou política de boas práticas e de governança antes da decisão de primeira instância. A ANPD entendeu cabível a multa simples.
+
+=== sc-01
+gab: C
+ref: res4 2
+trecho: reincidência específica: repetição de infração pelo mesmo infrator ao mesmo dispositivo legal ou regulamentar, no período de 5 (cinco) anos, contado do trânsito em julgado do processo administrativo sancionador
+armadilha: conceito
+dif: 2
+enunciado: Reincidência específica é a repetição de infração, pelo mesmo infrator, ao mesmo dispositivo legal ou regulamentar, no período de 5 anos contado do trânsito em julgado do processo sancionador até a data da nova infração.
+comentario: Certo: Resolução 4/2023, art. 2º, VIII. A genérica (inciso IX) usa o mesmo prazo, mas para infração a qualquer dispositivo.
+
+=== sc-02
+gab: E
+ref: res4 2
+trecho: no período de 5 (cinco) anos, contado do trânsito em julgado do processo administrativo sancionador até a data do cometimento da nova infração
+armadilha: numero
+dif: 2
+enunciado: Para fins de reincidência genérica, conta-se o prazo de 5 anos a partir da data em que a primeira infração foi cometida.
+comentario: Errado. O termo inicial é o trânsito em julgado do processo sancionador anterior, e o final, a data da nova infração (art. 2º, IX).
+
+=== sc-03
+gab: C
+ref: res4 2
+trecho: infração permanente: conduta infrativa que se prolonga no tempo, mediante ação ou omissão do infrator referente ao mesmo dispositivo normativo
+armadilha: conceito
+dif: 1
+enunciado: Infração permanente é a conduta infrativa que se prolonga no tempo, por ação ou omissão do infrator, referente ao mesmo dispositivo normativo.
+comentario: Certo: art. 2º, III. Infração permanente não cessada até a decisão é uma das hipóteses de multa diária (art. 16, § 3º, III).
+
+=== sc-04
+gab: E
+ref: res4 2
+trecho: devendo ser aplicadas conjuntamente com a sanção de advertência
+armadilha: sujeito
+dif: 2
+enunciado: As medidas corretivas determinadas pela ANPD são aplicadas conjuntamente com a multa simples, para reconduzir o infrator à conformidade.
+comentario: Errado. Pelo art. 2º, V, as medidas corretivas acompanham a advertência; a LGPD fala em advertência com indicação de prazo para adoção de medidas corretivas (art. 52, I). Descumpri-las agrava a multa futura em 30% por medida (art. 12, IV).
+
+=== sc-05
+gab: C
+ref: res4 3
+trecho: O órgão ou entidade reguladora setorial terá prazo de até 20 (vinte) dias úteis, prorrogável uma única vez por igual período
+armadilha: numero
+dif: 2
+enunciado: Antes de aplicar as sanções de suspensão ou de proibição, a ANPD ouve o regulador setorial do controlador, que tem até 20 dias úteis, prorrogáveis uma única vez, para se manifestar; depois disso, o processo pode seguir mesmo sem resposta.
+comentario: Certo: art. 3º, §§ 2º e 3º, que concretizam o art. 52, § 6º, II, da LGPD. O infrator pode comentar a manifestação nas alegações finais (§ 4º).
+
+=== sc-06
+gab: E
+ref: res4 3
+trecho: O disposto nos incisos I e IV a IX, do caput deste artigo, poderá ser aplicado às entidades e aos órgãos públicos
+armadilha: excecao
+dif: 2
+enunciado: Órgãos e entidades públicos que violem a LGPD estão sujeitos a todas as sanções do regulamento de dosimetria, inclusive multa simples e multa diária.
+comentario: Errado. Ao Poder Público aplicam-se a advertência e as sanções dos incisos IV a IX (publicização, bloqueio, eliminação, suspensões e proibição), sem prejuízo da Lei 8.112, da Lei de Improbidade e da LAI (art. 3º, § 5º). Multas simples e diária ficam de fora, como na LGPD (art. 52, § 3º).
+
+=== sc-07
+gab: C
+ref: res4 5
+trecho: O não cumprimento da sanção aplicada ou a ausência de regularização da conduta, no prazo estipulado, ensejará a progressão da atuação da ANPD para a aplicação de sanções mais graves
+armadilha: literal
+dif: 1
+enunciado: O descumprimento da sanção aplicada ou a falta de regularização da conduta no prazo estipulado leva a ANPD a progredir para sanções mais graves.
+comentario: Certo: art. 5º, § 2º. É a lógica gradativa da regulação responsiva: as sanções são aplicadas de forma gradativa, isolada ou cumulativa (caput).
+
+=== sc-08
+gab: E
+ref: res4 8
+trecho: A infração será considerada leve quando não verificada nenhuma das hipóteses relacionadas nos §§ 2º ou 3º deste artigo
+armadilha: conceito
+dif: 2
+enunciado: A infração é leve quando puder afetar significativamente interesses e direitos fundamentais dos titulares, sem envolver dados sensíveis.
+comentario: Errado. Afetar significativamente direitos é o critério da infração média (art. 8º, § 2º). Leve é a residual: quando não se verifica nenhuma hipótese de média ou grave (§ 1º).
+
+=== sc-09
+gab: C
+ref: res4 8
+trecho: constituir obstrução à atividade de fiscalização
+armadilha: excecao
+dif: 2
+enunciado: A obstrução à atividade de fiscalização é, por si só, infração grave, ainda que não afete significativamente direitos dos titulares.
+comentario: Certo: art. 8º, § 3º, II. As demais hipóteses graves (inciso I) exigem o critério da média somado a pelo menos um agravamento, como larga escala ou dado sensível; a obstrução, não.
+
+=== sc-10
+gab: E
+ref: res4 8
+trecho: verificada a hipótese estabelecida no § 2º deste artigo e cumulativamente, pelo menos, uma das seguintes
+armadilha: excecao
+dif: 3
+enunciado: Basta que a infração envolva tratamento de dados de idosos para que seja classificada como grave, independentemente de seus efeitos sobre os titulares.
+comentario: Errado. Dados de crianças, adolescentes ou idosos agravam a classificação apenas se, cumulativamente, a infração puder afetar significativamente interesses e direitos fundamentais (art. 8º, § 3º, I, d, combinado com o § 2º).
+
+=== sc-11
+gab: C
+ref: res4 9
+trecho: a infração for leve ou média e não caracterizar reincidência específica
+armadilha: literal
+dif: 2
+enunciado: A ANPD pode aplicar advertência quando a infração for leve ou média e não houver reincidência específica, ou quando houver necessidade de impor medidas corretivas.
+comentario: Certo: art. 9º. Já a multa simples cabe quando a infração for grave, quando medidas preventivas ou corretivas forem descumpridas ou quando outra sanção não for adequada (art. 10).
+
+=== sc-12
+gab: C
+ref: res4 11
+trecho: Será considerada a soma dos faturamentos obtidos em todos os ramos de atividade empresarial afetados
+armadilha: literal
+dif: 3
+enunciado: Para calcular o valor-base da multa, soma-se o faturamento de todos os ramos de atividade afetados quando a infração ocorre em mais de um ramo ou quando os dados são usados por processos de outros ramos da empresa ou do grupo.
+comentario: Certo: art. 11, § 2º. A regra geral é o faturamento do ramo em que ocorreu a infração (caput, II).
+
+=== sc-13
+gab: E
+ref: res4 11
+trecho: relativo ao ramo de atividade empresarial em que ocorreu a infração
+armadilha: extrapolacao
+dif: 2
+enunciado: O valor-base da multa simples é calculado, em regra, sobre o faturamento mundial do grupo econômico a que pertence o infrator.
+comentario: Errado. A base é o faturamento do infrator no último exercício, excluídos os tributos, relativo ao ramo de atividade em que ocorreu a infração (art. 11, II). O faturamento total no Brasil só entra quando falta a informação por ramo (§ 1º, IV, c).
+
+=== sc-14
+gab: C
+ref: res4 12
+trecho: 10% (dez por cento) para cada caso de reincidência específica, até o limite de 40% (quarenta por cento)
+armadilha: numero
+dif: 2
+enunciado: Cada reincidência específica acresce 10% ao valor da multa simples, até o limite de 40%.
+comentario: Certo: art. 12, I. Reincidência genérica: 5% cada, até 20%; medida de orientação ou preventiva descumprida: 20% cada, até 80%; medida corretiva descumprida: 30% cada, até 90%.
+
+=== sc-15
+gab: E
+ref: res4 12
+trecho: 20% (vinte por cento) para cada medida de orientação ou preventiva descumprida
+armadilha: numero
+dif: 2
+enunciado: Cada medida de orientação ou preventiva descumprida na fase de fiscalização acresce 30% ao valor da multa, até o limite de 90%.
+comentario: Errado. Medida de orientação ou preventiva descumprida: 20%, até 80% (art. 12, III). Os 30%, até 90%, são para medida corretiva descumprida (inciso IV).
+
+=== sc-16
+gab: C
+ref: res4 12
+trecho: os excedentes ingressarão na categoria de reincidência genérica
+armadilha: excecao
+dif: 3
+enunciado: Registros de reincidência específica que excedam o necessário para atingir o agravamento máximo de 40% passam a ser computados como reincidência genérica.
+comentario: Certo: art. 12, § 2º. Com seis reincidências específicas, quatro somam 40% e as outras duas entram como genéricas, a 5% cada.
+
+=== sc-17
+gab: C
+ref: res4 13
+trecho: 75% (setenta e cinco por cento), se previamente à instauração de procedimento preparatório pela ANPD
+armadilha: numero
+dif: 2
+enunciado: A cessação da infração reduz a multa em 75% se ocorrer antes da instauração de procedimento preparatório, em 50% se ocorrer entre o procedimento preparatório e o processo sancionador, e em 30% se ocorrer depois deste e até a decisão de primeira instância.
+comentario: Certo: art. 13, I. Quanto mais cedo o infrator cessa, maior o desconto; é incentivo à autorregularização.
+
+=== sc-18
+gab: E
+ref: res4 13
+trecho: não serão consideradas atenuantes a cessação da infração e a adoção de medidas capazes de reverter ou mitigar os efeitos da infração decorrentes do mero cumprimento de determinação administrativa ou judicial
+armadilha: excecao
+dif: 2
+enunciado: A cessação da infração em cumprimento a determinação da ANPD conta como atenuante, com o percentual correspondente ao momento em que ocorreu.
+comentario: Errado. Cessar ou mitigar por mero cumprimento de determinação administrativa ou judicial não atenua (art. 13, § 1º). E cabe ao infrator provar as atenuantes (§ 3º).
+
+=== sc-19
+gab: C
+ref: res4 15
+trecho: será limitado a 2% (dois por cento) do faturamento da pessoa jurídica de direito privado, grupo ou conglomerado de empresas no Brasil no seu último exercício, excluídos os tributos, ou a R$ 50.000.000,00 (cinquenta milhões de reais)
+armadilha: numero
+dif: 1
+enunciado: Aplicadas agravantes e atenuantes, a multa simples fica limitada a 2% do faturamento no Brasil no último exercício, excluídos os tributos, ou a R$ 50 milhões.
+comentario: Certo: art. 15, II, que reproduz o teto do art. 52, II, da LGPD. O piso é o do Apêndice II ou o dobro da vantagem econômica estimável (inciso I).
+
+=== sc-20
+gab: E
+ref: res4 16
+trecho: até o limite total de R$ 50.000.000,00 (cinquenta milhões de reais) por infração
+armadilha: numero
+dif: 2
+enunciado: Por ter função coercitiva, a multa diária não tem limite total, acumulando-se até o cumprimento da obrigação.
+comentario: Errado. A multa diária acumula até o cumprimento, mas tem limite total de R$ 50 milhões por infração (art. 16, § 1º).
+
+=== sc-21
+gab: C
+ref: res4 16
+trecho: praticar infração permanente não cessada até a decisão
+armadilha: rol
+dif: 2
+enunciado: A multa diária pode ser aplicada, entre outras hipóteses, quando o infrator praticar infração permanente não cessada até a decisão ou obstruir a fiscalização, se necessária para desobstruí-la.
+comentario: Certo: art. 16, § 3º, II e III. A finalidade é coercitiva: assegurar o cumprimento, em prazo certo, de obrigação ou de sanção não pecuniária (caput).
+
+=== sc-22
+gab: C
+ref: res4 17
+trecho: multa moratória de 0,33% (trinta e três centésimos por cento) por dia de atraso, até o limite de 20% (vinte por cento)
+armadilha: numero
+dif: 3
+enunciado: Não paga a multa no prazo, incidem juros de mora pela taxa Selic e multa moratória de 0,33% por dia de atraso, até o limite de 20%.
+comentario: Certo: art. 17, § 3º. O prazo de pagamento é de 20 dias úteis da ciência oficial da decisão (caput), em dobro para agentes de pequeno porte (§ 2º).
+
+=== sc-23
+gab: E
+ref: res4 19
+trecho: O pagamento realizado após a intimação da decisão de aplicação da sanção não prejudica o direito de interposição de recurso administrativo
+armadilha: extrapolacao
+dif: 2
+enunciado: Pagar a multa depois de intimado da decisão implica renúncia tácita ao direito de recorrer.
+comentario: Errado. O pagamento não prejudica o recurso (art. 19), e, provido o recurso, o valor é restituído com correção (parágrafo único). O desconto de 25% exige renúncia expressa ao recurso e pagamento no prazo (art. 18).
+
+=== sc-24
+gab: C
+ref: res4 20
+trecho: Os ônus relacionados à publicização da infração serão suportados exclusivamente pelo infrator
+armadilha: literal
+dif: 1
+enunciado: A sanção de publicização consiste na divulgação da infração pelo próprio infrator, que arca exclusivamente com os custos, conforme teor, meio, duração e prazo definidos pela ANPD.
+comentario: Certo: art. 20, §§ 1º a 3º. É aplicada considerando a relevância e o interesse público da matéria (caput).
+
+=== sc-25
+gab: E
+ref: res4 21
+trecho: não se confunde com a publicação de decisão de aplicação de sanção administrativa no Diário Oficial da União
+armadilha: conceito
+dif: 2
+enunciado: A sanção de publicização da infração corresponde à publicação, pela ANPD, da decisão sancionadora no Diário Oficial da União.
+comentario: Errado. A publicação no Diário Oficial atende à publicidade administrativa e ocorre em qualquer caso; a sanção de publicização é a divulgação feita pelo próprio infrator, às suas custas (art. 21).
+
+=== sc-26
+gab: C
+ref: res4 22
+trecho: comunicar imediatamente o bloqueio dos dados aos agentes de tratamento com os quais tenha realizado uso compartilhado de dados, para que repitam idêntico procedimento
+armadilha: literal
+dif: 2
+enunciado: Intimado da sanção de bloqueio, o infrator deve comunicar imediatamente o bloqueio aos agentes com quem compartilhou os dados, para que repitam o procedimento, salvo impossibilidade ou esforço desproporcional comprovados.
+comentario: Certo: art. 22, § 2º. A mesma regra vale para a eliminação (art. 23, § 2º). O desbloqueio depende de o infrator comprovar a regularização (art. 22, § 3º).
+
+=== sc-27
+gab: C
+ref: res4 24
+trecho: será aplicada pelo período máximo de 6 (seis) meses, prorrogável por igual período
+armadilha: numero
+dif: 2
+enunciado: A suspensão parcial do funcionamento do banco de dados é aplicada pelo período máximo de seis meses, prorrogável por igual período, até a regularização da atividade.
+comentario: Certo: art. 24, § 2º, igual ao art. 52, X, da LGPD. O mesmo prazo vale para a suspensão do exercício da atividade de tratamento (art. 25, § 1º).
+
+=== sc-28
+gab: E
+ref: res4 26
+trecho: ocorrer tratamento de dados pessoais com fins ilícitos, ou sem amparo em hipótese legal
+armadilha: rol
+dif: 2
+enunciado: A proibição parcial ou total do exercício de atividades de tratamento só pode ser aplicada em caso de reincidência em infração punida com suspensão.
+comentario: Errado. Também cabe quando houver tratamento com fins ilícitos ou sem hipótese legal e quando o infrator perder ou não atender as condições técnicas e operacionais para tratar dados adequadamente (art. 26, I a III).
+
+=== sc-29
+gab: C
+ref: res4 27
+trecho: não poderá ser baseada em valores jurídicos abstratos e deverá ser motivada e fundamentada
+armadilha: literal
+dif: 3
+enunciado: A ANPD pode afastar a metodologia de dosimetria ou substituir a sanção quando constatar desproporcionalidade, em decisão motivada que não se baseie em valores jurídicos abstratos.
+comentario: Certo: art. 27 e parágrafo único, em linha com a LINDB (art. 20), que exige considerar as consequências práticas da decisão.
+
+=== sc-30
+gab: C
+ref: res4 28
+trecho: aplicam-se também aos processos administrativos em curso quando de sua entrada em vigor
+armadilha: literal
+dif: 2
+enunciado: As disposições do regulamento de dosimetria aplicam-se também aos processos administrativos em curso quando de sua entrada em vigor.
+comentario: Certo: art. 28. A regra trata de procedimento e dosimetria; não cria infração nova para fatos passados.
+
+=== sc-31
+gab: C
+ref: res4ap I
+trecho: Abase = (A2 – A1) / 3 × GD + A1
+apoio: @DOSE
+comando: Considerando essa situação hipotética e a metodologia de dosimetria da ANPD, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: Como o grau do dano é 3, a alíquota-base aplicável é de 1,5%, a máxima prevista para infrações graves.
+comentario: Certo. Para infração grave, A1 = 0,45% e A2 = 1,50%. Abase = (1,50 − 0,45) ÷ 3 × 3 + 0,45 = 1,50%. Com grau 0, seria a mínima (0,45%).
+
+=== sc-32
+gab: C
+ref: res4ap I
+trecho: Vbase = Abase × (Faturamento – Tributos)
+apoio: @DOSE
+comando: Considerando essa situação hipotética e a metodologia de dosimetria da ANPD, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: O valor-base da multa é de R$ 3 milhões.
+comentario: Certo. Vbase = 1,5% × (230 − 30) milhões = 1,5% × 200 milhões = R$ 3 milhões. Os tributos são excluídos do faturamento.
+
+=== sc-33
+gab: E
+ref: res4ap I
+trecho: Vbase = Abase × (Faturamento – Tributos)
+apoio: @DOSE
+comando: Considerando essa situação hipotética e a metodologia de dosimetria da ANPD, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: O valor-base deve ser calculado sobre os R$ 230 milhões de faturamento bruto, sem exclusão dos tributos, o que resulta em R$ 3,45 milhões.
+comentario: Errado. A fórmula exclui os tributos: a base é de R$ 200 milhões, e o valor-base, de R$ 3 milhões.
+
+=== sc-34
+gab: C
+ref: res4ap I
+trecho: Vmulta = Vbase × (1 + Agravantes – Atenuantes)
+apoio: @DOSE
+comando: Considerando essa situação hipotética e a metodologia de dosimetria da ANPD, julgue os itens a seguir.
+armadilha: numero
+dif: 3
+enunciado: As agravantes e as atenuantes se compensam, e a multa final fica em R$ 3 milhões, abaixo do limite de 2% do faturamento.
+comentario: Certo. Agravantes: reincidência genérica (5%) + medida corretiva descumprida (30%) = 35%. Atenuantes: cessação após o processo e antes da decisão (30%) + cooperação (5%) = 35%. Vmulta = 3 milhões × (1 + 0,35 − 0,35) = R$ 3 milhões, abaixo do teto de R$ 4 milhões (2% de 200 milhões).
+
+=== sc-35
+gab: C
+ref: res4 18
+trecho: fará jus a um fator de redução de 25% (vinte e cinco por cento) no valor da multa aplicada
+apoio: @DOSE
+comando: Considerando essa situação hipotética e a metodologia de dosimetria da ANPD, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: Se a empresa renunciar expressamente ao direito de recorrer da decisão de primeira instância e pagar no prazo, a multa cairá para R$ 2,25 milhões.
+comentario: Certo. Redução de 25% (art. 18): 3 milhões × 0,75 = R$ 2,25 milhões, desde que o pagamento ocorra em 20 dias úteis da ciência (art. 17).
+
+=== sc-36
+gab: C
+ref: res4 15
+trecho: aplicando-se, neste caso, o dobro da vantagem econômica decorrente da infração
+apoio: @DOSE
+comando: Considerando essa situação hipotética e a metodologia de dosimetria da ANPD, julgue os itens a seguir.
+armadilha: numero
+dif: 3
+enunciado: Se a vantagem econômica obtida com a infração fosse estimável em R$ 1,8 milhão, a multa final passaria a ser de R$ 3,6 milhões.
+comentario: Certo. Com vantagem estimável, o piso é o dobro da vantagem (art. 15, I): R$ 3,6 milhões, acima dos R$ 3 milhões calculados e abaixo do teto de R$ 4 milhões.
+
+=== sc-37
+gab: C
+ref: res4ap II
+trecho: Média: 6.000,00 (seis mil reais)
+apoio: @DOSE2
+comando: Considerando essa situação hipotética e a metodologia de dosimetria da ANPD, julgue os itens a seguir.
+armadilha: numero
+dif: 3
+enunciado: A multa final será de R$ 6 mil, porque o valor calculado pela fórmula fica abaixo do mínimo previsto para infração média.
+comentario: Certo. Abase = (0,50 − 0,13) ÷ 3 × 1 + 0,13 ≈ 0,2533%; Vbase = R$ 76 mil. Atenuantes: 75% (cessação antes do procedimento preparatório) + 20% (boas práticas) = 95%. Vmulta = 76 mil × 0,05 = R$ 3.800, abaixo do mínimo de R$ 6 mil para infração média de quem tem faturamento (Apêndice II, Tabela 2).
+
+=== sc-38
+gab: E
+ref: res4 13
+trecho: 75% (setenta e cinco por cento), se previamente à instauração de procedimento preparatório pela ANPD
+apoio: @DOSE2
+comando: Considerando essa situação hipotética e a metodologia de dosimetria da ANPD, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: A cessação da infração antes do procedimento preparatório garante redução de 50% no valor da multa.
+comentario: Errado. Antes do procedimento preparatório, a redução é de 75%; 50% vale para a cessação entre o procedimento preparatório e a instauração do processo sancionador (art. 13, I, a e b).
