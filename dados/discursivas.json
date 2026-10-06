@@ -297,6 +297,128 @@
           ]
         }
       ]
+    },
+    {
+      "id": "eca-digital",
+      "titulo": "ECA Digital: deveres das plataformas e atuação da ANPD",
+      "linhas": 30,
+      "pontos": 20,
+      "fatorErro": 4,
+      "minutos": 60,
+      "comando": "A Lei nº 15.211/2025 (Estatuto Digital da Criança e do Adolescente) entrou em vigor em março de 2026, e a ANPD foi designada autoridade administrativa autônoma responsável por fiscalizar o seu cumprimento. Redija um texto dissertativo sobre esse diploma, abordando os seguintes aspectos:",
+      "aspectos": [
+        "alcance da lei e fundamentos da proteção de crianças e adolescentes em ambientes digitais;",
+        "deveres dos fornecedores, inclusive quanto à segurança desde a concepção, à verificação de idade e às vedações relacionadas a dados e publicidade;",
+        "fiscalização e sanções, com a repartição de competências entre a ANPD e o Poder Judiciário."
+      ],
+      "quesitos": [
+        {
+          "titulo": "Alcance e fundamentos",
+          "max": 3,
+          "esperado": [
+            "A lei se aplica a todo produto ou serviço de tecnologia da informação direcionado a crianças e adolescentes ou de acesso provável por eles, independentemente de onde seja desenvolvido, oferecido ou operado; o acesso provável considera probabilidade de uso e atratividade, facilidade de acesso e grau de risco (art. 1º e parágrafo único).",
+            "Proteção prioritária e melhor interesse, com nível elevado de privacidade, proteção de dados e segurança (art. 3º); fundamentos como proteção integral, prevalência absoluta dos interesses, condição de pessoa em desenvolvimento, autonomia progressiva, proteção contra exploração comercial e educação digital (art. 4º).",
+            "Responsabilidade compartilhada: cuidado ativo e contínuo dos pais com ferramentas de supervisão parental (art. 3º, parágrafo único) e responsabilidade solidária dos agentes da cadeia digital (art. 15)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto ou o fez de forma totalmente equivocada.",
+            "Mencionou a proteção de crianças sem delimitar o alcance da lei.",
+            "Delimitou o alcance (direcionado ou de acesso provável) e citou fundamentos.",
+            "Delimitou o alcance, citou fundamentos e explicou a responsabilidade compartilhada entre família, fornecedores e cadeia digital."
+          ]
+        },
+        {
+          "titulo": "Deveres dos fornecedores",
+          "max": 4,
+          "esperado": [
+            "Medidas razoáveis desde a concepção e ao longo da operação para prevenir e mitigar riscos de exposição a exploração e abuso sexual, violência, incentivo à automutilação, jogos de azar e apostas, publicidade predatória e pornografia (art. 6º); gerenciamento de riscos e configurações que evitem o uso compulsivo adotadas por padrão (art. 8º, I e IV).",
+            "Mecanismos confiáveis de verificação de idade para conteúdo impróprio, vedada a autodeclaração (art. 9º); sinal de idade fornecido por lojas e sistemas operacionais sem eximir o fornecedor de mecanismos próprios (arts. 12 e 14); dados da verificação usados unicamente para essa finalidade (art. 13).",
+            "Vinculação das contas de usuários de até 16 anos à conta de um responsável legal (art. 24); vedação de perfilamento para publicidade dirigida a crianças e adolescentes (art. 22) e de criação de perfis comportamentais (art. 26); vedação de caixas de recompensa em jogos (art. 20)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Citou um dever de forma genérica.",
+            "Citou deveres de dois dos grupos (segurança desde a concepção, verificação de idade, vedações).",
+            "Citou deveres dos três grupos, sem precisão nos detalhes.",
+            "Explicou deveres dos três grupos com precisão (por padrão, vedação da autodeclaração, finalidade exclusiva dos dados, vínculo até 16 anos, vedação de perfilamento)."
+          ]
+        },
+        {
+          "titulo": "Fiscalização e sanções",
+          "max": 3,
+          "esperado": [
+            "A ANPD é a autoridade administrativa autônoma de proteção dos direitos de crianças e adolescentes no ambiente digital (Decreto 12.622/2025, art. 2º) e pode emitir recomendações e orientações (art. 5º, § 3º).",
+            "Sanções do art. 35: advertência com prazo de até 30 dias para correção; multa simples de até 10% do faturamento do grupo no Brasil ou, sem faturamento, de R$ 10,00 a R$ 1.000,00 por usuário, limitada a R$ 50 milhões por infração; suspensão temporária e proibição das atividades.",
+            "Advertência e multa são aplicadas pela ANPD; suspensão e proibição, pelo Poder Judiciário, executadas por ordem de bloqueio a provedores de conexão e outros agentes (art. 35, §§ 5º e 6º); processo regido pelo ECA (art. 35, § 3º); filial no País responde solidariamente pela multa de empresa estrangeira (§ 2º)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Citou a ANPD ou as sanções, sem a repartição de competências.",
+            "Citou a ANPD e as sanções, com a repartição de competências incompleta.",
+            "Explicou o papel da ANPD, as sanções com seus limites e a repartição entre ANPD (advertência e multa) e Judiciário (suspensão e proibição)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decisao-automatizada",
+      "titulo": "Decisões automatizadas e o direito à revisão",
+      "linhas": 15,
+      "pontos": 10,
+      "fatorErro": 2,
+      "minutos": 30,
+      "comando": "Sistemas de inteligência artificial têm sido usados para conceder crédito, selecionar candidatos e precificar serviços. Redija um texto dissertativo sobre a disciplina das decisões automatizadas na LGPD, abordando os seguintes aspectos:",
+      "aspectos": [
+        "direito do titular em relação a decisões tomadas unicamente com base em tratamento automatizado;",
+        "dever de informação do controlador e limite dos segredos comercial e industrial;",
+        "atuação da ANPD diante da recusa de informações."
+      ],
+      "quesitos": [
+        {
+          "titulo": "Direito à revisão",
+          "max": 4,
+          "esperado": [
+            "O titular pode solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado que afetem seus interesses, incluídas as que definem perfil pessoal, profissional, de consumo e de crédito ou aspectos da personalidade (LGPD, art. 20, caput).",
+            "A LGPD não exige que a revisão seja feita por pessoa natural: a exigência constava da redação original, foi retirada pela MP 869/2018 e o dispositivo que a reintroduzia foi vetado na Lei 13.853/2019 (art. 20, § 3º, vetado).",
+            "Dados referentes ao exercício regular de direitos pelo titular não podem ser usados em seu prejuízo (art. 21), e o tratamento não pode ter fins discriminatórios ilícitos ou abusivos (art. 6º, IX)."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto ou o fez de forma totalmente equivocada.",
+            "Mencionou o direito à revisão sem os requisitos (decisão unicamente automatizada que afete interesses).",
+            "Explicou o direito com seus requisitos.",
+            "Explicou o direito e indicou que a lei não exige revisão humana.",
+            "Explicou o direito, a ausência de exigência de revisão humana e a vedação de uso discriminatório ou contra o exercício de direitos."
+          ]
+        },
+        {
+          "titulo": "Dever de informação",
+          "max": 3,
+          "esperado": [
+            "O controlador deve fornecer, sempre que solicitadas, informações claras e adequadas sobre os critérios e os procedimentos utilizados na decisão automatizada (art. 20, § 1º).",
+            "O dever observa os segredos comercial e industrial: explicam-se os critérios, sem obrigação de revelar o código ou o modelo protegido."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Mencionou a transparência de forma genérica.",
+            "Citou o dever de informar critérios e procedimentos.",
+            "Citou o dever e o limite dos segredos comercial e industrial."
+          ]
+        },
+        {
+          "titulo": "Auditoria da ANPD",
+          "max": 3,
+          "esperado": [
+            "Se o controlador não oferecer as informações com base em segredo comercial e industrial, a ANPD pode realizar auditoria para verificar aspectos discriminatórios no tratamento automatizado (art. 20, § 2º).",
+            "A ANPD pode ainda exigir relatório de impacto à proteção de dados pessoais (art. 38) e, constatada infração, aplicar as sanções do art. 52."
+          ],
+          "conceitos": [
+            "Não abordou o aspecto.",
+            "Mencionou a fiscalização da ANPD de forma genérica.",
+            "Citou a auditoria para verificar aspectos discriminatórios.",
+            "Citou a auditoria, ligando-a à recusa fundada em segredo, e outros instrumentos (relatório de impacto, sanções)."
+          ]
+        }
+      ]
     }
   ]
 }
