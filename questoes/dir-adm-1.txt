@@ -1,0 +1,380 @@
+bloco: administrativo
+// Trilha de direito administrativo, recorte ANPD: poderes administrativos (polícia, normativo, hierárquico,
+// disciplinar), poder sancionador da agência e organização administrativa (autarquia especial).
+// Itens escritos para o banco no padrão Cebraspe. Trechos conferidos em fontes/res1.txt, lgpd.txt,
+// lei13848.txt, lei10871.txt, lei9784.txt e cf88.txt.
+
+apoio_FISCAPP: Em procedimento de fiscalização, a ANPD constatou que um aplicativo de relacionamento compartilhava a geolocalização de seus usuários com anunciantes sem informá-los. A Coordenação-Geral de Fiscalização enviou ao controlador solicitação de regularização, com prazo para resposta, que não foi atendida. Em seguida, instaurou processo administrativo sancionador, lavrou auto de infração e, ao final, aplicou advertência com indicação de prazo para a adoção de medidas corretivas.
+apoio_SERVIDORX: Durante inspeção na sede de um controlador de dados, servidor ocupante do cargo de Especialista em Regulação de Proteção de Dados foi impedido de entrar na sala dos servidores de rede e ameaçado por um segurança. O servidor lavrou o registro da ocorrência e requisitou o auxílio da Polícia Federal para concluir a diligência.
+
+=== da-pod-01
+gab: C
+tema: adm-poderes
+ref: res1 32
+trecho: solicitação de regularização ou informe
+apoio: @FISCAPP
+comando: Considerando essa situação hipotética, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: A solicitação de regularização enviada ao controlador é medida preventiva e, por isso, não constitui sanção.
+comentario: A solicitação de regularização é medida preventiva (Res. CD/ANPD 1/2021, art. 32, III), e as medidas da atividade preventiva não constituem sanção ao agente regulado (art. 31). Sanção só vem depois de processo administrativo sancionador, com contraditório e ampla defesa.
+
+=== da-pod-02
+gab: C
+tema: adm-poderes
+ref: res1 32
+trecho: será considerado circunstância agravante em caso de instauração de processo administrativo sancionador
+apoio: @FISCAPP
+comando: Considerando essa situação hipotética, julgue os itens a seguir.
+armadilha: literal
+dif: 2
+enunciado: O não atendimento da solicitação de regularização será considerado circunstância agravante no processo administrativo sancionador instaurado contra o controlador.
+comentario: Res. CD/ANPD 1/2021, art. 32, § 2º: o não atendimento de medida preventiva enseja a progressão da atuação da ANPD e será considerado circunstância agravante se houver processo sancionador. É a lógica da regulação responsiva: quem não colabora sobe na pirâmide de enforcement.
+
+=== da-pod-03
+gab: E
+tema: adm-poderes
+ref: res1 38
+trecho: Não cabe recurso administrativo contra o despacho de instauração do processo administrativo sancionador.
+apoio: @FISCAPP
+comando: Considerando essa situação hipotética, julgue os itens a seguir.
+armadilha: excecao
+dif: 2
+enunciado: Contra o despacho que instaurou o processo administrativo sancionador, o controlador poderia ter interposto recurso administrativo ao Conselho Diretor.
+comentario: Res. CD/ANPD 1/2021, art. 38: não cabe recurso administrativo contra o despacho de instauração. A defesa se faz no próprio processo (dez dias úteis após a intimação do auto de infração, art. 47) e o recurso cabe contra a decisão de primeira instância (art. 58).
+
+=== da-pod-04
+gab: E
+tema: adm-poderes
+ref: lgpd 55-J
+trecho: mediante processo administrativo que assegure o contraditório, a ampla defesa e o direito de recurso
+apoio: @FISCAPP
+comando: Considerando essa situação hipotética, julgue os itens a seguir.
+armadilha: excecao
+dif: 2
+enunciado: Por se tratar de advertência, a sanção menos gravosa da LGPD, sua aplicação dispensava o contraditório e a ampla defesa, garantias exigidas apenas para a imposição de multa.
+comentario: A LGPD manda a ANPD fiscalizar e aplicar sanções mediante processo administrativo que assegure o contraditório, a ampla defesa e o direito de recurso (art. 55-J, IV), sem distinguir a sanção. A CF, art. 5º, LV, garante essas defesas a todo acusado em processo administrativo.
+
+=== da-pod-05
+gab: C
+tema: adm-poderes
+ref: res1 58
+trecho: interpor recurso administrativo ao Conselho Diretor, como instância administrativa máxima, no prazo de dez dias úteis
+apoio: @FISCAPP
+comando: Considerando essa situação hipotética, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: Intimado da decisão de primeira instância, o controlador poderá recorrer ao Conselho Diretor da ANPD, instância administrativa máxima, no prazo de dez dias úteis contados da intimação.
+comentario: Res. CD/ANPD 1/2021, art. 58. O recurso é dirigido à autoridade que proferiu a decisão (§ 2º), que pode reconsiderá-la (art. 62); tem efeito suspensivo limitado à matéria contestada (art. 60). Compare com a Lei 9.784: lá o prazo geral é de dez dias corridos (art. 59).
+
+=== da-pod-06
+gab: C
+tema: adm-poderes
+ref: doutrina poder de polícia
+apoio: @FISCAPP
+comando: Considerando essa situação hipotética, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: Ao fiscalizar o aplicativo e sancionar o controlador, a ANPD exerceu poder de polícia, que condiciona o exercício de atividades e direitos privados em benefício do interesse público.
+comentario: Poder de polícia é a atividade estatal que limita ou condiciona liberdade e propriedade em favor do interesse público, nas fases de ordem, consentimento, fiscalização e sanção. A ANPD o exerce sobre o tratamento de dados pessoais: edita normas (ordem), fiscaliza e sanciona.
+
+=== da-pod-07
+gab: E
+tema: adm-poderes
+ref: doutrina poder disciplinar
+apoio: @FISCAPP
+comando: Considerando essa situação hipotética, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: A advertência aplicada ao controlador decorre do poder disciplinar da ANPD, já que o agente de tratamento se submete à fiscalização da agência.
+comentario: Poder disciplinar alcança servidores e quem tem vínculo específico com a Administração (um contratado, por exemplo). O agente de tratamento é um particular sem esse vínculo: a sanção que recebe decorre do poder de polícia. Cebraspe cobra essa fronteira com frequência.
+
+=== da-pod-08
+gab: C
+tema: adm-poderes
+ref: lei10871 3
+trecho: requisitar, quando necessário, o auxílio de força policial federal ou estadual, em caso de desacato ou embaraço ao exercício de suas funções
+apoio: @SERVIDORX
+comando: Com base nessa situação hipotética e na Lei 10.871/2004, julgue os itens seguintes.
+armadilha: literal
+dif: 2
+enunciado: Diante do embaraço à diligência, o servidor agiu dentro das prerrogativas asseguradas aos ocupantes do cargo no exercício de atribuições decorrentes do poder de polícia, entre as quais a de requisitar o auxílio de força policial federal ou estadual.
+comentario: Lei 10.871, art. 3º, parágrafo único, com a redação da Lei 15.352/2026, que estendeu a prerrogativa à carreira da ANPD (inciso XXI do art. 1º): requisitar força policial quando necessário, em caso de desacato ou embaraço, além de interditar estabelecimentos e apreender bens ou produtos.
+
+=== da-pod-09
+gab: E
+tema: adm-poderes
+ref: lei10871 3
+trecho: em caso de desacato ou embaraço ao exercício de suas funções
+apoio: @SERVIDORX
+comando: Com base nessa situação hipotética e na Lei 10.871/2004, julgue os itens seguintes.
+armadilha: excecao
+dif: 2
+enunciado: A requisição de força policial é prerrogativa que o servidor pode exercer sempre que a julgar conveniente para o êxito da fiscalização, independentemente de desacato ou embaraço.
+comentario: A lei condiciona a requisição a ser necessária e a haver desacato ou embaraço ao exercício das funções (Lei 10.871, art. 3º, parágrafo único). Fora dessas hipóteses, a requisição seria abuso de poder.
+
+=== da-pod-10
+gab: C
+tema: adm-poderes
+ref: lei10871 3
+trecho: promover a interdição de estabelecimentos, instalações ou equipamentos e a apreensão de bens ou produtos
+apoio: @SERVIDORX
+comando: Com base nessa situação hipotética e na Lei 10.871/2004, julgue os itens seguintes.
+armadilha: rol
+dif: 2
+enunciado: Além de requisitar força policial, os ocupantes do cargo têm asseguradas as prerrogativas de promover a interdição de estabelecimentos, instalações ou equipamentos e a apreensão de bens ou produtos, no exercício de atribuições decorrentes do poder de polícia.
+comentario: Lei 10.871, art. 3º, parágrafo único. As prerrogativas valem para as atribuições de natureza fiscal ou decorrentes do poder de polícia, e a Lei 15.352/2026 incluiu nelas os cargos da ANPD.
+
+=== da-pod-11
+gab: C
+tema: adm-poderes
+ref: doutrina poder de polícia
+armadilha: conceito
+dif: 2
+enunciado: A autoexecutoriedade permite que a administração execute certas decisões de polícia sem prévia autorização judicial, mas não alcança a cobrança forçada de multa, que depende de execução judicial.
+comentario: Multa é coercitiva, mas não autoexecutória: se o infrator não paga, a cobrança se faz por inscrição em dívida ativa e execução fiscal. A LGPD manda o produto das multas da ANPD, inscritas ou não em dívida ativa, para o Fundo de Defesa de Direitos Difusos (art. 52, § 5º).
+
+=== da-pod-12
+gab: E
+tema: adm-poderes
+ref: stf RE 633.782 (Tema 532)
+armadilha: excecao
+dif: 3
+enunciado: Segundo o STF, lei pode delegar a pessoa jurídica de direito privado integrante da administração indireta todas as fases do ciclo de polícia, inclusive a ordem de polícia, desde que a entidade preste serviço público em regime não concorrencial.
+comentario: No Tema 532, o STF admitiu delegar, por lei, consentimento, fiscalização e sanção a estatal de capital majoritariamente público que preste exclusivamente serviço público próprio do Estado em regime não concorrencial. A ordem de polícia, que é a fase normativa, fica com o poder público.
+
+=== da-pod-13
+gab: E
+tema: adm-poderes
+ref: lgpd 55-J
+trecho: comunicar às autoridades competentes as infrações penais das quais tiver conhecimento
+armadilha: conceito
+dif: 2
+enunciado: Ao apurar infrações à LGPD e aplicar sanções, a ANPD exerce polícia judiciária, pois sua atuação prepara a responsabilização dos infratores.
+comentario: A ANPD exerce polícia administrativa, que incide sobre bens, direitos e atividades e se esgota na esfera administrativa. Polícia judiciária apura crimes e prepara a ação penal. Se a ANPD souber de infração penal, deve comunicá-la às autoridades competentes (LGPD, art. 55-J, XXI).
+
+=== da-pod-14
+gab: E
+tema: adm-poderes
+ref: cf88 84
+trecho: expedir decretos e regulamentos para sua fiel execução
+armadilha: sujeito
+dif: 2
+enunciado: O poder normativo da ANPD decorre da competência privativa do Presidente da República para expedir regulamentos, que lhe foi delegada por decreto, razão pela qual seus atos normativos têm forma de decreto.
+comentario: Expedir decretos e regulamentos é competência privativa do Presidente (CF, art. 84, IV). O poder normativo das agências vem da lei que as cria e lhes atribui competência técnica: na ANPD, a LGPD (art. 55-J, XIII e XX). Agência não edita decreto; edita resoluções, atos infralegais.
+
+=== da-pod-15
+gab: C
+tema: adm-poderes
+ref: cf88 49
+trecho: sustar os atos normativos do Poder Executivo que exorbitem do poder regulamentar ou dos limites de delegação legislativa
+armadilha: literal
+dif: 2
+enunciado: É da competência exclusiva do Congresso Nacional sustar os atos normativos do Poder Executivo que exorbitem do poder regulamentar ou dos limites de delegação legislativa.
+comentario: CF, art. 49, V, exercido por decreto legislativo. É um dos controles políticos do poder normativo. Contra resoluções de agências, o Congresso também tem usado projetos de decreto legislativo com esse fundamento, e o Judiciário pode anulá-las por ilegalidade.
+
+=== da-pod-16
+gab: E
+tema: adm-poderes
+ref: lgpd 55-J
+trecho: Os regulamentos e as normas editados pela ANPD devem ser precedidos de consulta e audiência públicas, bem como de análises de impacto regulatório.
+armadilha: excecao
+dif: 2
+enunciado: Os regulamentos editados pela ANPD dispensam consulta pública quando precedidos de análise de impacto regulatório que demonstre a necessidade da norma.
+comentario: LGPD, art. 55-J, § 2º: consulta e audiência públicas e análise de impacto regulatório, cumulativamente. Uma não substitui a outra.
+
+=== da-pod-17
+gab: E
+tema: adm-poderes
+ref: lei13848 5
+trecho: inclusive a respeito da edição ou não de atos normativos
+armadilha: excecao
+dif: 2
+enunciado: A agência reguladora deve indicar os pressupostos de fato e de direito que determinaram suas decisões, dever que não alcança a decisão de não editar ato normativo.
+comentario: Lei 13.848, art. 5º: a motivação vale inclusive a respeito da edição ou não de atos normativos. Decidir não regular também é decisão regulatória e precisa ser motivada.
+
+=== da-pod-18
+gab: C
+tema: adm-poderes
+ref: lei13848 4
+trecho: vedada a imposição de obrigações, restrições e sanções em medida superior àquela necessária ao atendimento do interesse público
+apoio: @FISCAPP
+comando: Considerando essa situação hipotética, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: Na escolha da sanção, a ANPD estava sujeita ao dever legal de adequação entre meios e fins, que veda impor sanção em medida superior à necessária ao atendimento do interesse público.
+comentario: Lei 13.848, art. 4º, aplicável à ANPD desde que ela passou a constar do rol de agências (art. 2º, XII). É a proporcionalidade positivada; a Res. CD/ANPD 1/2021 repete a ideia ao exigir atuação responsiva, com medidas proporcionais ao risco e à postura do agente (art. 17, IV).
+
+=== da-pod-19
+gab: E
+tema: adm-poderes
+ref: lei9784 13
+trecho: a decisão de recursos administrativos
+armadilha: excecao
+dif: 2
+enunciado: O Conselho Diretor da ANPD pode delegar a um coordenador-geral a decisão dos recursos administrativos interpostos contra as decisões de primeira instância nos processos sancionadores.
+comentario: Lei 9.784, art. 13, II, aplicável subsidiariamente aos processos da ANPD (Res. CD/ANPD 1/2021, art. 1º, § 2º): não se delegam a edição de atos normativos, a decisão de recursos administrativos e as matérias de competência exclusiva.
+
+=== da-pod-20
+gab: C
+tema: adm-poderes
+ref: doutrina abuso de poder
+armadilha: caso
+dif: 2
+enunciado: Servidor da ANPD que instaure fiscalização contra uma empresa com o único propósito de favorecer concorrente de seu familiar pratica desvio de finalidade, espécie de abuso de poder, ainda que tenha competência para fiscalizar.
+comentario: Abuso de poder tem duas espécies: excesso de poder (o agente vai além da competência) e desvio de finalidade (age dentro da competência, mas com fim diverso do interesse público). Aqui a competência existe; o vício é o fim.
+
+=== da-pod-21
+gab: E
+tema: adm-poderes
+ref: cf88 84
+trecho: organização e funcionamento da administração federal, quando não implicar aumento de despesa nem criação ou extinção de órgãos públicos
+armadilha: excecao
+dif: 2
+enunciado: O Presidente da República pode dispor, mediante decreto, sobre a organização e o funcionamento da administração federal, ainda que isso implique aumento de despesa, desde que não crie nem extinga órgãos públicos.
+comentario: CF, art. 84, VI, “a”: as duas condições são cumulativas, sem aumento de despesa e sem criação ou extinção de órgãos. É o decreto autônomo. Foi por decreto que se aprovou a nova estrutura regimental da ANPD, como manda a Lei 15.352/2026 (art. 14).
+
+=== da-pod-22
+gab: E
+tema: adm-poderes
+ref: lei13848 32
+trecho: com força de título executivo extrajudicial, termo de ajustamento de conduta
+armadilha: literal
+dif: 2
+enunciado: As agências reguladoras são autorizadas a celebrar termo de ajustamento de conduta com pessoas físicas ou jurídicas sujeitas a sua competência regulatória, com força de título executivo judicial.
+comentario: Lei 13.848, art. 32: o TAC tem força de título executivo extrajudicial. Na ANPD, o interessado pode propor TAC à Coordenação-Geral de Fiscalização (Res. CD/ANPD 1/2021, art. 43), e a LGPD prevê compromisso com base na LINDB (art. 55-J, XVII).
+
+=== da-pod-23
+gab: C
+tema: adm-poderes
+ref: lgpd 55-J
+trecho: a ANPD deve observar a exigência de mínima intervenção
+armadilha: literal
+dif: 2
+enunciado: Ao impor condicionantes administrativas, como limites, encargos ou sujeições, ao tratamento de dados pessoais por agente de tratamento privado, a ANPD deve observar a exigência de mínima intervenção.
+comentario: LGPD, art. 55-J, § 1º, assegurados os fundamentos, os princípios e os direitos previstos no art. 170 da CF e na própria lei. A mínima intervenção reaparece como premissa da fiscalização (Res. CD/ANPD 1/2021, art. 17, IX).
+
+=== da-pod-24
+gab: E
+tema: adm-poderes
+ref: res1 15
+trecho: A atividade repressiva caracteriza-se pela atuação coercitiva da ANPD
+armadilha: conceito
+dif: 2
+enunciado: A atividade de orientação da ANPD caracteriza-se pela atuação coercitiva voltada à interrupção de situações de dano ou risco e à punição dos responsáveis.
+comentario: Essa é a atividade repressiva (Res. CD/ANPD 1/2021, art. 15, § 4º). A orientação se baseia na economicidade e em métodos de conscientização e educação (§ 2º); a preventiva, na construção conjunta de soluções (§ 3º); o monitoramento, no levantamento de informações (§ 1º).
+
+=== da-org-01
+gab: E
+tema: adm-organizacao
+ref: doutrina descentralização e desconcentração
+armadilha: conceito
+dif: 1
+enunciado: A criação da ANPD como autarquia é exemplo de desconcentração administrativa, pois a entidade permanece vinculada a um ministério.
+comentario: Criar pessoa jurídica nova para executar atividade estatal é descentralização (por outorga, quando feita por lei). Desconcentração é a distribuição de competências entre órgãos dentro da mesma pessoa jurídica, como as coordenações-gerais dentro da ANPD. Vinculação não é hierarquia.
+
+=== da-org-02
+gab: C
+tema: adm-organizacao
+ref: doutrina órgão e entidade
+armadilha: conceito
+dif: 1
+enunciado: A ANPD é entidade dotada de personalidade jurídica própria, ao passo que a sua Coordenação-Geral de Fiscalização é órgão, centro de competência sem personalidade jurídica.
+comentario: Entidade tem personalidade jurídica (a autarquia responde em juízo em nome próprio); órgão é unidade de atuação despersonalizada que integra a estrutura de uma pessoa jurídica. Os atos da Coordenação-Geral são imputados à ANPD (teoria do órgão).
+
+=== da-org-03
+gab: E
+tema: adm-organizacao
+ref: lei13848 3
+trecho: ausência de tutela ou de subordinação hierárquica
+armadilha: caso
+dif: 2
+enunciado: Insatisfeito com resolução do Conselho Diretor da ANPD, o ministro da Justiça e Segurança Pública pode anulá-la ou revogá-la de ofício, pois a agência é a ele subordinada hierarquicamente.
+comentario: A natureza especial da agência é caracterizada pela ausência de tutela ou de subordinação hierárquica e pela autonomia decisória (Lei 13.848, art. 3º). Vinculação ao ministério não é hierarquia. O recurso a autoridade de fora da entidade, chamado hierárquico impróprio, só cabe com previsão legal.
+
+=== da-org-04
+gab: C
+tema: adm-organizacao
+ref: lei13848 3
+trecho: autorização para a realização de concursos públicos
+armadilha: literal
+dif: 2
+enunciado: A autonomia administrativa da agência reguladora compreende a competência para solicitar diretamente ao ministério responsável pela gestão de pessoal autorização para a realização de concursos públicos.
+comentario: Lei 13.848, art. 3º, § 2º, I, “a” (o texto fala no antigo Ministério da Economia; hoje a matéria é do Ministério da Gestão). Foi assim que a ANPD pediu as vagas: a Nota Técnica 2/2026 instruiu o pedido e a Portaria MGI 5.092/2026 autorizou 50 cargos.
+
+=== da-org-05
+gab: C
+tema: adm-organizacao
+ref: lei13848 3
+trecho: elaborar e divulgar programa de integridade
+armadilha: literal
+dif: 2
+enunciado: As agências reguladoras devem adotar práticas de gestão de riscos e de controle interno e elaborar e divulgar programa de integridade destinado a prevenir, detectar, punir e remediar fraudes e atos de corrupção.
+comentario: Lei 13.848, art. 3º, § 3º. A gestão de riscos, o controle interno e a integridade são também temas de governança pública, cobrados nos conhecimentos gerais do padrão CNU.
+
+=== da-org-06
+gab: E
+tema: adm-organizacao
+ref: doutrina agência executiva
+armadilha: conceito
+dif: 2
+enunciado: A ANPD é agência executiva, qualificação conferida por decreto à autarquia que celebra contrato de gestão com o ministério supervisor para ampliar sua autonomia.
+comentario: Agência executiva é qualificação dada por ato do Executivo a autarquia ou fundação que tenha plano estratégico e celebre contrato de gestão (Lei 9.649/1998, art. 51). A ANPD é agência reguladora: autarquia de natureza especial criada por lei, com autonomia que vem da própria lei (LGPD, art. 55-A; Lei 13.848, art. 3º).
+
+=== da-org-07
+gab: C
+tema: adm-organizacao
+ref: cf88 150
+trecho: A vedação do inciso VI, "a", é extensiva às autarquias
+armadilha: conceito
+dif: 2
+enunciado: A imunidade tributária recíproca, que impede a União, os estados, o Distrito Federal e os municípios de instituir impostos sobre patrimônio, renda ou serviços uns dos outros, estende-se à ANPD no que se refere ao patrimônio, à renda e aos serviços vinculados a suas finalidades essenciais.
+comentario: CF, art. 150, VI, “a”, e § 2º: a vedação é extensiva às autarquias e fundações instituídas e mantidas pelo poder público, quanto ao que se vincula às suas finalidades essenciais ou delas decorre. É um traço do regime de direito público da autarquia, ao lado dos bens impenhoráveis e das prerrogativas processuais.
+
+=== da-org-08
+gab: E
+tema: adm-organizacao
+ref: doutrina autarquia
+armadilha: conceito
+dif: 2
+enunciado: Por ser dotada de autonomia financeira e patrimônio próprio, a ANPD tem seus bens sujeitos a penhora em execução movida por credor, como ocorre com as empresas privadas.
+comentario: Autarquia é pessoa jurídica de direito público: seus bens são públicos, impenhoráveis, e seus débitos judiciais se pagam por precatório ou requisição de pequeno valor (CF, art. 100). Autonomia financeira significa gerir as próprias receitas (LGPD, art. 55-L), não sair do regime público.
+
+=== da-org-09
+gab: C
+tema: adm-organizacao
+ref: lei13848 6
+trecho: Nos casos em que não for realizada a AIR, deverá ser disponibilizada, no mínimo, nota técnica ou documento equivalente que tenha fundamentado a proposta de decisão.
+armadilha: literal
+dif: 3
+enunciado: Quando não for realizada análise de impacto regulatório para a edição de ato normativo, a agência reguladora deverá disponibilizar, no mínimo, nota técnica ou documento equivalente que tenha fundamentado a proposta de decisão.
+comentario: Lei 13.848, art. 6º, § 5º. O regulamento (Decreto 10.411/2020) diz quando a AIR é obrigatória e quando pode ser dispensada. Lembre que, para a ANPD, a LGPD exige AIR, consulta e audiência públicas para regulamentos (art. 55-J, § 2º).
+
+=== da-org-10
+gab: C
+tema: adm-organizacao
+ref: lei15352 9
+trecho: sem aumento de despesa, mediante compensação financeira
+armadilha: caso
+dif: 2
+enunciado: Os 200 cargos de Especialista em Regulação de Proteção de Dados foram obtidos pela transformação de cargos efetivos vagos de outros órgãos, sem aumento de despesa, mediante compensação financeira.
+comentario: Lei 15.352/2026, art. 9º: 797 cargos efetivos vagos transformados em 200 cargos de Especialista e em 18 cargos em comissão e funções de confiança, vedada a produção de efeitos retroativos. O provimento observa o art. 169, § 1º, da CF (art. 11): depende de dotação orçamentária e de autorização na LDO.
+
+=== da-org-11
+gab: E
+tema: adm-organizacao
+ref: doutrina administração indireta
+armadilha: conceito
+dif: 1
+enunciado: Autarquias, fundações públicas, empresas públicas e sociedades de economia mista integram a administração direta da União quando vinculadas a ministério.
+comentario: Integram a administração indireta. A administração direta é formada pelos órgãos sem personalidade própria da pessoa política (a União, com Presidência e ministérios). A vinculação a ministério serve à supervisão, não muda a natureza da entidade.
+
+=== da-org-12
+gab: C
+tema: adm-organizacao
+ref: lei13848 29
+trecho: duas ou mais agências reguladoras poderão editar atos normativos conjuntos
+armadilha: caso
+dif: 2
+enunciado: Diante de serviço de telecomunicações que trata grande volume de dados pessoais, a ANPD e a Anatel podem editar ato normativo conjunto sobre matéria que envolva agentes sujeitos às duas regulações setoriais.
+comentario: Lei 13.848, art. 29: duas ou mais agências podem editar atos normativos conjuntos quando a matéria envolva agentes econômicos sujeitos a mais de uma regulação setorial. A LGPD manda a ANPD coordenar sua atuação com os reguladores setoriais (art. 55-J, §§ 3º e 4º), e suas competências prevalecem em proteção de dados (art. 55-K).
