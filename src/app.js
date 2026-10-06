@@ -518,6 +518,33 @@ function xpAcerto(q, combo, modo) {
   // A sequência de acertos só multiplica XP no relâmpago; no treino e na revisão o que vale é ler o comentário, não correr
   return modo === 'relampago' ? Math.round(x * (1 + Math.min(combo, 10) * 0.05)) : x;
 }
+// Intervalo adaptativo. A escada INTERVALOS é a base, e dois fatores a ajustam a partir do nível 2:
+// - o do item: erros e acertos com dúvida encurtam; acertos seguros repetidos alongam (como a facilidade do Anki);
+// - o da pessoa: a retenção medida nas revisões de manutenção dos últimos 30 dias calibra todos os intervalos para
+//   mirar 90% de lembrança. Com esquecimento exponencial, R = e^(−t/S), o intervalo que dá a retenção-alvo é
+//   t × ln(0,9) ÷ ln(R medida). Abaixo de 20 revisões medidas, o fator fica neutro.
+// Os níveis 0 e 1 (erro recente) não mudam: rever logo o erro é o que mais rende.
+const RETENCAO_ALVO = 0.9;
+function fatorItem(r) {
+  const erros = Math.min(r[3] || 0, 4), duvidas = Math.min((r[5] || 0) + (r[6] || 0), 3), seguros = Math.max(0, (r[2] || 0) - (r[5] || 0) - 1);
+  return Math.max(0.5, Math.min(1.3, 1 - 0.12 * erros - 0.08 * duvidas + 0.06 * Math.min(seguros, 5)));
+}
+function retencaoMedida() {
+  const hoje = HOJE();
+  let m = 0, mc = 0;
+  for (const [iso, d] of Object.entries(S.perfil.dias || {})) if (hoje - diaNum(iso) <= 30) { m += d.m || 0; mc += d.mc || 0; }
+  return { m, mc, ret: m ? mc / m : null, calibra: m >= 20 };
+}
+function fatorPessoa() {
+  const x = retencaoMedida();
+  if (!x.calibra) return 1;
+  const ret = Math.max(0.5, Math.min(0.99, x.ret));
+  return Math.max(0.7, Math.min(1.5, Math.log(RETENCAO_ALVO) / Math.log(ret)));
+}
+function intervalo(r) {
+  const base = INTERVALOS[r[0]];
+  return r[0] < 2 ? base : Math.max(1, Math.round(base * fatorItem(r) * fatorPessoa()));
+}
 function registrar(q, resp, duvida) {
   const hoje = HOJE();
   const r = S.itens[q.id] ? S.itens[q.id].slice() : [-1, 0, 0, 0, 0, 0, 0];
@@ -539,13 +566,13 @@ function registrar(q, resp, duvida) {
       if (duvida) r[5]++;
     } else { r[3]++; r[0] = 0; if (duvida) r[6]++; }
   }
-  r[1] = hoje + INTERVALOS[r[0]];
+  r[1] = hoje + intervalo(r);
   r[4] = hoje;
   S.itens[q.id] = r;
   if (estavaNaLista && r[0] >= 3) S.perfil.saidos = (S.perfil.saidos || 0) + 1;
   const d = diaLog();
   if (resp === BRANCO) d.b = (d.b || 0) + 1; else { d.r++; if (ok) d.c++; else d.e++; }
-  if (eraManutencao) d.m = (d.m || 0) + 1;
+  if (eraManutencao) { d.m = (d.m || 0) + 1; if (ok && !duvida) d.mc = (d.mc || 0) + 1; }
   if (ok === false) sugerirPesquisaDoErro(q);
   return ok;
 }
@@ -1691,6 +1718,8 @@ async function conferirInv() {
       onText: ({ text }) => { resposta.content = text; const el = document.getElementById('inv-ultima'); if (el) el.textContent = text; },
     });
     resposta.content = r.text + (r.truncated ? ' […]' : '');
+    // Explicar com as próprias palavras vale XP (uma vez por tema e conversa): o incentivo é pensar, não responder rápido
+    if (!inv.xp && txt.length >= 80) { inv.xp = 1; ganharXP(5); Store.salvar('perfil'); avisar('✎', '+5 XP', 'Por explicar com suas palavras.'); }
   } catch (e) {
     if (e && e.text) resposta.content = e.text + ' […]';
     else { inv.turnos.splice(-2, 2); inv.rascunho = txt; }
@@ -1982,6 +2011,10 @@ function renderProgresso() {
   for (const q of Q) { const r = rec(q.id); if (!r || r[7] == null) continue; const dd = (BI.get(q.b) || {}).disciplina; const x = (prim[dd] ||= { c: 0, n: 0 }); x.n++; x.c += r[7]; }
   const pl1 = Object.entries(prim).filter(([, v]) => v.n >= 10);
   const tot1 = Object.values(prim).reduce((a, v) => ({ c: a.c + v.c, n: a.n + v.n }), { c: 0, n: 0 });
+  const rm = retencaoMedida(), fp = fatorPessoa();
+  html += '<div class="cartao"><div class="secao-cab"><h2>Revisão adaptativa</h2><span class="mudo pequeno">' + (rm.m ? pct(rm.mc, rm.m) + '% de ' + pl(rm.m, 'revisão', 'revisões') + ' em 30 dias' : 'sem revisões de manutenção ainda') + '</span></div>' +
+    '<p>' + (rm.calibra ? 'Você lembrou, com segurança, ' + pct(rm.mc, rm.m) + '% dos acertos antigos que voltaram. A meta é 90%: os intervalos de revisão estão ' + (fp > 1.02 ? 'alongados em ' + Math.round((fp - 1) * 100) + '%, porque você está esquecendo menos do que o previsto.' : fp < 0.98 ? 'encurtados em ' + Math.round((1 - fp) * 100) + '%, para os itens voltarem antes de serem esquecidos.' : 'no ponto certo.') : 'A calibração começa com 20 revisões de acertos antigos (faltam ' + (20 - rm.m) + '). Até lá, os intervalos seguem o padrão.') + '</p>' +
+    '<p class="pequeno mudo">Cada item também tem o seu ritmo: o que você já errou ou acertou com dúvida volta antes; o que acerta com segurança repetidas vezes espaça mais.</p></div>';
   html += '<div class="cartao"><div class="secao-cab"><h2>Acerto em itens inéditos</h2><span class="mudo pequeno">' + (tot1.n ? pct(tot1.c, tot1.n) + '% em ' + tot1.n + ' primeiras respostas' : 'primeira resposta de cada item') + '</span></div>' +
     (pl1.length ? '<div class="dominio">' + pl1.map(([dd, v]) => '<div class="dom-linha"><span class="nome">' + esc((DI.get(dd) || { nome: dd }).nome) + ' · ' + v.n + ' itens</span>' + barra(v.c / v.n) + '<span class="val">' + pct(v.c, v.n) + '%</span></div>').join('') + '</div>' : '<p class="mudo">Aparece por disciplina a partir de 10 itens respondidos pela primeira vez.</p>') +
     '<p class="pequeno mudo">O acerto geral sobe quando o mesmo item volta na revisão e você o reconhece. Aqui conta só a primeira resposta de cada item: é o número que se parece com a prova.</p></div>';
@@ -2089,7 +2122,7 @@ function renderMetodo() {
     '<li><b>Para pesquisar.</b> Os termos das questões erradas entram sozinhos na sua lista. Investigue um tema por dia: o painel pergunta, você explica com suas palavras e o Claude confere e aprofunda. Explicar é o que fixa.</li></ol>' +
     '<h3>Regras que não se negociam</h3><ul>' +
     '<li>O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça.</li>' +
-    '<li>O acerto também volta, para confirmar que não foi sorte: o acerto de primeira volta em 16 dias, e cada confirmação seguinte espaça mais (35 dias). Esses acertos antigos entram na revisão do dia, no máximo ' + MANUTENCAO_DIA + ' por dia, os mais atrasados primeiro, e ocupam até um quarto das sessões de questões.</li>' +
+    '<li>O acerto também volta, para confirmar que não foi sorte: o acerto de primeira volta em cerca de 16 dias, e cada confirmação seguinte espaça mais (cerca de 35 dias). Os intervalos se adaptam: o item que você já errou ou acertou com dúvida volta antes, e a sua retenção real nas revisões calibra todos os prazos para mirar 90% de lembrança (Mais → Progresso). Esses acertos antigos entram na revisão do dia, no máximo ' + MANUTENCAO_DIA + ' por dia, os mais atrasados primeiro, e ocupam até um quarto das sessões de questões.</li>' +
     '<li>Intercale. Todo dia há uma sessão que mistura as matérias básicas com os blocos já estudados. Assunto novo entra em bloco; o que você já viu volta misturado, porque misturar obriga a reconhecer o tipo de questão e fixa mais (prática intercalada, somada à revisão espaçada e à recuperação ativa).</li>' +
     '<li>Revisão vem antes de questão nova. Quando a lista curta vencida passa de ' + REVISOES_DIA_PESADO + ' itens, a sessão de questões novas do dia encolhe sozinha.</li>' +
     '<li>Errou, leia o artigo inteiro. O botão “Ler inteiro, grifado” aparece depois de cada questão e de cada card. A leitura do dia tem no máximo ' + LEITURA_MAX + ' artigos: quando os blocos do dia têm mais, o app escolhe os ligados à sua lista curta, os ainda não lidos e os mais cobrados.</li>' +
