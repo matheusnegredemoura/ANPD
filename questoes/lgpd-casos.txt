@@ -6,6 +6,7 @@
 apoio_FARMA: Na segunda-feira, 2 de março, a equipe de tecnologia de uma rede de farmácias de grande porte confirmou que um ataque de ransomware, iniciado no fim de semana anterior, havia copiado e criptografado a base de clientes: nomes, CPFs, endereços, histórico de compra de medicamentos e senhas de acesso ao aplicativo de cerca de quatrocentas mil pessoas, muitas delas idosas. A empresa contratou perícia, restabeleceu os sistemas a partir de cópias de segurança e não pagou o resgate. Todos os clientes afetados podem ser contatados pelo aplicativo e por e-mail.
 apoio_CREDITO: Uma fintech decide pedidos de cartão de crédito por meio de um sistema que atribui pontuação a cada cliente e responde ao pedido sem nenhuma intervenção humana. Carlos teve o pedido negado e descobriu que o modelo considera, entre outros fatores, o fato de ele ter ajuizado, no ano anterior, ação judicial contra outra instituição financeira.
 apoio_PERFIS: Ao final de processo administrativo sancionador, a ANPD concluiu que uma empresa de comércio eletrônico, sem condenações anteriores, tratou dados de cerca de dois milhões de clientes sem amparo em hipótese legal, para vender perfis de consumo a anunciantes e lucrar com isso. Por iniciativa própria, a empresa havia encerrado a prática antes de qualquer procedimento preparatório da ANPD e, durante o processo, cooperou com a fiscalização.
+apoio_PAS: Após receber denúncia, a Coordenação-Geral de Fiscalização da ANPD abriu procedimento preparatório, sob sigilo, para averiguar se um aplicativo de transporte coletava a localização dos usuários mesmo com o aplicativo fechado. Reunidos indícios suficientes, instaurou processo administrativo sancionador e lavrou auto de infração, do qual a empresa foi intimada. A empresa propôs a celebração de termo de ajustamento de conduta e, enquanto aguardava, apresentou defesa. Durante a instrução, a ANPD juntou aos autos laudo produzido pela autoridade de proteção de dados de outro país, em investigação sobre o mesmo aplicativo.
 apoio_NUVEM: Uma universidade federal contratou serviço de armazenamento em nuvem de empresa sediada nos Estados Unidos da América para guardar dados acadêmicos e financeiros de seus estudantes. O contrato incorpora as cláusulas-padrão contratuais aprovadas pela ANPD, mas a universidade pretende alterar a redação da cláusula sobre direitos dos titulares para reduzir custos operacionais.
 
 === cs-inc-01
@@ -426,3 +427,135 @@ armadilha: conceito
 dif: 3
 enunciado: Se um sítio eletrônico estrangeiro coletar dados pessoais diretamente de estudantes brasileiros, sem intermediação de agente de tratamento situado no Brasil, haverá coleta internacional, que não caracteriza transferência internacional de dados, embora possa atrair a aplicação da LGPD.
 comentario: Res. 19/2024, art. 6º e parágrafo único: coleta internacional (direta, pelo agente no exterior) não é transferência, mas a LGPD se aplica quando presente alguma hipótese do seu art. 3º (oferta de serviços a pessoas no Brasil, por exemplo).
+
+=== cs-pas-01
+gab: C
+bloco: res-1-2021
+ref: res1 40, parágrafo único
+trecho: O procedimento preparatório poderá tramitar em sigilo, no interesse das investigações, a critério da Coordenação-Geral de Fiscalização
+apoio: @PAS
+comando: Considerando essa situação hipotética e o Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens a seguir.
+armadilha: literal
+dif: 2
+enunciado: O procedimento preparatório podia tramitar em sigilo, no interesse das investigações, a critério da Coordenação-Geral de Fiscalização.
+comentario: Art. 40 e parágrafo único. O procedimento preparatório serve para averiguações preliminares quando os indícios ainda não bastam para instaurar o processo sancionador. O sigilo protege a investigação, não o investigado.
+
+=== cs-pas-02
+gab: E
+bloco: res-1-2021
+ref: res1 47
+trecho: apresentar defesa no prazo máximo de dez dias úteis
+apoio: @PAS
+comando: Considerando essa situação hipotética e o Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: Intimada do auto de infração, a empresa dispunha de quinze dias úteis para apresentar defesa.
+comentario: O prazo é de dez dias úteis (art. 47). Também são de dez dias úteis o recurso ao Conselho Diretor (art. 58) e a manifestação sobre provas novas antes do relatório de instrução (art. 53).
+
+=== cs-pas-03
+gab: C
+bloco: res-1-2021
+ref: res1 48, § 4º
+trecho: inclusive por autoridades de proteção de dados de outros países, atribuindo-lhe o valor que considerar adequado, observados o contraditório e a ampla defesa
+apoio: @PAS
+comando: Considerando essa situação hipotética e o Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens a seguir.
+armadilha: caso
+dif: 3
+enunciado: A ANPD pode utilizar o laudo produzido pela autoridade estrangeira, atribuindo-lhe o valor que considerar adequado, desde que assegurados à empresa o contraditório e a ampla defesa.
+comentario: Art. 48, § 4º: admite-se prova emprestada de outro processo, administrativo ou judicial, inclusive de autoridades de proteção de dados de outros países. É uma ponte com a cooperação internacional prevista na LGPD (art. 55-J, IX).
+
+=== cs-pas-04
+gab: E
+bloco: res-1-2021
+ref: res1 43, § 2º
+trecho: A suspensão do processo terá início após a assinatura do termo de ajustamento de conduta
+apoio: @PAS
+comando: Considerando essa situação hipotética e o Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens a seguir.
+armadilha: excecao
+dif: 2
+enunciado: A simples apresentação da proposta de termo de ajustamento de conduta suspendeu o processo sancionador.
+comentario: A suspensão só começa com a assinatura do termo (art. 43, § 2º). Até lá, o processo segue: por isso a empresa fez bem em apresentar defesa no prazo.
+
+=== cs-pas-05
+gab: C
+bloco: res-1-2021
+ref: res1 43
+trecho: A proposta será submetida ao Conselho Diretor para deliberação
+apoio: @PAS
+comando: Considerando essa situação hipotética e o Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens a seguir.
+armadilha: literal
+dif: 2
+enunciado: A proposta de termo de ajustamento de conduta será submetida à deliberação do Conselho Diretor e, se celebrado o termo e cumprido integralmente, o processo será arquivado.
+comentario: Art. 43, §§ 1º e 3º. A proposta é apresentada à Coordenação-Geral de Fiscalização, mas quem decide é o Conselho Diretor. Cumprido o termo, arquiva-se o processo.
+
+=== cs-pas-06
+gab: E
+bloco: res-1-2021
+ref: res1 54
+trecho: Transcorrido o prazo de defesa, independentemente da sua apresentação, será elaborado relatório de instrução
+apoio: @PAS
+comando: Considerando essa situação hipotética e o Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: Se a empresa não tivesse apresentado defesa, o processo ficaria paralisado até que ela se manifestasse.
+comentario: O processo é impulsionado de ofício: transcorrido o prazo, com ou sem defesa, elabora-se o relatório de instrução (art. 54). O revel pode intervir em qualquer fase, sem repetição de atos (art. 50, parágrafo único).
+
+=== cs-pas-07
+gab: C
+bloco: res-1-2021
+ref: res1 50
+trecho: Cabe ao autuado a prova dos fatos que alegar, sem prejuízo do dever atribuído ao órgão competente para instrução
+apoio: @PAS
+comando: Considerando essa situação hipotética e o Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens a seguir.
+armadilha: literal
+dif: 2
+enunciado: Cabe à empresa a prova dos fatos que alegar em sua defesa, sem prejuízo do dever da ANPD de instruir o processo.
+comentario: Art. 50, que reproduz a regra do art. 36 da Lei 9.784. Os pedidos de prova podem ser indeferidos pela Coordenação-Geral de Fiscalização (art. 51), em decisão motivada.
+
+=== cs-pas-08
+gab: C
+bloco: res-1-2021
+ref: res1 53
+trecho: É facultado prazo de dez dias úteis para manifestação do autuado antes da elaboração do Relatório de instrução, se entre a defesa e a instrução processual forem produzidas novas provas
+apoio: @PAS
+comando: Considerando essa situação hipotética e o Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens a seguir.
+armadilha: numero
+dif: 3
+enunciado: Como o laudo estrangeiro foi juntado depois da defesa, é facultado à empresa prazo de dez dias úteis para se manifestar antes da elaboração do relatório de instrução.
+comentario: Art. 53. É a garantia do contraditório sobre prova nova: a empresa não pode ser surpreendida por documento sobre o qual não falou.
+
+=== cs-pas-09
+gab: E
+bloco: res-1-2021
+ref: res1 55
+trecho: a Coordenação-Geral de Fiscalização proferirá a decisão de primeira instância
+apoio: @PAS
+comando: Considerando essa situação hipotética e o Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens a seguir.
+armadilha: sujeito
+dif: 2
+enunciado: A decisão de primeira instância no processo sancionador será proferida pelo Conselho Diretor da ANPD.
+comentario: A primeira instância é a Coordenação-Geral de Fiscalização (art. 55); o Conselho Diretor é a instância recursal máxima (art. 58). A decisão deve ser motivada e seu resumo é publicado no Diário Oficial da União.
+
+=== cs-pas-10
+gab: C
+bloco: res-1-2021
+ref: res1 58
+trecho: interpor recurso administrativo ao Conselho Diretor, como instância administrativa máxima, no prazo de dez dias úteis
+apoio: @PAS
+comando: Considerando essa situação hipotética e o Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens a seguir.
+armadilha: literal
+dif: 2
+enunciado: Da decisão de primeira instância, a empresa poderá interpor recurso administrativo ao Conselho Diretor, como instância administrativa máxima, no prazo de dez dias úteis contados da intimação.
+comentario: Art. 58. O recurso é dirigido à autoridade que proferiu a decisão (§ 2º), que pode reconsiderar antes de encaminhá-lo, como na Lei 9.784.
+
+=== cs-pas-11
+gab: E
+bloco: res-1-2021
+ref: res1 60
+trecho: O recurso administrativo terá efeito suspensivo limitado à matéria contestada da decisão
+apoio: @PAS
+comando: Considerando essa situação hipotética e o Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens a seguir.
+armadilha: absoluto
+dif: 3
+enunciado: Interposto recurso contra a decisão de primeira instância, todos os efeitos da decisão ficam suspensos, ainda que o recurso conteste apenas parte dela.
+comentario: O efeito suspensivo é limitado à matéria contestada (art. 60), ressalvado o fundado receio de prejuízo de difícil ou incerta reparação. A parte não impugnada pode ser executada.
