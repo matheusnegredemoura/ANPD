@@ -1,0 +1,252 @@
+bloco: gestao-publica
+// Gestão pública, parte B: desempenho (eficiência, eficácia, efetividade), planejamento estratégico (BSC, SWOT, PDCA),
+// gestão de riscos (ISO 31000 e modelo das três linhas), projetos (PMBOK e Scrum), processos (BPM e BPMN),
+// gestão do conhecimento e dados (qualidade, data warehouse, dados abertos). Itens de doutrina escritos para o banco;
+// os trechos da LAI foram conferidos em fontes/lai.txt.
+
+=== gp-01
+gab: C
+ref: doutrina Avaliação de desempenho na gestão pública
+armadilha: conceito
+dif: 1
+enunciado: Na avaliação de desempenho da gestão pública, eficiência relaciona os produtos obtidos aos recursos empregados, eficácia mede o alcance das metas planejadas e efetividade avalia o impacto da ação sobre o problema que a motivou.
+comentario: São as três dimensões clássicas, também usadas pelo TCU nas auditorias operacionais, que acrescentam a economicidade (minimizar o custo dos recursos sem comprometer a qualidade).
+
+=== gp-02
+gab: E
+ref: doutrina Avaliação de desempenho na gestão pública
+armadilha: conceito
+dif: 2
+enunciado: Programa que cumpriu todas as metas de capacitação previstas, mas não alterou o problema que buscava resolver, foi efetivo, embora possa não ter sido eficiente.
+comentario: Errado. Cumprir as metas é eficácia. Não alterar o problema significa falta de efetividade, que mede o impacto. A banca troca as três palavras entre si.
+
+=== gp-03
+gab: C
+ref: doutrina Balanced Scorecard (Kaplan e Norton)
+armadilha: rol
+dif: 1
+enunciado: O Balanced Scorecard organiza objetivos e indicadores nas perspectivas financeira, dos clientes, dos processos internos e de aprendizado e crescimento, ligadas por relações de causa e efeito no mapa estratégico.
+comentario: No setor público, costuma-se pôr a sociedade ou o cidadão no topo do mapa e tratar o orçamento como meio, não como fim. O BSC complementa, e não substitui, os indicadores financeiros.
+
+=== gp-04
+gab: E
+ref: doutrina Planejamento estratégico (análise SWOT)
+armadilha: conceito
+dif: 1
+enunciado: Na análise SWOT de uma agência reguladora, a aprovação de lei que amplia suas competências é uma força, por estar sob controle da organização.
+comentario: Errado. Mudança legislativa é fator do ambiente externo: é oportunidade (ou ameaça), não força. Forças e fraquezas são internas, como quadro técnico qualificado ou sistemas defasados.
+
+=== gp-05
+gab: C
+ref: doutrina Planejamento estratégico (missão e visão)
+armadilha: conceito
+dif: 1
+enunciado: No planejamento estratégico, a missão expressa a razão de ser da organização, enquanto a visão descreve a situação futura que ela pretende alcançar em determinado horizonte.
+comentario: A missão é estável e responde “para que existimos”; a visão é datada e responde “aonde queremos chegar”. Valores orientam a conduta no caminho.
+
+=== gp-06
+gab: E
+ref: doutrina Ciclo PDCA
+armadilha: conceito
+dif: 2
+enunciado: No ciclo PDCA, a etapa de verificação (check) consiste em padronizar as práticas que deram certo e corrigir as que falharam.
+comentario: Errado. Na verificação, comparam-se os resultados com as metas. Padronizar o que deu certo e corrigir desvios é a etapa de ação (act), que reinicia o ciclo.
+
+=== gp-07
+gab: C
+ref: doutrina Gestão de riscos (ISO 31000)
+armadilha: conceito
+dif: 2
+enunciado: Na ABNT NBR ISO 31000, risco é definido como o efeito da incerteza nos objetivos, efeito que pode ser positivo, negativo ou ambos.
+comentario: A definição inclui oportunidades, não só ameaças. O processo envolve comunicação e consulta, contexto e critérios, identificação, análise e avaliação de riscos, tratamento, monitoramento e análise crítica, registro e relato.
+
+=== gp-08
+gab: E
+ref: doutrina Gestão de riscos (respostas ao risco)
+armadilha: conceito
+dif: 2
+enunciado: Ao contratar seguro contra danos a seus equipamentos, o órgão transfere integralmente o risco e a responsabilidade pelo evento, que deixa de ter qualquer efeito sobre seus objetivos.
+comentario: Errado. Transferir ou compartilhar o risco desloca parte das consequências, em geral financeiras, mas a responsabilidade pela gestão e os efeitos sobre a missão permanecem com o órgão. As demais respostas típicas são evitar, mitigar e aceitar.
+
+=== gp-09
+gab: C
+ref: doutrina Gestão de riscos (risco inerente e residual)
+armadilha: conceito
+dif: 2
+enunciado: Risco inerente é o risco a que a organização está exposta sem considerar as ações de controle, e risco residual é o que permanece após a resposta ao risco.
+comentario: A comparação entre eles mostra a eficácia dos controles. O nível de risco costuma ser estimado pela combinação de probabilidade e impacto em uma matriz.
+
+=== gp-10
+gab: C
+ref: doutrina Modelo das três linhas (IIA)
+armadilha: sujeito
+dif: 2
+enunciado: No modelo das três linhas, a gestão que entrega os serviços responde pela primeira linha, as funções especializadas de riscos e conformidade apoiam como segunda linha e a auditoria interna, com independência, atua como terceira linha.
+comentario: O modelo do Instituto dos Auditores Internos (2020) substituiu as “três linhas de defesa”. A propriedade dos riscos é da gestão, não da auditoria.
+
+=== gp-11
+gab: E
+ref: doutrina Gestão de projetos (PMBOK)
+armadilha: conceito
+dif: 1
+enunciado: Projeto é esforço contínuo e repetitivo, de duração indeterminada, destinado a manter as operações rotineiras da organização.
+comentario: Errado. Projeto é esforço temporário empreendido para criar produto, serviço ou resultado único. O trabalho contínuo e repetitivo é operação.
+
+=== gp-12
+gab: C
+ref: doutrina Gestão de projetos (EAP)
+armadilha: conceito
+dif: 2
+enunciado: A estrutura analítica do projeto (EAP) é a decomposição hierárquica do escopo total do trabalho a ser executado pela equipe para atingir os objetivos do projeto.
+comentario: O nível mais baixo da EAP é o pacote de trabalho, a partir do qual se estimam custos e durações. A EAP organiza entregas, não a ordem cronológica das atividades.
+
+=== gp-13
+gab: E
+ref: doutrina Gestão de projetos (caminho crítico)
+armadilha: conceito
+dif: 2
+enunciado: O caminho crítico é a sequência de atividades de menor duração do cronograma, cujas atividades têm folga positiva e podem atrasar sem afetar a data de término.
+comentario: Errado. O caminho crítico é a sequência mais longa da rede, que define a menor duração possível do projeto; suas atividades têm, em regra, folga zero, e qualquer atraso nelas atrasa o término.
+
+=== gp-14
+gab: C
+ref: doutrina Scrum (Guia do Scrum 2020)
+armadilha: conceito
+dif: 2
+enunciado: No Scrum, a sprint é um evento de duração fixa de um mês ou menos, e o time é composto pelo product owner, pelo scrum master e pelos desenvolvedores.
+comentario: A daily scrum dura 15 minutos. O product owner maximiza o valor do produto e gerencia o backlog; o scrum master zela pela aplicação do Scrum.
+
+=== gp-15
+gab: E
+ref: doutrina Gestão de projetos (abordagem ágil)
+armadilha: comparacao
+dif: 2
+enunciado: Abordagens ágeis exigem que todo o escopo seja detalhado e congelado antes do início do projeto, ao passo que as preditivas admitem mudanças constantes ao longo da execução.
+comentario: Errado. É o inverso: o ciclo preditivo define o escopo no início e controla mudanças; o ágil trabalha em iterações curtas, com escopo que evolui por entregas incrementais e feedback.
+
+=== gp-16
+gab: C
+ref: doutrina Gestão de processos (BPM)
+armadilha: conceito
+dif: 1
+enunciado: Processo é um conjunto de atividades inter-relacionadas que transforma entradas em saídas que agregam valor a um cliente, interno ou externo.
+comentario: Na gestão por processos, o mapeamento da situação atual (as is) precede o desenho da situação desejada (to be). A automação pode ser parte da melhoria, mas não é o objetivo em si.
+
+=== gp-17
+gab: C
+ref: doutrina Notação BPMN
+armadilha: conceito
+dif: 2
+enunciado: Na notação BPMN, eventos são representados por círculos, atividades por retângulos de cantos arredondados e gateways, que controlam divergências e convergências do fluxo, por losangos.
+comentario: Raias (lanes) e piscinas (pools) indicam os participantes. Fluxo de sequência liga elementos dentro de uma piscina; fluxo de mensagem liga piscinas diferentes.
+
+=== gp-18
+gab: E
+ref: doutrina Gestão do conhecimento (Nonaka e Takeuchi)
+armadilha: conceito
+dif: 2
+enunciado: No modelo SECI de criação do conhecimento, a externalização é a conversão de conhecimento explícito em tácito, como ocorre quando o servidor aprende lendo um manual.
+comentario: Errado. Externalização converte tácito em explícito (registrar a experiência em manual). Aprender lendo o manual é internalização (explícito em tácito). Socialização é tácito para tácito, e combinação é explícito para explícito.
+
+=== gp-19
+gab: C
+ref: doutrina Gestão por competências
+armadilha: conceito
+dif: 1
+enunciado: Na gestão por competências, a competência é entendida como a combinação de conhecimentos, habilidades e atitudes que se expressa no desempenho do servidor no trabalho.
+comentario: O mapeamento identifica a lacuna entre as competências necessárias à estratégia e as já disponíveis; a capacitação busca reduzir essa lacuna. Na administração federal, a política de desenvolvimento de pessoas segue essa lógica.
+
+=== gp-20
+gab: E
+ref: doutrina Modelos de administração pública
+armadilha: comparacao
+dif: 2
+enunciado: A administração pública gerencial caracteriza-se pelo controle rígido dos procedimentos, enquanto a burocrática enfatiza o controle de resultados e a flexibilidade do gestor.
+comentario: Errado. É o inverso: o modelo burocrático enfatiza o controle a priori dos procedimentos; o gerencial enfatiza resultados, controle a posteriori e autonomia do gestor. No Brasil, o Plano Diretor da Reforma do Aparelho do Estado (1995) é o marco do modelo gerencial.
+
+=== gp-21
+gab: C
+ref: doutrina Metas e indicadores
+armadilha: conceito
+dif: 2
+enunciado: Indicadores de insumo medem os recursos empregados, indicadores de produto medem as entregas realizadas e indicadores de resultado ou impacto medem as mudanças provocadas no público-alvo ou na sociedade.
+comentario: Exemplo da ANPD: servidores e orçamento da fiscalização (insumo); fiscalizações concluídas (produto); redução de incidentes graves no setor fiscalizado (resultado). Bons indicadores são mensuráveis, comparáveis no tempo e ligados a metas.
+
+=== gp-22
+gab: E
+ref: lai 8
+trecho: possibilitar o acesso automatizado por sistemas externos em formatos abertos, estruturados e legíveis por máquina
+armadilha: extrapolacao
+dif: 2
+enunciado: Pela Lei de Acesso à Informação, os sítios oficiais podem disponibilizar as informações de transparência ativa apenas em formato de imagem, desde que legíveis por pessoas.
+comentario: Errado. O art. 8º, § 3º, da LAI exige, entre outros requisitos, a gravação de relatórios em formatos abertos e não proprietários e o acesso automatizado por sistemas externos em formatos abertos, estruturados e legíveis por máquina. É a base legal dos dados abertos.
+
+=== gp-23
+bloco: dados-bi
+gab: C
+ref: doutrina Qualidade de dados
+armadilha: conceito
+dif: 2
+enunciado: Entre as dimensões da qualidade de dados estão a completude, a exatidão, a consistência, a tempestividade, a unicidade e a validade.
+comentario: Exemplo: cadastro com o mesmo titular duplicado viola a unicidade; data de nascimento no futuro viola a validade; endereço desatualizado viola a tempestividade. A LGPD trata a qualidade como princípio (art. 6º, V).
+
+=== gp-24
+bloco: dados-bi
+gab: E
+ref: doutrina Data warehouse
+armadilha: conceito
+dif: 2
+enunciado: O data warehouse é banco de dados transacional, volátil e voltado ao registro das operações do dia a dia, otimizado para inserções e atualizações frequentes.
+comentario: Errado. Na definição clássica de Inmon, o data warehouse é orientado por assunto, integrado, não volátil e variante no tempo, voltado à análise (OLAP). O banco transacional do dia a dia é OLTP.
+
+=== gp-25
+bloco: dados-bi
+gab: C
+ref: doutrina Data lake e ETL
+armadilha: comparacao
+dif: 2
+enunciado: O data lake armazena grandes volumes de dados brutos, estruturados ou não, em seu formato original, aplicando o esquema na leitura, ao passo que o data warehouse recebe dados tratados por processos de extração, transformação e carga.
+comentario: Data lake: esquema na leitura (schema on read). Data warehouse: esquema na escrita, com ETL (ou ELT) antes da carga. Sem governança, o data lake vira “pântano de dados”.
+
+=== gp-26
+bloco: dados-bi
+gab: E
+ref: doutrina OLAP
+armadilha: conceito
+dif: 2
+enunciado: Em análise OLAP, a operação de drill down agrega os dados em nível mais resumido, como passar de vendas mensais para vendas anuais.
+comentario: Errado. Drill down detalha (do ano para o mês). Agregar em nível mais resumido é roll up (ou drill up). Slice e dice filtram e recortam o cubo.
+
+=== gp-27
+bloco: dados-bi
+gab: C
+ref: doutrina Big data
+armadilha: rol
+dif: 1
+enunciado: Big data costuma ser caracterizado por volume, velocidade e variedade, características às quais parte da literatura acrescenta veracidade e valor.
+comentario: Para a ANPD, o ponto de contato é a tensão entre big data e os princípios da finalidade, da adequação e da necessidade da LGPD.
+
+=== gp-28
+bloco: dados-bi
+gab: E
+ref: doutrina Governança de dados (DAMA-DMBOK)
+armadilha: conceito
+dif: 2
+enunciado: Governança de dados é atividade exclusivamente técnica, a cargo da equipe de tecnologia, que se resume a administrar o banco de dados e realizar cópias de segurança.
+comentario: Errado. No DAMA-DMBOK, governança de dados é o exercício de autoridade, controle e tomada de decisão compartilhada sobre a gestão dos ativos de dados, com papéis de negócio (proprietários e curadores dos dados) e políticas, e não apenas tarefa de TI.
+
+=== gp-29
+gab: C
+ref: doutrina Governo digital
+armadilha: conceito
+dif: 2
+enunciado: No governo digital, o princípio do “só uma vez” busca evitar que o cidadão tenha de apresentar ao Estado dados ou documentos que a própria administração já detém, o que depende de interoperabilidade entre sistemas.
+comentario: Na Lei nº 13.460/2017, a ideia aparece na vedação de exigir nova prova sobre fato já comprovado em documentação válida (art. 5º, XV) e na suficiência do documento com CPF para identificar o cidadão (art. 10-A, incluído pela Lei nº 14.129/2021). Com dados pessoais, o compartilhamento entre órgãos segue a finalidade pública e os arts. 23 a 30 da LGPD.
+
+=== gp-30
+gab: E
+ref: doutrina Agenda 2030 (ODS)
+armadilha: numero
+dif: 1
+enunciado: A Agenda 2030 da ONU contém oito Objetivos de Desenvolvimento Sustentável, que substituíram os Objetivos de Desenvolvimento do Milênio.
+comentario: Errado. São 17 ODS, com 169 metas. Oito eram os Objetivos de Desenvolvimento do Milênio (2000 a 2015), que os ODS sucederam.
