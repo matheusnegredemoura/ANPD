@@ -1,0 +1,335 @@
+bloco: regulacao-teoria
+// Teoria da regulação, parte D: teorias do interesse público, econômica (Stigler, Peltzman) e da escolha pública,
+// monopólio natural e competição pelo mercado, regulação tarifária (taxa de retorno, Averch-Johnson, preço-teto,
+// comparação), externalidades, Pigou e Coase, bens públicos, informação assimétrica, tipos e instrumentos de regulação
+// (econômica e social, comando e controle, corregulação, meta-regulação, princípios e regras, smart regulation,
+// assimetria regulatória, nudge) e AIR no Decreto nº 10.411/2020 e na Lei nº 13.874/2019. Itens escritos para o banco;
+// os de norma têm trecho conferido em fontes/.
+
+=== rd-01
+gab: C
+ref: doutrina interesse público
+armadilha: conceito
+dif: 1
+enunciado: Segundo a teoria do interesse público, a regulação surge para corrigir falhas de mercado e promover o bem-estar social, pressupondo um regulador benevolente e bem informado.
+comentario: Certo. É a visão normativa clássica. A crítica da escola de Chicago é justamente que ela ignora os incentivos dos próprios reguladores e dos grupos interessados.
+
+=== rd-02
+gab: E
+ref: doutrina teoria econômica da regulação
+armadilha: conceito
+dif: 2
+enunciado: Para a teoria econômica da regulação de George Stigler, a regulação é ofertada de forma neutra pelo Estado e tende a favorecer os consumidores, que são mais numerosos que os produtores.
+comentario: Errado. Para Stigler (1971), a regulação é demandada pela indústria e, em regra, desenhada em seu benefício: grupos pequenos e concentrados se organizam melhor que consumidores numerosos e dispersos, cujo ganho individual é pequeno.
+
+=== rd-03
+gab: C
+ref: doutrina teoria econômica da regulação
+armadilha: conceito
+dif: 2
+enunciado: Na formulação de Sam Peltzman, o regulador busca maximizar apoio político e, por isso, distribui benefícios entre produtores e consumidores, sem servir integralmente a um único grupo.
+comentario: Certo. Peltzman (1976) refinou Stigler: a captura não é total, porque o regulador equilibra ganhos marginais de apoio entre os grupos.
+
+=== rd-04
+gab: C
+ref: doutrina escolha pública
+armadilha: conceito
+dif: 2
+enunciado: A busca de renda (rent-seeking) designa o esforço de agentes privados para obter, pelo processo político ou regulatório, vantagens que não decorrem da criação de valor, como barreiras à entrada de concorrentes.
+comentario: Certo. Conceito da teoria da escolha pública (Tullock, Krueger). Os recursos gastos para obter a renda são perda social, além da ineficiência da própria barreira.
+
+=== rd-05
+gab: C
+ref: doutrina monopólio natural
+armadilha: conceito
+dif: 2
+enunciado: Há monopólio natural quando a função de custo é subaditiva no intervalo relevante de produção, de modo que uma única firma atende ao mercado a custo menor que duas ou mais firmas.
+comentario: Certo. Economias de escala e custos fixos altos (redes de água, energia, gás) costumam gerar subaditividade. A concorrência, aí, duplicaria custos.
+
+=== rd-06
+gab: E
+ref: doutrina monopólio natural
+armadilha: absoluto
+dif: 2
+enunciado: Em mercado de monopólio natural, a solução regulatória recomendada é sempre fragmentar a firma em várias concorrentes, para restaurar a competição no mercado.
+comentario: Errado. Fragmentar duplicaria custos fixos. A resposta típica é regular preço, qualidade e entrada, ou promover a competição pelo mercado, por licitação do direito de explorá-lo.
+
+=== rd-07
+gab: C
+ref: doutrina competição pelo mercado
+armadilha: conceito
+dif: 2
+enunciado: Na competição pelo mercado, ideia associada a Harold Demsetz, firmas disputam o direito de atender ao mercado com exclusividade, como ocorre nas licitações de concessão de serviço público.
+comentario: Certo. Onde não cabe competição no mercado, a disputa se desloca para o momento da licitação. O problema passa a ser o contrato incompleto ao longo da concessão.
+
+=== rd-08
+gab: C
+ref: doutrina regulação tarifária
+armadilha: conceito
+dif: 1
+enunciado: Na regulação por taxa de retorno, ou pelo custo do serviço, as tarifas são fixadas para cobrir os custos e remunerar o capital investido a uma taxa considerada justa.
+comentario: Certo. A desvantagem é o fraco incentivo a reduzir custos: o que a firma economiza tende a voltar à tarifa na revisão seguinte.
+
+=== rd-09
+gab: C
+ref: doutrina regulação tarifária
+armadilha: conceito
+dif: 3
+enunciado: O efeito Averch-Johnson descreve o incentivo de firma regulada por taxa de retorno a investir em capital além do nível eficiente, quando a taxa permitida supera o custo do capital.
+comentario: Certo. Se cada real investido rende acima do custo de capital, ampliar a base de remuneração vira estratégia de lucro: o sobreinvestimento.
+
+=== rd-10
+gab: E
+ref: doutrina regulação tarifária
+armadilha: conceito
+dif: 2
+enunciado: Na regulação por preço-teto (price cap), o regulador fixa diretamente a taxa de lucro da firma, e todo ganho de eficiência é imediatamente repassado à tarifa.
+comentario: Errado. O preço-teto fixa a trajetória do preço (por exemplo, índice de inflação menos fator X), não o lucro. A firma retém os ganhos de eficiência até a revisão, e é esse o incentivo do modelo.
+
+=== rd-11
+gab: C
+ref: doutrina regulação tarifária
+armadilha: conceito
+dif: 2
+enunciado: No reajuste por índice de preços menos fator X, o fator X representa o ganho de produtividade esperado que deve ser compartilhado com os usuários ao longo do ciclo tarifário.
+comentario: Certo. O X desconta do reajuste parte da produtividade estimada; se a firma superar a meta, fica com a diferença até a revisão.
+
+=== rd-12
+gab: C
+ref: doutrina regulação tarifária
+armadilha: conceito
+dif: 2
+enunciado: Na regulação por comparação (yardstick competition), o desempenho de uma firma é medido em relação ao de firmas semelhantes, o que reduz a dependência do regulador das informações de custo fornecidas pela própria regulada.
+comentario: Certo. Proposta por Shleifer (1985): cria concorrência virtual entre monopólios regionais e atenua a assimetria de informação.
+
+=== rd-13
+gab: C
+ref: doutrina bens públicos
+armadilha: conceito
+dif: 1
+enunciado: Bens públicos são não rivais e não excludentes, o que estimula o comportamento de carona (free rider) e leva o mercado a ofertá-los em quantidade inferior à socialmente desejável.
+comentario: Certo. Ninguém pode ser impedido de usar e o uso de um não reduz o do outro, então cada um espera que o outro pague. Exemplos: defesa nacional, iluminação pública.
+
+=== rd-14
+gab: E
+ref: doutrina externalidades
+armadilha: conceito
+dif: 1
+enunciado: Ocorre externalidade positiva quando a atividade de um agente impõe custos a terceiros que não participam da transação.
+comentario: Errado. Impor custos a terceiros é externalidade negativa (poluição, vazamento de dados que expõe titulares). A positiva gera benefícios não remunerados, como a vacinação.
+
+=== rd-15
+gab: C
+ref: doutrina externalidades
+armadilha: conceito
+dif: 2
+enunciado: O tributo pigouviano busca internalizar a externalidade negativa, fazendo o agente arcar com o custo social que sua atividade impõe a terceiros.
+comentario: Certo. Proposto por Arthur Pigou: o tributo iguala o custo privado ao social e a produção cai ao nível eficiente.
+
+=== rd-16
+gab: E
+ref: doutrina externalidades
+armadilha: absoluto
+dif: 2
+enunciado: Segundo o teorema de Coase, a intervenção estatal é sempre indispensável para corrigir externalidades, independentemente dos custos de transação.
+comentario: Errado. Coase (1960) mostra que, com direitos de propriedade bem definidos e custos de transação baixos, as partes negociam e chegam à solução eficiente sem regulação. Como os custos de transação costumam ser altos (milhões de titulares diante de uma plataforma), a regulação volta a fazer sentido.
+
+=== rd-17
+gab: C
+ref: doutrina informação assimétrica
+armadilha: conceito
+dif: 2
+enunciado: No mercado de limões descrito por George Akerlof, a assimetria de informação sobre a qualidade dos produtos pode expulsar do mercado os bens de melhor qualidade.
+comentario: Certo. Se o comprador não distingue qualidade, paga por uma média; o vendedor do bem bom sai do mercado. É seleção adversa; certificações, selos e garantias atacam esse problema.
+
+=== rd-18
+gab: E
+ref: doutrina informação assimétrica
+armadilha: comparacao
+dif: 2
+enunciado: Seleção adversa é o problema de informação que surge depois de celebrado o contrato, quando uma parte não consegue observar o comportamento da outra.
+comentario: Errado. Esse é o risco moral (ação oculta, pós-contratual). Seleção adversa é anterior ao contrato: informação oculta sobre as características da outra parte.
+
+=== rd-19
+gab: C
+ref: doutrina tipos de regulação
+armadilha: conceito
+dif: 1
+enunciado: A regulação econômica incide sobre variáveis como preço, entrada e saída de mercado e quantidade, enquanto a regulação social trata de temas como saúde, segurança, meio ambiente e proteção do consumidor.
+comentario: Certo. A proteção de dados costuma ser classificada como regulação social, por tutelar direitos fundamentais, embora tenha forte impacto econômico.
+
+=== rd-20
+gab: C
+ref: doutrina instrumentos de regulação
+armadilha: conceito
+dif: 1
+enunciado: Na regulação por comando e controle, o Estado fixa padrões de conduta e os garante com fiscalização e sanção, enquanto instrumentos de incentivo, como tributos e subsídios, buscam alterar o comportamento pelo preço.
+comentario: Certo. A LGPD combina os dois mundos: deveres e sanções (art. 52) com incentivos, como a consideração de boas práticas na dosimetria (art. 52, § 1º, IX).
+
+=== rd-21
+gab: E
+ref: doutrina instrumentos de regulação
+armadilha: conceito
+dif: 2
+enunciado: Na corregulação, o Estado se retira por completo e deixa ao setor privado a definição e a fiscalização das regras.
+comentario: Errado. Na corregulação, regras elaboradas pelo setor privado são validadas, reconhecidas ou supervisionadas pelo Estado. Exemplo: as regras de boas práticas e de governança que a ANPD pode reconhecer e divulgar (LGPD, art. 50, § 3º).
+
+=== rd-22
+gab: C
+ref: doutrina instrumentos de regulação
+armadilha: conceito
+dif: 3
+enunciado: Na meta-regulação, o regulador supervisiona os sistemas internos de controle e de gestão de riscos das empresas, em vez de prescrever cada conduta, lógica presente no programa de governança em privacidade previsto na LGPD.
+comentario: Certo. O art. 50, § 2º, I, da LGPD descreve um programa de governança adaptado à escala e à sensibilidade dos dados, baseado em avaliação de riscos e com supervisão interna e externa: o regulador fiscaliza o sistema, não cada ato.
+
+=== rd-23
+gab: C
+ref: doutrina instrumentos de regulação
+armadilha: conceito
+dif: 2
+enunciado: Na regulação baseada em princípios, a norma fixa resultados e padrões gerais e deixa ao regulado escolher como cumpri-los, ganhando flexibilidade ao custo de menor previsibilidade.
+comentario: Certo. A LGPD é marcadamente principiológica (art. 6º): diz o que alcançar (segurança, necessidade, transparência), não a tecnologia a usar.
+
+=== rd-24
+gab: E
+ref: doutrina instrumentos de regulação
+armadilha: conceito
+dif: 2
+enunciado: A regulação prescritiva, baseada em regras detalhadas, tem como principal vantagem a rápida adaptação a novas tecnologias.
+comentario: Errado. Regras detalhadas dão previsibilidade e facilitam a fiscalização, mas envelhecem rápido diante da inovação. A adaptabilidade é vantagem da regulação por princípios ou por resultados.
+
+=== rd-25
+gab: C
+ref: doutrina instrumentos de regulação
+armadilha: conceito
+dif: 2
+enunciado: A smart regulation propõe combinar instrumentos e atores, inclusive terceiros como certificadoras e organizações da sociedade civil, em vez de confiar em um único instrumento estatal.
+comentario: Certo. Formulada por Gunningham e Grabosky (1998): o mix de instrumentos e a participação de terceiros ampliam a capacidade de um regulador com recursos limitados.
+
+=== rd-26
+gab: C
+ref: doutrina assimetria regulatória
+armadilha: conceito
+dif: 2
+enunciado: A regulação assimétrica impõe obrigações distintas a agentes em posições diferentes, como mais deveres ao incumbente com poder de mercado significativo do que aos entrantes.
+comentario: Certo. Comum em telecomunicações. Em proteção de dados, a lógica aparece no tratamento diferenciado dos agentes de pequeno porte (Resolução CD/ANPD nº 2/2022), que não alcança o tratamento de alto risco.
+
+=== rd-27
+gab: C
+ref: doutrina regulação e concorrência
+armadilha: conceito
+dif: 2
+enunciado: A regulação setorial atua predominantemente ex ante, definindo condutas antes que o problema ocorra, enquanto a defesa da concorrência atua sobretudo ex post, reprimindo infrações, embora também controle previamente atos de concentração.
+comentario: Certo. Por isso a Lei 13.848/2019 prevê articulação entre agências e Cade (arts. 25 a 28): a agência regula, o Cade reprime e controla concentrações.
+
+=== rd-28
+gab: C
+ref: doutrina economia comportamental
+armadilha: conceito
+dif: 2
+enunciado: Na regulação de inspiração comportamental, o desenho das opções, como a escolha da configuração-padrão, é usado para orientar decisões sem proibir alternativas nem alterar significativamente os incentivos econômicos.
+comentario: Certo. É o nudge de Thaler e Sunstein. O mesmo viés pelo padrão que o regulador usa a favor do cidadão é explorado pelos padrões obscuros (dark patterns) dos avisos de cookies.
+
+=== rd-29
+gab: E
+ref: doutrina captura
+armadilha: conceito
+dif: 1
+enunciado: A chamada porta giratória (revolving door) designa o rodízio obrigatório de diretores entre agências reguladoras de setores diferentes.
+comentario: Errado. É o trânsito de pessoas entre o regulador e o setor regulado, em qualquer direção, fator de captura. A quarentena (LGPD, art. 55-F, com a Lei 12.813/2013) é a resposta institucional.
+
+=== rd-30
+gab: C
+ref: doutrina informação assimétrica
+armadilha: conceito
+dif: 2
+enunciado: A assimetria de informação entre regulador e regulado, que conhece melhor os próprios custos, fundamenta mecanismos de incentivo destinados a induzir a firma a revelar informação ou a reduzir custos.
+comentario: Certo. É um problema de principal-agente: o regulador (principal) desenha contratos ou tarifas que tornem vantajoso para a firma (agente) revelar a verdade ou ser eficiente.
+
+=== rd-31
+gab: E
+ref: doutrina falhas de governo
+armadilha: extrapolacao
+dif: 2
+enunciado: Para a teoria da regulação, a existência de falhas de governo, como a captura e a busca de renda, é razão suficiente para afastar qualquer regulação estatal.
+comentario: Errado. A lição é comparar alternativas imperfeitas: falha de mercado não justifica automaticamente regular, e falha de governo não justifica automaticamente desregular. Daí a análise de impacto regulatório, que inclui a opção de não agir.
+
+=== rd-32
+gab: C
+ref: dec10411 7
+trecho: III - análise de custo-efetividade
+trecho: VI - análise risco-risco
+armadilha: rol
+dif: 2
+enunciado: Na elaboração da AIR, o Decreto nº 10.411/2020 prevê, entre as metodologias específicas para aferir a razoabilidade do impacto econômico, a análise multicritério, a de custo-benefício, a de custo-efetividade, a de custo, a de risco e a risco-risco.
+comentario: Certo: art. 7º, I a VI. A escolha deve ser justificada e apresentar o comparativo entre as alternativas (§ 1º).
+
+=== rd-33
+gab: E
+ref: dec10411 7
+trecho: O órgão ou a entidade competente poderá escolher outra metodologia além daquelas mencionadas no caput, desde que justifique tratar-se da metodologia mais adequada para a resolução do caso concreto
+armadilha: absoluto
+dif: 2
+enunciado: O Decreto nº 10.411/2020 veda a adoção, na AIR, de metodologia diferente das que enumera.
+comentario: Errado. O rol não é fechado: outra metodologia pode ser escolhida, desde que se justifique como a mais adequada ao caso concreto (art. 7º, § 2º).
+
+=== rd-34
+gab: C
+ref: doutrina análise de impacto regulatório
+armadilha: comparacao
+dif: 3
+enunciado: A análise de custo-efetividade compara alternativas pelo custo de atingir um mesmo objetivo, sem exigir que os benefícios sejam expressos em valores monetários, o que a distingue da análise de custo-benefício.
+comentario: Certo. Custo-benefício monetiza custos e benefícios e escolhe o maior benefício líquido; custo-efetividade fixa o objetivo e busca o meio mais barato de alcançá-lo, útil quando o benefício é difícil de precificar.
+
+=== rd-35
+gab: C
+ref: doutrina análise de impacto regulatório
+armadilha: conceito
+dif: 3
+enunciado: A análise risco-risco compara os riscos que a regulação pretende reduzir com os riscos que ela própria pode criar.
+comentario: Certo. Exemplo: exigir verificação de idade por documento reduz o risco de acesso de crianças a conteúdo impróprio, mas cria o risco de bases de documentos vulneráveis a vazamento.
+
+=== rd-36
+gab: E
+ref: dec10411 6
+trecho: consideradas as opções de não ação, de soluções normativas e de, sempre que possível, soluções não normativas
+armadilha: excecao
+dif: 2
+enunciado: O relatório de AIR deve descrever apenas alternativas normativas, já que a opção de não agir não constitui alternativa regulatória.
+comentario: Errado. O relatório descreve as alternativas considerando a não ação, as soluções normativas e, sempre que possível, as não normativas (art. 6º, VI), como guias e campanhas.
+
+=== rd-37
+gab: C
+ref: dec10411 6
+trecho: VII-A - os impactos sobre as microempresas e as empresas de pequeno porte
+armadilha: literal
+dif: 2
+enunciado: O relatório de AIR deve tratar dos impactos sobre as microempresas e as empresas de pequeno porte e prever medidas que possam minimizá-los.
+comentario: Certo: art. 6º, VII-A e § 2º, incluídos pelo Decreto 11.243/2022. Na ANPD, o regime da Resolução CD/ANPD nº 2/2022 é a resposta regulatória a esse tipo de impacto.
+
+=== rd-38
+gab: C
+ref: dec10411 6
+trecho: mapeamento da experiência internacional quanto às medidas adotadas para a resolução do problema regulatório identificado
+armadilha: literal
+dif: 1
+enunciado: Entre os elementos do relatório de AIR está o mapeamento da experiência internacional quanto às medidas adotadas para resolver o problema regulatório identificado.
+comentario: Certo: art. 6º, IX. Em proteção de dados, a comparação costuma partir do RGPD europeu e das orientações das autoridades estrangeiras.
+
+=== rd-39
+gab: C
+ref: lei13874 4
+trecho: criar reserva de mercado ao favorecer, na regulação, grupo econômico, ou profissional, em prejuízo dos demais concorrentes
+armadilha: literal
+dif: 2
+enunciado: Para a Lei de Liberdade Econômica, constitui abuso do poder regulatório criar reserva de mercado ao favorecer, na regulação, grupo econômico ou profissional em prejuízo dos demais concorrentes.
+comentario: Certo: Lei 13.874/2019, art. 4º, I. É a tradução legal da teoria da captura e da busca de renda: barreira regulatória em benefício de incumbentes.
+
+=== rd-40
+gab: E
+ref: lei13874 4
+trecho: exceto se em estrito cumprimento a previsão explícita em lei
+armadilha: excecao
+dif: 3
+enunciado: Segundo a Lei de Liberdade Econômica, aumentar os custos de transação sem demonstração de benefícios deixa de ser abuso do poder regulatório quando a exigência estiver prevista em norma infralegal.
+comentario: Errado. O art. 4º, V, veda aumentar custos de transação sem demonstrar benefícios, e a única ressalva do caput é o estrito cumprimento de previsão explícita em lei, não em ato infralegal.
