@@ -1,0 +1,145 @@
+// Transferência internacional, caso integrado: LGPD (arts. 33 e 36), Resolução CD/ANPD nº 19/2024 (definições, papel do
+// controlador e do operador, coleta internacional, hipótese legal mais mecanismo, mínimo necessário) e Resolução
+// CD/ANPD nº 32/2026 (adequação da União Europeia). Trechos conferidos em fontes/lgpd.txt, res19.txt e res32.txt.
+
+bloco: lgpd-33-36
+
+apoio_TRANS: Uma empresa brasileira de software de folha de pagamento, controladora dos dados de seus clientes pessoas físicas, faz quatro operações. Hospeda o sistema num provedor de nuvem sediado nos Estados Unidos. Envia relatórios de folha à matriz do grupo, na Alemanha. Integra-se a um aplicativo de idiomas sediado no Canadá, sem filial no Brasil, que coleta dados diretamente dos usuários brasileiros e oferece o serviço em português. E, num programa de saúde ocupacional, um hospital parceiro envia exames de um trabalhador em risco de morte a um centro especializado no Japão.
+
+=== tr-01
+gab: E
+bloco: res-19-2024
+ref: res19 6
+trecho: A coleta internacional de dados não caracteriza transferência internacional de dados
+armadilha: caso
+dif: 2
+apoio: @TRANS
+comando: Considerando a situação hipotética, a LGPD e as Resoluções CD/ANPD nº 19/2024 e nº 32/2026, julgue os itens a seguir.
+enunciado: A coleta feita pelo aplicativo canadense diretamente dos usuários brasileiros caracteriza transferência internacional de dados e exige um dos mecanismos do art. 33 da LGPD.
+comentario: Errado. Coleta feita diretamente pelo agente localizado no exterior é coleta internacional, que não caracteriza transferência (Resolução 19/2024, arts. 3º, V, e 6º). Isso não deixa o aplicativo fora da LGPD, como mostra o item seguinte.
+
+=== tr-02
+gab: C
+bloco: res-19-2024
+ref: res19 6
+trecho: A coleta internacional de dados observará as disposições da Lei nº 13.709, de 14 de agosto de 2018, quando verificada uma das hipóteses indicadas no art. 3º da Lei
+armadilha: caso
+dif: 2
+apoio: @TRANS
+comando: Considerando a situação hipotética, a LGPD e as Resoluções CD/ANPD nº 19/2024 e nº 32/2026, julgue os itens a seguir.
+enunciado: Embora não haja transferência internacional, a LGPD aplica-se à coleta do aplicativo canadense, que tem por objetivo a oferta de serviço a indivíduos localizados no Brasil.
+comentario: Certo: Resolução 19/2024, art. 6º, parágrafo único, combinado com o art. 3º, II, da LGPD (oferta de bens ou serviços a indivíduos no território nacional). A sede no exterior não afasta a lei.
+
+=== tr-03
+gab: C
+bloco: res-32-2026
+ref: res32 1
+trecho: para todos os Estados membros da União Europeia
+armadilha: caso
+dif: 2
+apoio: @TRANS
+comando: Considerando a situação hipotética, a LGPD e as Resoluções CD/ANPD nº 19/2024 e nº 32/2026, julgue os itens a seguir.
+enunciado: O envio de relatórios à matriz na Alemanha pode apoiar-se na decisão de adequação da União Europeia, mecanismo do art. 33, I, da LGPD.
+comentario: Certo: Resolução 32/2026, art. 1º e parágrafo único. A adequação alcança todos os Estados membros da UE, Islândia, Liechtenstein e Noruega e as instituições da UE. Continua necessária a hipótese legal do tratamento (Resolução 19/2024, art. 9º, I).
+
+=== tr-04
+gab: E
+bloco: res-32-2026
+ref: res32 5
+trecho: não impede a realização de transferências internacionais de dados para os países referidos no parágrafo único do art. 1º desta Resolução com base nos demais mecanismos
+armadilha: caso
+dif: 2
+apoio: @TRANS
+comando: Considerando a situação hipotética, a LGPD e as Resoluções CD/ANPD nº 19/2024 e nº 32/2026, julgue os itens a seguir.
+enunciado: Reconhecida a adequação da União Europeia, a empresa fica impedida de usar cláusulas-padrão contratuais nas transferências à matriz alemã.
+comentario: Errado. A decisão de adequação não impede o uso dos demais mecanismos do art. 33 da LGPD para os mesmos países (Resolução 32/2026, art. 5º).
+
+=== tr-05
+gab: E
+bloco: res-19-2024
+ref: res19 9
+trecho: uma das hipóteses legais previstas no art. 7º ou no art. 11 da Lei nº 13.709, de 14 de agosto de 2018
+armadilha: caso
+dif: 3
+apoio: @TRANS
+comando: Considerando a situação hipotética, a LGPD e as Resoluções CD/ANPD nº 19/2024 e nº 32/2026, julgue os itens a seguir.
+enunciado: Havendo mecanismo válido de transferência, como a adequação da União Europeia, dispensa-se hipótese legal do art. 7º ou do art. 11 da LGPD para o envio à matriz.
+comentario: Errado. A transferência exige as duas coisas: hipótese legal do art. 7º ou do art. 11 e um mecanismo válido de transferência (Resolução 19/2024, art. 9º, I e II). O mecanismo responde para onde os dados podem ir; a hipótese legal, por que podem ser tratados.
+
+=== tr-06
+gab: C
+ref: lgpd 33
+trecho: quando a transferência for necessária para a proteção da vida ou da incolumidade física do titular ou de terceiro
+armadilha: caso
+dif: 1
+apoio: @TRANS
+comando: Considerando a situação hipotética, a LGPD e as Resoluções CD/ANPD nº 19/2024 e nº 32/2026, julgue os itens a seguir.
+enunciado: O envio dos exames do trabalhador em risco de morte ao centro no Japão pode apoiar-se no mecanismo de proteção da vida ou da incolumidade física do titular, sem depender de decisão de adequação do Japão.
+comentario: Certo: art. 33, IV. Essa hipótese está entre os mecanismos que a Resolução 19/2024 admite diretamente (art. 9º, II, c, que remete aos incisos III a IX do art. 33).
+
+=== tr-07
+gab: C
+bloco: res-19-2024
+ref: res19 3
+trecho: transferência: operação de tratamento por meio da qual um agente de tratamento transmite, compartilha ou disponibiliza acesso a dados pessoais a outro agente de tratamento
+armadilha: caso
+dif: 2
+apoio: @TRANS
+comando: Considerando a situação hipotética, a LGPD e as Resoluções CD/ANPD nº 19/2024 e nº 32/2026, julgue os itens a seguir.
+enunciado: Hospedar o sistema no provedor de nuvem dos Estados Unidos caracteriza transferência internacional e, não havendo decisão de adequação aplicável àquele país, a empresa pode adotar as cláusulas-padrão contratuais da ANPD.
+comentario: Certo: Resolução 19/2024, art. 3º, III e IV, e art. 9º, II, b. Disponibilizar acesso aos dados a outro agente no exterior já é transferência; o provedor de nuvem, em regra, é operador e importador.
+
+=== tr-08
+gab: C
+bloco: res-19-2024
+ref: res19 4
+trecho: O operador prestará auxílio ao controlador mediante o fornecimento das informações de que dispuser
+armadilha: caso
+dif: 2
+apoio: @TRANS
+comando: Considerando a situação hipotética, a LGPD e as Resoluções CD/ANPD nº 19/2024 e nº 32/2026, julgue os itens a seguir.
+enunciado: Cabe à empresa, como controladora, verificar se a hospedagem caracteriza transferência internacional e se está amparada em hipótese legal e mecanismo válidos, e o provedor de nuvem deve auxiliá-la com as informações de que dispuser.
+comentario: Certo: Resolução 19/2024, art. 4º, caput e § 1º. A verificação é do controlador; o operador ajuda, e ambos devem demonstrar a eficácia das medidas adotadas (§ 2º).
+
+=== tr-09
+gab: C
+bloco: res-19-2024
+ref: res19 9
+trecho: A transferência internacional de dados deverá se limitar ao mínimo necessário para o alcance de suas finalidades
+armadilha: caso
+dif: 2
+apoio: @TRANS
+comando: Considerando a situação hipotética, a LGPD e as Resoluções CD/ANPD nº 19/2024 e nº 32/2026, julgue os itens a seguir.
+enunciado: Incluir nos relatórios enviados à matriz dados de saúde dos trabalhadores sem relação com a folha de pagamento contraria o regulamento de transferência internacional.
+comentario: Certo: Resolução 19/2024, art. 9º, parágrafo único, que aplica à transferência o princípio da necessidade (LGPD, art. 6º, III). Mecanismo válido não autoriza enviar mais do que a finalidade exige.
+
+=== tr-10
+gab: C
+ref: lgpd 36
+trecho: As alterações nas garantias apresentadas como suficientes de observância dos princípios gerais de proteção e dos direitos do titular referidas no inciso II do art. 33 desta Lei deverão ser comunicadas à autoridade nacional
+armadilha: caso
+dif: 2
+apoio: @TRANS
+comando: Considerando a situação hipotética, a LGPD e as Resoluções CD/ANPD nº 19/2024 e nº 32/2026, julgue os itens a seguir.
+enunciado: Se a empresa amparar a hospedagem em cláusulas contratuais específicas e depois alterar as garantias apresentadas como suficientes, deverá comunicar a alteração à ANPD.
+comentario: Certo: art. 36, que se refere às garantias do art. 33, II (cláusulas específicas, cláusulas-padrão, normas corporativas globais, selos e certificados).
+
+=== tr-11
+gab: E
+bloco: res-32-2026
+ref: res32 2
+trecho: Esta decisão de adequação não se aplica às transferências internacionais de dados realizadas para fins exclusivos de segurança pública, defesa nacional, segurança do Estado ou atividades de investigação e repressão de infrações penais
+armadilha: excecao
+dif: 2
+enunciado: A decisão de adequação da União Europeia ampara também as transferências feitas para fins exclusivos de investigação e repressão de infrações penais.
+comentario: Errado. Ficam fora da decisão as transferências para fins exclusivos de segurança pública, defesa nacional, segurança do Estado e investigação e repressão de infrações penais (Resolução 32/2026, art. 2º), em linha com o art. 4º, III, da LGPD.
+
+=== tr-12
+gab: E
+bloco: res-32-2026
+ref: res32 4
+trecho: A decisão de adequação será objeto de reavaliação no prazo de quatro anos
+armadilha: numero
+dif: 2
+enunciado: A decisão de adequação da União Europeia tem prazo indeterminado e só pode ser revista se a própria União Europeia alterar o Regulamento Geral de Proteção de Dados.
+comentario: Errado. A ANPD monitora continuamente o nível de proteção e reavalia a decisão em quatro anos, considerando, entre outros aspectos, mudanças posteriores na legislação europeia (Resolução 32/2026, art. 4º, §§ 1º e 2º).

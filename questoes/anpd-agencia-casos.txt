@@ -1,0 +1,131 @@
+// A ANPD como agência (LGPD, arts. 55-A a 55-L e 58-A e 58-B, com a Lei nº 15.352/2026), caso integrado sobre o desenho
+// institucional: perda do cargo de diretor, quarentena, cargos em comissão, regimento, receitas, Conselho Nacional de
+// Proteção de Dados Pessoais e da Privacidade e autonomia. Trechos conferidos em fontes/lgpd.txt, lei13848.txt e lei12813.txt.
+
+bloco: lgpd-55
+
+apoio_AGEN: Uma diretora do Conselho Diretor da ANPD votou pela aplicação de multa a uma grande plataforma digital. Insatisfeito, um ministro defendeu publicamente que ela fosse exonerada e que o Ministério da Justiça e Segurança Pública revisse a decisão. Meses depois, a diretora renunciou e recebeu convite para assessorar a mesma plataforma. No mesmo período, o Conselho Nacional de Proteção de Dados Pessoais e da Privacidade aprovou relatório sugerindo à ANPD uma fiscalização sobre reconhecimento facial, e uma fundação internacional ofereceu à agência recursos para um programa de capacitação.
+
+=== ax-01
+gab: E
+ref: lgpd 55-E
+trecho: Os membros do Conselho Diretor somente perderão seus cargos em virtude de renúncia, condenação judicial transitada em julgado ou pena de demissão decorrente de processo administrativo disciplinar
+armadilha: caso
+dif: 1
+apoio: @AGEN
+comando: Com base na situação hipotética e na legislação aplicável à ANPD, julgue os itens a seguir.
+enunciado: A discordância do governo com o voto da diretora autorizaria o Presidente da República a exonerá-la antes do fim do mandato.
+comentario: Errado. Diretor só perde o cargo por renúncia, condenação judicial transitada em julgado ou demissão em processo administrativo disciplinar (art. 55-E). A estabilidade no mandato é marca da agência reguladora (Lei 13.848/2019, art. 3º).
+
+=== ax-02
+gab: C
+ref: lgpd 55-E
+trecho: cabe ao Ministro de Estado Chefe da Casa Civil da Presidência da República instaurar o processo administrativo disciplinar, que será conduzido por comissão especial constituída por servidores públicos federais estáveis
+armadilha: caso
+dif: 2
+apoio: @AGEN
+comando: Com base na situação hipotética e na legislação aplicável à ANPD, julgue os itens a seguir.
+enunciado: Se houvesse indício de falta funcional da diretora, o processo disciplinar seria instaurado pelo Ministro Chefe da Casa Civil e conduzido por comissão especial de servidores federais estáveis.
+comentario: Certo: art. 55-E, § 1º. O afastamento preventivo e o julgamento cabem ao Presidente da República, e o afastamento só quando recomendado pela comissão (§ 2º).
+
+=== ax-03
+gab: E
+ref: lei13848 3
+trecho: A natureza especial conferida à agência reguladora é caracterizada pela ausência de tutela ou de subordinação hierárquica
+armadilha: caso
+dif: 2
+apoio: @AGEN
+comando: Com base na situação hipotética e na legislação aplicável à ANPD, julgue os itens a seguir.
+enunciado: Por ser vinculada ao Ministério da Justiça e Segurança Pública, a ANPD tem suas decisões sancionadoras sujeitas a revisão pelo ministério, em recurso hierárquico.
+comentario: Errado. A ANPD é autarquia especial vinculada ao ministério, mas com autonomia decisória (LGPD, art. 55-A), e a natureza especial da agência se caracteriza pela ausência de tutela ou subordinação hierárquica (Lei 13.848/2019, art. 3º). O Conselho Diretor é a última instância administrativa.
+
+=== ax-04
+gab: C
+ref: lgpd 55-F
+trecho: A infração ao disposto no caput deste artigo caracteriza ato de improbidade administrativa
+armadilha: caso
+dif: 2
+apoio: @AGEN
+comando: Com base na situação hipotética e na legislação aplicável à ANPD, julgue os itens a seguir.
+enunciado: Aceitar, logo após a renúncia, assessorar a plataforma que a diretora julgou configura conflito de interesses vedado aos ex-diretores, e a infração caracteriza ato de improbidade administrativa.
+comentario: Certo: art. 55-F e parágrafo único, que remetem ao art. 6º da Lei 12.813/2013: por seis meses, é vedado prestar serviço a quem teve relacionamento relevante com o ex-dirigente em razão do cargo, salvo autorização da Comissão de Ética Pública ou da CGU.
+
+=== ax-05
+gab: E
+ref: lei12813 6
+trecho: no período de 6 (seis) meses, contado da data da dispensa, exoneração, destituição, demissão ou aposentadoria
+armadilha: numero
+dif: 2
+apoio: @AGEN
+comando: Com base na situação hipotética e na legislação aplicável à ANPD, julgue os itens a seguir.
+enunciado: O impedimento da ex-diretora de prestar serviços à plataforma dura dois anos contados da renúncia.
+comentario: Errado. A Lei 12.813/2013, aplicável por remissão do art. 55-F da LGPD, fixa seis meses (art. 6º, II). Usar informação privilegiada, porém, é vedado a qualquer tempo (inciso I).
+
+=== ax-06
+gab: C
+ref: lgpd 55-I
+trecho: Os ocupantes dos cargos em comissão e das funções de confiança da ANPD serão indicados pelo Conselho Diretor e nomeados ou designados pelo Diretor-Presidente
+armadilha: sujeito
+dif: 1
+enunciado: Os ocupantes dos cargos em comissão e das funções de confiança da ANPD são indicados pelo Conselho Diretor e nomeados ou designados pelo Diretor-Presidente.
+comentario: Certo: art. 55-I. Já a estrutura regimental vem de ato do Presidente da República, e o regimento interno, do Conselho Diretor (art. 55-G, caput e § 2º).
+
+=== ax-07
+gab: C
+ref: lgpd 55-L
+trecho: os recursos provenientes de acordos, convênios ou contratos celebrados com entidades, organismos ou empresas, públicos ou privados, nacionais ou internacionais
+armadilha: caso
+dif: 2
+apoio: @AGEN
+comando: Com base na situação hipotética e na legislação aplicável à ANPD, julgue os itens a seguir.
+enunciado: Os recursos oferecidos pela fundação internacional para o programa de capacitação podem constituir receita da ANPD, seja como doação, seja como recurso de acordo ou convênio.
+comentario: Certo: art. 55-L, II e VI. Repare que o produto das multas não está na lista: vai ao Fundo de Defesa de Direitos Difusos (art. 52, § 5º).
+
+=== ax-08
+gab: E
+ref: lgpd 58-B
+trecho: sugerir ações a serem realizadas pela ANPD
+armadilha: caso
+dif: 2
+apoio: @AGEN
+comando: Com base na situação hipotética e na legislação aplicável à ANPD, julgue os itens a seguir.
+enunciado: Aprovado o relatório do Conselho Nacional de Proteção de Dados Pessoais e da Privacidade, a ANPD fica obrigada a instaurar a fiscalização sobre reconhecimento facial.
+comentario: Errado. O Conselho Nacional propõe diretrizes, elabora relatórios, sugere ações à ANPD, promove estudos e audiências e dissemina conhecimento (art. 58-B); não determina a atuação da agência, que tem autonomia decisória.
+
+=== ax-09
+gab: C
+ref: lgpd 58-A
+trecho: terão mandato de 2 (dois) anos, permitida 1 (uma) recondução
+armadilha: numero
+dif: 2
+enunciado: Os representantes da sociedade civil, da academia e dos setores produtivo, empresarial e laboral no Conselho Nacional de Proteção de Dados Pessoais e da Privacidade têm mandato de dois anos, permitida uma recondução.
+comentario: Certo: art. 58-A, § 3º, III. Eles são indicados na forma do regulamento e não podem integrar o Comitê Gestor da Internet (incisos I e II). A participação é serviço público relevante, não remunerado (§ 4º).
+
+=== ax-10
+gab: C
+ref: lgpd 55-C
+trecho: V-B - Auditoria; e
+armadilha: literal
+dif: 2
+enunciado: Com a Lei nº 15.352/2026, a Procuradoria e a Auditoria passaram a constar expressamente da composição da ANPD, ao lado do Conselho Diretor, do Conselho Nacional, da Corregedoria e da Ouvidoria.
+comentario: Certo: art. 55-C, V-A e V-B, com redação e inclusão da Lei 15.352/2026. Completam a composição as unidades administrativas e especializadas (inciso VI).
+
+=== ax-11
+gab: E
+ref: lgpd 55-A
+trecho: autarquia de natureza especial vinculada ao Ministério da Justiça e Segurança Pública
+armadilha: sujeito
+dif: 1
+enunciado: Após a Lei nº 15.352/2026, a ANPD passou a ser autarquia de natureza especial vinculada à Casa Civil da Presidência da República.
+comentario: Errado. A ANPD é autarquia de natureza especial vinculada ao Ministério da Justiça e Segurança Pública, com sede e foro no Distrito Federal (art. 55-A, na redação da Lei 15.352/2026). A Casa Civil aparece em outro ponto: instaurar o processo disciplinar contra diretor (art. 55-E, § 1º).
+
+=== ax-12
+gab: C
+ref: lgpd 55-D
+trecho: Na hipótese de vacância do cargo no curso do mandato de membro do Conselho Diretor, o prazo remanescente será completado pelo sucessor
+armadilha: caso
+dif: 2
+apoio: @AGEN
+comando: Com base na situação hipotética e na legislação aplicável à ANPD, julgue os itens a seguir.
+enunciado: Com a renúncia, quem for nomeado para a vaga da diretora completará o prazo remanescente do mandato dela.
+comentario: Certo: art. 55-D, § 5º. O sucessor é escolhido e nomeado pelo Presidente da República depois de aprovação pelo Senado Federal (§ 1º).

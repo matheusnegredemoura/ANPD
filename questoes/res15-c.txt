@@ -1,0 +1,270 @@
+// Resolução CD/ANPD nº 15/2024 (comunicação de incidente de segurança), lote C: objetivos, definições ainda sem item,
+// larga escala, conteúdo e forma da comunicação, prazos em dobro para pequeno porte, divulgação ao titular por três
+// meses, registro no Poder Público, processo de comunicação (auditoria, análise agregada, multa diária, apuração,
+// providências, extinção) e um caso de clínica de pequeno porte. Trechos conferidos em fontes/res15.txt.
+
+bloco: res-15-2024
+
+apoio_CLIN: Uma clínica odontológica que se declara agente de tratamento de pequeno porte descobriu, numa segunda-feira, que um ataque de ransomware cifrou o servidor com os prontuários de 4 mil pacientes, entre eles 600 crianças, e que parte dos arquivos foi copiada por terceiros. A clínica tem telefone e e-mail de quase todos os pacientes, mas não consegue identificar cerca de 300 pacientes antigos, cujos cadastros estavam desatualizados.
+
+=== ic-01
+gab: C
+ref: res15 2
+trecho: fornecer subsídios para as atividades regulatória, fiscalizatória e sancionatória da Autoridade Nacional de Proteção de Dados
+armadilha: rol
+dif: 2
+enunciado: Entre os objetivos do regulamento de comunicação de incidentes estão assegurar a efetividade do princípio da responsabilização e prestação de contas e fornecer subsídios às atividades regulatória, fiscalizatória e sancionatória da ANPD.
+comentario: Certo: Resolução 15/2024, art. 2º, III e VII. Os objetivos começam pela proteção dos titulares (inciso I) e incluem a transparência e a relação de confiança com o titular (inciso VI).
+
+=== ic-02
+gab: E
+ref: res15 3
+trecho: autenticidade: propriedade pela qual se assegura que a informação foi produzida, expedida, modificada ou destruída por uma determinada pessoa física, equipamento, sistema, órgão ou entidade
+armadilha: conceito
+dif: 2
+enunciado: No regulamento de incidentes da ANPD, autenticidade é a propriedade pela qual se assegura que o dado pessoal não foi modificado ou destruído de maneira não autorizada ou acidental.
+comentario: Errado. Essa é a definição de integridade (art. 3º, XIII). Autenticidade assegura que a informação foi produzida, expedida, modificada ou destruída por determinada pessoa, equipamento, sistema, órgão ou entidade (inciso II).
+
+=== ic-03
+gab: C
+ref: res15 3
+trecho: dado de autenticação em sistemas: qualquer dado pessoal utilizado como credencial para determinar o acesso a um sistema ou para confirmar a identificação de um usuário, como contas de login, tokens e senhas
+armadilha: conceito
+dif: 1
+enunciado: Para o regulamento de incidentes, contas de login, tokens e senhas são exemplos de dados de autenticação em sistemas, um dos critérios que tornam o incidente potencialmente relevante.
+comentario: Certo: art. 3º, VI, e art. 5º, IV. Lembre que o critério só vale somado à possibilidade de afetar significativamente interesses e direitos fundamentais (art. 5º, caput).
+
+=== ic-04
+gab: E
+ref: res15 3
+trecho: dado protegido por sigilo profissional: dado pessoal cujo sigilo decorra do exercício de função, ministério, ofício ou profissão, e cuja revelação possa produzir dano a outrem
+armadilha: conceito
+dif: 2
+enunciado: No regulamento de incidentes, dado protegido por sigilo profissional é aquele cujo sigilo decorra de decisão judicial.
+comentario: Errado. Sigilo decorrente de norma jurídica ou decisão judicial é o sigilo legal ou judicial (art. 3º, IX). O profissional decorre do exercício de função, ministério, ofício ou profissão (inciso X), como o médico e o advogado.
+
+=== ic-05
+gab: C
+ref: res15 3
+trecho: relatório de tratamento de incidente: documento fornecido pelo controlador que contém cópias, em meio físico ou digital, de dados e informações relevantes para descrever o incidente e as providências adotadas para reverter ou mitigar os seus efeitos
+armadilha: conceito
+dif: 2
+enunciado: O relatório de tratamento de incidente é documento fornecido pelo controlador com dados e informações relevantes para descrever o incidente e as providências adotadas para reverter ou mitigar seus efeitos.
+comentario: Certo: art. 3º, XIX. A ANPD pode pedi-lo a qualquer tempo, junto com o registro das operações e o relatório de impacto (art. 8º).
+
+=== ic-06
+gab: E
+ref: res15 3
+trecho: procedimento instaurado pela ANPD para apurar a ocorrência de incidente de segurança que não tenha sido comunicado pelo controlador
+armadilha: conceito
+dif: 2
+enunciado: O procedimento de apuração de incidente de segurança é instaurado pela ANPD após o recebimento da comunicação feita pelo controlador.
+comentario: Errado. O procedimento de apuração serve para incidente não comunicado (art. 3º, XVI). O que começa com o recebimento da comunicação é o procedimento de comunicação (inciso XVII). Os dois compõem o processo de comunicação de incidente (inciso XVIII).
+
+=== ic-07
+gab: C
+ref: res15 5
+trecho: Considera-se incidente com dados em larga escala aquele que abranger número significativo de titulares, considerando, ainda, o volume de dados envolvidos, bem como a duração, a frequência e a extensão geográfica de localização dos titulares
+armadilha: conceito
+dif: 2
+enunciado: Para caracterizar incidente com dados em larga escala, consideram-se o número de titulares e também o volume de dados, a duração, a frequência e a extensão geográfica de localização dos titulares.
+comentario: Certo: art. 5º, § 2º. O regulamento não fixa número mínimo de titulares; a avaliação é qualitativa, o que a banca costuma explorar com um número inventado.
+
+=== ic-08
+gab: E
+ref: res15 5
+trecho: aquele que abranger número significativo de titulares
+armadilha: numero
+dif: 2
+enunciado: O regulamento de incidentes da ANPD considera em larga escala o incidente que atinja mais de mil titulares.
+comentario: Errado. Não há número fixo: a larga escala considera número significativo de titulares, volume de dados, duração, frequência e extensão geográfica (art. 5º, § 2º).
+
+=== ic-09
+gab: C
+ref: res15 5
+trecho: puder impedir o exercício de direitos ou a utilização de um serviço, assim como ocasionar danos materiais ou morais aos titulares, tais como discriminação, violação à integridade física, ao direito à imagem e à reputação, fraudes financeiras ou roubo de identidade
+armadilha: conceito
+dif: 2
+enunciado: Caracteriza-se o incidente que pode afetar significativamente direitos fundamentais, entre outras situações, quando ele puder impedir o exercício de direitos ou a utilização de um serviço, ou ocasionar danos como discriminação, fraudes financeiras ou roubo de identidade.
+comentario: Certo: art. 5º, § 1º. Um serviço essencial fora do ar por um ataque de ransomware pode ser relevante mesmo sem vazamento.
+
+=== ic-10
+gab: C
+ref: res15 6
+trecho: o total de titulares cujos dados são tratados nas atividades de tratamento afetadas pelo incidente
+armadilha: rol
+dif: 3
+enunciado: A comunicação do incidente à ANPD deve informar, além do número de titulares afetados, o total de titulares cujos dados são tratados nas atividades de tratamento afetadas.
+comentario: Certo: art. 6º, § 2º, II e XII. O total serve para dimensionar o incidente diante da operação inteira do controlador.
+
+=== ic-11
+gab: C
+ref: res15 6
+trecho: a identificação do controlador e, se for o caso, declaração de que se trata de agente de tratamento de pequeno porte
+armadilha: literal
+dif: 2
+enunciado: Na comunicação de incidente à ANPD, o controlador deve identificar-se e, se for o caso, declarar que é agente de tratamento de pequeno porte.
+comentario: Certo: art. 6º, § 2º, IX. A declaração importa porque os prazos de comunicação e de complementação contam em dobro para o pequeno porte (§ 8º).
+
+=== ic-12
+gab: E
+ref: res15 6
+trecho: A comunicação de incidente de segurança deverá ocorrer por meio de formulário eletrônico disponibilizado pela ANPD
+armadilha: extrapolacao
+dif: 1
+enunciado: A comunicação de incidente à ANPD pode ser feita por qualquer meio escrito, inclusive por ofício entregue em papel na sede da agência.
+comentario: Errado. A comunicação ocorre por formulário eletrônico disponibilizado pela ANPD (art. 6º, § 4º), recebido exclusivamente por canal específico (art. 18, parágrafo único).
+
+=== ic-13
+gab: C
+ref: res15 6
+trecho: a ANPD poderá apurar a ocorrência do incidente de segurança por meio do procedimento de apuração de incidente de segurança
+armadilha: excecao
+dif: 3
+enunciado: Se o controlador não apresentar, no prazo da comunicação, o documento que comprova o vínculo do encarregado ou o instrumento de representação, a ANPD pode apurar a ocorrência do incidente pelo procedimento de apuração.
+comentario: Certo: art. 6º, §§ 5º a 7º. Comunicação sem os documentos de representação não está devidamente formalizada, e o processo só começa com a comunicação formalizada (art. 13, II).
+
+=== ic-14
+gab: E
+ref: res15 9
+trecho: pelo período de, no mínimo, três meses
+armadilha: numero
+dif: 2
+enunciado: Quando a comunicação individual aos titulares for inviável, o controlador deve divulgar o incidente em seu sítio eletrônico e mídias sociais pelo período mínimo de trinta dias.
+comentario: Errado. A divulgação pelos meios disponíveis deve permitir conhecimento amplo, com direta e fácil visualização, por no mínimo três meses (art. 9º, § 3º).
+
+=== ic-15
+gab: C
+ref: res15 9
+trecho: Poderá ser considerada boa prática, para fins do disposto no art. 52, § 1º, IX, da LGPD, a inclusão, na comunicação ao titular, de recomendações aptas a reverter ou mitigar os efeitos do incidente
+armadilha: interpretacao
+dif: 3
+enunciado: Incluir, na comunicação ao titular, recomendações aptas a reverter ou mitigar os efeitos do incidente pode ser considerado boa prática, o que pesa a favor do controlador na dosimetria de eventual sanção.
+comentario: Certo: art. 9º, § 5º, que remete ao art. 52, § 1º, IX, da LGPD (adoção de política de boas práticas e governança como parâmetro da sanção). Exemplo: orientar a troca de senha e o bloqueio do cartão.
+
+=== ic-16
+gab: E
+ref: res15 10
+trecho: Os prazos de guarda previstos neste artigo não se aplicam às entidades previstas no art. 23 da LGPD, desde que sejam observadas as regras aplicáveis aos documentos de guarda permanente
+armadilha: sujeito
+dif: 3
+enunciado: Órgãos públicos submetem-se ao prazo mínimo de cinco anos de guarda do registro de incidentes, sem exceção.
+comentario: Errado. O prazo de guarda não se aplica às entidades do art. 23 da LGPD, desde que observadas as regras de guarda permanente da tabela de temporalidade ou do Conselho Nacional de Arquivos (art. 10, § 2º).
+
+=== ic-17
+gab: C
+ref: res15 11
+trecho: Aplicam-se ao processo de comunicação de incidente de segurança regido por este Regulamento, no que couber, as disposições do Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador
+armadilha: conceito
+dif: 2
+enunciado: O processo de comunicação de incidente tem por objeto a fiscalização da resposta ao incidente e aplica, no que couber, o regulamento de fiscalização e de processo sancionador da ANPD.
+comentario: Certo: art. 11 e parágrafo único, que remete à Resolução 1/2021. Por isso as providências determinadas no processo equivalem a medidas preventivas, e não a sanções (art. 22).
+
+=== ic-18
+gab: C
+ref: res15 14
+trecho: Os processos de comunicação de incidente de segurança poderão ser analisados de forma agregada
+armadilha: literal
+dif: 2
+enunciado: Os processos de comunicação de incidente podem ser analisados de forma agregada, com providências padronizadas, conforme o planejamento da fiscalização e os critérios do Relatório de Ciclo de Monitoramento.
+comentario: Certo: art. 14. A mesma lógica vale para os requerimentos de titulares na Resolução 1/2021 (art. 26).
+
+=== ic-19
+gab: C
+ref: res15 15
+trecho: A ANPD poderá fixar multa diária para assegurar o cumprimento da determinação prevista no caput
+armadilha: conceito
+dif: 3
+enunciado: Para assegurar o cumprimento de medida preventiva determinada no processo de comunicação de incidente, a ANPD pode fixar multa diária, na forma do regulamento de dosimetria.
+comentario: Certo: art. 15, parágrafo único, que remete à Resolução 4/2023. A medida pode ser determinada até sem prévia manifestação do controlador, para evitar dano grave e irreparável ou de difícil reparação (caput).
+
+=== ic-20
+gab: E
+ref: res15 19
+trecho: As providências citadas no caput devem estar diretamente relacionadas ao incidente
+armadilha: extrapolacao
+dif: 2
+enunciado: No processo de comunicação de incidente, a ANPD pode determinar ao controlador quaisquer providências de adequação à LGPD, ainda que sem relação com o incidente comunicado.
+comentario: Errado. As providências devem estar diretamente relacionadas ao incidente (art. 19, § 2º). Outras desconformidades vão para a fiscalização ordinária.
+
+=== ic-21
+gab: C
+ref: res15 19
+trecho: quando a comunicação realizada pelo controlador mostrar-se insuficiente para alcançar parcela significativa dos titulares afetados pelo incidente
+armadilha: excecao
+dif: 2
+enunciado: A ANPD pode determinar a ampla divulgação do incidente, às expensas do controlador, quando a comunicação feita por ele se mostrar insuficiente para alcançar parcela significativa dos titulares afetados.
+comentario: Certo: art. 19, § 3º. A divulgação deve ser compatível com a abrangência de atuação do controlador e a localização dos titulares (§ 4º).
+
+=== ic-22
+gab: E
+ref: res15 21
+trecho: A ANPD poderá instaurar processo administrativo sancionador caso o controlador não adote as medidas para reverter ou mitigar os efeitos do incidente de segurança no prazo e nas condições determinadas pela Autoridade
+armadilha: conceito
+dif: 2
+enunciado: O descumprimento das medidas de mitigação determinadas pela ANPD no processo de comunicação de incidente não autoriza a abertura de processo sancionador, por se tratar de medida preventiva.
+comentario: Errado. A providência não é sanção (art. 22), mas o seu descumprimento autoriza a instauração de processo sancionador (art. 21).
+
+=== ic-23
+gab: C
+ref: res15 23
+trecho: caso não sejam identificadas evidências suficientes da ocorrência do incidente, ressalvada a possibilidade de reabertura caso surjam fatos novos
+armadilha: excecao
+dif: 2
+enunciado: O processo de comunicação de incidente é extinto quando não há evidências suficientes da ocorrência do incidente, ressalvada a reabertura se surgirem fatos novos.
+comentario: Certo: art. 23, I. Outras hipóteses: incidente sem potencial de risco ou dano relevante, incidente sem dados pessoais, medidas adicionais já tomadas e comunicação aos titulares com as providências pertinentes (incisos II a V).
+
+=== ic-24
+gab: C
+ref: res15 6
+trecho: Os prazos constantes no caput e no § 3º deste artigo são contados em dobro para os agentes de pequeno porte
+armadilha: caso
+dif: 2
+apoio: @CLIN
+comando: Com base na situação hipotética e na Resolução CD/ANPD nº 15/2024, julgue os itens seguintes.
+enunciado: A clínica tem seis dias úteis, contados de quando soube que o incidente afetou dados pessoais, para comunicá-lo à ANPD.
+comentario: Certo: art. 6º, caput e § 8º. Três dias úteis contados em dobro para o agente de pequeno porte; o prazo de complementação (vinte dias úteis, § 3º) também dobra.
+
+=== ic-25
+gab: C
+ref: res15 5
+trecho: dados de crianças, de adolescentes ou de idosos
+armadilha: caso
+dif: 1
+apoio: @CLIN
+comando: Com base na situação hipotética e na Resolução CD/ANPD nº 15/2024, julgue os itens seguintes.
+enunciado: O incidente atende a mais de um dos critérios do regulamento, pois envolve dado de saúde, que é sensível, e dados de crianças.
+comentario: Certo: art. 5º, I e II. Somados à possibilidade de afetar significativamente direitos dos pacientes (exposição de prontuários, indisponibilidade do atendimento), o incidente deve ser comunicado.
+
+=== ic-26
+gab: E
+ref: res15 9
+trecho: ocorrer de forma direta e individualizada, caso seja possível identificá-los
+armadilha: caso
+dif: 2
+apoio: @CLIN
+comando: Com base na situação hipotética e na Resolução CD/ANPD nº 15/2024, julgue os itens seguintes.
+enunciado: Como parte dos pacientes não pode ser identificada, a clínica pode substituir a comunicação a todos por um aviso em seu sítio eletrônico.
+comentario: Errado. Quem pode ser identificado recebe comunicação direta e individualizada, por telefone, e-mail ou mensagem (art. 9º, §§ 1º, II, e 2º). O aviso público vale para os não identificáveis, pelo mínimo de três meses (§ 3º).
+
+=== ic-27
+gab: E
+ref: res15 9
+trecho: O prazo constante no caput deste artigo é contado em dobro para os agentes de pequeno porte
+armadilha: caso
+dif: 2
+apoio: @CLIN
+comando: Com base na situação hipotética e na Resolução CD/ANPD nº 15/2024, julgue os itens seguintes.
+enunciado: Por ser de pequeno porte, a clínica fica dispensada de comunicar os pacientes, bastando a comunicação à ANPD.
+comentario: Errado. O pequeno porte dobra o prazo de comunicação ao titular (art. 9º, § 6º), mas não dispensa a comunicação.
+
+=== ic-28
+gab: C
+ref: res15 3
+trecho: dado pessoal cuja confidencialidade, integridade, disponibilidade ou autenticidade tenha sido comprometida em um incidente de segurança
+armadilha: caso
+dif: 2
+apoio: @CLIN
+comando: Com base na situação hipotética e na Resolução CD/ANPD nº 15/2024, julgue os itens seguintes.
+enunciado: Os prontuários cifrados pelo ataque são dados pessoais afetados ainda que a clínica recupere o acesso a eles, pois houve comprometimento da disponibilidade, além da confidencialidade dos arquivos copiados.
+comentario: Certo: art. 3º, VIII. Ransomware compromete a disponibilidade; a cópia por terceiros compromete a confidencialidade. Recuperar o backup mitiga, mas não apaga o incidente.

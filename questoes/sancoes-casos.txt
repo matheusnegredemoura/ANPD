@@ -1,0 +1,162 @@
+// Sanções da LGPD (arts. 52 a 54), casos integrados: um órgão público municipal e uma rede varejista. Cada item exige
+// combinar dispositivos (sanções cabíveis ao Poder Público, gradação, pré-requisito das suspensões, faturamento por ramo,
+// multa diária, conciliação, destino das multas). Trechos conferidos em fontes/lgpd.txt.
+
+bloco: lgpd-52-54
+
+apoio_MUNI: Uma prefeitura manteve, por dois anos, uma planilha com nome, CPF, endereço e laudos médicos de beneficiários de um programa de saúde num diretório da internet sem senha. Concluído o processo administrativo sancionador, com defesa da prefeitura, a ANPD constatou que o município já fora advertido no ano anterior por outra falha no mesmo programa e que, depois do novo episódio, não corrigiu a configuração no prazo fixado.
+apoio_VAREJO: Uma rede varejista com lojas físicas e comércio eletrônico vendeu a parceiros de publicidade a base de clientes do programa de fidelidade, sem informar os titulares nem ter hipótese legal. No processo sancionador, a empresa apresentou apenas o faturamento global do grupo, sem separar o do comércio eletrônico, ramo em que ocorreu a infração. A ANPD aplicou multa simples e determinou a eliminação dos dados vendidos aos parceiros. Depois disso, a empresa continuou a compartilhar novos cadastros com os mesmos parceiros.
+
+=== sa-01
+gab: E
+ref: lgpd 52
+trecho: O disposto nos incisos I, IV, V, VI, X, XI e XII do caput deste artigo poderá ser aplicado às entidades e aos órgãos públicos
+armadilha: caso
+dif: 2
+apoio: @MUNI
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: Diante da reincidência, a ANPD pode aplicar à prefeitura multa simples, limitada a R$ 50 milhões por infração.
+comentario: Errado. Aos órgãos e entidades públicos aplicam-se advertência, publicização, bloqueio, eliminação, as suspensões e a proibição (art. 52, § 3º), sem as multas dos incisos II e III. A reincidência pesa na escolha e na gradação dessas sanções (§ 1º, V).
+
+=== sa-02
+gab: C
+ref: lgpd 52
+trecho: publicização da infração após devidamente apurada e confirmada a sua ocorrência
+armadilha: caso
+dif: 2
+apoio: @MUNI
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: Confirmada a infração no processo, a ANPD pode determinar a publicização da infração cometida pela prefeitura.
+comentario: Certo: art. 52, IV, aplicável ao Poder Público pelo § 3º. A publicização só vem depois de apurada e confirmada a infração, nunca como medida cautelar.
+
+=== sa-03
+gab: C
+ref: lgpd 52
+trecho: somente após já ter sido imposta ao menos 1 (uma) das sanções de que tratam os incisos II, III, IV, V e VI do caput deste artigo para o mesmo caso concreto
+armadilha: caso
+dif: 3
+apoio: @MUNI
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: A advertência aplicada no ano anterior, por outra falha, não basta para autorizar a suspensão da atividade de tratamento neste caso, pois as suspensões exigem prévia imposição, no mesmo caso concreto, de multa, publicização, bloqueio ou eliminação.
+comentario: Certo: art. 52, § 6º, I. A advertência (inciso I) não está entre as sanções que abrem caminho para as suspensões e a proibição, e a anterior deve ser do mesmo caso concreto. No caso do município, sem multa, o caminho passa por publicização, bloqueio ou eliminação.
+
+=== sa-04
+gab: E
+ref: lgpd 52
+trecho: sem prejuízo do disposto na Lei nº 8.112, de 11 de dezembro de 1990, na Lei nº 8.429, de 2 de junho de 1992, e na Lei nº 12.527, de 18 de novembro de 2011
+armadilha: caso
+dif: 2
+apoio: @MUNI
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: Aplicadas sanções pela ANPD à prefeitura, fica afastada a responsabilização dos servidores responsáveis com base no estatuto dos servidores e na Lei de Improbidade Administrativa.
+comentario: Errado. As sanções da LGPD ao Poder Público não prejudicam o regime disciplinar (Lei 8.112/1990, para a esfera federal, e os estatutos locais), a improbidade (Lei 8.429/1992) e a LAI (art. 52, § 3º). São esferas independentes.
+
+=== sa-05
+gab: C
+ref: lgpd 52
+trecho: advertência, com indicação de prazo para adoção de medidas corretivas
+armadilha: caso
+dif: 2
+apoio: @MUNI
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: A falta de correção da configuração no prazo fixado é relevante porque a advertência traz prazo para medidas corretivas, e a pronta adoção dessas medidas é um dos critérios de aplicação das sanções.
+comentario: Certo: art. 52, I, e § 1º, X. Advertência sem prazo de correção não cumpre a lei, e o desprezo ao prazo pesa contra o infrator na gradação seguinte.
+
+=== sa-06
+gab: C
+ref: lgpd 52
+trecho: quando não dispuser do valor do faturamento no ramo de atividade empresarial em que ocorreu a infração
+armadilha: caso
+dif: 2
+apoio: @VAREJO
+comando: Considerando a situação hipotética e os arts. 52 a 54 da LGPD, julgue os itens subsequentes.
+enunciado: Como a empresa não separou o faturamento do comércio eletrônico, a ANPD pode considerar o faturamento total da empresa ou do grupo no cálculo da multa simples.
+comentario: Certo: art. 52, § 4º. A regra é o faturamento do ramo em que ocorreu a infração; o total entra quando a ANPD não dispõe desse valor ou quando ele é apresentado de forma incompleta ou não demonstrado de forma inequívoca e idônea.
+
+=== sa-07
+gab: E
+ref: lgpd 52
+trecho: limitada, no total, a R$ 50.000.000,00 (cinquenta milhões de reais) por infração
+armadilha: caso
+dif: 2
+apoio: @VAREJO
+comando: Considerando a situação hipotética e os arts. 52 a 54 da LGPD, julgue os itens subsequentes.
+enunciado: Usado o faturamento total do grupo, a multa simples pode superar R$ 50 milhões pela infração, pois o limite só vale quando se usa o faturamento do ramo.
+comentario: Errado. O teto de R$ 50 milhões por infração vale sempre (art. 52, II); o § 4º muda só a base de cálculo dos 2%, não o limite.
+
+=== sa-08
+gab: C
+ref: lgpd 54
+trecho: a descrição da obrigação imposta, o prazo razoável e estipulado pelo órgão para o seu cumprimento e o valor da multa diária a ser aplicada pelo seu descumprimento
+armadilha: caso
+dif: 2
+apoio: @VAREJO
+comando: Considerando a situação hipotética e os arts. 52 a 54 da LGPD, julgue os itens subsequentes.
+enunciado: Para forçar a empresa a cessar o compartilhamento, a ANPD pode impor multa diária, cuja intimação deve descrever a obrigação, fixar prazo razoável para cumpri-la e indicar o valor diário pelo descumprimento.
+comentario: Certo: art. 52, III, e art. 54, parágrafo único. O valor diário observa a gravidade da falta e a extensão do dano, com fundamentação (art. 54, caput), e a soma respeita o limite da multa simples.
+
+=== sa-09
+gab: C
+ref: lgpd 52
+trecho: suspensão do exercício da atividade de tratamento dos dados pessoais a que se refere a infração pelo período máximo de 6 (seis) meses, prorrogável por igual período
+armadilha: caso
+dif: 3
+apoio: @VAREJO
+comando: Considerando a situação hipotética e os arts. 52 a 54 da LGPD, julgue os itens subsequentes.
+enunciado: Como já foram impostas multa simples e eliminação no mesmo caso, a ANPD pode suspender o tratamento dos dados do programa de fidelidade por até seis meses, prorrogáveis por igual período.
+comentario: Certo: art. 52, XI, e § 6º, I. A empresa é privada, e a multa e a eliminação são sanções que habilitam a suspensão. Se ela for regulada por outro órgão com poder sancionatório, ele deve ser ouvido (§ 6º, II).
+
+=== sa-10
+gab: E
+ref: lgpd 52
+trecho: será destinado ao Fundo de Defesa de Direitos Difusos
+armadilha: caso
+dif: 2
+apoio: @VAREJO
+comando: Considerando a situação hipotética e os arts. 52 a 54 da LGPD, julgue os itens subsequentes.
+enunciado: O valor da multa paga pela varejista será revertido aos clientes cujos dados foram vendidos, na proporção do prejuízo de cada um.
+comentario: Errado. O produto das multas da ANPD, inscritas ou não em dívida ativa, vai ao Fundo de Defesa de Direitos Difusos (art. 52, § 5º). A reparação individual dos titulares é matéria de responsabilidade civil (arts. 42 a 45).
+
+=== sa-11
+gab: C
+ref: lgpd 52
+trecho: não substitui a aplicação de sanções administrativas, civis ou penais definidas na Lei nº 8.078, de 11 de setembro de 1990
+armadilha: caso
+dif: 2
+apoio: @VAREJO
+comando: Considerando a situação hipotética e os arts. 52 a 54 da LGPD, julgue os itens subsequentes.
+enunciado: A punição pela ANPD não impede que o órgão de defesa do consumidor aplique à varejista sanções previstas no Código de Defesa do Consumidor pelos mesmos fatos.
+comentario: Certo: art. 52, § 2º. As sanções da LGPD não substituem as do CDC nem as de legislação específica; a coordenação entre os órgãos está no art. 55-K, parágrafo único.
+
+=== sa-12
+gab: E
+ref: lgpd 52
+trecho: Os vazamentos individuais ou os acessos não autorizados de que trata o caput do art. 46 desta Lei poderão ser objeto de conciliação direta entre controlador e titular
+armadilha: caso
+dif: 3
+apoio: @VAREJO
+comando: Considerando a situação hipotética e os arts. 52 a 54 da LGPD, julgue os itens subsequentes.
+enunciado: Por envolver dados de clientes, a venda da base poderia ser resolvida por conciliação direta entre a varejista e cada titular, o que afastaria as sanções da ANPD.
+comentario: Errado. A conciliação do art. 52, § 7º, é para vazamentos individuais ou acessos não autorizados, e mesmo assim, sem acordo, o controlador fica sujeito às sanções. Venda deliberada da base inteira, sem hipótese legal, é infração coletiva.
+
+=== sa-13
+gab: C
+ref: lgpd 52
+trecho: a vantagem auferida ou pretendida pelo infrator
+armadilha: caso
+dif: 1
+apoio: @VAREJO
+comando: Considerando a situação hipotética e os arts. 52 a 54 da LGPD, julgue os itens subsequentes.
+enunciado: O lucro obtido com a venda da base pode ser considerado na aplicação da sanção, pois a vantagem auferida ou pretendida pelo infrator é um dos parâmetros legais.
+comentario: Certo: art. 52, § 1º, III. Na Resolução 4/2023, a vantagem econômica também define o mínimo da multa, quando estimável.
+
+=== sa-14
+gab: E
+ref: lgpd 53
+trecho: que deverá ser objeto de consulta pública
+armadilha: caso
+dif: 2
+apoio: @VAREJO
+comando: Considerando a situação hipotética e os arts. 52 a 54 da LGPD, julgue os itens subsequentes.
+enunciado: Na falta de regulamento próprio, a ANPD pode fixar, na decisão do caso, a metodologia de cálculo do valor-base da multa da varejista, dispensada a publicação prévia.
+comentario: Errado. As metodologias vêm em regulamento próprio, submetido a consulta pública e previamente publicado (art. 53, caput e § 1º); hoje é a Resolução 4/2023.
