@@ -205,6 +205,12 @@ p{margin:0}
 .item-cab .selo{white-space:normal;max-width:100%}
 .pausa-linha{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;padding-block:10px;border-top:1px solid var(--line)}
 .pausa-txt{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 220px}
+.inv-conversa{display:flex;flex-direction:column;gap:8px;margin-block:12px}
+.inv-msg{padding:10px 12px;border-radius:var(--r);background:var(--surface-2)}
+.inv-msg.ia{background:var(--accent-2)}
+.inv-msg p{margin:4px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.inv-def{margin-block:12px}
+.ia-porque{border-left:3px solid var(--accent);padding-left:8px;margin-block:6px}
 .item-num{font-family:var(--f-mono);font-size:.8rem;color:var(--ink-2)}
 .enunciado{font-family:var(--f-titulo);font-size:1.16rem;line-height:1.55;font-weight:400}
 .comando{font-size:.9rem;line-height:1.5;color:var(--ink-2);font-style:italic;margin:0}

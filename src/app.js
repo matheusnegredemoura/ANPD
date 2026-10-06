@@ -74,10 +74,10 @@ const CHAVE_LOCAL_ANTIGA = 'painel-anpd-v2';
 const CHAVE_UI = 'painel-anpd-ui';
 const P1 = ['lgpd-17-22', 'lgpd-52-54', 'lgpd-55', 'lgpd-33-36', 'lgpd-5-11'];
 // Prova completa simulada: itens por disciplina numa prova de 120 (50 básicos + 70 específicos), estimativa para
-// Especialista em Regulação feita sobre a estrutura da Anatel 2024 e da ANAC 2024 até sair o edital. Gestão fica em 10:
+// Especialista em Regulação feita sobre a estrutura da Anatel 2024 e da ANAC 2024 até sair o edital. Gestão fica em 8 (o guia do cargo dá 4% do estudo):
 // o terço de gestão do processo seletivo da ANPD (2025) veio do cargo gerencial, e o específico do especialista
 // deve concentrar-se na LGPD e nas normas da ANPD.
-const ITENS_PROVA = { linguas: 21, direito: 19, regulacao: 14, lgpd: 34, eca: 8, seginfo: 8, gestao: 10, comparado: 3, economia: 3 };
+const ITENS_PROVA = { linguas: 21, direito: 19, regulacao: 14, lgpd: 36, eca: 8, seginfo: 8, gestao: 8, comparado: 3, economia: 3 };
 const TOTAL_PROVA = Object.values(ITENS_PROVA).reduce((a, b) => a + b, 0);
 // Cotas por disciplina para n itens, pelo método do maior resto (a soma dá exatamente n)
 function cotasProva(n) {
@@ -161,7 +161,6 @@ function rotuloArt(k) {
 function minusc(s) { return /^\p{Lu}\p{Ll}/u.test(s) ? s.charAt(0).toLowerCase() + s.slice(1) : s; }
 // "art. 5º" na LGPD; "CF/88, art. 5º" nas demais normas
 function nomeArt(k) { const a = ARTI.get(k); return (a && a.lei !== 'lgpd' ? LEIS[a.lei].curto + ', ' : '') + minusc(rotuloArt(k)); }
-function busca(q) { return 'https://www.google.com/search?q=' + encodeURIComponent(q); }
 function nomeBloco(bid) { const b = BI.get(bid); return b ? b.nome : bid; }
 function fmtIntervalo(d) {
   if (d <= 0) return 'hoje';
@@ -1202,7 +1201,7 @@ function roteiroHoje() {
   const sugest = sugestoesDoDia(blocos);
   passos.push({ titulo: 'Para pesquisar', feito: pesqHoje > 0,
     texto: sugest.length ? 'Sugestão de hoje: ' + sugest[0] + '.' : 'Abra a sua lista e pesquise um tema.',
-    botoes: (sugest.length ? '<a class="btn pequeno" href="' + esc(busca(sugest[0])) + '" target="_blank" rel="noopener">Pesquisar ↗</a><button class="btn pequeno" data-acao="add-pesq" data-t="' + esc(sugest[0]) + '" data-o="roteiro do dia">Guardar na lista</button>' : '') +
+    botoes: (sugest.length ? '<button class="btn pequeno primario" data-acao="investigar" data-t="' + esc(sugest[0]) + '" data-o="roteiro do dia">Investigar</button>' : '') +
       '<button class="btn pequeno" data-acao="mais" data-sub="pesquisar">Minha lista (' + Object.values(S.pesquisa).filter((p) => !p.s).length + ')</button>' });
   return { dia, passos };
 }
@@ -1482,7 +1481,7 @@ function blocoPesquisar(texto, extras, origem) {
   if (!termos.length && !itens.length) return '';
   let html = '<div class="pesquisar-box"><span class="rotulo">Para pesquisar e entender melhor</span><div class="chips">';
   termos.forEach((a) => { html += '<button class="chip termo-chip" data-acao="termo" data-t="' + a.g.i + '">' + esc(a.g.t) + '</button>'; });
-  itens.forEach((t) => { html += '<a class="chip termo-chip" href="' + esc(busca(t)) + '" target="_blank" rel="noopener" data-acao="add-pesq" data-t="' + esc(t) + '" data-o="' + esc(origem) + '">' + esc(t) + ' ↗</a>'; });
+  itens.forEach((t) => { html += '<button class="chip termo-chip" data-acao="investigar" data-t="' + esc(t) + '" data-o="' + esc(origem) + '">' + esc(t) + '</button>'; });
   return html + '</div></div>';
 }
 function textoCard(nota, n, revelado) {
@@ -1598,15 +1597,158 @@ function folhaArtigo(art, qid) {
   UI.folhaArt = art;
   UI.folhaQ = qid || null;
 }
+/* ================= Investigar e correção com o Claude ================= */
+// A página pergunta ao Claude pela conta de quem estuda (capacidade "sample"): gasta o uso dessa conta, e a primeira
+// pergunta de cada abertura pede permissão. Sem a capacidade (arquivo aberto fora do claude.ai, permissão negada), os
+// botões de IA somem e fica o caminho manual: copiar o pedido e colar numa conversa com o Claude.
+let IA = null, iaNegada = false;
+if (window.claude && window.claude.use) window.claude.use('sample').then((x) => { IA = x; atualizarAcoesInv(); }).catch(() => { IA = null; });
+function iaPronta() { return !!IA && !iaNegada; }
+const MSG_IA = {
+  not_granted: 'Sem permissão para usar o Claude nesta página. Dá para liberar no menu de permissões do artifact; enquanto isso, use Copiar.',
+  sampling_disabled: 'O Claude não está disponível para esta conta. Use Copiar e cole numa conversa.',
+  rate_limited: 'Muitas perguntas seguidas ou limite de uso da conta. Tente daqui a pouco.',
+  session_expired: 'A sessão do claude.ai expirou: entre de novo.',
+  refused: 'O Claude não respondeu a este pedido. Reformule e tente de novo.',
+  empty_completion: 'Veio uma resposta vazia. Tente de novo.',
+  invalid_json: 'A correção veio num formato inesperado. Tente de novo.',
+  prompt_too_large: 'Texto longo demais para enviar de uma vez.',
+};
+function erroIA(e) {
+  const c = (e && e.code) || 'upstream_error';
+  if (['not_granted', 'sampling_disabled', 'not_declared', 'capability_disabled', 'capability_removed'].includes(c)) iaNegada = true;
+  return MSG_IA[c] || 'Falha de conexão com o Claude. Tente de novo.';
+}
+async function copiarTexto(txt) {
+  try { await navigator.clipboard.writeText(txt); return true; } catch (e) { return false; }
+}
+// Investigar: em vez de mandar para uma busca, o painel faz perguntas que obrigam a construir a resposta, e o Claude
+// confere o que foi escrito, corrige com base na norma e devolve uma pergunta para ir mais fundo.
+// O tema já está no título da folha; as perguntas não o repetem, porque muitos temas são frases longas
+const PERGUNTAS_GUIA = [
+  'Explique o tema com suas palavras, em duas ou três frases, como se ensinasse um colega.',
+  'Onde ele aparece na norma? Ache o artigo e leia o dispositivo inteiro: há exceção, prazo ou condição logo ao lado?',
+  'Com que conceito vizinho a banca costuma trocá-lo? Qual diferença decide o item?',
+  'Monte um caso concreto, de preferência da atuação da ANPD, em que ele muda o resultado.',
+];
+function glossDe(t) { return GLOSS.find((g) => g.t === t) || GLOSS.find((g) => g.re.test(t)) || null; }
+function regrasInv(inv) {
+  const g = glossDe(inv.t);
+  return 'Você é tutor de quem estuda para o concurso de Especialista em Regulação de Proteção de Dados da ANPD (banca Cebraspe, itens certo ou errado). ' +
+    'O estudante está investigando o tema “' + inv.t + '”' + (inv.o ? ' (veio de: ' + inv.o + ')' : '') + '. ' +
+    (g ? 'Definição curta que o painel dele traz, possivelmente incompleta: ' + g.d + ' ' : '') +
+    'Ele respondeu a estas perguntas-guia: ' + PERGUNTAS_GUIA.join(' ') + '\n\n' +
+    'Regras da sua resposta: português do Brasil; texto corrido e curto, até 170 palavras, sem títulos; primeiro diga o que está certo, depois corrija o que está errado ou impreciso e diga o que faltou; ' +
+    'quando depender de norma brasileira (LGPD, resoluções da ANPD, outras leis), cite o artigo, e se não tiver certeza do número diga que é preciso conferir na lei em vez de inventar; ' +
+    'aponte a armadilha típica do Cebraspe sobre o tema quando houver (palavra trocada, exceção omitida, sujeito trocado); ' +
+    'não entregue tudo de uma vez: termine com UMA pergunta curta que leve o estudante ao próximo passo. A conversa vem a seguir.';
+}
+function conversaInv() {
+  const inv = UI.inv;
+  if (!inv || !inv.turnos.length) return '';
+  const ult = inv.turnos.length - 1;
+  return '<div class="inv-conversa">' + inv.turnos.map((x, i) => '<div class="inv-msg ' + (x.role === 'user' ? 'voce' : 'ia') + '"><span class="rotulo">' + (x.role === 'user' ? 'Você' : 'Claude') + '</span><p' + (i === ult && x.role === 'assistant' ? ' id="inv-ultima"' : '') + '>' + esc(x.content) + '</p></div>').join('') + '</div>';
+}
+function acoesInv() {
+  const inv = UI.inv;
+  if (inv && inv.ctl) return '<button class="btn" data-acao="inv-parar">Parar</button>';
+  return (iaPronta() ? '<button class="btn primario" data-acao="inv-conferir">' + (inv && inv.turnos.length ? 'Responder ao Claude' : 'Conferir com o Claude') + '</button>' : '') +
+    '<button class="btn" data-acao="inv-copiar">Copiar para perguntar à IA</button>';
+}
+function atualizarAcoesInv() { const el = document.getElementById('inv-acoes'); if (el) el.innerHTML = acoesInv(); }
+function folhaInvestigar(t, origem) {
+  const k = chavePesq(t), p = S.pesquisa[k], g = glossDe(t);
+  if (!UI.inv || UI.inv.k !== k) UI.inv = { t, k, o: origem || (p && p.o) || '', turnos: [], rascunho: '' };
+  const inv = UI.inv;
+  let html = cabFolha('Investigar', t) +
+    '<p class="pequeno mudo">Responda antes de ler qualquer coisa: tentar lembrar e explicar fixa mais do que ler a resposta pronta.</p>' +
+    '<ol class="lista-cb">' + PERGUNTAS_GUIA.map((x) => '<li>' + esc(x) + '</li>').join('') + '</ol>' +
+    '<div id="inv-conversa">' + conversaInv() + '</div>' +
+    '<label class="rotulo" for="inv-texto">' + (inv.turnos.length ? 'Sua resposta à pergunta do Claude' : 'Sua resposta') + '</label>' +
+    '<textarea id="inv-texto" class="area-texto" rows="6" placeholder="Escreva o que você sabe, mesmo incompleto.">' + esc(inv.rascunho || (!inv.turnos.length && p && p.r) || '') + '</textarea>' +
+    '<p class="pequeno mudo" id="inv-nota"></p><div class="linha-btns" id="inv-acoes">' + acoesInv() + '</div>';
+  if (g) html += '<details class="inv-def"><summary>Conferir a definição curta do glossário</summary><p>' + esc(g.d) + '</p></details>';
+  html += '<div class="linha-btns">' + (!p ? '<button class="btn" data-acao="add-pesq" data-t="' + esc(t) + '" data-o="' + esc(inv.o || 'investigar') + '">Guardar na lista</button>' : p.s ? '<span class="selo ok">Entendido</span>' : '<button class="btn" data-acao="inv-entendi" data-k="' + esc(k) + '">Entendi: marcar como entendido (+5 XP)</button>') + '</div>';
+  abrirFolha(html, 'Investigar ' + t);
+}
+async function conferirInv() {
+  const inv = UI.inv, box = document.getElementById('inv-texto');
+  if (!inv || inv.ctl || !box || !iaPronta()) return;
+  const txt = box.value.trim();
+  if (!txt) { avisar('!', 'Escreva primeiro', 'A conferência só funciona sobre o que você escreveu.'); return; }
+  if (!inv.turnos.length) { addPesquisa(inv.t, inv.o || 'investigar', true); const p = S.pesquisa[inv.k]; if (p) { p.r = txt.slice(0, 2000); Store.salvar('pesquisa'); } }
+  inv.turnos.push({ role: 'user', content: txt }, { role: 'assistant', content: 'Pensando…' });
+  inv.rascunho = '';
+  inv.ctl = new AbortController();
+  folhaInvestigar(inv.t, inv.o);
+  // O Claude não guarda nada entre chamadas: vão as regras e as últimas trocas, começando por uma fala do estudante
+  const turnos = inv.turnos.slice(0, -1).slice(-9);
+  if (turnos[0].role !== 'user') turnos.shift();
+  const resposta = inv.turnos[inv.turnos.length - 1];
+  try {
+    const r = await IA([{ role: 'user', content: regrasInv(inv) }].concat(turnos), {
+      cache: false, signal: inv.ctl.signal,
+      onText: ({ text }) => { resposta.content = text; const el = document.getElementById('inv-ultima'); if (el) el.textContent = text; },
+    });
+    resposta.content = r.text + (r.truncated ? ' […]' : '');
+  } catch (e) {
+    if (e && e.text) resposta.content = e.text + ' […]';
+    else { inv.turnos.splice(-2, 2); inv.rascunho = txt; }
+    if (!e || e.code !== 'cancelled') avisar('!', 'Claude indisponível', erroIA(e));
+  }
+  inv.ctl = null;
+  if (UI.inv === inv && !document.getElementById('folha').hidden) folhaInvestigar(inv.t, inv.o);
+}
+async function copiarInv() {
+  const inv = UI.inv, box = document.getElementById('inv-texto');
+  if (!inv) return;
+  const txt = (box && box.value.trim()) || (S.pesquisa[inv.k] && S.pesquisa[inv.k].r) || '';
+  const pedido = regrasInv(inv) + '\n\nMinha resposta: ' + (txt || '(ainda não escrevi; faça as perguntas uma de cada vez)');
+  const nota = document.getElementById('inv-nota');
+  if (await copiarTexto(pedido)) { if (nota) nota.textContent = 'Pedido copiado: cole numa conversa com o Claude.'; return; }
+  if (box) { box.value = pedido; box.select(); }
+  if (nota) nota.textContent = 'Não deu para copiar sozinho: o pedido está selecionado no campo acima; copie e cole numa conversa.';
+}
+// Correção da discursiva: o Claude lê o texto com os quesitos, o padrão de resposta e a escala de conceitos e sugere o
+// conceito de cada quesito e os erros de português. A pessoa revê e decide antes de salvar.
+function pedidoDiscIA(t, texto) {
+  return 'Corrija esta resposta discursiva como a banca Cebraspe corrige, com rigor e sem generosidade. O conceito máximo de cada quesito exige explicar, não só citar; o que passar de ' + t.linhas + ' linhas não conta.\n\n' +
+    'Tema: ' + t.titulo + '\nComando: ' + t.comando + '\n' + t.aspectos.map((a, i) => (i + 1) + ') ' + a).join('\n') + '\n\n' +
+    t.quesitos.map((q, i) => 'Quesito ' + (i + 1) + ' — ' + q.titulo + ' (0 a ' + q.max + ')\nPadrão de resposta:\n' + q.esperado.map((e) => '- ' + e).join('\n') + '\nConceitos:\n' + q.conceitos.map((c, k) => k + ' = ' + c).join('\n')).join('\n\n') +
+    '\n\nConte também os erros de português (grafia, acentuação, pontuação, concordância, regência, crase), como o Cebraspe desconta.\n\n' +
+    'Texto do candidato:\n"""\n' + texto.slice(0, 6000) + '\n"""\n\n' +
+    'Responda só com JSON neste formato: {"quesitos":[{"conceito":2,"porque":"uma ou duas frases: o que garantiu o conceito e o que faltou"}],"erros":3,"exemplos":["trecho errado → forma correta"],"geral":"duas frases com o que mais rende melhorar"}. ' +
+    'O array quesitos tem exatamente ' + t.quesitos.length + ' objetos, na ordem dos quesitos; exemplos tem no máximo 5.';
+}
+async function corrigirDiscIA() {
+  const t = TEMAS_DISC.find((x) => x.id === UI.discTema);
+  const texto = t && estadoDisc(t.id).rascunho.trim();
+  if (!t || !texto || !iaPronta() || UI.discIACarregando) return;
+  UI.discIACarregando = true;
+  renderMais();
+  try {
+    const r = await IA.json(pedidoDiscIA(t, texto));
+    const qs = Array.isArray(r && r.quesitos) ? r.quesitos : [];
+    if (qs.length !== t.quesitos.length) throw { code: 'invalid_json' };
+    const aval = {};
+    t.quesitos.forEach((q, i) => { aval[i] = Math.max(0, Math.min(q.max, Math.round(Number(qs[i] && qs[i].conceito) || 0))); });
+    UI.discAval = aval;
+    UI.discNE = Math.max(0, Math.round(Number(r.erros) || 0));
+    UI.discIA = { porque: qs.map((x) => String((x && x.porque) || '')), exemplos: (Array.isArray(r.exemplos) ? r.exemplos : []).slice(0, 5).map(String), geral: String(r.geral || '') };
+  } catch (e) {
+    avisar('!', 'Correção indisponível', erroIA(e));
+  }
+  UI.discIACarregando = false;
+  if (UI.vista === 'mais') renderMais();
+}
 function folhaTermo(i) {
   const g = GLOSS[i];
   if (!g) return;
   const naLista = !!S.pesquisa[chavePesq(g.t)];
   const rel = Q.filter((q) => g.re.test(q.e + ' ' + q.c));
   abrirFolha(cabFolha('Glossário', g.t) + '<p>' + esc(g.d) + '</p>' +
-    '<div class="linha-btns"><a class="btn primario" href="' + esc(busca(g.s)) + '" target="_blank" rel="noopener">Pesquisar no Google ↗</a>' +
+    '<div class="linha-btns"><button class="btn primario" data-acao="investigar" data-t="' + esc(g.t) + '" data-o="glossário">Investigar</button>' +
     (naLista ? '<span class="selo ok">Na sua lista</span>' : '<button class="btn" data-acao="add-pesq" data-t="' + esc(g.t) + '" data-o="glossário">Guardar na lista</button>') + '</div>' +
-    '<p class="pequeno mudo">Busca sugerida: ' + esc(g.s) + '</p>' +
     (rel.length ? '<div class="linha-btns"><button class="btn" data-acao="treinar-termo" data-t="' + i + '">Treinar ' + pl(rel.length, 'questão', 'questões') + ' com este termo</button></div>' : ''), g.t);
 }
 
@@ -1908,12 +2050,12 @@ function renderPesquisar() {
   const pend = itens.filter((x) => !x.s), feitos = itens.filter((x) => x.s);
   const vis = (UI.filtroPesq === 'feitos' ? feitos : pend).sort((a, b) => (a.d < b.d ? 1 : -1));
   let html = '<div class="secao-cab"><h2>Para pesquisar</h2><span class="mudo pequeno">' + pend.length + ' pendentes · ' + feitos.length + ' entendidos</span></div>' +
-    '<p class="mudo pequeno">Quando você erra, os termos da questão entram aqui sozinhos. Pesquise, leia uma boa fonte e marque como entendido (+5 XP).</p>' +
+    '<p class="mudo pequeno">Quando você erra, os termos da questão entram aqui sozinhos. Em Investigar, o painel faz as perguntas, você escreve a resposta e o Claude confere, corrige pela norma e devolve uma pergunta para ir mais fundo. Depois marque como entendido (+5 XP).</p>' +
     '<div class="chips"><button class="chip" data-acao="filtro-pesq" data-f="pendentes" aria-pressed="' + (UI.filtroPesq !== 'feitos') + '">Pendentes</button><button class="chip" data-acao="filtro-pesq" data-f="feitos" aria-pressed="' + (UI.filtroPesq === 'feitos') + '">Entendidos</button></div>';
   html += '<div class="lista-pesq">' + (vis.length ? vis.map((x) => {
     const g = GLOSS.find((t) => t.t === x.t);
     return '<div class="pesq-linha' + (x.s ? ' feito' : '') + '"><input type="checkbox" data-acao="pesq-feito" data-k="' + esc(x.k) + '"' + (x.s ? ' checked' : '') + ' aria-label="Marcar como entendido"><div class="tx"><b>' + esc(x.t) + '</b><small>' + esc(x.o || '') + ' · ' + esc(fmtData(x.d, { day: '2-digit', month: '2-digit' })) + '</small>' +
-      (g ? '<button class="linkish pequeno" data-acao="termo" data-t="' + g.i + '">Ver definição</button>' : '') + '</div><a href="' + esc(busca(g ? g.s : x.t)) + '" target="_blank" rel="noopener">Pesquisar ↗</a></div>';
+      (g ? '<button class="linkish pequeno" data-acao="termo" data-t="' + g.i + '">Ver definição</button>' : '') + '</div><button class="btn pequeno" data-acao="investigar" data-t="' + esc(x.t) + '" data-o="' + esc(x.o || '') + '">Investigar</button></div>';
   }).join('') : '<p class="vazio-msg">' + (UI.filtroPesq === 'feitos' ? 'Nada marcado como entendido ainda.' : 'Lista vazia. Os temas sugeridos abaixo e os termos das questões erradas aparecem aqui.') + '</p>') + '</div>';
   const ctx = contextoHoje();
   const doDia = new Set(blocosDoDia(ctx.tipo === 'dia' ? ctx.dia : ctx.tipo === 'folga' ? ctx.prox : null));
@@ -1922,7 +2064,7 @@ function renderPesquisar() {
     const faltam = b.pesquisar.filter((t) => !S.pesquisa[chavePesq(t)]).length;
     html += '<details class="grupo-pesq"' + (doDia.has(b.id) ? ' open' : '') + '><summary><span>' + esc(b.nome) + '</span><span class="mono pequeno mudo">' + faltam + ' de ' + b.pesquisar.length + '</span></summary><div class="grupo-blocos">' + b.pesquisar.map((t) => {
       const na = !!S.pesquisa[chavePesq(t)];
-      return '<div class="pesq-linha"><div class="tx"><b>' + esc(t) + '</b></div>' + (na ? '<span class="selo ok">Na lista</span>' : '<button class="btn pequeno" data-acao="add-pesq" data-t="' + esc(t) + '" data-o="' + esc(b.nome) + '">+ Lista</button>') + '<a href="' + esc(busca(t)) + '" target="_blank" rel="noopener">↗</a></div>';
+      return '<div class="pesq-linha"><div class="tx"><b>' + esc(t) + '</b></div>' + (na ? '<span class="selo ok">Na lista</span>' : '<button class="btn pequeno" data-acao="add-pesq" data-t="' + esc(t) + '" data-o="' + esc(b.nome) + '">+ Lista</button>') + '<button class="btn pequeno" data-acao="investigar" data-t="' + esc(t) + '" data-o="' + esc(b.nome) + '">Investigar</button></div>';
     }).join('') + '</div></details>';
   });
   return html + '</div>';
@@ -1933,7 +2075,7 @@ function renderGlossario() {
   return '<div class="secao-cab"><h2>Glossário</h2><span class="mudo pequeno">' + GLOSS.length + ' termos</span></div>' +
     '<input class="busca" id="busca-gloss" type="search" placeholder="Buscar termo" value="' + esc(UI.buscaGloss) + '" aria-label="Buscar no glossário">' +
     '<p class="mudo pequeno">Os termos sublinhados com pontos nas questões e nos cards abrem estas definições.</p>' +
-    lista.map((g) => '<div class="gloss-item"><b>' + esc(g.t) + '</b><p>' + esc(g.d) + '</p><div class="linha-btns"><a class="link-ext" href="' + esc(busca(g.s)) + '" target="_blank" rel="noopener">Pesquisar ↗</a>' +
+    lista.map((g) => '<div class="gloss-item"><b>' + esc(g.t) + '</b><p>' + esc(g.d) + '</p><div class="linha-btns"><button class="linkish pequeno" data-acao="investigar" data-t="' + esc(g.t) + '" data-o="glossário">Investigar</button>' +
       (S.pesquisa[chavePesq(g.t)] ? '<span class="selo ok">Na lista</span>' : '<button class="linkish pequeno" data-acao="add-pesq" data-t="' + esc(g.t) + '" data-o="glossário">Guardar na lista</button>') + '</div></div>').join('');
 }
 function renderMetodo() {
@@ -1944,7 +2086,7 @@ function renderMetodo() {
     '<li><b>Questões do dia.</b> O bloco do cronograma, no formato certo/errado. Marque “Estou em dúvida” sempre que não tiver certeza: isso mede o seu chute.</li>' +
     '<li><b>Lei seca grifada.</b> Leia os artigos do dia na literalidade. Os grifos mostram onde a banca mexe: prazos e números, palavras de alerta (somente, salvo, vedado), deve × pode e os seus erros.</li>' +
     '<li><b>Cards cloze.</b> As lacunas tiram a palavra exata do texto da lei; nos temas sem lei (gestão, riscos, dados, IA e economia), tiram o conceito-chave. Faça os novos do dia e responda de cabeça antes de revelar.</li>' +
-    '<li><b>Para pesquisar.</b> Os termos das questões erradas entram sozinhos na sua lista. Pesquise um tema por dia e marque como entendido.</li></ol>' +
+    '<li><b>Para pesquisar.</b> Os termos das questões erradas entram sozinhos na sua lista. Investigue um tema por dia: o painel pergunta, você explica com suas palavras e o Claude confere e aprofunda. Explicar é o que fixa.</li></ol>' +
     '<h3>Regras que não se negociam</h3><ul>' +
     '<li>O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça.</li>' +
     '<li>O acerto também volta, para confirmar que não foi sorte: o acerto de primeira volta em 16 dias, e cada confirmação seguinte espaça mais (35 dias). Esses acertos antigos entram na revisão do dia, no máximo ' + MANUTENCAO_DIA + ' por dia, os mais atrasados primeiro, e ocupam até um quarto das sessões de questões.</li>' +
@@ -2154,9 +2296,14 @@ function renderDiscursiva() {
     return html;
   }
   const aval = UI.discAval || {};
+  const ia = UI.discIA;
+  if (iaPronta() || ia) html += '<div class="cartao"><h2>Correção pelo Claude</h2><p class="pequeno mudo">O Claude lê o seu texto com os quesitos, o padrão de resposta e a escala de conceitos, e sugere o conceito de cada quesito e os erros de português. A decisão é sua: ajuste o que discordar antes de salvar.</p>' +
+    (ia ? (ia.geral ? '<p>' + esc(ia.geral) + '</p>' : '') + (ia.exemplos.length ? '<details><summary>Erros de português apontados</summary><ul class="lista-cb">' + ia.exemplos.map((x) => '<li>' + esc(x) + '</li>').join('') + '</ul></details>' : '') : '') +
+    (iaPronta() ? '<div class="linha-btns"><button class="btn' + (ia ? '' : ' primario') + '" data-acao="disc-ia"' + (UI.discIACarregando ? ' disabled' : '') + '>' + (UI.discIACarregando ? 'O Claude está lendo o seu texto…' : ia ? 'Pedir outra correção' : 'Pedir correção ao Claude') + '</button></div>' : '') + '</div>';
   html += '<div class="cartao"><h2>Correção pelos quesitos</h2><p class="pequeno mudo">Releia o seu texto procurando cada elemento esperado. Citar sem explicar fica no conceito mais baixo.</p>' +
     t.quesitos.map((q, i) => '<fieldset class="quesito"><legend><b>Quesito ' + (i + 1) + ' · ' + esc(q.titulo) + '</b> <span class="mono pequeno mudo">0 a ' + q.max + '</span></legend>' +
       '<details><summary>O que precisava aparecer</summary><ul class="lista-cb">' + q.esperado.map((e) => '<li>' + esc(e) + '</li>').join('') + '</ul></details>' +
+      (ia && ia.porque[i] ? '<p class="pequeno ia-porque"><b>Claude:</b> ' + esc(ia.porque[i]) + '</p>' : '') +
       q.conceitos.map((c, k) => '<label class="conceito"><input type="radio" name="disc-q' + i + '" data-acao="disc-conceito" data-q="' + i + '" value="' + k + '"' + (aval[i] === k ? ' checked' : '') + '><span><b>' + k + '</b> ' + esc(c) + '</span></label>').join('') + '</fieldset>').join('') +
     '<div class="campo"><label for="disc-ne">Erros de português que você encontrou ao reler (grafia, acentuação, pontuação, concordância, regência)</label><input id="disc-ne" type="number" min="0" step="1" inputmode="numeric" value="' + esc(UI.discNE || 0) + '"></div>' +
     '<div class="disc-res" id="disc-res">' + resultadoDisc(t) + '</div>' +
@@ -2397,12 +2544,18 @@ document.addEventListener('click', async (ev) => {
       if (ids.length) iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Itens reais · ' + ((DISC.find((x) => x.id === d.id) || {}).nome || d.id), chave: 'reais:' + d.id });
       break;
     }
-    case 'disc-abrir': UI.discTema = alvo.dataset.t; UI.discFase = 'escrita'; UI.discAval = {}; UI.discNE = 0; renderMais(); window.scrollTo(0, 0); break;
+    case 'disc-abrir': UI.discTema = alvo.dataset.t; UI.discFase = 'escrita'; UI.discAval = {}; UI.discNE = 0; UI.discIA = null; renderMais(); window.scrollTo(0, 0); break;
     case 'disc-voltar': UI.discTema = null; UI.discFase = null; renderMais(); window.scrollTo(0, 0); break;
+    case 'investigar': folhaInvestigar(alvo.dataset.t, alvo.dataset.o); break;
+    case 'inv-conferir': conferirInv(); break;
+    case 'inv-parar': if (UI.inv && UI.inv.ctl) UI.inv.ctl.abort(); break;
+    case 'inv-copiar': copiarInv(); break;
+    case 'inv-entendi': { const p = S.pesquisa[alvo.dataset.k]; if (p && !p.s) { p.s = 1; p.f = hojeISO(); ganharXP(5); verificarConquistas(); Store.salvar('pesquisa', 'perfil'); } if (UI.inv) folhaInvestigar(UI.inv.t, UI.inv.o); if (UI.vista === 'mais') renderMais(); break; }
+    case 'disc-ia': corrigirDiscIA(); break;
     case 'disc-corrigir':
       if (!estadoDisc(UI.discTema).rascunho.trim()) { avisar('!', 'Texto vazio', 'Escreva a resposta antes de corrigir.'); break; }
       UI.discFase = 'correcao'; renderMais(); break;
-    case 'disc-editar': UI.discFase = 'escrita'; renderMais(); break;
+    case 'disc-editar': UI.discFase = 'escrita'; UI.discIA = null; renderMais(); break;
     case 'disc-limpar': { const t = estadoDisc(UI.discTema); t.rascunho = ''; Store.salvar('discursivas'); renderMais(); break; }
     case 'disc-salvar': {
       const t = TEMAS_DISC.find((x) => x.id === UI.discTema);
@@ -2410,7 +2563,7 @@ document.addEventListener('click', async (ev) => {
       const r = notaDisc(t);
       if (!r.completo) { avisar('!', 'Falta conceito', 'Marque um conceito em cada quesito antes de salvar.'); break; }
       const st = estadoDisc(t.id);
-      st.tentativas.unshift({ d: hojeISO(), nc: Math.round(r.nc * 100) / 100, ne: r.ne, tl: r.tl, nq: Math.round(r.nq * 100) / 100, q: t.quesitos.map((q, i) => UI.discAval[i]) });
+      st.tentativas.unshift({ d: hojeISO(), nc: Math.round(r.nc * 100) / 100, ne: r.ne, tl: r.tl, nq: Math.round(r.nq * 100) / 100, q: t.quesitos.map((q, i) => UI.discAval[i]), ia: UI.discIA ? 1 : undefined });
       st.tentativas = st.tentativas.slice(0, 8);
       ganharXP(30);
       Store.salvar('discursivas', 'perfil');
@@ -2544,6 +2697,7 @@ document.addEventListener('change', (ev) => {
 });
 document.addEventListener('input', (ev) => {
   const id = ev.target.id;
+  if (id === 'inv-texto') { if (UI.inv) UI.inv.rascunho = ev.target.value; return; }
   if (id === 'disc-texto' || id === 'disc-ne') {
     const t = TEMAS_DISC.find((x) => x.id === UI.discTema);
     if (!t) return;
