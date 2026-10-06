@@ -7,6 +7,7 @@
   "scripts": {
     "validar": "node scripts/validar.mjs",
     "build": "node scripts/build.mjs",
-    "test": "node --test scripts/banco.test.mjs"
+    "test": "node --test scripts/banco.test.mjs",
+    "test:navegador": "node scripts/navegador/todos.mjs"
   }
 }

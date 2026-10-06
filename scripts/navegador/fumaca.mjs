@@ -1,0 +1,234 @@
+// Teste de fumaça: percorre as telas e os fluxos principais no celular e no computador, em tema claro e escuro,
+// e falha em erro de página ou rolagem horizontal.
+import { APP, abrirNavegador, foto, placar, responder, sairDaSessao, vigiarErros } from './comum.mjs';
+
+const browser = await abrirNavegador();
+const erros = [];
+const { conferir, passo, fim } = placar();
+async function pagina(opts) {
+  const ctx = await browser.newContext(opts);
+  const p = await ctx.newPage();
+  p.setDefaultTimeout(4000);
+  vigiarErros(p, erros);
+  await p.goto(APP);
+  await p.waitForTimeout(400);
+  return p;
+}
+const larguraSobrando = (p) => p.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+
+const p = await pagina({ viewport: { width: 390, height: 844 } });
+await p.screenshot({ path: foto('hoje.png'), fullPage: true });
+conferir('roteiro do dia com passos', (await p.locator('.passo').count()) >= 4);
+
+await passo('sessão do dia', async () => {
+  await p.click('[data-acao="iniciar-dia"]');
+  await p.waitForSelector('#sessao:not([hidden])');
+  for (let i = 0; i < 4; i++) {
+    await responder(p, i % 2 ? 'e' : 'c');
+    await p.waitForSelector('.veredito');
+    if (i === 0) await p.screenshot({ path: foto('feedback.png'), fullPage: true });
+    await p.click('[data-acao="proximo"]');
+  }
+  await sairDaSessao(p);
+});
+
+await passo('termo do glossário na explicação', async () => {
+  await p.click('.aba[data-vista="questoes"]');
+  await p.click('[data-acao="set-modo"][data-modo="treino"]');
+  await p.click('[data-acao="comecar"]');
+  for (let i = 0; i < 15; i++) {
+    await responder(p, 'e');
+    await p.waitForSelector('.veredito');
+    if (await p.locator('#sessao [data-acao="termo"]').count()) break;
+    await p.click('[data-acao="proximo"]');
+  }
+  if (await p.locator('#sessao [data-acao="termo"]').count()) {
+    await p.locator('#sessao [data-acao="termo"]').first().click();
+    await p.waitForSelector('#folha:not([hidden])');
+    await p.click('[data-acao="fechar-folha"]');
+  }
+  await sairDaSessao(p);
+});
+
+await passo('cards do dia pelo teclado', async () => {
+  await p.click('.aba[data-vista="hoje"]');
+  await p.click('[data-acao="cards-dia"]');
+  await p.waitForSelector('#sessao:not([hidden])');
+  for (let i = 0; i < 5; i++) {
+    await p.keyboard.press('Space');
+    await p.waitForSelector('.notas-card');
+    if (i === 0) await p.screenshot({ path: foto('card-verso.png'), fullPage: true });
+    await p.keyboard.press(String((i % 4) + 1));
+  }
+  await sairDaSessao(p);
+});
+
+await passo('simulado de prova completa', async () => {
+  await p.click('.aba[data-vista="questoes"]');
+  await p.click('[data-acao="set-modo"][data-modo="simulado"]');
+  await p.click('[data-acao="set-prova"][data-prova="prova"]');
+  await p.click('[data-acao="set-n"][data-n="60"]');
+  await p.click('[data-acao="comecar"]');
+  await p.waitForSelector('#sessao:not([hidden])');
+  for (let i = 0; i < 20; i++) {
+    if (i % 3 === 0) await p.check('[data-acao="duvida"]');
+    await p.click(i % 5 === 4 ? '.bolha.b' : i % 2 ? '.bolha.e' : '.bolha.c');
+  }
+  await p.click('[data-acao="entregar"]');
+  await p.click('[data-acao="confirmar-entrega"]');
+  await p.waitForSelector('.nota-final');
+  await p.screenshot({ path: foto('resultado.png'), fullPage: true });
+  await p.click('[data-acao="fechar-sessao"]');
+});
+
+await passo('item com fonte não anexada mostra o aviso', async () => {
+  await p.click('.aba[data-vista="questoes"]');
+  await p.click('[data-acao="set-modo"][data-modo="treino"]');
+  await p.click('[data-acao="preset"][data-preset="nada"]');
+  await p.check('input[data-acao="toggle-bloco"][data-bloco="lei-9784"]');
+  await p.click('[data-acao="comecar"]');
+  await p.click('.bolha.c');
+  await p.waitForSelector('.veredito');
+  await sairDaSessao(p);
+  await p.click('[data-acao="preset"][data-preset="nada"]').catch(() => {});
+});
+
+await passo('itens reais: treino com selo, comando e apoio', async () => {
+  await p.click('.aba[data-vista="questoes"]');
+  await p.click('[data-acao="set-modo"][data-modo="treino"]');
+  await p.click('[data-acao="reais"][data-modo="treino"]');
+  await p.waitForSelector('#sessao:not([hidden])');
+  if (!(await p.locator('#sessao .selo.real').count())) throw new Error('sem selo de item real');
+  await responder(p, 'c');
+  await p.waitForSelector('.veredito');
+  await sairDaSessao(p);
+});
+
+await passo('itens reais: como prova', async () => {
+  await p.click('.aba[data-vista="questoes"]');
+  await p.click('[data-acao="reais"][data-modo="simulado"]');
+  await p.waitForSelector('#sessao:not([hidden])');
+  await p.screenshot({ path: foto('real-prova.png'), fullPage: true });
+  await sairDaSessao(p);
+});
+
+await passo('como o Cebraspe cobra', async () => {
+  await p.click('.aba[data-vista="questoes"]');
+  await p.click('[data-acao="mais"][data-sub="cebraspe"]');
+  await p.waitForSelector('.cb-disc');
+  if (!(await p.locator('.chip.item-real').count())) throw new Error('sem itens citados');
+  await p.click('[data-acao="rolar"][data-alvo="cb-discursiva"]');
+  await p.locator('.chip.item-real').first().click();
+  await p.waitForSelector('#folha:not([hidden])');
+  await p.click('[data-acao="fechar-folha"]');
+  await p.click('[data-acao="reais-disc"][data-d="linguas"]');
+  await p.waitForSelector('#sessao:not([hidden])');
+  await sairDaSessao(p);
+});
+
+await passo('aba cards e exportação para o Anki', async () => {
+  await p.click('.aba[data-vista="cards"]');
+  await p.screenshot({ path: foto('cards.png'), fullPage: true });
+  await p.click('[data-acao="exportar-anki"]');
+  await p.waitForTimeout(300);
+  if (!(await p.locator('textarea').count())) throw new Error('sem área de exportação');
+  await p.click('[data-acao="fechar-folha"]');
+});
+
+await passo('lei seca: ranking, grifos e busca', async () => {
+  await p.click('.aba[data-vista="lei"]');
+  await p.click('[data-acao="ranking"]');
+  await p.locator('.ranking button').first().click();
+  await p.waitForSelector('.texto-lei');
+  await p.click('[data-acao="camada"][data-c="verbo"]');
+  await p.click('[data-acao="voltar-lei"]');
+  await p.click('[data-acao="ranking"]');
+  await p.fill('#busca-lei', 'quinze dias');
+  if (!(await p.locator('.resultado-busca button').count())) throw new Error('busca sem resultado');
+  await p.fill('#busca-lei', '');
+});
+
+await passo('lei seca: outras normas', async () => {
+  await p.click('.aba[data-vista="lei"]');
+  await p.selectOption('#sel-lei', 'cf88');
+  await p.waitForTimeout(150);
+  await p.click('#vista-lei .art-btn[data-art="cf88:5"]');
+  await p.waitForSelector('.texto-lei');
+  if (!(await p.textContent('.texto-lei')).includes('LXXIX')) throw new Error('art. 5º da CF incompleto');
+  await p.click('[data-acao="nav-art"][aria-label="Próximo artigo"]');
+  await p.click('[data-acao="voltar-lei"]');
+  for (const [lei, k] of [['dec1171', 'dec1171:XIV'], ['res19c', 'res19c:16'], ['eca', 'eca:263'], ['ingsi1', 'ingsi1:18'], ['gdpr', 'gdpr:33'], ['conv108', 'conv108:15'], ['nistcsf', 'nistcsf:GV.OC'], ['lei13460', 'lei13460:10-A']]) {
+    await p.selectOption('#sel-lei', lei);
+    await p.click('#vista-lei .art-btn[data-art="' + k + '"]');
+    await p.waitForSelector('.texto-lei');
+    await p.click('[data-acao="voltar-lei"]');
+  }
+  await p.selectOption('#sel-lei', 'lgpd');
+});
+
+await passo('leitura do dia até o fim da fila', async () => {
+  await p.click('.aba[data-vista="hoje"]');
+  await p.click('[data-acao="ler-dia"]');
+  await p.waitForSelector('.fila-leitura');
+  for (let i = 0; i < 40; i++) {
+    if (await p.locator('[data-acao="fim-fila"]').count()) { await p.click('[data-acao="fim-fila"]'); return; }
+    await p.click('[data-acao="nav-art"][aria-label="Próximo artigo"]');
+  }
+  throw new Error('a fila não terminou em 40 artigos');
+});
+
+for (const sub of ['metodo', 'cebraspe', 'discursiva', 'progresso', 'plano', 'pesquisar', 'glossario', 'ajustes']) {
+  await passo('mais/' + sub + ' sem rolagem horizontal', async () => {
+    await p.click('.aba[data-vista="mais"]');
+    await p.click('[data-acao="mais"][data-sub="menu"]').catch(() => {});
+    await p.click('.menu-mais [data-sub="' + sub + '"]');
+    await p.waitForTimeout(100);
+    await p.screenshot({ path: foto('mais-' + sub + '.png'), fullPage: true });
+    const larg = await larguraSobrando(p);
+    if (larg > 0) throw new Error(larg + 'px a mais');
+  });
+}
+
+await passo('backup em texto', async () => {
+  await p.click('.aba[data-vista="mais"]');
+  await p.click('[data-acao="mais"][data-sub="menu"]').catch(() => {});
+  await p.click('.menu-mais [data-sub="ajustes"]');
+  await p.click('[data-acao="backup-mostrar"]');
+  const j = JSON.parse(await p.inputValue('#zona-backup textarea'));
+  if (!j.itens && !(j.dados && j.dados.itens)) throw new Error('backup sem respostas: ' + Object.keys(j).join(','));
+});
+
+await passo('relâmpago', async () => {
+  await p.click('.aba[data-vista="hoje"]');
+  await p.click('[data-acao="relampago"]');
+  for (let i = 0; i < 3; i++) { await p.click('.bolha.c'); await p.waitForTimeout(900); }
+  await sairDaSessao(p);
+});
+
+const xp = await p.textContent('.pilula.xp');
+await p.reload();
+await p.waitForTimeout(300);
+conferir('XP sobrevive a recarregar a página', (await p.textContent('.pilula.xp')) === xp, xp);
+for (const v of ['hoje', 'questoes', 'cards', 'lei', 'mais']) {
+  await p.click('.aba[data-vista="' + v + '"]');
+  const larg = await larguraSobrando(p);
+  conferir('aba ' + v + ' sem rolagem horizontal', larg <= 0, larg + 'px');
+}
+
+await passo('computador, tema escuro', async () => {
+  const d = await pagina({ viewport: { width: 1280, height: 900 }, colorScheme: 'dark' });
+  await d.click('[data-acao="iniciar-dia"]');
+  await d.keyboard.press('e');
+  await d.waitForSelector('.veredito');
+  await d.screenshot({ path: foto('desktop-escuro.png') });
+});
+await passo('celular, tema escuro', async () => {
+  const e = await pagina({ viewport: { width: 390, height: 844 }, colorScheme: 'dark' });
+  await e.click('.aba[data-vista="mais"]');
+  await e.click('.menu-mais [data-sub="cebraspe"]');
+  await e.waitForTimeout(150);
+  await e.screenshot({ path: foto('cebraspe-escuro.png'), fullPage: true });
+});
+
+await browser.close();
+fim(erros);

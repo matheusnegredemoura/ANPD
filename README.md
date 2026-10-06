@@ -78,9 +78,12 @@ Referência, texto com lacunas e dica opcional (a dica aparece no lugar da lacun
 npm run validar   # confere banco, cards e glossário e mostra o equilíbrio certo/errado por bloco
 npm test          # testes do banco e do build
 npm run build     # gera dist/index.html, dist/artifact.html e dist/anki-lgpd-cloze.txt
+npm run test:navegador   # clica no app num Chromium de verdade (veja abaixo)
 ```
 
-Não há dependências externas: só Node 18 ou mais novo.
+Validar, testar e gerar o app não exigem dependências externas: só Node 18 ou mais novo.
+
+Os testes de navegador (`scripts/navegador/`) percorrem as telas no celular e no computador, nos dois temas, e conferem a sincronização entre a conta e o navegador (com um banco simulado), a retomada da sessão interrompida, a múltipla escolha e os cards. Eles precisam do Playwright, que o projeto não instala: rode `npm install --no-save playwright` uma vez. `CHROMIUM` aponta para um Chromium já instalado, `APP` troca o arquivo testado (para comparar com uma versão antiga) e `FOTOS` escolhe a pasta das capturas de tela.
 
 ## Textos que ainda faltam
 
