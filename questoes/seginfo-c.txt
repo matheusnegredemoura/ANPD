@@ -1,0 +1,356 @@
+bloco: seginfo
+// Segurança da informação, terceiro lote: Política Nacional de Segurança da Informação (Decreto 12.572/2025),
+// Rede Federal de Gestão de Incidentes Cibernéticos (Decreto 10.748/2021), IN GSI/PR 1/2020, conceitos e um caso.
+// Itens escritos para o banco. Trechos conferidos em fontes/dec12572.txt, dec10748.txt, in-gsi1.txt, nistcsf.txt,
+// lgpd.txt e res15.txt; os de doutrina não têm trecho de lei.
+
+apoio_ETIR: Em uma autarquia federal, a equipe de tratamento e resposta a incidentes identificou, numa sexta-feira à noite, acesso indevido a um servidor de arquivos com processos administrativos que continham dados pessoais de cidadãos. O chefe da unidade de tecnologia da informação, que também acumula a função de gestor de segurança da informação, decidiu apenas trocar as senhas e aguardar a segunda-feira para avaliar o caso.
+
+=== si3-01
+gab: C
+ref: dec12572 1
+trecho: com a finalidade de assegurar a disponibilidade, a integridade, a confidencialidade e a autenticidade da informação no País
+comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
+armadilha: rol
+dif: 1
+enunciado: A Política Nacional de Segurança da Informação tem a finalidade de assegurar a disponibilidade, a integridade, a confidencialidade e a autenticidade da informação no País.
+comentario: Art. 1º do Decreto 12.572/2025, que substituiu o Decreto 9.637/2018 como PNSI. As quatro propriedades (DICA) também aparecem na LAI e na Resolução 15/2024 da ANPD.
+
+=== si3-02
+gab: E
+ref: dec12572 2
+trecho: do pessoal envolvido no ciclo de vida da informação
+comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
+armadilha: rol
+dif: 2
+enunciado: Para a Política Nacional de Segurança da Informação, a segurança da informação limita-se à proteção dos dados e dos sistemas eletrônicos, não alcançando o ambiente físico nem as pessoas.
+comentario: O art. 2º inclui a segurança dos dados, ativos e processos, do ambiente físico e eletrônico e do pessoal envolvido no ciclo de vida da informação. Pessoas são o elo mais explorado (engenharia social).
+
+=== si3-03
+gab: C
+ref: dec12572 3
+trecho: a garantia dos direitos fundamentais, em especial a liberdade de expressão, a proteção de dados pessoais, a privacidade e o acesso à informação
+comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
+armadilha: rol
+dif: 2
+enunciado: Entre os princípios da Política Nacional de Segurança da Informação estão a garantia dos direitos fundamentais, em especial a proteção de dados pessoais e a privacidade, e o foco na gestão de riscos.
+comentario: Art. 3º, III e VI. Os seis princípios: soberania nacional, responsabilidade do poder público, garantia dos direitos fundamentais, educação, atuação colaborativa e foco na gestão de riscos.
+
+=== si3-04
+gab: E
+ref: dec12572 5
+trecho: O Gabinete de Segurança Institucional da Presidência da República coordenará as ações do Governo federal relativas à segurança da informação
+comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
+armadilha: sujeito
+dif: 2
+enunciado: A coordenação das ações do governo federal relativas à segurança da informação cabe à ANPD, por ser a autoridade responsável pela proteção de dados pessoais.
+comentario: Quem coordena é o GSI da Presidência (art. 5º), que também preside o CNCiber da PNCiber. A ANPD cuida da proteção de dados pessoais; segurança da informação e cibersegurança são coordenadas pelo GSI.
+
+=== si3-05
+gab: C
+ref: dec12572 7
+trecho: a Estratégia Nacional de Segurança da Informação
+comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
+armadilha: rol
+dif: 2
+enunciado: São instrumentos da Política Nacional de Segurança da Informação a Estratégia Nacional de Segurança da Informação, o Plano Nacional de Segurança da Informação e os normativos editados pelo Gabinete de Segurança Institucional.
+comentario: Art. 7º. Não confunda com os instrumentos da PNCiber (Decreto 11.856/2023), cujo instrumento é a Estratégia Nacional de Cibersegurança.
+
+=== si3-06
+gab: E
+ref: dec12572 9
+trecho: Compete ao Sistema de Controle Interno do Poder Executivo Federal auditar a execução das ações
+comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
+armadilha: sujeito
+dif: 2
+enunciado: A auditoria da execução das ações da Política Nacional de Segurança da Informação pelos órgãos federais compete ao Tribunal de Contas da União, com exclusividade.
+comentario: O decreto atribui essa auditoria ao Sistema de Controle Interno do Executivo federal (art. 9º), cujo órgão central é a CGU. O TCU pode fiscalizar por competência constitucional própria, mas não “com exclusividade”.
+
+=== si3-07
+gab: C
+ref: dec12572 10, VIII
+trecho: coordenar as atividades desenvolvidas pelo gestor de segurança da informação, pelo encarregado pelo tratamento de dados pessoais, pelo gestor de segurança e credenciamento e pelo titular da unidade de tecnologia da informação
+comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
+armadilha: literal
+dif: 3
+enunciado: Compete aos órgãos e entidades federais coordenar as atividades do gestor de segurança da informação, do encarregado pelo tratamento de dados pessoais, do gestor de segurança e credenciamento e do titular da unidade de tecnologia da informação.
+comentario: Art. 10, VIII. A PNSI integra expressamente o encarregado da LGPD à estrutura de segurança da informação do órgão.
+
+=== si3-08
+gab: E
+ref: dec12572 10, II
+trecho: instituir comitê interno de segurança da informação ou estrutura equivalente
+comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
+armadilha: excecao
+dif: 2
+enunciado: Os órgãos federais estão dispensados de instituir comitê interno de segurança da informação quando já tiverem designado gestor de segurança da informação.
+comentario: São deveres cumulativos: instituir comitê interno ou estrutura equivalente (art. 10, II) e designar o gestor (III), entre outros. A IN GSI 1/2020 exige ainda equipe de prevenção, tratamento e resposta a incidentes (art. 16).
+
+=== si3-09
+gab: C
+ref: dec10748 1, § 1º
+trecho: A participação dos órgãos e das entidades da administração pública federal direta, autárquica e fundacional na Rede Federal de Gestão de Incidentes Cibernéticos será obrigatória
+comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
+armadilha: sujeito
+dif: 2
+enunciado: A participação das autarquias federais na Rede Federal de Gestão de Incidentes Cibernéticos é obrigatória, ao passo que a das empresas públicas e sociedades de economia mista federais é voluntária, por adesão.
+comentario: Decreto 10.748/2021, art. 1º, §§ 1º e 2º. A ANPD, autarquia, participa obrigatoriamente.
+
+=== si3-10
+gab: C
+ref: dec10748 13
+trecho: Compete às agências reguladoras, ao Banco Central do Brasil e à Comissão Nacional de Energia Nuclear
+comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
+armadilha: sujeito
+dif: 3
+enunciado: Compete às agências reguladoras instituir ou designar equipe de coordenação setorial e notificar o centro de governo de resposta a incidentes sobre os incidentes cibernéticos de maior impacto nas áreas sob sua regulação.
+comentario: Decreto 10.748/2021, art. 13, I e V. Os incidentes de maior impacto são definidos pela classificação de severidade da gestão de riscos do órgão (§ 1º). É uma das funções das agências na cibersegurança setorial.
+
+=== si3-11
+gab: E
+ref: dec10748 15
+trecho: são consideradas imprescindíveis à segurança da sociedade e do Estado
+comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: As informações específicas sobre incidentes cibernéticos e sobre características técnicas dos ativos de informação dos órgãos federais são de acesso público irrestrito, por força da Lei de Acesso à Informação.
+comentario: O art. 15 do Decreto 10.748/2021 as considera imprescindíveis à segurança da sociedade e do Estado, com acesso restrito a profissionais autorizados. O que se divulga são estatísticas gerais de interesse público (§ 2º).
+
+=== si3-12
+gab: C
+ref: ingsi1 9
+trecho: É obrigatório a todos os órgãos e as entidades da administração pública federal possuir uma Política de Segurança da Informação, implementada a partir da formalização e aprovação por parte da autoridade máxima da instituição
+comando: Com base na Instrução Normativa GSI/PR n.º 1/2020, que dispõe sobre a estrutura de gestão da segurança da informação na administração pública federal, julgue os itens a seguir.
+armadilha: literal
+dif: 1
+enunciado: É obrigatório a todos os órgãos e entidades da administração pública federal possuir política de segurança da informação, aprovada pela autoridade máxima da instituição.
+comentario: Art. 9º. A autoridade máxima também responde por garantir os recursos para executá-la (parágrafo único).
+
+=== si3-13
+gab: C
+ref: ingsi1 16
+trecho: uma Equipe de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos (ETIR) ou estrutura equivalente
+comando: Com base na Instrução Normativa GSI/PR n.º 1/2020, que dispõe sobre a estrutura de gestão da segurança da informação na administração pública federal, julgue os itens a seguir.
+armadilha: rol
+dif: 2
+enunciado: Para estruturar a gestão da segurança da informação, os órgãos federais devem designar ou instituir, ao menos, gestor de segurança da informação, comitê de segurança da informação e equipe de prevenção, tratamento e resposta a incidentes cibernéticos, ou estruturas equivalentes.
+comentario: Art. 16 da IN GSI 1/2020: o tripé gestor, comitê e ETIR.
+
+=== si3-14
+gab: E
+ref: ingsi1 18, III
+trecho: não ser o responsável pela unidade de tecnologia da informação ou seu subordinado
+comando: Com base na Instrução Normativa GSI/PR n.º 1/2020, que dispõe sobre a estrutura de gestão da segurança da informação na administração pública federal, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: Para evitar duplicidade de estruturas, o gestor de segurança da informação deve ser, preferencialmente, o próprio responsável pela unidade de tecnologia da informação do órgão.
+comentario: É o contrário: o gestor não deve ser o responsável pela TI nem seu subordinado (art. 18, III), salvo falta de outro servidor apto, com justificativa formal. É a segregação de funções: quem opera não deve fiscalizar a si mesmo.
+
+=== si3-15
+gab: E
+ref: ingsi1 18, I
+trecho: ser servidor ou empregado público civil ocupante de cargo efetivo ou militar das Forças Armadas
+comando: Com base na Instrução Normativa GSI/PR n.º 1/2020, que dispõe sobre a estrutura de gestão da segurança da informação na administração pública federal, julgue os itens a seguir.
+armadilha: sujeito
+dif: 2
+enunciado: O gestor de segurança da informação de órgão federal pode ser profissional terceirizado, desde que tenha conhecimentos em segurança da informação.
+comentario: Um dos requisitos cumulativos é ser servidor ou empregado público civil de cargo efetivo ou militar das Forças Armadas (art. 18, I), além do nível de cargo comissionado, da segregação em relação à TI e de conhecimento ou formação em segurança da informação.
+
+=== si3-16
+gab: C
+ref: ingsi1 21
+trecho: o titular da unidade de tecnologia da informação do órgão ou da entidade
+comando: Com base na Instrução Normativa GSI/PR n.º 1/2020, que dispõe sobre a estrutura de gestão da segurança da informação na administração pública federal, julgue os itens a seguir.
+armadilha: rol
+dif: 2
+enunciado: Compõem o comitê de segurança da informação do órgão o gestor de segurança da informação, um representante da secretaria-executiva ou unidade equivalente, um representante de cada unidade finalística e o titular da unidade de tecnologia da informação.
+comentario: Art. 21 da IN GSI 1/2020. O comitê é coordenado pela maior autoridade designada (parágrafo único).
+
+=== si3-17
+gab: C
+ref: doutrina criptografia
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 1
+enunciado: Na criptografia assimétrica, uma mensagem cifrada com a chave pública do destinatário só pode ser decifrada com a chave privada correspondente.
+comentario: É o par de chaves: pública para cifrar (confidencialidade), privada para decifrar. Na assinatura digital ocorre o inverso: assina-se com a chave privada e verifica-se com a pública.
+
+=== si3-18
+gab: E
+ref: doutrina criptografia
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 2
+enunciado: A assinatura digital é gerada com a chave pública do remetente e verificada pelo destinatário com a chave privada do remetente.
+comentario: Inverteu as chaves. Assina-se com a chave privada do remetente (só ele a tem) e qualquer um verifica com a chave pública. Isso garante autenticidade, integridade e não repúdio, não confidencialidade.
+
+=== si3-19
+gab: E
+ref: doutrina hash
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 2
+enunciado: As funções de hash criptográficas são reversíveis, de modo que, conhecido o resumo, é possível recuperar a mensagem original com a chave adequada.
+comentario: Hash é função de mão única e sem chave: não se reverte. Serve para verificar integridade e para guardar senhas (com salt). Quem usa chave para reverter é a cifragem.
+
+=== si3-20
+gab: C
+ref: doutrina pseudonimização
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 2
+enunciado: Substituir o CPF de clientes por um código aleatório, mantendo em ambiente controlado e separado a tabela que associa códigos e CPFs, é exemplo de pseudonimização, e os dados continuam sendo dados pessoais.
+comentario: É a definição do art. 13, § 4º, da LGPD: perde-se a associação direta, salvo pelo uso de informação adicional mantida separadamente pelo controlador. Pseudonimizado continua pessoal; anonimizado, em regra, não (art. 12).
+
+=== si3-21
+gab: C
+ref: doutrina autenticação multifator
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 1
+enunciado: A autenticação multifator combina fatores de categorias diferentes, como algo que o usuário sabe, algo que possui e algo que ele é.
+comentario: Senha (conhecimento), token ou celular (posse) e biometria (inerência). Duas senhas não são multifator: são o mesmo fator duas vezes.
+
+=== si3-22
+gab: E
+ref: doutrina autenticação multifator
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 2
+enunciado: O uso de duas senhas distintas, solicitadas em sequência, configura autenticação de dois fatores.
+comentario: Ambas são “algo que você sabe”: um único fator. Multifator exige categorias diferentes (conhecimento, posse, inerência).
+
+=== si3-23
+gab: C
+ref: doutrina zero trust
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 2
+enunciado: O modelo de confiança zero (zero trust) parte da premissa de que nenhum usuário ou dispositivo é confiável por estar dentro da rede corporativa, exigindo verificação contínua de identidade e de contexto para cada acesso.
+comentario: “Nunca confie, sempre verifique.” O modelo abandona a ideia de perímetro seguro e aplica o menor privilégio a cada requisição.
+
+=== si3-24
+gab: E
+ref: doutrina controle de acesso
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 2
+enunciado: Pelo princípio do menor privilégio, cada usuário deve receber todas as permissões de que possa vir a precisar no futuro, para evitar interrupções no trabalho.
+comentario: Menor privilégio é conceder apenas as permissões necessárias à função atual, e por tempo limitado quando possível. Excesso de permissão amplia o estrago de credenciais roubadas e de erros.
+
+=== si3-25
+gab: C
+ref: doutrina segregação de funções
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 2
+enunciado: A segregação de funções busca evitar que uma mesma pessoa controle todas as etapas de um processo crítico, como solicitar, aprovar e executar um pagamento.
+comentario: Reduz fraude e erro, porque exige conluio para burlar o controle. Na IN GSI 1/2020, a separação entre gestor de segurança e chefe de TI segue essa lógica.
+
+=== si3-26
+gab: E
+ref: doutrina backup
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 2
+enunciado: Manter uma única cópia de segurança, no mesmo servidor dos dados originais, é suficiente para garantir a recuperação após um ataque de ransomware.
+comentario: Ransomware costuma cifrar também os backups acessíveis na mesma rede. A boa prática é a regra 3-2-1: três cópias, em dois tipos de mídia, uma fora do local (de preferência isolada ou imutável), e testes periódicos de restauração.
+
+=== si3-27
+gab: C
+ref: doutrina continuidade de negócios
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 3
+enunciado: O objetivo de ponto de recuperação (RPO) indica a quantidade máxima de dados que a organização tolera perder, medida em tempo, enquanto o objetivo de tempo de recuperação (RTO) indica o prazo máximo para restabelecer o serviço.
+comentario: RPO responde “até que momento preciso recuperar os dados” (define a frequência dos backups); RTO, “em quanto tempo o serviço precisa voltar”. Inverter os dois é a pegadinha comum.
+
+=== si3-28
+gab: E
+ref: doutrina engenharia social
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 1
+enunciado: O phishing é ataque exclusivamente técnico, que explora falhas de software sem depender de ação da vítima.
+comentario: Phishing é engenharia social: induz a vítima a clicar, informar credenciais ou instalar algo. Por isso a conscientização de pessoas é controle essencial (PNSI, art. 4º, VII).
+
+=== si3-29
+gab: C
+ref: doutrina defesa em profundidade
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 2
+enunciado: A defesa em profundidade consiste em sobrepor camadas de controles independentes, de modo que a falha de um controle não comprometa sozinha a proteção do ativo.
+comentario: Firewall, segmentação de rede, autenticação forte, criptografia, monitoramento e backup se combinam. Nenhum controle isolado basta.
+
+=== si3-30
+gab: E
+ref: doutrina DLP
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 2
+enunciado: Ferramentas de prevenção de perda de dados (DLP) têm a função principal de cifrar os dados armazenados em servidores.
+comentario: DLP monitora e bloqueia a saída indevida de dados sensíveis (e-mail, upload, dispositivos removíveis), com base em políticas e classificação. Cifrar dados em repouso é outro controle.
+
+=== si3-31
+gab: C
+ref: doutrina SIEM
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: conceito
+dif: 2
+enunciado: Um SIEM centraliza e correlaciona registros de eventos de diversas fontes, apoiando a detecção de incidentes e a investigação posterior.
+comentario: Registros (logs) bem guardados também atendem a deveres legais: o registro das operações de tratamento da LGPD (art. 37) e o registro de incidentes da Resolução 15/2024 (art. 10).
+
+=== si3-32
+gab: E
+ref: nistcsf S2
+trecho: GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND, and RECOVER
+comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
+armadilha: rol
+dif: 2
+enunciado: O NIST Cybersecurity Framework 2.0 organiza os resultados de cibersegurança em cinco funções: identificar, proteger, detectar, responder e recuperar.
+comentario: A versão 2.0 (2024) acrescentou a função GOVERN, que fica no centro da roda: são seis funções. A versão 1.1 é que tinha cinco. Atualização de norma é armadilha frequente.
+
+=== si3-33
+gab: E
+ref: ingsi1 18, III
+trecho: não ser o responsável pela unidade de tecnologia da informação ou seu subordinado
+apoio: @ETIR
+comando: Considerando essa situação hipotética, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: A acumulação, pelo chefe da unidade de tecnologia da informação, da função de gestor de segurança da informação é a configuração recomendada pela Instrução Normativa GSI/PR n.º 1/2020.
+comentario: A IN veda que o gestor seja o responsável pela TI ou seu subordinado, salvo falta de outro servidor apto e com justificativa formal (art. 18, III).
+
+=== si3-34
+gab: C
+ref: res15 6, § 1º
+trecho: O prazo a que se refere o caput será contado do conhecimento pelo controlador de que o incidente afetou dados pessoais
+apoio: @ETIR
+comando: Considerando essa situação hipotética, julgue os itens a seguir.
+armadilha: caso
+dif: 3
+enunciado: Se a avaliação confirmar que dados pessoais foram afetados, o prazo de três dias úteis para eventual comunicação à ANPD começa a contar do conhecimento, pela autarquia, de que o incidente afetou dados pessoais.
+comentario: Resolução 15/2024, art. 6º, § 1º. Adiar a avaliação não adia o dever: os motivos de eventual demora devem constar da comunicação (§ 2º, V). Pessoa jurídica de direito público também é controladora sujeita à resolução.
+
+=== si3-35
+gab: E
+ref: lgpd 46
+trecho: Os agentes de tratamento devem adotar medidas de segurança, técnicas e administrativas aptas a proteger os dados pessoais de acessos não autorizados
+apoio: @ETIR
+comando: Considerando essa situação hipotética, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: A simples troca de senhas esgota o dever de segurança da autarquia, pois o art. 46 da LGPD exige apenas medidas técnicas, não medidas administrativas.
+comentario: O art. 46 exige medidas técnicas e administrativas aptas a proteger os dados. Resposta a incidente envolve contenção, investigação, avaliação de risco, registro e, se for o caso, comunicação (Resolução 15/2024), não só troca de senhas.
+
+=== si3-36
+gab: C
+ref: res15 10
+trecho: O controlador deverá manter o registro do incidente de segurança, inclusive daquele não comunicado à ANPD e aos titulares
+apoio: @ETIR
+comando: Considerando essa situação hipotética, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Ainda que conclua que o incidente não oferece risco ou dano relevante aos titulares, a autarquia deve registrá-lo, com a avaliação do risco e os motivos da ausência de comunicação.
+comentario: Resolução 15/2024, art. 10, § 1º, V e VIII. Para entidades do art. 23 da LGPD, o prazo de guarda segue as regras de arquivo (tabela de temporalidade), conforme o § 2º.
