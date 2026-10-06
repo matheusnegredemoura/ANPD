@@ -164,6 +164,7 @@ p{margin:0}
 .modo .num{margin-top:auto;font-family:var(--f-mono);font-size:.78rem;color:var(--accent);font-weight:600}
 .contagem{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .contagem .grande{font-family:var(--f-mono);font-size:2rem;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.contagem+.contagem{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
 
 /* Treinar */
 .grupo-blocos{display:flex;flex-direction:column;gap:8px}

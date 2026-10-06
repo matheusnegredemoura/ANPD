@@ -1037,9 +1037,13 @@ function renderHoje() {
     '<button class="modo" data-acao="ir" data-vista="cards"><b>Cards cloze</b><span>A letra da lei com lacunas, no estilo do Anki, com revisão espaçada.</span><span class="num">' + CARDS.length + ' cards</span></button>' +
     '<button class="modo" data-acao="mais" data-sub="discursiva"><b>Discursiva</b><span>Escreva no limite de linhas e corrija pelos quesitos do padrão de resposta.</span><span class="num">' + pl(TEMAS_DISC.length, 'tema', 'temas') + '</span></button>' +
     '<button class="modo" data-acao="abrir-modo" data-modo="treino"><b>Treino livre</b><span>Escolha blocos e receba gabarito comentado a cada item.</span><span class="num">' + Q.length + ' questões</span></button></div></div>';
-  const faltam = diaNum(D.cronograma.edital) - HOJE();
-  const edital = '<div class="cartao"><div class="contagem"><span class="grande">' + Math.max(0, faltam) + '</span><span>' +
-    (faltam >= 0 ? 'dias até 22/12/2026, prazo legal máximo para o edital.' : 'O prazo legal do edital (22/12/2026) passou: acompanhe as notícias.') + '</span></div></div>';
+  // Duas contagens: o prazo legal do edital e a prova estimada (domingo cerca de três meses depois)
+  const cr = D.cronograma, faltaEd = diaNum(cr.edital) - HOJE(), faltaPr = diaNum(cr.prova) - HOJE();
+  const dataCurta = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const contagem = (n, txt) => '<div class="contagem"><span class="grande">' + Math.max(0, n) + '</span><span>' + txt + '</span></div>';
+  const edital = '<div class="cartao">' +
+    contagem(faltaEd, faltaEd >= 0 ? 'dias até ' + dataCurta(cr.edital) + ', prazo legal máximo para o edital.' : 'O prazo legal do edital (' + dataCurta(cr.edital) + ') passou: acompanhe as notícias.') +
+    contagem(faltaPr, faltaPr >= 0 ? 'dias até a prova provável, domingo ' + dataCurta(cr.prova) + ' (três meses depois do edital; troque pela data oficial quando sair).' : 'A data estimada da prova (' + dataCurta(cr.prova) + ') passou.') + '</div>';
   document.getElementById('vista-hoje').innerHTML = topo + roteiro + nivel + modos + edital + '<p class="sync" id="sync"></p>';
   atualizarRodapeSync();
 }
