@@ -1,0 +1,226 @@
+bloco: gdpr
+// Terceira leva de direito comparado: GDPR em pontos que a banca costuma comparar com a LGPD.
+// Trechos conferidos no texto oficial em inglês (fontes/gdpr.txt); enunciados em português.
+
+=== gd3-01
+gab: C
+ref: gdpr 2
+trecho: by a natural person in the course of a purely personal or household activity
+trecho: by competent authorities for the purposes of the prevention, investigation, detection or prosecution of criminal offences
+armadilha: comparacao
+dif: 2
+enunciado: Assim como a LGPD exclui o tratamento por pessoa natural para fins exclusivamente particulares e não econômicos, o GDPR não se aplica ao tratamento por pessoa natural no exercício de atividade exclusivamente pessoal ou doméstica, nem ao tratamento por autoridades competentes para fins de persecução penal.
+comentario: Art. 2º, 2, c e d, do GDPR. Na União Europeia, a persecução penal tem diploma próprio (a Diretiva 2016/680). Na LGPD, a exclusão equivalente está no art. 4º, I e III.
+
+=== gd3-02
+gab: E
+ref: gdpr 6
+trecho: Point (f) of the first subparagraph shall not apply to processing carried out by public authorities in the performance of their tasks.
+armadilha: comparacao
+dif: 3
+enunciado: No GDPR, as autoridades públicas podem fundamentar no legítimo interesse o tratamento de dados realizado no desempenho de suas atribuições, da mesma forma que os agentes privados.
+comentario: Errado. O art. 6º, 1, do GDPR afasta expressamente o legítimo interesse (alínea f) do tratamento feito por autoridades públicas no desempenho de suas atribuições; para elas, a base típica é a missão de interesse público ou o exercício de autoridade pública (alínea e).
+
+=== gd3-03
+gab: C
+ref: gdpr 7
+trecho: It shall be as easy to withdraw as to give consent.
+trecho: The withdrawal of consent shall not affect the lawfulness of processing based on consent before its withdrawal.
+armadilha: literal
+dif: 2
+enunciado: No GDPR, retirar o consentimento deve ser tão fácil quanto dá-lo, e a retirada não compromete a licitude do tratamento realizado com base no consentimento antes dela.
+comentario: Art. 7º, 3. A LGPD tem regra próxima: revogação a qualquer momento, por procedimento gratuito e facilitado, ratificados os tratamentos realizados sob o consentimento anterior (art. 8º, § 5º).
+
+=== gd3-04
+gab: C
+ref: gdpr 7
+trecho: whether, inter alia, the performance of a contract, including the provision of a service, is conditional on consent to the processing of personal data that is not necessary for the performance of that contract
+armadilha: caso
+dif: 3
+enunciado: Aplicativo europeu que condiciona o acesso ao serviço ao consentimento do usuário para uso de dados desnecessários à execução do contrato tem esse fato considerado com o máximo de atenção na avaliação de se o consentimento foi livremente dado.
+comentario: Art. 7º, 4, do GDPR. O equivalente brasileiro é o art. 9º, § 3º, da LGPD: quando o tratamento for condição para o serviço, o titular deve ser informado com destaque.
+
+=== gd3-05
+gab: E
+ref: gdpr 12
+trecho: within one month of receipt of the request. That period may be extended by two further months where necessary
+armadilha: numero
+dif: 2
+enunciado: No GDPR, o responsável deve informar ao titular as medidas tomadas sobre seu pedido em até quinze dias, prazo improrrogável.
+comentario: Errado. O prazo é de um mês do recebimento do pedido, prorrogável por mais dois meses quando necessário, considerando complexidade e número de pedidos, com aviso ao titular dentro do primeiro mês (art. 12, 3). Quinze dias é o prazo da LGPD para a declaração completa de acesso (art. 19, II).
+
+=== gd3-06
+gab: C
+ref: gdpr 12
+trecho: Where requests from a data subject are manifestly unfounded or excessive, in particular because of their repetitive character
+trecho: The controller shall bear the burden of demonstrating the manifestly unfounded or excessive character of the request.
+armadilha: excecao
+dif: 3
+enunciado: No GDPR, as comunicações ao titular são em regra gratuitas, mas, diante de pedidos manifestamente infundados ou excessivos, sobretudo repetitivos, o responsável pode cobrar taxa razoável ou recusar-se a agir, cabendo-lhe o ônus de demonstrar esse caráter.
+comentario: Art. 12, 5. A gratuidade é a regra; a exceção depende de prova a cargo do responsável.
+
+=== gd3-07
+gab: E
+ref: gdpr 17
+trecho: for exercising the right of freedom of expression and information
+trecho: for the establishment, exercise or defence of legal claims
+armadilha: absoluto
+dif: 2
+enunciado: No GDPR, o direito ao apagamento é absoluto: presentes os fundamentos legais, o responsável deve apagar os dados mesmo que sejam necessários à liberdade de expressão ou à defesa em processo judicial.
+comentario: Errado. O art. 17, 3, afasta o apagamento quando o tratamento é necessário à liberdade de expressão e informação, ao cumprimento de obrigação legal ou missão de interesse público, à saúde pública, ao arquivo, pesquisa ou estatística e à declaração, exercício ou defesa de direitos em processo judicial.
+
+=== gd3-08
+gab: C
+ref: gdpr 21
+trecho: Where the data subject objects to processing for direct marketing purposes, the personal data shall no longer be processed for such purposes.
+armadilha: comparacao
+dif: 3
+enunciado: No GDPR, a oposição ao tratamento para marketing direto encerra esse tratamento sem que o responsável possa invocar razões legítimas imperiosas, ao contrário da oposição baseada na situação particular do titular contra tratamento por interesse legítimo ou interesse público.
+comentario: Art. 21, 1 a 3. Na oposição geral, o responsável pode demonstrar razões legítimas imperiosas que prevaleçam; no marketing direto, não há essa ponderação. O direito de oposição deve ser apresentado de forma clara e separada, no máximo na primeira comunicação (§ 4º).
+
+=== gd3-09
+gab: C
+ref: gdpr 22
+trecho: at least the right to obtain human intervention on the part of the controller, to express his or her point of view and to contest the decision
+armadilha: comparacao
+dif: 3
+enunciado: Nas decisões exclusivamente automatizadas admitidas por contrato ou consentimento explícito, o GDPR assegura ao titular, no mínimo, o direito de obter intervenção humana, de manifestar seu ponto de vista e de contestar a decisão.
+comentario: Art. 22, 3. Na LGPD, o art. 20 garante revisão das decisões automatizadas, mas a exigência de revisão por pessoa natural foi vetada; o titular tem direito a informações sobre critérios e procedimentos (§ 1º), e a ANPD pode fazer auditoria em caso de recusa por segredo comercial (§ 2º).
+
+=== gd3-10
+gab: E
+ref: gdpr 22
+trecho: Decisions referred to in paragraph 2 shall not be based on special categories of personal data referred to in Article 9(1), unless point (a) or (g) of Article 9(2) applies
+armadilha: extrapolacao
+dif: 3
+enunciado: Quando admitida por contrato com o titular, a decisão exclusivamente automatizada pode basear-se livremente em categorias especiais de dados, como dados de saúde, sem exigências adicionais.
+comentario: Errado. Decisões automatizadas admitidas pelo art. 22, 2, não podem basear-se em categorias especiais de dados, salvo consentimento explícito ou interesse público importante (art. 9º, 2, a ou g), e sempre com medidas adequadas de salvaguarda (art. 22, 4).
+
+=== gd3-11
+gab: C
+ref: gdpr 25
+trecho: by default personal data are not made accessible without the individual's intervention to an indefinite number of natural persons
+armadilha: caso
+dif: 2
+enunciado: Rede social europeia que, por padrão, deixa os perfis novos visíveis a qualquer pessoa, cabendo ao usuário restringir essa configuração, contraria a proteção de dados por defeito prevista no GDPR.
+comentario: Art. 25, 2: por defeito, os dados não podem ser tornados acessíveis a um número indeterminado de pessoas sem intervenção do titular. A LGPD tem lógica parecida no art. 46, § 2º (segurança desde a concepção), e o ECA Digital exige, por padrão, a configuração mais protetiva disponível (art. 7º da Lei nº 15.211/2025).
+
+=== gd3-12
+gab: E
+ref: gdpr 26
+trecho: Irrespective of the terms of the arrangement referred to in paragraph 1, the data subject may exercise his or her rights under this Regulation in respect of and against each of the controllers.
+armadilha: interpretacao
+dif: 3
+enunciado: No GDPR, havendo responsáveis conjuntos, o titular só pode exercer seus direitos perante o responsável indicado como ponto de contato no acordo entre eles.
+comentario: Errado. O acordo entre responsáveis conjuntos pode designar ponto de contato (art. 26, 1), mas, independentemente dos seus termos, o titular pode exercer seus direitos perante cada um deles (art. 26, 3).
+
+=== gd3-13
+gab: C
+ref: gdpr 28
+trecho: if a processor infringes this Regulation by determining the purposes and means of processing, the processor shall be considered to be a controller in respect of that processing
+armadilha: conceito
+dif: 2
+enunciado: No GDPR, o subcontratante que passa a determinar as finalidades e os meios do tratamento é considerado responsável pelo tratamento quanto a esse tratamento.
+comentario: Art. 28, 10. Na LGPD, a ideia aparece na responsabilidade solidária do operador que descumpre a lei ou age fora das instruções lícitas do controlador, caso em que se equipara ao controlador (art. 42, § 1º, I).
+
+=== gd3-14
+gab: E
+ref: gdpr 28
+trecho: The processor shall not engage another processor without prior specific or general written authorisation of the controller.
+armadilha: extrapolacao
+dif: 2
+enunciado: No GDPR, o subcontratante pode contratar livremente outro subcontratante, bastando comunicar o fato ao responsável depois da contratação.
+comentario: Errado. A subcontratação exige autorização escrita prévia, específica ou geral, do responsável; na autorização geral, o subcontratante informa as mudanças pretendidas para permitir oposição (art. 28, 2).
+
+=== gd3-15
+gab: C
+ref: gdpr 32
+trecho: the pseudonymisation and encryption of personal data
+trecho: a process for regularly testing, assessing and evaluating the effectiveness of technical and organisational measures for ensuring the security of the processing
+armadilha: rol
+dif: 2
+enunciado: Entre as medidas de segurança exemplificadas no GDPR estão a pseudonimização e a cifragem dos dados, a capacidade de restabelecer a disponibilidade após incidente e um processo para testar e avaliar regularmente a eficácia das medidas.
+comentario: Art. 32, 1, a, c e d. As medidas são proporcionais ao estado da técnica, aos custos e ao risco. A LGPD tem o dever genérico de segurança no art. 46.
+
+=== gd3-16
+gab: E
+ref: gdpr 33
+trecho: The processor shall notify the controller without undue delay after becoming aware of a personal data breach.
+armadilha: sujeito
+dif: 2
+enunciado: No GDPR, o subcontratante que toma conhecimento de violação de dados deve notificá-la diretamente à autoridade de controle em até 72 horas.
+comentario: Errado. O subcontratante notifica o responsável sem demora injustificada (art. 33, 2). Quem notifica a autoridade é o responsável, se possível em até 72 horas (art. 33, 1). Lógica parecida à da Resolução CD/ANPD nº 15/2024, em que a comunicação à ANPD cabe ao controlador.
+
+=== gd3-17
+gab: C
+ref: gdpr 34
+trecho: such as encryption
+trecho: it would involve disproportionate effort. In such a case, there shall instead be a public communication or similar measure
+armadilha: excecao
+dif: 3
+enunciado: No GDPR, a comunicação da violação aos titulares é dispensada se os dados afetados estavam cifrados de modo a ficarem ininteligíveis para quem não tem autorização; se a comunicação individual exigir esforço desproporcionado, faz-se comunicação pública.
+comentario: Art. 34, 3, a e c. Também se dispensa quando medidas posteriores tornam improvável o risco elevado (b). A autoridade pode exigir a comunicação (§ 4º).
+
+=== gd3-18
+gab: C
+ref: gdpr 36
+trecho: The controller shall consult the supervisory authority prior to processing where a data protection impact assessment under Article 35 indicates that the processing would result in a high risk in the absence of measures taken by the controller to mitigate the risk.
+armadilha: conceito
+dif: 3
+enunciado: No GDPR, se a avaliação de impacto indicar risco elevado na ausência de medidas de mitigação, o responsável deve consultar previamente a autoridade de controle antes de iniciar o tratamento.
+comentario: Art. 36, 1. A autoridade responde por escrito em até oito semanas, prorrogáveis por seis (art. 36, 2). Na LGPD não há consulta prévia equivalente; a ANPD pode determinar ao controlador que elabore relatório de impacto (art. 38).
+
+=== gd3-19
+gab: E
+ref: gdpr 38
+trecho: He or she shall not be dismissed or penalised by the controller or the processor for performing his tasks. The data protection officer shall directly report to the highest management level of the controller or the processor.
+armadilha: interpretacao
+dif: 2
+enunciado: No GDPR, o encarregado da proteção de dados recebe instruções do responsável sobre como exercer suas funções e responde à chefia imediata do setor jurídico.
+comentario: Errado. O responsável deve garantir que o encarregado não receba instruções sobre o exercício de suas funções; ele não pode ser destituído nem penalizado por exercê-las e responde diretamente ao mais alto nível de direção (art. 38, 3). Pode acumular outras funções sem conflito de interesses (§ 6º).
+
+=== gd3-20
+gab: C
+ref: gdpr 46
+trecho: without requiring any specific authorisation from a supervisory authority
+trecho: binding corporate rules in accordance with Article 47
+armadilha: comparacao
+dif: 3
+enunciado: No GDPR, as regras vinculativas aplicáveis às empresas e as cláusulas-padrão adotadas pela Comissão servem de garantias adequadas para transferência internacional sem exigir autorização específica da autoridade de controle, ao contrário das cláusulas contratuais ad hoc, que dependem dessa autorização.
+comentario: Art. 46, 2, b e c, e 3, a. Na LGPD, as cláusulas-padrão são aprovadas pela ANPD (Res. CD/ANPD nº 19/2024), e as cláusulas específicas e normas corporativas globais dependem de aprovação da ANPD.
+
+=== gd3-21
+gab: E
+ref: gdpr 49
+trecho: Points (a), (b) and (c) of the first subparagraph of paragraph 1 and the second subparagraph thereof shall not apply to activities carried out by public authorities in the exercise of their public powers.
+armadilha: sujeito
+dif: 3
+enunciado: No GDPR, autoridades públicas, no exercício de seus poderes públicos, podem transferir dados para país sem adequação com base no consentimento explícito do titular, tal como os agentes privados.
+comentario: Errado. As derrogações de consentimento explícito e de execução de contrato (art. 49, 1, a, b e c) não se aplicam às atividades de autoridades públicas no exercício de poderes públicos (art. 49, 3). As derrogações do art. 49 são subsidiárias: só valem sem adequação e sem garantias adequadas.
+
+=== gd3-22
+gab: C
+ref: gdpr 77
+trecho: in particular in the Member State of his or her habitual residence, place of work or place of the alleged infringement
+armadilha: literal
+dif: 2
+enunciado: No GDPR, o titular pode apresentar reclamação a uma autoridade de controle, em especial no Estado-membro de sua residência habitual, de seu local de trabalho ou do local da alegada infração.
+comentario: Art. 77, 1. A autoridade informa o reclamante sobre o andamento e o resultado, incluindo a possibilidade de recurso judicial (§ 2º).
+
+=== gd3-23
+gab: C
+ref: gdpr 82
+trecho: each controller or processor shall be held liable for the entire damage in order to ensure effective compensation of the data subject
+armadilha: comparacao
+dif: 3
+enunciado: No GDPR, quando vários responsáveis ou subcontratantes participam do mesmo tratamento e respondem pelo dano, cada um responde pela totalidade, com direito de regresso contra os demais pela parte que lhes cabe.
+comentario: Art. 82, 4 e 5. A lógica é a mesma da solidariedade e do regresso previstos na LGPD (art. 42, § 1º, e § 4º).
+
+=== gd3-24
+gab: E
+ref: gdpr 82
+trecho: A processor shall be liable for the damage caused by processing only where it has not complied with obligations of this Regulation specifically directed to processors or where it has acted outside or contrary to lawful instructions of the controller.
+armadilha: sujeito
+dif: 2
+enunciado: No GDPR, o subcontratante responde pelos danos causados por qualquer tratamento de que participe, nas mesmas condições do responsável pelo tratamento.
+comentario: Errado. O subcontratante só responde se descumpriu obrigações dirigidas especificamente a subcontratantes ou agiu fora ou contra as instruções lícitas do responsável (art. 82, 2). Compare com o art. 42, § 1º, I, da LGPD.
