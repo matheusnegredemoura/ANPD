@@ -177,7 +177,7 @@ export function montarDados() {
   }
   const cloze = notas.map((n) => {
     const r = parseRef(n.ref);
-    return { id: n.id, b: n.bloco, l: r.lei, art: r.art, r: rotuloRef(n.ref), t: n.texto, dc: n.dica || undefined };
+    return { id: n.id, b: n.bloco, l: r.lei, art: r.lei === 'doutrina' ? undefined : r.art, r: rotuloRef(n.ref), t: n.texto, dc: n.dica || undefined };
   });
   // Frequência de cada termo do glossário nas questões: termos raros são sinalizados primeiro
   const textos = lista.map((q) => (q.e + ' ' + q.c).toLowerCase());

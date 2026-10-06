@@ -1296,8 +1296,8 @@ function renderCards() {
   const novos = cardsNovos(blocos).length;
   const rest = novosRestantesHoje();
   const vistos = CARDS.filter((c) => S.cards[c.id]).length;
-  let html = '<div class="secao"><div class="secao-cab"><h2>Cards cloze da lei seca</h2><span class="mudo pequeno mono">' + CARDS.length + ' cards · ' + NOTAS.length + ' notas</span></div>' +
-    '<p class="mudo pequeno">Cada card esconde uma palavra-chave do texto literal da lei. Responda de cabeça, revele e diga como foi: Errei, Difícil, Bom ou Fácil. O intervalo até a próxima revisão cresce a cada acerto, como no Anki.</p></div>';
+  let html = '<div class="secao"><div class="secao-cab"><h2>Cards cloze</h2><span class="mudo pequeno mono">' + CARDS.length + ' cards · ' + NOTAS.length + ' notas</span></div>' +
+    '<p class="mudo pequeno">Cada card esconde uma palavra-chave. Os cards de lei usam o texto literal do artigo; os marcados “Doutrina” cobrem conceitos de gestão, riscos, dados, IA e economia, que não têm lei de referência. Responda de cabeça, revele e diga como foi: Errei, Difícil, Bom ou Fácil. O intervalo até a próxima revisão cresce a cada acerto, como no Anki.</p></div>';
   html += '<div class="contadores"><div class="rev"><b>' + venc + '</b><span>para revisar hoje</span></div><div class="nov"><b>' + Math.min(rest, novos) + '</b><span>novos liberados hoje</span></div><div><b>' + vistos + '</b><span>já estudados</span></div></div>';
   html += '<div class="linha-btns"><button class="btn primario" data-acao="cards-iniciar"' + (venc || (rest && novos) ? '' : ' disabled') + '>Estudar (' + (venc + Math.min(rest, novos)) + ')</button>' +
     '<button class="btn" data-acao="cards-so-revisao"' + (venc ? '' : ' disabled') + '>Só revisões (' + venc + ')</button></div>';
@@ -1886,7 +1886,7 @@ function renderMetodo() {
     '<li><b>Revisar o que venceu.</b> Primeiro a lista curta de questões e os cards vencidos. É o que mais rende por minuto: você reforça o que estava a ponto de esquecer.</li>' +
     '<li><b>Questões do dia.</b> O bloco do cronograma, no formato certo/errado. Marque “Estou em dúvida” sempre que não tiver certeza: isso mede o seu chute.</li>' +
     '<li><b>Lei seca grifada.</b> Leia os artigos do dia na literalidade. Os grifos mostram onde a banca mexe: prazos e números, palavras de alerta (somente, salvo, vedado), deve × pode e os seus erros.</li>' +
-    '<li><b>Cards cloze.</b> As lacunas tiram a palavra exata do texto da lei. Faça os novos do dia e responda de cabeça antes de revelar.</li>' +
+    '<li><b>Cards cloze.</b> As lacunas tiram a palavra exata do texto da lei; nos temas sem lei (gestão, riscos, dados, IA e economia), tiram o conceito-chave. Faça os novos do dia e responda de cabeça antes de revelar.</li>' +
     '<li><b>Para pesquisar.</b> Os termos das questões erradas entram sozinhos na sua lista. Pesquise um tema por dia e marque como entendido.</li></ol>' +
     '<h3>Regras que não se negociam</h3><ul>' +
     '<li>O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça.</li>' +

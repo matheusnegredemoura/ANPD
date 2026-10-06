@@ -202,6 +202,7 @@ p{margin:0}
 
 .item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:14px}
 .item-cab{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.item-cab .selo{white-space:normal;max-width:100%}
 .item-num{font-family:var(--f-mono);font-size:.8rem;color:var(--ink-2)}
 .enunciado{font-family:var(--f-titulo);font-size:1.16rem;line-height:1.55;font-weight:400}
 .comando{font-size:.9rem;line-height:1.5;color:var(--ink-2);font-style:italic;margin:0}

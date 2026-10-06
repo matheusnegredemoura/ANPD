@@ -1,0 +1,46 @@
+# Cards de conceito de inteligência artificial, economia da regulação, teoria dos jogos e estatística. Não há norma
+# anexada para esses temas: o texto é redação própria e a referência indica o tema ("doutrina <tema>").
+# Formato: ref | texto com {{lacunas}} | dica opcional
+
+bloco: ia
+doutrina aprendizado de máquina | No aprendizado {{supervisionado}}, o modelo aprende com exemplos rotulados; no {{não supervisionado}}, busca padrões em dados sem rótulos, como nos agrupamentos.
+doutrina aprendizado de máquina | No aprendizado por {{reforço}}, um agente aprende por tentativa e erro, recebendo recompensas ou penalidades pelas ações.
+doutrina aprendizado de máquina | {{Classificação}} prevê uma categoria; {{regressão}} prevê um valor numérico contínuo.
+doutrina aprendizado de máquina | O {{sobreajuste}} (overfitting) ocorre quando o modelo se ajusta demais aos dados de treinamento e generaliza mal para dados novos.
+doutrina aprendizado de máquina | O {{subajuste}} (underfitting) ocorre quando o modelo é simples demais e erra até nos dados de treinamento.
+doutrina aprendizado de máquina | Para estimar o desempenho em dados novos, reserva-se um conjunto de {{teste}} que não entra no treinamento; a {{validação cruzada}} repete a separação em várias partições.
+doutrina aprendizado de máquina | {{Precisão}} é a proporção de acertos entre os casos que o modelo classificou como positivos; {{revocação}} é a proporção dos positivos reais que o modelo encontrou.
+doutrina aprendizado de máquina | A medida {{F1}} é a média harmônica entre precisão e revocação.
+doutrina aprendizado de máquina | Em bases {{desbalanceadas}}, a acurácia engana: um modelo que sempre prevê a classe majoritária parece bom sem detectar nada.
+doutrina aprendizado de máquina | O algoritmo {{k-means}} agrupa os dados em k grupos, atribuindo cada ponto ao centroide mais próximo.
+doutrina aprendizado de máquina | A {{árvore de decisão}} classifica por uma sequência de testes sobre atributos; a {{floresta aleatória}} (random forest) combina muitas árvores treinadas em amostras diferentes.
+doutrina aprendizado de máquina | Redes neurais com muitas camadas ocultas caracterizam o {{aprendizado profundo}} (deep learning).
+doutrina aprendizado de máquina | Os modelos de linguagem de grande porte usam a arquitetura {{transformer}}, baseada no mecanismo de {{atenção}}.
+doutrina IA generativa | {{Alucinação}} é a geração, por modelo de IA, de conteúdo falso apresentado com aparência de verdade.
+doutrina viés algorítmico | {{Viés algorítmico}} é o resultado sistematicamente desfavorável a certos grupos, muitas vezes herdado dos dados históricos de treinamento.
+doutrina explicabilidade | {{c1::LIME}} e {{c1::SHAP}} são técnicas que estimam a contribuição de cada variável para uma decisão do modelo.
+doutrina privacidade diferencial | A privacidade diferencial adiciona {{ruído calibrado}} para que o resultado quase não revele se um indivíduo está na base; o parâmetro {{épsilon}} mede a perda de privacidade.
+doutrina aprendizado federado | No aprendizado {{federado}}, o modelo é treinado onde os dados estão, e só os parâmetros atualizados são compartilhados.
+doutrina regulação de IA | O regulamento europeu de IA (Regulamento (UE) 2024/1689) adota abordagem baseada em {{risco}}: práticas proibidas, alto risco, obrigações de transparência e risco mínimo.
+doutrina regulação de IA | No regulamento europeu de IA, a avaliação de crédito de pessoas naturais é, em regra, sistema de {{alto risco}}, e não prática proibida.
+
+bloco: regulacao-teoria
+doutrina captura | A teoria da {{captura}}, associada a Stigler, sustenta que o regulador tende a passar a servir aos interesses do setor regulado.
+doutrina regulação responsiva | Na regulação responsiva de Ayres e Braithwaite, a {{pirâmide}} de enforcement começa na persuasão e sobe para sanções mais severas conforme a resposta do regulado.
+doutrina Economia da regulação | Na regulação por {{preço-teto}} (price cap), a tarifa é reajustada por um índice de preços menos um fator de produtividade, o fator {{X}}.
+doutrina Economia da regulação | Na regulação por {{taxa de retorno}}, a tarifa cobre os custos e remunera o capital investido, o que pode estimular sobreinvestimento (efeito {{Averch-Johnson}}).
+doutrina teoria dos jogos | No {{equilíbrio de Nash}}, nenhum jogador ganha ao mudar sozinho de estratégia, dadas as estratégias dos demais.
+doutrina teoria dos jogos | No dilema dos prisioneiros, a estratégia {{dominante}} de cada jogador leva a um resultado pior para ambos do que a cooperação.
+doutrina teoria dos jogos | Em jogos {{repetidos}}, a ameaça de retaliação futura pode sustentar a cooperação que o jogo de uma rodada não sustenta.
+
+bloco: economia
+doutrina falhas de mercado | As falhas de mercado clássicas incluem {{externalidades}}, bens públicos, {{assimetria de informação}} e poder de mercado.
+doutrina falhas de mercado | Bens públicos puros são {{não rivais}} e {{não excludentes}}.
+doutrina falhas de mercado | A {{seleção adversa}} decorre de informação oculta antes do contrato; o {{risco moral}} decorre de ação oculta depois do contrato.
+doutrina falhas de mercado | Há {{monopólio natural}} quando uma só firma atende todo o mercado a custo menor do que várias, por economias de escala e altos custos fixos.
+doutrina externalidades | Pelo {{teorema de Coase}}, com direitos de propriedade bem definidos e custos de transação baixos, a negociação privada leva a resultado eficiente.
+doutrina externalidades | O imposto {{pigouviano}} corrige externalidade negativa cobrando do causador um valor igual ao dano marginal.
+doutrina estatística | A {{mediana}} é menos sensível a valores extremos do que a média.
+doutrina estatística | Na distribuição normal, cerca de {{68%}} dos valores ficam a até um desvio-padrão da média e cerca de {{95%}}, a até dois.
+doutrina estatística | O erro do tipo {{I}} é rejeitar a hipótese nula verdadeira; o erro do tipo {{II}} é não rejeitar a hipótese nula falsa.
+doutrina estatística | O coeficiente de correlação de Pearson varia de −1 a 1 e mede a associação {{linear}} entre duas variáveis.

@@ -4,7 +4,8 @@
 //   bloco: lgpd-19-22                     (vale para as linhas seguintes)
 //   lgpd 19, II | ... no prazo de até {{15 (quinze) dias}}, contado ... | dica opcional
 // Cada {{...}} vira um card (c1, c2...). {{c1::a}} ... {{c1::b}} agrupa lacunas no mesmo card.
-// Sem as chaves, o texto precisa existir literalmente no artigo citado.
+// Sem as chaves, o texto precisa existir literalmente no artigo citado. A exceção são os cards de conceito,
+// com ref "doutrina <tema>": não há norma anexada para conferir, então o texto é redação própria.
 //
 // glossario/*.txt — blocos:
 //   === Termo

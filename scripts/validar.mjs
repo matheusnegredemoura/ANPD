@@ -104,7 +104,7 @@ export function validar({ silencioso = false } = {}) {
     }
   }
 
-  // Cards cloze: texto sem lacunas precisa existir no artigo citado
+  // Cards cloze: texto sem lacunas precisa existir no artigo citado (exceto cards de doutrina)
   const notas = lerCloze(RAIZ);
   const idsNotas = new Map();
   for (const n of notas) {
@@ -115,6 +115,11 @@ export function validar({ silencioso = false } = {}) {
     const ls = lacunas(n.texto);
     if (!ls.length) erros.push(`${onde}: card sem lacuna {{...}}`);
     const ref = parseRef(n.ref);
+    // Card de conceito (doutrina): não há texto normativo para conferir, mas o tema é obrigatório
+    if (ref && ref.lei === 'doutrina') {
+      if (!ref.art) erros.push(`${onde}: card de doutrina sem tema (use "doutrina <tema>")`);
+      continue;
+    }
     const fonte = ref && leis[ref.lei];
     if (!fonte) { erros.push(`${onde}: lei sem texto anexado (${n.ref})`); continue; }
     const art = fonte.idx.get(ref.art);

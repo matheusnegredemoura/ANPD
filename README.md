@@ -1,6 +1,6 @@
 # Painel ANPD
 
-Aplicativo de estudo para o concurso de **Especialista em Regulação de Proteção de Dados** da ANPD (Lei nº 15.352/2026), no formato certo/errado do Cebraspe.
+Aplicativo de estudo para o concurso de **Especialista em Regulação de Proteção de Dados** da ANPD (Lei nº 15.352/2026), no formato certo/errado do Cebraspe. O cronograma mira o edital até 22/12/2026 e a prova provável em 28/03/2027.
 
 O app publicado fica em <https://claude.ai/artifact/J5WjnHRjrWxyMfa9fL7xpw> e salva o progresso na conta de quem abre, com cópia no navegador e backup em arquivo. O arquivo `dist/index.html` funciona sozinho em qualquer navegador (o progresso fica no próprio navegador).
 
@@ -9,27 +9,27 @@ O app publicado fica em <https://claude.ai/artifact/J5WjnHRjrWxyMfa9fL7xpw> e sa
 A aba **Hoje** monta um roteiro de cinco passos, nesta ordem (a leitura do dia tem no máximo 25 artigos, escolhidos pelos seus erros, pelo que falta ler e pelo que mais cai):
 
 1. **Revisar o que venceu**: a lista curta de questões erradas e os cards vencidos.
-2. **Questões do dia**: o bloco do cronograma de 11 semanas (05/10 a 22/12/2026).
+2. **Questões do dia**: o bloco do cronograma de 151 dias em seis fases (05/10/2026 a 28/03/2027). Quem sai no meio da sessão retoma de onde parou.
 3. **Lei seca grifada**: leitura em sequência dos artigos do dia.
-4. **Cards cloze**: lacunas da letra da lei, com revisão espaçada.
+4. **Cards cloze**: lacunas da letra da lei (e dos conceitos de gestão, IA e economia), com revisão espaçada.
 5. **Para pesquisar**: um tema ou termo por dia, tirado dos seus erros.
 
 A página Mais → Método explica o porquê de cada passo e a estratégia de chute do Cebraspe.
 
 ## O que tem
 
-- **1.249 itens certo/errado.** 1.135 foram escritos para o banco e 114 são itens reais do Cebraspe (Anatel 2024, Conhecimentos Básicos e Específicos do cargo 6), com o gabarito oficial definitivo, o texto de apoio e o comando da banca. Por disciplina: LGPD e normas da ANPD 617, regulação 179, direito administrativo e constitucional 114, ECA Digital e plataformas 94, segurança da informação 73, português e inglês 54, direito comparado 48, gestão pública e dados 40, economia 30. O gabarito está equilibrado (55% certo).
-- **Trecho literal conferido.** 1.032 itens citam o trecho da norma que decide o gabarito, e o build falha se o trecho não existir no artigo citado. 192 itens são de doutrina ou de texto de apoio. 25 citam fontes ainda não anexadas (decisões do STF e do TJUE e, nos itens reais, LGT, Lei 8.987/1995, E-Ciber e resoluções da Anatel) e aparecem com o aviso “confira na fonte”.
+- **3.297 itens.** 2.656 foram escritos para o banco e 641 são itens reais de prova com o gabarito definitivo: 587 do Cebraspe, de dezenas de provas de 2023 a 2026 (as maiores fatias: Anatel 2024, TRF6 2025, Instituto Rio Branco 2026, PF 2025 e ANAC 2024), com texto de apoio e comando da banca, e 54 de múltipla escolha do processo seletivo da própria ANPD em 2025 (IADES). Outros 86 itens certo/errado foram adaptados dessa prova da ANPD. Por disciplina: LGPD e normas da ANPD 1.023, direito administrativo e constitucional 670, português e inglês 374, gestão pública, riscos, orçamento e dados 344, regulação 324, ECA Digital, plataformas e IA 238, segurança da informação 173, economia 79, direito comparado 72. O gabarito certo/errado está equilibrado (54% certo).
+- **Trecho literal conferido.** 2.227 itens citam o trecho da norma que decide o gabarito, e o build falha se o trecho não existir no artigo citado. 1.008 itens são de doutrina ou de texto de apoio. 62 citam fontes ainda não anexadas (decisões do STF e do TJUE, Leis 14.133/2021, 8.987/1995, 14.129/2021 e 13.303/2016, LGT, E-Ciber, resoluções da Anatel e o Manual de Redação da Presidência) e aparecem com o aviso “confira na fonte”.
 - **Treino comentado**: gabarito, comentário, tipo de armadilha, trecho da lei e termos para pesquisar logo depois de cada item.
 - **Itens reais do Cebraspe**: treino com comentário, prova na ordem do caderno e treino por disciplina. A página **Mais → Como o Cebraspe cobra** traz a estrutura e a pontuação do edital da Anatel 2024, o padrão de cobrança de cada disciplina com exemplos, o padrão de resposta da discursiva e as provas recomendadas.
 - **Revisão espaçada das questões**: o item errado volta em 0, 1, 3, 7, 16 e 35 dias; o acerto de primeira volta em 16 dias. Os acertos antigos vencidos entram na revisão do dia (até 10 por dia, os mais atrasados primeiro) e em até um quarto das sessões; quando a lista curta vencida passa de 40, a sessão de questões novas encolhe.
-- **Treino de discursiva**: cinco temas da ANPD no formato do Cebraspe (30 linhas e 20 pontos; 15 linhas e 10 pontos), com contador de linhas, correção por quesitos com conceitos crescentes e nota estimada com o desconto de português do edital. Uma discursiva por semana no cronograma.
-- **509 cards cloze** (421 notas) de todas as normas anexadas, com agendamento no estilo do Anki (Errei, Difícil, Bom, Fácil), limite diário de cards novos e exportação para o Anki (`dist/anki-lgpd-cloze.txt`).
+- **Treino de discursiva**: sete temas da ANPD no formato do Cebraspe (30 linhas e 20 pontos; 15 linhas e 10 pontos), com contador de linhas, correção por quesitos com conceitos crescentes e nota estimada com o desconto de português do edital. Uma discursiva por semana no cronograma.
+- **918 cards cloze** (719 notas). 608 notas vêm da letra das normas anexadas, conferida no build; 111 são cards de conceito (gestão, riscos, governança, dados, IA, economia e teoria da regulação), marcados “Doutrina”. Agendamento no estilo do Anki (Errei, Difícil, Bom, Fácil), limite diário de cards novos e exportação para o Anki (`dist/anki-lgpd-cloze.txt`).
 - **Lei seca grifada de 50 normas** em sete grupos: LGPD e normas da ANPD; ECA Digital, internet e plataformas; regulação, agências e carreira; Constituição; direito administrativo; segurança da informação (com o NIST CSF 2.0); direito comparado (GDPR, no texto oficial em inglês, e Convenção 108+). Busca em todas as normas, estrelas de importância, ranking dos artigos mais cobrados e camadas de grifo (o que cai, prazos e números, palavras de alerta, deve × pode, seus erros), que também reconhecem o inglês.
 - **Glossário de 99 termos**, marcados nas questões e nos cards, e a lista **Para pesquisar**, que recebe sozinha os termos das questões erradas.
-- **Simulados Cebraspe**: uma errada anula uma certa, com prova completa na proporção estimada (50 itens básicos e 70 específicos, como Anatel e ANAC 2024), resultado por disciplina e análise do chute.
-- **Relâmpago 90 s**, XP, níveis, sequência de dias e conquistas.
-- **Ajustes**: metas, backup em arquivo, restauração e diagnóstico da gravação na conta.
+- **Simulados Cebraspe**: uma errada anula uma certa, com prova completa de 120 itens na proporção estimada pelo processo seletivo da ANPD de 2025, resultado por disciplina, análise do chute e acerto medido só nos itens que você via pela primeira vez.
+- **Relâmpago 90 s**, XP, níveis, sequência de dias e conquistas. O bônus de sequência de acertos vale só no relâmpago.
+- **Ajustes**: metas, tema, backup em arquivo, restauração e diagnóstico da gravação na conta. Preferências e progresso ficam na conta e se mesclam entre aparelhos.
 
 ## Estrutura
 
@@ -39,7 +39,7 @@ questoes/               banco de questões, em texto simples (reais-*.txt: itens
 questoes/blocos.json    disciplinas e blocos (com os textos que ainda faltam)
 cloze/                  notas cloze
 glossario/termos.txt    glossário
-dados/cronograma.json   cronograma diário das 11 semanas
+dados/cronograma.json   cronograma diário até a prova provável (151 dias)
 dados/cebraspe.json     página Como o Cebraspe cobra (cada item citado precisa existir no banco)
 dados/discursivas.json  temas de discursiva com quesitos (cada quesito precisa de um conceito por nota)
 src/                    app.html, app.css e app.js
@@ -70,7 +70,7 @@ bloco: lgpd-17-22
 lgpd 17 | Toda {{pessoa natural}} tem assegurada a titularidade de seus dados pessoais | quem é titular
 ```
 
-Referência, texto com lacunas e dica opcional. Lacunas sem número viram c1, c2... na ordem; `{{c1::...}}` agrupa lacunas no mesmo card. O texto sem as marcas precisa existir no artigo.
+Referência, texto com lacunas e dica opcional (a dica aparece no lugar da lacuna). Lacunas sem número viram c1, c2... na ordem; `{{c1::...}}` agrupa lacunas no mesmo card. O texto sem as marcas precisa existir no artigo. A exceção são os cards de conceito, com referência `doutrina <tema>`: não há norma para conferir, e o tema é obrigatório.
 
 ## Comandos
 
