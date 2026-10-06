@@ -1,0 +1,187 @@
+bloco: gestao-publica
+// Conhecimentos gerais no padrão do CNU, que o guia da ANPD indica para a prova básica: ciclo e modelos de
+// políticas públicas, avaliação, governança pública, diversidade e inclusão. Itens escritos para o banco. Trechos da
+// Constituição conferidos em fontes/cf88.txt; os demais itens citam a doutrina e normas ainda não anexadas
+// (Decreto 9.203/2017 e guias de avaliação da Casa Civil e do Ipea), que devem ser conferidas na fonte.
+
+apoio_PPAPP: Diante do aumento de golpes com dados pessoais vazados, um ministério decidiu formular uma política pública de educação digital para idosos. Antes de lançá-la, estimou custos, público-alvo e resultados esperados; durante a execução, acompanhou indicadores mensais; dois anos depois, contratou instituição independente para medir se os golpes contra idosos haviam diminuído nas regiões atendidas, em comparação com regiões semelhantes não atendidas.
+
+=== gg-01
+gab: C
+ref: doutrina Políticas públicas (Secchi)
+armadilha: conceito
+dif: 1
+enunciado: Segundo a abordagem do ciclo de políticas públicas, as fases típicas são a identificação do problema, a formação da agenda, a formulação de alternativas, a tomada de decisão, a implementação, a avaliação e a extinção.
+comentario: São as sete fases do ciclo na versão de Leonardo Secchi. O ciclo é um modelo didático: na prática, as fases se sobrepõem e se repetem, e o próprio Secchi alerta para isso.
+
+=== gg-02
+gab: E
+ref: doutrina Políticas públicas (Secchi)
+armadilha: conceito
+dif: 2
+enunciado: O ciclo de políticas públicas descreve com exatidão a sequência cronológica rígida em que as políticas são efetivamente produzidas, motivo pelo qual nenhuma fase pode ser retomada depois de concluída.
+comentario: O ciclo é heurístico, não retrato fiel: as fases se misturam, a sequência se altera e a avaliação pode levar de volta à formulação. A Anatel 2024 já cobrou a ideia de que tipologias e modelos têm limitações.
+
+=== gg-03
+gab: C
+ref: doutrina Políticas públicas (Kingdon)
+armadilha: conceito
+dif: 2
+enunciado: No modelo de múltiplos fluxos de John Kingdon, uma questão entra na agenda governamental quando convergem os fluxos de problemas, de soluções (políticas) e da política, abrindo-se uma janela de oportunidade.
+comentario: Os três fluxos correm de forma relativamente independente; quando se encontram, abre-se a janela, aproveitada pelos empreendedores de políticas. É o modelo mais cobrado sobre formação de agenda.
+
+=== gg-04
+gab: E
+ref: doutrina Políticas públicas (Lindblom)
+armadilha: conceito
+dif: 2
+enunciado: O modelo incremental de tomada de decisão pressupõe que o gestor examine todas as alternativas possíveis e escolha a que maximiza os resultados, com base em informação completa.
+comentario: Essa é a descrição do modelo racional (racionalidade absoluta). O incrementalismo de Lindblom parte da racionalidade limitada: decide-se por pequenos ajustes em relação ao que já existe, por comparações sucessivas e negociação.
+
+=== gg-05
+gab: C
+ref: doutrina Políticas públicas (implementação)
+armadilha: conceito
+dif: 2
+enunciado: No modelo de implementação top-down, a política é decidida pelo topo e executada pelos níveis inferiores, ao passo que no modelo bottom-up se valoriza a discricionariedade dos burocratas que atuam na ponta, que reconstroem a política na execução.
+comentario: Top-down separa formulação e execução e vê desvios como falhas; bottom-up (com a ideia de burocratas de nível de rua, de Lipsky) reconhece que quem implementa também faz a política.
+
+=== gg-06
+gab: C
+ref: doutrina avaliação de políticas públicas (guias da Casa Civil e do Ipea)
+apoio: @PPAPP
+comando: Com base nessa situação hipotética, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: A estimativa de custos, público-alvo e resultados esperados antes do lançamento da política corresponde a uma avaliação ex ante.
+comentario: Avaliação ex ante é a feita antes da implementação, para decidir se e como a política deve existir (diagnóstico, desenho, custos, impactos esperados). Na regulação, a análise de impacto regulatório cumpre esse papel.
+
+=== gg-07
+gab: E
+ref: doutrina avaliação de políticas públicas (guias da Casa Civil e do Ipea)
+apoio: @PPAPP
+comando: Com base nessa situação hipotética, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: O acompanhamento mensal de indicadores durante a execução da política é uma avaliação de impacto ex post.
+comentario: Acompanhar indicadores durante a execução é monitoramento (avaliação in itinere ou de processo). Avaliação de impacto ex post mede, depois, se a política causou os efeitos pretendidos, como faz a terceira etapa do caso.
+
+=== gg-08
+gab: C
+ref: doutrina avaliação de impacto
+apoio: @PPAPP
+comando: Com base nessa situação hipotética, julgue os itens a seguir.
+armadilha: caso
+dif: 3
+enunciado: Ao comparar as regiões atendidas com regiões semelhantes não atendidas, a avaliação busca construir um grupo de comparação para estimar o que teria ocorrido sem a política, isto é, o contrafactual.
+comentario: Avaliação de impacto procura isolar o efeito causal da política comparando tratados e não tratados parecidos (grupo de controle ou de comparação). Técnicas: experimentos aleatorizados, diferenças em diferenças, pareamento.
+
+=== gg-09
+gab: C
+ref: cf88 37, § 16
+trecho: devem realizar avaliação das políticas públicas, inclusive com divulgação do objeto a ser avaliado e dos resultados alcançados, na forma da lei
+apoio: @PPAPP
+comando: Com base nessa situação hipotética, julgue os itens a seguir.
+armadilha: literal
+dif: 2
+enunciado: A avaliação da política pública e a divulgação de seus resultados atendem a dever constitucional dos órgãos e entidades da administração pública, introduzido pela Emenda Constitucional 109/2021.
+comentario: Art. 37, § 16, da Constituição: avaliação das políticas públicas, com divulgação do objeto e dos resultados, na forma da lei.
+
+=== gg-10
+gab: C
+ref: doutrina governança pública (Decreto 9.203/2017)
+armadilha: rol
+dif: 2
+enunciado: Segundo a política de governança da administração pública federal, são princípios da governança pública a capacidade de resposta, a integridade, a confiabilidade, a melhoria regulatória, a prestação de contas e responsabilidade e a transparência.
+comentario: Decreto 9.203/2017, art. 3º: seis princípios. A melhoria regulatória aparece entre eles, o que liga governança à qualidade das normas e à AIR. Decreto não anexado ao app: confira na fonte.
+
+=== gg-11
+gab: E
+ref: doutrina governança pública (Decreto 9.203/2017)
+armadilha: rol
+dif: 2
+enunciado: Os mecanismos para o exercício da governança pública previstos na política de governança da administração federal são o planejamento, a execução e o controle.
+comentario: Os mecanismos são liderança, estratégia e controle (Decreto 9.203/2017, art. 5º). Planejamento e execução são funções de gestão, não os mecanismos de governança. Decreto não anexado ao app: confira na fonte.
+
+=== gg-12
+gab: C
+ref: doutrina governança pública
+armadilha: conceito
+dif: 2
+enunciado: Governança e gestão não se confundem: a governança direciona, monitora e avalia a atuação da gestão, que planeja, executa e controla as atividades para alcançar os objetivos definidos.
+comentario: Distinção usada pelo TCU no Referencial Básico de Governança. Governança é dirigir e supervisionar; gestão é fazer. Por isso o Conselho Diretor da ANPD aprova planos e políticas de integridade e riscos, e as superintendências os executam.
+
+=== gg-13
+gab: E
+ref: doutrina governança pública
+armadilha: conceito
+dif: 2
+enunciado: A gestão de riscos é atividade exclusiva da auditoria interna, que identifica e trata os riscos no lugar dos gestores.
+comentario: No modelo das três linhas, os gestores (primeira linha) são donos dos riscos e os tratam; funções de conformidade e riscos (segunda linha) apoiam e monitoram; a auditoria interna (terceira linha) avalia de forma independente. A auditoria não assume a gestão.
+
+=== gg-14
+gab: C
+ref: lei13848 3, § 3º
+trecho: As agências reguladoras devem adotar práticas de gestão de riscos e de controle interno e elaborar e divulgar programa de integridade
+armadilha: literal
+dif: 2
+enunciado: As agências reguladoras devem adotar práticas de gestão de riscos e de controle interno e elaborar e divulgar programa de integridade voltado à prevenção, à detecção, à punição e à remediação de fraudes e atos de corrupção.
+comentario: Art. 3º, § 3º, da Lei 13.848. Integridade e gestão de riscos, que no CNU aparecem como tema de governança, são obrigação legal das agências, inclusive da ANPD.
+
+=== gg-15
+gab: C
+ref: cf88 3, IV
+trecho: promover o bem de todos, sem preconceitos de origem, raça, sexo, cor, idade e quaisquer outras formas de discriminação
+armadilha: literal
+dif: 1
+enunciado: Promover o bem de todos, sem preconceitos de origem, raça, sexo, cor, idade e quaisquer outras formas de discriminação é objetivo fundamental da República Federativa do Brasil.
+comentario: Art. 3º, IV. É a base constitucional das políticas de diversidade e inclusão e das ações afirmativas. Objetivos (art. 3º) não se confundem com fundamentos (art. 1º) nem com princípios das relações internacionais (art. 4º).
+
+=== gg-16
+gab: E
+ref: stf ADC 41
+armadilha: conceito
+dif: 2
+enunciado: Por violar o princípio da isonomia, a reserva de vagas para pessoas negras em concursos públicos federais foi declarada inconstitucional pelo Supremo Tribunal Federal.
+comentario: O STF, na ADC 41 (2017), declarou constitucional a reserva de vagas em concursos federais. As ações afirmativas concretizam a igualdade material: tratar desigualmente os desiguais para corrigir desigualdades históricas.
+
+=== gg-17
+gab: C
+ref: doutrina diversidade e inclusão
+armadilha: conceito
+dif: 2
+enunciado: As ações afirmativas são medidas temporárias e focalizadas que buscam promover a igualdade material, corrigindo desigualdades historicamente acumuladas por determinados grupos.
+comentario: Igualdade formal é tratar todos igualmente perante a lei; igualdade material é corrigir as desigualdades de fato. As ações afirmativas servem à segunda e, por isso, costumam ter prazo de revisão.
+
+=== gg-18
+gab: E
+ref: cf88 3
+trecho: erradicar a pobreza e a marginalização e reduzir as desigualdades sociais e regionais
+armadilha: literal
+dif: 2
+enunciado: Entre os objetivos fundamentais da República está erradicar as desigualdades sociais e regionais.
+comentario: A Constituição manda erradicar a pobreza e a marginalização e reduzir as desigualdades sociais e regionais (art. 3º, III). Trocar “reduzir” por “erradicar” é a armadilha clássica deste inciso.
+
+=== gg-19
+gab: C
+ref: doutrina transformação digital no setor público
+armadilha: conceito
+dif: 2
+enunciado: O uso de sistemas de inteligência artificial pela administração pública em decisões que afetem cidadãos deve observar a transparência, a possibilidade de revisão e a proteção de dados pessoais, sob pena de comprometer a motivação e o controle dos atos administrativos.
+comentario: Decisão administrativa automatizada continua sendo ato administrativo: precisa de motivação (Lei 9.784, art. 50), e o titular tem direito à revisão de decisões unicamente automatizadas (LGPD, art. 20). É o encontro dos temas de “trabalho e tecnologia” do CNU com a ANPD.
+
+=== gg-20
+gab: E
+ref: doutrina Políticas públicas (Secchi)
+armadilha: conceito
+dif: 2
+enunciado: A agenda formal (institucional) corresponde ao conjunto de problemas que a sociedade considera relevantes, ainda que o poder público não tenha decidido enfrentá-los.
+comentario: Isso é a agenda política (ou sistêmica), dos temas que a comunidade política percebe como merecedores de intervenção. A agenda formal, ou institucional, reúne os problemas que o poder público já decidiu enfrentar. A Anatel 2024 cobrou essa distinção.
+
+=== gg-21
+gab: C
+ref: doutrina Políticas públicas (Secchi)
+armadilha: conceito
+dif: 2
+enunciado: Na abordagem multicêntrica, organizações privadas, organizações não governamentais e redes de atores também podem protagonizar políticas públicas, desde que enfrentem um problema público.
+comentario: Para a abordagem multicêntrica, o que define a política é o problema público, não a personalidade jurídica de quem a faz. A abordagem estatista reserva a política pública aos atores estatais.
