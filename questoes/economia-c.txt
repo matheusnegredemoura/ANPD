@@ -3,7 +3,7 @@ bloco: economia
 // (efeitos de rede, custos de troca, dados), concorrência (HHI), economia comportamental e estatística.
 // Itens de doutrina escritos para o banco.
 
-=== ec3-01
+=== ec4-01
 gab: C
 ref: doutrina Externalidades (Pigou)
 armadilha: conceito
@@ -11,7 +11,7 @@ dif: 2
 enunciado: O tributo pigouviano busca corrigir externalidade negativa ao fazer o agente arcar, por unidade produzida, com o custo que sua atividade impõe a terceiros.
 comentario: Igualando custo privado e custo social, o tributo leva a produção à quantidade socialmente ótima. Subsídio pigouviano faz o mesmo para externalidade positiva.
 
-=== ec3-02
+=== ec4-02
 gab: E
 ref: doutrina Teorema de Coase
 armadilha: conceito
@@ -19,7 +19,7 @@ dif: 3
 enunciado: Segundo o teorema de Coase, a negociação privada leva à alocação eficiente dos recursos em presença de externalidades, ainda que os custos de transação sejam elevados e os direitos de propriedade não estejam definidos.
 comentario: Errado. O teorema pressupõe direitos de propriedade bem definidos e custos de transação baixos ou nulos. Com custos de transação altos, como em danos difusos a muitos titulares de dados, a negociação privada falha e a regulação ganha espaço.
 
-=== ec3-03
+=== ec4-03
 gab: C
 ref: doutrina Regulação por preço-teto
 armadilha: conceito
@@ -27,7 +27,7 @@ dif: 2
 enunciado: Na regulação por preço-teto (price cap), o reajuste segue um índice de preços menos um fator de produtividade, de modo que a empresa que reduz custos além do previsto se apropria do ganho até a revisão seguinte.
 comentario: É a fórmula “IPC menos X”. Ao contrário da regulação por custo do serviço (taxa de retorno), o preço-teto incentiva eficiência, mas pode estimular redução de qualidade, que precisa de metas próprias.
 
-=== ec3-04
+=== ec4-04
 gab: E
 ref: doutrina Regulação por taxa de retorno
 armadilha: comparacao
@@ -35,7 +35,7 @@ dif: 3
 enunciado: A regulação por taxa de retorno é conhecida por incentivar fortemente a redução de custos, pois a empresa fica com toda a economia obtida.
 comentario: Errado. Na taxa de retorno, a tarifa cobre os custos mais uma remuneração sobre o capital, o que reduz o incentivo à eficiência e pode levar ao sobreinvestimento (efeito Averch-Johnson). O incentivo à redução de custos é traço do preço-teto.
 
-=== ec3-05
+=== ec4-05
 gab: C
 ref: doutrina Competição por comparação (yardstick)
 armadilha: conceito
@@ -43,7 +43,7 @@ dif: 3
 enunciado: Na competição por comparação (yardstick competition), o regulador usa o desempenho de empresas semelhantes que atuam em mercados distintos como referência para fixar preços ou metas de cada uma.
 comentario: Shleifer (1985). Reduz a assimetria de informação entre regulador e monopolista local: a empresa é cobrada pelo custo eficiente das comparáveis, não pelo próprio custo declarado.
 
-=== ec3-06
+=== ec4-06
 gab: C
 ref: doutrina Preços de Ramsey
 armadilha: conceito
@@ -51,7 +51,7 @@ dif: 3
 enunciado: Pelos preços de Ramsey, quando a empresa regulada precisa cobrir custos fixos, a margem sobre o custo marginal deve ser maior nos mercados de demanda menos elástica.
 comentario: A regra minimiza a perda de bem-estar: onde a demanda reage pouco ao preço, o aumento distorce menos a quantidade consumida.
 
-=== ec3-07
+=== ec4-07
 gab: E
 ref: doutrina Teoria da captura
 armadilha: conceito
@@ -59,7 +59,7 @@ dif: 2
 enunciado: A teoria da captura sustenta que o regulador, por definição, atua sempre em favor do interesse público, razão pela qual dispensa mecanismos de transparência e controle.
 comentario: Errado. A teoria da captura (Stigler) sustenta o risco oposto: grupos organizados, em geral os regulados, influenciam o regulador em benefício próprio. Mandatos fixos, quarentena, transparência, AIR e participação social são antídotos institucionais.
 
-=== ec3-08
+=== ec4-08
 gab: C
 ref: doutrina Mercados digitais (efeitos de rede)
 armadilha: conceito
@@ -67,7 +67,7 @@ dif: 2
 enunciado: Há efeito de rede direto quando o valor de um serviço para cada usuário aumenta com o número de usuários do mesmo serviço, como em aplicativos de mensagens.
 comentario: O efeito indireto ocorre entre lados diferentes de uma plataforma, como lojistas e compradores. Efeitos de rede fortes favorecem mercados em que o vencedor leva quase tudo.
 
-=== ec3-09
+=== ec4-09
 gab: E
 ref: doutrina Mercados digitais (custos de troca)
 armadilha: conceito
@@ -75,7 +75,7 @@ dif: 2
 enunciado: Custos de troca elevados facilitam a migração dos consumidores entre fornecedores e, por isso, intensificam a concorrência.
 comentario: Errado. Custos de troca elevados prendem o consumidor ao fornecedor atual (lock-in) e reduzem a concorrência. A portabilidade de dados da LGPD (art. 18, V) é, também, instrumento pró-concorrencial para reduzir esses custos.
 
-=== ec3-10
+=== ec4-10
 gab: C
 ref: doutrina Economia dos dados
 armadilha: conceito
@@ -83,7 +83,7 @@ dif: 3
 enunciado: Dados são bens não rivais, pois seu uso por um agente não impede o uso simultâneo por outro, mas o acesso a eles pode ser restringido, o que permite a formação de vantagens competitivas.
 comentario: Não rivalidade com exclusão possível: por isso o controle de grandes bases de dados pode virar barreira à entrada, tema que aproxima proteção de dados e defesa da concorrência.
 
-=== ec3-11
+=== ec4-11
 gab: C
 ref: doutrina Concentração de mercado (HHI)
 armadilha: numero
@@ -91,7 +91,7 @@ dif: 3
 enunciado: O índice Herfindahl-Hirschman é calculado pela soma dos quadrados das participações de mercado das empresas; em mercado com duas empresas de 50% cada, com as participações em pontos percentuais, o índice é 5.000.
 comentario: 50² + 50² = 2.500 + 2.500 = 5.000. O índice vai de perto de zero (mercado pulverizado) a 10.000 (monopólio). Quanto maior, mais concentrado o mercado.
 
-=== ec3-12
+=== ec4-12
 gab: E
 ref: doutrina Monopólio e bem-estar
 armadilha: conceito
@@ -99,7 +99,7 @@ dif: 2
 enunciado: O monopolista maximiza lucro produzindo a quantidade em que o preço se iguala ao custo marginal, como na concorrência perfeita, de modo que não há perda de peso morto.
 comentario: Errado. O monopolista produz onde a receita marginal iguala o custo marginal e cobra preço acima do custo marginal. A quantidade fica abaixo da de concorrência perfeita, gerando peso morto.
 
-=== ec3-13
+=== ec4-13
 gab: C
 ref: doutrina Excedente do consumidor
 armadilha: conceito
@@ -107,7 +107,7 @@ dif: 2
 enunciado: Excedente do consumidor é a diferença entre o valor máximo que o consumidor está disposto a pagar e o preço efetivamente pago.
 comentario: Somado ao excedente do produtor, forma o excedente total. Peso morto é a parte do excedente total que se perde quando a quantidade se afasta da eficiente.
 
-=== ec3-14
+=== ec4-14
 gab: E
 ref: doutrina Bens de clube e recursos comuns
 armadilha: conceito
@@ -115,7 +115,7 @@ dif: 3
 enunciado: Recursos comuns, como estoques pesqueiros, são não rivais e excludentes, razão pela qual não sofrem o problema da tragédia dos comuns.
 comentario: Errado. Recursos comuns são rivais e não excludentes, combinação que gera sobreuso (tragédia dos comuns). Não rivais e excludentes são os bens de clube, como a TV por assinatura.
 
-=== ec3-15
+=== ec4-15
 gab: C
 ref: doutrina Economia comportamental
 armadilha: conceito
@@ -123,7 +123,7 @@ dif: 2
 enunciado: O viés do status quo e o efeito da opção padrão explicam por que muitas pessoas mantêm a configuração de privacidade definida por padrão pelo fornecedor, o que dá relevância regulatória à privacidade por padrão.
 comentario: Thaler e Sunstein chamam de “nudge” a arquitetura de escolha que orienta decisões sem proibir alternativas. O ECA Digital exige, por padrão, a configuração mais protetiva, e o Decreto 12.880 combate arquiteturas de escolha manipulativas.
 
-=== ec3-16
+=== ec4-16
 gab: E
 ref: doutrina Paradoxo da privacidade
 armadilha: conceito
@@ -131,7 +131,7 @@ dif: 2
 enunciado: O chamado paradoxo da privacidade descreve a situação em que as pessoas declaram não se importar com a privacidade, mas na prática recusam-se a compartilhar qualquer dado pessoal.
 comentario: Errado. É o contrário: as pessoas declaram valorizar a privacidade, mas compartilham dados com facilidade em troca de pequenas vantagens. Assimetria de informação, vieses e custos de leitura de políticas ajudam a explicar o fenômeno.
 
-=== ec3-17
+=== ec4-17
 gab: C
 ref: doutrina Análise custo-efetividade
 armadilha: comparacao
@@ -139,7 +139,7 @@ dif: 2
 enunciado: A análise custo-efetividade compara alternativas pelo custo por unidade de resultado alcançado, sem exigir que os benefícios sejam expressos em unidades monetárias, ao contrário da análise custo-benefício.
 comentario: É útil quando o resultado é difícil de monetizar, como vidas salvas ou incidentes evitados. O Decreto 10.411/2020 lista ambas entre as metodologias de AIR (art. 7º).
 
-=== ec3-18
+=== ec4-18
 gab: E
 ref: doutrina Valor presente e taxa de desconto
 armadilha: conceito
@@ -147,7 +147,7 @@ dif: 3
 enunciado: Mantidos os fluxos de caixa, aumentar a taxa de desconto eleva o valor presente líquido de projeto cujos benefícios se concentram no futuro distante.
 comentario: Errado. Taxa de desconto maior reduz o valor presente dos fluxos futuros, e o efeito é mais forte quanto mais distantes estão os benefícios. Por isso a escolha da taxa pesa tanto em regulações com benefícios de longo prazo.
 
-=== ec3-19
+=== ec4-19
 gab: C
 ref: doutrina Distribuição normal
 armadilha: numero
@@ -155,7 +155,7 @@ dif: 2
 enunciado: Em uma distribuição normal, aproximadamente 68% das observações estão a até um desvio padrão da média e cerca de 95% a até dois desvios padrão.
 comentario: É a regra 68-95-99,7: cerca de 99,7% ficam a até três desvios padrão. A distribuição normal é simétrica, com média, mediana e moda iguais.
 
-=== ec3-20
+=== ec4-20
 gab: E
 ref: doutrina Teorema central do limite
 armadilha: conceito
@@ -163,7 +163,7 @@ dif: 3
 enunciado: O teorema central do limite afirma que, com amostras grandes, os próprios dados da população passam a seguir distribuição normal.
 comentario: Errado. O teorema trata da distribuição da média amostral: com amostras grandes, ela se aproxima da normal, qualquer que seja a forma da distribuição da população (com variância finita). Os dados em si mantêm sua distribuição.
 
-=== ec3-21
+=== ec4-21
 gab: C
 ref: doutrina Poder do teste
 armadilha: conceito
@@ -171,7 +171,7 @@ dif: 3
 enunciado: O poder de um teste de hipóteses é a probabilidade de rejeitar a hipótese nula quando ela é falsa, e corresponde a um menos a probabilidade do erro do tipo II.
 comentario: Poder = 1 − β. Amostras maiores aumentam o poder. O nível de significância (α) é a probabilidade do erro do tipo I, rejeitar a hipótese nula verdadeira.
 
-=== ec3-22
+=== ec4-22
 gab: E
 ref: doutrina Regressão linear
 armadilha: conceito
@@ -179,7 +179,7 @@ dif: 2
 enunciado: Em regressão linear, coeficiente de determinação (R²) igual a 0,80 indica que a variável explicativa causa 80% das variações da variável dependente.
 comentario: Errado. R² de 0,80 indica que o modelo explica 80% da variância da variável dependente na amostra. É medida de ajuste, não prova de causalidade.
 
-=== ec3-23
+=== ec4-23
 gab: C
 ref: doutrina Viés de seleção
 armadilha: caso
@@ -187,7 +187,7 @@ dif: 2
 enunciado: Comparar empresas que aderiram voluntariamente a um programa de boas práticas com as que não aderiram tende a superestimar o efeito do programa se as aderentes já eram, antes, mais organizadas.
 comentario: É viés de seleção: os grupos diferem antes do tratamento. Sorteio, diferenças em diferenças, pareamento por escore de propensão e regressão descontínua são formas de construir um contrafactual mais crível.
 
-=== ec3-24
+=== ec4-24
 gab: E
 ref: doutrina Probabilidade
 armadilha: numero
@@ -195,7 +195,7 @@ dif: 2
 enunciado: Se a probabilidade de um incidente de segurança em determinado mês é 0,1 e os meses são independentes, a probabilidade de não haver incidente em dois meses seguidos é 0,8.
 comentario: Errado. A probabilidade de não haver incidente em um mês é 0,9; em dois meses independentes, 0,9 × 0,9 = 0,81.
 
-=== ec3-25
+=== ec4-25
 gab: C
 ref: doutrina Amostragem
 armadilha: comparacao
