@@ -1,0 +1,263 @@
+bloco: marco-civil
+// Marco Civil da Internet (Lei nº 12.965/2014), parte B, e Decreto nº 8.771/2016 com a redação do Decreto nº 12.975/2026
+// (deveres dos provedores de aplicações, falha sistêmica, notificação, impulsionamento, competência da ANPD).
+// Trechos conferidos em fontes/mci.txt e fontes/dec8771.txt.
+
+=== mc2-01
+gab: C
+ref: mci 2
+trecho: A disciplina do uso da internet no Brasil tem como fundamento o respeito à liberdade de expressão
+trecho: o reconhecimento da escala mundial da rede
+armadilha: rol
+dif: 2
+enunciado: A disciplina do uso da internet no Brasil tem como fundamento o respeito à liberdade de expressão, bem como o reconhecimento da escala mundial da rede, a pluralidade e a diversidade e a finalidade social da rede.
+comentario: Art. 2º do Marco Civil. Não confundir fundamentos (art. 2º), princípios (art. 3º, como privacidade, proteção de dados e neutralidade) e objetivos (art. 4º, como acesso à internet a todos e padrões abertos).
+
+=== mc2-02
+gab: E
+ref: mci 4
+trecho: da adesão a padrões tecnológicos abertos que permitam a comunicação, a acessibilidade e a interoperabilidade entre aplicações e bases de dados
+armadilha: comparacao
+dif: 2
+enunciado: A adesão a padrões tecnológicos abertos que permitam a interoperabilidade entre aplicações e bases de dados é fundamento da disciplina do uso da internet no Brasil, ao lado da liberdade de expressão.
+comentario: Errado. A adesão a padrões abertos é objetivo (art. 4º, IV), não fundamento. Os fundamentos estão no art. 2º. A banca troca as três listas do início da lei.
+
+=== mc2-03
+gab: C
+ref: mci 8
+trecho: em contrato de adesão, não ofereçam como alternativa ao contratante a adoção do foro brasileiro para solução de controvérsias decorrentes de serviços prestados no Brasil
+armadilha: caso
+dif: 2
+enunciado: É nula de pleno direito a cláusula de contrato de adesão de rede social que imponha ao usuário brasileiro, sem alternativa, foro estrangeiro para resolver controvérsias sobre o serviço prestado no Brasil.
+comentario: Art. 8º, parágrafo único, II. Também é nula a cláusula que ofenda a inviolabilidade e o sigilo das comunicações privadas pela internet (inciso I).
+
+=== mc2-04
+gab: E
+ref: mci 15
+trecho: O provedor de aplicações de internet constituído na forma de pessoa jurídica e que exerça essa atividade de forma organizada, profissionalmente e com fins econômicos deverá manter os respectivos registros de acesso a aplicações de internet
+armadilha: sujeito
+dif: 2
+enunciado: Todo provedor de aplicações de internet, inclusive a pessoa natural que mantém blog sem fins econômicos, deve guardar os registros de acesso a aplicações por seis meses.
+comentario: Errado. O dever do art. 15 recai sobre o provedor de aplicações constituído como pessoa jurídica que exerça a atividade de forma organizada, profissionalmente e com fins econômicos. Os demais só guardam por ordem judicial, por tempo certo e sobre fatos específicos (§ 1º).
+
+=== mc2-05
+gab: C
+ref: mci 15
+trecho: Em qualquer hipótese, a disponibilização ao requerente dos registros de que trata este artigo deverá ser precedida de autorização judicial
+armadilha: excecao
+dif: 2
+enunciado: A autoridade policial pode requerer cautelarmente que o provedor de aplicações guarde registros de acesso por prazo superior a seis meses, mas a entrega desses registros ao requerente depende, em qualquer hipótese, de autorização judicial.
+comentario: Art. 15, §§ 2º e 3º. Guardar pode ser pedido pela polícia, autoridade administrativa ou Ministério Público; entregar exige juiz.
+
+=== mc2-06
+gab: E
+ref: mci 16
+trecho: dos registros de acesso a outras aplicações de internet sem que o titular dos dados tenha consentido previamente
+armadilha: extrapolacao
+dif: 3
+enunciado: Na provisão de aplicações de internet gratuitas, o provedor pode guardar os registros de acesso do usuário a outras aplicações de internet, independentemente de consentimento, por se tratar de serviço sem contraprestação.
+comentario: Errado. O art. 16 vale para provisão onerosa ou gratuita e veda a guarda dos registros de acesso a outras aplicações sem consentimento prévio do titular, bem como de dados excessivos em relação à finalidade.
+
+=== mc2-07
+gab: C
+ref: mci 17
+trecho: Ressalvadas as hipóteses previstas nesta Lei, a opção por não guardar os registros de acesso a aplicações de internet não implica responsabilidade sobre danos decorrentes do uso desses serviços por terceiros.
+armadilha: literal
+dif: 3
+enunciado: Ressalvadas as hipóteses previstas no Marco Civil, a opção por não guardar os registros de acesso a aplicações de internet não implica responsabilidade sobre danos decorrentes do uso desses serviços por terceiros.
+comentario: Art. 17. A ressalva remete aos provedores obrigados a guardar (art. 15) e às ordens judiciais de guarda.
+
+=== mc2-08
+gab: C
+ref: mci 20
+trecho: o provedor de aplicações de internet que exerce essa atividade de forma organizada, profissionalmente e com fins econômicos substituirá o conteúdo tornado indisponível pela motivação ou pela ordem judicial que deu fundamento à indisponibilização
+armadilha: literal
+dif: 3
+enunciado: A pedido do usuário que publicou o conteúdo removido, o provedor de aplicações com fins econômicos deve substituir o conteúdo indisponibilizado pela motivação ou pela ordem judicial que fundamentou a remoção.
+comentario: Art. 20, parágrafo único. O caput manda o provedor comunicar ao usuário responsável os motivos da indisponibilização, com informações que permitam o contraditório e a ampla defesa em juízo, salvo previsão legal ou ordem judicial em contrário.
+
+=== mc2-09
+gab: E
+ref: mci 23
+trecho: Cabe ao juiz tomar as providências necessárias à garantia do sigilo das informações recebidas
+armadilha: absoluto
+dif: 2
+enunciado: Por força da publicidade dos atos processuais, é vedado ao juiz decretar segredo de justiça em pedido de guarda ou de fornecimento de registros de internet.
+comentario: Errado. O art. 23 manda o juiz garantir o sigilo das informações e preservar a intimidade, a vida privada, a honra e a imagem do usuário, podendo determinar segredo de justiça, inclusive quanto aos pedidos de guarda de registro.
+
+=== mc2-10
+gab: C
+ref: mci 24
+trecho: estabelecimento de mecanismos de governança multiparticipativa, transparente, colaborativa e democrática, com a participação do governo, do setor empresarial, da sociedade civil e da comunidade acadêmica
+armadilha: conceito
+dif: 2
+enunciado: Entre as diretrizes de atuação do poder público no desenvolvimento da internet está o estabelecimento de governança multiparticipativa, com governo, setor empresarial, sociedade civil e comunidade acadêmica.
+comentario: Art. 24, I. O inciso II cita o Comitê Gestor da Internet no Brasil, modelo de governança multissetorial. Outras diretrizes: dados públicos abertos e estruturados (VI) e preferência por tecnologias e padrões abertos e livres (V).
+
+=== mc2-11
+gab: E
+ref: mci 29
+trecho: O usuário terá a opção de livre escolha na utilização de programa de computador em seu terminal para exercício do controle parental
+armadilha: interpretacao
+dif: 2
+enunciado: O Marco Civil impõe aos pais a instalação de programa de controle parental previamente homologado pelo poder público nos terminais usados pelos filhos menores.
+comentario: Errado. O art. 29 garante ao usuário a livre escolha do programa de controle parental, respeitados os princípios do Marco Civil e do ECA. Ao poder público cabe educar e informar (parágrafo único). O ECA Digital depois impôs aos fornecedores deveres próprios de supervisão parental.
+
+=== mc2-12
+gab: C
+ref: mci 31
+trecho: quando se tratar de infração a direitos de autor ou a direitos conexos, continuará a ser disciplinada pela legislação autoral vigente
+armadilha: excecao
+dif: 3
+enunciado: Até a lei específica prevista no Marco Civil, a responsabilidade do provedor de aplicações por conteúdo de terceiros que infrinja direitos de autor ou conexos continua disciplinada pela legislação autoral vigente na data de entrada em vigor do Marco Civil.
+comentario: Art. 31, combinado com o art. 19, § 2º. Direito autoral fica fora do regime geral do art. 19.
+
+=== mc2-13
+gab: E
+ref: dec8771 16-A
+trecho: O representante legal de que trata o inciso I do caput será constituído na forma de pessoa jurídica
+armadilha: sujeito
+dif: 2
+enunciado: O dever de manter representante legal no País, imposto aos provedores de aplicações pelo Decreto nº 8.771/2016, é cumprido com a indicação de pessoa natural com poderes para responder perante as esferas administrativa e judicial.
+comentario: Errado. O representante legal deve ser pessoa jurídica, com contato facilmente acessível no sítio do representado (art. 16-A, parágrafo único). Seus poderes incluem responder nas esferas administrativa e judicial, prestar informações, cumprir decisões judiciais e responder por multas.
+
+=== mc2-14
+gab: C
+ref: dec8771 16-B
+trecho: A existência de conteúdos ilícitos referidos no caput de forma isolada não caracteriza, por si só, falha sistêmica
+trecho: inibam a circulação massiva dos conteúdos de que tratam os incisos I a VII do caput
+armadilha: conceito
+dif: 3
+enunciado: Incorre em falha sistêmica o provedor que não comprovar medidas adequadas de prevenção ou remoção que forneçam, conforme o estado da técnica, os níveis mais elevados de segurança e inibam a circulação massiva dos conteúdos graves listados; a presença isolada desses conteúdos não caracteriza, por si só, a falha.
+comentario: Art. 16-B, §§ 1º e 3º. Para o caso isolado aplica-se o dever de remover após notificação (art. 16-G). A avaliação da falha sistêmica é feita pela autoridade por supervisão e análise periódica (§ 2º).
+
+=== mc2-15
+gab: C
+ref: dec8771 16-B
+trecho: crimes de terrorismo ou preparatórios de terrorismo tipificados na Lei nº 13.260, de 16 de março de 2016
+trecho: tráfico de pessoas
+armadilha: rol
+dif: 2
+enunciado: O rol de conteúdos graves cuja indisponibilização deficiente pode configurar falha sistêmica inclui terrorismo, induzimento a suicídio ou automutilação, crimes sexuais contra vulneráveis e tráfico de pessoas.
+comentario: Art. 16-B, I, II, V e VI. Completam o rol a incitação à discriminação (III), os crimes contra a mulher por razão de gênero (IV) e os crimes contra o Estado Democrático de Direito (VII).
+
+=== mc2-16
+gab: E
+ref: dec8771 16-D
+trecho: deverá conter, sob pena de nulidade
+trecho: identificação do notificante e, quando couber, indicação do fundamento de sua legitimidade
+armadilha: interpretacao
+dif: 3
+enunciado: A notificação de conteúdo criminoso pelo canal de denúncia do provedor é válida ainda que anônima e genérica, bastando indicar o perfil do usuário que publica conteúdos ilícitos.
+comentario: Errado. Sob pena de nulidade, a notificação deve trazer elementos que identifiquem a possível conduta, a identificação específica do conteúdo e a identificação do notificante, com o fundamento de sua legitimidade quando couber (art. 16-D).
+
+=== mc2-17
+gab: C
+ref: dec8771 16-E
+trecho: em caso de remoção, o provedor de aplicações de internet comunicará a decisão ao notificante e ao usuário que publicou o conteúdo e informará o fundamento específico da remoção e os meios de contestá-la
+armadilha: literal
+dif: 2
+enunciado: Removido o conteúdo após notificação, o provedor deve comunicar a decisão ao notificante e ao usuário que o publicou, informando o fundamento específico da remoção e os meios de contestá-la.
+comentario: Art. 16-E, II, a. Se não remover, comunica o notificante com fundamento e meios de contestação (b). O primeiro passo é sempre confirmar o recebimento da notificação (I).
+
+=== mc2-18
+gab: C
+ref: dec8771 16-F
+trecho: Os provedores de aplicações de internet deverão adotar medidas para coibir o uso ilícito ou abusivo dos instrumentos de notificação, em especial aqueles que atentem contra o direito à liberdade de expressão.
+armadilha: literal
+dif: 2
+enunciado: Os provedores de aplicações devem adotar medidas para coibir o uso abusivo dos instrumentos de notificação, especialmente aquele que atente contra a liberdade de expressão.
+comentario: Art. 16-F. Contrapeso ao regime de remoção por notificação: evitar a derrubada em massa de conteúdo lícito.
+
+=== mc2-19
+gab: E
+ref: dec8771 16-J
+trecho: A responsabilização de provedor de aplicações de internet por conteúdo gerado por terceiro dependerá de ordem judicial específica
+trecho: de crimes e atos ilícitos contra a honra
+armadilha: excecao
+dif: 3
+enunciado: Com o Decreto nº 12.975/2026, a responsabilização do provedor de aplicações por conteúdo de terceiros passou a dispensar ordem judicial em todos os casos, inclusive nos crimes contra a honra.
+comentario: Errado. Continua dependendo de ordem judicial específica (art. 19 do Marco Civil) a responsabilização nos crimes e atos ilícitos contra a honra e nos serviços do art. 16-O, como e-mail e mensageria interpessoal (art. 16-J).
+
+=== mc2-20
+gab: C
+ref: dec8771 16-J
+trecho: todos os provedores de aplicações de internet que realizem intermediação de conteúdo gerado por terceiros deverão remover as publicações com conteúdos idênticos, independentemente de novas decisões judiciais, a partir de notificação judicial ou extrajudicial
+armadilha: caso
+dif: 3
+enunciado: Reconhecida por decisão judicial uma ofensa à honra, as replicações idênticas do mesmo conteúdo em outras plataformas devem ser removidas por todos os provedores intermediários a partir de notificação judicial ou extrajudicial, sem necessidade de novas decisões.
+comentario: Art. 16-J, parágrafo único. A ordem judicial inicial é exigida para a honra; as cópias idênticas posteriores dispensam nova decisão.
+
+=== mc2-21
+gab: E
+ref: dec8771 16-M
+trecho: deverão manter, pelo prazo de um ano, contado da data do encerramento da veiculação, as informações relativas a cada anúncio ou impulsionamento e aos respectivos anunciantes
+armadilha: numero
+dif: 2
+enunciado: Os provedores que vendem anúncios ou impulsionamento devem manter as informações sobre cada anúncio e seus anunciantes por seis meses, contados da contratação.
+comentario: Errado. O prazo é de um ano, contado do encerramento da veiculação (art. 16-M). Além disso, devem vedar a contratação de anúncio ou impulsionamento de conteúdo criminoso ou ilícito (art. 16-K) e respondem por presunção quando o ilícito vier em anúncio ou impulsionamento pago (art. 16-L).
+
+=== mc2-22
+gab: C
+ref: dec8771 16-O
+trecho: serviços de comunicação audiovisual em grupo restrito
+armadilha: excecao
+dif: 2
+enunciado: Os deveres de falha sistêmica e de indisponibilização após notificação não se aplicam aos serviços de e-mail, à mensageria instantânea quanto às comunicações interpessoais e às videoconferências entre participantes previamente convidados.
+comentario: Art. 16-O, I a III. Para esses serviços, a responsabilidade por conteúdo de terceiros segue dependendo de ordem judicial (art. 16-J, II). Grupos abertos e difusão pública ficam fora da exceção da mensageria (inciso II).
+
+=== mc2-23
+gab: C
+ref: dec8771 16-P
+trecho: A autoridade competente poderá definir critérios diferenciados para o cumprimento dos deveres
+trecho: especialmente quanto aos pequenos provedores de aplicações de internet
+armadilha: literal
+dif: 2
+enunciado: A autoridade competente pode definir critérios diferenciados de cumprimento dos deveres dos provedores, considerando porte econômico, interferência na circulação de conteúdo, estado da técnica e risco, especialmente para os pequenos provedores.
+comentario: Art. 16-P. Mesma lógica de tratamento diferenciado que a ANPD aplica aos agentes de pequeno porte na LGPD (Resolução CD/ANPD nº 2/2022).
+
+=== mc2-24
+gab: E
+ref: dec8771 19-A
+trecho: A Agência Nacional de Proteção de Dados – ANPD atuará na regulação, na fiscalização e na apuração de infrações quanto à garantia dos direitos dos usuários e ao cumprimento dos deveres dos provedores de aplicações de internet
+armadilha: sujeito
+dif: 2
+enunciado: Pelo Decreto nº 8.771/2016, com a redação de 2026, a fiscalização dos deveres dos provedores de aplicações de internet quanto a moderação de conteúdo compete exclusivamente à Anatel.
+comentario: Errado. A ANPD atua na regulação, fiscalização e apuração de infrações quanto aos direitos dos usuários e aos deveres dos provedores de aplicações, em especial os dos arts. 16-A a 16-P (art. 19-A). A Anatel atua nos termos da legislação de telecomunicações (art. 17); a Senacon, nas relações de consumo (art. 18); o SBDC, na ordem econômica (art. 19).
+
+=== mc2-25
+gab: C
+ref: dec8771 20-A
+trecho: o sistema de notificações
+trecho: os relatórios anuais de transparência em relação a notificações extrajudiciais, anúncios e impulsionamentos
+armadilha: rol
+dif: 2
+enunciado: Os termos de uso e as demais formas de autorregulação dos provedores de aplicações devem abranger, necessariamente, o sistema de notificações, o devido processo e relatórios anuais de transparência sobre notificações extrajudiciais, anúncios e impulsionamentos.
+comentario: Art. 20-A, I a III. A autorregulação voltada a padrões técnicos e de governança que protejam os direitos dos usuários conta como elemento de boa-fé na apuração de infrações (§ 2º).
+
+=== mc2-26
+gab: E
+ref: dec8771 21
+trecho: poderá ser iniciada de ofício ou mediante requerimento de qualquer interessado
+armadilha: interpretacao
+dif: 2
+enunciado: A apuração de infrações ao Marco Civil e ao seu regulamento depende de representação do usuário lesado, sendo vedada a instauração de ofício.
+comentario: Errado. A apuração segue os procedimentos internos de cada órgão fiscalizador e pode começar de ofício ou por requerimento de qualquer interessado (art. 21).
+
+=== mc2-27
+gab: C
+ref: dec8771 16-C
+trecho: monitorar, identificar, avaliar e gerir, de forma diligente, os riscos sistêmicos criados ou potencializados pelas suas atividades
+armadilha: conceito
+dif: 2
+enunciado: Sem prejuízo do dever de cuidado, os provedores de aplicações devem monitorar, identificar, avaliar e gerir de forma diligente os riscos sistêmicos criados ou potencializados por suas atividades ou pela circulação dos conteúdos graves listados no decreto.
+comentario: Art. 16-C. Gestão de riscos sistêmicos é a mesma ideia que aparece no direito europeu de plataformas e na avaliação de impacto do ECA Digital.
+
+=== mc2-28
+gab: E
+ref: dec8771 16-H
+trecho: deverão encaminhar o conteúdo e as informações necessárias à identificação da autoria e da materialidade dos crimes ao Poder Público
+armadilha: interpretacao
+dif: 2
+enunciado: Ao concluir que um conteúdo configura crime, o provedor de aplicações deve apenas removê-lo, sendo-lhe vedado encaminhar ao Poder Público informações sobre autoria sem ordem judicial prévia.
+comentario: Errado. O art. 16-H manda o provedor encaminhar ao Poder Público o conteúdo e as informações necessárias à identificação da autoria e da materialidade, na forma de ato do Ministro da Justiça e Segurança Pública.
