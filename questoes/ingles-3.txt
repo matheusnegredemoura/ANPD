@@ -1,0 +1,244 @@
+bloco: ingles
+// Textos originais escritos para o banco, em inglês, sobre temas da ANPD (decisões automatizadas, sandbox
+// regulatório e notificação de incidentes). Itens em português, texto em inglês, como na prova Cebraspe.
+
+apoio_EN3A: Automated decision-making is no longer confined to laboratories. Banks use it to approve loans, employers to screen applicants, and insurers to set premiums. Its defenders argue that algorithms are more consistent than human beings, who are prone to fatigue and prejudice. Critics reply that consistency is not the same as fairness: a model trained on biased historical data will reproduce that bias at scale, and with an appearance of neutrality that makes it harder to contest.
+For this reason, most data protection laws do not ban automated decisions outright. Instead, they grant individuals the right to obtain an explanation and to request a review. The difficulty lies in what counts as an explanation. Companies are reluctant to disclose their models, which they regard as trade secrets, while regulators insist that people affected by a decision deserve to understand, at least, the main criteria behind it.
+Some authorities have found a middle ground: rather than forcing firms to publish their code, they reserve the power to audit systems themselves whenever a firm refuses to explain its choices. Whether this arrangement will prove effective remains to be seen.
+apoio_EN3B: Regulators are often accused of being too slow for the technologies they oversee. By the time a rule is drafted, debated and approved, the market it was meant to govern may have moved on. Regulatory sandboxes were conceived as a response to this mismatch. In a sandbox, a firm is allowed to test an innovative product with real customers for a limited period, under close supervision and with some requirements temporarily relaxed.
+The benefits are said to run both ways. Firms gain legal certainty while they experiment, and regulators learn how new technologies work before deciding how to treat them. Nevertheless, sandboxes are not free of risks. If the selection of participants is not transparent, they may favour incumbents over newcomers; if exit rules are vague, a temporary exemption may quietly become permanent.
+Data protection authorities have recently joined this trend, particularly in the field of artificial intelligence, where the gap between innovation and regulation seems widest.
+apoio_EN3C: When a company discovers that personal data in its custody have been exposed, the clock starts ticking. Many jurisdictions now require organisations to notify both the supervisory authority and the affected individuals within a short period after becoming aware of the incident. The rationale is straightforward: the sooner people know, the sooner they can change passwords, monitor their bank accounts or take other protective steps.
+Yet speed has a cost. In the first hours after an attack, companies seldom know how many people were affected or which data were taken. Notifications sent too early may be incomplete; those sent too late may be useless. Several laws address this dilemma by allowing an initial notice to be supplemented later, as long as the delay is justified.
+Notification, however, is not an end in itself. Regulators increasingly treat the way a company responds to an incident, rather than the incident alone, as the real test of its accountability.
+
+=== en3-01
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN3A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, decisões automatizadas já são utilizadas fora do ambiente de pesquisa, por exemplo na concessão de empréstimos e na seleção de candidatos a emprego.
+comentario: Primeiro parágrafo: “no longer confined to laboratories. Banks use it to approve loans, employers to screen applicants”. “No longer confined” significa “não mais restrito”.
+
+=== en3-02
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN3A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: De acordo com o texto, os críticos sustentam que algoritmos são menos consistentes que os seres humanos.
+comentario: Os críticos não negam a consistência: dizem que “consistency is not the same as fairness”. Quem fala em consistência maior dos algoritmos são os defensores. O item atribuiu aos críticos um argumento que eles não fazem.
+
+=== en3-03
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN3A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do primeiro parágrafo que a aparência de neutralidade de um modelo treinado com dados enviesados torna mais difícil contestar suas decisões.
+comentario: “with an appearance of neutrality that makes it harder to contest”. O pronome “it” retoma o viés (bias) reproduzido em escala.
+
+=== en3-04
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN3A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: absoluto
+dif: 1
+enunciado: O texto informa que a maioria das leis de proteção de dados proíbe, em regra, as decisões automatizadas.
+comentario: É o contrário: “most data protection laws do not ban automated decisions outright”. Elas garantem explicação e revisão, como o art. 20 da LGPD.
+
+=== en3-05
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN3A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, a palavra “reluctant” poderia ser substituída por unwilling sem prejuízo do sentido original do texto.
+comentario: “Reluctant” (relutante, pouco disposto) e “unwilling” (não disposto) são sinônimos nesse contexto: as empresas resistem a divulgar seus modelos.
+
+=== en3-06
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN3A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o último parágrafo, algumas autoridades, em vez de obrigar as empresas a publicar seu código, reservam-se o poder de auditar os sistemas quando a empresa se recusa a explicar suas escolhas.
+comentario: É a solução que a LGPD adotou no art. 20, § 2º: diante da recusa fundada em segredo comercial, a ANPD pode fazer auditoria.
+
+=== en3-07
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN3A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: O autor conclui que o modelo de auditoria pelas autoridades já se mostrou eficaz.
+comentario: “Whether this arrangement will prove effective remains to be seen”: ainda está por ver. O autor deixa a questão em aberto.
+
+=== en3-08
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN3B
+comando: Com relação ao texto precedente, julgue os itens que se seguem.
+armadilha: interpretacao
+dif: 1
+enunciado: De acordo com o texto, os sandboxes regulatórios foram concebidos como resposta ao descompasso entre a velocidade da regulação e a das tecnologias reguladas.
+comentario: “Regulatory sandboxes were conceived as a response to this mismatch”, referindo-se à lentidão dos reguladores descrita no início.
+
+=== en3-09
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN3B
+comando: Com relação ao texto precedente, julgue os itens que se seguem.
+armadilha: extrapolacao
+dif: 2
+enunciado: Segundo o texto, no sandbox as empresas testam produtos inovadores por prazo indeterminado e sem supervisão do regulador.
+comentario: Os testes são “for a limited period, under close supervision”: prazo limitado e supervisão próxima. É também o modelo da LC 182/2021.
+
+=== en3-10
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN3B
+comando: Com relação ao texto precedente, julgue os itens que se seguem.
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, a expressão “both ways” indica que os benefícios do sandbox alcançam tanto as empresas quanto os reguladores.
+comentario: A frase seguinte explica: “Firms gain legal certainty [...] and regulators learn how new technologies work”.
+
+=== en3-11
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN3B
+comando: Com relação ao texto precedente, julgue os itens que se seguem.
+armadilha: interpretacao
+dif: 2
+enunciado: O texto aponta como risco a possibilidade de que uma isenção temporária se torne permanente, se as regras de saída forem vagas.
+comentario: “if exit rules are vague, a temporary exemption may quietly become permanent”. O outro risco citado é a seleção pouco transparente favorecer empresas já estabelecidas (incumbents).
+
+=== en3-12
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN3B
+comando: Com relação ao texto precedente, julgue os itens que se seguem.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, o termo “incumbents” refere-se às empresas recém-chegadas ao mercado.
+comentario: “Incumbents” são as empresas já estabelecidas; o texto as contrapõe justamente aos “newcomers” (recém-chegados).
+
+=== en3-13
+gab: C
+tema: en-gramatica
+ref: texto
+apoio: @EN3B
+comando: Com relação ao texto precedente, julgue os itens que se seguem.
+armadilha: interpretacao
+dif: 3
+enunciado: No primeiro parágrafo, a forma verbal “may have moved on” expressa uma possibilidade referente a um fato anterior ao momento da aprovação da regra.
+comentario: Modal “may” + “have” + particípio indica possibilidade sobre o passado: quando a regra for aprovada, o mercado “pode já ter mudado”.
+
+=== en3-14
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN3B
+comando: Com relação ao texto precedente, julgue os itens que se seguem.
+armadilha: extrapolacao
+dif: 2
+enunciado: Conforme o texto, as autoridades de proteção de dados rejeitaram o uso de sandboxes no campo da inteligência artificial.
+comentario: Elas “have recently joined this trend, particularly in the field of artificial intelligence”: aderiram, justamente na IA.
+
+=== en3-15
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN3C
+comando: Julgue os itens a seguir, relativos ao texto precedente.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, muitas jurisdições exigem que as organizações notifiquem tanto a autoridade supervisora quanto os indivíduos afetados pouco depois de tomarem conhecimento de um incidente.
+comentario: “notify both the supervisory authority and the affected individuals within a short period after becoming aware of the incident”. Note o marco: a ciência do incidente, como no art. 6º, § 1º, da Resolução 15/2024.
+
+=== en3-16
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN3C
+comando: Julgue os itens a seguir, relativos ao texto precedente.
+armadilha: interpretacao
+dif: 2
+enunciado: De acordo com o texto, a rapidez da notificação permite que as pessoas afetadas adotem medidas de proteção, como trocar senhas e monitorar contas bancárias.
+comentario: “the sooner people know, the sooner they can change passwords, monitor their bank accounts or take other protective steps”.
+
+=== en3-17
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN3C
+comando: Julgue os itens a seguir, relativos ao texto precedente.
+armadilha: extrapolacao
+dif: 2
+enunciado: O texto sustenta que notificações enviadas cedo são sempre preferíveis, ainda que incompletas, por não implicarem nenhum custo.
+comentario: O texto diz que “speed has a cost”: notificações muito cedo podem ser incompletas; muito tarde, inúteis. Daí a solução de complementar depois.
+
+=== en3-18
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN3C
+comando: Julgue os itens a seguir, relativos ao texto precedente.
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, várias leis permitem que uma notificação inicial seja complementada posteriormente, desde que o atraso seja justificado.
+comentario: “allowing an initial notice to be supplemented later, as long as the delay is justified”. A Resolução 15/2024 faz isso: complementação fundamentada em vinte dias úteis.
+
+=== en3-19
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN3C
+comando: Julgue os itens a seguir, relativos ao texto precedente.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, o vocábulo “seldom” poderia ser substituído por often sem alteração do sentido do texto.
+comentario: “Seldom” significa “raramente”; “often”, “frequentemente”. A troca inverteria o sentido: nas primeiras horas, as empresas raramente sabem quantas pessoas foram afetadas.
+
+=== en3-20
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN3C
+comando: Julgue os itens a seguir, relativos ao texto precedente.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do último parágrafo que os reguladores consideram a forma como a empresa responde ao incidente mais reveladora de sua responsabilidade do que o incidente em si.
+comentario: “the way a company responds to an incident, rather than the incident alone, as the real test of its accountability”. É a lógica do princípio da responsabilização e prestação de contas (LGPD, art. 6º, X).
+
+=== en3-21
+gab: E
+tema: en-referencia
+ref: texto
+apoio: @EN3C
+comando: Julgue os itens a seguir, relativos ao texto precedente.
+armadilha: interpretacao
+dif: 3
+enunciado: No segundo parágrafo, o pronome “those” retoma “companies”.
+comentario: Em “those sent too late may be useless”, “those” retoma “notifications”: notificações enviadas tarde demais. O paralelismo com “Notifications sent too early” entrega a referência.
