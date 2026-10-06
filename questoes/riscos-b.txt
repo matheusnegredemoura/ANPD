@@ -1,0 +1,248 @@
+// Gestão de riscos e controles internos: ABNT NBR ISO 31000:2018, COSO (controle interno de 2013 e ERM de 2017),
+// IN Conjunta MP/CGU 1/2016, respostas ao risco, modelo das três linhas (2020), continuidade de negócios e o
+// relatório de impacto da LGPD como instrumento de gestão de riscos. Itens escritos para o banco.
+
+bloco: riscos
+
+=== rc-01
+gab: C
+ref: doutrina
+armadilha: rol
+dif: 1
+enunciado: Na ABNT NBR ISO 31000:2018, o processo de avaliação de riscos compreende a identificação, a análise e a avaliação de riscos.
+comentario: Certo. Avaliação de riscos (risk assessment) é o processo global; avaliação (risk evaluation) é a última das suas três etapas. Depois vem o tratamento.
+
+=== rc-02
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Na ISO 31000, a etapa de avaliação de riscos (risk evaluation) consiste em identificar as fontes de risco e os eventos que podem afetar os objetivos.
+comentario: Errado. Encontrar e descrever fontes, eventos, causas e consequências é a identificação. A avaliação compara o nível do risco, obtido na análise, com os critérios definidos, para decidir se e como tratar.
+
+=== rc-03
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Na ISO 31000, a análise de riscos busca compreender a natureza do risco e determinar seu nível, considerando a probabilidade dos eventos e a magnitude das consequências.
+comentario: Certo. A análise pode ser qualitativa, semiquantitativa ou quantitativa, e considera a eficácia dos controles existentes.
+
+=== rc-04
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Na ISO 31000, comunicação e consulta, assim como monitoramento e análise crítica, perpassam todas as etapas do processo de gestão de riscos.
+comentario: Certo. Não são etapas finais: acompanham o processo do início ao fim, ao lado do registro e relato.
+
+=== rc-05
+gab: E
+ref: doutrina
+armadilha: extrapolacao
+dif: 2
+enunciado: A ISO 31000 é norma certificável e de adoção obrigatória por todos os órgãos da administração pública federal.
+comentario: Errado. A ISO 31000 fornece diretrizes e não é passível de certificação. A obrigação de gerir riscos no Executivo federal decorre de normas próprias, como a IN Conjunta MP/CGU 1/2016 e o Decreto 9.203/2017, que se inspiram em referenciais como a ISO 31000 e o COSO.
+
+=== rc-06
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A integração da gestão de riscos às atividades e à tomada de decisão é princípio da ISO 31000, que a trata como parte da governança e não como atividade isolada.
+comentario: Certo. Os princípios incluem ser integrada, estruturada e abrangente, personalizada, inclusiva e dinâmica, usar a melhor informação disponível, considerar fatores humanos e culturais e buscar a melhoria contínua.
+
+=== rc-07
+gab: C
+ref: doutrina
+armadilha: rol
+dif: 2
+enunciado: No COSO Controle Interno (estrutura integrada de 2013), os componentes são ambiente de controle, avaliação de riscos, atividades de controle, informação e comunicação e atividades de monitoramento.
+comentario: Certo. São cinco componentes desdobrados em dezessete princípios, e os cinco devem estar presentes e funcionando em conjunto.
+
+=== rc-08
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: No COSO Controle Interno, o ambiente de controle é o componente que reúne procedimentos específicos, como segregação de funções, autorizações e reconciliações.
+comentario: Errado. Esses procedimentos são atividades de controle. O ambiente de controle é a base: integridade e valores éticos, supervisão pela governança, estrutura, competência e responsabilização, o chamado tom da liderança.
+
+=== rc-09
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: A versão de 2017 do COSO ERM integra a gestão de riscos à estratégia e ao desempenho e organiza-se em cinco componentes e vinte princípios.
+comentario: Certo. Os componentes são governança e cultura; estratégia e definição de objetivos; desempenho; revisão; e informação, comunicação e divulgação.
+
+=== rc-10
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: A segregação de funções, pela qual quem autoriza uma operação não a executa nem a confere, é atividade de controle de natureza preventiva.
+comentario: Certo. Evita que uma só pessoa concentre etapas críticas e reduz o risco de erro e de fraude.
+
+=== rc-11
+gab: E
+ref: doutrina
+armadilha: comparacao
+dif: 1
+enunciado: Controles detectivos, como conciliações e auditorias periódicas, impedem que o erro ou a irregularidade ocorra.
+comentario: Errado. Quem impede é o controle preventivo (autorização prévia, segregação, validação na entrada). O detectivo identifica depois que o evento ocorreu; o corretivo reduz os efeitos.
+
+=== rc-12
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A Instrução Normativa Conjunta MP/CGU nº 1/2016 determinou aos órgãos e entidades do Poder Executivo federal a sistematização de práticas de gestão de riscos, controles internos e governança.
+comentario: Certo. A norma exige política de gestão de riscos, comitê de governança, riscos e controles e controles internos da gestão a cargo dos próprios gestores.
+
+=== rc-13
+gab: E
+ref: doutrina
+armadilha: sujeito
+dif: 2
+enunciado: Pela IN Conjunta MP/CGU nº 1/2016, a responsabilidade por gerenciar os riscos de cada processo é da unidade de auditoria interna.
+comentario: Errado. Cada risco deve ter um responsável identificado na gestão, o dono do processo. A auditoria interna avalia, de forma independente, se a gestão de riscos funciona; não gerencia riscos no lugar do gestor.
+
+=== rc-14
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Apetite a risco é o nível de risco que a organização está disposta a aceitar na busca de seus objetivos, e a tolerância a risco expressa a variação aceitável em torno de um objetivo específico.
+comentario: Certo. O apetite é definido pela alta administração e pela governança; a tolerância o traduz em limites operacionais mensuráveis.
+
+=== rc-15
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Mitigar um risco é adotar medidas que reduzam a probabilidade de ocorrência do evento ou a magnitude de seu impacto.
+comentario: Certo. Exemplo: criptografar uma base reduz o impacto de um vazamento; autenticação multifator reduz a probabilidade de acesso indevido.
+
+=== rc-16
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Evitar o risco consiste em contratar seguro que transfira a terceiro as consequências financeiras do evento.
+comentario: Errado. Seguro é transferência (ou compartilhamento) do risco. Evitar é deixar de realizar a atividade que gera o risco, como desistir de coletar um dado que não é necessário.
+
+=== rc-17
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Aceitar um risco é decisão consciente de não adotar tratamento adicional, o que pode ocorrer quando o nível do risco está dentro do apetite ou quando o custo do controle supera o benefício esperado.
+comentario: Certo. Aceitar não é ignorar: a decisão deve ser registrada e o risco continua monitorado.
+
+=== rc-18
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: No diagrama gravata-borboleta (bow-tie), o evento de risco fica no centro, as causas e as barreiras preventivas à esquerda e as consequências e as medidas de mitigação à direita.
+comentario: Certo. A ferramenta mostra num só desenho o que evita o evento e o que reduz seus efeitos se ele ocorrer.
+
+=== rc-19
+gab: E
+ref: doutrina
+armadilha: extrapolacao
+dif: 1
+enunciado: O registro de riscos deve ser elaborado uma única vez, no início da implantação da gestão de riscos, sem necessidade de atualização.
+comentario: Errado. Riscos mudam com o ambiente, os processos e as ameaças; o registro é documento vivo, revisto periodicamente e sempre que houver mudança relevante.
+
+=== rc-20
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Indicadores-chave de risco sinalizam o aumento da exposição a um risco antes que o evento se materialize, o que permite agir preventivamente.
+comentario: Certo. Por exemplo, o crescimento de tentativas de acesso com falha é indicador antecedente de risco de invasão.
+
+=== rc-21
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Riscos à integridade, como conflito de interesses, nepotismo e recebimento de vantagens indevidas, devem ser tratados no programa de integridade do órgão.
+comentario: Certo. A gestão desses riscos é parte da governança pública e ganha peso em agências reguladoras, sujeitas a pressões do setor regulado.
+
+=== rc-22
+gab: C
+ref: lgpd 5
+trecho: documentação do controlador que contém a descrição dos processos de tratamento de dados pessoais que podem gerar riscos às liberdades civis e aos direitos fundamentais, bem como medidas, salvaguardas e mecanismos de mitigação de risco
+armadilha: conceito
+dif: 2
+enunciado: O relatório de impacto à proteção de dados pessoais é documentação do controlador que descreve os tratamentos que podem gerar riscos às liberdades civis e aos direitos fundamentais, com as medidas, salvaguardas e mecanismos de mitigação adotados.
+comentario: Certo: LGPD, art. 5º, XVII. É a ferramenta de gestão de riscos própria da proteção de dados, com conteúdo mínimo no art. 38, parágrafo único.
+
+=== rc-23
+gab: E
+bloco: lgpd-37-45
+ref: lgpd 38
+trecho: A autoridade nacional poderá determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais
+armadilha: sujeito
+dif: 2
+enunciado: O relatório de impacto à proteção de dados pessoais deve ser elaborado pelo operador e publicado no Diário Oficial da União antes do início de qualquer tratamento.
+comentario: Errado. O relatório é do controlador, e a ANPD poderá determinar sua elaboração (art. 38), observados os segredos comercial e industrial. A lei não exige publicação no Diário Oficial nem relatório prévio para todo tratamento.
+
+=== rc-24
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: No modelo das três linhas, revisado pelo IIA em 2020, a auditoria interna presta avaliação e assessoria independentes e objetivas ao órgão de governança.
+comentario: Certo. A versão de 2020 deixou de falar em defesa e passou a enfatizar a criação de valor e a colaboração entre a gestão (primeira e segunda linhas) e a auditoria interna (terceira).
+
+=== rc-25
+gab: E
+ref: doutrina
+armadilha: extrapolacao
+dif: 2
+enunciado: No modelo das três linhas de 2020, a primeira e a segunda linhas devem atuar isoladas, sem comunicação entre si, para preservar a independência de cada uma.
+comentario: Errado. O modelo pede comunicação, cooperação e alinhamento entre as linhas. Independência é exigida da auditoria interna em relação à gestão; a primeira e a segunda linhas fazem parte da própria gestão.
+
+=== rc-26
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Na gestão de continuidade de negócios, a análise de impacto no negócio identifica as atividades críticas e define parâmetros como o tempo máximo tolerável de interrupção de cada uma.
+comentario: Certo. A análise de impacto no negócio (BIA) orienta as estratégias de continuidade e os objetivos de tempo e de ponto de recuperação (RTO e RPO).
+
+=== rc-27
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: O objetivo de ponto de recuperação (RPO) indica o tempo máximo para restabelecer um serviço após uma interrupção.
+comentario: Errado. Tempo para restabelecer o serviço é o RTO. O RPO é a perda máxima de dados aceitável, medida em tempo: com RPO de 4 horas, os backups precisam ser feitos a cada 4 horas, no máximo.
+
+=== rc-28
+gab: C
+ref: doutrina
+armadilha: numero
+dif: 2
+enunciado: Na análise quantitativa de riscos, a perda esperada de um evento pode ser estimada pelo produto entre sua probabilidade de ocorrência e o valor do impacto.
+comentario: Certo. Evento com 10% de chance por ano e impacto de R$ 500 mil tem perda esperada anual de R$ 50 mil, referência para decidir quanto investir no controle.
+
+=== rc-29
+gab: E
+ref: doutrina
+armadilha: absoluto
+dif: 1
+enunciado: A gestão de riscos tem por objetivo eliminar todos os riscos da organização.
+comentario: Errado. Risco zero não existe e nem é desejável, pois algum risco acompanha qualquer objetivo. A gestão de riscos busca manter a exposição dentro do apetite definido e aproveitar oportunidades.
+
+=== rc-30
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Proprietário do risco é a pessoa ou unidade com responsabilidade e autoridade para gerenciar determinado risco.
+comentario: Certo. Sem dono, o risco fica sem tratamento e sem monitoramento; por isso as normas exigem responsável formalmente identificado para cada risco.

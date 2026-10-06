@@ -1,0 +1,365 @@
+// Gestão pública, lote D: gestão por processos (BPM, BPMN, Lean, Seis Sigma), ferramentas da qualidade,
+// gerenciamento de projetos (PMBOK, estruturas, valor agregado) e abordagens ágeis (Scrum, Kanban).
+// Itens escritos para o banco no formato do Cebraspe.
+
+bloco: gestao-publica
+
+=== gd-01
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Na gestão por processos, a visão ponta a ponta atravessa as fronteiras das unidades da estrutura hierárquica e se orienta pelo valor entregue ao cliente do processo.
+comentario: Certo. É a visão horizontal, em oposição à visão funcional (vertical), em que cada unidade otimiza a própria parte e os problemas aparecem nas passagens de uma área para outra.
+
+=== gd-02
+gab: E
+ref: doutrina
+armadilha: extrapolacao
+dif: 1
+enunciado: O mapeamento da situação atual (as is) deve ser dispensado quando a organização já tiver desenhado o processo desejado (to be).
+comentario: Errado. Sem conhecer o processo atual, não se sabe onde estão os gargalos, o que mudar nem como fazer a transição. O as is é a base do diagnóstico e da comparação com o to be.
+
+=== gd-03
+gab: C
+ref: doutrina
+armadilha: caso
+dif: 2
+enunciado: Segundo o BPM CBOK, os processos podem ser primários, de suporte ou de gerenciamento; numa autoridade de proteção de dados, fiscalizar agentes de tratamento é processo primário.
+comentario: Certo. Primários (finalísticos) entregam valor diretamente ao cliente externo e expressam a missão; de suporte (pessoas, compras, TI) sustentam os primários; de gerenciamento medem, monitoram e controlam.
+
+=== gd-04
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Processos de suporte entregam valor diretamente ao cliente externo e expressam a razão de existir da organização.
+comentario: Errado. Essa descrição é de processo primário (finalístico). Os de suporte, como gestão de pessoas, contratações e tecnologia, servem a outros processos e só indiretamente ao cliente final.
+
+=== gd-05
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Em BPMN, o fluxo de sequência liga elementos dentro de uma mesma piscina, ao passo que a comunicação entre piscinas diferentes é representada por fluxo de mensagem.
+comentario: Certo. Piscina (pool) representa um participante, como uma organização; raias (lanes) dividem responsabilidades dentro dele. O fluxo de sequência é linha cheia; o de mensagem, tracejada.
+
+=== gd-06
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Em BPMN, o gateway exclusivo ativa simultaneamente todos os caminhos de saída.
+comentario: Errado. O exclusivo (XOR, losango com X ou vazio) segue apenas um caminho, conforme a condição. Ativar todos os caminhos ao mesmo tempo é próprio do gateway paralelo (AND, losango com +); o inclusivo (OR, losango com círculo) ativa um ou mais.
+
+=== gd-07
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Tempo de ciclo, taxa de retrabalho e custo por transação são exemplos de indicadores de desempenho de processo.
+comentario: Certo. Medem eficiência e qualidade do fluxo; indicadores de resultado para o cliente, como satisfação, completam o quadro.
+
+=== gd-08
+gab: E
+ref: doutrina
+armadilha: comparacao
+dif: 2
+enunciado: A melhoria contínua, ou kaizen, pressupõe mudanças radicais e de grande escala, com redesenho do processo a partir do zero.
+comentario: Errado. Kaizen são melhorias pequenas, constantes e participativas. Redesenho radical a partir do zero é a reengenharia, de Hammer e Champy.
+
+=== gd-09
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: A reengenharia de processos, proposta por Hammer e Champy, defende o redesenho radical dos processos para obter ganhos drásticos de desempenho, em oposição à melhoria incremental.
+comentario: Certo. A reengenharia questiona por que o processo existe e o refaz do zero; tem alto potencial e alto risco, inclusive de resistência interna.
+
+=== gd-10
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: No pensamento enxuto (Lean), espera, retrabalho, transporte e etapas que não agregam valor ao cliente são desperdícios a eliminar.
+comentario: Certo. Os desperdícios clássicos do Sistema Toyota são superprodução, espera, transporte, processamento excessivo, estoque, movimentação e defeitos; muitos autores acrescentam o talento não aproveitado.
+
+=== gd-11
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: O Seis Sigma busca aumentar a variabilidade dos processos, para estimular a inovação e a diversidade de resultados.
+comentario: Errado. O Seis Sigma busca reduzir a variabilidade e os defeitos, com base em dados e estatística. Seu ciclo de melhoria é o DMAIC: definir, medir, analisar, melhorar e controlar.
+
+=== gd-12
+gab: C
+ref: doutrina
+armadilha: literal
+dif: 2
+enunciado: O ciclo DMAIC, usado no Seis Sigma, compreende as etapas de definir, medir, analisar, melhorar e controlar.
+comentario: Certo. A etapa de controle garante que o ganho se mantenha, com padronização e monitoramento, o que aproxima o DMAIC do A (agir) do PDCA.
+
+=== gd-13
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: O diagrama de Ishikawa, ou de causa e efeito, organiza as possíveis causas de um problema em categorias, como método, máquina, material, mão de obra, medida e meio ambiente.
+comentario: Certo. É o diagrama espinha de peixe, com o efeito na cabeça e as categorias (os 6M) nas espinhas. Serve para levantar hipóteses de causa, não para prová-las.
+
+=== gd-14
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: O diagrama de Pareto parte da premissa de que os problemas decorrem de causas igualmente distribuídas, razão pela qual todas devem ser atacadas ao mesmo tempo.
+comentario: Errado. Pareto ordena as causas por frequência ou impacto e mostra que poucas causas vitais respondem pela maior parte dos efeitos (a regra 80/20). A ideia é priorizar essas poucas.
+
+=== gd-15
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: A ferramenta 5W2H estrutura planos de ação respondendo o que será feito, por quê, onde, quando, por quem, como e quanto custará.
+comentario: Certo. What, why, where, when, who, how e how much. É simples e útil para transformar uma decisão em tarefas com responsável e prazo.
+
+=== gd-16
+gab: E
+ref: doutrina
+armadilha: numero
+dif: 2
+enunciado: Na matriz GUT, os problemas são priorizados pela soma das notas de gravidade, urgência e tendência, atribuídas em escala de 1 a 10.
+comentario: Errado. Na matriz GUT, as notas de gravidade, urgência e tendência vão de 1 a 5 e são multiplicadas (G × U × T), o que resulta em pontuação de 1 a 125.
+
+=== gd-17
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Na fase de geração de ideias do brainstorming, a crítica às sugestões deve ser suspensa, para estimular a quantidade e a diversidade de propostas.
+comentario: Certo. A avaliação vem depois, em etapa separada. Julgar cedo inibe a participação e empobrece o conjunto de alternativas.
+
+=== gd-18
+gab: C
+ref: doutrina
+armadilha: rol
+dif: 2
+enunciado: O programa 5S compreende os sensos de utilização, ordenação, limpeza, padronização (ou saúde) e autodisciplina.
+comentario: Certo. Em japonês: seiri, seiton, seiso, seiketsu e shitsuke. É prática de base da qualidade e da gestão visual do ambiente de trabalho.
+
+=== gd-19
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Projeto é um esforço temporário empreendido para criar um produto, serviço ou resultado único.
+comentario: Certo. Temporário quer dizer início e fim definidos, não curta duração; único, que o resultado tem algo de novo. A rotina repetitiva é operação.
+
+=== gd-20
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: O termo de abertura do projeto é emitido na fase de encerramento e formaliza a aceitação das entregas pelo patrocinador.
+comentario: Errado. O termo de abertura (project charter) é o primeiro documento: autoriza formalmente o projeto e dá ao gerente autoridade para usar recursos. A aceitação das entregas é registrada no encerramento.
+
+=== gd-21
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: O termo de abertura autoriza formalmente a existência do projeto e confere ao gerente de projetos autoridade para aplicar recursos organizacionais nas atividades.
+comentario: Certo. É emitido pelo patrocinador ou por quem está fora do projeto, com objetivos de alto nível, premissas, restrições, riscos iniciais e partes interessadas principais.
+
+=== gd-22
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Como alterar o escopo de um projeto tende a afetar prazo, custo e qualidade, as mudanças devem passar por controle integrado de mudanças antes de serem incorporadas.
+comentario: Certo. As restrições concorrentes (escopo, prazo, custo, qualidade, recursos, riscos) se afetam mutuamente. Mudança aprovada atualiza a linha de base; mudança sem controle é a origem do aumento descontrolado de escopo (scope creep).
+
+=== gd-23
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Folga total é o tempo pelo qual uma atividade do caminho crítico pode atrasar sem atrasar a data de término do projeto.
+comentario: Errado. No cronograma típico, as atividades do caminho crítico têm folga total zero: qualquer atraso nelas atrasa o projeto. Folga é atributo das atividades fora do caminho crítico.
+
+=== gd-24
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Na matriz de poder e interesse das partes interessadas, as que têm alto poder e alto interesse no projeto devem ser gerenciadas de perto.
+comentario: Certo. Alto poder e baixo interesse: manter satisfeitas; baixo poder e alto interesse: manter informadas; baixo poder e baixo interesse: monitorar.
+
+=== gd-25
+gab: E
+ref: doutrina
+armadilha: extrapolacao
+dif: 1
+enunciado: No gerenciamento de projetos, as partes interessadas restringem-se aos membros da equipe do projeto e ao patrocinador.
+comentario: Errado. Parte interessada é qualquer pessoa, grupo ou organização que afete, seja afetada ou se perceba afetada pelo projeto: usuários, órgãos de controle, fornecedores, sociedade.
+
+=== gd-26
+gab: C
+ref: doutrina
+armadilha: rol
+dif: 2
+enunciado: O escritório de gerenciamento de projetos pode ter papel de suporte, de controle ou diretivo, conforme o grau de controle que exerce sobre os projetos.
+comentario: Certo. O de suporte fornece modelos e boas práticas; o de controle exige conformidade com metodologia; o diretivo gerencia diretamente os projetos.
+
+=== gd-27
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Na estrutura organizacional matricial, os membros da equipe respondem ao gerente funcional e ao gerente de projeto, e, na matricial forte, a autoridade deste último prevalece.
+comentario: Certo. A matricial combina a especialização funcional com o foco no projeto, ao custo de dupla subordinação; fraca, equilibrada e forte indicam quem tem mais autoridade.
+
+=== gd-28
+gab: E
+ref: doutrina
+armadilha: comparacao
+dif: 2
+enunciado: Na estrutura organizacional funcional, o gerente de projetos tem autoridade plena sobre os recursos e o orçamento do projeto.
+comentario: Errado. Na funcional, a autoridade fica com os gerentes de área, e o gerente de projetos tem pouca ou nenhuma. Autoridade alta ou plena é característica da estrutura projetizada.
+
+=== gd-29
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A sétima edição do Guia PMBOK organiza-se em princípios de gerenciamento de projetos e domínios de desempenho, deixando de lado a estrutura em grupos de processos e áreas de conhecimento da edição anterior.
+comentario: Certo. A edição de 2021 muda o foco de processos para a entrega de valor, com doze princípios e oito domínios de desempenho (partes interessadas, equipe, abordagem de desenvolvimento, planejamento, trabalho do projeto, entrega, medição e incerteza).
+
+=== gd-30
+gab: C
+ref: doutrina
+armadilha: numero
+dif: 3
+enunciado: Na análise de valor agregado, o índice de desempenho de custos é a razão entre o valor agregado e o custo real, e valor inferior a 1 indica que o projeto está gastando mais do que o planejado para o trabalho realizado.
+comentario: Certo. CPI = VA ÷ CR. Com VA de 80 e CR de 100, o CPI é 0,8: cada real gasto entregou 80 centavos de trabalho.
+
+=== gd-31
+gab: E
+ref: doutrina
+armadilha: numero
+dif: 2
+enunciado: Na análise de valor agregado, índice de desempenho de prazos maior que 1 indica projeto atrasado em relação ao planejado.
+comentario: Errado. SPI = valor agregado ÷ valor planejado. Maior que 1, foi entregue mais trabalho do que o previsto até a data: o projeto está adiantado. Menor que 1 indica atraso.
+
+=== gd-32
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: No gerenciamento de riscos de projetos, os riscos positivos são oportunidades, para as quais as respostas incluem explorar, compartilhar, melhorar e aceitar.
+comentario: Certo. Para ameaças: evitar, transferir, mitigar e aceitar; para ambos, escalar quando o risco foge da alçada do projeto.
+
+=== gd-33
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Pelo Guia do Scrum de 2020, o time Scrum é composto pelo product owner, pelo scrum master e pelos desenvolvedores, sem subtimes nem hierarquias internas.
+comentario: Certo. O time é pequeno, multifuncional e autogerenciado; o guia de 2020 trocou time de desenvolvimento por desenvolvedores e reforçou o compromisso com a meta do produto.
+
+=== gd-34
+gab: E
+ref: doutrina
+armadilha: sujeito
+dif: 1
+enunciado: No Scrum, o scrum master é o responsável por ordenar o backlog do produto e maximizar o valor entregue.
+comentario: Errado. Ordenar o backlog do produto e maximizar valor é papel do product owner. O scrum master promove o Scrum, remove impedimentos e ajuda o time e a organização a entender a prática.
+
+=== gd-35
+gab: C
+ref: doutrina
+armadilha: numero
+dif: 1
+enunciado: A reunião diária do Scrum dura até 15 minutos e serve para os desenvolvedores inspecionarem o progresso em direção à meta da sprint e adaptarem o plano.
+comentario: Certo. Não é reunião de status para o gerente: é dos desenvolvedores, para replanejar o dia.
+
+=== gd-36
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A retrospectiva da sprint é o evento em que o incremento é apresentado às partes interessadas para obter retorno sobre o produto.
+comentario: Errado. Apresentar o incremento às partes interessadas é a revisão da sprint (sprint review). A retrospectiva olha para o próprio time: pessoas, interações, processos e ferramentas, para melhorar a próxima sprint.
+
+=== gd-37
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: O método Kanban baseia-se em visualizar o fluxo de trabalho e limitar o trabalho em andamento, para reduzir gargalos e o tempo de atravessamento.
+comentario: Certo. O quadro com colunas por etapa e os limites de WIP tornam visíveis os acúmulos; o foco é terminar antes de começar coisas novas.
+
+=== gd-38
+gab: E
+ref: doutrina
+armadilha: extrapolacao
+dif: 2
+enunciado: No Kanban, o trabalho é organizado em iterações de duração fixa e exige os papéis de product owner e scrum master.
+comentario: Errado. O Kanban é baseado em fluxo contínuo, sem iterações obrigatórias, e não prescreve papéis; pode ser aplicado sobre o processo existente. Iterações fixas e papéis definidos são do Scrum.
+
+=== gd-39
+gab: C
+ref: doutrina
+armadilha: literal
+dif: 2
+enunciado: O Manifesto Ágil valoriza indivíduos e interações mais que processos e ferramentas, software em funcionamento mais que documentação abrangente, colaboração com o cliente mais que negociação de contratos e responder a mudanças mais que seguir um plano.
+comentario: Certo. São os quatro valores do manifesto de 2001, acompanhados de doze princípios.
+
+=== gd-40
+gab: E
+ref: doutrina
+armadilha: extrapolacao
+dif: 1
+enunciado: O Manifesto Ágil dispensa a documentação e o planejamento nos projetos.
+comentario: Errado. O manifesto diz que, embora haja valor nos itens da direita (documentação, plano, contratos, processos), valoriza mais os da esquerda. Planeja-se e documenta-se, na medida do necessário.
+
+=== gd-41
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: O produto mínimo viável é a versão mais simples de uma solução capaz de gerar aprendizado validado com usuários reais, com o menor esforço possível.
+comentario: Certo. O objetivo do MVP é testar hipóteses cedo, não entregar um produto pela metade; o retorno orienta o que construir a seguir.
+
+=== gd-42
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Uma organização pode adotar abordagem híbrida, com planejamento preditivo para os marcos normativos de um projeto e iterações ágeis para o desenvolvimento do sistema que o apoia.
+comentario: Certo. O próprio PMBOK recomenda adaptar (tailoring) a abordagem ao contexto: requisitos estáveis favorecem o preditivo; requisitos incertos, o ágil.
+
+=== gd-43
+gab: E
+ref: doutrina
+armadilha: absoluto
+dif: 2
+enunciado: O caminho crítico, uma vez definido no planejamento, não se altera durante a execução do projeto.
+comentario: Errado. Atrasos ou antecipações em atividades fora do caminho crítico podem consumir a folga e criar um novo caminho crítico; por isso ele é recalculado durante o controle do cronograma.
+
+=== gd-44
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A linha de base do projeto é a versão aprovada do escopo, do cronograma ou do custo, e só pode ser alterada por meio de procedimentos formais de controle de mudanças.
+comentario: Certo. É a referência contra a qual o desempenho é medido; mudá-la sem controle esconde atrasos e estouros de custo.
+
+=== gd-45
+gab: E
+ref: doutrina
+armadilha: extrapolacao
+dif: 3
+enunciado: Na compressão do cronograma, o paralelismo de atividades (fast tracking) reduz o prazo do projeto sem aumentar riscos.
+comentario: Errado. Executar em paralelo atividades que seriam sequenciais aumenta o risco de retrabalho. A outra técnica, a compressão (crashing), adiciona recursos e aumenta o custo.

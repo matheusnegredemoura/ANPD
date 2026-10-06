@@ -1,0 +1,224 @@
+// Dados: governança de dados (DAMA-DMBOK), papéis, metadados, dados mestres e de referência, qualidade,
+// BI e modelagem dimensional, data lake e lakehouse, dados abertos e compartilhamento de dados no governo
+// federal (Decreto 10.046/2019 e o julgamento do STF). Itens escritos para o banco.
+
+bloco: dados-bi
+
+=== dd-01
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: No DAMA-DMBOK, a governança de dados ocupa o centro da roda de funções de gerenciamento de dados e orienta as demais áreas, como qualidade, metadados, segurança e arquitetura.
+comentario: Certo. As áreas em volta incluem arquitetura, modelagem, armazenamento e operações, segurança, integração e interoperabilidade, documentos e conteúdo, dados mestres e de referência, data warehousing e BI, metadados e qualidade.
+
+=== dd-02
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Governança de dados e gerenciamento de dados são expressões sinônimas.
+comentario: Errado. Governança é o exercício de autoridade e controle (planejamento, monitoramento e aplicação de políticas) sobre o gerenciamento dos dados; o gerenciamento executa as atividades. É a mesma distinção entre governança e gestão.
+
+=== dd-03
+gab: C
+ref: doutrina
+armadilha: sujeito
+dif: 2
+enunciado: O curador de dados (data steward) responde, no dia a dia, pela qualidade, pela definição e pelo uso adequado dos dados de determinado domínio de negócio.
+comentario: Certo. O proprietário (data owner) responde pelo domínio e decide sobre acesso; o curador cuida da qualidade e das definições; a TI opera a infraestrutura.
+
+=== dd-04
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Dicionário de dados e glossário de negócio são instrumentos de gestão de metadados, que descrevem o significado, a origem e o formato dos dados.
+comentario: Certo. Metadados são dados sobre dados: técnicos (tipo, tamanho), de negócio (definição) e operacionais (cargas, acessos).
+
+=== dd-05
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Dados mestres são os registros das transações do dia a dia, como cada pedido, pagamento ou requerimento recebido.
+comentario: Errado. Esses são dados transacionais. Dados mestres descrevem as entidades centrais do negócio, compartilhadas por vários sistemas, como cidadãos, empresas, servidores e unidades.
+
+=== dd-06
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Dados de referência são conjuntos de valores permitidos usados para classificar outros dados, como listas de países, de unidades da federação ou de códigos de atividade econômica.
+comentario: Certo. Mudam pouco e, quando padronizados, permitem integrar e comparar bases diferentes.
+
+=== dd-07
+gab: C
+ref: doutrina
+armadilha: caso
+dif: 1
+enunciado: Cadastro em que o mesmo cidadão aparece duas vezes, com o mesmo CPF e o nome grafado de formas diferentes, apresenta problema na dimensão de unicidade da qualidade de dados.
+comentario: Certo. Unicidade é a ausência de duplicidade. O caso também afeta a consistência, porque o mesmo fato aparece registrado de formas diferentes.
+
+=== dd-08
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A validade, como dimensão da qualidade de dados, refere-se à correspondência entre o dado registrado e a realidade que ele representa.
+comentario: Errado. Correspondência com a realidade é a acurácia (exatidão). Validade é a conformidade com formato, tipo e regras de domínio: uma data de 31 de fevereiro é inválida; um endereço antigo pode ser válido e inexato.
+
+=== dd-09
+gab: C
+ref: lgpd 6
+trecho: qualidade dos dados: garantia, aos titulares, de exatidão, clareza, relevância e atualização dos dados
+armadilha: literal
+dif: 1
+enunciado: Na LGPD, o princípio da qualidade dos dados garante aos titulares exatidão, clareza, relevância e atualização dos dados, de acordo com a necessidade e para o cumprimento da finalidade do tratamento.
+comentario: Certo: art. 6º, V. A qualidade dos dados é também dever jurídico, com reflexo no direito de correção (art. 18, III).
+
+=== dd-10
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: No processo ETL, os dados são extraídos das fontes, transformados e então carregados no repositório analítico; na variante ELT, a carga precede a transformação, feita no próprio destino.
+comentario: Certo. O ELT é comum em data lakes e na nuvem, onde o destino tem capacidade de processamento para transformar sob demanda.
+
+=== dd-11
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: No esquema estrela da modelagem dimensional, a tabela fato armazena os atributos descritivos, e as tabelas de dimensão armazenam as métricas numéricas.
+comentario: Errado. É o inverso: a tabela fato guarda as métricas (quantidades, valores) e as chaves das dimensões; as dimensões guardam os atributos descritivos (tempo, órgão, região).
+
+=== dd-12
+gab: C
+ref: doutrina
+armadilha: comparacao
+dif: 2
+enunciado: O esquema floco de neve difere do esquema estrela por normalizar as tabelas de dimensão, que passam a se desdobrar em tabelas relacionadas.
+comentario: Certo. Ganha-se em redundância menor; perde-se em simplicidade e em desempenho das consultas, que exigem mais junções.
+
+=== dd-13
+gab: C
+ref: doutrina
+armadilha: comparacao
+dif: 1
+enunciado: Sistemas OLTP são otimizados para grande volume de transações curtas de inserção e atualização, enquanto sistemas OLAP privilegiam consultas analíticas sobre grandes volumes de dados históricos.
+comentario: Certo. Por isso o data warehouse é alimentado a partir dos sistemas transacionais, sem disputar recursos com eles.
+
+=== dd-14
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Na análise OLAP, a operação slice fixa um valor de uma das dimensões do cubo e gera um subconjunto dos dados, como as vendas de um único ano.
+comentario: Certo. Dice seleciona faixas em várias dimensões; drill down detalha; roll up agrega; pivot gira os eixos da visualização.
+
+=== dd-15
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Data mart é um subconjunto de dados analíticos voltado às necessidades de uma área ou de um assunto específico da organização.
+comentario: Certo. Pode ser derivado do data warehouse corporativo (dependente) ou construído diretamente a partir das fontes (independente).
+
+=== dd-16
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A arquitetura lakehouse busca combinar o armazenamento flexível e de baixo custo do data lake com recursos de gestão, transações e desempenho típicos do data warehouse.
+comentario: Certo. A ideia é evitar manter duas cópias dos dados, uma bruta e outra tratada, em plataformas separadas.
+
+=== dd-17
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Dados abertos são, necessariamente, dados pessoais publicados com autorização dos respectivos titulares.
+comentario: Errado. Dados abertos são dados públicos disponibilizados para livre uso, em formato aberto e legível por máquina. Dados pessoais, em regra, não são abertos, e sua divulgação exige base legal, além do respeito à LAI e à LGPD.
+
+=== dd-18
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Dados abertos devem ser disponibilizados em formato legível por máquina e sob licença que permita seu livre uso, reuso e redistribuição.
+comentario: Certo. É o núcleo da Política de Dados Abertos do Poder Executivo federal (Decreto 8.777/2016), que prevê planos de dados abertos em cada órgão.
+
+=== dd-19
+gab: C
+ref: doutrina
+armadilha: rol
+dif: 2
+enunciado: O Decreto nº 10.046/2019 categoriza o compartilhamento de dados entre órgãos e entidades federais em três níveis, de acordo com a confidencialidade: amplo, restrito e específico.
+comentario: Certo. Amplo: dados públicos sem restrição de acesso; restrito: dados protegidos por sigilo, compartilhados para execução de políticas públicas; específico: dados protegidos por sigilo, compartilhados com órgãos determinados, nas hipóteses autorizadas.
+
+=== dd-20
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: No compartilhamento amplo previsto no Decreto nº 10.046/2019, enquadram-se os dados protegidos por sigilo, cujo acesso depende de autorização do gestor da base.
+comentario: Errado. O amplo é para dados públicos, sem restrição de acesso. Dados protegidos por sigilo entram no compartilhamento restrito ou no específico.
+
+=== dd-21
+gab: C
+bloco: lgpd-23-32
+ref: stf
+armadilha: conceito
+dif: 3
+enunciado: Ao julgar a ADI 6.649 e a ADPF 695, o STF admitiu o compartilhamento de dados pessoais entre órgãos públicos, mas o condicionou a propósitos legítimos, específicos e explícitos, ao mínimo necessário e às garantias da LGPD, com interpretação conforme do Decreto nº 10.046/2019.
+comentario: Certo. A decisão de 2022 exigiu, entre outros pontos, transparência sobre o compartilhamento, mecanismos de segurança e responsabilização por uso indevido. Confira na fonte, porque o texto do julgamento ainda não está no painel.
+
+=== dd-22
+gab: C
+ref: doutrina
+armadilha: comparacao
+dif: 2
+enunciado: Na mineração de dados, a classificação é técnica supervisionada que atribui registros a classes predefinidas, enquanto o agrupamento (clustering) é técnica não supervisionada, que descobre grupos sem rótulos prévios.
+comentario: Certo. Exemplo: classificar denúncias como procedentes ou não a partir de casos rotulados (supervisionado) ou agrupar reclamações parecidas para descobrir temas recorrentes (não supervisionado).
+
+=== dd-23
+gab: E
+ref: doutrina
+armadilha: extrapolacao
+dif: 1
+enunciado: Uma correlação forte entre duas variáveis demonstra relação de causa e efeito entre elas.
+comentario: Errado. Correlação não implica causalidade: pode haver terceira variável influenciando ambas, causalidade reversa ou coincidência. Causalidade exige desenho de pesquisa adequado, como experimentos.
+
+=== dd-24
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A linhagem de dados documenta a origem dos dados e as transformações por que passaram até chegar a um relatório, o que apoia a auditoria e a confiança nos indicadores.
+comentario: Certo. Num painel de fiscalização, a linhagem permite saber de que sistema saiu cada número e que regras o alteraram.
+
+=== dd-25
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: A abordagem de data mesh descentraliza a responsabilidade pelos dados para os domínios de negócio, que passam a tratá-los como produtos, com governança federada.
+comentario: Certo. É resposta aos gargalos de equipes centrais de dados; exige padrões comuns de interoperabilidade e qualidade.
+
+=== dd-26
+gab: C
+ref: lgpd 12
+trecho: Os dados anonimizados não serão considerados dados pessoais para os fins desta Lei
+armadilha: excecao
+dif: 2
+enunciado: A anonimização efetiva das bases usadas em painéis gerenciais retira esses dados do alcance da LGPD, desde que o processo não possa ser revertido com esforços razoáveis.
+comentario: Certo: art. 12. Se a reidentificação for possível com meios próprios ou esforço razoável, o dado continua pessoal. Agregação e supressão de campos raros ajudam a evitar reidentificação em painéis.
+
+=== dd-27
+gab: E
+ref: doutrina
+armadilha: comparacao
+dif: 2
+enunciado: Data warehouse e data lake exigem, ambos, que o esquema dos dados seja definido antes da carga (schema on write).
+comentario: Errado. O data warehouse trabalha com esquema definido na escrita; o data lake guarda os dados brutos e aplica o esquema na leitura (schema on read), conforme a análise.
