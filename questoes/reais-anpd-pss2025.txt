@@ -1,0 +1,906 @@
+// Processo Seletivo Simplificado 1/2025 da ANPD (banca IADES), provas objetivas de múltipla escolha, tipo A.
+// Única prova já aplicada pela própria ANPD: mostra o recorte que a Autoridade escolheu cobrar.
+// Gabarito definitivo divulgado em 9/9/2025. Ficam fora as anuladas (cargo 100: 45; 200: 31 a 34 e 49; 300: 45; 400: 4),
+// as que dependem de tabela ou gráfico (100: 43 e 44) e as de informática de escritório e arquivo.
+// Cargos: 100 (complexidade gerencial), 200 (complexidade intelectual), 300 (técnica de suporte), 400 (apoio operacional).
+// Comentários escritos para o banco; nas questões de lei, gabarito e alternativas conferidos em fontes/.
+
+bloco: lgpd-5-11
+
+=== pss-100-21
+gab: C
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 21 · gabarito definitivo
+bloco: seginfo
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Considere que certo analista de segurança da informação tenha detectado uma atividade anômala em determinado servidor de banco de dados crítico, caracterizada por múltiplos acessos falhos seguidos por uma extração de dados bem-sucedida para um endereço IP externo não reconhecido. Nesse contexto, assinale a alternativa que corresponde ao próximo passo mais adequado e imediato a ser dado, segundo as melhores práticas de gestão e resposta a incidentes, como as descritas pelo NIST SP 800-61.
+alt: A | Iniciar imediatamente a fase de erradicação, desligando o servidor comprometido para prevenir danos adicionais.
+alt: B | Priorizar a fase de recuperação, restaurando o último backup do banco de dados para garantir a continuidade do negócio.
+alt: C | Proceder com a fase de contenção, isolando o servidor da rede para prevenir a propagação da ameaça enquanto se coletam evidências voláteis.
+alt: D | Concentrar na fase de lições aprendidas, convocando uma reunião com a equipe para discutir as falhas no sistema de detecção.
+alt: E | Acionar diretamente as autoridades policiais para que iniciem a investigação forense a respeito do ataque cibernético.
+comentario: Letra C. No ciclo do NIST SP 800-61 (preparação; detecção e análise; contenção, erradicação e recuperação; atividade pós-incidente), o incidente já foi detectado e há exfiltração em curso: o passo seguinte é conter. Isolar o servidor da rede interrompe o vazamento sem destruir a memória volátil, que guarda evidências. Desligar a máquina (A) apaga essas evidências, e a erradicação vem depois da contenção. Recuperar o backup (B) antes de conter pode restaurar o sistema ainda comprometido. Lições aprendidas (D) é a última fase. Comunicar a polícia (E) pode ser necessário, mas não substitui a contenção.
+
+=== pss-100-22
+gab: A
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 22 · gabarito definitivo
+bloco: seginfo
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Uma organização precisa garantir a autenticidade, a integridade e o não repúdio de contratos digitais enviados a seus parceiros comerciais. A confidencialidade do conteúdo do contrato durante o trânsito não é a principal preocupação, mas a validação da origem e a garantia de que o documento não foi alterado são imperativas. O mecanismo criptográfico que atende de forma mais completa a esses três requisitos simultaneamente consiste em
+alt: A | aplicar uma assinatura digital no documento, que consiste em gerar um hash do documento e cifrar esse hash com a chave privada do remetente.
+alt: B | gerar um hash do documento utilizando o algoritmo SHA-256 e anexá-lo ao documento sem qualquer proteção adicional.
+alt: C | empregar um protocolo de encapsulamento de segurança, como o TLS, para a transmissão do documento entre as partes.
+alt: D | utilizar um algoritmo de criptografia simétrica, como o AES, para cifrar o documento com uma chave secreta compartilhada previamente.
+alt: E | cifrar o documento inteiro com a chave pública do destinatário usando um algoritmo de criptografia assimétrica, como o RSA.
+comentario: Letra A. Na assinatura digital, o resumo (hash) do documento é cifrado com a chave privada do remetente; qualquer pessoa confere com a chave pública dele. Só o titular tem a chave privada (autenticidade e não repúdio), e qualquer alteração muda o hash (integridade). Hash sem proteção (B) qualquer um recalcula depois de alterar o texto. TLS (C) protege o canal durante o envio, não o documento guardado depois. Com chave simétrica (D), as duas partes têm a mesma chave e qualquer uma poderia ter produzido o texto: não há não repúdio. Cifrar com a chave pública do destinatário (E) dá confidencialidade, não prova de autoria.
+
+=== pss-100-23
+gab: E
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 23 · gabarito definitivo
+bloco: seginfo
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Considere que uma empresa do setor financeiro, com vistas a reforçar a segurança de seus sistemas e cumprir regulações de proteção de dados, tenha implementado um conjunto de medidas. A principal delas consistiu em estabelecer uma política de controle de acesso que define, com base no princípio do menor privilégio, as permissões de acesso dos funcionários a dados sensíveis, exigindo aprovação formal do gestor da área e do gestor da informação para qualquer concessão de acesso. Com base na situação descrita, é correto afirmar que o tipo de controle de segurança da informação utilizado é o
+alt: A | técnico, pois envolve a configuração direta de permissões em sistemas operacionais e bancos de dados.
+alt: B | físico, pois se aplica ao acesso dos funcionários às instalações onde os dados são processados.
+alt: C | de detecção, pois tem o objetivo de identificar tentativas de acesso não autorizado em tempo real por meio de monitoramento.
+alt: D | corretivo, pois tem como objetivo principal reverter os danos causados por um acesso indevido já ocorrido.
+alt: E | administrativo, pois estabelece um processo organizacional e define políticas e procedimentos para a gestão de acessos.
+comentario: Letra E. Política e fluxo de aprovação são controles administrativos (também chamados de gerenciais ou procedimentais): regras e processos da organização, não configuração de sistema. Pela natureza, os controles se dividem em administrativos, técnicos (lógicos) e físicos; pela função, em preventivos, detectivos e corretivos. A política descrita é administrativa e preventiva. Técnico (A) seria a permissão configurada no banco de dados; físico (B), catraca e sala trancada; detecção (C), monitoramento; corretivo (D), ação depois do dano.
+
+=== pss-100-24
+gab: B
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 24 · gabarito definitivo
+bloco: lei-13460
+ref: lei13460 5
+trecho: presunção de boa-fé do usuário
+trecho: autenticação de documentos pelo próprio agente público, à vista dos originais apresentados pelo usuário, vedada a exigência de reconhecimento de firma, salvo em caso de dúvida de autenticidade
+armadilha: literal
+dif: 2
+enunciado: No que tange à proteção do usuário do serviço público, conforme as diretrizes e os direitos básicos estabelecidos na Lei nº 13.460/2017, assinale a alternativa correta.
+alt: A | O quadro geral dos serviços públicos deve ser publicado a cada dois anos, e o princípio da continuidade do serviço impede que seja desligado, mesmo em caso de inadimplemento do usuário.
+alt: B | Entre as diretrizes a serem observadas, estão a presunção de boa-fé do usuário e a autenticação de documentos pelo próprio agente público à vista dos originais, sendo vedada, em regra, a exigência de reconhecimento de firma.
+alt: C | O atendimento ao usuário será realizado estritamente por ordem de chegada, sem ressalvas ou prioridades, e os agentes públicos devem priorizar o uso de linguagem técnica e siglas para garantir a precisão da informação.
+alt: D | Em caso de inadimplemento, a concessionária pode desligar o serviço a qualquer hora do dia ou da noite, bastando uma comunicação prévia, e a taxa de religação será sempre devida após o pagamento do débito.
+alt: E | Para garantir a segurança dos atos, o agente público deve, como regra geral, exigir o reconhecimento de firma dos documentos apresentados pelo usuário e solicitar nova prova acerca do fato que já foi comprovado anteriormente em documentação válida.
+comentario: Letra B: art. 5º, II e IX. O reconhecimento de firma só pode ser exigido se houver dúvida de autenticidade. A erra duas vezes: o quadro geral dos serviços tem periodicidade mínima anual (art. 3º), e o desligamento por inadimplemento é admitido com comunicação prévia (art. 5º, XVI). C contraria o art. 5º, III (ressalvas de urgência e agendamento, prioridades legais) e XIV (linguagem simples, sem siglas e jargões). D: o desligamento é feito necessariamente em horário comercial, e a taxa de religação não é devida se faltar a notificação prévia (art. 5º, parágrafo único). E inverte os incisos IX e XV.
+
+=== pss-100-25
+gab: A
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 25 · gabarito definitivo
+bloco: lei-13460
+ref: lei13460 2
+trecho: atividade administrativa ou de prestação direta ou indireta de bens ou serviços à população, exercida por órgão ou entidade da administração pública
+armadilha: conceito
+dif: 1
+enunciado: A atividade administrativa ou de prestação direta ou indireta de bens ou serviços à população, exercida por órgão ou entidade da administração pública é denominada
+alt: A | serviço público.
+alt: B | manifestação pública.
+alt: C | agente público.
+alt: D | administração pública.
+alt: E | administração gerencial.
+comentario: Letra A, definição literal do art. 2º, II. Os outros conceitos do mesmo artigo: usuário (I) é quem se beneficia ou utiliza, efetiva ou potencialmente, do serviço; administração pública (III) inclui órgãos e entidades de todos os Poderes e esferas, a Advocacia Pública e a Defensoria Pública; agente público (IV) é quem exerce cargo, emprego ou função, ainda que transitoriamente ou sem remuneração; manifestações (V) são reclamações, denúncias, sugestões, elogios e demais pronunciamentos dos usuários.
+
+=== pss-100-26
+gab: D
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 26 · gabarito definitivo
+bloco: lei-13460
+ref: lei13460 6
+trecho: atuação integrada e sistêmica na expedição de atestados, certidões e documentos comprobatórios de regularidade
+trecho: comunicação prévia da suspensão da prestação de serviço
+trecho: É vedada a suspensão da prestação de serviço em virtude de inadimplemento por parte do usuário que se inicie na sexta-feira, no sábado ou no domingo, bem como em feriado ou no dia anterior a feriado
+armadilha: literal
+dif: 2
+enunciado: Considerando os direitos básicos do usuário de serviços públicos, conforme estabelecido pela Lei nº 13.460/2017, assinale a alternativa que descreve corretamente um conjunto de direitos e vedações garantidos ao cidadão.
+alt: A | O usuário tem direito à obtenção de informações precisas a respeito dos serviços, como horário de funcionamento e taxas, mas não tem direito de acesso a informações acerca da tramitação dos próprios processos administrativos.
+alt: B | O usuário tem direito à proteção das próprias informações pessoais e a participar da avaliação dos serviços, e a prestação de um serviço pode ser suspensa por inadimplência a qualquer dia da semana, desde que haja comunicação prévia.
+alt: C | A lei garante ao usuário a liberdade de escolha entre os meios de serviço oferecidos, mas veda o acesso a informações pessoais constantes em bancos de dados do governo, com vistas à proteção da privacidade.
+alt: D | O usuário tem o direito de atuar de forma integrada na expedição de certidões, de obter informações a respeito da localização exata do serviço e de ser comunicado previamente acerca da suspensão de um serviço, sendo vedada a suspensão por inadimplência que se inicie em feriados ou no dia anterior a feriados.
+alt: E | O principal direito do usuário é a obtenção de serviços gratuitos, sendo vedada a cobrança de quaisquer taxas ou tarifas, independentemente da natureza do serviço prestado.
+comentario: Letra D, que junta os incisos V, VI, b, e VII e o parágrafo único do art. 6º. Duas ressalvas: a lei fala em atuação integrada e sistêmica (da administração) na expedição de certidões, que a banca redigiu como direito do usuário; e a vedação vale também para suspensão iniciada na sexta-feira, no sábado ou no domingo, o que a alternativa omite sem contrariar. A erra porque a situação da tramitação dos processos em que o usuário é interessado está no inciso VI, d. B esquece a vedação de sexta a domingo e feriados. C: o usuário tem direito de acesso às informações sobre si em registros e bancos de dados (inciso III). E: a lei prevê informação sobre o valor de taxas e tarifas (inciso VI, e), não gratuidade.
+
+=== pss-100-27
+gab: D
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 27 · gabarito definitivo
+bloco: lei-13460
+ref: lei13460 7
+trecho: principais etapas para processamento do serviço
+trecho: previsão do prazo máximo para a prestação do serviço
+trecho: locais e formas para o usuário apresentar eventual manifestação sobre a prestação do serviço
+armadilha: rol
+dif: 2
+enunciado: De acordo com a Lei de Proteção do Usuário do Serviço Público (Lei nº 13.460/2017), a Carta de Serviços ao Usuário
+alt: A | deve listar os serviços oferecidos e os locais de atendimento, mas não precisa informar a respeito de prazos máximos para a prestação do serviço, pois esses são definidos internamente.
+alt: B | deve focar nos compromissos de qualidade, como prioridades de atendimento e tempo de espera, e considerar a divulgação dos requisitos e documentos necessários para acessar o serviço uma medida opcional.
+alt: C | tem como principal função informar o nome e a matrícula dos servidores responsáveis pelo atendimento, e não é necessário detalhar os mecanismos de comunicação com os usuários.
+alt: D | deve informar as principais etapas para o processamento do serviço, a previsão do prazo máximo para sua prestação e os locais e formas para o usuário apresentar manifestações.
+alt: E | é um documento que, uma vez publicado no sítio eletrônico do órgão, não precisa ser atualizado, e a respectiva operacionalização é de responsabilidade exclusiva do Poder Executivo federal.
+comentario: Letra D: art. 7º, § 2º, III, IV e VI. O conteúdo mínimo da Carta tem dois blocos. O § 2º traz as informações de cada serviço: serviços oferecidos; requisitos e documentos; principais etapas; prazo máximo; forma de prestação; locais e formas de manifestação. O § 3º traz os compromissos de qualidade: prioridades; tempo de espera; mecanismos de comunicação; procedimentos para receber e responder manifestações; consulta ao andamento. A e B tiram itens obrigatórios do § 2º (prazo máximo; requisitos). C inventa nome e matrícula e dispensa um item do § 3º. E contraria o § 4º (atualização periódica) e o § 5º (regulamento de cada Poder e esfera de governo).
+
+=== pss-100-28
+gab: A
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 28 · gabarito definitivo
+ref: lgpd 7
+trecho: quando necessário para atender aos interesses legítimos do controlador ou de terceiro, exceto no caso de prevalecerem direitos e liberdades fundamentais do titular que exijam a proteção dos dados pessoais
+armadilha: excecao
+dif: 1
+enunciado: A Lei nº 13.709/2018 (LGPD) prevê diversas hipóteses legais que autorizam o tratamento de dados pessoais, ainda que sem o consentimento do titular. Com base nesse dispositivo legal, assinale a alternativa correta.
+alt: A | O tratamento de dados pessoais pode ser realizado para atender aos interesses legítimos do controlador ou de terceiros, desde que sejam respeitados os direitos e liberdades fundamentais do titular.
+alt: B | O tratamento de dados pessoais exige consentimento prévio e expresso do titular em qualquer hipótese, sem exceções previstas em lei.
+alt: C | A existência de contrato entre o titular e o controlador dispensa a aplicação dos princípios gerais previstos na LGPD.
+alt: D | O cumprimento de obrigação legal ou regulatória só autoriza o tratamento de dados pessoais após manifestação expressa da ANPD.
+alt: E | A proteção do crédito justifica o tratamento de dados pessoais apenas mediante decisão judicial previamente proferida.
+comentario: Letra A: legítimo interesse, art. 7º, IX, que cede quando prevalecem os direitos e liberdades fundamentais do titular. O consentimento é só uma das dez hipóteses do art. 7º (B). Toda hipótese convive com os princípios do art. 6º, inclusive a execução de contrato (C). Obrigação legal ou regulatória (inciso II) e proteção do crédito (inciso X) não dependem de manifestação da ANPD nem de decisão judicial (D e E).
+
+=== pss-100-29
+gab: E
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 29 · gabarito definitivo
+bloco: lgpd-37-45
+ref: lgpd 5
+trecho: a quem competem as decisões referentes ao tratamento de dados pessoais
+trecho: que realiza o tratamento de dados pessoais em nome do controlador
+armadilha: sujeito
+dif: 2
+enunciado: A Lei nº 13.709/2018 (LGPD) distingue as figuras do controlador e do operador, estabelecendo obrigações específicas para cada agente de tratamento. Considerando essa distinção e as responsabilidades atribuídas pela legislação, assinale a alternativa correta.
+alt: A | O controlador pode transferir sua responsabilidade para terceiros por meio de contrato, eximindo-se de responder por danos decorrentes do tratamento de dados.
+alt: B | O operador, por ser responsável apenas pela execução técnica do tratamento, está legalmente dispensado de adotar medidas de segurança, ainda que se trate de dados sensíveis.
+alt: C | O controlador responde solidariamente com o operador, independentemente de culpa, sempre que ocorrer qualquer incidente de segurança envolvendo dados pessoais.
+alt: D | O operador tem autonomia para alterar a finalidade do tratamento de dados, desde que notifique previamente o controlador.
+alt: E | O controlador é o agente responsável pelas decisões referentes ao tratamento de dados pessoais e deve adotar medidas para demonstrar a conformidade com a LGPD, inclusive quanto à atuação dos operadores sob sua responsabilidade.
+comentario: Letra E. Controlador decide (art. 5º, VI); operador trata em nome dele (art. 5º, VII) e segue suas instruções (art. 39). A responsabilização e prestação de contas (art. 6º, X) exige demonstrar as medidas adotadas. Contrato não afasta a responsabilidade do controlador, que só se exime nas hipóteses do art. 43 (A). O dever de segurança do art. 46 alcança os agentes de tratamento, operador incluído (B). O operador responde solidariamente quando descumpre a lei ou as instruções lícitas do controlador (art. 42, § 1º, I); não há regra de solidariedade automática para qualquer incidente (C). Quem decide a finalidade é o controlador: operador que muda a finalidade passa a agir como controlador (D).
+
+=== pss-100-30
+gab: A
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 30 · gabarito definitivo
+bloco: seginfo
+ref: doutrina
+armadilha: absoluto
+dif: 1
+enunciado: A segurança da informação é um dos pilares da proteção de dados pessoais, abordada por frameworks internacionais e boas práticas que influenciam diretamente a conformidade de organizações públicas e privadas. Com base nas diretrizes de segurança da informação, assinale a alternativa correta.
+alt: A | O modelo conhecido como a tríade CIA estabelece os princípios da confidencialidade, da integridade e da disponibilidade como fundamentos essenciais para a proteção da informação.
+alt: B | A confidencialidade da informação é garantida exclusivamente por medidas físicas de controle de acesso, como trancas e barreiras estruturais.
+alt: C | A integridade da informação refere-se à sua proteção contra vazamentos, garantindo que somente usuários autorizados possam acessá-la.
+alt: D | A disponibilidade de dados é assegurada unicamente por políticas de backup em mídia física, e não se aplicam a ambientes de nuvem.
+alt: E | A adoção de boas práticas de segurança da informação é obrigatória apenas quando a organização opera com dados sensíveis.
+comentario: Letra A: confidencialidade, integridade e disponibilidade (CID, ou CIA em inglês). As erradas usam palavras absolutas (exclusivamente, unicamente, apenas). C troca conceitos: proteção contra vazamento é confidencialidade; integridade é proteção contra alteração indevida. Na LGPD, o dever de segurança do art. 46 vale para qualquer dado pessoal, não só para os sensíveis (E).
+
+=== pss-100-31
+gab: C
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 31 · gabarito definitivo
+bloco: marco-civil
+ref: mci 3
+trecho: proteção dos dados pessoais, na forma da lei
+armadilha: comparacao
+dif: 2
+enunciado: A Lei nº 12.965/2014 (Marco Civil da Internet) estabelece os princípios, garantias, direitos e deveres para o uso da internet no Brasil e serviu como base normativa para a posterior edição da Lei Geral de Proteção de Dados (LGPD). No que se refere à interface entre as mencionadas normas, assinale a alternativa correta.
+alt: A | A guarda dos registros de acesso a aplicações de internet é obrigatória por prazo mínimo de um ano para todos os provedores, independentemente de solicitação expressa do usuário.
+alt: B | O Marco Civil da Internet autoriza o fornecimento de registros de conexão e de acesso a aplicações de internet diretamente pelas operadoras ao Poder Judiciário, sem necessidade de ordem judicial.
+alt: C | O Marco Civil da Internet antecipou o reconhecimento da proteção de dados como direito fundamental, ao estabelecer o direito à inviolabilidade e à proteção dos dados pessoais nos acessos à internet.
+alt: D | A LGPD revogou as disposições do Marco Civil da Internet relativas à neutralidade de rede, substituindo-as por regras próprias relacionadas ao fluxo de dados pessoais na internet.
+alt: E | O consentimento previsto no Marco Civil da Internet é presumido quando o usuário realiza o primeiro acesso ao conteúdo digital, mesmo que não tenha havido manifestação livre, informada e inequívoca.
+comentario: Letra C, na leitura da banca: o Marco Civil fez da proteção dos dados pessoais um princípio do uso da internet (art. 3º, III) e listou direitos do usuário sobre eles (art. 7º, VII a X). Tecnicamente, o direito fundamental só foi escrito na Constituição pela EC 115/2022 (art. 5º, LXXIX); por isso a alternativa diz que o Marco Civil antecipou o reconhecimento. Registros de acesso a aplicações: 6 meses, e só para provedor constituído como pessoa jurídica com fins econômicos (art. 15); um ano é o prazo dos registros de conexão (art. 13) (A). A entrega dos registros depende de ordem judicial (art. 10, § 1º) (B). A LGPD não revogou a neutralidade de rede, que continua no art. 9º (D). O consentimento do Marco Civil é expresso e destacado (art. 7º, IX), nunca presumido (E).
+
+=== pss-100-32
+gab: B
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 32 · gabarito definitivo
+bloco: marco-civil
+ref: mci 13
+trecho: manter os registros de conexão, sob sigilo, em ambiente controlado e de segurança, pelo prazo de 1 (um) ano
+trecho: Em qualquer hipótese, a disponibilização ao requerente dos registros de que trata este artigo deverá ser precedida de autorização judicial
+armadilha: numero
+dif: 2
+enunciado: A disciplina jurídica da internet no Brasil envolve normas específicas acerca da guarda, do acesso e do tratamento de dados, tanto pessoais quanto de uso da rede. Considerando o disposto no Marco Civil da Internet e sua articulação com a LGPD, assinale a alternativa correta.
+alt: A | O provedor de conteúdo é obrigado a armazenar registros de navegação de todos os usuários por, no mínimo, cinco anos, independentemente da finalidade do serviço prestado.
+alt: B | O provedor de conexão à internet deve manter os registros de conexão sob sigilo e armazená-los pelo prazo de um ano, podendo fornecê-los somente mediante ordem judicial.
+alt: C | A LGPD determina que qualquer tratamento de dados em ambiente digital deve ser previamente autorizado pela ANPD, inclusive nos casos de cumprimento de obrigação legal.
+alt: D | O Marco Civil da Internet admite o fornecimento direto de dados cadastrais do usuário às autoridades públicas, sem necessidade de justificativa formal.
+alt: E | A LGPD isenta os agentes de tratamento da obrigação de garantir segurança da informação quando o dado for coletado por meio da navegação anônima na internet.
+comentario: Letra B: art. 13, caput e § 5º. Os prazos do Marco Civil são dois: conexão, 1 ano (art. 13); acesso a aplicações, 6 meses (art. 15). Não existe prazo de cinco anos nem dever de guardar registros de navegação de todos os usuários (A); o provedor de conexão é até proibido de guardar registros de acesso a aplicações (art. 14). A LGPD não exige autorização prévia da ANPD para tratar dados (C). Dados cadastrais (qualificação, filiação e endereço) podem ser requisitados sem ordem judicial, mas só por autoridades administrativas com competência legal para isso (art. 10, § 3º) (D). E não tem amparo: o dever de segurança do art. 46 da LGPD não tem essa exceção.
+
+=== pss-100-33
+gab: D
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 33 · gabarito definitivo
+bloco: lai
+ref: lai 31
+trecho: terão seu acesso restrito, independentemente de classificação de sigilo e pelo prazo máximo de 100 (cem) anos a contar da sua data de produção
+trecho: à proteção do interesse público e geral preponderante
+armadilha: absoluto
+dif: 2
+enunciado: No tratamento de pedidos de acesso à informação com base na Lei nº 12.527/2011 (LAI), é necessário compatibilizar os princípios da Administração Pública com os direitos fundamentais dos indivíduos. Quanto ao tratamento de dados pessoais nessa relação, assinale a alternativa correta.
+alt: A | A proteção de dados pessoais garante sigilo absoluto, independentemente do interesse público ou da função pública do titular.
+alt: B | O simples fato de a informação constar em banco de dados de órgão público torna obrigatória sua divulgação, inclusive se contiver dados sensíveis.
+alt: C | Dados pessoais de agentes públicos em exercício não podem ser divulgados, ainda que sejam relacionados à função desempenhada.
+alt: D | Quando um pedido de acesso envolve dados pessoais, a autoridade pública deve avaliar se o interesse público justifica a divulgação, considerando critérios como finalidade, adequação e necessidade.
+alt: E | O pedido de acesso à informação que envolva dados pessoais deve ser negado de forma automática, sem necessidade de motivação específica.
+comentario: Letra D. A informação pessoal relativa à intimidade, vida privada, honra e imagem tem acesso restrito por até 100 anos, mas pode ser divulgada com previsão legal ou consentimento (art. 31, § 1º), e o consentimento é dispensado, entre outros casos, para proteger interesse público e geral preponderante (§ 3º, V). A restrição também não pode ser usada para atrapalhar apuração de irregularidade (§ 4º). Logo, não há sigilo absoluto (A) nem divulgação automática (B). Informação ligada à função pública, como nome, cargo e remuneração, é divulgada em transparência ativa (C). Negativa de acesso sempre exige motivação (E).
+
+=== pss-100-34
+gab: B
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 34 · gabarito definitivo
+ref: lgpd 6
+trecho: transparência: garantia, aos titulares, de informações claras, precisas e facilmente acessíveis sobre a realização do tratamento e os respectivos agentes de tratamento
+armadilha: extrapolacao
+dif: 1
+enunciado: Nas relações de consumo, a proteção de dados pessoais deve considerar tanto as disposições do Código de Defesa do Consumidor (CDC) quanto as diretrizes da LGPD. Com base na articulação entre esses dois diplomas, assinale a alternativa correta.
+alt: A | A obtenção do consentimento para o tratamento de dados pessoais elimina a obrigação do fornecedor de garantir a segurança da informação.
+alt: B | O tratamento de dados do consumidor deve respeitar o princípio da transparência, o qual obriga o fornecedor a informar, de maneira clara e acessível, as finalidades da coleta e os critérios de compartilhamento dos dados.
+alt: C | O exercício do direito de acesso aos dados pessoais pelo consumidor depende da demonstração de prejuízo concreto decorrente do uso indevido de suas informações.
+alt: D | O fornecedor está dispensado de informar a respeito do uso de decisões automatizadas caso os dados utilizados tenham sido fornecidos espontaneamente pelo consumidor.
+alt: E | O CDC não se aplica ao tratamento de dados pessoais, pois esse tema é regulado exclusivamente pela LGPD.
+comentario: Letra B: transparência (art. 6º, VI), detalhada no art. 9º, que inclui finalidade e informações sobre o uso compartilhado. Consentimento não dispensa segurança (art. 46) (A). O acesso é direito do titular, gratuito e sem prova de prejuízo (arts. 9º e 18, II) (C). O direito de pedir revisão de decisão automatizada e de saber os critérios usados (art. 20) independe de como os dados chegaram ao fornecedor (D). A LGPD manda aplicar a legislação do consumidor quando a violação ocorre em relação de consumo (art. 45) e tem a defesa do consumidor entre seus fundamentos (art. 2º, VI) (E).
+
+=== pss-100-35
+gab: E
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 35 · gabarito definitivo
+bloco: ia
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Em relação aos modelos de inteligência artificial (IA), assinale a alternativa correta.
+alt: A | O modelo de aprendizado por reforço é utilizado apenas para análise de dados estáticos, não sendo aplicável em sistemas que envolvem interação dinâmica com o ambiente.
+alt: B | Sistemas fundamentados exclusivamente em regras lógicas não são considerados modelos de inteligência artificial, pois não possuem capacidade de aprendizado.
+alt: C | Modelos de IA supervisionada são incapazes de realizar predições quando expostos a dados previamente não vistos, limitando sua aplicabilidade prática.
+alt: D | Modelos de aprendizado não supervisionado necessitam de dados rotulados para ajustar seus parâmetros e identificar tendências nos conjuntos analisados.
+alt: E | Redes neurais artificiais são modelos inspirados no funcionamento do cérebro humano, capazes de aprender a partir de grandes volumes de dados e ajustar seus pesos para reconhecer padrões complexos.
+comentario: Letra E. As erradas invertem a definição de cada tipo. Aprendizado por reforço é justamente o de interação com um ambiente, por tentativa e recompensa (A). Sistemas especialistas baseados em regras são IA simbólica, ainda que não aprendam (B). Prever dados novos (generalizar) é o objetivo do aprendizado supervisionado (C). Não supervisionado é o que trabalha sem rótulos, agrupando ou reduzindo dimensões (D).
+
+=== pss-100-36
+gab: C
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 36 · gabarito definitivo
+bloco: ia
+ref: lgpd 20
+trecho: O titular dos dados tem direito a solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado de dados pessoais que afetem seus interesses
+trecho: informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada
+armadilha: extrapolacao
+dif: 2
+enunciado: No contexto do tratamento de dados pessoais por sistemas de inteligência artificial (IA), a LGPD impõe diversas obrigações aos agentes de tratamento. Considerando as especificidades da IA e a proteção de dados, assinale a alternativa correta.
+alt: A | Sistemas de IA que processam dados pessoais sensíveis estão dispensados da necessidade de adoção de medidas técnicas e administrativas de segurança específicas, por se tratar de atividade inovadora e experimental.
+alt: B | A LGPD permite o uso irrestrito de dados pessoais para treinamento de modelos de IA, independentemente do consentimento, desde que os dados sejam anonimizados posteriormente.
+alt: C | O tratamento automatizado que envolva decisões que afetem direitos do titular exige, sempre que possível, a disponibilização de mecanismos para revisão humana, assegurando a possibilidade de contestação e de explicação a respeito dos critérios utilizados.
+alt: D | O controlador pode transferir dados pessoais para modelos de IA localizados no exterior sem observância dos requisitos previstos na LGPD, desde que haja interesse comercial relevante.
+alt: E | A obrigação de informar ao titular acerca da utilização de sistemas de IA para tratamento de seus dados pessoais aplica-se somente quando a decisão automatizada gerar efeitos jurídicos, excluindo-se casos de análise interna e meramente preditiva.
+comentario: Letra C, na leitura da banca. O art. 20 garante revisão de decisões tomadas unicamente com base em tratamento automatizado e informação sobre critérios e procedimentos (§ 1º). Atenção: a LGPD não exige que a revisão seja feita por pessoa natural, porque o § 3º que o dizia foi vetado em 2019. Em prova Cebraspe, "revisão humana obrigatória" costuma ser item errado. As demais são erradas sem discussão. Não há dispensa de segurança para inovação (art. 46) (A). Treinar modelo é tratamento e precisa de hipótese legal desde o início; anonimizar depois não legitima o que veio antes (B). A transferência internacional segue o art. 33 (D). A transparência (arts. 6º, VI, e 9º) vale para todo tratamento, não só para decisões com efeitos jurídicos (E).
+
+=== pss-100-37
+gab: B
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 37 · gabarito definitivo
+bloco: ia
+ref: lgpd 20
+trecho: informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada
+armadilha: extrapolacao
+dif: 2
+enunciado: Considerando os modelos avançados de inteligência artificial, assinale a alternativa correta acerca das redes neurais profundas (deep learning) e seus desafios no contexto da proteção de dados pessoais.
+alt: A | As redes neurais profundas eliminam a necessidade de grandes volumes de dados para treinamento, reduzindo os riscos relacionados ao tratamento de dados pessoais.
+alt: B | Redes neurais profundas, em função de sua complexidade e grande número de parâmetros, dificultam a explicabilidade das decisões, o que impõe desafios para a transparência exigida pela LGPD em tratamentos automatizados.
+alt: C | O treinamento de redes neurais profundas é isento de restrições legais quando os dados utilizados são coletados de fontes públicas, sem necessidade de bases legais previstas na LGPD.
+alt: D | A aplicação de redes neurais profundas em sistemas automatizados exige que o controlador realize avaliações periódicas dos impactos na privacidade, para assegurar conformidade com a LGPD.
+alt: E | A arquitetura das redes neurais profundas permite a identificação clara e inequívoca dos dados pessoais usados em cada decisão automatizada, simplificando a conformidade legal.
+comentario: Letra B. Modelos com milhões de parâmetros são caixas-pretas: difícil explicar por que decidiram, e o art. 20, § 1º, pede informação sobre critérios e procedimentos da decisão automatizada. Redes profundas exigem mais dados, não menos (A), e não permitem rastrear com clareza os dados usados em cada decisão (E). Dado de acesso público continua dado pessoal e precisa de hipótese legal, respeitando finalidade, boa-fé e interesse público (art. 7º, §§ 3º e 4º) (C). D extrapola: a LGPD não impõe avaliação periódica para todo sistema automatizado; o relatório de impacto pode ser exigido pela ANPD (art. 38), e a avaliação de impacto é boa prática, não regra geral da lei.
+
+=== pss-100-38
+gab: D
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 38 · gabarito definitivo
+bloco: regulacao-teoria
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: As falhas de mercado demonstram que o livre mercado nem sempre é justo e eficiente, o que justificaria a intervenção estatal. Assim, a teoria da regulação busca explicar como e porque os governos intervêm nos mercados por meio de regras, normas e controles. De acordo com a teoria do interesse público (teoria da regulação), o mercado
+alt: A | é capaz de lidar com as falhas de mercado com a utilização de arranjos contratuais privados.
+alt: B | é natural e autorregulado, e as falhas de mercado são vistas como anomalias pontuais.
+alt: C | tende naturalmente ao equilíbrio, o que só justificaria intervenções pontuais do Estado.
+alt: D | apresenta falhas estruturais, sistemáticas e inerentes, que são o padrão normal do modo de produção capitalista.
+alt: E | produz resultados eficientes, mantendo a eficiência produtiva e alocativa da economia.
+comentario: Letra D. Para a teoria do interesse público, falhas de mercado (monopólio natural, externalidades, assimetria de informação, bens públicos) são frequentes e persistentes, e o regulador intervém para corrigi-las em nome do bem-estar geral. A redação da banca é forte ("padrão normal do capitalismo"), mas é a única compatível com a teoria. A lembra Coase (negociação privada resolve externalidades); B, C e E descrevem a visão do mercado autorregulado, que vê falhas como exceção.
+
+=== pss-100-39
+gab: C
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 39 · gabarito definitivo
+bloco: regulacao-teoria
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A teoria da regulação apresenta fundamentos que justificam a intervenção estatal na economia, por meio da regulação, com base no pressuposto de que os reguladores agem no interesse público. Contudo, na prática, verifica-se, em muitos casos, a ineficiência da regulação. Nesse contexto, assinale a alternativa que expressa a ideia central da teoria da captura.
+alt: A | A regulação serve ao interesse público, promovendo o bem-estar social.
+alt: B | A captura ocorre sempre por meio de um processo de corrupção explícita, também chamado de captura intelectual, no qual os ex-reguladores assumem cargos relevantes nas empresas que fiscalizavam.
+alt: C | Com o passar do tempo, a agência, que deveria defender o interesse público, passa a atuar em favor dos interesses do setor regulado.
+alt: D | A teoria está fundamentada no pressuposto de que os indivíduos são racionais e buscam maximizar sua utilidade, promovendo o ajuste automático, isto é, o equilíbrio entre regulação e liberdade econômica.
+alt: E | Assim como há falhas de mercado, há falhas de governo, ou seja, a intervenção estatal não é um mecanismo perfeito para correção de falhas de mercado.
+comentario: Letra C. Captura é o regulador passar a servir o regulado; Bernstein descreveu esse ciclo de vida das agências, e Stigler explicou a regulação como algo que a própria indústria demanda. B erra em "sempre" e "corrupção explícita": a captura pode ser cognitiva (o regulador passa a ver o mundo como o setor), por assimetria de informação ou pela porta giratória, sem ilicitude. A é a teoria do interesse público. E resume as falhas de governo (escolha pública), que convivem com a captura mas não são a ideia central dela. D mistura racionalidade econômica com um "ajuste automático" que nenhuma das teorias afirma.
+
+=== pss-100-40
+gab: E
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 40 · gabarito definitivo
+bloco: riscos
+ref: doutrina
+armadilha: sujeito
+dif: 2
+enunciado: O modelo das três linhas de defesa, amplamente utilizado na gestão de risco, estabelece papéis e responsabilidades para o gerenciamento eficaz de risco em uma organização. O modelo permite que o risco seja identificado, gerenciado e monitorado, e cada linha representa um nível diferente de controle e supervisão. Um benefício que decorre diretamente da aplicação do modelo é que as três linhas de defesa
+alt: A | permitem identificar as forças e as fraquezas do ambiente interno e as oportunidades e ameaças do ambiente externo.
+alt: B | eliminam os riscos decorrentes da gestão operacional.
+alt: C | ajudam a definir os limites de exposição e a tolerância ao risco na organização.
+alt: D | atribuem à auditoria interna, atuando de forma independente, a responsabilidade pelo monitoramento da aderência da organização às políticas e normas estabelecidas pela governança.
+alt: E | estabelecem múltiplas camadas de defesa contra riscos, em que cada linha complementa as outras.
+comentario: Letra E. Primeira linha: a gestão que executa e é dona dos riscos. Segunda: funções de risco e conformidade, que apoiam e monitoram. Terceira: auditoria interna, avaliação independente. D troca a segunda linha (monitorar aderência a políticas e normas) pela terceira. A descreve a análise SWOT. Nenhum modelo elimina riscos (B). Apetite e tolerância a risco são definidos pelo órgão de governança, não pelas linhas (C). Desde 2020, o IIA chama o modelo apenas de "três linhas", sem "de defesa".
+
+=== pss-100-41
+gab: D
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 41 · gabarito definitivo
+bloco: riscos
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Assinale a alternativa que corresponde ao resultado do uso da matriz FOFA (matriz SWOT, em inglês) como ferramenta de gestão de riscos, com o objetivo de melhor compreender o ambiente externo.
+alt: A | Sistemas de controles eficazes e recursos limitados
+alt: B | Equipe altamente qualificada e abertura de novos mercados
+alt: C | Processos inadequados e alterações regulatórias
+alt: D | Aumento de demanda por inteligência artificial e ataques cibernéticos crescentes
+alt: E | Expansão internacional e alta dependência de um único fornecedor
+comentario: Letra D. Ambiente externo são oportunidades e ameaças, fora do controle da organização: demanda crescente por IA (oportunidade) e ataques cibernéticos (ameaça). Forças e fraquezas são internas: controles eficazes e recursos limitados (A), equipe qualificada (B), processos inadequados (C) e dependência de um fornecedor (E) misturam o interno com o externo ou são só internos.
+
+=== pss-100-42
+gab: B
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 42 · gabarito definitivo
+bloco: riscos
+ref: doutrina
+armadilha: absoluto
+dif: 1
+enunciado: A matriz de riscos, também chamada de mapa de calor, é uma ferramenta que permite avaliar o nível de risco. Acerca desse assunto, é correto afirmar que essa ferramenta
+alt: A | é sempre uma matriz do tipo 3 x 3.
+alt: B | permite identificar e priorizar os riscos que estão além do apetite ao risco da organização.
+alt: C | combina o impacto com a probabilidade de ocorrência do evento, sendo a probabilidade a dimensão mais importante da matriz.
+alt: D | classifica o impacto em três níveis distintos: aceitar, evitar e transferir.
+alt: E | define o tratamento que deve ser dado ao risco, cabendo ao gestor executá-lo.
+comentario: Letra B. A matriz cruza probabilidade e impacto, e o nível resultante mostra o que passa do apetite a risco e merece tratamento primeiro. Pode ter qualquer escala, como 3x3, 4x4 ou 5x5 (A). Nenhuma das duas dimensões é, por definição, mais importante (C). Aceitar, evitar, transferir e mitigar são respostas ao risco, não níveis de impacto (D). A matriz apoia a priorização; a escolha do tratamento é decisão da gestão (E).
+
+=== pss-100-46
+gab: B
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 46 · gabarito definitivo
+bloco: gestao-publica
+ref: texto
+armadilha: interpretacao
+dif: 2
+apoio: Embora existam algumas práticas voltadas à atuação estratégica das organizações no que tange à aplicação da noção de competências, o caminho a percorrer ainda é longo, principalmente no setor público. Nesse segmento, em especial, a noção de competências apresenta uma concepção mais individual do que coletiva, com práticas isoladas dentro do sistema de gestão de pessoas. Contudo, talvez seja nesse segmento que as competências individuais e coletivas passem a ter um sentido estratégico para os gestores públicos.\nTAMADA, R. C. P.; CUNHA, I. C. K. O. Gestão por competências na administração pública brasileira: uma revisão integrativa da literatura. Revista do Serviço Público, v. 73, n. 3, p. 426-450, 2022.
+enunciado: Com base nas observações de Tamada e Cunha relacionadas à gestão por competências no setor público brasileiro, assinale a alternativa que apresenta os esforços mais adequados para a consolidação de uma política efetiva de gestão por competências nesse segmento.
+alt: A | Promover capacitações contínuas que estejam alinhadas às necessidades institucionais, desenvolver avaliações de desempenho com foco no aprimoramento individual da produtividade, e definir conjuntos de competências que reflitam a complexidade das funções desempenhadas.
+alt: B | Fortalecer o papel estratégico da gestão de pessoas nas decisões organizacionais, alinhar o desenvolvimento de competências aos objetivos institucionais, e articular práticas de avaliação e reconhecimento que integrem dimensões individuais e coletivas do trabalho.
+alt: C | Valorizar as competências tácitas adquiridas na prática diária, incentivar o protagonismo do servidor no próprio desenvolvimento, e adaptar os programas de capacitação às especificidades dos contextos organizacionais e às mudanças nas demandas públicas.
+alt: D | Mapear não apenas as competências técnicas por cargo, mas também as competências comportamentais requeridas, criar trilhas de desenvolvimento com base em padrões funcionais, e aplicar critérios objetivos e transparentes para progressão funcional na carreira.
+alt: E | Estabelecer diretrizes normativas claras para o desenvolvimento de competências em nível central, fortalecer os processos decisórios nos níveis superiores da administração e organizar programas de capacitação com base nas características operacionais de cada setor.
+comentario: Letra B. O texto aponta dois problemas: a visão individual (e não coletiva) das competências e as práticas isoladas, fora da estratégia. B é a única que ataca os dois: dá papel estratégico à gestão de pessoas, alinha competências aos objetivos e integra o individual com o coletivo. A, C e D são boas práticas, mas continuam centradas no indivíduo (produtividade individual, protagonismo do servidor, trilhas por cargo). E centraliza e reforça a hierarquia, sem integrar nada.
+
+=== pss-100-47
+gab: E
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 47 · gabarito definitivo
+bloco: gestao-publica
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A crescente complexidade de problemas públicos tem demandado do Estado inovações que vão além de soluções tecnológicas ou administrativas, exigindo fortalecimento da capacidade adaptativa e integração com gestão do conhecimento. Nesse sentido, a inovação governamental aliada à gestão do conhecimento deve ser compreendida como um(a)
+alt: A | esforço de modernização com base na digitalização de serviços, na adoção de boas práticas de gestão e na ampliação do uso de canais digitais de interação com o cidadão.
+alt: B | tendência orientada à eficiência administrativa, com foco na padronização de serviços, no uso intensivo de indicadores e na racionalização das estruturas de governo.
+alt: C | resposta institucional a pressões sociais, com foco na reformulação pontual de políticas públicas, na flexibilização de normas e na melhoria da imagem do Estado.
+alt: D | abordagem voltada à coleta de dados operacionais, à automação de rotinas administrativas e ao uso de sistemas informacionais para controle de fluxos e processos.
+alt: E | processo estratégico que articula aprendizado organizacional contínuo, mecanismos institucionais de retroalimentação e revisão sistemática de normas e práticas de gestão.
+comentario: Letra E. O enunciado pede inovação que vá além do tecnológico e do administrativo, com capacidade adaptativa e gestão do conhecimento. E traz exatamente isso: aprendizado contínuo, retroalimentação e revisão de práticas. A e D reduzem a inovação à tecnologia; B, à eficiência e à padronização; C, a respostas pontuais e de imagem.
+
+=== pss-100-48
+gab: D
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 48 · gabarito definitivo
+bloco: constitucional
+ref: cf88 165
+trecho: A lei de diretrizes orçamentárias compreenderá as metas e prioridades da administração pública federal, estabelecerá as diretrizes de política fiscal e respectivas metas
+trecho: disporá sobre as alterações na legislação tributária e estabelecerá a política de aplicação das agências financeiras oficiais de fomento
+armadilha: rol
+dif: 2
+enunciado: Conforme previsto na Constituição Federal, a Lei de Diretrizes Orçamentárias (LDO) é um dos instrumentos integrantes do sistema de planejamento orçamentário da Administração Pública. Ela serve de elo entre o Plano Plurianual (PPA) e a Lei Orçamentária Anual (LOA), orientando a elaboração do orçamento para o exercício financeiro seguinte. De acordo com a legislação vigente, assinale a alternativa que indica corretamente os elementos que devem necessariamente compor a LDO.
+alt: A | Os programas de governo com estimativas de impacto fiscal em médio prazo, a projeção da dívida consolidada líquida e o detalhamento das transferências constitucionais obrigatórias aos entes subnacionais.
+alt: B | As prioridades de investimento de longo prazo, as diretrizes de aplicação de recursos vinculados, as metas de renúncia fiscal e o cronograma de liberação de recursos para emendas parlamentares.
+alt: C | A consolidação dos resultados fiscais dos três últimos exercícios, o demonstrativo das despesas com pessoal da União e os critérios de partilha das receitas da seguridade social entre os entes federados.
+alt: D | As metas e prioridades da Administração Pública federal, as diretrizes de política fiscal e respectivas metas, as alterações na legislação tributária e a política de aplicação das agências financeiras oficiais de fomento.
+alt: E | As metas físicas dos programas governamentais, o demonstrativo da execução orçamentária do exercício anterior, a estimativa da inflação acumulada no exercício subsequente e os parâmetros para correção monetária da dívida mobiliária federal.
+comentario: Letra D, conteúdo do art. 165, § 2º, da Constituição, na redação da EC 109/2021, que acrescentou a consonância das metas fiscais com a trajetória sustentável da dívida. Para memorizar: PPA traz diretrizes, objetivos e metas de médio prazo (§ 1º); LDO, metas e prioridades, política fiscal, orientação da LOA, alterações tributárias e agências de fomento (§ 2º); LOA, os orçamentos fiscal, de investimento das estatais e da seguridade social (§ 5º). As demais alternativas inventam elementos.
+
+=== pss-100-49
+gab: A
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 49 · gabarito definitivo
+bloco: gestao-publica
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: A secretaria de planejamento de determinado município, durante uma auditoria interna, identificou que os serviços de atendimento ao cidadão, nas unidades presenciais, geravam longas filas, tempo elevado de espera e baixa taxa de resolução de demandas no primeiro atendimento. Em resposta, a secretaria pretende revisar o modelo de gestão das unidades, adotando indicadores de desempenho para subsidiar a melhoria contínua dos serviços prestados. Considerando as boas práticas de gestão pública orientada a resultados, assinale a alternativa que apresenta o conjunto de indicadores mais adequados para acompanhar a eficácia e a eficiência do atendimento nas unidades presenciais.
+alt: A | Tempo médio de atendimento, taxa de resolutividade no primeiro contato e índice de satisfação dos usuários.
+alt: B | Índice de absenteísmo dos servidores, tempo médio de espera por atendimento e percentual de atendimento por canal digital.
+alt: C | Número de servidores por unidade, percentual de metas administrativas cumpridas e índice de uso de recursos orçamentários.
+alt: D | Tempo de deslocamento dos usuários até a unidade, custo mensal de manutenção predial e tempo médio de atendimento.
+alt: E | Taxa de participação em treinamentos, percentual de servidores efetivos e número total de atendimentos realizados por mês.
+comentario: Letra A. Os indicadores devem medir os problemas apontados: tempo (eficiência), resolução no primeiro atendimento (eficácia) e satisfação (efetividade percebida). As demais misturam indicadores de insumo ou de gestão interna (absenteísmo, número de servidores, treinamentos, manutenção predial) e de outros canais (atendimento digital), que não medem o atendimento presencial.
+
+=== pss-100-50
+gab: C
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade gerencial (cargo 100) · tipo A · questão 50 · gabarito definitivo
+bloco: gestao-publica
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Uma fundação pública estadual, responsável por projetos de pesquisa e inovação, está prestes a concluir a implementação de um novo sistema de gestão eletrônica de documentos. A equipe gestora, que utilizou o guia PMBOK como referência metodológica, precisa agora conduzir o encerramento formal do projeto, conforme as boas práticas de gerenciamento. Com base no exposto, assinale a alternativa que indica um conjunto de atividades compatíveis com a fase apresentada.
+alt: A | Revisar os critérios de aceitação definidos no início do projeto, elaborar plano de reaproveitamento das aquisições e reestimar os prazos de entrega.
+alt: B | Realizar reunião com os stakeholders para discutir acerca de entregas futuras, compilar os riscos identificados para novos projetos e revisar os requisitos não atendidos.
+alt: C | Obter dos responsáveis a aceitação formal das entregas, registrar as lições aprendidas ao longo da execução e arquivar a documentação do projeto.
+alt: D | Validar as pendências com a equipe técnica, elaborar nova EAP de acordo com as mudanças ocorridas e incluir riscos remanescentes no plano de resposta.
+alt: E | Reavaliar os indicadores de desempenho, renegociar os contratos vigentes e revisar o plano de gerenciamento do escopo.
+comentario: Letra C. Encerrar o projeto é obter a aceitação formal das entregas, registrar lições aprendidas, arquivar documentos, encerrar contratos e liberar recursos. Reestimar prazos, criar nova EAP, renegociar contratos e revisar planos (A, D e E) são atividades de planejamento ou de monitoramento e controle. Discutir entregas futuras e requisitos não atendidos (B) não fecha nada: abre outro ciclo.
+
+=== pss-200-43
+gab: A
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade intelectual (cargo 200) · tipo A · questão 43 · gabarito definitivo
+bloco: gestao-publica
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: O ciclo da política pública inicia-se com a identificação de um problema que evidencia a distância existente entre a situação real e a situação desejada. Para que um problema passe a fazer parte da agenda política, é necessário que
+alt: A | ele seja percebido como relevante e de interesse coletivo.
+alt: B | se trate de uma situação que afeta um grupo com poder de influenciar os agentes políticos.
+alt: C | as alternativas de soluções possíveis sejam as que apresentam o menor custo-benefício.
+alt: D | a análise ex-ante evidencie o sucesso da política pública a ser implementada.
+alt: E | as políticas públicas se traduzam em ações concretas, que permitam medir a eficácia e identificar as áreas que precisam de melhoria.
+comentario: Letra A. Um problema só entra na agenda quando é percebido como relevante e coletivo, isto é, digno de ação pública. Grupos de pressão ajudam, mas não são requisito (B). Comparar alternativas é a fase de formulação (C); análise ex ante vem depois da agenda (D); medir eficácia é avaliação (E). Sequência de Secchi: identificação do problema, formação da agenda, formulação de alternativas, tomada de decisão, implementação, avaliação e extinção.
+
+=== pss-200-44
+gab: C
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade intelectual (cargo 200) · tipo A · questão 44 · gabarito definitivo
+bloco: gestao-publica
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: No processo de avaliação de uma política pública, a análise de custo-benefício é a ferramenta indicada para se obter indicadores de
+alt: A | resultado.
+alt: B | impacto.
+alt: C | eficiência.
+alt: D | mudanças estruturais.
+alt: E | transformação social.
+comentario: Letra C. Custo-benefício relaciona recursos gastos com resultados obtidos, ambos em dinheiro, e isso é eficiência. Eficácia mede se as metas foram atingidas (resultado); efetividade mede a mudança real na vida do público-alvo (impacto, transformação).
+
+=== pss-200-45
+gab: B
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade intelectual (cargo 200) · tipo A · questão 45 · gabarito definitivo
+bloco: lgpd-23-32
+ref: lgpd 11
+trecho: tratamento compartilhado de dados necessários à execução, pela administração pública, de políticas públicas previstas em leis ou regulamentos
+armadilha: absoluto
+dif: 2
+enunciado: Ao longo do processo de elaboração de uma política pública, desde a identificação do problema até a execução e a avaliação, o Estado utiliza dados pessoais dos cidadãos para a tomada de decisão. Acerca desse assunto, assinale a alternativa correta.
+alt: A | A LGPD veta a utilização de dados pessoais sensíveis, ainda que seja para fins de definição de políticas públicas.
+alt: B | O Estado deve utilizar meios técnicos para disseminar a informação sem expor os cidadãos, por meio da anonimização dos dados identificáveis.
+alt: C | No que se refere às políticas públicas, o princípio da transparência ativa previsto na Lei de Acesso à Informação (LAI) estabelece a necessidade de dar acesso aos dados pessoais, ainda que identificáveis.
+alt: D | Para fins de avaliação das políticas públicas, pode-se dar acesso aos dados pessoais, desde que não se divulgue a forma como esses dados foram manipulados.
+alt: E | A execução de políticas públicas que se baseiam em busca ativa permite ao Estado renunciar à proteção dos dados dos cidadãos.
+comentario: Letra B. Divulgar dados de política pública sem expor ninguém é o papel da anonimização, prevista inclusive nos estudos de órgão de pesquisa (arts. 7º, IV, e 11, II, c). A erra: o art. 11, II, b, autoriza dado sensível sem consentimento para executar políticas públicas previstas em lei ou regulamento. A transparência ativa da LAI não alcança informação pessoal identificável, que tem acesso restrito (LAI, art. 31) (C). D inverte a lógica: o titular tem direito de saber como seus dados são tratados. Nenhuma política pública autoriza o Estado a renunciar à proteção de dados (E).
+
+=== pss-200-46
+gab: E
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade intelectual (cargo 200) · tipo A · questão 46 · gabarito definitivo
+bloco: gestao-publica
+ref: doutrina
+armadilha: caso
+dif: 1
+enunciado: Suponha que a avaliação ex-post de uma política pública tenha evidenciado que as metas estabelecidas foram alcançadas e que os objetivos propostos foram atingidos, solucionando o problema público que ensejou a criação da política. Com base apenas nos elementos informados, a política pública deverá ser
+alt: A | continuada, visto ter sido um sucesso.
+alt: B | continuada, mas agora com objetivos e metas ampliadas.
+alt: C | reformulada para incluir novas metas e objetivos.
+alt: D | reformulada para atender a um novo problema.
+alt: E | extinta, visto que o problema original foi resolvido.
+comentario: Letra E. A extinção é a última fase do ciclo, e uma de suas causas é justamente o problema que originou a política ter sido resolvido. As outras causas são a política ser ineficaz e o problema perder importância, mesmo sem solução. Continuar ou ampliar (A, B, C) exigiria um problema remanescente, que o enunciado exclui; D trata de outro problema, que pede outra política.
+
+=== pss-200-47
+gab: D
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade intelectual (cargo 200) · tipo A · questão 47 · gabarito definitivo
+bloco: gestao-publica
+ref: doutrina
+armadilha: caso
+dif: 2
+enunciado: Considere a situação hipotética a seguir. Programa A: Fiscalização do Trânsito. Custo econômico: R$ 100.000/mês. Impacto estimado: 4,3 vidas salvas. Programa B: Educação no Trânsito. Custo econômico: R$ 30.000/mês. Impacto estimado: 1,5 vidas salvas. Um gestor público, dada a limitação de recursos disponíveis, precisa escolher o programa adequado a ser implementado. Nesse caso, ele deverá realizar uma análise de
+alt: A | custo-benefício, porque o programa A salva mais vidas em números absolutos.
+alt: B | retorno econômico, considerando o número de vidas salvas.
+alt: C | impacto social e escolher o programa que salva o maior número de vidas.
+alt: D | custo-efetividade e escolher o programa B, por ser o mais custo-efetivo.
+alt: E | eficiência econômica, em razão da limitação de recursos disponíveis.
+comentario: Letra D. Quando o resultado é medido em unidade física (vidas salvas), e não em dinheiro, a ferramenta é custo-efetividade: custo por unidade de efeito. Programa A: 100.000 ÷ 4,3 ≈ R$ 23.256 por vida. Programa B: 30.000 ÷ 1,5 = R$ 20.000 por vida. B é mais custo-efetivo. Custo-benefício (A) exigiria pôr preço na vida; olhar só o número absoluto de vidas (C) ignora o custo.
+
+=== pss-200-48
+gab: E
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade intelectual (cargo 200) · tipo A · questão 48 · gabarito definitivo
+bloco: economia
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Uma determinada economia local apresenta baixa renda, com desvio padrão menor que a média (desvio padrão < média). Após a implementação de uma política pública, observou-se que houve um aumento de 15% na renda média da população, porém, agora, com desvio padrão maior que a média (desvio padrão > média). Após a implementação da política pública, é correto afirmar:
+alt: A | O coeficiente de variação é menor que 1 (CV < 1).
+alt: B | Há menor desigualdade relativa.
+alt: C | As rendas estão mais concentradas em torno da média.
+alt: D | Não há extremos significativos, e a diferença entre a menor e a maior renda é pequena.
+alt: E | Houve piora na distribuição de renda, indicando poucos indivíduos com renda muito elevada.
+comentario: Letra E. Coeficiente de variação = desvio padrão ÷ média. Antes, CV < 1; depois, CV > 1: a dispersão relativa aumentou, e A, B, C e D dizem o contrário. Desvio padrão maior que a média em renda (que não é negativa) indica distribuição assimétrica à direita, puxada por poucas rendas muito altas. A média subiu, mas a desigualdade relativa piorou.
+
+=== pss-200-50
+gab: D
+origem: real
+prova: IADES · ANPD PSS 2025 · Complexidade intelectual (cargo 200) · tipo A · questão 50 · gabarito definitivo
+bloco: economia
+ref: doutrina
+armadilha: numero
+dif: 2
+enunciado: A partir de uma amostra n = 64 com média x̄ = 48, o intervalo de confiança de 95% [42,12; 53,88] foi construído para a média populacional. Considerando que Z0,025 = 1,96, o erro-padrão e a margem de erro são, respectivamente,
+alt: A | 3; 4,76.
+alt: B | 2,5; 4,76.
+alt: C | 2,5; 5,88.
+alt: D | 3; 5,88.
+alt: E | 3; 3,88.
+comentario: Letra D. Margem de erro é a metade da amplitude do intervalo: 53,88 − 48 = 5,88. Margem = z × erro-padrão, então erro-padrão = 5,88 ÷ 1,96 = 3. Conferência: erro-padrão = σ ÷ √n = σ ÷ 8, logo σ = 24.
+
+=== pss-300-31
+gab: A
+origem: real
+prova: IADES · ANPD PSS 2025 · Técnica de suporte (cargo 300) · tipo A · questão 31 · gabarito definitivo
+bloco: gestao-publica
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Suponha que, em uma repartição pública, o analista tenha recebido orientações contraditórias em um mesmo dia: o diretor de departamento determinou que priorizasse a análise de processos antigos, enquanto o gerente setorial exigiu que ele focasse nos processos novos com prazos urgentes. Diante dessa situação, o analista ficou em dúvida acerca de qual ordem deveria cumprir, o que gerou atraso e quadro de ansiedade. Esse cenário demonstra a falta de observância a qual princípio clássico da Administração?
+alt: A | Unidade de comando
+alt: B | Lei da equidade
+alt: C | Lei da situação
+alt: D | Lei da fadiga
+alt: E | Unidade de direção
+comentario: Letra A. Unidade de comando (Fayol): cada subordinado recebe ordens de um só chefe. Unidade de direção, que a banca usa como pegadinha (E), é um só plano e um só responsável para cada conjunto de atividades com o mesmo objetivo. Lei da situação (Follett) diz que a ordem deve decorrer da situação, não da pessoa; equidade é tratamento justo; fadiga é limite de esforço (Taylor e Gilbreth).
+
+=== pss-300-34
+gab: E
+origem: real
+prova: IADES · ANPD PSS 2025 · Técnica de suporte (cargo 300) · tipo A · questão 34 · gabarito definitivo
+bloco: gestao-publica
+ref: doutrina
+armadilha: caso
+dif: 1
+enunciado: Considere que uma autarquia estadual responsável pela fiscalização ambiental venha enfrentando problemas recorrentes na organização do trabalho. Uma auditoria interna identificou sobreposição de funções entre setores, indefinições acerca de atribuições e falta de clareza na tramitação interna de processos. Isso tem gerado conflitos, atrasos e retrabalho. De acordo com as boas práticas de organização administrativa, a medida mais adequada para enfrentar esses desafios é
+alt: A | definir metas mensuráveis por equipe e instituir reuniões mensais de alinhamento.
+alt: B | criar manuais de procedimentos e promover treinamentos técnicos nas áreas operacionais.
+alt: C | adotar metodologia de gestão por projetos e estimular rodízio de funções entre servidores.
+alt: D | implantar painéis de acompanhamento de desempenho e padronizar relatórios gerenciais.
+alt: E | revisar o organograma institucional e reestruturar o fluxograma dos processos internos.
+comentario: Letra E. Sobreposição de funções e atribuições indefinidas são problemas de estrutura (organograma); tramitação confusa é problema de processo (fluxograma). As demais medidas são úteis, mas não atacam a causa: metas, manuais, projetos e painéis pressupõem papéis e fluxos já definidos.
+
+=== pss-300-35
+gab: C
+origem: real
+prova: IADES · ANPD PSS 2025 · Técnica de suporte (cargo 300) · tipo A · questão 35 · gabarito definitivo
+bloco: gestao-publica
+ref: doutrina
+armadilha: caso
+dif: 1
+enunciado: Suponha que a coordenadoria de gestão documental de determinado órgão público federal enfrente recorrentes problemas de acúmulo de processos não finalizados, atrasos na tramitação interna e retrabalho frequente causado por erros de instrução processual. Auditorias internas apontaram falhas na padronização de rotinas, baixa eficiência operacional e ausência de metas claras de desempenho. Além disso, os servidores relatam sobrecarga de trabalho e falta de visibilidade acerca das etapas pendentes nos respectivos fluxos. Com base nesse cenário e considerando as boas práticas de planejamento e organização do trabalho administrativo, assinale a alternativa que apresenta os indicadores-chave de desempenho (KPI) mais adequados para orientar o aperfeiçoamento dos processos da unidade.
+alt: A | Satisfação do usuário externo e índice de absenteísmo por servidor
+alt: B | Tempo médio de atendimento por servidor e índice de resolução no primeiro atendimento
+alt: C | Taxa de retrabalho processual e tempo médio de tramitação interna por processo
+alt: D | Número total de processos concluídos e volume de entrada de processos novos por semana
+alt: E | Tempo de espera para atendimento presencial e taxa de uso do portal eletrônico institucional
+comentario: Letra C. Os problemas descritos são retrabalho e atraso na tramitação, e C mede os dois. Indicadores de atendimento ao público (B e E) servem para outra unidade; volume de entrada e saída (D) não mostra a qualidade nem o tempo do fluxo; absenteísmo e satisfação externa (A) não medem o processo interno.
+
+=== pss-300-36
+gab: B
+origem: real
+prova: IADES · ANPD PSS 2025 · Técnica de suporte (cargo 300) · tipo A · questão 36 · gabarito definitivo
+bloco: gestao-publica
+ref: doutrina
+armadilha: caso
+dif: 1
+enunciado: Considere que uma secretaria estadual de serviços públicos pretenda reformular os canais de atendimento ao cidadão, após constatar baixa satisfação com os serviços prestados. Uma pesquisa realizada mostrou que usuários, especialmente os de baixa escolaridade, se sentem desinformados, enfrentam dificuldades de navegação no portal digital e consideram o atendimento telefônico demorado e pouco resolutivo. Com base nos princípios de atendimento humanizado e na experiência do usuário (UX) na administração pública, assinale a alternativa que indica a medida mais adequada para qualificar esse serviço.
+alt: A | Consolidar os canais digitais em uma interface unificada com assistente virtual e reduzir a complexidade de navegação priorizando interações automatizadas para a maioria das demandas.
+alt: B | Mapear a jornada do cidadão nos serviços mais críticos promovendo ajustes nos fluxos, revisão da linguagem utilizada e testes com usuários para aprimoramento contínuo.
+alt: C | Substituir gradualmente o atendimento telefônico por chatbots treinados e adotar uma linguagem mais acessível e relatórios periódicos de desempenho individual.
+alt: D | Estabelecer central de atendimento com foco em produtividade e tempo médio de resposta padronizando os scripts de comunicação utilizados e cobrando a manutenção desses parâmetros aos atendentes.
+alt: E | Oferecer capacitações presenciais e tutoriais digitais para que os usuários se adaptem às ferramentas disponíveis, reduzindo o número de contatos desnecessários com o atendimento.
+comentario: Letra B. UX e atendimento humanizado partem do usuário: mapear a jornada, simplificar a linguagem (a Lei 13.460 exige linguagem simples, art. 5º, XIV) e testar com quem usa. Automatizar (A e C) afasta justamente o público de baixa escolaridade; D foca na produtividade do atendente; E transfere ao cidadão o ônus de se adaptar.
+
+=== pss-300-37
+gab: D
+origem: real
+prova: IADES · ANPD PSS 2025 · Técnica de suporte (cargo 300) · tipo A · questão 37 · gabarito definitivo
+bloco: seginfo
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Em um ambiente de gestão administrativa informatizado, pretende-se restringir o acesso a determinados módulos do sistema conforme o cargo do servidor. Assinale a alternativa que indica a abordagem mais adequada para implementar essa medida de controle de acesso.
+alt: A | Permitir que cada servidor defina individualmente quais módulos deseja acessar, conforme a necessidade.
+alt: B | Configurar o sistema para acesso irrestrito e monitorar os acessos via logs para posterior auditoria.
+alt: C | Criar contas por setor com permissões amplas e compartilhar as credenciais entre os usuários do mesmo setor.
+alt: D | Adotar controle de acesso com base em papéis (RBAC), definindo permissões específicas por função/cargo no sistema.
+alt: E | Utilizar autenticação multifator sem necessidade de definição de permissões, já que isso garante segurança suficiente.
+comentario: Letra D. RBAC atribui permissões a papéis (cargos, funções), e os usuários recebem os papéis. A descreve um modelo discricionário mal aplicado; B troca prevenção por detecção; C quebra a rastreabilidade com credencial compartilhada; E confunde autenticação (quem é você) com autorização (o que você pode fazer).
+
+=== pss-300-40
+gab: E
+origem: real
+prova: IADES · ANPD PSS 2025 · Técnica de suporte (cargo 300) · tipo A · questão 40 · gabarito definitivo
+bloco: seginfo
+ref: doutrina
+armadilha: absoluto
+dif: 1
+enunciado: Com relação à segurança da informação, assinale a alternativa tecnicamente correta.
+alt: A | Criptografia assimétrica utiliza uma única chave para criptografar e descriptografar.
+alt: B | Controle de acesso RBAC permite que usuários escolham livremente seus privilégios.
+alt: C | Firewalls garantem proteção total contra engenharia social.
+alt: D | Backups em nuvem eliminam a necessidade de backups locais.
+alt: E | Autenticação multifator aumenta a segurança por exigir mais de um fator de verificação.
+comentario: Letra E. MFA combina fatores de categorias diferentes: algo que você sabe, algo que você tem, algo que você é. Uma chave só é a criptografia simétrica; a assimétrica usa par de chaves pública e privada (A). No RBAC quem define privilégios é a organização, por papel (B). Firewall filtra tráfego e não protege contra quem é enganado (C). A regra 3-2-1 de backup recomenda cópias em mídias e locais diferentes (D).
+
+=== pss-300-42
+gab: C
+origem: real
+prova: IADES · ANPD PSS 2025 · Técnica de suporte (cargo 300) · tipo A · questão 42 · gabarito definitivo
+bloco: lgpd-1-4-14
+ref: lgpd 3
+trecho: independentemente do meio, do país de sua sede ou do país onde estejam localizados os dados
+trecho: os dados pessoais objeto do tratamento tenham sido coletados no território nacional
+armadilha: caso
+dif: 3
+enunciado: Uma multinacional brasileira, do setor financeiro, possui subsidiárias em diversos países e utiliza uma plataforma de computação em nuvem híbrida para processar dados dos clientes. A empresa coleta dados de usuários brasileiros por meio de aplicativo móvel desenvolvido por subsidiária argentina, e o processamento inicial ocorre em servidores localizados em outro país, com posterior transferência para data centers no Brasil, para análise de risco de crédito. Adicionalmente, a empresa compartilha dados anonimizados com parceiros comerciais europeus para desenvolvimento de produtos financeiros inovadores, utilizando técnicas de machine learning que, segundo auditoria independente, permitem a reidentificação dos titulares em 15% dos casos quando combinadas com bases de dados públicas. Considerando a complexidade da operação descrita e os critérios de aplicabilidade territorial da LGPD, bem como as disposições acerca de transferência internacional e anonimização, assinale a alternativa que apresenta a análise jurídica mais precisa.
+alt: A | A LGPD aplica-se integralmente a todas as operações descritas, incluindo o processamento em outro país, uma vez que os dados se referem a titulares localizados no território nacional, sendo irrelevante o local de processamento ou a nacionalidade das empresas envolvidas na cadeia de tratamento.
+alt: B | A aplicabilidade da LGPD restringe-se às operações realizadas em território brasileiro, excluindo-se o processamento inicial em outro país, mas abrangendo o compartilhamento com parceiros europeus em razão da inadequação do processo de anonimização que permite reidentificação dos titulares.
+alt: C | A LGPD aplica-se a toda a cadeia de tratamento em razão da coleta de dados de indivíduos localizados no território nacional, devendo a empresa observar as disposições relacionadas à transferência internacional de dados e garantir anonimização efetiva que impeça a reidentificação dos titulares.
+alt: D | A aplicação da LGPD limita-se ao tratamento realizado em território nacional, sendo o processamento em outro país regido pela respectiva legislação, enquanto o compartilhamento com parceiros europeus está sujeito ao Regulamento Geral sobre a Proteção de Dados (RGPD) europeu.
+alt: E | A LGPD não se aplica às operações de processamento realizadas fora do território nacional por subsidiárias estrangeiras. Aplica-se apenas ao tratamento final no Brasil, desde que a empresa comprove a adequação dos países de destino dos dados conforme critérios da ANPD.
+comentario: Letra C. A LGPD vale independentemente do país da sede ou de onde estejam os dados, desde que, por exemplo, os dados tenham sido coletados no território nacional (art. 3º, III), como aqui. Ela também alcança a transferência para os parceiros europeus (arts. 33 a 36). Dado anonimizado que se reidentifica com esforço razoável continua sendo dado pessoal (art. 12), e 15% de reidentificação mostra anonimização falha. A chega perto, mas diz que o local do processamento é irrelevante, quando ele importa para as regras de transferência internacional, e não trata da anonimização. B, D e E restringem a lei ao território nacional, contra o art. 3º.
+
+=== pss-300-43
+gab: A
+origem: real
+prova: IADES · ANPD PSS 2025 · Técnica de suporte (cargo 300) · tipo A · questão 43 · gabarito definitivo
+ref: lgpd 5
+trecho: dado pessoal sensível: dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural
+armadilha: caso
+dif: 3
+enunciado: Um hospital universitário desenvolve pesquisa científica relacionada à predisposição genética a doenças cardiovasculares coletando amostras biológicas e dados genômicos de pacientes voluntários. O estudo envolve a análise de sequenciamento genético completo, histórico familiar de doenças, dados socioeconômicos, informações quanto ao estilo de vida, crenças religiosas que influenciam hábitos alimentares e dados biométricos faciais para correlação com fenótipos específicos. A pesquisa utiliza técnicas de pseudonimização reversível, mantendo chave criptográfica que permite a reidentificação dos participantes para acompanhamento longitudinal. Os dados são compartilhados na rede internacional de pesquisadores mediante acordo de cooperação científica, mas alguns países participantes não possuem legislação específica acerca da proteção de dados genéticos. Tendo em vista as categorias de dados envolvidas e as especificidades do tratamento para pesquisa científica previstas na LGPD, assinale a alternativa que classifica corretamente os dados e identifica as principais obrigações legais aplicáveis.
+alt: A | Dados genômicos, histórico familiar de doenças, crenças religiosas e dados biométricos constituem dados pessoais sensíveis, sendo necessário o consentimento específico para pesquisa, podendo o compartilhamento internacional ocorrer mediante cláusulas contratuais específicas e garantias adequadas de proteção.
+alt: B | Os dados genômicos, as informações relacionadas a crenças religiosas e os dados biométricos faciais constituem dados pessoais sensíveis, enquanto os demais são dados pessoais comuns, sendo aplicável o regime especial para pesquisa científica, que dispensa consentimento mediante aprovação por comitê de ética e garantia de anonimização.
+alt: C | Todos os dados coletados constituem dados pessoais sensíveis em razão do contexto de pesquisa médica, exigindo consentimento específico e destacado para cada finalidade, sendo vedado o compartilhamento internacional sem decisão de adequação da ANPD para todos os países envolvidos.
+alt: D | Apenas os dados genômicos e biométricos faciais são considerados dados pessoais sensíveis, aplicando-se o regime geral de tratamento para os demais dados, sendo o compartilhamento internacional permitido mediante pseudonimização e acordo de cooperação científica aprovado por comitê de ética.
+alt: E | Os dados genômicos constituem categoria especial de dados pessoais sensíveis sujeita a regime jurídico específico, enquanto crenças religiosas e dados biométricos são dados pessoais sensíveis comuns, sendo vedado o compartilhamento internacional de dados genéticos, mesmo para fins de pesquisa científica.
+comentario: Letra A. São sensíveis (art. 5º, II): o genético, o biométrico, a convicção religiosa e o histórico familiar de doenças, que é dado de saúde. Dados socioeconômicos e de estilo de vida, em regra, não são. B esquece o histórico de doenças e fala em anonimização, quando o estudo usa pseudonimização reversível, que mantém o dado como pessoal. C torna tudo sensível pelo contexto e exige adequação para todos os países, quando a transferência admite cláusulas contratuais e outras garantias (art. 33, II). D deixa a saúde de fora. E inventa uma categoria especial e uma vedação. Observação: a LGPD também permite pesquisa por órgão de pesquisa sem consentimento (art. 11, II, c), mas, com voluntários e reidentificação planejada, o consentimento específico é a hipótese que a banca adotou.
+
+=== pss-300-44
+gab: D
+origem: real
+prova: IADES · ANPD PSS 2025 · Técnica de suporte (cargo 300) · tipo A · questão 44 · gabarito definitivo
+ref: lgpd 6
+trecho: necessidade: limitação do tratamento ao mínimo necessário para a realização de suas finalidades, com abrangência dos dados pertinentes, proporcionais e não excessivos em relação às finalidades do tratamento de dados
+armadilha: caso
+dif: 3
+enunciado: Uma empresa de tecnologia educacional desenvolveu plataforma de ensino adaptativo que utiliza inteligência artificial para personalizar o aprendizado de estudantes menores de idade. O sistema coleta dados comportamentais detalhados durante as sessões de estudo, incluindo padrões de movimento ocular, tempo de resposta, frequência cardíaca por meio de dispositivos vestíveis, análise de expressões faciais para detectar estados emocionais, e gravações de voz para avaliação de pronúncia. A plataforma implementa algoritmos de machine learning que criam perfis psicopedagógicos individuais, identificando potenciais dificuldades de aprendizagem, e sugere intervenções pedagógicas. Os dados são processados em tempo real, com decisões automatizadas relacionadas à progressão curricular, e compartilhados com instituições de ensino parceiras para fins de acompanhamento acadêmico. A empresa alega que o tratamento visa exclusivamente ao interesse superior da criança e ao desenvolvimento educacional. Considerando os princípios da LGPD aplicáveis ao tratamento automatizado de dados e as especificidades da proteção de dados de crianças e adolescentes, é correto afirmar que a situação apresentada evidencia potencial violação, sobretudo, ao princípio da(o)
+alt: A | finalidade, uma vez que o tratamento de dados biométricos e comportamentais excede o propósito educacional declarado, caracterizando coleta excessiva para criação de perfis psicológicos não relacionados diretamente ao processo de aprendizagem.
+alt: B | não discriminação, pois os algoritmos podem gerar vieses discriminatórios ao identificar dificuldades de aprendizagem com base em características comportamentais e biométricas, potencialmente prejudicando o desenvolvimento educacional de determinados grupos de estudantes.
+alt: C | transparência, tendo em vista a complexidade dos algoritmos de machine learning que impedem a compreensão clara, pelos titulares (crianças) e responsáveis, acerca de como os dados são processados e as decisões automatizadas são tomadas.
+alt: D | necessidade, considerando que coleta de dados biométricos, análise de expressões faciais e monitoramento de frequência cardíaca não são estritamente indispensáveis para a personalização do ensino, em desconformidade com princípio da minimização de dados.
+alt: E | livre acesso, considerando que a natureza automatizada do sistema e a complexidade dos algoritmos de inteligência artificial dificultam o exercício do direito de acesso pelos titulares menores de idade e dos respectivos responsáveis legais.
+comentario: Letra D. O núcleo do caso é coletar demais: frequência cardíaca, expressões faciais e movimento ocular para personalizar aulas. Isso viola a necessidade (art. 6º, III), a minimização de dados. A pegadinha é A: "coleta excessiva" é necessidade, não finalidade; a finalidade (inciso I) seria violada se os dados servissem a propósito diverso do informado, e aqui o propósito declarado é educacional. Não discriminação, transparência e livre acesso (B, C e E) são riscos possíveis, mas hipotéticos no caso, que não descreve falta de informação nem viés constatado. Lembre também que dado de criança se trata no seu melhor interesse (art. 14), e biometria e saúde são sensíveis.
+
+=== pss-400-9
+gab: C
+origem: real
+prova: IADES · ANPD PSS 2025 · Apoio operacional (cargo 400) · tipo A · questão 9 · gabarito definitivo
+bloco: administrativo
+ref: cf88 37
+trecho: As pessoas jurídicas de direito público e as de direito privado prestadoras de serviços públicos responderão pelos danos que seus agentes, nessa qualidade, causarem a terceiros
+trecho: somente por lei específica poderá ser criada autarquia
+armadilha: conceito
+dif: 1
+enunciado: A organização da administração pública é a forma por meio da qual o Estado é estruturado. A respeito desse assunto, especialmente em relação às autarquias, assinale a alternativa correta.
+alt: A | As autarquias não possuem patrimônio próprio, pois integram a pessoa jurídica do ente instituidor.
+alt: B | O foro competente para julgamento das demandas que envolvem autarquias federais é, em regra, a Justiça Estadual.
+alt: C | As autarquias respondem civilmente, de forma objetiva, pelos danos causados por seus agentes, nos termos do art. 37, § 6º, da Constituição Federal.
+alt: D | As autarquias estão sujeitas ao regime jurídico de direito privado, salvo disposição expressa em contrário.
+alt: E | A criação e a extinção de autarquias depende exclusivamente de ato do chefe do Poder Executivo, por decreto.
+comentario: Letra C. Autarquia é pessoa jurídica de direito público e responde objetivamente pelos danos de seus agentes (art. 37, § 6º). Tem personalidade e patrimônio próprios (A). Autarquia federal litiga na Justiça Federal (CF, art. 109, I) (B). O regime é de direito público (D). É criada e extinta por lei específica (art. 37, XIX), não por decreto (E). A própria ANPD é autarquia de natureza especial.
+
+=== pss-400-10
+gab: B
+origem: real
+prova: IADES · ANPD PSS 2025 · Apoio operacional (cargo 400) · tipo A · questão 10 · gabarito definitivo
+bloco: administrativo
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: A Constituição Federal de 1988, no caput do art. 37, estabelece os princípios da Administração Pública. Assinale a alternativa que corresponde a um dos princípios implícitos na Constituição, reconhecidos pela doutrina e pela jurisprudência.
+alt: A | Legalidade
+alt: B | Indisponibilidade do interesse público
+alt: C | Eficiência
+alt: D | Moralidade
+alt: E | Publicidade
+comentario: Letra B. Expressos no caput do art. 37: legalidade, impessoalidade, moralidade, publicidade e eficiência (LIMPE). Supremacia e indisponibilidade do interesse público são os pilares implícitos do regime jurídico-administrativo, ao lado de outros, como razoabilidade, proporcionalidade, segurança jurídica e autotutela (alguns deles expressos na Lei 9.784, art. 2º).
+
+=== pss-400-11
+gab: E
+origem: real
+prova: IADES · ANPD PSS 2025 · Apoio operacional (cargo 400) · tipo A · questão 11 · gabarito definitivo
+bloco: lei-9784
+ref: lei9784 49-E
+trecho: Cada órgão ou entidade participante é responsável pela elaboração de documento específico sobre o tema atinente à respectiva competência, a fim de subsidiar os trabalhos e integrar o processo da decisão coordenada
+armadilha: literal
+dif: 2
+enunciado: No âmbito da Administração Pública federal, as decisões administrativas que exijam a participação de três ou mais setores, órgãos ou entidades poderão ser tomadas mediante decisão coordenada. No que tange à decisão coordenada prevista na Lei nº 9.784/1999 (com as alterações da Lei nº 14.210/2021), assinale a alternativa correta.
+alt: A | A decisão coordenada pode ser utilizada em processos de licitação, desde que seja justificada pela relevância da matéria.
+alt: B | Os registros das orientações e das diretrizes relativos ao objeto da convocação não são de conteúdo obrigatório da ata da decisão coordenada.
+alt: C | É obrigatória a participação de todas as pessoas físicas ou jurídicas interessadas no processo, com direito a voz e voto.
+alt: D | O dissenso manifestado durante a reunião da decisão coordenada poderá versar acerca de qualquer tema relevante para a Administração, ainda que seja estranho ao objeto da convocação.
+alt: E | Cada órgão participante deve elaborar documento específico concernente à matéria de sua competência, que subsidiará os trabalhos da decisão coordenada.
+comentario: Letra E, art. 49-E. A decisão coordenada não se aplica a licitação, a processo sancionador nem a casos com autoridades de Poderes distintos (art. 49-A, § 6º) (A). Por isso não serve ao processo sancionador da ANPD. O registro das orientações e diretrizes é conteúdo obrigatório da ata (art. 49-G, IV) (B). Interessados podem se habilitar como ouvintes, e a voz depende de decisão irrecorrível de quem convocou (art. 49-B) (C). Não se pode arguir matéria estranha ao objeto da convocação (art. 49-F, parágrafo único) (D).
+
+=== pss-400-21
+gab: B
+origem: real
+prova: IADES · ANPD PSS 2025 · Apoio operacional (cargo 400) · tipo A · questão 21 · gabarito definitivo
+bloco: lgpd-1-4-14
+ref: lgpd 3
+trecho: independentemente do meio, do país de sua sede ou do país onde estejam localizados os dados
+trecho: os dados pessoais objeto do tratamento tenham sido coletados no território nacional
+armadilha: caso
+dif: 1
+enunciado: Uma empresa brasileira de comércio eletrônico coleta dados pessoais de clientes localizados no Brasil para processar pedidos e realizar entregas. A empresa possui sede no exterior, mas mantém servidores no território nacional para armazenar as informações dos usuários brasileiros. Com base no âmbito de aplicação, é correto afirmar que a situação descrita
+alt: A | não se enquadra na LGPD, pois a empresa possui sede no exterior.
+alt: B | aplica-se integralmente à LGPD, uma vez que os dados pessoais são coletados no território nacional.
+alt: C | submete-se parcialmente à LGPD, apenas quanto aos dados armazenados em servidores brasileiros.
+alt: D | encontra-se fora do escopo da LGPD, porque se trata de atividade comercial internacional.
+alt: E | enquadra-se na LGPD somente se a empresa possuir filial registrada no Brasil.
+comentario: Letra B (a redação "aplica-se à LGPD" é da banca; leia "submete-se à LGPD"). Pelo art. 3º, a sede no exterior é irrelevante: basta um dos três critérios, que são tratamento no território nacional, oferta de bens e serviços a pessoas no Brasil ou coleta no território nacional. Aqui estão presentes os três. Não há aplicação parcial (C) nem exigência de filial (E).
+
+=== pss-400-22
+gab: D
+origem: real
+prova: IADES · ANPD PSS 2025 · Apoio operacional (cargo 400) · tipo A · questão 22 · gabarito definitivo
+ref: lgpd 11
+trecho: quando o titular ou seu responsável legal consentir, de forma específica e destacada, para finalidades específicas
+armadilha: conceito
+dif: 1
+enunciado: Durante um processo seletivo para contratação de funcionários, certa empresa solicitou aos candidatos informações referentes ao estado civil, número de filhos, à orientação religiosa e aos dados a respeito de saúde mental. O departamento de recursos humanos justificou a coleta dessas informações como necessárias para adequar o ambiente de trabalho às necessidades dos futuros colaboradores. De acordo com os conceitos estabelecidos na LGPD, as informações referentes à orientação religiosa e saúde mental dos candidatos constituem
+alt: A | dados pessoais comuns, passíveis de tratamento mediante consentimento específico.
+alt: B | informações de caráter público, dispensando autorização para tratamento.
+alt: C | dados anonimizados, uma vez que não identificam diretamente o titular.
+alt: D | dados pessoais sensíveis, que exigem consentimento específico e destacado para finalidades determinadas.
+alt: E | dados pseudonimizados, permitindo tratamento sem restrições específicas.
+comentario: Letra D. Convicção religiosa e saúde são sensíveis (art. 5º, II). O consentimento específico e destacado é a regra do art. 11, I, mas não a única hipótese: o inciso II lista casos sem consentimento, como obrigação legal. Na vida real, o caso também esbarra na necessidade (art. 6º, III) e na não discriminação (inciso IX): religião e saúde mental raramente são necessárias numa seleção. Dado que identifica o candidato não é anonimizado nem pseudonimizado (C e E).
+
+=== pss-400-23
+gab: B
+origem: real
+prova: IADES · ANPD PSS 2025 · Apoio operacional (cargo 400) · tipo A · questão 23 · gabarito definitivo
+ref: lgpd 6
+trecho: segurança: utilização de medidas técnicas e administrativas aptas a proteger os dados pessoais de acessos não autorizados
+trecho: necessidade: limitação do tratamento ao mínimo necessário para a realização de suas finalidades
+armadilha: conceito
+dif: 1
+enunciado: Suponha que uma instituição financeira esteja desenvolvendo um sistema de análise de crédito que processa grandes volumes de dados pessoais de seus clientes. Para garantir conformidade com a LGPD, a instituição tem buscado implementar medidas técnicas e administrativas para proteger as informações contra acessos não autorizados, além de limitar o tratamento apenas aos dados estritamente necessários para a finalidade de análise creditícia. As medidas adotadas pela instituição financeira demonstram observância a quais princípios da LGPD?
+alt: A | Transparência e livre acesso aos dados pessoais
+alt: B | Segurança e necessidade no tratamento de dados
+alt: C | Qualidade dos dados e não discriminação
+alt: D | Finalidade e responsabilização dos agentes
+alt: E | Adequação e prevenção de danos
+comentario: Letra B. Medidas técnicas e administrativas contra acesso não autorizado é a definição de segurança (art. 6º, VII); limitar ao mínimo necessário é a necessidade (inciso III). Para não confundir: prevenção (VIII) é evitar dano; adequação (II) é compatibilidade entre tratamento e finalidade informada; finalidade (I) é propósito legítimo, específico e informado.
+
+=== pss-400-24
+gab: E
+origem: real
+prova: IADES · ANPD PSS 2025 · Apoio operacional (cargo 400) · tipo A · questão 24 · gabarito definitivo
+bloco: lgpd-23-32
+ref: lgpd 11
+trecho: cumprimento de obrigação legal ou regulatória pelo controlador
+trecho: tratamento compartilhado de dados necessários à execução, pela administração pública, de políticas públicas previstas em leis ou regulamentos
+armadilha: caso
+dif: 2
+enunciado: Considere que um hospital público necessite compartilhar dados pessoais de pacientes com o Ministério da Saúde para cumprimento de política pública de vigilância epidemiológica estabelecida em regulamento federal, e que o hospital pretenda realizar esse compartilhamento sem o consentimento específico dos pacientes. Conforme as hipóteses legais previstas na LGPD, o tratamento de dados pessoais descrito
+alt: A | requer obrigatoriamente o consentimento livre e informado de todos os pacientes.
+alt: B | exige aprovação do Conselho Nacional de Saúde para a respectiva execução.
+alt: C | necessita de autorização prévia da Autoridade Nacional de Proteção de Dados.
+alt: D | aplica-se exclusivamente mediante interesse legítimo do hospital.
+alt: E | pode ser realizado com base na hipótese de cumprimento de obrigação legal pelo controlador.
+comentario: Letra E. Dado de saúde é sensível, então a base está no art. 11, II: cumprimento de obrigação legal ou regulatória (alínea a), e também caberia a execução de política pública prevista em regulamento (alínea b). O legítimo interesse não existe para dado sensível (D). Nenhuma hipótese depende de aprovação do Conselho Nacional de Saúde ou da ANPD (B e C).
+
+=== pss-400-25
+gab: C
+origem: real
+prova: IADES · ANPD PSS 2025 · Apoio operacional (cargo 400) · tipo A · questão 25 · gabarito definitivo
+bloco: lgpd-55
+ref: lgpd 55-J
+trecho: fiscalizar e aplicar sanções em caso de tratamento de dados realizado em descumprimento à legislação, mediante processo administrativo que assegure o contraditório, a ampla defesa e o direito de recurso
+armadilha: sujeito
+dif: 1
+enunciado: Considere que a ANPD tenha recebido denúncia acerca de uma empresa que estaria tratando dados pessoais em desconformidade com a LGPD. Após investigação, a ANPD constatou irregularidades e decidiu aplicar sanção administrativa à empresa, garantindo o direito de defesa e recurso. A competência exercida pela ANPD na situação descrita refere-se à
+alt: A | elaboração de diretrizes para a Política Nacional de Proteção de Dados Pessoais.
+alt: B | promoção de estudos relacionadas a práticas nacionais e internacionais de proteção de dados.
+alt: C | fiscalização e aplicação de sanções em caso de descumprimento da legislação.
+alt: D | celebração de compromissos com agentes de tratamento para eliminar irregularidades.
+alt: E | implementação de mecanismos para registro de reclamações a respeito de tratamento de dados.
+comentario: Letra C, art. 55-J, IV: fiscalizar e sancionar mediante processo com contraditório, ampla defesa e recurso. As demais também são competências do art. 55-J, mas não a exercida no caso: diretrizes da política nacional (III), estudos (VII), compromisso para eliminar irregularidade (XVII) e mecanismos simplificados de reclamação (XXIV). Hoje o processo sancionador segue a Resolução CD/ANPD 1/2021, e a dosimetria, a Resolução 4/2023.
+
+=== pss-400-30
+gab: C
+origem: real
+prova: IADES · ANPD PSS 2025 · Apoio operacional (cargo 400) · tipo A · questão 30 · gabarito definitivo
+bloco: seginfo
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Uma organização pública busca aprimorar sua política de segurança da informação, implementando medidas que não dependem apenas de tecnologia, mas também de processos e da conscientização de seus colaboradores. Assinale a alternativa que apresenta uma medida de segurança de natureza predominantemente administrativa.
+alt: A | Instalação de um firewall de nova geração na borda da rede para filtrar o tráfego de internet.
+alt: B | Utilização de criptografia de ponta a ponta nas comunicações por e-mail institucional.
+alt: C | Elaboração e divulgação de uma política de controle de acesso que defina as regras e responsabilidades dos usuários.
+alt: D | Configuração de um sistema de detecção de intrusão (IDS) para monitorar atividades maliciosas na rede.
+alt: E | Implementação de autenticação de dois fatores (2FA) para o acesso a todos os sistemas corporativos.
+comentario: Letra C. Política, norma, procedimento, treinamento e conscientização são controles administrativos. Firewall, criptografia, IDS e 2FA (A, B, D e E) são controles técnicos. É o mesmo raciocínio da questão 23 do cargo 100, cobrado de novo pela mesma banca.
+
+=== pss-400-33
+gab: C
+origem: real
+prova: IADES · ANPD PSS 2025 · Apoio operacional (cargo 400) · tipo A · questão 33 · gabarito definitivo
+bloco: seginfo
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: O princípio do menor privilégio é um conceito fundamental em segurança da informação, que visa a limitar os danos em caso de comprometimento de uma conta de usuário ou sistema. A aplicação correta desse princípio consiste em
+alt: A | conceder a todos os usuários acesso de administrador para que possam resolver seus próprios problemas técnicos.
+alt: B | atribuir permissões de acesso com base no cargo do funcionário, dando-lhe acesso a todos os dados do seu setor.
+alt: C | fornecer a um usuário apenas as permissões de acesso estritamente necessárias para a execução de suas tarefas.
+alt: D | criar uma única conta de usuário compartilhada por toda a equipe para simplificar a gestão de permissões.
+alt: E | deixar todas as permissões de acesso abertas por padrão e restringi-las apenas quando um incidente ocorrer.
+comentario: Letra C. Menor privilégio é dar só o estritamente necessário para a tarefa. A pegadinha é B: atribuir por cargo é RBAC, mas dar acesso a todos os dados do setor excede o necessário. É o equivalente, em segurança, ao princípio da necessidade da LGPD (art. 6º, III).
+
+=== pss-400-34
+gab: B
+origem: real
+prova: IADES · ANPD PSS 2025 · Apoio operacional (cargo 400) · tipo A · questão 34 · gabarito definitivo
+bloco: seginfo
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Para fortalecer a segurança no processo de login em sistemas críticos, certa organização decidiu implementar um mecanismo que exige do usuário mais do que apenas a senha. O usuário deve fornecer uma segunda forma de comprovação de sua identidade, como um código gerado por um aplicativo em seu smartphone. Nesse contexto, assinale a alternativa que corresponde à medida de segurança descrita.
+alt: A | Implementação de um sistema de logon único (Single Sign-On)
+alt: B | Adoção da autenticação de múltiplos fatores (MFA)
+alt: C | Criação de uma política de senhas complexas
+alt: D | Aplicação de criptografia simétrica aos dados de login
+alt: E | Instalação de um software de prevenção contra perda de dados (DLP)
+comentario: Letra B. Senha (algo que você sabe) mais código do aplicativo no celular (algo que você tem) são dois fatores. Single sign-on (A) é um login para vários sistemas, que pode ou não ter MFA; DLP (E) evita vazamento de dados, não autentica ninguém.

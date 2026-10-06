@@ -792,6 +792,38 @@ function emBlocosDeTexto(itens, puxar) {
   }
   return out;
 }
+// Sessão interrompida: os itens que faltavam ficam no perfil (que vai para a conta) e a sessão continua de onde parou.
+// Vale para treino e revisão; simulado e relâmpago recomeçam, como na prova. A chave é o dia do plano, a rodada de
+// intercaladas ou a trilha do dia; o treino montado na aba Questões usa a chave "livre". Pausas com mais de 7 dias caducam.
+const PAUSA_DIAS = 7;
+function chavePausa(s) { return s && (s.modo === 'treino' || s.modo === 'revisao') ? s.dia || (s.modo === 'treino' ? 'livre' : null) : null; }
+function pausaDe(k) {
+  const p = k && S.perfil.pausas && S.perfil.pausas[k];
+  if (!p || !Array.isArray(p.ids) || !p.data || HOJE() - diaNum(p.data) > PAUSA_DIAS) return null;
+  const ids = p.ids.filter((id) => QI.has(id));
+  return ids.length ? Object.assign({}, p, { ids }) : null;
+}
+function atualizarPausa() {
+  const k = chavePausa(sessao);
+  if (!k) return;
+  const pausas = (S.perfil.pausas ||= {});
+  const faltam = sessao.ids.filter((id) => !sessao.resp[id]);
+  if (sessao.fim || !faltam.length) delete pausas[k];
+  else pausas[k] = { modo: sessao.modo, titulo: sessao.titulo, dia: sessao.dia, ids: faltam, feitas: (sessao.feitasAntes || 0) + sessao.ids.length - faltam.length, total: sessao.totalOrig || sessao.ids.length, data: hojeISO() };
+  for (const [x, v] of Object.entries(pausas)) if (!v || !v.data || HOJE() - diaNum(v.data) > PAUSA_DIAS) delete pausas[x];
+}
+function retomarPausa(k) {
+  const p = pausaDe(k);
+  if (!p) return false;
+  sessao = novaSessao({ modo: p.modo, titulo: p.titulo, dia: p.dia }, p.ids);
+  sessao.feitasAntes = p.feitas || 0;
+  sessao.totalOrig = p.total || p.ids.length;
+  abrirSessao();
+  return true;
+}
+function descartarPausa(k) { if (S.perfil.pausas && S.perfil.pausas[k]) { delete S.perfil.pausas[k]; Store.salvar('perfil'); } }
+// Rótulo do botão: "Continuar · faltam 12 de 40" quando há pausa; o rótulo normal quando não há
+function rotuloPausa(k, normal) { const p = pausaDe(k); return p ? 'Continuar · faltam ' + p.ids.length + ' de ' + p.total : normal; }
 function iniciarSessao(cfg) {
   let itens;
   if (cfg.modo === 'cards') {
@@ -888,6 +920,7 @@ function responder(resp) {
   sessao.ultimoGanho = x;
   verificarMeta();
   verificarConquistas({ respondeu: true });
+  atualizarPausa();
   Store.salvar('perfil', 'itens', 'pesquisa');
   if (sessao.modo === 'relampago') {
     sessao.flash = ok ? 'ok' : 'no';
@@ -955,6 +988,7 @@ function finalizar() {
     if (c - e > (S.perfil.recordes.relampago || 0)) { S.perfil.recordes.relampago = c - e; sessao.recorde = true; }
   }
   if (sessao.dia) S.perfil.feitos[sessao.dia] = 1;
+  atualizarPausa();
   verificarConquistas();
   Store.salvarTudo();
   renderSessao();
@@ -1044,6 +1078,7 @@ function rotuloModoDia(dia) {
   if (dia.modo === 'simulado') return 'simulado de ' + dia.n;
   return dia.n + ' itens';
 }
+function botaoRecomecar(k) { return pausaDe(k) ? '<button class="btn pequeno" data-acao="descartar-pausa" data-k="' + esc(k) + '">Recomeçar do zero</button>' : ''; }
 function roteiroHoje() {
   const ctx = contextoHoje();
   const dia = ctx.tipo === 'dia' ? ctx.dia : null;
@@ -1068,21 +1103,21 @@ function roteiroHoje() {
     const feito = !!S.perfil.feitos[dia.data];
     const nDia = nItensDoDia(dia);
     passos.push({ titulo: dia.modo === 'simulado' ? 'Simulado do dia' : dia.modo === 'revisao' ? 'Sessão de revisão do dia' : 'Questões do dia', feito,
-      texto: dia.atividade + (dia.modo === 'treino' && nDia < dia.n ? ' Dia pesado: ' + pl(venc, 'revisão vencida', 'revisões vencidas') + ', então a sessão cai de ' + dia.n + ' para ' + nDia + ' itens. Revisar primeiro evita acumular esquecimento.' : ''), botoes: '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' + (feito ? 'Outra rodada' : 'Começar') + ' · ' + esc(rotuloModoDia(Object.assign({}, dia, { n: nDia }))) + '</button>' });
+      texto: dia.atividade + (dia.modo === 'treino' && nDia < dia.n ? ' Dia pesado: ' + pl(venc, 'revisão vencida', 'revisões vencidas') + ', então a sessão cai de ' + dia.n + ' para ' + nDia + ' itens. Revisar primeiro evita acumular esquecimento.' : ''), botoes: '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' + esc(rotuloPausa(dia.data, (feito ? 'Outra rodada' : 'Começar') + ' · ' + rotuloModoDia(Object.assign({}, dia, { n: nDia })))) + '</button>' + botaoRecomecar(dia.data) });
   }
   const nInt = nIntercaladas();
   if (nInt > 0) {
     const chaveInt = 'i:' + hojeISO();
     passos.push({ titulo: 'Questões intercaladas', feito: !!S.perfil.feitos[chaveInt],
       texto: nInt + ' itens misturando as matérias básicas (português, inglês, constitucional, administrativo, ética, LAI e processo administrativo) e os blocos que você já estudou. Misturar obriga a reconhecer o tipo de questão, e isso fixa mais.' + (nInt < (S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas) ? ' Dia pesado: a sessão ficou menor.' : ''),
-      botoes: '<button class="btn pequeno primario" data-acao="intercaladas">' + (S.perfil.feitos[chaveInt] ? 'Outra rodada' : 'Começar') + ' · ' + nInt + ' itens</button>' });
+      botoes: '<button class="btn pequeno primario" data-acao="intercaladas">' + esc(rotuloPausa(chaveInt, (S.perfil.feitos[chaveInt] ? 'Outra rodada' : 'Começar') + ' · ' + nInt + ' itens')) + '</button>' + botaoRecomecar(chaveInt) });
   }
   const std = subtemaDoDia();
   if (std) {
     const e = estadoSubtema(std.id), chT = 't:' + hojeISO();
     passos.push({ titulo: 'Trilha de Direito do zero', feito: !!S.perfil.feitos[chT],
       texto: 'Subtema de hoje: ' + std.nome + ' (' + ROTULO_ST[e.status] + (e.resp ? ', acerto atual ' + Math.round(e.acerto * 100) + '%' : '') + '). Comece pelas questões, mesmo sem saber a matéria; depois leia a aula curta e pratique até dominar.',
-      botoes: '<button class="btn pequeno primario" data-acao="trilha-sessao" data-st="' + esc(std.id) + '" data-tipo="' + (e.novos ? 'pre' : 'pratica') + '">' + (e.novos ? 'Pré-teste · ' + pl(Math.min(8, e.novos), 'item', 'itens') : 'Praticar · ' + pl(Math.min(20, e.n), 'item', 'itens')) + '</button>' +
+      botoes: '<button class="btn pequeno primario" data-acao="trilha-sessao" data-st="' + esc(std.id) + '" data-tipo="' + (e.novos ? 'pre' : 'pratica') + '">' + esc(pausaDe(chT) && pausaDe(chT).titulo.endsWith(std.nome) ? rotuloPausa(chT, '') : e.novos ? 'Pré-teste · ' + pl(Math.min(8, e.novos), 'item', 'itens') : 'Praticar · ' + pl(Math.min(20, e.n), 'item', 'itens')) + '</button>' +
         '<button class="btn pequeno" data-acao="subtema" data-st="' + esc(std.id) + '">Aula e subtema</button>' });
   }
   if (!dia) {
@@ -1153,6 +1188,7 @@ function atualizarRodapeSync() {
 function iniciarDia(data) {
   const dia = DIAS.find((d) => d.data === data);
   if (!dia) return;
+  if (retomarPausa(dia.data)) return;
   const titulo = fmtData(dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' }) + ' · ' + (dia.modo === 'revisao' ? 'Revisão' : dia.modo === 'simulado' ? 'Simulado' : 'Treino do dia');
   if (dia.modo === 'revisao') {
     if (!listaCurta().length && !manutencaoHoje().length) { iniciarSessao({ modo: 'treino', n: Math.min(dia.n, 20), blocos: [], filtro: 'mistas', titulo, dia: dia.data }); return; }
@@ -1180,7 +1216,9 @@ function renderQuestoes() {
   const sel = new Set(UI.blocos);
   const pool = poolDe(UI.blocos);
   const usarProva = modo === 'simulado' && UI.prova === 'prova';
-  let html = '<div class="secao"><div class="secao-cab"><h2>Montar sessão</h2><span class="mudo pequeno mono">' + Q.length + ' questões no banco</span></div>' +
+  const pl0 = pausaDe('livre');
+  let html = (pl0 ? '<div class="cartao destaque"><b>Treino interrompido</b><p class="mudo pequeno">' + esc(pl0.titulo) + ': faltam ' + pl0.ids.length + ' de ' + pl0.total + ' itens.</p><div class="linha-btns"><button class="btn primario" data-acao="retomar-pausa" data-k="livre">Continuar de onde parei</button><button class="btn" data-acao="descartar-pausa" data-k="livre">Descartar</button></div></div>' : '') +
+    '<div class="secao"><div class="secao-cab"><h2>Montar sessão</h2><span class="mudo pequeno mono">' + Q.length + ' questões no banco</span></div>' +
     '<div class="chips" role="group" aria-label="Modo">' +
     ['treino', 'simulado', 'relampago'].map((m) => '<button class="chip" data-acao="set-modo" data-modo="' + m + '" aria-pressed="' + (modo === m) + '">' + esc({ treino: 'Treino comentado', simulado: 'Simulado Cebraspe', relampago: 'Relâmpago 90 s' }[m]) + '</button>').join('') + '</div>' +
     '<p class="mudo pequeno">' + esc({
@@ -1203,7 +1241,8 @@ function renderQuestoes() {
   }
   html += '<button class="btn primario largo" data-acao="comecar"' + (pool.length || usarProva ? '' : ' disabled') + '>Começar ' + esc({ treino: 'treino', simulado: 'simulado', relampago: 'relâmpago' }[modo]) + '</button>';
   const conferidos = REAIS.filter(gabConferido).length;
-  if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais do Cebraspe</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas anteriores, com comentário: ' + (REAIS.length - conferidos) + ' com gabarito oficial definitivo e ' + conferidos + ' avulsos, de provas de 2021 a 2026, com o gabarito conferido no texto da lei ou, em português, no texto da prova (a linha da prova avisa). Servem para calibrar o estilo da banca; os de telecomunicações ficam fora do simulado de prova completa.</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
+  const nIades = REAIS.filter((q) => bancaDe(q) === 'IADES').length;
+  if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais de prova</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas anteriores, com comentário: ' + (REAIS.length - conferidos) + ' com gabarito oficial definitivo e ' + conferidos + ' avulsos, de provas de 2021 a 2026, com o gabarito conferido no texto da lei ou, em português, no texto da prova (a linha da prova avisa). ' + (nIades ? nIades + ' são de múltipla escolha do processo seletivo da própria ANPD (IADES, 2025), que mostra o recorte que a Autoridade escolheu cobrar. ' : '') + 'Servem para calibrar o estilo da banca; os de telecomunicações ficam fora do simulado de prova completa.</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
   if (!usarProva && !UI.blocos.length) html += '<p class="mudo pequeno">Nenhum bloco marcado: a sessão usa o banco inteiro.</p>';
   document.getElementById('vista-questoes').innerHTML = html;
 }
@@ -1278,7 +1317,7 @@ function renderSessao() {
   const total = sessao.modo === 'relampago' ? null : sessao.ids.length;
   const relogio = sessao.limite ? fmtTempo(sessao.limite - decorrido()) : fmtTempo(decorrido());
   let html = '<div class="sessao-corpo"><div class="sessao-topo"><button class="icone-btn" data-acao="sair-sessao" aria-label="Sair da sessão"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>' +
-    '<div class="tit"><b>' + esc(sessao.titulo) + '</b><span>' + (total ? (sessao.modo === 'cards' ? 'Card ' : 'Item ') + (sessao.i + 1) + ' de ' + total : 'Item ' + (sessao.i + 1)) + (sessao.xp ? ' · +' + sessao.xp + ' XP' : '') + '</span></div>' +
+    '<div class="tit"><b>' + esc(sessao.titulo) + '</b><span>' + (total ? (sessao.modo === 'cards' ? 'Card ' : 'Item ') + ((sessao.feitasAntes || 0) + sessao.i + 1) + ' de ' + (sessao.totalOrig || total) : 'Item ' + (sessao.i + 1)) + (sessao.xp ? ' · +' + sessao.xp + ' XP' : '') + '</span></div>' +
     (sessao.modo !== 'simulado' && sessao.modo !== 'cards' && sessao.combo >= 2 ? '<span class="combo' + (sessao.revelado || sessao.flash ? ' pulso' : '') + '">combo ×' + sessao.combo + '</span>' : '') +
     '<span class="relogio" id="relogio">' + relogio + '</span></div>';
   if (sessao.confirmar) html += renderConfirmacao();
@@ -1318,9 +1357,11 @@ function renderAlternativas(q, marcada, revelar) {
     return revelar ? '<div class="' + cls + '">' + conteudo + '</div>' : '<button class="' + cls + '" data-acao="responder" data-r="' + L + '">' + conteudo + '</button>';
   }).join('') + '</div>';
 }
-function seloReal(q) { return q.o ? '<span class="selo real" title="' + esc(q.pv || '') + '">Item real Cebraspe</span>' : ''; }
+// A banca é o primeiro campo da linha da prova (Cebraspe na maioria; IADES no processo seletivo da própria ANPD)
+function bancaDe(q) { return ((q.pv || '').split(' · ')[0] || 'Cebraspe').trim(); }
+function seloReal(q) { return q.o ? '<span class="selo real" title="' + esc(q.pv || '') + '">Item real ' + esc(bancaDe(q)) + '</span>' : ''; }
 // Ordem do caderno: conhecimentos básicos antes dos específicos, depois pelo número do item
-function ordemProva(q) { const m = /item (\d+)/.exec(q.pv || ''); return (/Básicos/.test(q.pv || '') ? 0 : 1000) + (m ? Number(m[1]) : 999); }
+function ordemProva(q) { const m = /(?:item|questão) (\d+)/.exec(q.pv || ''); return (/Básicos/.test(q.pv || '') ? 0 : 1000) + (m ? Number(m[1]) : 999); }
 function renderComando(q) { return q.cm ? '<p class="comando">' + esc(q.cm) + '</p>' : ''; }
 function renderItem(q) {
   const id = q.id, sim = sessao.modo === 'simulado', marcada = sessao.resp[id];
@@ -1411,7 +1452,7 @@ function renderConfirmacao() {
     return '<div class="cartao destaque"><b>Entregar o simulado?</b><p class="mudo">' + (faltam ? pl(faltam, 'item sem marcação conta', 'itens sem marcação contam') + ' como em branco.' : 'Todos os itens foram marcados.') + '</p><div class="linha-btns"><button class="btn primario" data-acao="confirmar-entrega">Entregar</button><button class="btn" data-acao="cancelar-conf">Voltar</button></div></div>';
   }
   if (sessao.confirmar === 'sair') {
-    return '<div class="cartao destaque"><b>Sair da sessão?</b><p class="mudo">' + (sessao.modo === 'simulado' ? 'As marcações deste simulado serão descartadas.' : 'O que você já respondeu fica salvo.') + '</p><div class="linha-btns"><button class="btn primario" data-acao="confirmar-saida">Sair</button><button class="btn" data-acao="cancelar-conf">Continuar</button></div></div>';
+    return '<div class="cartao destaque"><b>Sair da sessão?</b><p class="mudo">' + (sessao.modo === 'simulado' ? 'As marcações deste simulado serão descartadas.' : sessao.modo === 'cards' ? 'Os cards que você avaliou ficam salvos; os outros continuam na fila de revisão.' : sessao.modo === 'relampago' ? 'O relâmpago termina aqui, sem recorde.' : chavePausa(sessao) ? 'O que você respondeu já está salvo, e os ' + sessao.ids.filter((id) => !sessao.resp[id]).length + ' itens que faltam ficam guardados: o botão desta sessão passa a Continuar.' : 'O que você já respondeu fica salvo.') + '</p><div class="linha-btns"><button class="btn primario" data-acao="confirmar-saida">Sair</button><button class="btn" data-acao="cancelar-conf">Continuar</button></div></div>';
   }
   return '';
 }
@@ -2049,7 +2090,7 @@ function renderDiscursiva() {
 let timerDisc = null;
 // Itens reais de uma disciplina: os que estão em blocos dela
 function reaisDaDisc(id) { return REAIS.filter((q) => (BI.get(q.b) || {}).disciplina === id); }
-function numItem(q) { const m = /item (\d+)/.exec(q.pv || ''); return m ? 'Item ' + m[1] : ((q.pv || '').split(' · ')[1] || q.id); }
+function numItem(q) { const m = /(item|questão) (\d+)/.exec(q.pv || ''); return m ? (m[1] === 'item' ? 'Item ' : 'Questão ') + m[2] : ((q.pv || '').split(' · ')[1] || q.id); }
 function renderCebraspe() {
   const cb = D.cebraspe;
   if (!cb) return '<p class="mudo">Dados da banca indisponíveis nesta versão.</p>';
@@ -2195,7 +2236,7 @@ document.addEventListener('click', async (ev) => {
     case 'mais': fecharFolha(); UI.mais = alvo.dataset.sub || 'menu'; if (UI.vista !== 'mais') ir('mais'); else { renderMais(); window.scrollTo(0, 0); } break;
     case 'iniciar-dia': iniciarDia(alvo.dataset.dia); break;
     case 'iniciar-revisao': iniciarSessao({ modo: 'revisao', n: 30 }); break;
-    case 'intercaladas': iniciarSessao({ modo: 'treino', intercalado: true, n: nIntercaladas(), titulo: 'Questões intercaladas', dia: 'i:' + hojeISO() }); break;
+    case 'intercaladas': if (retomarPausa('i:' + hojeISO())) break; iniciarSessao({ modo: 'treino', intercalado: true, n: nIntercaladas(), titulo: 'Questões intercaladas', dia: 'i:' + hojeISO() }); break;
     case 'treino-rapido': iniciarSessao({ modo: 'treino', n: 20, blocos: [], filtro: 'mistas' }); break;
     case 'abrir-modo': UI.modo = alvo.dataset.modo; if (UI.modo === 'simulado') UI.prova = 'prova'; ir('questoes'); break;
     case 'relampago': iniciarSessao({ modo: 'relampago', blocos: (alvo.dataset.blocos || '').split(',').filter(Boolean) }); break;
@@ -2223,7 +2264,16 @@ document.addEventListener('click', async (ev) => {
       if (sessao.fim || (sessao.modo === 'cards' ? sessao.i === 0 : !Object.keys(sessao.resp).length)) fecharSessao();
       else { sessao.confirmar = 'sair'; renderSessao(); document.getElementById('sessao').scrollTop = 0; }
       break;
-    case 'confirmar-saida': fecharSessao(); break;
+    case 'descartar-pausa': descartarPausa(alvo.dataset.k); renderTudo(); break;
+    case 'retomar-pausa': retomarPausa(alvo.dataset.k); break;
+    case 'confirmar-saida': {
+      const k = chavePausa(sessao);
+      if (k) { atualizarPausa(); Store.salvar('perfil'); }
+      const p = k && pausaDe(k);
+      fecharSessao();
+      if (p) avisar('II', 'Sessão guardada', 'Faltam ' + p.ids.length + ' de ' + p.total + '. Toque em Continuar para seguir de onde parou.');
+      break;
+    }
     case 'fechar-sessao': fecharSessao(); break;
     case 'refazer-erros': {
       const ids = sessao.ids.filter((id) => (sessao.modo !== 'relampago' || sessao.resp[id]) && (sessao.resp[id] || BRANCO) !== QI.get(id).g);
@@ -2296,6 +2346,8 @@ document.addEventListener('click', async (ev) => {
     case 'aula-folha': folhaAula(alvo.dataset.st); break;
     case 'trilha-sessao': {
       const st = SUBTEMAS.get(alvo.dataset.st), tipo = alvo.dataset.tipo;
+      const pt = pausaDe('t:' + hojeISO());
+      if (pt && pt.titulo.endsWith(st.nome)) { fecharFolha(); retomarPausa('t:' + hojeISO()); break; }
       const ids = idsSubtema(st.id, tipo, tipo === 'pre' ? 8 : 20);
       if (!ids.length) { avisar('§', 'Nada para fazer aqui', tipo === 'erros' ? 'Você não tem erros pendentes neste subtema.' : 'Todos os itens já foram vistos: use Praticar.'); break; }
       fecharFolha();
