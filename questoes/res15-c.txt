@@ -1,5 +1,6 @@
 // Resolução CD/ANPD nº 15/2024 (comunicação de incidente de segurança), lote C: objetivos, definições ainda sem item,
-// larga escala, conteúdo e forma da comunicação, prazos em dobro para pequeno porte, divulgação ao titular por três
+// larga escala, conteúdo e forma da comunicação, prazos em dobro para pequeno porte (e a exclusão do alto risco, Resolução
+// 2/2022, art. 3º), divulgação ao titular por três
 // meses, registro no Poder Público, processo de comunicação (auditoria, análise agregada, multa diária, apuração,
 // providências, extinção) e um caso de clínica de pequeno porte. Trechos conferidos em fontes/res15.txt.
 
@@ -104,7 +105,7 @@ trecho: a identificação do controlador e, se for o caso, declaração de que s
 armadilha: literal
 dif: 2
 enunciado: Na comunicação de incidente à ANPD, o controlador deve identificar-se e, se for o caso, declarar que é agente de tratamento de pequeno porte.
-comentario: Certo: art. 6º, § 2º, IX. A declaração importa porque os prazos de comunicação e de complementação contam em dobro para o pequeno porte (§ 8º).
+comentario: Certo: art. 6º, § 2º, IX. A declaração importa porque os prazos de comunicação e de complementação contam em dobro para o pequeno porte (§ 8º), salvo se o tratamento for de alto risco, que afasta o regime diferenciado (Resolução 2/2022, art. 3º, I).
 
 === ic-12
 gab: E
@@ -216,14 +217,15 @@ comentario: Certo: art. 23, I. Outras hipóteses: incidente sem potencial de ris
 
 === ic-24
 gab: C
-ref: res15 6
-trecho: Os prazos constantes no caput e no § 3º deste artigo são contados em dobro para os agentes de pequeno porte
-armadilha: caso
-dif: 2
+bloco: res-2-2022
+ref: res2 3
+trecho: Não poderão se beneficiar do tratamento jurídico diferenciado previsto neste Regulamento os agentes de tratamento de pequeno porte que
+armadilha: excecao
+dif: 3
 apoio: @CLIN
-comando: Com base na situação hipotética e na Resolução CD/ANPD nº 15/2024, julgue os itens seguintes.
-enunciado: A clínica tem seis dias úteis, contados de quando soube que o incidente afetou dados pessoais, para comunicá-lo à ANPD.
-comentario: Certo: art. 6º, caput e § 8º. Três dias úteis contados em dobro para o agente de pequeno porte; o prazo de complementação (vinte dias úteis, § 3º) também dobra.
+comando: Com base na situação hipotética e na regulamentação da ANPD, julgue os itens seguintes.
+enunciado: Declarar-se agente de pequeno porte não garante, por si só, à clínica o prazo em dobro para comunicar o incidente, pois o tratamento jurídico diferenciado não alcança quem realiza tratamento de alto risco, e o uso de dados sensíveis e de dados de crianças é um dos critérios específicos de alto risco.
+comentario: Certo: Resolução 2/2022, art. 3º, I, e art. 4º, II, d. O alto risco exige esse critério específico somado a um geral: larga escala ou tratamento que possa afetar significativamente interesses e direitos fundamentais (art. 4º, I). Se o tratamento da clínica não for de alto risco, ela tem seis dias úteis para comunicar a ANPD, três contados em dobro (Resolução 15/2024, art. 6º, § 8º; Resolução 2/2022, art. 14, II).
 
 === ic-25
 gab: C
@@ -256,7 +258,7 @@ dif: 2
 apoio: @CLIN
 comando: Com base na situação hipotética e na Resolução CD/ANPD nº 15/2024, julgue os itens seguintes.
 enunciado: Por ser de pequeno porte, a clínica fica dispensada de comunicar os pacientes, bastando a comunicação à ANPD.
-comentario: Errado. O pequeno porte dobra o prazo de comunicação ao titular (art. 9º, § 6º), mas não dispensa a comunicação.
+comentario: Errado. O pequeno porte, quando o agente faz jus ao regime diferenciado, só dobra o prazo de comunicação ao titular (art. 9º, § 6º); nunca dispensa a comunicação.
 
 === ic-28
 gab: C

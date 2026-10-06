@@ -74,9 +74,9 @@ const CHAVE_LOCAL_ANTIGA = 'painel-anpd-v2';
 const CHAVE_UI = 'painel-anpd-ui';
 const P1 = ['lgpd-17-22', 'lgpd-52-54', 'lgpd-55', 'lgpd-33-36', 'lgpd-5-11'];
 // Prova completa simulada: itens por disciplina numa prova de 120 (50 básicos + 70 específicos), estimativa para
-// Especialista em Regulação feita sobre a estrutura da Anatel 2024 e da ANAC 2024 até sair o edital. Gestão fica em 8 (o guia do cargo dá 4% do estudo):
-// o terço de gestão do processo seletivo da ANPD (2025) veio do cargo gerencial, e o específico do especialista
-// deve concentrar-se na LGPD e nas normas da ANPD.
+// Especialista em Regulação feita sobre a estrutura da Anatel 2024 e da ANAC 2024 até sair o edital. Gestão fica em 8
+// (o guia do cargo dá 4% do estudo): o terço de gestão do processo seletivo da ANPD (2025) veio do cargo gerencial, e
+// o específico do especialista deve concentrar-se na LGPD e nas normas da ANPD.
 const ITENS_PROVA = { linguas: 21, direito: 19, regulacao: 14, lgpd: 36, eca: 8, seginfo: 8, gestao: 8, comparado: 3, economia: 3 };
 const TOTAL_PROVA = Object.values(ITENS_PROVA).reduce((a, b) => a + b, 0);
 // Cotas por disciplina para n itens, pelo método do maior resto (a soma dá exatamente n)
@@ -1726,7 +1726,8 @@ async function conferirInv() {
     if (!e || e.code !== 'cancelled') avisar('!', 'Claude indisponível', erroIA(e));
   }
   inv.ctl = null;
-  if (UI.inv === inv && !document.getElementById('folha').hidden) folhaInvestigar(inv.t, inv.o);
+  // Só redesenha se a folha aberta ainda for esta investigação (pode ter sido fechada ou trocada por outra folha)
+  if (UI.inv === inv && document.getElementById('inv-conversa')) folhaInvestigar(inv.t, inv.o);
 }
 async function copiarInv() {
   const inv = UI.inv, box = document.getElementById('inv-texto');
@@ -1757,6 +1758,8 @@ async function corrigirDiscIA() {
   renderMais();
   try {
     const r = await IA.json(pedidoDiscIA(t, texto));
+    // Se a pessoa trocou de tema ou voltou a editar enquanto o Claude lia, a correção não vale mais
+    if (UI.discTema !== t.id || UI.discFase === 'escrita') { UI.discIACarregando = false; return; }
     const qs = Array.isArray(r && r.quesitos) ? r.quesitos : [];
     if (qs.length !== t.quesitos.length) throw { code: 'invalid_json' };
     const aval = {};
@@ -1860,8 +1863,8 @@ function textoLei(a, qExtras) {
 // onde a regra não alcança.
 const RE_NUM_PROSA = /(?<![\p{L}\d])(?:\d+(?:[.,]\d+)?%|\d+\s(?:dias(?: úteis| corridos)?|meses|anos|horas|turnos|vezes|membros)|(?:um|uma|dois|duas|três|quatro|cinco|seis|sete|oito|nove|dez|onze|doze|quinze|vinte|trinta|quarenta|cinquenta|sessenta|noventa|cem|cento e vinte|mil)\s(?:dias(?: úteis| corridos)?|meses|anos|horas|turnos|terços?|quintos?|quartos?|vezes|membros|instâncias)|três quintos|dois terços|um terço|mais da metade|metade|maioria (?:absoluta|relativa|simples|qualificada)|unanimidade)(?![\p{L}])/giu;
 const RE_REF_PROSA = /(?<![\p{L}])(?:arts?\.\s\d+[º°]?(?:-[A-Z])?(?:,\s(?:[IVXL]+|§\s\d+[º°]?|caput|parágrafo único))*|§§?\s\d+[º°]?|(?:ADI|ADPF|RE|ARE|MS|HC)\s[\d.]+)/gu;
-const RE_DEF_PROSA = /(?:^|(?<=[.;]\s))([A-ZÁÉÍÓÚÂÊÔÃÕÇ][\p{L}\-]*(?:\s[\p{L}\-]+){0,4}?)(?=:\s|\s(?:é|são)\s(?:o|a|os|as|um|uma|aquel[ea]s?|quando|instrumento|atividade|ato|poder|princípio|dever|direito|garantia|norma|conjunto|pessoa|órgão|entidade))/gu;
-const NAO_NEGRITO = /^(?:Ela|Ele|Elas|Eles|Isso|Isto|Há|Também|Mas|Já|Aqui|Ambos|Ambas|Cada|Toda|Todo|Na|No|Nas|Nos|Em|A|O|As|Os|É|Esse|Essa|Este|Esta)$/;
+const RE_DEF_PROSA = /(?:^|(?<=[.;]\s))([A-ZÁÉÍÓÚÂÊÔÃÕÇ][\p{L}\-]*(?:\s[\p{L}\-]+){0,4}?)(?=:\s|\s(?:é|são)\s(?:o|a|os|as|um|uma|aquel[ea]s?|quando|instrumento|atividade|ato|poder|princípio|dever|direito|garantia|norma|conjunto|pessoa|órgão|entidade)(?![\p{L}]))/gu;
+const NAO_NEGRITO = /^(?:(?:Ela|Ele|Elas|Eles|Isso|Isto|Há|Também|Mas|Já|Aqui|Ambos|Ambas|Cada|Toda|Todo|Na|No|Nas|Nos|Em|A|O|As|Os|É|Esse|Essa|Este|Esta)$|(?:O que|Que|Quem|Como|Quando|Onde)(?![\p{L}]))/u;
 function grifarProsa(texto) {
   const cam = UI.camadas;
   // **termo** vira negrito explícito; as posições são contadas no texto já sem os asteriscos
@@ -1874,7 +1877,12 @@ function grifarProsa(texto) {
   let rs = fortes.slice();
   RE_DEF_PROSA.lastIndex = 0;
   let m;
-  while ((m = RE_DEF_PROSA.exec(limpo))) { if (!NAO_NEGRITO.test(m[1]) && m[1].length > 2) rs.push([m.index, m.index + m[1].length, 'neg']); }
+  while ((m = RE_DEF_PROSA.exec(limpo))) {
+    if (NAO_NEGRITO.test(m[1]) || m[1].length <= 2) continue;
+    // O artigo fica fora do negrito: "A ANPD é…" grifa ANPD
+    const art = /^(?:As?|Os?)\s/.exec(m[1]), ini = m.index + (art ? art[0].length : 0);
+    rs.push([ini, m.index + m[1].length, 'neg']);
+  }
   if (cam.num) rs = rs.concat(rangesRegex(limpo, RE_NUM_PROSA, 'g-num'));
   if (cam.alerta) rs = rs.concat(rangesRegex(limpo, RE_ALERTA, 'g-alerta'));
   if (cam.verbo) rs = rs.concat(rangesRegex(limpo, RE_VERBO, 'g-verbo'));
