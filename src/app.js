@@ -1359,7 +1359,8 @@ function renderAlternativas(q, marcada, revelar) {
 }
 // A banca é o primeiro campo da linha da prova (Cebraspe na maioria; IADES no processo seletivo da própria ANPD)
 function bancaDe(q) { return ((q.pv || '').split(' · ')[0] || 'Cebraspe').trim(); }
-function seloReal(q) { return q.o ? '<span class="selo real" title="' + esc(q.pv || '') + '">Item real ' + esc(bancaDe(q)) + '</span>' : ''; }
+// Item adaptado de prova real (certo/errado escrito a partir de uma questão de múltipla escolha): selo próprio
+function seloReal(q) { return q.o ? '<span class="selo real" title="' + esc(q.pv || '') + '">Item real ' + esc(bancaDe(q)) + '</span>' : q.ad ? '<span class="selo" title="' + esc(q.pv || '') + '">Adaptado de prova</span>' : ''; }
 // Ordem do caderno: conhecimentos básicos antes dos específicos, depois pelo número do item
 function ordemProva(q) { const m = /(?:item|questão) (\d+)/.exec(q.pv || ''); return (/Básicos/.test(q.pv || '') ? 0 : 1000) + (m ? Number(m[1]) : 999); }
 function renderComando(q) { return q.cm ? '<p class="comando">' + esc(q.cm) + '</p>' : ''; }
@@ -1395,7 +1396,7 @@ function renderItem(q) {
 }
 function renderExplicacao(q) {
   let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</span>';
-  if (q.o) html += '<p class="pequeno mudo">' + esc(q.pv) + '</p>';
+  if (q.o || (q.ad && q.pv)) html += '<p class="pequeno mudo">' + esc(q.pv) + '</p>';
   html += '<p>' + marcarTermos(q.c, 3) + '</p>';
   if (q.t && q.t.length) {
     html += '<div class="citacao">' + q.t.map((t) => '<q>' + esc(t) + '</q>').join('') + '<span class="fonte">' + esc(q.r) + '</span>' +

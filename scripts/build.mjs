@@ -113,6 +113,7 @@ function compactar(questoes, leisAnexadas) {
       ap,
       p: q.pesquisar && q.pesquisar.length ? q.pesquisar : undefined,
       o: q.origem === 'real' ? 1 : undefined,
+      ad: q.origem === 'adaptada' ? 1 : undefined,
       pv: q.prova || undefined,
       cm: q.comando || undefined,
       tm: q.tema || undefined,
