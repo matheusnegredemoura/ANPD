@@ -1,0 +1,332 @@
+bloco: portugues
+// Português, parte 3: dois textos originais escritos para o banco (temas próximos do cargo) com itens de
+// interpretação e de gramática no padrão Cebraspe (coesão, crase, regência, concordância, colocação, pontuação,
+// reescrita), mais redação oficial segundo o Manual de Redação da Presidência da República (3ª ed., 2018).
+
+apoio_TRANSP: A transparência pública e a proteção de dados pessoais costumam ser apresentadas como forças opostas, como se cada avanço de uma exigisse o recuo da outra. A leitura atenta das leis brasileiras, porém, desfaz essa impressão. A Lei de Acesso à Informação e a Lei Geral de Proteção de Dados partem de um mesmo pressuposto: o de que a informação mantida pelo Estado não pertence aos governantes, mas à sociedade e, em certos casos, a cada cidadão em particular.
+Quando um órgão público divulga a remuneração de seus servidores, ele presta contas do uso de recursos que são de todos. Quando, ao contrário, se recusa a expor o endereço residencial desses mesmos servidores, protege uma informação que não interessa ao controle social e cuja divulgação poderia expô-los a riscos. Em ambos os casos, o critério é idêntico: pergunta-se a que finalidade pública serve a informação e se há meio menos gravoso de alcançá-la.
+Não se trata, portanto, de escolher entre abrir e fechar, mas de saber o que abrir, para quem e por quê. Essa tarefa exige dos gestores mais do que boa vontade; exige método. Sem critérios claros, a administração tende a oscilar entre dois erros simétricos: o sigilo excessivo, que alimenta a desconfiança, e a exposição indiscriminada, que fere direitos e, paradoxalmente, também corrói a confiança nas instituições.
+(Texto escrito para o banco.)
+
+apoio_RESP: Durante muito tempo, fiscalizar significou, sobretudo, punir. O agente público chegava, encontrava a irregularidade e lavrava o auto de infração; o resto era litígio. Esse modelo, embora simples, mostrou-se caro e pouco eficaz: as multas demoravam anos para ser pagas, quando o eram, e raramente alteravam a conduta das empresas que mais precisavam mudar.
+A chamada regulação responsiva propõe outro caminho. Em vez de aplicar a mesma resposta a todos, o regulador escalona sua atuação conforme o comportamento do regulado. Àqueles que cooperam, oferece orientação e prazos para correção; aos que resistem, reserva medidas progressivamente mais duras. A ideia, que costuma ser ilustrada por uma pirâmide, é que a ameaça crível do topo torna possível a conversa na base.
+Nada disso significa leniência. Um regulador que nunca pune perde a autoridade necessária para orientar, e as próprias empresas cumpridoras passam a se sentir em desvantagem diante das que descumprem a lei impunemente. O desafio está em calibrar a resposta: firme o bastante para dissuadir, flexível o bastante para não desperdiçar recursos com quem já está disposto a se adequar.
+(Texto escrito para o banco.)
+
+=== pt3-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @TRANSP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto sustenta que transparência pública e proteção de dados pessoais, embora frequentemente tratadas como opostas, apoiam-se em um pressuposto comum.
+comentario: É a tese do primeiro parágrafo: as duas leis partem da ideia de que a informação mantida pelo Estado não pertence aos governantes. O “porém” marca a virada contra a visão de oposição.
+
+=== pt3-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @TRANSP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, a Lei de Acesso à Informação e a Lei Geral de Proteção de Dados partem do pressuposto de que a informação mantida pelo Estado pertence aos governantes, a quem cabe decidir sobre sua divulgação.
+comentario: Errado. O texto diz o contrário: a informação não pertence aos governantes, mas à sociedade e, em certos casos, a cada cidadão.
+
+=== pt3-03
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @TRANSP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: Infere-se do texto que a divulgação da remuneração dos servidores públicos é vedada pela proteção de dados pessoais.
+comentario: Errado. O texto apresenta essa divulgação como prestação de contas do uso de recursos públicos. O que se protege é o endereço residencial, que não interessa ao controle social.
+
+=== pt3-04
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @TRANSP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No segmento “cuja divulgação poderia expô-los a riscos”, o pronome “cuja” estabelece relação de posse com “uma informação”, e o pronome “los” retoma “servidores”.
+comentario: “Cuja divulgação” equivale a “a divulgação da qual [informação]”. O oblíquo “los” (de “expor + os”) retoma “desses mesmos servidores”.
+
+=== pt3-05
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @TRANSP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No trecho “Quando, ao contrário, se recusa a expor”, a anteposição do pronome “se” à forma verbal “recusa” justifica-se pela presença da conjunção “Quando”, que atrai o pronome, ainda que haja expressão intercalada.
+comentario: Conjunções subordinativas são palavras atrativas e pedem próclise. A expressão intercalada entre vírgulas não anula a atração.
+
+=== pt3-06
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @TRANSP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Em “o critério é idêntico: pergunta-se a que finalidade pública serve a informação”, os dois-pontos introduzem a explicitação do critério mencionado.
+comentario: Os dois-pontos anunciam esclarecimento, enumeração ou explicação do que veio antes. Aqui, explicam qual é o critério.
+
+=== pt3-07
+gab: E
+tema: pt-crase
+ref: texto
+apoio: @TRANSP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Em “a que finalidade pública serve a informação”, o vocábulo “a” que antecede “que” deveria receber acento grave, por ser exigido pela regência de “serve”.
+comentario: Errado. Há só a preposição exigida por “servir a”; não há artigo feminino antes do pronome interrogativo “que”. Sem a fusão de preposição e artigo, não há crase.
+
+=== pt3-08
+gab: E
+tema: pt-concordancia
+ref: texto
+apoio: @TRANSP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No trecho “Não se trata, portanto, de escolher entre abrir e fechar”, a forma verbal “trata” poderia ser flexionada no plural, para concordar com os termos “abrir e fechar”.
+comentario: Errado. “Tratar-se de” é construção impessoal: o “se” indetermina o sujeito e o verbo fica sempre na 3ª pessoa do singular. “Abrir e fechar” integram o complemento regido pela preposição “de”.
+
+=== pt3-09
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @TRANSP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: A conjunção “porém”, em “A leitura atenta das leis brasileiras, porém, desfaz essa impressão”, poderia ser substituída por contudo, sem prejuízo do sentido e da correção gramatical do texto.
+comentario: Ambas são adversativas e podem vir deslocadas, entre vírgulas, depois do sujeito.
+
+=== pt3-10
+gab: C
+tema: pt-reescrita
+ref: texto
+apoio: @TRANSP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O ponto e vírgula empregado em “exige dos gestores mais do que boa vontade; exige método” poderia ser substituído por ponto final, com o devido ajuste de maiúscula, sem prejuízo da correção gramatical.
+comentario: As duas orações são sintaticamente independentes; o ponto final apenas tornaria a pausa mais marcada.
+
+=== pt3-11
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @TRANSP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: O advérbio “paradoxalmente” indica que a exposição indiscriminada, embora pareça favorecer a transparência, produz efeito semelhante ao do sigilo excessivo: a perda de confiança nas instituições.
+comentario: O paradoxo está em que o excesso de abertura, pensado para gerar confiança, também a corrói. Por isso o texto fala em “erros simétricos”.
+
+=== pt3-12
+gab: E
+tema: pt-regencia
+ref: texto
+apoio: @TRANSP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Em “Essa tarefa exige dos gestores mais do que boa vontade”, a preposição presente em “dos gestores” é inadequada, pois o verbo “exigir” só admite complemento não preposicionado.
+comentario: Errado. “Exigir” é transitivo direto e indireto: exige-se algo (objeto direto) de alguém (objeto indireto). “Dos gestores” é o objeto indireto.
+
+=== pt3-13
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @RESP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto contrapõe um modelo de fiscalização centrado na punição a outro em que a resposta do regulador é graduada conforme a conduta do regulado.
+comentario: O primeiro parágrafo descreve o modelo punitivo; o segundo apresenta a regulação responsiva, que escalona a atuação.
+
+=== pt3-14
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @RESP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: De acordo com o texto, a regulação responsiva substitui integralmente as sanções por medidas de orientação.
+comentario: Errado. Os que resistem recebem medidas progressivamente mais duras, e o terceiro parágrafo afirma que o modelo não significa leniência: a ameaça crível de punição é o que viabiliza a conversa.
+
+=== pt3-15
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @RESP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Para o autor, a ausência de punição pode prejudicar inclusive as empresas que cumprem a lei.
+comentario: As empresas cumpridoras passam a se sentir em desvantagem diante das que descumprem a lei impunemente.
+
+=== pt3-16
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @RESP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: Em “as multas demoravam anos para ser pagas, quando o eram”, o pronome “o” retoma a ideia expressa por “pagas”.
+comentario: É o pronome demonstrativo “o”, equivalente a “isso”, que retoma o predicativo: “quando eram pagas”. O Cebraspe gosta dessa retomada.
+
+=== pt3-17
+gab: C
+tema: pt-crase
+ref: texto
+apoio: @RESP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Em “Àqueles que cooperam, oferece orientação”, o acento grave decorre da fusão da preposição exigida por “oferece” com o pronome “aqueles”.
+comentario: Quem oferece, oferece algo a alguém. A preposição “a” mais o “a” inicial do demonstrativo “aqueles” resulta em “àqueles”. No paralelo “aos que resistem”, a preposição se contrai com o demonstrativo “os” (= aqueles).
+
+=== pt3-18
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @RESP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No trecho “as multas demoravam anos para ser pagas”, a forma verbal “ser” poderia ser flexionada no plural — serem — sem prejuízo da correção gramatical.
+comentario: Com sujeito do infinitivo igual ao da oração principal (“as multas”), a flexão é facultativa: “para ser pagas” e “para serem pagas” são aceitas.
+
+=== pt3-19
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @RESP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: A expressão “embora simples” estabelece relação de concessão e poderia ser substituída por apesar de simples, sem alteração do sentido do texto.
+comentario: As duas expressões são concessivas: o modelo era simples, mas isso não impediu que fosse caro e pouco eficaz.
+
+=== pt3-20
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @RESP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: No trecho “Nada disso significa leniência”, o vocábulo “leniência” foi empregado com o sentido de rigor excessivo.
+comentario: Errado. Leniência é brandura, indulgência. O autor nega que a regulação responsiva seja branda demais.
+
+=== pt3-21
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @RESP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: A supressão das vírgulas que isolam a oração “que costuma ser ilustrada por uma pirâmide” alteraria o sentido do texto, pois a oração, hoje explicativa, passaria a ser restritiva.
+comentario: Entre vírgulas, a oração adjetiva acrescenta informação sobre toda “a ideia”. Sem as vírgulas, restringiria o termo, sugerindo que há outras ideias não ilustradas por pirâmide.
+
+=== pt3-22
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @RESP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: Em “torna possível a conversa na base”, o adjetivo “possível” exerce a função de predicativo do objeto “a conversa”.
+comentario: “Tornar” aqui é verbo transobjetivo: torna [a conversa] [possível]. A ordem invertida é o que costuma confundir.
+
+=== pt3-23
+gab: C
+tema: pt-colocacao
+ref: texto
+apoio: @RESP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No trecho “passam a se sentir em desvantagem”, o pronome “se” poderia ser posposto à forma verbal “sentir” — passam a sentir-se —, sem prejuízo da correção gramatical.
+comentario: Em locução verbal com infinitivo e sem palavra atrativa, o pronome pode ficar antes ou depois do infinitivo.
+
+=== pt3-24
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @RESP
+comando: Com relação às ideias e a aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No último período, os adjetivos “firme” e “flexível” caracterizam, respectivamente, o regulador e as empresas reguladas.
+comentario: Errado. Os dois adjetivos caracterizam “a resposta”, que deve ser calibrada: firme o bastante para dissuadir e flexível o bastante para não desperdiçar recursos.
+
+=== pt3-25
+gab: C
+tema: pt-redacao-oficial
+ref: doutrina Manual de Redação da Presidência da República (3ª ed., 2018)
+armadilha: conceito
+dif: 2
+enunciado: Em comunicação oficial dirigida a ministro de Estado, a concordância com o pronome de tratamento “Vossa Excelência” faz-se na terceira pessoa, como em “Vossa Excelência receberá o relatório solicitado por sua assessoria”.
+comentario: Pronomes de tratamento levam verbo e possessivo na 3ª pessoa (“sua”, e não “vossa”). Já o gênero dos adjetivos segue o sexo da pessoa: “Vossa Excelência está convidado” para um homem.
+
+=== pt3-26
+gab: E
+tema: pt-redacao-oficial
+ref: doutrina Manual de Redação da Presidência da República (3ª ed., 2018)
+armadilha: conceito
+dif: 2
+enunciado: Segundo o Manual de Redação da Presidência da República, o tratamento “Digníssimo” deve ser usado no endereçamento de comunicações às autoridades de mais alta hierarquia.
+comentario: Errado. O Manual aboliu “Digníssimo” (DD): a dignidade é pressuposto do cargo público e não precisa ser repetida no tratamento.
+
+=== pt3-27
+gab: C
+tema: pt-redacao-oficial
+ref: doutrina Manual de Redação da Presidência da República (3ª ed., 2018)
+armadilha: conceito
+dif: 2
+enunciado: O fecho “Respeitosamente” é empregado em comunicações dirigidas a autoridades de hierarquia superior, inclusive ao Presidente da República, e “Atenciosamente”, nas dirigidas a autoridades de mesma hierarquia ou de hierarquia inferior.
+comentario: São os dois fechos previstos para as comunicações oficiais; ficam de fora as dirigidas a autoridades estrangeiras, que seguem rito e tradição próprios.
+
+=== pt3-28
+gab: C
+tema: pt-redacao-oficial
+ref: doutrina Manual de Redação da Presidência da República (3ª ed., 2018)
+armadilha: conceito
+dif: 2
+enunciado: A impessoalidade da redação oficial decorre do fato de a comunicação ser feita em nome do serviço público, o que afasta impressões individuais de quem a redige.
+comentario: O emissor é sempre o órgão público, mesmo quando assina uma autoridade. Impessoalidade, clareza, precisão, objetividade, concisão, formalidade e padronização estão entre os atributos da redação oficial.
+
+=== pt3-29
+gab: E
+tema: pt-redacao-oficial
+ref: doutrina Manual de Redação da Presidência da República (3ª ed., 2018)
+armadilha: conceito
+dif: 2
+enunciado: A concisão, na redação oficial, consiste em suprimir do texto toda informação que não seja estritamente numérica, de modo a reduzi-lo ao menor número possível de palavras.
+comentario: Errado. Concisão é transmitir o máximo de informação com o mínimo de palavras, sem eliminar passagens substanciais. Cortar o essencial compromete a clareza.
+
+=== pt3-30
+gab: C
+tema: pt-redacao-oficial
+ref: doutrina Manual de Redação da Presidência da República (3ª ed., 2018)
+armadilha: conceito
+dif: 2
+enunciado: No vocativo das comunicações dirigidas aos chefes de Poder, emprega-se a forma “Excelentíssimo Senhor”, seguida do cargo, como em “Excelentíssimo Senhor Presidente da República”.
+comentario: Para as demais autoridades, o vocativo é “Senhor” ou “Senhora” seguido do cargo, como “Senhor Diretor-Presidente”.
