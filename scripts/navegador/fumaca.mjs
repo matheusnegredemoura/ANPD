@@ -177,6 +177,21 @@ await passo('leitura do dia até o fim da fila', async () => {
   throw new Error('a fila não terminou em 40 artigos');
 });
 
+await passo('aula da trilha com negritos e grifos', async () => {
+  await p.click('.aba[data-vista="mais"]');
+  await p.click('[data-acao="mais"][data-sub="menu"]').catch(() => {});
+  await p.click('.menu-mais [data-sub="trilha"]');
+  // O subtema fica dentro do grupo recolhido da trilha: aciona o botão direto
+  await p.evaluate(() => document.querySelector('[data-acao="subtema"][data-st="const-eficacia"]').click());
+  await p.waitForSelector('.texto-aula');
+  const neg = await p.locator('.texto-aula .neg').count(), num = await p.locator('.texto-aula .g-num').count();
+  if (neg < 5 || num < 3) throw new Error('negritos ' + neg + ', números ' + num);
+  if ((await p.textContent('.texto-aula')).includes('**')) throw new Error('marcação ** aparecendo no texto');
+  await p.click('.cartao.aula [data-acao="camada"][data-c="num"]');
+  if (await p.locator('.texto-aula .g-num').count()) throw new Error('camada de números não desligou');
+  await p.click('.cartao.aula [data-acao="camada"][data-c="num"]');
+});
+
 for (const sub of ['metodo', 'cebraspe', 'discursiva', 'progresso', 'plano', 'pesquisar', 'glossario', 'ajustes']) {
   await passo('mais/' + sub + ' sem rolagem horizontal', async () => {
     await p.click('.aba[data-vista="mais"]');

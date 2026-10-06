@@ -1607,7 +1607,7 @@ function abrirFolha(html, rotulo) {
   const b = f.querySelector('[data-acao="fechar-folha"]');
   if (b) b.focus();
 }
-function fecharFolha() { const f = document.getElementById('folha'); f.hidden = true; f.innerHTML = ''; UI.folhaArt = null; }
+function fecharFolha() { const f = document.getElementById('folha'); f.hidden = true; f.innerHTML = ''; UI.folhaArt = null; UI.folhaAula = null; }
 function cabFolha(rotulo, titulo) { return '<div class="folha-cab"><div><span class="rotulo">' + esc(rotulo) + '</span><h2>' + esc(titulo) + '</h2></div><button class="btn pequeno" data-acao="fechar-folha">Fechar</button></div>'; }
 function folhaItem(id, resp) {
   const q = QI.get(id);
@@ -1854,14 +1854,52 @@ function textoLei(a, qExtras) {
     return '<p class="' + cls + '">' + html + '</p>';
   }).join('');
 }
+// Grifos das aulas da trilha: as mesmas camadas da lei seca (prazos e números, alerta, deve × pode), com números por
+// extenso, que é como a aula escreve ("um terço", "três quintos", "dois turnos"), referências a dispositivos em destaque
+// discreto e negrito no termo que está sendo definido ("Poder de polícia é…", "Plena:"). **termo** acrescenta negrito
+// onde a regra não alcança.
+const RE_NUM_PROSA = /(?<![\p{L}\d])(?:\d+(?:[.,]\d+)?%|\d+\s(?:dias(?: úteis| corridos)?|meses|anos|horas|turnos|vezes|membros)|(?:um|uma|dois|duas|três|quatro|cinco|seis|sete|oito|nove|dez|onze|doze|quinze|vinte|trinta|quarenta|cinquenta|sessenta|noventa|cem|cento e vinte|mil)\s(?:dias(?: úteis| corridos)?|meses|anos|horas|turnos|terços?|quintos?|quartos?|vezes|membros|instâncias)|três quintos|dois terços|um terço|mais da metade|metade|maioria (?:absoluta|relativa|simples|qualificada)|unanimidade)(?![\p{L}])/giu;
+const RE_REF_PROSA = /(?<![\p{L}])(?:arts?\.\s\d+[º°]?(?:-[A-Z])?(?:,\s(?:[IVXL]+|§\s\d+[º°]?|caput|parágrafo único))*|§§?\s\d+[º°]?|(?:ADI|ADPF|RE|ARE|MS|HC)\s[\d.]+)/gu;
+const RE_DEF_PROSA = /(?:^|(?<=[.;]\s))([A-ZÁÉÍÓÚÂÊÔÃÕÇ][\p{L}\-]*(?:\s[\p{L}\-]+){0,4}?)(?=:\s|\s(?:é|são)\s(?:o|a|os|as|um|uma|aquel[ea]s?|quando|instrumento|atividade|ato|poder|princípio|dever|direito|garantia|norma|conjunto|pessoa|órgão|entidade))/gu;
+const NAO_NEGRITO = /^(?:Ela|Ele|Elas|Eles|Isso|Isto|Há|Também|Mas|Já|Aqui|Ambos|Ambas|Cada|Toda|Todo|Na|No|Nas|Nos|Em|A|O|As|Os|É|Esse|Essa|Este|Esta)$/;
+function grifarProsa(texto) {
+  const cam = UI.camadas;
+  // **termo** vira negrito explícito; as posições são contadas no texto já sem os asteriscos
+  const fortes = [];
+  let limpo = '';
+  String(texto).split(/(\*\*[^*]+\*\*)/).forEach((pedaco) => {
+    const m = /^\*\*([^*]+)\*\*$/.exec(pedaco);
+    if (m) { fortes.push([limpo.length, limpo.length + m[1].length, 'neg']); limpo += m[1]; } else limpo += pedaco;
+  });
+  let rs = fortes.slice();
+  RE_DEF_PROSA.lastIndex = 0;
+  let m;
+  while ((m = RE_DEF_PROSA.exec(limpo))) { if (!NAO_NEGRITO.test(m[1]) && m[1].length > 2) rs.push([m.index, m.index + m[1].length, 'neg']); }
+  if (cam.num) rs = rs.concat(rangesRegex(limpo, RE_NUM_PROSA, 'g-num'));
+  if (cam.alerta) rs = rs.concat(rangesRegex(limpo, RE_ALERTA, 'g-alerta'));
+  if (cam.verbo) rs = rs.concat(rangesRegex(limpo, RE_VERBO, 'g-verbo'));
+  rs = rs.concat(rangesRegex(limpo, RE_REF_PROSA, 'ref-dispo'));
+  const cortes = new Set([0, limpo.length]);
+  rs.forEach(([i, f]) => { cortes.add(i); cortes.add(f); });
+  const pts = [...cortes].sort((x, y) => x - y);
+  let html = '';
+  for (let j = 0; j < pts.length - 1; j++) {
+    const i = pts[j], f = pts[j + 1];
+    const classes = [...new Set(rs.filter((r) => r[0] <= i && r[1] >= f).map((r) => r[2]))];
+    const seg = esc(limpo.slice(i, f));
+    html += classes.length ? '<span class="' + classes.join(' ') + '">' + seg + '</span>' : seg;
+  }
+  return html;
+}
 function fmtNotas(s) { return s.replace(/\((Redação dada|Incluído|Incluída|Revogado|Promulgação)[^)]*\)/g, (m) => '<span class="nota">' + m + '</span>'); }
-function legendaCamadas() {
+// Na aula só valem as camadas que dependem do texto (números, alerta, deve × pode); "o que cai" e "meus erros" são da lei
+function legendaCamadas(soTexto) {
   const cam = UI.camadas;
   const item = (k, t, estilo) => '<button class="camada" data-acao="camada" data-c="' + k + '" aria-pressed="' + !!cam[k] + '"><i style="' + estilo + '"></i>' + t + '</button>';
   return '<div class="camadas" aria-label="Grifos">' +
-    item('cai', 'O que cai', 'background:var(--mark)') + item('num', 'Prazos e números', 'background:var(--accent)') +
+    (soTexto ? '' : item('cai', 'O que cai', 'background:var(--mark)')) + item('num', 'Prazos e números', 'background:var(--accent)') +
     item('alerta', 'Palavras de alerta', 'background:var(--errado)') + item('verbo', 'Deve × pode', 'border:1.5px dotted var(--ink)') +
-    item('erro', 'Meus erros', 'background:var(--errado-bg);box-shadow:inset 0 -2px 0 var(--errado)') + '</div>';
+    (soTexto ? '' : item('erro', 'Meus erros', 'background:var(--errado-bg);box-shadow:inset 0 -2px 0 var(--errado)')) + '</div>';
 }
 function seletorLei() {
   return '<label class="rotulo" for="sel-lei">Norma</label><select id="sel-lei" class="sel-lei" data-acao="sel-lei">' +
@@ -2235,10 +2273,11 @@ function chipEstado(e) {
 function folhaAula(id) {
   const st = SUBTEMAS.get(id);
   if (!st) return;
-  const html = cabFolha('Aula', st.nome) + st.aula.map((p) => '<p>' + esc(p) + '</p>').join('') +
-    '<h3>Pontos-chave</h3><ul class="lista-chave">' + st.chave.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul>' +
+  const html = cabFolha('Aula', st.nome) + legendaCamadas(true) + '<div class="texto-aula">' + st.aula.map((p) => '<p>' + grifarProsa(p) + '</p>').join('') + '</div>' +
+    '<h3>Pontos-chave</h3><ul class="lista-chave">' + st.chave.map((c) => '<li>' + grifarProsa(c) + '</li>').join('') + '</ul>' +
     '<h3>Armadilhas</h3><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul>';
   abrirFolha(html, 'Aula: ' + st.nome);
+  UI.folhaAula = id;
 }
 function renderTrilhas() {
   if (UI.subtema && SUBTEMAS.get(UI.subtema)) return renderSubtema(UI.subtema);
@@ -2270,8 +2309,8 @@ function renderSubtema(id) {
     (e.n ? '<button class="btn' + (e.novos ? '' : ' primario') + '" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pratica">' + (e.novos ? '3. ' : '') + 'Praticar · ' + Math.min(20, e.n) + ' itens</button>' : '') +
     (e.erros ? '<button class="btn" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="erros">Refazer erros · ' + e.erros + '</button>' : '') +
     '</div></div>';
-  html += '<div class="cartao aula" id="aula-' + esc(id) + '"><h2>Aula</h2>' + st.aula.map((p) => '<p>' + esc(p) + '</p>').join('') + '</div>';
-  html += '<div class="cartao"><h2>Pontos-chave</h2><ul class="lista-chave">' + st.chave.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul></div>';
+  html += '<div class="cartao aula" id="aula-' + esc(id) + '"><h2>Aula</h2>' + legendaCamadas(true) + '<div class="texto-aula">' + st.aula.map((p) => '<p>' + grifarProsa(p) + '</p>').join('') + '</div></div>';
+  html += '<div class="cartao"><h2>Pontos-chave</h2><ul class="lista-chave">' + st.chave.map((c) => '<li>' + grifarProsa(c) + '</li>').join('') + '</ul></div>';
   html += '<div class="cartao"><h2>Como o Cebraspe tenta te derrubar</h2><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul></div>';
   const arts = (st.arts || []).filter((k) => ARTI.get(k));
   if (arts.length) html += '<div class="cartao"><h2>Lei seca deste subtema</h2><div class="chips">' + arts.map((k) => '<button class="chip" data-acao="abrir-art" data-art="' + esc(k) + '">' + esc(nomeArt(k)) + '</button>').join('') + '</div><p class="pequeno mudo">Leia com os grifos depois da aula: prazos, exceções e palavras de alerta são o que a banca troca.</p></div>';
@@ -2567,7 +2606,9 @@ document.addEventListener('click', async (ev) => {
     case 'camada':
       UI.camadas[alvo.dataset.c] = !UI.camadas[alvo.dataset.c];
       salvarUI();
-      if (alvo.closest('#folha') && UI.folhaArt) folhaArtigo(UI.folhaArt, UI.folhaQ); else renderLei();
+      if (alvo.closest('#folha') && UI.folhaArt) folhaArtigo(UI.folhaArt, UI.folhaQ);
+      else if (alvo.closest('#folha') && UI.folhaAula) folhaAula(UI.folhaAula);
+      else if (UI.vista === 'mais') renderMais(); else renderLei();
       break;
     case 'treinar-art': { const ids = (POR_ART.get(alvo.dataset.art) || []).map((q) => q.id); iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Questões · ' + nomeArt(alvo.dataset.art), chave: 'art:' + alvo.dataset.art }); break; }
     case 'cards-art': iniciarCards((CARDS_POR_ART.get(alvo.dataset.art) || []).map((c) => c.id), 'Cards · ' + nomeArt(alvo.dataset.art)); break;
