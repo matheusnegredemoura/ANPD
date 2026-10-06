@@ -83,7 +83,7 @@
         { "data": "2026-12-05", "atividade": "Simulado curto: LGPD + resoluções + ECA Digital acumulado", "duracao": "3h", "modo": "simulado", "blocos": [], "n": 60 }
       ]}
     ]},
-    { "id": "f5", "titulo": "Fase 5", "subtitulo": "Direito constitucional e administrativo, comparado, economia e simulados gerais", "periodo": "07/12 em diante", "semanas": [
+    { "id": "f5", "titulo": "Fase 5", "subtitulo": "Direito constitucional e administrativo, comparado, economia e simulados gerais", "periodo": "07/12 a 22/12", "semanas": [
       { "titulo": "Semana 10", "periodo": "07/12 a 13/12", "dias": [
         { "data": "2026-12-07", "atividade": "Leitura + questões: direito constitucional (direitos fundamentais e proteção de dados)", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional"], "n": 15 },
         { "data": "2026-12-08", "atividade": "Leitura + questões: direito administrativo (poder de polícia, processo administrativo aplicado à ANPD)", "duracao": "1h45", "modo": "treino", "blocos": ["administrativo", "lai", "etica-improbidade", "lei-9784", "constitucional", "lgpd-55"], "n": 20 },
@@ -103,7 +103,120 @@
       { "titulo": "Reta final", "periodo": "21/12 a 22/12", "dias": [
         { "data": "2026-12-21", "atividade": "Revisão livre dos pontos mais fracos dos 3 simulados + checagem de notícia de edital", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 30 },
         { "data": "2026-12-22", "atividade": "Prazo legal máximo do edital: revisão livre e checagem de notícia de edital", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 30 }
-      ], "nota": "Se o edital não sair até 22/12, o ciclo recomeça pelos blocos que os simulados apontaram como mais fracos, voltando ao mapa de prioridades." }
+      ], "nota": "Se o edital não sair até 22/12, a Fase 6 segue em ciclos pelos blocos de prioridade até a prova provável; os simulados apontam onde reforçar." }
+    ]},
+    { "id": "f6", "titulo": "Fase 6", "subtitulo": "Até a prova provável: ciclos de prioridade, simulados quinzenais e revisão", "periodo": "23/12 a 28/03", "semanas": [
+      { "titulo": "Semana 12", "periodo": "23/12 a 27/12", "dias": [
+        { "data": "2026-12-23", "atividade": "Questões + leitura: ECA Digital e decretos", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital"], "n": 20 },
+        { "data": "2026-12-24", "atividade": "Véspera de Natal: revisão leve, só o que venceu na revisão espaçada", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 20 },
+        { "data": "2026-12-25", "atividade": "Natal: revisão leve, só o que venceu na revisão espaçada", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 20 },
+        { "data": "2026-12-26", "atividade": "Simulado completo cronometrado (120 itens, uma errada anula uma certa) + correção pelos dispositivos errados", "duracao": "4h", "modo": "simulado", "blocos": [], "n": 120 }
+      ]},
+      { "titulo": "Semana 13", "periodo": "28/12 a 03/01", "dias": [
+        { "data": "2026-12-28", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 17 a 22 (direitos do titular)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-17-22"], "n": 25 },
+        { "data": "2026-12-29", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 5º a 11 (conceitos, princípios, bases legais)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-5-11"], "n": 25 },
+        { "data": "2026-12-30", "atividade": "Questões + leitura: Marco Civil e deveres das plataformas + ECA Digital e decretos", "duracao": "1h45", "modo": "treino", "blocos": ["marco-civil", "eca-digital"], "n": 20 },
+        { "data": "2026-12-31", "atividade": "Véspera de Ano-Novo: revisão leve, só o que venceu", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 20 },
+        { "data": "2027-01-01", "atividade": "Ano-Novo: revisão leve, só o que venceu", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 20 },
+        { "data": "2027-01-02", "atividade": "Bloco longo: economia, políticas públicas e inglês + uma discursiva (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["economia", "gestao-publica", "ingles", "portugues"], "n": 40 }
+      ]},
+      { "titulo": "Semana 14", "periodo": "04/01 a 10/01", "dias": [
+        { "data": "2027-01-04", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 52 a 54 (sanções) + Resolução 4/2023 (dosimetria)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-52-54", "res-4-2023"], "n": 25 },
+        { "data": "2027-01-05", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 23 a 32 (Poder Público) + LAI", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-23-32", "lai"], "n": 25 },
+        { "data": "2027-01-06", "atividade": "Questões + leitura: segurança da informação (NIST CSF, PNCiber, ISO)", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo"], "n": 20 },
+        { "data": "2027-01-07", "atividade": "Tronco regulatório e direito: Lei 13.848/2019 + AIR (Decreto 10.411/2020)", "duracao": "1h45", "modo": "treino", "blocos": ["lei-13848", "regulacao-teoria"], "n": 20 },
+        { "data": "2027-01-08", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
+        { "data": "2027-01-09", "atividade": "Simulado completo cronometrado (120 itens, uma errada anula uma certa) + correção pelos dispositivos errados", "duracao": "4h", "modo": "simulado", "blocos": [], "n": 120 }
+      ]},
+      { "titulo": "Semana 15", "periodo": "11/01 a 17/01", "dias": [
+        { "data": "2027-01-11", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 55-A a 58-B (a ANPD) + Resolução 1/2021 (fiscalização e processo sancionador)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-55", "res-1-2021"], "n": 25 },
+        { "data": "2027-01-12", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 46 a 51 (segurança e boas práticas) + Resolução 15/2024 (incidente)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-46-51", "res-15-2024"], "n": 25 },
+        { "data": "2027-01-13", "atividade": "Questões + leitura: GDPR e Convenção 108+ + LGPD arts. 33 a 36 (transferência internacional)", "duracao": "1h45", "modo": "treino", "blocos": ["gdpr", "lgpd-33-36"], "n": 20 },
+        { "data": "2027-01-14", "atividade": "Tronco regulatório e direito: Lei 9.784/1999 + direito administrativo (poder de polícia e atos)", "duracao": "1h45", "modo": "treino", "blocos": ["lei-9784", "administrativo"], "n": 20 },
+        { "data": "2027-01-15", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
+        { "data": "2027-01-16", "atividade": "Bloco longo: economia, políticas públicas e inglês + uma discursiva (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["economia", "gestao-publica", "ingles", "portugues"], "n": 40 }
+      ]},
+      { "titulo": "Semana 16", "periodo": "18/01 a 24/01", "dias": [
+        { "data": "2027-01-18", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 33 a 36 (transferência internacional) + Resolução 19/2024 (cláusulas-padrão) + Resolução 32/2026 (adequação da UE)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-33-36", "res-19-2024", "res-32-2026"], "n": 25 },
+        { "data": "2027-01-19", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 12 a 16 + LGPD arts. 37 a 45 (agentes e responsabilidade) + Resolução 18/2024 (encarregado)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-12-16", "lgpd-37-45", "res-18-2024"], "n": 25 },
+        { "data": "2027-01-20", "atividade": "Questões + leitura: ECA Digital e decretos", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital"], "n": 20 },
+        { "data": "2027-01-21", "atividade": "Tronco regulatório e direito: Constituição (direitos fundamentais e EC 115/2022) + LAI", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional", "lai"], "n": 20 },
+        { "data": "2027-01-22", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
+        { "data": "2027-01-23", "atividade": "Simulado completo cronometrado (120 itens, uma errada anula uma certa) + correção pelos dispositivos errados", "duracao": "4h", "modo": "simulado", "blocos": [], "n": 120 }
+      ]},
+      { "titulo": "Semana 17", "periodo": "25/01 a 31/01", "dias": [
+        { "data": "2027-01-25", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 17 a 22 (direitos do titular)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-17-22"], "n": 25 },
+        { "data": "2027-01-26", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 1º a 4º e 14 + Resolução 2/2022 (pequeno porte)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-1-4-14", "res-2-2022"], "n": 25 },
+        { "data": "2027-01-27", "atividade": "Questões + leitura: Marco Civil e deveres das plataformas + ECA Digital e decretos", "duracao": "1h45", "modo": "treino", "blocos": ["marco-civil", "eca-digital"], "n": 20 },
+        { "data": "2027-01-28", "atividade": "Tronco regulatório e direito: Lei 13.848/2019 + Lei 9.784/1999 + ética, integridade e conflito de interesses", "duracao": "1h45", "modo": "treino", "blocos": ["lei-13848", "lei-9784", "etica-improbidade"], "n": 20 },
+        { "data": "2027-01-29", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
+        { "data": "2027-01-30", "atividade": "Bloco longo: economia, políticas públicas e inglês + uma discursiva (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["economia", "gestao-publica", "ingles", "portugues"], "n": 40 }
+      ]},
+      { "titulo": "Semana 18", "periodo": "01/02 a 07/02", "dias": [
+        { "data": "2027-02-01", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 52 a 54 (sanções) + Resolução 4/2023 (dosimetria)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-52-54", "res-4-2023"], "n": 25 },
+        { "data": "2027-02-02", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 5º a 11 (conceitos, princípios, bases legais)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-5-11"], "n": 25 },
+        { "data": "2027-02-03", "atividade": "Questões + leitura: segurança da informação (NIST CSF, PNCiber, ISO)", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo"], "n": 20 },
+        { "data": "2027-02-04", "atividade": "Tronco regulatório e direito: Lei 13.848/2019 + AIR (Decreto 10.411/2020)", "duracao": "1h45", "modo": "treino", "blocos": ["lei-13848", "regulacao-teoria"], "n": 20 },
+        { "data": "2027-02-05", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
+        { "data": "2027-02-06", "atividade": "Simulado completo cronometrado (120 itens, uma errada anula uma certa) + correção pelos dispositivos errados", "duracao": "4h", "modo": "simulado", "blocos": [], "n": 120 }
+      ]},
+      { "titulo": "Semana 19", "periodo": "08/02 a 14/02", "dias": [
+        { "data": "2027-02-08", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 55-A a 58-B (a ANPD) + Resolução 1/2021 (fiscalização e processo sancionador)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-55", "res-1-2021"], "n": 25 },
+        { "data": "2027-02-09", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 23 a 32 (Poder Público) + LAI", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-23-32", "lai"], "n": 25 },
+        { "data": "2027-02-10", "atividade": "Questões + leitura: GDPR e Convenção 108+ + LGPD arts. 33 a 36 (transferência internacional)", "duracao": "1h45", "modo": "treino", "blocos": ["gdpr", "lgpd-33-36"], "n": 20 },
+        { "data": "2027-02-11", "atividade": "Tronco regulatório e direito: Lei 9.784/1999 + direito administrativo (poder de polícia e atos)", "duracao": "1h45", "modo": "treino", "blocos": ["lei-9784", "administrativo"], "n": 20 },
+        { "data": "2027-02-12", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
+        { "data": "2027-02-13", "atividade": "Bloco longo: economia, políticas públicas e inglês + uma discursiva (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["economia", "gestao-publica", "ingles", "portugues"], "n": 40 }
+      ]},
+      { "titulo": "Semana 20", "periodo": "15/02 a 21/02", "dias": [
+        { "data": "2027-02-15", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 33 a 36 (transferência internacional) + Resolução 19/2024 (cláusulas-padrão) + Resolução 32/2026 (adequação da UE)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-33-36", "res-19-2024", "res-32-2026"], "n": 25 },
+        { "data": "2027-02-16", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 46 a 51 (segurança e boas práticas) + Resolução 15/2024 (incidente)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-46-51", "res-15-2024"], "n": 25 },
+        { "data": "2027-02-17", "atividade": "Questões + leitura: ECA Digital e decretos", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital"], "n": 20 },
+        { "data": "2027-02-18", "atividade": "Tronco regulatório e direito: Constituição (direitos fundamentais e EC 115/2022) + LAI", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional", "lai"], "n": 20 },
+        { "data": "2027-02-19", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
+        { "data": "2027-02-20", "atividade": "Simulado completo cronometrado (120 itens, uma errada anula uma certa) + correção pelos dispositivos errados", "duracao": "4h", "modo": "simulado", "blocos": [], "n": 120 }
+      ]},
+      { "titulo": "Semana 21", "periodo": "22/02 a 28/02", "dias": [
+        { "data": "2027-02-22", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 17 a 22 (direitos do titular)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-17-22"], "n": 25 },
+        { "data": "2027-02-23", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 12 a 16 + LGPD arts. 37 a 45 (agentes e responsabilidade) + Resolução 18/2024 (encarregado)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-12-16", "lgpd-37-45", "res-18-2024"], "n": 25 },
+        { "data": "2027-02-24", "atividade": "Questões + leitura: Marco Civil e deveres das plataformas + ECA Digital e decretos", "duracao": "1h45", "modo": "treino", "blocos": ["marco-civil", "eca-digital"], "n": 20 },
+        { "data": "2027-02-25", "atividade": "Tronco regulatório e direito: Lei 13.848/2019 + Lei 9.784/1999 + ética, integridade e conflito de interesses", "duracao": "1h45", "modo": "treino", "blocos": ["lei-13848", "lei-9784", "etica-improbidade"], "n": 20 },
+        { "data": "2027-02-26", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
+        { "data": "2027-02-27", "atividade": "Bloco longo: economia, políticas públicas e inglês + uma discursiva (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["economia", "gestao-publica", "ingles", "portugues"], "n": 40 }
+      ]},
+      { "titulo": "Semana 22", "periodo": "01/03 a 07/03", "dias": [
+        { "data": "2027-03-01", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 52 a 54 (sanções) + Resolução 4/2023 (dosimetria)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-52-54", "res-4-2023"], "n": 25 },
+        { "data": "2027-03-02", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 1º a 4º e 14 + Resolução 2/2022 (pequeno porte)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-1-4-14", "res-2-2022"], "n": 25 },
+        { "data": "2027-03-03", "atividade": "Questões + leitura: segurança da informação (NIST CSF, PNCiber, ISO)", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo"], "n": 20 },
+        { "data": "2027-03-04", "atividade": "Tronco regulatório e direito: Lei 13.848/2019 + AIR (Decreto 10.411/2020)", "duracao": "1h45", "modo": "treino", "blocos": ["lei-13848", "regulacao-teoria"], "n": 20 },
+        { "data": "2027-03-05", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
+        { "data": "2027-03-06", "atividade": "Simulado completo cronometrado (120 itens, uma errada anula uma certa) + correção pelos dispositivos errados", "duracao": "4h", "modo": "simulado", "blocos": [], "n": 120 }
+      ]},
+      { "titulo": "Semana 23", "periodo": "08/03 a 14/03", "dias": [
+        { "data": "2027-03-08", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 55-A a 58-B (a ANPD) + Resolução 1/2021 (fiscalização e processo sancionador)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-55", "res-1-2021"], "n": 25 },
+        { "data": "2027-03-09", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 5º a 11 (conceitos, princípios, bases legais)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-5-11"], "n": 25 },
+        { "data": "2027-03-10", "atividade": "Questões + leitura: GDPR e Convenção 108+ + LGPD arts. 33 a 36 (transferência internacional)", "duracao": "1h45", "modo": "treino", "blocos": ["gdpr", "lgpd-33-36"], "n": 20 },
+        { "data": "2027-03-11", "atividade": "Tronco regulatório e direito: Lei 9.784/1999 + direito administrativo (poder de polícia e atos)", "duracao": "1h45", "modo": "treino", "blocos": ["lei-9784", "administrativo"], "n": 20 },
+        { "data": "2027-03-12", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
+        { "data": "2027-03-13", "atividade": "Bloco longo: economia, políticas públicas e inglês + uma discursiva (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["economia", "gestao-publica", "ingles", "portugues"], "n": 40 }
+      ]},
+      { "titulo": "Semana 24", "periodo": "15/03 a 21/03", "dias": [
+        { "data": "2027-03-15", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 33 a 36 (transferência internacional) + Resolução 19/2024 (cláusulas-padrão) + Resolução 32/2026 (adequação da UE)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-33-36", "res-19-2024", "res-32-2026"], "n": 25 },
+        { "data": "2027-03-16", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 23 a 32 (Poder Público) + LAI", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-23-32", "lai"], "n": 25 },
+        { "data": "2027-03-17", "atividade": "Questões + leitura: ECA Digital e decretos", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital"], "n": 20 },
+        { "data": "2027-03-18", "atividade": "Tronco regulatório e direito: Constituição (direitos fundamentais e EC 115/2022) + LAI", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional", "lai"], "n": 20 },
+        { "data": "2027-03-19", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
+        { "data": "2027-03-20", "atividade": "Simulado completo cronometrado (120 itens, uma errada anula uma certa) + correção pelos dispositivos errados", "duracao": "4h", "modo": "simulado", "blocos": [], "n": 120 }
+      ]},
+      { "titulo": "Reta final da prova", "periodo": "22/03 a 28/03", "dias": [
+        { "data": "2027-03-22", "atividade": "Último simulado completo cronometrado, no horário provável da prova", "duracao": "4h", "modo": "simulado", "blocos": [], "n": 120 },
+        { "data": "2027-03-23", "atividade": "Correção do simulado + lei seca grifada dos dispositivos errados", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
+        { "data": "2027-03-24", "atividade": "Revisão da lista curta acumulada de todo o período", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 50 },
+        { "data": "2027-03-25", "atividade": "Lei seca grifada: LGPD prioridade 1 e Resoluções 1/2021, 4/2023 e 15/2024", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-17-22", "lgpd-52-54", "lgpd-55", "lgpd-33-36", "res-1-2021", "res-4-2023", "res-15-2024"], "n": 20 },
+        { "data": "2027-03-26", "atividade": "Revisão leve + logística da prova (local, documento, caneta preta transparente)", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 20 },
+        { "data": "2027-03-27", "atividade": "Véspera: só os cards vencidos, se quiser. Dormir cedo.", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 10 },
+        { "data": "2027-03-28", "atividade": "Prova provável (domingo). Nada de conteúdo novo.", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 10 }
+      ], "nota": "A data de 28/03/2027 é estimada (domingo cerca de três meses depois do prazo do edital). Saindo o edital, este trecho é refeito pelo conteúdo programático e pela data oficial." }
     ]}
   ]
 }

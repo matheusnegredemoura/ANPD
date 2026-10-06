@@ -1020,7 +1020,7 @@ function renderHoje() {
   let topo = '<div class="cartao destaque"><div class="heroi">' +
     '<div><div class="dia">' + esc(fmtData(h, { weekday: 'long' })) + '</div><div class="data">' + esc(fmtData(h, { day: '2-digit', month: 'long', year: 'numeric' })) +
     (ctx.tipo === 'dia' ? ' · ' + esc(ctx.dia.duracao) : '') + '</div></div>' + anel(d.r, S.perfil.meta) +
-    '<p class="atividade">' + (ctx.tipo === 'dia' ? esc(ctx.dia.atividade) : ctx.tipo === 'folga' ? '<span class="mudo">Dia livre por padrão. Próxima sessão, ' + esc(fmtData(ctx.prox.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + ':</span> ' + esc(ctx.prox.atividade) : 'Ciclo de 11 semanas concluído: recomece pelos blocos mais fracos.') + '</p></div></div>';
+    '<p class="atividade">' + (ctx.tipo === 'dia' ? esc(ctx.dia.atividade) : ctx.tipo === 'folga' ? '<span class="mudo">Dia livre por padrão. Próxima sessão, ' + esc(fmtData(ctx.prox.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + ':</span> ' + esc(ctx.prox.atividade) : 'Cronograma concluído: recomece pelos blocos mais fracos e pelo conteúdo do edital.') + '</p></div></div>';
   const aguard = ctx.tipo === 'dia' ? (ctx.dia.blocos || []).filter((b) => BI.get(b) && BI.get(b).aguardando && !(POR_BLOCO.get(b) || []).length) : [];
   if (aguard.length) topo += '<p class="nota-aguardando">' + esc(aguard.map(nomeBloco).join('; ')) + ': ainda sem questões. A sessão usa os blocos ligados ao tema. Cole o texto na conversa com o Claude para ganhar questões próprias.</p>';
   let roteiro = '<div class="cartao"><div class="secao-cab"><h2>Roteiro de hoje</h2><span class="mono pequeno mudo">' + feitos + ' de ' + rt.passos.length + '</span></div><div class="roteiro">';
@@ -1040,10 +1040,10 @@ function renderHoje() {
   // Duas contagens: o prazo legal do edital e a prova estimada (domingo cerca de três meses depois)
   const cr = D.cronograma, faltaEd = diaNum(cr.edital) - HOJE(), faltaPr = diaNum(cr.prova) - HOJE();
   const dataCurta = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit', year: 'numeric' });
-  const contagem = (n, txt) => '<div class="contagem"><span class="grande">' + Math.max(0, n) + '</span><span>' + txt + '</span></div>';
+  const contagem = (n, txt) => '<div class="contagem">' + (n > 0 ? '<span class="grande">' + n + '</span>' : '') + '<span>' + txt + '</span></div>';
   const edital = '<div class="cartao">' +
-    contagem(faltaEd, faltaEd >= 0 ? 'dias até ' + dataCurta(cr.edital) + ', prazo legal máximo para o edital.' : 'O prazo legal do edital (' + dataCurta(cr.edital) + ') passou: acompanhe as notícias.') +
-    contagem(faltaPr, faltaPr >= 0 ? 'dias até a prova provável, domingo ' + dataCurta(cr.prova) + ' (três meses depois do edital; troque pela data oficial quando sair).' : 'A data estimada da prova (' + dataCurta(cr.prova) + ') passou.') + '</div>';
+    contagem(faltaEd, faltaEd > 0 ? 'dias até ' + dataCurta(cr.edital) + ', prazo legal máximo para o edital.' : faltaEd === 0 ? 'Hoje vence o prazo legal máximo para o edital (' + dataCurta(cr.edital) + ').' : 'O prazo legal do edital (' + dataCurta(cr.edital) + ') passou: acompanhe as notícias.') +
+    contagem(faltaPr, faltaPr > 0 ? 'dias até a prova provável, domingo ' + dataCurta(cr.prova) + ' (três meses depois do edital; troque pela data oficial quando sair).' : faltaPr === 0 ? 'Hoje é o dia provável da prova. Boa prova!' : 'A data estimada da prova (' + dataCurta(cr.prova) + ') passou.') + '</div>';
   document.getElementById('vista-hoje').innerHTML = topo + roteiro + nivel + modos + edital + '<p class="sync" id="sync"></p>';
   atualizarRodapeSync();
 }
@@ -1391,12 +1391,13 @@ function marcarLido(art) {
   verificarConquistas();
   Store.salvar('perfil');
 }
+// Item real do Cebraspe sobre o artigo pesa mais que questão autoral: mostra o que a banca de fato cobra
 function importancia(id) {
-  const qs = (POR_ART.get(id) || []).length;
+  const qa = POR_ART.get(id) || [], qs = qa.length, reais = qa.filter((q) => q.o).length;
   const cs = (CARDS_POR_ART.get(id) || []).length;
   const b = BLOCO_DO_ART.get(id);
   const bonus = b ? (b.prioridade === 1 ? 4 : b.prioridade === 2 ? 2 : 0) : 0;
-  return qs * 2 + cs + bonus;
+  return qs * 2 + reais * 3 + cs + bonus;
 }
 function estrelas(id) { const s = importancia(id); return s >= 16 ? 3 : s >= 8 ? 2 : s >= 3 ? 1 : 0; }
 // Os grifos também reconhecem o inglês do GDPR (EUR, %, prazos em horas e anos, shall/may, unless, only...)
@@ -1482,7 +1483,7 @@ function renderLei() {
     '<p class="pequeno mudo">' + pl(arts.length, 'unidade', 'unidades') + ' · ' + lidos + ' lida' + (lidos === 1 ? '' : 's') + ' · ' + pl((arts.reduce((n, a) => n + (POR_ART.get(a.k) || []).length, 0)), 'questão ligada', 'questões ligadas') + '</p>' +
     '<input class="busca" id="busca-lei" type="search" placeholder="Buscar em todas as normas (ex.: quinze dias, encarregado, Senado)" value="' + esc(UI.busca) + '" aria-label="Buscar em todas as normas">' +
     '<div class="chips"><button class="chip" data-acao="ranking" aria-pressed="' + UI.ranking + '">Mais importantes primeiro</button><button class="chip" data-acao="ler-tudo">Ler do início</button></div>' +
-    '<p class="pequeno mudo">Estrelas: quanto o artigo pesa no banco (questões, cards e prioridade do bloco). Pontos: as questões sobre ele (verde dominada, vermelho na lista curta, cinza não respondida).</p></div>';
+    '<p class="pequeno mudo">Estrelas: quanto o artigo pesa no banco (questões, itens reais do Cebraspe com peso maior, cards e prioridade do bloco). Pontos: as questões sobre ele (verde dominada, vermelho na lista curta, cinza não respondida).</p></div>';
   if (UI.busca.trim().length >= 3) html += '<div class="resultado-busca">' + buscarLei(UI.busca) + '</div>';
   else if (UI.ranking) {
     const top = arts.map((a) => ({ a, s: importancia(a.k) })).filter((x) => x.s > 0).sort((x, y) => y.s - x.s).slice(0, 30);
@@ -1578,7 +1579,7 @@ function renderMais() {
       item('cebraspe', 'C/E', 'Como o Cebraspe cobra', 'A prova, o padrão por disciplina, itens reais e discursiva') +
       item('discursiva', '✎', 'Treino de discursiva', TEMAS_DISC.length + ' temas com quesitos no padrão Cebraspe, contador de linhas e nota estimada') +
       item('progresso', '▥', 'Progresso', 'Domínio por bloco, constância, onde você cai, conquistas') +
-      item('plano', '▦', 'Plano e cronograma', '11 semanas até 22/12, status dos blocos, textos que faltam') +
+      item('plano', '▦', 'Plano e cronograma', 'Seis fases até a prova provável (28/03/2027), status dos blocos, textos que faltam') +
       item('pesquisar', '?', 'Para pesquisar', pend ? pl(pend, 'tema pendente', 'temas pendentes') + ' na sua lista' : 'Temas e termos para entender melhor') +
       item('glossario', 'Aa', 'Glossário', GLOSS.length + ' termos com definição e busca sugerida') +
       item('contestacoes', '!', 'Minhas contestações', CONTEST.length ? pl(CONTEST.length, 'contestação', 'contestações') + ', ' + CONTEST.filter((c) => c.status === 'aberta' || c.status === 'pendente').length + ' em aberto' : 'Itens que você apontou como errados e a resposta') +
@@ -1656,7 +1657,7 @@ function renderPlano() {
     }
     html += '</div>';
   }
-  html += '</div><div class="cartao"><h2>Peso por disciplina</h2><div class="tabela-env"><table class="tabela"><tbody>' + DISC.map((d) => '<tr><td>' + esc(d.nome) + '</td><td style="text-align:right"><span class="selo' + (d.peso === 'MÁXIMO' ? ' p1' : d.peso === 'ALTO' ? ' p2' : '') + '">' + esc(d.peso) + '</span></td></tr>').join('') + '</tbody></table></div><p class="pequeno mudo">Ordem de estudo, não percentual de prova.</p></div>';
+  html += '</div><div class="cartao"><h2>Peso por disciplina</h2><div class="tabela-env"><table class="tabela"><tbody>' + DISC.map((d) => '<tr><td>' + esc(d.nome) + '</td><td style="text-align:right"><span class="selo' + (d.peso === 'MÁXIMO' ? ' p1' : d.peso === 'ALTO' ? ' p2' : '') + '">' + esc(d.peso) + '</span></td></tr>').join('') + '</tbody></table></div><p class="pequeno mudo">Ordem de estudo do guia do cargo, não percentual de prova. Português e inglês são base: entram um pouco todo dia, nas questões intercaladas.</p></div>';
   html += '<div class="cartao"><div class="secao-cab"><h2>Status dos blocos</h2><span class="mudo pequeno">Toque no status para mudar</span></div><div class="tabela-env"><table class="tabela"><thead><tr><th>Bloco</th><th>Domínio</th><th>Status</th></tr></thead><tbody>';
   BLOCOS.slice().sort((a, b) => a.prioridade - b.prioridade).forEach((b) => {
     const st = S.perfil.status[b.id] || 'nao', dmn = dominioBloco(b.id);
