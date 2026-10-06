@@ -38,7 +38,7 @@
     {
       "id": "gestao",
       "nome": "Gestão pública, políticas públicas e dados",
-      "peso": "MÉDIO"
+      "peso": "ALTO"
     },
     {
       "id": "linguas",
@@ -159,7 +159,7 @@
       "disciplina": "lgpd",
       "nome": "Conceitos, princípios, bases legais e dado sensível",
       "dispositivos": "LGPD, arts. 5º a 11",
-      "prioridade": 2,
+      "prioridade": 1,
       "legado": 5,
       "artigos": [
         "5",
@@ -935,6 +935,18 @@
       ]
     },
     {
+      "id": "ia",
+      "disciplina": "eca",
+      "nome": "Inteligência artificial e proteção de dados",
+      "dispositivos": "Doutrina (aprendizado supervisionado, não supervisionado e por reforço, redes neurais, explicabilidade) e LGPD, art. 20",
+      "prioridade": 2,
+      "pesquisar": [
+        "ANPD: Radar Tecnológico — inteligência artificial generativa",
+        "ANPD: Sandbox regulatório de IA e proteção de dados",
+        "Explicabilidade de modelos de aprendizado de máquina e o art. 20 da LGPD"
+      ]
+    },
+    {
       "id": "seginfo",
       "disciplina": "seginfo",
       "nome": "Segurança da informação e privacidade desde a concepção",
@@ -969,6 +981,44 @@
         "52",
         "60",
         "84"
+      ]
+    },
+    {
+      "id": "lei-13460",
+      "disciplina": "direito",
+      "nome": "Lei nº 13.460/2017 — usuário do serviço público, Carta de Serviços e ouvidoria",
+      "dispositivos": "Lei 13.460/2017, arts. 1º a 23",
+      "prioridade": 1,
+      "lei": "lei13460",
+      "artigos": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "10-A",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23"
+      ],
+      "pesquisar": [
+        "Lei 13.460/2017: direitos básicos do usuário e Carta de Serviços",
+        "Decreto 9.492/2018: Sistema de Ouvidoria do Poder Executivo federal"
       ]
     },
     {
@@ -1027,7 +1077,7 @@
     {
       "id": "gestao-publica",
       "disciplina": "gestao",
-      "nome": "Políticas públicas, gestão estratégica, projetos, processos e riscos",
+      "nome": "Políticas públicas, gestão estratégica, projetos e processos",
       "dispositivos": "Doutrina (Secchi, PMBOK, BSC, SWOT, ODS, ESG)",
       "prioridade": 2,
       "pesquisar": [
@@ -1046,6 +1096,18 @@
         "Dimensões da qualidade de dados (DAMA-DMBOK)",
         "Business intelligence × business analytics",
         "Bancos de dados NoSQL de documentos"
+      ]
+    },
+    {
+      "id": "riscos",
+      "disciplina": "gestao",
+      "nome": "Gestão de riscos, controles internos e modelo das três linhas",
+      "dispositivos": "Doutrina (ISO 31000, COSO, modelo das três linhas do IIA, matriz de riscos, SWOT)",
+      "prioridade": 2,
+      "pesquisar": [
+        "ABNT NBR ISO 31000: princípios, estrutura e processo de gestão de riscos",
+        "IIA: modelo das três linhas (2020)",
+        "Matriz de probabilidade e impacto e apetite a risco"
       ]
     },
     {

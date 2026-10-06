@@ -180,10 +180,28 @@ UI.discTema = null; UI.discFase = null; UI.discAval = {}; UI.discNE = 0;
 UI.artSel = null; UI.busca = ''; UI.mais = 'menu'; UI.leiFila = null; UI.ranking = false; UI.filtroPesq = 'pendentes'; UI.buscaGloss = ''; UI.folhaArt = null; UI.folhaQ = null;
 if (!UI.camadas) UI.camadas = { cai: true, num: true, alerta: true, verbo: true, erro: true };
 let sessao = null;
+// Preferências que acompanham a conta (vão no documento do perfil), para não se perderem quando o navegador
+// ou o app do Claude limpam o armazenamento local. A aba aberta (vista) fica só neste aparelho.
+const CAMPOS_UI = ['modo', 'n', 'filtro', 'prova', 'blocos', 'blocosCards', 'camadas', 'lei', 'tema'];
+function prefsUI() { const o = {}; for (const k of CAMPOS_UI) if (UI[k] !== undefined) o[k] = UI[k]; return o; }
 function salvarUI() {
-  gravarLS(CHAVE_UI, { vista: UI.vista, modo: UI.modo, n: UI.n, filtro: UI.filtro, prova: UI.prova, blocos: UI.blocos, blocosCards: UI.blocosCards, camadas: UI.camadas, lei: UI.lei, tema: UI.tema });
+  const p = prefsUI();
+  gravarLS(CHAVE_UI, Object.assign({ vista: UI.vista }, p));
+  if (JSON.stringify(p) !== JSON.stringify(S.perfil.ui || null)) { S.perfil.ui = p; Store.salvar('perfil'); }
 }
-// Tema: 'auto' segue o aparelho e o claude.ai; 'horario' fica escuro das 19h às 6h. A escolha vale para este aparelho.
+// Preferências vindas da conta (outro aparelho, navegador limpo ou versão nova do painel)
+function aplicarPrefs() {
+  const p = S.perfil.ui;
+  if (!p || typeof p !== 'object') return;
+  for (const k of CAMPOS_UI) if (p[k] !== undefined) UI[k] = Array.isArray(p[k]) ? p[k].slice() : p[k] && typeof p[k] === 'object' ? Object.assign({}, p[k]) : p[k];
+  UI.blocos = (UI.blocos || []).filter((b) => BI.has(b));
+  UI.blocosCards = (UI.blocosCards || []).filter((b) => BI.has(b));
+  if (!LEIS[UI.lei]) UI.lei = 'lgpd';
+  if (!TEMAS.some(([v]) => v === UI.tema)) UI.tema = 'auto';
+  gravarLS(CHAVE_UI, Object.assign({ vista: UI.vista }, prefsUI()));
+  aplicarTema();
+}
+// Tema: 'auto' segue o aparelho e o claude.ai; 'horario' fica escuro das 19h às 6h. A escolha acompanha a conta.
 const TEMAS = [['auto', 'Automático'], ['claro', 'Claro'], ['escuro', 'Escuro'], ['horario', 'Noturno pelo horário']];
 function temaDaVez() {
   if (UI.tema === 'claro' || UI.tema === 'escuro') return UI.tema;
@@ -208,15 +226,60 @@ try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change
 setInterval(() => { if (UI.tema === 'horario') { const antes = document.documentElement.dataset.tema; aplicarTema(); if (antes !== document.documentElement.dataset.tema) renderTopo(); } }, 60000);
 
 /* ================= Persistência ================= */
+// Junção de duas cópias do mesmo documento (a da conta e a deste navegador).
+// O que só acumula (respostas, cards, dias de estudo, conquistas, simulados, lista de pesquisa) é unido, e em cada
+// registro fica o mais recente. O que se liga e desliga (metas, status dos blocos, dias marcados no plano,
+// preferências) vem da cópia mais nova, completada pela outra no que faltar.
+function mesclarMapa(a, b, escolher) {
+  const r = Object.assign({}, a || {});
+  for (const [k, v] of Object.entries(b || {})) r[k] = k in r ? escolher(r[k], v) : v;
+  return r;
+}
+function mesclarDoc(n, nuvem, local, localNovo) {
+  nuvem = nuvem || {}; local = local || {};
+  const novo = localNovo ? local : nuvem, velho = localNovo ? nuvem : local;
+  const num = (x) => Number(x) || 0;
+  // Item: [nível, próxima, acertos, erros, último dia, ...]; card: [vence, intervalo, facilidade, repetições, lapsos, último dia]
+  if (n === 'itens') return { q: mesclarMapa(nuvem.q, local.q, (a, b) => (num(b[4]) > num(a[4]) || (num(b[4]) === num(a[4]) && num(b[2]) + num(b[3]) > num(a[2]) + num(a[3])) ? b : a)) };
+  if (n === 'cards') return { c: mesclarMapa(nuvem.c, local.c, (a, b) => (num(b[5]) > num(a[5]) || (num(b[5]) === num(a[5]) && num(b[3]) + num(b[4]) > num(a[3]) + num(a[4])) ? b : a)) };
+  if (n === 'simulados') {
+    const vistos = new Set(), lista = [];
+    for (const s of (novo.lista || []).concat(velho.lista || [])) {
+      const k = [s.data, s.titulo, s.n, s.c, s.e, s.b, s.seg].join('|');
+      if (!vistos.has(k)) { vistos.add(k); lista.push(s); }
+    }
+    lista.sort((x, y) => (x.data < y.data ? 1 : x.data > y.data ? -1 : 0));
+    return { lista };
+  }
+  if (n === 'pesquisa') return { p: mesclarMapa(velho.p, novo.p, (a, b) => b) };
+  if (n === 'discursivas') return { d: mesclarMapa(velho.d, novo.d, (a, b) => ((a.tentativas || []).length > (b.tentativas || []).length ? a : b)) };
+  const atividade = (d) => num(d && d.r) + num(d && d.k) + num(d && d.b);
+  const p = Object.assign(perfilPadrao(), velho, novo);
+  p.xp = Math.max(num(nuvem.xp), num(local.xp));
+  p.saidos = Math.max(num(nuvem.saidos), num(local.saidos));
+  p.melhorSeq = Math.max(num(nuvem.melhorSeq), num(local.melhorSeq));
+  p.dias = mesclarMapa(nuvem.dias, local.dias, (a, b) => (atividade(b) > atividade(a) ? b : a));
+  p.conq = Object.assign({}, velho.conq, novo.conq);
+  p.lidos = mesclarMapa(nuvem.lidos, local.lidos, (a, b) => (b < a ? b : a));
+  p.recordes = mesclarMapa(nuvem.recordes, local.recordes, (a, b) => Math.max(num(a), num(b)));
+  p.criado = [nuvem.criado, local.criado].filter(Boolean).sort()[0] || hojeISO();
+  if (!p.ui) p.ui = velho.ui || undefined;
+  return p;
+}
 // O progresso fica no banco do Artifact (por usuário) e, sempre, também neste navegador.
+// Na abertura, a cópia da conta e a deste navegador são mescladas (mesclarDoc): nenhuma apaga a outra.
 const Store = {
   modo: 'local', dev: Math.random().toString(36).slice(2, 10), refs: {}, timer: {}, gravando: {}, fila: {}, ultimoT: {}, erro: null,
-  // Quando cada documento mudou neste navegador: na abertura, a cópia mais nova (conta ou navegador) prevalece
+  // Quando cada documento mudou neste navegador; decide qual cópia manda no que liga e desliga (metas, status, preferências)
   tLocal: {},
+  // Até a conta ser lida, nada do navegador conta como mais novo que ela: as mudanças ficam marcadas em "sujo"
+  carregando: true, sujo: {}, localLido: false, localReal: false,
   diag: { claude: false, db: '—', user: '—', id: '—', leitura: '—', gravacao: '—', navegador: '—' },
   carregarLocal() {
+    this.localLido = true;
     const l = lerLS(CHAVE_LOCAL) || lerLS(CHAVE_LOCAL_ANTIGA);
     if (!l) return false;
+    this.localReal = true;
     if (l.perfil) { S.perfil = Object.assign(perfilPadrao(), l.perfil); podarPerfil(); }
     if (l.itens) S.itens = l.itens;
     corrigirAcertosDoMesmoDia();
@@ -228,6 +291,8 @@ const Store = {
     return true;
   },
   guardarLocal() {
+    // Antes de ler a cópia do navegador, gravar aqui apagaria o progresso guardado nele
+    if (!this.localLido) return;
     const ok = gravarLS(CHAVE_LOCAL, { perfil: S.perfil, itens: S.itens, cards: S.cards, simulados: S.simulados, pesquisa: S.pesquisa, disc: S.disc, t: this.tLocal });
     this.diag.navegador = ok ? 'ok' : 'bloqueado';
   },
@@ -239,23 +304,36 @@ const Store = {
     if (n === 'discursivas') return { d: S.disc };
     return { p: S.pesquisa };
   },
-  aplicar(n, corpo) {
-    if (!corpo || !corpo.dados) return;
-    if (corpo.t && this.ultimoT[n] && corpo.t <= this.ultimoT[n]) return;
-    this.ultimoT[n] = corpo.t || Date.now();
-    this.tLocal[n] = this.ultimoT[n];
-    const d = corpo.dados;
-    if (n === 'perfil') S.perfil = Object.assign(perfilPadrao(), d);
+  definir(n, d) {
+    if (n === 'perfil') { S.perfil = Object.assign(perfilPadrao(), d); podarPerfil(); aplicarPrefs(); }
     else if (n === 'itens') { S.itens = d.q || {}; if (!(S.perfil.migr && S.perfil.migr.mesmoDia)) { corrigirAcertosDoMesmoDia(); Store.salvar('itens', 'perfil'); } }
     else if (n === 'cards') S.cards = d.c || {};
     else if (n === 'simulados') S.simulados = d.lista || [];
     else if (n === 'discursivas') S.disc = d.d || {};
     else S.pesquisa = d.p || {};
-    if (n === 'perfil') podarPerfil();
+  },
+  // Adota a cópia da conta inteira (outro aparelho gravou e aqui não há nada pendente)
+  aplicar(n, corpo) {
+    if (!corpo || !corpo.dados) return;
+    if (corpo.t && this.ultimoT[n] && corpo.t <= this.ultimoT[n]) return;
+    this.ultimoT[n] = corpo.t || Date.now();
+    this.tLocal[n] = this.ultimoT[n];
+    this.definir(n, corpo.dados);
     this.guardarLocal();
   },
+  // Junta a cópia da conta com a deste navegador; se a junção tiver algo que a conta não tinha, grava de volta
+  mesclar(n, corpo, localNovo) {
+    if (!corpo || !corpo.dados) return;
+    const antes = JSON.stringify(corpo.dados);
+    this.ultimoT[n] = Math.max(this.ultimoT[n] || 0, corpo.t || 0);
+    this.definir(n, mesclarDoc(n, corpo.dados, JSON.parse(JSON.stringify(this.dados(n))), localNovo));
+    if (JSON.stringify(this.dados(n)) !== antes) { this.tLocal[n] = Date.now(); this.guardarLocal(); this.gravar(n); }
+    else { this.tLocal[n] = corpo.t || this.tLocal[n]; this.guardarLocal(); }
+  },
   async iniciar() {
-    const temLocal = this.carregarLocal();
+    this.carregando = true;
+    if (!this.localLido) this.carregarLocal();
+    const temLocal = this.localReal;
     const c = window.claude;
     this.diag.claude = !!(c && typeof c.use === 'function');
     if (!this.diag.claude) return this.pronto();
@@ -278,10 +356,14 @@ const Store = {
         if (!temLocal) await migrarPainelAntigo(db, user);
         DOCS.forEach((n) => this.gravar(n));
       } else {
-        // Cópia da conta mais antiga que a deste navegador (por exemplo, uma gravação que falhou): envia a local
+        // Zerar ou restaurar backup muda a "época" (perfil.ep): entre épocas diferentes vale a mais nova, inteira
+        const epLocal = S.perfil.ep || 0;
+        const dp = snaps[DOCS.indexOf('perfil')], epNuvem = (dp.exists && dp.data() && dp.data().dados && dp.data().dados.ep) || 0;
         snaps.forEach((s, i) => {
           const n = DOCS[i], d = s.exists ? s.data() : null;
-          if (d && !(this.tLocal[n] && d.t && this.tLocal[n] > d.t)) this.aplicar(n, d); else this.gravar(n);
+          if (!d || !d.dados || epLocal > epNuvem) this.gravar(n);
+          else if (epNuvem > epLocal) this.aplicar(n, d);
+          else this.mesclar(n, d, this.localReal && !!this.tLocal[n] && !!d.t && this.tLocal[n] > d.t);
         });
       }
       DOCS.forEach((n) => {
@@ -289,7 +371,8 @@ const Store = {
           if (!s.exists) return;
           const d = s.data();
           if (!d || d.dev === this.dev) return;
-          this.aplicar(n, d);
+          // Com gravação pendente aqui, junta as duas; sem nada pendente, adota a do outro aparelho
+          if ((this.timer[n] || this.gravando[n]) && (d.ep || 0) === (S.perfil.ep || 0)) this.mesclar(n, d, true); else this.aplicar(n, d);
           renderTudo();
         }, (e) => { console.warn('assinatura encerrada', n, e && e.code); });
       });
@@ -301,11 +384,21 @@ const Store = {
     this.pronto();
     enviarContestacoesPendentes();
   },
-  pronto() { renderTudo(); },
+  pronto() {
+    this.carregando = false;
+    // O que mudou enquanto a conta era lida já está mesclado em S: agora vale como mudança deste navegador
+    const sujos = Object.keys(this.sujo);
+    this.sujo = {};
+    if (sujos.length) this.salvar(...sujos);
+    // Primeira abertura com preferências na conta: leva as deste navegador
+    if (!S.perfil.ui) salvarUI();
+    renderTudo();
+  },
   salvar(...nomes) {
     const agora = Date.now();
-    for (const n of nomes) this.tLocal[n] = agora;
+    for (const n of nomes) { if (this.carregando) this.sujo[n] = true; else this.tLocal[n] = agora; }
     this.guardarLocal();
+    if (this.carregando) return;
     if (this.modo !== 'nuvem') return;
     for (const n of nomes) { clearTimeout(this.timer[n]); this.timer[n] = setTimeout(() => this.gravar(n), 1200); }
   },
@@ -320,7 +413,7 @@ const Store = {
     this.gravando[n] = true;
     const t = Date.now();
     try {
-      await this.refs[n].set({ dev: this.dev, t, v: 3, dados: this.dados(n) });
+      await this.refs[n].set({ dev: this.dev, t, v: 3, ep: S.perfil.ep || 0, dados: this.dados(n) });
       this.ultimoT[n] = t;
       this.erro = null;
       this.diag.gravacao = 'ok';
@@ -842,17 +935,17 @@ function finalizar() {
   sessao.dur = decorrido();
   clearInterval(relogioTimer);
   if (sessao.modo === 'simulado') {
-    let c = 0, e = 0, b = 0, xp = 0;
+    let c = 0, e = 0, b = 0, xp = 0, eMc = 0;
     sessao.ids.forEach((id) => {
       const q = QI.get(id);
       const r = sessao.resp[id] || BRANCO;
       const ok = registrar(q, r, !!sessao.duv[id]);
-      if (r === BRANCO) b++; else if (ok) { c++; xp += 10; } else e++;
+      if (r === BRANCO) b++; else if (ok) { c++; xp += 10; } else { e++; if (q.al) eMc++; }
     });
     xp += 40;
     sessao.xp = xp;
     ganharXP(xp);
-    S.simulados.unshift({ data: hojeISO(), n: sessao.ids.length, c, e, b, liq: c - e, seg: Math.round(sessao.dur), titulo: sessao.titulo });
+    S.simulados.unshift({ data: hojeISO(), n: sessao.ids.length, c, e, b, liq: c - (e - eMc), seg: Math.round(sessao.dur), titulo: sessao.titulo });
     S.simulados = S.simulados.slice(0, 60);
     verificarMeta();
   }
@@ -2009,7 +2102,7 @@ function renderAjustes() {
   const linha = (rot, val, ok) => '<tr><td>' + rot + '</td><td class="' + (ok === true ? 'ok' : ok === false ? 'no' : '') + '">' + esc(val) + '</td></tr>';
   const st = (v) => (v === 'ok' ? true : v === '—' ? null : false);
   return '<div class="secao-cab"><h2>Ajustes</h2></div>' +
-    '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha vale para este aparelho.</p></div></div>' +
+    '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha fica salva na sua conta, como as demais preferências.</p></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' + metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div></div>' +
     '<div class="campo"><span class="rot">Questões intercaladas por dia</span><div class="chips">' + inter.map((m) => '<button class="chip" data-acao="intercaladas-n" data-n="' + m + '" aria-pressed="' + ((S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas) === m) + '">' + (m || 'Desligar') + '</button>').join('') + '</div><p class="pequeno mudo">Metade das matérias básicas, metade dos blocos já estudados, misturadas. Em dia pesado de revisão a sessão encolhe sozinha.</p></div>' +
     '<div class="campo"><span class="rot">Cards novos por dia</span><div class="chips">' + novos.map((m) => '<button class="chip" data-acao="novos-cards" data-n="' + m + '" aria-pressed="' + ((S.perfil.novosCards || 20) === m) + '">' + m + '</button>').join('') + '</div><p class="pequeno mudo">Cada card novo volta várias vezes nos dias seguintes. 20 por dia é o equilíbrio para quem tem 1h45 de estudo.</p></div></div>' +
@@ -2259,7 +2352,7 @@ document.addEventListener('click', async (ev) => {
     case 'backup-confirmar': {
       const d = backupPendente;
       if (!d) break;
-      S.perfil = Object.assign(perfilPadrao(), d.perfil); S.itens = d.itens || {}; S.cards = d.cards || {}; S.simulados = d.simulados || []; S.pesquisa = d.pesquisa || {}; S.disc = d.disc || {};
+      S.perfil = Object.assign(perfilPadrao(), d.perfil, { ep: Date.now() }); aplicarPrefs(); S.itens = d.itens || {}; S.cards = d.cards || {}; S.simulados = d.simulados || []; S.pesquisa = d.pesquisa || {}; S.disc = d.disc || {};
       backupPendente = null;
       Store.salvarTudo(); renderTudo(); avisar('↺', 'Progresso restaurado', fmtNum(S.perfil.xp) + ' XP');
       break;
@@ -2282,9 +2375,9 @@ document.addEventListener('click', async (ev) => {
       break;
     case 'zerar': document.getElementById('zona-zerar').innerHTML = '<p><b>Tem certeza?</b> Não dá para desfazer. Baixe um backup antes.</p><div class="linha-btns"><button class="btn primario" data-acao="confirmar-zerar">Apagar tudo</button><button class="btn" data-acao="mais" data-sub="ajustes">Cancelar</button></div>'; break;
     case 'confirmar-zerar':
-      S.perfil = Object.assign(perfilPadrao(), { status: S.perfil.status, meta: S.perfil.meta, novosCards: S.perfil.novosCards });
+      S.perfil = Object.assign(perfilPadrao(), { status: S.perfil.status, meta: S.perfil.meta, novosCards: S.perfil.novosCards, intercaladas: S.perfil.intercaladas, ui: S.perfil.ui, ep: Date.now() });
       S.itens = {}; S.cards = {}; S.simulados = []; S.pesquisa = {}; S.disc = {};
-      Store.salvarTudo(); renderTudo(); avisar('0', 'Progresso zerado', 'Os status dos blocos foram mantidos.');
+      Store.salvarTudo(); renderTudo(); avisar('0', 'Progresso zerado', 'Status dos blocos, metas e preferências foram mantidos.');
       break;
     default: break;
   }
@@ -2386,6 +2479,8 @@ function iniciar(dadosQuentes) {
   if (dadosQuentes && dadosQuentes.sessao) { sessao = dadosQuentes.sessao; if (dadosQuentes.ui) Object.assign(UI, dadosQuentes.ui); }
   if (UI.vista === 'treinar') UI.vista = 'questoes';
   if (!VISTAS.includes(UI.vista)) UI.vista = 'hoje';
+  // A cópia deste navegador entra antes da primeira tela: nada é desenhado (nem gravado) com o progresso zerado
+  if (!Store.localLido) Store.carregarLocal();
   renderTudo();
   if (sessao) abrirSessao();
   Store.iniciar();
