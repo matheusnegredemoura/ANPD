@@ -1,0 +1,204 @@
+bloco: seginfo
+// Segurança da informação, parte D: criptografia aplicada (híbrida, MAC, certificado digital, ICP-Brasil, assinaturas
+// eletrônicas), malware e ataques, controles de rede, ISO/IEC 27002:2022, continuidade (RTO), tecnologias de
+// reforço de privacidade e nuvem. Itens de doutrina escritos para o banco.
+
+=== si4-01
+gab: C
+ref: doutrina Criptografia híbrida
+armadilha: conceito
+dif: 2
+enunciado: Protocolos como o TLS combinam criptografia assimétrica, usada para autenticar as partes e estabelecer uma chave de sessão, com criptografia simétrica, usada para cifrar o volume de dados, por ser mais rápida.
+comentario: É a criptografia híbrida: o melhor dos dois mundos. A assimétrica resolve a distribuição de chaves; a simétrica (como o AES) dá desempenho.
+
+=== si4-02
+gab: E
+ref: doutrina Códigos de autenticação de mensagem (MAC)
+armadilha: comparacao
+dif: 3
+enunciado: Por usar chave secreta, o código de autenticação de mensagem (MAC/HMAC) garante integridade, autenticidade e não repúdio, tal como a assinatura digital.
+comentario: Errado. O MAC garante integridade e autenticidade entre quem compartilha a chave, mas não o não repúdio: como as duas partes conhecem a mesma chave, qualquer delas poderia ter gerado o código. O não repúdio exige assinatura digital com chave privada exclusiva do signatário.
+
+=== si4-03
+gab: C
+ref: doutrina Certificado digital
+armadilha: conceito
+dif: 2
+enunciado: O certificado digital é documento eletrônico, assinado por uma autoridade certificadora, que vincula uma chave pública à identidade de seu titular.
+comentario: A confiança vem da cadeia de certificação: o certificado do titular é assinado por uma AC, cujo certificado é assinado por outra, até a AC Raiz. No Brasil, a AC Raiz da ICP-Brasil é o Instituto Nacional de Tecnologia da Informação (ITI).
+
+=== si4-04
+gab: E
+ref: doutrina Certificado digital
+armadilha: interpretacao
+dif: 2
+enunciado: O certificado digital contém a chave privada do titular, para que qualquer pessoa possa verificar as assinaturas por ele produzidas.
+comentario: Errado. O certificado contém a chave pública. A chave privada fica só com o titular e é usada para assinar; a verificação usa a chave pública constante do certificado.
+
+=== si4-05
+gab: C
+ref: doutrina Assinaturas eletrônicas (Lei nº 14.063/2020)
+armadilha: rol
+dif: 2
+enunciado: A Lei nº 14.063/2020 classifica as assinaturas eletrônicas em simples, avançada e qualificada, sendo qualificada a que utiliza certificado digital da ICP-Brasil.
+comentario: A qualificada tem o maior grau de confiabilidade. A MP nº 2.200-2/2001 dá às declarações em documentos eletrônicos assinados com certificado ICP-Brasil presunção de veracidade em relação aos signatários.
+
+=== si4-06
+gab: E
+ref: doutrina Códigos maliciosos (Cartilha CERT.br)
+armadilha: comparacao
+dif: 2
+enunciado: O vírus propaga-se automaticamente pela rede explorando vulnerabilidades, sem depender de arquivo hospedeiro, ao passo que o worm precisa ser executado pelo usuário para infectar o sistema.
+comentario: Errado. Inverteu: o worm se propaga sozinho pela rede, explorando vulnerabilidades; o vírus se anexa a arquivos ou programas hospedeiros e depende da execução deles para se propagar.
+
+=== si4-07
+gab: C
+ref: doutrina Códigos maliciosos (Cartilha CERT.br)
+armadilha: conceito
+dif: 2
+enunciado: O cavalo de troia é programa que, além de executar as funções para as quais foi aparentemente projetado, executa outras funções, normalmente maliciosas, sem o conhecimento do usuário.
+comentario: Outros tipos cobrados: spyware (monitora e envia informações), keylogger (captura teclas), rootkit (esconde a presença do invasor), bot (permite controle remoto e forma botnets) e ransomware (sequestra dados).
+
+=== si4-08
+gab: C
+ref: doutrina Ataques a aplicações web
+armadilha: conceito
+dif: 3
+enunciado: No ataque de cross-site scripting (XSS), o atacante injeta código, em geral script, em página de aplicação vulnerável, de modo que ele seja executado no navegador de outros usuários que acessam a página.
+comentario: Previne-se com validação de entrada e codificação da saída. Não confundir com injeção de SQL, que mira o banco de dados no servidor.
+
+=== si4-09
+gab: E
+ref: doutrina Ataques de autenticação
+armadilha: conceito
+dif: 2
+enunciado: No ataque de preenchimento de credenciais (credential stuffing), o atacante testa sistematicamente todas as combinações possíveis de caracteres até descobrir a senha da vítima.
+comentario: Errado. O item descreveu força bruta. No credential stuffing, o atacante testa em outros serviços pares de usuário e senha vazados de um serviço, explorando a reutilização de senhas. Autenticação multifator e bloqueio de tentativas reduzem os dois riscos.
+
+=== si4-10
+gab: C
+ref: doutrina Ameaça, vulnerabilidade e risco
+armadilha: conceito
+dif: 2
+enunciado: Vulnerabilidade é a fraqueza de um ativo ou controle que pode ser explorada por uma ameaça, e o risco combina a probabilidade de exploração e o impacto que ela causaria.
+comentario: Ameaça é a causa potencial de um incidente (um atacante, uma falha de energia). Sem ameaça que a explore, a vulnerabilidade não gera risco relevante; sem vulnerabilidade, a ameaça não se concretiza.
+
+=== si4-11
+gab: E
+ref: doutrina Sistemas de detecção e prevenção de intrusão
+armadilha: comparacao
+dif: 2
+enunciado: O sistema de detecção de intrusão (IDS) atua em linha no tráfego e bloqueia automaticamente os pacotes maliciosos, ao passo que o sistema de prevenção de intrusão (IPS) apenas gera alertas.
+comentario: Errado. É o contrário: o IDS monitora e alerta; o IPS fica em linha e pode bloquear. Ambos podem detectar por assinatura (padrões conhecidos) ou por anomalia (desvio do comportamento normal).
+
+=== si4-12
+gab: C
+ref: doutrina Arquitetura de redes (DMZ)
+armadilha: conceito
+dif: 2
+enunciado: A zona desmilitarizada (DMZ) é segmento de rede que hospeda serviços expostos à internet, como servidores web, separado da rede interna, de modo que o comprometimento desses serviços não dê acesso direto aos sistemas internos.
+comentario: É aplicação de segmentação e defesa em profundidade. Serviços acessados de fora ficam na DMZ; bases com dados pessoais ficam na rede interna, com acesso controlado.
+
+=== si4-13
+gab: E
+ref: doutrina Honeypot
+armadilha: conceito
+dif: 2
+enunciado: O honeypot é sistema de produção crítico, protegido por múltiplas camadas, que armazena as informações mais sensíveis da organização.
+comentario: Errado. Honeypot é sistema-isca, propositalmente atrativo e monitorado, usado para atrair atacantes, estudar suas técnicas e desviar ataques dos sistemas reais.
+
+=== si4-14
+gab: C
+ref: doutrina ABNT NBR ISO/IEC 27002:2022
+armadilha: rol
+dif: 3
+enunciado: A ISO/IEC 27002 na versão de 2022 reorganizou seus controles em quatro temas: organizacionais, de pessoas, físicos e tecnológicos.
+comentario: A versão de 2022 tem 93 controles e introduziu atributos para classificá-los (como tipo de controle e propriedades de segurança). A ISO/IEC 27001 traz os requisitos certificáveis do sistema de gestão; a 27002 orienta a implementação dos controles.
+
+=== si4-15
+gab: C
+ref: doutrina Continuidade de negócios (RTO e RPO)
+armadilha: comparacao
+dif: 2
+enunciado: O objetivo de tempo de recuperação (RTO) é o tempo máximo tolerável para restabelecer um serviço após uma interrupção, enquanto o objetivo de ponto de recuperação (RPO) se refere à perda máxima tolerável de dados, medida em tempo.
+comentario: RPO de uma hora exige cópias pelo menos a cada hora; RTO de quatro horas exige capacidade de restaurar o serviço nesse prazo. Os dois orientam o plano de continuidade e de recuperação de desastres.
+
+=== si4-16
+gab: E
+ref: doutrina Gestão de vulnerabilidades
+armadilha: conceito
+dif: 2
+enunciado: Vulnerabilidade de dia zero é aquela para a qual o fabricante já publicou correção há mais de um dia, mas o usuário ainda não a aplicou.
+comentario: Errado. Dia zero é a vulnerabilidade ainda desconhecida do fabricante ou sem correção disponível, explorável antes que exista defesa específica. A falha com correção publicada e não aplicada é problema de gestão de atualizações.
+
+=== si4-17
+gab: C
+ref: doutrina Tecnologias de reforço de privacidade
+armadilha: conceito
+dif: 3
+enunciado: A criptografia homomórfica permite realizar operações sobre dados cifrados e obter resultado que, decifrado, corresponde ao das mesmas operações sobre os dados em claro.
+comentario: É uma das tecnologias de reforço de privacidade (PETs), ao lado da computação multipartes segura, da privacidade diferencial e do aprendizado federado. Permite processar dados sem expô-los a quem processa.
+
+=== si4-18
+gab: E
+ref: doutrina Tecnologias de reforço de privacidade
+armadilha: conceito
+dif: 3
+enunciado: No aprendizado federado, os dados brutos de todos os participantes são reunidos em servidor central, onde o modelo é treinado de uma só vez.
+comentario: Errado. No aprendizado federado, o modelo vai até os dados: cada participante treina localmente e envia só atualizações do modelo, que são agregadas. Reduz a centralização de dados pessoais, embora as atualizações possam vazar informação se não houver proteção adicional.
+
+=== si4-19
+gab: C
+ref: doutrina Mascaramento de dados
+armadilha: caso
+dif: 2
+enunciado: Exibir ao atendente apenas os três últimos dígitos do CPF do cliente, ocultando os demais, é exemplo de mascaramento de dados que aplica o princípio da necessidade.
+comentario: O mascaramento limita a exposição conforme a função de quem acessa. A LGPD limita o tratamento ao mínimo necessário para as finalidades (art. 6º, III).
+
+=== si4-20
+gab: E
+ref: doutrina Computação em nuvem (responsabilidade compartilhada)
+armadilha: interpretacao
+dif: 2
+enunciado: Ao contratar serviço de nuvem, o órgão transfere ao provedor toda a responsabilidade pela segurança dos dados pessoais armazenados, inclusive pela gestão de acessos de seus próprios usuários.
+comentario: Errado. Vale o modelo de responsabilidade compartilhada: o provedor protege a infraestrutura; o cliente continua responsável por configurações, contas, permissões e dados, em grau que varia entre IaaS, PaaS e SaaS. Na LGPD, o órgão controlador responde pelo tratamento e o provedor atua como operador.
+
+=== si4-21
+gab: C
+ref: doutrina Computação em nuvem (modelos de serviço)
+armadilha: comparacao
+dif: 2
+enunciado: No modelo de infraestrutura como serviço (IaaS), o cliente gerencia sistemas operacionais e aplicações sobre recursos virtualizados do provedor, enquanto no software como serviço (SaaS) usa aplicação pronta, gerida pelo provedor.
+comentario: Quanto mais próximo do SaaS, mais responsabilidades ficam com o provedor; a gestão de usuários e dos dados, porém, continua com o cliente em todos os modelos.
+
+=== si4-22
+gab: E
+ref: doutrina Engenharia social
+armadilha: conceito
+dif: 2
+enunciado: O tailgating é técnica de ataque remoto por correio eletrônico em que o atacante envia anexos maliciosos disfarçados de documentos oficiais.
+comentario: Errado. Tailgating (ou piggybacking) é física: o invasor entra em área restrita seguindo de perto uma pessoa autorizada. O e-mail com anexo malicioso é phishing; o pretexto inventado para obter informação é pretexting.
+
+=== si4-23
+gab: C
+ref: doutrina Registros de eventos (logs)
+armadilha: conceito
+dif: 2
+enunciado: Registros de eventos (logs) devem ser protegidos contra alteração e acesso indevido, pois servem à detecção de incidentes, à investigação e à demonstração de conformidade, e podem conter dados pessoais.
+comentario: Logs são prova e também dados pessoais (quem acessou o quê e quando). Sincronização de relógios, retenção definida e acesso restrito são boas práticas. A Resolução CD/ANPD nº 15/2024 exige manter o registro dos incidentes, inclusive dos não comunicados, pelo prazo mínimo de cinco anos (art. 10).
+
+=== si4-24
+gab: E
+ref: doutrina Gestão de chaves criptográficas
+armadilha: interpretacao
+dif: 3
+enunciado: Guardar a chave de cifragem no mesmo servidor e na mesma pasta dos dados cifrados é prática adequada, pois facilita a recuperação dos dados em caso de incidente.
+comentario: Errado. Quem obtém o servidor obtém dados e chave juntos, e a cifragem perde efeito. Chaves devem ficar separadas, com acesso restrito, por exemplo em módulo de segurança de hardware (HSM) ou serviço de gerenciamento de chaves. Pelo art. 48, § 3º, da LGPD, o juízo de gravidade do incidente considera medidas técnicas que tornem os dados ininteligíveis para terceiros não autorizados, o que pressupõe chave protegida.
+
+=== si4-25
+gab: C
+ref: doutrina Ciclo de desenvolvimento seguro
+armadilha: conceito
+dif: 2
+enunciado: Incorporar requisitos de segurança e privacidade desde o levantamento de requisitos e testar a segurança ao longo do desenvolvimento costuma ser mais barato e eficaz do que corrigir falhas depois da implantação.
+comentario: É a lógica de deslocar a segurança para o início (shift left), coerente com a segurança desde a concepção exigida pelo art. 46, § 2º, da LGPD.
