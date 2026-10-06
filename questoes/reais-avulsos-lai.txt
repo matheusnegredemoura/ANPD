@@ -1,0 +1,631 @@
+// Itens reais avulsos: Cebraspe, Lei de Acesso à Informação (Lei 12.527/2011), provas de 2024 a 2026.
+// O enunciado é o da prova. O gabarito NÃO veio com os itens: foi conferido no texto da LAI, por isso a linha
+// "prova" avisa "gabarito conferido na lei". Ficaram de fora itens sobre normas sem texto anexado (Decreto 7.845,
+// LC 131) e os de leitura duvidosa. Comentários escritos para o banco.
+bloco: lai
+
+=== rv-a01
+gab: E
+origem: real
+prova: Cebraspe · CAPES 2024 · Analista (Informática) · gabarito conferido na lei
+ref: lai 10, § 3º
+trecho: São vedadas quaisquer exigências relativas aos motivos determinantes da solicitação de informações de interesse público
+armadilha: rol
+dif: 1
+enunciado: De acordo com a LAI, são requisitos indispensáveis para o acesso às informações de interesse público a identificação do requerente, a descrição dos motivos determinantes da solicitação e a especificação da informação requerida.
+comentario: O pedido precisa de dois elementos: identificação do requerente e especificação da informação (art. 10, caput). Exigir motivos é vedado (§ 3º). A mesma armadilha caiu no IBAMA 2025. Na LAI, ninguém precisa explicar por que quer a informação.
+
+=== rv-a02
+gab: C
+origem: real
+prova: Cebraspe · ANM 2025 · Analista Administrativo · gabarito conferido na lei
+ref: lai 10, §§ 1º e 3º
+trecho: a identificação do requerente não pode conter exigências que inviabilizem a solicitação
+trecho: São vedadas quaisquer exigências relativas aos motivos determinantes da solicitação de informações de interesse público
+armadilha: literal
+dif: 1
+enunciado: Segundo a Lei de Acesso à Informação, para o acesso a informações de interesse público, o meio de identificação do requerente não pode conter exigências que inviabilizem a solicitação, bem como são vedadas quaisquer exigências relativas aos motivos determinantes do pedido de acesso à informação apresentado.
+comentario: Junta os §§ 1º e 3º do art. 10. A identificação é exigida, mas não pode virar barreira; o motivo nunca é exigido.
+
+=== rv-a03
+gab: E
+origem: real
+prova: Cebraspe · MPE GO 2024 · Analista (Informática) · gabarito conferido na lei
+ref: lai 10
+trecho: Qualquer interessado poderá apresentar pedido de acesso a informações
+armadilha: sujeito
+dif: 1
+enunciado: Consoante a Lei de Acesso à Informação, apenas pessoas físicas podem formular pedidos de acesso à informação.
+comentario: O art. 10 fala em “qualquer interessado”: pessoa física ou jurídica, brasileira ou estrangeira. O “apenas” restringiu o que a lei deixou aberto.
+
+=== rv-a04
+gab: E
+origem: real
+prova: Cebraspe · ANTT 2024 · Especialista em Regulação de Serviços de Transportes Terrestres · gabarito conferido na lei
+ref: lai 4, VIII e IX
+trecho: integridade: qualidade da informação não modificada, inclusive quanto à origem, trânsito e destino
+trecho: primariedade: qualidade da informação coletada na fonte, com o máximo de detalhamento possível, sem modificações
+armadilha: conceito
+dif: 2
+enunciado: Para efeitos da LAI, considera-se primariedade a qualidade da informação não modificada, inclusive quanto à origem, trânsito e destino.
+comentario: Essa é a definição de integridade (art. 4º, VIII). Primariedade (inciso IX) é a informação coletada na fonte, com o máximo de detalhamento, sem modificações. As quatro qualidades do art. 4º (disponibilidade, autenticidade, integridade, primariedade) foram trocadas entre si em pelo menos cinco provas da amostra (ANTT, ANM, INSS, TCE RN e TCE AC).
+
+=== rv-a05
+gab: E
+origem: real
+prova: Cebraspe · ANM 2025 · Especialista em Recursos Minerais (Engenharia de Minas) · gabarito conferido na lei
+ref: lai 4, VII e VIII
+trecho: autenticidade: qualidade da informação que tenha sido produzida, expedida, recebida ou modificada por determinado indivíduo, equipamento ou sistema
+trecho: integridade: qualidade da informação não modificada
+armadilha: conceito
+dif: 1
+enunciado: A autenticidade é a qualidade da informação não modificada, inclusive quanto à origem, ao trânsito e ao destino.
+comentario: De novo a definição de integridade (inciso VIII), agora com o nome de autenticidade. Autenticidade (inciso VII) diz respeito a quem produziu, expediu, recebeu ou modificou a informação. Macete: integridade = não modificada; autenticidade = autoria; primariedade = na fonte; disponibilidade = pode ser conhecida por quem é autorizado.
+
+=== rv-a06
+gab: E
+origem: real
+prova: Cebraspe · INSS 2025 · Perito Médico Federal · gabarito conferido na lei
+ref: lai 4, VII e VIII
+trecho: autenticidade: qualidade da informação que tenha sido produzida, expedida, recebida ou modificada por determinado indivíduo, equipamento ou sistema
+armadilha: conceito
+dif: 2
+enunciado: Define-se integridade como a garantia de que a informação foi produzida, expedida, recebida ou modificada por uma fonte legítima e identificável.
+comentario: A ideia de produzida, expedida, recebida ou modificada por alguém determinado é a autenticidade (art. 4º, VII). Integridade é não ter sido modificada (inciso VIII).
+
+=== rv-a07
+gab: E
+origem: real
+prova: Cebraspe · TCE RN 2026 · Auditor de Controle Externo (TI) · gabarito conferido na lei
+ref: lai 4, VIII e IX
+trecho: primariedade: qualidade da informação coletada na fonte, com o máximo de detalhamento possível, sem modificações
+armadilha: conceito
+dif: 2
+enunciado: De acordo com a Lei de Acesso à Informação, é dever do Estado garantir o direito de acesso à informação íntegra, sendo a integridade definida como a qualidade da informação coletada na fonte, com o máximo de detalhamento possível, sem modificações.
+comentario: A primeira parte está certa (art. 5º e art. 7º, IV, falam em informação íntegra). O erro está na definição: “coletada na fonte, com o máximo de detalhamento” é primariedade (art. 4º, IX).
+
+=== rv-a08
+gab: E
+origem: real
+prova: Cebraspe · FUB 2025 · Administrador · gabarito conferido na lei
+ref: lai 22
+trecho: O disposto nesta Lei não exclui as demais hipóteses legais de sigilo e de segredo de justiça
+armadilha: absoluto
+dif: 2
+enunciado: Tem caráter exaustivo o rol da Lei de Acesso à Informação que trata das hipóteses de sigilo e de segredo de justiça das informações públicas.
+comentario: O art. 22 deixa o rol aberto: a LAI não exclui as demais hipóteses legais de sigilo (fiscal, bancário, segredo de justiça, segredo industrial). Outras leis podem criar sigilo, como confirma o item da ANM 2025.
+
+=== rv-a09
+gab: C
+origem: real
+prova: Cebraspe · ANM 2025 · Especialista em Recursos Minerais (Engenharia de Minas) · gabarito conferido na lei
+ref: lai 22
+trecho: não exclui as demais hipóteses legais de sigilo e de segredo de justiça nem as hipóteses de segredo industrial
+armadilha: interpretacao
+dif: 2
+enunciado: As hipóteses de sigilo quanto ao acesso à informação, previstas na Lei de Acesso à Informação, podem ser ampliadas por outras leis específicas.
+comentario: É a leitura do art. 22: o sigilo da LAI convive com hipóteses de outras leis. O par com o item da FUB (rol exaustivo, errado) mostra como o Cebraspe testa a mesma regra pelos dois lados.
+
+=== rv-a10
+gab: C
+origem: real
+prova: Cebraspe · ANM 2025 · Especialista em Recursos Minerais (Engenharia Ambiental) · gabarito conferido na lei
+ref: lai 7, VI
+trecho: informação pertinente à administração do patrimônio público, utilização de recursos públicos, licitação, contratos administrativos
+armadilha: literal
+dif: 1
+enunciado: A Lei de Acesso à Informação assegura, expressamente, o direito de obter informações sobre administração do patrimônio público e utilização de recursos públicos.
+comentario: Art. 7º, VI. O rol do art. 7º é exemplificativo (“entre outros”) e inclui ainda licitações e contratos, programas e metas, e resultados de auditorias.
+
+=== rv-a11
+gab: E
+origem: real
+prova: Cebraspe · TELEBRAS 2026 · Especialista em Gestão de Telecomunicações · gabarito conferido na lei
+ref: lai 1, parágrafo único, II
+trecho: as autarquias, as fundações públicas, as empresas públicas, as sociedades de economia mista e demais entidades controladas direta ou indiretamente
+armadilha: sujeito
+dif: 1
+enunciado: Por ser uma sociedade de economia mista, a TELEBRAS não é obrigada a se subordinar ao regime legal previsto na Lei de Acesso à Informação.
+comentario: Sociedades de economia mista estão expressamente no art. 1º, parágrafo único, II. O que muda para estatais é o sigilo de informações estratégicas e de segredo industrial (art. 22), não a submissão à lei.
+
+=== rv-a12
+gab: E
+origem: real
+prova: Cebraspe · TCE AC 2024 · Analista Administrativo (Administração) · gabarito conferido na lei
+ref: lai 1, parágrafo único, II
+trecho: demais entidades controladas direta ou indiretamente pela União, Estados, Distrito Federal e Municípios
+armadilha: sujeito
+dif: 2
+enunciado: As sociedades de economia mista controladas indiretamente pela União não são regidas pela Lei de Acesso à Informação.
+comentario: O controle indireto também atrai a LAI (art. 1º, parágrafo único, II: “controladas direta ou indiretamente”). Uma subsidiária de estatal federal está sujeita à lei.
+
+=== rv-a13
+gab: E
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Analista (Engenharia de Dados) · gabarito conferido na lei
+ref: lai 1
+trecho: os órgãos públicos integrantes da administração direta dos Poderes Executivo, Legislativo, incluindo as Cortes de Contas, e Judiciário e do Ministério Público
+armadilha: sujeito
+dif: 1
+enunciado: A Lei n.º 12.527/2011, também conhecida como Lei de Acesso à Informação, é aplicável ao Poder Executivo federal, mas não aos demais poderes e às esferas do governo.
+comentario: A LAI é lei nacional: vale para União, estados, DF e municípios e para os três Poderes, Tribunais de Contas e Ministério Público (art. 1º). Alguns capítulos (recurso à CGU, CMRI) são só federais, mas a lei não.
+
+=== rv-a14
+gab: C
+origem: real
+prova: Cebraspe · STM 2025 · Analista Judiciário · gabarito conferido na lei
+ref: lai 1
+trecho: dispõe sobre os procedimentos a serem observados pela União, Estados, Distrito Federal e Municípios, com o fim de garantir o acesso a informações
+armadilha: literal
+dif: 1
+enunciado: A LAI trata dos procedimentos a serem observados pela União, estados, Distrito Federal e municípios, para garantir o acesso a informações previsto na Constituição Federal de 1988.
+comentario: Caput do art. 1º, que cita os três dispositivos constitucionais: art. 5º, XXXIII; art. 37, § 3º, II; e art. 216, § 2º.
+
+=== rv-a15
+gab: E
+origem: real
+prova: Cebraspe · TJ PA 2025 · Analista Judiciário (Comunicação Social) · gabarito conferido na lei
+ref: lai 1
+trecho: dispõe sobre os procedimentos a serem observados pela União, Estados, Distrito Federal e Municípios
+armadilha: extrapolacao
+dif: 1
+enunciado: Cada ente federativo poderá decidir se implantará ou não em seu âmbito de atuação a Lei de Acesso à Informação.
+comentario: A LAI obriga todos os entes (art. 1º). Cada ente pode regulamentá-la (a União fez isso no Decreto 7.724/2012), mas não escolher se a aplica.
+
+=== rv-a16
+gab: C
+origem: real
+prova: Cebraspe · ANSA 2026 · Profissional de Nível Médio (Enfermagem) · gabarito conferido na lei
+ref: lai 3, I e II
+trecho: observância da publicidade como preceito geral e do sigilo como exceção
+trecho: divulgação de informações de interesse público, independentemente de solicitações
+armadilha: literal
+dif: 1
+enunciado: A Lei n.º 12.527/2011 visa assegurar o direito de acesso à informação, a ser realizado, entre outras diretrizes, com base na observância da publicidade como preceito geral e do sigilo como exceção, assim como na divulgação de informações de interesse público, independentemente de solicitações.
+comentario: Incisos I e II do art. 3º. As cinco diretrizes: publicidade como regra, divulgação independentemente de pedido, uso de tecnologia da informação, cultura de transparência e controle social.
+
+=== rv-a17
+gab: E
+origem: real
+prova: Cebraspe · STM 2025 · Analista Judiciário · gabarito conferido na lei
+ref: lai 3, I
+trecho: observância da publicidade como preceito geral e do sigilo como exceção
+armadilha: conceito
+dif: 1
+enunciado: Por tratar de informações de órgãos fundamentais na estrutura do Estado brasileiro, a LAI estabelece o acesso à informação como exceção, sendo o sigilo a regra.
+comentario: Inversão pura do art. 3º, I. A justificativa (“órgãos fundamentais”) serve só para dar ar de razoabilidade ao erro.
+
+=== rv-a18
+gab: C
+origem: real
+prova: Cebraspe · TJ PA 2025 · Analista Judiciário (Comunicação Social) · gabarito conferido na lei
+ref: lai 3, II e IV
+trecho: fomento ao desenvolvimento da cultura de transparência na administração pública
+armadilha: rol
+dif: 1
+enunciado: Entre as diretrizes que regem os procedimentos previstos na Lei de Acesso à Informação constam a divulgação de informações de interesse público e o fomento ao desenvolvimento da cultura de transparência na administração pública.
+comentario: Incisos II e IV do art. 3º. O item omite “independentemente de solicitações” no inciso II, e continua certo.
+
+=== rv-a19
+gab: E
+origem: real
+prova: Cebraspe · TCE AC 2024 · Analista Ministerial (Direito) · gabarito conferido na lei
+ref: lai 1
+trecho: com o fim de garantir o acesso a informações previsto no inciso XXXIII do art. 5º
+armadilha: extrapolacao
+dif: 1
+enunciado: O direito de acesso à informação surgiu no ordenamento jurídico brasileiro com a edição da Lei n.º 12.527/2011.
+comentario: O direito já estava na Constituição de 1988 (art. 5º, XXXIII). A LAI regulamentou o procedimento; ela mesma diz, no art. 1º, que serve para garantir o acesso “previsto” na Constituição.
+
+=== rv-a20
+gab: C
+origem: real
+prova: Cebraspe · TJ PA 2025 · Analista Judiciário (Comunicação Social) · gabarito conferido na lei
+ref: lai 1
+trecho: com o fim de garantir o acesso a informações previsto no inciso XXXIII do art. 5º
+armadilha: interpretacao
+dif: 1
+enunciado: No Brasil, a Constituição Federal de 1988, segundo a qual todos têm direito de receber dos órgãos públicos informações de interesse particular ou coletivo, é o principal marco para a promulgação da Lei de Acesso à Informação.
+comentario: O item reproduz o art. 5º, XXXIII, da Constituição, que a LAI regulamenta (art. 1º). Par perfeito com o item do TCE AC 2024, que dizia que o direito “surgiu” com a LAI.
+
+=== rv-a21
+gab: C
+origem: real
+prova: Cebraspe · Câmara dos Deputados 2026 · Técnico Legislativo · gabarito conferido na lei
+ref: lai 7, § 3º
+trecho: O direito de acesso aos documentos ou às informações neles contidas utilizados como fundamento da tomada de decisão e do ato administrativo será assegurado com a edição do ato decisório respectivo
+armadilha: literal
+dif: 2
+enunciado: Desde que não seja configurada hipótese de informação classificada como sigilosa ou decorrente de sigilo legal, o direito de acesso aos pareceres jurídicos utilizados como fundamento da tomada de decisão e do ato administrativo será assegurado com a edição do ato decisório respectivo.
+comentario: Art. 7º, § 3º: documentos preparatórios (pareceres, notas técnicas) ficam acessíveis quando sai o ato decisório. Antes disso, o acesso pode ser negado para não comprometer a decisão. Regra útil para a ANPD, que decide com base em notas técnicas.
+
+=== rv-a22
+gab: E
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Analista (Gestão da Informação) · gabarito conferido na lei
+ref: lai 7, § 2º
+trecho: Quando não for autorizado acesso integral à informação por ser ela parcialmente sigilosa, é assegurado o acesso à parte não sigilosa
+armadilha: absoluto
+dif: 1
+enunciado: É vedado o acesso a informação parcialmente sigilosa.
+comentario: O § 2º do art. 7º assegura o acesso à parte não sigilosa, por certidão, extrato ou cópia com a parte sigilosa ocultada. Caiu também na ANSA 2026 (“vedado o acesso a todo o documento”).
+
+=== rv-a23
+gab: C
+origem: real
+prova: Cebraspe · Câmara dos Deputados 2026 · Técnico Legislativo (Policial Legislativo) · gabarito conferido na lei
+ref: lai 31, § 1º, I
+trecho: terão seu acesso restrito, independentemente de classificação de sigilo e pelo prazo máximo de 100 (cem) anos a contar da sua data de produção, a agentes públicos legalmente autorizados e à pessoa a que elas se referirem
+armadilha: numero
+dif: 2
+enunciado: O acesso às informações pessoais relativas à intimidade, à vida privada, à honra e à imagem restringe-se a agentes públicos legalmente autorizados e à pessoa a que tais informações se refiram, independentemente de classificação de sigilo e pelo prazo máximo de 100 anos a contar da sua data de produção.
+comentario: Art. 31, § 1º, I. Informação pessoal não é “classificada”: a restrição nasce da lei, por até 100 anos. Os prazos de classificação (25, 15 e 5 anos) são outra coisa. Divulgação a terceiros só com previsão legal ou consentimento expresso (inciso II).
+
+=== rv-a24
+gab: E
+origem: real
+prova: Cebraspe · CNPq 2024 · Analista (Governança de TI) · gabarito conferido na lei
+ref: lai 31, § 3º, I
+trecho: O consentimento referido no inciso II do § 1º não será exigido quando as informações forem necessárias:
+trecho: à prevenção e diagnóstico médico, quando a pessoa estiver física ou legalmente incapaz
+armadilha: excecao
+dif: 2
+enunciado: A Lei n.º 12.527/2011 reconhece a obrigatoriedade de consentimento para divulgação de informações pessoais quando estas forem necessárias à prevenção e diagnóstico médico, quando o interessado estiver física ou legalmente incapaz, com a finalidade única e exclusiva de tratamento médico.
+comentario: É hipótese de dispensa do consentimento (art. 31, § 3º, I). O item manteve todo o texto da lei e trocou “não será exigido” por “obrigatoriedade”. As outras dispensas: estatística e pesquisa de interesse público, ordem judicial, defesa de direitos humanos e interesse público preponderante.
+
+=== rv-a25
+gab: C
+origem: real
+prova: Cebraspe · MPE TO 2024 · Analista (Análise de Sistemas) · gabarito conferido na lei
+ref: lai 12, § 1º
+trecho: O órgão ou a entidade poderá cobrar exclusivamente o valor necessário ao ressarcimento dos custos dos serviços e dos materiais utilizados
+armadilha: literal
+comando: Com fulcro na Lei n.º 12.527/2011 (Lei de Acesso à Informação), julgue os itens subsecutivos.
+dif: 1
+enunciado: O órgão ou a entidade pode cobrar exclusivamente o valor necessário ao ressarcimento dos custos quando o serviço de fornecimento da informação exigir reprodução de documentos.
+comentario: Art. 12: busca e fornecimento são gratuitos (redação da Lei 14.129/2021); só a reprodução pode ser cobrada, pelo custo. Quem não pode pagar sem prejuízo do sustento fica isento (§ 2º).
+
+=== rv-a26
+gab: E
+origem: real
+prova: Cebraspe · MMA 2024 · Analista Ambiental · gabarito conferido na lei
+ref: lai 12, § 1º
+trecho: poderá cobrar exclusivamente o valor necessário ao ressarcimento dos custos dos serviços e dos materiais utilizados
+armadilha: absoluto
+dif: 1
+enunciado: É vedada a cobrança de qualquer valor quando do fornecimento de informações previstas pela Lei n.º 12.527/2011 a cidadão interessado.
+comentario: A busca e o fornecimento são gratuitos, mas a reprodução de documentos pode ser cobrada pelo custo (art. 12, § 1º). O “qualquer valor” tornou o item errado.
+
+=== rv-a27
+gab: E
+origem: real
+prova: Cebraspe · TCDF 2024 · Auditor de Controle Externo (TI) · gabarito conferido na lei
+ref: lai 12
+trecho: O serviço de busca e de fornecimento de informação é gratuito
+armadilha: extrapolacao
+dif: 1
+enunciado: É permitido que um órgão público cobre taxa de consulta nos casos de pedidos de acesso a informação realizados em formato digital.
+comentario: Não existe taxa de consulta: busca e fornecimento são gratuitos (art. 12). Só se ressarce o custo de reprodução, e pedido digital nem envolve reprodução física.
+
+=== rv-a28
+gab: E
+origem: real
+prova: Cebraspe · MPE TO 2024 · Analista (Análise de Sistemas) · gabarito conferido na lei
+ref: lai 24, § 1º
+trecho: secreta: 15 (quinze) anos
+trecho: reservada: 5 (cinco) anos
+armadilha: numero
+dif: 1
+enunciado: A informação em poder dos órgãos e entidades públicas, observado o seu teor e em razão de sua imprescindibilidade à segurança da sociedade ou do Estado, pode ser classificada como secreta ou reservada, com prazo máximo de restrição de acesso por 10 anos.
+comentario: Os prazos máximos são 25 anos (ultrassecreta), 15 (secreta) e 5 (reservada), contados da produção (art. 24, § 1º). Não há grau de 10 anos, e o item ainda omitiu a ultrassecreta. Guarde 25-15-5.
+
+=== rv-a29
+gab: E
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Analista (Gestão da Informação) · gabarito conferido na lei
+ref: lai 24, § 1º
+trecho: ultrassecreta: 25 (vinte e cinco) anos
+armadilha: numero
+dif: 1
+enunciado: De acordo com a Lei n.º 12.527/2011, as informações classificadas como sigilosas somente podem ser divulgadas após 10 anos de sua classificação.
+comentario: Dois erros: os prazos são 25, 15 ou 5 anos conforme o grau, e contam da data de produção da informação, não da classificação (art. 24, § 1º). O termo final também pode ser um evento (§ 3º).
+
+=== rv-a30
+gab: C
+origem: real
+prova: Cebraspe · ANM 2025 · Analista Administrativo · gabarito conferido na lei
+ref: lai 24
+trecho: poderá ser classificada como ultrassecreta, secreta ou reservada
+trecho: vigoram a partir da data de sua produção
+armadilha: literal
+dif: 1
+enunciado: As informações em poder da ANM, observado o seu teor e em razão de sua imprescindibilidade à segurança da sociedade ou do Estado, podem ser classificadas como ultrassecretas, secretas ou reservadas, e os prazos máximos de restrição de acesso a elas, conforme essa classificação, vigoram a partir da data de sua produção, de acordo com a Lei de Acesso à Informação.
+comentario: Caput e § 1º do art. 24, aplicados a uma agência reguladora. Prazos contam da produção. Na ANPD, a mesma regra vale para informações classificadas.
+
+=== rv-a31
+gab: E
+origem: real
+prova: Cebraspe · TCDF 2024 · Auditor de Controle Externo (TI) · gabarito conferido na lei
+ref: lai 35, § 2º
+trecho: O prazo referido no inciso III é limitado a uma única renovação
+armadilha: numero
+dif: 2
+enunciado: O prazo máximo de restrição de acesso às informações classificadas em qualquer dos graus de sigilo previstos na lei pode ser renovado quantas vezes forem necessárias, desde que o órgão público o justifique.
+comentario: Só a ultrassecreta pode ter o prazo prorrogado, pela Comissão Mista de Reavaliação de Informações, e uma única vez (art. 35, § 1º, III, e § 2º). Passado o prazo, a informação se torna pública automaticamente (art. 24, § 4º).
+
+=== rv-a32
+gab: E
+origem: real
+prova: Cebraspe · ANM 2025 · Especialista em Recursos Minerais (Comunicação) · gabarito conferido na lei
+ref: lai 28, IV
+trecho: identificação da autoridade que a classificou
+armadilha: excecao
+dif: 1
+enunciado: A classificação de uma informação como ultrassecreta dispensa a identificação da autoridade que a classificou.
+comentario: Toda decisão de classificação, em qualquer grau, deve conter assunto, fundamento, prazo e identificação da autoridade (art. 28). Sem a autoridade, o requerente nem saberia a quem pedir a desclassificação.
+
+=== rv-a33
+gab: E
+origem: real
+prova: Cebraspe · TCE AC 2024 · Analista Administrativo (Administração) · gabarito conferido na lei
+ref: lai 27, I
+trecho: Vice-Presidente da República
+trecho: Ministros de Estado e autoridades com as mesmas prerrogativas
+armadilha: sujeito
+dif: 1
+enunciado: No âmbito da administração pública federal, a classificação de sigilo de informações no grau ultrassecreto é competência exclusiva do Presidente da República.
+comentario: Também classificam como ultrassecreto o Vice-Presidente, os Ministros de Estado e equivalentes, os Comandantes das Forças e os chefes de missões diplomáticas permanentes (art. 27, I). A competência ainda pode ser delegada, vedada a subdelegação (§ 1º).
+
+=== rv-a34
+gab: C
+origem: real
+prova: Cebraspe · FUB 2025 · Auditor · gabarito conferido na lei
+ref: lai 23, VII
+trecho: pôr em risco a segurança de instituições ou de altas autoridades nacionais ou estrangeiras e seus familiares
+armadilha: literal
+dif: 1
+enunciado: De acordo com a lei que regula o acesso a informações, são consideradas imprescindíveis à segurança da sociedade e, portanto, passíveis de classificação as informações cuja divulgação ou cujo acesso irrestrito possa colocar em risco a segurança de instituições ou de altas autoridades nacionais ou estrangeiras e seus familiares
+comentario: Inciso VII do art. 23. O rol do art. 23 é o que autoriza classificar; fora dele não cabe classificação (mas cabem outras hipóteses legais de sigilo, art. 22).
+
+=== rv-a35
+gab: E
+origem: real
+prova: Cebraspe · TJ PA 2025 · Analista Jurídico (Administração) · gabarito conferido na lei
+ref: lai 24, § 5º
+trecho: deverá ser observado o interesse público da informação e utilizado o critério menos restritivo possível
+armadilha: conceito
+dif: 2
+enunciado: Segundo a Lei de Acesso à Informação, o sigilo pode ser imposto de forma genérica sobre os dados administrativos considerados sensíveis, cabendo ao órgão público classificar de forma ampla e abstrata os documentos como restritos por conveniência.
+comentario: A classificação é exceção, feita caso a caso, em decisão fundamentada (art. 28), com o critério menos restritivo possível (art. 24, § 5º) e só nas hipóteses do art. 23. Impor sigilo por conveniência pode ser até conduta ilícita (art. 32, V).
+
+=== rv-a36
+gab: C
+origem: real
+prova: Cebraspe · TCE AC 2024 · Analista Administrativo (Administração) · gabarito conferido na lei
+ref: lai 32, VII
+trecho: destruir ou subtrair, por qualquer meio, documentos concernentes a possíveis violações de direitos humanos por parte de agentes do Estado
+armadilha: literal
+dif: 1
+enunciado: Constitui conduta ilícita de agente militar destruir documentos sobre possíveis violações de direitos humanos praticadas por agentes do Estado.
+comentario: Art. 32, VII. As condutas do art. 32 valem para agente público ou militar: para militares, são transgressões médias ou graves; para servidores da Lei 8.112, infrações apenadas no mínimo com suspensão (§ 1º).
+
+=== rv-a37
+gab: C
+origem: real
+prova: Cebraspe · CNJ 2024 · Analista Judiciário (Judiciária) · gabarito conferido na lei
+ref: lai 33, V
+trecho: declaração de inidoneidade para licitar ou contratar com a administração pública
+armadilha: literal
+dif: 2
+enunciado: A declaração de inidoneidade é sanção aplicável a entidade privada que, detendo informações em virtude de vínculo de qualquer natureza com o poder público, pratique conduta ilícita prevista na legislação relativa ao acesso à informação.
+comentario: Art. 33, V. As sanções para particulares com vínculo: advertência, multa, rescisão do vínculo, suspensão de licitar por até 2 anos e declaração de inidoneidade, esta de competência exclusiva da autoridade máxima do órgão (§ 3º).
+
+=== rv-a38
+gab: C
+origem: real
+prova: Cebraspe · CAPES 2024 · Analista (Ciência e Tecnologia) · gabarito conferido na lei
+ref: lai 21
+trecho: Não poderá ser negado acesso à informação necessária à tutela judicial ou administrativa de direitos fundamentais
+armadilha: literal
+dif: 1
+enunciado: É proibido negar acesso à informação necessária à tutela judicial ou administrativa de direitos fundamentais.
+comentario: Art. 21, caput. O parágrafo único vai além: informação sobre violação de direitos humanos por agentes públicos não pode ter acesso restringido.
+
+=== rv-a39
+gab: C
+origem: real
+prova: Cebraspe · TCE AC 2024 · Auditor de Controle Externo (Administração) · gabarito conferido na lei
+ref: lai 13
+trecho: deverá ser oferecida a consulta de cópia, com certificação de que esta confere com o original
+armadilha: literal
+dif: 1
+enunciado: Caso haja risco à integridade do documento original da informação solicitada com base na LAI, o atendimento ao pedido de acesso pode ser feito mediante o oferecimento de consulta a cópia, desde que assegurada sua correspondência ao documento original.
+comentario: Art. 13. Sem como fazer cópia, o interessado pode pedir, à sua custa e sob supervisão de servidor, reprodução por outro meio que não ponha o original em risco (parágrafo único).
+
+=== rv-a40
+gab: C
+origem: real
+prova: Cebraspe · TCE AC 2024 · Analista Administrativo (Administração) · gabarito conferido na lei
+ref: lai 14
+trecho: É direito do requerente obter o inteiro teor de decisão de negativa de acesso, por certidão ou cópia
+armadilha: literal
+dif: 1
+enunciado: No caso de negativa de acesso à informação, o requerente tem o direito de obter, por certidão ou cópia, o inteiro teor de tal decisão.
+comentario: Art. 14. Com a decisão em mãos, o requerente recorre em 10 dias à autoridade superior (art. 15) e, no Executivo federal, depois à CGU (art. 16) e à CMRI.
+
+=== rv-a41
+gab: E
+origem: real
+prova: Cebraspe · TCE AC 2024 · Auditor de Controle Externo (Administração) · gabarito conferido na lei
+ref: lai 11, §§ 1º e 2º
+trecho: em prazo não superior a 20 (vinte) dias
+trecho: poderá ser prorrogado por mais 10 (dez) dias, mediante justificativa expressa
+armadilha: numero
+dif: 1
+enunciado: Para fins de transparência, as informações relativas a receitas públicas da União devem ser liberadas ao cidadão em até seis meses contados do recebimento do pedido.
+comentario: Não acessível de imediato, o pedido deve ser respondido em até 20 dias, prorrogáveis por mais 10 com justificativa (art. 11). Seis meses não aparece na LAI. E receitas e despesas ainda são objeto de transparência ativa (art. 8º, § 1º, II e III).
+
+=== rv-a42
+gab: E
+origem: real
+prova: Cebraspe · CGE RJ 2024 · Auditor do Estado · gabarito conferido na lei
+ref: lai 8, § 2º
+trecho: sendo obrigatória a divulgação em sítios oficiais da rede mundial de computadores (internet)
+armadilha: absoluto
+dif: 1
+enunciado: Os prazos da Lei de Acesso à Informação são contados a partir do dia útil seguinte ao da notificação oficial, e a divulgação de informações de interesse público ocorre unicamente por meio impresso.
+comentario: A divulgação ativa é obrigatória na internet (art. 8º, § 2º), com dispensa só para municípios de até 10 mil habitantes (§ 4º). O “unicamente por meio impresso” basta para o errado.
+
+=== rv-a43
+gab: C
+origem: real
+prova: Cebraspe · STM 2025 · Analista Judiciário · gabarito conferido na lei
+ref: lai 8, § 2º
+trecho: sendo obrigatória a divulgação em sítios oficiais da rede mundial de computadores (internet)
+armadilha: conceito
+dif: 1
+enunciado: A transparência ativa da LAI pressupõe a disponibilidade pública de dados e informações pela Internet.
+comentario: Transparência ativa é a divulgação independentemente de pedido (art. 8º), obrigatoriamente em sítio oficial na internet (§ 2º).
+
+=== rv-a44
+gab: C
+origem: real
+prova: Cebraspe · ANM 2025 · Especialista em Recursos Minerais (Comunicação) · gabarito conferido na lei
+ref: lai 8
+trecho: promover, independentemente de requerimentos, a divulgação em local de fácil acesso
+armadilha: conceito
+dif: 1
+enunciado: A forma de transparência passiva ocorre por meio do atendimento aos pedidos de informação feitos diretamente a órgãos e entidades públicas, ao passo que a forma ativa ocorre por meio da publicação proativa, na Internet, de informações de interesse coletivo ou geral, produzidas ou custodiadas por esses órgãos e entidades.
+comentario: Passiva: responder pedidos (arts. 10 a 14). Ativa: publicar sem pedido (art. 8º). Os nomes não estão na lei, mas são os que a doutrina e a CGU usam, e o Cebraspe também.
+
+=== rv-a45
+gab: E
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Analista (Gestão da Informação) · gabarito conferido na lei
+ref: lai 8
+trecho: É dever dos órgãos e entidades públicas promover, independentemente de requerimentos
+armadilha: conceito
+dif: 1
+enunciado: Com o advento da Lei de Acesso a Informação, as instituições públicas passaram a ser obrigadas a implementar política de acesso a informação com base na transparência ativa, ou seja, no atendimento imediato a uma solicitação de acesso a documentos.
+comentario: Atender a uma solicitação é transparência passiva. A ativa é publicar sem que ninguém peça (art. 8º). O item trocou as duas.
+
+=== rv-a46
+gab: E
+origem: real
+prova: Cebraspe · INPI 2024 · Analista de Planejamento (Segurança da Informação) · gabarito conferido na lei
+ref: lai 8
+trecho: É dever dos órgãos e entidades públicas promover, independentemente de requerimentos, a divulgação
+armadilha: extrapolacao
+dif: 2
+enunciado: O acesso às informações de interesse público exige a necessária solicitação do interessado, que deve ser dirigida ao gestor máximo do órgão detentor dessa informação.
+comentario: Dois erros. Boa parte das informações de interesse público é divulgada sem pedido (art. 8º). E o pedido se dirige ao órgão ou entidade (art. 10), em regra pelo serviço de informações ao cidadão, não ao gestor máximo.
+
+=== rv-a47
+gab: C
+origem: real
+prova: Cebraspe · CODEVASF 2024 · Analista em Desenvolvimento Regional (TI) · gabarito conferido na lei
+ref: lai 8, § 3º, II
+trecho: possibilitar a gravação de relatórios em diversos formatos eletrônicos, inclusive abertos e não proprietários, tais como planilhas e texto
+armadilha: literal
+dif: 1
+enunciado: Os sítios responsáveis pelo tratamento das informações objeto da LAI deverão permitir a gravação de relatórios em planilhas eletrônicas, de forma a facilitar a análise das informações.
+comentario: Art. 8º, § 3º, II. Os requisitos dos sítios incluem ainda ferramenta de busca, acesso automatizado em formato aberto e legível por máquina, atualização e acessibilidade.
+
+=== rv-a48
+gab: E
+origem: real
+prova: Cebraspe · Prefeitura de Cachoeiro de Itapemirim 2024 · Auditor Fiscal · gabarito conferido na lei
+ref: lai 11, § 6º
+trecho: procedimento esse que desonerará o órgão ou entidade pública da obrigação de seu fornecimento direto, salvo se o requerente declarar não dispor de meios
+armadilha: excecao
+dif: 2
+enunciado: De acordo com a Lei de Acesso à Informação, as informações que se encontrarem disponíveis ao público em formato impresso deverão ser fornecidas diretamente pelo órgão ou entidade pública, obrigatoriamente.
+comentario: Se a informação já está disponível ao público, basta indicar por escrito onde e como obtê-la, e o órgão fica desonerado do fornecimento direto (art. 11, § 6º). A exceção: o requerente declarar que não tem meios de fazê-lo sozinho.
+
+=== rv-a49
+gab: C
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Analista (Gestão da Informação) · gabarito conferido na lei
+ref: lai 7, II
+trecho: informação contida em registros ou documentos, produzidos ou acumulados por seus órgãos ou entidades, recolhidos ou não a arquivos públicos
+armadilha: literal
+dif: 1
+enunciado: A legislação em vigor permite ao cidadão obter informação contida em registros ou documentos, produzidos ou acumulados por órgãos da administração pública, recolhidos ou não a arquivos públicos.
+comentario: Art. 7º, II. “Recolhidos ou não a arquivos públicos”: o direito alcança tanto o documento corrente quanto o que já foi para o arquivo.
+
+=== rv-a50
+gab: C
+origem: real
+prova: Cebraspe · MMA 2024 · Analista Ambiental · gabarito conferido na lei
+ref: lai 7, VII, b
+trecho: ao resultado de inspeções, auditorias, prestações e tomadas de contas realizadas pelos órgãos de controle interno e externo
+armadilha: literal
+dif: 1
+enunciado: A Lei n.º 12.527/2011 resguarda o direito de acesso a informações de qualquer resultado de inspeções e auditorias realizadas por órgão de controle interno no Ministério do Meio Ambiente.
+comentario: Art. 7º, VII, “b”. O “qualquer” não torna o item errado aqui, porque reproduz a amplitude da lei; ressalvas de sigilo continuam valendo (art. 7º, § 1º e art. 22), mas não estão em discussão.
+
+=== rv-a51
+gab: E
+origem: real
+prova: Cebraspe · INPI 2024 · Analista de Planejamento (Desenvolvimento) · gabarito conferido na lei
+ref: lai 4, II
+trecho: documento: unidade de registro de informações, qualquer que seja o suporte ou formato
+armadilha: literal
+dif: 1
+enunciado: Para efeitos da Lei de Acesso à Informação (Lei n.º 12.527/2011), documento é considerado como a unidade física de registro de informações, utilizada para materializar conhecimento.
+comentario: Documento é a unidade de registro de informações “qualquer que seja o suporte ou formato” (art. 4º, II). Restringi-lo ao físico exclui o documento digital. A MMA 2024 cobrou o mesmo inciso, certo.
+
+=== rv-a52
+gab: C
+origem: real
+prova: Cebraspe · MMA 2024 · Analista Ambiental · gabarito conferido na lei
+ref: lai 4, II
+trecho: documento: unidade de registro de informações, qualquer que seja o suporte ou formato
+armadilha: literal
+dif: 1
+enunciado: Conforme a Lei n.º 12.527/2011, documento é a unidade de registro de informações, qualquer que seja o suporte ou formato.
+comentario: Cópia do art. 4º, II. Compare com o item do INPI 2024, que trocou “qualquer que seja o suporte” por “unidade física”.
+
+=== rv-a53
+gab: C
+origem: real
+prova: Cebraspe · INPI 2024 · Analista de Planejamento (Desenvolvimento) · gabarito conferido na lei
+ref: lai 2
+trecho: Aplicam-se as disposições desta Lei, no que couber, às entidades privadas sem fins lucrativos que recebam, para realização de ações de interesse público, recursos públicos
+armadilha: literal
+dif: 1
+enunciado: As entidades privadas sem fins lucrativos que tenham recebido recursos públicos para a realização de ações de interesse público estão subordinadas, no que couber, à Lei n.º 12.527/2011 (Lei de Acesso à Informação).
+comentario: Art. 2º. A publicidade dessas entidades se limita à parcela de recursos públicos recebidos e à sua destinação (parágrafo único).
+
+=== rv-a54
+gab: E
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Analista (Infraestrutura) · gabarito conferido na lei
+ref: lai 3, I
+trecho: observância da publicidade como preceito geral e do sigilo como exceção
+armadilha: absoluto
+dif: 1
+enunciado: A Lei n.º 12.527/2011 permite a divulgação de qualquer informação pública, sem exceções, enquanto os Decretos n.º 7.724/2012 e n.º 7.845/2012 apenas regulamentam a forma de acesso.
+comentario: A LAI tem exceções: sigilo de informações classificadas (arts. 23 e 24), informações pessoais (art. 31) e outras hipóteses legais de sigilo (art. 22). O “sem exceções” contraria o próprio art. 3º, I.
+
+=== rv-a55
+gab: E
+origem: real
+prova: Cebraspe · Câmara dos Deputados 2026 · Analista Legislativo · gabarito conferido na lei
+ref: lai 10, § 3º
+trecho: São vedadas quaisquer exigências relativas aos motivos determinantes da solicitação de informações de interesse público
+armadilha: extrapolacao
+dif: 1
+enunciado: É condição para a realização do pedido de acesso a informações a apresentação de exposição de motivos.
+comentario: Exigir motivos é vedado (art. 10, § 3º). Foi o item da LAI mais repetido na amostra: CAPES 2024, IBAMA 2025 e Câmara 2026 cobraram a mesma regra.
+
+=== rv-a56
+gab: E
+origem: real
+prova: Cebraspe · TCE AC 2024 · Analista Administrativo (Administração) · gabarito conferido na lei
+ref: lai 4, VIII
+trecho: integridade: qualidade da informação não modificada, inclusive quanto à origem, trânsito e destino
+armadilha: conceito
+dif: 1
+enunciado: Integridade é a qualidade da informação derivada de sua reconhecida completude.
+comentario: Integridade é não ter sido modificada, inclusive na origem, no trânsito e no destino (art. 4º, VIII). Completude lembra a primariedade (máximo de detalhamento), mas não é o conceito legal de nenhuma das qualidades.

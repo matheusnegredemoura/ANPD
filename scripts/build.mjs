@@ -135,8 +135,9 @@ export function montarDados() {
   const errosCb = [];
   for (const d of cebraspe.disciplinas) {
     if (!discs.has(d.id)) errosCb.push(`cebraspe.json: disciplina inexistente ${d.id}`);
-    for (const id of [...d.itens, ...d.exemplos]) if (!ids.has(id)) errosCb.push(`cebraspe.json (${d.id}): item inexistente ${id}`);
+    for (const id of d.exemplos) if (!ids.has(id)) errosCb.push(`cebraspe.json (${d.id}): item inexistente ${id}`);
   }
+  for (const p of cebraspe.padroes || []) for (const id of p.exemplos) if (!ids.has(id)) errosCb.push(`cebraspe.json (padrão ${p.titulo}): item inexistente ${id}`);
   // Discursiva: cada quesito precisa de um conceito para cada nota de 0 até o máximo
   const discursivas = JSON.parse(ler('dados', 'discursivas.json'));
   for (const t of discursivas.temas) {

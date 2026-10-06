@@ -1,0 +1,1325 @@
+// Itens reais avulsos: Cebraspe, LGPD, provas de 2021 a 2026 (agências reguladoras, tribunais, órgãos e estatais federais).
+// O enunciado é o da prova. O gabarito NÃO veio com os itens: foi conferido no texto da Lei 13.709/2018, por isso
+// a linha "prova" avisa "gabarito conferido na lei". Itens que dependiam de leitura duvidosa ficaram de fora.
+// Onde a Lei 15.352/2026 mudou o nome da ANPD (de Autoridade para Agência), o enunciado antigo foi mantido e o
+// comentário explica. Comentários escritos para o banco.
+
+=== rv-l01
+gab: C
+origem: real
+prova: Cebraspe · CGE RJ 2024 · Auditor do Estado · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 4, III, d
+trecho: atividades de investigação e repressão de infrações penais
+armadilha: excecao
+dif: 1
+enunciado: A LGPD não se aplica ao tratamento de dados pessoais realizado para fins exclusivos de atividades de investigação e repressão de infrações penais.
+comentario: Literal do art. 4º, III, “d”. As quatro exclusões do inciso III (segurança pública, defesa nacional, segurança do Estado, investigação e repressão de infrações penais) são as mais cobradas do art. 4º. Repare na palavra “exclusivos”: se o tratamento tiver também outra finalidade, a LGPD volta a valer. E o § 1º manda que esses tratamentos sejam regidos por lei específica, que deverá observar os princípios e os direitos do titular da LGPD.
+
+=== rv-l02
+gab: E
+origem: real
+prova: Cebraspe · ANM 2025 · Analista Administrativo (Direito) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 4, III
+trecho: realizado para fins exclusivos de:
+trecho: será regido por legislação específica
+armadilha: excecao
+dif: 2
+enunciado: O tratamento de dados pessoais realizado para fins exclusivos de segurança pública, defesa nacional, segurança do Estado ou atividades de investigação e repressão de infrações penais se submete às disposições da LGPD, pois as normas gerais nela contidas são de interesse nacional e devem ser observadas pela União, pelos estados, pelo Distrito Federal e pelos municípios.
+comentario: A justificativa é verdadeira (art. 1º, parágrafo único: normas gerais de interesse nacional), mas a conclusão é falsa: o art. 4º, III, exclui esses tratamentos da LGPD, e o § 1º os remete a legislação específica. É um molde típico do Cebraspe: premissa correta usada para sustentar uma conclusão errada. Julgue a conclusão, não a premissa.
+
+=== rv-l03
+gab: E
+origem: real
+prova: Cebraspe · Câmara dos Deputados 2026 · Técnico Legislativo · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 4, II
+trecho: jornalístico e artísticos
+trecho: atividades de investigação e repressão de infrações penais
+armadilha: excecao
+dif: 1
+enunciado: A Lei Geral de Proteção de Dados aplica-se ao tratamento de dados pessoais realizado para fins exclusivamente jornalísticos e para fins exclusivos de atividades de repressão a infrações penais.
+comentario: As duas finalidades estão no art. 4º, que trata justamente de onde a LGPD não se aplica: fins exclusivamente jornalísticos e artísticos (inciso II, “a”) e investigação e repressão de infrações penais (inciso III, “d”). O item inverteu a regra.
+
+=== rv-l04
+gab: E
+origem: real
+prova: Cebraspe · SEPLAG CE 2024 · Analista de Gestão Pública (TI) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 4, III
+trecho: segurança pública
+trecho: segurança do Estado
+armadilha: excecao
+dif: 2
+enunciado: A LGPD aplica-se a qualquer operação de tratamento de dados pessoais realizada no território nacional, independentemente do país onde aqueles dados estejam localizados, contemplando, inclusive, as situações de uso para fins exclusivos de segurança pública, segurança do Estado e defesa nacional.
+comentario: A primeira parte reproduz o art. 3º, I (independe do país onde os dados estejam). O erro vem no “inclusive”: segurança pública, defesa nacional e segurança do Estado, quando exclusivos, estão fora da LGPD (art. 4º, III). O Cebraspe costuma montar o item com meia frase certa e um acréscimo que contraria a exceção.
+
+=== rv-l05
+gab: E
+origem: real
+prova: Cebraspe · TCE RN 2026 · Analista Administrativo (Arquivologia) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 4, I
+trecho: realizado por pessoa natural para fins exclusivamente particulares e não econômicos
+armadilha: excecao
+dif: 1
+enunciado: Constitui objeto de aplicação da LGPD o tratamento de dados pessoais realizado por pessoa natural para fins particulares e não econômicos.
+comentario: É a primeira exclusão do art. 4º: tratamento por pessoa natural para fins exclusivamente particulares e não econômicos (a agenda de contatos do celular, por exemplo). Se a pessoa natural trata dados com fim econômico, a LGPD volta a valer, porque o art. 1º alcança o tratamento feito por pessoa natural.
+
+=== rv-l06
+gab: E
+origem: real
+prova: Cebraspe · TRF6 2025 · Analista Judiciário (Análise de Dados) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 4, §§ 2º e 3º
+trecho: que serão objeto de informe específico à autoridade nacional
+trecho: A autoridade nacional emitirá opiniões técnicas ou recomendações referentes às exceções previstas no inciso III
+armadilha: extrapolacao
+dif: 3
+enunciado: Quando houver tratamento para fins exclusivos de segurança pública ou defesa nacional, a Autoridade Nacional de Proteção de Dados (ANPD) deve ser comunicada previamente pois a ela compete zelar pela proteção dos dados pessoais.
+comentario: A LGPD não cria dever geral de comunicação prévia à ANPD para esses tratamentos. O que existe: a ANPD emite opiniões técnicas ou recomendações e pode pedir relatório de impacto (§ 3º); e o tratamento por pessoa de direito privado, só admitido sob tutela de pessoa jurídica de direito público, é objeto de informe específico à autoridade (§ 2º). Desde a Lei 15.352/2026 a ANPD se chama Agência Nacional de Proteção de Dados.
+
+=== rv-l07
+gab: C
+origem: real
+prova: Cebraspe · TRF6 2025 · Analista Judiciário (Tecnologia da Informação) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 4, § 4º
+trecho: Em nenhum caso a totalidade dos dados pessoais de banco de dados de que trata o inciso III do caput deste artigo poderá ser tratada por pessoa de direito privado, salvo por aquela que possua capital integralmente constituído pelo poder público
+armadilha: excecao
+dif: 2
+enunciado: O tratamento integral de dados pessoais de banco de dados para fins exclusivos de segurança pública poderá ser realizado por pessoa de direito privado cujo capital seja integralmente constituído pelo poder público.
+comentario: É a exceção da exceção do § 4º do art. 4º. A regra: a totalidade de um banco de dados de segurança pública, defesa ou investigação não pode ser tratada por pessoa de direito privado. A ressalva: pode, se o capital dela for integralmente público (empresa pública, por exemplo). O Cebraspe gosta desse “salvo” escondido no fim do parágrafo.
+
+=== rv-l08
+gab: C
+origem: real
+prova: Cebraspe · CGE RJ 2024 · Auditor do Estado · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 3, III
+trecho: os dados pessoais objeto do tratamento tenham sido coletados no território nacional
+armadilha: literal
+dif: 1
+enunciado: A LGPD aplica-se ao tratamento de dados pessoais coletados em território nacional.
+comentario: É um dos três gatilhos alternativos do art. 3º: operação feita no território nacional (I), oferta de bens ou serviços ou tratamento de dados de pessoas localizadas no Brasil (II), ou coleta no território nacional (III). Pelo § 1º, considera-se coletado no Brasil o dado cujo titular aqui estava no momento da coleta. Basta um dos três.
+
+=== rv-l09
+gab: C
+origem: real
+prova: Cebraspe · ANVISA 2024 · Especialista em Regulação e Vigilância Sanitária · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 3, I
+trecho: independentemente do meio, do país de sua sede ou do país onde estejam localizados os dados
+trecho: a operação de tratamento seja realizada no território nacional
+armadilha: caso
+dif: 2
+enunciado: Considere que a ANVISA, por meio de contrato com a empresa holandesa Y, tenha produzido uma série de estudos afetos ao remédio A. Considere, ainda, que, no âmbito desse contrato, tenham sido coletados inúmeros dados pessoais sensíveis de pessoas que participaram dos referidos estudos. Considere, por fim, que todos esses dados estejam localizados na Holanda. Nessa situação, considerando que a operação de tratamento dos dados tenha sido realizada na sede da ANVISA, em Brasília, é correto afirmar que os dados pessoais em questão estão abrangidos pela LGPD.
+comentario: O art. 3º manda aplicar a LGPD “independentemente do país onde estejam localizados os dados”, desde que a operação de tratamento ocorra no território nacional. O tratamento foi feito em Brasília, então a LGPD incide, ainda que os dados estejam guardados na Holanda. O caso tenta distrair com o lugar dos dados; o critério é o lugar da operação.
+
+=== rv-l10
+gab: E
+origem: real
+prova: Cebraspe · TRT10 2025 · Analista Judiciário (Arquivologia) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 4, IV
+trecho: provenientes de fora do território nacional e que não sejam objeto de comunicação, uso compartilhado de dados com agentes de tratamento brasileiros
+armadilha: excecao
+dif: 2
+enunciado: A Lei Geral de Proteção de Dados Pessoais (LGPD) também se aplica a dados pessoais provenientes de fora do território nacional, mesmo que não sejam objeto de compartilhamento com agentes de tratamento brasileiros.
+comentario: É o contrário do art. 4º, IV: dado que vem de fora e só transita pelo Brasil, sem comunicação ou uso compartilhado com agentes brasileiros e sem transferência a terceiro país, fica fora da LGPD, desde que o país de origem tenha proteção adequada. O § 2º do art. 3º confirma que essa hipótese escapa até do critério territorial.
+
+=== rv-l11
+gab: C
+origem: real
+prova: Cebraspe · MPE TO 2024 · Analista Ministerial (Redes) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 4, IV
+trecho: desde que o país de proveniência proporcione grau de proteção de dados pessoais adequado ao previsto nesta Lei
+armadilha: literal
+dif: 2
+enunciado: A lei não se aplica ao tratamento de dados pessoais provenientes de fora do território nacional que não sejam objeto de uso compartilhado de dados com agentes de tratamento brasileiros, desde que o país de proveniência proporcione grau de proteção de dados pessoais adequado ao previsto na lei.
+comentario: Paráfrase do art. 4º, IV. O item omite parte das condições (não haver comunicação nem transferência a outro país), mas o que afirma está certo, e o Cebraspe costuma tratar item incompleto como correto. Compare com o item do TRT10 sobre o mesmo inciso: lá a regra foi invertida, aqui só resumida.
+
+=== rv-l12
+gab: E
+origem: real
+prova: Cebraspe · CODEVASF 2024 · Analista em Desenvolvimento Regional (TI) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 3
+trecho: os dados pessoais objeto do tratamento tenham sido coletados no território nacional
+trecho: Consideram-se coletados no território nacional os dados pessoais cujo titular nele se encontre no momento da coleta
+armadilha: conceito
+dif: 2
+enunciado: A LGPD aplica-se ao tratamento dos dados pessoais de brasileiros natos, mesmo que esses dados tenham sido coletados em países estrangeiros.
+comentario: A LGPD não usa critério de nacionalidade. Os gatilhos do art. 3º são territoriais: onde ocorre a operação, onde estão as pessoas a quem se oferecem bens e serviços e onde o titular estava na coleta. Um brasileiro nato cujos dados foram coletados no exterior, por agente estrangeiro e sem nenhum desses vínculos, não está coberto só por ser brasileiro.
+
+=== rv-l13
+gab: E
+origem: real
+prova: Cebraspe · ANM 2025 · Especialista em Recursos Minerais (Direito) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 1
+trecho: por pessoa natural ou por pessoa jurídica de direito público ou privado
+armadilha: absoluto
+dif: 1
+enunciado: A proteção de dados assegurada pela LGPD abrange apenas as operações de tratamento de dados pessoais realizadas entre particular e o poder público.
+comentario: O art. 1º alcança o tratamento feito por pessoa natural ou jurídica, de direito público ou privado. Relações só entre particulares (empresa e cliente, empregador e empregado) estão no centro da lei. O “apenas” restringiu o que a lei faz amplo.
+
+=== rv-l14
+gab: E
+origem: real
+prova: Cebraspe · INFRA S.A. 2026 · Analista (Administrador) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 2
+trecho: o respeito à privacidade
+trecho: a inviolabilidade da intimidade, da honra e da imagem
+armadilha: extrapolacao
+dif: 1
+enunciado: Um dos fundamentos que norteiam a proteção de dados pessoais, conforme a LGPD, é a primazia da segurança do Estado em detrimento da segurança pessoal.
+comentario: Nenhum dos sete fundamentos do art. 2º fala em primazia da segurança do Estado. A lista é centrada na pessoa: privacidade, autodeterminação informativa, liberdades de expressão e informação, intimidade, honra e imagem, desenvolvimento econômico e inovação, livre iniciativa e defesa do consumidor, direitos humanos, dignidade e cidadania. Segurança do Estado aparece na LGPD como exclusão (art. 4º, III), não como fundamento.
+
+=== rv-l15
+gab: C
+origem: real
+prova: Cebraspe · ANTT 2024 · Especialista em Regulação (Direito) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 2
+trecho: o desenvolvimento econômico e tecnológico e a inovação
+trecho: a autodeterminação informativa
+armadilha: rol
+dif: 1
+enunciado: O desenvolvimento econômico e tecnológico, a inovação, a autodeterminação informativa e o respeito à privacidade são fundamentos da disciplina da proteção de dados pessoais.
+comentario: Todos estão no art. 2º (incisos I, II e V). Atenção à diferença entre fundamentos (art. 2º) e princípios (art. 6º): autodeterminação informativa e inovação são fundamentos; finalidade, necessidade e transparência são princípios. Item de prova de agência reguladora, como a da ANPD.
+
+=== rv-l16
+gab: C
+origem: real
+prova: Cebraspe · TELEBRAS 2026 · Especialista em Gestão de Telecomunicações (Administrativo) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 2, VII
+trecho: os direitos humanos, o livre desenvolvimento da personalidade, a dignidade e o exercício da cidadania pelas pessoas naturais
+armadilha: literal
+dif: 1
+enunciado: Os direitos humanos, a dignidade e o exercício da cidadania pelas pessoas naturais são fundamentos da Lei Geral de Proteção de Dados (LGPD).
+comentario: Inciso VII do art. 2º, com uma omissão (o livre desenvolvimento da personalidade) que não torna o item errado. É o inciso mais longo da lista e o mais cobrado por isso.
+
+=== rv-l17
+gab: C
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Advogado · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 2
+trecho: a livre iniciativa, a livre concorrência e a defesa do consumidor
+armadilha: rol
+dif: 1
+enunciado: A disciplina legal relativa à proteção de dados pessoais fundamenta-se no respeito à privacidade, na autodeterminação informativa e na defesa do consumidor.
+comentario: Os três estão no art. 2º (incisos I, II e VI). A defesa do consumidor aparece junto com livre iniciativa e livre concorrência no inciso VI: a LGPD também é lei de mercado, não só de direitos.
+
+=== rv-l18
+gab: C
+origem: real
+prova: Cebraspe · TRF6 2025 · Técnico Judiciário (Suporte Técnico) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 2, III
+trecho: a liberdade de expressão, de informação, de comunicação e de opinião
+armadilha: rol
+dif: 1
+enunciado: A LGPD disciplina a proteção de dados pessoais com fundamento na autodeterminação informativa e na liberdade de expressão, informação, comunicação e opinião.
+comentario: Incisos II e III do art. 2º. A liberdade de expressão é fundamento da própria lei de proteção de dados: daí a exclusão do tratamento para fins exclusivamente jornalísticos e artísticos no art. 4º.
+
+=== rv-l19
+gab: E
+origem: real
+prova: Cebraspe · TELEBRAS 2022 · Especialista em Gestão de Telecomunicações (Administrativo) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 14, § 3º
+trecho: em nenhum caso poderão ser repassados a terceiro sem o consentimento de que trata o § 1º deste artigo
+armadilha: excecao
+dif: 2
+enunciado: Os dados pessoais de crianças poderão ser coletados sem consentimento dos pais ou do responsável legal quando for necessário para a proteção delas, hipótese em que tais dados poderão, ainda, ser repassados a terceiros.
+comentario: A primeira parte está no § 3º do art. 14 (coleta sem consentimento para contatar os pais ou para a proteção da criança). O erro está no acréscimo: esses dados “em nenhum caso” podem ser repassados a terceiro sem o consentimento específico de pelo menos um dos pais ou do responsável.
+
+=== rv-l20
+gab: E
+origem: real
+prova: Cebraspe · CTI 2024 · Tecnologista · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 14, § 1º
+trecho: com o consentimento específico e em destaque dado por pelo menos um dos pais ou pelo responsável legal
+armadilha: numero
+dif: 1
+enunciado: Para o processamento de dados pessoais de crianças e adolescentes, é necessário o consentimento de ambos os pais ou, na falta deles, do responsável legal.
+comentario: Dois erros. O § 1º exige o consentimento de “pelo menos um dos pais” ou do responsável legal, não de ambos. E a regra do consentimento parental é para crianças; para adolescentes o art. 14 exige o melhor interesse, sem o consentimento do § 1º.
+
+=== rv-l21
+gab: E
+origem: real
+prova: Cebraspe · CNPq 2024 · Analista (Desenvolvimento de Software) · gabarito conferido na lei
+bloco: lgpd-12-16
+ref: lgpd 12
+trecho: Os dados anonimizados não serão considerados dados pessoais para os fins desta Lei, salvo quando o processo de anonimização ao qual foram submetidos for revertido
+armadilha: excecao
+dif: 1
+enunciado: Os dados que forem anonimizados serão considerados dados pessoais para os fins da Lei Geral de Proteção de Dados independente se a anonimização possa ser revertida ou não.
+comentario: É o oposto do art. 12. Dado anonimizado, em regra, não é dado pessoal. Volta a ser quando a anonimização for revertida com meios próprios ou puder sê-lo com esforços razoáveis (custo e tempo, pelo § 1º). A reversibilidade é justamente o critério.
+
+=== rv-l22
+gab: C
+origem: real
+prova: Cebraspe · SEPLAG AL 2026 · Especialista em Gestão Pública (Arquivologia) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 6, IV
+trecho: livre acesso: garantia, aos titulares, de consulta facilitada e gratuita sobre a forma e a duração do tratamento, bem como sobre a integralidade de seus dados pessoais
+armadilha: conceito
+dif: 1
+enunciado: As atividades de tratamento de dados pessoais devem observar o princípio do livre acesso dos titulares à integralidade de seus dados pessoais.
+comentario: O princípio do livre acesso (art. 6º, IV) garante consulta facilitada e gratuita sobre forma e duração do tratamento e sobre a integralidade dos dados. A “integralidade” é a palavra-chave do livre acesso; não a confunda com a transparência (inciso VI), que fala de informações claras sobre o tratamento e os agentes.
+
+=== rv-l23
+gab: E
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Analista de TI (Ciência de Dados) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 8, § 5º
+trecho: ratificados os tratamentos realizados sob amparo do consentimento anteriormente manifestado
+armadilha: conceito
+dif: 1
+enunciado: Com base nas disposições da LGPD para a coleta de dados via web, a revogação do consentimento por parte do titular invalida retroativamente as operações de tratamento de dados que foram realizadas sob o amparo da autorização anterior.
+comentario: A revogação produz efeitos para o futuro. O § 5º do art. 8º diz que ficam “ratificados os tratamentos realizados sob amparo do consentimento anteriormente manifestado” enquanto não houver pedido de eliminação. Nada é invalidado para trás.
+
+=== rv-l24
+gab: C
+origem: real
+prova: Cebraspe · TRF6 2025 · Técnico Judiciário (Suporte Técnico) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 8, § 5º
+trecho: O consentimento pode ser revogado a qualquer momento mediante manifestação expressa do titular, por procedimento gratuito e facilitado, ratificados os tratamentos realizados sob amparo do consentimento anteriormente manifestado enquanto não houver requerimento de eliminação
+armadilha: literal
+dif: 1
+enunciado: De acordo com a LGPD, o consentimento para tratamento de dados pessoais pode ser revogado a qualquer momento mediante manifestação expressa do titular, por procedimento gratuito e facilitado, ratificados os tratamentos realizados sob amparo do consentimento anteriormente manifestado enquanto não houver requerimento de eliminação dos dados.
+comentario: Cópia do § 5º do art. 8º. Guarde os quatro elementos: a qualquer momento, manifestação expressa, procedimento gratuito e facilitado, e ratificação do que foi feito antes. Os itens errados mexem num deles (revogação retroativa, eliminação automática, revogação onerosa).
+
+=== rv-l25
+gab: E
+origem: real
+prova: Cebraspe · SEPLAG AL 2026 · Especialista em Gestão Pública (Arquivologia) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 8, § 5º
+trecho: enquanto não houver requerimento de eliminação
+armadilha: extrapolacao
+dif: 2
+enunciado: O consentimento para tratamento de dados pode ser revogado a qualquer momento mediante manifestação expressa do titular, da qual decorre automaticamente a eliminação dos dados tratados sob amparo do consentimento anteriormente manifestado.
+comentario: A eliminação não é automática. O § 5º do art. 8º ratifica os tratamentos anteriores “enquanto não houver requerimento de eliminação”: eliminar é outro direito (art. 18, VI), exercido por pedido próprio, e ainda tem as exceções de conservação do art. 16.
+
+=== rv-l26
+gab: E
+origem: real
+prova: Cebraspe · FUNPRESP-EXE 2025 · Analista de Previdência Complementar (Governança) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 7
+trecho: O tratamento de dados pessoais somente poderá ser realizado nas seguintes hipóteses
+armadilha: absoluto
+dif: 1
+enunciado: O consentimento do titular é sempre obrigatório para qualquer tipo de tratamento de dados pessoais, independentemente da finalidade ou da base legal utilizada.
+comentario: O consentimento é só uma das dez bases legais do art. 7º, sem hierarquia sobre as outras. Obrigação legal, políticas públicas, contrato, exercício de direitos, proteção da vida, tutela da saúde, legítimo interesse e proteção do crédito dispensam o consentimento.
+
+=== rv-l27
+gab: C
+origem: real
+prova: Cebraspe · CAPES 2024 · Analista (Ciência e Tecnologia) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 7, §§ 3º e 4º
+trecho: É dispensada a exigência do consentimento previsto no caput deste artigo para os dados tornados manifestamente públicos pelo titular
+trecho: deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização
+armadilha: conceito
+dif: 2
+enunciado: O poder público pode coletar e tratar dados pessoais manifestadamente tornados públicos pelo seu titular, sem necessidade do consentimento deste, nos casos em que houver persecução do interesse público.
+comentario: O § 4º do art. 7º dispensa o consentimento para dados tornados manifestamente públicos pelo titular, resguardados os direitos e os princípios. Para o poder público, o art. 23 ainda exige finalidade pública e persecução do interesse público. Dispensar consentimento não dispensa o resto da lei (art. 7º, § 6º).
+
+=== rv-l28
+gab: E
+origem: real
+prova: Cebraspe · TRF6 2025 · Técnico Judiciário (Desenvolvimento de Sistemas) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, II e III
+trecho: dado pessoal sensível: dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política
+trecho: dado anonimizado: dado relativo a titular que não possa ser identificado
+armadilha: conceito
+dif: 1
+enunciado: Conforme a LGPD, o dado pessoal relativo a origem racial ou étnica, bem como a convicção religiosa e opinião política, é classificado como dado pessoal anonimizado.
+comentario: Origem racial ou étnica, convicção religiosa e opinião política são exemplos de dado pessoal sensível (art. 5º, II). Anonimizado (inciso III) é o dado de titular que não pode ser identificado. Uma categoria fala do conteúdo do dado; a outra, da possibilidade de identificar a pessoa.
+
+=== rv-l29
+gab: C
+origem: real
+prova: Cebraspe · CNMP 2023 · Analista (Suporte e Infraestrutura) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, II
+trecho: dado referente à saúde ou à vida sexual
+armadilha: rol
+dif: 1
+enunciado: Podem ser considerados como dados pessoais sensíveis tanto os dados referentes à saúde quanto os dados referentes à opinião política ou à convicção religiosa.
+comentario: Todos estão no rol do art. 5º, II: origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização religiosa, filosófica ou política, saúde, vida sexual, dado genético e biométrico, quando vinculados a uma pessoa natural.
+
+=== rv-l30
+gab: E
+origem: real
+prova: Cebraspe · CNMP 2023 · Analista (Engenharia Civil) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, II
+trecho: dado genético ou biométrico, quando vinculado a uma pessoa natural
+armadilha: rol
+dif: 1
+enunciado: A LGPD considera o número do CPF da pessoa natural um dado pessoal sensível.
+comentario: CPF é dado pessoal (identifica a pessoa), mas não está no rol do art. 5º, II. Sensível é o dado cujo conteúdo pode gerar discriminação: origem racial, religião, opinião política, saúde, vida sexual, dado genético ou biométrico. Dado de identificação comum, por mais importante que seja, não vira sensível.
+
+=== rv-l31
+gab: E
+origem: real
+prova: Cebraspe · BANRISUL 2022 · Gestor (Tecnologia da Informação) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, IV
+trecho: banco de dados: conjunto estruturado de dados pessoais, estabelecido em um ou em vários locais, em suporte eletrônico ou físico
+armadilha: literal
+dif: 1
+enunciado: Nos termos da LGPD, banco de dados é todo conjunto não estruturado de dados pessoais estabelecido em um ou em vários locais, em suporte eletrônico ou físico.
+comentario: Bastou um prefixo: a definição do art. 5º, IV, fala em conjunto “estruturado”. O resto está igual à lei, o que é o padrão do Cebraspe nas definições: copiar a lei e trocar uma palavra.
+
+=== rv-l32
+gab: E
+origem: real
+prova: Cebraspe · TBG 2023 · Analista (Auditoria e Compliance) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, I e II
+trecho: dado pessoal: informação relacionada a pessoa natural identificada ou identificável
+trecho: dado pessoal sensível: dado pessoal sobre origem racial ou étnica
+armadilha: conceito
+dif: 2
+enunciado: Dado pessoal é a informação da pessoa natural identificada ou identificável, enquanto sensíveis são os demais dados vinculados à pessoa e não utilizados na sua identificação.
+comentario: A primeira parte está certa (art. 5º, I). A segunda inventa um critério: sensível não é “o que sobra” nem o que não serve para identificar. É uma lista fechada de conteúdos (art. 5º, II), e um dado biométrico, por exemplo, é sensível justamente porque identifica.
+
+=== rv-l33
+gab: E
+origem: real
+prova: Cebraspe · SEPLAG AL 2026 · Especialista em Gestão Pública (Arquivologia) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, XI e XIV
+trecho: anonimização: utilização de meios técnicos razoáveis e disponíveis no momento do tratamento, por meio dos quais um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo
+trecho: eliminação: exclusão de dado ou de conjunto de dados armazenados em banco de dados
+armadilha: conceito
+dif: 1
+enunciado: Entende-se por anonimização a exclusão de dado ou de conjunto de dados armazenados em banco de dados.
+comentario: O item colou na anonimização a definição de eliminação (art. 5º, XIV). Anonimizar (inciso XI) é usar meios técnicos razoáveis para que o dado perca a possibilidade de associação a um indivíduo: o dado continua existindo. Troca de definições vizinhas do art. 5º é a armadilha mais frequente da LGPD.
+
+=== rv-l34
+gab: C
+origem: real
+prova: Cebraspe · SERPRO 2021 · Analista (Desenvolvimento de Sistemas) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, XI
+trecho: por meio dos quais um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo
+armadilha: conceito
+dif: 1
+enunciado: A anonimização impossibilita que um dado seja associado, direta ou indiretamente, a um indivíduo.
+comentario: É o núcleo da definição do art. 5º, XI. Compare com a pseudonimização (art. 13, § 4º): ali a associação é possível “pelo uso de informação adicional mantida separadamente pelo controlador”. Pseudonimizado continua sendo dado pessoal; anonimizado, em regra, não.
+
+=== rv-l35
+gab: E
+origem: real
+prova: Cebraspe · Prefeitura de Cachoeiro de Itapemirim 2024 · Analista de Sistemas · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, XIII
+trecho: bloqueio: suspensão temporária de qualquer operação de tratamento, mediante guarda do dado pessoal ou do banco de dados
+armadilha: conceito
+dif: 1
+enunciado: Conforme a LGPD, o dado pessoal não pode sofrer suspensão temporária de qualquer operação de tratamento.
+comentario: Pode, e isso tem nome: bloqueio (art. 5º, XIII), a suspensão temporária do tratamento com guarda do dado. O bloqueio é direito do titular (art. 18, IV) e sanção da ANPD (art. 52, V).
+
+=== rv-l36
+gab: C
+origem: real
+prova: Cebraspe · CTI 2024 · Tecnologista (Cidades Inteligentes) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, X
+trecho: tratamento: toda operação realizada com dados pessoais, como as que se referem a coleta, produção, recepção
+armadilha: rol
+dif: 1
+enunciado: Conforme a LGPD, o tratamento de dados pessoais consiste em toda operação realizada com dados pessoais, como as que se refiram a coleta, produção, acesso, transmissão, processamento e eliminação desses dados.
+comentario: O art. 5º, X, lista vinte operações de forma exemplificativa (“como as que se referem”). Coleta, produção, acesso, transmissão, processamento e eliminação estão todas lá. Até armazenar ou apenas consultar um dado já é tratamento.
+
+=== rv-l37
+gab: C
+origem: real
+prova: Cebraspe · SECONT 2022 · Auditor do Estado (TI) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, XVII
+trecho: relatório de impacto à proteção de dados pessoais: documentação do controlador que contém a descrição dos processos de tratamento de dados pessoais que podem gerar riscos às liberdades civis e aos direitos fundamentais, bem como medidas, salvaguardas e mecanismos de mitigação de risco
+armadilha: literal
+dif: 1
+enunciado: Conforme definido pela LGPD, o relatório de impacto à proteção de dados pessoais é a documentação do controlador que contém a descrição dos processos de tratamento de dados pessoais que podem gerar riscos às liberdades civis e aos direitos fundamentais, bem como medidas, salvaguardas e mecanismos de mitigação de risco.
+comentario: Cópia literal do art. 5º, XVII. O RIPD é documento do controlador (não do operador nem da ANPD). A ANPD pode determinar sua elaboração (art. 38) e pedi-lo em casos específicos, como o legítimo interesse (art. 10, § 3º).
+
+=== rv-l38
+gab: E
+origem: real
+prova: Cebraspe · DATAPREV 2023 · Analista (Segurança Cibernética) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 7, § 5º
+trecho: que necessitar comunicar ou compartilhar dados pessoais com outros controladores deverá obter consentimento específico do titular para esse fim
+armadilha: extrapolacao
+dif: 2
+enunciado: O consentimento do titular para a realização da coleta de dados pessoais dispensa nova manifestação dele para o compartilhamento desses dados pelo controlador, por exemplo.
+comentario: É o contrário do § 5º do art. 7º: o controlador que obteve consentimento e precisa comunicar ou compartilhar os dados com outros controladores deve obter consentimento específico para isso, salvo as hipóteses legais de dispensa. O consentimento vale para a finalidade determinada (art. 8º, § 4º).
+
+=== rv-l39
+gab: E
+origem: real
+prova: Cebraspe · SERPRO 2021 · Analista (Desenvolvimento de Sistemas) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, V e XII
+trecho: titular: pessoa natural a quem se referem os dados pessoais que são objeto de tratamento
+trecho: consentimento: manifestação livre, informada e inequívoca pela qual o titular concorda com o tratamento de seus dados pessoais para uma finalidade determinada
+armadilha: sujeito
+dif: 1
+enunciado: Consentimento é a manifestação do titular — pessoa natural ou jurídica — sobre o tratamento de seus dados para uma finalidade específica.
+comentario: Titular é sempre pessoa natural (art. 5º, V). Pessoa jurídica não é titular de dados pessoais na LGPD, logo não consente. Faltaram ainda os adjetivos da definição (livre, informada e inequívoca), mas o erro decisivo é o sujeito.
+
+=== rv-l40
+gab: C
+origem: real
+prova: Cebraspe · SERPRO 2021 · Analista (Desenvolvimento de Sistemas) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 7, V
+trecho: quando necessário para a execução de contrato ou de procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados
+armadilha: literal
+dif: 1
+enunciado: O tratamento de dados pessoais poderá ser realizado a pedido do próprio titular dos dados quando for necessário para a execução de contrato do qual ele seja parte.
+comentario: Base legal do art. 7º, V. A lei inclui também os procedimentos preliminares do contrato. É base distinta do consentimento: não depende de manifestação específica sobre o tratamento, e sim da necessidade para cumprir o contrato.
+
+=== rv-l41
+gab: C
+origem: real
+prova: Cebraspe · CODEVASF 2024 · Analista em Desenvolvimento Regional (TI) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, V
+trecho: titular: pessoa natural a quem se referem os dados pessoais
+armadilha: sujeito
+dif: 1
+enunciado: A LGPD não se aplica à proteção de dados de pessoas jurídicas.
+comentario: Dado pessoal é informação relacionada a pessoa natural (art. 5º, I), e titular é pessoa natural (inciso V). Dados de uma empresa (CNPJ, faturamento) não são dados pessoais. Cuidado: a pessoa jurídica é alcançada pela LGPD como controladora ou operadora, nunca como titular.
+
+=== rv-l42
+gab: E
+origem: real
+prova: Cebraspe · ANTT 2024 · Especialista em Regulação (Direito) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, V e IX
+trecho: titular: pessoa natural a quem se referem os dados pessoais
+trecho: agentes de tratamento: o controlador e o operador
+armadilha: rol
+dif: 1
+enunciado: São consideradas titulares as pessoas naturais ou jurídicas a que se referem os dados pessoais objeto de tratamento, e consideram-se agentes de tratamento o controlador, o operador e o encarregado responsáveis pelo tratamento de tais dados.
+comentario: Dois erros num item só. Titular é apenas pessoa natural (art. 5º, V). E agentes de tratamento são só controlador e operador (inciso IX): o encarregado é canal de comunicação, não agente de tratamento.
+
+=== rv-l43
+gab: E
+origem: real
+prova: Cebraspe · ANM 2025 · Especialista em Recursos Minerais (TI) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, VI e VII
+trecho: controlador: pessoa natural ou jurídica, de direito público ou privado, a quem competem as decisões referentes ao tratamento de dados pessoais
+trecho: que realiza o tratamento de dados pessoais em nome do controlador
+armadilha: sujeito
+dif: 1
+enunciado: Pessoa natural ou jurídica que realiza o tratamento de dados pessoais em nome do operador é denominada de controlador.
+comentario: Os papéis foram trocados. O operador é quem trata dados em nome do controlador (art. 5º, VII); o controlador é quem decide (inciso VI). Ninguém trata dados “em nome do operador”.
+
+=== rv-l44
+gab: E
+origem: real
+prova: Cebraspe · AgSUS 2026 · Assistente de Projeto (UTIC) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, VI e VII
+trecho: a quem competem as decisões referentes ao tratamento de dados pessoais
+trecho: operador: pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do controlador
+armadilha: sujeito
+comando: A respeito do disposto na Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados – LGPD), julgue o próximo item.
+dif: 1
+enunciado: A LGPD denomina operador a pessoa natural ou jurídica, de direito público ou privado, a quem competem as decisões referentes ao tratamento de dados pessoais.
+comentario: É a definição de controlador (art. 5º, VI) com o nome de operador. Trocas entre controlador, operador e encarregado caíram em pelo menos quatro provas de 2025 e 2026 (AgSUS, FUNPRESP-JUD, ANM e ANSA). Grave: controlador decide, operador executa, encarregado comunica.
+
+=== rv-l45
+gab: E
+origem: real
+prova: Cebraspe · MPE TO 2024 · Analista (Análise de Sistemas) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, VII e VIII
+trecho: encarregado: pessoa indicada pelo controlador e operador para atuar como canal de comunicação
+armadilha: sujeito
+dif: 1
+enunciado: Encarregado é a pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do controlador.
+comentario: Essa é a definição de operador (art. 5º, VII). O encarregado é a pessoa indicada pelo controlador e pelo operador para ser canal de comunicação entre o controlador, os titulares e a ANPD (inciso VIII).
+
+=== rv-l46
+gab: C
+origem: real
+prova: Cebraspe · MPE GO 2024 · Analista (Informática) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, XII
+trecho: manifestação livre, informada e inequívoca
+armadilha: literal
+dif: 1
+enunciado: Para os fins da LGPD, o consentimento do titular dos dados para o tratamento destes não será válido se for equívoco.
+comentario: O consentimento precisa ser livre, informado e inequívoco (art. 5º, XII). Se for equívoco (ambíguo), não vale. O Cebraspe aposta que o candidato leia “equívoco” como “erro”: aqui é o oposto de inequívoco.
+
+=== rv-l47
+gab: C
+origem: real
+prova: Cebraspe · InoversaSul 2025 · Arquivista · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 8, § 1º
+trecho: Caso o consentimento seja fornecido por escrito, esse deverá constar de cláusula destacada das demais cláusulas contratuais
+armadilha: literal
+dif: 1
+enunciado: O consentimento do titular dos dados pessoais, quando fornecido por escrito, deverá constar de cláusula destacada das demais cláusulas contratuais.
+comentario: Literal do § 1º do art. 8º. Ligue com o § 2º (o ônus de provar o consentimento é do controlador) e o § 4º (autorizações genéricas são nulas).
+
+=== rv-l48
+gab: C
+origem: real
+prova: Cebraspe · SEPLAG CE 2024 · Analista de Gestão Pública (TI) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 7, IX
+trecho: quando necessário para atender aos interesses legítimos do controlador ou de terceiro, exceto no caso de prevalecerem direitos e liberdades fundamentais do titular que exijam a proteção dos dados pessoais
+armadilha: excecao
+dif: 1
+enunciado: É desnecessário o consentimento do titular dos dados caso o tratamento destes seja necessário para atender a interesse legítimo do controlador, salvo no caso de prevalecerem direitos e liberdades fundamentais do titular que exijam a proteção de seus dados.
+comentario: Art. 7º, IX, com a ressalva no lugar certo. O legítimo interesse só cabe para dados não sensíveis (não está no art. 11) e exige teste de balanceamento: se os direitos do titular prevalecem, a base cai.
+
+=== rv-l49
+gab: C
+origem: real
+prova: Cebraspe · UDESC 2026 · Técnico Universitário (Analista de Suporte) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 10, §§ 1º e 2º
+trecho: somente os dados pessoais estritamente necessários para a finalidade pretendida poderão ser tratados
+trecho: O controlador deverá adotar medidas para garantir a transparência do tratamento de dados baseado em seu legítimo interesse
+armadilha: conceito
+dif: 2
+enunciado: No tratamento de dados pessoais com fundamento no legítimo interesse do controlador, são exigidas a demonstração da necessidade do tratamento e a adoção de medidas para garantir a transparência e a proteção dos direitos e liberdades fundamentais do titular.
+comentario: O art. 10 limita o legítimo interesse aos dados estritamente necessários (§ 1º), exige medidas de transparência (§ 2º) e respeito às legítimas expectativas e aos direitos e liberdades do titular (inciso II). A ANPD ainda pode pedir relatório de impacto (§ 3º).
+
+=== rv-l50
+gab: C
+origem: real
+prova: Cebraspe · AgSUS 2026 · Assistente de Projeto (UTIC) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 7, IV
+trecho: para a realização de estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais
+armadilha: literal
+comando: A respeito do disposto na Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados – LGPD), julgue o próximo item.
+dif: 1
+enunciado: A realização de estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais, constitui hipótese em que é permitido o tratamento de dados pessoais.
+comentario: Base legal do art. 7º, IV. O “sempre que possível” é parte da lei: a anonimização não é obrigatória em todo estudo. Órgão de pesquisa tem definição própria (art. 5º, XVIII): pública ou privada sem fins lucrativos, com sede no País e pesquisa na missão institucional.
+
+=== rv-l51
+gab: C
+origem: real
+prova: Cebraspe · UNEAL 2026 · Analista Administrativo (Sistemas) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 7, III
+trecho: pela administração pública, para o tratamento e uso compartilhado de dados necessários à execução de políticas públicas previstas em leis e regulamentos ou respaldadas em contratos, convênios ou instrumentos congêneres
+armadilha: literal
+dif: 1
+enunciado: Nos termos da Lei Geral de Proteção de Dados Pessoais, o tratamento de dados pessoais pode ser realizado pela administração pública quando necessário à execução de políticas públicas previstas em leis e regulamentos ou respaldadas em contratos, convênios ou instrumentos congêneres.
+comentario: Art. 7º, III. Compare com a versão para dados sensíveis (art. 11, II, “b”): lá só valem políticas públicas “previstas em leis ou regulamentos”, sem a parte de contratos e convênios. Essa diferença é ótima para item errado.
+
+=== rv-l52
+gab: E
+origem: real
+prova: Cebraspe · Câmara dos Deputados 2026 · Técnico Legislativo (Policial Legislativo) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 11, II
+trecho: sem fornecimento de consentimento do titular, nas hipóteses em que for indispensável para
+armadilha: absoluto
+dif: 1
+enunciado: O tratamento de dados pessoais sensíveis somente poderá ocorrer sem o consentimento do titular quando for indispensável tratamento compartilhado de dados necessários à execução, pela administração pública, de políticas públicas previstas em leis ou regulamentos.
+comentario: A hipótese existe (art. 11, II, “b”), mas não é a única: o inciso II tem sete alíneas (obrigação legal, políticas públicas, estudos, exercício de direitos, proteção da vida, tutela da saúde e prevenção à fraude). O “somente” tornou o item errado.
+
+=== rv-l53
+gab: E
+origem: real
+prova: Cebraspe · MPE TO 2024 · Analista (Banco de Dados) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: quando o titular ou seu responsável legal consentir, de forma específica e destacada, para finalidades específicas
+trecho: sem fornecimento de consentimento do titular, nas hipóteses em que for indispensável para
+armadilha: absoluto
+dif: 1
+enunciado: O tratamento de dados pessoais sensíveis somente poderá ocorrer quando o titular consentir, de forma específica e destacada, para finalidades específicas.
+comentario: O consentimento qualificado é só o inciso I do art. 11. O inciso II traz as hipóteses sem consentimento. Variações do mesmo item: “em nenhuma circunstância sem consentimento” (BANRISUL 2022) e “o tratamento de dados sensíveis é impedido” (TCE RN 2026). Todas erradas.
+
+=== rv-l54
+gab: E
+origem: real
+prova: Cebraspe · TCE RN 2026 · Analista Administrativo (Arquivologia) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: O tratamento de dados pessoais sensíveis somente poderá ocorrer nas seguintes hipóteses
+armadilha: absoluto
+dif: 1
+enunciado: O tratamento de dados pessoais sensíveis é impedido pela LGPD.
+comentario: A LGPD não proíbe tratar dado sensível: restringe as hipóteses (art. 11). Com consentimento específico e destacado ou nas sete hipóteses do inciso II, o tratamento é lícito. Hospitais, por exemplo, tratam dados de saúde todos os dias.
+
+=== rv-l55
+gab: C
+origem: real
+prova: Cebraspe · SUSEP 2025 · Analista Técnico (TI e Ciência de Dados) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 11, II, a
+trecho: cumprimento de obrigação legal ou regulatória pelo controlador
+armadilha: literal
+dif: 1
+enunciado: De acordo com a LGPD, o tratamento de dados pessoais sensíveis pode ser realizado sem o consentimento do titular, quando o tratamento for necessário para o cumprimento de obrigação legal ou regulatória pelo controlador.
+comentario: Alínea “a” do art. 11, II. É o item mais repetido da amostra: apareceu em pelo menos quatro provas entre 2024 e 2026 (SEPLAG CE, CAPES, SUSEP e FUNPRESP-JUD). A lei diz “indispensável”; o item disse “necessário”, e mesmo assim o gabarito é certo.
+
+=== rv-l56
+gab: C
+origem: real
+prova: Cebraspe · ANTT 2024 · Especialista em Regulação de Serviços de Transportes Terrestres · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 11, II, g
+trecho: garantia da prevenção à fraude e à segurança do titular, nos processos de identificação e autenticação de cadastro em sistemas eletrônicos
+armadilha: literal
+dif: 2
+enunciado: Conforme a LGPD, o tratamento de dados pessoais sensíveis poderá ocorrer sem fornecimento de consentimento do titular, nas hipóteses em que for indispensável para a garantia da prevenção à fraude e à segurança do titular, nos processos de identificação e autenticação de cadastro em sistemas eletrônicos.
+comentario: Alínea “g”, a mais longa e menos lembrada do art. 11, II (biometria no login do banco, por exemplo). Ela tem ressalva: valem os direitos do art. 9º e cai se prevalecerem os direitos e liberdades do titular.
+
+=== rv-l57
+gab: E
+origem: real
+prova: Cebraspe · IBAMA 2025 · Analista Administrativo · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 11, II
+trecho: proteção da vida ou da incolumidade física do titular ou de terceiro
+armadilha: rol
+dif: 2
+enunciado: É permitido o tratamento de dados pessoais sensíveis, inclusive sem o consentimento do titular, nas hipóteses em que for indispensável para a proteção do crédito.
+comentario: Proteção do crédito é base legal do art. 7º (inciso X), para dados comuns, mas não está no art. 11. Também ficam de fora do art. 11 o legítimo interesse e a execução de contrato (o art. 11 só fala em exercício regular de direitos “inclusive em contrato”). Compare as duas listas: é o que o Cebraspe mais explora.
+
+=== rv-l58
+gab: C
+origem: real
+prova: Cebraspe · TRT10 2025 · Analista Judiciário (Judiciária) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 11, II, d
+trecho: exercício regular de direitos, inclusive em contrato e em processo judicial, administrativo e arbitral
+armadilha: literal
+dif: 2
+enunciado: Quando for indispensável para o exercício regular de direitos, inclusive em contrato e em processo judicial e administrativo, o tratamento de dados pessoais sensíveis pode ser realizado sem o consentimento do titular dos dados pessoais.
+comentario: Art. 11, II, “d”. Note o “inclusive em contrato”, que não existe no art. 7º, VI (lá é só processo judicial, administrativo ou arbitral). Para dado sensível, contrato só entra por essa porta, como exercício de direito.
+
+=== rv-l59
+gab: C
+origem: real
+prova: Cebraspe · INSS 2025 · Perito Médico Federal · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 11, II, e
+trecho: proteção da vida ou da incolumidade física do titular ou de terceiro
+armadilha: literal
+dif: 1
+enunciado: O tratamento dos dados sensíveis poderá ocorrer, inclusive, visando à proteção da vida ou da incolumidade física do titular ou de terceiro.
+comentario: Art. 11, II, “e”. A proteção da vida aparece nas duas listas (art. 7º, VII, e art. 11, II, “e”) e também como hipótese de transferência internacional (art. 33, IV).
+
+=== rv-l60
+gab: E
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Advogado · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 11, II, c
+trecho: realização de estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais sensíveis
+armadilha: absoluto
+dif: 2
+enunciado: De acordo com a LGPD, o tratamento de dados pessoais sensíveis prescinde de anonimização em qualquer estudo conduzido por órgão de pesquisa.
+comentario: Prescindir é dispensar. A lei diz o contrário: nos estudos por órgão de pesquisa deve ser garantida a anonimização dos dados sensíveis “sempre que possível” (art. 11, II, “c”). Não é obrigatória em todos os casos, mas também não é dispensada em qualquer estudo.
+
+=== rv-l61
+gab: C
+origem: real
+prova: Cebraspe · AgSUS 2026 · Assistente de Projeto (UTIC) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 5, II
+trecho: dado pessoal sensível: dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural
+armadilha: literal
+comando: A respeito do disposto na Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados – LGPD), julgue o próximo item.
+dif: 1
+enunciado: Considera-se dado pessoal sensível aquele sobre origem racial ou étnica, convicção religiosa, opinião política e sobre a saúde ou a vida sexual, entre outros, quando vinculado a uma pessoa natural.
+comentario: Definição do art. 5º, II, resumida com “entre outros”. O fecho “quando vinculado a uma pessoa natural” importa: estatística agregada de saúde, sem pessoa identificável, não é dado sensível.
+
+=== rv-l62
+gab: E
+origem: real
+prova: Cebraspe · SEPLAG CE 2024 · Analista de Gestão Pública (TI) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 6, I e II
+trecho: finalidade: realização do tratamento para propósitos legítimos, específicos, explícitos e informados ao titular
+trecho: adequação: compatibilidade do tratamento com as finalidades informadas ao titular, de acordo com o contexto do tratamento
+armadilha: conceito
+comando: Com base na Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados Pessoais – LGPD), julgue os itens a seguir.
+dif: 2
+enunciado: Segundo a LGPD, o tratamento de dados pessoais deve observar, entre outros, o princípio da finalidade, segundo o qual deve ser atestada a compatibilidade do tratamento com as finalidades informadas ao titular, de acordo com o contexto do tratamento.
+comentario: A definição dada é a da adequação (art. 6º, II). Finalidade (inciso I) é tratar para propósitos legítimos, específicos, explícitos e informados, sem tratamento posterior incompatível. A dupla finalidade × adequação caiu também no CTI 2024 e na DATAPREV 2023: memorize “compatibilidade = adequação”.
+
+=== rv-l63
+gab: C
+origem: real
+prova: Cebraspe · DATAPREV 2023 · Analista (Advocacia) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 6, II
+trecho: adequação: compatibilidade do tratamento com as finalidades informadas ao titular, de acordo com o contexto do tratamento
+armadilha: conceito
+dif: 1
+enunciado: O princípio da adequação refere-se à conformidade entre o tratamento de dados pessoais e as finalidades informadas ao titular nas circunstâncias do tratamento.
+comentario: Paráfrase do art. 6º, II: “conformidade” por “compatibilidade” e “circunstâncias” por “contexto”. Sinônimos não tornam o item errado; trocar o nome do princípio, sim.
+
+=== rv-l64
+gab: E
+origem: real
+prova: Cebraspe · DATAPREV 2023 · Analista (Segurança Cibernética) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 6, IV e VI
+trecho: consulta facilitada e gratuita sobre a forma e a duração do tratamento, bem como sobre a integralidade de seus dados pessoais
+trecho: transparência: garantia, aos titulares, de informações claras, precisas e facilmente acessíveis
+armadilha: conceito
+dif: 2
+enunciado: A LGPD indica princípios de boa-fé que devem ser levados em consideração no tratamento de dados pessoais, como a transparência, que garante ao titular consulta facilitada e gratuita da integralidade dos seus dados pessoais.
+comentario: Consulta facilitada e gratuita da integralidade dos dados é o livre acesso (art. 6º, IV). Transparência (inciso VI) é informação clara, precisa e acessível sobre o tratamento e os agentes, observados os segredos comercial e industrial.
+
+=== rv-l65
+gab: C
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Analista de TI (Ciência de Dados) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 6, III
+trecho: necessidade: limitação do tratamento ao mínimo necessário para a realização de suas finalidades, com abrangência dos dados pertinentes, proporcionais e não excessivos
+armadilha: conceito
+dif: 1
+enunciado: A organização que realiza o tratamento de dados pessoais deve restringir a coleta ao mínimo indispensável para o alcance da finalidade proposta, sendo-lhe vedado o tratamento de dados que se revelem excessivos ou desproporcionais ao objetivo do serviço.
+comentario: É o princípio da necessidade (art. 6º, III), também chamado de minimização. Pertinentes, proporcionais e não excessivos são as três palavras da lei.
+
+=== rv-l66
+gab: C
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Pesquisador (Rastreabilidade e Certificação Digital) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 6
+trecho: As atividades de tratamento de dados pessoais deverão observar a boa-fé e os seguintes princípios
+armadilha: numero
+dif: 1
+enunciado: A LGPD estabelece dez princípios fundamentais que devem ser observados no tratamento de dados pessoais; entre eles estão a finalidade, a necessidade, o livre acesso e a segurança.
+comentario: São dez incisos no art. 6º: finalidade, adequação, necessidade, livre acesso, qualidade dos dados, transparência, segurança, prevenção, não discriminação e responsabilização e prestação de contas. A boa-fé vem no caput, antes da lista, e não conta como um dos dez.
+
+=== rv-l67
+gab: E
+origem: real
+prova: Cebraspe · TELEBRAS 2026 · Especialista em Gestão de Telecomunicações (Comercial) · gabarito conferido na lei
+bloco: lgpd-23-32
+ref: lgpd 24
+trecho: As empresas públicas e as sociedades de economia mista que atuam em regime de concorrência
+armadilha: sujeito
+dif: 1
+enunciado: A TELEBRAS, na realização de atividades de tratamento de dados pessoais, está dispensada de observar o princípio da necessidade previsto na LGPD, pois este se aplica somente a órgãos da administração pública direta.
+comentario: Os princípios do art. 6º valem para todo tratamento, público ou privado. Empresa estatal em concorrência é tratada como pessoa jurídica de direito privado (art. 24); quando opera política pública, como órgão público (parágrafo único). Em nenhum dos casos escapa da necessidade.
+
+=== rv-l68
+gab: C
+origem: real
+prova: Cebraspe · ANM 2025 · Especialista em Recursos Minerais (Fiscalização) · gabarito conferido na lei
+bloco: lgpd-23-32
+ref: lgpd 24
+trecho: terão o mesmo tratamento dispensado às pessoas jurídicas de direito privado particulares
+armadilha: literal
+dif: 1
+enunciado: A Lei Geral de Proteção de Dados Pessoais (LGPD) assegura às empresas públicas e às sociedades de economia mista que atuam em regime de concorrência o mesmo tratamento dispensado às pessoas jurídicas de direito privado particulares.
+comentario: Art. 24, caput. A pegadinha costuma estar no parágrafo único: quando executam políticas públicas, essas estatais recebem o tratamento do Poder Público. Concorrência puxa para o regime privado; política pública, para o regime público.
+
+=== rv-l69
+gab: E
+origem: real
+prova: Cebraspe · DATAPREV 2023 · Analista (Advocacia) · gabarito conferido na lei
+bloco: lgpd-23-32
+ref: lgpd 23
+trecho: deverá ser realizado para o atendimento de sua finalidade pública, na persecução do interesse público
+armadilha: conceito
+dif: 1
+enunciado: O tratamento de dados pessoais pelas pessoas jurídicas de direito público independe da finalidade pública do tratamento.
+comentario: É o oposto do art. 23: o Poder Público trata dados para atender à sua finalidade pública, na persecução do interesse público, para executar competências legais. A finalidade pública é a condição do tratamento, não algo dispensável.
+
+=== rv-l70
+gab: C
+origem: real
+prova: Cebraspe · CNJ 2024 · Analista Judiciário (Análise de Sistemas) · gabarito conferido na lei
+bloco: lgpd-23-32
+ref: lgpd 25
+trecho: Os dados deverão ser mantidos em formato interoperável e estruturado para o uso compartilhado
+armadilha: literal
+dif: 1
+enunciado: Conforme a LGPD, no âmbito do tratamento de dados pessoais pelo poder público, consideradas a execução de políticas públicas e a prestação de serviços públicos, os dados deverão ser mantidos em formato interoperável e estruturado para o uso compartilhado.
+comentario: Art. 25. Os quatro objetivos do formato interoperável: políticas públicas, serviços públicos, descentralização da atividade pública e acesso das informações pelo público.
+
+=== rv-l71
+gab: C
+origem: real
+prova: Cebraspe · TELEBRAS 2022 · Especialista em Gestão de Telecomunicações (Administrativo) · gabarito conferido na lei
+bloco: lgpd-23-32
+ref: lgpd 27
+trecho: A comunicação ou o uso compartilhado de dados pessoais de pessoa jurídica de direito público a pessoa de direito privado será informado à autoridade nacional e dependerá de consentimento do titular
+armadilha: literal
+dif: 2
+enunciado: Em regra, a comunicação ou o uso compartilhado de dados pessoais de pessoa jurídica de direito público a pessoa de direito privado será informado à autoridade nacional e dependerá de consentimento do titular.
+comentario: Caput do art. 27, e o “em regra” do item protege as exceções dos incisos (hipóteses de dispensa de consentimento, uso compartilhado com publicidade e as exceções do art. 26, § 1º). Compare com o item do TCDF 2024, que trocou “autoridade nacional” por “encarregado”.
+
+=== rv-l72
+gab: E
+origem: real
+prova: Cebraspe · TCDF 2024 · Auditor de Controle Externo (Arquivologia) · gabarito conferido na lei
+bloco: lgpd-23-32
+ref: lgpd 27
+trecho: será informado à autoridade nacional e dependerá de consentimento do titular
+armadilha: sujeito
+dif: 2
+enunciado: O uso compartilhado de dados pessoais de pessoa jurídica de direito público a pessoa de direito privado deve ser informado ao encarregado pelo tratamento de dados pessoais e dependerá de consentimento do titular.
+comentario: O art. 27 manda informar a autoridade nacional, não o encarregado. Troca de destinatário: a mesma regra caiu certa na TELEBRAS 2022 e errada no TCDF 2024, por uma palavra.
+
+=== rv-l73
+gab: E
+origem: real
+prova: Cebraspe · SEPLAG CE 2024 · Analista de Gestão Pública (TI) · gabarito conferido na lei
+bloco: lgpd-12-16
+ref: lgpd 13
+trecho: os órgãos de pesquisa poderão ter acesso a bases de dados pessoais, que serão tratados exclusivamente dentro do órgão
+trecho: não permitida, em circunstância alguma, a transferência dos dados a terceiro
+armadilha: sujeito
+dif: 2
+enunciado: Na realização de estudos em saúde pública, todos os envolvidos poderão ter acesso a bases de dados pessoais, podendo estes ser tratados por entidades públicas, privadas, civis e militares em qualquer esfera.
+comentario: O art. 13 restringe o acesso aos órgãos de pesquisa, com tratamento exclusivamente dentro do órgão, em ambiente controlado e seguro, e proíbe “em circunstância alguma” a transferência a terceiro (§ 2º). O item abriu a porta para todo mundo.
+
+=== rv-l74
+gab: E
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Analista (Folha de Pagamento) · gabarito conferido na lei
+bloco: lgpd-12-16
+ref: lgpd 16, I
+trecho: autorizada a conservação para as seguintes finalidades:
+trecho: cumprimento de obrigação legal ou regulatória pelo controlador
+armadilha: caso
+dif: 2
+enunciado: Após a demissão de um empregado, caso solicitado, a empresa será obrigada a excluir imediatamente todas as informações cadastrais desse empregado, independentemente de obrigações legais pendentes.
+comentario: O art. 16, I, autoriza conservar dados após o término do tratamento para cumprir obrigação legal ou regulatória (trabalhista, previdenciária, fiscal). E o direito de eliminação do art. 18, VI, ressalva expressamente o art. 16. O “independentemente de obrigações legais” é o erro.
+
+=== rv-l75
+gab: E
+origem: real
+prova: Cebraspe · ANATEL 2024 · Especialista em Regulação (Ciência de Dados) · gabarito conferido na lei
+bloco: lgpd-12-16
+ref: lgpd 16
+trecho: Os dados pessoais serão eliminados após o término de seu tratamento, no âmbito e nos limites técnicos das atividades
+armadilha: numero
+dif: 2
+enunciado: De acordo com a Lei Geral de Proteção de Dados Pessoais (LGPD), os dados pessoais devem ser retidos por um período de cinco anos, mesmo após a conclusão do seu processamento, desde que sejam cumpridos os limites técnicos das atividades em questão.
+comentario: A LGPD não fixa prazo de retenção. A regra do art. 16 é eliminar após o término do tratamento, com conservação autorizada só para as quatro finalidades dos incisos (obrigação legal, pesquisa, transferência a terceiro, uso exclusivo do controlador com anonimização). Número inventado é sinal clássico de item errado, e este é da prova da Anatel 2024.
+
+=== rv-l76
+gab: E
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Analista de TI (Ciência de Dados) · gabarito conferido na lei
+bloco: lgpd-12-16
+ref: lgpd 15, I
+trecho: verificação de que a finalidade foi alcançada ou de que os dados deixaram de ser necessários ou pertinentes ao alcance da finalidade específica almejada
+armadilha: numero
+dif: 1
+enunciado: A LGPD estabelece um tempo máximo — padrão e obrigatório — pelo qual os dados pessoais podem ficar armazenados por qualquer empresa ou setor.
+comentario: Não há prazo único na LGPD. O fim do tratamento se mede pela finalidade (art. 15, I), pelo período combinado, pela revogação ou por ordem da ANPD. O art. 40 permite à ANPD dispor sobre o tempo de guarda dos registros, mas a própria lei não fixa um número.
+
+=== rv-l77
+gab: C
+origem: real
+prova: Cebraspe · DATAPREV 2023 · Analista (Advocacia) · gabarito conferido na lei
+bloco: lgpd-17-22
+ref: lgpd 18, IV
+trecho: anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade com o disposto nesta Lei
+armadilha: literal
+dif: 1
+enunciado: De acordo com a LGPD, o titular de dados pessoais pode exigir do controlador a eliminação de dados desnecessários ou excessivos para determinado tratamento.
+comentario: Art. 18, IV: anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade. Não confunda com o inciso VI, eliminação dos dados tratados com consentimento, que tem as exceções do art. 16.
+
+=== rv-l78
+gab: E
+origem: real
+prova: Cebraspe · TELEBRAS 2026 · Especialista em Gestão de Telecomunicações (Marketing) · gabarito conferido na lei
+bloco: lgpd-17-22
+ref: lgpd 18, § 7º
+trecho: A portabilidade dos dados pessoais a que se refere o inciso V do caput deste artigo não inclui dados que já tenham sido anonimizados pelo controlador
+armadilha: excecao
+dif: 2
+enunciado: O exercício do direito do titular de obter do controlador a portabilidade de seus dados pessoais a outro fornecedor inclui dados que tenham sido previamente anonimizados pelo controlador, desde que a requisição seja expressa e que a regulamentação da autoridade nacional seja observada.
+comentario: O item copia corretamente as condições do inciso V (requisição expressa e regulamentação da ANPD) para esconder o erro: o § 7º do art. 18 exclui da portabilidade os dados já anonimizados. Faz sentido: dado anonimizado não é mais dado pessoal (art. 12).
+
+=== rv-l79
+gab: E
+origem: real
+prova: Cebraspe · UDESC 2026 · Técnico Universitário (Analista de Suporte) · gabarito conferido na lei
+bloco: lgpd-17-22
+ref: lgpd 18
+trecho: O titular dos dados pessoais tem direito a obter do controlador, em relação aos dados do titular por ele tratados, a qualquer momento e mediante requisição
+armadilha: caso
+dif: 2
+enunciado: Uma empresa que trata dados pessoais exclusivamente para a execução de contrato com o titular está dispensada de atender às solicitações de acesso e à correção de dados previstas na LGPD, uma vez que o tratamento decorre de obrigação contratual regularmente estabelecida.
+comentario: Os direitos do art. 18 valem qualquer que seja a base legal. O § 6º do art. 7º é expresso: a dispensa de consentimento não desobriga os agentes das demais obrigações, “especialmente” da garantia dos direitos do titular. Acesso e correção (art. 18, II e III) não dependem de consentimento.
+
+=== rv-l80
+gab: E
+origem: real
+prova: Cebraspe · TRF6 2025 · Analista Judiciário (Análise de Dados) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 9, III
+trecho: identificação do controlador
+armadilha: excecao
+dif: 2
+enunciado: O titular tem direito ao acesso facilitado às informações sobre o tratamento de seus dados, que deverão ser disponibilizadas de forma clara e adequada, excetuando-se, por questões de segurança, a identificação do controlador.
+comentario: A identificação do controlador é uma das informações que o art. 9º manda dar ao titular (inciso III), junto com seu contato (IV). A única ressalva do artigo são os segredos comercial e industrial na forma e duração do tratamento (inciso II). O item inventou uma exceção.
+
+=== rv-l81
+gab: E
+origem: real
+prova: Cebraspe · TCDF 2024 · Auditor de Controle Externo (Arquivologia) · gabarito conferido na lei
+bloco: lgpd-17-22
+ref: lgpd 19
+trecho: A confirmação de existência ou o acesso a dados pessoais serão providenciados, mediante requisição do titular
+armadilha: extrapolacao
+dif: 2
+enunciado: O acesso a dados pessoais tratados pelo controlador, caso solicitado por seu titular, será providenciado, mediante requisição do titular devidamente justificada, em formato simplificado ou por meio de declaração clara e completa, desde que autorizado pela autoridade nacional de proteção de dados.
+comentario: Duas invenções. O art. 19 pede só requisição do titular, sem justificativa, e não exige autorização da ANPD. O resto está certo: formato simplificado, imediatamente, ou declaração clara e completa em até 15 dias.
+
+=== rv-l82
+gab: C
+origem: real
+prova: Cebraspe · TELEBRAS 2026 · Especialista em Gestão de Telecomunicações (Marketing) · gabarito conferido na lei
+bloco: lgpd-17-22
+ref: lgpd 20, § 1º
+trecho: O titular dos dados tem direito a solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado de dados pessoais que afetem seus interesses
+trecho: O controlador deverá fornecer, sempre que solicitadas, informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada, observados os segredos comercial e industrial
+armadilha: literal
+dif: 2
+enunciado: Caso determinada decisão, tomada exclusivamente com base em tratamento automatizado de dados pessoais, afete os interesses do titular dos dados, este poderá solicitar a revisão da decisão, devendo o controlador fornecer, sempre que solicitadas, informações claras sobre os critérios e procedimentos utilizados, ressalvada a proteção ao segredo comercial e industrial.
+comentario: Caput e § 1º do art. 20. A LGPD, desde a Lei 13.853/2019, não exige que a revisão seja feita por pessoa natural (esse trecho foi vetado). Se o controlador negar informação alegando segredo, a ANPD pode fazer auditoria de aspectos discriminatórios (§ 2º).
+
+=== rv-l83
+gab: C
+origem: real
+prova: Cebraspe · TCE AC 2024 · Analista (Infraestrutura de TI) · gabarito conferido na lei
+bloco: lgpd-37-45
+ref: lgpd 41, § 2º, I
+trecho: aceitar reclamações e comunicações dos titulares, prestar esclarecimentos e adotar providências
+armadilha: literal
+dif: 1
+enunciado: Cabe ao encarregado aceitar reclamações e comunicações dos titulares de dados.
+comentario: Primeira atividade do encarregado no art. 41, § 2º. As outras: receber comunicações da ANPD, orientar funcionários e contratados e cumprir atribuições dadas pelo controlador. A Resolução CD/ANPD 18/2024 detalha o papel.
+
+=== rv-l84
+gab: E
+origem: real
+prova: Cebraspe · SEPLAG CE 2024 · Analista de Gestão Pública (TI) · gabarito conferido na lei
+bloco: lgpd-37-45
+ref: lgpd 40
+trecho: A autoridade nacional poderá dispor sobre padrões de interoperabilidade para fins de portabilidade, livre acesso aos dados e segurança
+armadilha: sujeito
+dif: 2
+enunciado: A disposição sobre padrões de interoperabilidade para fins de portabilidade é de responsabilidade do custodiante, não devendo a autoridade nacional dispor a esse respeito.
+comentario: É a ANPD quem pode dispor sobre padrões de interoperabilidade para portabilidade, livre acesso e segurança, e sobre o tempo de guarda dos registros (art. 40). “Custodiante” nem é figura da LGPD.
+
+=== rv-l85
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Auditor Federal de Controle Externo (TI) · gabarito conferido na lei
+bloco: lgpd-37-45
+ref: lgpd 37
+trecho: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem
+armadilha: literal
+dif: 1
+enunciado: No que tange ao tratamento de dados pessoais em contratos de TI, o controlador e o operador devem manter o registro das operações de tratamento de dados pessoais que realizarem, além de adotar medidas de segurança contra acessos não autorizados a tais dados.
+comentario: Junta o art. 37 (registro das operações, a cargo do controlador e do operador, “especialmente” no legítimo interesse) e o art. 46 (medidas de segurança). Os dois deveres recaem sobre ambos os agentes, não só sobre o controlador.
+
+=== rv-l86
+gab: E
+origem: real
+prova: Cebraspe · TJ PA 2025 · Oficial de Justiça Avaliador · gabarito conferido na lei
+bloco: lgpd-37-45
+ref: lgpd 42, § 2º
+trecho: O juiz, no processo civil, poderá inverter o ônus da prova a favor do titular dos dados quando, a seu juízo, for verossímil a alegação
+armadilha: absoluto
+dif: 2
+enunciado: No âmbito de ação civil de reparação de danos proposta contra controlador ou operador que, em razão do exercício de atividade de tratamento de dados pessoais, tenha causado prejuízo ao titular dos dados, a LGPD prevê inversão automática do ônus da prova em favor deste último.
+comentario: A inversão é judicial e facultativa: o juiz “poderá” inverter quando, a seu juízo, a alegação for verossímil, houver hipossuficiência ou a prova for excessivamente onerosa ao titular (art. 42, § 2º). A TELEBRAS 2026 repetiu a mesma armadilha (“inversão automática”).
+
+=== rv-l87
+gab: C
+origem: real
+prova: Cebraspe · TELEBRAS 2026 · Especialista em Gestão de Telecomunicações (Marketing) · gabarito conferido na lei
+bloco: lgpd-37-45
+ref: lgpd 42, § 1º, I
+trecho: o operador responde solidariamente pelos danos causados pelo tratamento quando descumprir as obrigações da legislação de proteção de dados ou quando não tiver seguido as instruções lícitas do controlador
+armadilha: literal
+dif: 2
+enunciado: O operador responde solidariamente pelos danos causados ao titular dos dados quando descumprir as obrigações da legislação de proteção de dados ou quando deixar de seguir instruções lícitas do controlador, equiparando-se, nessas hipóteses, a este, ressalvadas as excludentes legais de responsabilidade.
+comentario: Art. 42, § 1º, I, com as excludentes do art. 43 (não tratou, não violou a lei, ou culpa exclusiva do titular ou de terceiro). Note: instruções “lícitas”. Seguir instrução ilícita não protege o operador.
+
+=== rv-l88
+gab: C
+origem: real
+prova: Cebraspe · TELEBRAS 2026 · Especialista em Gestão de Telecomunicações (Marketing) · gabarito conferido na lei
+bloco: lgpd-37-45
+ref: lgpd 44
+trecho: O tratamento de dados pessoais será irregular quando deixar de observar a legislação ou quando não fornecer a segurança que o titular dele pode esperar, consideradas as circunstâncias relevantes
+armadilha: interpretacao
+dif: 2
+enunciado: O tratamento de dados pessoais poderá ser considerado irregular quando, ainda que realizado de acordo com a legislação formalmente aplicável, deixar de oferecer a segurança que o titular legitimamente pode esperar do tratamento, consideradas as circunstâncias relevantes do caso concreto.
+comentario: O art. 44 tem duas causas de irregularidade, alternativas: descumprir a legislação ou não dar a segurança que o titular pode esperar. Por isso um tratamento formalmente legal ainda pode ser irregular. As circunstâncias: o modo, o resultado e os riscos esperados e as técnicas disponíveis à época.
+
+=== rv-l89
+gab: E
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Advogado · gabarito conferido na lei
+bloco: lgpd-37-45
+ref: lgpd 45
+trecho: As hipóteses de violação do direito do titular no âmbito das relações de consumo permanecem sujeitas às regras de responsabilidade previstas na legislação pertinente
+armadilha: literal
+dif: 1
+enunciado: De acordo com a Lei Geral de Proteção de Dados Pessoais, no âmbito das relações de consumo, às hipóteses de violação do direito do titular dos dados não se aplicam as regras de responsabilidade previstas na legislação pertinente.
+comentario: O art. 45 diz o contrário: nas relações de consumo, as violações “permanecem sujeitas” às regras de responsabilidade da legislação pertinente (o CDC, com responsabilidade objetiva). Bastou o “não”.
+
+=== rv-l90
+gab: C
+origem: real
+prova: Cebraspe · SEFAZ AL 2021 · Auditor de Finanças e Controle · gabarito conferido na lei
+bloco: lgpd-46-51
+ref: lgpd 47
+trecho: ou qualquer outra pessoa que intervenha em uma das fases do tratamento obriga-se a garantir a segurança da informação prevista nesta Lei em relação aos dados pessoais, mesmo após o seu término
+armadilha: literal
+dif: 1
+enunciado: De acordo com a LGPD, qualquer entidade que intervenha em uma das fases do tratamento de dados pessoais obriga-se a garantir a segurança da informação desses dados, mesmo após o término do tratamento.
+comentario: Art. 47. O dever de segurança é de todos que participam do tratamento, não só dos agentes, e sobrevive ao fim do tratamento. Ligue com o art. 46, § 2º (segurança desde a concepção, o privacy by design).
+
+=== rv-l91
+gab: E
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Analista de TI (Infraestrutura e Segurança) · gabarito conferido na lei
+bloco: lgpd-46-51
+ref: lgpd 50, § 2º, I, c
+trecho: seja adaptado à estrutura, à escala e ao volume de suas operações, bem como à sensibilidade dos dados tratados
+armadilha: literal
+dif: 3
+enunciado: A implementação de programa de governança em privacidade deve adaptar-se à sensibilidade dos dados tratados, independentemente da estrutura, da escala e do volume das operações.
+comentario: O programa de governança deve ser adaptado à estrutura, à escala e ao volume das operações “bem como” à sensibilidade dos dados (art. 50, § 2º, I, “c”). O item manteve um critério e descartou os outros com “independentemente”. Item difícil porque a primeira metade é literal.
+
+=== rv-l92
+gab: E
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Analista de TI (Ciência de Dados) · gabarito conferido na lei
+bloco: lgpd-23-32
+ref: lgpd 6, VII e VIII
+trecho: segurança: utilização de medidas técnicas e administrativas aptas a proteger os dados pessoais
+trecho: prevenção: adoção de medidas para prevenir a ocorrência de danos em virtude do tratamento de dados pessoais
+armadilha: extrapolacao
+dif: 2
+enunciado: No setor público, haja vista que a publicidade é a regra geral disposta na Lei de Acesso à Informação (LAI), os órgãos e entidades ficam desobrigados de realizar a análise de riscos ou de adotar salvaguardas sobre os dados pessoais cuja divulgação decorra do interesse público.
+comentario: A publicidade da LAI não suspende a LGPD. Os princípios da segurança e da prevenção (art. 6º, VII e VIII) valem para o Poder Público, e a própria LAI protege informações pessoais (art. 31). Mesmo quando há interesse público na divulgação, avaliam-se riscos e se adotam salvaguardas (anonimização, minimização).
+
+=== rv-l93
+gab: C
+origem: real
+prova: Cebraspe · MPE SC 2023 · Promotor de Justiça Substituto · gabarito conferido na lei
+bloco: lgpd-52-54
+ref: lgpd 52, § 2º
+trecho: O disposto neste artigo não substitui a aplicação de sanções administrativas, civis ou penais definidas na Lei nº 8.078, de 11 de setembro de 1990, e em legislação específica
+armadilha: literal
+dif: 2
+enunciado: A aplicação de sanção administrativa com base na LGPD não exclui o cabimento de sanção prevista na legislação consumerista nem na legislação penal.
+comentario: Art. 52, § 2º: as sanções da LGPD não substituem as do CDC (Lei 8.078/1990) nem as de legislação específica, sejam administrativas, civis ou penais. Por isso um mesmo vazamento pode gerar processo na ANPD e no Procon.
+
+=== rv-l94
+gab: C
+origem: real
+prova: Cebraspe · TCE AC 2024 · Analista de TI (Segurança da Informação) · gabarito conferido na lei
+bloco: lgpd-52-54
+ref: lgpd 52, II e III
+trecho: limitada, no total, a R$ 50.000.000,00 (cinquenta milhões de reais) por infração
+trecho: multa diária, observado o limite total a que se refere o inciso II
+armadilha: numero
+dif: 2
+enunciado: Entre as sanções administrativas aplicáveis pela autoridade nacional a agente de tratamento de dados que cometa infração às normas da LGPD, inclui-se multa diária, limitada a R$ 50 milhões.
+comentario: A multa diária (art. 52, III) observa o limite total do inciso II: R$ 50 milhões por infração. A multa simples tem dois tetos ao mesmo tempo: até 2% do faturamento no Brasil no último exercício, excluídos os tributos, e no máximo R$ 50 milhões por infração.
+
+=== rv-l95
+gab: C
+origem: real
+prova: Cebraspe · FNDE 2023 · Especialista em Financiamento e Execução de Programas · gabarito conferido na lei
+bloco: lgpd-52-54
+ref: lgpd 52, II
+trecho: multa simples, de até 2% (dois por cento) do faturamento da pessoa jurídica de direito privado, grupo ou conglomerado no Brasil no seu último exercício, excluídos os tributos, limitada, no total, a R$ 50.000.000,00 (cinquenta milhões de reais) por infração
+armadilha: numero
+dif: 1
+enunciado: Uma empresa privada que viole a LGPD poderá ser multada em, no máximo, R$ 50 milhões por infração.
+comentario: O teto absoluto é R$ 50 milhões por infração (art. 52, II). Lembre que o teto é por infração: um processo com três infrações pode somar mais. Órgãos públicos não recebem multa (art. 52, § 3º).
+
+=== rv-l96
+gab: E
+origem: real
+prova: Cebraspe · CAPES 2024 · Analista (Ciência e Tecnologia) · gabarito conferido na lei
+bloco: lgpd-52-54
+ref: lgpd 52, § 1º
+trecho: de forma gradativa, isolada ou cumulativa
+armadilha: literal
+dif: 1
+enunciado: As sanções previstas na LGPD não podem ser aplicadas cumulativamente.
+comentario: O § 1º do art. 52 diz que as sanções serão aplicadas “de forma gradativa, isolada ou cumulativa”, após processo com ampla defesa e conforme os critérios dos incisos (gravidade, boa-fé, vantagem, condição econômica, reincidência, dano, cooperação, boas práticas, medidas corretivas, proporcionalidade).
+
+=== rv-l97
+gab: C
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Analista (Auditoria e Controle Interno) · gabarito conferido na lei
+bloco: lgpd-52-54
+ref: lgpd 52, I e XII
+trecho: advertência, com indicação de prazo para adoção de medidas corretivas
+trecho: proibição parcial ou total do exercício de atividades relacionadas a tratamento de dados
+armadilha: rol
+dif: 1
+enunciado: Em caso de infrações cometidas contra as normas previstas na LGPD, os agentes de tratamento de dados ficam sujeitos a sanções administrativas, que podem variar desde advertências, com indicação de prazo para adoção de medidas corretivas, à proibição parcial ou total do exercício de atividades relacionadas a tratamento de dados.
+comentario: A primeira e a última sanção do art. 52 (incisos I e XII). As três mais graves (suspensão parcial do banco, suspensão da atividade e proibição) só vêm depois de ao menos uma das sanções dos incisos II a VI no mesmo caso (§ 6º, I).
+
+=== rv-l98
+gab: C
+origem: real
+prova: Cebraspe · DATAPREV 2023 · Analista (Segurança da Informação e Proteção de Dados) · gabarito conferido na lei
+bloco: lgpd-55
+ref: lgpd 55-D
+trecho: O Conselho Diretor da ANPD será composto de 5 (cinco) diretores, incluído o Diretor-Presidente
+armadilha: numero
+dif: 1
+enunciado: O Conselho Diretor da Autoridade Nacional de Proteção de Dados (ANPD) será composto de 5 diretores, incluído o diretor-presidente.
+comentario: Art. 55-D: 5 diretores, incluído o Diretor-Presidente, nomeados pelo Presidente da República após aprovação do Senado. Atenção ao mandato: o § 3º ainda diz 4 anos, mas a Lei 15.352/2026 (arts. 12 e 17) manda as novas nomeações seguirem a Lei 9.986, com 5 anos vedada a recondução. O nome agora é Agência Nacional de Proteção de Dados; o Conselho Diretor continua com 5 membros.
+
+=== rv-l99
+gab: C
+origem: real
+prova: Cebraspe · ANTT 2024 · Especialista em Regulação (Direito) · gabarito conferido na lei
+bloco: lgpd-55
+ref: lgpd 55-A
+trecho: autarquia de natureza especial
+trecho: com patrimônio próprio e com sede e foro no Distrito Federal
+armadilha: literal
+dif: 1
+enunciado: A Autoridade Nacional de Proteção de Dados (ANPD) é autarquia de natureza especial e dotada de autonomia técnica e decisória, com patrimônio próprio e com sede e foro no Distrito Federal.
+comentario: Era a redação de 2022 (Lei 14.460). Continua certo, mas mudou: a Lei 15.352/2026 renomeou a ANPD para Agência Nacional de Proteção de Dados, vinculada ao Ministério da Justiça e Segurança Pública, com autonomia funcional, técnica, decisória, administrativa e financeira, nos termos da Lei 13.848/2019. Na prova da ANPD, espere a redação nova.
+
+=== rv-l100
+gab: C
+origem: real
+prova: Cebraspe · Câmara dos Deputados 2026 · Técnico Legislativo · gabarito conferido na lei
+bloco: lgpd-55
+ref: lgpd 55-A
+trecho: dotada de autonomia funcional, técnica, decisória, administrativa e financeira
+armadilha: literal
+dif: 1
+enunciado: A Agência Nacional de Proteção de Dados (ANPD), autarquia de natureza especial dotada de autonomia funcional, técnica, decisória, administrativa e financeira, possui competência sancionatória em caso de tratamento de dados realizado em descumprimento à legislação.
+comentario: Já com a redação da Lei 15.352/2026 (art. 55-A). A competência sancionatória está no art. 55-J, IV, e no art. 52. Note como a banca já cobra a lei nova poucos meses depois da publicação.
+
+=== rv-l101
+gab: C
+origem: real
+prova: Cebraspe · TCDF 2024 · Auditor de Controle Externo (Arquivologia) · gabarito conferido na lei
+bloco: lgpd-55
+ref: lgpd 58-B
+trecho: elaborar relatórios anuais de avaliação da execução das ações da Política Nacional de Proteção de Dados Pessoais e da Privacidade
+trecho: sugerir ações a serem realizadas pela ANPD
+armadilha: rol
+dif: 2
+enunciado: Entre as competências do Conselho Nacional de Proteção de Dados Pessoais e da Privacidade, estão a de elaborar relatórios anuais de avaliação da execução das ações da Política Nacional de Proteção de Dados e da Privacidade e a de sugerir ações a serem realizadas pela autoridade nacional de proteção de dados.
+comentario: Incisos II e III do art. 58-B. O CNPD é órgão consultivo: propõe diretrizes, avalia, sugere, estuda e dissemina. Não fiscaliza nem sanciona; isso é do Conselho Diretor e da estrutura da ANPD.
+
+=== rv-l102
+gab: E
+origem: real
+prova: Cebraspe · FUNPRESP-EXE 2025 · Analista de Previdência Complementar (Comunicação) · gabarito conferido na lei
+bloco: lgpd-33-36
+ref: lgpd 33, I
+trecho: para países ou organismos internacionais que proporcionem grau de proteção de dados pessoais adequado ao previsto nesta Lei
+armadilha: absoluto
+dif: 1
+enunciado: É vedada a transferência internacional de dados pessoais de cidadãos brasileiros a organismos internacionais.
+comentario: O art. 33 permite a transferência a países ou organismos internacionais, nas nove hipóteses que lista (adequação, garantias contratuais, cooperação jurídica, proteção da vida, autorização da ANPD, acordo de cooperação, política pública, consentimento específico e bases do art. 7º, II, V e VI). E a definição do art. 5º, XV, já inclui o organismo internacional.
+
+=== rv-l103
+gab: E
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Pesquisador (Rastreabilidade e Certificação Digital) · gabarito conferido na lei
+bloco: lgpd-33-36
+ref: lgpd 33
+trecho: A transferência internacional de dados pessoais somente é permitida nos seguintes casos
+armadilha: extrapolacao
+dif: 2
+enunciado: A transferência internacional de dados pessoais no contexto do agronegócio deve observar tanto a legislação de proteção de dados do país destinatário quanto a LGPD; no entanto, quando a transferência tiver como finalidade a obtenção de certificação internacional, ela não estará sujeita às exigências da LGPD.
+comentario: Não há exceção para certificação internacional. Toda transferência internacional precisa se enquadrar numa das hipóteses do art. 33. Selos e certificados aparecem no art. 33, II, “d”, mas como garantia que permite transferir, não como dispensa da lei.
+
+=== rv-l104
+gab: E
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Pesquisador (Rastreabilidade e Certificação Digital) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 7
+trecho: O tratamento de dados pessoais somente poderá ser realizado nas seguintes hipóteses
+armadilha: caso
+dif: 2
+enunciado: Uma empresa do agronegócio que trate dados pessoais de clientes, empregados e fornecedores poderá utilizá-los para estudos de impacto socioeconômico e para a melhoria da rastreabilidade de seus produtos sem necessidade de informar os titulares sobre tal uso ou estabelecer uma base legal específica, desde que o tratamento dos dados seja realizado exclusivamente para fins internos e não envolva o compartilhamento com terceiros.
+comentario: Uso interno não dispensa base legal (art. 7º) nem transparência (art. 6º, VI). Usar dados de clientes e empregados para nova finalidade exige compatibilidade com a finalidade informada (art. 6º, I e II) e informar o titular. A LGPD não tem exceção para “fins internos”.
+
+=== rv-l105
+gab: C
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Pesquisador (Rastreabilidade e Certificação Digital) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 7, II e § 6º
+trecho: para o cumprimento de obrigação legal ou regulatória pelo controlador
+trecho: A eventual dispensa da exigência do consentimento não desobriga os agentes de tratamento das demais obrigações previstas nesta Lei
+armadilha: conceito
+dif: 1
+enunciado: O tratamento de dados pessoais no agronegócio pode ser realizado sem o consentimento explícito do titular quando isso for necessário para o cumprimento de obrigações legais ou regulatórias impostas ao controlador, desde que observados os princípios da finalidade, adequação e necessidade estabelecidos pela LGPD.
+comentario: Obrigação legal ou regulatória é base autônoma (art. 7º, II), e o § 6º lembra que a dispensa do consentimento mantém os princípios e os direitos do titular. O cenário (agronegócio) é só roupagem.
+
+=== rv-l106
+gab: E
+origem: real
+prova: Cebraspe · AgSUS 2026 · Assistente de Projeto (UTIC) · gabarito conferido na lei
+bloco: lgpd-5-11
+ref: lgpd 11, II, a
+trecho: sem fornecimento de consentimento do titular, nas hipóteses em que for indispensável para:
+trecho: cumprimento de obrigação legal ou regulatória pelo controlador
+armadilha: excecao
+comando: A respeito do disposto na Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados – LGPD), julgue o próximo item.
+dif: 2
+enunciado: É vedado o tratamento de dados pessoais sensíveis sem consentimento do titular mesmo se houver necessidade de cumprimento de obrigação regulatória pelo agente responsável pelas decisões referentes ao tratamento de dados pessoais.
+comentario: O “agente responsável pelas decisões” é o controlador (art. 5º, VI), dito por perífrase para disfarçar. E o cumprimento de obrigação legal ou regulatória pelo controlador é justamente a primeira hipótese de tratamento de dado sensível sem consentimento (art. 11, II, “a”).
+
+=== rv-l107
+gab: E
+origem: real
+prova: Cebraspe · AgSUS 2026 · Assistente de Projeto (Perfil 1, UMA) · gabarito conferido na lei
+bloco: lgpd-12-16
+ref: lgpd 12
+trecho: Os dados anonimizados não serão considerados dados pessoais para os fins desta Lei, salvo quando o processo de anonimização ao qual foram submetidos for revertido
+armadilha: conceito
+comando: No que se refere à ciência de dados aplicada à gestão pública e à saúde, julgue o item a seguir.
+dif: 2
+enunciado: No contexto da Lei Geral de Proteção de Dados (LGPD), a anonimização de dados de saúde deve ser um processo reversível que permita ao gestor público identificar o paciente sempre que houver necessidade administrativa.
+comentario: Anonimização reversível é contradição: anonimizar é fazer o dado perder a possibilidade de associação ao indivíduo (art. 5º, XI), e, se a anonimização for revertida, o dado volta a ser pessoal (art. 12). O que o item descreve, reidentificar com informação guardada à parte, é pseudonimização (art. 13, § 4º).
