@@ -9,7 +9,7 @@ O app publicado fica em <https://claude.ai/artifact/J5WjnHRjrWxyMfa9fL7xpw> e sa
 A aba **Hoje** monta um roteiro de cinco passos, nesta ordem (a leitura do dia tem no máximo 25 artigos, escolhidos pelos seus erros, pelo que falta ler e pelo que mais cai):
 
 1. **Revisar o que venceu**: a lista curta de questões erradas e os cards vencidos.
-2. **Questões do dia**: o bloco do cronograma de 151 dias em seis fases (05/10/2026 a 28/03/2027). Quem sai no meio da sessão retoma de onde parou.
+2. **Questões do dia**: o bloco do cronograma de 151 dias em seis fases (05/10/2026 a 28/03/2027). Nenhuma sessão recomeça do zero: treino, revisão e simulado (com marcações e tempo) ficam guardados na conta e continuam de onde pararam, inclusive em outro aparelho.
 3. **Lei seca grifada**: leitura em sequência dos artigos do dia.
 4. **Cards cloze**: lacunas da letra da lei (e dos conceitos de gestão, IA e economia), com revisão espaçada.
 5. **Para pesquisar**: um tema ou termo por dia, tirado dos seus erros.
@@ -83,7 +83,7 @@ npm run test:navegador   # clica no app num Chromium de verdade (veja abaixo)
 
 Validar, testar e gerar o app não exigem dependências externas: só Node 18 ou mais novo.
 
-Os testes de navegador (`scripts/navegador/`) percorrem as telas no celular e no computador, nos dois temas, e conferem a sincronização entre a conta e o navegador (com um banco simulado), a retomada da sessão interrompida, a múltipla escolha e os cards. Eles precisam do Playwright, que o projeto não instala: rode `npm install --no-save playwright` uma vez. `CHROMIUM` aponta para um Chromium já instalado, `APP` troca o arquivo testado (para comparar com uma versão antiga) e `FOTOS` escolhe a pasta das capturas de tela.
+Os testes de navegador (`scripts/navegador/`) percorrem as telas no celular e no computador, nos dois temas, e conferem a sincronização entre a conta e o navegador (com um banco simulado), a retomada de sessões interrompidas (treino, simulado com marcações e tempo, itens reais, e a troca de aparelho), a múltipla escolha e os cards. Eles precisam do Playwright, que o projeto não instala: rode `npm install --no-save playwright` uma vez. `CHROMIUM` aponta para um Chromium já instalado, `APP` troca o arquivo testado (para comparar com uma versão antiga) e `FOTOS` escolhe a pasta das capturas de tela.
 
 ## Textos que ainda faltam
 

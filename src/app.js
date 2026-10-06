@@ -73,10 +73,11 @@ const CHAVE_LOCAL = 'painel-anpd-v3';
 const CHAVE_LOCAL_ANTIGA = 'painel-anpd-v2';
 const CHAVE_UI = 'painel-anpd-ui';
 const P1 = ['lgpd-17-22', 'lgpd-52-54', 'lgpd-55', 'lgpd-33-36', 'lgpd-5-11'];
-// Prova completa simulada: itens por disciplina numa prova de 120 (50 básicos + 70 específicos), estimativa
-// feita sobre a estrutura da Anatel 2024 e da ANAC 2024 e sobre o processo seletivo da ANPD (2025) até sair o
-// edital. Gestão subiu de 8 para 18: foi o maior bloco específico da Anatel e cerca de um terço do PSS da ANPD.
-const ITENS_PROVA = { linguas: 21, direito: 17, regulacao: 12, lgpd: 30, eca: 8, seginfo: 7, gestao: 18, comparado: 3, economia: 4 };
+// Prova completa simulada: itens por disciplina numa prova de 120 (50 básicos + 70 específicos), estimativa para
+// Especialista em Regulação feita sobre a estrutura da Anatel 2024 e da ANAC 2024 até sair o edital. Gestão fica em 10:
+// o terço de gestão do processo seletivo da ANPD (2025) veio do cargo gerencial, e o específico do especialista
+// deve concentrar-se na LGPD e nas normas da ANPD.
+const ITENS_PROVA = { linguas: 21, direito: 19, regulacao: 14, lgpd: 34, eca: 8, seginfo: 8, gestao: 10, comparado: 3, economia: 3 };
 const TOTAL_PROVA = Object.values(ITENS_PROVA).reduce((a, b) => a + b, 0);
 // Cotas por disciplina para n itens, pelo método do maior resto (a soma dá exatamente n)
 function cotasProva(n) {
@@ -799,39 +800,87 @@ function emBlocosDeTexto(itens, puxar) {
   }
   return out;
 }
-// Sessão interrompida: os itens que faltavam ficam no perfil (que vai para a conta) e a sessão continua de onde parou.
-// Vale para treino e revisão; simulado e relâmpago recomeçam, como na prova. A chave é o dia do plano, a rodada de
-// intercaladas ou a trilha do dia; o treino montado na aba Questões usa a chave "livre". Pausas com mais de 7 dias caducam.
-const PAUSA_DIAS = 7;
-function chavePausa(s) { return s && (s.modo === 'treino' || s.modo === 'revisao') ? s.dia || (s.modo === 'treino' ? 'livre' : null) : null; }
+// Sessão interrompida: treino, revisão e simulado ficam guardados no perfil (que vai para a conta) e continuam de onde
+// pararam, mesmo depois de fechar o app ou trocar de aparelho. O relâmpago recomeça (é um jogo de 90 s) e os cards não
+// precisam (cada avaliação já fica salva). A chave diz de onde a sessão veio: o dia do plano, a rodada de intercaladas, o
+// subtema da trilha, o artigo, a disciplina dos itens reais. Quem entra de novo pela mesma porta continua. Sessões montadas
+// na hora (aba Questões, refazer erros, termo do glossário) ganham chave própria e continuam pela lista de sessões
+// guardadas. No simulado ficam também as marcações e o tempo gasto; o relógio para enquanto a sessão está guardada.
+// Pausas com mais de 7 dias caducam, e ficam no máximo as 8 mais recentes.
+const PAUSA_DIAS = 7, PAUSA_MAX = 8;
+const MODOS_PAUSA = new Set(['treino', 'revisao', 'simulado']);
+function chavePausa(s) { return s && MODOS_PAUSA.has(s.modo) ? s.chave || null : null; }
 function pausaDe(k) {
   const p = k && S.perfil.pausas && S.perfil.pausas[k];
   if (!p || !Array.isArray(p.ids) || !p.data || HOJE() - diaNum(p.data) > PAUSA_DIAS) return null;
   const ids = p.ids.filter((id) => QI.has(id));
-  return ids.length ? Object.assign({}, p, { ids }) : null;
+  if (!ids.length) return null;
+  const x = Object.assign({}, p, { ids });
+  if (p.modo === 'simulado') x.resp = Object.fromEntries(Object.entries(p.resp || {}).filter(([id]) => QI.has(id)));
+  return x;
+}
+function pausasVivas() {
+  return Object.keys(S.perfil.pausas || {}).map((k) => [k, pausaDe(k)]).filter(([, p]) => p).sort((a, b) => (b[1].ts || 0) - (a[1].ts || 0));
+}
+function resumoPausa(p) {
+  if (p.modo === 'simulado') return Object.keys(p.resp || {}).length + ' de ' + p.ids.length + ' marcados · ' + fmtTempo(p.gasto || 0) + ' de prova';
+  return 'faltam ' + p.ids.length + ' de ' + p.total;
 }
 function atualizarPausa() {
   const k = chavePausa(sessao);
   if (!k) return;
   const pausas = (S.perfil.pausas ||= {});
+  const sim = sessao.modo === 'simulado';
   const faltam = sessao.ids.filter((id) => !sessao.resp[id]);
-  if (sessao.fim || !faltam.length) delete pausas[k];
-  else pausas[k] = { modo: sessao.modo, titulo: sessao.titulo, dia: sessao.dia, ids: faltam, feitas: (sessao.feitasAntes || 0) + sessao.ids.length - faltam.length, total: sessao.totalOrig || sessao.ids.length, data: hojeISO() };
-  for (const [x, v] of Object.entries(pausas)) if (!v || !v.data || HOJE() - diaNum(v.data) > PAUSA_DIAS) delete pausas[x];
+  if (sessao.fim || (!sim && !faltam.length)) delete pausas[k];
+  else {
+    pausas[k] = Object.assign({ modo: sessao.modo, titulo: sessao.titulo, dia: sessao.dia, data: hojeISO(), ts: Date.now() }, sim
+      ? { ids: sessao.ids, resp: sessao.resp, duv: sessao.duv, i: sessao.i, gasto: Math.round(decorrido()), limite: sessao.limite, total: sessao.ids.length }
+      : { ids: faltam, feitas: (sessao.feitasAntes || 0) + sessao.ids.length - faltam.length, total: sessao.totalOrig || sessao.ids.length });
+  }
+  const manter = new Set(Object.entries(pausas).filter(([, v]) => v && v.data && HOJE() - diaNum(v.data) <= PAUSA_DIAS)
+    .sort((a, b) => (b[1].ts || 0) - (a[1].ts || 0)).slice(0, PAUSA_MAX).map(([x]) => x));
+  for (const x of Object.keys(pausas)) if (!manter.has(x)) delete pausas[x];
+}
+// Guarda a sessão aberta (ao sair, ao trocar de app ou de aba, ao fechar a página). Sessão sem nenhuma resposta não vira pausa.
+function guardarSessaoAberta() {
+  if (!sessao || sessao.fim || !chavePausa(sessao) || (!Object.keys(sessao.resp).length && !sessao.retomada)) return false;
+  atualizarPausa();
+  Store.salvar('perfil');
+  return true;
 }
 function retomarPausa(k) {
   const p = pausaDe(k);
   if (!p) return false;
-  sessao = novaSessao({ modo: p.modo, titulo: p.titulo, dia: p.dia }, p.ids);
-  sessao.feitasAntes = p.feitas || 0;
-  sessao.totalOrig = p.total || p.ids.length;
+  sessao = novaSessao({ modo: p.modo, titulo: p.titulo, dia: p.dia, chave: k }, p.ids);
+  sessao.retomada = true;
+  if (p.modo === 'simulado') {
+    sessao.resp = p.resp;
+    sessao.duv = Object.assign({}, p.duv);
+    sessao.i = Math.min(Math.max(0, Number(p.i) || 0), p.ids.length - 1);
+    sessao.limite = p.limite || 0;
+    sessao.ini = Date.now() - (p.gasto || 0) * 1000;
+  } else {
+    sessao.feitasAntes = p.feitas || 0;
+    sessao.totalOrig = p.total || p.ids.length;
+  }
   abrirSessao();
   return true;
 }
 function descartarPausa(k) { if (S.perfil.pausas && S.perfil.pausas[k]) { delete S.perfil.pausas[k]; Store.salvar('perfil'); } }
 // Rótulo do botão: "Continuar · faltam 12 de 40" quando há pausa; o rótulo normal quando não há
-function rotuloPausa(k, normal) { const p = pausaDe(k); return p ? 'Continuar · faltam ' + p.ids.length + ' de ' + p.total : normal; }
+function rotuloPausa(k, normal) { const p = pausaDe(k); return p ? 'Continuar · ' + resumoPausa(p) : normal; }
+// Lista das sessões guardadas, com Continuar e Descartar; "fora" são as chaves que já têm botão próprio na tela
+function cartaoPausas(fora) {
+  const lista = pausasVivas().filter(([k]) => !(fora && fora.has(k)));
+  if (!lista.length) return '';
+  return '<div class="cartao destaque"><div class="secao-cab"><h2>Sessões guardadas</h2><span class="mono pequeno mudo">' + lista.length + '</span></div>' +
+    lista.map(([k, p]) => '<div class="pausa-linha"><div class="pausa-txt"><b>' + esc(p.titulo) + '</b><span class="pequeno mudo">' + esc(resumoPausa(p)) + (p.data !== hojeISO() ? ' · guardada em ' + esc(fmtData(p.data, { day: '2-digit', month: '2-digit' })) : '') + '</span></div>' +
+      '<div class="linha-btns"><button class="btn pequeno primario" data-acao="retomar-pausa" data-k="' + esc(k) + '">Continuar</button><button class="btn pequeno" data-acao="descartar-pausa" data-k="' + esc(k) + '">Descartar</button></div></div>').join('') +
+    '<p class="pequeno mudo">Ficam guardadas por ' + PAUSA_DIAS + ' dias, na sua conta: dá para continuar em outro aparelho.</p></div>';
+}
 function iniciarSessao(cfg) {
+  if (MODOS_PAUSA.has(cfg.modo) && !cfg.novo && (cfg.chave || cfg.dia) && retomarPausa(cfg.chave || cfg.dia)) return;
   let itens;
   if (cfg.modo === 'cards') {
     const venc = cardsVencidos(cfg.blocos).slice(0, cfg.maxRev || 200);
@@ -868,7 +917,8 @@ function iniciarCards(ids, titulo) {
 }
 function novaSessao(cfg, ids) {
   return {
-    modo: cfg.modo, titulo: cfg.titulo || tituloModo(cfg.modo), dia: cfg.dia || null, ids, i: 0, resp: {}, duv: {}, revelado: false,
+    modo: cfg.modo, titulo: cfg.titulo || tituloModo(cfg.modo), dia: cfg.dia || null, ids, i: 0,
+    chave: MODOS_PAUSA.has(cfg.modo) ? cfg.chave || cfg.dia || 'x:' + Date.now().toString(36) : null, resp: {}, duv: {}, revelado: false,
     combo: 0, comboMax: 0, xp: 0, ini: Date.now(), fim: false, confirmar: null, flash: null,
     limite: cfg.modo === 'relampago' ? 90 : cfg.modo === 'simulado' ? (cfg.minutos || 0) * 60 : 0,
   };
@@ -885,7 +935,8 @@ function abrirSessao() {
   renderSessao();
   el.scrollTop = 0;
 }
-function fecharSessao() {
+function fecharSessao(guardar = true) {
+  if (guardar) guardarSessaoAberta();
   clearInterval(relogioTimer);
   sessao = null;
   const el = document.getElementById('sessao');
@@ -912,6 +963,8 @@ function responder(resp) {
   if (sessao.modo === 'simulado') {
     sessao.resp[id] = resp;
     if (sessao.i < sessao.ids.length - 1) sessao.i++;
+    atualizarPausa();
+    Store.salvar('perfil');
     renderSessao();
     return;
   }
@@ -1124,10 +1177,10 @@ function roteiroHoje() {
   }
   const std = subtemaDoDia();
   if (std) {
-    const e = estadoSubtema(std.id), chT = 't:' + hojeISO();
+    const e = estadoSubtema(std.id), chT = 't:' + hojeISO(), tipoT = e.novos ? 'pre' : 'pratica', chPT = 't:' + std.id + ':' + tipoT;
     passos.push({ titulo: 'Trilha de Direito do zero', feito: !!S.perfil.feitos[chT],
       texto: 'Subtema de hoje: ' + std.nome + ' (' + ROTULO_ST[e.status] + (e.resp ? ', acerto atual ' + Math.round(e.acerto * 100) + '%' : '') + '). Comece pelas questões, mesmo sem saber a matéria; depois leia a aula curta e pratique até dominar.',
-      botoes: '<button class="btn pequeno primario" data-acao="trilha-sessao" data-st="' + esc(std.id) + '" data-tipo="' + (e.novos ? 'pre' : 'pratica') + '">' + esc(pausaDe(chT) && pausaDe(chT).titulo.endsWith(std.nome) ? rotuloPausa(chT, '') : e.novos ? 'Pré-teste · ' + pl(Math.min(8, e.novos), 'item', 'itens') : 'Praticar · ' + pl(Math.min(20, e.n), 'item', 'itens')) + '</button>' +
+      botoes: '<button class="btn pequeno primario" data-acao="trilha-sessao" data-st="' + esc(std.id) + '" data-tipo="' + tipoT + '">' + esc(rotuloPausa(chPT, e.novos ? 'Pré-teste · ' + pl(Math.min(8, e.novos), 'item', 'itens') : 'Praticar · ' + pl(Math.min(20, e.n), 'item', 'itens'))) + '</button>' + botaoRecomecar(chPT) +
         '<button class="btn pequeno" data-acao="subtema" data-st="' + esc(std.id) + '">Aula e subtema</button>' });
   }
   if (!dia) {
@@ -1186,7 +1239,12 @@ function renderHoje() {
   const edital = '<div class="cartao">' +
     contagem(faltaEd, faltaEd > 0 ? 'dias até ' + dataCurta(cr.edital) + ', prazo legal máximo para o edital.' : faltaEd === 0 ? 'Hoje vence o prazo legal máximo para o edital (' + dataCurta(cr.edital) + ').' : 'O prazo legal do edital (' + dataCurta(cr.edital) + ') passou: acompanhe as notícias.') +
     contagem(faltaPr, faltaPr > 0 ? 'dias até a prova provável, domingo ' + dataCurta(cr.prova) + ' (três meses depois do edital; troque pela data oficial quando sair).' : faltaPr === 0 ? 'Hoje é o dia provável da prova. Boa prova!' : 'A data estimada da prova (' + dataCurta(cr.prova) + ') passou.') + '</div>';
-  document.getElementById('vista-hoje').innerHTML = topo + roteiro + nivel + modos + edital + '<p class="sync" id="sync"></p>';
+  // Sessões guardadas que não têm botão próprio no roteiro (o dia, as intercaladas e a trilha de hoje já mostram Continuar)
+  const fora = new Set(['i:' + h]);
+  if (ctx.tipo === 'dia') fora.add(ctx.dia.data);
+  const stH = subtemaDoDia();
+  if (stH) fora.add('t:' + stH.id + ':' + (estadoSubtema(stH.id).novos ? 'pre' : 'pratica'));
+  document.getElementById('vista-hoje').innerHTML = topo + cartaoPausas(fora) + roteiro + nivel + modos + edital + '<p class="sync" id="sync"></p>';
   atualizarRodapeSync();
 }
 function atualizarRodapeSync() {
@@ -1226,8 +1284,7 @@ function renderQuestoes() {
   const sel = new Set(UI.blocos);
   const pool = poolDe(UI.blocos);
   const usarProva = modo === 'simulado' && UI.prova === 'prova';
-  const pl0 = pausaDe('livre');
-  let html = (pl0 ? '<div class="cartao destaque"><b>Treino interrompido</b><p class="mudo pequeno">' + esc(pl0.titulo) + ': faltam ' + pl0.ids.length + ' de ' + pl0.total + ' itens.</p><div class="linha-btns"><button class="btn primario" data-acao="retomar-pausa" data-k="livre">Continuar de onde parei</button><button class="btn" data-acao="descartar-pausa" data-k="livre">Descartar</button></div></div>' : '') +
+  let html = cartaoPausas() +
     '<div class="secao"><div class="secao-cab"><h2>Montar sessão</h2><span class="mudo pequeno mono">' + Q.length + ' questões no banco</span></div>' +
     '<div class="chips" role="group" aria-label="Modo">' +
     ['treino', 'simulado', 'relampago'].map((m) => '<button class="chip" data-acao="set-modo" data-modo="' + m + '" aria-pressed="' + (modo === m) + '">' + esc({ treino: 'Treino comentado', simulado: 'Simulado Cebraspe', relampago: 'Relâmpago 90 s' }[m]) + '</button>').join('') + '</div>' +
@@ -1240,7 +1297,7 @@ function renderQuestoes() {
     html += '<div class="campo"><span class="rot">Composição</span><div class="chips">' +
       '<button class="chip" data-acao="set-prova" data-prova="prova" aria-pressed="' + usarProva + '">Prova completa (básicos + específicos)</button>' +
       '<button class="chip" data-acao="set-prova" data-prova="blocos" aria-pressed="' + !usarProva + '">Só os blocos marcados</button></div>' +
-      (usarProva ? '<p class="pequeno mudo">Numa prova de ' + TOTAL_PROVA + ' itens: ' + Object.entries(ITENS_PROVA).map(([d, k]) => esc(DI.get(d).nome) + ' ' + k).join(' · ') + '. Estimativa sobre as provas da Anatel e da ANAC de 2024 (50 itens básicos e 70 específicos) e o processo seletivo da ANPD de 2025; muda quando sair o edital.</p>' : '') + '</div>';
+      (usarProva ? '<p class="pequeno mudo">Numa prova de ' + TOTAL_PROVA + ' itens: ' + Object.entries(ITENS_PROVA).map(([d, k]) => esc(DI.get(d).nome) + ' ' + k).join(' · ') + '. Estimativa para Especialista em Regulação, sobre as provas da Anatel e da ANAC de 2024 (50 itens básicos e 70 específicos), com o específico concentrado na LGPD e nas normas da ANPD; muda quando sair o edital.</p>' : '') + '</div>';
   }
   if (modo !== 'relampago') html += '<div class="campo"><span class="rot">Quantidade de itens</span><div class="chips">' + ns.map((n) => '<button class="chip" data-acao="set-n" data-n="' + n + '" aria-pressed="' + (UI.n === n) + '">' + n + '</button>').join('') + '</div></div>';
   if (modo === 'treino') html += '<div class="campo"><span class="rot">Quais itens</span><div class="chips">' + [['mistas', 'Vencidas + inéditas'], ['novas', 'Só inéditas'], ['erradas', 'Só as que já errei']].map(([v, t]) => '<button class="chip" data-acao="set-filtro" data-filtro="' + v + '" aria-pressed="' + (UI.filtro === v) + '">' + t + '</button>').join('') + '</div></div>';
@@ -1463,7 +1520,7 @@ function renderConfirmacao() {
     return '<div class="cartao destaque"><b>Entregar o simulado?</b><p class="mudo">' + (faltam ? pl(faltam, 'item sem marcação conta', 'itens sem marcação contam') + ' como em branco.' : 'Todos os itens foram marcados.') + '</p><div class="linha-btns"><button class="btn primario" data-acao="confirmar-entrega">Entregar</button><button class="btn" data-acao="cancelar-conf">Voltar</button></div></div>';
   }
   if (sessao.confirmar === 'sair') {
-    return '<div class="cartao destaque"><b>Sair da sessão?</b><p class="mudo">' + (sessao.modo === 'simulado' ? 'As marcações deste simulado serão descartadas.' : sessao.modo === 'cards' ? 'Os cards que você avaliou ficam salvos; os outros continuam na fila de revisão.' : sessao.modo === 'relampago' ? 'O relâmpago termina aqui, sem recorde.' : chavePausa(sessao) ? 'O que você respondeu já está salvo, e os ' + sessao.ids.filter((id) => !sessao.resp[id]).length + ' itens que faltam ficam guardados: o botão desta sessão passa a Continuar.' : 'O que você já respondeu fica salvo.') + '</p><div class="linha-btns"><button class="btn primario" data-acao="confirmar-saida">Sair</button><button class="btn" data-acao="cancelar-conf">Continuar</button></div></div>';
+    return '<div class="cartao destaque"><b>Sair da sessão?</b><p class="mudo">' + (sessao.modo === 'simulado' ? 'As ' + pl(Object.keys(sessao.resp).length, 'marcação', 'marcações') + ' e o tempo de prova ficam guardados, e o relógio para. Para seguir, toque em Continuar na lista de sessões guardadas (abas Hoje e Questões) ou no mesmo botão que abriu o simulado.' : sessao.modo === 'cards' ? 'Os cards que você avaliou ficam salvos; os outros continuam na fila de revisão.' : sessao.modo === 'relampago' ? 'O relâmpago termina aqui, sem recorde.' : chavePausa(sessao) ? 'O que você respondeu já está salvo, e os ' + sessao.ids.filter((id) => !sessao.resp[id]).length + ' itens que faltam ficam guardados: o mesmo botão passa a Continuar, e a sessão aparece em Sessões guardadas (abas Hoje e Questões).' : 'O que você já respondeu fica salvo.') + '</p><div class="linha-btns"><button class="btn primario" data-acao="confirmar-saida">Sair</button><button class="btn" data-acao="cancelar-conf">Continuar</button>' + (sessao.modo === 'simulado' ? '<button class="btn" data-acao="sair-descartar">Descartar o simulado</button>' : '') + '</div></div>';
   }
   return '';
 }
@@ -2255,9 +2312,9 @@ document.addEventListener('click', async (ev) => {
       ir(alvo.dataset.vista); break;
     case 'mais': fecharFolha(); UI.mais = alvo.dataset.sub || 'menu'; if (UI.vista !== 'mais') ir('mais'); else { renderMais(); window.scrollTo(0, 0); } break;
     case 'iniciar-dia': iniciarDia(alvo.dataset.dia); break;
-    case 'iniciar-revisao': iniciarSessao({ modo: 'revisao', n: 30 }); break;
+    case 'iniciar-revisao': iniciarSessao({ modo: 'revisao', n: 30, chave: 'rev' }); break;
     case 'intercaladas': if (retomarPausa('i:' + hojeISO())) break; iniciarSessao({ modo: 'treino', intercalado: true, n: nIntercaladas(), titulo: 'Questões intercaladas', dia: 'i:' + hojeISO() }); break;
-    case 'treino-rapido': iniciarSessao({ modo: 'treino', n: 20, blocos: [], filtro: 'mistas' }); break;
+    case 'treino-rapido': iniciarSessao({ modo: 'treino', n: 20, blocos: [], filtro: 'mistas', chave: 'rapido' }); break;
     case 'abrir-modo': UI.modo = alvo.dataset.modo; if (UI.modo === 'simulado') UI.prova = 'prova'; ir('questoes'); break;
     case 'relampago': iniciarSessao({ modo: 'relampago', blocos: (alvo.dataset.blocos || '').split(',').filter(Boolean) }); break;
     case 'set-modo': UI.modo = alvo.dataset.modo; salvarUI(); renderQuestoes(); break;
@@ -2288,12 +2345,12 @@ document.addEventListener('click', async (ev) => {
     case 'retomar-pausa': retomarPausa(alvo.dataset.k); break;
     case 'confirmar-saida': {
       const k = chavePausa(sessao);
-      if (k) { atualizarPausa(); Store.salvar('perfil'); }
-      const p = k && pausaDe(k);
       fecharSessao();
-      if (p) avisar('II', 'Sessão guardada', 'Faltam ' + p.ids.length + ' de ' + p.total + '. Toque em Continuar para seguir de onde parou.');
+      const p = k && pausaDe(k);
+      if (p) avisar('II', 'Sessão guardada', resumoPausa(p).replace(/^./, (c) => c.toUpperCase()) + '. Toque em Continuar para seguir de onde parou.');
       break;
     }
+    case 'sair-descartar': { const k = chavePausa(sessao); fecharSessao(false); if (k) descartarPausa(k); renderTudo(); break; }
     case 'fechar-sessao': fecharSessao(); break;
     case 'refazer-erros': {
       const ids = sessao.ids.filter((id) => (sessao.modo !== 'relampago' || sessao.resp[id]) && (sessao.resp[id] || BRANCO) !== QI.get(id).g);
@@ -2332,12 +2389,12 @@ document.addEventListener('click', async (ev) => {
       salvarUI();
       if (alvo.closest('#folha') && UI.folhaArt) folhaArtigo(UI.folhaArt, UI.folhaQ); else renderLei();
       break;
-    case 'treinar-art': { const ids = (POR_ART.get(alvo.dataset.art) || []).map((q) => q.id); iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Questões · ' + nomeArt(alvo.dataset.art) }); break; }
+    case 'treinar-art': { const ids = (POR_ART.get(alvo.dataset.art) || []).map((q) => q.id); iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Questões · ' + nomeArt(alvo.dataset.art), chave: 'art:' + alvo.dataset.art }); break; }
     case 'cards-art': iniciarCards((CARDS_POR_ART.get(alvo.dataset.art) || []).map((c) => c.id), 'Cards · ' + nomeArt(alvo.dataset.art)); break;
     case 'reais-disc': {
       const d = (D.cebraspe ? D.cebraspe.disciplinas : []).find((x) => x.id === alvo.dataset.d);
       const ids = d ? reaisDaDisc(d.id).map((q) => q.id) : [];
-      if (ids.length) iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Itens reais · ' + ((DISC.find((x) => x.id === d.id) || {}).nome || d.id) });
+      if (ids.length) iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Itens reais · ' + ((DISC.find((x) => x.id === d.id) || {}).nome || d.id), chave: 'reais:' + d.id });
       break;
     }
     case 'disc-abrir': UI.discTema = alvo.dataset.t; UI.discFase = 'escrita'; UI.discAval = {}; UI.discNE = 0; renderMais(); window.scrollTo(0, 0); break;
@@ -2366,12 +2423,12 @@ document.addEventListener('click', async (ev) => {
     case 'aula-folha': folhaAula(alvo.dataset.st); break;
     case 'trilha-sessao': {
       const st = SUBTEMAS.get(alvo.dataset.st), tipo = alvo.dataset.tipo;
-      const pt = pausaDe('t:' + hojeISO());
-      if (pt && pt.titulo.endsWith(st.nome)) { fecharFolha(); retomarPausa('t:' + hojeISO()); break; }
+      const chT = 't:' + st.id + ':' + tipo;
+      if (pausaDe(chT)) { fecharFolha(); retomarPausa(chT); break; }
       const ids = idsSubtema(st.id, tipo, tipo === 'pre' ? 8 : 20);
       if (!ids.length) { avisar('§', 'Nada para fazer aqui', tipo === 'erros' ? 'Você não tem erros pendentes neste subtema.' : 'Todos os itens já foram vistos: use Praticar.'); break; }
       fecharFolha();
-      iniciarSessao({ modo: 'treino', ids, titulo: (tipo === 'pre' ? 'Pré-teste · ' : tipo === 'erros' ? 'Erros · ' : 'Prática · ') + st.nome, dia: 't:' + hojeISO() });
+      iniciarSessao({ modo: 'treino', ids, titulo: (tipo === 'pre' ? 'Pré-teste · ' : tipo === 'erros' ? 'Erros · ' : 'Prática · ') + st.nome, dia: 't:' + hojeISO(), chave: chT });
       break;
     }
     case 'contestar-enviar': {
@@ -2389,7 +2446,7 @@ document.addEventListener('click', async (ev) => {
     case 'rolar': { const el = document.getElementById(alvo.dataset.alvo); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); break; }
     case 'reais': {
       const ids = REAIS.filter((q) => alvo.dataset.modo === 'treino' || !FORA_DA_PROVA.has(q.b)).map((q) => q.id);
-      iniciarSessao({ modo: alvo.dataset.modo, ids: alvo.dataset.modo === 'simulado' ? ids.sort((a, b) => ordemProva(QI.get(a)) - ordemProva(QI.get(b))) : embaralhar(ids), titulo: 'Itens reais do Cebraspe' });
+      iniciarSessao({ modo: alvo.dataset.modo, ids: alvo.dataset.modo === 'simulado' ? ids.sort((a, b) => ordemProva(QI.get(a)) - ordemProva(QI.get(b))) : embaralhar(ids), titulo: alvo.dataset.modo === 'simulado' ? 'Itens reais como prova' : 'Itens reais de prova', chave: 'reais-' + alvo.dataset.modo });
       break;
     }
     case 'cards-iniciar': iniciarSessao({ modo: 'cards', blocos: UI.blocosCards, novos: novosRestantesHoje() }); break;
@@ -2544,7 +2601,8 @@ document.addEventListener('pointerover', (ev) => {
   dica.style.left = Math.max(8, Math.min(window.innerWidth - 200, r.left - 30)) + 'px';
   dica.style.top = (r.top - 32) + 'px';
 });
-document.addEventListener('visibilitychange', () => { if (document.hidden) Store.descarregar(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden) { guardarSessaoAberta(); Store.descarregar(); } });
+window.addEventListener('pagehide', () => { guardarSessaoAberta(); Store.descarregar(); });
 
 /* ================= Início ================= */
 function iniciar(dadosQuentes) {
