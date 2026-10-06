@@ -1,0 +1,428 @@
+// Casos práticos da LGPD prioridade 1, no formato que o Cebraspe usa nas provas de agência: uma situação
+// hipotética e vários itens sobre ela. Incidente de segurança (Res. 15/2024), decisão automatizada (arts. 18 a 21),
+// dosimetria (Res. 4/2023) e transferência internacional (arts. 33 a 36, Res. 19/2024 e Res. 32/2026).
+// Itens escritos para o banco. Trechos conferidos em fontes/lgpd.txt, res15.txt, res4.txt, res19.txt e res32.txt.
+
+apoio_FARMA: Na segunda-feira, 2 de março, a equipe de tecnologia de uma rede de farmácias de grande porte confirmou que um ataque de ransomware, iniciado no fim de semana anterior, havia copiado e criptografado a base de clientes: nomes, CPFs, endereços, histórico de compra de medicamentos e senhas de acesso ao aplicativo de cerca de quatrocentas mil pessoas, muitas delas idosas. A empresa contratou perícia, restabeleceu os sistemas a partir de cópias de segurança e não pagou o resgate. Todos os clientes afetados podem ser contatados pelo aplicativo e por e-mail.
+apoio_CREDITO: Uma fintech decide pedidos de cartão de crédito por meio de um sistema que atribui pontuação a cada cliente e responde ao pedido sem nenhuma intervenção humana. Carlos teve o pedido negado e descobriu que o modelo considera, entre outros fatores, o fato de ele ter ajuizado, no ano anterior, ação judicial contra outra instituição financeira.
+apoio_PERFIS: Ao final de processo administrativo sancionador, a ANPD concluiu que uma empresa de comércio eletrônico, sem condenações anteriores, tratou dados de cerca de dois milhões de clientes sem amparo em hipótese legal, para vender perfis de consumo a anunciantes e lucrar com isso. Por iniciativa própria, a empresa havia encerrado a prática antes de qualquer procedimento preparatório da ANPD e, durante o processo, cooperou com a fiscalização.
+apoio_NUVEM: Uma universidade federal contratou serviço de armazenamento em nuvem de empresa sediada nos Estados Unidos da América para guardar dados acadêmicos e financeiros de seus estudantes. O contrato incorpora as cláusulas-padrão contratuais aprovadas pela ANPD, mas a universidade pretende alterar a redação da cláusula sobre direitos dos titulares para reduzir custos operacionais.
+
+=== cs-inc-01
+gab: C
+bloco: res-15-2024
+ref: res15 5
+trecho: dados pessoais sensíveis
+trecho: dados de crianças, de adolescentes ou de idosos
+trecho: dados de autenticação em sistemas
+trecho: dados em larga escala
+apoio: @FARMA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: O incidente deve ser comunicado à ANPD e aos titulares, pois pode afetar significativamente direitos dos titulares e envolve, entre outros critérios do regulamento, dados sensíveis, dados de idosos, dados de autenticação em sistemas e dados em larga escala.
+comentario: O art. 5º da Resolução 15/2024 exige dois requisitos cumulativos: possibilidade de afetar significativamente interesses e direitos fundamentais e pelo menos um dos seis critérios. Aqui há quatro: dado de saúde (histórico de medicamentos é sensível), idosos, senhas e larga escala. Bastaria um.
+
+=== cs-inc-02
+gab: E
+bloco: res-15-2024
+ref: res15 3, XII
+trecho: incidente de segurança: qualquer evento adverso confirmado, relacionado à violação das propriedades de confidencialidade, integridade, disponibilidade e autenticidade da segurança de dados pessoais
+apoio: @FARMA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Como os sistemas foram restabelecidos a partir de cópias de segurança e o resgate não foi pago, o incidente deixou de exigir comunicação à ANPD.
+comentario: O backup resolve a disponibilidade, mas os dados foram copiados: a confidencialidade foi violada, e o risco aos titulares (fraude, uso de senhas, exposição de dados de saúde) continua. Incidente é qualquer violação de confidencialidade, integridade, disponibilidade ou autenticidade (art. 3º, XII). A recuperação conta como medida de mitigação, que deve constar da comunicação.
+
+=== cs-inc-03
+gab: C
+bloco: res-15-2024
+ref: res15 6
+trecho: A comunicação de incidente de segurança à ANPD deverá ser realizada pelo controlador no prazo de três dias úteis
+trecho: O prazo a que se refere o caput será contado do conhecimento pelo controlador de que o incidente afetou dados pessoais
+apoio: @FARMA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: A comunicação à ANPD deve ser feita em três dias úteis, contados de 2 de março, quando a empresa tomou conhecimento de que o incidente afetou dados pessoais.
+comentario: Art. 6º, caput e § 1º: três dias úteis do conhecimento de que o incidente afetou dados pessoais. Sem feriado no meio, o prazo termina na quinta-feira, 5 de março.
+
+=== cs-inc-04
+gab: E
+bloco: res-15-2024
+ref: res15 6, § 1º
+trecho: O prazo a que se refere o caput será contado do conhecimento pelo controlador de que o incidente afetou dados pessoais
+apoio: @FARMA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: O prazo para comunicar o incidente à ANPD começou a correr no fim de semana em que o ataque se iniciou, independentemente de quando a empresa soube que dados pessoais haviam sido afetados.
+comentario: O marco é o conhecimento, pelo controlador, de que o incidente afetou dados pessoais (art. 6º, § 1º), não a data do ataque. No GDPR também se conta do conhecimento (72 horas, art. 33). A data da ocorrência entra só como informação da comunicação (inciso VII).
+
+=== cs-inc-05
+gab: E
+bloco: res-15-2024
+ref: res15 6, § 8º
+trecho: Os prazos constantes no caput e no § 3º deste artigo são contados em dobro para os agentes de pequeno porte
+apoio: @FARMA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: excecao
+dif: 3
+enunciado: Se, em vez de rede de grande porte, a controladora fosse agente de tratamento de pequeno porte, o prazo para comunicar o incidente à ANPD seria o mesmo, pois os prazos de comunicação de incidente não admitem flexibilização.
+comentario: Para agente de pequeno porte, os prazos de comunicação à ANPD e de complementação são contados em dobro (art. 6º, § 8º), e também o de comunicação aos titulares (art. 9º, § 6º), conforme a Resolução 2/2022.
+
+=== cs-inc-06
+gab: C
+bloco: res-15-2024
+ref: res15 9, § 1º
+trecho: fazer uso de linguagem simples e de fácil entendimento
+trecho: ocorrer de forma direta e individualizada, caso seja possível identificá-los
+apoio: @FARMA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Como os clientes afetados podem ser identificados e contatados pelo aplicativo e por e-mail, a comunicação a eles deve ser direta e individualizada, em linguagem simples e de fácil entendimento.
+comentario: Art. 9º, § 1º e § 2º. Comunicação direta e individualizada é a feita pelos meios que o controlador normalmente usa com o titular (telefone, e-mail, mensagem, carta). O aviso público é solução subsidiária (§ 3º).
+
+=== cs-inc-07
+gab: E
+bloco: res-15-2024
+ref: res15 9, § 3º
+trecho: Caso a comunicação direta e individualizada mostre-se inviável ou não seja possível identificar, parcial ou integralmente, os titulares afetados
+apoio: @FARMA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: excecao
+dif: 2
+enunciado: Para cumprir o dever de comunicar os titulares, basta à empresa publicar aviso em seu sítio eletrônico e em suas redes sociais por, no mínimo, três meses.
+comentario: A divulgação pública por três meses só substitui a comunicação individual quando esta for inviável ou quando os titulares não puderem ser identificados (art. 9º, § 3º). No caso, todos podem ser contatados.
+
+=== cs-inc-08
+gab: C
+bloco: res-15-2024
+ref: res15 6, § 3º
+trecho: As informações poderão ser complementadas, de maneira fundamentada, no prazo de vinte dias úteis, a contar da data da comunicação
+apoio: @FARMA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: Se a perícia ainda não tiver identificado a causa do ataque quando da comunicação à ANPD, a empresa poderá complementar as informações, de maneira fundamentada, em até vinte dias úteis contados da comunicação.
+comentario: Art. 6º, § 3º. A regra evita que o controlador atrase a comunicação esperando a perícia terminar: comunica no prazo o que sabe e completa depois. A causa principal só precisa constar “caso seja possível identificá-la” (§ 2º, XI).
+
+=== cs-inc-09
+gab: C
+bloco: res-15-2024
+ref: res15 10
+trecho: O controlador deverá manter o registro do incidente de segurança, inclusive daquele não comunicado à ANPD e aos titulares, pelo prazo mínimo de cinco anos
+apoio: @FARMA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Ainda que a empresa concluísse, fundamentadamente, que um outro incidente menor não oferecia risco relevante e por isso não o comunicasse, teria de registrá-lo e guardar o registro por, no mínimo, cinco anos.
+comentario: Art. 10: o registro vale também para incidente não comunicado, com os motivos da ausência de comunicação (§ 1º, VIII). É o que permite à ANPD auditar a avaliação de risco feita pelo controlador.
+
+=== cs-inc-10
+gab: C
+bloco: res-15-2024
+ref: lgpd 48, § 2º
+trecho: ampla divulgação do fato em meios de comunicação
+trecho: medidas para reverter ou mitigar os efeitos do incidente
+apoio: @FARMA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: caso
+dif: 3
+enunciado: Verificada a gravidade do incidente, a ANPD poderá determinar à empresa, para salvaguardar os direitos dos titulares, a ampla divulgação do fato em meios de comunicação e a adoção de medidas para reverter ou mitigar seus efeitos.
+comentario: LGPD, art. 48, § 2º. Essas determinações são providências do processo de comunicação de incidente, não sanções; a publicização da infração (art. 52, IV) é outra coisa e exige processo sancionador. No juízo de gravidade, conta a favor da empresa ter tornado os dados ininteligíveis, como por criptografia (§ 3º).
+
+=== cs-dec-01
+gab: C
+bloco: lgpd-17-22
+ref: lgpd 20
+trecho: O titular dos dados tem direito a solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado de dados pessoais que afetem seus interesses, incluídas as decisões destinadas a definir o seu perfil pessoal, profissional, de consumo e de crédito
+apoio: @CREDITO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: Carlos tem direito a solicitar a revisão da decisão que negou seu pedido de cartão, por ter sido tomada unicamente com base em tratamento automatizado que afetou seus interesses.
+comentario: Art. 20, caput: a decisão foi totalmente automatizada e afetou os interesses de Carlos (definiu seu perfil de crédito). Os dois requisitos do direito à revisão estão presentes.
+
+=== cs-dec-02
+gab: E
+bloco: lgpd-17-22
+ref: lgpd 20
+trecho: decisões tomadas unicamente com base em tratamento automatizado de dados pessoais que afetem seus interesses
+apoio: @CREDITO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: extrapolacao
+dif: 2
+enunciado: A fintech só estaria obrigada a revisar a decisão se o sistema tivesse usado dados pessoais sensíveis de Carlos.
+comentario: O art. 20 não exige dado sensível: basta decisão tomada unicamente com base em tratamento automatizado que afete os interesses do titular. Decisões de crédito, aliás, são citadas expressamente.
+
+=== cs-dec-03
+gab: C
+bloco: lgpd-17-22
+ref: lgpd 21
+trecho: Os dados pessoais referentes ao exercício regular de direitos pelo titular não podem ser utilizados em seu prejuízo
+apoio: @CREDITO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 3
+enunciado: Considerar como fator negativo o fato de Carlos ter ajuizado ação judicial contra outra instituição financeira viola a LGPD, pois os dados referentes ao exercício regular de direitos pelo titular não podem ser utilizados em seu prejuízo.
+comentario: Art. 21, o mais esquecido do capítulo dos direitos. Ajuizar ação é exercer direito; usar isso para negar crédito pune o exercício. Há também discriminação abusiva, vedada pelo princípio da não discriminação (art. 6º, IX).
+
+=== cs-dec-04
+gab: E
+bloco: lgpd-17-22
+ref: lgpd 20
+trecho: (VETADO)
+apoio: @CREDITO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: revogado
+dif: 3
+enunciado: A LGPD exige que a revisão solicitada por Carlos seja realizada por pessoa natural.
+comentario: A redação original de 2018 previa revisão “por pessoa natural”; a MP 869/2018 retirou a expressão e o § 3º que a reintroduzia na Lei 13.853/2019 foi vetado. Hoje a LGPD garante a revisão, mas não exige que seja humana. No GDPR (art. 22), há direito de obter intervenção humana.
+
+=== cs-dec-05
+gab: C
+bloco: lgpd-17-22
+ref: lgpd 20, § 1º
+trecho: O controlador deverá fornecer, sempre que solicitadas, informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada, observados os segredos comercial e industrial
+apoio: @CREDITO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Carlos tem direito de obter da fintech, quando solicitar, informações claras e adequadas sobre os critérios e os procedimentos utilizados na decisão automatizada, observados os segredos comercial e industrial.
+comentario: Art. 20, § 1º. É a base do debate sobre explicabilidade de algoritmos: o controlador explica os critérios, sem precisar abrir o código-fonte que constitua segredo.
+
+=== cs-dec-06
+gab: E
+bloco: lgpd-17-22
+ref: lgpd 20, § 2º
+trecho: a autoridade nacional poderá realizar auditoria para verificação de aspectos discriminatórios em tratamento automatizado de dados pessoais
+apoio: @CREDITO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: excecao
+dif: 3
+enunciado: Se a fintech se recusar a informar os critérios da decisão alegando segredo comercial, a questão estará encerrada na esfera administrativa, pois o segredo comercial prevalece sobre o direito de explicação.
+comentario: Diante da recusa baseada em segredo, a ANPD pode realizar auditoria para verificar aspectos discriminatórios no tratamento automatizado (art. 20, § 2º). O segredo limita o que o titular vê, não o que a autoridade pode examinar.
+
+=== cs-dec-07
+gab: C
+bloco: lgpd-17-22
+ref: lgpd 18, §§ 1º e 8º
+trecho: O titular dos dados pessoais tem o direito de peticionar em relação aos seus dados contra o controlador perante a autoridade nacional
+trecho: O direito a que se refere o § 1º deste artigo também poderá ser exercido perante os organismos de defesa do consumidor
+apoio: @CREDITO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Carlos pode peticionar contra a fintech perante a ANPD e também perante os organismos de defesa do consumidor.
+comentario: Art. 18, §§ 1º e 8º. Na ANPD, a petição de titular pressupõe solicitação prévia ao controlador, não solucionada no prazo, comprovada ou autodeclarada (Resolução 1/2021). A via judicial também está aberta, individual ou coletivamente (art. 22).
+
+=== cs-dec-08
+gab: E
+bloco: lgpd-17-22
+ref: lgpd 18, § 5º
+trecho: O requerimento referido no § 3º deste artigo será atendido sem custos para o titular
+apoio: @CREDITO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: extrapolacao
+dif: 1
+enunciado: A fintech pode condicionar o atendimento dos pedidos de Carlos ao pagamento de taxa destinada a cobrir os custos administrativos da revisão.
+comentario: Os requerimentos do titular são atendidos sem custos (art. 18, § 5º), nos prazos e termos do regulamento. Cobrar para revisar a decisão esvaziaria o direito.
+
+=== cs-dos-01
+gab: C
+bloco: res-4-2023
+ref: res4 8, § 3º
+trecho: envolver tratamento de dados pessoais em larga escala
+trecho: o infrator auferir ou pretender auferir vantagem econômica em decorrência da infração cometida
+trecho: o infrator realizar tratamento de dados pessoais sem amparo em uma das hipóteses legais previstas na LGPD
+apoio: @PERFIS
+comando: Considerando essa situação hipotética e o Regulamento de Dosimetria e Aplicação de Sanções Administrativas da ANPD, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: A infração deve ser classificada como grave, porque, além de poder afetar significativamente direitos dos titulares, envolveu tratamento em larga escala, sem hipótese legal e com vantagem econômica.
+comentario: Grave exige a hipótese de infração média (afetar significativamente direitos) e, cumulativamente, ao menos uma das alíneas do § 3º, I, do art. 8º. Aqui há três (“a”, “b” e “e”). A obstrução à fiscalização é grave por si só (inciso II).
+
+=== cs-dos-02
+gab: E
+bloco: res-4-2023
+ref: res4 9
+trecho: a infração for leve ou média e não caracterizar reincidência específica
+apoio: @PERFIS
+comando: Considerando essa situação hipotética e o Regulamento de Dosimetria e Aplicação de Sanções Administrativas da ANPD, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Como a empresa não tinha condenações anteriores, a ANPD só poderia aplicar-lhe advertência.
+comentario: A advertência cabe para infração leve ou média sem reincidência específica, ou quando houver necessidade de medidas corretivas (art. 9º). Infração grave leva à multa simples (art. 10, II). Ser primário não rebaixa a gravidade.
+
+=== cs-dos-03
+gab: C
+bloco: res-4-2023
+ref: res4 13, I, a
+trecho: 75% (setenta e cinco por cento), se previamente à instauração de procedimento preparatório pela ANPD
+apoio: @PERFIS
+comando: Considerando essa situação hipotética e o Regulamento de Dosimetria e Aplicação de Sanções Administrativas da ANPD, julgue os itens a seguir.
+armadilha: numero
+dif: 3
+enunciado: A cessação da prática por iniciativa própria, antes de qualquer procedimento preparatório da ANPD, é atenuante que reduz o valor da multa em 75%.
+comentario: Art. 13, I, “a”. A redução cai para 50% se a cessação ocorrer depois do procedimento preparatório e até a instauração do processo, e para 30% se durante o processo, até a decisão de primeira instância. Cessar só por ordem administrativa ou judicial não atenua (§ 1º).
+
+=== cs-dos-04
+gab: C
+bloco: res-4-2023
+ref: res4 13, § 2º
+trecho: Na hipótese de incidência de mais de um dos incisos deste artigo, deverão ser somados os percentuais relativos a cada fator
+apoio: @PERFIS
+comando: Considerando essa situação hipotética e o Regulamento de Dosimetria e Aplicação de Sanções Administrativas da ANPD, julgue os itens a seguir.
+armadilha: numero
+dif: 3
+enunciado: Às atenuantes somam-se os percentuais de cada fator: no caso, os 75% da cessação prévia mais 5% pela cooperação com a fiscalização, cabendo à empresa comprovar os requisitos.
+comentario: Art. 13: cooperação ou boa-fé valem 5% (inciso IV), e os percentuais se somam (§ 2º). O ônus de provar as atenuantes é do infrator (§ 3º). Depois, a multa não pode ficar abaixo dos mínimos do Apêndice II, salvo exceções (art. 15).
+
+=== cs-dos-05
+gab: E
+bloco: res-4-2023
+ref: lgpd 52, II
+trecho: multa simples, de até 2% (dois por cento) do faturamento da pessoa jurídica de direito privado, grupo ou conglomerado no Brasil no seu último exercício, excluídos os tributos, limitada, no total, a R$ 50.000.000,00 (cinquenta milhões de reais) por infração
+apoio: @PERFIS
+comando: Considerando essa situação hipotética e o Regulamento de Dosimetria e Aplicação de Sanções Administrativas da ANPD, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: A multa simples aplicável à empresa pode alcançar 2% do faturamento mundial de seu grupo econômico, sem limite absoluto em reais.
+comentario: O teto é de 2% do faturamento no Brasil no último exercício, excluídos os tributos, limitado a R$ 50 milhões por infração (LGPD, art. 52, II). A referência mundial e sem teto é do GDPR (até 4% do faturamento anual mundial ou 20 milhões de euros, o maior).
+
+=== cs-dos-06
+gab: C
+bloco: res-4-2023
+ref: res4 11, § 3º
+trecho: o infrator não apresentar documentação inequívoca e idônea
+apoio: @PERFIS
+comando: Considerando essa situação hipotética e o Regulamento de Dosimetria e Aplicação de Sanções Administrativas da ANPD, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Se a empresa não apresentar documentação inequívoca e idônea do seu faturamento, a ANPD poderá definir o valor do faturamento a ser considerado no cálculo da multa.
+comentario: Art. 11, § 3º, I, da Resolução 4/2023, que concretiza o art. 52, § 4º, da LGPD. Também vale quando a documentação chega fora do prazo ou incompleta. Em último caso, o regulamento usa o faturamento correspondente ao teto de R$ 50 milhões.
+
+=== cs-dos-07
+gab: C
+bloco: res-4-2023
+ref: res4 18
+trecho: O infrator que renunciar expressamente ao direito de recorrer da decisão de primeira instância, fará jus a um fator de redução de 25% (vinte e cinco por cento) no valor da multa aplicada
+apoio: @PERFIS
+comando: Considerando essa situação hipotética e o Regulamento de Dosimetria e Aplicação de Sanções Administrativas da ANPD, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: Se a empresa renunciar expressamente ao direito de recorrer da decisão de primeira instância e pagar a multa no prazo, terá redução de 25% no valor aplicado.
+comentario: Art. 18. A renúncia tem de ser expressa: pagar sem renunciar não implica renúncia tácita (art. 19). É um incentivo para encerrar o processo rapidamente.
+
+=== cs-dos-08
+gab: E
+bloco: res-4-2023
+ref: lgpd 52, § 3º
+trecho: O disposto nos incisos I, IV, V, VI, X, XI e XII do caput deste artigo poderá ser aplicado às entidades e aos órgãos públicos
+apoio: @PERFIS
+comando: Considerando essa situação hipotética e o Regulamento de Dosimetria e Aplicação de Sanções Administrativas da ANPD, julgue os itens a seguir.
+armadilha: sujeito
+dif: 2
+enunciado: Se a mesma conduta tivesse sido praticada por uma autarquia federal, a ANPD poderia aplicar-lhe multa simples, calculada sobre o orçamento anual da entidade.
+comentario: Órgãos e entidades públicos não sofrem multa: a eles se aplicam advertência, publicização, bloqueio, eliminação, suspensões e proibição (LGPD, art. 52, § 3º), sem prejuízo das Leis 8.112, 8.429 e 12.527 para os agentes.
+
+=== cs-tin-01
+gab: E
+bloco: res-19-2024
+ref: res19 16
+trecho: pressupõe a adoção integral e sem alteração do texto disponibilizado no Anexo II
+apoio: @NUVEM
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre transferência internacional de dados, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: A universidade pode alterar a redação da cláusula sobre direitos dos titulares, desde que mantenha nível de proteção equivalente ao das cláusulas-padrão aprovadas pela ANPD.
+comentario: A validade da transferência baseada em cláusulas-padrão pressupõe a adoção integral e sem alteração do texto do Anexo II (art. 16). Outras disposições do contrato não podem excluir, modificar ou contrariar as cláusulas (§ 2º). Querendo redação própria, o caminho é submeter cláusulas contratuais específicas à aprovação da ANPD.
+
+=== cs-tin-02
+gab: C
+bloco: res-19-2024
+ref: res19 16, § 1º
+trecho: contrato com objeto mais amplo, inclusive mediante a assinatura de termo aditivo pelo exportador e pelo importador envolvidos na operação de transferência internacional de dados
+apoio: @NUVEM
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre transferência internacional de dados, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: As cláusulas-padrão podem integrar o contrato de prestação do serviço de nuvem, que tem objeto mais amplo, inclusive por meio de termo aditivo assinado pela universidade e pela empresa.
+comentario: Art. 16, § 1º, II. Nesse caso, as Seções I, II e III do Anexo II devem figurar como documento anexo do contrato (§ 3º). A universidade é a exportadora; a empresa estadunidense, a importadora.
+
+=== cs-tin-03
+gab: C
+bloco: res-19-2024
+ref: res19 17, § 1º
+trecho: O prazo para atendimento da solicitação é de 15 (quinze) dias
+apoio: @NUVEM
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre transferência internacional de dados, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: Se um estudante solicitar, a universidade deverá disponibilizar-lhe a íntegra das cláusulas utilizadas na transferência internacional em até quinze dias, observados os segredos comercial e industrial.
+comentario: Art. 17, caput e § 1º. Além disso, o controlador deve publicar na internet, em português e linguagem simples, documento sobre a transferência (forma, duração, finalidade, país de destino, direitos do titular), conforme o § 2º.
+
+=== cs-tin-04
+gab: E
+bloco: res-32-2026
+ref: res32 1
+trecho: Fica reconhecida a União Europeia como organismo internacional que proporciona grau de proteção de dados pessoais adequado
+apoio: @NUVEM
+comando: Considerando essa situação hipotética e a regulamentação da ANPD sobre transferência internacional de dados, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Se o provedor estivesse sediado em um Estado membro da União Europeia, a transferência continuaria a depender de cláusulas-padrão, porque a decisão de adequação da ANPD sobre a União Europeia alcança apenas dados de cidadãos europeus.
+comentario: A Resolução 32/2026 reconhece a União Europeia como organismo que proporciona proteção adequada e autoriza transferências com base no art. 33, I, da LGPD para todos os Estados membros, os três países do EEE e as instituições da UE. O critério é o destino da transferência, não a nacionalidade dos titulares.
+
+=== cs-tin-05
+gab: C
+bloco: res-32-2026
+ref: res32 1, parágrafo único
+trecho: os três países da Associação Europeia de Livre Comércio - AELC que integram o Espaço Econômico Europeu - EEE (Islândia, Liechtenstein e Noruega)
+armadilha: rol
+dif: 2
+enunciado: A decisão de adequação da ANPD sobre a União Europeia alcança também as transferências para Islândia, Liechtenstein e Noruega, integrantes do Espaço Econômico Europeu.
+comentario: Parágrafo único do art. 1º da Resolução 32/2026: os Estados membros da UE, os três países da AELC que integram o EEE (Suíça não está no EEE) e as instituições, órgãos e agências da UE.
+
+=== cs-tin-06
+gab: E
+bloco: res-32-2026
+ref: res32 2
+trecho: Esta decisão de adequação não se aplica às transferências internacionais de dados realizadas para fins exclusivos de segurança pública, defesa nacional, segurança do Estado ou atividades de investigação e repressão de infrações penais
+armadilha: excecao
+dif: 2
+enunciado: A decisão de adequação da ANPD sobre a União Europeia aplica-se também às transferências internacionais de dados realizadas para fins exclusivos de segurança pública e de investigação criminal.
+comentario: O art. 2º da Resolução 32/2026 exclui essas finalidades, coerente com o art. 4º, III, da LGPD, que as deixa para legislação específica.
+
+=== cs-tin-07
+gab: E
+bloco: res-32-2026
+ref: res32 4, § 1º
+trecho: A decisão de adequação será objeto de reavaliação no prazo de quatro anos, a contar da entrada em vigor desta Resolução
+armadilha: numero
+dif: 2
+enunciado: A decisão de adequação da ANPD sobre a União Europeia tem prazo indeterminado e não prevê reavaliação periódica.
+comentario: Há monitoramento contínuo, possibilidade de pedir informações e avaliações periódicas, e reavaliação obrigatória em quatro anos (art. 4º e § 1º). Na reavaliação contam as mudanças posteriores na legislação europeia.
+
+=== cs-tin-08
+gab: C
+bloco: res-32-2026
+ref: res32 5
+trecho: não impede a realização de transferências internacionais de dados para os países referidos no parágrafo único do art. 1º desta Resolução com base nos demais mecanismos de transferência previstos no art. 33
+armadilha: literal
+dif: 2
+enunciado: A decisão de adequação não impede que transferências para países da União Europeia continuem a ser feitas com base nos demais mecanismos do art. 33 da LGPD, como as cláusulas-padrão contratuais.
+comentario: Art. 5º da Resolução 32/2026. A adequação é mais um mecanismo, não substitui os outros. Um contrato já firmado com cláusulas-padrão continua válido.
+
+=== cs-tin-09
+gab: C
+bloco: res-19-2024
+ref: res19 6
+trecho: A coleta internacional de dados não caracteriza transferência internacional de dados
+armadilha: conceito
+dif: 3
+enunciado: Se um sítio eletrônico estrangeiro coletar dados pessoais diretamente de estudantes brasileiros, sem intermediação de agente de tratamento situado no Brasil, haverá coleta internacional, que não caracteriza transferência internacional de dados, embora possa atrair a aplicação da LGPD.
+comentario: Res. 19/2024, art. 6º e parágrafo único: coleta internacional (direta, pelo agente no exterior) não é transferência, mas a LGPD se aplica quando presente alguma hipótese do seu art. 3º (oferta de serviços a pessoas no Brasil, por exemplo).
