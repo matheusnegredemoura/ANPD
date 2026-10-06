@@ -1,0 +1,300 @@
+bloco: eca-digital
+// Decreto nº 12.880/2026, parte B: política nacional e comitê, IA conversacional, conteúdo impróprio, verificação
+// de idade por tipo de serviço, sinais de idade, publicidade, monetização, Centro Nacional de Triagem,
+// retirada de conteúdo, entidades habilitadas pela ANPD e avaliação de impacto. Conferidas com fontes/dec12880.txt.
+
+=== ecd2-01
+gab: C
+ref: dec12880 6
+trecho: o plano trienal, a ser elaborado pelo comitê intersetorial de que trata o art. 7º
+armadilha: numero
+dif: 2
+enunciado: O plano trienal elaborado pelo comitê intersetorial é instrumento da Política Nacional de Promoção e Proteção dos Direitos da Criança e do Adolescente no Ambiente Digital, ao lado da Estratégia Brasileira de Educação Midiática.
+comentario: Art. 6º, I e IV, do Decreto nº 12.880/2026. Os demais instrumentos são a atuação integrada com a política contra abuso e exploração sexual (Lei nº 14.811/2024), a articulação com a Política Nacional de Educação Digital (Lei nº 14.533/2023) e guias e materiais educativos.
+
+=== ecd2-02
+gab: E
+ref: dec12880 7
+trecho: Ato da Ministra de Estado dos Direitos Humanos e da Cidadania instituirá comitê intersetorial, instância de caráter permanente
+trecho: ANPD
+armadilha: sujeito
+dif: 2
+enunciado: O comitê intersetorial da Política Nacional de Promoção e Proteção dos Direitos da Criança e do Adolescente no Ambiente Digital tem caráter temporário e não conta com representação da ANPD, que atua apenas na fiscalização.
+comentario: Errado. O comitê é instância de caráter permanente, instituído por ato da Ministra dos Direitos Humanos e da Cidadania, e tem garantida a representação da ANPD e do Conanda, entre outros (art. 7º, caput e § 2º, VII e VIII).
+
+=== ecd2-03
+gab: C
+ref: dec12880 10
+trecho: prejuízo ao exercício de direitos, ao ocultar, fragmentar ou dificultar o acesso a controles de privacidade, supervisão parental, consentimento ou revogação de permissões
+armadilha: conceito
+dif: 2
+enunciado: Aplicativo infantil que espalha por várias telas as opções de privacidade e esconde o controle de revogação de permissões incorre em prática manipulativa, enganosa ou coercitiva na modalidade de prejuízo ao exercício de direitos.
+comentario: Art. 10, parágrafo único, III. As outras modalidades exemplificadas são obstrução (I) e exploração de vulnerabilidades cognitivas (II). O rol é exemplificativo (“entre outras”), e o conceito alcança tanto o objetivo quanto o efeito da prática.
+
+=== ecd2-04
+gab: E
+ref: dec12880 10
+trecho: quaisquer arquiteturas de escolha, fluxos de interação ou funcionalidades que tenham por objetivo ou efeito empregar táticas que interfiram na autonomia decisória do usuário
+armadilha: interpretacao
+dif: 3
+enunciado: Para caracterizar prática manipulativa em serviço digital acessível a crianças, é preciso demonstrar que o fornecedor teve a intenção de interferir na autonomia decisória do usuário.
+comentario: Errado. O art. 10, parágrafo único, abrange as arquiteturas de escolha que tenham por objetivo ou efeito interferir na autonomia decisória. Basta o efeito; não se exige prova de intenção.
+
+=== ecd2-05
+gab: C
+ref: dec12880 11
+trecho: ser transparentes na interação de crianças e adolescentes quanto a seu caráter sintético e automatizado
+trecho: avaliar o risco algorítmico à segurança e à saúde de crianças e adolescentes
+armadilha: rol
+dif: 2
+enunciado: Fornecedores de agentes conversacionais e modelos de linguagem de acesso provável por crianças devem ser transparentes quanto ao caráter sintético e automatizado da interação, prevenir a manipulação comportamental e avaliar o risco algorítmico à segurança e à saúde desse público.
+comentario: Art. 11, I a III. O inciso IV acrescenta salvaguardas ao desenvolvimento físico, mental e psicossocial. Quem regulamenta e fiscaliza é a ANPD (parágrafo único). O decreto não proíbe a interação; impõe deveres.
+
+=== ecd2-06
+gab: E
+ref: dec12880 14
+trecho: ficará condicionada, cumulativamente, à
+armadilha: interpretacao
+dif: 2
+enunciado: A disponibilização de conteúdo impróprio ou inadequado a crianças e adolescentes fica condicionada à observância da classificação indicativa ou, alternativamente, à oferta de ferramentas de supervisão parental.
+comentario: Errado. As condições do art. 14 são cumulativas: classificação indicativa (quando aplicável), segurança por padrão desde a concepção proporcional aos riscos e ferramentas efetivas de supervisão parental. A ANPD ainda pode exigir medidas adicionais (parágrafo único).
+
+=== ecd2-07
+gab: C
+ref: dec12880 18
+trecho: no ato de cadastro dos usuários, com bloqueio da aquisição dos produtos e dos serviços, por padrão, por usuários crianças ou adolescentes, vedado o desbloqueio por autodeclaração
+trecho: Na hipótese de usuário não cadastrado ou autenticado, aplica-se o bloqueio por padrão previsto no inciso II do caput.
+armadilha: caso
+dif: 3
+enunciado: Marketplace que vende bebidas alcoólicas pode verificar a idade no cadastro, com bloqueio da compra por padrão e vedação de desbloqueio por autodeclaração, ou no momento da compra; para o comprador não cadastrado, aplica-se o bloqueio na aquisição.
+comentario: Art. 18, I e II e parágrafo único, para os produtos proibidos do art. 15, § 1º, I a VII. Nos dois momentos, a verificação segue os termos da ANPD; a autodeclaração não basta.
+
+=== ecd2-08
+gab: E
+ref: dec12880 19
+trecho: a ANPD poderá, no âmbito de suas competências, a qualquer tempo, determinar enquadramento diverso
+armadilha: sujeito
+dif: 3
+enunciado: Cabe exclusivamente ao próprio fornecedor avaliar se o seu serviço se enquadra como rede social para os fins do ECA Digital, não podendo a ANPD rever esse enquadramento.
+comentario: Errado. O fornecedor faz a própria avaliação, mas a ANPD pode, a qualquer tempo, determinar enquadramento diverso (art. 19, § 2º).
+
+=== ecd2-09
+gab: C
+ref: dec12880 21
+trecho: As lojas de aplicações de internet e os sistemas operacionais deverão impedir a disponibilização de produtos ou serviços que promovam, ofertem ou viabilizem o acesso a loterias de toda modalidade, inclusive apostas de quota fixa, não autorizadas pelos órgãos competentes
+armadilha: literal
+dif: 2
+enunciado: As lojas de aplicações e os sistemas operacionais devem impedir a disponibilização de aplicativos que viabilizem o acesso a apostas de quota fixa não autorizadas pelos órgãos competentes ou que não apresentem soluções de verificação de idade.
+comentario: Art. 21. O dever recai sobre a loja e o sistema operacional, e não só sobre a casa de apostas.
+
+=== ecd2-10
+gab: E
+ref: dec12880 22
+trecho: Os provedores de conteúdos jornalísticos e esportivos não sujeitos à classificação indicativa e submetidos a controle editorial ficam dispensados de aferição de idade.
+trecho: disponibilizem contas ou perfis infantis, com conteúdo adequado à faixa etária da criança ou do adolescente
+armadilha: excecao
+dif: 3
+enunciado: Serviço de streaming com controle editorial e catálogo licenciado está sempre obrigado a aferir a idade dos usuários, ainda que ofereça perfis infantis e supervisão parental, pois a única dispensa prevista alcança provedores de conteúdo jornalístico e esportivo.
+comentario: Errado. O art. 22 dispensa o streaming licenciado com controle editorial desde que ofereça contas ou perfis infantis adequados e supervisão parental (incisos I e II). Os conteúdos jornalísticos e esportivos sob controle editorial e não sujeitos à classificação indicativa formam outra dispensa (parágrafo único).
+
+=== ecd2-11
+gab: C
+ref: dec12880 23
+trecho: Os jogos eletrônicos referidos no caput poderão oferecer versões desprovidas de caixas de recompensa (lootboxes) ou restringir totalmente por padrão o acesso à funcionalidade de caixas de recompensa (loot boxes), hipótese em que será dispensada a verificação de idade.
+armadilha: excecao
+dif: 2
+enunciado: O fornecedor de jogo eletrônico com caixas de recompensa (loot boxes) fica dispensado de verificar a idade dos usuários se oferecer versão sem essa funcionalidade ou restringir totalmente seu acesso por padrão.
+comentario: Art. 23, § 1º. Fora dessas hipóteses, a verificação de idade é obrigatória para impedir o acesso de crianças e adolescentes à funcionalidade (caput). O § 2º atribui à ANPD a fiscalização dos arts. 16 e 17 da Lei nº 14.852/2024 (marco dos jogos eletrônicos).
+
+=== ecd2-12
+gab: E
+ref: dec12880 24
+trecho: a vedação de uso, para finalidade diversa, de dados coletados para fins de aferição de idade
+trecho: A vedação prevista no inciso III do caput inclui o tratamento dos dados pessoais para a criação de perfis comportamentais
+armadilha: extrapolacao
+dif: 2
+enunciado: Os dados coletados na aferição de idade podem ser reaproveitados pelo fornecedor para criar perfis comportamentais, desde que o usuário seja informado dessa finalidade.
+comentario: Errado. O art. 24, III, veda o uso dos dados de aferição de idade para finalidade diversa, e o § 1º inclui expressamente a criação de perfis comportamentais. Informar o usuário não afasta a vedação.
+
+=== ecd2-13
+gab: C
+ref: dec12880 24
+trecho: a vedação à rastreabilidade da identidade e do histórico de acessos, solicitações e verificações realizadas pelos cidadãos
+trecho: a minimização de dados, entendida como a restrição do tratamento de dados pessoais ao mínimo necessário para fins de aferição de idade
+armadilha: rol
+dif: 2
+enunciado: Entre as diretrizes dos mecanismos de aferição de idade estão a minimização de dados, a vedação à rastreabilidade da identidade e do histórico de verificações dos cidadãos e a proporcionalidade entre a solução e o nível de risco do serviço.
+comentario: Art. 24, I, IV e VIII. O mesmo artigo lista acurácia, privacidade, vedação ao compartilhamento contínuo e irrestrito, segurança, interoperabilidade, inclusão, transparência e auditabilidade.
+
+=== ecd2-14
+gab: C
+ref: dec12880 25
+trecho: As lojas de aplicações de internet e os sistemas operacionais deverão solicitar autorização dos responsáveis legais para download e instalação de aplicativos por crianças e adolescentes
+armadilha: literal
+dif: 2
+enunciado: As lojas de aplicações e os sistemas operacionais devem solicitar autorização dos responsáveis legais para o download e a instalação de aplicativos por crianças e adolescentes, informando-os antes sobre a classificação indicativa atribuída ao aplicativo.
+comentario: Art. 25, § 3º, respeitada a autonomia progressiva. O § 2º ainda obriga a loja a pedir a declaração de idade ao criar a conta, aferir a idade por método confiável, permitir contestação e evitar múltiplas contas.
+
+=== ecd2-15
+gab: E
+ref: dec12880 26
+trecho: O recebimento de sinais de idade não isentará a responsabilidade do fornecedor de produtos ou serviços de tecnologia da informação pela efetividade da adequação etária e das medidas de proteção adotadas.
+armadilha: interpretacao
+dif: 2
+enunciado: Recebido o sinal de idade enviado pela loja de aplicativos, o fornecedor do serviço fica isento de responsabilidade pela adequação etária, que passa a ser da loja.
+comentario: Errado. O art. 26, § 3º, diz que o recebimento do sinal de idade não isenta o fornecedor pela efetividade da adequação etária e das medidas de proteção. A responsabilidade é compartilhada, não transferida.
+
+=== ecd2-16
+gab: C
+ref: dec12880 26
+trecho: Os fornecedores de produtos ou serviços de tecnologia da informação acessíveis por meio de sistemas de navegação na internet deverão aferir a idade e poderão utilizar sinais de idade disponibilizados pelo sistema operacional, pela loja de aplicação ou por outro fornecedor de serviços digitais
+armadilha: literal
+dif: 3
+enunciado: Serviços acessados por navegador de internet também devem aferir a idade e podem usar, para isso, sinais de idade disponibilizados pelo sistema operacional, pela loja de aplicação ou por outro fornecedor de serviços digitais.
+comentario: Art. 26, § 2º. Fecha a brecha de quem acessa pelo navegador em vez do aplicativo.
+
+=== ecd2-17
+gab: E
+ref: dec12880 28
+trecho: Sem prejuízo da oferta de soluções tecnológicas privadas, o Ministério da Gestão e da Inovação em Serviços Públicos poderá disponibilizar soluções tecnológicas públicas para verificação de idade
+trecho: As soluções tecnológicas públicas de que trata o caput serão disponibilizadas gratuitamente aos cidadãos.
+armadilha: absoluto
+dif: 2
+enunciado: A verificação de idade no ambiente digital deve ser feita exclusivamente por solução tecnológica pública do Ministério da Gestão e da Inovação em Serviços Públicos, vedadas soluções privadas.
+comentario: Errado. O MGI poderá disponibilizar soluções públicas, gratuitas para o cidadão, sem prejuízo das soluções privadas (art. 28). O art. 49 fala em ecossistema de soluções públicas e privadas interoperáveis que preservem a liberdade de escolha do usuário.
+
+=== ecd2-18
+gab: C
+ref: dec12880 29
+trecho: A ANPD poderá determinar que fornecedores de produtos ou serviços de tecnologia da informação adotem medidas técnicas adicionais para impedir ou dificultar mecanismos tecnológicos que visem a contornar ou burlar
+armadilha: sujeito
+dif: 2
+enunciado: A ANPD pode determinar que fornecedores adotem medidas técnicas adicionais para impedir ou dificultar mecanismos tecnológicos destinados a contornar a aferição de idade, considerando o estado da tecnologia e a gravidade e a probabilidade dos impactos sobre crianças e adolescentes.
+comentario: Art. 29, caput e parágrafo único. A determinação observa ainda o art. 34, §§ 1º e 2º, do ECA Digital.
+
+=== ecd2-19
+gab: C
+ref: dec12880 33
+trecho: deverão impedir o uso de técnicas e ferramentas de perfilamento, o emprego de análise emocional, de realidade aumentada, de realidade estendida e de realidade virtual
+armadilha: rol
+dif: 2
+enunciado: Na oferta de publicidade para crianças e adolescentes, os fornecedores devem impedir o uso de perfilamento, de análise emocional e de realidade aumentada, estendida ou virtual.
+comentario: Art. 33, que remete aos arts. 22 e 26 do ECA Digital. O art. 31 ainda considera abusiva, nos termos do CDC, a publicidade que se aproveite da deficiência de julgamento e experiência da criança.
+
+=== ecd2-20
+gab: E
+ref: dec12880 34
+trecho: Verificada a ausência da autorização judicial referida no caput, o fornecedor deverá retirar imediatamente o conteúdo.
+armadilha: interpretacao
+dif: 3
+enunciado: Constatado que conteúdo monetizado explora habitualmente a rotina de uma criança sem a autorização judicial exigida, o fornecedor deve notificar o Ministério Público e aguardar ordem judicial para retirá-lo.
+comentario: Errado. Verificada a ausência da autorização judicial (art. 149 do ECA), o fornecedor deve retirar imediatamente o conteúdo (art. 34, § 1º). A exigência vale para conteúdos cuja monetização ou impulsionamento comece a partir de noventa dias da publicação do decreto (§ 2º).
+
+=== ecd2-21
+gab: C
+ref: dec12880 35
+trecho: É vedado aos fornecedores de produtos ou serviços de tecnologia da informação a veiculação, a monetização ou o impulsionamento de conteúdos que exponham crianças ou adolescentes a situações violadoras, vexatórias ou degradantes
+armadilha: literal
+dif: 1
+enunciado: É vedado aos fornecedores de serviços digitais veicular, monetizar ou impulsionar conteúdos que exponham crianças ou adolescentes a situações violadoras, vexatórias ou degradantes.
+comentario: Art. 35, com remissão aos arts. 6º, § 1º, e 23 do ECA Digital.
+
+=== ecd2-22
+gab: E
+ref: dec12880 37
+trecho: Fica autorizada a criação do Centro Nacional de Triagem de Notificações, no âmbito da Polícia Federal
+armadilha: sujeito
+dif: 2
+enunciado: O Centro Nacional de Triagem de Notificações, que recebe e valida os relatórios de conteúdo de exploração e abuso sexual infantil, funciona no âmbito da ANPD.
+comentario: Errado. O Centro funciona no âmbito da Polícia Federal (art. 37), que é a autoridade competente para o recebimento centralizado desses relatórios (art. 36). A ANPD fiscaliza o ECA Digital, mas não faz a triagem criminal.
+
+=== ecd2-23
+gab: C
+ref: dec12880 37
+trecho: Os fornecedores de produtos ou serviços de tecnologia da informação que forneçam, por força de lei, notificações idênticas a centrais de triagem de denúncia de outros países, as quais estejam disponíveis para as autoridades brasileiras, ficam dispensados do envio de notificações ao Centro Nacional de Triagem de Notificações
+armadilha: excecao
+dif: 3
+enunciado: Plataforma que, por força de lei estrangeira, já envia notificações idênticas a central de triagem de outro país, disponíveis para as autoridades brasileiras, fica dispensada de enviá-las ao Centro Nacional de Triagem de Notificações.
+comentario: Art. 37, § 2º, para evitar duplicidade. Os relatórios enviados ao exterior, depois de processados e validados, equiparam-se aos apresentados diretamente ao Centro, para todos os fins jurídicos e probatórios (§ 3º).
+
+=== ecd2-24
+gab: E
+ref: dec12880 39
+trecho: deverão promover sua imediata remoção, preservando esse material e os demais conteúdos da conta, as informações do usuário e os metadados associados
+armadilha: interpretacao
+dif: 3
+enunciado: Identificado material de abuso sexual infantil, o fornecedor deve removê-lo imediatamente e apagar de forma definitiva o material e os metadados da conta, para impedir nova circulação.
+comentario: Errado. A remoção é imediata, mas o fornecedor deve preservar o material, os demais conteúdos da conta, as informações do usuário e os metadados para encaminhamento ao Centro ou à autoridade internacional (art. 39, § 1º). Só depois de confirmado o recebimento exclui de seus servidores o conteúdo de abuso, preservando os demais dados (§ 2º).
+
+=== ecd2-25
+gab: C
+ref: dec12880 41
+trecho: Os mecanismos de notificação de que trata o caput deverão ser acessíveis, gratuitos, efetivos e amplamente divulgados aos usuários.
+armadilha: rol
+dif: 1
+enunciado: Os mecanismos de notificação sobre violações aos direitos de crianças e adolescentes oferecidos pelos fornecedores devem ser acessíveis, gratuitos, efetivos e amplamente divulgados.
+comentario: Art. 41, parágrafo único. Guarde os quatro atributos: acessíveis, gratuitos, efetivos e amplamente divulgados.
+
+=== ecd2-26
+gab: E
+ref: dec12880 43
+trecho: Os conselhos tutelares, constituídos na forma prevista na Lei nº 8.069, de 13 de julho de 1990, deverão provocar o Ministério Público para que este notifique fornecedores
+armadilha: rol
+dif: 3
+enunciado: O conselho tutelar está entre os legitimados a notificar diretamente o fornecedor para a retirada imediata, independentemente de ordem judicial, de conteúdo que viole direitos de crianças e adolescentes.
+comentario: Errado. Os legitimados do art. 43 são a vítima ou seus representantes, o Ministério Público, as autoridades policiais e as entidades da sociedade civil de reconhecida atuação nacional. O conselho tutelar deve provocar o Ministério Público para que este notifique (parágrafo único).
+
+=== ecd2-27
+gab: C
+ref: dec12880 44
+trecho: ser independente em relação a fornecedores de produtos ou serviços de tecnologia da informação direcionados a crianças e adolescentes ou de acesso provável por eles
+trecho: não ter fins lucrativos
+armadilha: rol
+dif: 2
+enunciado: Para ser habilitada pela ANPD a notificar fornecedores, a entidade da sociedade civil deve, cumulativamente, ter experiência na proteção de crianças no ambiente digital, ser independente em relação aos fornecedores, adotar procedimentos que assegurem qualidade e imparcialidade das notificações e não ter fins lucrativos.
+comentario: Art. 44, I a IV. A lista das habilitadas é publicada no sítio da ANPD (§ 2º).
+
+=== ecd2-28
+gab: C
+ref: dec12880 44
+trecho: envio abusivo de notificações pela retirada de conteúdo que não viole direitos de crianças e adolescentes
+armadilha: caso
+dif: 2
+enunciado: Entidade habilitada que passa a enviar em massa pedidos de retirada de conteúdos que não violam direitos de crianças pode ser desabilitada pela ANPD.
+comentario: Art. 44, § 3º, II. A outra hipótese de desabilitação é o desvio na atuação da proteção da infância e da adolescência (inciso I).
+
+=== ecd2-29
+gab: E
+ref: dec12880 45
+trecho: que possuam mais de um milhão de usuários registrados na faixa etária desse público
+armadilha: numero
+dif: 3
+enunciado: Os relatórios com a quantidade de notificações recebidas e os dados sobre o seu prosseguimento são exigidos dos provedores com mais de cem mil usuários registrados na faixa etária de crianças e adolescentes.
+comentario: Errado. O limiar é de mais de um milhão de usuários registrados nessa faixa etária (art. 45, remetendo ao art. 31, II, do ECA Digital).
+
+=== ecd2-30
+gab: C
+ref: dec12880 47
+trecho: deverão realizar avaliação de impacto à segurança e à saúde de crianças, com identificação e análise de riscos, avaliação da probabilidade de ocorrência e da gravidade do impacto potencial, tratamento e mitigação dos riscos e acompanhamento contínuo da efetividade das medidas adotadas
+armadilha: conceito
+dif: 2
+enunciado: Os fornecedores de serviços direcionados a crianças ou de acesso provável por elas devem realizar avaliação de impacto à segurança e à saúde de crianças, com análise de riscos, probabilidade e gravidade, mitigação e acompanhamento contínuo, dando publicidade a versão resumida em linguagem clara.
+comentario: Art. 47, caput e § 1º. Ato da ANPD poderá dispor sobre conteúdo mínimo, periodicidade e condições de elaboração e revisão (§ 2º). Lembra o relatório de impacto da LGPD, mas o foco é segurança e saúde da criança.
+
+=== ecd2-31
+gab: E
+ref: dec12880 49
+trecho: adotará abordagem responsiva, considerados as funcionalidades e o nível de risco de cada produto, serviço e conteúdo
+armadilha: conceito
+dif: 2
+enunciado: Na implementação das soluções de aferição de idade, a ANPD deve aplicar exigências idênticas a todos os produtos e serviços, independentemente do nível de risco, para garantir isonomia entre os fornecedores.
+comentario: Errado. A ANPD adotará abordagem responsiva, considerando funcionalidades e nível de risco de cada produto, serviço e conteúdo, e priorizará o monitoramento conforme o risco para crianças e adolescentes (art. 49, parágrafo único, I e III).
+
+=== ecd2-32
+gab: C
+ref: dec12880 52
+trecho: Até que haja a regulamentação de que trata o art. 44, a ANPD poderá habilitar provisoriamente as entidades representativas de defesa dos direitos de crianças e adolescentes
+armadilha: literal
+dif: 3
+enunciado: Até a regulamentação da ANPD sobre o credenciamento, podem ser habilitadas provisoriamente as entidades que cumpram os requisitos do decreto e sejam membros titulares ou suplentes do Conanda ou da Comissão Intersetorial de Enfrentamento da Violência Sexual contra Crianças e Adolescentes.
+comentario: Art. 52, I e II. É regra de transição; a regulamentação definitiva vem por ato da ANPD (art. 44, § 1º).
