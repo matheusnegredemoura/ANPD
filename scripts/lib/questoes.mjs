@@ -3,7 +3,8 @@
 //   bloco: lgpd-17-22            (cabeçalho do arquivo, vale para todas as questões abaixo)
 //
 //   === lgpd-18-01               (id único)
-//   gab: C | E
+//   gab: C | E                   (nos itens de múltipla escolha, a letra: A a E)
+//   alt: A | texto da alternativa (só nos itens de múltipla escolha; uma linha por letra, na ordem)
 //   ref: lgpd 18, V              (lei + artigo; depois da vírgula, o dispositivo exibido)
 //   trecho: texto literal         (pode repetir; precisa existir no artigo citado)
 //   armadilha: rol                (tipo de pegadinha, ver ARMADILHAS)
@@ -32,7 +33,7 @@ export const ARMADILHAS = {
   interpretacao: 'Interpretação de texto',
 };
 
-const CAMPOS_MULTIPLOS = new Set(['trecho', 'pesquisar']);
+const CAMPOS_MULTIPLOS = new Set(['trecho', 'pesquisar', 'alt']);
 
 export function lerArquivoQuestoes(caminho) {
   const bruto = readFileSync(caminho, 'utf8');
@@ -53,7 +54,7 @@ export function lerArquivoQuestoes(caminho) {
   for (const b of blocos.slice(1)) {
     const linhas = b.split('\n');
     const id = linhas[0].trim();
-    const q = { id, bloco: cabecalho.bloco, trecho: [], pesquisar: [], arquivo: caminho };
+    const q = { id, bloco: cabecalho.bloco, trecho: [], pesquisar: [], alt: [], arquivo: caminho };
     if (cabecalho.apoio) q.apoio = cabecalho.apoio;
     let ultimo = null;
     for (const linha of linhas.slice(1)) {

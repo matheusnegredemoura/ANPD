@@ -1,0 +1,922 @@
+// Itens reais avulsos, lote 2: Cebraspe, provas de 2025 e 2026 (LGPD, Marco Civil, LAI, Lei Anticorrupção, Lei 9.784,
+// ECA e língua portuguesa), colados de outro banco de questões. O gabarito NÃO veio com os itens: foi conferido no texto
+// da norma (ou, em português, no texto de apoio e na gramática), e a linha "prova" avisa. Itens cuja resposta dependia de
+// norma não anexada, de jurisprudência ou de leitura duvidosa ficaram de fora. Os de múltipla escolha trazem as
+// alternativas em "alt:". Referências a textos da prova que não vieram na colagem foram retiradas do enunciado.
+// Comentários escritos para o banco.
+bloco: lgpd-5-11
+
+apoio_CG1A1: No admirável mundo novo da inteligência artificial (IA), o ano de 2025 representou um salto — os robôs movidos a algoritmos, que já faziam parte do cotidiano das relações profissionais, invadiram, sem pompa nem circunstância, recantos íntimos, em meio ao intenso e inescapável debate ético. “O risco é criar uma intimidade sem reciprocidade, em que parece haver relação humana, mas não há”, dizem os psicólogos. A IA trabalha com uma proximidade confortável e sem consequências, mas carrega o risco de afastar usuários das complexidades dos relacionamentos reais. O estrondoso debate que atravessou o ano deixa uma questão central: o que perdemos ao delegar a vida aos algoritmos? No caso das consultas médicas, um argumento a favor da IA tem sido o acesso aos profissionais. “Talvez o melhor médico do mundo seja muito melhor do que o ChatGPT. Mas, se não há alternativa, se não é possível pagar por um médico, especialmente em regiões mais pobres, será muito melhor do que nada”. É um ponto, mas não há dúvida: a IA precisa ser levada ao divã.
+Lígia Morais. A IA no divã. In: Veja, 24/12/2025, p. 49 (com adaptações).
+
+apoio_CG1A2: Ainda há muito o que estudar sobre a árvore genealógica das línguas de todo o continente americano. Como na África, a linguística moderna chegou tarde a essa região e encontrou um cenário marcado pela destruição, pelo desaparecimento não documentado de uma quantidade de idiomas que mal conseguimos avaliar. Os idiomas que se viram mais diretamente envolvidos no processo de formação do português que viríamos a falar no Brasil são os do grupo tupi, falados por nações como os caetés, potiguara, tamoio, tupinambá, tupiniquim... Esses povos parecem ter iniciado uma imigração a partir da Amazônia, no início da Era Comum, ou seja, há mais de 2.000 anos. Por um lado, eles se expandiram para o litoral norte, depois rumo ao nordeste e ao sudeste do Brasil; por outro, desceram a região central rumo ao sul do país.
+A presença mais ou menos uniforme de grupos tupis nas costas do Brasil teria um papel fundamental na história linguística do que um dia viria a ser essa imensa nação lusófona na América do Sul. Numa região de vegetação fechada e rala densidade populacional, o litoral era o fio condutor mais vigoroso de contatos e aproximações. E como os povos que habitavam um trecho gigantesco do litoral brasileiro eram relacionados, isso gerava um tipo de uniformidade de hábitos, tradições e idioma, que possibilitou que os portugueses os considerassem como “um povo”, falante de uma mesma língua, uma forma do tupi, que, ao que parece, variava pouco entre um grupo e outro. Essa foi a língua cuja gramática, afinal, seria descrita pelos jesuítas europeus — a língua que estaria na base de uma das legítimas “línguas brasileiras” que foram desenvolvidas aqui e que, séculos depois da chegada dos portugueses, ainda representariam uma direta concorrência para o sucesso do idioma de Portugal nessas plagas.
+Caetano W. Galindo. Latim em pó. Um passeio pela formação do nosso português. São Paulo: Companhia das Letras, 2022, p. 142-144 (com adaptações).
+
+=== rv-l108
+gab: C
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Analista de TI (Infraestrutura e Segurança da Informação) · gabarito conferido na lei
+ref: lgpd 10
+trecho: O legítimo interesse do controlador somente poderá fundamentar tratamento de dados pessoais para finalidades legítimas, consideradas a partir de situações concretas
+comando: Em conformidade com a Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados Pessoais ‒ LGPD), julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: A LGPD estabelece que o legítimo interesse do controlador pode fundamentar o tratamento de dados pessoais sem consentimento do titular, desde que o procedimento seja voltado para finalidades legítimas e que não fira os direitos e as liberdades fundamentais do indivíduo.
+comentario: Certo. O legítimo interesse é base legal autônoma (art. 7º, IX): dispensa o consentimento, mas só vale para finalidades legítimas, consideradas a partir de situações concretas (art. 10), e cede quando prevalecerem os direitos e as liberdades fundamentais do titular. O item resume os dois limites. Completam o regime: só os dados estritamente necessários (art. 10, § 1º), transparência (§ 2º) e a possibilidade de a ANPD pedir relatório de impacto (§ 3º).
+
+=== rv-l109
+gab: C
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Analista de TI (Ciência de Dados e Inovação) · gabarito conferido na lei
+bloco: lgpd-37-45
+ref: lgpd 37
+trecho: devem manter registro das operações de tratamento de dados pessoais que realizarem
+comando: Em relação à Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados Pessoais - LGPD), julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: Além de atuar como um controle de segurança dissuasivo, a auditoria automatizada viabiliza o cumprimento da obrigação legal imposta pela LGPD aos agentes de manter o registro da ampla variedade de operações que constituem o tratamento de dados pessoais.
+comentario: Certo. O art. 37 obriga controlador e operador a manter registro das operações de tratamento que realizarem, especialmente quando baseado no legítimo interesse. A trilha de auditoria automatizada é o meio técnico usual de cumprir esse dever e, como os usuários sabem que suas ações ficam registradas, também inibe abusos (controle dissuasivo). O item junta segurança da informação e LGPD sem contradição.
+
+=== rv-l110
+gab: E
+origem: real
+prova: Cebraspe · UDESC 2026 · Técnico Universitário de Desenvolvimento (Engenheiro Civil) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 14, § 1º
+trecho: por pelo menos um dos pais ou pelo responsável legal
+armadilha: extrapolacao
+dif: 1
+enunciado: O tratamento de dados pessoais de crianças deve ser realizado com o consentimento específico e em destaque de ambos os pais ou todos os responsáveis legais.
+comentario: Errado. Basta o consentimento específico e em destaque de pelo menos um dos pais ou do responsável legal (art. 14, § 1º). Exigir os dois pais ou todos os responsáveis é acréscimo que a lei não faz. Lembre também a exceção do § 3º: coleta sem consentimento para contatar os pais (uma única vez e sem armazenamento) ou para a proteção da criança.
+
+=== rv-l111
+gab: C
+origem: real
+prova: Cebraspe · TJ PA 2025 · Analista Judiciário (Comunicação Social) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 1
+trecho: dispõe sobre o tratamento de dados pessoais, inclusive nos meios digitais, por pessoa natural ou por pessoa jurídica de direito público ou privado
+trecho: devem ser observadas pela União, Estados, Distrito Federal e Municípios
+armadilha: literal
+dif: 1
+enunciado: A Lei Geral de Proteção de Dados Pessoais dispõe sobre o tratamento de dados pessoais, inclusive nos meios digitais, por pessoa natural ou por pessoa jurídica de direito público ou privado, no âmbito da União, dos estados, do Distrito Federal e dos municípios brasileiros.
+comentario: Certo. O item junta o caput do art. 1º (tratamento inclusive nos meios digitais, por pessoa natural ou jurídica, de direito público ou privado) com o parágrafo único (normas gerais de interesse nacional, observadas por União, estados, DF e municípios). A LGPD é lei nacional, não apenas federal: alcança os quatro níveis da Federação.
+
+=== rv-l112
+gab: E
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Analista de TI (Infraestrutura e Segurança da Informação) · gabarito conferido na lei
+ref: lgpd 5, VI e VII
+trecho: a quem competem as decisões referentes ao tratamento de dados pessoais
+trecho: que realiza o tratamento de dados pessoais em nome do controlador
+armadilha: sujeito
+dif: 1
+enunciado: De acordo com o regime estabelecido pela LGPD, o operador é a pessoa natural ou jurídica, de direito público ou privado, a quem competem as decisões referentes ao tratamento de dados pessoais no desenvolvimento das atividades institucionais de determinada entidade.
+comentario: Errado. A definição dada é a de controlador (art. 5º, VI): a quem competem as decisões referentes ao tratamento. O operador é quem realiza o tratamento em nome do controlador (art. 5º, VII). Trocar controlador por operador é das pegadinhas mais frequentes do Cebraspe.
+
+=== rv-l113
+gab: C
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Analista de TI (Infraestrutura e Segurança da Informação) · gabarito conferido na lei
+ref: lgpd 11, II, a
+trecho: sem fornecimento de consentimento do titular, nas hipóteses em que for indispensável para
+trecho: cumprimento de obrigação legal ou regulatória pelo controlador
+armadilha: literal
+dif: 1
+enunciado: A LGPD prevê que o tratamento de dados pessoais sensíveis, como informações relativas à origem racial, convicção religiosa ou dados de saúde, pode ser realizado sem o fornecimento do consentimento do titular nas hipóteses indispensáveis para o cumprimento de obrigação legal ou regulatória pelo controlador.
+comentario: Certo. Origem racial, convicção religiosa e saúde são dados sensíveis (art. 5º, II), e o art. 11, II, “a”, admite tratá-los sem consentimento quando indispensável ao cumprimento de obrigação legal ou regulatória pelo controlador. Atenção à diferença entre os róis: o art. 11 não tem legítimo interesse nem proteção do crédito, bases que existem no art. 7º.
+
+=== rv-l114
+gab: E
+origem: real
+prova: Cebraspe · SEPLAG AL 2026 · Especialista em Gestão Pública (Administração) · gabarito conferido na lei
+ref: lgpd 6, I
+trecho: realização do tratamento para propósitos legítimos, específicos, explícitos e informados ao titular, sem possibilidade de tratamento posterior de forma incompatível com essas finalidades
+armadilha: conceito
+dif: 1
+enunciado: Admite-se que o tratamento de dados pessoais seja realizado para propósitos genéricos e os dados sejam posteriormente utilizados para finalidades distintas daquelas originalmente informadas ao titular, desde que haja interesse legítimo do controlador.
+comentario: Errado. O princípio da finalidade (art. 6º, I) exige propósitos legítimos, específicos, explícitos e informados ao titular e veda tratamento posterior incompatível com eles. Propósito genérico já viola o princípio, e o interesse do controlador não autoriza desviar a finalidade informada. O legítimo interesse é base legal (art. 7º, IX), não salvo-conduto para mudar de finalidade.
+
+=== rv-l115
+gab: E
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Analista de TI (Ciência de Dados e Inovação) · gabarito conferido na lei
+ref: lgpd 5, XII
+trecho: manifestação livre, informada e inequívoca pela qual o titular concorda com o tratamento de seus dados pessoais para uma finalidade determinada
+armadilha: conceito
+dif: 2
+enunciado: No ambiente virtual, considera-se lícita a coleta do consentimento do titular por meio de caixas de seleção (checkboxes) previamente marcadas, desde que seja garantido ao usuário o direito de desmarcá-las em caso de discordância.
+comentario: Errado. Consentimento é manifestação livre, informada e inequívoca (art. 5º, XII), e cabe ao controlador provar que o obteve conforme a lei (art. 8º, § 2º). Caixa já marcada não é manifestação do titular: a inércia não demonstra vontade inequívoca, e a possibilidade de desmarcar não supre isso. O consentimento exige um ato positivo de quem consente.
+
+=== rv-l116
+gab: C
+origem: real
+prova: Cebraspe · SEPLAG AL 2026 · Especialista em Gestão Pública (Administração) · gabarito conferido na lei
+ref: lgpd 7, III
+trecho: pela administração pública, para o tratamento e uso compartilhado de dados necessários à execução de políticas públicas previstas em leis e regulamentos ou respaldadas em contratos, convênios ou instrumentos congêneres
+armadilha: literal
+dif: 1
+enunciado: É permitido à administração pública realizar o tratamento de dados pessoais necessários à execução de políticas públicas previstas em leis e regulamentos ou respaldadas em contratos, convênios ou instrumentos congêneres, desde que observadas as disposições legais.
+comentario: Certo. É a base legal do art. 7º, III, quase literal. “Observadas as disposições legais” corresponde à remissão ao Capítulo IV (arts. 23 a 32), que impõe ao poder público, entre outros deveres, informar as hipóteses em que trata dados e indicar encarregado (art. 23).
+
+=== rv-l117
+gab: C
+origem: real
+prova: Cebraspe · FUNPRESP-JUD 2026 · Analista de TI (Ciência de Dados e Inovação) · gabarito conferido na lei
+bloco: lgpd-46-51
+ref: lgpd 46
+trecho: devem adotar medidas de segurança, técnicas e administrativas aptas a proteger os dados pessoais de acessos não autorizados e de situações acidentais ou ilícitas de destruição, perda
+armadilha: literal
+dif: 1
+enunciado: De acordo com a LGPD, os agentes de tratamento devem adotar medidas de segurança para proteger os dados pessoais contra acessos não autorizados e situações acidentais de destruição ou perda.
+comentario: Certo. Paráfrase reduzida do art. 46: medidas de segurança, técnicas e administrativas, contra acessos não autorizados e situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou tratamento inadequado. Citar só parte do rol não torna o item errado: incompleto não é incorreto, salvo quando há palavra restritiva (somente, apenas).
+
+=== rv-l118
+gab: E
+origem: real
+prova: Cebraspe · PGM Aracaju 2025 · Procurador · gabarito conferido na lei
+ref: lgpd 7, X
+trecho: para a proteção do crédito, inclusive quanto ao disposto na legislação pertinente
+armadilha: excecao
+dif: 2
+enunciado: É vedado ao gestor de banco de dados realizar, com a finalidade de proteção do crédito, tratamento de dados pessoais não sensíveis e abrir cadastro com informações de adimplemento sem o prévio consentimento do cadastrado.
+comentario: Errado. A proteção do crédito é base legal própria (art. 7º, X), que dispensa o consentimento e remete à “legislação pertinente”. Essa legislação é a Lei do Cadastro Positivo (Lei nº 12.414/2011, alterada pela Lei Complementar nº 166/2019), que autoriza o gestor a abrir cadastro com informações de adimplemento sem consentimento prévio, assegurado ao cadastrado o direito de pedir o cancelamento. Dados sensíveis seguem o art. 11, que não tem essa base.
+
+=== rv-l119
+gab: E
+origem: real
+prova: Cebraspe · Câmara dos Deputados 2026 · Técnico Legislativo (Assistente Legislativo e Administrativo) · gabarito conferido na lei
+bloco: lgpd-46-51
+ref: lgpd 50, § 2º, I, b
+trecho: seja aplicável a todo o conjunto de dados pessoais que estejam sob seu controle, independentemente do modo como se realizou sua coleta
+armadilha: extrapolacao
+dif: 2
+enunciado: Conforme a legislação vigente, as regras de boas práticas e os programas de governança em privacidade, uma vez instituídos, restringem-se aos dados pessoais coletados diretamente pelo controlador, não se estendendo a dados obtidos por outros meios.
+comentario: Errado. Um dos requisitos mínimos do programa de governança em privacidade é ser aplicável a todo o conjunto de dados pessoais sob controle do controlador, independentemente do modo como se realizou a coleta (art. 50, § 2º, I, “b”). Restringir o programa aos dados coletados diretamente contraria a letra da lei.
+
+=== rv-l120
+gab: E
+origem: real
+prova: Cebraspe · TRT 10 2025 · Técnico Judiciário (Administrativa) · gabarito conferido na lei
+bloco: lgpd-23-32
+ref: lgpd 23, § 4º
+trecho: terão o mesmo tratamento dispensado às pessoas jurídicas referidas no caput deste artigo
+armadilha: comparacao
+dif: 2
+enunciado: O tratamento de dados pelos serviços notariais e de registro exercidos em caráter privado, por delegação do poder público, sujeita-se a regime legal diverso daquele aplicável aos órgãos públicos integrantes da administração direta e indireta.
+comentario: Errado. Serviços notariais e de registro exercidos em caráter privado, por delegação, recebem o mesmo tratamento dado às pessoas jurídicas de direito público do caput do art. 23 (art. 23, § 4º). O § 5º ainda os obriga a dar acesso eletrônico aos dados para a administração pública.
+
+=== rv-l121
+gab: C
+origem: real
+prova: Cebraspe · InoversaSul 2025 · Arquivista · gabarito conferido na lei
+bloco: lgpd-17-22
+ref: lgpd 19, § 2º
+trecho: As informações e os dados poderão ser fornecidos, a critério do titular
+trecho: sob forma impressa
+armadilha: literal
+dif: 1
+enunciado: Informações e dados pessoais poderão ser fornecidos, a critério do respectivo titular, por meio eletrônico ou sob forma impressa.
+comentario: Certo. No direito de acesso, a forma de entrega é escolha do titular: por meio eletrônico, seguro e idôneo, ou sob forma impressa (art. 19, § 2º). Não confunda com os dois formatos da resposta (art. 19, I e II): simplificado e imediato, ou declaração clara e completa em até 15 dias.
+
+=== rv-l122
+gab: E
+origem: real
+prova: Cebraspe · InoversaSul 2025 · Arquivista · gabarito conferido na lei
+bloco: lgpd-12-16
+ref: lgpd 15
+trecho: comunicação do titular, inclusive no exercício de seu direito de revogação do consentimento
+trecho: determinação da autoridade nacional, quando houver violação ao disposto nesta Lei
+armadilha: sujeito
+dif: 1
+enunciado: O término do tratamento de dados pessoais ocorrerá exatamente quando da revogação do consentimento pela autoridade nacional de proteção de dados.
+comentario: Errado. Quem revoga o consentimento é o titular, que o deu (art. 15, III, combinado com o art. 8º, § 5º). A autoridade nacional aparece em outra hipótese de término: a determinação da ANPD quando houver violação à lei (art. 15, IV). O item fundiu as duas hipóteses e trocou o sujeito.
+
+=== rv-l123
+gab: E
+origem: real
+prova: Cebraspe · InoversaSul 2025 · Arquivista · gabarito conferido na lei
+bloco: lgpd-37-45
+ref: lgpd 39
+trecho: O operador deverá realizar o tratamento segundo as instruções fornecidas pelo controlador
+armadilha: sujeito
+dif: 1
+enunciado: O operador deverá realizar o tratamento de dados pessoais segundo as instruções fornecidas pela autoridade nacional de proteção de dados.
+comentario: Errado. O operador segue as instruções do controlador, que verifica a observância delas e das normas sobre a matéria (art. 39). A ANPD não instrui o operador caso a caso: regula e fiscaliza. Se o operador desobedecer às instruções lícitas do controlador, responde solidariamente e se equipara ao controlador (art. 42, § 1º, I).
+
+=== rv-l124
+gab: E
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Analista (Direito e Auditoria, Advogado) · gabarito conferido na lei
+ref: lgpd 5, VII e VIII
+trecho: que realiza o tratamento de dados pessoais em nome do controlador
+trecho: pessoa indicada pelo controlador e operador para atuar como canal de comunicação
+armadilha: conceito
+dif: 1
+enunciado: Considera-se encarregado a pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do controlador.
+comentario: Errado. A definição dada é a de operador (art. 5º, VII). O encarregado é a pessoa indicada pelo controlador e pelo operador para atuar como canal de comunicação entre o controlador, os titulares e a ANPD (art. 5º, VIII). Ele não trata dados em nome de ninguém: faz a ponte.
+
+=== rv-l125
+gab: E
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Analista (Direito e Auditoria, Advogado) · gabarito conferido na lei
+ref: lgpd 6, IX
+trecho: não discriminação: impossibilidade de realização do tratamento para fins discriminatórios ilícitos ou abusivos
+armadilha: conceito
+dif: 1
+enunciado: Os princípios da discriminação, da finalidade e do sigilo de dados devem nortear as atividades de tratamento de dados pessoais.
+comentario: Errado. O princípio é o da não discriminação (art. 6º, IX), e “sigilo” não está no rol dos dez princípios do art. 6º: finalidade, adequação, necessidade, livre acesso, qualidade dos dados, transparência, segurança, prevenção, não discriminação e responsabilização e prestação de contas. Só a finalidade está certa.
+
+=== rv-l126
+gab: E
+origem: real
+prova: Cebraspe · FUNPRESP-EXE 2025 · Analista de Previdência Complementar (Sistemas e Governança de TI) · gabarito conferido na lei
+ref: lgpd 5, XII
+trecho: manifestação livre, informada e inequívoca
+armadilha: conceito
+dif: 1
+enunciado: O consentimento do titular dos dados pessoais pode ser obtido de forma implícita e inferido a partir de ações indiretas do titular, como a navegação em um site ou o uso de um serviço.
+comentario: Errado. Consentimento implícito, deduzido da navegação ou do uso do serviço, não é manifestação inequívoca (art. 5º, XII). O art. 8º exige consentimento por escrito ou por outro meio que demonstre a manifestação de vontade do titular, e o ônus de provar é do controlador (§ 2º). Se o tratamento não puder depender de consentimento, o controlador precisa de outra base legal do art. 7º.
+
+=== rv-l127
+gab: E
+origem: real
+prova: Cebraspe · STM 2025 · Analista Judiciário (Suporte em Tecnologia da Informação) · gabarito conferido na lei
+ref: lgpd 7, § 5º
+trecho: deverá obter consentimento específico do titular para esse fim, ressalvadas as hipóteses de dispensa do consentimento previstas nesta Lei
+armadilha: extrapolacao
+dif: 2
+enunciado: O controlador de dados pode compartilhar dados pessoais com terceiros sem a necessidade de consentimento do titular, desde que o compartilhamento seja realizado para fins comerciais e não envolva dados sensíveis.
+comentario: Errado. A finalidade comercial não é hipótese de dispensa. Se o tratamento se apoia no consentimento, compartilhar com outros controladores exige consentimento específico para esse fim (art. 7º, § 5º), salvo as dispensas legais. E dado não sensível não fica livre: continua precisando de base legal do art. 7º.
+
+=== rv-l128
+gab: C
+origem: real
+prova: Cebraspe · FUB 2025 · Administrador · gabarito conferido na lei
+ref: lgpd 8, § 5º
+trecho: O consentimento pode ser revogado a qualquer momento mediante manifestação expressa do titular, por procedimento gratuito e facilitado
+armadilha: literal
+dif: 1
+enunciado: A revogação do consentimento do titular para o tratamento de seus dados pessoais pode ocorrer a qualquer momento, mediante manifestação expressa dele.
+comentario: Certo. Literal do art. 8º, § 5º, que completa: por procedimento gratuito e facilitado, ratificados os tratamentos feitos antes da revogação enquanto não houver pedido de eliminação. A revogação não apaga o passado; isso cabe à eliminação (art. 18, VI), ressalvadas as hipóteses de conservação do art. 16.
+
+=== rv-l129
+gab: C
+origem: real
+prova: Cebraspe · FUNPRESP-EXE 2025 · Analista de Previdência Complementar (Governança, Auditoria, Controle e Conformidade) · gabarito conferido na lei
+bloco: lgpd-37-45
+ref: lgpd 41
+trecho: O controlador deverá indicar encarregado pelo tratamento de dados pessoais.
+armadilha: literal
+dif: 1
+enunciado: O controlador deve designar um encarregado pelo tratamento de dados pessoais, que será responsável por atuar como canal de comunicação entre o controlador, os titulares dos dados pessoais e a Autoridade Nacional de Proteção de Dados (ANPD).
+comentario: Certo. O controlador deve indicar encarregado (art. 41), e a definição legal o descreve como canal de comunicação entre o controlador, os titulares e a ANPD (art. 5º, VIII). Detalhe que a banca explora: a Resolução CD/ANPD nº 2/2022 dispensa os agentes de pequeno porte de indicar encarregado, mas exige que mantenham canal de comunicação com o titular (art. 11).
+
+=== rv-l130
+gab: C
+origem: real
+prova: Cebraspe · FUNPRESP-EXE 2025 · Analista de Previdência Complementar (Comercial, Marketing e Comunicação Social) · gabarito conferido na lei
+bloco: lgpd-55
+ref: lgpd 55-A
+trecho: autarquia de natureza especial
+armadilha: literal
+dif: 1
+enunciado: A Autoridade Nacional de Proteção de Dados (ANPD) é uma autarquia de natureza especial.
+comentario: Certo. A ANPD é autarquia de natureza especial desde a Lei nº 14.460/2022 (antes era órgão da Presidência da República). A Lei nº 15.352/2026 mudou o nome para Agência Nacional de Proteção de Dados e manteve a natureza: autarquia de natureza especial, vinculada ao Ministério da Justiça e Segurança Pública, com autonomia funcional, técnica, decisória, administrativa e financeira (art. 55-A).
+
+=== rv-l131
+gab: C
+origem: real
+prova: Cebraspe · ICMBio 2025 · Analista Administrativo · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 4, II, a
+trecho: jornalístico e artísticos
+armadilha: excecao
+dif: 1
+enunciado: Não se aplica a Lei Geral de Proteção de Dados Pessoais (LGPD) ao tratamento de dados pessoais para fins exclusivamente jornalísticos e artísticos.
+comentario: Certo. O art. 4º, II, “a”, exclui da LGPD o tratamento para fins exclusivamente jornalísticos e artísticos. A palavra que segura o item é “exclusivamente”: se a empresa jornalística usa os mesmos dados para marketing, esse outro tratamento se submete à lei. Os fins acadêmicos (inciso II, “b”) têm regime diferente: aplicam-se os arts. 7º e 11.
+
+=== rv-l132
+gab: E
+origem: real
+prova: Cebraspe · TELEBRAS 2026 · Especialista em Gestão de Telecomunicações (Comercial) · gabarito conferido na lei
+ref: lgpd 6, III
+trecho: limitação do tratamento ao mínimo necessário para a realização de suas finalidades
+armadilha: extrapolacao
+dif: 1
+enunciado: A TELEBRAS, na realização de atividades de tratamento de dados pessoais, está dispensada de observar o princípio da necessidade previsto na LGPD, pois este se aplica somente a órgãos da administração pública direta.
+comentario: Errado. Os princípios do art. 6º valem para toda atividade de tratamento, de qualquer agente, público ou privado. A Telebras é sociedade de economia mista; quando atua em regime de concorrência, recebe o tratamento das empresas privadas (art. 24), mas o princípio da necessidade (art. 6º, III), a limitação ao mínimo necessário, continua obrigatório.
+
+=== rv-l133
+gab: C
+origem: real
+prova: Cebraspe · SEFAZ RN 2026 · Auditor Fiscal · gabarito conferido na lei
+ref: lgpd 5, XI
+trecho: um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo
+armadilha: conceito
+dif: 1
+enunciado: De acordo com a Lei Geral de Proteção de Dados Pessoais (LGPD), o processo pelo qual deixa de ser possível associar um dado a um indivíduo é o de
+alt: A | consentimento.
+alt: B | tratamento de dados sensíveis.
+alt: C | anonimização.
+alt: D | operação.
+alt: E | bloqueio.
+comentario: Letra C. Anonimização é a utilização de meios técnicos razoáveis e disponíveis no momento do tratamento pelos quais o dado perde a possibilidade de associação, direta ou indireta, a um indivíduo (art. 5º, XI). Bloqueio (art. 5º, XIII) é a suspensão temporária de operação de tratamento, com guarda do dado. Dado anonimizado não é dado pessoal (art. 12), salvo se a anonimização puder ser revertida com esforços razoáveis.
+
+=== rv-l134
+gab: C
+origem: real
+prova: Cebraspe · PGE ES 2025 · Procurador · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 1
+trecho: com o objetivo de proteger os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural
+armadilha: comparacao
+dif: 2
+enunciado: A Lei Geral de Proteção de Dados Pessoais (LGPD) dispõe sobre o tratamento de dados pessoais, inclusive nos meios digitais, por pessoa natural ou por pessoa jurídica de direito público ou privado, com o objetivo de proteger
+alt: A | o respeito à privacidade e à inviolabilidade da intimidade, da honra e da imagem.
+alt: B | a segurança pública, a defesa nacional, a segurança do Estado ou atividades realizadas por pessoa natural para fins estritamente particulares e não econômicos.
+alt: C | os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural.
+alt: D | a autodeterminação informativa, o desenvolvimento econômico e tecnológico e a inovação.
+alt: E | os direitos humanos, o livre desenvolvimento da personalidade, a dignidade e o exercício da cidadania pelas pessoas naturais.
+comentario: Letra C, literal do art. 1º. As outras alternativas trazem fundamentos do art. 2º (A: respeito à privacidade e inviolabilidade da intimidade; D: autodeterminação informativa e desenvolvimento econômico; E: direitos humanos e cidadania) ou exclusões do art. 4º (B). A banca mistura objetivo (art. 1º) e fundamentos (art. 2º): o objetivo tem três peças, liberdade, privacidade e livre desenvolvimento da personalidade.
+
+=== rv-l135
+gab: A
+origem: real
+prova: Cebraspe · Prefeitura de Porto Velho 2026 · Auditor Fiscal da Receita Municipal · gabarito conferido na lei
+ref: lgpd 8, § 4º
+trecho: O consentimento deverá referir-se a finalidades determinadas, e as autorizações genéricas para o tratamento de dados pessoais serão nulas.
+apoio: Uma rede de farmácias solicita e obtém o consentimento de seus clientes por escrito, mediante termo de autorização genérica, para coleta e tratamento de dados pessoais relativos aos históricos de compras, com a finalidade de oferecer descontos em medicamentos. A partir de determinado momento, a farmácia passou a compartilhar os dados históricos de compras de medicamentos dos clientes com uma empresa de seguros de saúde parceira, para que esta oferecesse planos de saúde personalizados aos clientes, porém não avisou os titulares dos dados nem colheu nova autorização.
+armadilha: caso
+dif: 2
+enunciado: Considerando a situação hipotética precedente e o que determina a Lei Geral de Proteção de Dados Pessoais (LGPD), assinale a opção correta.
+alt: A | Os termos assinados são nulos, porque a LGPD veda autorizações genéricas para o tratamento de dados pessoais, sendo, portanto, ilegítimo o compartilhamento realizado.
+alt: B | O compartilhamento dos dados é legítimo, pois os dados fornecidos pelo titular para obter descontos tornam-se manifestamente públicos a partir da autorização por escrito, dispensada qualquer formalidade adicional para tratamentos posteriores ou novas finalidades de uso dos dados.
+alt: C | Os termos assinados pelos clientes presumem-se válidos para qualquer finalidade comercial da farmácia, cabendo exclusivamente aos titulares dos dados o ônus de provar que não desejavam que seus dados fossem compartilhados com terceiros.
+alt: D | O compartilhamento dos dados é lícito, pois a rede de farmácias obteve autorização inicial genérica por escrito, conforme as exigências da LGPD, sendo prescindível novo consentimento para o uso dos dados para outras finalidades.
+alt: E | Desde que não haja interesse dos clientes em questionar a conduta da farmácia, o compartilhamento dos dados é legítimo, porque a oferta de planos de saúde só os beneficia.
+comentario: Letra A. Autorizações genéricas são nulas (art. 8º, § 4º), e compartilhar com outro controlador exigiria consentimento específico (art. 7º, § 5º). O caso é ainda mais grave: histórico de compra de medicamentos revela dado de saúde, que é sensível (art. 11, § 1º); é vedado compartilhar dados de saúde entre controladores para obter vantagem econômica (art. 11, § 4º), e operadoras de planos não podem usá-los para seleção de riscos (art. 11, § 5º). B erra porque fornecer o dado para obter desconto não o torna manifestamente público; C e D contrariam o § 4º e o ônus da prova, que é do controlador (art. 8º, § 2º); E faz a licitude depender de o titular reclamar.
+
+=== rv-l136
+gab: E
+origem: real
+prova: Cebraspe · Prefeitura de Porto Velho 2026 · Auditor Fiscal da Receita Municipal · gabarito conferido na lei
+bloco: lai
+tema: adm-lai
+ref: lai 7, § 2º
+trecho: é assegurado o acesso à parte não sigilosa por meio de certidão, extrato ou cópia com ocultação da parte sob sigilo
+apoio: Um órgão público federal recebeu pedido de acesso a um dossiê administrativo que reúne, no mesmo processo, pareceres técnicos acerca de vulnerabilidades de infraestrutura crítica, identificação de servidores responsáveis por inspeções e registros funcionais com dados pessoais.
+armadilha: caso
+dif: 3
+enunciado: Nessa situação hipotética, de acordo com as políticas de classificação da informação e com a Lei n.º 13.709/2018 (LGPD), o órgão deve
+alt: A | classificar formalmente como reservados os trechos que contenham identificação funcional de servidores.
+alt: B | aplicar ao dossiê um único regime de restrição de acesso, definido pelo conteúdo mais sensível do processo.
+alt: C | divulgar integralmente o dossiê, pois o pedido de acesso alcança todo documento administrativo já concluído.
+alt: D | submeter todo o dossiê exclusivamente ao regime da LGPD, em razão da existência de dados pessoais.
+alt: E | analisar separadamente os conteúdos do dossiê, aplicando a LGPD aos dados pessoais e, no que couber, os critérios de classificação da informação.
+comentario: Letra E. Cada conteúdo segue o seu regime. Os pareceres sobre vulnerabilidades de infraestrutura crítica podem ser classificados se a divulgação puder pôr em risco a segurança da população (LAI, art. 23, III). Os dados pessoais seguem a LGPD e, na LAI, têm acesso restrito independentemente de classificação de sigilo (art. 31, § 1º, I); por isso A erra: informação pessoal não se protege classificando-a como reservada. Sendo o documento parcialmente sigiloso, garante-se acesso à parte não sigilosa, com ocultação do resto (art. 7º, § 2º), o que afasta B, C e D.
+
+=== rv-l137
+gab: C
+origem: real
+prova: Cebraspe · SEDUC PI 2026 · Professor de Educação Básica (Informática) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 14, § 1º
+trecho: consentimento específico e em destaque dado por pelo menos um dos pais ou pelo responsável legal
+armadilha: literal
+dif: 1
+enunciado: A Lei Geral de Proteção de Dados (LGPD) estabelece que o tratamento de dados pessoais de crianças deve ocorrer no melhor interesse do titular e depende de requisito jurídico específico, diferentemente do tratamento de dados de adolescentes, que pode se fundamentar em outras bases legais previstas na lei. No caso de crianças, a condição legal necessária para legitimar o tratamento de seus dados pessoais por instituições de ensino é
+alt: A | a obrigatoriedade de anonimização dos registros acadêmicos, impedindo a associação de notas e frequências à identidade real do aluno.
+alt: B | o consentimento tácito a partir da assinatura do contrato de prestação de serviços educacionais ou da efetivação da matrícula.
+alt: C | o consentimento específico e em destaque dado por pelo menos um dos pais ou pelo responsável legal do menor.
+alt: D | a autorização direta concedida pelo próprio estudante, respeitando-se sua autonomia no ambiente digital.
+alt: E | a prevalência do interesse público para tornar transparente a divulgação pela escola de dados consolidados e imagens não identificadas de alunos.
+comentario: Letra C, literal do art. 14, § 1º. B erra porque não existe consentimento tácito na LGPD; D, porque a criança não consente sozinha; A e E inventam requisitos. Ressalva importante para a prova da ANPD: a premissa do enunciado (só o consentimento legitimaria tratar dados de crianças) foi relativizada pelo Enunciado CD/ANPD nº 1/2023, segundo o qual dados de crianças e adolescentes podem ser tratados com base nas hipóteses dos arts. 7º ou 11, desde que observado e prevalecente o melhor interesse. Nesta questão, porém, a única alternativa compatível com a lei é a C.
+
+=== rv-l138
+gab: E
+origem: real
+prova: Cebraspe · IPAAM 2026 · Analista Ambiental (Geografia) · gabarito conferido na lei
+bloco: lgpd-37-45
+ref: lgpd 43, II
+trecho: embora tenham realizado o tratamento de dados pessoais que lhes é atribuído, não houve violação à legislação de proteção de dados
+armadilha: absoluto
+dif: 2
+enunciado: Considerando a responsabilização e o dever de reparação aplicáveis ao controlador de dados que, em razão do exercício de atividade de tratamento de dados pessoais, causar a outrem dano patrimonial, moral, individual ou coletivo, assinale a opção correta, de acordo com a Lei Geral de Proteção de Dados Pessoais (Lei n.º 13.709/2018).
+alt: A | A referida lei adota exclusivamente o regime de responsabilidade subjetiva.
+alt: B | O controlador responde objetivamente, sendo vedada a exclusão de responsabilidade.
+alt: C | O controlador responde solidariamente com o operador dos dados, em qualquer hipótese.
+alt: D | O controlador somente será responsabilizado se comprovado dolo.
+alt: E | A responsabilidade do controlador pode ser afastada se comprovado que não houve violação à legislação de proteção de dados.
+comentario: Letra E (art. 43, II). O agente não responde se provar que não realizou o tratamento, que não houve violação à legislação ou que o dano decorre de culpa exclusiva do titular ou de terceiro. A natureza da responsabilidade (subjetiva ou objetiva) divide a doutrina, por isso A e B, que afirmam uma delas com palavras absolutas, estão erradas. C erra porque a solidariedade tem hipóteses definidas (art. 42, § 1º); D, porque a lei não exige dolo.
+
+=== rv-l139
+gab: B
+origem: real
+prova: Cebraspe · SEDUC PI 2026 · Professor de Educação Básica (Informática) · gabarito conferido na lei
+ref: lgpd 6, I
+trecho: realização do tratamento para propósitos legítimos, específicos, explícitos e informados ao titular
+armadilha: caso
+dif: 1
+enunciado: Considere que um sistema de irrigação automatizado opere em malha fechada (closed-loop), utilizando sensores de umidade para controlar o acionamento de bombas d’água. Nesse caso, para que a operação deste dispositivo de Internet of Things (IoT) esteja em conformidade com a Lei Geral de Proteção de Dados (LGPD), especialmente ao coletar informações em propriedades privadas, o projeto deve
+alt: A | armazenar as credenciais de acesso aos sensores em texto claro dentro de scripts JavaScript no front-end, de modo a facilitar a manutenção remota.
+alt: B | implementar medidas de transparência e segurança que garantam o tratamento de dados apenas para finalidades específicas, legítimas e informadas ao usuário.
+alt: C | desconsiderar os protocolos de privacidade, visto que dados de umidade do solo são classificados tecnicamente como dados anônimos por natureza.
+alt: D | converter a arquitetura para malha aberta, removendo os sensores e a coleta de dados para eliminar qualquer responsabilidade sobre a privacidade.
+alt: E | configurar o atuador (bomba d’água) para executar o script de deleção lógica dos registros imediatamente após o processamento da umidade.
+comentario: Letra B: finalidade, transparência e segurança (art. 6º, I, VI e VII). A umidade do solo, sozinha, não identifica ninguém, mas sistemas de IoT em propriedades privadas costumam registrar localização, horários e contas de usuários, o que é dado pessoal. A expõe credenciais e viola o dever de segurança (art. 46); C presume um anonimato que não está garantido; D elimina o serviço em vez de adequá-lo; E confunde apagar registros com conformidade.
+
+=== rv-l140
+gab: B
+origem: real
+prova: Cebraspe · SEMA AM 2026 · Analista (Análise de Redes) · gabarito conferido na lei
+ref: lgpd 5, II
+trecho: dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato
+armadilha: conceito
+dif: 1
+enunciado: De acordo com o que dispõe a Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados Pessoais – LGPD), dados pessoais relativos a convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter político, bem como dados referentes à saúde ou à vida sexual da pessoa natural, são denominados
+alt: A | dados de relatório de impacto.
+alt: B | dados pessoais sensíveis.
+alt: C | dados de banco de dados.
+alt: D | dados de uso compartilhado.
+alt: E | dados anonimizados.
+comentario: Letra B (art. 5º, II). O rol completo de dados sensíveis: origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural.
+
+=== rv-l141
+gab: B
+origem: real
+prova: Cebraspe · UNIVESP 2025 · Supervisor Pedagógico (Computação) · gabarito conferido na lei
+bloco: lgpd-37-45
+ref: lgpd 5, XVII
+trecho: documentação do controlador que contém a descrição dos processos de tratamento de dados pessoais que podem gerar riscos às liberdades civis e aos direitos fundamentais
+armadilha: conceito
+dif: 1
+enunciado: À luz da Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados Pessoais – LGPD), assinale a opção que apresenta corretamente o nome dado à documentação do controlador de dados da qual deve constar a descrição dos processos de tratamento de dados pessoais que podem gerar riscos aos direitos fundamentais.
+alt: A | solicitação de acesso do titular de dados (DSAR)
+alt: B | relatório de impacto à proteção de dados pessoais
+alt: C | registro das operações de tratamento de dados pessoais
+alt: D | relatório de programa de governança em privacidade
+alt: E | relatório de incidentes de segurança
+comentario: Letra B, definição do art. 5º, XVII. Não confunda com o registro das operações (art. 37), que documenta todas as operações, com ou sem risco. A ANPD pode determinar que o controlador elabore o relatório de impacto (art. 38), inclusive sobre dados sensíveis, e pode pedi-lo quando a base for o legítimo interesse (art. 10, § 3º).
+
+=== rv-l142
+gab: E
+origem: real
+prova: Cebraspe · TCE MS 2025 · Auditor de Controle Externo (Tecnologia da Informação) · gabarito conferido na lei
+bloco: lgpd-1-4-14
+ref: lgpd 2
+trecho: a autodeterminação informativa
+trecho: a liberdade de expressão, de informação, de comunicação e de opinião
+trecho: a inviolabilidade da intimidade, da honra e da imagem
+trecho: o desenvolvimento econômico e tecnológico e a inovação
+armadilha: rol
+dif: 1
+enunciado: Com base na Lei Geral de Proteção de Dados Pessoais (Lei n.º 13.709/2018), a disciplina da proteção de dados pessoais tem como fundamentos: I o desenvolvimento econômico e tecnológico e a inovação; II a proteção da autodeterminação informativa; III a inviolabilidade da intimidade, da honra e da imagem; IV a liberdade de expressão, de informação, de comunicação e de opinião. Assinale a opção correta.
+alt: A | Apenas os itens I, II e III estão certos.
+alt: B | Apenas os itens I, II e IV estão certos.
+alt: C | Apenas os itens I, III e IV estão certos.
+alt: D | Apenas os itens II, III e IV estão certos.
+alt: E | Todos os itens estão certos.
+comentario: Letra E. Os quatro itens são fundamentos do art. 2º: desenvolvimento econômico e tecnológico e inovação (V), autodeterminação informativa (II), inviolabilidade da intimidade, da honra e da imagem (IV) e liberdade de expressão, de informação, de comunicação e de opinião (III). Ficaram de fora o respeito à privacidade (I), a livre iniciativa, a livre concorrência e a defesa do consumidor (VI) e os direitos humanos e a cidadania (VII). A LGPD não protege só a privacidade: também protege a inovação e a liberdade de expressão.
+
+=== rv-l143
+gab: B
+origem: real
+prova: Cebraspe · SEFAZ PR 2026 · Agente Fazendário Estadual (Analista Fazendário) · gabarito conferido na lei
+ref: lgpd 5, VI
+trecho: a quem competem as decisões referentes ao tratamento de dados pessoais
+armadilha: sujeito
+dif: 1
+enunciado: Segundo a Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados Pessoais), o responsável pelas decisões referentes ao tratamento de dados pessoais é
+alt: A | o titular.
+alt: B | o controlador.
+alt: C | a autoridade nacional.
+alt: D | o operador.
+alt: E | o encarregado.
+comentario: Letra B: controlador (art. 5º, VI). Operador realiza o tratamento em nome do controlador (VII); encarregado é o canal de comunicação (VIII); titular é a pessoa natural a quem os dados se referem (V); a autoridade nacional fiscaliza o cumprimento da lei (XIX).
+
+=== rv-l144
+gab: A
+origem: real
+prova: Cebraspe · BANRISUL 2025 · Técnico em Tecnologia da Informação (Administração de Banco de Dados) · gabarito conferido na lei
+bloco: lgpd-17-22
+ref: lgpd 20
+trecho: incluídas as decisões destinadas a definir o seu perfil pessoal, profissional, de consumo e de crédito
+armadilha: sujeito
+dif: 2
+enunciado: Assinale a opção correta de acordo com o que dispõe a Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados Pessoais).
+alt: A | O titular dos dados pessoais tem direito de solicitar a revisão de decisões que, tomadas unicamente com base em tratamento automatizado de dados pessoais, tenham por finalidade a definição do seu perfil de consumo e de crédito.
+alt: B | São agentes de tratamento de dados pessoais o controlador e o operador, sendo este responsabilizado de forma subsidiária pelos danos causados ao titular dos dados pessoais em razão do exercício de sua atividade.
+alt: C | É permitido o tratamento de dados pessoais quando necessário para o atendimento aos interesses legítimos do controlador ou de terceiro, não sendo autorizado, entretanto, o tratamento de dados pessoais para fins de proteção do crédito.
+alt: D | Compete ao operador fornecer, sempre que solicitadas, informações claras e adequadas a respeito dos critérios e procedimentos utilizados para a decisão automatizada sobre tratamento de dados pessoais.
+alt: E | Quando houver interesse público no tratamento de dados pessoais, é facultado ao poder público compartilhar com entidades privadas dados pessoais constantes de bases de dados a que tenha acesso.
+comentario: Letra A (art. 20, caput). B erra porque o operador responde solidariamente, não subsidiariamente, quando descumpre a lei ou as instruções lícitas do controlador (art. 42, § 1º, I). C erra porque a proteção do crédito é base legal própria (art. 7º, X). D troca o sujeito: quem informa os critérios da decisão automatizada é o controlador (art. 20, § 1º). E inverte a regra: é vedado ao poder público transferir dados a entidades privadas, salvo as exceções do art. 26, § 1º.
+
+=== rv-l145
+gab: C
+origem: real
+prova: Cebraspe · TCE MG 2026 · Analista de Controle Externo (Ciência da Computação) · gabarito conferido na lei
+ref: lgpd 6, III
+trecho: com abrangência dos dados pertinentes, proporcionais e não excessivos em relação às finalidades do tratamento de dados
+armadilha: caso
+dif: 2
+enunciado: Uma empresa de e-commerce iniciou um projeto cujo objetivo é a adequação à Lei Geral de Proteção de Dados (Lei n.º 13.709/2018). Durante a fase de mapeamento de dados (data mapping), a equipe de compliance identificou que o formulário de cadastro de novos clientes solicitava informações como religião e orientação sexual. À luz da LGPD, essa prática de coleta de dados
+alt: A | atende ao princípio do livre acesso, desde que o titular possa consultar a integralidade de seus dados posteriormente.
+alt: B | está em conformidade com o princípio da adequação, pois os dados são compatíveis com o contexto do cadastro de clientes.
+alt: C | viola o princípio da necessidade (minimização), pois os dados solicitados são excessivos e desnecessários para o cumprimento da finalidade do cadastro (a venda).
+alt: D | viola o princípio da finalidade, pois os dados sensíveis coletados não possuem um propósito legítimo, específico e explícito informado ao titular.
+alt: E | representa uma falha no princípio da transparência, pois o titular dos dados não foi informado sobre o tempo de retenção da informação.
+comentario: Letra C. Religião e orientação sexual são dados sensíveis (art. 5º, II) sem relação com a venda: pedi-los no cadastro viola a necessidade, que limita o tratamento ao mínimo necessário, com dados pertinentes, proporcionais e não excessivos (art. 6º, III). B erra porque os dados não são compatíveis com o contexto (adequação, inciso II). D parte de um fato que o enunciado não dá (que a finalidade não foi informada); o vício que o caso descreve é o excesso. A e E tratam de princípios que não resolvem o problema.
+
+=== rv-mc01
+gab: E
+origem: real
+prova: Cebraspe · TELEBRAS 2026 · Especialista em Gestão de Telecomunicações (Marketing) · gabarito conferido na lei
+bloco: marco-civil
+ref: mci 12
+trecho: aplicadas de forma isolada ou cumulativa
+comando: Julgue os itens que se seguem, de acordo com as disposições da Lei n.º 12.965/2014 (Marco Civil da Internet).
+armadilha: absoluto
+dif: 1
+enunciado: As sanções previstas no Marco Civil da Internet para infrações às normas de proteção de registros e dados pessoais devem ser aplicadas de forma cumulativa, sendo obrigatória a imposição simultânea de advertência e multa, consideradas a gravidade da infração e a condição econômica do infrator.
+comentario: Errado. As sanções do art. 12 (advertência, multa de até 10% do faturamento do grupo econômico no Brasil, suspensão temporária e proibição das atividades) são aplicadas “de forma isolada ou cumulativa”, conforme o caso. Não há imposição obrigatória e simultânea de advertência e multa. A condição econômica do infrator e a proporcionalidade entram na dosagem da multa (inciso II).
+
+=== rv-mc02
+gab: E
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Analista (Engenharia de Infraestrutura e Tecnologia da Informação) · gabarito conferido na lei
+bloco: marco-civil
+ref: mci 19
+trecho: Com o intuito de assegurar a liberdade de expressão e impedir a censura
+armadilha: extrapolacao
+dif: 2
+enunciado: Está determinado, no Marco Civil da Internet, que os provedores de aplicação devem monitorar e filtrar o conteúdo gerado pelos usuários para garantir a segurança e a privacidade na rede.
+comentario: Errado. O Marco Civil não impõe aos provedores de aplicação dever geral de monitorar e filtrar o conteúdo dos usuários; ele parte da liberdade de expressão e da vedação à censura (art. 19). Atenção à regulamentação de 2026: o Decreto nº 8.771/2016, com a redação do Decreto nº 12.975/2026, passou a exigir que os provedores monitorem e gerenciem riscos sistêmicos (art. 16-C) e os responsabiliza por falha sistêmica na remoção de certos conteúdos graves (art. 16-B). Isso é gestão de risco prevista no decreto, não filtragem geral determinada pela lei.
+
+=== rv-mc03
+gab: D
+origem: real
+prova: Cebraspe · SEED SE 2026 · Professor (Informática) · gabarito conferido na lei
+bloco: marco-civil
+ref: mci 5, II
+trecho: terminal: o computador ou qualquer dispositivo que se conecte à internet
+armadilha: conceito
+dif: 1
+enunciado: À luz do Marco Civil da Internet, assinale a opção em que é apresentado o termo que designa qualquer dispositivo que pode ser conectado à Internet.
+alt: A | sistema autônomo
+alt: B | endereço IP
+alt: C | firewall
+alt: D | terminal
+alt: E | registro de conexão
+comentario: Letra D (art. 5º, II). Endereço IP é o código atribuído a um terminal para identificá-lo (III); registro de conexão reúne data, hora, duração e IP de uma conexão (VI); o administrador de sistema autônomo administra blocos de endereço IP (IV). Firewall não é conceito do Marco Civil.
+
+=== rv-mc04
+gab: C
+origem: real
+prova: Cebraspe · TELEBRAS 2026 · Especialista em Gestão de Telecomunicações (Marketing) · gabarito conferido na lei
+bloco: marco-civil
+ref: mci 8, parágrafo único, I
+trecho: São nulas de pleno direito as cláusulas contratuais que violem o disposto no caput
+trecho: impliquem ofensa à inviolabilidade e ao sigilo das comunicações privadas, pela internet
+comando: Julgue os itens que se seguem, de acordo com as disposições da Lei n.º 12.965/2014 (Marco Civil da Internet).
+armadilha: literal
+dif: 2
+enunciado: A inviolabilidade e o sigilo do fluxo das comunicações pela Internet e das comunicações privadas armazenadas somente podem ser afastados por ordem judicial, não sendo válida cláusula contratual que restrinja esses direitos, ainda que haja consentimento do usuário.
+comentario: Certo. A inviolabilidade e o sigilo do fluxo de comunicações e das comunicações privadas armazenadas só cedem por ordem judicial (art. 7º, II e III), e são nulas de pleno direito as cláusulas contratuais que ofendam essa inviolabilidade (art. 8º, parágrafo único, I). Nulidade de pleno direito não se convalida com a concordância do usuário: aceitar o contrato não legitima a cláusula.
+
+=== rv-mc05
+gab: E
+origem: real
+prova: Cebraspe · TELEBRAS 2026 · Especialista em Gestão de Telecomunicações (Marketing) · gabarito conferido na lei
+bloco: marco-civil
+ref: mci 17
+trecho: a opção por não guardar os registros de acesso a aplicações de internet não implica responsabilidade sobre danos decorrentes do uso desses serviços por terceiros
+armadilha: literal
+dif: 2
+enunciado: Caso um provedor de aplicações de Internet opte por não guardar registros de acesso, tal opção implica, por si só, a sua responsabilidade civil por danos decorrentes do uso indevido do serviço por terceiros.
+comentario: Errado. O art. 17 diz o contrário: a opção por não guardar registros de acesso a aplicações não implica responsabilidade pelos danos decorrentes do uso do serviço por terceiros, ressalvadas as hipóteses da lei. A ressalva principal é o art. 15: o provedor de aplicações constituído como pessoa jurídica, que exerça a atividade de forma organizada, profissional e com fins econômicos, deve guardar esses registros por seis meses.
+
+=== rv-mc06
+gab: A
+origem: real
+prova: Cebraspe · SEDUC PI 2026 · Professor de Educação Básica (Informática) · gabarito conferido na lei
+bloco: marco-civil
+ref: mci 9
+trecho: tem o dever de tratar de forma isonômica quaisquer pacotes de dados
+armadilha: conceito
+dif: 1
+enunciado: Nos termos do texto expresso do art. 9.º do Marco Civil da Internet (Lei n.º 12.965/2014), o provedor de conexão deve tratar de forma isonômica quaisquer pacotes de dados, sendo vedada a discriminação ou degradação do tráfego em razão do conteúdo, da origem, do destino, do serviço ou da aplicação utilizada. Esse comando legal consagra o princípio denominado
+alt: A | neutralidade da rede.
+alt: B | igualdade de tráfego digital.
+alt: C | isonomia informacional.
+alt: D | paridade de dados na internet.
+alt: E | universalidade de acesso em rede.
+comentario: Letra A. O dever de tratar com isonomia quaisquer pacotes de dados (art. 9º) é a neutralidade de rede, que o art. 3º, IV, lista entre os princípios do uso da internet no Brasil. Exceções: requisitos técnicos indispensáveis à prestação adequada dos serviços e priorização de serviços de emergência (art. 9º, § 1º).
+
+=== rv-mc07
+gab: E
+origem: real
+prova: Cebraspe · TCE RN 2026 · Analista Administrativo (Ciências Contábeis) · gabarito conferido na lei
+bloco: marco-civil
+ref: mci 10, § 1º
+trecho: mediante ordem judicial
+armadilha: sujeito
+dif: 2
+enunciado: O Marco Civil da Internet determina que o provedor responsável pela guarda e pela disponibilização dos registros de conexão é obrigado a disponibilizar os registros de dados pessoais que possam contribuir para a identificação do usuário, desde que a solicitação seja proveniente de órgão ligado a gabinete da presidência da República, respeitada, em todos os casos, a inviolabilidade da intimidade e da vida privada do titular dos dados.
+comentario: Errado. Os registros de conexão e de acesso a aplicações, sozinhos ou associados a dados que identifiquem o usuário, só são disponibilizados mediante ordem judicial (art. 10, § 1º). Nenhum órgão do Executivo tem essa prerrogativa. O que autoridades administrativas com competência legal podem requisitar diretamente são os dados cadastrais (qualificação pessoal, filiação e endereço), conforme o § 3º.
+
+=== rv-mc08
+gab: C
+origem: real
+prova: Cebraspe · TELEBRAS 2026 · Especialista em Gestão de Telecomunicações (Comercial) · gabarito conferido na lei
+bloco: marco-civil
+ref: mci 9
+trecho: O responsável pela transmissão, comutação ou roteamento tem o dever de tratar de forma isonômica quaisquer pacotes de dados
+armadilha: literal
+dif: 1
+enunciado: A TELEBRAS, ao atuar como provedora de conexão à Internet, tem o dever de observar o princípio da neutralidade de rede previsto no Marco Civil da Internet.
+comentario: Certo. A neutralidade (art. 9º) vincula quem responde pela transmissão, comutação ou roteamento, sem distinguir empresas privadas de estatais. Ao prover conexão, a Telebras deve tratar os pacotes com isonomia, salvo as exceções do § 1º (requisitos técnicos indispensáveis e priorização de serviços de emergência), regulamentadas pelo Decreto nº 8.771/2016.
+
+=== rv-mc09
+gab: C
+origem: real
+prova: Cebraspe · FUNPRESP-EXE 2025 · Analista de Previdência Complementar (Jurídica) · gabarito conferido na lei
+bloco: marco-civil
+ref: mci 24, V
+trecho: adoção preferencial de tecnologias, padrões e formatos abertos e livres
+armadilha: literal
+dif: 1
+enunciado: Constitui diretriz para a atuação dos entes federativos no desenvolvimento da Internet no Brasil a adoção preferencial de tecnologias, padrões e formatos abertos e livres.
+comentario: Certo, literal do art. 24, V, entre as diretrizes para a atuação da União, dos estados, do DF e dos municípios no desenvolvimento da internet. O mesmo artigo traz a governança multiparticipativa (I) e a publicidade de dados públicos de forma aberta e estruturada (VI).
+
+=== rv-mc10
+gab: C
+origem: real
+prova: Cebraspe · FUNPRESP-EXE 2025 · Analista de Previdência Complementar (Jurídica) · gabarito conferido na lei
+bloco: marco-civil
+ref: mci 18
+trecho: O provedor de conexão à internet não será responsabilizado civilmente por danos decorrentes de conteúdo gerado por terceiros.
+armadilha: comparacao
+dif: 1
+enunciado: De acordo com expressa previsão legal, o provedor de conexão à Internet não será civilmente responsabilizado por danos decorrentes de conteúdo gerado por terceiros.
+comentario: Certo, literal do art. 18. O provedor de conexão (quem dá acesso à rede) não responde civilmente pelo conteúdo de terceiros. O provedor de aplicações tem outro regime: ordem judicial específica (art. 19), notificação no caso de nudez e atos sexuais de caráter privado (art. 21) e, desde 2026, as hipóteses do Decreto nº 8.771/2016 com a redação do Decreto nº 12.975/2026.
+
+=== rv-mc11
+gab: A
+origem: real
+prova: Cebraspe · TCE MG 2026 · Analista de Controle Externo (Ciência da Computação) · gabarito conferido na lei
+bloco: marco-civil
+ref: mci 9, § 1º
+trecho: requisitos técnicos indispensáveis à prestação adequada dos serviços e aplicações
+apoio: Um provedor de acesso à Internet identificou tráfego anômalo consistente com ataque DDoS dirigido a um serviço de aplicação hospedado externamente, o que pode comprometer a rede e afetar outros usuários.
+armadilha: caso
+dif: 2
+enunciado: De acordo com a Lei n.º 12.965/2014 (Marco Civil da Internet) e os dispositivos legais aplicáveis, antes de uma ordem judicial o provedor poderá
+alt: A | discriminar o tráfego, desde que por razões técnicas indispensáveis à prestação adequada dos serviços, observados os princípios e obrigações da legislação.
+alt: B | degradar o tráfego do serviço alvo do ataque, sem distinção de tipo de conteúdo, até que o ataque cesse, mesmo que isso afete usuários legítimos do serviço.
+alt: C | priorizar o tráfego considerado crítico e urgente de outros clientes corporativos, desde que se justifique que a falta desse procedimento pode prejudicar os negócios dos clientes que compartilham a infraestrutura.
+alt: D | bloquear preventivamente todo o tráfego dirigido ao serviço sob ataque e, a seguir, solicitar à autoridade judicial que emita ordem de indisponibilidade do serviço afetado para respaldar a medida técnica já executada.
+alt: E | interromper temporariamente todo tipo de tráfego do serviço alvo do ataque, inclusive de usuários legítimos, sem ordem judicial, até que o ataque esteja sob controle, de modo a garantir o nível de qualidade de serviço contratado pelos demais usuários da rede.
+comentario: Letra A. A discriminação ou degradação de tráfego só pode decorrer de requisitos técnicos indispensáveis ou da priorização de serviços de emergência (art. 9º, § 1º), e o provedor deve agir com proporcionalidade, transparência e isonomia, sem causar dano aos usuários (§ 2º). O Decreto nº 8.771/2016 cita expressamente o controle de ataques de negação de serviço entre esses requisitos técnicos (art. 5º, § 1º, I). B, D e E atingem usuários legítimos de forma desproporcional; C prioriza clientes por interesse comercial, o que a lei não admite.
+
+=== rv-a57
+gab: E
+origem: real
+prova: Cebraspe · EMBRAPA 2025 · Analista (Engenharia de Infraestrutura e Tecnologia da Informação) · gabarito conferido na lei
+bloco: lai
+tema: adm-lai
+ref: lai 3, I
+trecho: observância da publicidade como preceito geral e do sigilo como exceção
+armadilha: absoluto
+dif: 1
+enunciado: A Lei n.º 12.527/2011 permite a divulgação de qualquer informação pública, sem exceções, enquanto os Decretos n.º 7.724/2012 e n.º 7.845/2012 apenas regulamentam a forma de acesso.
+comentario: Errado. A publicidade é a regra e o sigilo, a exceção (art. 3º, I), mas as exceções existem: informações classificadas por serem imprescindíveis à segurança da sociedade ou do Estado (art. 23), informações pessoais (art. 31) e sigilos previstos em outras leis (art. 22). Os decretos também não tratam só da forma de acesso: o Decreto nº 7.845/2012, por exemplo, regula o credenciamento de segurança e o tratamento de informação classificada.
+
+=== rv-r39
+gab: C
+origem: real
+prova: Cebraspe · ICMBio 2025 · Analista Administrativo · gabarito conferido na lei
+bloco: etica-improbidade
+tema: adm-improbidade
+ref: lei12846 16, § 2º
+trecho: reduzirá em até 2/3 (dois terços) o valor da multa aplicável
+armadilha: literal
+dif: 1
+enunciado: Conforme previsto na Lei Anticorrupção, a celebração de acordo de leniência com as pessoas jurídicas responsáveis pela prática de atos lesivos contra a administração pública não tem o condão de eliminar totalmente a multa a elas imposta.
+comentario: Certo. O acordo de leniência isenta a pessoa jurídica da publicação extraordinária da decisão condenatória (art. 6º, II) e da proibição de receber incentivos, subsídios, doações ou empréstimos públicos (art. 19, IV), mas apenas reduz a multa em até 2/3 (art. 16, § 2º). Também não exime da reparação integral do dano (§ 3º).
+
+=== rv-r40
+gab: C
+origem: real
+prova: Cebraspe · ANM 2025 · Especialista em Recursos Minerais (Engenharia de Minas, Correcional) · gabarito conferido na lei
+bloco: etica-improbidade
+tema: adm-improbidade
+ref: lei12846 4
+trecho: Subsiste a responsabilidade da pessoa jurídica na hipótese de alteração contratual, transformação, incorporação, fusão ou cisão societária.
+armadilha: literal
+dif: 1
+enunciado: A responsabilidade da pessoa jurídica pela prática de atos contra a administração pública, nacional ou estrangeira, é mantida na hipótese de alteração contratual, transformação, incorporação, fusão ou cisão societária.
+comentario: Certo, literal do art. 4º. Nuance do § 1º: na fusão e na incorporação, a sucessora responde só pela multa e pela reparação integral do dano, até o limite do patrimônio transferido, salvo simulação ou evidente intuito de fraude.
+
+=== rv-r41
+gab: E
+origem: real
+prova: Cebraspe · TRF 6 2025 · Técnico Judiciário (Suporte Técnico) · gabarito conferido na lei
+bloco: etica-improbidade
+tema: adm-improbidade
+ref: lei12846 8, § 1º
+trecho: poderá ser delegada, vedada a subdelegação
+armadilha: excecao
+dif: 1
+enunciado: É vedada a delegação da competência para a instauração e o julgamento do processo administrativo de apuração de responsabilidade de pessoa jurídica pela prática de atos contra a administração pública.
+comentario: Errado. A competência para instaurar e julgar o processo administrativo de responsabilização cabe à autoridade máxima de cada órgão ou entidade e pode ser delegada; o que se veda é a subdelegação (art. 8º, § 1º). No Executivo federal, a CGU tem competência concorrente para instaurar e pode avocar processos (§ 2º).
+
+=== rv-r42
+gab: C
+origem: real
+prova: Cebraspe · ICMBio 2025 · Analista Ambiental · gabarito conferido na lei
+bloco: etica-improbidade
+tema: adm-improbidade
+ref: lei12846 8, § 1º
+trecho: poderá ser delegada, vedada a subdelegação
+armadilha: literal
+dif: 1
+enunciado: A competência para a instauração e para o julgamento do processo administrativo de apuração de responsabilidade da pessoa jurídica pela prática de atos contra a administração pública é passível de delegação, mas não de subdelegação.
+comentario: Certo, literal do art. 8º, § 1º: delegação permitida, subdelegação vedada. Compare com a Lei nº 9.784/1999, que não traz essa vedação expressa e proíbe delegar atos de caráter normativo, a decisão de recursos e as matérias de competência exclusiva (art. 13).
+
+=== rv-r43
+gab: C
+origem: real
+prova: Cebraspe · TJ PA 2025 · Analista Judiciário (Administrativa) · gabarito conferido na lei
+bloco: etica-improbidade
+tema: adm-improbidade
+ref: lei12846 14
+trecho: A personalidade jurídica poderá ser desconsiderada sempre que utilizada com abuso do direito para facilitar, encobrir ou dissimular a prática dos atos ilícitos previstos nesta Lei ou para provocar confusão patrimonial
+armadilha: literal
+dif: 2
+enunciado: O processo administrativo de responsabilização administrativa e civil de pessoas jurídicas pela prática de atos contra a administração pública admite o instituto da desconsideração da personalidade jurídica quando verificado abuso de direito para dissimular a prática de ilícitos ou para provocar confusão patrimonial.
+comentario: Certo. A desconsideração da personalidade jurídica cabe no próprio processo administrativo (art. 14) quando houver abuso de direito para facilitar, encobrir ou dissimular os ilícitos ou para provocar confusão patrimonial. Os efeitos das sanções se estendem aos administradores e sócios com poderes de administração, com contraditório e ampla defesa.
+
+=== rv-r44
+gab: C
+origem: real
+prova: Cebraspe · PGE PI 2025 · Procurador · gabarito conferido na lei
+bloco: etica-improbidade
+tema: adm-improbidade
+ref: lei12846 25
+trecho: Prescrevem em 5 (cinco) anos as infrações previstas nesta Lei
+armadilha: numero
+dif: 1
+enunciado: O prazo prescricional das infrações previstas na Lei n.º 12.846/2013 ― a ser contado da data da ciência da prática da infração ou, no caso de infração permanente ou continuada, do dia em que tiver cessado o ilícito ― é de
+alt: A | 2 anos.
+alt: B | 3 anos.
+alt: C | 5 anos.
+alt: D | 8 anos.
+alt: E | 10 anos.
+comentario: Letra C (art. 25). A contagem começa na ciência da infração ou, se permanente ou continuada, no dia em que cessou. A instauração de processo administrativo ou judicial interrompe a prescrição (parágrafo único), e a celebração do acordo de leniência também (art. 16, § 9º).
+
+=== rv-r45
+gab: C
+origem: real
+prova: Cebraspe · TRT 10 2025 · Analista Judiciário (Tecnologia da Informação) · gabarito conferido na lei
+bloco: lei-9784
+tema: adm-processo
+ref: lei9784 49-A, § 6º
+trecho: Não se aplica a decisão coordenada aos processos administrativos:
+trecho: relacionados ao poder sancionador
+armadilha: excecao
+dif: 2
+enunciado: A decisão coordenada não é aplicável aos processos administrativos de licitação nem àqueles relacionados ao poder sancionador.
+comentario: Certo. O art. 49-A, § 6º, afasta a decisão coordenada dos processos de licitação, dos relacionados ao poder sancionador e daqueles em que estejam envolvidas autoridades de Poderes distintos. Por isso a decisão coordenada não serve ao processo sancionador da ANPD. Requisitos para usá-la (caput): decisão que exija três ou mais setores, órgãos ou entidades, relevância da matéria e discordância que prejudique a celeridade.
+
+=== rv-e01
+gab: C
+origem: real
+prova: Cebraspe · PCDF 2025 · Gestor de Apoio (Pedagogo) · gabarito conferido na lei
+bloco: eca-digital
+ref: eca 2
+trecho: Nos casos expressos em lei, aplica-se excepcionalmente este Estatuto às pessoas entre dezoito e vinte e um anos de idade.
+armadilha: excecao
+dif: 1
+enunciado: Embora defina que a adolescência termina aos 18 anos de idade, o ECA pode, em casos excepcionais, ser aplicado a pessoas de até 21 anos de idade.
+comentario: Certo (art. 2º, parágrafo único). Criança vai até 12 anos incompletos; adolescente, de 12 a 18. A aplicação até 21 anos é excepcional e depende de previsão legal expressa, como na internação, cuja liberação é compulsória aos 21 anos (art. 121, § 5º). Essas faixas também orientam a LGPD (art. 14) e o ECA Digital.
+
+=== rv-e02
+gab: C
+origem: real
+prova: Cebraspe · Prefeitura de Boa Vista 2025 · Assistente Social · gabarito conferido na lei
+bloco: eca-digital
+ref: eca 2
+trecho: Considera-se criança, para os efeitos desta Lei, a pessoa até doze anos de idade incompletos, e adolescente aquela entre doze e dezoito anos de idade.
+armadilha: absoluto
+dif: 1
+enunciado: Julgue os seguintes itens, de acordo com o que dispõe o Estatuto da Criança e do Adolescente (Lei n.º 8.069/1990). I Considera-se criança a pessoa até doze anos de idade incompletos. II Considera-se adolescente a pessoa entre doze e dezoito anos de idade. III O trabalho infantil é permitido a adolescentes a partir de 14 anos de idade, em qualquer atividade. Assinale a opção correta.
+alt: A | Apenas o item II está certo.
+alt: B | Apenas o item III está certo.
+alt: C | Apenas os itens I e II estão certos.
+alt: D | Apenas os itens I e III estão certos.
+alt: E | Todos os itens estão certos.
+comentario: Letra C. I e II reproduzem o art. 2º. III está errado: o ECA proíbe qualquer trabalho a menores de 14 anos, salvo como aprendiz (art. 60), e a Constituição, desde a EC nº 20/1998, proíbe qualquer trabalho a menores de 16, salvo como aprendiz a partir de 14, e o trabalho noturno, perigoso ou insalubre a menores de 18 (art. 7º, XXXIII). Não há “qualquer atividade” a partir dos 14.
+
+=== rv-e03
+gab: E
+origem: real
+prova: Cebraspe · UNEAL 2026 · Analista Administrativo (Assistência Social) · gabarito conferido na lei
+bloco: eca-digital
+ref: eca 131
+trecho: órgão permanente e autônomo, não jurisdicional
+armadilha: conceito
+dif: 1
+enunciado: O conselho tutelar é um órgão instituído pelo Estatuto da Criança e do Adolescente (ECA), vinculado à vara da infância e juventude, com atuação no enfrentamento de casos de violação de direitos e encaminhamento de soluções que assegurem a proteção integral à criança e ao adolescente.
+comentario: Errado. O Conselho Tutelar é órgão permanente e autônomo, não jurisdicional (art. 131), integrante da administração pública local (art. 132), sem vínculo com a vara da infância. Suas decisões só podem ser revistas pela autoridade judiciária a pedido de quem tenha legítimo interesse (art. 137). Ligação com o ECA Digital: o Decreto nº 12.880/2026 manda os conselhos tutelares provocarem o Ministério Público para que este notifique os fornecedores sobre violações de direitos de crianças (art. 43, parágrafo único).
+
+=== rv-e04
+gab: C
+origem: real
+prova: Cebraspe · TJ PA 2025 · Analista Judiciário (Pedagogia) · gabarito conferido na lei
+bloco: eca-digital
+ref: eca 136, III, a
+trecho: requisitar serviços públicos nas áreas de saúde, educação
+armadilha: literal
+dif: 1
+enunciado: Para promover a execução de suas decisões, o conselho tutelar pode requisitar serviços públicos nas áreas de saúde, educação, serviço social, previdência, trabalho e segurança.
+comentario: Certo (art. 136, III, “a”). Atualização: a Lei nº 15.268/2025 trocou “serviço social” por “assistência social” no dispositivo, sem mudar a regra. Para executar suas decisões, o conselho também pode representar à autoridade judiciária contra o descumprimento injustificado de suas deliberações (alínea “b”).
+
+=== rv-e05
+gab: E
+origem: real
+prova: Cebraspe · TJ PA 2025 · Analista Judiciário (Pedagogia) · gabarito conferido na lei
+bloco: eca-digital
+ref: eca 13
+trecho: Os casos de suspeita ou confirmação de castigo físico, de tratamento cruel ou degradante e de maus-tratos contra criança ou adolescente serão obrigatoriamente comunicados ao Conselho Tutelar
+armadilha: absoluto
+dif: 1
+enunciado: Somente casos confirmados de castigo físico, de tratamento cruel ou degradante e de maus-tratos contra criança e adolescente devem ser obrigatoriamente comunicados ao conselho tutelar da respectiva localidade.
+comentario: Errado. A comunicação ao Conselho Tutelar é obrigatória já na suspeita, não só na confirmação (art. 13). Esperar a confirmação contraria a lei e atrasa a proteção. O “somente” é o sinal de alerta do item.
+
+=== rv-e06
+gab: C
+origem: real
+prova: Cebraspe · PCDF 2025 · Gestor de Apoio (Pedagogo) · gabarito conferido na lei
+bloco: eca-digital
+ref: eca 5
+trecho: punido na forma da lei qualquer atentado, por ação ou omissão, aos seus direitos fundamentais
+armadilha: literal
+dif: 1
+enunciado: Tal como a prática de atos violentos contra a criança, a omissão também é passível de punição.
+comentario: Certo (art. 5º). O atentado aos direitos fundamentais de criança ou adolescente, por ação ou omissão, é punido na forma da lei. A Lei nº 15.240/2025 incluiu o parágrafo único: a ação ou a omissão que ofenda direito fundamental, inclusive o abandono afetivo, é conduta ilícita sujeita a reparação de danos.
+
+=== rv-p01
+gab: C
+origem: real
+prova: Cebraspe · TCE MG 2026 · Analista de Controle Externo (Engenharia) · gabarito conferido no texto
+bloco: portugues
+tema: pt-semantica
+ref: texto
+apoio: @CG1A1
+armadilha: interpretacao
+dif: 2
+enunciado: Assinale a opção correta em relação ao seguinte trecho do texto: ‘Talvez o melhor médico do mundo seja muito melhor do que o ChatGPT. Mas, se não há alternativa, se não é possível pagar por um médico, especialmente em regiões mais pobres, será muito melhor do que nada’.
+alt: A | O vocábulo ‘nada’, na oração em que ocorre, é comparado à ideia de ‘pagar por um médico’.
+alt: B | O sujeito referencial da oração ‘será muito melhor do que nada’ é ‘o melhor médico do mundo’.
+alt: C | O vocábulo ‘melhor’, em sua segunda ocorrência, veicula uma ideia de comparação entre os termos ‘o melhor médico do mundo’ e ‘o ChatGPT’.
+alt: D | O segundo período do trecho representa uma justificativa para a ideia expressa no primeiro período.
+alt: E | O primeiro período do trecho estabelece uma noção de condição em relação ao segundo.
+comentario: Letra C. Há três ocorrências de “melhor”: a primeira (“o melhor médico do mundo”) é superlativo; a segunda (“muito melhor do que o ChatGPT”) compara o melhor médico do mundo com o ChatGPT; a terceira compara o ChatGPT, sujeito oculto de “será”, com “nada”. Por isso A e B erram: “nada” é comparado ao ChatGPT, e o sujeito de “será” é o ChatGPT, não o médico. D erra porque o segundo período, aberto por “Mas”, se opõe ao primeiro; E, porque a condição (“se não há alternativa”) está no segundo período, não no primeiro.
+
+=== rv-p02
+gab: E
+origem: real
+prova: Cebraspe · TCE MG 2026 · Psicólogo · gabarito conferido no texto
+bloco: portugues
+tema: pt-regencia
+ref: texto
+apoio: @CG1A1
+armadilha: interpretacao
+dif: 2
+enunciado: Assinale a opção correta acerca de aspectos linguísticos pertinentes ao seguinte trecho do texto: “A IA trabalha com uma proximidade confortável e sem consequências, mas carrega o risco de afastar usuários das complexidades dos relacionamentos reais”.
+alt: A | O vocábulo “confortável” exprime uma circunstância adverbial de modo no predicado verbal.
+alt: B | As formas verbais “trabalha” e “carrega” descrevem eventos pretéritos.
+alt: C | Os vocábulos “com” e “sem” introduzem segmentos que funcionam sintaticamente como complementos da forma verbal “trabalha”.
+alt: D | O segmento “das complexidades” funciona como complemento nominal de “usuários”.
+alt: E | O vocábulo “usuários” funciona sintaticamente como complemento da forma verbal “afastar”.
+comentario: Letra E. “Afastar” pede dois complementos: afastar alguém (“usuários”, objeto direto) de algo (“das complexidades”, objeto indireto). Por isso D erra: “das complexidades” completa o verbo, não o nome “usuários”. A erra porque “confortável” é adjetivo que qualifica “proximidade”; B, porque “trabalha” e “carrega” estão no presente; C, porque “sem consequências” se liga a “proximidade”, coordenado a “confortável”, e não ao verbo.
+
+=== rv-p03
+gab: D
+origem: real
+prova: Cebraspe · SEFAZ RN 2026 · Auditor Fiscal · gabarito conferido no texto
+bloco: portugues
+tema: pt-reescrita
+ref: texto
+apoio: @CG1A2
+armadilha: interpretacao
+dif: 2
+enunciado: Sem prejuízo da correção gramatical e da coerência das ideias do texto, a locução verbal “foram desenvolvidas” (último período do texto) poderia ser substituída por
+alt: A | se desenvolverão.
+alt: B | tinha desenvolvido.
+alt: C | vinha desenvolvendo.
+alt: D | se desenvolveram.
+alt: E | desenvolveu.
+comentario: Letra D. O sujeito de “foram desenvolvidas” é o pronome relativo “que”, que retoma “línguas brasileiras” (plural). A forma pronominal “se desenvolveram” mantém o pretérito perfeito, a concordância no plural e o sentido. A leva o fato para o futuro; B, C e E estão no singular, e B e E, na voz ativa sem objeto, deixam a frase incompleta.

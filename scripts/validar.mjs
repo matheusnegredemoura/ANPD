@@ -32,7 +32,13 @@ export function validar({ silencioso = false } = {}) {
     if (vistos.has(q.id)) err(q, `id repetido (também em ${relative(RAIZ, vistos.get(q.id))})`);
     vistos.set(q.id, q.arquivo);
     if (!q.bloco || !idsBlocos.has(q.bloco)) err(q, `bloco inválido: ${q.bloco}`);
-    if (!['C', 'E'].includes(q.gab)) err(q, `gab deve ser C ou E (veio ${q.gab})`);
+    if (q.alt.length) {
+      // Múltipla escolha: 4 ou 5 alternativas, em ordem (A, B, C...), e o gabarito é uma delas
+      const letras = 'ABCDE'.slice(0, q.alt.length);
+      if (q.alt.length < 4 || q.alt.length > 5) err(q, `múltipla escolha precisa de 4 ou 5 alternativas (veio ${q.alt.length})`);
+      q.alt.forEach((a, i) => { if (!new RegExp('^' + letras[i] + '\\s*\\|\\s*\\S').test(a)) err(q, `alternativa ${i + 1} deve começar por «${letras[i]} | »`); });
+      if (!letras.includes(q.gab || '-')) err(q, `gab deve ser uma das letras ${letras} (veio ${q.gab})`);
+    } else if (!['C', 'E'].includes(q.gab)) err(q, `gab deve ser C ou E (veio ${q.gab})`);
     if (!q.enunciado || q.enunciado.length < 30) err(q, 'enunciado ausente ou curto demais');
     if (!q.comentario || q.comentario.length < 30) err(q, 'comentário ausente ou curto demais');
     if (q.armadilha && !ARMADILHAS[q.armadilha]) err(q, `armadilha desconhecida: ${q.armadilha}`);
@@ -69,6 +75,7 @@ export function validar({ silencioso = false } = {}) {
   // Estatística por bloco: total e equilíbrio certo/errado
   const porBloco = {};
   for (const q of questoes) {
+    if (q.alt.length) continue;
     const s = (porBloco[q.bloco] ||= { total: 0, C: 0, E: 0 });
     s.total++;
     s[q.gab] = (s[q.gab] || 0) + 1;

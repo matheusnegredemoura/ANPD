@@ -4,6 +4,10 @@
 /* ================= Dados embutidos ================= */
 const D = JSON.parse(document.getElementById('dados').textContent);
 const Q = D.questoes;
+// Múltipla escolha: q.al traz as alternativas e q.g é a letra; nos itens certo/errado, q.al não existe
+const LETRAS = 'ABCDE';
+// Resposta em branco: um código que não colide com a letra B das alternativas
+const BRANCO = '-';
 const QI = new Map(Q.map((q) => [q.id, q]));
 const BLOCOS = D.blocos;
 const BI = new Map(BLOCOS.map((b) => [b.id, b]));
@@ -428,7 +432,7 @@ function registrar(q, resp, duvida) {
   // Responder de novo no mesmo dia não é revisão espaçada: o acerto repetido não sobe de nível
   const jaRespondidoHoje = antes >= 0 && r[4] === hoje;
   let ok = null;
-  if (resp === 'B') r[0] = 0;
+  if (resp === BRANCO) r[0] = 0;
   else {
     ok = resp === q.g;
     if (ok) {
@@ -444,7 +448,7 @@ function registrar(q, resp, duvida) {
   S.itens[q.id] = r;
   if (estavaNaLista && r[0] >= 3) S.perfil.saidos = (S.perfil.saidos || 0) + 1;
   const d = diaLog();
-  if (resp === 'B') d.b = (d.b || 0) + 1; else { d.r++; if (ok) d.c++; else d.e++; }
+  if (resp === BRANCO) d.b = (d.b || 0) + 1; else { d.r++; if (ok) d.c++; else d.e++; }
   if (eraManutencao) d.m = (d.m || 0) + 1;
   if (ok === false) sugerirPesquisaDoErro(q);
   return ok;
@@ -615,10 +619,10 @@ function selecionarProva(n) {
   const escolhidos = [];
   const usados = new Set();
   for (const [disc, k] of cotasProva(n)) {
-    const pool = Q.filter((q) => { const b = BI.get(q.b); return b && b.disciplina === disc && !FORA_DA_PROVA.has(b.id); });
+    const pool = Q.filter((q) => { const b = BI.get(q.b); return b && b.disciplina === disc && !FORA_DA_PROVA.has(b.id) && !q.al; });
     selecionar(pool, Math.min(pool.length, k), 'mistas').forEach((q) => { escolhidos.push(q); usados.add(q.id); });
   }
-  if (escolhidos.length < n) selecionar(Q.filter((q) => !usados.has(q.id) && !FORA_DA_PROVA.has(q.b)), n - escolhidos.length, 'mistas').forEach((q) => escolhidos.push(q));
+  if (escolhidos.length < n) selecionar(Q.filter((q) => !usados.has(q.id) && !FORA_DA_PROVA.has(q.b) && !q.al), n - escolhidos.length, 'mistas').forEach((q) => escolhidos.push(q));
   return embaralhar(escolhidos.slice(0, n));
 }
 
@@ -717,7 +721,7 @@ function iniciarSessao(cfg) {
   } else if (cfg.ids) itens = cfg.ids.map((id) => QI.get(id)).filter(Boolean);
   else if (cfg.intercalado) itens = selecionarIntercaladas(cfg.n || 30);
   else if (cfg.prova) itens = selecionarProva(cfg.n || 60);
-  else if (cfg.modo === 'relampago') itens = embaralhar(poolDe(cfg.blocos));
+  else if (cfg.modo === 'relampago') itens = embaralhar(poolDe(cfg.blocos).filter((q) => !q.al));
   else itens = selecionar(poolDe(cfg.blocos), cfg.n || 20, cfg.filtro || 'mistas');
   if (!itens.length) { avisar('!', 'Sem itens', 'Nenhuma questão disponível com esse filtro.'); return; }
   if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && cfg.modo !== 'revisao');
@@ -779,7 +783,7 @@ function responder(resp) {
     renderSessao();
     return;
   }
-  if (sessao.revelado || sessao.flash || resp === 'B') return;
+  if (sessao.revelado || sessao.flash || resp === BRANCO) return;
   const ok = registrar(q, resp, !!sessao.duv[id]);
   sessao.resp[id] = resp;
   let x = 0;
@@ -841,9 +845,9 @@ function finalizar() {
     let c = 0, e = 0, b = 0, xp = 0;
     sessao.ids.forEach((id) => {
       const q = QI.get(id);
-      const r = sessao.resp[id] || 'B';
+      const r = sessao.resp[id] || BRANCO;
       const ok = registrar(q, r, !!sessao.duv[id]);
-      if (r === 'B') b++; else if (ok) { c++; xp += 10; } else e++;
+      if (r === BRANCO) b++; else if (ok) { c++; xp += 10; } else e++;
     });
     xp += 40;
     sessao.xp = xp;
@@ -1106,7 +1110,7 @@ function renderQuestoes() {
   }
   html += '<button class="btn primario largo" data-acao="comecar"' + (pool.length || usarProva ? '' : ' disabled') + '>Começar ' + esc({ treino: 'treino', simulado: 'simulado', relampago: 'relâmpago' }[modo]) + '</button>';
   const conferidos = REAIS.filter(gabConferido).length;
-  if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais do Cebraspe</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas anteriores, com comentário: ' + (REAIS.length - conferidos) + ' com gabarito oficial definitivo e ' + conferidos + ' avulsos, de provas de 2021 a 2026, com o gabarito conferido no texto da lei (a linha da prova avisa). Servem para calibrar o estilo da banca; os de telecomunicações ficam fora do simulado de prova completa.</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
+  if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais do Cebraspe</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas anteriores, com comentário: ' + (REAIS.length - conferidos) + ' com gabarito oficial definitivo e ' + conferidos + ' avulsos, de provas de 2021 a 2026, com o gabarito conferido no texto da lei ou, em português, no texto da prova (a linha da prova avisa). Servem para calibrar o estilo da banca; os de telecomunicações ficam fora do simulado de prova completa.</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
   if (!usarProva && !UI.blocos.length) html += '<p class="mudo pequeno">Nenhum bloco marcado: a sessão usa o banco inteiro.</p>';
   document.getElementById('vista-questoes').innerHTML = html;
 }
@@ -1194,7 +1198,7 @@ function renderTira() {
   return '<div class="tira" aria-label="Folha de respostas">' + sessao.ids.map((id, k) => {
     const r = sessao.resp[id];
     let cls = '';
-    if (sessao.modo === 'simulado') cls = r ? (r === 'B' ? 'B' : 'R') : '';
+    if (sessao.modo === 'simulado') cls = r ? (r === BRANCO ? 'B' : 'R') : '';
     else if (r) cls = r === QI.get(id).g ? 'C' : 'E';
     if (id === atual) cls += ' atual';
     const i = '<i class="' + cls.trim() + '"></i>';
@@ -1202,12 +1206,25 @@ function renderTira() {
   }).join('') + '</div>';
 }
 function renderApoio(q, aberto) {
-  if (q.ap < 0) return '';
+  if (q.ap == null) return '';
   return '<details class="apoio-det"' + (aberto ? ' open' : '') + '><summary>Texto de apoio</summary><div class="apoio">' + D.apoios[q.ap].split('\n').map((p) => '<p>' + esc(p) + '</p>').join('') + '</div></details>';
 }
 // Itens reais de prova: selo com a origem e o comando da banca que antecede o item
 // Itens reais avulsos chegaram sem gabarito: o gabarito foi conferido no texto da lei
-function gabConferido(q) { return /conferido na lei/.test(q.pv || ''); }
+function gabConferido(q) { return /conferido n[ao] (lei|texto)/.test(q.pv || ''); }
+// Múltipla escolha: rótulos da resposta marcada e do gabarito
+function nomeResp(q, r) { return q.al ? 'a letra ' + r : r === 'C' ? 'CERTO' : 'ERRADO'; }
+function nomeGab(q) { return q.al ? 'letra ' + q.g : q.g === 'C' ? 'certo' : 'errado'; }
+// Antes da resposta, as alternativas são botões; depois, mostram o gabarito e a letra marcada
+function renderAlternativas(q, marcada, revelar) {
+  if (!q.al) return '';
+  return '<div class="alternativas">' + q.al.map((t, k) => {
+    const L = LETRAS[k];
+    const cls = 'alt' + (revelar ? (L === q.g ? ' gab' : L === marcada ? ' errou' : '') : L === marcada ? ' marcada' : '');
+    const conteudo = '<span class="oval"><span>' + L + '</span></span><span>' + esc(t) + '</span>';
+    return revelar ? '<div class="' + cls + '">' + conteudo + '</div>' : '<button class="' + cls + '" data-acao="responder" data-r="' + L + '">' + conteudo + '</button>';
+  }).join('') + '</div>';
+}
 function seloReal(q) { return q.o ? '<span class="selo real" title="' + esc(q.pv || '') + '">Item real Cebraspe</span>' : ''; }
 // Ordem do caderno: conhecimentos básicos antes dos específicos, depois pelo número do item
 function ordemProva(q) { const m = /item (\d+)/.exec(q.pv || ''); return (/Básicos/.test(q.pv || '') ? 0 : 1000) + (m ? Number(m[1]) : 999); }
@@ -1218,18 +1235,24 @@ function renderItem(q) {
   html += renderApoio(q, sessao.i === 0 || sim || !sessao.ids.slice(0, sessao.i).some((x) => QI.get(x).ap === q.ap));
   html += renderComando(q);
   html += '<p class="enunciado">' + (sessao.revelado ? marcarTermos(q.e, 3) : esc(q.e)) + '</p>';
+  html += renderAlternativas(q, marcada, sessao.revelado || !!sessao.flash);
   if (sessao.flash) {
-    html += '<div class="veredito ' + sessao.flash + '"><span>' + (sessao.flash === 'ok' ? 'Certo' : 'Errado: gabarito ' + (q.g === 'C' ? 'CERTO' : 'ERRADO')) + '</span>' + (sessao.ultimoGanho ? '<span class="ganho">+' + sessao.ultimoGanho + ' XP</span>' : '') + '</div>';
+    html += '<div class="veredito ' + sessao.flash + '"><span>' + (sessao.flash === 'ok' ? 'Certo' : 'Errado: gabarito ' + nomeGab(q).toUpperCase()) + '</span>' + (sessao.ultimoGanho ? '<span class="ganho">+' + sessao.ultimoGanho + ' XP</span>' : '') + '</div>';
   } else if (!sessao.revelado) {
     if (sessao.modo !== 'relampago') html += '<label class="duvida"><input type="checkbox" data-acao="duvida"' + (sessao.duv[id] ? ' checked' : '') + '> Estou em dúvida (mede quando vale chutar)</label>';
-    html += '<div class="respostas"><button class="bolha c' + (marcada === 'C' ? ' marcada' : '') + '" data-acao="responder" data-r="C"><span class="oval"><span>C</span></span>CERTO</button>' +
-      '<button class="bolha e' + (marcada === 'E' ? ' marcada' : '') + '" data-acao="responder" data-r="E"><span class="oval"><span>E</span></span>ERRADO</button>' +
-      (sim ? '<button class="bolha b' + (marcada === 'B' ? ' marcada' : '') + '" data-acao="responder" data-r="B">Em branco</button>' : '') + '</div>';
-    html += '<p class="atalhos">Teclado: C = certo · E = errado' + (sim ? ' · B = em branco · ← → navegam' : '') + ' · D = dúvida</p>';
+    const branco = sim ? '<button class="bolha b' + (marcada === BRANCO ? ' marcada' : '') + '" data-acao="responder" data-r="' + BRANCO + '">Em branco</button>' : '';
+    if (q.al) {
+      if (branco) html += '<div class="respostas">' + branco + '</div>';
+      html += '<p class="atalhos">Teclado: A a ' + LETRAS[q.al.length - 1] + ' marcam a alternativa' + (sim ? ' · ← → navegam' : '') + '</p>';
+    } else {
+      html += '<div class="respostas"><button class="bolha c' + (marcada === 'C' ? ' marcada' : '') + '" data-acao="responder" data-r="C"><span class="oval"><span>C</span></span>CERTO</button>' +
+        '<button class="bolha e' + (marcada === 'E' ? ' marcada' : '') + '" data-acao="responder" data-r="E"><span class="oval"><span>E</span></span>ERRADO</button>' + branco + '</div>';
+      html += '<p class="atalhos">Teclado: C = certo · E = errado' + (sim ? ' · B = em branco · ← → navegam' : '') + ' · D = dúvida</p>';
+    }
     if (sim) html += '<div class="linha-btns"><button class="btn" data-acao="anterior"' + (sessao.i ? '' : ' disabled') + '>Anterior</button><button class="btn" data-acao="proximo"' + (sessao.i < sessao.ids.length - 1 ? '' : ' disabled') + '>Próximo</button><button class="btn primario" data-acao="entregar">Entregar (' + Object.keys(sessao.resp).length + '/' + sessao.ids.length + ')</button></div>';
   } else {
     const r = sessao.resp[id], ok = r === q.g;
-    html += '<div class="veredito ' + (ok ? 'ok' : 'no') + '"><span>' + (ok ? 'Você marcou ' + (r === 'C' ? 'CERTO' : 'ERRADO') + ' e acertou.' : 'Você marcou ' + (r === 'C' ? 'CERTO' : 'ERRADO') + '. O gabarito é ' + (q.g === 'C' ? 'CERTO' : 'ERRADO') + '.') + '</span>' +
+    html += '<div class="veredito ' + (ok ? 'ok' : 'no') + '"><span>' + (ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + (q.al ? 'a letra ' + q.g : q.g === 'C' ? 'CERTO' : 'ERRADO') + '.') + '</span>' +
       (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP</span>' : '<span class="pequeno">Foi para a lista curta</span>') + '</div>';
     html += renderExplicacao(q);
     html += '<button class="btn primario largo" data-acao="proximo">' + (sessao.i < sessao.ids.length - 1 ? 'Próximo item' : 'Ver resultado') + '</button><p class="atalhos">Enter = próximo</p>';
@@ -1237,7 +1260,7 @@ function renderItem(q) {
   return html + '</article>';
 }
 function renderExplicacao(q) {
-  let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (gabConferido(q) ? ' conferido na lei' : ' oficial') : '') + ': ' + (q.g === 'C' ? 'certo' : 'errado') + ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</span>';
+  let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</span>';
   if (q.o) html += '<p class="pequeno mudo">' + esc(q.pv) + '</p>';
   html += '<p>' + marcarTermos(q.c, 3) + '</p>';
   if (q.t && q.t.length) {
@@ -1309,24 +1332,26 @@ function renderResultadoCards() {
 }
 function renderResultado() {
   const ids = sessao.modo === 'relampago' ? sessao.ids.filter((id) => sessao.resp[id]) : sessao.ids;
-  let c = 0, e = 0, b = 0, dc = 0, de = 0;
+  // No Cebraspe, erro em item certo/errado anula um acerto; erro em múltipla escolha não desconta
+  let c = 0, e = 0, b = 0, dc = 0, de = 0, eMc = 0;
   const porDisc = {};
   ids.forEach((id) => {
-    const r = sessao.resp[id] || 'B', q = QI.get(id), duv = !!sessao.duv[id];
+    const r = sessao.resp[id] || BRANCO, q = QI.get(id), duv = !!sessao.duv[id] && !q.al;
     const disc = (BI.get(q.b) || {}).disciplina || 'outros';
-    const pd = (porDisc[disc] ||= { c: 0, e: 0, b: 0 });
-    if (r === 'B') { b++; pd.b++; } else if (r === q.g) { c++; pd.c++; if (duv) dc++; } else { e++; pd.e++; if (duv) de++; }
+    const pd = (porDisc[disc] ||= { c: 0, e: 0, b: 0, eMc: 0 });
+    if (r === BRANCO) { b++; pd.b++; } else if (r === q.g) { c++; pd.c++; if (duv) dc++; } else { e++; pd.e++; if (duv) de++; if (q.al) { eMc++; pd.eMc++; } }
   });
-  const liq = c - e, n = ids.length;
+  const liq = c - (e - eMc), n = ids.length;
   let html = '<div class="sessao-topo"><div class="tit"><b>' + esc(sessao.titulo) + '</b><span>Resultado · ' + fmtTempo(sessao.dur) + '</span></div><button class="btn" data-acao="fechar-sessao">Concluir</button></div>';
   html += '<div class="cartao destaque"><span class="rotulo">Nota líquida Cebraspe (certas − erradas)</span><div class="nota-final"><span class="grande">' + liq + '</span><span class="mudo">de ' + n + ' possíveis · ' + (n ? Math.round((liq / n) * 100) : 0) + '%</span></div>' +
     '<div class="placar"><div class="C"><b>' + c + '</b><span>certas</span></div><div class="E"><b>' + e + '</b><span>erradas</span></div><div><b>' + b + '</b><span>em branco</span></div><div class="L"><b>+' + sessao.xp + '</b><span>XP</span></div></div>';
   if (sessao.modo === 'relampago') html += '<p>' + (sessao.recorde ? '<b>Novo recorde!</b> ' : '') + 'Recorde pessoal: ' + (S.perfil.recordes.relampago || 0) + '.</p>';
+  if (eMc) html += '<p class="mudo pequeno">' + pl(eMc, 'erro', 'erros') + ' em múltipla escolha não ' + (eMc > 1 ? 'descontaram' : 'descontou') + ' ponto, como no Cebraspe.</p>';
   if (sessao.comboMax >= 3) html += '<p class="mudo">Maior sequência de acertos: ' + sessao.comboMax + '.</p>';
   html += '</div>';
   if (sessao.modo === 'simulado' && Object.keys(porDisc).length > 1) {
     html += '<div class="cartao"><h2>Por disciplina</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>C</th><th>E</th><th>B</th><th>Líquida</th></tr></thead><tbody>' +
-      Object.entries(porDisc).map(([dd, v]) => { const t = v.c + v.e + v.b; return '<tr><td>' + esc((DI.get(dd) || { nome: dd }).nome) + '</td><td class="num">' + v.c + '</td><td class="num">' + v.e + '</td><td class="num">' + v.b + '</td><td class="num">' + (v.c - v.e) + ' (' + pct(v.c - v.e, t) + '%)</td></tr>'; }).join('') + '</tbody></table></div></div>';
+      Object.entries(porDisc).map(([dd, v]) => { const t = v.c + v.e + v.b; return '<tr><td>' + esc((DI.get(dd) || { nome: dd }).nome) + '</td><td class="num">' + v.c + '</td><td class="num">' + v.e + '</td><td class="num">' + v.b + '</td><td class="num">' + (v.c - v.e + v.eMc) + ' (' + pct(v.c - v.e + v.eMc, t) + '%)</td></tr>'; }).join('') + '</tbody></table></div></div>';
   }
   const nd = dc + de;
   if (nd) {
@@ -1335,10 +1360,10 @@ function renderResultado() {
       (taxa > 50 ? 'Acima de 50%, o chute rendeu pontos: sem ele, sua nota seria ' + semChute + '.' : taxa === 50 ? 'Exatamente 50%: chutar ou deixar em branco deu no mesmo.' : 'Abaixo de 50%, o chute custou pontos: deixando esses itens em branco, sua nota seria ' + semChute + '.') +
       '</p><p class="mudo pequeno">No Cebraspe, chutar só compensa quando a chance de acerto passa de 50%.</p></div>';
   }
-  const lista = ids.map((id) => { const q = QI.get(id), r = sessao.resp[id] || 'B'; return { q, cls: r === 'B' ? 'B' : r === q.g ? 'C' : 'E' }; });
+  const lista = ids.map((id) => { const q = QI.get(id), r = sessao.resp[id] || BRANCO; return { q, cls: r === BRANCO ? 'B' : r === q.g ? 'C' : 'E' }; });
   const ordenada = lista.filter((x) => x.cls !== 'C').concat(lista.filter((x) => x.cls === 'C'));
   html += '<div class="secao"><div class="secao-cab"><h2>Revisar itens</h2><span class="mudo pequeno">Erros e brancos primeiro</span></div><div class="lista-rev">' +
-    ordenada.map((x) => '<button data-acao="revisar-item" data-q="' + esc(x.q.id) + '" data-r="' + esc(sessao.resp[x.q.id] || 'B') + '"><span class="marca-res ' + x.cls + '">' + ({ C: '✓', E: '✗', B: '–' }[x.cls]) + '</span><span class="txt">' + esc(x.q.e) + '</span></button>').join('') + '</div></div>';
+    ordenada.map((x) => '<button data-acao="revisar-item" data-q="' + esc(x.q.id) + '" data-r="' + esc(sessao.resp[x.q.id] || BRANCO) + '"><span class="marca-res ' + x.cls + '">' + ({ C: '✓', E: '✗', B: '–' }[x.cls]) + '</span><span class="txt">' + esc(x.q.e) + '</span></button>').join('') + '</div></div>';
   html += '<div class="linha-btns"><button class="btn primario" data-acao="fechar-sessao">Concluir</button>' + (e + b ? '<button class="btn" data-acao="refazer-erros">Refazer os ' + (e + b) + ' erros e brancos</button>' : '') + '</div>';
   return html;
 }
@@ -1357,8 +1382,8 @@ function fecharFolha() { const f = document.getElementById('folha'); f.hidden = 
 function cabFolha(rotulo, titulo) { return '<div class="folha-cab"><div><span class="rotulo">' + esc(rotulo) + '</span><h2>' + esc(titulo) + '</h2></div><button class="btn pequeno" data-acao="fechar-folha">Fechar</button></div>'; }
 function folhaItem(id, resp) {
   const q = QI.get(id);
-  let html = cabFolha(nomeBloco(q.b), q.id) + renderApoio(q, false) + renderComando(q) + '<p class="enunciado">' + marcarTermos(q.e, 3) + '</p>';
-  if (resp) html += '<div class="veredito ' + (resp !== 'B' && resp === q.g ? 'ok' : 'no') + '"><span>' + (resp === 'B' ? 'Em branco.' : 'Você marcou ' + (resp === 'C' ? 'CERTO' : 'ERRADO') + '.') + ' Gabarito: ' + (q.g === 'C' ? 'CERTO' : 'ERRADO') + '.</span></div>';
+  let html = cabFolha(nomeBloco(q.b), q.id) + renderApoio(q, false) + renderComando(q) + '<p class="enunciado">' + marcarTermos(q.e, 3) + '</p>' + renderAlternativas(q, resp, true);
+  if (resp) html += '<div class="veredito ' + (resp !== BRANCO && resp === q.g ? 'ok' : 'no') + '"><span>' + (resp === BRANCO ? 'Em branco.' : 'Você marcou ' + nomeResp(q, resp) + '.') + ' Gabarito: ' + nomeGab(q).toUpperCase() + '.</span></div>';
   abrirFolha(html + renderExplicacao(q), 'Item ' + q.id);
 }
 function folhaArtigo(art, qid) {
@@ -1738,7 +1763,7 @@ const CONTEST = lerLS(CHAVE_CONTEST) || [];
 function gravarContest() { gravarLS(CHAVE_CONTEST, CONTEST); }
 function folhaContestar(id) {
   const q = QI.get(id), ct = CONTEST.find((x) => x.q === id);
-  let html = cabFolha('Contestar item', id) + (q ? '<p class="enunciado">' + esc(q.e) + '</p><p class="pequeno mudo">Gabarito ' + (q.g === 'C' ? 'certo' : 'errado') + ' · ' + esc(q.r) + '</p>' : '<p class="mudo">Este item não está mais no banco.</p>');
+  let html = cabFolha('Contestar item', id) + (q ? '<p class="enunciado">' + esc(q.e) + '</p><p class="pequeno mudo">Gabarito ' + nomeGab(q) + ' · ' + esc(q.r) + '</p>' : '<p class="mudo">Este item não está mais no banco.</p>');
   if (ct) {
     html += '<div class="cartao"><p><b>Status:</b> ' + esc(STATUS_CONTEST[ct.status] || ct.status) + ' · enviada em ' + esc(fmtData(ct.data.slice(0, 10), { day: '2-digit', month: '2-digit' })) + '</p><p><b>Motivo:</b> ' + esc((MOTIVOS_CONTEST.find((m) => m[0] === ct.motivo) || [0, ct.motivo])[1]) + '</p>' + (ct.texto ? '<p>' + esc(ct.texto) + '</p>' : '') + (ct.resposta ? '<p><b>Resposta:</b> ' + esc(ct.resposta) + '</p>' : '<p class="pequeno mudo">A resposta aparece aqui quando o item for revisto.</p>') + '</div>';
   } else if (q) {
@@ -1936,14 +1961,14 @@ function renderCebraspe() {
   const cb = D.cebraspe;
   if (!cb) return '<p class="mudo">Dados da banca indisponíveis nesta versão.</p>';
   const li = (t) => '<li>' + esc(t) + '</li>';
-  const nC = REAIS.filter((q) => q.g === 'C').length;
-  const chip = (id) => { const q = QI.get(id); return q ? '<button class="chip item-real" data-acao="revisar-item" data-q="' + esc(id) + '" title="' + esc(q.pv || '') + '">' + esc(numItem(q)) + ' · ' + (q.g === 'C' ? 'certo' : 'errado') + '</button>' : ''; };
+  const nC = REAIS.filter((q) => !q.al && q.g === 'C').length, nMc = REAIS.filter((q) => q.al).length;
+  const chip = (id) => { const q = QI.get(id); return q ? '<button class="chip item-real" data-acao="revisar-item" data-q="' + esc(id) + '" title="' + esc(q.pv || '') + '">' + esc(numItem(q)) + ' · ' + nomeGab(q) + '</button>' : ''; };
   let html = '<div class="prosa"><h2>Como o Cebraspe cobra</h2><p>' + esc(cb.fonte) + '</p></div>';
   html += '<div class="chips cb-nav">' + cb.disciplinas.map((d) => { const x = DISC.find((y) => y.id === d.id); return x ? '<button class="chip" data-acao="rolar" data-alvo="cb-' + esc(d.id) + '">' + esc(x.nome) + '</button>' : ''; }).join('') + '<button class="chip" data-acao="rolar" data-alvo="cb-raiox">O que a banca repete</button><button class="chip" data-acao="rolar" data-alvo="cb-discursiva">Discursiva</button><button class="chip" data-acao="rolar" data-alvo="cb-provas">Provas para mandar</button></div>';
   html += '<div class="cartao"><h2>A prova e a pontuação</h2><div class="tabela-env"><table class="tabela cb-tabela"><thead><tr><th>Prova</th><th>Tamanho</th><th>Corte</th></tr></thead><tbody>' +
     cb.estrutura.map((e) => '<tr><td>' + esc(e.prova) + '</td><td>' + esc(e.itens) + '</td><td>' + esc(e.corte) + '</td></tr>').join('') + '</tbody></table></div>' +
     '<ul class="lista-cb">' + cb.regras.map(li).join('') + '</ul>' +
-    '<p class="pequeno mudo">No banco: ' + pl(REAIS.length, 'item real', 'itens reais') + ', ' + nC + ' com gabarito certo e ' + (REAIS.length - nC) + ' com gabarito errado.</p></div>';
+    '<p class="pequeno mudo">No banco: ' + pl(REAIS.length, 'item real', 'itens reais') + ': ' + nC + ' com gabarito certo, ' + (REAIS.length - nC - nMc) + ' com gabarito errado' + (nMc ? ' e ' + nMc + ' de múltipla escolha' : '') + '.</p></div>';
   html += renderRaioX(cb, chip);
   for (const d of cb.disciplinas) {
     const x = DISC.find((y) => y.id === d.id);
@@ -2108,7 +2133,7 @@ document.addEventListener('click', async (ev) => {
     case 'confirmar-saida': fecharSessao(); break;
     case 'fechar-sessao': fecharSessao(); break;
     case 'refazer-erros': {
-      const ids = sessao.ids.filter((id) => (sessao.modo !== 'relampago' || sessao.resp[id]) && (sessao.resp[id] || 'B') !== QI.get(id).g);
+      const ids = sessao.ids.filter((id) => (sessao.modo !== 'relampago' || sessao.resp[id]) && (sessao.resp[id] || BRANCO) !== QI.get(id).g);
       fecharSessao();
       iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Refazer erros' });
       break;
@@ -2327,9 +2352,17 @@ document.addEventListener('keydown', (ev) => {
     return;
   }
   if (sessao.revelado) { if (k === 'enter' || k === ' ') { ev.preventDefault(); proximo(); } return; }
+  const qAtual = QI.get(sessao.ids[sessao.i]);
+  if (qAtual && qAtual.al) {
+    const L = k.toUpperCase();
+    if (k.length === 1 && LETRAS.slice(0, qAtual.al.length).includes(L)) responder(L);
+    else if (sessao.modo === 'simulado' && k === 'arrowright') proximo();
+    else if (sessao.modo === 'simulado' && k === 'arrowleft' && sessao.i > 0) { sessao.i--; renderSessao(); }
+    return;
+  }
   if (k === 'c') responder('C');
   else if (k === 'e') responder('E');
-  else if (k === 'b' && sessao.modo === 'simulado') responder('B');
+  else if (k === 'b' && sessao.modo === 'simulado') responder(BRANCO);
   else if (k === 'd' && sessao.modo !== 'relampago') { const id = sessao.ids[sessao.i]; sessao.duv[id] = !sessao.duv[id]; renderSessao(); }
   else if (sessao.modo === 'simulado' && k === 'arrowright') proximo();
   else if (sessao.modo === 'simulado' && k === 'arrowleft' && sessao.i > 0) { sessao.i--; renderSessao(); }

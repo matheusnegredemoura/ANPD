@@ -91,7 +91,8 @@ function compactar(questoes, leisAnexadas) {
   const apoios = [];
   const lista = questoes.map((q) => {
     const r = parseRef(q.ref);
-    let ap = -1;
+    // Índice do texto de apoio; ausente quando o item não tem texto
+    let ap;
     if (q.apoio) {
       ap = apoios.indexOf(q.apoio);
       if (ap < 0) ap = apoios.push(q.apoio) - 1;
@@ -107,6 +108,7 @@ function compactar(questoes, leisAnexadas) {
       a: q.armadilha || 'literal',
       d: Number(q.dif || 2),
       e: q.enunciado,
+      al: q.alt.length ? q.alt.map((x) => x.replace(/^[A-E]\s*\|\s*/, '')) : undefined,
       c: q.comentario,
       ap,
       p: q.pesquisar && q.pesquisar.length ? q.pesquisar : undefined,
