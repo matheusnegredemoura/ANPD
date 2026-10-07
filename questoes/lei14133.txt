@@ -1,0 +1,311 @@
+bloco: administrativo
+// Lei nº 14.133/2021 (licitações e contratos), pontos mais cobrados: princípios, agentes, fases, modalidades,
+// critérios e modos de disputa, prazos, julgamento, habilitação, contratação direta, registro de preços, garantias,
+// duração e alteração dos contratos, sanções, recursos e linhas de defesa. Os valores de dispensa ficaram de fora
+// porque são atualizados todo ano por decreto. Conferidas com fontes/lei14133.txt.
+
+=== lc14-01
+gab: C
+ref: lei14133 5
+trecho: da segregação de funções, da motivação, da vinculação ao edital
+armadilha: rol
+dif: 1
+enunciado: Entre os princípios expressos da Lei nº 14.133/2021 estão o planejamento, a segregação de funções, a competitividade e o desenvolvimento nacional sustentável.
+comentario: Certo: art. 5º, que também manda observar as disposições da LINDB. Planejamento e segregação de funções são novidades em relação à Lei 8.666.
+
+=== lc14-02
+gab: E
+ref: lei14133 8
+trecho: entre servidores efetivos ou empregados públicos dos quadros permanentes da Administração Pública
+armadilha: sujeito
+dif: 2
+enunciado: O agente de contratação pode ser designado entre ocupantes exclusivamente de cargo em comissão, sem vínculo permanente com a Administração.
+comentario: Errado. É designado entre servidores efetivos ou empregados públicos dos quadros permanentes (art. 8º, caput). No pregão, o agente chama-se pregoeiro (§ 5º).
+
+=== lc14-03
+gab: C
+ref: lei14133 8
+trecho: ressalvado o membro que expressar posição individual divergente fundamentada e registrada em ata
+armadilha: excecao
+dif: 3
+enunciado: Na licitação de bens ou serviços especiais, a comissão de contratação que substitui o agente tem no mínimo três membros, que respondem solidariamente pelos atos, salvo o membro que registrar em ata divergência fundamentada.
+comentario: Certo: art. 8º, § 2º. O agente de contratação, por sua vez, responde individualmente, salvo se induzido a erro pela equipe de apoio (§ 1º).
+
+=== lc14-04
+gab: E
+ref: lei14133 17
+trecho: mediante ato motivado com explicitação dos benefícios decorrentes
+armadilha: conceito
+dif: 2
+enunciado: Na Lei nº 14.133/2021, a fase de habilitação precede, como regra, a de julgamento das propostas.
+comentario: Errado. A sequência legal é preparatória, divulgação do edital, propostas e lances, julgamento, habilitação, recursal e homologação (art. 17). A habilitação só antecede o julgamento por ato motivado e previsão no edital (§ 1º).
+
+=== lc14-05
+gab: C
+ref: lei14133 17
+trecho: admitida a utilização da forma presencial, desde que motivada, devendo a sessão pública ser registrada em ata e gravada em áudio e vídeo
+armadilha: conceito
+dif: 2
+enunciado: As licitações são realizadas preferencialmente sob a forma eletrônica; a forma presencial é admitida desde que motivada, com a sessão registrada em ata e gravada em áudio e vídeo.
+comentario: Certo: art. 17, § 2º. Municípios de até 20 mil habitantes tiveram seis anos para cumprir a exigência da forma eletrônica (art. 176, II).
+
+=== lc14-06
+gab: E
+ref: lei14133 18
+trecho: deverá conter ao menos os elementos previstos nos incisos I, IV, VI, VIII e XIII
+armadilha: rol
+dif: 3
+enunciado: O estudo técnico preliminar deve conter, obrigatoriamente e sem exceção, todos os treze elementos listados na Lei nº 14.133/2021.
+comentario: Errado. Obrigatórios são cinco: necessidade, quantidades, estimativa de valor, justificativa do parcelamento e posicionamento conclusivo (art. 18, § 2º). Os demais podem faltar, com justificativa.
+
+=== lc14-07
+gab: C
+ref: lei14133 24
+trecho: o sigilo não prevalecerá para os órgãos de controle interno e externo
+armadilha: excecao
+dif: 2
+enunciado: Desde que justificado, o orçamento estimado da contratação pode ser sigiloso, mas o sigilo não prevalece para os órgãos de controle interno e externo.
+comentario: Certo: art. 24, I. No critério de maior desconto, porém, o preço estimado ou o máximo aceitável consta do edital (parágrafo único).
+
+=== lc14-08
+gab: E
+ref: lei14133 24
+trecho: o preço estimado ou o máximo aceitável constará do edital da licitação
+armadilha: excecao
+dif: 3
+enunciado: Na licitação com critério de julgamento por maior desconto, a Administração pode manter sigiloso o preço estimado da contratação.
+comentario: Errado. No maior desconto, o preço estimado ou o máximo aceitável consta do edital (art. 24, parágrafo único): sem ele, não há base para o desconto.
+
+=== lc14-09
+gab: C
+ref: lei14133 29
+trecho: adotando-se o pregão sempre que o objeto possuir padrões de desempenho e qualidade que possam ser objetivamente definidos pelo edital
+armadilha: conceito
+dif: 1
+enunciado: Adota-se o pregão sempre que o objeto tiver padrões de desempenho e qualidade que possam ser objetivamente definidos pelo edital, por meio de especificações usuais de mercado.
+comentario: Certo: art. 29. O pregão é obrigatório para bens e serviços comuns (art. 6º, XLI) e não serve a serviços técnicos especializados de natureza intelectual nem a obras (parágrafo único).
+
+=== lc14-10
+gab: E
+ref: lei14133 32
+trecho: prazo mínimo de 25 (vinte e cinco) dias úteis para manifestação de interesse
+armadilha: numero
+dif: 2
+enunciado: No diálogo competitivo, a Administração deve fixar prazo mínimo de dez dias úteis para a manifestação de interesse na participação.
+comentario: Errado. O mínimo é de 25 dias úteis (art. 32, § 1º, I). Encerrado o diálogo, o prazo para as propostas é de no mínimo 60 dias úteis (inciso VIII).
+
+=== lc14-11
+gab: C
+ref: lei14133 32
+trecho: composta de pelo menos 3 (três) servidores efetivos ou empregados públicos pertencentes aos quadros permanentes
+armadilha: numero
+dif: 2
+enunciado: O diálogo competitivo é conduzido por comissão de contratação composta de pelo menos três servidores efetivos ou empregados públicos dos quadros permanentes, admitida a contratação de profissionais para assessoramento técnico.
+comentario: Certo: art. 32, § 1º, XI. As reuniões com os licitantes pré-selecionados são registradas em ata e gravadas em áudio e vídeo (inciso VI).
+
+=== lc14-12
+gab: E
+ref: lei14133 36
+trecho: na proporção máxima de 70% (setenta por cento) de valoração para a proposta técnica
+armadilha: numero
+dif: 2
+enunciado: No julgamento por técnica e preço, a proposta técnica pode ter peso de até 80% na pontuação final.
+comentario: Errado. A proporção máxima é de 70% para a proposta técnica (art. 36, § 2º).
+
+=== lc14-13
+gab: C
+ref: lei14133 39
+trecho: utilizado exclusivamente para a celebração de contrato de eficiência
+armadilha: conceito
+dif: 2
+enunciado: O julgamento por maior retorno econômico é utilizado exclusivamente para a celebração de contrato de eficiência, com remuneração fixada em percentual da economia efetivamente obtida.
+comentario: Certo: art. 39. Se a economia prevista não ocorrer, a diferença é descontada da remuneração do contratado (§ 4º, I).
+
+=== lc14-14
+gab: C
+ref: lei14133 55
+trecho: 8 (oito) dias úteis, quando adotados os critérios de julgamento de menor preço ou de maior desconto
+armadilha: numero
+dif: 2
+enunciado: Na aquisição de bens pelos critérios de menor preço ou maior desconto, o prazo mínimo para apresentação de propostas é de oito dias úteis, contados da divulgação do edital.
+comentario: Certo: art. 55, I, a. Nos demais critérios para bens, o mínimo é de 15 dias úteis (alínea b); na contratação integrada, 60 dias úteis (inciso II, c).
+
+=== lc14-15
+gab: E
+ref: lei14133 56
+trecho: A utilização do modo de disputa aberto será vedada quando adotado o critério de julgamento de técnica e preço
+armadilha: conceito
+dif: 3
+enunciado: Quando adotado o critério de julgamento de técnica e preço, é vedada a utilização do modo de disputa fechado.
+comentario: Errado. Na técnica e preço é vedado o modo aberto (art. 56, § 2º). O fechado isolado é que é vedado no menor preço e no maior desconto (§ 1º).
+
+=== lc14-16
+gab: C
+ref: lei14133 59
+trecho: inferiores a 75% (setenta e cinco por cento) do valor orçado pela Administração
+armadilha: numero
+dif: 2
+enunciado: Em obras e serviços de engenharia, são consideradas inexequíveis as propostas com valores inferiores a 75% do valor orçado pela Administração.
+comentario: Certo: art. 59, § 4º. Abaixo de 85% do orçado, exige-se garantia adicional igual à diferença (§ 5º).
+
+=== lc14-17
+gab: E
+ref: lei14133 60
+trecho: disputa final, hipótese em que os licitantes empatados poderão apresentar nova proposta
+armadilha: rol
+dif: 2
+enunciado: Em caso de empate entre propostas, o primeiro critério de desempate é o desenvolvimento, pelo licitante, de ações de equidade entre homens e mulheres no ambiente de trabalho.
+comentario: Errado. A ordem é: disputa final, desempenho contratual prévio, ações de equidade entre homens e mulheres e programa de integridade (art. 60, I a IV).
+
+=== lc14-18
+gab: C
+ref: lei14133 63
+trecho: será exigida a apresentação dos documentos de habilitação apenas pelo licitante vencedor
+armadilha: conceito
+dif: 2
+enunciado: Como regra, os documentos de habilitação são exigidos apenas do licitante vencedor, salvo quando a fase de habilitação anteceder a de julgamento.
+comentario: Certo: art. 63, II. A regularidade fiscal é sempre exigida depois do julgamento e só do mais bem classificado (inciso III).
+
+=== lc14-19
+gab: C
+ref: lei14133 69
+trecho: é vedada a exigência de valores mínimos de faturamento anterior e de índices de rentabilidade ou lucratividade
+armadilha: literal
+dif: 2
+enunciado: Na habilitação econômico-financeira, é vedada a exigência de valores mínimos de faturamento anterior e de índices de rentabilidade ou lucratividade.
+comentario: Certo: art. 69, § 2º. Pode-se exigir, em compras para entrega futura e em obras e serviços, capital mínimo ou patrimônio líquido de até 10% do valor estimado (§ 4º).
+
+=== lc14-20
+gab: E
+ref: lei14133 71
+trecho: Nos casos de anulação e revogação, deverá ser assegurada a prévia manifestação dos interessados
+armadilha: conceito
+dif: 2
+enunciado: A revogação da licitação por conveniência e oportunidade dispensa a manifestação prévia dos interessados, por ser ato discricionário.
+comentario: Errado. Na anulação e na revogação deve ser assegurada a prévia manifestação dos interessados (art. 71, § 3º), e a revogação exige fato superveniente devidamente comprovado (§ 2º).
+
+=== lc14-21
+gab: C
+ref: lei14133 73
+trecho: o contratado e o agente público responsável responderão solidariamente pelo dano causado ao erário
+armadilha: sujeito
+dif: 2
+enunciado: Na contratação direta indevida ocorrida com dolo, fraude ou erro grosseiro, o contratado e o agente público responsável respondem solidariamente pelo dano ao erário.
+comentario: Certo: art. 73, sem prejuízo de outras sanções. A contratação direta fora das hipóteses legais também é crime (Código Penal, art. 337-E, incluído pelo art. 178 da lei).
+
+=== lc14-22
+gab: E
+ref: lei14133 74
+trecho: vedada a inexigibilidade para serviços de publicidade e divulgação
+armadilha: excecao
+dif: 2
+enunciado: Serviços de publicidade e divulgação podem ser contratados por inexigibilidade, desde que com profissional ou empresa de notória especialização.
+comentario: Errado. A lei veda expressamente a inexigibilidade para serviços de publicidade e divulgação (art. 74, III).
+
+=== lc14-23
+gab: C
+ref: lei14133 75
+trecho: vedadas a prorrogação dos respectivos contratos e a recontratação de empresa já contratada com base no disposto neste inciso
+armadilha: conceito
+dif: 3
+enunciado: Na dispensa por emergência ou calamidade, contratam-se só os bens necessários e as parcelas que possam ser concluídas em até um ano da ocorrência, vedadas a prorrogação do contrato e a recontratação da mesma empresa por esse fundamento.
+comentario: Certo: art. 75, VIII. Os preços devem seguir o mercado, e apura-se a responsabilidade de quem deu causa à emergência (§ 6º).
+
+=== lc14-24
+gab: E
+ref: lei14133 84
+trecho: O prazo de vigência da ata de registro de preços será de 1 (um) ano e poderá ser prorrogado, por igual período
+armadilha: numero
+dif: 2
+enunciado: A ata de registro de preços tem vigência de dois anos, improrrogável.
+comentario: Errado. A vigência é de um ano, prorrogável por igual período se comprovado o preço vantajoso (art. 84).
+
+=== lc14-25
+gab: C
+ref: lei14133 86
+trecho: não poderão exceder, por órgão ou entidade, a 50% (cinquenta por cento) dos quantitativos
+armadilha: numero
+dif: 3
+enunciado: As adesões de órgãos não participantes à ata de registro de preços não podem exceder, por órgão, 50% dos quantitativos registrados, nem, no total, o dobro do quantitativo de cada item.
+comentario: Certo: art. 86, §§ 4º e 5º. Órgãos federais não podem aderir a ata gerenciada por estado, DF ou município (§ 8º).
+
+=== lc14-26
+gab: E
+ref: lei14133 98
+trecho: poderá ser de até 5% (cinco por cento) do valor inicial do contrato, autorizada a majoração desse percentual para até 10%
+armadilha: numero
+dif: 2
+enunciado: Em qualquer contratação de obras, serviços ou fornecimentos, a garantia pode chegar a 30% do valor inicial do contrato.
+comentario: Errado. A regra é até 5%, majorável a 10% com justificativa (art. 98). Os 30% valem só para seguro-garantia com cláusula de retomada em obras e serviços de engenharia de grande vulto (art. 99).
+
+=== lc14-27
+gab: C
+ref: lei14133 107
+trecho: respeitada a vigência máxima decenal
+armadilha: numero
+dif: 2
+enunciado: Os contratos de serviços e fornecimentos contínuos podem ser prorrogados sucessivamente, respeitada a vigência máxima decenal, se houver previsão em edital e as condições permanecerem vantajosas.
+comentario: Certo: art. 107. A contratação inicial pode ter prazo de até cinco anos (art. 106).
+
+=== lc14-28
+gab: E
+ref: lei14133 125
+trecho: no caso de reforma de edifício ou de equipamento, o limite para os acréscimos será de 50%
+armadilha: excecao
+dif: 3
+enunciado: Na reforma de edifício, o contratado é obrigado a aceitar, nas mesmas condições, acréscimos e supressões de até 50% do valor inicial atualizado do contrato.
+comentario: Errado. O limite de 50% vale só para os acréscimos na reforma; para supressões, o limite continua 25% (art. 125).
+
+=== lc14-29
+gab: C
+ref: lei14133 156
+trecho: no âmbito da Administração Pública direta e indireta de todos os entes federativos, pelo prazo mínimo de 3 (três) anos e máximo de 6 (seis) anos
+armadilha: comparacao
+dif: 3
+enunciado: A declaração de inidoneidade impede o responsável de licitar ou contratar com a Administração de todos os entes federativos, pelo prazo de três a seis anos; o impedimento de licitar e contratar alcança só o ente que o aplicou, por até três anos.
+comentario: Certo: art. 156, §§ 4º e 5º. A inidoneidade depende de análise jurídica prévia e é de competência exclusiva de ministro ou secretário, ou da autoridade máxima da autarquia ou fundação (§ 6º).
+
+=== lc14-30
+gab: E
+ref: lei14133 165
+trecho: recurso, no prazo de 3 (três) dias úteis
+armadilha: numero
+dif: 2
+enunciado: O prazo do recurso contra o julgamento das propostas e contra a habilitação ou inabilitação de licitante é de cinco dias úteis.
+comentario: Errado. São três dias úteis da intimação ou da lavratura da ata (art. 165, I), e a intenção de recorrer deve ser manifestada imediatamente, sob pena de preclusão (§ 1º, I).
+
+=== lc14-31
+gab: C
+ref: lei14133 167
+trecho: caberá apenas pedido de reconsideração
+armadilha: conceito
+dif: 3
+enunciado: Da aplicação da declaração de inidoneidade cabe apenas pedido de reconsideração, em quinze dias úteis, decidido em até vinte dias úteis.
+comentario: Certo: art. 167. Contra advertência, multa e impedimento cabe recurso em quinze dias úteis (art. 166).
+
+=== lc14-32
+gab: E
+ref: lei14133 169
+trecho: segunda linha de defesa, integrada pelas unidades de assessoramento jurídico e de controle interno do próprio órgão ou entidade
+armadilha: rol
+dif: 2
+enunciado: Na Lei nº 14.133/2021, as unidades de assessoramento jurídico e de controle interno do próprio órgão integram a terceira linha de defesa das contratações.
+comentario: Errado. Integram a segunda linha (art. 169, II). A terceira é o órgão central de controle interno e o tribunal de contas (inciso III); a primeira, os agentes que atuam na governança e na licitação (inciso I).
+
+=== lc14-33
+gab: C
+ref: lei14133 158
+trecho: A prescrição ocorrerá em 5 (cinco) anos, contados da ciência da infração pela Administração
+armadilha: numero
+dif: 2
+enunciado: A pretensão de aplicar as sanções da Lei nº 14.133/2021 prescreve em cinco anos, contados da ciência da infração pela Administração, interrompendo-se pela instauração do processo de responsabilização.
+comentario: Certo: art. 158, § 4º, I. A prescrição se suspende com acordo de leniência ou decisão judicial que inviabilize a apuração (incisos II e III).
+
+=== lc14-34
+gab: C
+ref: lei14133 22
+trecho: o edital obrigatoriamente contemplará matriz de alocação de riscos
+armadilha: conceito
+dif: 2
+enunciado: Nas obras e serviços de grande vulto e nos regimes de contratação integrada e semi-integrada, o edital obrigatoriamente contemplará matriz de alocação de riscos entre contratante e contratado.
+comentario: Certo: art. 22, § 3º. Nos demais casos, a matriz é facultativa (caput). Riscos com cobertura de seguro devem preferencialmente ir para o contratado (art. 103, § 2º).
