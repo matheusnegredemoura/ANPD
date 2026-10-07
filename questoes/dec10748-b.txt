@@ -1,0 +1,104 @@
+bloco: seginfo
+// Decreto nº 10.748/2021 (Rede Federal de Gestão de Incidentes Cibernéticos), parte B: artigos que não tinham item
+// (participação obrigatória e voluntária, finalidade, objetivos, composição e coordenação, Defesa, adesão, saída,
+// competências do GSI e dos órgãos). O decreto remete ao Decreto nº 9.637/2018, revogado pelo Decreto nº 12.572/2025,
+// mas não foi revogado por ele. Conferidas com fontes/dec10748.txt.
+
+=== rfg-01
+gab: C
+ref: dec10748 1
+trecho: A participação dos órgãos e das entidades da administração pública federal direta, autárquica e fundacional na Rede Federal de Gestão de Incidentes Cibernéticos será obrigatória
+armadilha: comparacao
+dif: 2
+enunciado: A participação na Rede Federal de Gestão de Incidentes Cibernéticos é obrigatória para os órgãos e as entidades da administração federal direta, autárquica e fundacional, e voluntária, por adesão, para as empresas públicas e sociedades de economia mista federais e suas subsidiárias.
+comentario: Certo: art. 1º, §§ 1º e 2º. As agências reguladoras, como autarquias, participam obrigatoriamente; o art. 12, § 2º, reforça que os deveres dos órgãos se aplicam a elas.
+
+=== rfg-02
+gab: C
+ref: dec10748 2
+trecho: de modo a elevar o nível de resiliência em segurança cibernética de seus ativos de informação
+armadilha: literal
+dif: 2
+enunciado: A Rede Federal de Gestão de Incidentes Cibernéticos tem por finalidade aprimorar e manter a coordenação entre órgãos e entidades federais para prevenção, tratamento e resposta a incidentes cibernéticos, de modo a elevar o nível de resiliência em segurança cibernética de seus ativos.
+comentario: Certo: art. 2º. Os objetivos incluem compartilhar alertas sobre ameaças e vulnerabilidades, divulgar informações sobre ataques e dar celeridade à resposta (art. 3º).
+
+=== rfg-03
+gab: E
+ref: dec10748 3
+trecho: compartilhar alertas sobre ameaças e vulnerabilidades cibernéticas
+armadilha: conceito
+dif: 2
+enunciado: Para preservar a segurança, a Rede Federal de Gestão de Incidentes Cibernéticos veda o compartilhamento de alertas sobre vulnerabilidades entre seus participantes.
+comentario: Errado. Compartilhar alertas sobre ameaças e vulnerabilidades e divulgar informações sobre ataques são objetivos da Rede (art. 3º, II e III). Segurança coletiva depende de informação circulando entre os participantes.
+
+=== rfg-04
+gab: E
+ref: dec10748 5
+trecho: coordenará a Rede Federal de Gestão de Incidentes Cibernéticos por meio do Centro de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos de Governo
+armadilha: sujeito
+dif: 2
+enunciado: A Rede Federal de Gestão de Incidentes Cibernéticos é coordenada pela Controladoria-Geral da União, por meio de sua secretaria de transparência.
+comentario: Errado. A coordenação é do GSI, por seu Departamento de Segurança da Informação, por meio do Centro de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos de Governo (art. 5º, § 1º, e art. 10, I).
+
+=== rfg-05
+gab: C
+ref: dec10748 6
+trecho: será feita prioritariamente por meio da equipe de coordenação setorial, operada pelo Comando de Defesa Cibernética
+armadilha: sujeito
+dif: 3
+enunciado: No âmbito do Ministério da Defesa e das Forças Singulares, a articulação com o centro de resposta a incidentes do governo é feita prioritariamente pela equipe de coordenação setorial operada pelo Comando de Defesa Cibernética.
+comentario: Certo: art. 6º. Excepcionalmente, as equipes militares podem se articular diretamente com o centro, informando a coordenação setorial (§ 1º).
+
+=== rfg-06
+gab: E
+ref: dec10748 7
+trecho: que poderá recusá-la motivadamente, mesmo que tenham sido cumpridos os requisitos estabelecidos neste artigo
+armadilha: conceito
+dif: 3
+enunciado: Cumpridos os requisitos de adesão, a empresa estatal tem direito subjetivo ao ingresso na Rede Federal de Gestão de Incidentes Cibernéticos, que o GSI não pode recusar.
+comentario: Errado. A adesão depende de aprovação formal do GSI, que pode recusá-la motivadamente mesmo com os requisitos cumpridos (art. 7º, § 3º). Os requisitos são ter equipe de resposta implementada e enviar termo de adesão assinado pelo dirigente (§ 2º).
+
+=== rfg-07
+gab: C
+ref: dec10748 7
+trecho: independerá da adesão à Rede Federal de Gestão de Incidentes Cibernéticos
+armadilha: conceito
+dif: 3
+enunciado: A colaboração espontânea, caso a caso, de empresa estatal com o centro de resposta a incidentes do governo independe de sua adesão à Rede Federal de Gestão de Incidentes Cibernéticos.
+comentario: Certo: art. 7º, § 5º. A adesão formaliza a participação, mas não é condição para cooperar em um incidente específico.
+
+=== rfg-08
+gab: C
+ref: dec10748 9
+trecho: por decisão do Gabinete de Segurança Institucional da Presidência da República
+armadilha: rol
+dif: 3
+enunciado: A saída de pessoa jurídica convidada da Rede Federal de Gestão de Incidentes Cibernéticos ocorre a pedido de seu dirigente máximo ou por decisão do GSI, em caso de descumprimento dos requisitos, descumprimento do plano setorial ou conveniência administrativa.
+comentario: Certo: art. 9º, I e II, a a c.
+
+=== rfg-09
+gab: C
+ref: dec10748 10
+trecho: convocar reunião da Câmara de Relações Exteriores e Defesa Nacional do Conselho de Governo para deliberar sobre ocorrência de incidente cibernético grave
+armadilha: sujeito
+dif: 3
+enunciado: Compete ao GSI convocar reunião da Câmara de Relações Exteriores e Defesa Nacional do Conselho de Governo para deliberar sobre incidente cibernético grave ou quando identificar risco cibernético elevado.
+comentario: Certo: art. 10, II. É a mesma câmara em que o GSI institui o Comitê Gestor da Segurança da Informação (Decreto 12.572/2025, art. 6º).
+
+=== rfg-10
+gab: E
+ref: dec10748 12
+trecho: comunicar imediatamente o Centro de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos de Governo
+armadilha: numero
+dif: 2
+enunciado: Os órgãos federais devem comunicar ao centro de resposta a incidentes do governo as vulnerabilidades e os incidentes que possam impactar seus serviços no prazo de até trinta dias, após concluída a apuração interna.
+comentario: Errado. A comunicação é imediata, por meio das equipes de resposta (art. 12, IV), e as vulnerabilidades devem ser sanadas com urgência, em especial as apontadas em alertas do centro (inciso IX).
+
+=== rfg-11
+gab: C
+ref: dec10748 12
+trecho: serão estabelecidos com base na classificação de severidade que consta do processo de gestão de riscos de segurança da informação do órgão ou da entidade
+armadilha: conceito
+dif: 3
+enunciado: Os incidentes cibernéticos de maior impacto, que devem ser notificados ao centro de resposta do governo, são definidos com base na classificação de severidade do processo de gestão de riscos de segurança da informação de cada órgão.
+comentario: Certo: art. 12, § 1º. Não confunda com o incidente com dados pessoais, comunicado à ANPD e ao titular quando puder acarretar risco ou dano relevante (LGPD, art. 48): um mesmo evento pode exigir as duas comunicações.

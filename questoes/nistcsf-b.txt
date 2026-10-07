@@ -1,0 +1,194 @@
+bloco: seginfo
+// NIST Cybersecurity Framework (CSF) 2.0, parte B: as categorias que não tinham item (estratégia de riscos, papéis,
+// política, supervisão, cadeia de suprimentos, avaliação de riscos, melhoria, identidade e acesso, treinamento,
+// plataformas, resiliência, monitoramento, análise de eventos, análise e mitigação de incidentes, recuperação).
+// A armadilha mais usada é a categoria trocada de função. Trechos conferidos em fontes/nistcsf.txt.
+
+=== nist2-01
+gab: C
+ref: nistcsf GV.RM
+trecho: Risk appetite and risk tolerance statements are established, communicated, and maintained
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, o estabelecimento, a comunicação e a manutenção das declarações de apetite e de tolerância a risco integram a categoria estratégia de gestão de riscos (GV.RM), da função governar.
+comentario: Certo: GV.RM-02. A função governar define o quanto de risco a organização aceita; as demais funções executam dentro desse limite.
+
+=== nist2-02
+gab: C
+ref: nistcsf GV.SC
+trecho: Cybersecurity supply chain risk management plans include provisions for activities that occur after the conclusion of a partnership or service agreement
+armadilha: conceito
+dif: 3
+enunciado: No NIST CSF 2.0, os planos de gestão de riscos da cadeia de suprimentos devem prever as atividades posteriores ao término da parceria ou do contrato de serviço.
+comentario: Certo: GV.SC-10. Fim de contrato é momento de risco: devolução ou eliminação de dados, revogação de acessos, transição para outro fornecedor. Na LGPD, a eliminação ao fim do tratamento (art. 16) segue a mesma lógica.
+
+=== nist2-03
+gab: E
+ref: nistcsf GV.RR
+trecho: Organizational leadership is responsible and accountable for cybersecurity risk
+armadilha: sujeito
+dif: 2
+enunciado: Pelo NIST CSF 2.0, a responsabilidade pelo risco de cibersegurança é da área de tecnologia da informação, cabendo à liderança da organização apenas aprovar o orçamento.
+comentario: Errado. A liderança é responsável e presta contas pelo risco de cibersegurança e promove cultura consciente dos riscos, ética e de melhoria contínua (GV.RR-01). Recursos adequados são outro resultado da mesma categoria (GV.RR-03).
+
+=== nist2-04
+gab: E
+ref: nistcsf GV.PO
+trecho: Policy for managing cybersecurity risks is reviewed, updated, communicated, and enforced to reflect changes in requirements, threats, technology, and organizational mission
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, a política de gestão de riscos de cibersegurança, depois de aprovada, permanece estável, sem revisão periódica, para dar segurança jurídica à organização.
+comentario: Errado. A política é revista, atualizada, comunicada e aplicada para refletir mudanças em requisitos, ameaças, tecnologia e missão da organização (GV.PO-02).
+
+=== nist2-05
+gab: C
+ref: nistcsf GV.RM
+trecho: Strategic opportunities (i.e., positive risks) are characterized and are included in organizational cybersecurity risk discussions
+armadilha: conceito
+dif: 3
+enunciado: O NIST CSF 2.0 prevê que oportunidades estratégicas, isto é, riscos positivos, sejam caracterizadas e incluídas nas discussões organizacionais sobre riscos de cibersegurança.
+comentario: Certo: GV.RM-07. Mesma ideia da ISO 31000, para a qual risco é efeito da incerteza nos objetivos, positivo ou negativo.
+
+=== nist2-06
+gab: E
+ref: nistcsf ID.RA
+trecho: Processes for receiving, analyzing, and responding to vulnerability disclosures are established
+armadilha: extrapolacao
+dif: 2
+enunciado: O NIST CSF 2.0 não trata do recebimento de comunicações de vulnerabilidades feitas por terceiros, assunto deixado a cada organização.
+comentario: Errado. A avaliação de riscos (ID.RA-08) prevê processos para receber, analisar e responder a divulgações de vulnerabilidades, como as feitas por pesquisadores de segurança.
+
+=== nist2-07
+gab: C
+ref: nistcsf ID.RA
+trecho: The authenticity and integrity of hardware and software are assessed prior to acquisition and use
+armadilha: conceito
+dif: 3
+enunciado: Na avaliação de riscos do NIST CSF 2.0, a autenticidade e a integridade de hardware e software são avaliadas antes da aquisição e do uso, e os fornecedores críticos são avaliados antes da contratação.
+comentario: Certo: ID.RA-09 e ID.RA-10. É a defesa contra componentes adulterados ou falsificados na cadeia de suprimentos.
+
+=== nist2-08
+gab: E
+ref: nistcsf ID.IM
+trecho: Improvements to organizational cybersecurity risk management processes, procedures and activities are identified across all CSF Functions
+armadilha: extrapolacao
+dif: 3
+enunciado: No NIST CSF 2.0, a categoria melhoria (ID.IM) limita-se aos processos da função identificar, sem alcançar as demais funções.
+comentario: Errado. As melhorias são identificadas em todas as funções do CSF, a partir de avaliações, testes e exercícios e da execução das atividades (ID.IM-01 a 03).
+
+=== nist2-09
+gab: C
+ref: nistcsf PR.AA
+trecho: incorporate the principles of least privilege and separation of duties
+armadilha: literal
+dif: 1
+enunciado: No NIST CSF 2.0, as permissões e autorizações de acesso são definidas em política, gerenciadas, aplicadas e revistas, incorporando os princípios do menor privilégio e da segregação de funções.
+comentario: Certo: PR.AA-05, na categoria gestão de identidade, autenticação e controle de acesso, da função proteger.
+
+=== nist2-10
+gab: E
+ref: nistcsf PR.AT
+trecho: Personnel are provided with awareness and training so that they possess the knowledge and skills to perform general tasks with cybersecurity risks in mind
+armadilha: sujeito
+dif: 2
+enunciado: O NIST CSF 2.0 prevê conscientização e treinamento em cibersegurança apenas para os profissionais da área técnica de segurança.
+comentario: Errado. A conscientização alcança todo o pessoal (PR.AT-01); quem exerce funções especializadas recebe treinamento específico (PR.AT-02).
+
+=== nist2-11
+gab: C
+ref: nistcsf PR.PS
+trecho: Log records are generated and made available for continuous monitoring
+armadilha: comparacao
+dif: 3
+enunciado: No NIST CSF 2.0, a geração de registros de log e sua disponibilização para monitoramento contínuo constam da categoria segurança de plataformas, da função proteger.
+comentario: Certo: PR.PS-04. Gerar o log é proteção; monitorá-lo para achar eventos adversos é detecção (DE.CM). A divisão cai bem em item de função trocada.
+
+=== nist2-12
+gab: C
+ref: nistcsf PR.PS
+trecho: Secure software development practices are integrated, and their performance is monitored throughout the software development life cycle
+armadilha: literal
+dif: 2
+enunciado: O NIST CSF 2.0 prevê que práticas de desenvolvimento seguro de software sejam integradas e tenham seu desempenho monitorado ao longo de todo o ciclo de vida do desenvolvimento.
+comentario: Certo: PR.PS-06. É a segurança desde a concepção aplicada ao software, que conversa com o art. 46, § 2º, da LGPD.
+
+=== nist2-13
+gab: E
+ref: nistcsf PR.IR
+trecho: Technology Infrastructure Resilience (PR.IR)
+armadilha: comparacao
+dif: 3
+enunciado: No NIST CSF 2.0, a resiliência da infraestrutura tecnológica, que inclui manter capacidade adequada para assegurar a disponibilidade, é categoria da função recuperar.
+comentario: Errado. É categoria da função proteger (PR.IR): resiliência se constrói antes do incidente. A função recuperar trata da execução do plano de recuperação (RC.RP) e da comunicação (RC.CO).
+
+=== nist2-14
+gab: E
+ref: nistcsf DE.CM
+trecho: External service provider activities and services are monitored to find potentially adverse events
+armadilha: rol
+dif: 2
+enunciado: No NIST CSF 2.0, o monitoramento contínuo limita-se às redes da organização, sem alcançar o ambiente físico nem as atividades de prestadores externos de serviço.
+comentario: Errado. Monitoram-se redes, ambiente físico, atividade de pessoal, prestadores externos de serviço e hardware, software e dados (DE.CM-01, 02, 03, 06 e 09).
+
+=== nist2-15
+gab: C
+ref: nistcsf DE.AE
+trecho: Information is correlated from multiple sources
+armadilha: conceito
+dif: 1
+enunciado: Na análise de eventos adversos do NIST CSF 2.0, as informações são correlacionadas a partir de múltiplas fontes, e a inteligência de ameaças é integrada à análise.
+comentario: Certo: DE.AE-03 e DE.AE-07. É o trabalho típico de um SIEM operado por um centro de operações de segurança.
+
+=== nist2-16
+gab: E
+ref: nistcsf DE.AE
+trecho: Incidents are declared when adverse events meet the defined incident criteria
+armadilha: comparacao
+dif: 3
+enunciado: No NIST CSF 2.0, a declaração de incidente ocorre na função responder, depois da contenção do evento adverso.
+comentario: Errado. A declaração está na função detectar: incidentes são declarados quando os eventos adversos atendem aos critérios definidos (DE.AE-08). A contenção vem depois, na função responder (RS.MI-01).
+
+=== nist2-17
+gab: C
+ref: nistcsf RS.AN
+trecho: Analysis is performed to establish what has taken place during an incident and the root cause of the incident
+armadilha: literal
+dif: 2
+enunciado: Na análise de incidentes do NIST CSF 2.0, busca-se estabelecer o que ocorreu durante o incidente e qual foi sua causa raiz.
+comentario: Certo: RS.AN-03. Sem causa raiz, o mesmo incidente volta.
+
+=== nist2-18
+gab: E
+ref: nistcsf RS.MI
+trecho: Incidents are eradicated
+armadilha: comparacao
+dif: 2
+enunciado: No NIST CSF 2.0, a erradicação do incidente pertence à função recuperar.
+comentario: Errado. Contenção e erradicação são resultados da mitigação de incidentes (RS.MI-01 e 02), na função responder. Recuperar é restaurar sistemas e serviços.
+
+=== nist2-19
+gab: C
+ref: nistcsf RC.RP
+trecho: The integrity of backups and other restoration assets is verified before using them for restoration
+armadilha: conceito
+dif: 2
+enunciado: Pelo NIST CSF 2.0, a integridade das cópias de segurança e dos demais recursos de restauração deve ser verificada antes de usá-los na recuperação.
+comentario: Certo: RC.RP-03. Restaurar a partir de backup também comprometido, comum em ransomware, reinstala o problema.
+
+=== nist2-20
+gab: E
+ref: nistcsf RC.CO
+trecho: Public updates on incident recovery are shared using approved methods and messaging
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, atualizações públicas sobre a recuperação de incidentes são vedadas, para não prejudicar a investigação.
+comentario: Errado. Atualizações públicas são compartilhadas por métodos e mensagens aprovados (RC.CO-04). Comunicação controlada não é silêncio.
+
+=== nist2-21
+gab: C
+ref: nistcsf RS.AN
+trecho: Incident data and metadata are collected, and their integrity and provenance are preserved
+armadilha: conceito
+dif: 3
+enunciado: Na resposta a incidentes do NIST CSF 2.0, dados e metadados do incidente são coletados com preservação de sua integridade e proveniência, o que apoia a perícia.
+comentario: Certo: RS.AN-07. É a cadeia de custódia: sem integridade e proveniência, a evidência perde valor numa investigação.
