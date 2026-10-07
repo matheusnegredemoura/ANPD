@@ -1,0 +1,399 @@
+bloco: portugues
+// Textos originais escritos para o banco, sétima leva (cidades inteligentes e vigilância, consentimento nos termos de
+// uso, confiança nas agências reguladoras), com foco em voz passiva sintética, sujeito oracional, regência, crase,
+// colocação pronominal, pronome demonstrativo "o", conectivos e interpretação.
+
+apoio_PT10A: As cidades brasileiras começam a se encher de sensores. Câmeras leem placas de veículos, semáforos ajustam o tempo de acordo com o fluxo e aplicativos de transporte informam, minuto a minuto, onde estão os ônibus. Prometem-se ruas mais seguras, trânsito mais fluido e serviços públicos planejados com base em evidências, e não em palpites.
+Os mesmos dados que tornam a cidade mais eficiente, contudo, podem torná-la mais vigiada. Um registro de placas guardado por anos revela onde cada motorista mora, trabalha e passa as noites de sábado. Quem controla essas informações, por quanto tempo as conserva e com quem as compartilha são perguntas que raramente aparecem nos editais de compra dos equipamentos.
+Não se trata de recusar a tecnologia, mas de discutir as regras antes de instalá-la. Uma cidade só é de fato inteligente quando os moradores sabem o que se coleta sobre eles e têm a quem recorrer se algo der errado.
+apoio_PT10B: Quase ninguém lê os termos de uso antes de clicar em "aceito". Não é preguiça: estima-se que ler todas as políticas de privacidade com que uma pessoa se depara em um ano tomaria semanas de trabalho. O resultado é um consentimento que existe no papel, mas não na prática.
+A lei brasileira tenta corrigir essa distorção ao exigir que o consentimento seja livre, informado e inequívoco, e que as autorizações genéricas sejam consideradas nulas. A exigência é correta, mas esbarra num limite: informação em excesso também desinforma. Um texto de quarenta páginas, ainda que completo, protege menos o usuário do que um resumo honesto de uma página.
+Por isso, muitos especialistas defendem que o peso da proteção não recaia apenas sobre o indivíduo. Se o consentimento não basta, cabe às empresas tratar somente os dados de que precisam e aos reguladores verificar se o fazem.
+apoio_PT10C: A confiança numa agência reguladora não se decreta; constrói-se aos poucos, decisão após decisão. Empresas investem quando acreditam que as regras não mudarão ao sabor de conveniências políticas, e consumidores aceitam a mediação de um órgão técnico quando percebem que ele não serve apenas a quem regula.
+Daí a importância dos mandatos fixos dos dirigentes, da transparência das reuniões e da motivação das decisões. Nenhum desses mecanismos, isoladamente, impede que a agência erre. Juntos, porém, tornam os erros visíveis e corrigíveis, o que já é muito.
+A independência, no entanto, não deve ser confundida com isolamento. Uma agência que não presta contas ao Parlamento, não ouve a sociedade e não explica o que faz tende a perder justamente aquilo que a independência deveria proteger: a credibilidade.
+
+=== pt10-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT10A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto apresenta como benefícios prometidos pelos sensores urbanos ruas mais seguras, trânsito mais fluido e serviços públicos planejados com base em evidências.
+comentario: Certo. É o último período do primeiro parágrafo. O segundo parágrafo traz a contrapartida: os mesmos dados podem tornar a cidade mais vigiada.
+
+=== pt10-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT10A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O autor defende que as cidades recusem a adoção de sensores e câmeras, em razão dos riscos de vigilância.
+comentario: Errado. “Não se trata de recusar a tecnologia, mas de discutir as regras antes de instalá-la.”
+
+=== pt10-03
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT10A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: Em “Prometem-se ruas mais seguras, trânsito mais fluido e serviços públicos planejados”, o “se” é partícula apassivadora, e a forma verbal está no plural em concordância com o sujeito composto posposto.
+comentario: Certo. Prometer é transitivo direto: ruas, trânsito e serviços são prometidos. Na voz passiva sintética, o verbo concorda com o sujeito.
+
+=== pt10-04
+gab: E
+tema: pt-concordancia
+ref: texto
+apoio: @PT10A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: A forma verbal “Prometem-se” poderia ser flexionada no singular — Promete-se —, sem prejuízo da correção gramatical, por se tratar de índice de indeterminação do sujeito.
+comentario: Errado. O “se” é partícula apassivadora (prometer é transitivo direto), e há sujeito. Mesmo concordando com o núcleo mais próximo, “ruas”, o verbo iria para o plural.
+
+=== pt10-05
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT10A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No segundo parágrafo, o vocábulo “contudo” poderia ser substituído por no entanto, sem prejuízo do sentido do texto.
+comentario: Certo. Ambos são adversativos e marcam a virada do texto: a eficiência tem um custo de vigilância.
+
+=== pt10-06
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT10A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No segundo parágrafo, o pronome “la”, em “torná-la mais vigiada”, retoma “a cidade”.
+comentario: Certo. Os mesmos dados que tornam a cidade eficiente podem torná-la vigiada.
+
+=== pt10-07
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT10A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, o pronome “as”, em “por quanto tempo as conserva”, retoma “noites de sábado”.
+comentario: Errado. Retoma “essas informações”, como o “as” de “com quem as compartilha”: quem controla as informações, por quanto tempo as conserva e com quem as compartilha.
+
+=== pt10-08
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT10A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: No segundo parágrafo, as orações iniciadas por “Quem controla”, “por quanto tempo” e “com quem” exercem, em conjunto, a função de sujeito da forma verbal “são”.
+comentario: Certo. As três interrogativas indiretas são o sujeito; “perguntas” é o predicativo. O plural se explica pela pluralidade de orações e pelo predicativo no plural.
+
+=== pt10-09
+gab: E
+tema: pt-crase
+ref: texto
+apoio: @PT10A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, o “a” da expressão “minuto a minuto” deveria receber o acento grave, por integrar locução adverbial.
+comentario: Errado. Em expressões formadas por palavras repetidas (minuto a minuto, dia a dia, frente a frente), o “a” é só preposição, e não há crase.
+
+=== pt10-10
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT10A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Para o autor, uma cidade só é de fato inteligente quando os moradores sabem o que se coleta sobre eles e têm a quem recorrer se algo der errado.
+comentario: Certo. É a tese do último período: transparência e canal de reclamação, e não apenas tecnologia.
+
+=== pt10-11
+gab: E
+tema: pt-regencia
+ref: texto
+apoio: @PT10A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No último período, a preposição “a”, em “têm a quem recorrer”, poderia ser suprimida sem prejuízo da correção gramatical.
+comentario: Errado. Recorre-se a alguém: a preposição é exigida pelo verbo recorrer.
+
+=== pt10-12
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT10B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, quase ninguém lê os termos de uso não por preguiça, mas pelo tempo que a leitura de todas as políticas de privacidade exigiria.
+comentario: Certo. “Não é preguiça: estima-se que ler todas as políticas [...] tomaria semanas de trabalho.”
+
+=== pt10-13
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT10B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O autor sustenta que o consentimento, tal como praticado nos termos de uso, é efetivo tanto no papel quanto na prática.
+comentario: Errado. “O resultado é um consentimento que existe no papel, mas não na prática.”
+
+=== pt10-14
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT10B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: Em “estima-se que ler todas as políticas de privacidade [...] tomaria semanas de trabalho”, o “se” é partícula apassivadora, e a oração introduzida por “que” exerce a função de sujeito de “estima-se”.
+comentario: Certo. Estimar é transitivo direto: algo é estimado. O sujeito é oracional (oração subordinada substantiva subjetiva), e o verbo fica no singular.
+
+=== pt10-15
+gab: E
+tema: pt-regencia
+ref: texto
+apoio: @PT10B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: Em “com que uma pessoa se depara”, a preposição “com” poderia ser suprimida, sem prejuízo da correção gramatical, porque o verbo deparar-se não exige complemento preposicionado.
+comentario: Errado. Quem se depara se depara com algo: a pessoa se depara com as políticas. A preposição antecede o relativo “que” por exigência do verbo.
+
+=== pt10-16
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT10B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No segundo parágrafo, a expressão “essa distorção” retoma a situação de um consentimento que existe no papel, mas não na prática.
+comentario: Certo. A lei tenta corrigir exatamente o descompasso descrito no fim do primeiro parágrafo.
+
+=== pt10-17
+gab: E
+tema: pt-concordancia
+ref: texto
+apoio: @PT10B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No segundo parágrafo, a locução verbal “sejam consideradas” concorda com “A lei brasileira”.
+comentario: Errado. Concorda com “as autorizações genéricas”, sujeito da oração: as autorizações genéricas sejam consideradas nulas (LGPD, art. 8º, § 4º).
+
+=== pt10-18
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT10B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No segundo parágrafo, a locução “ainda que”, em “ainda que completo”, tem valor concessivo e poderia ser substituída por mesmo que.
+comentario: Certo. Mesmo completo, o texto longo protege menos que um bom resumo.
+
+=== pt10-19
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT10B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Para o autor, um texto de quarenta páginas, por ser completo, protege mais o usuário do que um resumo de uma página.
+comentario: Errado. O texto afirma o contrário: “informação em excesso também desinforma”, e o resumo honesto protege mais.
+
+=== pt10-20
+gab: C
+tema: pt-verbos
+ref: texto
+apoio: @PT10B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No último parágrafo, a forma verbal “recaia” está no presente do subjuntivo, modo adequado à oração que exprime o que os especialistas defendem.
+comentario: Certo. Verbos de vontade ou defesa de tese (defender que, querer que) pedem o subjuntivo na oração subordinada.
+
+=== pt10-21
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT10B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: No último período, o pronome “o”, em “se o fazem”, retoma “o indivíduo”.
+comentario: Errado. É pronome demonstrativo, equivalente a isso, e retoma a ação de “tratar somente os dados de que precisam”: cabe aos reguladores verificar se as empresas fazem isso.
+
+=== pt10-22
+gab: C
+tema: pt-regencia
+ref: texto
+apoio: @PT10B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No último período, a preposição “de”, em “os dados de que precisam”, é exigida pela regência do verbo precisar.
+comentario: Certo. Quem precisa precisa de algo: as empresas precisam dos dados.
+
+=== pt10-23
+gab: E
+tema: pt-pontuacao
+ref: texto
+apoio: @PT10B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No último período, a vírgula após “Se o consentimento não basta” deveria ser suprimida, pois oração subordinada adverbial anteposta à principal não admite vírgula.
+comentario: Errado. Anteposta, a oração adverbial costuma vir separada por vírgula; a pontuação está correta.
+
+=== pt10-24
+gab: C
+tema: pt-colocacao
+ref: texto
+apoio: @PT10C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro período, a próclise em “não se decreta” justifica-se pela presença do advérbio de negação, e a ênclise em “constrói-se” decorre da ausência de palavra atrativa.
+comentario: Certo. “Não” atrai o pronome; depois do ponto e vírgula, a oração começa pelo verbo, e a norma-padrão prefere a ênclise.
+
+=== pt10-25
+gab: C
+tema: pt-reescrita
+ref: texto
+apoio: @PT10C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro período, a correção gramatical e a relação de oposição seriam mantidas caso o ponto e vírgula fosse substituído por vírgula seguida de mas, escrevendo-se não se decreta, mas constrói-se aos poucos.
+comentario: Certo. O ponto e vírgula já sugere o contraste (não se decreta; constrói-se); o “mas” o explicita. Depois de “mas”, a ênclise continua admitida.
+
+=== pt10-26
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT10C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, os mandatos fixos, a transparência das reuniões e a motivação das decisões, cada um isoladamente, impedem que a agência erre.
+comentario: Errado. “Nenhum desses mecanismos, isoladamente, impede que a agência erre.” Juntos, tornam os erros visíveis e corrigíveis.
+
+=== pt10-27
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT10C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, a expressão “o que”, em “o que já é muito”, retoma a ideia de que os mecanismos, em conjunto, tornam os erros visíveis e corrigíveis.
+comentario: Certo. Tornar os erros visíveis e corrigíveis já é muito, ainda que não impeça que eles ocorram.
+
+=== pt10-28
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT10C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No segundo parágrafo, o vocábulo “porém”, em “Juntos, porém, tornam”, poderia ser substituído por portanto, sem prejuízo do sentido do texto.
+comentario: Errado. “Porém” é adversativo e contrapõe a insuficiência de cada mecanismo isolado à força deles em conjunto. “Portanto” é conclusivo.
+
+=== pt10-29
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT10C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: O autor distingue independência de isolamento e associa a falta de prestação de contas e de diálogo com a sociedade à perda de credibilidade da agência.
+comentario: Certo. É o último parágrafo: a agência isolada perde o que a independência deveria proteger, a credibilidade.
+
+=== pt10-30
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT10C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, o pronome “ele”, em “quando percebem que ele não serve apenas a quem regula”, retoma “consumidores”.
+comentario: Errado. Retoma “um órgão técnico”: os consumidores aceitam a mediação quando percebem que o órgão não serve só aos regulados.
+
+=== pt10-31
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT10C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No último período, os dois-pontos introduzem a especificação de “aquilo que a independência deveria proteger”.
+comentario: Certo. O que a independência deveria proteger é a credibilidade, palavra que fecha o texto.
+
+=== pt10-32
+gab: E
+tema: pt-crase
+ref: texto
+apoio: @PT10C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No último parágrafo, caso a expressão “ao Parlamento” fosse substituída por a Câmara dos Deputados, a correção gramatical seria mantida sem o emprego do acento grave.
+comentario: Errado. Presta-se contas a alguém, e “Câmara” admite artigo feminino: presta contas à Câmara dos Deputados, com crase obrigatória.
+
+=== pt10-33
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT10C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No último período, o sujeito da forma verbal “tende” é “Uma agência que não presta contas ao Parlamento, não ouve a sociedade e não explica o que faz”.
+comentario: Certo. O núcleo é “agência”, e as orações adjetivas restritivas o especificam. “Tende a perder” indica tendência.
+
+=== pt10-34
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT10C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 1
+enunciado: Infere-se do texto que as empresas investem mais quando as regras podem mudar conforme as conveniências políticas do momento.
+comentario: Errado. O texto diz o oposto: empresas investem quando acreditam que as regras não mudarão ao sabor de conveniências políticas.
+
+=== pt10-35
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT10C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, a expressão “ao sabor de” indica oposição, com sentido equivalente a contra.
+comentario: Errado. “Ao sabor de” significa conforme, segundo a vontade de: regras que mudam ao sabor de conveniências mudam conforme essas conveniências.
