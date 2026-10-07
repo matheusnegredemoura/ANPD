@@ -1,0 +1,367 @@
+// Casos práticos de regulação: processo normativo de uma agência (Lei nº 13.848/2019, arts. 4º a 10), vaga no
+// colegiado com vedações e quarentena (Lei nº 9.986/2000, arts. 5º a 10) e autonomia e controle (Lei nº 13.848/2019,
+// arts. 3º, 14 e 15). Itens escritos para o banco; trechos conferidos em fontes/lei13848.txt e fontes/lei9986.txt.
+
+apoio_NORMA: O Conselho Diretor de uma agência reguladora federal, composto de cinco membros, examina proposta de resolução que obriga as empresas do setor a manter atendimento presencial em todos os municípios com mais de vinte mil habitantes. O relatório de Análise de Impacto Regulatório (AIR) estimou custos elevados para as empresas de pequeno porte. Em reunião deliberativa cuja pauta foi divulgada no sítio da agência dois dias úteis antes, três diretores votaram pela continuidade do procedimento, e a agência pretende submeter a minuta a consulta pública por trinta dias. Na mesma reunião, o diretor-presidente pediu a inclusão de tema que não constava da pauta, sem alegar urgência.
+apoio_VAGA: O mandato de um diretor de agência reguladora federal terminou em março, e o Presidente da República ainda não indicou sucessor. Para a vaga, são cogitados um deputado federal licenciado e o ex-coordenador de uma campanha eleitoral encerrada dezoito meses antes. O diretor que deixou o cargo recebeu convite para trabalhar, a partir do mês seguinte, numa empresa do setor regulado. Outro diretor passou a dar aulas numa universidade privada, em horário compatível com o do cargo, e aceitou elaborar, mediante pagamento, parecer para uma empresa sobre matéria de sua especialização.
+apoio_AUTONOMIA: Uma agência reguladora federal pretende realizar concurso público e prorrogar o contrato de vigilância de sua sede. No fim do exercício, apresentará relatório anual de atividades. Um parlamentar sustenta que o ministério setorial pode rever, em grau de recurso, as decisões regulatórias da agência, por ser ela vinculada a esse ministério.
+
+=== rgc-01
+gab: E
+bloco: lei-13848
+ref: lei13848 8
+trecho: com antecedência mínima de 3 (três) dias úteis
+apoio: @NORMA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: numero
+dif: 1
+enunciado: A divulgação da pauta da reunião deliberativa observou a antecedência mínima exigida pela lei.
+comentario: Errado. Art. 8º, § 1º: a pauta deve ser divulgada no sítio da agência com antecedência mínima de três dias úteis. Dois dias úteis não bastam.
+
+=== rgc-02
+gab: E
+bloco: lei-13848
+ref: lei13848 8
+trecho: Somente poderá ser deliberada matéria que conste da pauta de reunião divulgada na forma do § 1º
+apoio: @NORMA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: O tema incluído a pedido do diretor-presidente pode ser deliberado na mesma reunião, já que cabe a ele presidir as sessões do colegiado.
+comentario: Errado. Art. 8º, § 2º: só pode ser deliberada matéria que conste da pauta divulgada. A exceção do § 5º exige matéria urgente e relevante, e o caso diz que não se alegou urgência.
+
+=== rgc-03
+gab: C
+bloco: lei-13848
+ref: lei13848 8
+trecho: Não se aplica o disposto nos §§ 1º e 2º deste artigo às matérias urgentes e relevantes, a critério do presidente, diretor-presidente ou diretor-geral
+apoio: @NORMA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: excecao
+dif: 2
+enunciado: Se a matéria fosse urgente e relevante, a critério do diretor-presidente, e não pudesse aguardar os prazos legais, poderia ser deliberada sem constar previamente da pauta.
+comentario: Art. 8º, § 5º: a antecedência da pauta e a vedação de deliberar fora dela não se aplicam às matérias urgentes e relevantes, a critério do presidente, cuja deliberação não possa submeter-se aos prazos.
+
+=== rgc-04
+gab: C
+bloco: lei-13848
+ref: lei13848 7
+trecho: deliberará por maioria absoluta dos votos de seus membros
+apoio: @NORMA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: numero
+dif: 1
+enunciado: A decisão tomada por três dos cinco diretores atende à exigência legal de maioria absoluta dos votos dos membros do colegiado.
+comentario: Art. 7º, § 1º. Maioria absoluta é mais da metade dos membros do colegiado, e não dos presentes: com cinco membros, três votos.
+
+=== rgc-05
+gab: E
+bloco: lei-13848
+ref: lei13848 9
+trecho: terá duração mínima de 45 (quarenta e cinco) dias
+apoio: @NORMA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: numero
+dif: 1
+enunciado: A consulta pública pode durar trinta dias, que é o prazo mínimo fixado na Lei n.º 13.848/2019.
+comentario: Errado. Art. 9º, § 2º: duração mínima de 45 dias, salvo prazo diferente em legislação específica, acordo ou tratado, ou caso excepcional de urgência e relevância, devidamente motivado.
+
+=== rgc-06
+gab: C
+bloco: lei-13848
+ref: lei13848 9
+trecho: quando do início da consulta pública, o relatório de AIR, os estudos, os dados e o material técnico usados como fundamento para as propostas submetidas a consulta pública, ressalvados aqueles de caráter sigiloso
+apoio: @NORMA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 1
+enunciado: Ao iniciar a consulta pública, a agência deverá disponibilizar o relatório de AIR e os estudos, os dados e o material técnico que fundamentaram a proposta, ressalvados os de caráter sigiloso.
+comentario: Art. 9º, § 3º. Sem esses documentos, os interessados não teriam como criticar a proposta com base nos mesmos dados da agência.
+
+=== rgc-07
+gab: C
+bloco: lei-13848
+ref: lei13848 6
+trecho: O conselho diretor ou a diretoria colegiada manifestar-se-á, em relação ao relatório de AIR, sobre a adequação da proposta de ato normativo aos objetivos pretendidos
+apoio: @NORMA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Cabe ao Conselho Diretor manifestar-se sobre o relatório de AIR, indicando se os impactos estimados recomendam a adoção da proposta e, quando for o caso, quais complementos são necessários.
+comentario: Art. 6º, § 3º. Essa manifestação integra, com o relatório, a documentação da consulta pública, se o colegiado decidir pela continuidade (§ 4º).
+
+=== rgc-08
+gab: E
+bloco: lei-13848
+ref: lei13848 6
+trecho: indicando se os impactos estimados recomendam sua adoção, e, quando for o caso, quais os complementos necessários
+apoio: @NORMA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Por ter o relatório de AIR estimado custos elevados, a agência fica impedida de prosseguir com a proposta, pois a conclusão da AIR vincula o colegiado.
+comentario: Errado. A AIR informa a decisão; quem decide é o colegiado, que se manifesta sobre o relatório e pode indicar complementos à proposta (art. 6º, § 3º). Custos elevados podem levar, por exemplo, a tratamento diferenciado para empresas pequenas.
+
+=== rgc-09
+gab: C
+bloco: lei-13848
+ref: lei13848 4
+trecho: vedada a imposição de obrigações, restrições e sanções em medida superior àquela necessária ao atendimento do interesse público
+apoio: @NORMA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Impor a todas as empresas obrigação mais onerosa do que a necessária ao atendimento do interesse público contraria o dever de adequação entre meios e fins.
+comentario: Art. 4º. É a proporcionalidade aplicada à regulação; a AIR é o instrumento que permite verificar se a obrigação excede o necessário.
+
+=== rgc-10
+gab: E
+bloco: lei-13848
+ref: lei13848 9
+trecho: O posicionamento da agência reguladora sobre as críticas ou as contribuições apresentadas no processo de consulta pública deverá ser disponibilizado
+apoio: @NORMA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 1
+enunciado: Encerrada a consulta pública, a agência não precisa manifestar-se sobre as contribuições recebidas, bastando divulgá-las.
+comentario: Errado. Art. 9º: as contribuições são divulgadas em até 10 dias úteis após o fim da consulta (§ 4º), e o posicionamento da agência sobre elas, em até 30 dias úteis após a reunião de deliberação final (§ 5º).
+
+=== rgc-11
+gab: C
+bloco: lei-13848
+ref: lei13848 8
+trecho: A gravação de cada reunião deliberativa deve ser disponibilizada aos interessados na sede da agência e no respectivo sítio na internet em até 15 (quinze) dias úteis após o encerramento da reunião
+apoio: @NORMA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: numero
+dif: 1
+enunciado: A gravação da reunião deliberativa deve ser disponibilizada na sede e no sítio da agência em até quinze dias úteis após o encerramento da reunião.
+comentario: Art. 8º, § 3º. Não confundir com a ata, disponibilizada em até cinco dias úteis após sua aprovação (§ 4º).
+
+=== rgc-12
+gab: E
+bloco: lei-13848
+ref: lei13848 10
+trecho: por decisão colegiada, poderá convocar audiência pública para formação de juízo e tomada de decisão sobre matéria considerada relevante
+apoio: @NORMA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: comparacao
+dif: 2
+enunciado: Além da consulta pública, a agência está obrigada a realizar audiência pública antes de editar a resolução.
+comentario: Errado. A consulta pública é obrigatória para minutas de atos normativos de interesse geral (art. 9º). A audiência pública é facultativa: a agência “poderá” convocá-la, por decisão colegiada, sobre matéria relevante (art. 10).
+
+=== rgc-13
+gab: E
+bloco: lei-13848
+ref: lei9986 8-A
+trecho: titular de mandato no Poder Legislativo de qualquer ente da federação, ainda que licenciados dos cargos
+apoio: @VAGA
+comando: Com base nessa situação hipotética e na Lei n.º 9.986/2000, com as alterações da Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: excecao
+dif: 1
+enunciado: A indicação do deputado federal é admitida, porque ele está licenciado do mandato.
+comentario: Errado. Art. 8º-A, I: a vedação alcança o titular de mandato no Poder Legislativo de qualquer ente, “ainda que licenciados dos cargos”.
+
+=== rgc-14
+gab: C
+bloco: lei-13848
+ref: lei9986 8-A
+trecho: nos últimos 36 (trinta e seis) meses, como participante de estrutura decisória de partido político ou em trabalho vinculado a organização, estruturação e realização de campanha eleitoral
+apoio: @VAGA
+comando: Com base nessa situação hipotética e na Lei n.º 9.986/2000, com as alterações da Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: A indicação do ex-coordenador de campanha é vedada, porque ele atuou em trabalho vinculado à realização de campanha eleitoral nos últimos trinta e seis meses.
+comentario: Art. 8º-A, II. Dezoito meses estão dentro da janela de 36 meses.
+
+=== rgc-15
+gab: E
+bloco: lei-13848
+ref: lei9986 8
+trecho: por período de 6 (seis) meses, contados da exoneração ou do término de seu mandato, assegurada a remuneração compensatória
+apoio: @VAGA
+comando: Com base nessa situação hipotética e na Lei n.º 9.986/2000, com as alterações da Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: numero
+dif: 1
+enunciado: O ex-diretor pode assumir o emprego na empresa do setor regulado no mês seguinte ao término do mandato, desde que renuncie à remuneração compensatória.
+comentario: Errado. Art. 8º: o impedimento de atuar no setor regulado dura seis meses, contados da exoneração ou do término do mandato. Renunciar à remuneração compensatória não encurta a quarentena.
+
+=== rgc-16
+gab: C
+bloco: lei-13848
+ref: lei9986 8
+trecho: Incorre na prática de crime de advocacia administrativa
+apoio: @VAGA
+comando: Com base nessa situação hipotética e na Lei n.º 9.986/2000, com as alterações da Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 1
+enunciado: O ex-dirigente que violar o impedimento incorre na prática de crime de advocacia administrativa, sem prejuízo das demais sanções administrativas e civis.
+comentario: Art. 8º, § 4º. A quarentena tem sanção penal, além das administrativas e civis, porque o risco é o uso de informação privilegiada.
+
+=== rgc-17
+gab: C
+bloco: lei-13848
+ref: lei9986 8-B
+trecho: ressalvado o exercício do magistério, havendo compatibilidade de horários
+apoio: @VAGA
+comando: Com base nessa situação hipotética e na Lei n.º 9.986/2000, com as alterações da Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: excecao
+dif: 1
+enunciado: O exercício do magistério pelo diretor é permitido, havendo compatibilidade de horários.
+comentario: Art. 8º-B, II: é vedado exercer outra atividade profissional, ressalvado o magistério com compatibilidade de horários.
+
+=== rgc-18
+gab: E
+bloco: lei-13848
+ref: lei9986 8-B
+trecho: emitir parecer sobre matéria de sua especialização, ainda que em tese, ou atuar como consultor de qualquer tipo de empresa
+apoio: @VAGA
+comando: Com base nessa situação hipotética e na Lei n.º 9.986/2000, com as alterações da Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 1
+enunciado: A elaboração do parecer é lícita, por se tratar de matéria da especialização do diretor e de atividade remunerada ajustada com a empresa.
+comentario: Errado. Art. 8º-B, IV: é vedado ao dirigente emitir parecer sobre matéria de sua especialização, ainda que em tese, ou atuar como consultor de qualquer tipo de empresa.
+
+=== rgc-19
+gab: C
+bloco: lei-13848
+ref: lei9986 9
+trecho: por infringência de quaisquer das vedações previstas no art. 8º-B desta Lei
+apoio: @VAGA
+comando: Com base nessa situação hipotética e na Lei n.º 9.986/2000, com as alterações da Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: A violação da vedação de emitir parecer sobre matéria de sua especialização é causa de perda do mandato.
+comentario: Art. 9º, III. As outras causas são renúncia e condenação judicial transitada em julgado ou em processo administrativo disciplinar.
+
+=== rgc-20
+gab: C
+bloco: lei-13848
+ref: lei9986 10
+trecho: exercerá o cargo vago um integrante da lista de substituição
+apoio: @VAGA
+comando: Com base nessa situação hipotética e na Lei n.º 9.986/2000, com as alterações da Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 1
+enunciado: Enquanto não for nomeado o novo titular, o cargo vago será exercido por integrante da lista de substituição.
+comentario: Art. 10. A lista tem três servidores da agência (superintendentes, gerentes-gerais ou equivalentes), designados pelo Presidente da República entre os indicados pelo colegiado.
+
+=== rgc-21
+gab: E
+bloco: lei-13848
+ref: lei9986 10
+trecho: O mesmo substituto não exercerá interinamente o cargo por mais de 180 (cento e oitenta) dias contínuos
+apoio: @VAGA
+comando: Com base nessa situação hipotética e na Lei n.º 9.986/2000, com as alterações da Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: numero
+dif: 2
+enunciado: O mesmo substituto pode exercer interinamente o cargo durante todo o período da vacância, qualquer que seja sua duração.
+comentario: Errado. Art. 10, § 7º: o mesmo substituto não exerce o cargo por mais de 180 dias contínuos; depois disso, convoca-se o seguinte da lista.
+
+=== rgc-22
+gab: C
+bloco: lei-13848
+ref: lei9986 5
+trecho: O início da fluência do prazo do mandato dar-se-á imediatamente após o término do mandato anterior, independentemente da data de indicação, aprovação ou posse do membro do colegiado
+apoio: @VAGA
+comando: Com base nessa situação hipotética e na Lei n.º 9.986/2000, com as alterações da Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: O prazo do mandato do novo diretor começará a correr imediatamente após o término do mandato anterior, independentemente da data de indicação, aprovação ou posse.
+comentario: Art. 5º, § 8º. A demora na nomeação consome o mandato do sucessor; é a forma de manter a não coincidência dos mandatos.
+
+=== rgc-23
+gab: E
+bloco: lei-13848
+ref: lei9986 6
+trecho: será de 5 (cinco) anos, vedada a recondução
+apoio: @VAGA
+comando: Com base nessa situação hipotética e na Lei n.º 9.986/2000, com as alterações da Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: numero
+dif: 1
+enunciado: O novo diretor terá mandato de cinco anos, admitida uma recondução.
+comentario: Errado. Art. 6º: cinco anos, vedada a recondução, ressalvada a hipótese do art. 5º, § 7º (sucessor que completa mandato remanescente igual ou inferior a dois anos).
+
+=== rgc-24
+gab: E
+bloco: lei-13848
+ref: lei9986 8-A
+trecho: estende-se também aos parentes consanguíneos ou afins até o terceiro grau das pessoas nele mencionadas
+apoio: @VAGA
+comando: Com base nessa situação hipotética e na Lei n.º 9.986/2000, com as alterações da Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: excecao
+dif: 2
+enunciado: A vedação de indicar ministro de Estado para o colegiado não alcança os parentes do ministro.
+comentario: Errado. Art. 8º-A, parágrafo único: a vedação do inciso I estende-se aos parentes consanguíneos ou afins até o terceiro grau.
+
+=== rgc-25
+gab: C
+bloco: lei-13848
+ref: lei13848 3
+trecho: autorização para a realização de concursos públicos
+apoio: @AUTONOMIA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Integra a autonomia administrativa da agência a competência para solicitar diretamente autorização para a realização de concurso público, sem intermediação do ministério setorial.
+comentario: Art. 3º, § 2º, I, “a”: a agência solicita diretamente a autorização ao ministério responsável pela gestão (o texto da lei ainda fala em Ministério da Economia, da estrutura de 2019).
+
+=== rgc-26
+gab: C
+bloco: lei-13848
+ref: lei13848 3
+trecho: celebrar contratos administrativos e prorrogar contratos em vigor relativos a atividades de custeio, independentemente do valor
+apoio: @AUTONOMIA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 1
+enunciado: Prorrogar o contrato de vigilância, atividade de custeio, insere-se na autonomia administrativa da agência, independentemente do valor.
+comentario: Art. 3º, § 2º, III. Custeio é a despesa de manutenção da máquina (vigilância, limpeza, energia), e a lei dispensa limite de valor.
+
+=== rgc-27
+gab: E
+bloco: lei-13848
+ref: lei13848 3
+trecho: caracterizada pela ausência de tutela ou de subordinação hierárquica
+apoio: @AUTONOMIA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: A tese do parlamentar é compatível com a Lei n.º 13.848/2019, pois a vinculação ao ministério setorial submete a agência à tutela e à revisão hierárquica de suas decisões.
+comentario: Errado. Art. 3º: a natureza especial da agência caracteriza-se pela ausência de tutela ou de subordinação hierárquica e pela autonomia decisória. Vinculação não é subordinação.
+
+=== rgc-28
+gab: E
+bloco: lei-13848
+ref: lei13848 14
+trecho: O controle externo das agências reguladoras será exercido pelo Congresso Nacional, com auxílio do Tribunal de Contas da União
+apoio: @AUTONOMIA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: sujeito
+dif: 1
+enunciado: O controle externo da agência é exercido pelo Tribunal de Contas da União, com auxílio do Congresso Nacional.
+comentario: Errado. Art. 14: o titular do controle externo é o Congresso Nacional, com auxílio do TCU, como no art. 71 da Constituição.
+
+=== rgc-29
+gab: C
+bloco: lei-13848
+ref: lei13848 15
+trecho: no qual destacará o cumprimento da política do setor, definida pelos Poderes Legislativo e Executivo, e o cumprimento dos seguintes planos
+apoio: @AUTONOMIA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 1
+enunciado: No relatório anual, a agência destacará o cumprimento da política do setor e o dos planos estratégico e de gestão anual.
+comentario: Art. 15, I e II. O relatório é circunstanciado e serve ao controle externo e social.
+
+=== rgc-30
+gab: C
+bloco: lei-13848
+ref: lei13848 3
+trecho: As agências reguladoras devem adotar práticas de gestão de riscos e de controle interno e elaborar e divulgar programa de integridade
+apoio: @AUTONOMIA
+comando: Com base nessa situação hipotética e na Lei n.º 13.848/2019, julgue os itens a seguir.
+armadilha: caso
+dif: 1
+enunciado: A agência deve adotar práticas de gestão de riscos e de controle interno e elaborar e divulgar programa de integridade.
+comentario: Art. 3º, § 3º: o programa visa à prevenção, à detecção, à punição e à remediação de fraudes e atos de corrupção.

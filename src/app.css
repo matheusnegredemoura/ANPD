@@ -24,6 +24,8 @@
   --calor-3:#1f8a80;
   --calor-4:#0b5a55;
   --sombra:0 1px 2px rgba(19,33,29,.06),0 6px 20px rgba(19,33,29,.06);
+  /* Atividades do relógio de estudo: quatro tons validados para daltonismo; sempre acompanhados de rótulo */
+  --at-q:#2a78d6; --at-c:#eb6834; --at-l:#1baf7a; --at-d:#eda100;
   --f-titulo:'Newsreader',Georgia,'Times New Roman',serif;
   --f-corpo:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',sans-serif;
   --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
@@ -38,6 +40,7 @@
     --certo:#72cf98; --certo-bg:#14321f; --errado:#f08a77; --errado-bg:#3d1d17; --mark:#5a4512;
     --calor-0:#1c2925; --calor-1:#1d4a43; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
     --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+    --at-q:#3987e5; --at-c:#d95926; --at-l:#199e70; --at-d:#c98500;
     color-scheme:dark;
   }
 }
@@ -47,6 +50,7 @@
   --certo:#72cf98; --certo-bg:#14321f; --errado:#f08a77; --errado-bg:#3d1d17; --mark:#5a4512;
   --calor-0:#1c2925; --calor-1:#1d4a43; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
   --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+    --at-q:#3987e5; --at-c:#d95926; --at-l:#199e70; --at-d:#c98500;
   color-scheme:dark;
 }
 /* Tema escolhido no app (botão de lua no topo ou Mais → Ajustes): vem depois e prevalece sobre o do aparelho e o do claude.ai */
@@ -56,10 +60,12 @@
   --certo:#72cf98; --certo-bg:#14321f; --errado:#f08a77; --errado-bg:#3d1d17; --mark:#5a4512;
   --calor-0:#1c2925; --calor-1:#1d4a43; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
   --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+    --at-q:#3987e5; --at-c:#d95926; --at-l:#199e70; --at-d:#c98500;
   color-scheme:dark;
 }
 :root[data-tema="claro"]{
   --bg:#edf1ee; --surface:#ffffff; --surface-2:#e1e8e4; --ink:#13211d; --ink-2:#4b5f57; --ink-3:#6f8179; --line:#c6d1cb; --accent:#0c6b66; --accent-2:#d6ebe7; --accent-ink:#ffffff; --gold:#94600a; --gold-bg:#f4e6c7; --certo:#1f7445; --certo-bg:#dcefe3; --errado:#ad3726; --errado-bg:#f7dfda; --mark:#fbe3a6; --calor-0:#dfe7e3; --calor-1:#a9d6cd; --calor-2:#5fb3a6; --calor-3:#1f8a80; --calor-4:#0b5a55; --sombra:0 1px 2px rgba(19,33,29,.06),0 6px 20px rgba(19,33,29,.06);
+  --at-q:#2a78d6; --at-c:#eb6834; --at-l:#1baf7a; --at-d:#eda100;
   color-scheme:light;
 }
 
@@ -536,3 +542,23 @@ button.dom-linha{appearance:none;border:0;background:none;width:100%;padding:0;t
 .linkish::after,.link-ext::after{content:"";position:absolute;inset:-10px -6px}
 .area-texto,input[type=number],input[type=text],input[type=search],textarea,select{font-size:16px}
 }
+
+/* Relógio de estudo do dia */
+.tempo-topo{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.tempo-grande{font-size:2rem;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.tempo-pilha{display:flex;gap:2px;height:12px;border-radius:4px;overflow:hidden;margin:12px 0 8px}
+.tempo-pilha>i{display:block;min-width:4px}
+.tempo-legenda{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem;color:var(--ink-2);margin:8px 0}
+.tempo-leg{white-space:nowrap}
+.tempo-leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.tempo-leg b{color:var(--ink);font-weight:600}
+.tempo-estat{margin:10px 0}
+.tempo-semana{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;align-items:end;margin:14px 0 6px}
+.tempo-semana.tempo-14{grid-template-columns:repeat(14,minmax(0,1fr));gap:3px}
+.tempo-col{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}
+.tempo-col .col{position:relative;width:100%;max-width:30px;display:flex;flex-direction:column-reverse;justify-content:flex-start;gap:2px;border-bottom:1px solid var(--line)}
+.tempo-col .col>i{display:block;width:100%}
+.tempo-col .col>i:last-child{border-radius:4px 4px 0 0}
+.tempo-col span{font-size:.72rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.tempo-col.hoje span{color:var(--ink);font-weight:600}
+.tempo-meta{position:absolute;left:-2px;right:-2px;height:0;border-top:2px dashed var(--ink-3);z-index:1}

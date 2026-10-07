@@ -259,7 +259,11 @@ function mesclarDoc(n, nuvem, local, localNovo) {
   p.xp = Math.max(num(nuvem.xp), num(local.xp));
   p.saidos = Math.max(num(nuvem.saidos), num(local.saidos));
   p.melhorSeq = Math.max(num(nuvem.melhorSeq), num(local.melhorSeq));
-  p.dias = mesclarMapa(nuvem.dias, local.dias, (a, b) => (atividade(b) > atividade(a) ? b : a));
+  p.dias = mesclarMapa(nuvem.dias, local.dias, (a, b) => {
+    const dia = atividade(b) > atividade(a) ? b : a;
+    const t = mesclarMapa(a && a.t, b && b.t, (x, y) => Math.max(num(x), num(y)));
+    return Object.keys(t).length ? Object.assign({}, dia, { t }) : dia;
+  });
   p.conq = Object.assign({}, velho.conq, novo.conq);
   p.lidos = mesclarMapa(nuvem.lidos, local.lidos, (a, b) => (b < a ? b : a));
   p.recordes = mesclarMapa(nuvem.recordes, local.recordes, (a, b) => Math.max(num(a), num(b)));
@@ -446,8 +450,11 @@ async function migrarPainelAntigo(db, user) {
 }
 
 /* ================= Regras: questões ================= */
+// Itens de português e inglês presos a um texto não voltam na revisão espaçada: rever o mesmo texto ensina o gabarito,
+// não a leitura. No lugar deles, as sessões trazem textos inéditos. O erro continua contando nas estatísticas.
+const SEM_REPETICAO = new Set(Q.filter((q) => q.ap != null && (BI.get(q.b) || {}).disciplina === 'linguas').map((q) => q.id));
 function rec(id) { return S.itens[id]; }
-function emRevisao(id) { const r = rec(id); return !!r && r[0] >= 0 && r[0] < 3; }
+function emRevisao(id) { const r = rec(id); return !!r && r[0] >= 0 && r[0] < 3 && !SEM_REPETICAO.has(id); }
 function vencida(id) { const r = rec(id); return emRevisao(id) && r[1] <= HOJE(); }
 function dominioItem(id) { const r = rec(id); return !r || r[0] < 0 ? 0 : Math.min(r[0], 5) / 5; }
 function dominioBloco(bid) {
@@ -456,7 +463,7 @@ function dominioBloco(bid) {
   return qs.reduce((s, q) => s + dominioItem(q.id), 0) / qs.length;
 }
 function listaCurta() { return Q.filter((q) => emRevisao(q.id)); }
-function dominadoVencido(id) { const r = rec(id); return !!r && r[0] >= 3 && r[1] <= HOJE(); }
+function dominadoVencido(id) { const r = rec(id); return !!r && r[0] >= 3 && r[1] <= HOJE() && !SEM_REPETICAO.has(id); }
 function manutencaoFeitaHoje() { const d = S.perfil.dias[hojeISO()]; return (d && d.m) || 0; }
 // Itens dominados vencidos que entram hoje (respeitando o limite diário), dos mais atrasados para os mais recentes
 function manutencaoHoje() {
@@ -496,6 +503,118 @@ function podarPerfil() {
   for (const [iso, d] of Object.entries(S.perfil.dias || {})) if (iso < limite && d.a && d.a.length) d.a = [];
 }
 function ativo(iso) { const d = S.perfil.dias[iso]; return !!d && (d.r + (d.k || 0) / 2) >= MIN_DIA_ATIVO; }
+
+/* ================= Tempo de estudo ================= */
+// O relógio do dia conta o tempo com o app aberto, visível e em uso. Sem toque, tecla ou rolagem por OCIOSO_S
+// segundos, ele para até o próximo toque (ler um comentário longo sem tocar na tela ainda conta). Cada intervalo vai
+// para a atividade da tela: questões (sessões e simulados), cards, leitura (lei seca, trilhas, Como o Cebraspe cobra,
+// glossário) e discursiva. O tempo no painel, no plano, no método e nos ajustes fica à parte ("o"), fora do total.
+const OCIOSO_S = 180, TIQUE_S = 15;
+const ATIV = [['q', 'Questões'], ['c', 'Cards'], ['l', 'Leitura'], ['d', 'Discursiva']];
+const LEITURA_MAIS = new Set(['trilha', 'cebraspe', 'glossario', 'pesquisar']);
+let ultimoUso = Date.now(), ultimoTique = Date.now(), tempoNaoSalvo = 0;
+function atividadeAtual() {
+  if (sessao && !sessao.fim) return sessao.modo === 'cards' ? 'c' : 'q';
+  if (UI.folhaArt || UI.vista === 'lei') return 'l';
+  if (UI.vista === 'mais') return UI.mais === 'discursiva' ? 'd' : LEITURA_MAIS.has(UI.mais) ? 'l' : 'o';
+  return 'o';
+}
+function segundosEstudo(d) { const t = (d && d.t) || {}; return ATIV.reduce((s, [k]) => s + (Number(t[k]) || 0), 0); }
+function fmtDur(seg) { const m = Math.floor((seg || 0) / 60); return m < 60 ? m + ' min' : Math.floor(m / 60) + 'h' + String(m % 60).padStart(2, '0'); }
+// Duração prevista no plano para o dia ("1h45", "3h"); dia livre ou fora do plano não tem meta de tempo
+function metaMin(iso) { const dia = DIAS.find((x) => x.data === iso); const m = dia && /^(\d+)h(\d+)?$/.exec(dia.duracao || ''); return m ? Number(m[1]) * 60 + Number(m[2] || 0) : null; }
+function marcarUso() { ultimoUso = Date.now(); }
+// final: chamada ao esconder ou fechar a página, para gravar o pedaço do intervalo em curso
+function contarTempo(final) {
+  const agora = Date.now();
+  const dt = Math.min(agora - ultimoTique, TIQUE_S * 2000) / 1000;
+  ultimoTique = agora;
+  if ((document.hidden && !final) || agora - ultimoUso > OCIOSO_S * 1000 || dt < 1) return;
+  if (!S.perfil.tempoDesde) S.perfil.tempoDesde = hojeISO();
+  const t = (diaLog().t ||= {});
+  const k = atividadeAtual();
+  t[k] = Math.round((t[k] || 0) + dt);
+  tempoNaoSalvo += dt;
+  if (final || tempoNaoSalvo >= 60) { tempoNaoSalvo = 0; Store.salvar('perfil'); }
+  atualizarRelogioDia();
+}
+function atualizarRelogioDia() {
+  const el = document.getElementById('tempo-hoje');
+  if (!el) return;
+  const seg = segundosEstudo(S.perfil.dias[hojeISO()]), meta = metaMin(hojeISO());
+  el.textContent = fmtDur(seg);
+  const b = document.querySelector('#tempo-barra > i');
+  if (b && meta) b.style.width = Math.min(100, Math.round((seg / 60 / meta) * 100)) + '%';
+}
+// Colunas empilhadas por atividade, uma por dia, na mesma escala; a linha tracejada marca a meta do plano
+function colunasTempo(dias, alturaPx) {
+  const max = Math.max(3600, ...dias.map(([iso, d]) => Math.max(segundosEstudo(d), (metaMin(iso) || 0) * 60)));
+  const hoje = hojeISO();
+  return dias.map(([iso, d]) => {
+    const t = (d && d.t) || {}, seg = segundosEstudo(d), meta = metaMin(iso);
+    const partes = ATIV.filter(([k]) => (t[k] || 0) >= 30).map(([k, nome]) => '<i style="height:' + Math.max(2, Math.round(((t[k] || 0) / max) * alturaPx)) + 'px;background:var(--at-' + k + ')"></i>').join('');
+    const dica = fmtData(iso, { weekday: 'short', day: '2-digit', month: '2-digit' }) + ': ' + (seg ? fmtDur(seg) + ' (' + ATIV.filter(([k]) => (t[k] || 0) >= 60).map(([k, nome]) => nome.toLowerCase() + ' ' + fmtDur(t[k])).join(', ') + ')' : 'sem tempo registrado') + (meta ? ' · meta ' + fmtDur(meta * 60) : '');
+    return '<div class="tempo-col' + (iso === hoje ? ' hoje' : '') + '" data-dica="' + esc(dica) + '"><div class="col" style="height:' + alturaPx + 'px">' +
+      (meta ? '<b class="tempo-meta" style="bottom:' + Math.round(((meta * 60) / max) * alturaPx) + 'px"></b>' : '') + partes + '</div>' +
+      '<span>' + esc(dias.length > 7 ? iso.slice(8) : fmtData(iso, { weekday: 'short' }).replace('.', '').slice(0, 3)) + '</span></div>';
+  }).join('');
+}
+function legendaTempo(t) {
+  return '<div class="tempo-legenda">' + ATIV.map(([k, nome]) => '<span class="tempo-leg"><i style="background:var(--at-' + k + ')"></i>' + nome + ' <b class="mono">' + fmtDur(t[k] || 0) + '</b></span>').join('') + '</div>';
+}
+function diasAte(n) { const h = HOJE(), out = []; for (let x = h - n + 1; x <= h; x++) { const iso = isoDeNum(x); out.push([iso, S.perfil.dias[iso] || null]); } return out; }
+// Cartão do painel: tempo de hoje contra a meta do plano, por atividade, o que ele rendeu e os últimos sete dias
+function cartaoTempo() {
+  const h = hojeISO(), d = S.perfil.dias[h] || {}, t = d.t || {};
+  const seg = segundosEstudo(d), meta = metaMin(h);
+  const r = d.r || 0, tq = t.q || 0;
+  const sem = diasAte(7), semSeg = sem.reduce((a, [, x]) => a + segundosEstudo(x), 0);
+  const semDias = sem.filter(([, x]) => segundosEstudo(x) >= 600).length;
+  const semMetas = sem.filter(([iso]) => metaMin(iso)), semOk = semMetas.filter(([iso, x]) => segundosEstudo(x) >= metaMin(iso) * 60).length;
+  const met = (v, rot) => '<div><b class="mono">' + v + '</b><span>' + rot + '</span></div>';
+  return '<div class="cartao"><div class="secao-cab"><h2>Tempo de estudo</h2><span class="mono pequeno mudo">' + (meta ? 'meta do plano ' + fmtDur(meta * 60) : 'dia sem meta no plano') + '</span></div>' +
+    '<div class="tempo-topo"><span class="tempo-grande mono" id="tempo-hoje">' + fmtDur(seg) + '</span><span class="mudo">' + (meta ? (seg >= meta * 60 ? 'meta cumprida' : 'faltam ' + fmtDur(meta * 60 - seg)) : 'hoje') + '</span></div>' +
+    (meta ? '<div class="barra" id="tempo-barra"><i style="width:' + Math.min(100, Math.round((seg / 60 / meta) * 100)) + '%"></i></div>' : '') +
+    (seg ? '<div class="tempo-pilha" role="img" aria-label="' + esc('Hoje por atividade: ' + ATIV.map(([k, nome]) => nome + ' ' + fmtDur(t[k] || 0)).join(', ')) + '">' + ATIV.filter(([k]) => (t[k] || 0) >= 30).map(([k, nome]) => '<i style="flex-grow:' + t[k] + ';background:var(--at-' + k + ')" data-dica="' + esc(nome + ': ' + fmtDur(t[k])) + '"></i>').join('') + '</div>' : '') +
+    legendaTempo(t) +
+    '<div class="estat tempo-estat">' + met(r, 'itens respondidos') + met(r ? pct(d.c || 0, r) + '%' : '—', 'de acerto') +
+    met(tq >= 60 && r ? Math.round(tq / r) + ' s' : '—', 'por item') + met(tq >= 300 && r ? Math.round(r / (tq / 3600)) : '—', 'itens por hora') +
+    met(d.k || 0, 'cards revisados') + met((d.a || []).length, 'artigos lidos') + '</div>' +
+    '<div class="tempo-semana" role="img" aria-label="' + esc('Últimos 7 dias: ' + sem.map(([iso, x]) => fmtData(iso, { weekday: 'short' }) + ' ' + fmtDur(segundosEstudo(x))).join(', ')) + '">' + colunasTempo(sem, 64) + '</div>' +
+    '<p class="pequeno mudo">Últimos 7 dias: <b>' + fmtDur(semSeg) + '</b> em ' + pl(semDias, 'dia', 'dias') + ' de estudo' + (semDias ? ', média de ' + fmtDur(semSeg / semDias) + ' por dia' : '') + (semMetas.length ? '. Meta do plano cumprida em ' + semOk + ' de ' + semMetas.length + '.' : '.') +
+    ' Conta só o tempo com o app aberto e em uso; parado por ' + OCIOSO_S / 60 + ' minutos, o relógio pausa. <button class="linkish" data-acao="mais" data-sub="progresso">Histórico</button></p></div>';
+}
+// Progresso: 14 dias em colunas, resumo de 30 dias, divisão por atividade, ritmo e tabela dos últimos 7 dias
+function cartaoTempoHistorico() {
+  const d14 = diasAte(14), d30 = diasAte(30);
+  const tot = { q: 0, c: 0, l: 0, d: 0 };
+  let seg30 = 0, dias30 = 0, r30 = 0, tq30 = 0, metas = 0, metasOk = 0, melhor = null;
+  for (const [iso, d] of d30) {
+    const s = segundosEstudo(d), t = (d && d.t) || {};
+    ATIV.forEach(([k]) => { tot[k] += Number(t[k]) || 0; });
+    seg30 += s; if (s >= 600) dias30++;
+    if ((t.q || 0) >= 60 && d.r) { r30 += d.r; tq30 += t.q; }
+    const m = metaMin(iso);
+    if (m && iso <= hojeISO()) { metas++; if (s >= m * 60) metasOk++; }
+    if (s && (!melhor || s > melhor[1])) melhor = [iso, s];
+  }
+  const maxAt = Math.max(1, ...Object.values(tot));
+  let html = '<div class="cartao"><div class="secao-cab"><h2>Tempo de estudo</h2><span class="mudo pequeno">Últimos 14 dias</span></div>' +
+    '<div class="tempo-semana tempo-14" role="img" aria-label="Tempo de estudo por dia nos últimos 14 dias; os valores estão na tabela abaixo">' + colunasTempo(d14, 90) + '</div>' + legendaTempo(tot) +
+    '<div class="estat">' +
+    '<div><b class="mono">' + fmtDur(seg30) + '</b><span>em 30 dias</span></div>' +
+    '<div><b class="mono">' + (dias30 ? fmtDur(seg30 / dias30) : '—') + '</b><span>média por dia de estudo</span></div>' +
+    '<div><b class="mono">' + (metas ? metasOk + ' de ' + metas : '—') + '</b><span>metas de tempo cumpridas</span></div>' +
+    '<div><b class="mono">' + (tq30 >= 600 ? Math.round(r30 / (tq30 / 3600)) : '—') + '</b><span>itens por hora (30 dias)</span></div>' +
+    '<div><b class="mono">' + (tq30 >= 600 ? Math.round(tq30 / r30) + ' s' : '—') + '</b><span>por item (30 dias)</span></div>' +
+    '<div><b class="mono">' + (melhor ? fmtDur(melhor[1]) : '—') + '</b><span>' + (melhor ? 'melhor dia (' + esc(fmtData(melhor[0], { day: '2-digit', month: '2-digit' })) + ')' : 'melhor dia') + '</span></div></div>' +
+    '<div class="dominio">' + ATIV.map(([k, nome]) => '<div class="dom-linha"><span class="nome">' + nome + '</span>' + barra(tot[k] / maxAt, '', '--accent:var(--at-' + k + ')') + '<span class="val">' + pct(tot[k], seg30) + '%</span></div>').join('') + '</div>' +
+    '<div class="tabela-env"><table class="tabela"><thead><tr><th>Dia</th><th>Tempo</th><th>Itens</th><th>Acerto</th><th>Cards</th></tr></thead><tbody>' +
+    diasAte(7).reverse().map(([iso, d]) => '<tr><td>' + esc(fmtData(iso, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</td><td class="mono">' + fmtDur(segundosEstudo(d)) + (metaMin(iso) ? ' / ' + fmtDur(metaMin(iso) * 60) : '') + '</td><td class="mono">' + ((d && d.r) || 0) + '</td><td class="mono">' + (d && d.r ? pct(d.c, d.r) + '%' : '—') + '</td><td class="mono">' + ((d && d.k) || 0) + '</td></tr>').join('') +
+    '</tbody></table></div>' +
+    '<p class="pequeno mudo">' + (S.perfil.tempoDesde ? 'O relógio conta desde ' + esc(fmtData(S.perfil.tempoDesde, { day: '2-digit', month: '2-digit', year: 'numeric' })) + '. ' : '') + 'Itens por hora e tempo por item medem só o tempo em sessões de questões. Painel, plano e ajustes não entram no total.</p></div>';
+  return html;
+}
 function sequencia() {
   let n = 0, dia = HOJE();
   if (!ativo(isoDeNum(dia))) dia--;
@@ -552,7 +671,7 @@ function registrar(q, resp, duvida) {
   const hoje = HOJE();
   const r = S.itens[q.id] ? S.itens[q.id].slice() : [-1, 0, 0, 0, 0, 0, 0];
   const antes = r[0];
-  const estavaNaLista = antes >= 0 && antes < 3;
+  const estavaNaLista = antes >= 0 && antes < 3 && !SEM_REPETICAO.has(q.id);
   const eraManutencao = antes >= 3 && r[1] <= hoje;
   const pontual = eraManutencao && hoje - r[4] <= 1.5 * Math.max(1, r[1] - r[4]);
   // Responder de novo no mesmo dia não é revisão espaçada: o acerto repetido não sobe de nível
@@ -727,6 +846,7 @@ function selecionar(pool, n, filtro) {
   for (const q of pool) {
     const r = rec(q.id);
     if (!r || r[0] < 0) novas.push(q);
+    else if (SEM_REPETICAO.has(q.id)) resto.push(q);
     else if (r[0] < 3 && r[1] <= hoje) venc.push(q);
     else if (r[0] < 3) lista.push(q);
     else if (r[1] <= hoje) domV.push(q);
@@ -739,7 +859,7 @@ function selecionar(pool, n, filtro) {
   const cota = Math.ceil(n / 4);
   let ordem;
   if (filtro === 'novas') ordem = novas.concat(venc, domV, lista, resto);
-  else if (filtro === 'erradas') ordem = pool.filter((q) => { const r = rec(q.id); return r && r[3] > 0; }).sort((a, b) => rec(b.id)[3] - rec(a.id)[3]);
+  else if (filtro === 'erradas') ordem = pool.filter((q) => { const r = rec(q.id); return r && r[3] > 0 && !SEM_REPETICAO.has(q.id); }).sort((a, b) => rec(b.id)[3] - rec(a.id)[3]);
   else ordem = venc.concat(domV.slice(0, cota), novas, lista, domV.slice(cota), resto);
   return embaralhar(ordem.slice(0, n));
 }
@@ -844,7 +964,7 @@ function chavePausa(s) { return s && MODOS_PAUSA.has(s.modo) ? s.chave || null :
 function pausaDe(k) {
   const p = k && S.perfil.pausas && S.perfil.pausas[k];
   if (!p || !Array.isArray(p.ids) || !p.data || HOJE() - diaNum(p.data) > PAUSA_DIAS) return null;
-  const ids = p.ids.filter((id) => QI.has(id));
+  const ids = p.ids.filter((id) => QI.has(id) && (p.modo !== 'revisao' || vencida(id) || dominadoVencido(id)));
   if (!ids.length) return null;
   const x = Object.assign({}, p, { ids });
   if (p.modo === 'simulado') x.resp = Object.fromEntries(Object.entries(p.resp || {}).filter(([id]) => QI.has(id)));
@@ -925,11 +1045,9 @@ function iniciarSessao(cfg) {
     return;
   }
   if (cfg.modo === 'revisao') {
-    const v = listaVencida();
-    const m = manutencaoHoje();
-    const l = listaCurta().filter((q) => !vencida(q.id));
-    itens = embaralhar(v.concat(m, embaralhar(l)).slice(0, cfg.n || 30));
-    if (!itens.length) { avisar('LC', 'Nada para revisar', 'Lista curta vazia e nenhum acerto antigo vencido. Siga com questões novas.'); return; }
+    // Só o que venceu hoje: quem já foi revisto volta no intervalo programado, e não na próxima revisão do mesmo dia
+    itens = embaralhar(listaVencida().concat(manutencaoHoje()).slice(0, cfg.n || 30));
+    if (!itens.length) { avisar('LC', 'Nada vencido para revisar', 'O que você já revisou volta no intervalo programado. Siga com questões novas.'); return; }
   } else if (cfg.ids) itens = cfg.ids.map((id) => QI.get(id)).filter(Boolean);
   else if (cfg.intercalado) itens = selecionarIntercaladas(cfg.n || 30);
   else if (cfg.prova) itens = selecionarProva(cfg.n || 60);
@@ -939,6 +1057,10 @@ function iniciarSessao(cfg) {
   if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && cfg.modo !== 'revisao');
   sessao = novaSessao(cfg, itens.map((q) => q.id));
   abrirSessao();
+}
+// Erros e brancos da sessão, fora a interpretação de texto (refazer logo o mesmo texto só treina a memória do gabarito)
+function idsParaRefazer() {
+  return sessao.ids.filter((id) => (sessao.modo !== 'relampago' || sessao.resp[id]) && (sessao.resp[id] || BRANCO) !== QI.get(id).g && !SEM_REPETICAO.has(id));
 }
 function iniciarCards(ids, titulo) {
   sessao = novaSessao({ modo: 'cards', titulo }, ids);
@@ -1275,7 +1397,7 @@ function renderHoje() {
   if (ctx.tipo === 'dia') fora.add(ctx.dia.data);
   const stH = subtemaDoDia();
   if (stH) fora.add('t:' + stH.id + ':' + (estadoSubtema(stH.id).novos ? 'pre' : 'pratica'));
-  document.getElementById('vista-hoje').innerHTML = topo + cartaoPausas(fora) + roteiro + nivel + modos + edital + '<p class="sync" id="sync"></p>';
+  document.getElementById('vista-hoje').innerHTML = topo + cartaoPausas(fora) + cartaoTempo() + roteiro + nivel + modos + edital + '<p class="sync" id="sync"></p>';
   atualizarRodapeSync();
 }
 function atualizarRodapeSync() {
@@ -1290,7 +1412,7 @@ function iniciarDia(data) {
   if (retomarPausa(dia.data)) return;
   const titulo = fmtData(dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' }) + ' · ' + (dia.modo === 'revisao' ? 'Revisão' : dia.modo === 'simulado' ? 'Simulado' : 'Treino do dia');
   if (dia.modo === 'revisao') {
-    if (!listaCurta().length && !manutencaoHoje().length) { iniciarSessao({ modo: 'treino', n: Math.min(dia.n, 20), blocos: [], filtro: 'mistas', titulo, dia: dia.data }); return; }
+    if (!listaVencida().length && !manutencaoHoje().length) { iniciarSessao({ modo: 'treino', n: Math.min(dia.n, 20), blocos: [], filtro: 'mistas', titulo, dia: dia.data }); return; }
     iniciarSessao({ modo: 'revisao', n: dia.n, titulo, dia: dia.data });
     return;
   }
@@ -1486,7 +1608,7 @@ function renderItem(q) {
   } else {
     const r = sessao.resp[id], ok = r === q.g;
     html += '<div class="veredito ' + (ok ? 'ok' : 'no') + '"><span>' + (ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + (q.al ? 'a letra ' + q.g : q.g === 'C' ? 'CERTO' : 'ERRADO') + '.') + '</span>' +
-      (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP</span>' : '<span class="pequeno">Foi para a lista curta</span>') + '</div>';
+      (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP</span>' : '<span class="pequeno">' + (SEM_REPETICAO.has(id) ? 'Este texto não volta: vêm outros' : 'Foi para a lista curta') + '</span>') + '</div>';
     html += renderExplicacao(q);
     html += '<button class="btn primario largo" data-acao="proximo">' + (sessao.i < sessao.ids.length - 1 ? 'Próximo item' : 'Ver resultado') + '</button><p class="atalhos">Enter = próximo</p>';
   }
@@ -1598,7 +1720,7 @@ function renderResultado() {
   const ordenada = lista.filter((x) => x.cls !== 'C').concat(lista.filter((x) => x.cls === 'C'));
   html += '<div class="secao"><div class="secao-cab"><h2>Revisar itens</h2><span class="mudo pequeno">Erros e brancos primeiro</span></div><div class="lista-rev">' +
     ordenada.map((x) => '<button data-acao="revisar-item" data-q="' + esc(x.q.id) + '" data-r="' + esc(sessao.resp[x.q.id] || BRANCO) + '"><span class="marca-res ' + x.cls + '">' + ({ C: '✓', E: '✗', B: '–' }[x.cls]) + '</span><span class="txt">' + esc(x.q.e) + '</span></button>').join('') + '</div></div>';
-  html += '<div class="linha-btns"><button class="btn primario" data-acao="fechar-sessao">Concluir</button>' + (e + b ? '<button class="btn" data-acao="refazer-erros">Refazer os ' + (e + b) + ' erros e brancos</button>' : '') + '</div>';
+  html += '<div class="linha-btns"><button class="btn primario" data-acao="fechar-sessao">Concluir</button>' + (idsParaRefazer().length ? '<button class="btn" data-acao="refazer-erros">Refazer ' + pl(idsParaRefazer().length, 'erro ou branco', 'erros e brancos') + '</button>' : '') + '</div>';
   return html;
 }
 
@@ -2041,6 +2163,7 @@ function renderProgresso() {
   let html = '<div class="cartao"><div class="nivel"><div class="insignia">' + nv.n + '</div><div class="info"><div class="titulo">' + esc(nv.nome) + '</div>' + barra((S.perfil.xp - nv.base) / (nv.prox - nv.base), 'ouro') + '<div class="pequeno mudo mono">' + fmtNum(S.perfil.xp) + ' XP · próximo nível em ' + fmtNum(nv.prox) + '</div></div></div></div>';
   html += '<div class="estat"><div><b>' + fmtNum(t.r) + '</b><span>itens respondidos</span></div><div><b>' + pct(t.c, t.r) + '%</b><span>de acerto</span></div><div><b>' + fmtNum(t.c - t.e) + '</b><span>nota líquida acumulada</span></div>' +
     '<div><b>' + fmtNum(t.k) + '</b><span>cards revisados</span></div><div><b>' + seq + '</b><span>dias seguidos</span></div><div><b>' + (S.perfil.melhorSeq || 0) + '</b><span>melhor sequência</span></div></div>';
+  html += cartaoTempoHistorico();
   html += '<div class="cartao"><div class="secao-cab"><h2>Constância</h2><span class="mudo pequeno">Últimas 16 semanas</span></div>' + mapaCalor() + '</div>';
   html += '<div class="cartao"><div class="secao-cab"><h2>Domínio por bloco</h2><span class="mudo pequeno">Questões</span></div><div class="dominio">';
   BLOCOS.filter((b) => (POR_BLOCO.get(b.id) || []).length).sort((a, b) => a.prioridade - b.prioridade).forEach((b) => {
@@ -2173,7 +2296,8 @@ function renderMetodo() {
     '<li><b>Cards cloze.</b> As lacunas tiram a palavra exata do texto da lei; nos temas sem lei (gestão, riscos, dados, IA e economia), tiram o conceito-chave. Faça os novos do dia e responda de cabeça antes de revelar.</li>' +
     '<li><b>Para pesquisar.</b> Os termos das questões erradas entram sozinhos na sua lista. Investigue um tema por dia: o painel pergunta, você explica com suas palavras e o Claude confere e aprofunda. Explicar é o que fixa.</li></ol>' +
     '<h3>Regras que não se negociam</h3><ul>' +
-    '<li>O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça.</li>' +
+    '<li>O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça. Cada revisão traz só o que venceu: o que você já reviu hoje espera o próximo intervalo.</li>' +
+    '<li>Interpretação de texto (português e inglês) não volta na revisão: reler o mesmo texto ensina o gabarito, não a leitura. No lugar, as sessões trazem textos inéditos.</li>' +
     '<li>O acerto também volta, para confirmar que não foi sorte: o acerto de primeira volta em cerca de 16 dias, e cada confirmação seguinte espaça mais (cerca de 35 dias). Os intervalos se adaptam: o item que você já errou ou acertou com dúvida volta antes, e a sua retenção real nas revisões calibra todos os prazos para mirar 90% de lembrança (Mais → Progresso). Esses acertos antigos entram na revisão do dia, no máximo ' + MANUTENCAO_DIA + ' por dia, os mais atrasados primeiro, e ocupam até um quarto das sessões de questões.</li>' +
     '<li>Intercale. Todo dia há uma sessão que mistura as matérias básicas com os blocos já estudados. Assunto novo entra em bloco; o que você já viu volta misturado, porque misturar obriga a reconhecer o tipo de questão e fixa mais (prática intercalada, somada à revisão espaçada e à recuperação ativa).</li>' +
     '<li>Revisão vem antes de questão nova. Quando a lista curta vencida passa de ' + REVISOES_DIA_PESADO + ' itens, a sessão de questões novas do dia encolhe sozinha.</li>' +
@@ -2586,7 +2710,7 @@ document.addEventListener('click', async (ev) => {
     case 'sair-descartar': { const k = chavePausa(sessao); fecharSessao(false); if (k) descartarPausa(k); renderTudo(); break; }
     case 'fechar-sessao': fecharSessao(); break;
     case 'refazer-erros': {
-      const ids = sessao.ids.filter((id) => (sessao.modo !== 'relampago' || sessao.resp[id]) && (sessao.resp[id] || BRANCO) !== QI.get(id).g);
+      const ids = idsParaRefazer();
       fecharSessao();
       iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Refazer erros' });
       break;
@@ -2852,8 +2976,11 @@ document.addEventListener('pointerover', (ev) => {
   dica.style.left = Math.max(8, Math.min(window.innerWidth - 200, r.left - 30)) + 'px';
   dica.style.top = (r.top - 32) + 'px';
 });
-document.addEventListener('visibilitychange', () => { if (document.hidden) { guardarSessaoAberta(); Store.descarregar(); } });
-window.addEventListener('pagehide', () => { guardarSessaoAberta(); Store.descarregar(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden) { contarTempo(true); guardarSessaoAberta(); Store.descarregar(); } else { ultimoTique = Date.now(); marcarUso(); } });
+window.addEventListener('pagehide', () => { contarTempo(true); guardarSessaoAberta(); Store.descarregar(); });
+['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach((ev) => document.addEventListener(ev, marcarUso, { passive: true, capture: true }));
+window.addEventListener('scroll', marcarUso, { passive: true });
+setInterval(() => contarTempo(false), TIQUE_S * 1000);
 
 /* ================= Início ================= */
 function iniciar(dadosQuentes) {
