@@ -1,0 +1,391 @@
+bloco: ingles
+// Textos originais escritos para o banco, em inglês, sétima leva: verificação de idade, sandbox regulatório de IA,
+// prazo de notificação de incidentes e transferência internacional de dados. Itens em português, como na prova
+// Cebraspe, com falsos cognatos, referência e conectivos.
+
+apoio_EN10A: Governments increasingly expect online services to know whether their users are children. The methods vary widely. Self-declaration, in which users simply state their age, is cheap but easily bypassed. Document checks are more reliable, yet they require users to hand over sensitive information to companies they may not trust. Facial age estimation, which guesses age from a selfie, avoids storing documents but raises its own concerns about accuracy across different groups.
+Regulators therefore tend to favour a proportionate approach: the greater the risk a service poses to children, the more robust the age check should be. A platform that hosts pornography warrants a different level of assurance than a homework app. Privacy advocates add that age assurance should reveal only what is needed, namely whether a user is above or below a threshold, and not their full identity.
+Critics warn that poorly designed checks may push young people towards less regulated corners of the internet. Others reply that doing nothing is also a choice, and one whose costs fall mostly on children.
+apoio_EN10B: A regulatory sandbox allows firms to test new products under the supervision of a regulator, often with temporary relief from certain rules. The idea, borrowed from software development, is that problems are easier to spot and fix in a controlled environment than after a product has reached millions of users.
+For regulators, sandboxes are also a way of learning. Artificial intelligence moves faster than the rule-making process, and officials rarely have first-hand experience of how models are built and deployed. Working alongside developers gives them evidence on which to base future rules.
+Sandboxes are not without risks. Firms that take part may gain a competitive advantage, or an aura of official approval, that rivals lack. And if the relief from rules is too generous, the sandbox may become a loophole rather than a laboratory. Well-run programmes therefore publish clear entry criteria, limit the duration of tests and keep safeguards for the people whose data is used.
+apoio_EN10C: When a company discovers that personal data has been exposed, the clock starts ticking. Many laws require organisations to notify the regulator, and sometimes the people affected, within a fixed period. The deadlines differ: the European rule is 72 hours from becoming aware of the breach, while other jurisdictions allow several days or simply require notice "without undue delay".
+Short deadlines have a clear purpose. The sooner people know, the sooner they can change passwords, watch their bank accounts or cancel cards. Yet companies complain that, in the first hours after an attack, they rarely know what has been taken. Early notices may therefore be incomplete or even wrong.
+Most regimes deal with this by allowing information to be provided in phases. An initial notice sets out what is known; later updates fill in the gaps. What regulators tend to punish is not uncertainty but silence: firms that wait until the full picture is clear, and in the meantime leave customers exposed.
+apoio_EN10D: Data flows across borders every second, from cloud backups to customer service centres on other continents. For data protection law, the question is not whether information may leave a country but under what conditions.
+The simplest route is an adequacy decision, in which an authority recognises that another country offers a level of protection comparable to its own. Such decisions are convenient but slow to obtain, and they can be withdrawn if the foreign legal framework changes. When no adequacy decision exists, companies usually rely on standard contractual clauses, a set of pre-approved terms that bind the importer of the data to protect it.
+Contracts, however, cannot bind a foreign government. Courts in Europe have stressed that firms must assess whether local laws, especially on surveillance, would prevent the importer from honouring its promises. This assessment has turned a routine paperwork exercise into a demanding legal analysis.
+
+=== en10-01
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN10A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, a autodeclaração de idade é um método barato, mas facilmente contornado.
+comentario: Primeiro parágrafo: “Self-declaration [...] is cheap but easily bypassed”.
+
+=== en10-02
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN10A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto afirma que a verificação por documentos é menos confiável que a autodeclaração de idade.
+comentario: Errado. “Document checks are more reliable”: são mais confiáveis. O problema apontado é outro: exigem entregar informação sensível a empresas em que o usuário pode não confiar.
+
+=== en10-03
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN10A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No primeiro parágrafo, a forma verbal “bypassed” pode ser traduzida, no contexto, por contornada.
+comentario: Bypass é desviar, passar por fora: a autodeclaração é facilmente burlada por quem mente a idade.
+
+=== en10-04
+gab: E
+tema: en-gramatica
+ref: texto
+apoio: @EN10A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, o conectivo “yet”, em “yet they require users”, poderia ser substituído por therefore, sem alteração do sentido do texto.
+comentario: Errado. “Yet” é adversativo (porém, contudo): a verificação é mais confiável, mas exige dados sensíveis. “Therefore” é conclusivo (portanto).
+
+=== en10-05
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN10A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, a estimativa facial de idade evita o armazenamento de documentos, mas suscita preocupações quanto à precisão para diferentes grupos.
+comentario: Primeiro parágrafo, último período: “avoids storing documents but raises its own concerns about accuracy across different groups”.
+
+=== en10-06
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN10A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: De acordo com o texto, quanto maior o risco que um serviço representa para crianças, mais robusta deve ser a verificação de idade.
+comentario: “The greater the risk [...], the more robust the age check should be.” É a estrutura comparativa “the more..., the more...” (quanto mais..., mais...).
+
+=== en10-07
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN10A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, a forma verbal “warrants” equivale, no contexto, a garante, no sentido de assegurar que algo ocorra.
+comentario: Errado. Aqui “warrants” significa justifica, requer: uma plataforma de pornografia exige um nível de verificação diferente do de um aplicativo de lição de casa.
+
+=== en10-08
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN10A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Para os defensores da privacidade, a verificação de idade deveria revelar apenas se o usuário está acima ou abaixo de um limite etário, e não sua identidade completa.
+comentario: Segundo parágrafo: “reveal only what is needed, namely whether a user is above or below a threshold, and not their full identity”. É a minimização de dados aplicada à idade.
+
+=== en10-09
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN10A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 1
+enunciado: O texto conclui que não fazer nada é a única opção sem custos para as crianças.
+comentario: Errado. O último período diz que não fazer nada também é uma escolha, cujos custos recaem sobretudo sobre as crianças.
+
+=== en10-10
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN10A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No segundo parágrafo, o vocábulo “namely” introduz uma especificação e pode ser traduzido por a saber ou isto é.
+comentario: “Namely” especifica o que foi dito antes: o que é necessário revelar, a saber, se o usuário está acima ou abaixo do limite.
+
+=== en10-11
+gab: E
+tema: en-gramatica
+ref: texto
+apoio: @EN10A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, o pronome “its”, em “raises its own concerns”, refere-se a “a selfie”.
+comentario: Errado. Refere-se a “Facial age estimation”, sujeito da oração: é a estimativa facial que levanta suas próprias preocupações.
+
+=== en10-12
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN10B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, no sandbox regulatório, empresas testam novos produtos sob a supervisão do regulador, muitas vezes com dispensa temporária de certas regras.
+comentario: Primeiro período: “test new products under the supervision of a regulator, often with temporary relief from certain rules”.
+
+=== en10-13
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN10B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: O texto informa que a ideia do sandbox nasceu no direito regulatório e foi depois adotada pelo desenvolvimento de software.
+comentario: Errado. É o inverso: a ideia foi “borrowed from software development”, isto é, tomada emprestada do desenvolvimento de software.
+
+=== en10-14
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN10B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Para o texto, os sandboxes também servem para que os reguladores aprendam, já que a inteligência artificial avança mais rápido que a elaboração de normas.
+comentario: Segundo parágrafo: “sandboxes are also a way of learning. Artificial intelligence moves faster than the rule-making process”.
+
+=== en10-15
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN10B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No segundo parágrafo, a expressão “first-hand experience” significa experiência de segunda mão, obtida por relatos de terceiros.
+comentario: Errado. “First-hand” é de primeira mão, direta. O texto diz que os servidores raramente têm experiência direta de como os modelos são construídos.
+
+=== en10-16
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN10B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto aponta o risco de que as empresas participantes obtenham vantagem competitiva ou aparência de aprovação oficial em relação às concorrentes.
+comentario: Terceiro parágrafo: “may gain a competitive advantage, or an aura of official approval, that rivals lack”.
+
+=== en10-17
+gab: C
+tema: en-gramatica
+ref: texto
+apoio: @EN10B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, a expressão “rather than”, em “a loophole rather than a laboratory”, tem sentido equivalente a em vez de.
+comentario: O sandbox pode virar brecha em vez de laboratório. “Rather than” marca a alternativa preterida.
+
+=== en10-18
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN10B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, o vocábulo “loophole” significa, no contexto, ambiente controlado de testes.
+comentario: Errado. “Loophole” é brecha, lacuna que permite escapar de uma regra. O texto o opõe justamente a “laboratory”.
+
+=== en10-19
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN10B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 1
+enunciado: Segundo o texto, programas bem conduzidos dispensam salvaguardas para as pessoas cujos dados são usados, para não inibir a inovação.
+comentario: Errado. O último período diz que programas bem conduzidos mantêm salvaguardas para essas pessoas (“keep safeguards for the people whose data is used”).
+
+=== en10-20
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN10C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, a regra europeia fixa o prazo de 72 horas, contado do momento em que se toma conhecimento do incidente.
+comentario: Primeiro parágrafo: “the European rule is 72 hours from becoming aware of the breach”. No Brasil, a Res. CD/ANPD 15/2024 fixa três dias úteis.
+
+=== en10-21
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN10C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: De acordo com o texto, as diferentes jurisdições adotam o mesmo prazo para a notificação de incidentes.
+comentario: Errado. “The deadlines differ”: há a regra europeia de 72 horas, jurisdições que admitem vários dias e outras que exigem aviso “without undue delay”.
+
+=== en10-22
+gab: C
+tema: en-gramatica
+ref: texto
+apoio: @EN10C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No segundo parágrafo, o vocábulo “Yet”, em início de período, introduz ideia de oposição ao que foi dito antes.
+comentario: Prazos curtos têm propósito claro; contudo, as empresas reclamam que nas primeiras horas mal sabem o que foi levado.
+
+=== en10-23
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN10C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Para o texto, as empresas alegam que, nas primeiras horas após um ataque, raramente sabem o que foi levado.
+comentario: Segundo parágrafo: “in the first hours after an attack, they rarely know what has been taken”.
+
+=== en10-24
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN10C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, os reguladores costumam punir sobretudo a incerteza contida nas primeiras comunicações de incidentes.
+comentario: Errado. “What regulators tend to punish is not uncertainty but silence”: punem o silêncio de quem espera ter o quadro completo antes de avisar.
+
+=== en10-25
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN10C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No último parágrafo, a expressão “fill in the gaps” refere-se a completar as informações que faltavam na comunicação inicial.
+comentario: Comunica-se primeiro o que se sabe; atualizações posteriores preenchem as lacunas. É a comunicação em fases.
+
+=== en10-26
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN10C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No primeiro parágrafo, a expressão “without undue delay” significa após longo prazo de análise.
+comentario: Errado. Significa sem demora indevida, isto é, o mais rápido possível.
+
+=== en10-27
+gab: E
+tema: en-gramatica
+ref: texto
+apoio: @EN10C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, o pronome “they”, em “they can change passwords”, refere-se a “companies”.
+comentario: Errado. Refere-se a “people”: quanto antes as pessoas souberem, antes poderão trocar senhas, vigiar contas e cancelar cartões.
+
+=== en10-28
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN10D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, para o direito de proteção de dados, a questão não é se a informação pode sair de um país, mas em que condições.
+comentario: Primeiro parágrafo: “the question is not whether information may leave a country but under what conditions”.
+
+=== en10-29
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN10D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto informa que as decisões de adequação são rápidas de obter e não podem ser revogadas.
+comentario: Errado. São “slow to obtain” e “can be withdrawn” se o quadro jurídico estrangeiro mudar.
+
+=== en10-30
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN10D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, as cláusulas-padrão contratuais são termos pré-aprovados que obrigam o importador dos dados a protegê-los.
+comentario: Segundo parágrafo: “a set of pre-approved terms that bind the importer of the data to protect it”. No Brasil, a ANPD aprovou cláusulas-padrão na Res. CD/ANPD 19/2024.
+
+=== en10-31
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN10D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Para o texto, contratos não vinculam governos estrangeiros.
+comentario: Terceiro parágrafo: “Contracts, however, cannot bind a foreign government”. Daí a avaliação das leis locais, sobretudo as de vigilância.
+
+=== en10-32
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN10D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No último parágrafo, a expressão “honouring its promises” pode ser traduzida por homenageando suas promessas.
+comentario: Errado. “Honour a promise” é cumprir uma promessa. Falso cognato clássico.
+
+=== en10-33
+gab: C
+tema: en-gramatica
+ref: texto
+apoio: @EN10D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No último período do texto, a expressão “This assessment” retoma a avaliação sobre se as leis locais impediriam o importador de cumprir seus compromissos.
+comentario: Retoma o que foi descrito no período anterior: verificar se as leis do país de destino impediriam o importador de honrar as cláusulas.
+
+=== en10-34
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN10D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 1
+enunciado: Depreende-se do texto que a análise exigida das empresas para transferir dados tornou-se mais simples, uma mera formalidade.
+comentario: Errado. O último período diz o contrário: uma formalidade de rotina virou análise jurídica exigente.
