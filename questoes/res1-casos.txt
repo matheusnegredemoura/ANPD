@@ -1,0 +1,377 @@
+// Casos práticos do Regulamento de Fiscalização e do Processo Administrativo Sancionador da ANPD (Res. CD/ANPD nº 1/2021,
+// com as alterações da Res. nº 4/2023): requerimentos, medidas preventivas, procedimento preparatório, auto de infração,
+// defesa, terceiro interessado, recurso, reconsideração, revisão e cobrança. Itens escritos para o banco; trechos
+// conferidos em fontes/res1.txt.
+
+apoio_REQUER: Num mesmo mês, a ANPD recebeu centenas de petições de titulares contra uma operadora de telefonia por pedidos de exclusão de dados não atendidos, além de uma denúncia anônima segundo a qual a operadora vende listas de clientes a terceiros. Um dos titulares não tinha como comprovar por documento que procurara a operadora antes. A Coordenação-Geral de Fiscalização enviou à operadora um aviso e, depois, uma solicitação de regularização com prazo de vinte dias úteis; a operadora pediu prorrogação.
+apoio_SANCIONA: Instaurado processo administrativo sancionador contra a operadora, a Coordenação-Geral de Fiscalização lavrou auto de infração e intimou-a para apresentar defesa. Uma associação de defesa do consumidor pediu para participar do processo. A operadora não apresentou defesa no prazo. Em primeira instância, aplicou-se multa simples; a operadora recorreu, e a Coordenação-Geral, ao receber o recurso, reduziu parte da multa.
+
+=== fz-01
+gab: C
+bloco: res-1-2021
+ref: res1 26
+trecho: Os requerimentos serão analisados de forma agregada e as eventuais providências deles decorrentes serão adotadas de forma padronizada
+apoio: @REQUER
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: As petições serão, em regra, analisadas de forma agregada, com providências padronizadas; a análise individualizada de um requerimento é excepcional e depende de decisão motivada.
+comentario: Art. 26 e § 1º. A análise individual cabe quando as circunstâncias e a repercussão sobre interesses coletivos e difusos o justificarem. É a lógica de regulador: olhar o padrão, não cada reclamação.
+
+=== fz-02
+gab: C
+bloco: res-1-2021
+ref: res1 25
+trecho: admitida a autodeclaração do titular quando não for possível apresentar outro meio de prova
+apoio: @REQUER
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 1
+enunciado: O titular que não pode comprovar por documento que procurou antes a operadora pode fazê-lo por autodeclaração.
+comentario: Art. 25, § 1º. A petição de titular exige prova de que o pedido foi submetido ao controlador e não resolvido no prazo; na falta de outro meio, vale a autodeclaração.
+
+=== fz-03
+gab: E
+bloco: res-1-2021
+ref: res1 25
+trecho: A denúncia anônima será recebida e processada quando for verificada a verossimilhança das alegações nela constantes e não for necessária a identificação do denunciante para a apuração dos fatos
+apoio: @REQUER
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: absoluto
+dif: 2
+enunciado: A denúncia anônima deve ser arquivada de plano, porque a identificação do requerente é requisito de admissibilidade que não admite exceção.
+comentario: Errado. Art. 25, § 3º: a denúncia anônima é processada quando as alegações forem verossímeis e a identificação do denunciante não for necessária à apuração. O próprio inciso II do caput ressalva o anonimato cabível.
+
+=== fz-04
+gab: C
+bloco: res-1-2021
+ref: res1 4
+trecho: comunicação feita à ANPD por qualquer pessoa, natural ou jurídica, de suposta infração cometida contra a legislação de proteção de dados pessoais do País, que não seja uma petição de titular
+apoio: @REQUER
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: conceito
+dif: 2
+enunciado: As comunicações dos titulares sobre pedidos não atendidos pela operadora são petições de titular, ao passo que a comunicação anônima sobre a venda de listas é denúncia.
+comentario: Art. 4º, III e V. Petição de titular é o pedido ao controlador não solucionado no prazo; denúncia é qualquer comunicação de suposta infração que não seja petição de titular. Juntas, são requerimentos (inciso VI).
+
+=== fz-05
+gab: E
+bloco: res-1-2021
+ref: res1 31
+trecho: As medidas aplicadas pela Coordenação-Geral de Fiscalização ao longo da atividade preventiva não constituem sanção ao agente regulado
+apoio: @REQUER
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: conceito
+dif: 1
+enunciado: O aviso e a solicitação de regularização enviados à operadora são sanções administrativas de natureza leve.
+comentario: Errado. São medidas preventivas (art. 32), e o art. 31 diz que elas não constituem sanção. Sanção só depois de processo administrativo sancionador (art. 2º, § 1º).
+
+=== fz-06
+gab: C
+bloco: res-1-2021
+ref: res1 35
+trecho: O agente de tratamento poderá requerer prorrogação do prazo uma única vez por igual período
+apoio: @REQUER
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: numero
+dif: 1
+enunciado: A operadora pode pedir a prorrogação do prazo da solicitação de regularização uma única vez, por igual período, desde que justifique por que não regularizou a situação no prazo.
+comentario: Art. 35, § 3º. Com prazo de vinte dias úteis, a prorrogação pode chegar a mais vinte.
+
+=== fz-07
+gab: E
+bloco: res-1-2021
+ref: res1 32
+trecho: será considerado circunstância agravante em caso de instauração de processo administrativo sancionador
+apoio: @REQUER
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: Se a operadora não atender à solicitação de regularização, isso não terá consequência num eventual processo sancionador, porque as medidas preventivas são de adesão voluntária.
+comentario: Errado. Art. 32, § 2º (incluído pela Res. 4/2023): o não atendimento de medida preventiva enseja a progressão da atuação da ANPD e é circunstância agravante se houver processo sancionador.
+
+=== fz-08
+gab: C
+bloco: res-1-2021
+ref: res1 35
+trecho: O informe será usado quando ocorrer infração em decorrência do tratamento de dados pessoais por órgãos públicos
+apoio: @REQUER
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: comparacao
+dif: 2
+enunciado: Se a infração tivesse sido praticada por órgão público, a medida preventiva cabível seria o informe, e não a solicitação de regularização.
+comentario: Art. 35, § 1º, que conversa com o art. 31 da LGPD (informe com medidas para fazer cessar a violação por órgão público).
+
+=== fz-09
+gab: C
+bloco: res-1-2021
+ref: res1 42
+trecho: poderá instaurar processo administrativo sancionador de imediato, independentemente de procedimento preparatório ou da adoção de medidas de orientação e prevenção
+apoio: @REQUER
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: Diante da gravidade da suposta venda de listas de clientes, a Coordenação-Geral de Fiscalização pode instaurar de imediato processo sancionador, sem procedimento preparatório nem medidas preventivas prévias.
+comentario: Art. 42, parágrafo único: a instauração imediata se justifica pela gravidade e natureza das infrações, pelos direitos afetados, pela reincidência, pelo grau do dano ou pelo prazo de prescrição.
+
+=== fz-10
+gab: E
+bloco: res-1-2021
+ref: res1 8
+trecho: são contados em dias úteis, excluído o dia do começo e incluído o dia de vencimento
+apoio: @REQUER
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: numero
+dif: 1
+enunciado: Os prazos do regulamento, como o da solicitação de regularização, contam-se em dias corridos, incluído o dia do começo.
+comentario: Errado. Art. 8º: dias úteis, a partir da ciência oficial, excluído o dia do começo e incluído o do vencimento.
+
+=== fz-11
+gab: E
+bloco: res-1-2021
+ref: res1 12
+trecho: caso não realizada a consulta, dez dias úteis após o envio da intimação
+apoio: @REQUER
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: numero
+dif: 2
+enunciado: Se a operadora não consultar a intimação eletrônica, a ciência oficial considera-se efetuada cinco dias corridos após o envio.
+comentario: Errado. Art. 12, I: na intimação eletrônica, a ciência ocorre na data da consulta ou, sem consulta, dez dias úteis após o envio.
+
+=== fz-12
+gab: C
+bloco: res-1-2021
+ref: res1 40
+trecho: efetuar averiguações preliminares, quando os indícios da prática de infração não forem suficientes para a instauração imediata de processo administrativo sancionador
+apoio: @REQUER
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 1
+enunciado: Se os indícios da venda de listas fossem insuficientes para instaurar de imediato o processo sancionador, a Coordenação-Geral poderia abrir procedimento preparatório, que pode tramitar em sigilo.
+comentario: Art. 40 e parágrafo único: o sigilo fica a critério da Coordenação-Geral, no interesse das investigações.
+
+=== fz-13
+gab: E
+bloco: res-1-2021
+ref: res1 38
+trecho: Não cabe recurso administrativo contra o despacho de instauração do processo administrativo sancionador
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 1
+enunciado: A operadora pode recorrer, com efeito suspensivo, do despacho que instaurou o processo sancionador.
+comentario: Errado. Art. 38: não cabe recurso contra o despacho de instauração. A defesa se faz no próprio processo, com contraditório e ampla defesa (art. 45).
+
+=== fz-14
+gab: C
+bloco: res-1-2021
+ref: res1 47
+trecho: para apresentar defesa no prazo máximo de dez dias úteis
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: numero
+dif: 1
+enunciado: A operadora tinha o prazo máximo de dez dias úteis, contados da intimação, para apresentar defesa.
+comentario: Art. 47. Dez dias úteis também é o prazo do recurso (art. 58) e o da manifestação sobre provas novas antes do relatório de instrução (art. 53).
+
+=== fz-15
+gab: E
+bloco: res-1-2021
+ref: res1 54
+trecho: Transcorrido o prazo de defesa, independentemente da sua apresentação, será elaborado relatório de instrução
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: Como a operadora não apresentou defesa, o processo fica suspenso até que ela se manifeste.
+comentario: Errado. Art. 54: transcorrido o prazo, com ou sem defesa, elabora-se o relatório de instrução e o processo segue para decisão.
+
+=== fz-16
+gab: C
+bloco: res-1-2021
+ref: res1 50
+trecho: Qualquer que seja a fase do processo, nele poderá intervir o revel, sem direito à repetição de qualquer ato já praticado
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: Mesmo revel, a operadora pode intervir no processo em qualquer fase, mas não tem direito à repetição dos atos já praticados.
+comentario: Art. 50, parágrafo único. Entra no estado em que o processo se encontra.
+
+=== fz-17
+gab: C
+bloco: res-1-2021
+ref: res1 49
+trecho: serão definidos por decisão administrativa irrecorrível
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: A participação da associação como terceiro interessado é avaliada pela relevância da matéria, pela especificidade do tema ou pela repercussão social da controvérsia, e a decisão sobre sua admissibilidade é irrecorrível.
+comentario: Art. 49, §§ 1º e 2º. A mesma decisão define os poderes e os prazos do terceiro interessado.
+
+=== fz-18
+gab: E
+bloco: res-1-2021
+ref: res1 49
+trecho: terá acesso apenas aos documentos e peças processuais públicas
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: Admitida no processo, a associação terá acesso a todos os documentos dos autos, inclusive aos protegidos por segredo comercial da operadora.
+comentario: Errado. Art. 49, § 3º: o terceiro interessado recebe o processo no estado em que se encontra e acessa apenas documentos e peças públicas.
+
+=== fz-19
+gab: E
+bloco: res-1-2021
+ref: res1 58
+trecho: O recurso administrativo deverá ser dirigido à autoridade que proferiu a decisão
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: O recurso da operadora deve ser dirigido diretamente ao Conselho Diretor, sem passar pela Coordenação-Geral de Fiscalização, que proferiu a decisão de primeira instância.
+comentario: Errado. Art. 58, § 2º: o recurso é dirigido à autoridade que decidiu, que pode reconsiderar (art. 62). Mantida a decisão, no todo ou em parte, o processo sobe ao Conselho Diretor, instância máxima.
+
+=== fz-20
+gab: E
+bloco: res-1-2021
+ref: res1 60
+trecho: O recurso administrativo terá efeito suspensivo limitado à matéria contestada da decisão
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: extrapolacao
+dif: 2
+enunciado: O recurso da operadora suspende toda a decisão recorrida, inclusive na parte que ela não contestou.
+comentario: Errado. Art. 60: o efeito suspensivo limita-se à matéria contestada, ressalvado o fundado receio de prejuízo de difícil ou incerta reparação.
+
+=== fz-21
+gab: C
+bloco: res-1-2021
+ref: res1 62
+trecho: Em caso de reconsideração parcial, a decisão deve explicitar a parte reconsiderada, bem como a ratificação dos demais termos da decisão recorrida
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: Ao reduzir parte da multa, a Coordenação-Geral deve explicitar a parte reconsiderada e ratificar os demais termos da decisão, remetendo o processo ao Conselho Diretor.
+comentario: Art. 62, §§ 3º e 4º. A nova decisão substitui a recorrida (§ 1º), e o recurso segue quanto ao que foi mantido.
+
+=== fz-22
+gab: E
+bloco: res-1-2021
+ref: res1 62
+trecho: Do exercício do juízo de reconsideração não poderá resultar agravamento da sanção originalmente aplicada
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: No juízo de reconsideração, a Coordenação-Geral poderia ter aumentado a multa, se verificasse que fora fixada abaixo do devido.
+comentario: Errado. Art. 62, § 2º: a reconsideração não pode agravar a sanção. O agravamento só é possível no julgamento do recurso pelo Conselho Diretor, com intimação prévia do recorrente (art. 65, § 1º).
+
+=== fz-23
+gab: C
+bloco: res-1-2021
+ref: res1 62
+trecho: estará sujeita a reexame necessário pelo Conselho Diretor
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 3
+enunciado: Se a reconsideração tivesse exonerado totalmente a operadora da sanção, a nova decisão ficaria sujeita a reexame necessário pelo Conselho Diretor.
+comentario: Art. 62, § 5º. É o controle sobre a hipótese em que a própria área que sancionou desfaz toda a sanção.
+
+=== fz-24
+gab: C
+bloco: res-1-2021
+ref: res1 65
+trecho: Se da apreciação do recurso puder decorrer gravame à situação do recorrente, este deverá ser intimado para formular suas alegações no prazo máximo de dez dias úteis, antes da decisão
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 3
+enunciado: Se do julgamento do recurso pelo Conselho Diretor puder resultar gravame à situação da operadora, ela deverá ser intimada para apresentar alegações em até dez dias úteis antes da decisão.
+comentario: Art. 65, § 1º. Como no art. 64, parágrafo único, da Lei 9.784/1999, a reforma para pior é possível no recurso, desde que o recorrente seja ouvido antes.
+
+=== fz-25
+gab: E
+bloco: res-1-2021
+ref: res1 68
+trecho: poderão ser revistos, a qualquer tempo, a pedido ou de ofício, quando surgirem fatos novos ou circunstâncias relevantes suscetíveis de justificar a inadequação da sanção aplicada
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: absoluto
+dif: 2
+enunciado: Transitada em julgado a decisão administrativa, a sanção aplicada à operadora não poderá ser revista, ainda que surjam fatos novos que demonstrem sua inadequação.
+comentario: Errado. Art. 68: a revisão cabe a qualquer tempo, a pedido ou de ofício, diante de fatos novos ou circunstâncias relevantes. Dela não pode resultar agravamento (art. 69, § 4º).
+
+=== fz-26
+gab: E
+bloco: res-1-2021
+ref: res1 69
+trecho: A apresentação de pedido de revisão não suspenderá os efeitos da sanção aplicada por decisão administrativa transitada em julgado
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: O pedido de revisão suspende automaticamente a cobrança da multa aplicada por decisão transitada em julgado.
+comentario: Errado. Art. 69, § 2º: a revisão não suspende os efeitos da sanção, inclusive a constituição, a cobrança e a execução do crédito da multa.
+
+=== fz-27
+gab: C
+bloco: res-1-2021
+ref: res1 61
+trecho: O não conhecimento do recurso não impede a ANPD de rever de ofício o ato ilegal
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: Ainda que o recurso não seja conhecido por intempestividade, a ANPD pode rever de ofício ato ilegal.
+comentario: Art. 61, parágrafo único. É a autotutela, também presente no art. 63, § 2º, da Lei 9.784/1999.
+
+=== fz-28
+gab: C
+bloco: res-1-2021
+ref: res1 67
+trecho: no prazo de setenta e cinco dias contados dessa intimação
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: numero
+dif: 2
+enunciado: Não paga a multa no vencimento, a operadora será intimada sobre o débito e sobre sua inscrição no Cadin no prazo de setenta e cinco dias, e o débito será encaminhado para inscrição na Dívida Ativa da União.
+comentario: Art. 67, § 2º. Restando débito vencido e não pago, o processo vai ao órgão competente da Advocacia-Geral da União (§ 3º).
+
+=== fz-29
+gab: E
+bloco: res-1-2021
+ref: res1 43
+trecho: A suspensão do processo terá início após a assinatura do termo de ajustamento de conduta
+apoio: @SANCIONA
+comando: Com base nessa situação hipotética e no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: caso
+dif: 2
+enunciado: Se a operadora propuser termo de ajustamento de conduta, a proposta será decidida pela Coordenação-Geral de Fiscalização, e o processo ficará suspenso desde a apresentação da proposta.
+comentario: Errado. Art. 43: a proposta é submetida ao Conselho Diretor, e a suspensão começa só com a assinatura do termo. O processo é arquivado depois de cumprido integralmente o termo.
+
+=== fz-30
+gab: E
+bloco: res-1-2021
+ref: res1 21
+trecho: O Mapa de Temas Prioritários será bianual
+comando: Com base no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: numero
+dif: 2
+enunciado: O Mapa de Temas Prioritários tem periodicidade anual, coincidente com a do ciclo de monitoramento.
+comentario: Errado. O ciclo de monitoramento é anual (art. 19, parágrafo único), mas o Mapa de Temas Prioritários é bianual (art. 21). A Res. 30/2025 fixou o mapa para o biênio 2026-2027.
+
+=== fz-31
+gab: E
+bloco: res-1-2021
+ref: res1 17
+trecho: exigência de mínima intervenção na imposição de condicionantes administrativas ao tratamento de dados pessoais
+comando: Com base no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador da ANPD (Resolução CD/ANPD n.º 1/2021), julgue os itens seguintes.
+armadilha: conceito
+dif: 1
+enunciado: Entre as premissas do processo de fiscalização da ANPD está a máxima intervenção na imposição de condicionantes administrativas ao tratamento de dados pessoais, como forma de assegurar a conformidade.
+comentario: Errado. Art. 17, IX: a premissa é a mínima intervenção. A fiscalização é responsiva (inciso IV) e prioriza a conciliação e a resolução do problema pelo controlador (inciso VIII).
