@@ -28,9 +28,16 @@ export function validar({ silencioso = false } = {}) {
   const vistos = new Map();
   const err = (q, msg) => erros.push(`${relative(RAIZ, q.arquivo)} · ${q.id}: ${msg}`);
 
+  // O mesmo enunciado (com o mesmo texto de apoio e as mesmas alternativas) em dois itens faz a pessoa responder duas
+  // vezes a mesma coisa e conta em dobro na revisão
+  const chaveTexto = (q) => [q.enunciado, q.apoio, q.alt.join('|')].map((x) => String(x || '').toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, ' ').trim()).join('#');
+  const textos = new Map();
   for (const q of questoes) {
     if (vistos.has(q.id)) err(q, `id repetido (também em ${relative(RAIZ, vistos.get(q.id))})`);
     vistos.set(q.id, q.arquivo);
+    const ct = chaveTexto(q);
+    if (textos.has(ct)) err(q, `enunciado repetido: igual ao de ${textos.get(ct)}`);
+    else textos.set(ct, q.id);
     if (!q.bloco || !idsBlocos.has(q.bloco)) err(q, `bloco inválido: ${q.bloco}`);
     if (q.alt.length) {
       // Múltipla escolha: 4 ou 5 alternativas, em ordem (A, B, C...), e o gabarito é uma delas
