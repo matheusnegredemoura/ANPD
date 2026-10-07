@@ -1,6 +1,7 @@
 // Gestão de riscos e controles internos: ABNT NBR ISO 31000:2018, COSO (controle interno de 2013 e ERM de 2017),
 // IN Conjunta MP/CGU 1/2016, respostas ao risco, modelo das três linhas (2020), continuidade de negócios e o
-// relatório de impacto da LGPD como instrumento de gestão de riscos. Itens escritos para o banco.
+// relatório de impacto da LGPD como instrumento de gestão de riscos, princípios da ISO 31000, apetite e capacidade,
+// tipos de controle e análise qualitativa. Itens escritos para o banco.
 
 bloco: riscos
 
@@ -246,3 +247,67 @@ armadilha: conceito
 dif: 1
 enunciado: Proprietário do risco é a pessoa ou unidade com responsabilidade e autoridade para gerenciar determinado risco.
 comentario: Certo. Sem dono, o risco fica sem tratamento e sem monitoramento; por isso as normas exigem responsável formalmente identificado para cada risco.
+
+=== rc-31
+gab: E
+ref: doutrina Gestão de riscos (ISO 31000)
+armadilha: conceito
+dif: 2
+enunciado: Segundo os princípios da ISO 31000:2018, a gestão de riscos deve ser estática, padronizada para todas as organizações e indiferente a fatores humanos e culturais.
+comentario: Errado. A ISO 31000:2018 lista oito princípios: integrada, estruturada e abrangente, personalizada, inclusiva, dinâmica, baseada na melhor informação disponível, atenta a fatores humanos e culturais e voltada à melhoria contínua. O item diz o oposto de três deles.
+
+=== rc-32
+gab: E
+ref: doutrina Gestão de riscos (ISO 31000)
+armadilha: absoluto
+dif: 2
+enunciado: Na ISO 31000, a avaliação de riscos sempre resulta na adoção de novos controles, sendo vedado à organização decidir manter apenas os controles existentes.
+comentario: Errado. A avaliação compara o resultado da análise com os critérios de risco. A decisão pode ser não fazer mais nada, considerar opções de tratamento, aprofundar a análise, manter os controles existentes ou reconsiderar os objetivos.
+
+=== rc-33
+gab: E
+ref: doutrina COSO
+armadilha: numero
+dif: 3
+enunciado: O COSO Controle Interno, na estrutura integrada de 2013, organiza-se em cinco componentes e vinte princípios.
+comentario: Errado. São cinco componentes e 17 princípios. Cinco componentes e vinte princípios são do COSO ERM de 2017, que integra a gestão de riscos à estratégia e ao desempenho.
+
+=== rc-34
+gab: E
+ref: doutrina Modelo das três linhas (IIA)
+armadilha: sujeito
+dif: 2
+enunciado: No modelo das três linhas do IIA, de 2020, os auditores externos compõem a terceira linha, por avaliarem a organização com independência.
+comentario: Errado. A terceira linha é a auditoria interna. Os prestadores externos de avaliação, como auditores independentes e órgãos de controle externo, ficam fora das três linhas e complementam a avaliação.
+
+=== rc-35
+gab: E
+ref: doutrina Gestão de riscos (apetite e capacidade)
+armadilha: conceito
+dif: 2
+enunciado: Capacidade de risco e apetite a risco são expressões sinônimas, pois ambas indicam o nível de risco que a organização deseja assumir.
+comentario: Errado. Capacidade é o máximo de risco que a organização consegue suportar; apetite é quanto ela está disposta a aceitar na busca de seus objetivos, e deve ficar abaixo da capacidade.
+
+=== rc-36
+gab: E
+ref: doutrina Gestão de riscos (matriz de probabilidade e impacto)
+armadilha: absoluto
+dif: 2
+enunciado: Na matriz de probabilidade e impacto, o risco de probabilidade muito baixa deve sempre ser classificado como baixo, ainda que seu impacto seja catastrófico.
+comentario: Errado. O nível resulta da combinação de probabilidade e impacto. Eventos raros e catastróficos, como um desastre que destrua o centro de dados, costumam exigir tratamento, inclusive plano de continuidade.
+
+=== rc-37
+gab: E
+ref: doutrina Controles internos
+armadilha: conceito
+dif: 1
+enunciado: Controles corretivos destinam-se a impedir que o evento indesejado ocorra, como a exigência de dupla assinatura para pagamentos.
+comentario: Errado. Controle que impede o evento é preventivo, como a dupla assinatura. O corretivo atua depois, para reduzir o dano e restabelecer a situação, como a restauração de cópias de segurança.
+
+=== rc-38
+gab: E
+ref: doutrina Gestão de riscos (análise qualitativa e quantitativa)
+armadilha: conceito
+dif: 1
+enunciado: Na análise qualitativa de riscos, a probabilidade e o impacto são necessariamente expressos em valores monetários.
+comentario: Errado. A análise qualitativa usa escalas descritivas, como baixo, médio e alto; a quantitativa atribui valores numéricos, como probabilidades e perdas em dinheiro.
