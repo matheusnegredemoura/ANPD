@@ -523,6 +523,9 @@ function xpAcerto(q, combo, modo) {
 // - o da pessoa: a retenção medida nas revisões de manutenção dos últimos 30 dias calibra todos os intervalos para
 //   mirar 90% de lembrança. Com esquecimento exponencial, R = e^(−t/S), o intervalo que dá a retenção-alvo é
 //   t × ln(0,9) ÷ ln(R medida). Abaixo de 20 revisões medidas, o fator fica neutro.
+//   Só contam as revisões feitas até 1,5 vez o intervalo programado: com o teto diário de manutenção, muitos itens
+//   voltam atrasados, e o esquecimento maior desses atrasos puxaria todos os intervalos para baixo (na simulação, o
+//   fator ia ao piso de 0,7 e o atraso crescia).
 // Os níveis 0 e 1 (erro recente) não mudam: rever logo o erro é o que mais rende.
 const RETENCAO_ALVO = 0.9;
 function fatorItem(r) {
@@ -532,7 +535,7 @@ function fatorItem(r) {
 function retencaoMedida() {
   const hoje = HOJE();
   let m = 0, mc = 0;
-  for (const [iso, d] of Object.entries(S.perfil.dias || {})) if (hoje - diaNum(iso) <= 30) { m += d.m || 0; mc += d.mc || 0; }
+  for (const [iso, d] of Object.entries(S.perfil.dias || {})) if (hoje - diaNum(iso) <= 30) { m += d.mp || 0; mc += d.mpc || 0; }
   return { m, mc, ret: m ? mc / m : null, calibra: m >= 20 };
 }
 function fatorPessoa() {
@@ -551,6 +554,7 @@ function registrar(q, resp, duvida) {
   const antes = r[0];
   const estavaNaLista = antes >= 0 && antes < 3;
   const eraManutencao = antes >= 3 && r[1] <= hoje;
+  const pontual = eraManutencao && hoje - r[4] <= 1.5 * Math.max(1, r[1] - r[4]);
   // Responder de novo no mesmo dia não é revisão espaçada: o acerto repetido não sobe de nível
   const jaRespondidoHoje = antes >= 0 && r[4] === hoje;
   let ok = null;
@@ -573,6 +577,7 @@ function registrar(q, resp, duvida) {
   const d = diaLog();
   if (resp === BRANCO) d.b = (d.b || 0) + 1; else { d.r++; if (ok) d.c++; else d.e++; }
   if (eraManutencao) { d.m = (d.m || 0) + 1; if (ok && !duvida) d.mc = (d.mc || 0) + 1; }
+  if (pontual) { d.mp = (d.mp || 0) + 1; if (ok && !duvida) d.mpc = (d.mpc || 0) + 1; }
   if (ok === false) sugerirPesquisaDoErro(q);
   return ok;
 }
@@ -2058,8 +2063,8 @@ function renderProgresso() {
   const pl1 = Object.entries(prim).filter(([, v]) => v.n >= 10);
   const tot1 = Object.values(prim).reduce((a, v) => ({ c: a.c + v.c, n: a.n + v.n }), { c: 0, n: 0 });
   const rm = retencaoMedida(), fp = fatorPessoa();
-  html += '<div class="cartao"><div class="secao-cab"><h2>Revisão adaptativa</h2><span class="mudo pequeno">' + (rm.m ? pct(rm.mc, rm.m) + '% de ' + pl(rm.m, 'revisão', 'revisões') + ' em 30 dias' : 'sem revisões de manutenção ainda') + '</span></div>' +
-    '<p>' + (rm.calibra ? 'Você lembrou, com segurança, ' + pct(rm.mc, rm.m) + '% dos acertos antigos que voltaram. A meta é 90%: os intervalos de revisão estão ' + (fp > 1.02 ? 'alongados em ' + Math.round((fp - 1) * 100) + '%, porque você está esquecendo menos do que o previsto.' : fp < 0.98 ? 'encurtados em ' + Math.round((1 - fp) * 100) + '%, para os itens voltarem antes de serem esquecidos.' : 'no ponto certo.') : 'A calibração começa com 20 revisões de acertos antigos (faltam ' + (20 - rm.m) + '). Até lá, os intervalos seguem o padrão.') + '</p>' +
+  html += '<div class="cartao"><div class="secao-cab"><h2>Revisão adaptativa</h2><span class="mudo pequeno">' + (rm.m ? pct(rm.mc, rm.m) + '% de ' + pl(rm.m, 'revisão', 'revisões') + ' no prazo em 30 dias' : 'sem revisões no prazo ainda') + '</span></div>' +
+    '<p>' + (rm.calibra ? 'Você lembrou, com segurança, ' + pct(rm.mc, rm.m) + '% dos acertos antigos que voltaram. A meta é 90%: os intervalos de revisão estão ' + (fp > 1.02 ? 'alongados em ' + Math.round((fp - 1) * 100) + '%, porque você está esquecendo menos do que o previsto.' : fp < 0.98 ? 'encurtados em ' + Math.round((1 - fp) * 100) + '%, para os itens voltarem antes de serem esquecidos.' : 'no ponto certo.') : 'A calibração começa com 20 revisões de acertos antigos feitas no prazo (faltam ' + (20 - rm.m) + '). Até lá, os intervalos seguem o padrão.') + '</p>' +
     '<p class="pequeno mudo">Cada item também tem o seu ritmo: o que você já errou ou acertou com dúvida volta antes; o que acerta com segurança repetidas vezes espaça mais.</p></div>';
   html += '<div class="cartao"><div class="secao-cab"><h2>Acerto em itens inéditos</h2><span class="mudo pequeno">' + (tot1.n ? pct(tot1.c, tot1.n) + '% em ' + tot1.n + ' primeiras respostas' : 'primeira resposta de cada item') + '</span></div>' +
     (pl1.length ? '<div class="dominio">' + pl1.map(([dd, v]) => '<div class="dom-linha"><span class="nome">' + esc((DI.get(dd) || { nome: dd }).nome) + ' · ' + v.n + ' itens</span>' + barra(v.c / v.n) + '<span class="val">' + pct(v.c, v.n) + '%</span></div>').join('') + '</div>' : '<p class="mudo">Aparece por disciplina a partir de 10 itens respondidos pela primeira vez.</p>') +
