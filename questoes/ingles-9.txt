@@ -1,0 +1,516 @@
+// Textos originais escritos para o banco, em inglês, sexta leva: identidade digital, preço personalizado por algoritmo,
+// relatórios de transparência de plataformas, ataques à cadeia de suprimentos de software e porta giratória entre
+// regulador e regulado. Itens em português, como na prova Cebraspe, com falsos cognatos, referência e conectivos.
+
+bloco: ingles
+
+apoio_EN9A: Around the world, governments are building digital identity systems that allow citizens to prove who they are online, open bank accounts and claim benefits without queuing at an office. Supporters point to India, where a single biometric identifier now covers most of the population, and to Estonia, where almost every public service can be completed online.
+The benefits are real, but so are the dangers. A single identifier makes it easy to link records that used to be kept apart, from health files to tax returns. If that identifier leaks, the damage is hard to undo: a password can be changed, but a fingerprint cannot. Critics also warn that people without documents, stable internet access or legible fingerprints, such as manual workers and the elderly, may eventually be shut out of services they are entitled to.
+Well-designed systems try to address these risks. They collect only the attributes needed for each transaction, allow citizens to see who has consulted their data and keep offline alternatives for those who cannot use digital channels. Whether a digital ID empowers or excludes depends less on the technology than on these choices.
+apoio_EN9B: Online shops have always adjusted prices to demand, raising them before holidays and cutting them when stock piles up. What is new is the ability to set a different price for each customer. By analysing browsing history, location and even the type of device used, an algorithm can estimate how much a particular shopper is willing to pay and charge accordingly.
+Economists call this first-degree price discrimination, and its effects are ambiguous. In some cases it allows firms to serve customers who would otherwise be priced out, since those with less money may be offered discounts. In others, it simply transfers value from consumers to sellers, who capture almost all of the gain from each sale.
+Consumers tend to find the practice unfair once they discover it, especially when the factors used seem unrelated to cost. For this reason, several authorities have argued that personalised prices should at least be disclosed. Data protection law adds another constraint: if the price depends on a profile built from personal data, the customer may have the right to know the criteria used and to challenge automated decisions that significantly affect them.
+apoio_EN9C: Large platforms remove millions of posts every month, most of them flagged by automated systems before any user has seen them. For years, the public knew little about how these decisions were made. Transparency reports, first published voluntarily by a few companies, were meant to change that by revealing how many items were removed, for what reasons and at whose request.
+The early reports were easy to praise and hard to use. Each company chose its own categories and methods, so figures could not be compared, and numbers alone said nothing about whether the right content had been taken down. A platform could report that it had removed more hate speech than ever without anyone knowing whether that reflected better detection or simply more hate speech.
+New laws in several jurisdictions now require standardised reports, independent audits and access to data for vetted researchers. The goal is not to dictate what may be said but to make the systems that shape public debate open to scrutiny. Platforms warn that sharing data with researchers may itself create privacy risks, a concern that regulators acknowledge but do not consider a reason for secrecy.
+apoio_EN9D: Attackers have learned that the easiest way into a well-defended organisation is often through someone it trusts. Instead of breaking into a bank or a ministry directly, they compromise a software supplier and hide malicious code in a routine update. When thousands of customers install the update, the attackers gain access to all of them at once.
+Such supply chain attacks are hard to detect precisely because they exploit legitimate channels. The update carries a valid signature, comes from the expected server and behaves normally for weeks. By the time anyone notices, the intruders may have moved deep into the networks they reached.
+Defenders have responded by demanding more information about the components inside the software they buy, often in the form of a "software bill of materials", a list of every library and dependency used. Others limit what each application is allowed to do, so that a compromised program cannot reach everything. None of these measures removes the need for trust, but they reduce how much damage a single broken link can cause.
+apoio_EN9E: Regulators need people who understand the industries they oversee, and the best place to find such expertise is often the industry itself. The same logic works in reverse: companies value former officials who know how the agency thinks. The resulting traffic between public and private posts, known as the revolving door, is not in itself corrupt, but it raises an obvious question about whose interests an official is serving.
+Researchers have found mixed evidence. Some studies suggest that officials who hope to join a firm later may treat it more gently while still in office. Others find the opposite effect: officials trying to impress future employers may act tougher, to demonstrate competence. What seems clearer is that regulators who come from and return to the same small group of companies are likely to share its assumptions, even without any improper intent.
+Most countries therefore rely on cooling-off periods, during which former officials may not work for, or lobby, the bodies they used to regulate. Such rules are a reasonable compromise, but they work only if they are enforced and if the periods are long enough to matter.
+
+=== en9-01
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, sistemas de identidade digital permitem que o cidadão prove quem é pela internet, abra contas bancárias e solicite benefícios sem enfrentar filas.
+comentario: Primeiro período: “prove who they are online, open bank accounts and claim benefits without queuing at an office”.
+
+=== en9-02
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: O texto informa que a Estônia adotou um identificador biométrico único que hoje cobre a maior parte de sua população.
+comentario: O identificador biométrico único é exemplo da Índia. A Estônia aparece por oferecer quase todos os serviços públicos pela internet. O item troca os exemplos.
+
+=== en9-03
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN9A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No segundo parágrafo, a forma verbal “leaks”, em “If that identifier leaks”, tem, no contexto, o sentido de vaza.
+comentario: “To leak” é vazar: o identificador cai em mãos indevidas. O substantivo “leak” é o vazamento.
+
+=== en9-04
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Para o texto, é difícil desfazer o dano do vazamento de um identificador biométrico porque, ao contrário de uma senha, a impressão digital não pode ser trocada.
+comentario: “a password can be changed, but a fingerprint cannot”. É o argumento central contra dados biométricos como chave única.
+
+=== en9-05
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN9A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, o advérbio “eventually” equivale a eventualmente, no sentido de ocasionalmente.
+comentario: Falso cognato: “eventually” significa por fim, com o tempo. Os excluídos podem acabar, com o tempo, sem acesso aos serviços.
+
+=== en9-06
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: O texto conclui que o caráter inclusivo ou excludente da identidade digital depende sobretudo da tecnologia adotada.
+comentario: O texto diz o contrário: “depends less on the technology than on these choices”, isto é, depende mais das escolhas de desenho (coleta mínima, transparência, alternativas off-line).
+
+=== en9-07
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, sistemas bem desenhados coletam apenas os atributos necessários a cada transação.
+comentario: “They collect only the attributes needed for each transaction”. É a minimização de dados aplicada à identificação.
+
+=== en9-08
+gab: E
+tema: en-referencia
+ref: texto
+apoio: @EN9A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No último parágrafo, o pronome “those”, em “for those who cannot use digital channels”, retoma “offline alternatives”.
+comentario: “Those” refere-se às pessoas que não conseguem usar os canais digitais, para quem as alternativas off-line são mantidas.
+
+=== en9-09
+gab: C
+tema: en-gramatica
+ref: texto
+apoio: @EN9A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: No período “a password can be changed, but a fingerprint cannot”, fica subentendida, depois de “cannot”, a expressão be changed.
+comentario: É uma elipse: o inglês omite a parte do verbo já dita (“a fingerprint cannot [be changed]”).
+
+=== en9-10
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto afirma que as lojas on-line sempre ajustaram os preços à demanda, elevando-os antes de feriados e reduzindo-os quando o estoque se acumula.
+comentario: Primeiro período. O texto usa isso para marcar o que é novo: o preço diferente para cada cliente.
+
+=== en9-11
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, a novidade nas lojas on-line é a possibilidade de elevar os preços antes dos feriados.
+comentario: Isso sempre existiu. A novidade é “the ability to set a different price for each customer”.
+
+=== en9-12
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, um algoritmo pode estimar quanto determinado consumidor está disposto a pagar a partir do histórico de navegação, da localização e até do tipo de aparelho usado.
+comentario: “By analysing browsing history, location and even the type of device used, an algorithm can estimate how much a particular shopper is willing to pay”.
+
+=== en9-13
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: absoluto
+dif: 2
+enunciado: O texto afirma que a discriminação de preços de primeiro grau sempre prejudica os consumidores.
+comentario: Os efeitos são “ambiguous”: às vezes permite atender quem ficaria de fora; outras vezes só transfere valor do consumidor ao vendedor.
+
+=== en9-14
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN9B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, a expressão “priced out” refere-se a consumidores que ficariam excluídos do mercado por não poderem pagar o preço.
+comentario: “To be priced out” é ser excluído pelo preço. Com descontos para quem tem menos dinheiro, esses clientes passam a ser atendidos.
+
+=== en9-15
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN9B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, o pronome “who”, em “who capture almost all of the gain from each sale”, retoma “sellers”.
+comentario: Os vendedores capturam quase todo o ganho de cada venda. É o lado em que a prática só transfere valor.
+
+=== en9-16
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: De acordo com o texto, os consumidores tendem a considerar a prática justa quando tomam conhecimento dela.
+comentario: “Consumers tend to find the practice unfair once they discover it”, sobretudo quando os fatores parecem não ter relação com o custo.
+
+=== en9-17
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, várias autoridades defenderam que os preços personalizados sejam, no mínimo, divulgados.
+comentario: “several authorities have argued that personalised prices should at least be disclosed”.
+
+=== en9-18
+gab: E
+tema: en-gramatica
+ref: texto
+apoio: @EN9B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, o modal “should”, em “should at least be disclosed”, indica que a divulgação já é obrigação legal em todos os países.
+comentario: “Should” exprime recomendação ou conveniência: as autoridades defendem a divulgação. O texto não diz que ela já é obrigatória.
+
+=== en9-19
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, a maior parte das publicações removidas pelas grandes plataformas é sinalizada por sistemas automatizados antes que qualquer usuário a veja.
+comentario: “most of them flagged by automated systems before any user has seen them”.
+
+=== en9-20
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto informa que os primeiros relatórios de transparência foram publicados por exigência legal.
+comentario: Foram publicados “voluntarily by a few companies”. A exigência legal é o tema do último parágrafo.
+
+=== en9-21
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Para o texto, os primeiros relatórios de transparência eram fáceis de elogiar e difíceis de usar, pois cada empresa adotava categorias e métodos próprios.
+comentario: “easy to praise and hard to use”, com números que não podiam ser comparados.
+
+=== en9-22
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: Depreende-se do texto que o aumento do número de remoções de discurso de ódio comprova que a plataforma melhorou sua capacidade de detecção.
+comentario: O texto diz justamente que ninguém sabe se o aumento reflete melhor detecção “or simply more hate speech”.
+
+=== en9-23
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN9C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, a expressão “vetted researchers” refere-se a pesquisadores previamente avaliados e habilitados.
+comentario: “To vet” é examinar com cuidado antes de aprovar. Só pesquisadores habilitados recebem acesso aos dados.
+
+=== en9-24
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, as novas leis têm por objetivo ditar o que pode ou não ser dito nas plataformas.
+comentario: “The goal is not to dictate what may be said but to make the systems that shape public debate open to scrutiny”.
+
+=== en9-25
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN9C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: No último período, a expressão “a concern” retoma o risco de que o compartilhamento de dados com pesquisadores gere problemas de privacidade.
+comentario: O aposto “a concern that regulators acknowledge” resume o alerta das plataformas mencionado logo antes.
+
+=== en9-26
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN9C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No terceiro parágrafo, o vocábulo “scrutiny” pode ser traduzido por sigilo.
+comentario: “Scrutiny” é exame minucioso, escrutínio. O oposto de sigilo (“secrecy”), que aparece no fim do parágrafo.
+
+=== en9-27
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN9C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No primeiro parágrafo, o pronome “that”, em “were meant to change that”, retoma o fato de o público saber pouco sobre como as decisões de remoção eram tomadas.
+comentario: Os relatórios deveriam mudar essa falta de informação, revelando quantos itens foram removidos, por quê e a pedido de quem.
+
+=== en9-28
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, o caminho mais fácil para entrar em uma organização bem protegida é, muitas vezes, alguém em quem ela confia.
+comentario: Primeiro período: “through someone it trusts”, no caso um fornecedor de software.
+
+=== en9-29
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, os ataques à cadeia de suprimentos são fáceis de detectar, porque utilizam canais incomuns.
+comentario: São difíceis de detectar “precisely because they exploit legitimate channels”.
+
+=== en9-30
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: O texto informa que a atualização maliciosa pode ter assinatura válida, vir do servidor esperado e funcionar normalmente por semanas.
+comentario: “The update carries a valid signature, comes from the expected server and behaves normally for weeks”. Por isso controles baseados só na origem falham.
+
+=== en9-31
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN9D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No primeiro parágrafo, a expressão “routine update” significa atualização extraordinária.
+comentario: “Routine” é rotineira, habitual. O código malicioso se esconde justamente numa atualização comum.
+
+=== en9-32
+gab: C
+tema: en-gramatica
+ref: texto
+apoio: @EN9D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, a expressão “By the time anyone notices” indica que, quando alguém percebe o ataque, os invasores podem já ter avançado nas redes.
+comentario: “By the time” marca o momento até o qual algo já terá ocorrido: quando alguém nota, o estrago pode estar feito.
+
+=== en9-33
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, o “software bill of materials” é uma lista de todas as bibliotecas e dependências usadas em um software.
+comentario: É o que o texto diz no aposto. A sigla usual é SBOM.
+
+=== en9-34
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Para o autor, as medidas adotadas pelos defensores eliminam a necessidade de confiar nos fornecedores.
+comentario: “None of these measures removes the need for trust”: elas reduzem o dano que um elo comprometido pode causar.
+
+=== en9-35
+gab: C
+tema: en-gramatica
+ref: texto
+apoio: @EN9D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, a locução “so that”, em “so that a compromised program cannot reach everything”, introduz uma finalidade.
+comentario: “So that” equivale a para que: limita-se o que cada aplicação pode fazer para que um programa comprometido não alcance tudo.
+
+=== en9-36
+gab: E
+tema: en-referencia
+ref: texto
+apoio: @EN9D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No último período, o pronome “they”, em “they reduce how much damage”, retoma “Defenders”.
+comentario: “They” retoma “these measures”: são as medidas que reduzem o dano de um elo quebrado.
+
+=== en9-37
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, os reguladores precisam de pessoas que conheçam as indústrias que supervisionam, e esse conhecimento costuma estar na própria indústria.
+comentario: Primeiro período: “Regulators need people who understand the industries they oversee, and the best place to find such expertise is often the industry itself”. “Often” corresponde a “costuma”; é desse fluxo que nasce a porta giratória descrita adiante.
+
+=== en9-38
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto afirma que a chamada porta giratória entre cargos públicos e privados é, em si mesma, corrupta.
+comentario: “is not in itself corrupt”, mas levanta a questão de a quais interesses o agente está servindo.
+
+=== en9-39
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN9E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No primeiro período, a forma verbal “oversee” pode ser traduzida, no contexto, por supervisionam.
+comentario: “To oversee” é supervisionar, fiscalizar. Não confundir com “overlook”, que é deixar passar ou ignorar.
+
+=== en9-40
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: absoluto
+dif: 2
+enunciado: Segundo o texto, as pesquisas comprovam de forma conclusiva que agentes que pretendem trabalhar para uma empresa a tratam com mais leniência.
+comentario: As evidências são “mixed”: alguns estudos indicam leniência, outros o efeito oposto.
+
+=== en9-41
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: O texto menciona estudos segundo os quais agentes que querem impressionar futuros empregadores podem agir com mais rigor, para demonstrar competência.
+comentario: “officials trying to impress future employers may act tougher, to demonstrate competence”.
+
+=== en9-42
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN9E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: Para o texto, reguladores que vêm do mesmo pequeno grupo de empresas e a ele retornam tendem a compartilhar as premissas desse grupo, mesmo sem intenção imprópria.
+comentario: É o ponto “mais claro” do segundo parágrafo: a captura pode ser cognitiva, sem desonestidade.
+
+=== en9-43
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN9E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, a expressão “cooling-off periods” refere-se aos prazos em que o consumidor pode desistir de uma compra.
+comentario: No direito do consumidor a expressão tem esse sentido, mas aqui o contexto é outro: são as quarentenas de ex-dirigentes. No Brasil, a Lei 9.986/2000 prevê quarentena de seis meses para ex-dirigentes de agências (art. 8º).
+
+=== en9-44
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN9E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Para o autor, as quarentenas funcionam independentemente de fiscalização e da duração fixada.
+comentario: Elas funcionam “only if they are enforced and if the periods are long enough to matter”.
+
+=== en9-45
+gab: E
+tema: en-referencia
+ref: texto
+apoio: @EN9E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: No segundo parágrafo, o pronome “its”, em “share its assumptions”, retoma “regulators”.
+comentario: “Its” retoma “the same small group of companies”: os reguladores passam a compartilhar as premissas desse grupo. Se retomasse “regulators”, o pronome seria “their”.
