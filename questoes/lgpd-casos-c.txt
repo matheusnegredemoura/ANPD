@@ -1,0 +1,903 @@
+// Casos práticos da LGPD, terceira leva: reconhecimento facial em condomínio (operador que desvia a finalidade e
+// responde pelo vazamento), estudo em saúde pública (art. 13 e pseudonimização), convênio entre autarquia e banco
+// (arts. 23, 26 e 27), legítimo interesse num programa de fidelidade (art. 10), encarregado mal designado
+// (Res. 18/2024), ação de indenização por vazamento (arts. 42 a 46), encerramento de atividades (arts. 15, 16 e 18)
+// e segurança desde a concepção (arts. 46 a 50). Itens escritos para o banco; trechos conferidos em fontes/.
+
+apoio_CONDO: Um condomínio residencial substituiu as chaves da portaria por um sistema de reconhecimento facial. A administradora contratada pelo condomínio cadastra as fotos dos moradores e opera o sistema segundo as instruções do síndico. Sem consultar o condomínio, a administradora passou a usar as imagens para treinar um produto próprio de identificação, que pretende vender a outros clientes. Meses depois, por falta de atualização de segurança no servidor da administradora, as imagens e os nomes dos moradores foram expostos na internet. Um morador, que não havia sido informado do novo uso, pediu a eliminação de sua biometria.
+apoio_PESQ: Uma fundação estadual de pesquisa, cuja missão institucional inclui a pesquisa científica aplicada, obteve da secretaria de saúde acesso a prontuários de pacientes internados com dengue para estudar fatores de agravamento da doença. Os pesquisadores substituíram nomes e CPFs por códigos e guardaram a tabela de correspondência em servidor separado, com acesso restrito ao coordenador. Uma empresa farmacêutica ofereceu financiamento em troca de cópia da base codificada. Concluída a pesquisa, a fundação pretende publicar artigo com tabelas por faixa etária e município e guardar a base para estudos futuros.
+apoio_CONVENIO: Uma autarquia federal que administra o cadastro de beneficiários de um programa social firmou convênio com um banco privado, responsável pelo pagamento dos benefícios, para transferir-lhe nome, CPF e dados bancários dos beneficiários. Meses depois, o banco propôs usar a mesma base para oferecer empréstimos aos beneficiários. A autarquia também estuda transferir parte do cadastro a uma empresa privada especializada em detectar fraudes em pagamentos.
+apoio_FIDELIDADE: Uma rede de supermercados mantém programa de fidelidade no qual o cliente se cadastra para obter descontos. Com fundamento no legítimo interesse, a rede passou a usar o histórico de compras para enviar ofertas personalizadas por e-mail. Para aprimorar as ofertas, pretende coletar a localização dos clientes em tempo real pelo aplicativo e cruzar o histórico com informações sobre doenças inferidas das compras de medicamentos. A política de privacidade do programa não menciona nenhum desses usos.
+apoio_ENCARREGADO: Uma empresa de médio porte de saúde ocupacional, controladora dos dados dos trabalhadores que atende, designou por mensagem informal de correio eletrônico o seu diretor de tecnologia, que decide quais sistemas tratam dados pessoais e com que finalidades, para atuar também como encarregado. No sítio eletrônico da empresa, consta apenas um endereço de correio eletrônico genérico, sem o nome do encarregado. Quando o diretor sai de férias, ninguém responde às solicitações dos titulares. A empresa avalia contratar uma consultoria, pessoa jurídica, para exercer a função.
+apoio_BANCO: Após um ataque cibernético, dados cadastrais e saldos de clientes de um banco digital foram publicados num fórum da internet. A perícia concluiu que os invasores exploraram uma vulnerabilidade conhecida havia meses, para a qual já existia correção disponível, não aplicada pelo banco. Um cliente ajuizou ação de indenização por danos morais, e uma associação de defesa do consumidor propôs ação coletiva em favor de todos os afetados. Na defesa, o banco alegou que o dano decorreu exclusivamente da ação criminosa de terceiros.
+apoio_ENCERRA: Uma empresa de aplicativo de entrega de refeições decidiu encerrar as atividades no Brasil. Sua base contém cadastro, endereços e histórico de pedidos de milhões de clientes, além de documentos fiscais que a legislação tributária obriga a guardar por prazo determinado. Uma concorrente ofereceu-se para comprar a base de clientes. A empresa pretende, ainda, guardar o histórico de pedidos para estudos internos de mercado, caso volte a operar no país.
+apoio_TELEMED: Uma empresa iniciante desenvolve aplicativo de telemedicina. Para lançar o produto rapidamente, decidiu deixar as medidas de segurança para uma segunda versão. Também planeja instituir programa de governança em privacidade e submeter suas regras de boas práticas ao reconhecimento da autoridade nacional. Um fornecedor de software de prontuário eletrônico, que presta suporte técnico à empresa, acessa os dados eventualmente, para corrigir falhas.
+
+=== kc-01
+gab: C
+bloco: lgpd-5-11
+ref: lgpd 5
+trecho: dado genético ou biométrico, quando vinculado a uma pessoa natural
+apoio: @CONDO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A imagem facial usada para identificar os moradores é dado pessoal sensível, por se tratar de dado biométrico vinculado a pessoa natural.
+comentario: Art. 5º, II: o dado biométrico entra no rol dos sensíveis “quando vinculado a uma pessoa natural”. O sistema existe justamente para vincular rosto e morador, e por isso se aplica o regime do art. 11.
+
+=== kc-02
+gab: C
+bloco: lgpd-5-11
+ref: lgpd 5
+trecho: que realiza o tratamento de dados pessoais em nome do controlador
+apoio: @CONDO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: Na operação regular do sistema da portaria, o condomínio é o controlador, e a administradora, o operador.
+comentario: Art. 5º, VI e VII: o condomínio decide para que e como o sistema funciona; a administradora trata os dados em nome dele, seguindo as instruções do síndico. Quando passa a usar as fotos para fim próprio, o quadro muda (veja o art. 42, § 1º, I).
+
+=== kc-03
+gab: C
+bloco: lgpd-37-45
+ref: lgpd 42
+trecho: quando não tiver seguido as instruções lícitas do controlador, hipótese em que o operador equipara-se ao controlador
+apoio: @CONDO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Ao usar as imagens para treinar produto próprio, sem instrução do condomínio, a administradora equipara-se ao controlador e responde solidariamente pelos danos causados por esse tratamento.
+comentario: Art. 42, § 1º, I: o operador responde solidariamente quando descumpre a lei ou deixa de seguir as instruções lícitas do controlador, “hipótese em que o operador equipara-se ao controlador”, salvo as excludentes do art. 43.
+
+=== kc-04
+gab: E
+bloco: lgpd-37-45
+ref: lgpd 43
+trecho: Os agentes de tratamento só não serão responsabilizados quando provarem
+apoio: @CONDO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 3
+enunciado: Como o vazamento decorreu de falha no servidor da administradora, o condomínio fica automaticamente isento de responsabilidade perante os moradores, por culpa exclusiva de terceiro.
+comentario: Errado. Não há isenção automática: o art. 43 exige que o agente prove uma das excludentes. A administradora não é um terceiro estranho ao tratamento; é o operador que trata os dados em nome do condomínio. O condomínio que indenizar tem regresso contra ela (art. 42, § 4º).
+
+=== kc-05
+gab: C
+bloco: lgpd-37-45
+ref: lgpd 44
+trecho: Responde pelos danos decorrentes da violação da segurança dos dados o controlador ou o operador que, ao deixar de adotar as medidas de segurança previstas no art. 46 desta Lei, der causa ao dano
+apoio: @CONDO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: A administradora, que deixou de atualizar a segurança do servidor, pode responder pelos danos decorrentes do vazamento, ainda que seja apenas operadora.
+comentario: Art. 44, parágrafo único: responde “o controlador ou o operador” que, ao deixar de adotar as medidas de segurança do art. 46, der causa ao dano. A falta de atualização é exatamente essa omissão.
+
+=== kc-06
+gab: E
+bloco: lgpd-37-45
+ref: lgpd 42
+trecho: O juiz, no processo civil, poderá inverter o ônus da prova a favor do titular dos dados
+apoio: @CONDO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: numero
+dif: 2
+enunciado: Em ação de indenização proposta por morador, o juiz deverá, obrigatoriamente, inverter o ônus da prova em seu favor, por envolver dado sensível.
+comentario: Errado. Art. 42, § 2º: a inversão é faculdade do juiz (“poderá”), cabível quando for verossímil a alegação, houver hipossuficiência para a prova ou a prova for excessivamente onerosa ao titular. A natureza sensível do dado não a torna automática.
+
+=== kc-07
+gab: C
+bloco: lgpd-37-45
+ref: lgpd 42
+trecho: Aquele que reparar o dano ao titular tem direito de regresso contra os demais responsáveis, na medida de sua participação no evento danoso
+apoio: @CONDO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: Se o condomínio indenizar o morador, terá direito de regresso contra a administradora, na medida da participação desta no evento danoso.
+comentario: Art. 42, § 4º. A solidariedade protege o titular, que pode cobrar de qualquer responsável; entre os responsáveis, a conta se acerta pela participação de cada um.
+
+=== kc-08
+gab: E
+bloco: lgpd-17-22
+ref: lgpd 18
+trecho: O titular dos dados pessoais tem direito a obter do controlador
+apoio: @CONDO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: sujeito
+dif: 2
+enunciado: O pedido de eliminação da biometria deve ser dirigido exclusivamente à administradora, por ser ela quem guarda fisicamente as imagens.
+comentario: Errado. Os direitos do art. 18 são exercidos perante o controlador, o condomínio, que deve providenciar a eliminação com a administradora. Se o pedido chegar a quem não é controlador, aplica-se o art. 18, § 4º, I.
+
+=== kc-09
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: sem fornecimento de consentimento do titular, nas hipóteses em que for indispensável para
+apoio: @CONDO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: absoluto
+dif: 2
+enunciado: Por envolver dado biométrico, o tratamento só pode apoiar-se no consentimento dos moradores, pois a LGPD não prevê hipótese de tratamento de dado sensível sem consentimento.
+comentario: Errado. O art. 11, II, lista hipóteses de tratamento de dado sensível sem consentimento, quando indispensável para as finalidades das alíneas “a” a “g”. Se alguma delas se aplica ao caso é questão de análise concreta; o que o item nega é a própria existência dessas hipóteses.
+
+=== kc-10
+gab: E
+bloco: lgpd-37-45
+ref: lgpd 39
+trecho: O operador deverá realizar o tratamento segundo as instruções fornecidas pelo controlador
+apoio: @CONDO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: Por operar o sistema, a administradora pode definir livremente novas finalidades para as imagens, desde que lhes garanta a segurança.
+comentario: Errado. Art. 39: o operador trata os dados segundo as instruções do controlador, que verifica a observância delas. Definir finalidade é decisão de controlador (art. 5º, VI).
+
+=== kc-11
+gab: C
+bloco: lgpd-5-11
+ref: lgpd 5
+trecho: que inclua em sua missão institucional ou em seu objetivo social ou estatutário a pesquisa básica ou aplicada de caráter histórico, científico, tecnológico ou estatístico
+apoio: @PESQ
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A fundação enquadra-se no conceito de órgão de pesquisa da LGPD.
+comentario: Art. 5º, XVIII: órgão de pesquisa inclui entidade da administração direta ou indireta cuja missão institucional abranja a pesquisa básica ou aplicada de caráter científico. Fundação estadual integra a administração indireta, e o enunciado diz que sua missão inclui pesquisa aplicada.
+
+=== kc-12
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 13
+trecho: a pseudonimização é o tratamento por meio do qual um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo, senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro
+apoio: @PESQ
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: A substituição de nomes e CPFs por códigos, com a tabela de correspondência guardada separadamente e com acesso restrito, corresponde ao conceito de pseudonimização adotado pela LGPD.
+comentario: Art. 13, § 4º. O que distingue a pseudonimização é a informação adicional (a tabela) que permite reassociar o dado ao paciente e que fica guardada à parte, em ambiente controlado.
+
+=== kc-13
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 12
+trecho: salvo quando o processo de anonimização ao qual foram submetidos for revertido, utilizando exclusivamente meios próprios, ou quando, com esforços razoáveis, puder ser revertido
+apoio: @PESQ
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: comparacao
+dif: 3
+enunciado: Os dados pseudonimizados pela fundação equiparam-se a dados anonimizados e, por isso, deixam de ser dados pessoais para os fins da LGPD.
+comentario: Errado. A fundação guarda a tabela que reverte o processo com meios próprios. Pelo art. 12, nem o dado anonimizado escapa da lei quando pode ser revertido assim; o pseudonimizado, que por definição é reversível, continua sendo dado pessoal.
+
+=== kc-14
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 13
+trecho: não permitida, em circunstância alguma, a transferência dos dados a terceiro
+apoio: @PESQ
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: excecao
+dif: 2
+enunciado: A fundação pode ceder cópia da base codificada à empresa farmacêutica, desde que o contrato de financiamento proíba a reidentificação dos pacientes.
+comentario: Errado. Art. 13, § 2º: o órgão de pesquisa responde pela segurança, “não permitida, em circunstância alguma, a transferência dos dados a terceiro”. Cláusula contratual não abre exceção que a lei fechou.
+
+=== kc-15
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 13
+trecho: em nenhuma hipótese poderá revelar dados pessoais
+apoio: @PESQ
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Nenhum excerto do artigo científico poderá revelar dados pessoais, o que exige cuidado com tabelas que, ao cruzar faixa etária e município, isolem grupos muito pequenos de pacientes.
+comentario: Art. 13, § 1º: a divulgação dos resultados ou de “qualquer excerto” do estudo em nenhuma hipótese pode revelar dados pessoais. Uma célula com um só paciente idoso de um município pequeno pode identificá-lo.
+
+=== kc-16
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 16
+trecho: estudo por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais
+apoio: @PESQ
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: Concluída a pesquisa, a LGPD autoriza a fundação a conservar a base para estudos futuros, garantida, sempre que possível, a anonimização dos dados.
+comentario: Art. 16, II: a conservação após o término do tratamento é autorizada para estudo por órgão de pesquisa, com anonimização sempre que possível.
+
+=== kc-17
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: realização de estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais sensíveis
+apoio: @PESQ
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: excecao
+dif: 2
+enunciado: Por se tratar de dados de saúde, o acesso da fundação aos prontuários depende obrigatoriamente do consentimento específico e destacado de cada paciente.
+comentario: Errado. Art. 11, II, “c”: dados sensíveis podem ser tratados sem consentimento quando indispensável para estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização.
+
+=== kc-18
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 13
+trecho: que serão tratados exclusivamente dentro do órgão e estritamente para a finalidade de realização de estudos e pesquisas e mantidos em ambiente controlado e seguro
+apoio: @PESQ
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Os pesquisadores podem levar cópias dos prontuários para análise em seus computadores pessoais, desde que protegidas por senha.
+comentario: Errado. No estudo em saúde pública, os dados são tratados “exclusivamente dentro do órgão” e mantidos em ambiente controlado e seguro (art. 13, caput). Senha num computador pessoal não satisfaz nenhuma das duas exigências.
+
+=== kc-19
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 13
+trecho: O órgão de pesquisa será o responsável pela segurança da informação prevista no caput deste artigo
+apoio: @PESQ
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: sujeito
+dif: 1
+enunciado: A fundação é a responsável pela segurança da informação dos dados a que teve acesso para o estudo.
+comentario: Art. 13, § 2º. A responsabilidade é do órgão de pesquisa, e não da secretaria que forneceu os dados.
+
+=== kc-20
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 26
+trecho: quando houver previsão legal ou a transferência for respaldada em contratos, convênios ou instrumentos congêneres
+apoio: @CONVENIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: A transferência dos dados ao banco para o pagamento dos benefícios encontra amparo nas exceções à vedação de o Poder Público transferir dados pessoais a entidades privadas.
+comentario: Art. 26, § 1º, IV: a vedação cede quando a transferência for respaldada em contratos, convênios ou instrumentos congêneres. O pagamento por banco contratado também pode ser visto como execução descentralizada de atividade pública (inciso I).
+
+=== kc-21
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 26
+trecho: Os contratos e convênios de que trata o § 1º deste artigo deverão ser comunicados à autoridade nacional
+apoio: @CONVENIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: O convênio firmado com o banco deve ser comunicado à autoridade nacional.
+comentario: Art. 26, § 2º. No art. 27, a comunicação ou o uso compartilhado de dados do Poder Público com pessoa de direito privado também é informado à autoridade nacional.
+
+=== kc-22
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 26
+trecho: deve atender a finalidades específicas de execução de políticas públicas e atribuição legal pelos órgãos e pelas entidades públicas
+apoio: @CONVENIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Como recebeu os dados legitimamente, por convênio, o banco pode usá-los para oferecer empréstimos aos beneficiários.
+comentario: Errado. O uso compartilhado deve atender a finalidades específicas de execução de políticas públicas (art. 26, caput). Oferecer crédito é finalidade comercial do banco, incompatível com a que justificou a transferência (princípio da finalidade, art. 6º, I).
+
+=== kc-23
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 26
+trecho: na hipótese de a transferência dos dados objetivar exclusivamente a prevenção de fraudes e irregularidades, ou proteger e resguardar a segurança e a integridade do titular dos dados, desde que vedado o tratamento para outras finalidades
+apoio: @CONVENIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: A transferência de parte do cadastro à empresa privada de detecção de fraudes é admitida se tiver por objetivo exclusivo a prevenção de fraudes e irregularidades, desde que vedado o tratamento para outras finalidades.
+comentario: Art. 26, § 1º, V. A condição final é parte da regra: a empresa não poderá usar os dados para nenhum outro fim.
+
+=== kc-24
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 27
+trecho: dependerá de consentimento do titular, exceto
+apoio: @CONVENIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: absoluto
+dif: 2
+enunciado: Toda comunicação de dados pessoais da autarquia ao banco depende do consentimento dos beneficiários, sem exceção.
+comentario: Errado. O art. 27 exige consentimento, mas o excepciona nas hipóteses de dispensa da LGPD, no uso compartilhado com a publicidade do art. 23, I, e nas exceções do art. 26, § 1º, como o convênio.
+
+=== kc-25
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 23
+trecho: fornecendo informações claras e atualizadas sobre a previsão legal, a finalidade, os procedimentos e as práticas utilizadas para a execução dessas atividades, em veículos de fácil acesso, preferencialmente em seus sítios eletrônicos
+apoio: @CONVENIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A autarquia deve informar as hipóteses em que trata dados pessoais, com informações claras e atualizadas sobre previsão legal, finalidade, procedimentos e práticas, preferencialmente em seu sítio eletrônico.
+comentario: Art. 23, I. É a contrapartida de transparência que acompanha o tratamento pelo Poder Público com fundamento na finalidade pública.
+
+=== kc-26
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 23
+trecho: Os prazos e procedimentos para exercício dos direitos do titular perante o Poder Público observarão o disposto em legislação específica
+apoio: @CONVENIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: excecao
+dif: 3
+enunciado: Os prazos para que um beneficiário obtenha da autarquia acesso a seus dados são exclusivamente os da LGPD, afastadas a Lei de Acesso à Informação e a Lei do Habeas Data.
+comentario: Errado. Art. 23, § 3º: perante o Poder Público, prazos e procedimentos seguem a legislação específica, em especial a Lei do Habeas Data, a Lei n.º 9.784/1999 e a LAI.
+
+=== kc-27
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 7
+trecho: pela administração pública, para o tratamento e uso compartilhado de dados necessários à execução de políticas públicas previstas em leis e regulamentos ou respaldadas em contratos, convênios ou instrumentos congêneres
+apoio: @CONVENIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: absoluto
+dif: 1
+enunciado: Por ser pessoa jurídica de direito público, a autarquia só pode tratar os dados dos beneficiários com base no consentimento deles.
+comentario: Errado. Art. 7º, III: a administração pública trata e compartilha dados necessários à execução de políticas públicas sem depender de consentimento, observado o Capítulo IV.
+
+=== kc-28
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 23
+trecho: seja indicado um encarregado quando realizarem operações de tratamento de dados pessoais
+apoio: @CONVENIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A autarquia deve indicar encarregado, por realizar operações de tratamento de dados pessoais.
+comentario: Art. 23, III. O regulamento do encarregado (Res. 18/2024, art. 5º) acrescenta que a indicação recai, preferencialmente, sobre servidor ou empregado público de reputação ilibada e é publicada no diário oficial.
+
+=== kc-29
+gab: C
+bloco: lgpd-5-11
+ref: lgpd 10
+trecho: apoio e promoção de atividades do controlador
+apoio: @FIDELIDADE
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: O envio de ofertas com base no histórico de compras pode, em tese, apoiar-se no legítimo interesse, pois o apoio e a promoção de atividades do controlador estão entre as finalidades legítimas mencionadas na LGPD.
+comentario: Art. 10, I. “Em tese” porque o legítimo interesse depende do caso concreto: respeito às legítimas expectativas do titular, necessidade estrita (§ 1º) e transparência (§ 2º).
+
+=== kc-30
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 10
+trecho: que incluem, mas não se limitam a
+apoio: @FIDELIDADE
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: rol
+dif: 2
+enunciado: O rol de finalidades legítimas do art. 10 da LGPD é taxativo, limitado ao apoio e à promoção de atividades do controlador e à proteção do exercício regular de direitos do titular.
+comentario: Errado. As finalidades legítimas, “consideradas a partir de situações concretas”, “incluem, mas não se limitam a” as dos incisos I e II. O rol é exemplificativo.
+
+=== kc-31
+gab: C
+bloco: lgpd-5-11
+ref: lgpd 10
+trecho: somente os dados pessoais estritamente necessários para a finalidade pretendida poderão ser tratados
+apoio: @FIDELIDADE
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Se a localização em tempo real não for estritamente necessária ao envio das ofertas, sua coleta não poderá fundamentar-se no legítimo interesse.
+comentario: Art. 10, § 1º: no legítimo interesse, só os dados estritamente necessários para a finalidade pretendida. É a necessidade (art. 6º, III) em versão mais rigorosa.
+
+=== kc-32
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: Aplica-se o disposto neste artigo a qualquer tratamento de dados pessoais que revele dados pessoais sensíveis e que possa causar dano ao titular
+apoio: @FIDELIDADE
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 3
+enunciado: O legítimo interesse pode fundamentar o cruzamento do histórico de compras com doenças inferidas das compras de medicamentos, desde que a finalidade comercial seja lícita.
+comentario: Errado. A inferência revela dado de saúde, e o art. 11, § 1º, estende o regime dos dados sensíveis a qualquer tratamento que os revele e possa causar dano. O art. 11 não prevê o legítimo interesse entre suas hipóteses.
+
+=== kc-33
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 10
+trecho: O controlador deverá adotar medidas para garantir a transparência do tratamento de dados baseado em seu legítimo interesse
+apoio: @FIDELIDADE
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: Fundado o tratamento no legítimo interesse, a rede fica dispensada de informar os clientes, já que não depende do consentimento deles.
+comentario: Errado. Art. 10, § 2º: o controlador deve garantir a transparência do tratamento baseado em legítimo interesse. A dispensa de consentimento não dispensa as demais obrigações (art. 7º, § 6º); a política de privacidade omissa é um problema.
+
+=== kc-34
+gab: C
+bloco: lgpd-5-11
+ref: lgpd 10
+trecho: A autoridade nacional poderá solicitar ao controlador relatório de impacto à proteção de dados pessoais, quando o tratamento tiver como fundamento seu interesse legítimo
+apoio: @FIDELIDADE
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A autoridade nacional pode solicitar à rede relatório de impacto à proteção de dados pessoais, por ter o tratamento fundamento no legítimo interesse, observados os segredos comercial e industrial.
+comentario: Art. 10, § 3º. Há também a regra geral do art. 38, pela qual a autoridade pode determinar a elaboração do relatório.
+
+=== kc-35
+gab: C
+bloco: lgpd-37-45
+ref: lgpd 37
+trecho: especialmente quando baseado no legítimo interesse
+apoio: @FIDELIDADE
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A rede deve manter registro das operações de tratamento que realizar, dever que a LGPD destaca especialmente quando o tratamento se baseia no legítimo interesse.
+comentario: Art. 37. O registro é o que permite demonstrar, depois, que o teste do legítimo interesse foi feito.
+
+=== kc-36
+gab: C
+bloco: lgpd-17-22
+ref: lgpd 18
+trecho: O titular pode opor-se a tratamento realizado com fundamento em uma das hipóteses de dispensa de consentimento, em caso de descumprimento ao disposto nesta Lei
+apoio: @FIDELIDADE
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: O cliente pode opor-se ao tratamento fundado no legítimo interesse em caso de descumprimento da LGPD.
+comentario: Art. 18, § 2º: a oposição cabe contra tratamento fundado em hipótese de dispensa de consentimento, como o legítimo interesse, quando houver descumprimento da lei.
+
+=== kc-37
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 7
+trecho: exceto no caso de prevalecerem direitos e liberdades fundamentais do titular que exijam a proteção dos dados pessoais
+apoio: @FIDELIDADE
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: O legítimo interesse do controlador prevalece sobre os direitos e liberdades fundamentais do titular sempre que o controlador demonstrar benefício econômico relevante.
+comentario: Errado. Art. 7º, IX: o legítimo interesse não serve de base quando prevalecem direitos e liberdades fundamentais do titular que exijam a proteção dos dados. O benefício econômico não inverte essa ponderação.
+
+=== kc-38
+gab: E
+bloco: res-18-2024
+ref: res18 3
+trecho: Entende-se por ato formal o documento escrito, datado e assinado
+apoio: @ENCARREGADO
+comando: Com base nessa situação hipotética, na Lei n.º 13.709/2018 e no regulamento da ANPD sobre a atuação do encarregado (Resolução CD/ANPD n.º 18/2024), julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A designação por mensagem informal de correio eletrônico atende ao regulamento, que não exige forma específica para a indicação do encarregado.
+comentario: Errado. Art. 3º: a indicação é feita por ato formal, “documento escrito, datado e assinado”, que demonstre de maneira clara e inequívoca a intenção de designar, com as formas de atuação e as atividades a desempenhar.
+
+=== kc-39
+gab: C
+bloco: res-18-2024
+ref: res18 19
+trecho: com o acúmulo das atividades de encarregado com outras que envolvam a tomada de decisões estratégicas sobre o tratamento de dados pessoais pelo controlador
+apoio: @ENCARREGADO
+comando: Com base nessa situação hipotética, na Lei n.º 13.709/2018 e no regulamento da ANPD sobre a atuação do encarregado (Resolução CD/ANPD n.º 18/2024), julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: A acumulação da função de encarregado com a de diretor que decide quais sistemas tratam dados pessoais e com que finalidades pode configurar conflito de interesse.
+comentario: Art. 19, § 1º, II. O encarregado orienta e fiscaliza internamente; quem toma as decisões estratégicas sobre o tratamento não tem a distância necessária para isso.
+
+=== kc-40
+gab: E
+bloco: res-18-2024
+ref: res18 9
+trecho: o nome completo, se for pessoa natural
+apoio: @ENCARREGADO
+comando: Com base nessa situação hipotética, na Lei n.º 13.709/2018 e no regulamento da ANPD sobre a atuação do encarregado (Resolução CD/ANPD n.º 18/2024), julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A divulgação apenas de endereço genérico de correio eletrônico, sem o nome do encarregado, cumpre o dever de divulgar sua identidade e suas informações de contato.
+comentario: Errado. Art. 9º, § 1º, I: a divulgação da identidade abrange, no mínimo, o nome completo, se o encarregado for pessoa natural. O contato sozinho não basta.
+
+=== kc-41
+gab: C
+bloco: res-18-2024
+ref: res18 4
+trecho: Nas ausências, impedimentos e vacâncias do encarregado, a função será exercida por substituto formalmente designado
+apoio: @ENCARREGADO
+comando: Com base nessa situação hipotética, na Lei n.º 13.709/2018 e no regulamento da ANPD sobre a atuação do encarregado (Resolução CD/ANPD n.º 18/2024), julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: Nas férias do encarregado, a função deve ser exercida por substituto formalmente designado, e a ausência não pode obstar o exercício dos direitos dos titulares.
+comentario: Art. 4º e parágrafo único. Deixar os pedidos sem resposta durante as férias descumpre o regulamento.
+
+=== kc-42
+gab: C
+bloco: res-18-2024
+ref: res18 12
+trecho: O encarregado poderá ser
+trecho: uma pessoa jurídica
+apoio: @ENCARREGADO
+comando: Com base nessa situação hipotética, na Lei n.º 13.709/2018 e no regulamento da ANPD sobre a atuação do encarregado (Resolução CD/ANPD n.º 18/2024), julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A empresa pode contratar uma consultoria, pessoa jurídica, para exercer a função de encarregado.
+comentario: Art. 12: o encarregado pode ser pessoa natural, do quadro do agente ou externa, ou pessoa jurídica. Nesse caso, divulga-se o nome empresarial e o nome da pessoa natural responsável (art. 9º, § 1º, II).
+
+=== kc-43
+gab: E
+bloco: res-18-2024
+ref: res18 17
+trecho: não confere ao encarregado a responsabilidade, perante a ANPD, pela conformidade do tratamento dos dados pessoais realizado pelo controlador
+apoio: @ENCARREGADO
+comando: Com base nessa situação hipotética, na Lei n.º 13.709/2018 e no regulamento da ANPD sobre a atuação do encarregado (Resolução CD/ANPD n.º 18/2024), julgue os itens que se seguem.
+armadilha: sujeito
+dif: 2
+enunciado: Indicado o encarregado, ele passa a responder perante a ANPD pela conformidade dos tratamentos realizados pela empresa.
+comentario: Errado. Art. 17: as atribuições do encarregado não lhe conferem essa responsabilidade, que continua com o agente de tratamento (art. 11).
+
+=== kc-44
+gab: E
+bloco: res-18-2024
+ref: res18 21
+trecho: implementar medidas para afastar o risco de conflito de interesse
+apoio: @ENCARREGADO
+comando: Com base nessa situação hipotética, na Lei n.º 13.709/2018 e no regulamento da ANPD sobre a atuação do encarregado (Resolução CD/ANPD n.º 18/2024), julgue os itens que se seguem.
+armadilha: rol
+dif: 2
+enunciado: Constatada a possibilidade de conflito de interesse, a única providência admitida pelo regulamento é a substituição da pessoa designada como encarregado.
+comentario: Errado. Art. 21, parágrafo único: conforme o caso, o agente pode não indicar a pessoa, implementar medidas para afastar o risco de conflito ou substituir o designado.
+
+=== kc-45
+gab: C
+bloco: res-18-2024
+ref: res18 19
+trecho: A existência de conflito de interesse será objeto de verificação no caso concreto e poderá ensejar a aplicação de sanção ao agente de tratamento
+apoio: @ENCARREGADO
+comando: Com base nessa situação hipotética, na Lei n.º 13.709/2018 e no regulamento da ANPD sobre a atuação do encarregado (Resolução CD/ANPD n.º 18/2024), julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: A existência de conflito de interesse será verificada no caso concreto e pode ensejar a aplicação de sanção à empresa.
+comentario: Art. 19, § 2º. A sanção recai sobre o agente de tratamento, nos termos do art. 52 da LGPD; o encarregado, por sua vez, deve declarar ao agente qualquer situação de conflito (art. 20).
+
+=== kc-46
+gab: E
+bloco: res-18-2024
+ref: res18 14
+trecho: O exercício da atividade de encarregado não pressupõe a inscrição em qualquer entidade nem qualquer certificação ou formação profissional específica
+apoio: @ENCARREGADO
+comando: Com base nessa situação hipotética, na Lei n.º 13.709/2018 e no regulamento da ANPD sobre a atuação do encarregado (Resolução CD/ANPD n.º 18/2024), julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: Para que a consultoria atue como encarregada, seus profissionais devem possuir certificação em proteção de dados reconhecida pela ANPD.
+comentario: Errado. Art. 14: a atividade não pressupõe inscrição em entidade, certificação ou formação específica. Cabe ao agente fixar as qualificações necessárias (art. 7º).
+
+=== kc-47
+gab: C
+bloco: res-18-2024
+ref: res18 7
+trecho: Cabe ao agente de tratamento estabelecer as qualificações profissionais necessárias para o desempenho das atribuições do encarregado
+apoio: @ENCARREGADO
+comando: Com base nessa situação hipotética, na Lei n.º 13.709/2018 e no regulamento da ANPD sobre a atuação do encarregado (Resolução CD/ANPD n.º 18/2024), julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: Cabe à própria empresa estabelecer as qualificações profissionais do encarregado, considerando o conhecimento da legislação de proteção de dados e o contexto, o volume e o risco das operações.
+comentario: Art. 7º. No caso, o tratamento de dados de saúde de trabalhadores pesa na definição do perfil exigido.
+
+=== kc-48
+gab: E
+bloco: lgpd-37-45
+ref: lgpd 43
+trecho: que o dano é decorrente de culpa exclusiva do titular dos dados ou de terceiro
+apoio: @BANCO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 3
+enunciado: A alegação do banco deve ser acolhida, pois o ataque criminoso configura, por si só, culpa exclusiva de terceiro, que afasta a responsabilidade dos agentes de tratamento.
+comentario: Errado. A excludente do art. 43, III, exige culpa exclusiva. Se o banco deixou de aplicar correção disponível para falha conhecida, concorreu para o dano, e o art. 44, parágrafo único, o faz responder.
+
+=== kc-49
+gab: C
+bloco: lgpd-37-45
+ref: lgpd 44
+trecho: as técnicas de tratamento de dados pessoais disponíveis à época em que foi realizado
+apoio: @BANCO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Para aferir se o tratamento foi irregular, consideram-se as técnicas disponíveis à época em que foi realizado, o que pesa contra o banco, já que a correção da vulnerabilidade estava disponível.
+comentario: Art. 44, III. O tratamento é irregular quando não fornece a segurança que o titular pode esperar, à luz do modo de realização, dos riscos razoavelmente esperados e das técnicas da época.
+
+=== kc-50
+gab: C
+bloco: lgpd-37-45
+ref: lgpd 42
+trecho: As ações de reparação por danos coletivos que tenham por objeto a responsabilização nos termos do caput deste artigo podem ser exercidas coletivamente em juízo
+apoio: @BANCO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A ação coletiva proposta pela associação é compatível com a LGPD, que admite o exercício coletivo em juízo das ações de reparação por danos coletivos.
+comentario: Art. 42, § 3º, e art. 22. A legitimidade e o rito seguem a legislação de tutela coletiva.
+
+=== kc-51
+gab: E
+bloco: lgpd-37-45
+ref: lgpd 45
+trecho: permanecem sujeitas às regras de responsabilidade previstas na legislação pertinente
+apoio: @BANCO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Por haver lei específica de proteção de dados, a relação entre o banco e o cliente deixa de submeter-se às regras de responsabilidade do Código de Defesa do Consumidor.
+comentario: Errado. Art. 45: nas relações de consumo, as violações aos direitos do titular permanecem sujeitas às regras de responsabilidade da legislação pertinente, o CDC.
+
+=== kc-52
+gab: C
+bloco: lgpd-37-45
+ref: lgpd 42
+trecho: quando, a seu juízo, for verossímil a alegação, houver hipossuficiência para fins de produção de prova ou quando a produção de prova pelo titular resultar-lhe excessivamente onerosa
+apoio: @BANCO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: O juiz poderá inverter o ônus da prova em favor do cliente se considerar verossímil a alegação ou se a produção da prova pelo cliente lhe for excessivamente onerosa.
+comentario: Art. 42, § 2º. As hipóteses são alternativas: basta uma delas, a juízo do magistrado.
+
+=== kc-53
+gab: E
+bloco: lgpd-37-45
+ref: lgpd 42
+trecho: causar a outrem dano patrimonial, moral, individual ou coletivo
+apoio: @BANCO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: rol
+dif: 1
+enunciado: A LGPD limita a reparação aos danos patrimoniais individuais, de modo que o pedido de danos morais deve fundamentar-se exclusivamente em outra lei.
+comentario: Errado. Art. 42, caput: o agente que causar dano patrimonial, moral, individual ou coletivo, em violação à legislação de proteção de dados, é obrigado a repará-lo.
+
+=== kc-54
+gab: C
+bloco: lgpd-46-51
+ref: lgpd 46
+trecho: Os agentes de tratamento devem adotar medidas de segurança, técnicas e administrativas aptas a proteger os dados pessoais de acessos não autorizados
+apoio: @BANCO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: Aplicar correção disponível para vulnerabilidade conhecida integra o dever de adotar medidas de segurança técnicas e administrativas aptas a proteger os dados pessoais de acessos não autorizados.
+comentario: Art. 46. Gerenciar vulnerabilidades e aplicar atualizações é medida técnica básica; a omissão é o que o art. 44, parágrafo único, liga ao dever de indenizar.
+
+=== kc-55
+gab: C
+bloco: res-15-2024
+ref: res15 5
+trecho: quando puder afetar significativamente interesses e direitos fundamentais dos titulares e, cumulativamente, envolver, pelo menos, um dos seguintes critérios
+apoio: @BANCO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Se o incidente puder afetar significativamente interesses e direitos fundamentais dos clientes, o fato de envolver dados financeiros basta para caracterizá-lo como capaz de acarretar risco ou dano relevante, o que obriga o banco a comunicá-lo à ANPD e aos titulares.
+comentario: Res. 15/2024, art. 5º: são dois requisitos cumulativos, o potencial de afetar significativamente direitos e pelo menos um critério da lista, entre os quais “dados financeiros” (inciso III). Presentes ambos, aplica-se o art. 48 da LGPD e o art. 4º do regulamento.
+
+=== kc-56
+gab: E
+bloco: lgpd-37-45
+ref: lgpd 42
+trecho: o operador responde solidariamente pelos danos causados pelo tratamento quando descumprir as obrigações da legislação de proteção de dados ou quando não tiver seguido as instruções lícitas do controlador
+apoio: @BANCO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 3
+enunciado: Se o banco tivesse contratado operador para hospedar os dados, esse operador responderia solidariamente pelo dano em qualquer hipótese, ainda que tivesse cumprido a lei e seguido as instruções lícitas do banco.
+comentario: Errado. Art. 42, § 1º, I: a solidariedade do operador depende de ele ter descumprido a legislação ou as instruções lícitas do controlador.
+
+=== kc-57
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 15
+trecho: verificação de que a finalidade foi alcançada ou de que os dados deixaram de ser necessários ou pertinentes ao alcance da finalidade específica almejada
+apoio: @ENCERRA
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: Com o encerramento das atividades, ocorre o término do tratamento, porque os dados deixam de ser necessários à finalidade específica almejada.
+comentario: Art. 15, I. Sem o serviço, não há mais finalidade a que os dados de entrega sirvam.
+
+=== kc-58
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 16
+trecho: cumprimento de obrigação legal ou regulatória pelo controlador
+apoio: @ENCERRA
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A guarda dos documentos fiscais que a legislação tributária obriga a conservar é autorizada mesmo após o término do tratamento.
+comentario: Art. 16, I. A eliminação é a regra após o término, mas a lei autoriza a conservação para cumprir obrigação legal ou regulatória, pelo prazo que essa obrigação fixar.
+
+=== kc-59
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 16
+trecho: transferência a terceiro, desde que respeitados os requisitos de tratamento de dados dispostos nesta Lei
+apoio: @ENCERRA
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: absoluto
+dif: 2
+enunciado: Após o término do tratamento, a transferência da base de clientes à concorrente é vedada em qualquer hipótese.
+comentario: Errado. Art. 16, III: a conservação para transferência a terceiro é autorizada, desde que respeitados os requisitos de tratamento da LGPD. A concorrente precisará de hipótese legal e deverá respeitar finalidade e transparência.
+
+=== kc-60
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 16
+trecho: uso exclusivo do controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados
+apoio: @ENCERRA
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: A guarda do histórico de pedidos para uso exclusivo da própria empresa é autorizada ainda que os dados permaneçam identificáveis, bastando que se vede o acesso de terceiros.
+comentario: Errado. Art. 16, IV: o uso exclusivo do controlador exige dois requisitos, a vedação de acesso por terceiro e a anonimização dos dados.
+
+=== kc-61
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 15
+trecho: comunicação do titular, inclusive no exercício de seu direito de revogação do consentimento conforme disposto no § 5º do art. 8º desta Lei, resguardado o interesse público
+apoio: @ENCERRA
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: O término do tratamento também ocorre por comunicação do titular, inclusive quando revoga o consentimento, resguardado o interesse público.
+comentario: Art. 15, III. É uma das quatro hipóteses de término, ao lado da finalidade alcançada, do fim do período e da determinação da autoridade nacional.
+
+=== kc-62
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 15
+trecho: determinação da autoridade nacional, quando houver violação ao disposto nesta Lei
+apoio: @ENCERRA
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: rol
+dif: 2
+enunciado: Somente o controlador ou o titular podem dar causa ao término do tratamento, não havendo previsão de término por determinação da autoridade nacional.
+comentario: Errado. Art. 15, IV: o tratamento também termina por determinação da autoridade nacional, quando houver violação à LGPD.
+
+=== kc-63
+gab: C
+bloco: lgpd-17-22
+ref: lgpd 18
+trecho: eliminação dos dados pessoais tratados com o consentimento do titular, exceto nas hipóteses previstas no art. 16 desta Lei
+apoio: @ENCERRA
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: O cliente que consentiu com o tratamento pode pedir a eliminação de seus dados, ressalvadas as hipóteses de conservação autorizadas pela LGPD.
+comentario: Art. 18, VI. As ressalvas são as do art. 16: obrigação legal, pesquisa, transferência a terceiro e uso exclusivo com dados anonimizados.
+
+=== kc-64
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 5
+trecho: exclusão de dado ou de conjunto de dados armazenados em banco de dados, independentemente do procedimento empregado
+apoio: @ENCERRA
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: conceito
+dif: 1
+enunciado: Para a LGPD, a eliminação de dados exige a destruição física dos meios de armazenamento.
+comentario: Errado. Art. 5º, XIV: eliminação é a exclusão de dado ou conjunto de dados armazenados em banco de dados, “independentemente do procedimento empregado”.
+
+=== kc-65
+gab: E
+bloco: lgpd-17-22
+ref: lgpd 18
+trecho: O responsável deverá informar, de maneira imediata, aos agentes de tratamento com os quais tenha realizado uso compartilhado de dados a correção, a eliminação, a anonimização ou o bloqueio dos dados
+apoio: @ENCERRA
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Se a empresa tiver compartilhado dados com parceiros, a eliminação feita por ela não precisa ser comunicada a eles, pois cada agente responde apenas pelos próprios atos.
+comentario: Errado. Art. 18, § 6º: o responsável deve informar imediatamente os agentes com quem compartilhou os dados, para que repitam o procedimento, salvo impossibilidade comprovada ou esforço desproporcional.
+
+=== kc-66
+gab: E
+bloco: lgpd-46-51
+ref: lgpd 46
+trecho: deverão ser observadas desde a fase de concepção do produto ou do serviço até a sua execução
+apoio: @TELEMED
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A LGPD permite que as medidas de segurança sejam implementadas após o lançamento do produto, desde que antes da ocorrência de algum incidente.
+comentario: Errado. Art. 46, § 2º: as medidas de segurança devem ser observadas desde a fase de concepção do produto ou do serviço até a sua execução. É a segurança desde a concepção.
+
+=== kc-67
+gab: C
+bloco: lgpd-46-51
+ref: lgpd 47
+trecho: Os agentes de tratamento ou qualquer outra pessoa que intervenha em uma das fases do tratamento obriga-se a garantir a segurança da informação prevista nesta Lei em relação aos dados pessoais, mesmo após o seu término
+apoio: @TELEMED
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: O fornecedor que presta suporte técnico, por intervir em fase do tratamento, obriga-se a garantir a segurança da informação em relação aos dados pessoais, mesmo após o término do tratamento.
+comentario: Art. 47. O dever alcança “qualquer outra pessoa” que intervenha no tratamento, ainda que o acesso seja eventual, e não se extingue com o fim do tratamento.
+
+=== kc-68
+gab: C
+bloco: lgpd-46-51
+ref: lgpd 50
+trecho: seja aplicável a todo o conjunto de dados pessoais que estejam sob seu controle, independentemente do modo como se realizou sua coleta
+apoio: @TELEMED
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: O programa de governança em privacidade deve ser aplicável a todo o conjunto de dados pessoais sob controle da empresa, independentemente do modo como se realizou a coleta.
+comentario: Art. 50, § 2º, I, “b”. É um dos requisitos mínimos do programa, ao lado do comprometimento do controlador, da adaptação à escala e da resposta a incidentes.
+
+=== kc-69
+gab: E
+bloco: lgpd-46-51
+ref: lgpd 50
+trecho: observados a estrutura, a escala e o volume de suas operações, bem como a sensibilidade dos dados tratados e a probabilidade e a gravidade dos danos para os titulares dos dados, poderá
+apoio: @TELEMED
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: absoluto
+dif: 2
+enunciado: A instituição de programa de governança em privacidade é obrigatória para todo controlador, independentemente da estrutura, da escala e do volume de suas operações.
+comentario: Errado. Art. 50, § 2º: o controlador, observados estrutura, escala, volume, sensibilidade dos dados e riscos, “poderá” implementar o programa. É faculdade, que conta a favor na dosimetria (art. 52, § 1º, IX).
+
+=== kc-70
+gab: C
+bloco: lgpd-46-51
+ref: lgpd 50
+trecho: As regras de boas práticas e de governança deverão ser publicadas e atualizadas periodicamente e poderão ser reconhecidas e divulgadas pela autoridade nacional
+apoio: @TELEMED
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: As regras de boas práticas e de governança da empresa deverão ser publicadas e atualizadas periodicamente e poderão ser reconhecidas e divulgadas pela autoridade nacional.
+comentario: Art. 50, § 3º. Publicar e atualizar são deveres (“deverão”); o reconhecimento pela autoridade é possibilidade (“poderão”).
+
+=== kc-71
+gab: C
+bloco: lgpd-46-51
+ref: lgpd 50
+trecho: conte com planos de resposta a incidentes e remediação
+apoio: @TELEMED
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: rol
+dif: 1
+enunciado: Entre os requisitos mínimos do programa de governança em privacidade está contar com planos de resposta a incidentes e remediação.
+comentario: Art. 50, § 2º, I, “g”. O programa também deve ser atualizado com base em monitoramento contínuo e avaliações periódicas (alínea “h”).
+
+=== kc-72
+gab: E
+bloco: lgpd-46-51
+ref: lgpd 46
+trecho: A autoridade nacional poderá dispor sobre padrões técnicos mínimos para tornar aplicável o disposto no caput deste artigo
+apoio: @TELEMED
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: sujeito
+dif: 2
+enunciado: A própria LGPD fixa os padrões técnicos mínimos de segurança aplicáveis a dados de saúde, sem atribuir essa matéria à autoridade nacional.
+comentario: Errado. Art. 46, § 1º: a autoridade nacional poderá dispor sobre padrões técnicos mínimos, considerados a natureza das informações, as características do tratamento, o estado da tecnologia e, especialmente, os dados sensíveis.
+
+=== kc-73
+gab: E
+bloco: lgpd-46-51
+ref: lgpd 49
+trecho: Os sistemas utilizados para o tratamento de dados pessoais devem ser estruturados de forma a atender aos requisitos de segurança
+apoio: @TELEMED
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: sujeito
+dif: 1
+enunciado: O dever de estruturar os sistemas de modo a atender aos requisitos de segurança e aos princípios da LGPD aplica-se apenas aos grandes controladores.
+comentario: Errado. Art. 49: o dever alcança os sistemas utilizados para o tratamento de dados pessoais, sem distinção de porte do controlador.
+
+=== kc-74
+gab: C
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: tutela da saúde, exclusivamente, em procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária
+apoio: @TELEMED
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Os dados de saúde tratados no atendimento por telemedicina podem ser tratados sem consentimento para a tutela da saúde, desde que em procedimento realizado por profissionais de saúde ou serviços de saúde.
+comentario: Art. 11, II, “f”. O advérbio “exclusivamente” importa: a hipótese cobre o procedimento de saúde, não usos comerciais posteriores dos mesmos dados.
