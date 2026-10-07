@@ -2658,7 +2658,8 @@ function renderProgresso() {
   for (const q of Q) { const r = rec(q.id); if (!r || r[0] < 0) continue; const x = (arm[q.a] ||= { c: 0, e: 0 }); x.c += r[2]; x.e += r[3]; }
   const armLista = Object.entries(arm).filter(([, v]) => v.c + v.e >= 3).map(([k, v]) => ({ k, taxa: v.e / (v.c + v.e) })).sort((a, b) => b.taxa - a.taxa);
   html += '<div class="cartao"><div class="secao-cab"><h2>Onde você cai</h2><span class="mudo pequeno">Taxa de erro por tipo de armadilha</span></div>' +
-    (armLista.length ? '<div class="dominio">' + armLista.map((x) => '<div class="dom-linha"><span class="nome">' + esc(D.armadilhas[x.k] || x.k) + '</span>' + barra(x.taxa, '', '--accent:var(--errado)') + '<span class="val">' + Math.round(x.taxa * 100) + '%</span></div>').join('') + '</div>' : '<p class="mudo">Responda algumas dezenas de itens para ver em que tipo de pegadinha você mais erra.</p>') + '</div>';
+    (armLista.length ? '<div class="dominio">' + armLista.map((x) => '<div class="dom-linha"><span class="nome">' + esc(D.armadilhas[x.k] || x.k) + '</span>' + barra(x.taxa, '', '--accent:var(--errado)') + '<span class="val">' + Math.round(x.taxa * 100) + '%</span></div>').join('') + '</div>' +
+      (armLista[0].taxa > 0 ? '<p class="pequeno mudo">Treine de propósito a pegadinha que mais te derruba: 20 itens só desse tipo, dos blocos mais cobrados.</p><div class="linha-btns">' + armLista.filter((x) => x.taxa > 0).slice(0, 3).map((x, i) => '<button class="btn pequeno' + (i ? '' : ' primario') + '" data-acao="treinar-arm" data-a="' + esc(x.k) + '">' + esc(rotuloPausa('arm:' + x.k, D.armadilhas[x.k] || x.k)) + '</button>').join('') + '</div>' : '') : '<p class="mudo">Responda algumas dezenas de itens para ver em que tipo de pegadinha você mais erra.</p>') + '</div>';
   let dc = 0, de = 0;
   for (const r of Object.values(S.itens)) { dc += r[5] || 0; de += r[6] || 0; }
   html += '<div class="cartao"><h2>Calibragem do chute</h2>' + (dc + de >= 5 ? '<p>Quando marca dúvida, você acerta <b>' + pct(dc, dc + de) + '%</b> (' + dc + ' de ' + (dc + de) + '). ' + (pct(dc, dc + de) > 50 ? 'Acima de 50%: na prova, chutar tende a somar pontos.' : 'Até 50%: na prova, deixar em branco tende a ser melhor.') + '</p>' : '<p class="mudo">Marque “Estou em dúvida” antes de responder. Com 5 marcações já dá para saber se o seu chute compensa.</p>') + '</div>';
@@ -3208,6 +3209,15 @@ document.addEventListener('click', async (ev) => {
       else if (alvo.closest('#folha') && UI.folhaAula) folhaAula(UI.folhaAula);
       else if (UI.vista === 'mais') renderMais(); else renderLei();
       break;
+    case 'treinar-arm': {
+      // Itens da armadilha escolhida, de preferência nos blocos de prioridade 1 e 2; vencidas e inéditas primeiro
+      const k = alvo.dataset.a;
+      const todos = Q.filter((q) => q.a === k && !q.al && !FORA_DA_PROVA.has(q.b));
+      const fortes = todos.filter((q) => (BI.get(q.b) || {}).prioridade <= 2);
+      const ids = selecionar(fortes.length >= 20 ? fortes : todos, 20, 'mistas').map((q) => q.id);
+      if (ids.length) iniciarSessao({ modo: 'treino', ids, titulo: 'Armadilha · ' + (D.armadilhas[k] || k), chave: 'arm:' + k });
+      break;
+    }
     case 'treinar-art': { const ids = (POR_ART.get(alvo.dataset.art) || []).map((q) => q.id); iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Questões · ' + nomeArt(alvo.dataset.art), chave: 'art:' + alvo.dataset.art }); break; }
     case 'cards-art': iniciarCards((CARDS_POR_ART.get(alvo.dataset.art) || []).map((c) => c.id), 'Cards · ' + nomeArt(alvo.dataset.art)); break;
     case 'reais-disc': {
