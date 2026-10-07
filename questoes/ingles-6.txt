@@ -1,0 +1,519 @@
+// Textos originais escritos para o banco, em inglês, terceira leva: ransomware em hospitais, dados e concorrência,
+// análise de impacto regulatório, raspagem de dados para treinar inteligência artificial e direito ao esquecimento.
+// Itens em português, como na prova Cebraspe: o que o texto afirma, sinônimo no contexto e referência.
+
+bloco: ingles
+
+apoio_EN6A: When a hospital is hit by ransomware, the damage is not measured only in money. Appointments are cancelled, ambulances are diverted to other facilities and doctors return to paper records they have not used for years. For this reason, attacks on healthcare have come to be seen less as a matter of corporate security and more as a threat to public safety.
+Paying the ransom may look like the quickest way out, but it offers no guarantee. Criminals do not always hand over working keys, and those who pay may be targeted again, since they have shown that they are willing to pay. Many governments therefore discourage payment, although only a few have gone as far as forbidding it outright.
+Experts agree that prevention is far cheaper than recovery. Regular backups kept offline, prompt installation of security updates and staff trained to recognise suspicious e-mails would have stopped a large share of the attacks reported in recent years. The problem is that such measures compete for funds with more visible priorities, such as new equipment and longer opening hours, and their benefits only become apparent when something goes wrong.
+apoio_EN6B: For a long time, competition law and data protection were treated as separate worlds. Competition authorities looked at prices and market shares; privacy regulators looked at consent forms and security breaches. The rise of digital platforms has made this division harder to sustain.
+Many online services are offered at a price of zero, so consumers do not pay with money. They pay with attention and with personal data. When a dominant company lowers the quality of its privacy terms, collecting more data than before without offering anything in return, some economists argue that this is the digital equivalent of raising prices.
+Data can also work as a barrier to entry. A newcomer may build a better search engine or a cleverer social network, but without the volume of information accumulated by the incumbent over many years, its product may never become good enough to attract users. Proposals to address this problem include requiring large platforms to let users move their data to rival services and, in some cases, to share certain datasets with competitors.
+Neither solution is free of risk. Data portability depends on users actually exercising the right, and forced data sharing could expose personal information to more companies than before, which is exactly what privacy law tries to prevent.
+apoio_EN6C: Before a new rule is adopted, many governments now require the regulator to ask a simple question: is this rule worth what it costs? Regulatory impact assessment is the name given to the process of answering it in a structured way. The regulator describes the problem, considers alternative ways of addressing it, including doing nothing, and estimates the likely costs and benefits of each option.
+In theory, the method protects citizens and businesses from rules that are poorly designed or that impose burdens out of proportion to their aims. In practice, its quality varies widely. Some assessments are prepared after the decision has already been taken, merely to justify it, and benefits such as privacy or dignity are notoriously hard to express in monetary terms.
+Supporters of the practice respond that an imperfect estimate is still better than none. Even when numbers are uncertain, the exercise forces regulators to make their assumptions explicit, which allows others to challenge them. Public consultation on the draft assessment, they add, can bring to light information that officials would never have found on their own.
+Increasingly, attention is turning to what happens after a rule takes effect. Reviewing whether a regulation has actually achieved its goals, and repealing those that have not, is the necessary complement to assessing them beforehand.
+apoio_EN6D: The large language models behind today's chatbots were trained on enormous quantities of text gathered from the internet. Much of that material contains personal information: names, opinions, photographs and, occasionally, details that people would never have expected to end up inside a commercial product.
+Developers usually argue that publicly available data may be used freely. Data protection authorities have been less convinced. In their view, the fact that information can be seen by anyone does not mean that it can be collected in bulk and reused for any purpose. The individuals concerned still have rights, and the company that collects the data must still identify a lawful basis for doing so.
+Several authorities have suggested that legitimate interest may serve as that basis, but only if certain conditions are met. The company must show that its interest is real, that the collection is necessary and that the expected benefits are not outweighed by the risks to the people whose data are used. Measures such as excluding sensitive categories of data, respecting technical signals that ask crawlers to stay away and offering a simple way to object are often mentioned as part of that balancing exercise.
+A further difficulty is that, once a model has been trained, removing a particular person's information from it is far from straightforward.
+apoio_EN6E: Few ideas in data protection have generated as much controversy as the so-called right to be forgotten. In its best-known form, it allows individuals to ask search engines to stop displaying links to information about them that is inaccurate, outdated or no longer relevant. The original pages are not deleted; they simply become harder to find through a search on the person's name.
+Supporters see the right as a way of letting people move on with their lives. A minor offence committed decades ago, a debt long since repaid or an embarrassing photograph from adolescence should not, in their view, follow someone forever. Critics fear that the same mechanism could be used by powerful figures to bury legitimate criticism and that private companies are being asked to make decisions that should belong to courts.
+Courts that have recognised the right have stressed that it is not absolute. Each request must be weighed against the public's interest in access to information, which is especially strong when the person concerned plays a role in public life. Other courts have taken a more sceptical view, holding that the passage of time alone does not justify suppressing information that was lawfully published.
+
+=== en6-01
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, os ataques de ransomware a hospitais passaram a ser vistos menos como questão de segurança corporativa e mais como ameaça à segurança pública.
+comentario: Primeiro parágrafo: “have come to be seen less as a matter of corporate security and more as a threat to public safety”. A estrutura “less as… more as…” marca a mudança de enfoque.
+
+=== en6-02
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto afirma que pagar o resgate garante a recuperação dos dados, embora seja a saída mais demorada.
+comentario: Errado duas vezes: pagar “may look like the quickest way out”, mas “offers no guarantee”. Os criminosos nem sempre entregam chaves que funcionam (“working keys”).
+
+=== en6-03
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: De acordo com o texto, quem paga o resgate pode voltar a ser alvo de ataques, por ter demonstrado disposição para pagar.
+comentario: “those who pay may be targeted again, since they have shown that they are willing to pay”. “Since”, aqui, é causal: equivale a “because”.
+
+=== en6-04
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: Infere-se do texto que a maioria dos governos proibiu o pagamento de resgates a criminosos.
+comentario: Muitos governos desencorajam o pagamento (“discourage payment”); só alguns chegaram a proibi-lo (“only a few have gone as far as forbidding it outright”). Desencorajar não é proibir.
+
+=== en6-05
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN6A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, o vocábulo “outright”, em “forbidding it outright”, poderia ser substituído por completely, sem prejuízo do sentido do texto.
+comentario: “Outright”, depois do verbo, significa completamente, sem reservas: proibir de vez, e não apenas restringir.
+
+=== en6-06
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN6A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, a expressão “are diverted to other facilities” indica que as ambulâncias ficam retidas no hospital atacado.
+comentario: “Divert” é desviar, redirecionar: as ambulâncias são encaminhadas a outras unidades, justamente porque o hospital atacado não consegue recebê-las.
+
+=== en6-07
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto aponta cópias de segurança mantidas fora de linha, instalação rápida de atualizações e treinamento da equipe como medidas que teriam impedido grande parte dos ataques recentes.
+comentario: “Regular backups kept offline, prompt installation of security updates and staff trained to recognise suspicious e-mails would have stopped a large share of the attacks”. “A large share” é grande parte, não todos.
+
+=== en6-08
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, as medidas de prevenção perdem a disputa por recursos porque seus benefícios são imediatamente visíveis.
+comentario: É o contrário: os benefícios “only become apparent when something goes wrong”. Elas perdem para prioridades mais visíveis, como equipamentos novos e horários estendidos.
+
+=== en6-09
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN6A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No último parágrafo, o pronome “their”, em “their benefits”, refere-se a “such measures”.
+comentario: Os benefícios são das medidas de prevenção (“such measures”), que retomam as cópias offline, as atualizações e o treinamento listados antes.
+
+=== en6-10
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, a ascensão das plataformas digitais tornou mais difícil manter a separação entre o direito da concorrência e a proteção de dados.
+comentario: “The rise of digital platforms has made this division harder to sustain”. “This division” retoma os “separate worlds” da primeira frase.
+
+=== en6-11
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: sujeito
+dif: 1
+enunciado: De acordo com o texto, as autoridades de concorrência tradicionalmente se ocupavam de formulários de consentimento e de violações de segurança.
+comentario: Sujeito trocado. As autoridades de concorrência olhavam preços e participações de mercado; consentimento e violações de segurança eram assunto dos reguladores de privacidade.
+
+=== en6-12
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: O texto apresenta a visão de alguns economistas segundo a qual a piora dos termos de privacidade por empresa dominante, sem contrapartida aos usuários, equivale no ambiente digital a aumento de preços.
+comentario: “some economists argue that this is the digital equivalent of raising prices”. Se o serviço é pago com dados, cobrar mais dados pelo mesmo serviço é cobrar mais caro.
+
+=== en6-13
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: Segundo o texto, os economistas são unânimes em considerar a coleta excessiva de dados por empresa dominante equivalente a aumento de preços.
+comentario: O texto diz “some economists argue”. “Some” não é todos, e “argue” indica tese defendida, não consenso.
+
+=== en6-14
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do texto que um novo concorrente pode não conseguir atrair usuários, ainda que tenha produto melhor, por não dispor do volume de dados acumulado pela empresa já estabelecida.
+comentario: “A newcomer may build a better search engine… but without the volume of information accumulated by the incumbent over many years, its product may never become good enough to attract users”. É o dado como barreira à entrada.
+
+=== en6-15
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN6B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, o vocábulo “incumbent” designa a empresa que já ocupa posição estabelecida no mercado, em oposição a “newcomer”.
+comentario: “Incumbent” é quem já está no posto: no mercado, a empresa estabelecida. O par “newcomer” × “incumbent” é o de entrante × incumbente.
+
+=== en6-16
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN6B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No segundo parágrafo, a expressão “without offering anything in return” indica que a empresa oferece compensação aos usuários pelos dados adicionais coletados.
+comentario: “Without offering anything in return” é sem oferecer nada em troca. É justamente a falta de contrapartida que torna a coleta extra comparável a aumento de preço.
+
+=== en6-17
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: absoluto
+dif: 1
+enunciado: Segundo o texto, a portabilidade de dados e o compartilhamento obrigatório de dados com concorrentes são soluções isentas de riscos.
+comentario: “Neither solution is free of risk”. A portabilidade depende de os usuários exercerem o direito; o compartilhamento forçado pode expor dados pessoais a mais empresas.
+
+=== en6-18
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN6B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No último parágrafo, o pronome “which”, em “which is exactly what privacy law tries to prevent”, retoma a ideia de expor informações pessoais a um número maior de empresas.
+comentario: O “which” depois da vírgula retoma a oração anterior inteira: expor dados pessoais a mais empresas do que antes. É o conflito entre concorrência e privacidade que o texto quer mostrar.
+
+=== en6-19
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, na análise de impacto regulatório, o regulador considera formas alternativas de enfrentar o problema, entre elas a de não fazer nada.
+comentario: “considers alternative ways of addressing it, including doing nothing”. No Brasil, o Decreto 10.411/2020 manda considerar, entre as alternativas, a opção de não ação (art. 6º, VI).
+
+=== en6-20
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 1
+enunciado: O texto afirma que a análise de impacto regulatório garante, na prática, que todas as normas adotadas sejam bem desenhadas.
+comentario: O texto contrapõe teoria e prática: “In theory, the method protects…”; “In practice, its quality varies widely”.
+
+=== en6-21
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: De acordo com o texto, algumas análises de impacto são elaboradas depois de a decisão já ter sido tomada, apenas para justificá-la.
+comentario: “Some assessments are prepared after the decision has already been taken, merely to justify it”. A análise feita depois da decisão perde a razão de ser.
+
+=== en6-22
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, benefícios como a privacidade e a dignidade são facilmente expressos em termos monetários.
+comentario: São “notoriously hard to express in monetary terms”: reconhecidamente difíceis de expressar em dinheiro.
+
+=== en6-23
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN6C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No segundo parágrafo, o vocábulo “merely”, em “merely to justify it”, poderia ser substituído por only, sem prejuízo do sentido do texto.
+comentario: “Merely” é meramente, apenas. A troca por “only” preserva o sentido de que a análise serve só para justificar a decisão já tomada.
+
+=== en6-24
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do texto que os defensores da análise de impacto a consideram inútil quando os números disponíveis são incertos.
+comentario: Eles dizem o contrário: “an imperfect estimate is still better than none”. Mesmo com números incertos, o exercício obriga a explicitar as premissas.
+
+=== en6-25
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Para os defensores da prática, a consulta pública sobre a minuta da análise pode revelar informações que os servidores não teriam encontrado sozinhos.
+comentario: “Public consultation on the draft assessment, they add, can bring to light information that officials would never have found on their own”. “Bring to light” é trazer à tona.
+
+=== en6-26
+gab: E
+tema: en-referencia
+ref: texto
+apoio: @EN6C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No terceiro parágrafo, o pronome “them”, em “which allows others to challenge them”, refere-se a “regulators”.
+comentario: “Them” retoma “their assumptions”: o que os outros podem contestar são as premissas, que o exercício obrigou os reguladores a explicitar.
+
+=== en6-27
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: O texto conclui que a revisão das normas depois de sua entrada em vigor torna dispensável a análise prévia de impacto.
+comentario: A revisão posterior é “the necessary complement to assessing them beforehand”: complemento, não substituto. No Brasil, é a avaliação de resultado regulatório (Decreto 10.411/2020, arts. 2º, III, e 13).
+
+=== en6-28
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto informa que boa parte do material usado no treinamento dos grandes modelos de linguagem contém informações pessoais.
+comentario: “Much of that material contains personal information: names, opinions, photographs…”. “Much of” é boa parte, não todo.
+
+=== en6-29
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, as autoridades de proteção de dados concordam com os desenvolvedores em que dados publicamente disponíveis podem ser usados livremente.
+comentario: As autoridades “have been less convinced”: para elas, o que qualquer um pode ver não pode, só por isso, ser coletado em massa e reutilizado para qualquer finalidade.
+
+=== en6-30
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Para as autoridades mencionadas no texto, mesmo quando os dados são de acesso público, a empresa que os coleta deve identificar uma base legal para fazê-lo.
+comentario: “the company that collects the data must still identify a lawful basis for doing so”. Na LGPD, a mesma ideia está no art. 7º, §§ 3º e 4º: dado de acesso público continua protegido.
+
+=== en6-31
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: absoluto
+dif: 2
+enunciado: De acordo com o texto, várias autoridades admitiram o legítimo interesse como base para o treinamento de modelos em qualquer circunstância.
+comentario: Só “if certain conditions are met”: interesse real, coleta necessária e benefícios não superados pelos riscos aos titulares.
+
+=== en6-32
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: rol
+dif: 2
+enunciado: Entre as medidas mencionadas no texto como parte do teste de ponderação, estão a exclusão de categorias sensíveis de dados e a oferta de meio simples para o titular se opor.
+comentario: “excluding sensitive categories of data, respecting technical signals that ask crawlers to stay away and offering a simple way to object”. O item cita duas das três medidas, sem dizer que são as únicas.
+
+=== en6-33
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN6D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, a expressão “are not outweighed by” poderia ser traduzida por não são superados por, sem prejuízo do sentido do texto.
+comentario: “Outweigh” é pesar mais, superar. Os benefícios esperados não podem ser superados pelos riscos aos titulares: é o teste de balanceamento do legítimo interesse.
+
+=== en6-34
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN6D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: No último parágrafo, a expressão “far from straightforward” indica que remover as informações de uma pessoa de um modelo já treinado é tarefa simples.
+comentario: “Far from straightforward” é longe de ser simples. O texto aponta a dificuldade, não a facilidade.
+
+=== en6-35
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN6D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No terceiro parágrafo, a expressão “that basis” retoma “a lawful basis”, mencionada no final do parágrafo anterior.
+comentario: As autoridades sugerem que o legítimo interesse pode ser essa base, isto é, a base legal que a empresa precisa identificar.
+
+=== en6-36
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: Infere-se do texto que a lei obriga os robôs de coleta a respeitar os sinais técnicos que lhes pedem para não acessar determinadas páginas.
+comentario: O texto só diz que respeitar esses sinais costuma ser mencionado como parte da ponderação (“often mentioned as part of that balancing exercise”). Não fala em obrigação legal.
+
+=== en6-37
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, na forma mais conhecida do direito ao esquecimento, as páginas originais não são apagadas, apenas se tornam mais difíceis de encontrar em busca pelo nome da pessoa.
+comentario: “The original pages are not deleted; they simply become harder to find through a search on the person's name”. É a desindexação, não a exclusão do conteúdo.
+
+=== en6-38
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: De acordo com o texto, o direito ao esquecimento, em sua forma mais conhecida, permite exigir que os sítios de origem excluam as informações desatualizadas.
+comentario: O pedido é feito aos buscadores, para deixarem de exibir links (“to ask search engines to stop displaying links”), e as páginas originais permanecem.
+
+=== en6-39
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Para os defensores do direito ao esquecimento, segundo o texto, uma dívida quitada há muito tempo não deveria acompanhar a pessoa para sempre.
+comentario: “a debt long since repaid… should not, in their view, follow someone forever”.
+
+=== en6-40
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: sujeito
+dif: 2
+enunciado: Os críticos citados no texto temem que o mecanismo transfira aos tribunais decisões que deveriam caber às empresas privadas.
+comentario: Inversão. Eles temem o contrário: que empresas privadas tomem decisões que “should belong to courts”.
+
+=== en6-41
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: O texto informa que os tribunais que reconheceram o direito ao esquecimento ressaltaram que ele não é absoluto.
+comentario: “Courts that have recognised the right have stressed that it is not absolute”. Cada pedido deve ser ponderado com o interesse público na informação.
+
+=== en6-42
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN6E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, o interesse público no acesso à informação é especialmente fraco quando a pessoa envolvida exerce papel na vida pública.
+comentario: É “especially strong” nesse caso. Quem tem papel público se sujeita a escrutínio maior.
+
+=== en6-43
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN6E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, o verbo “bury”, em “to bury legitimate criticism”, foi empregado no sentido figurado de abafar, esconder.
+comentario: “Bury” é enterrar; aqui, em sentido figurado, fazer a crítica legítima sumir de vista.
+
+=== en6-44
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN6E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, a expressão “long since repaid” indica que a dívida foi renegociada recentemente.
+comentario: “Long since repaid” é paga há muito tempo. “Long since” marca um fato concluído bem antes do presente.
+
+=== en6-45
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN6E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do último parágrafo que, para alguns tribunais, o simples decurso do tempo não basta para justificar a supressão de informação licitamente publicada.
+comentario: “the passage of time alone does not justify suppressing information that was lawfully published”. É a linha do STF no Tema 786 (RE 1.010.606, 2021), que julgou incompatível com a Constituição a ideia de um direito ao esquecimento fundado só na passagem do tempo.
