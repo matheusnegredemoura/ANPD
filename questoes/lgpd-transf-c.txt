@@ -1,0 +1,279 @@
+bloco: lgpd-33-36
+// Transferência internacional, parte C: itens nos pontos dos arts. 33 a 36 da LGPD que só tinham versão certa ou só
+// errada, casos práticos e os artigos do Regulamento de Transferência Internacional (Resolução CD/ANPD nº 19/2024) com
+// um item ou nenhum. Conferidas com fontes/lgpd.txt e fontes/res19.txt.
+
+=== tx-01
+gab: E
+ref: lgpd 33
+trecho: quando necessário para atender as hipóteses previstas nos incisos II, V e VI do art. 7º desta Lei
+armadilha: rol
+dif: 2
+enunciado: A transferência internacional de dados é permitida quando necessária para o exercício regular de direitos em processo judicial, administrativo ou arbitral, mas não para a execução de contrato do qual seja parte o titular.
+comentario: Errado. O art. 33, IX, remete aos incisos II, V e VI do art. 7º: obrigação legal ou regulatória, execução de contrato a pedido do titular e exercício regular de direitos. As três servem de base para a transferência.
+
+=== tx-02
+gab: E
+ref: lgpd 33
+trecho: quando necessário para atender as hipóteses previstas nos incisos II, V e VI do art. 7º desta Lei
+armadilha: rol
+dif: 2
+enunciado: Por força da remissão do art. 33 às bases legais do art. 7º da LGPD, a transferência internacional é permitida quando necessária para a realização de estudos por órgão de pesquisa.
+comentario: Errado. A remissão alcança só os incisos II, V e VI do art. 7º. Estudos por órgão de pesquisa (art. 7º, IV) não estão entre eles, como também não estão o legítimo interesse e a proteção do crédito.
+
+=== tx-03
+gab: E
+ref: lgpd 33
+trecho: consentimento específico e em destaque para a transferência, com informação prévia sobre o caráter internacional da operação, distinguindo claramente esta de outras finalidades
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a política de privacidade de um aplicativo lista vinte finalidades de tratamento e, no meio delas, informa que os dados podem ser armazenados em servidores no exterior. O usuário clica em “aceito todos os termos”. Assertiva: Com base nessa situação, o consentimento obtido é suficiente para fundamentar a transferência internacional dos dados do usuário.
+comentario: Errado. O art. 33, VIII, exige consentimento específico e em destaque para a transferência, com informação prévia sobre o caráter internacional e distinção clara das outras finalidades. Um aceite genérico de vinte finalidades não atende a nenhum desses requisitos.
+
+=== tx-04
+gab: C
+ref: lgpd 33
+trecho: sendo dada publicidade nos termos do inciso I do caput do art. 23 desta Lei
+armadilha: conceito
+dif: 2
+enunciado: A transferência internacional necessária para a execução de política pública ou de atribuição legal do serviço público é permitida, devendo-se dar publicidade a ela nos termos do art. 23, I, da LGPD.
+comentario: Certo: art. 33, VII. O art. 23, I, manda o poder público informar as hipóteses em que trata dados, com a previsão legal, a finalidade, os procedimentos e as práticas, preferencialmente em seus sítios eletrônicos.
+
+=== tx-05
+gab: E
+ref: lgpd 33
+trecho: entre órgãos públicos de inteligência, de investigação e de persecução, de acordo com os instrumentos de direito internacional
+armadilha: sujeito
+dif: 2
+enunciado: A transferência internacional para fins de cooperação jurídica internacional é permitida entre quaisquer órgãos públicos, independentemente de previsão em instrumentos de direito internacional.
+comentario: Errado. O art. 33, III, restringe-a aos órgãos públicos de inteligência, de investigação e de persecução e exige conformidade com os instrumentos de direito internacional.
+
+=== tx-06
+gab: E
+ref: lgpd 33
+trecho: A transferência internacional de dados pessoais somente é permitida nos seguintes casos
+armadilha: absoluto
+dif: 2
+enunciado: O rol de hipóteses de transferência internacional do art. 33 da LGPD é exemplificativo, podendo o controlador fundamentar a transferência em outras salvaguardas que considere equivalentes.
+comentario: Errado. O “somente” do caput torna o rol taxativo: fora das nove hipóteses do art. 33, a transferência internacional não é permitida.
+
+=== tx-07
+gab: C
+ref: lgpd 33
+trecho: quando necessário para atender as hipóteses previstas nos incisos II, V e VI do art. 7º desta Lei
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma agência de turismo brasileira envia a um hotel em Portugal o nome e o número do passaporte de um cliente para efetuar a reserva que ele contratou. Assertiva: Nessa situação, a transferência internacional pode fundamentar-se na necessidade de execução de contrato do qual o titular é parte.
+comentario: Certo. O art. 33, IX, remete ao art. 7º, V: execução de contrato do qual seja parte o titular, a pedido dele. Sem enviar os dados ao hotel, a reserva contratada não se cumpre.
+
+=== tx-08
+gab: E
+ref: lgpd 34
+trecho: outras circunstâncias específicas relativas à transferência
+armadilha: rol
+dif: 2
+enunciado: Na avaliação do nível de proteção de dados de país estrangeiro, a ANPD fica adstrita aos critérios enumerados na LGPD, sem poder considerar circunstâncias específicas da transferência.
+comentario: Errado. O art. 34, VI, manda considerar também “outras circunstâncias específicas relativas à transferência”: o rol de critérios é aberto.
+
+=== tx-09
+gab: C
+ref: lgpd 34
+trecho: a adoção de medidas de segurança previstas em regulamento
+armadilha: literal
+dif: 1
+enunciado: Na avaliação do nível de proteção de dados de país estrangeiro ou de organismo internacional, a autoridade nacional considera a adoção de medidas de segurança previstas em regulamento.
+comentario: Certo: art. 34, IV. Também pesam as normas do destino, a natureza dos dados, a observância dos princípios e direitos e as garantias judiciais e institucionais.
+
+=== tx-10
+gab: E
+ref: lgpd 34
+trecho: a natureza dos dados
+armadilha: rol
+dif: 2
+enunciado: A natureza dos dados transferidos é irrelevante para a avaliação do nível de proteção do país de destino, que leva em conta apenas o ordenamento jurídico desse país.
+comentario: Errado. A natureza dos dados é critério expresso (art. 34, II). Além das normas do país (inciso I), a ANPD considera princípios, medidas de segurança, garantias judiciais e outras circunstâncias.
+
+=== tx-11
+gab: C
+ref: lgpd 35
+trecho: que permanecerão sob sua fiscalização nos termos definidos em regulamento
+armadilha: literal
+dif: 2
+enunciado: A autoridade nacional pode designar organismos de certificação para verificar cláusulas contratuais específicas, normas corporativas globais, selos, certificados e códigos de conduta, os quais permanecem sob sua fiscalização.
+comentario: Certo: art. 35, § 3º. A designação não é delegação sem controle: os atos desses organismos podem ser revistos ou anulados pela autoridade (§ 4º).
+
+=== tx-12
+gab: C
+ref: lgpd 35
+trecho: poderão ser revistos pela autoridade nacional e, caso em desconformidade com esta Lei, submetidos a revisão ou anulados
+armadilha: literal
+dif: 2
+enunciado: Os atos realizados por organismo de certificação designado pela autoridade nacional podem ser revistos por ela e, se em desconformidade com a LGPD, submetidos a revisão ou anulados.
+comentario: Certo: art. 35, § 4º. É o contrapeso à possibilidade de designar organismos de certificação (§ 3º).
+
+=== tx-13
+gab: E
+ref: lgpd 35
+trecho: A definição do conteúdo de cláusulas-padrão contratuais
+armadilha: sujeito
+dif: 2
+enunciado: A definição do conteúdo das cláusulas-padrão contratuais para transferência internacional cabe ao controlador, e sua verificação, à autoridade nacional.
+comentario: Errado. A autoridade nacional define o conteúdo das cláusulas-padrão e verifica os demais instrumentos (art. 35, caput). As cláusulas-padrão brasileiras estão no Anexo II da Resolução CD/ANPD nº 19/2024.
+
+=== tx-14
+gab: E
+ref: lgpd 35
+trecho: serão também analisadas de acordo com as medidas técnicas e organizacionais adotadas pelo operador
+armadilha: conceito
+dif: 2
+enunciado: Na análise das garantias oferecidas para a transferência internacional, as medidas técnicas e organizacionais do operador são irrelevantes, pois só o controlador responde por elas.
+comentario: Errado. As garantias são analisadas também de acordo com as medidas técnicas e organizacionais adotadas pelo operador, conforme o art. 46, §§ 1º e 2º (art. 35, § 5º).
+
+=== tx-15
+gab: E
+ref: lgpd 36
+trecho: deverão ser comunicadas à autoridade nacional
+armadilha: sujeito
+dif: 2
+enunciado: As alterações nas garantias apresentadas como suficientes para a transferência internacional devem ser comunicadas aos titulares, dispensada a comunicação à autoridade nacional.
+comentario: Errado. O art. 36 manda comunicar as alterações à autoridade nacional, que verificou as garantias (art. 35).
+
+=== tx-16
+gab: C
+bloco: res-19-2024
+ref: res19 1
+trecho: não exclui a possibilidade da realização de transferência internacional de dados com base nos demais mecanismos previstos no art. 33
+armadilha: conceito
+dif: 2
+enunciado: O Regulamento de Transferência Internacional de Dados não exclui transferências baseadas nos demais mecanismos do art. 33 da LGPD que não dependam de regulamentação, desde que atendidas as especificidades do caso e os requisitos legais.
+comentario: Certo: art. 1º, parágrafo único, da Resolução CD/ANPD nº 19/2024. O regulamento trata da adequação, das cláusulas-padrão, das específicas e das normas corporativas globais; consentimento, proteção da vida e outras hipóteses continuam valendo.
+
+=== tx-17
+gab: C
+bloco: res-19-2024
+ref: res19 6
+trecho: A coleta internacional de dados não caracteriza transferência internacional de dados
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um consumidor residente no Brasil compra diretamente, pela internet, em loja virtual sediada no Japão, que coleta os seus dados para a entrega. Assertiva: Segundo o regulamento da ANPD, a situação configura coleta internacional, e não transferência internacional; a LGPD incidirá se verificada alguma das hipóteses de aplicação territorial do seu art. 3º.
+comentario: Certo: arts. 3º, V, e 6º da Resolução CD/ANPD nº 19/2024. Não há exportador transferindo dados a importador: o agente no exterior coleta diretamente do titular. A oferta de bens a pessoas no Brasil pode atrair a LGPD (art. 3º, II).
+
+=== tx-18
+gab: E
+bloco: res-19-2024
+ref: res19 22
+trecho: priorizará a aprovação de cláusulas específicas que também possam ser utilizadas por outros agentes de tratamento
+armadilha: conceito
+dif: 2
+enunciado: Na aprovação de cláusulas contratuais específicas, a ANPD prioriza as que forem desenhadas exclusivamente para as circunstâncias de um único agente de tratamento.
+comentario: Errado. A ANPD prioriza cláusulas específicas que também possam ser usadas por outros agentes que transferem dados em circunstâncias similares (art. 22, § 2º).
+
+=== tx-19
+gab: C
+bloco: res-19-2024
+ref: res19 22
+trecho: relações diplomáticas, comércio internacional e cooperação internacional
+armadilha: literal
+dif: 2
+enunciado: Na análise de cláusulas contratuais específicas, a ANPD considera os riscos e os benefícios da aprovação, inclusive os impactos sobre o fluxo internacional de dados, as relações diplomáticas, o comércio internacional e a cooperação internacional do Brasil.
+comentario: Certo: art. 22, § 1º, II. O inciso I manda verificar se as cláusulas asseguram nível de proteção equivalente ao das cláusulas-padrão nacionais.
+
+=== tx-20
+gab: C
+bloco: res-19-2024
+ref: res19 23
+trecho: adotar, sempre que possível, a redação das cláusulas-padrão contratuais
+armadilha: literal
+dif: 2
+enunciado: Nas cláusulas submetidas à aprovação da ANPD, o controlador deve adotar, sempre que possível, a redação das cláusulas-padrão contratuais e indicar as cláusulas específicas adotadas, com a respectiva justificativa.
+comentario: Certo: art. 23, I e II. A cláusula específica é a exceção justificada, não o ponto de partida.
+
+=== tx-21
+gab: C
+bloco: res-19-2024
+ref: res19 24
+trecho: As cláusulas contratuais específicas deverão ser submetidas à aprovação da ANPD
+armadilha: literal
+dif: 1
+enunciado: As cláusulas contratuais específicas para determinada transferência internacional deverão ser submetidas à aprovação da ANPD.
+comentario: Certo: art. 24, que remete ao processo do Capítulo VIII. As cláusulas-padrão, ao contrário, já são aprovadas pela ANPD e dispensam nova aprovação para cada uso.
+
+=== tx-22
+gab: E
+bloco: res-19-2024
+ref: res19 27
+trecho: ressalvada a hipótese de expressa proibição legal de realizar essa notificação
+armadilha: excecao
+dif: 3
+enunciado: A norma corporativa global deve prever a notificação imediata à entidade responsável sempre que um membro do grupo situado em outro país estiver submetido a determinação legal que impeça o cumprimento das normas, ainda que haja expressa proibição legal de realizar essa notificação.
+comentario: Errado. O art. 27, § 1º, ressalva justamente a hipótese de expressa proibição legal de notificar.
+
+=== tx-23
+gab: C
+bloco: res-19-2024
+ref: res19 27
+trecho: incluindo canal de fácil acesso e o direito de peticionar contra o controlador perante a ANPD
+armadilha: literal
+dif: 2
+enunciado: As normas corporativas globais devem indicar os direitos dos titulares e os meios para o seu exercício, incluindo canal de fácil acesso e o direito de peticionar contra o controlador perante a ANPD depois de reclamação não solucionada no prazo.
+comentario: Certo: art. 27, VI. As solicitações devem ser respondidas no prazo da LGPD e da regulamentação específica (§ 2º).
+
+=== tx-24
+gab: E
+bloco: res-19-2024
+ref: res19 27
+trecho: identificação dos países para os quais os dados podem ser transferidos
+armadilha: rol
+dif: 2
+enunciado: As normas corporativas globais podem deixar de identificar os países para os quais os dados podem ser transferidos, bastando indicar as empresas do grupo.
+comentario: Errado. A identificação dos países é conteúdo mínimo (art. 27, II), ao lado da estrutura do grupo com a lista de entidades e o papel de cada uma (inciso III).
+
+=== tx-25
+gab: E
+bloco: res-19-2024
+ref: res19 30
+trecho: será objeto de deliberação pelo Conselho Diretor
+armadilha: sujeito
+dif: 2
+enunciado: O requerimento de aprovação de normas corporativas globais é decidido em definitivo pela área técnica competente, sem deliberação do Conselho Diretor.
+comentario: Errado. A área técnica se manifesta sobre o mérito; depois da manifestação da Procuradoria Federal Especializada, o pedido é deliberado pelo Conselho Diretor (art. 30, I e II). A área técnica só pode arquivar sumariamente se faltarem documentos pedidos (§ 2º).
+
+=== tx-26
+gab: C
+bloco: res-19-2024
+ref: res19 32
+trecho: documento redigido em linguagem simples sobre a realização da transferência internacional de dados
+armadilha: literal
+dif: 2
+enunciado: O controlador que transfere dados com base em cláusulas contratuais específicas ou normas corporativas globais deve publicar em sua página na internet documento em linguagem simples sobre a realização da transferência internacional.
+comentario: Certo: art. 32, parágrafo único. Além disso, deve entregar a íntegra das cláusulas ou das normas ao titular que a solicitar (caput).
+
+=== tx-27
+gab: E
+bloco: res-19-2024
+ref: res19 20
+trecho: observadas as condicionantes estabelecidas na decisão do Conselho Diretor
+armadilha: conceito
+dif: 2
+enunciado: As cláusulas-padrão contratuais estrangeiras reconhecidas como equivalentes pela ANPD constituem mecanismo válido de transferência internacional, sem que a decisão de reconhecimento possa impor condicionantes.
+comentario: Errado. Valem “observadas as condicionantes estabelecidas na decisão do Conselho Diretor” (art. 20, parágrafo único). O reconhecimento é aprovado por resolução do Conselho Diretor (caput).
+
+=== tx-28
+gab: E
+bloco: res-19-2024
+ref: res19 3
+trecho: que responde por qualquer violação de norma corporativa global, ainda que decorrente de ato praticado por um membro do grupo
+armadilha: conceito
+dif: 3
+enunciado: A entidade responsável indicada na norma corporativa global responde apenas pelas violações praticadas por membros do grupo sediados no Brasil.
+comentario: Errado. A entidade responsável, sociedade com sede no Brasil, responde por qualquer violação da norma corporativa global, ainda que decorrente de ato de membro do grupo sediado em outro país (art. 3º, VII).
+
+=== tx-29
+gab: C
+bloco: res-19-2024
+ref: res19 30
+trecho: após a manifestação da Procuradoria Federal Especializada
+armadilha: literal
+dif: 2
+enunciado: Após a manifestação da área técnica e da Procuradoria Federal Especializada, o requerimento de aprovação de cláusulas contratuais específicas é objeto de deliberação do Conselho Diretor da ANPD.
+comentario: Certo: art. 30, I e II. Na análise, a ANPD pode pedir documentos e informações suplementares ou fazer diligências (§ 1º), como prevê também o art. 35, § 2º, da LGPD.
