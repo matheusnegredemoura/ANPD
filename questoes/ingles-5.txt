@@ -1,0 +1,516 @@
+// Textos originais escritos para o banco, em inglês, segunda leva: reconhecimento facial em espaços públicos,
+// regulação de inteligência artificial por risco, minimização e retenção de dados, anonimização e pseudonimização,
+// compartilhamento de dados no setor público. Itens em português, como na prova Cebraspe.
+
+bloco: ingles
+
+apoio_EN5A: Cameras that can recognise faces are becoming cheaper every year, and many cities have been tempted to install them in train stations, stadiums and busy streets. Supporters claim that the technology helps the police find missing children and wanted criminals in a matter of minutes. Opponents point out that, unlike a password, a face cannot be changed once it has been compromised.
+Accuracy is another concern. Studies have shown that some systems make more mistakes with certain groups of people than with others, which means that the burden of false matches does not fall equally on everyone. A person wrongly identified may be stopped, searched or even arrested before anyone notices the error.
+For these reasons, several legislators have chosen not to ban the technology outright but to surround it with conditions: a specific legal basis, prior assessment of its impact, human review of every match and clear limits on how long images may be kept. Whether such safeguards are enough is still hotly debated.
+apoio_EN5B: Rather than regulating artificial intelligence as a single phenomenon, a growing number of jurisdictions have adopted a risk-based approach. The logic is simple: a system that recommends songs does not deserve the same scrutiny as one that decides who receives a loan or who is called for a job interview.
+Under this model, a small set of uses considered unacceptable is prohibited altogether. Systems classified as high risk may be placed on the market, but only after meeting demanding requirements regarding data quality, documentation, transparency and human oversight. Most other applications face light obligations or none at all, apart from duties to inform people that they are interacting with a machine.
+Critics argue that the categories are too rigid for a technology that changes so quickly, and that a tool built for a harmless purpose may later be repurposed for a harmful one. Defenders reply that no regulatory model is perfect and that proportionality is better than either banning everything or permitting everything.
+apoio_EN5C: Storage has become so cheap that many organisations keep everything they collect, just in case it proves useful one day. Data protection laws push in the opposite direction. They require that only the data necessary for a stated purpose be collected and that information be deleted, or made anonymous, once that purpose has been achieved.
+This principle, often called data minimisation, is frequently presented as a burden. It can, however, be seen as a form of risk management. Data that were never collected cannot leak, and records that were deleted on schedule cannot be stolen years later. The cost of a breach tends to grow with the volume of information an organisation holds, so keeping less is also a way of exposing less.
+Retention schedules are the practical tool for applying the principle. They state how long each category of record must be kept, who is responsible for its deletion and which legal obligations, if any, justify keeping it for longer.
+apoio_EN5D: Removing names from a dataset is not the same as making it anonymous. Researchers have repeatedly shown that a handful of apparently harmless attributes, such as postcode, date of birth and gender, is often enough to single out an individual when combined with other publicly available information.
+For this reason, many laws distinguish between two techniques. Pseudonymisation replaces direct identifiers with codes, but the link can be restored by whoever holds the additional information, which must be kept separately and securely. Pseudonymised data therefore remain personal data. Anonymisation, by contrast, aims to make re-identification impossible by reasonable means, and properly anonymised data generally fall outside the scope of data protection rules.
+The difficulty is that what counts as reasonable changes over time. A dataset considered anonymous today may become identifiable tomorrow, as computing power grows and new sources of data become available.
+apoio_EN5E: Governments hold vast amounts of information about their citizens, scattered across tax offices, hospitals, schools and social programmes. Sharing these data between agencies can make public services faster and reduce fraud: a citizen should not have to prove the same fact to five different offices.
+Yet the same integration that simplifies life can also concentrate power. A single, unified view of a person's income, health and movements would be a valuable tool for a well-intentioned administration and a dangerous one in the wrong hands. Data protection laws therefore usually allow sharing within the public sector only for specific purposes defined by law, and they require transparency about which bodies exchange which information.
+Open data initiatives add another layer to the debate. Publishing government datasets can improve accountability and stimulate innovation, provided that personal information is removed or adequately protected before release.
+
+=== en5-01
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: De acordo com o texto, os defensores do reconhecimento facial afirmam que a tecnologia ajuda a polícia a localizar crianças desaparecidas e criminosos procurados em poucos minutos.
+comentario: Primeiro parágrafo: “Supporters claim that the technology helps the police find missing children and wanted criminals in a matter of minutes”. “In a matter of minutes” é em questão de minutos.
+
+=== en5-02
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo os opositores citados no texto, o rosto, assim como uma senha, pode ser facilmente substituído depois de comprometido.
+comentario: É o contrário: “unlike a password, a face cannot be changed once it has been compromised”. “Unlike” marca a diferença entre rosto e senha.
+
+=== en5-03
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do segundo parágrafo que os erros de identificação de alguns sistemas não atingem todos os grupos de pessoas da mesma maneira.
+comentario: “some systems make more mistakes with certain groups of people than with others, which means that the burden of false matches does not fall equally on everyone”.
+
+=== en5-04
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: absoluto
+dif: 2
+enunciado: O texto informa que os legisladores, em sua maioria, optaram por proibir totalmente o reconhecimento facial em espaços públicos.
+comentario: Diz que vários legisladores escolheram “not to ban the technology outright but to surround it with conditions”. “Outright” é totalmente, de vez.
+
+=== en5-05
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Entre as condições mencionadas no texto para o uso da tecnologia estão a revisão humana de cada correspondência e limites para o tempo de guarda das imagens.
+comentario: “human review of every match and clear limits on how long images may be kept”, ao lado da base legal específica e da avaliação prévia de impacto.
+
+=== en5-06
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN5A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No último período do texto, a expressão “hotly debated” poderia ser substituída por widely accepted, sem prejuízo do sentido do texto.
+comentario: “Hotly debated” é intensamente discutido, controverso; “widely accepted” é amplamente aceito. O sentido se inverte.
+
+=== en5-07
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN5A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No primeiro parágrafo, o pronome “them”, em “to install them”, refere-se a “Cameras”.
+comentario: As cidades foram tentadas a instalar as câmeras em estações, estádios e ruas movimentadas.
+
+=== en5-08
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Depreende-se do segundo parágrafo que uma pessoa identificada por engano pode sofrer consequências antes que o erro seja percebido.
+comentario: “A person wrongly identified may be stopped, searched or even arrested before anyone notices the error”.
+
+=== en5-09
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN5A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, o vocábulo “tempted” tem o sentido de obrigado, forçado.
+comentario: “Tempted” é tentado, atraído pela ideia. Nada no texto indica obrigação: as cidades se sentiram atraídas pela tecnologia barata.
+
+=== en5-10
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, a abordagem baseada em risco parte da ideia de que sistemas de inteligência artificial com finalidades diferentes não merecem o mesmo grau de escrutínio.
+comentario: “a system that recommends songs does not deserve the same scrutiny as one that decides who receives a loan”.
+
+=== en5-11
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: De acordo com o texto, os sistemas classificados como de alto risco são proibidos no modelo descrito.
+comentario: Proibidos são os usos considerados inaceitáveis. Os de alto risco “may be placed on the market, but only after meeting demanding requirements”.
+
+=== en5-12
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Entre os requisitos impostos aos sistemas de alto risco, o texto menciona qualidade dos dados, documentação, transparência e supervisão humana.
+comentario: “demanding requirements regarding data quality, documentation, transparency and human oversight”.
+
+=== en5-13
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: Conforme o texto, as aplicações de inteligência artificial que não são de alto risco estão sujeitas às mesmas obrigações dos sistemas de alto risco, embora com fiscalização menos frequente.
+comentario: A maioria das demais aplicações tem obrigações leves ou nenhuma (“light obligations or none at all”), além do dever de informar que se está interagindo com uma máquina.
+
+=== en5-14
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Para os críticos mencionados no texto, uma ferramenta criada para finalidade inofensiva pode, mais tarde, ser adaptada para uso prejudicial.
+comentario: “a tool built for a harmless purpose may later be repurposed for a harmful one”. “Repurpose” é dar nova finalidade.
+
+=== en5-15
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN5B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, a palavra “altogether” poderia ser substituída por partially, sem prejuízo do sentido do texto.
+comentario: “Prohibited altogether” é totalmente proibido; “partially” é parcialmente. O sentido muda.
+
+=== en5-16
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN5B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, o vocábulo “rigid” poderia ser substituído por inflexible, sem prejuízo do sentido do texto.
+comentario: Categorias “too rigid” são inflexíveis demais para uma tecnologia que muda depressa; “inflexible” mantém o sentido.
+
+=== en5-17
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Os defensores do modelo citados no texto sustentam que ele é perfeito e dispensa ajustes.
+comentario: Eles admitem que “no regulatory model is perfect” e defendem a proporcionalidade como melhor do que proibir tudo ou permitir tudo.
+
+=== en5-18
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN5B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No primeiro parágrafo, o pronome “one”, em “as one that decides who receives a loan”, retoma “a system”.
+comentario: Compara-se um sistema que recomenda músicas a um sistema que decide quem recebe um empréstimo. “One” evita repetir “system”.
+
+=== en5-19
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, o barateamento do armazenamento leva muitas organizações a guardar tudo o que coletam, para o caso de os dados se mostrarem úteis no futuro.
+comentario: “many organisations keep everything they collect, just in case it proves useful one day”. “Just in case” é por via das dúvidas.
+
+=== en5-20
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: De acordo com o texto, as leis de proteção de dados estimulam as organizações a conservar indefinidamente os dados coletados.
+comentario: “Data protection laws push in the opposite direction”: só o necessário deve ser coletado, e os dados devem ser eliminados ou anonimizados quando a finalidade for atingida.
+
+=== en5-21
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: O texto apresenta a minimização de dados não apenas como ônus, mas também como forma de gestão de riscos.
+comentario: “It can, however, be seen as a form of risk management”. O conector “however” introduz a visão alternativa ao “burden”.
+
+=== en5-22
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, o custo de um vazamento tende a diminuir à medida que cresce o volume de informações mantidas pela organização.
+comentario: Tende a crescer: “The cost of a breach tends to grow with the volume of information an organisation holds”.
+
+=== en5-23
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Conforme o último parágrafo, as tabelas de retenção indicam por quanto tempo cada categoria de registro deve ser mantida, quem responde pela eliminação e que obrigações legais justificam guarda mais longa.
+comentario: É o que o texto enumera: “how long each category of record must be kept, who is responsible for its deletion and which legal obligations, if any, justify keeping it for longer”.
+
+=== en5-24
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN5C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, a expressão “on schedule” significa de forma antecipada, antes do prazo.
+comentario: “On schedule” é no prazo previsto, conforme o cronograma. Antes do prazo seria “ahead of schedule”.
+
+=== en5-25
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do segundo parágrafo que dados nunca coletados não podem ser objeto de vazamento.
+comentario: “Data that were never collected cannot leak”. É o argumento da minimização como gestão de risco.
+
+=== en5-26
+gab: E
+tema: en-referencia
+ref: texto
+apoio: @EN5C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No primeiro parágrafo, o pronome “it”, em “just in case it proves useful”, refere-se a “Storage”.
+comentario: “It” retoma “everything they collect”: guarda-se tudo para o caso de aquilo se mostrar útil. O armazenamento é o que ficou barato, não o que pode ser útil.
+
+=== en5-27
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN5C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, a forma verbal “push”, em “push in the opposite direction”, foi empregada em sentido figurado, equivalente a pressionar, impelir.
+comentario: As leis não empurram fisicamente nada: “push in the opposite direction” é impelir no sentido contrário ao de guardar tudo.
+
+=== en5-28
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: De acordo com o texto, retirar os nomes de uma base de dados não basta para torná-la anônima.
+comentario: “Removing names from a dataset is not the same as making it anonymous”. Atributos como CEP, data de nascimento e gênero, combinados, podem individualizar alguém.
+
+=== en5-29
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: comparacao
+dif: 2
+enunciado: Segundo o texto, os dados pseudonimizados deixam de ser dados pessoais, já que os identificadores diretos são substituídos por códigos.
+comentario: O texto diz o contrário: “Pseudonymised data therefore remain personal data”, porque o vínculo pode ser restabelecido por quem tem a informação adicional. Na LGPD, a pseudonimização está no art. 13, § 4º.
+
+=== en5-30
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Conforme o texto, na pseudonimização, a informação adicional que permite restabelecer o vínculo deve ser mantida separadamente e em segurança.
+comentario: “the additional information, which must be kept separately and securely”. É a mesma ideia do art. 13, § 4º, da LGPD (“mantida separadamente pelo controlador em ambiente controlado e seguro”).
+
+=== en5-31
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: absoluto
+dif: 2
+enunciado: O texto sustenta que uma base de dados considerada anônima hoje permanecerá anônima indefinidamente.
+comentario: Diz o contrário: “A dataset considered anonymous today may become identifiable tomorrow”, com o aumento do poder computacional e de novas fontes de dados. Na LGPD, o critério dos “meios técnicos razoáveis” também é dinâmico (art. 12, § 1º).
+
+=== en5-32
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do texto que dados adequadamente anonimizados, em regra, ficam fora do alcance das normas de proteção de dados.
+comentario: “properly anonymised data generally fall outside the scope of data protection rules”. Na LGPD, art. 12, caput, com a ressalva da reversão.
+
+=== en5-33
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN5D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, a expressão “by contrast” poderia ser substituída por likewise, sem prejuízo do sentido do texto.
+comentario: “By contrast” marca oposição (em contraste); “likewise” marca semelhança (da mesma forma). O texto contrapõe anonimização e pseudonimização.
+
+=== en5-34
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN5D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, a expressão “single out” tem o sentido de individualizar, distinguir uma pessoa das demais.
+comentario: “Single out an individual” é destacar, individualizar alguém. É exatamente o risco de reidentificação.
+
+=== en5-35
+gab: E
+tema: en-referencia
+ref: texto
+apoio: @EN5D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, o pronome relativo “which”, em “which must be kept separately”, retoma “direct identifiers”.
+comentario: “Which” retoma “the additional information”, que permite restabelecer o vínculo e deve ser guardada separadamente. Os identificadores diretos já foram substituídos por códigos.
+
+=== en5-36
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, pesquisadores demonstraram que atributos como CEP, data de nascimento e gênero são inúteis para identificar uma pessoa.
+comentario: Mostraram que, combinados com outras informações públicas, esses atributos muitas vezes bastam para individualizar alguém (“is often enough to single out an individual”).
+
+=== en5-37
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: De acordo com o texto, o compartilhamento de dados entre órgãos pode tornar os serviços públicos mais rápidos e reduzir fraudes.
+comentario: “Sharing these data between agencies can make public services faster and reduce fraud”. Na LGPD, o uso compartilhado pelo Poder Público está nos arts. 25 a 27.
+
+=== en5-38
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: O texto afirma que a integração das bases de dados do governo não oferece nenhum risco, desde que a administração seja bem-intencionada.
+comentario: O texto adverte que a integração também concentra poder: uma visão unificada da pessoa seria útil a uma administração bem-intencionada e perigosa “in the wrong hands”.
+
+=== en5-39
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, as leis de proteção de dados costumam permitir o compartilhamento no setor público apenas para finalidades específicas previstas em lei, com transparência sobre quais órgãos trocam quais informações.
+comentario: “allow sharing within the public sector only for specific purposes defined by law, and they require transparency”. Compare com o art. 26 da LGPD.
+
+=== en5-40
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: De acordo com o último parágrafo, a publicação de dados abertos governamentais deve incluir os dados pessoais dos cidadãos, para garantir a prestação de contas.
+comentario: A publicação deve ocorrer “provided that personal information is removed or adequately protected before release”. “Provided that” é desde que.
+
+=== en5-41
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN5E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, o vocábulo “scattered” poderia ser substituído por dispersed, sem prejuízo do sentido do texto.
+comentario: Informações “scattered across tax offices, hospitals, schools” estão espalhadas, dispersas; “dispersed” mantém o sentido.
+
+=== en5-42
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN5E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, a expressão “provided that” poderia ser substituída por because, sem prejuízo do sentido do texto.
+comentario: “Provided that” é condicional (desde que, contanto que); “because” é causal. A troca transformaria a condição em causa.
+
+=== en5-43
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN5E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do primeiro parágrafo que o cidadão não deveria precisar comprovar o mesmo fato a vários órgãos diferentes.
+comentario: “a citizen should not have to prove the same fact to five different offices”. É o princípio do “só uma vez” do governo digital.
+
+=== en5-44
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN5E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, o termo “one”, em “a dangerous one in the wrong hands”, retoma “a valuable tool”.
+comentario: Uma visão unificada seria uma ferramenta valiosa para uma administração bem-intencionada e uma ferramenta perigosa em mãos erradas. “One” substitui “tool”.
+
+=== en5-45
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN5E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: O texto conclui que as iniciativas de dados abertos encerram o debate sobre o uso de dados pelo governo.
+comentario: Elas acrescentam “another layer to the debate”, isto é, ampliam a discussão; não a encerram.
