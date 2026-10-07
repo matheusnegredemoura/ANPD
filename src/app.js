@@ -1095,7 +1095,7 @@ function avisar(ic, titulo, texto) {
   const el = document.createElement('div');
   el.className = 'aviso';
   el.innerHTML = '<div class="ic">' + esc(ic) + '</div><div><b>' + esc(titulo) + '</b><span>' + esc(texto || '') + '</span></div>';
-  el.addEventListener('click', () => el.remove());
+  // Só informa: não recebe toque, para não roubar o clique do botão que estiver embaixo (some sozinho em 3,8 s)
   box.appendChild(el);
   while (box.children.length > 3) box.firstChild.remove();
   setTimeout(() => el.remove(), 3800);

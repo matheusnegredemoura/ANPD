@@ -374,12 +374,11 @@ button.alt{cursor:pointer;transition:border-color .15s}
 
 /* Avisos (toasts) */
 .avisos{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + var(--abas-h) + 20px);z-index:60;display:flex;flex-direction:column;gap:8px;width:min(92vw,420px);pointer-events:none}
-.aviso{background:var(--ink);color:var(--bg);border-radius:12px;padding:12px 14px;box-shadow:var(--sombra);display:flex;gap:10px;align-items:center;animation:entra .3s ease;pointer-events:auto}
+.aviso{background:var(--ink);color:var(--bg);border-radius:12px;padding:12px 14px;box-shadow:var(--sombra);display:flex;gap:10px;align-items:center;animation:entra .3s ease;pointer-events:none}
 .aviso .ic{width:30px;height:30px;border-radius:8px;background:var(--gold);color:var(--ink);display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;flex-shrink:0}
 .aviso b{display:block;font-size:.92rem}
 .aviso span{font-size:.8rem;opacity:.85}
 @keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.aviso{cursor:pointer}
 
 .vazio-msg{color:var(--ink-2);font-size:.92rem;text-align:center;padding:12px}
 .sync{font-size:.74rem;color:var(--ink-3);text-align:center}
@@ -1680,7 +1679,7 @@ function avisar(ic, titulo, texto) {
   const el = document.createElement('div');
   el.className = 'aviso';
   el.innerHTML = '<div class="ic">' + esc(ic) + '</div><div><b>' + esc(titulo) + '</b><span>' + esc(texto || '') + '</span></div>';
-  el.addEventListener('click', () => el.remove());
+  // Só informa: não recebe toque, para não roubar o clique do botão que estiver embaixo (some sozinho em 3,8 s)
   box.appendChild(el);
   while (box.children.length > 3) box.firstChild.remove();
   setTimeout(() => el.remove(), 3800);
