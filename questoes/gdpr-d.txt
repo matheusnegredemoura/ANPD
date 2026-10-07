@@ -1,0 +1,276 @@
+bloco: gdpr
+// Direito comparado, quarta leva: artigos do GDPR que ainda não tinham item no banco (dados penais, tratamento que
+// dispensa identificação, prazos e gratuidade dos direitos, informação, retificação, limitação, notificação aos
+// destinatários, responsabilidade, subcontratante, encarregado, códigos de conduta, regras vinculativas, independência
+// e mandato das autoridades, balcão único, urgência, recursos judiciais, representação, liberdade de expressão,
+// relações de trabalho e pesquisa). Trechos conferidos no texto oficial em inglês (fontes/gdpr.txt).
+
+=== gd4-01
+gab: C
+ref: gdpr 10
+trecho: Any comprehensive register of criminal convictions shall be kept only under the control of official authority
+armadilha: literal
+dif: 3
+enunciado: No GDPR, o tratamento de dados relativos a condenações penais e infrações só pode ser feito sob o controle de autoridade pública ou quando autorizado por direito da União ou de Estado-membro que preveja garantias adequadas, e o registro completo de condenações penais só pode ser mantido sob controle de autoridade pública.
+comentario: Certo: art. 10. Na LGPD, esses dados não estão no rol de sensíveis (art. 5º, II), e o tratamento para fins exclusivos de investigação e repressão de infrações penais fica fora da lei geral (art. 4º, III, d).
+
+=== gd4-02
+gab: E
+ref: gdpr 10
+trecho: Processing of personal data relating to criminal convictions and offences or related security measures based on Article 6(1)
+armadilha: comparacao
+dif: 2
+enunciado: No GDPR, os dados relativos a condenações penais e infrações integram as categorias especiais de dados pessoais do art. 9º.
+comentario: Errado. Têm regime próprio, no art. 10. As categorias especiais do art. 9º são origem racial ou étnica, opiniões políticas, convicções religiosas ou filosóficas, filiação sindical, dados genéticos, biométricos para identificação, de saúde e de vida ou orientação sexual.
+
+=== gd4-03
+gab: C
+ref: gdpr 11
+trecho: shall not be obliged to maintain, acquire or process additional information in order to identify the data subject for the sole purpose of complying with this Regulation
+armadilha: conceito
+dif: 3
+enunciado: Se as finalidades do tratamento não exigem ou deixaram de exigir a identificação do titular, o responsável pelo tratamento não é obrigado, pelo GDPR, a manter, obter ou tratar informações adicionais apenas para identificá-lo e cumprir o regulamento.
+comentario: Certo: art. 11, n.º 1. Evita que o próprio regulamento force a reidentificação. Se o titular fornecer dados que permitam identificá-lo, os direitos dos arts. 15 a 20 voltam a se aplicar (n.º 2).
+
+=== gd4-04
+gab: C
+ref: gdpr 12
+trecho: within one month of receipt of the request. That period may be extended by two further months
+armadilha: numero
+dif: 2
+enunciado: No GDPR, o responsável pelo tratamento deve informar o titular sobre as medidas tomadas em relação ao seu pedido no prazo de um mês, prorrogável por mais dois meses quando necessário, considerando a complexidade e o número de pedidos.
+comentario: Certo: art. 12, n.º 3. A prorrogação deve ser comunicada no primeiro mês, com os motivos. Na LGPD, a confirmação e o acesso são dados de imediato, em formato simplificado, ou em até 15 dias, por declaração completa (art. 19).
+
+=== gd4-05
+gab: E
+ref: gdpr 12
+trecho: in any event within one month of receipt of the request
+armadilha: comparacao
+dif: 2
+enunciado: No GDPR, o responsável pelo tratamento deve responder ao pedido de acesso do titular em até quinze dias, prazo improrrogável.
+comentario: Errado. O prazo é de um mês, prorrogável por mais dois (art. 12, n.º 3). Quinze dias é o prazo da declaração completa da LGPD (art. 19, II).
+
+=== gd4-06
+gab: C
+ref: gdpr 12
+trecho: The controller shall bear the burden of demonstrating the manifestly unfounded or excessive character of the request
+armadilha: conceito
+dif: 3
+enunciado: No GDPR, o atendimento aos direitos do titular é gratuito, mas, diante de pedidos manifestamente infundados ou excessivos, o responsável pode cobrar taxa razoável ou recusar-se a dar seguimento, cabendo-lhe demonstrar esse caráter.
+comentario: Certo: art. 12, n.º 5. A repetição é o exemplo típico de pedido excessivo. Na LGPD, o requerimento é atendido sem custos para o titular (art. 18, § 5º).
+
+=== gd4-07
+gab: E
+ref: gdpr 12
+trecho: The controller shall bear the burden of demonstrating the manifestly unfounded or excessive character of the request
+armadilha: sujeito
+dif: 2
+enunciado: No GDPR, cabe ao titular demonstrar que seu pedido não é manifestamente infundado nem excessivo, para que o responsável seja obrigado a atendê-lo.
+comentario: Errado. O ônus é do responsável pelo tratamento (art. 12, n.º 5, parte final). A regra é o atendimento gratuito.
+
+=== gd4-08
+gab: C
+ref: gdpr 13
+trecho: the controller shall provide the data subject prior to that further processing with information on that other purpose
+armadilha: literal
+dif: 2
+enunciado: Se pretender tratar os dados para finalidade diferente daquela que motivou a coleta, o responsável deve, antes desse tratamento posterior, informar o titular sobre a nova finalidade, entre outras informações relevantes.
+comentario: Certo: art. 13, n.º 3. Na LGPD, a mudança de finalidade incompatível com o consentimento original também exige informar previamente o titular, que pode revogar o consentimento (art. 9º, § 2º).
+
+=== gd4-09
+gab: E
+ref: gdpr 13
+trecho: shall not apply where and insofar as the data subject already has the information
+armadilha: excecao
+dif: 2
+enunciado: As informações que o art. 13 do GDPR manda prestar no momento da coleta devem ser fornecidas ao titular mesmo que ele já disponha delas.
+comentario: Errado. Os n.ºs 1 a 3 não se aplicam quando e na medida em que o titular já tiver as informações (art. 13, n.º 4).
+
+=== gd4-10
+gab: C
+ref: gdpr 15
+trecho: For any further copies requested by the data subject, the controller may charge a reasonable fee based on administrative costs
+armadilha: literal
+dif: 2
+enunciado: No GDPR, o responsável fornece cópia dos dados pessoais em tratamento e, para outras cópias pedidas pelo titular, pode cobrar taxa razoável baseada nos custos administrativos.
+comentario: Certo: art. 15, n.º 3. A primeira cópia é gratuita. O direito à cópia não pode prejudicar os direitos e as liberdades de terceiros (n.º 4).
+
+=== gd4-11
+gab: E
+ref: gdpr 16
+trecho: the data subject shall have the right to have incomplete personal data completed, including by means of providing a supplementary statement
+armadilha: rol
+dif: 2
+enunciado: O direito de retificação do GDPR limita-se à correção de dados inexatos e não alcança a complementação de dados incompletos.
+comentario: Errado. O art. 16 garante também completar dados incompletos, inclusive por declaração adicional. Na LGPD, o art. 18, III, fala em correção de dados incompletos, inexatos ou desatualizados.
+
+=== gd4-12
+gab: C
+ref: gdpr 18
+trecho: the accuracy of the personal data is contested by the data subject, for a period enabling the controller to verify the accuracy of the personal data
+armadilha: conceito
+dif: 2
+enunciado: No GDPR, o titular tem direito à limitação do tratamento quando contestar a exatidão dos dados, pelo período que permita ao responsável verificar essa exatidão.
+comentario: Certo: art. 18, n.º 1, alínea a. Com o tratamento limitado, os dados ficam guardados, mas só são usados com consentimento ou nas hipóteses do n.º 2. A figura mais próxima na LGPD é o bloqueio (art. 5º, XIII, e art. 18, IV).
+
+=== gd4-13
+gab: E
+ref: gdpr 18
+trecho: the processing is unlawful and the data subject opposes the erasure of the personal data and requests the restriction of their use instead
+armadilha: excecao
+dif: 3
+enunciado: No GDPR, se o tratamento for ilícito, o titular só pode pedir o apagamento dos dados, sem a possibilidade de pedir, em vez disso, a limitação de seu uso.
+comentario: Errado. Ele pode se opor ao apagamento e pedir a limitação no lugar (art. 18, n.º 1, alínea b), por exemplo para preservar prova contra o próprio responsável.
+
+=== gd4-14
+gab: C
+ref: gdpr 19
+trecho: unless this proves impossible or involves disproportionate effort
+armadilha: excecao
+dif: 2
+enunciado: No GDPR, o responsável deve comunicar a cada destinatário a quem os dados foram divulgados a retificação, o apagamento ou a limitação do tratamento, salvo se isso for impossível ou exigir esforço desproporcional.
+comentario: Certo: art. 19. A LGPD tem regra próxima: o controlador informa de imediato os agentes com quem compartilhou os dados a correção, a eliminação, a anonimização ou o bloqueio, com a mesma ressalva (art. 18, § 6º).
+
+=== gd4-15
+gab: C
+ref: gdpr 24
+trecho: may be used as an element by which to demonstrate compliance with the obligations of the controller
+armadilha: conceito
+dif: 2
+enunciado: No GDPR, a adesão a códigos de conduta ou a mecanismos de certificação aprovados pode ser usada como elemento para demonstrar o cumprimento das obrigações do responsável pelo tratamento.
+comentario: Certo: art. 24, n.º 3. É elemento de prova, não salvo-conduto. A ideia de demonstrar conformidade aparece na LGPD no princípio da responsabilização e prestação de contas (art. 6º, X).
+
+=== gd4-16
+gab: E
+ref: gdpr 29
+trecho: shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law
+armadilha: extrapolacao
+dif: 2
+enunciado: No GDPR, o subcontratante pode tratar os dados para finalidades próprias, desde que compatíveis com as instruções recebidas do responsável pelo tratamento.
+comentario: Errado. Quem age sob a autoridade do responsável ou do subcontratante só trata os dados segundo as instruções do responsável, salvo exigência legal (art. 29). O subcontratante que define finalidades próprias passa a ser responsável quanto a esse tratamento (art. 28, n.º 10). Na LGPD, o operador segue as instruções do controlador (art. 39).
+
+=== gd4-17
+gab: C
+ref: gdpr 39
+trecho: to cooperate with the supervisory authority
+armadilha: rol
+dif: 2
+enunciado: Entre as funções do encarregado da proteção de dados no GDPR estão controlar a conformidade com o regulamento e com as políticas do responsável e cooperar com a autoridade de controle, servindo-lhe de ponto de contato.
+comentario: Certo: art. 39, n.º 1, alíneas b, d e e. Também informa e aconselha, e orienta sobre a avaliação de impacto. Na LGPD, as atividades do encarregado estão no art. 41, § 2º.
+
+=== gd4-18
+gab: E
+ref: gdpr 40
+trecho: Associations and other bodies representing categories of controllers or processors may prepare codes of conduct
+armadilha: sujeito
+dif: 2
+enunciado: No GDPR, os códigos de conduta só podem ser elaborados pelas autoridades de controle, cabendo aos responsáveis pelo tratamento apenas aderir a eles.
+comentario: Errado. Associações e outros organismos representativos de responsáveis ou subcontratantes elaboram os códigos, que a autoridade de controle aprova (art. 40, n.ºs 2 e 5). Na LGPD, controladores e operadores podem formular regras de boas práticas, individualmente ou por associações (art. 50).
+
+=== gd4-19
+gab: C
+ref: gdpr 47
+trecho: expressly confer enforceable rights on data subjects with regard to the processing of their personal data
+armadilha: conceito
+dif: 3
+enunciado: No GDPR, as regras vinculativas aplicáveis às empresas são aprovadas pela autoridade de controle competente e devem ser juridicamente vinculativas para os membros do grupo e conferir expressamente aos titulares direitos oponíveis.
+comentario: Certo: art. 47, n.º 1, com aprovação pelo procedimento de coerência do art. 63. Correspondem às normas corporativas globais da LGPD (art. 33, II, c).
+
+=== gd4-20
+gab: E
+ref: gdpr 52
+trecho: shall neither seek nor take instructions from anybody
+armadilha: conceito
+dif: 1
+enunciado: No GDPR, as autoridades de controle podem receber instruções do governo do respectivo Estado-membro em matéria de política de proteção de dados.
+comentario: Errado. Atuam com total independência; seus membros não pedem nem recebem instruções de ninguém (art. 52, n.ºs 1 e 2), e o Estado deve garantir-lhes recursos e pessoal próprios (n.ºs 4 e 5).
+
+=== gd4-21
+gab: C
+ref: gdpr 54
+trecho: the duration of the term of the member or members of each supervisory authority of no less than four years
+armadilha: numero
+dif: 3
+enunciado: O GDPR exige que a lei de cada Estado-membro fixe mandato de, no mínimo, quatro anos para os membros da autoridade de controle, ressalvada a primeira nomeação após 24 de maio de 2016.
+comentario: Certo: art. 54, n.º 1, alínea d. Na ANPD, o mandato dos membros do Conselho Diretor é de quatro anos (LGPD, art. 55-D, § 3º).
+
+=== gd4-22
+gab: E
+ref: gdpr 60
+trecho: submit the matter to the consistency mechanism referred to in Article 63
+armadilha: conceito
+dif: 3
+enunciado: Se uma autoridade de controle interessada apresentar objeção relevante e fundamentada ao projeto de decisão da autoridade principal no prazo de quatro semanas, a autoridade principal fica obrigada a acatá-la.
+comentario: Errado. Se não seguir a objeção, ou a considerar irrelevante ou infundada, a autoridade principal submete a questão ao mecanismo de coerência (art. 60, n.º 4), e o Comitê Europeu de Proteção de Dados decide (art. 65).
+
+=== gd4-23
+gab: E
+ref: gdpr 65
+trecho: by a two-thirds majority of the members of the Board
+armadilha: numero
+dif: 3
+enunciado: As decisões vinculativas do Comitê Europeu de Proteção de Dados na resolução de litígios entre autoridades de controle são adotadas por unanimidade.
+comentario: Errado. Exige-se maioria de dois terços em um mês, prorrogável por mais um (art. 65, n.º 2); não alcançada, decide-se por maioria simples em duas semanas, com voto de desempate do presidente (n.º 3).
+
+=== gd4-24
+gab: E
+ref: gdpr 66
+trecho: with a specified period of validity which shall not exceed three months
+armadilha: numero
+dif: 3
+enunciado: No procedimento de urgência do GDPR, as medidas provisórias adotadas por autoridade de controle interessada valem por até seis meses e produzem efeitos em toda a União.
+comentario: Errado duas vezes: as medidas produzem efeitos no território da própria autoridade e valem por no máximo três meses (art. 66, n.º 1).
+
+=== gd4-25
+gab: E
+ref: gdpr 78
+trecho: does not inform the data subject within three months on the progress or outcome of the complaint
+armadilha: numero
+dif: 2
+enunciado: No GDPR, o titular só pode recorrer judicialmente contra a autoridade de controle que não tratou sua reclamação se ela permanecer sem informação sobre o andamento por um ano.
+comentario: Errado. O prazo é de três meses (art. 78, n.º 2). Contra decisão juridicamente vinculativa da autoridade, cabe recurso judicial efetivo (n.º 1), nos tribunais do Estado-membro em que ela está estabelecida (n.º 3).
+
+=== gd4-26
+gab: C
+ref: gdpr 79
+trecho: may be brought before the courts of the Member State where the data subject has his or her habitual residence
+armadilha: excecao
+dif: 3
+enunciado: No GDPR, a ação contra responsável ou subcontratante pode ser proposta nos tribunais do Estado-membro onde ele tenha estabelecimento ou, alternativamente, nos do Estado-membro de residência habitual do titular, salvo se o réu for autoridade pública agindo no exercício de poderes públicos.
+comentario: Certo: art. 79, n.º 2. Litigar em casa reduz o custo de o titular enfrentar empresa sediada em outro país.
+
+=== gd4-27
+gab: C
+ref: gdpr 80
+trecho: The data subject shall have the right to mandate a not-for-profit body, organisation or association
+armadilha: sujeito
+dif: 2
+enunciado: No GDPR, o titular pode mandatar organismo, organização ou associação sem fins lucrativos, ativa na proteção de dados, para apresentar reclamação e exercer em seu nome os direitos a recurso.
+comentario: Certo: art. 80, n.º 1. Os Estados-membros podem até permitir que essas entidades atuem sem mandato (n.º 2). Na LGPD, a defesa dos titulares pode ser individual ou coletiva (art. 22).
+
+=== gd4-28
+gab: E
+ref: gdpr 85
+trecho: Member States shall provide for exemptions or derogations
+armadilha: absoluto
+dif: 2
+enunciado: O GDPR não admite isenções para o tratamento com finalidades jornalísticas, ao qual seus princípios e regras se aplicam integralmente.
+comentario: Errado. Os Estados-membros conciliam por lei a proteção de dados com a liberdade de expressão e preveem isenções ou derrogações para fins jornalísticos, acadêmicos, artísticos ou literários (art. 85). A LGPD foi mais direta: não se aplica ao tratamento para fins exclusivamente jornalísticos e artísticos (art. 4º, II, a).
+
+=== gd4-29
+gab: C
+ref: gdpr 89
+trecho: Where those purposes can be fulfilled by further processing which does not permit or no longer permits the identification of data subjects, those purposes shall be fulfilled in that manner
+armadilha: conceito
+dif: 3
+enunciado: No tratamento para arquivo de interesse público, pesquisa científica ou histórica ou fins estatísticos, se a finalidade puder ser atingida com dados que não permitam identificar os titulares, o GDPR exige que seja atingida dessa forma.
+comentario: Certo: art. 89, n.º 1, que também menciona a pseudonimização como medida possível. Na LGPD, os estudos em saúde pública seguem lógica parecida: anonimização ou pseudonimização sempre que possível (art. 13).
+
+=== gd4-30
+gab: E
+ref: gdpr 88
+trecho: Member States may, by law or by collective agreements, provide for more specific rules
+armadilha: conceito
+dif: 2
+enunciado: O GDPR proíbe os Estados-membros de criar regras específicas sobre o tratamento de dados pessoais dos empregados no contexto das relações de trabalho.
+comentario: Errado. Os Estados-membros podem, por lei ou convenção coletiva, prever regras mais específicas (art. 88, n.º 1), com medidas que protejam a dignidade, a transparência e o monitoramento no local de trabalho (n.º 2).
