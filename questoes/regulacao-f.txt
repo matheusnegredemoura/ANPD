@@ -1,0 +1,265 @@
+bloco: regulacao-teoria
+// Regulação, parte F: artigos sem item ou com um item só. Lei nº 13.848/2019 (objeto, rol de agências com a ANPD,
+// plano de gestão, articulação com Cade e meio ambiente, descentralização), Lei nº 13.874/2019 (abuso do poder
+// regulatório, art. 4º, e deveres do art. 4º-A, com a dupla visita) e Decreto nº 10.411/2020 (AIR e ARR).
+// Conferidas com fontes/lei13848.txt, lei13874.txt e dec10411.txt.
+
+=== rf-01
+gab: C
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 2
+trecho: a Agência Nacional de Proteção de Dados (ANPD)
+armadilha: literal
+dif: 1
+enunciado: Para os fins da Lei nº 13.848/2019 e da Lei nº 9.986/2000, a Agência Nacional de Proteção de Dados (ANPD) é considerada agência reguladora.
+comentario: Certo: art. 2º, XII, incluído pela Medida Provisória nº 1.317/2025 e com redação dada pela Lei nº 15.352/2026. Por isso a ANPD segue as regras de processo decisório, controle social e mandato dos dirigentes das agências.
+
+=== rf-02
+gab: E
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 2
+trecho: Consideram-se agências reguladoras, para os fins desta Lei e para os fins da Lei nº 9.986
+armadilha: rol
+dif: 2
+enunciado: O rol de agências reguladoras da Lei nº 13.848/2019 inclui o Conselho Administrativo de Defesa Econômica (Cade) e o Banco Central do Brasil.
+comentario: Errado. O art. 2º lista doze agências: Aneel, ANP, Anatel, Anvisa, ANS, ANA, Antaq, ANTT, Ancine, Anac, ANM e ANPD. O Cade não está no rol; a lei trata dele como parceiro das agências (arts. 25 a 28).
+
+=== rf-03
+gab: C
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 2
+trecho: Ressalvado o que dispuser a legislação específica, aplica-se o disposto nesta Lei às autarquias especiais caracterizadas
+armadilha: literal
+dif: 2
+enunciado: Ressalvado o que dispuser a legislação específica, a Lei nº 13.848/2019 aplica-se às autarquias especiais caracterizadas, nos seus termos, como agências reguladoras e criadas a partir de sua vigência.
+comentario: Certo: art. 2º, parágrafo único. A lei não vale só para as agências do rol: alcança as que forem criadas depois, salvo disposição em contrário da lei específica.
+
+=== rf-04
+gab: E
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 2
+trecho: Ressalvado o que dispuser a legislação específica
+armadilha: excecao
+dif: 3
+enunciado: As agências reguladoras criadas após a vigência da Lei nº 13.848/2019 somente se submetem a essa lei se a respectiva lei de criação o determinar expressamente.
+comentario: Errado. É o contrário: a lei se aplica a elas por padrão, “ressalvado o que dispuser a legislação específica” (art. 2º, parágrafo único). A lei de criação pode afastar a regra, não precisa invocá-la.
+
+=== rf-05
+gab: C
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 1
+trecho: dispõe sobre a gestão, a organização, o processo decisório e o controle social das agências reguladoras
+armadilha: literal
+dif: 1
+enunciado: A Lei nº 13.848/2019 dispõe sobre a gestão, a organização, o processo decisório e o controle social das agências reguladoras.
+comentario: Certo: art. 1º. A lei também alterou as leis de criação das agências e a Lei nº 9.986/2000, sobre os dirigentes.
+
+=== rf-06
+gab: E
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 20
+trecho: disporá sobre as condições para a revisão e sobre a sistemática de acompanhamento e avaliação do plano de gestão anual
+armadilha: conceito
+dif: 2
+enunciado: Aprovado pelo colegiado, o plano de gestão anual da agência reguladora torna-se imutável durante o exercício, vedada sua revisão.
+comentario: Errado. O plano “poderá ser revisto periodicamente” (art. 18, § 2º), e o regimento interno dispõe sobre as condições para a revisão e sobre o acompanhamento e a avaliação do plano (art. 20).
+
+=== rf-07
+gab: E
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 27
+trecho: deverá comunicá-lo imediatamente aos órgãos de defesa da concorrência para que esses adotem as providências cabíveis
+armadilha: sujeito
+dif: 2
+enunciado: A agência reguladora que tomar conhecimento de fato que possa configurar infração à ordem econômica deve instaurar ela própria o processo e aplicar as sanções da legislação de defesa da concorrência.
+comentario: Errado. A agência comunica o fato imediatamente aos órgãos de defesa da concorrência, que adotam as providências cabíveis (art. 27). A aplicação da lei antitruste cabe a esses órgãos, não à agência.
+
+=== rf-08
+gab: C
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 28
+trecho: no prazo máximo de 48 (quarenta e oito) horas após a publicação do respectivo acórdão
+armadilha: numero
+dif: 2
+enunciado: O Cade notificará a agência reguladora do teor de suas decisões sobre condutas potencialmente anticompetitivas no exercício das atividades reguladas e das decisões sobre atos de concentração, no prazo máximo de 48 horas após a publicação do acórdão.
+comentario: Certo: art. 28. A notificação vai do Cade para a agência, para que esta adote as providências legais no setor regulado.
+
+=== rf-09
+gab: E
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 30
+trecho: a permitir a consulta recíproca quando da edição de normas que impliquem mudanças nas condições dos setores regulados
+armadilha: rol
+dif: 2
+enunciado: Os comitês que as agências reguladoras podem constituir com órgãos do Sistema Brasileiro de Defesa da Concorrência destinam-se exclusivamente ao intercâmbio de informações, vedada a consulta recíproca na edição de normas.
+comentario: Errado. Os comitês servem ao intercâmbio de experiências e informações, a orientações e procedimentos comuns e a permitir a consulta recíproca na edição de normas que mudem as condições dos setores regulados (art. 30).
+
+=== rf-10
+gab: E
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 33
+trecho: à celeridade na emissão de licenças ambientais
+armadilha: extrapolacao
+dif: 2
+enunciado: Os convênios celebrados entre agências reguladoras e órgãos de defesa do meio ambiente transferem às agências a competência para emitir licenças ambientais.
+comentario: Errado. Os convênios visam ao intercâmbio de informações, à padronização de exigências, à celeridade na emissão de licenças e à eficiência da fiscalização (art. 33). Dar celeridade não é transferir a competência de licenciar.
+
+=== rf-11
+gab: E
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 35
+trecho: deverá ser compatível com os custos da agência reguladora ou do órgão de regulação local para realizar as atividades delegadas
+armadilha: conceito
+dif: 2
+enunciado: Na descentralização de atividades, o repasse de receita da agência reguladora federal ao órgão de regulação local pode superar os custos deste com as atividades delegadas, como incentivo à adesão.
+comentario: Errado. O repasse deve ser compatível com os custos do órgão local para realizar as atividades delegadas (art. 35, parágrafo único).
+
+=== rf-12
+gab: C
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 25
+trecho: devem atuar em estreita cooperação, privilegiando a troca de experiências
+armadilha: literal
+dif: 1
+enunciado: Para promover a concorrência nos mercados regulados, as agências reguladoras e os órgãos de defesa da concorrência devem atuar em estreita cooperação, privilegiando a troca de experiências.
+comentario: Certo: art. 25. Dessa cooperação decorrem o dever de comunicar indícios de infração (art. 27) e a notificação das decisões do Cade (art. 28).
+
+=== rf-13
+gab: E
+bloco: lei-13848
+tema: reg-agencias
+ref: lei13848 11
+trecho: diretamente ou por meio de organizações e associações legalmente reconhecidas
+armadilha: rol
+dif: 2
+enunciado: Os outros meios de participação que a agência reguladora pode prever em regimento interno admitem a manifestação de interessados apenas por meio de organizações e associações legalmente reconhecidas, vedada a participação direta.
+comentario: Errado. A participação pode ser direta ou por meio de organizações e associações legalmente reconhecidas (art. 11). Às contribuições aplica-se o § 5º do art. 9º.
+
+=== rf-14
+gab: C
+ref: lei13874 4-A
+trecho: dispensar tratamento justo, previsível e isonômico entre os agentes econômicos
+armadilha: literal
+dif: 1
+enunciado: Na aplicação da ordenação pública sobre atividades econômicas privadas, é dever da administração pública dispensar tratamento justo, previsível e isonômico entre os agentes econômicos.
+comentario: Certo: art. 4º-A, I, da Lei nº 13.874/2019, incluído pela Lei nº 14.195/2021.
+
+=== rf-15
+gab: C
+ref: lei13874 4-A
+trecho: observar o critério de dupla visita para lavratura de autos de infração decorrentes do exercício de atividade considerada de baixo ou médio risco
+armadilha: literal
+dif: 2
+enunciado: A Lei de Liberdade Econômica impõe à administração o critério de dupla visita para a lavratura de autos de infração decorrentes do exercício de atividade considerada de baixo ou médio risco.
+comentario: Certo: art. 4º-A, III. Na prática, a primeira visita orienta, e a autuação fica para a segunda, se a irregularidade persistir.
+
+=== rf-16
+gab: E
+ref: lei13874 4-A
+trecho: decorrentes do exercício de atividade considerada de baixo ou médio risco
+armadilha: extrapolacao
+dif: 2
+enunciado: O critério da dupla visita aplica-se à lavratura de autos de infração em quaisquer atividades econômicas, inclusive nas consideradas de alto risco.
+comentario: Errado. O critério vale para autos de infração decorrentes de atividade de baixo ou médio risco (art. 4º-A, III).
+
+=== rf-17
+gab: E
+ref: lei13874 4-A
+trecho: somente quando estes forem propriamente regulamentados por meio de critérios claros, objetivos e previsíveis
+armadilha: absoluto
+dif: 2
+enunciado: A Lei de Liberdade Econômica veda, em qualquer hipótese, a lavratura de autos de infração ou a aplicação de sanções com base em termos subjetivos ou abstratos.
+comentario: Errado. É permitido quando esses termos forem regulamentados por critérios claros, objetivos e previsíveis (art. 4º-A, II). Se o juízo subjetivo for imprescindível, o ato normativo define o procedimento de aferição (§ 1º, I).
+
+=== rf-18
+gab: C
+ref: lei13874 4-A
+trecho: quando a advocacia pública
+armadilha: conceito
+dif: 3
+enunciado: Para fins administrativos, controladores e judiciais, considera-se atendida a exigência de regulamentar os conceitos subjetivos usados em autuações quando a advocacia pública tiver analisado previamente o respectivo ato normativo.
+comentario: Certo: art. 4º-A, § 2º, nos limites da competência de cada advocacia pública (União, estados, DF e municípios).
+
+=== rf-19
+gab: E
+ref: lei13874 4-A
+trecho: no prazo de 4 (quatro) anos, podendo o Poder Executivo estabelecer prazo inferior em regulamento
+armadilha: numero
+dif: 2
+enunciado: Os atos normativos que definem a aplicação de conceitos subjetivos em autuações deveriam ser editados em até um ano, vedado ao Poder Executivo fixar prazo inferior.
+comentario: Errado. O prazo é de quatro anos, e o Executivo pode estabelecer prazo inferior em regulamento (art. 4º-A, § 3º).
+
+=== rf-20
+gab: C
+ref: lei13874 4
+trecho: criar demanda artificial ou compulsória de produto, serviço ou atividade profissional, inclusive de uso de cartórios, registros ou cadastros
+armadilha: literal
+dif: 1
+enunciado: Configura abuso do poder regulatório criar demanda artificial ou compulsória de produto, serviço ou atividade profissional, inclusive de uso de cartórios, registros ou cadastros.
+comentario: Certo: art. 4º, VI. O rol do art. 4º também inclui criar reserva de mercado, impedir a entrada de competidores e exigir especificação técnica desnecessária.
+
+=== rf-21
+gab: E
+ref: lei13874 4
+trecho: ressalvadas as hipóteses expressamente vedadas em lei federal
+armadilha: excecao
+dif: 2
+enunciado: Restringir o uso da publicidade e da propaganda sobre um setor econômico configura abuso do poder regulatório, ainda que a restrição corresponda a vedação expressa em lei federal.
+comentario: Errado. O art. 4º, VIII, ressalva as hipóteses expressamente vedadas em lei federal. Além disso, o caput afasta o abuso quando o regulador age em estrito cumprimento de previsão explícita em lei.
+
+=== rf-22
+gab: C
+ref: lei13874 4
+trecho: exceto se em estrito cumprimento a previsão explícita em lei
+armadilha: excecao
+dif: 3
+enunciado: O dever de evitar o abuso do poder regulatório previsto na Lei de Liberdade Econômica não alcança a regulamentação feita em estrito cumprimento a previsão explícita em lei.
+comentario: Certo: caput do art. 4º. Se a própria lei impõe a restrição, o regulador que a cumpre não pratica abuso; o controle, então, é o da lei.
+
+=== rf-23
+gab: C
+ref: dec10411 12
+trecho: serão objeto de ARR no prazo de três anos, contado da data de sua entrada em vigor
+armadilha: numero
+dif: 2
+enunciado: Os atos normativos cuja AIR tenha sido dispensada em razão de urgência serão objeto de avaliação de resultado regulatório no prazo de três anos, contado da data de sua entrada em vigor.
+comentario: Certo: art. 12 do Decreto nº 10.411/2020. A ARR verifica depois o que a AIR não pôde verificar antes.
+
+=== rf-24
+gab: E
+ref: dec10411 10
+trecho: prazo para manifestação pública proporcional à complexidade do tema
+armadilha: conceito
+dif: 2
+enunciado: Nos procedimentos de participação social e de consulta pública do Decreto nº 10.411/2020, o prazo para manifestação é fixo, independentemente da complexidade do tema.
+comentario: Errado. O prazo é proporcional à complexidade do tema (art. 10, parágrafo único). Nas consultas públicas, salvo urgência, o mínimo é de 45 dias, ou 60 quando houver impacto significativo no comércio internacional (art. 9º, § 2º).
+
+=== rf-25
+gab: E
+ref: dec10411 5
+trecho: será iniciada após a avaliação pelo órgão ou pela entidade competente
+armadilha: conceito
+dif: 2
+enunciado: A análise de impacto regulatório deve ser iniciada antes de o órgão avaliar a obrigatoriedade ou a conveniência e a oportunidade de enfrentar o problema regulatório identificado.
+comentario: Errado. A AIR é iniciada após essa avaliação (art. 5º). Primeiro se decide se vale a pena enfrentar o problema; depois se analisam as alternativas.
+
+=== rf-26
+gab: E
+ref: dec10411 8
+trecho: antes da elaboração de eventual minuta de ato normativo a ser editado
+armadilha: conceito
+dif: 2
+enunciado: O relatório de AIR só pode ser submetido a participação social depois de elaborada a minuta do ato normativo.
+comentario: Errado. A participação social específica sobre o relatório ocorre antes da decisão sobre a melhor alternativa e antes da elaboração de eventual minuta (art. 8º). A minuta vai depois à consulta pública (art. 9º).
