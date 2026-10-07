@@ -494,3 +494,83 @@ busca: acesso provável ECA Digital likely to be accessed children code
 padroes: avaliação de resultado regulatório | ARR
 def: Avaliação, depois da vigência, dos efeitos de um ato normativo, para verificar se atingiu os objetivos. Completa a AIR, que é prévia (Decreto 10.411/2020).
 busca: avaliação de resultado regulatório ARR Decreto 10.411
+
+=== Monopólio natural
+padroes: monopólio natural | monopólios naturais | subaditiva | subaditividade
+def: Mercado em que uma única firma atende à demanda a custo menor que duas ou mais, porque o custo é subaditivo (custos fixos altos e economias de escala, como redes de água e energia). A concorrência duplicaria custos; por isso se regulam preço, qualidade e entrada, ou se faz competição pelo mercado, por licitação.
+busca: monopólio natural subaditividade de custos regulação economias de escala
+
+=== Preço-teto (price cap)
+padroes: preço-teto | price cap | fator X
+def: Regulação tarifária em que o preço é reajustado por um índice de inflação menos um fator X de produtividade. Entre revisões, a firma fica com os ganhos de eficiência que superar a meta, o que dá incentivo a reduzir custos. Contrasta com a regulação por taxa de retorno.
+busca: price cap RPI-X fator X regulação por incentivos
+
+=== Taxa de retorno e efeito Averch-Johnson
+padroes: taxa de retorno | custo do serviço | Averch-Johnson
+def: Na regulação por taxa de retorno (ou custo do serviço), a tarifa cobre os custos e remunera o capital investido a uma taxa considerada justa. O efeito Averch-Johnson é o incentivo a investir capital além do eficiente quando a taxa permitida supera o custo do capital.
+busca: regulação por taxa de retorno efeito Averch-Johnson sobreinvestimento
+
+=== Regulação por comparação (yardstick)
+padroes: yardstick | regulação por comparação | competição por comparação
+def: O desempenho de cada firma regulada é medido pelo de firmas semelhantes, criando concorrência virtual entre monopólios regionais e reduzindo a dependência do regulador das informações de custo da própria regulada (Shleifer, 1985).
+busca: yardstick competition regulação por comparação Shleifer
+
+=== Teorema de Coase
+padroes: Coase | custos de transação
+def: Com direitos de propriedade bem definidos e custos de transação baixos, as partes negociam e chegam ao resultado eficiente sem regulação. Quando os custos de transação são altos, como entre milhões de titulares e uma plataforma, a negociação privada falha e a regulação volta a fazer sentido.
+busca: teorema de Coase custos de transação externalidades
+
+=== Busca de renda (rent-seeking)
+padroes: busca de renda | rent-seeking
+def: Gasto de recursos para obter, pelo processo político ou regulatório, vantagem que não decorre da criação de valor, como uma barreira à entrada de concorrentes. Conceito da teoria da escolha pública; a Lei de Liberdade Econômica trata como abuso regulatório criar reserva de mercado (art. 4º, I).
+busca: rent-seeking busca de renda escolha pública Tullock
+
+=== Porta giratória
+padroes: porta giratória | revolving door
+def: Trânsito de pessoas entre o regulador e o setor regulado, em qualquer direção, fator clássico de captura. A quarentena de ex-diretores é a resposta institucional (para a ANPD, art. 55-F da LGPD, com a Lei 12.813/2013).
+busca: porta giratória revolving door captura regulatória quarentena
+
+=== Corregulação e meta-regulação
+padroes: corregulação | meta-regulação | autorregulação regulada
+def: Na corregulação, regras feitas pelo setor privado são reconhecidas ou supervisionadas pelo Estado, como as boas práticas que a ANPD pode reconhecer e divulgar (LGPD, art. 50, § 3º). Na meta-regulação, o regulador fiscaliza os sistemas internos de controle e gestão de riscos das empresas, em vez de cada conduta.
+busca: corregulação meta-regulação autorregulação regulada proteção de dados
+
+=== Padrões obscuros (dark patterns)
+padroes: dark patterns | padrões obscuros | padrão obscuro
+def: Escolhas de desenho de interface que conduzem o usuário a decisões que ele não tomaria por conta própria, como esconder a opção de recusar cookies ou dar destaque desigual a aceitar e recusar. Comprometem o caráter livre do consentimento (LGPD, art. 5º, XII).
+busca: dark patterns padrões obscuros consentimento cookies autoridade de proteção de dados
+
+=== Regime de transição (LINDB)
+padroes: regime de transição
+def: Prazo e condições para cumprir um novo dever criado por interpretação ou orientação nova sobre norma de conteúdo indeterminado, exigidos quando indispensáveis ao cumprimento proporcional, equânime e eficiente (LINDB, art. 23; Decreto 9.830/2019, arts. 6º e 7º).
+busca: regime de transição LINDB art 23 Decreto 9.830 interpretação nova
+
+=== Orientação geral (LINDB)
+padroes: orientações gerais | orientação geral
+def: Interpretações contidas em atos públicos de caráter geral, jurisprudência judicial ou administrativa majoritária e prática administrativa reiterada e de amplo conhecimento. A revisão da validade de ato já completado leva em conta as orientações da época, vedado invalidar situações plenamente constituídas por mudança posterior (LINDB, art. 24).
+busca: orientação geral LINDB art 24 segurança jurídica mudança de entendimento
+
+=== Agente de tratamento de pequeno porte
+padroes: agente de tratamento de pequeno porte | agentes de tratamento de pequeno porte | agente de pequeno porte | agentes de pequeno porte
+def: Microempresas, empresas de pequeno porte, startups, pessoas jurídicas de direito privado (inclusive sem fins lucrativos), pessoas naturais e entes despersonalizados que tratam dados como controlador ou operador (Res. CD/ANPD 2/2022, art. 2º). Têm regime simplificado, que não alcança quem faz tratamento de alto risco ou supera os limites de receita (art. 3º).
+busca: agente de tratamento de pequeno porte Resolução CD/ANPD 2/2022 regime diferenciado
+
+=== Tratamento de alto risco
+padroes: tratamento de alto risco | tratamentos de alto risco
+def: Na Res. CD/ANPD 2/2022, é o tratamento que reúne, cumulativamente, um critério geral (larga escala ou possibilidade de afetar significativamente interesses e direitos fundamentais) e um específico (tecnologias emergentes, vigilância de zonas acessíveis ao público, decisões só automatizadas, dados sensíveis ou de crianças, adolescentes e idosos) (art. 4º).
+busca: tratamento de alto risco Resolução 2/2022 critérios gerais e específicos ANPD
+
+=== Procedimento preparatório
+padroes: procedimento preparatório | procedimentos preparatórios
+def: Averiguação preliminar da área de fiscalização da ANPD quando os indícios ainda não bastam para instaurar processo sancionador; pode tramitar em sigilo e termina em arquivamento ou instauração do processo (Res. CD/ANPD 1/2021, arts. 40 a 42).
+busca: procedimento preparatório ANPD Resolução 1/2021 fiscalização averiguação preliminar
+
+=== Termo de ajustamento de conduta (TAC)
+padroes: termo de ajustamento de conduta | termos de ajustamento de conduta
+def: Acordo proposto pelo autuado e deliberado pelo Conselho Diretor no processo sancionador da ANPD. O processo fica suspenso a partir da assinatura e é arquivado depois de verificado o cumprimento integral (Res. CD/ANPD 1/2021, art. 43).
+busca: termo de ajustamento de conduta ANPD processo sancionador Resolução 1/2021
+
+=== Medidas preventivas (fiscalização da ANPD)
+padroes: medidas preventivas | medida preventiva
+def: Divulgação de informações, aviso, solicitação de regularização ou informe e plano de conformidade, entre outras compatíveis (Res. CD/ANPD 1/2021, art. 32). Não são sanção; o descumprimento faz a atuação progredir e é agravante em eventual processo sancionador.
+busca: medidas preventivas ANPD aviso plano de conformidade solicitação de regularização
