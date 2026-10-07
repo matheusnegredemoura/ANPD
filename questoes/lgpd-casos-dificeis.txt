@@ -1,0 +1,289 @@
+// Dois casos integrados de dificuldade alta na LGPD: dados de saúde e de adolescentes num aplicativo de academia
+// (hipóteses legais, art. 11, crianças e adolescentes, dados públicos, conservação e eliminação) e decisão automatizada
+// numa plataforma de recrutamento com vazamento no operador (revisão, não discriminação, responsabilidade, incidente).
+// Trechos conferidos em fontes/lgpd.txt.
+
+bloco: lgpd-5-11
+
+apoio_ACADEMIA: Uma rede de academias oferece aplicativo que registra a frequência cardíaca dos alunos durante os treinos. Entre os usuários há adolescentes de 14 a 17 anos. A rede pretende: (1) enviar ofertas personalizadas a partir dos dados de frequência cardíaca, com base em seu legítimo interesse; (2) repassar esses dados a uma seguradora parceira, que pagará uma comissão à rede e dará desconto aos alunos; (3) usar fotos e informações publicadas pelos próprios alunos em perfis abertos de redes sociais em suas campanhas; e (4) manter os registros de quem cancelar a matrícula para produzir estatísticas internas.
+apoio_RECRUTA: Uma plataforma de recrutamento, controladora dos dados dos candidatos, contratou uma empresa de nuvem para hospedar o sistema. A plataforma usa um algoritmo que classifica os currículos e elimina, sem intervenção humana, os candidatos com menor pontuação; constatou-se que moradores de determinados bairros eram sistematicamente descartados. Uma candidata pediu explicação sobre os critérios, e a plataforma recusou-se a informá-los, alegando segredo comercial. Meses depois, uma configuração feita pela empresa de nuvem, contrária às instruções da plataforma, expôs os currículos, e vários candidatos sofreram fraudes.
+
+=== cd-01
+gab: E
+ref: lgpd 11
+trecho: O tratamento de dados pessoais sensíveis somente poderá ocorrer nas seguintes hipóteses
+armadilha: caso
+dif: 3
+apoio: @ACADEMIA
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: O envio de ofertas personalizadas a partir dos dados de frequência cardíaca pode apoiar-se no legítimo interesse da rede de academias, desde que observados os direitos dos alunos.
+comentario: Errado. Frequência cardíaca é dado referente à saúde, portanto sensível (art. 5º, II), e o art. 11, que lista em caráter restrito (“somente”) as hipóteses para dados sensíveis, não inclui o legítimo interesse, previsto só no art. 7º, IX, para dados comuns.
+
+=== cd-02
+gab: C
+ref: lgpd 5
+trecho: dado referente à saúde ou à vida sexual
+armadilha: caso
+dif: 2
+apoio: @ACADEMIA
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: Os registros de frequência cardíaca dos alunos, vinculados a cada um deles, são dados pessoais sensíveis.
+comentario: Certo: art. 5º, II. Dado referente à saúde, quando vinculado a pessoa natural, é sensível, e seu tratamento segue o art. 11.
+
+=== cd-03
+gab: E
+ref: lgpd 11
+trecho: É vedada a comunicação ou o uso compartilhado entre controladores de dados pessoais sensíveis referentes à saúde com objetivo de obter vantagem econômica
+armadilha: excecao
+dif: 3
+apoio: @ACADEMIA
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: O repasse dos dados de frequência cardíaca à seguradora parceira torna-se lícito se a rede obtiver o consentimento específico e destacado de cada aluno.
+comentario: Errado. A rede receberia comissão: é comunicação de dado de saúde entre controladores com objetivo de vantagem econômica, vedada pelo art. 11, § 4º. As exceções se limitam à prestação de serviços de saúde, de assistência farmacêutica e de assistência à saúde, em benefício dos titulares, para portabilidade ou transações desses serviços, e o consentimento não afasta a vedação.
+
+=== cd-04
+gab: C
+ref: lgpd 11
+trecho: É vedado às operadoras de planos privados de assistência à saúde o tratamento de dados de saúde para a prática de seleção de riscos
+armadilha: caso
+dif: 2
+apoio: @ACADEMIA
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: Se a parceira fosse operadora de plano privado de assistência à saúde, ser-lhe-ia vedado usar dados de saúde dos alunos para seleção de riscos na contratação.
+comentario: Certo: art. 11, § 5º, que alcança a seleção de riscos na contratação de qualquer modalidade e na contratação e exclusão de beneficiários.
+
+=== cd-05
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 14
+trecho: O tratamento de dados pessoais de crianças deverá ser realizado com o consentimento específico e em destaque dado por pelo menos um dos pais ou pelo responsável legal
+armadilha: caso
+dif: 3
+apoio: @ACADEMIA
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: O tratamento dos dados dos alunos de 14 a 17 anos exige, em qualquer caso, consentimento específico e em destaque de pelo menos um dos pais ou do responsável legal.
+comentario: Errado. A regra do consentimento parental do art. 14, § 1º, é para crianças (até 12 anos incompletos). Para adolescentes vale o melhor interesse (caput), e o tratamento pode apoiar-se nas hipóteses do art. 7º ou do art. 11, conforme o Enunciado CD/ANPD nº 1/2023.
+
+=== cd-06
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 14
+trecho: O tratamento de dados pessoais de crianças e de adolescentes deverá ser realizado em seu melhor interesse
+armadilha: caso
+dif: 2
+apoio: @ACADEMIA
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: O tratamento dos dados dos alunos adolescentes deve ser realizado em seu melhor interesse e pode apoiar-se nas hipóteses legais do art. 7º ou do art. 11 da LGPD, conforme o tipo de dado.
+comentario: Certo: art. 14, caput, e Enunciado CD/ANPD nº 1/2023, que admite as hipóteses dos arts. 7º e 11 desde que observado e prevalecente o melhor interesse, avaliado no caso concreto.
+
+=== cd-07
+gab: E
+ref: lgpd 7
+trecho: resguardados os direitos do titular e os princípios previstos nesta Lei
+armadilha: caso
+dif: 2
+apoio: @ACADEMIA
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: Como foram tornados públicos pelos próprios alunos, as fotos e as informações dos perfis abertos podem ser usadas livremente nas campanhas, sem a observância dos princípios da LGPD.
+comentario: Errado. A dispensa de consentimento para dados tornados manifestamente públicos pelo titular resguarda os direitos do titular e os princípios da lei (art. 7º, § 4º), e o uso para nova finalidade exige propósitos legítimos e específicos (§ 7º).
+
+=== cd-08
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 16
+trecho: uso exclusivo do controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados
+armadilha: caso
+dif: 3
+apoio: @ACADEMIA
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: Encerrado o tratamento, a rede pode conservar os registros de quem cancelou a matrícula para estatísticas internas, desde que os dados sejam anonimizados e não haja acesso por terceiros.
+comentario: Certo: art. 16, IV. A regra é eliminar os dados após o término do tratamento; a conservação para uso exclusivo do controlador exige anonimização e veda o acesso de terceiros.
+
+=== cd-09
+gab: C
+bloco: lgpd-17-22
+ref: lgpd 18
+trecho: eliminação dos dados pessoais tratados com o consentimento do titular, exceto nas hipóteses previstas no art. 16 desta Lei
+armadilha: caso
+dif: 2
+apoio: @ACADEMIA
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: O aluno que cancelar a matrícula pode requerer a eliminação dos dados tratados com o seu consentimento, ressalvadas as hipóteses de conservação previstas em lei.
+comentario: Certo: art. 18, VI, que remete às hipóteses de conservação do art. 16 (obrigação legal, órgão de pesquisa, transferência a terceiro e uso exclusivo do controlador com dados anonimizados).
+
+=== cd-10
+gab: E
+ref: lgpd 7
+trecho: deverá obter consentimento específico do titular para esse fim
+armadilha: caso
+dif: 2
+apoio: @ACADEMIA
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: Obtido o consentimento dos alunos para o tratamento dos dados de treino, a rede poderá compartilhá-los com outras academias do mesmo grupo econômico sem nova manifestação dos alunos.
+comentario: Errado. Quem obteve o consentimento e precisa comunicar ou compartilhar os dados com outros controladores deve obter consentimento específico para esse fim, salvo hipótese de dispensa (art. 7º, § 5º). Empresas do mesmo grupo são controladores distintos.
+
+=== cd-11
+gab: C
+ref: lgpd 11
+trecho: quando o titular ou seu responsável legal consentir, de forma específica e destacada, para finalidades específicas
+armadilha: caso
+dif: 2
+apoio: @ACADEMIA
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: Se a rede adotar o consentimento como hipótese para tratar os dados de frequência cardíaca, ele deverá ser dado de forma específica e destacada, para finalidades específicas.
+comentario: Certo: art. 11, I. É requisito a mais em relação ao consentimento para dados comuns (art. 5º, XII, e art. 8º).
+
+=== cd-12
+gab: E
+bloco: lgpd-37-45
+ref: lgpd 38
+trecho: A autoridade nacional poderá determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais, inclusive de dados sensíveis
+armadilha: caso
+dif: 2
+apoio: @ACADEMIA
+comando: Com base na situação hipotética e na LGPD, julgue os itens a seguir.
+enunciado: Como os dados de saúde foram fornecidos voluntariamente pelos alunos no aplicativo, a rede está dispensada de elaborar relatório de impacto à proteção de dados, ainda que a ANPD o determine.
+comentario: Errado. A ANPD pode determinar ao controlador a elaboração do relatório de impacto, inclusive sobre dados sensíveis (art. 38), e a voluntariedade da coleta não afasta esse poder.
+
+=== cd-13
+gab: C
+bloco: lgpd-17-22
+ref: lgpd 20
+trecho: incluídas as decisões destinadas a definir o seu perfil pessoal, profissional, de consumo e de crédito
+armadilha: caso
+dif: 2
+apoio: @RECRUTA
+comando: Considerando a situação hipotética e o disposto na LGPD, julgue os itens a seguir.
+enunciado: A candidata pode solicitar a revisão da decisão que a eliminou do processo seletivo, tomada unicamente com base em tratamento automatizado e destinada a definir seu perfil profissional.
+comentario: Certo: art. 20, caput. A lei não exige que a revisão seja feita por pessoa natural: o § 3º que previa isso foi vetado.
+
+=== cd-14
+gab: E
+bloco: lgpd-17-22
+ref: lgpd 20
+trecho: O controlador deverá fornecer, sempre que solicitadas, informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada, observados os segredos comercial e industrial
+armadilha: caso
+dif: 3
+apoio: @RECRUTA
+comando: Considerando a situação hipotética e o disposto na LGPD, julgue os itens a seguir.
+enunciado: A alegação de segredo comercial dispensa a plataforma de prestar à candidata qualquer informação sobre os critérios e os procedimentos da decisão automatizada.
+comentario: Errado. O dever de informar critérios e procedimentos de forma clara e adequada permanece; o segredo comercial delimita o que se revela, sem eliminar o dever (art. 20, § 1º). Se a recusa se basear no segredo, a ANPD pode auditar o sistema (§ 2º).
+
+=== cd-15
+gab: C
+bloco: lgpd-17-22
+ref: lgpd 20
+trecho: a autoridade nacional poderá realizar auditoria para verificação de aspectos discriminatórios em tratamento automatizado de dados pessoais
+armadilha: caso
+dif: 2
+apoio: @RECRUTA
+comando: Considerando a situação hipotética e o disposto na LGPD, julgue os itens a seguir.
+enunciado: Mantida a recusa de informar os critérios com base em segredo comercial, a ANPD poderá realizar auditoria para verificar aspectos discriminatórios no algoritmo da plataforma.
+comentario: Certo: art. 20, § 2º. O descarte sistemático por bairro é exatamente o tipo de indício que justifica a auditoria.
+
+=== cd-16
+gab: E
+ref: lgpd 6
+trecho: IX - não discriminação: impossibilidade de realização do tratamento para fins discriminatórios ilícitos ou abusivos
+armadilha: caso
+dif: 3
+apoio: @RECRUTA
+comando: Considerando a situação hipotética e o disposto na LGPD, julgue os itens a seguir.
+enunciado: O descarte sistemático de candidatos por bairro de residência não ofende o princípio da não discriminação da LGPD, que proíbe apenas a discriminação fundada em dados pessoais sensíveis.
+comentario: Errado. O princípio veda o tratamento para fins discriminatórios ilícitos ou abusivos, sem limitá-lo a dados sensíveis (art. 6º, IX). O endereço pode funcionar como substituto de origem racial ou condição social, e é isso que a auditoria do art. 20, § 2º, investiga.
+
+=== cd-17
+gab: C
+bloco: lgpd-37-45
+ref: lgpd 42
+trecho: o operador responde solidariamente pelos danos causados pelo tratamento quando descumprir as obrigações da legislação de proteção de dados ou quando não tiver seguido as instruções lícitas do controlador
+armadilha: caso
+dif: 2
+apoio: @RECRUTA
+comando: Considerando a situação hipotética e o disposto na LGPD, julgue os itens a seguir.
+enunciado: Por ter descumprido as instruções lícitas da plataforma, a empresa de nuvem responde solidariamente pelos danos causados aos candidatos, equiparando-se ao controlador.
+comentario: Certo: art. 42, § 1º, I, ressalvadas as excludentes do art. 43.
+
+=== cd-18
+gab: E
+bloco: lgpd-37-45
+ref: lgpd 42
+trecho: As ações de reparação por danos coletivos que tenham por objeto a responsabilização nos termos do caput deste artigo podem ser exercidas coletivamente em juízo
+armadilha: caso
+dif: 2
+apoio: @RECRUTA
+comando: Considerando a situação hipotética e o disposto na LGPD, julgue os itens a seguir.
+enunciado: A reparação dos danos decorrentes do vazamento só pode ser buscada individualmente por cada candidato lesado, vedada a tutela coletiva.
+comentario: Errado. A reparação por danos coletivos pode ser exercida coletivamente em juízo (art. 42, § 3º), e a defesa dos titulares pode ser individual ou coletiva (art. 22).
+
+=== cd-19
+gab: C
+bloco: lgpd-46-51
+ref: lgpd 48
+trecho: O controlador deverá comunicar à autoridade nacional e ao titular a ocorrência de incidente de segurança que possa acarretar risco ou dano relevante aos titulares
+armadilha: caso
+dif: 2
+apoio: @RECRUTA
+comando: Considerando a situação hipotética e o disposto na LGPD, julgue os itens a seguir.
+enunciado: Por poder acarretar risco ou dano relevante aos candidatos, o vazamento deve ser comunicado pela plataforma à ANPD e aos titulares afetados.
+comentario: Certo: art. 48, caput. As fraudes já ocorridas mostram o dano relevante; o prazo e o conteúdo estão na Resolução CD/ANPD nº 15/2024.
+
+=== cd-20
+gab: E
+bloco: lgpd-46-51
+ref: lgpd 48
+trecho: O controlador deverá comunicar à autoridade nacional e ao titular
+armadilha: sujeito
+dif: 2
+apoio: @RECRUTA
+comando: Considerando a situação hipotética e o disposto na LGPD, julgue os itens a seguir.
+enunciado: Como o vazamento decorreu de configuração feita pela empresa de nuvem, cabe exclusivamente a ela comunicar o incidente à ANPD e aos candidatos.
+comentario: Errado. O dever de comunicar é do controlador (art. 48). O operador colabora com as informações de que dispõe, mas quem comunica é a plataforma.
+
+=== cd-21
+gab: C
+bloco: lgpd-37-45
+ref: lgpd 37
+trecho: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem
+armadilha: caso
+dif: 1
+apoio: @RECRUTA
+comando: Considerando a situação hipotética e o disposto na LGPD, julgue os itens a seguir.
+enunciado: Tanto a plataforma quanto a empresa de nuvem devem manter registro das operações de tratamento de dados pessoais que realizarem.
+comentario: Certo: art. 37. O dever é dos dois agentes, especialmente quando o tratamento se baseia no legítimo interesse.
+
+=== cd-22
+gab: E
+bloco: lgpd-37-45
+ref: lgpd 42
+trecho: Aquele que reparar o dano ao titular tem direito de regresso contra os demais responsáveis, na medida de sua participação no evento danoso
+armadilha: caso
+dif: 2
+apoio: @RECRUTA
+comando: Considerando a situação hipotética e o disposto na LGPD, julgue os itens a seguir.
+enunciado: Se a plataforma indenizar integralmente os candidatos, não terá direito de regresso contra a empresa de nuvem, por ser a controladora dos dados.
+comentario: Errado. Quem repara o dano tem direito de regresso contra os demais responsáveis, na medida da participação de cada um no evento danoso (art. 42, § 4º).
+
+=== cd-23
+gab: C
+bloco: lgpd-52-54
+ref: lgpd 52
+trecho: a adoção de política de boas práticas e governança
+armadilha: caso
+dif: 2
+apoio: @RECRUTA
+comando: Considerando a situação hipotética e o disposto na LGPD, julgue os itens a seguir.
+enunciado: Em eventual sanção à plataforma, a ANPD poderá considerar se ela adotava política de boas práticas e governança.
+comentario: Certo: art. 52, § 1º, IX. Também pesam a cooperação, a pronta adoção de medidas corretivas e a adoção reiterada de mecanismos internos capazes de minimizar o dano (incisos VII, VIII e X).
+
+=== cd-24
+gab: E
+bloco: lgpd-37-45
+ref: lgpd 39
+trecho: que verificará a observância das próprias instruções e das normas sobre a matéria
+armadilha: absoluto
+dif: 3
+apoio: @RECRUTA
+comando: Considerando a situação hipotética e o disposto na LGPD, julgue os itens a seguir.
+enunciado: O fato de o vazamento ter decorrido de configuração feita pela empresa de nuvem afasta, por si só, qualquer possibilidade de responsabilização da plataforma pela ANPD.
+comentario: Errado. O controlador deve verificar a observância de suas instruções e das normas pelo operador (art. 39), e ambos os agentes têm o dever de adotar medidas de segurança (art. 46). A responsabilidade de cada um é apurada no caso concreto; a atuação do operador não a exclui automaticamente.
