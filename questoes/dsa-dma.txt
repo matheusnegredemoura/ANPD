@@ -1,0 +1,102 @@
+bloco: gdpr
+// Regulação europeia de plataformas, além do RGPD: Regulamento dos Serviços Digitais (DSA, Regulamento (UE) 2022/2065)
+// e Regulamento dos Mercados Digitais (DMA, Regulamento (UE) 2022/1925). A prova da Anatel 2024 os citou como referência
+// regulatória em texto da prova básica. Os textos dos regulamentos não estão em fontes/: os itens ficam no nível dos
+// conceitos centrais, sem detalhes que dependam da letra.
+
+=== dd-01
+gab: C
+ref: doutrina DSA e DMA
+armadilha: comparacao
+dif: 2
+enunciado: O Regulamento dos Serviços Digitais (DSA) da União Europeia trata das obrigações dos prestadores de serviços intermediários quanto a conteúdos ilegais e à transparência, enquanto o Regulamento dos Mercados Digitais (DMA) busca contestabilidade e equidade nos mercados em que atuam grandes plataformas designadas como controladoras de acesso (gatekeepers).
+comentario: Certo. O DSA olha para o conteúdo e os riscos para os usuários; o DMA, para a concorrência nos mercados digitais dominados por poucos guardiões de acesso.
+
+=== dd-02
+gab: E
+ref: doutrina DSA e DMA
+armadilha: comparacao
+dif: 1
+enunciado: O Regulamento dos Mercados Digitais (DMA) substituiu o RGPD como norma geral de proteção de dados pessoais na União Europeia.
+comentario: Errado. O RGPD continua sendo a norma geral de proteção de dados; DSA e DMA o complementam, com regras específicas para plataformas, algumas delas sobre o uso de dados pessoais.
+
+=== dd-03
+gab: C
+ref: doutrina DSA e DMA
+armadilha: numero
+dif: 3
+enunciado: No DSA, as plataformas online de muito grande dimensão, com pelo menos 45 milhões de usuários ativos mensais na União, ficam sujeitas a obrigações reforçadas, como a avaliação de riscos sistêmicos e auditorias independentes.
+comentario: Certo. O patamar corresponde a cerca de 10% da população da União. Essas plataformas e os motores de busca de muito grande dimensão são supervisionados diretamente pela Comissão Europeia.
+
+=== dd-04
+gab: E
+ref: doutrina DSA e DMA
+armadilha: extrapolacao
+dif: 2
+enunciado: O DSA impõe às plataformas o dever geral de monitorar todo o conteúdo publicado pelos usuários, para impedir previamente a publicação de conteúdos ilegais.
+comentario: Errado. O DSA mantém a ausência de obrigação geral de monitoramento; a lógica é a de notificação e ação, com mecanismos de denúncia, sinalizadores de confiança e dever de agir quando a plataforma toma conhecimento do conteúdo ilegal.
+
+=== dd-05
+gab: C
+ref: doutrina DSA e DMA
+armadilha: conceito
+dif: 2
+enunciado: O DSA proíbe que plataformas online apresentem publicidade baseada em perfilamento que utilize categorias especiais de dados pessoais, como origem racial e convicções religiosas.
+comentario: Certo. As categorias especiais são as do art. 9º do RGPD, equivalentes aos dados sensíveis do art. 5º, II, da LGPD.
+
+=== dd-06
+gab: C
+ref: doutrina DSA e DMA
+armadilha: conceito
+dif: 2
+enunciado: O DSA veda às plataformas online publicidade baseada em perfilamento dirigida a destinatários que a plataforma saiba, com razoável certeza, serem menores de idade.
+comentario: Certo. No Brasil, o ECA Digital foi além: veda o perfilamento para direcionar publicidade comercial a crianças e adolescentes, além do uso de análise emocional e de realidades aumentada, estendida e virtual para esse fim (Lei 15.211/2025, art. 22).
+
+=== dd-07
+gab: E
+ref: doutrina DSA e DMA
+armadilha: sujeito
+dif: 2
+enunciado: No DMA, a designação de uma empresa como controladora de acesso (gatekeeper) cabe à autoridade de proteção de dados do Estado-membro em que ela tem sede.
+comentario: Errado. Quem designa os controladores de acesso e fiscaliza o cumprimento do DMA é a Comissão Europeia. As autoridades de proteção de dados seguem aplicando o RGPD.
+
+=== dd-08
+gab: C
+ref: doutrina DSA e DMA
+armadilha: conceito
+dif: 3
+enunciado: Entre as obrigações do DMA está a vedação de o controlador de acesso combinar dados pessoais obtidos em um serviço essencial de plataforma com dados de seus outros serviços, salvo consentimento do usuário final.
+comentario: Certo. A regra ataca a vantagem de quem cruza dados de vários serviços, e o consentimento exigido segue o padrão do RGPD.
+
+=== dd-09
+gab: E
+ref: doutrina DSA e DMA
+armadilha: extrapolacao
+dif: 2
+enunciado: O DSA e o DMA aplicam-se apenas a empresas sediadas na União Europeia.
+comentario: Errado. Como o RGPD, os dois regulamentos alcançam quem oferece serviços a pessoas e empresas na União, onde quer que esteja estabelecido. É a mesma lógica do art. 3º, II, da LGPD.
+
+=== dd-10
+gab: C
+ref: doutrina DSA e DMA
+armadilha: comparacao
+dif: 2
+enunciado: Assim como o RGPD, o DSA e o DMA preveem multas calculadas sobre o volume de negócios anual mundial da empresa.
+comentario: Certo. No DSA, até 6%; no DMA, até 10% (e até 20% na reincidência); no RGPD, até 4% nas infrações mais graves. A LGPD usa outra base: até 2% do faturamento no Brasil, limitado a R$ 50 milhões por infração (art. 52, II).
+
+=== dd-11
+gab: E
+ref: doutrina DSA e DMA
+armadilha: conceito
+dif: 2
+enunciado: Segundo o DMA, a autopreferência, isto é, favorecer os próprios produtos na classificação em detrimento dos de terceiros, é permitida ao controlador de acesso, desde que informada aos usuários.
+comentario: Errado. O DMA proíbe que o controlador de acesso dê tratamento mais favorável, na classificação, aos próprios produtos e serviços do que aos de terceiros semelhantes; a transparência não supre a vedação.
+
+=== dd-12
+gab: C
+ref: lei15211 22
+trecho: é vedada a utilização de técnicas de perfilamento para direcionamento de publicidade comercial a crianças e a adolescentes
+armadilha: comparacao
+dif: 2
+enunciado: No Brasil, o ECA Digital aproxima-se da regulação europeia de plataformas ao vedar técnicas de perfilamento para direcionar publicidade comercial a crianças e adolescentes.
+comentario: Certo: Lei 15.211/2025, art. 22. A vedação brasileira alcança crianças e adolescentes e também proíbe, para esse fim, análise emocional e realidades aumentada, estendida e virtual.
