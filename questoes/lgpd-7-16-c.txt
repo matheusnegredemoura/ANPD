@@ -1,0 +1,235 @@
+bloco: lgpd-5-11
+// LGPD, arts. 7º a 16, parte C: a versão que faltava (certa ou errada) nos parágrafos com um item só — dados públicos,
+// consentimento (vício, alteração, ônus da prova, nulidade), informação ao titular (art. 9º), legítimo interesse,
+// anonimização, pesquisa em saúde, término e conservação —, com três casos. Conferidas com fontes/lgpd.txt.
+
+=== bc-01
+gab: E
+ref: lgpd 7, § 3º
+trecho: deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização
+armadilha: extrapolacao
+dif: 2
+enunciado: Dados pessoais de acesso público podem ser tratados livremente, para qualquer finalidade, justamente por estarem disponíveis ao público.
+comentario: Errado. O tratamento deve considerar a finalidade, a boa-fé e o interesse público que justificaram a disponibilização (art. 7º, § 3º). Acesso público não é carta branca.
+
+=== bc-02
+gab: E
+ref: lgpd 7, § 4º
+trecho: resguardados os direitos do titular e os princípios previstos nesta Lei
+armadilha: excecao
+dif: 2
+enunciado: Os dados tornados manifestamente públicos pelo titular ficam fora da proteção da LGPD, inclusive dos seus princípios.
+comentario: Errado. Dispensa-se apenas o consentimento, resguardados os direitos do titular e os princípios da LGPD (art. 7º, § 4º).
+
+=== bc-03
+gab: E
+ref: lgpd 7, § 6º
+trecho: não desobriga os agentes de tratamento das demais obrigações previstas nesta Lei
+armadilha: conceito
+dif: 2
+enunciado: Quando o tratamento dispensa o consentimento, o controlador fica desobrigado de garantir os direitos do titular, já que não há manifestação de vontade a respeitar.
+comentario: Errado. A dispensa do consentimento não desobriga os agentes das demais obrigações, especialmente dos princípios e da garantia dos direitos do titular (art. 7º, § 6º).
+
+=== bc-04
+gab: E
+ref: lgpd 7, § 7º
+trecho: poderá ser realizado para novas finalidades, desde que observados os propósitos legítimos e específicos
+armadilha: conceito
+dif: 2
+enunciado: É vedado o tratamento posterior, para novas finalidades, de dados de acesso público ou tornados manifestamente públicos pelo titular.
+comentario: Errado. O tratamento posterior para novas finalidades é possível, desde que observados propósitos legítimos e específicos e preservados os direitos do titular, os fundamentos e os princípios da LGPD (art. 7º, § 7º).
+
+=== bc-05
+gab: C
+ref: lgpd 7, § 5º
+trecho: deverá obter consentimento específico do titular para esse fim
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma academia obteve o consentimento dos alunos para enviar-lhes ofertas de seus próprios planos e pretende repassar a lista a uma rede de suplementos, para que esta envie publicidade própria. Assertiva: para esse compartilhamento, a academia precisa de consentimento específico dos alunos, salvo se houver hipótese de dispensa do consentimento.
+comentario: Certo. O controlador que obteve consentimento e precisa comunicar ou compartilhar dados com outros controladores deve obter consentimento específico para esse fim, ressalvadas as hipóteses de dispensa (art. 7º, § 5º).
+
+=== bc-06
+gab: C
+ref: lgpd 8, § 3º
+trecho: É vedado o tratamento de dados pessoais mediante vício de consentimento
+armadilha: literal
+dif: 1
+enunciado: É vedado o tratamento de dados pessoais mediante vício de consentimento.
+comentario: Certo: art. 8º, § 3º. Erro, dolo e coação, por exemplo, contaminam a manifestação de vontade e, com ela, a base legal.
+
+=== bc-07
+gab: C
+ref: lgpd 8, § 6º
+trecho: com destaque de forma específica do teor das alterações
+armadilha: conceito
+dif: 2
+enunciado: Se mudarem a finalidade específica, a forma e a duração do tratamento, a identificação do controlador ou as informações sobre o uso compartilhado, o controlador deve informar o titular, com destaque específico do teor das alterações.
+comentario: Certo: art. 8º, § 6º, que remete aos incisos I, II, III e V do art. 9º. Quando o consentimento é exigido, o titular que discordar pode revogá-lo.
+
+=== bc-08
+gab: E
+ref: lgpd 8, § 6º
+trecho: o controlador deverá informar ao titular, com destaque de forma específica do teor das alterações
+armadilha: conceito
+dif: 2
+enunciado: Alterada a identificação do controlador, basta atualizar a política de privacidade no sítio eletrônico, sem necessidade de informar o titular com destaque.
+comentario: Errado. A mudança na identificação do controlador (art. 9º, III) é uma das alterações que exigem informar o titular, com destaque específico do teor (art. 8º, § 6º).
+
+=== bc-09
+gab: E
+ref: lgpd 8, § 2º
+trecho: Cabe ao controlador o ônus da prova
+armadilha: sujeito
+dif: 1
+enunciado: Cabe ao titular provar que o consentimento foi obtido em desconformidade com a LGPD.
+comentario: Errado. O ônus da prova de que o consentimento foi obtido regularmente é do controlador (art. 8º, § 2º).
+
+=== bc-10
+gab: C
+ref: lgpd 8, § 4º
+trecho: as autorizações genéricas para o tratamento de dados pessoais serão nulas
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: o formulário de cadastro de uma loja contém a frase “autorizo o uso dos meus dados para quaisquer fins que a empresa julgar necessários”, e o cliente a assina. Assertiva: essa autorização é nula.
+comentario: Certo. O consentimento deve referir-se a finalidades determinadas, e autorizações genéricas são nulas (art. 8º, § 4º). Nulas, e não anuláveis: não há como convalidá-las.
+
+=== bc-11
+gab: C
+ref: lgpd 9, § 2º
+trecho: o controlador deverá informar previamente o titular sobre as mudanças de finalidade
+armadilha: conceito
+dif: 2
+enunciado: Quando o consentimento é requerido e há mudança de finalidade incompatível com o consentimento original, o controlador deve informar previamente o titular, que pode revogar o consentimento se discordar.
+comentario: Certo: art. 9º, § 2º. A mudança não precisa de novo consentimento por si, mas o aviso tem de ser prévio, e a saída fica com o titular.
+
+=== bc-12
+gab: E
+ref: lgpd 9
+trecho: com menção explícita aos direitos contidos no art. 18 desta Lei
+armadilha: literal
+dif: 2
+enunciado: Na informação ao titular sobre o tratamento, basta mencionar genericamente que ele tem direitos, sem referência expressa aos direitos do art. 18 da LGPD.
+comentario: Errado. A informação deve tratar dos direitos do titular “com menção explícita aos direitos contidos no art. 18” (art. 9º, VII).
+
+=== bc-13
+gab: C
+ref: lgpd 9
+trecho: responsabilidades dos agentes que realizarão o tratamento
+armadilha: rol
+dif: 1
+enunciado: O titular tem direito ao acesso facilitado a informações sobre as responsabilidades dos agentes que realizarão o tratamento de seus dados.
+comentario: Certo: art. 9º, VI. A lista inclui também finalidade, forma e duração, identificação e contato do controlador, uso compartilhado e direitos do titular.
+
+=== bc-14
+gab: E
+ref: lgpd 9
+trecho: entre outras características previstas em regulamentação para o atendimento do princípio do livre acesso
+armadilha: rol
+dif: 2
+enunciado: O rol de informações sobre o tratamento que devem ser disponibilizadas ao titular no art. 9º da LGPD é taxativo.
+comentario: Errado. O caput diz “entre outras características previstas em regulamentação”: o rol é exemplificativo e pode ser ampliado para atender ao princípio do livre acesso.
+
+=== bc-15
+gab: C
+ref: lgpd 9, § 3º
+trecho: o titular será informado com destaque sobre esse fato e sobre os meios pelos quais poderá exercer os direitos
+armadilha: conceito
+dif: 2
+enunciado: Quando o tratamento de dados pessoais for condição para o fornecimento de produto ou serviço, o titular deve ser informado com destaque sobre esse fato e sobre os meios de exercer os direitos do art. 18.
+comentario: Certo: art. 9º, § 3º. A lei não proíbe condicionar o serviço ao tratamento, mas exige que o titular saiba disso com destaque.
+
+=== bc-16
+gab: E
+ref: lgpd 9
+trecho: forma e duração do tratamento, observados os segredos comercial e industrial
+armadilha: excecao
+dif: 2
+enunciado: A forma e a duração do tratamento devem ser informadas ao titular sem ressalva alguma, ainda que isso exponha segredos comercial e industrial do controlador.
+comentario: Errado. Essa informação é prestada “observados os segredos comercial e industrial” (art. 9º, II).
+
+=== bc-17
+gab: C
+ref: lgpd 10
+trecho: proteção, em relação ao titular, do exercício regular de seus direitos ou prestação de serviços que o beneficiem
+armadilha: rol
+dif: 2
+enunciado: O legítimo interesse do controlador pode fundamentar o tratamento para a proteção, em relação ao titular, do exercício regular de seus direitos ou para a prestação de serviços que o beneficiem, respeitadas suas legítimas expectativas e seus direitos fundamentais.
+comentario: Certo: art. 10, II. O inciso I traz o apoio e a promoção de atividades do controlador; a lista é exemplificativa (“incluem, mas não se limitam a”).
+
+=== bc-18
+gab: E
+ref: lgpd 10
+trecho: consideradas a partir de situações concretas
+armadilha: conceito
+dif: 2
+enunciado: O legítimo interesse pode fundamentar o tratamento para finalidades legítimas consideradas em abstrato, independentemente da situação concreta.
+comentario: Errado. As finalidades legítimas são consideradas “a partir de situações concretas” (art. 10, caput). Por isso o legítimo interesse pede avaliação caso a caso.
+
+=== bc-19
+gab: E
+ref: lgpd 10, § 1º
+trecho: somente os dados pessoais estritamente necessários para a finalidade pretendida poderão ser tratados
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma loja virtual invoca o legítimo interesse para prevenir fraudes no pagamento e, com essa base, passa a coletar a religião e a orientação sexual dos clientes. Assertiva: o tratamento é lícito, pois o legítimo interesse admite o tratamento de quaisquer dados, desde que a finalidade seja legítima.
+comentario: Errado. Com base no legítimo interesse, só os dados estritamente necessários podem ser tratados (art. 10, § 1º). Além disso, religião e orientação sexual são dados sensíveis, e o art. 11 não prevê o legítimo interesse; para fraude, prevê a prevenção nos processos de identificação e autenticação de cadastro (art. 11, II, g).
+
+=== bc-20
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 12, § 1º
+trecho: fatores objetivos, tais como custo e tempo necessários para reverter o processo de anonimização
+armadilha: conceito
+dif: 2
+enunciado: Para avaliar se a anonimização pode ser revertida com esforços razoáveis, consideram-se apenas fatores subjetivos, como a intenção declarada do controlador.
+comentario: Errado. Consideram-se fatores objetivos, como custo e tempo para reverter o processo, conforme as tecnologias disponíveis, e o uso exclusivo de meios próprios (art. 12, § 1º).
+
+=== bc-21
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 13, § 3º
+trecho: objeto de regulamentação por parte da autoridade nacional e das autoridades da área de saúde e sanitárias
+armadilha: sujeito
+dif: 2
+enunciado: O acesso de órgãos de pesquisa a bases de dados pessoais para estudos em saúde pública será regulamentado pela autoridade nacional e pelas autoridades da área de saúde e sanitárias, no âmbito de suas competências.
+comentario: Certo: art. 13, § 3º. A regulamentação é compartilhada, porque o tema cruza proteção de dados e vigilância sanitária.
+
+=== bc-22
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 13
+trecho: que incluam, sempre que possível, a anonimização ou pseudonimização dos dados
+armadilha: absoluto
+dif: 2
+enunciado: Nos estudos em saúde pública, a anonimização ou a pseudonimização dos dados pelo órgão de pesquisa é obrigatória em qualquer caso.
+comentario: Errado. As práticas de segurança devem incluir anonimização ou pseudonimização “sempre que possível” (art. 13, caput). O que é absoluto é a vedação de revelar dados pessoais na divulgação dos resultados (§ 1º) e de transferi-los a terceiro (§ 2º).
+
+=== bc-23
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 15
+trecho: determinação da autoridade nacional, quando houver violação ao disposto nesta Lei
+armadilha: conceito
+dif: 1
+enunciado: O término do tratamento de dados pessoais ocorre, entre outras hipóteses, por determinação da autoridade nacional, quando houver violação ao disposto na LGPD.
+comentario: Certo: art. 15, IV. A determinação está ligada à violação da lei, não à conveniência da autoridade.
+
+=== bc-24
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 16
+trecho: estudo por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais
+armadilha: rol
+dif: 1
+enunciado: Após o término do tratamento, a conservação dos dados pessoais é autorizada para estudo por órgão de pesquisa, garantida, sempre que possível, a anonimização.
+comentario: Certo: art. 16, II. As outras hipóteses são obrigação legal ou regulatória, transferência a terceiro respeitados os requisitos da lei e uso exclusivo do controlador com dados anonimizados.
+
+=== bc-25
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 16
+trecho: garantida, sempre que possível, a anonimização dos dados pessoais
+armadilha: absoluto
+dif: 2
+enunciado: A conservação de dados pessoais para estudo por órgão de pesquisa, após o término do tratamento, exige a anonimização em qualquer hipótese.
+comentario: Errado. A anonimização é garantida “sempre que possível” (art. 16, II). Exigência sem exceção há no inciso IV: uso exclusivo do controlador só com dados anonimizados.
