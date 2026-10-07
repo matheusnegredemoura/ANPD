@@ -1,0 +1,134 @@
+bloco: eca-digital
+// ECA Digital (Lei 15.211/2025), quarto lote: os dispositivos sem item ou com um só (experiência adequada à idade,
+// participação social na verificação de idade, recebimento do sinal de idade, supervisão parental, interação em jogos,
+// retirada de conteúdo, abuso da denúncia, vedação de vigilância massiva). Trechos conferidos em fontes/lei15211.txt.
+
+=== e15-01
+gab: C
+ref: lei15211 10
+trecho: respeitadas a autonomia progressiva e a diversidade de contextos socioeconômicos brasileiros
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: literal
+dif: 2
+enunciado: Os fornecedores de produtos ou serviços direcionados a crianças e adolescentes ou de acesso provável por eles devem adotar mecanismos que proporcionem experiências adequadas à idade, respeitadas a autonomia progressiva e a diversidade de contextos socioeconômicos brasileiros.
+comentario: Certo: art. 10, que abre o capítulo da verificação de idade. A diversidade socioeconômica importa: nem toda família tem documento digital ou celular próprio para cada filho.
+
+=== e15-02
+gab: C
+ref: lei15211 37
+trecho: não poderá, em nenhuma hipótese, impor, autorizar ou resultar na implantação de mecanismos de vigilância massiva, genérica ou indiscriminada
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: literal
+dif: 2
+enunciado: A regulamentação do ECA Digital não pode, em nenhuma hipótese, impor, autorizar ou resultar na implantação de mecanismos de vigilância massiva, genérica ou indiscriminada.
+comentario: Certo: art. 37, parágrafo único, que veda práticas que comprometam a liberdade de expressão, a privacidade, a proteção integral e o tratamento diferenciado dos dados de crianças e adolescentes. É o limite que o Decreto 12.880/2026 e a ANPD devem respeitar.
+
+=== e15-03
+gab: E
+ref: lei15211 37
+trecho: vedadas as práticas que comprometam os direitos fundamentais à liberdade de expressão, à privacidade
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: extrapolacao
+dif: 1
+enunciado: Em nome da proteção integral, a regulamentação do ECA Digital pode autorizar o monitoramento generalizado das comunicações de todos os usuários das plataformas.
+comentario: Errado. A proteção integral não justifica vigilância massiva, genérica ou indiscriminada, vedada “em nenhuma hipótese” (art. 37, parágrafo único).
+
+=== e15-04
+gab: E
+ref: lei15211 11
+trecho: deverá assegurar a participação social, por meio de consulta pública e de outros mecanismos de participação social
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: conceito
+dif: 2
+enunciado: Quando atua como regulador ou certificador de soluções de verificação de idade, o poder público dispensa a consulta pública, por se tratar de matéria eminentemente técnica.
+comentario: Errado. Essa atuação deve assegurar a participação social, por consulta pública e outros mecanismos, para garantir transparência no processo regulatório (art. 11, parágrafo único).
+
+=== e15-05
+gab: C
+ref: lei15211 14
+trecho: deverão adotar medidas técnicas e organizacionais para garantir o recebimento das informações de idade
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: literal
+dif: 2
+enunciado: Os fornecedores de serviços direcionados a crianças e adolescentes ou de acesso provável por eles devem adotar medidas técnicas e organizacionais para garantir o recebimento das informações de idade fornecidas pelos sistemas operacionais e lojas de aplicações.
+comentario: Certo: art. 14, caput, que remete ao art. 12. E o parágrafo único acrescenta: independentemente do sinal recebido, o fornecedor mantém mecanismos próprios para impedir o acesso indevido.
+
+=== e15-06
+gab: E
+ref: lei15211 18
+trecho: identificar os perfis de adultos com os quais a criança ou o adolescente se comunica
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: rol
+dif: 2
+enunciado: As ferramentas de supervisão parental devem permitir aos responsáveis restringir compras e transações, mas não identificar os perfis de adultos com quem a criança se comunica, em respeito à privacidade dela.
+comentario: Errado. Identificar os perfis de adultos com quem a criança ou o adolescente se comunica é funcionalidade obrigatória (art. 18, III), ao lado de gerenciar a privacidade da conta, restringir compras, ver métricas de tempo de uso e ativar salvaguardas.
+
+=== e15-07
+gab: E
+ref: lei15211 18
+trecho: sem incentivar a desativação ou o enfraquecimento das salvaguardas
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: conceito
+dif: 2
+enunciado: Desde que redigidas de forma clara, as informações sobre as ferramentas de supervisão parental podem incentivar os responsáveis a desativá-las, para simplificar a experiência de uso.
+comentario: Errado. As informações devem ser claras e apropriadas, “sem incentivar a desativação ou o enfraquecimento das salvaguardas” (art. 18, § 1º). O § 2º veda interfaces que comprometam a autonomia de escolha, sobretudo para enfraquecer a supervisão.
+
+=== e15-08
+gab: C
+ref: lei15211 21
+trecho: deverão, por padrão, limitar as funcionalidades de interação a usuários, de modo a assegurar o consentimento dos pais ou responsáveis legais
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: conceito
+dif: 2
+enunciado: Os jogos eletrônicos de acesso provável por crianças e adolescentes que permitam interação entre usuários devem, por padrão, limitar essas funcionalidades, de modo a assegurar o consentimento dos pais ou responsáveis.
+comentario: Certo: art. 21, parágrafo único. É a lógica da proteção por padrão: a interação começa limitada, e os responsáveis decidem ampliá-la.
+
+=== e15-09
+gab: C
+ref: lei15211 30
+trecho: informando se a identificação do conteúdo removido decorreu de análise humana ou automatizada
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: rol
+dif: 2
+enunciado: Ao retirar conteúdo que viole direitos de crianças, o fornecedor deve informar ao usuário que o publicou o motivo e a fundamentação da retirada, inclusive se a identificação decorreu de análise humana ou automatizada.
+comentario: Certo: art. 30, II. O usuário também tem direito a notificação, recurso de fácil acesso e prazos definidos para recorrer e para a resposta (incisos I, III a V).
+
+=== e15-10
+gab: C
+ref: lei15211 33
+trecho: o cancelamento da conta em casos de reincidência ou de abuso grave
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: rol
+dif: 2
+enunciado: Entre as medidas contra o uso abusivo dos instrumentos de denúncia estão a suspensão temporária da conta, o cancelamento em caso de reincidência ou abuso grave e a comunicação às autoridades quando houver indício de infração penal.
+comentario: Certo: art. 33, § 1º, I a III, em rol exemplificativo (“entre outras”), sempre proporcional à gravidade.
+
+=== e15-11
+gab: E
+ref: lei15211 33
+trecho: deverão manter registros detalhados dos casos de uso abusivo identificados e das sanções aplicadas
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: conceito
+dif: 2
+enunciado: Para preservar a privacidade dos usuários, os provedores ficam dispensados de manter registros dos casos de uso abusivo dos instrumentos de denúncia e das sanções aplicadas.
+comentario: Errado. Devem manter registros detalhados, para monitorar a eficácia dos mecanismos e aprimorar os procedimentos (art. 33, § 3º).
+
+=== e15-12
+gab: E
+ref: lei15211 25
+trecho: definidas de forma concreta e documentada e com base no seu melhor interesse
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: conceito
+dif: 1
+enunciado: As regras específicas das redes sociais para o tratamento de dados de crianças e adolescentes podem ser definidas de modo genérico, bastando remissão aos termos de uso aplicáveis a adultos.
+comentario: Errado. Devem ser definidas de forma concreta e documentada, com base no melhor interesse da criança e do adolescente (art. 25).
+
+=== e15-13
+gab: E
+ref: lei15211 23
+trecho: São vedados aos provedores de aplicações de internet a monetização e o impulsionamento de conteúdos que retratem crianças e adolescentes de forma erotizada
+comando: Julgue os itens a seguir, acerca da Lei n.º 15.211/2025 (Estatuto Digital da Criança e do Adolescente, ECA Digital).
+armadilha: extrapolacao
+dif: 2
+enunciado: A vedação de monetizar e impulsionar conteúdos que retratem crianças de forma erotizada alcança apenas o conteúdo produzido pelo próprio provedor, e não o publicado por usuários.
+comentario: Errado. A vedação recai sobre a monetização e o impulsionamento de quaisquer conteúdos que retratem crianças e adolescentes de forma erotizada ou sexualmente sugestiva (art. 23), e o caso típico é justamente o conteúdo de usuários.

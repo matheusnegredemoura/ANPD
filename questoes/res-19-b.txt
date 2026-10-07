@@ -1,0 +1,103 @@
+bloco: res-19-2024
+// Resolução CD/ANPD nº 19/2024, parte B: artigos do Regulamento de Transferência Internacional que não tinham item
+// (aplicação territorial, reconhecimento do Brasil como adequado, equivalência de cláusulas estrangeiras, aprovação
+// de cláusulas específicas e normas corporativas globais, instrução do pedido, publicidade). Conferidas com fontes/res19.txt.
+
+=== r19b-01
+gab: C
+ref: res19 7
+trecho: a atividade de tratamento tiver por objetivo a oferta ou o fornecimento de bens ou serviços ou o tratamento de dados de indivíduos localizados no território nacional
+armadilha: rol
+dif: 2
+enunciado: O regulamento de transferência internacional da ANPD se aplica quando a atividade de tratamento tiver por objetivo a oferta ou o fornecimento de bens ou serviços, ou o tratamento de dados de indivíduos localizados no território nacional.
+comentario: Certo: art. 7º, II, que repete o critério do art. 3º, II, da LGPD. Os outros dois são o tratamento realizado no Brasil e a coleta no território nacional (incisos I e III).
+
+=== r19b-02
+gab: E
+ref: res19 7
+trecho: independe do meio utilizado para sua realização, do país de sede dos agentes de tratamento ou do país onde estejam localizados os dados
+armadilha: extrapolacao
+dif: 2
+enunciado: A legislação brasileira deixa de se aplicar à transferência internacional quando os agentes de tratamento têm sede no exterior e os dados estão armazenados fora do Brasil.
+comentario: Errado. A aplicação da legislação nacional independe do meio, do país de sede dos agentes e do país onde estão os dados (art. 7º, parágrafo único). Vale o vínculo com o Brasil pelos critérios dos incisos I a III.
+
+=== r19b-03
+gab: C
+ref: res19 14
+trecho: relativos ao reconhecimento do Brasil como país adequado por outro país ou organismo internacional
+armadilha: conceito
+dif: 3
+enunciado: O processo na ANPD para elaborar documentos e prestar informações com vistas ao reconhecimento do Brasil como país adequado por outro país ou organismo internacional segue os mesmos procedimentos da avaliação de adequação de países estrangeiros.
+comentario: Certo: art. 14, que remete ao art. 13. É a mão inversa da adequação: aqui é o Brasil que quer ser reconhecido. Pelo art. 13, a decisão é do Conselho Diretor, depois da área técnica e da Procuradoria.
+
+=== r19b-04
+gab: E
+ref: res19 19
+trecho: a ANPD priorizará a aprovação de cláusulas que possam ser utilizadas por outros agentes de tratamento
+armadilha: conceito
+dif: 3
+enunciado: Na decisão sobre a equivalência de cláusulas-padrão contratuais de outros países, a ANPD prioriza as cláusulas de uso exclusivo do requerente, para não interferir em contratos de terceiros.
+comentario: Errado. A ANPD prioriza cláusulas que possam ser usadas por outros agentes em circunstâncias similares (art. 19, parágrafo único). A mesma prioridade vale para as cláusulas específicas (art. 22, § 2º).
+
+=== r19b-05
+gab: C
+ref: res19 19
+trecho: além dos impactos sobre o fluxo internacional de dados, relações diplomáticas, comércio internacional e cooperação internacional
+armadilha: rol
+dif: 3
+enunciado: Na decisão sobre a equivalência de cláusulas-padrão contratuais estrangeiras, a ANPD considera a compatibilidade com a LGPD e os riscos e benefícios da aprovação, inclusive os impactos sobre o fluxo internacional de dados, as relações diplomáticas e o comércio internacional.
+comentario: Certo: art. 19, I e II. Nível de proteção equivalente ao das cláusulas-padrão nacionais é o primeiro filtro; a ponderação de riscos e benefícios vem em seguida.
+
+=== r19b-06
+gab: C
+ref: res19 22
+trecho: O controlador deverá apresentar a íntegra das cláusulas que regerão a transferência internacional de dados, incluindo as cláusulas específicas
+armadilha: literal
+dif: 2
+enunciado: Para a aprovação de cláusulas contratuais específicas, o controlador deve apresentar à ANPD a íntegra das cláusulas que regerão a transferência, e não apenas as cláusulas específicas.
+comentario: Certo: art. 22, caput. A ANPD avalia o contrato inteiro, porque as cláusulas específicas só fazem sentido no conjunto.
+
+=== r19b-07
+gab: E
+ref: res19 28
+trecho: As normas corporativas globais deverão ser submetidas à aprovação da ANPD
+armadilha: conceito
+dif: 1
+enunciado: As cláusulas contratuais específicas e as normas corporativas globais dispensam aprovação da ANPD, bastando que o controlador as registre e as mantenha à disposição da fiscalização.
+comentario: Errado. Ambas são submetidas à aprovação da ANPD (arts. 24 e 28), pelo processo do Capítulo VIII. Já as cláusulas-padrão do Anexo II valem com a adoção integral e sem alteração do texto (art. 16), sem pedido de aprovação.
+
+=== r19b-08
+gab: C
+ref: res19 29
+trecho: se for o caso, cópia da decisão da autoridade de proteção de dados que tenha aprovado as cláusulas específicas ou normas corporativas globais
+armadilha: rol
+dif: 3
+enunciado: O pedido de aprovação de cláusulas específicas ou normas corporativas globais deve ser instruído, no mínimo, com a íntegra do instrumento, os documentos de constituição do agente ou do grupo, a demonstração dos requisitos do regulamento e, se for o caso, a decisão de autoridade estrangeira que já os tenha aprovado.
+comentario: Certo: art. 29, I a IV. A aprovação por autoridade estrangeira ajuda, mas não substitui a da ANPD.
+
+=== r19b-09
+gab: E
+ref: res19 31
+trecho: A ANPD publicará em seu sítio eletrônico a relação das cláusulas contratuais específicas e das normas corporativas globais aprovadas
+armadilha: conceito
+dif: 2
+enunciado: A ANPD mantém em sigilo a relação das cláusulas contratuais específicas e das normas corporativas globais que aprova, para proteger os segredos comercial e industrial dos requerentes.
+comentario: Errado. A ANPD publica a relação, com requerente, data de aprovação e decisão do Conselho Diretor (art. 31). O segredo comercial e industrial limita apenas a publicação da íntegra das cláusulas (parágrafo único).
+
+=== r19b-10
+gab: C
+ref: res19 31
+trecho: A ANPD publicará a íntegra das cláusulas contratuais específicas nas hipóteses em que tais cláusulas possam ser utilizadas por outros agentes de tratamento
+armadilha: excecao
+dif: 3
+enunciado: A ANPD publica a íntegra das cláusulas contratuais específicas aprovadas quando elas puderem ser usadas por outros agentes de tratamento, observados os segredos comercial e industrial.
+comentario: Certo: art. 31, parágrafo único. Coerente com a prioridade dada a cláusulas reaproveitáveis (art. 22, § 2º).
+
+=== r19b-11
+gab: E
+ref: res19 32
+trecho: O controlador deverá disponibilizar ao titular, em caso de solicitação, a íntegra das cláusulas contratuais específicas ou as normas corporativas globais
+armadilha: sujeito
+dif: 2
+enunciado: As normas corporativas globais aprovadas só precisam ser apresentadas à ANPD, não cabendo ao titular pedir acesso a elas.
+comentario: Errado. O controlador deve disponibilizar ao titular, se solicitado, a íntegra das cláusulas específicas ou das normas corporativas globais, e publicar em sua página documento em linguagem simples sobre a transferência (art. 32).
