@@ -1,0 +1,323 @@
+// Itens errados com armadilha típica do Cebraspe, segunda leva: LGPD (arts. 9º a 11), Resoluções CD/ANPD nº 19/2024
+// e 15/2024 e Marco Civil da Internet. Trechos conferidos em fontes/.
+
+bloco: lgpd-5-11
+
+=== ab-01
+gab: E
+ref: lgpd 9
+trecho: o titular será informado com destaque sobre esse fato e sobre os meios pelos quais poderá exercer os direitos do titular elencados no art. 18 desta Lei
+armadilha: excecao
+dif: 2
+enunciado: Quando o tratamento de dados pessoais for condição para o fornecimento de produto ou serviço, o controlador fica dispensado de informar ao titular os meios de exercer os direitos do art. 18 da LGPD, já que o tratamento é inevitável.
+comentario: Errado. Nesse caso o titular deve ser informado com destaque sobre esse fato e sobre os meios de exercer seus direitos (art. 9º, § 3º). Ser condição do serviço aumenta, não reduz, o dever de transparência.
+
+=== ab-02
+gab: E
+ref: lgpd 9
+trecho: o controlador deverá informar previamente o titular sobre as mudanças de finalidade, podendo o titular revogar o consentimento, caso discorde das alterações
+armadilha: extrapolacao
+dif: 2
+enunciado: Alterada a finalidade do tratamento de modo incompatível com o consentimento original, o controlador pode prosseguir sem informar o titular, desde que a nova finalidade seja lícita.
+comentario: Errado. O controlador deve informar previamente o titular sobre a mudança, e o titular pode revogar o consentimento se discordar (art. 9º, § 2º).
+
+=== ab-03
+gab: E
+ref: lgpd 9
+trecho: esse será considerado nulo caso as informações fornecidas ao titular tenham conteúdo enganoso ou abusivo
+armadilha: literal
+dif: 2
+enunciado: O consentimento obtido com informações de conteúdo enganoso é apenas anulável, e somente se o titular demonstrar ter sofrido prejuízo.
+comentario: Errado. O consentimento é nulo quando as informações têm conteúdo enganoso ou abusivo ou não foram apresentadas previamente com transparência, de forma clara e inequívoca (art. 9º, § 1º). A lei não exige prova de prejuízo.
+
+=== ab-04
+gab: E
+ref: lgpd 10
+trecho: I - apoio e promoção de atividades do controlador
+armadilha: literal
+dif: 2
+enunciado: O legítimo interesse não pode fundamentar tratamento de dados destinado ao apoio e à promoção das atividades do próprio controlador.
+comentario: Errado. O apoio e a promoção de atividades do controlador estão entre as finalidades legítimas expressamente previstas (art. 10, I), sempre a partir de situações concretas e só com os dados estritamente necessários (§ 1º).
+
+=== ab-05
+gab: E
+ref: lgpd 10
+trecho: observados os segredos comercial e industrial
+armadilha: excecao
+dif: 2
+enunciado: Ao solicitar relatório de impacto do controlador que trata dados com base no legítimo interesse, a ANPD pode exigir que ele revele seus segredos comercial e industrial.
+comentario: Errado. A ANPD pode solicitar o relatório, mas observados os segredos comercial e industrial (art. 10, § 3º).
+
+=== ab-06
+gab: E
+ref: lgpd 11
+trecho: exceto no caso de prevalecerem direitos e liberdades fundamentais do titular que exijam a proteção dos dados pessoais
+armadilha: excecao
+dif: 3
+enunciado: A garantia da prevenção à fraude nos processos de identificação e autenticação de cadastro autoriza o tratamento de dados sensíveis sem consentimento mesmo quando prevalecerem direitos e liberdades fundamentais do titular.
+comentario: Errado. A alínea g do art. 11, II, ressalva expressamente a prevalência de direitos e liberdades fundamentais do titular que exijam a proteção dos dados, e resguarda os direitos do art. 9º.
+
+=== ab-07
+gab: E
+ref: lgpd 11
+trecho: tutela da saúde, exclusivamente, em procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária
+armadilha: sujeito
+dif: 2
+enunciado: A tutela da saúde autoriza o tratamento de dados sensíveis sem consentimento por qualquer pessoa que atue em benefício da saúde do titular, como o empregador que organiza programa de bem-estar.
+comentario: Errado. A hipótese vale exclusivamente para procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária (art. 11, II, f).
+
+=== ab-08
+gab: E
+ref: lgpd 11
+trecho: será dada publicidade à referida dispensa de consentimento
+armadilha: conceito
+dif: 2
+enunciado: A dispensa de consentimento para o tratamento de dados sensíveis por órgãos públicos, no cumprimento de obrigação legal ou na execução de políticas públicas, deve ser mantida em sigilo.
+comentario: Errado. Deve ser dada publicidade à dispensa, nos termos do art. 23, I (art. 11, § 2º).
+
+=== ab-09
+gab: E
+ref: lgpd 11
+trecho: exceto nas hipóteses relativas a prestação de serviços de saúde, de assistência farmacêutica e de assistência à saúde
+armadilha: excecao
+dif: 3
+enunciado: É vedada, sem exceção, a comunicação ou o uso compartilhado entre controladores de dados de saúde com objetivo de obter vantagem econômica.
+comentario: Errado. A vedação tem exceções na prestação de serviços de saúde, de assistência farmacêutica e de assistência à saúde, em benefício dos titulares, para permitir a portabilidade pedida pelo titular ou as transações financeiras e administrativas desses serviços (art. 11, § 4º).
+
+=== ab-10
+gab: E
+ref: lgpd 11
+trecho: É vedado às operadoras de planos privados de assistência à saúde o tratamento de dados de saúde para a prática de seleção de riscos
+armadilha: extrapolacao
+dif: 2
+enunciado: As operadoras de planos de saúde podem tratar dados de saúde para seleção de riscos na contratação, desde que obtenham consentimento específico e destacado do beneficiário.
+comentario: Errado. A vedação do art. 11, § 5º, não tem ressalva para o consentimento: alcança a seleção de riscos na contratação de qualquer modalidade e na contratação e exclusão de beneficiários.
+
+=== ab-11
+gab: E
+ref: lgpd 11
+trecho: Aplica-se o disposto neste artigo a qualquer tratamento de dados pessoais que revele dados pessoais sensíveis e que possa causar dano ao titular
+armadilha: conceito
+dif: 3
+enunciado: O regime dos dados sensíveis alcança apenas os dados que sejam, em si, sensíveis, e não o tratamento de dados comuns que revele dado sensível.
+comentario: Errado. O art. 11 aplica-se a qualquer tratamento que revele dados sensíveis e possa causar dano ao titular (§ 1º). Exemplo: inferir a religião pelo histórico de compras.
+
+=== ab-12
+gab: E
+bloco: res-19-2024
+ref: res19 8
+trecho: trânsito de dados pessoais, sem a ocorrência de comunicação ou uso compartilhado de dados com agente de tratamento situado em território nacional
+armadilha: excecao
+dif: 2
+enunciado: A LGPD não se aplica aos dados provenientes do exterior que apenas transitam pelo território nacional, ainda que haja comunicação desses dados com agente de tratamento situado no Brasil.
+comentario: Errado. O trânsito só afasta a LGPD se não houver comunicação ou uso compartilhado com agente situado no território nacional (Resolução 19/2024, art. 8º, § 1º, I).
+
+=== ab-13
+gab: E
+bloco: res-19-2024
+ref: res19 8
+trecho: a situação específica e excepcional de não aplicação da Lei nº 13.709, de 14 de agosto de 2018, esteja expressamente prevista na decisão de adequação
+armadilha: rol
+dif: 3
+enunciado: Basta que dados tratados no Brasil retornem exclusivamente ao país de proveniência para que se afaste a aplicação da LGPD a essa operação.
+comentario: Errado. O retorno só afasta a LGPD se, cumulativamente, o país de proveniência tiver adequação reconhecida pela ANPD, sua legislação se aplicar à operação e a não aplicação estiver prevista expressamente na decisão de adequação (art. 8º, § 1º, II, a a c).
+
+=== ab-14
+gab: E
+bloco: res-19-2024
+ref: res19 8
+trecho: não afasta a necessidade de observância de outras leis ou regulamentos, especialmente os que dispõem sobre inviolabilidade e sigilo das comunicações
+armadilha: extrapolacao
+dif: 2
+enunciado: Afastada a LGPD nas hipóteses de trânsito ou de retorno dos dados, dispensa-se também a observância das normas sobre sigilo das comunicações e acesso a dados por autoridades públicas.
+comentario: Errado. A não aplicação da LGPD não afasta outras leis, especialmente sobre inviolabilidade e sigilo das comunicações, requisitos de segurança e acesso a dados por autoridades públicas (art. 8º, § 3º).
+
+=== ab-15
+gab: E
+bloco: res-19-2024
+ref: res19 11
+trecho: a existência e o efetivo funcionamento de um órgão regulador independente
+armadilha: conceito
+dif: 2
+enunciado: Na avaliação de adequação de país estrangeiro, a existência de órgão regulador independente é irrelevante, bastando que o país tenha lei de proteção de dados.
+comentario: Errado. Entre as garantias institucionais consideradas está a existência e o efetivo funcionamento de órgão regulador independente com competência para assegurar o cumprimento das normas (art. 11, § 3º).
+
+=== ab-16
+gab: E
+bloco: res-19-2024
+ref: res19 12
+trecho: A ANPD priorizará a avaliação do nível de proteção de dados de países estrangeiros ou organismos internacionais que garantam tratamento recíproco ao Brasil
+armadilha: conceito
+dif: 2
+enunciado: Na avaliação de adequação, a ANPD prioriza os países com maior volume de comércio com o Brasil, independentemente de reciprocidade.
+comentario: Errado. A prioridade é para quem garanta tratamento recíproco ao Brasil e cujo reconhecimento amplie o livre fluxo de dados (art. 12, parágrafo único). O comércio internacional entra como impacto a considerar (inciso II), não como critério de prioridade.
+
+=== ab-17
+gab: E
+bloco: res-19-2024
+ref: res19 18
+trecho: poderá ser instaurado por decisão do Conselho Diretor, de ofício ou a requerimento dos interessados
+armadilha: literal
+dif: 2
+enunciado: O procedimento de reconhecimento da equivalência de cláusulas-padrão contratuais estrangeiras só pode ser instaurado de ofício pelo Conselho Diretor da ANPD.
+comentario: Errado. Pode ser instaurado de ofício ou a requerimento dos interessados (art. 18, § 1º, I).
+
+=== ab-18
+gab: E
+bloco: res-19-2024
+ref: res19 18
+trecho: inteiro teor das cláusulas-padrão contratuais traduzidas para o português
+armadilha: literal
+dif: 2
+enunciado: O requerimento de reconhecimento de equivalência de cláusulas-padrão estrangeiras pode ser apresentado em língua estrangeira, cabendo à ANPD providenciar a tradução.
+comentario: Errado. O requerimento deve trazer o inteiro teor das cláusulas traduzidas para o português, além da legislação relevante e da análise de compatibilidade com o comparativo entre as cláusulas (art. 18, § 4º).
+
+=== ab-19
+gab: E
+bloco: res-19-2024
+ref: res19 20
+trecho: serão aprovadas por Resolução do Conselho Diretor e publicadas na página da ANPD na Internet
+armadilha: sujeito
+dif: 2
+enunciado: As cláusulas-padrão estrangeiras reconhecidas como equivalentes são aprovadas por portaria do Diretor-Presidente da ANPD.
+comentario: Errado. São aprovadas por Resolução do Conselho Diretor e publicadas na página da ANPD (art. 20), e passam a ser mecanismo válido de transferência, observadas as condicionantes fixadas.
+
+=== ab-20
+gab: E
+bloco: res-19-2024
+ref: res19 23
+trecho: adotar, sempre que possível, a redação das cláusulas-padrão contratuais
+armadilha: literal
+dif: 2
+enunciado: Nas cláusulas específicas submetidas à aprovação da ANPD, o controlador deve evitar reproduzir a redação das cláusulas-padrão contratuais.
+comentario: Errado. Deve adotar, sempre que possível, a redação das cláusulas-padrão e indicar as cláusulas específicas adotadas, com justificativa (art. 23, I e II).
+
+=== ab-21
+gab: E
+bloco: res-15-2024
+ref: res15 7
+trecho: Cabe ao controlador solicitar à ANPD, de maneira fundamentada, o sigilo de informações protegidas por lei
+armadilha: sujeito
+dif: 2
+enunciado: Na comunicação de incidente, cabe à ANPD identificar de ofício as informações protegidas por segredo comercial ou industrial, independentemente de pedido do controlador.
+comentario: Errado. Cabe ao controlador pedir, de forma fundamentada, o sigilo das informações protegidas por lei, indicando quais devem ter acesso restrito (Resolução 15/2024, art. 7º).
+
+=== ab-22
+gab: E
+bloco: res-15-2024
+ref: res15 8
+trecho: A ANPD poderá, a qualquer tempo, solicitar informações adicionais ao controlador
+armadilha: literal
+dif: 2
+enunciado: A ANPD só pode solicitar ao controlador o relatório de impacto à proteção de dados relacionado ao incidente durante o prazo de complementação da comunicação.
+comentario: Errado. A ANPD pode, a qualquer tempo, pedir informações adicionais, inclusive o registro das operações, o RIPD e o relatório de tratamento do incidente, fixando prazo (art. 8º).
+
+=== ab-23
+gab: E
+bloco: res-15-2024
+ref: res15 12
+trecho: A ANPD poderá, a qualquer momento, realizar auditorias ou inspeções junto aos agentes de tratamento, ou determinar a sua realização
+armadilha: extrapolacao
+dif: 2
+enunciado: As auditorias e inspeções da ANPD no processo de comunicação de incidente dependem de prévia autorização judicial.
+comentario: Errado. A ANPD pode, a qualquer momento, realizar ou determinar auditorias e inspeções para coletar informações ou validar as recebidas (art. 12). Não há reserva de jurisdição.
+
+=== ab-24
+gab: E
+bloco: res-15-2024
+ref: res15 17
+trecho: A ANPD poderá, ainda, instaurar processo administrativo sancionador para apurar o descumprimento do previsto nos arts. 6º e 9º deste Regulamento
+armadilha: extrapolacao
+dif: 2
+enunciado: Constatado incidente não comunicado, a ANPD limita-se a determinar ao controlador que o comunique, sendo vedada a instauração de processo sancionador pela omissão.
+comentario: Errado. Além de determinar a comunicação, a ANPD pode instaurar processo sancionador pelo descumprimento dos deveres de comunicação (art. 17, § 1º).
+
+=== ab-25
+gab: E
+bloco: res-15-2024
+ref: res15 20
+trecho: informações estatísticas agregadas relativas aos incidentes de segurança
+armadilha: conceito
+dif: 2
+enunciado: Como medida de transparência ativa, o regulamento de incidentes autoriza a ANPD a divulgar em seu sítio eletrônico os dados pessoais dos titulares afetados por cada incidente.
+comentario: Errado. A transparência ativa prevista é a divulgação de informações estatísticas agregadas sobre os incidentes (art. 20). Expor dados dos titulares agravaria o próprio dano.
+
+=== ab-26
+gab: E
+bloco: res-15-2024
+ref: res15 16
+trecho: A ANPD avaliará a ocorrência do incidente por meio dos critérios dispostos no art. 5º deste Regulamento
+armadilha: conceito
+dif: 2
+enunciado: No procedimento de apuração de incidente não comunicado, a ANPD avalia a ocorrência do incidente por critérios próprios, distintos dos que definem o dever de comunicação.
+comentario: Errado. A avaliação usa os mesmos critérios do art. 5º, que definem o incidente que pode acarretar risco ou dano relevante (art. 16, § 2º).
+
+=== ab-27
+gab: E
+bloco: marco-civil
+ref: mci 13
+trecho: A responsabilidade pela manutenção dos registros de conexão não poderá ser transferida a terceiros
+armadilha: literal
+dif: 1
+enunciado: O provedor de conexão pode transferir a terceiros, por contrato, a responsabilidade pela manutenção dos registros de conexão.
+comentario: Errado. A responsabilidade pela guarda não pode ser transferida a terceiros (Marco Civil, art. 13, § 1º).
+
+=== ab-28
+gab: E
+bloco: marco-civil
+ref: mci 13
+trecho: a autoridade requerente terá o prazo de 60 (sessenta) dias, contados a partir do requerimento, para ingressar com o pedido de autorização judicial
+armadilha: numero
+dif: 2
+enunciado: Requerida cautelarmente a guarda dos registros de conexão por prazo superior a um ano, a autoridade tem noventa dias, contados do requerimento, para pedir ao juiz autorização de acesso.
+comentario: Errado. O prazo é de sessenta dias (art. 13, § 3º). Sem o pedido no prazo, ou se ele for indeferido, o requerimento cautelar perde a eficácia (§ 4º).
+
+=== ab-29
+gab: E
+bloco: marco-civil
+ref: mci 13
+trecho: Em qualquer hipótese, a disponibilização ao requerente dos registros de que trata este artigo deverá ser precedida de autorização judicial
+armadilha: excecao
+dif: 2
+enunciado: Requerida a guarda cautelar dos registros de conexão pela autoridade policial, o provedor deve entregá-los de imediato a ela, dispensada autorização judicial.
+comentario: Errado. A autoridade pode pedir a guarda, não o acesso: a disponibilização depende sempre de autorização judicial (art. 13, § 5º), e o provedor mantém sigilo sobre o requerimento (§ 4º).
+
+=== ab-30
+gab: E
+bloco: marco-civil
+ref: mci 19
+trecho: deverá conter, sob pena de nulidade, identificação clara e específica do conteúdo apontado como infringente
+armadilha: literal
+dif: 2
+enunciado: Pelo texto do Marco Civil, a ordem judicial para tornar indisponível conteúdo de terceiros pode indicar o material de forma genérica, cabendo ao provedor localizá-lo.
+comentario: Errado. A ordem deve conter, sob pena de nulidade, identificação clara e específica do conteúdo, que permita sua localização inequívoca (art. 19, § 1º).
+
+=== ab-31
+gab: E
+bloco: marco-civil
+ref: mci 19
+trecho: poderão ser apresentadas perante os juizados especiais
+armadilha: literal
+dif: 2
+enunciado: As causas sobre ressarcimento de danos e indisponibilização de conteúdos que ofendam a honra na internet são vedadas nos juizados especiais.
+comentario: Errado. Podem ser apresentadas perante os juizados especiais (art. 19, § 3º), com possibilidade de antecipação de tutela (§ 4º).
+
+=== ab-32
+gab: E
+bloco: marco-civil
+ref: mci 22
+trecho: III - período ao qual se referem os registros
+armadilha: rol
+dif: 2
+enunciado: O requerimento judicial de fornecimento de registros de conexão ou de acesso a aplicações pode omitir o período a que se referem, desde que demonstrados fundados indícios do ilícito.
+comentario: Errado. Sob pena de inadmissibilidade, o pedido deve conter fundados indícios do ilícito, justificativa da utilidade dos registros e o período a que se referem (art. 22, parágrafo único, I a III).
+
+=== ab-33
+gab: E
+bloco: marco-civil
+ref: mci 10
+trecho: respeitado seu direito de confidencialidade quanto a segredos empresariais
+armadilha: excecao
+dif: 2
+enunciado: O responsável pela provisão de serviços de internet deve divulgar integralmente suas medidas e procedimentos de segurança e sigilo, sem ressalva de segredos empresariais.
+comentario: Errado. As medidas devem ser informadas de forma clara e seguir padrões regulamentares, respeitado o direito de confidencialidade quanto a segredos empresariais (art. 10, § 4º).
