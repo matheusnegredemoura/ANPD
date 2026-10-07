@@ -1,6 +1,7 @@
 // Dados: governança de dados (DAMA-DMBOK), papéis, metadados, dados mestres e de referência, qualidade,
 // BI e modelagem dimensional, data lake e lakehouse, dados abertos e compartilhamento de dados no governo
-// federal (Decreto 10.046/2019 e o julgamento do STF). Itens escritos para o banco.
+// federal (Decreto 10.046/2019 e o julgamento do STF), grão e dimensões de variação lenta, e noções de aprendizado
+// de máquina. Itens escritos para o banco.
 
 bloco: dados-bi
 
@@ -213,3 +214,67 @@ armadilha: comparacao
 dif: 2
 enunciado: Data warehouse e data lake exigem, ambos, que o esquema dos dados seja definido antes da carga (schema on write).
 comentario: Errado. O data warehouse trabalha com esquema definido na escrita; o data lake guarda os dados brutos e aplica o esquema na leitura (schema on read), conforme a análise.
+
+=== dd-28
+gab: E
+ref: doutrina OLAP
+armadilha: conceito
+dif: 2
+enunciado: Na análise OLAP, a operação dice consiste em girar o cubo para trocar a posição das dimensões na visualização dos dados.
+comentario: Errado. Girar o cubo é o pivot (ou rotação). O dice seleciona um subcubo, restringindo valores em duas ou mais dimensões, como vendas de dois produtos em três estados num mesmo semestre.
+
+=== dd-29
+gab: E
+ref: doutrina Modelagem dimensional
+armadilha: conceito
+dif: 3
+enunciado: No modelo dimensional, a granularidade da tabela fato é definida depois da escolha das métricas e não influencia o nível de detalhe das análises possíveis.
+comentario: Errado. Declarar o grão é passo central, anterior à escolha de dimensões e fatos: ele diz o que cada linha da tabela fato representa e, portanto, até que nível de detalhe se pode analisar.
+
+=== dd-30
+gab: E
+ref: doutrina Dados não estruturados
+armadilha: absoluto
+dif: 1
+enunciado: Dados não estruturados, como textos livres, imagens e áudios, não podem ser objeto de análise, por não estarem organizados em tabelas.
+comentario: Errado. Podem ser analisados com técnicas próprias, como processamento de linguagem natural e visão computacional. A análise só é mais trabalhosa do que a de dados estruturados.
+
+=== dd-31
+gab: E
+ref: doutrina Qualidade de dados
+armadilha: conceito
+dif: 1
+enunciado: A tempestividade, como dimensão da qualidade de dados, diz respeito à ausência de valores nulos em campos obrigatórios.
+comentario: Errado. Campos obrigatórios preenchidos são a completude. Tempestividade é o dado estar atualizado e disponível quando se precisa dele.
+
+=== dd-32
+gab: E
+ref: doutrina Modelagem dimensional
+armadilha: comparacao
+dif: 3
+enunciado: As dimensões de variação lenta do tipo 1 preservam o histórico completo das alterações, criando nova linha a cada mudança do atributo.
+comentario: Errado. No tipo 1, o valor antigo é sobrescrito e o histórico se perde. É o tipo 2 que cria nova linha, em geral com datas de vigência, para guardar o histórico.
+
+=== dd-33
+gab: E
+ref: doutrina Metadados
+armadilha: conceito
+dif: 1
+enunciado: Metadados são os próprios dados de negócio armazenados nas tabelas, como o nome e o endereço dos clientes.
+comentario: Errado. Metadados são dados sobre os dados: o significado de cada campo, o formato, a origem, o responsável e a data de atualização.
+
+=== dd-34
+gab: E
+ref: doutrina Aprendizado de máquina
+armadilha: comparacao
+dif: 2
+enunciado: O sobreajuste (overfitting) ocorre quando o modelo é simples demais para captar os padrões dos dados de treinamento e tem desempenho ruim tanto no treino quanto em dados novos.
+comentario: Errado. Isso é o subajuste (underfitting). No sobreajuste, o modelo se ajusta demais aos dados de treinamento, inclusive ao ruído, e erra ao generalizar para dados novos.
+
+=== dd-35
+gab: E
+ref: doutrina Aprendizado de máquina
+armadilha: comparacao
+dif: 1
+enunciado: No aprendizado supervisionado, os dados de treinamento dispensam rótulos, pois o algoritmo descobre sozinho os grupos existentes.
+comentario: Errado. O supervisionado aprende com exemplos rotulados (classificação e regressão). Descobrir grupos sem rótulos é o aprendizado não supervisionado, como no agrupamento.
