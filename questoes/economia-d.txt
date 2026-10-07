@@ -1,0 +1,164 @@
+bloco: economia
+// Quarta leva de economia: discriminação de preços, oligopólio (Cournot e Bertrand), teoria dos jogos, sinalização e
+// triagem, peso morto, elasticidades, plataformas (múltipla filiação, tipping, aquisições predatórias), custos de
+// transação, Pareto e externalidades de dados. Itens de doutrina escritos para o banco.
+
+=== ec5-01
+gab: C
+ref: doutrina Discriminação de preços
+armadilha: conceito
+dif: 2
+enunciado: Na discriminação de preços de terceiro grau, a empresa cobra preços diferentes de grupos de consumidores com elasticidades-preço distintas, como na meia-entrada para estudantes.
+comentario: Certo. O grupo mais sensível ao preço (mais elástico) paga menos. A empresa precisa identificar o grupo e impedir a revenda entre grupos.
+
+=== ec5-02
+gab: E
+ref: doutrina Discriminação de preços
+armadilha: conceito
+dif: 2
+enunciado: Na discriminação de preços de primeiro grau, a empresa cobra de cada consumidor preço igual ao custo marginal, transferindo aos consumidores todo o excedente.
+comentario: Errado. Na discriminação perfeita, cada consumidor paga sua disposição máxima a pagar, e a empresa captura todo o excedente do consumidor. O perfilamento com dados pessoais aproxima o mercado desse extremo, o que conecta o tema à não discriminação da LGPD (art. 6º, IX).
+
+=== ec5-03
+gab: C
+ref: doutrina Discriminação de preços
+armadilha: conceito
+dif: 3
+enunciado: Na discriminação de preços de segundo grau, o preço varia conforme a quantidade ou a versão do produto, e os próprios consumidores se separam ao escolher a opção que preferem, como nos pacotes de dados móveis.
+comentario: Certo. É autosseleção: a empresa não precisa saber quem é quem, apenas desenhar o cardápio de opções.
+
+=== ec5-04
+gab: C
+ref: doutrina Oligopólio
+armadilha: conceito
+dif: 3
+enunciado: No modelo de Cournot, as empresas competem escolhendo quantidades, e o preço de equilíbrio fica acima do custo marginal, mas abaixo do preço de monopólio.
+comentario: Certo. Quanto mais empresas, mais o equilíbrio de Cournot se aproxima da concorrência perfeita.
+
+=== ec5-05
+gab: E
+ref: doutrina Oligopólio
+armadilha: conceito
+dif: 3
+enunciado: No modelo de Bertrand com produto homogêneo e custos marginais iguais, as duas empresas fixam preços acima do custo marginal e dividem entre si o lucro de monopólio.
+comentario: Errado. É o paradoxo de Bertrand: competindo em preço, cada empresa tem incentivo a cobrar um pouco menos que a rival, e o equilíbrio leva o preço ao custo marginal, mesmo com só duas empresas.
+
+=== ec5-06
+gab: C
+ref: doutrina Teoria dos jogos
+armadilha: conceito
+dif: 1
+enunciado: No equilíbrio de Nash, nenhum jogador tem incentivo para mudar unilateralmente de estratégia, dadas as estratégias escolhidas pelos demais.
+comentario: Certo. O equilíbrio não precisa ser o melhor resultado para o grupo; basta que ninguém ganhe desviando sozinho.
+
+=== ec5-07
+gab: E
+ref: doutrina Teoria dos jogos
+armadilha: conceito
+dif: 2
+enunciado: No dilema dos prisioneiros, o equilíbrio de Nash coincide necessariamente com o resultado que maximiza o ganho conjunto dos jogadores.
+comentario: Errado. No equilíbrio, os dois delatam, e ambos ficam pior do que se cooperassem. A mesma lógica explica a instabilidade dos cartéis e o poder do acordo de leniência: quem delata primeiro ganha.
+
+=== ec5-08
+gab: C
+ref: doutrina Assimetria de informação
+armadilha: conceito
+dif: 2
+enunciado: Na sinalização, a parte mais informada adota ação custosa, como obter certificação ou oferecer garantia, para revelar à outra parte a qualidade de seu produto.
+comentario: Certo: modelo de Spence. O sinal só funciona se for mais barato para quem tem qualidade alta. Selos e certificações de proteção de dados (LGPD, art. 33, II, d) podem cumprir esse papel.
+
+=== ec5-09
+gab: E
+ref: doutrina Assimetria de informação
+armadilha: sujeito
+dif: 3
+enunciado: Na triagem (screening), é a parte mais informada que toma a iniciativa de revelar sua qualidade à parte menos informada.
+comentario: Errado. Na triagem, quem age é a parte menos informada: oferece um cardápio de contratos para que a outra se revele ao escolher, como a seguradora que oferece franquias diferentes. Quem toma a iniciativa sendo mais informado está sinalizando.
+
+=== ec5-10
+gab: C
+ref: doutrina Poder de mercado
+armadilha: conceito
+dif: 2
+enunciado: O monopólio gera peso morto porque produz quantidade inferior à socialmente eficiente, e parte do excedente total simplesmente deixa de existir.
+comentario: Certo. Parte do excedente do consumidor vira lucro do monopolista (transferência); outra parte se perde para todos (peso morto).
+
+=== ec5-11
+gab: E
+ref: doutrina Elasticidades
+armadilha: conceito
+dif: 1
+enunciado: Bem inferior é aquele com elasticidade-renda positiva, cujo consumo aumenta quando a renda aumenta.
+comentario: Errado. No bem inferior, a elasticidade-renda é negativa: com mais renda, compra-se menos dele. Elasticidade-renda positiva é a do bem normal.
+
+=== ec5-12
+gab: C
+ref: doutrina Elasticidades
+armadilha: conceito
+dif: 2
+enunciado: A elasticidade-preço cruzada da demanda é negativa entre bens complementares e positiva entre bens substitutos.
+comentario: Certo. Se o preço da impressora cai, compra-se mais tinta (complementares); se o preço de um aplicativo de transporte sobe, usa-se mais o concorrente (substitutos).
+
+=== ec5-13
+gab: E
+ref: doutrina Elasticidades
+armadilha: extrapolacao
+dif: 3
+enunciado: Todo bem inferior é bem de Giffen, pois a demanda por ele aumenta quando seu preço sobe.
+comentario: Errado. O bem de Giffen é caso extremo de bem inferior, em que o efeito renda supera o efeito substituição e a curva de demanda fica positivamente inclinada. A maioria dos bens inferiores tem demanda com inclinação normal.
+
+=== ec5-14
+gab: C
+ref: doutrina Plataformas digitais
+armadilha: conceito
+dif: 2
+enunciado: A múltipla filiação (multi-homing), isto é, o uso simultâneo de plataformas concorrentes pelo mesmo grupo de usuários, tende a reduzir o poder de mercado das plataformas.
+comentario: Certo. Se motoristas e passageiros usam vários aplicativos ao mesmo tempo, nenhum deles controla sozinho o acesso a um dos lados. A portabilidade de dados facilita a múltipla filiação.
+
+=== ec5-15
+gab: E
+ref: doutrina Plataformas digitais
+armadilha: conceito
+dif: 2
+enunciado: Mercados com fortes efeitos de rede tendem a permanecer fragmentados entre muitas plataformas de porte semelhante.
+comentario: Errado. Efeitos de rede fortes favorecem a virada do mercado (tipping): quando uma plataforma ganha vantagem, atrai cada vez mais usuários, e o mercado se concentra em uma ou poucas.
+
+=== ec5-16
+gab: C
+ref: doutrina Plataformas digitais
+armadilha: conceito
+dif: 3
+enunciado: As chamadas aquisições predatórias (killer acquisitions) consistem na compra de empresa nascente para descontinuar seu produto e eliminar concorrência futura, e podem escapar ao controle de concentrações baseado apenas no faturamento das partes.
+comentario: Certo. A empresa comprada costuma ter faturamento pequeno, abaixo dos limites que obrigam a notificação, embora tenha produto ou dados valiosos. Por isso se discute dar às autoridades poder de analisar operações abaixo desses limites.
+
+=== ec5-17
+gab: E
+ref: doutrina Custos de transação
+armadilha: conceito
+dif: 3
+enunciado: Para a economia dos custos de transação, a escolha entre produzir internamente e contratar no mercado independe da especificidade dos ativos envolvidos.
+comentario: Errado. Na linha de Williamson, ativos específicos aumentam o risco de oportunismo depois do contrato (hold-up) e favorecem a integração vertical ou contratos de longo prazo com salvaguardas.
+
+=== ec5-18
+gab: C
+ref: doutrina Bens públicos
+armadilha: conceito
+dif: 1
+enunciado: Como não se pode excluir quem não paga, os bens públicos estão sujeitos ao problema do carona (free rider), o que leva o mercado a ofertá-los em quantidade inferior à desejável.
+comentario: Certo. Daí a provisão pública ou financiada por tributos. Segurança cibernética coletiva tem traços disso: quem investe protege também quem não investe.
+
+=== ec5-19
+gab: E
+ref: doutrina Eficiência de Pareto
+armadilha: conceito
+dif: 2
+enunciado: Uma alocação é eficiente no sentido de Pareto quando ainda é possível melhorar a situação de alguém sem piorar a de ninguém.
+comentario: Errado. Se ainda é possível melhorar alguém sem piorar ninguém, há melhoria de Pareto disponível e a alocação não é eficiente. Eficiência de Pareto, aliás, nada diz sobre justiça na distribuição.
+
+=== ec5-20
+gab: C
+ref: doutrina Economia dos dados
+armadilha: conceito
+dif: 3
+enunciado: Os dados que uma pessoa compartilha podem revelar informações sobre outras, como parentes em testes genéticos, de modo que a decisão individual de compartilhar não leva em conta todo o custo para terceiros.
+comentario: Certo. É a externalidade de dados: o consentimento individual não internaliza o efeito sobre quem não consentiu. Esse é um dos argumentos para limites que valem independentemente de consentimento, como a minimização.
