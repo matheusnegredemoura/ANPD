@@ -1,0 +1,275 @@
+bloco: lgpd-52-54
+// Sanções, parte C: critérios do art. 52, § 1º, limites das multas, suspensões, consulta pública da metodologia
+// (art. 53) e multa diária (art. 54), mais os artigos do Regulamento de Dosimetria (Resolução CD/ANPD nº 4/2023)
+// que tinham um item ou nenhum. Conferidas com fontes/lgpd.txt e fontes/res4.txt.
+
+=== sx-01
+gab: C
+ref: lgpd 52
+trecho: advertência, com indicação de prazo para adoção de medidas corretivas
+armadilha: literal
+dif: 1
+enunciado: A sanção de advertência aplicada pela autoridade nacional deve indicar prazo para a adoção de medidas corretivas.
+comentario: Certo: art. 52, I. A advertência não é mero aviso: fixa prazo para corrigir a conduta.
+
+=== sx-02
+gab: E
+ref: lgpd 52
+trecho: faturamento da pessoa jurídica de direito privado, grupo ou conglomerado no Brasil no seu último exercício, excluídos os tributos
+armadilha: numero
+dif: 2
+enunciado: A multa simples prevista na LGPD pode alcançar até 2% do faturamento mundial do grupo econômico do infrator, incluídos os tributos.
+comentario: Errado. São até 2% do faturamento no Brasil, no último exercício, excluídos os tributos, limitada a R$ 50 milhões por infração (art. 52, II). O RGPD, este sim, usa o faturamento mundial (art. 83).
+
+=== sx-03
+gab: E
+ref: lgpd 52
+trecho: multa diária, observado o limite total a que se refere o inciso II
+armadilha: numero
+dif: 2
+enunciado: Por ter natureza coercitiva, a multa diária da LGPD não se sujeita ao limite total de R$ 50 milhões por infração aplicável à multa simples.
+comentario: Errado. A multa diária observa o mesmo limite total do inciso II (art. 52, III).
+
+=== sx-04
+gab: C
+ref: lgpd 52
+trecho: proibição parcial ou total do exercício de atividades relacionadas a tratamento de dados
+armadilha: literal
+dif: 1
+enunciado: Entre as sanções administrativas previstas na LGPD está a proibição parcial ou total do exercício de atividades relacionadas a tratamento de dados.
+comentario: Certo: art. 52, XII, incluído pela Lei nº 13.853/2019. É a sanção mais grave e, como as dos incisos X e XI, exige sanção anterior no mesmo caso (§ 6º, I).
+
+=== sx-05
+gab: E
+ref: lgpd 52
+trecho: pelo período máximo de 6 (seis) meses, prorrogável por igual período
+armadilha: numero
+dif: 2
+enunciado: A suspensão do exercício da atividade de tratamento dos dados pessoais a que se refere a infração pode ser aplicada pelo período máximo de doze meses, prorrogável por igual período.
+comentario: Errado. O período máximo é de seis meses, prorrogável por igual período (art. 52, XI). A mesma regra vale para a suspensão parcial do banco de dados (inciso X).
+
+=== sx-06
+gab: C
+ref: lgpd 52
+trecho: a condição econômica do infrator
+armadilha: rol
+dif: 1
+enunciado: A condição econômica do infrator está entre os parâmetros e critérios considerados na aplicação das sanções da LGPD.
+comentario: Certo: art. 52, § 1º, IV. A mesma multa pesa de forma muito diferente para uma microempresa e para um grande grupo.
+
+=== sx-07
+gab: E
+ref: lgpd 52
+trecho: a boa-fé do infrator
+armadilha: rol
+dif: 2
+enunciado: A boa-fé do infrator é irrelevante na aplicação das sanções administrativas da LGPD.
+comentario: Errado. A boa-fé é critério expresso (art. 52, § 1º, II). No Regulamento de Dosimetria, cooperação ou boa-fé reduzem a multa em 5% (Resolução CD/ANPD nº 4/2023, art. 13, IV).
+
+=== sx-08
+gab: C
+ref: lgpd 52
+trecho: a pronta adoção de medidas corretivas
+armadilha: rol
+dif: 1
+enunciado: A pronta adoção de medidas corretivas pelo infrator é critério a ser considerado na aplicação das sanções previstas na LGPD.
+comentario: Certo: art. 52, § 1º, X. Quem corrige rápido limita o dano, e isso entra na dosimetria.
+
+=== sx-09
+gab: E
+ref: lgpd 52
+trecho: a adoção de política de boas práticas e governança
+armadilha: rol
+dif: 2
+enunciado: Por ser dever legal, a adoção de política de boas práticas e governança não pode ser considerada em favor do infrator na aplicação das sanções.
+comentario: Errado. É critério expresso (art. 52, § 1º, IX), ao lado da adoção reiterada de mecanismos internos para minimizar o dano (inciso VIII). O art. 50 trata as boas práticas como faculdade, não como dever.
+
+=== sx-10
+gab: C
+ref: lgpd 52
+trecho: a proporcionalidade entre a gravidade da falta e a intensidade da sanção
+armadilha: rol
+dif: 1
+enunciado: Na aplicação das sanções da LGPD, deve-se considerar a proporcionalidade entre a gravidade da falta e a intensidade da sanção.
+comentario: Certo: art. 52, § 1º, XI, o último critério da lista, que serve de fecho a todos os demais.
+
+=== sx-11
+gab: E
+ref: lgpd 52
+trecho: após procedimento administrativo que possibilite a oportunidade da ampla defesa
+armadilha: conceito
+dif: 2
+enunciado: Quando a infração à LGPD for flagrante, a autoridade nacional pode aplicar a sanção sumariamente, dispensado o procedimento administrativo.
+comentario: Errado. As sanções são aplicadas após procedimento administrativo que possibilite a ampla defesa (art. 52, § 1º). Na ANPD, esse procedimento está na Resolução CD/ANPD nº 1/2021.
+
+=== sx-12
+gab: E
+ref: lgpd 52
+trecho: ouvidos esses órgãos
+armadilha: conceito
+dif: 3
+enunciado: Para aplicar a suspensão ou a proibição de atividades de tratamento a controlador submetido a outro órgão com competência sancionatória, a ANPD depende da anuência desse órgão.
+comentario: Errado. A lei manda ouvir esses órgãos (art. 52, § 6º, II), não obter sua concordância. A decisão continua sendo da ANPD.
+
+=== sx-13
+gab: C
+ref: lgpd 52
+trecho: quando não dispuser do valor do faturamento no ramo de atividade empresarial em que ocorreu a infração
+armadilha: conceito
+dif: 2
+enunciado: No cálculo da multa simples, a autoridade nacional pode considerar o faturamento total da empresa ou do grupo quando não dispuser do faturamento no ramo de atividade em que ocorreu a infração.
+comentario: Certo: art. 52, § 4º. Também pode fazê-lo se o valor for apresentado de forma incompleta ou não for demonstrado de forma inequívoca e idônea.
+
+=== sx-14
+gab: E
+ref: lgpd 52
+trecho: será destinado ao Fundo de Defesa de Direitos Difusos
+armadilha: sujeito
+dif: 1
+enunciado: O produto da arrecadação das multas aplicadas pela ANPD é destinado ao orçamento próprio da agência, para custear suas atividades de fiscalização.
+comentario: Errado. Vai para o Fundo de Defesa de Direitos Difusos, da Lei da Ação Civil Pública (art. 52, § 5º), estejam as multas inscritas ou não em dívida ativa.
+
+=== sx-15
+gab: E
+ref: lgpd 53
+trecho: que deverá ser objeto de consulta pública
+armadilha: conceito
+dif: 2
+enunciado: As metodologias de cálculo do valor-base das multas são definidas pela ANPD em regulamento próprio, dispensada a consulta pública por se tratar de matéria técnica.
+comentario: Errado. O regulamento de sanções deve ser objeto de consulta pública (art. 53, caput), e as metodologias devem ser publicadas previamente, com fundamentação detalhada (§ 1º).
+
+=== sx-16
+gab: C
+ref: lgpd 53
+trecho: estabelecer as circunstâncias e as condições para a adoção de multa simples ou diária
+armadilha: literal
+dif: 2
+enunciado: O regulamento de sanções e as metodologias correspondentes devem estabelecer as circunstâncias e as condições para a adoção de multa simples ou diária.
+comentario: Certo: art. 53, § 2º. O Regulamento de Dosimetria (Resolução CD/ANPD nº 4/2023) cumpre esse papel.
+
+=== sx-17
+gab: E
+ref: lgpd 54
+trecho: deve observar a gravidade da falta e a extensão do dano ou prejuízo causado e ser fundamentado pela autoridade nacional
+armadilha: conceito
+dif: 2
+enunciado: O valor da multa diária por infração à LGPD é fixado em tabela legal, o que dispensa fundamentação específica da autoridade nacional.
+comentario: Errado. O valor deve observar a gravidade da falta e a extensão do dano ou prejuízo e ser fundamentado pela autoridade nacional (art. 54, caput).
+
+=== sx-18
+gab: C
+ref: lgpd 54
+trecho: a descrição da obrigação imposta, o prazo razoável e estipulado pelo órgão para o seu cumprimento e o valor da multa diária
+armadilha: rol
+dif: 2
+enunciado: A intimação da sanção de multa diária deve conter, no mínimo, a descrição da obrigação imposta, o prazo razoável para seu cumprimento e o valor da multa diária a ser aplicada pelo descumprimento.
+comentario: Certo: art. 54, parágrafo único. Sem saber o que fazer, em quanto tempo e quanto custa não fazer, a multa diária perde a função coercitiva.
+
+=== sx-19
+gab: E
+ref: lgpd 52
+trecho: limitada, no total, a R$ 50.000.000,00 (cinquenta milhões de reais) por infração
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa privada com faturamento de R$ 5 bilhões no Brasil no último exercício, excluídos os tributos, cometeu uma infração à LGPD. Assertiva: nesse caso, a multa simples aplicável pode chegar a R$ 100 milhões, correspondentes a 2% do faturamento.
+comentario: Errado. Dois por cento dariam R$ 100 milhões, mas a multa simples é limitada a R$ 50 milhões por infração (art. 52, II). O teto vale por infração: várias infrações podem gerar várias multas.
+
+=== sx-20
+gab: C
+bloco: res-4-2023
+ref: res4 21
+trecho: não se confunde com a publicação de decisão de aplicação de sanção administrativa no Diário Oficial da União
+armadilha: conceito
+dif: 2
+enunciado: A sanção de publicização da infração não se confunde com a publicação, no Diário Oficial da União, da decisão que aplica sanção administrativa.
+comentario: Certo: art. 21 da Resolução CD/ANPD nº 4/2023. Publicar a decisão é dever de publicidade administrativa; a publicização é pena, que expõe a infração ao público.
+
+=== sx-21
+gab: E
+bloco: res-4-2023
+ref: res4 24
+trecho: A regularização da atividade de tratamento deverá ser comprovada pelo infrator
+armadilha: sujeito
+dif: 2
+enunciado: Para o restabelecimento do funcionamento do banco de dados parcialmente suspenso, cabe à ANPD verificar de ofício a regularização da atividade de tratamento.
+comentario: Errado. A regularização deve ser comprovada pelo infrator (art. 24, § 4º).
+
+=== sx-22
+gab: C
+bloco: res-4-2023
+ref: res4 24
+trecho: o interesse público, o impacto aos direitos dos titulares de dados pessoais, a classificação da infração e a complexidade para regularização
+armadilha: rol
+dif: 2
+enunciado: Para fixar o prazo da suspensão parcial do funcionamento do banco de dados, a ANPD considera o interesse público, o impacto aos direitos dos titulares, a classificação da infração e a complexidade para regularização da atividade.
+comentario: Certo: art. 24, § 3º. Na suspensão do exercício da atividade de tratamento, o art. 25, § 2º, repete os três primeiros critérios, sem a complexidade da regularização.
+
+=== sx-23
+gab: C
+bloco: res-4-2023
+ref: res4 25
+trecho: o interesse público, o impacto aos direitos dos titulares de dados pessoais e a classificação da infração
+armadilha: rol
+dif: 2
+enunciado: Para fixar o prazo da suspensão do exercício da atividade de tratamento, a ANPD considera o interesse público, o impacto aos direitos dos titulares e a classificação da infração.
+comentario: Certo: art. 25, § 2º. O prazo máximo é de seis meses, prorrogável por igual período (§ 1º).
+
+=== sx-24
+gab: E
+bloco: res-4-2023
+ref: res4 14
+trecho: Incidirão sobre o valor-base da multa as circunstâncias agravantes
+armadilha: conceito
+dif: 2
+enunciado: No Regulamento de Dosimetria, as circunstâncias agravantes e atenuantes não incidem sobre o valor-base da multa, servindo apenas para escolher o tipo de sanção.
+comentario: Errado. Agravantes (art. 12) e atenuantes (art. 13) incidem sobre o valor-base da multa (art. 14), aumentando-o ou reduzindo-o em percentuais.
+
+=== sx-25
+gab: E
+bloco: res-4-2023
+ref: res4 13
+trecho: Cabe ao infrator o ônus de comprovar perante a ANPD o cumprimento dos requisitos previstos neste artigo
+armadilha: sujeito
+dif: 2
+enunciado: Na dosimetria da multa, cabe à ANPD comprovar de ofício a presença das circunstâncias atenuantes em favor do infrator.
+comentario: Errado. O ônus de comprovar os requisitos das atenuantes é do infrator (art. 13, § 3º).
+
+=== sx-26
+gab: C
+bloco: res-4-2023
+ref: res4 1
+trecho: estabelecer parâmetros e critérios para aplicação de sanções administrativas
+armadilha: literal
+dif: 1
+enunciado: O Regulamento de Dosimetria da ANPD estabelece parâmetros e critérios para a aplicação de sanções administrativas e as formas e dosimetrias para o cálculo do valor-base das sanções de multa.
+comentario: Certo: art. 1º da Resolução CD/ANPD nº 4/2023, que cumpre o art. 53 da LGPD.
+
+=== sx-27
+gab: E
+bloco: res-4-2023
+ref: res4 13
+trecho: até a prolação da decisão de primeira instância no âmbito do processo administrativo sancionador
+armadilha: excecao
+dif: 3
+enunciado: A implementação de política de boas práticas e de governança reduz a multa simples em 20%, ainda que ocorra depois da decisão de primeira instância no processo sancionador.
+comentario: Errado. A redução de 20% vale para implementação até a prolação da decisão de primeira instância (art. 13, II).
+
+=== sx-28
+gab: C
+bloco: res-4-2023
+ref: res4 13
+trecho: 20% (vinte por cento), previamente à instauração de procedimento preparatório ou processo administrativo sancionador pela ANPD
+armadilha: numero
+dif: 3
+enunciado: A comprovação de medidas capazes de reverter ou mitigar os efeitos da infração sobre os titulares reduz a multa simples em 20%, se adotadas antes da instauração de procedimento preparatório ou de processo sancionador.
+comentario: Certo: art. 13, III, a. Se adotadas depois do procedimento preparatório e até o processo sancionador, a redução cai para 10% (alínea b).
+
+=== sx-29
+gab: C
+bloco: res-4-2023
+ref: res4 12
+trecho: 30% (trinta por cento) para cada medida corretiva descumprida, até o limite de 90% (noventa por cento)
+armadilha: numero
+dif: 2
+enunciado: Cada medida corretiva descumprida acresce 30% ao valor da multa simples, até o limite de 90%.
+comentario: Certo: art. 12, IV. Medida de orientação ou preventiva descumprida acresce 20%, até 80% (inciso III).
