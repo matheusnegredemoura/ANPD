@@ -574,3 +574,63 @@ busca: termo de ajustamento de conduta ANPD processo sancionador Resolução 1/2
 padroes: medidas preventivas | medida preventiva
 def: Divulgação de informações, aviso, solicitação de regularização ou informe e plano de conformidade, entre outras compatíveis (Res. CD/ANPD 1/2021, art. 32). Não são sanção; o descumprimento faz a atuação progredir e é agravante em eventual processo sancionador.
 busca: medidas preventivas ANPD aviso plano de conformidade solicitação de regularização
+
+=== Declaração de aplicabilidade
+padroes: declaração de aplicabilidade | Statement of Applicability
+def: Documento exigido pela ISO/IEC 27001 que lista os controles necessários para tratar os riscos, justifica a inclusão de cada um, diz se estão implementados e justifica a exclusão de controles do Anexo A. Liga a avaliação de riscos aos controles escolhidos; é o primeiro documento que o auditor pede.
+busca: declaração de aplicabilidade ISO 27001 Anexo A controles
+
+=== Risco inerente × risco residual
+padroes: risco residual | riscos residuais | risco inerente
+def: Inerente é o risco antes de qualquer controle; residual é o que sobra depois do tratamento. A ISO/IEC 27001 exige que os responsáveis pelos riscos aprovem o plano de tratamento e aceitem formalmente o risco residual.
+busca: risco inerente risco residual aceitação gestão de riscos
+
+=== Tática × técnica (MITRE ATT&CK)
+padroes: MITRE ATT&CK | ATT&CK
+def: Base pública de comportamentos de adversários observados em ataques reais. Tática é o objetivo (o porquê: acesso inicial, persistência, exfiltração); técnica é o modo de alcançá-lo (o como); procedimento é a forma concreta com que um grupo aplica a técnica. Não é norma de certificação.
+busca: MITRE ATT&CK táticas técnicas procedimentos matriz
+
+=== Identidade federada (SAML, OAuth, OpenID Connect)
+padroes: SAML | OAuth | OpenID Connect
+def: No SAML, o provedor de identidade autentica o usuário e emite asserções que o provedor de serviço aceita (acesso único). O OAuth 2.0 trata de autorização delegada: o servidor de autorização emite tokens de acesso. O OpenID Connect acrescenta ao OAuth a autenticação, com o token de identidade.
+busca: SAML identity provider OAuth 2.0 authorization server OpenID Connect diferença
+
+=== Princípio de Kerckhoffs
+padroes: Kerckhoffs
+def: Um sistema criptográfico deve continuar seguro mesmo que tudo, menos a chave, seja público. Por isso se preferem algoritmos abertos e testados, e a segurança depende da gestão das chaves (geração, guarda, rotação, revogação).
+busca: princípio de Kerckhoffs criptografia segurança pela chave
+
+=== Discriminação de preços
+padroes: discriminação de preços
+def: Cobrar preços diferentes pelo mesmo produto. De primeiro grau (perfeita): cada um paga sua disposição máxima, e a empresa captura todo o excedente. De segundo: preço varia por quantidade ou versão, e o consumidor se autosseleciona. De terceiro: preços por grupo com elasticidades diferentes. O perfilamento com dados aproxima o mercado do primeiro grau.
+busca: discriminação de preços primeiro segundo terceiro grau dados pessoais
+
+=== Múltipla filiação e tipping
+padroes: múltipla filiação | multi-homing | tipping
+def: Múltipla filiação é usar ao mesmo tempo plataformas concorrentes; reduz o poder de cada uma. Tipping é a virada do mercado: com efeitos de rede fortes, quem sai na frente atrai cada vez mais usuários, e o mercado se concentra. A portabilidade de dados facilita a múltipla filiação.
+busca: multi-homing tipping efeitos de rede plataformas concorrência
+
+=== Aquisição predatória (killer acquisition)
+padroes: aquisições predatórias | aquisição predatória | killer acquisitions
+def: Compra de empresa nascente para descontinuar seu produto e eliminar concorrência futura. Como a comprada costuma faturar pouco, a operação pode ficar abaixo dos limites que obrigam a notificação à autoridade de concorrência.
+busca: killer acquisitions aquisições predatórias controle de concentrações plataformas
+
+=== Sinalização × triagem
+padroes: sinalização | screening
+def: Respostas à assimetria de informação. Na sinalização, a parte mais informada toma ação custosa para revelar sua qualidade (certificação, garantia). Na triagem (screening), a parte menos informada oferece um cardápio de contratos para que a outra se revele ao escolher.
+busca: sinalização Spence screening triagem assimetria de informação
+
+=== Comissão Mista de Reavaliação de Informações (CMRI)
+padroes: Comissão Mista de Reavaliação de Informações | CMRI
+def: Decide sobre o tratamento e a classificação de informações sigilosas no Executivo federal: revê a classificação de informações secretas e ultrassecretas, pode prorrogar uma única vez o sigilo da ultrassecreta e julga em última instância os recursos contra negativas já apreciadas pela CGU e contra indeferimentos de desclassificação (LAI, arts. 16, § 3º, 17, § 2º, e 35, § 1º).
+busca: CMRI Comissão Mista de Reavaliação de Informações recurso LAI
+
+=== Centro Nacional de Triagem de Notificações
+padroes: Centro Nacional de Triagem de Notificações
+def: Unidade da Polícia Federal, criada com base no Decreto 12.880/2026, que recebe, valida e faz a triagem dos relatórios de notificação de conteúdo de exploração e abuso sexual de crianças e adolescentes enviados pelos fornecedores, e os repassa às polícias judiciárias. Não funciona na ANPD.
+busca: Centro Nacional de Triagem de Notificações Polícia Federal ECA Digital
+
+=== Limitação do tratamento × bloqueio
+padroes: limitação do tratamento | bloqueio dos dados | bloqueio de dados
+def: No GDPR, a limitação (art. 18) mantém os dados guardados, mas restringe seu uso, por exemplo enquanto se verifica a exatidão contestada. Na LGPD, o bloqueio é a suspensão temporária de qualquer operação, com guarda do dado (art. 5º, XIII), e o titular pode pedi-lo para dados desnecessários, excessivos ou tratados em desconformidade (art. 18, IV).
+busca: limitação do tratamento GDPR bloqueio LGPD diferença
