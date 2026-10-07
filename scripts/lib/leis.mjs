@@ -118,6 +118,13 @@ export const LEIS = {
     curto: 'Enunciado 1/2023',
     url: 'https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd',
   },
+  stfsum: {
+    arquivo: 'stfsum.txt',
+    nome: 'Súmulas e teses do STF — aplicação selecionada pelo tribunal',
+    curto: 'STF (súmulas e teses)',
+    url: 'https://portal.stf.jus.br/',
+    marcadores: true,
+  },
   lei15211: {
     arquivo: 'lei15211.txt',
     nome: 'Lei nº 15.211/2025 — ECA Digital',
@@ -360,6 +367,7 @@ export const GRUPOS_LEIS = [
   ['Direito administrativo', ['lei9784', 'lindb', 'dec9830', 'lai', 'dec7724', 'lei13460', 'lei8429', 'lei12846', 'lei12813', 'lei8112', 'dec1171', 'lei9507', 'dl200', 'lei14133', 'lei8987', 'lei14129']],
   ['Segurança da informação', ['dec12572', 'dec11856', 'dec10748', 'ingsi1', 'nistcsf']],
   ['Direito comparado (Europa)', ['gdpr', 'conv108']],
+  ['Jurisprudência do STF', ['stfsum']],
 ];
 
 // Unidade da norma: artigo, cláusula (cláusulas-padrão), apêndice, anexo ou enunciado.
