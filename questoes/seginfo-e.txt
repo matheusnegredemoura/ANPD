@@ -1,0 +1,261 @@
+bloco: seginfo
+// Segurança da informação, parte E: ISO/IEC 27001 (declaração de aplicabilidade, Anexo A, avaliação de desempenho),
+// tratamento de riscos, controle de acesso, identidade federada (SAML, OAuth 2.0, OpenID Connect), MITRE ATT&CK,
+// continuidade, descarte seguro, gestão de chaves e controles de rede da ISO/IEC 27002:2022. Itens de doutrina
+// escritos para o banco; os pares trocados seguem os erros que o Cebraspe usou no TCU 2026.
+
+=== si5-01
+gab: C
+ref: doutrina ISO/IEC 27001
+armadilha: conceito
+dif: 3
+enunciado: Na ISO/IEC 27001, a declaração de aplicabilidade registra os controles necessários ao tratamento dos riscos, a justificativa de sua inclusão, se estão implementados e a justificativa para a exclusão de controles do Anexo A.
+comentario: Certo. É saída obrigatória do tratamento de riscos (requisito 6.1.3). Liga a avaliação de riscos aos controles escolhidos e costuma ser o primeiro documento que o auditor pede.
+
+=== si5-02
+gab: E
+ref: doutrina ISO/IEC 27001
+armadilha: absoluto
+dif: 2
+enunciado: A ISO/IEC 27001 obriga a organização a implementar todos os controles de seu Anexo A, sem possibilidade de exclusão.
+comentario: Errado. Os controles são escolhidos a partir da avaliação de riscos. O Anexo A serve de lista de referência para conferir se nada necessário ficou de fora, e as exclusões são justificadas na declaração de aplicabilidade.
+
+=== si5-03
+gab: C
+ref: doutrina ISO/IEC 27001
+armadilha: numero
+dif: 3
+enunciado: Na versão de 2022, o Anexo A da ISO/IEC 27001 lista 93 controles, alinhados aos da ISO/IEC 27002:2022, ao passo que a versão de 2013 listava 114 controles distribuídos em 14 seções.
+comentario: Certo. Em 2022 os controles foram reagrupados em quatro temas: organizacionais (37), de pessoas (8), físicos (14) e tecnológicos (34). Onze deles são novos, como inteligência de ameaças e mascaramento de dados.
+
+=== si5-04
+gab: E
+ref: doutrina ISO/IEC 27001
+armadilha: conceito
+dif: 2
+enunciado: A auditoria interna e a análise crítica pela direção são práticas recomendadas pela ISO/IEC 27001, mas facultativas para quem busca a certificação.
+comentario: Errado. As duas são requisitos da avaliação de desempenho (9.2 e 9.3). As não conformidades encontradas exigem ação corretiva (10.2): é assim que o sistema de gestão melhora continuamente.
+
+=== si5-05
+gab: C
+ref: doutrina Gestão de riscos de segurança da informação
+armadilha: rol
+dif: 2
+enunciado: Na gestão de riscos de segurança da informação, as opções clássicas de tratamento incluem modificar o risco com controles, retê-lo conscientemente, evitá-lo, abandonando a atividade que o origina, e compartilhá-lo, por exemplo por seguro ou contratação de terceiros.
+comentario: Certo. São as opções da ISO/IEC 27005, alinhada à ISO 31000. Compartilhar o risco divide a conta, não o dever: quem contrata um operador continua sendo controlador para a LGPD.
+
+=== si5-06
+gab: E
+ref: doutrina Gestão de riscos de segurança da informação
+armadilha: conceito
+dif: 2
+enunciado: Risco residual é o risco que a organização identifica antes de aplicar qualquer controle.
+comentario: Errado. Esse é o risco inerente. O residual é o que sobra depois do tratamento, e a ISO/IEC 27001 exige que os responsáveis pelos riscos aprovem o plano de tratamento e aceitem esse risco residual.
+
+=== si5-07
+gab: C
+ref: doutrina Esteganografia
+armadilha: comparacao
+dif: 2
+enunciado: A esteganografia oculta a própria existência da mensagem, por exemplo dentro de uma imagem, ao passo que a criptografia torna a mensagem ininteligível sem esconder que ela existe.
+comentario: Certo. As duas técnicas podem ser combinadas: cifrar a mensagem e depois escondê-la. A esteganografia também aparece em ataques, para esconder comandos ou dados exfiltrados em arquivos inofensivos.
+
+=== si5-08
+gab: E
+ref: doutrina Controle de acesso
+armadilha: comparacao
+dif: 2
+enunciado: No controle de acesso obrigatório (MAC), o proprietário do recurso decide livremente a quem conceder acesso.
+comentario: Errado. Isso é o controle discricionário (DAC). No obrigatório, o sistema impõe a política com base em rótulos de classificação e credenciais, e o usuário não pode alterá-la. No baseado em papéis (RBAC), as permissões seguem a função.
+
+=== si5-09
+gab: C
+ref: doutrina Controle de acesso
+armadilha: conceito
+dif: 1
+enunciado: No controle de acesso, a autenticação confirma quem o usuário é, a autorização determina a que recursos ele tem acesso e o registro de atividades permite reconstituir o que ele fez.
+comentario: Certo. É a sequência AAA (autenticação, autorização e registro, em inglês accounting). Sem o registro, não há como apurar um incidente nem demonstrar a conformidade.
+
+=== si5-10
+gab: E
+ref: doutrina Controle de acesso
+armadilha: conceito
+dif: 1
+enunciado: Identificação e autenticação são sinônimos, de modo que informar o nome de usuário já comprova a identidade de quem acessa o sistema.
+comentario: Errado. Identificar é declarar quem se é (o nome de usuário); autenticar é comprovar essa declaração, com algo que se sabe, se tem ou se é.
+
+=== si5-11
+gab: C
+ref: doutrina MITRE ATT&CK
+armadilha: comparacao
+dif: 3
+enunciado: Na matriz MITRE ATT&CK, as táticas representam o objetivo do adversário em cada etapa, como obter acesso inicial ou exfiltrar dados, e as técnicas descrevem como ele alcança esse objetivo.
+comentario: Certo. Tática é o porquê; técnica, o como; procedimento, a forma concreta com que um grupo aplica a técnica. O Cebraspe trocou tática e técnica no TCU 2026 (item 145).
+
+=== si5-12
+gab: E
+ref: doutrina MITRE ATT&CK
+armadilha: conceito
+dif: 2
+enunciado: O MITRE ATT&CK é norma de certificação que fixa requisitos mínimos de controles de segurança para as organizações.
+comentario: Errado. É base de conhecimento pública sobre táticas e técnicas observadas em ataques reais. Serve para modelar ameaças, avaliar a cobertura das detecções e planejar defesas, mas não certifica ninguém.
+
+=== si5-13
+gab: C
+ref: doutrina Identidade federada
+armadilha: conceito
+dif: 3
+enunciado: No acesso único federado com SAML, o provedor de identidade autentica o usuário e emite asserções nas quais o provedor de serviço confia para conceder o acesso.
+comentario: Certo. O usuário se autentica uma vez no provedor de identidade (IdP), e cada provedor de serviço (SP) aceita a asserção assinada, sem receber a senha.
+
+=== si5-14
+gab: E
+ref: doutrina Identidade federada
+armadilha: conceito
+dif: 3
+enunciado: O OAuth 2.0 é protocolo de autenticação, e o token de acesso emitido pelo servidor de autorização serve para provar à aplicação cliente a identidade do usuário.
+comentario: Errado. O OAuth 2.0 é estrutura de autorização delegada: o token de acesso permite ao cliente acessar recursos em nome do titular, sem conhecer a senha dele. A autenticação fica com o OpenID Connect, camada de identidade sobre o OAuth 2.0 que acrescenta o token de identidade.
+
+=== si5-15
+gab: C
+ref: doutrina Identidade federada
+armadilha: sujeito
+dif: 3
+enunciado: No OAuth 2.0, o servidor de autorização emite tokens de acesso ao cliente depois do consentimento do proprietário do recurso, e o servidor de recursos aceita esses tokens para liberar os dados protegidos.
+comentario: Certo. Os quatro papéis são proprietário do recurso, cliente, servidor de autorização e servidor de recursos. O TCU 2026 (item 138) trocou o provedor de identidade do SAML pelo servidor de autorização do OAuth.
+
+=== si5-16
+gab: E
+ref: doutrina Testes de segurança
+armadilha: comparacao
+dif: 2
+enunciado: O teste de intrusão e a varredura automatizada de vulnerabilidades são a mesma atividade, pois ambos se limitam a listar falhas conhecidas, sem tentar explorá-las.
+comentario: Errado. A varredura lista vulnerabilidades conhecidas de forma automatizada. O teste de intrusão, autorizado e com escopo definido, tenta explorá-las para demonstrar o impacto real, combinando ferramentas e trabalho manual.
+
+=== si5-17
+gab: C
+ref: doutrina ISO/IEC 27002
+armadilha: conceito
+dif: 1
+enunciado: A gestão de vulnerabilidades técnicas envolve obter informações sobre as vulnerabilidades dos sistemas em uso, avaliar a exposição da organização e adotar medidas, como a aplicação de correções, priorizadas pelo risco.
+comentario: Certo: controle 8.8 da ISO/IEC 27002:2022. Muitos incidentes graves exploram falhas cuja correção já estava disponível havia meses.
+
+=== si5-18
+gab: E
+ref: doutrina Códigos maliciosos
+armadilha: comparacao
+dif: 2
+enunciado: O rootkit é código malicioso cuja principal característica é exibir mensagem de resgate ao usuário, informando que seus arquivos foram cifrados.
+comentario: Errado. O rootkit esconde a presença do invasor e de outros códigos maliciosos, em geral alterando componentes do sistema operacional. A mensagem de resgate é marca do ransomware.
+
+=== si5-19
+gab: C
+ref: doutrina Códigos maliciosos
+armadilha: conceito
+dif: 1
+enunciado: Botnet é conjunto de computadores comprometidos, controlados remotamente pelo atacante sem o conhecimento dos usuários, que pode ser usado em ataques de negação de serviço distribuídos e no envio de spam.
+comentario: Certo. Cada máquina infectada é um bot (ou zumbi) e recebe ordens de um servidor de comando e controle. Derrubar esse servidor é uma das formas de desativar a rede.
+
+=== si5-20
+gab: E
+ref: doutrina Engenharia social
+armadilha: conceito
+dif: 2
+enunciado: O spear phishing caracteriza-se pelo envio massivo e indiscriminado de mensagens genéricas, sem personalização, ao maior número possível de destinatários.
+comentario: Errado. O spear phishing é direcionado: usa informações sobre a vítima ou sua organização para parecer legítimo. Quando o alvo é dirigente de alto escalão, fala-se em whaling. O envio em massa é o phishing comum.
+
+=== si5-21
+gab: C
+ref: doutrina Continuidade de negócios
+armadilha: conceito
+dif: 2
+enunciado: A análise de impacto nos negócios identifica as atividades críticas e estima os efeitos de sua interrupção ao longo do tempo, subsidiando a definição de objetivos como o tempo de recuperação.
+comentario: Certo. É etapa da gestão de continuidade (ISO 22301). A avaliação de riscos diz o que pode parar; a análise de impacto diz quanto custa parar, e dela saem o RTO, o RPO e a ordem de recuperação.
+
+=== si5-22
+gab: E
+ref: doutrina Continuidade de negócios
+armadilha: extrapolacao
+dif: 2
+enunciado: O plano de continuidade de negócios torna dispensável o plano de resposta a incidentes, pois ambos tratam exclusivamente de falhas técnicas de tecnologia da informação.
+comentario: Errado. A continuidade mantém ou retoma as atividades críticas diante de qualquer interrupção, inclusive desastres, falta de pessoal e falha de fornecedores. A resposta a incidentes cuida de detectar, conter, erradicar e recuperar um incidente específico. Os planos se complementam.
+
+=== si5-23
+gab: C
+ref: doutrina ISO/IEC 27002
+armadilha: conceito
+dif: 2
+enunciado: Excluir arquivos ou formatar rapidamente uma mídia pode não eliminar os dados, que continuam recuperáveis; por isso, o descarte seguro exige sobrescrita, apagamento criptográfico ou destruição física, conforme a mídia.
+comentario: Certo: controles 7.14 (descarte ou reutilização segura de equipamentos) e 8.10 (exclusão de informações) da ISO/IEC 27002:2022. Na LGPD, os dados são eliminados após o término do tratamento, nos limites técnicos das atividades, ressalvadas as hipóteses de conservação (art. 16).
+
+=== si5-24
+gab: E
+ref: doutrina Gestão de chaves
+armadilha: conceito
+dif: 2
+enunciado: Em um sistema criptográfico, a segurança depende principalmente do sigilo do algoritmo utilizado, e não da proteção das chaves.
+comentario: Errado. Pelo princípio de Kerckhoffs, o sistema deve continuar seguro ainda que tudo, menos a chave, seja público. Por isso se usam algoritmos abertos e testados, como AES e RSA, e se cuida da gestão de chaves: geração, guarda, rotação e revogação.
+
+=== si5-25
+gab: C
+ref: doutrina Segurança de redes
+armadilha: conceito
+dif: 1
+enunciado: A rede privada virtual (VPN) cria túnel cifrado sobre rede pública, como a internet, protegendo a confidencialidade e a integridade dos dados em trânsito entre as pontas.
+comentario: Certo. A VPN protege o trânsito, não o dispositivo nem os dados em repouso: um notebook infectado conectado à VPN leva o problema para dentro da rede.
+
+=== si5-26
+gab: E
+ref: doutrina Segurança de redes
+armadilha: extrapolacao
+dif: 2
+enunciado: O firewall de aplicação web torna-se dispensável quando a aplicação usa HTTPS, pois a criptografia do canal impede ataques como injeção de SQL e cross-site scripting.
+comentario: Errado. O TLS protege o caminho, não o conteúdo: a requisição maliciosa chega cifrada e é decifrada pelo servidor como qualquer outra. Contra esses ataques valem a validação de entradas, as consultas parametrizadas e o firewall de aplicação.
+
+=== si5-27
+gab: C
+ref: doutrina ISO/IEC 27002
+armadilha: conceito
+dif: 1
+enunciado: Segmentar a rede, separando, por exemplo, os sistemas que tratam dados sensíveis do restante do ambiente, limita o movimento lateral do atacante e o alcance de eventual incidente.
+comentario: Certo: controle 8.22 (segregação de redes) da ISO/IEC 27002:2022. Menos alcance significa menos titulares afetados, fator que pesa na avaliação de gravidade do incidente.
+
+=== si5-28
+gab: E
+ref: doutrina Classificação da informação
+armadilha: sujeito
+dif: 2
+enunciado: Na classificação da informação, o rótulo de cada documento deve ser definido pela área de tecnologia da informação, por ser ela quem armazena os dados.
+comentario: Errado. Quem classifica é o proprietário da informação, conforme seu valor, sua sensibilidade e os requisitos legais (ISO/IEC 27002:2022, 5.12). A área de tecnologia é custodiante: aplica os controles que a classificação exige.
+
+=== si5-29
+gab: C
+ref: doutrina ISO/IEC 27002
+armadilha: conceito
+dif: 3
+enunciado: A inteligência de ameaças, controle incluído na ISO/IEC 27002:2022, consiste em coletar e analisar informações sobre ameaças à segurança da informação para subsidiar ações de mitigação.
+comentario: Certo: controle 5.7, um dos onze novos de 2022. A inteligência pode ser estratégica, tática ou operacional.
+
+=== si5-30
+gab: E
+ref: doutrina ISO/IEC 27002
+armadilha: conceito
+dif: 2
+enunciado: A sincronização dos relógios dos sistemas com fonte de tempo confiável é irrelevante para a investigação de incidentes, já que cada registro de evento guarda o próprio horário.
+comentario: Errado. Sem relógios sincronizados (controle 8.17 da ISO/IEC 27002:2022), não se correlacionam eventos de sistemas diferentes nem se prova a sequência dos fatos. Registro com horário errado vale pouco como evidência.
+
+=== si5-31
+gab: C
+ref: doutrina Sandbox
+armadilha: comparacao
+dif: 2
+enunciado: Em segurança da informação, sandbox é ambiente isolado para executar e analisar código suspeito sem expor o sistema principal, sentido que não se confunde com o do sandbox regulatório da LC nº 182/2021.
+comentario: Certo. O sandbox regulatório é ambiente experimental em que o regulador afasta temporariamente normas para testar modelos de negócio inovadores (LC 182/2021, art. 2º, II, e art. 11). A palavra é a mesma; a matéria, outra.
+
+=== si5-32
+gab: E
+ref: doutrina Autenticação biométrica
+armadilha: absoluto
+dif: 2
+enunciado: A autenticação biométrica é imune a falsificação e dispensa outros fatores, pois as características físicas de cada pessoa são únicas.
+comentario: Errado. A biometria pode ser fraudada com moldes, fotos ou gravações, e, se vazar, não pode ser trocada como uma senha. Para a LGPD, o dado biométrico é dado pessoal sensível (art. 5º, II).
