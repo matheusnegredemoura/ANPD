@@ -562,3 +562,26 @@ button.dom-linha{appearance:none;border:0;background:none;width:100%;padding:0;t
 .tempo-col span{font-size:.72rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .tempo-col.hoje span{color:var(--ink);font-weight:600}
 .tempo-meta{position:absolute;left:-2px;right:-2px;height:0;border-top:2px dashed var(--ink-3);z-index:1}
+
+/* Para encaixar: pendências de dias anteriores, em tom neutro (sem vermelho de atraso) */
+.pend{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;padding:10px 0;border-top:1px solid var(--line)}
+.pend-txt{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 220px}
+.pend-txt>span:first-of-type{color:var(--ink-2);font-size:.9rem}
+.pend .linha-btns{align-items:center}
+
+/* Jornada: missões do dia, baú e chefão da semana */
+.missoes{display:flex;flex-direction:column;gap:10px;margin:6px 0 10px}
+.missao{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:10px}
+.missao .m-ic{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--gold-bg);color:var(--gold);font-size:.9rem}
+.missao.ok .m-ic{background:var(--certo-bg);color:var(--certo)}
+.missao .m-txt{display:flex;flex-direction:column;gap:5px;min-width:0}
+.missao .m-txt b{font-weight:600;font-size:.92rem}
+.missao.ok .m-txt b{color:var(--ink-2)}
+.missao .mono{font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.chefe{margin-top:12px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);display:flex;flex-direction:column;gap:8px}
+.chefe-cab{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.chefe.vencido{opacity:.75}
+.trofeus{display:flex;flex-direction:column;gap:8px}
+.trofeu{display:flex;gap:10px;align-items:flex-start}
+.trofeu>span{color:var(--gold);font-size:1.2rem;line-height:1.2}
+.trofeu>div{display:flex;flex-direction:column}

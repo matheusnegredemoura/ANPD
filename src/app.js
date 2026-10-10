@@ -695,6 +695,8 @@ function registrar(q, resp, duvida) {
   if (estavaNaLista && r[0] >= 3) S.perfil.saidos = (S.perfil.saidos || 0) + 1;
   const d = diaLog();
   if (resp === BRANCO) d.b = (d.b || 0) + 1; else { d.r++; if (ok) d.c++; else d.e++; }
+  if (antes < 0 && resp !== BRANCO) d.ni = (d.ni || 0) + 1;
+  if (ok) golpeChefe(q);
   if (eraManutencao) { d.m = (d.m || 0) + 1; if (ok && !duvida) d.mc = (d.mc || 0) + 1; }
   if (pontual) { d.mp = (d.mp || 0) + 1; if (ok && !duvida) d.mpc = (d.mpc || 0) + 1; }
   if (ok === false) sugerirPesquisaDoErro(q);
@@ -711,6 +713,7 @@ function ganharXP(x) {
 function verificarMeta() {
   const d = diaLog();
   if (!d.metaOk && d.r >= S.perfil.meta) { d.metaOk = 1; ganharXP(50); avisar('M', 'Meta do dia cumprida', '+50 XP de bônus'); conquistar('meta'); }
+  verificarRPG();
 }
 function conquistar(id) {
   if (S.perfil.conq[id]) return;
@@ -779,6 +782,7 @@ function avaliarCard(id, nota) {
   const d = diaLog();
   d.k = (d.k || 0) + 1;
   if (novo) d.n = (d.n || 0) + 1;
+  verificarRPG();
   return novo;
 }
 function cardsVencidos(blocos) {
@@ -1127,6 +1131,7 @@ function responder(resp) {
   let x = 0;
   if (ok) { sessao.combo++; sessao.comboMax = Math.max(sessao.comboMax, sessao.combo); x = xpAcerto(q, sessao.combo, sessao.modo); }
   else sessao.combo = 0;
+  { const dl = diaLog(); if (sessao.combo > (dl.cmb || 0)) dl.cmb = sessao.combo; }
   if (sessao.comboMax > (S.perfil.recordes.combo || 0)) S.perfil.recordes.combo = sessao.comboMax;
   sessao.xp += x;
   ganharXP(x);
@@ -1203,7 +1208,12 @@ function finalizar() {
     sessao.ids.forEach((id) => { const r = sessao.resp[id]; if (!r) return; if (r === QI.get(id).g) c++; else e++; });
     if (c - e > (S.perfil.recordes.relampago || 0)) { S.perfil.recordes.relampago = c - e; sessao.recorde = true; }
   }
-  if (sessao.dia) S.perfil.feitos[sessao.dia] = 1;
+  if (sessao.dia) {
+    // Sessão de um dia anterior do plano: conta para a missão de encaixar pendências
+    if (/^\d{4}-\d{2}-\d{2}$/.test(sessao.dia) && sessao.dia < hojeISO() && !S.perfil.feitos[sessao.dia]) { const d = diaLog(); d.pd = (d.pd || 0) + 1; }
+    S.perfil.feitos[sessao.dia] = 1;
+    verificarRPG();
+  }
   atualizarPausa();
   verificarConquistas();
   Store.salvarTudo();
@@ -1359,6 +1369,146 @@ function roteiroHoje() {
       '<button class="btn pequeno" data-acao="mais" data-sub="pesquisar">Minha lista (' + Object.values(S.pesquisa).filter((p) => !p.s).length + ')</button>' });
   return { dia, passos };
 }
+/* ================= Para encaixar: o que ficou de dias anteriores ================= */
+// Sessões do plano de dias anteriores que não foram concluídas e a leitura desses dias que nunca foi aberta. Não é
+// cobrança: o card vem depois do roteiro, sem contador de atraso, e cada pendência pode ser feita agora, continuada de
+// onde parou ou dispensada (quando o assunto já foi visto por outro caminho). Vale o que é das últimas três semanas e
+// posterior ao início do uso do app; o que for mais antigo sai sozinho, para a lista não virar uma montanha.
+const PENDENCIAS_DIAS = 21;
+function pendencias() {
+  const h = hojeISO(), ini = S.perfil.criado || h, desde = isoDeNum(HOJE() - PENDENCIAS_DIAS);
+  const disp = S.perfil.dispensados || {}, lidos = S.perfil.lidos || {};
+  const out = [];
+  for (const dia of DIAS) {
+    if (dia.data >= h || dia.data < ini || dia.data < desde || disp[dia.data]) continue;
+    const sessao = !S.perfil.feitos[dia.data];
+    const ler = leituraDoDia(dia).arts.filter((k) => !lidos[k]);
+    if (sessao || ler.length) out.push({ dia, sessao, ler });
+  }
+  return out;
+}
+function cartaoPendencias() {
+  const p = pendencias();
+  if (!p.length) return '';
+  const linhas = p.slice(0, 3).map((x) => {
+    const oque = [x.sessao ? (x.dia.modo === 'simulado' ? 'o simulado' : x.dia.modo === 'revisao' ? 'a sessão de revisão' : 'a sessão de ' + x.dia.n + ' itens') : '', x.ler.length ? pl(x.ler.length, 'artigo da leitura', 'artigos da leitura') : ''].filter(Boolean).join(' e ');
+    return '<div class="pend"><div class="pend-txt"><b>' + esc(fmtData(x.dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</b><span>' + esc(x.dia.atividade) + '</span><span class="pequeno mudo">Falta ' + esc(oque) + '.</span></div>' +
+      '<div class="linha-btns">' + (x.sessao ? '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + x.dia.data + '">' + esc(rotuloPausa(x.dia.data, 'Fazer agora')) + '</button>' : '') +
+      (x.ler.length ? '<button class="btn pequeno" data-acao="ler-pendente" data-dia="' + x.dia.data + '">Ler ' + x.ler.length + '</button>' : '') +
+      '<button class="linkish pequeno" data-acao="dispensar-dia" data-dia="' + x.dia.data + '">Dispensar</button></div></div>';
+  }).join('');
+  return '<div class="cartao pendencias"><div class="secao-cab"><h2>Para encaixar</h2><span class="mono pequeno mudo">' + p.length + '</span></div>' +
+    '<p class="pequeno mudo">Ficou de dias anteriores. Sem pressa: o plano tem folga. Encaixe quando sobrar tempo, de preferência a mais antiga primeiro, ou dispense o que você já viu por outro caminho. Fazer uma delas conta como missão do dia.</p>' +
+    linhas + (p.length > 3 ? '<p class="pequeno mudo">E mais ' + pl(p.length - 3, 'dia', 'dias') + ' depois desses.</p>' : '') + '</div>';
+}
+
+/* ================= Jornada: missões do dia e chefão da semana ================= */
+// Camada leve de RPG em cima do estudo de verdade. Três missões por dia, sorteadas de um repertório com metas que o
+// roteiro já pede (itens, acerto, leitura, cards, tempo, pendências); cumprir as três abre o baú do dia. Toda semana um
+// chefão encarna o bloco em que você está mais fraco: cada acerto em item desse bloco tira 1 de vida, e quem o derrota
+// ganha XP e um troféu. Nada disso tira XP, e missão não feita não acumula para o dia seguinte.
+const MISSOES = [
+  { id: 'q30', txt: 'Responder 30 itens', xp: 30, meta: 30, val: (d) => d.r || 0 },
+  { id: 'q60', txt: 'Responder 60 itens', xp: 60, meta: 60, val: (d) => d.r || 0 },
+  { id: 'novas', txt: 'Responder 20 itens inéditos', xp: 40, meta: 20, val: (d) => d.ni || 0 },
+  { id: 'acerto', txt: 'Acertar 80% de pelo menos 20 itens', xp: 40, meta: 1, val: (d) => ((d.r || 0) >= 20 && d.c / d.r >= 0.8 ? 1 : 0), fr: (d) => Math.min(1, (d.r || 0) / 20) },
+  { id: 'combo', txt: 'Acertar 10 seguidos', xp: 30, meta: 10, val: (d) => d.cmb || 0 },
+  { id: 'lei5', txt: 'Ler 5 artigos da lei seca', xp: 30, meta: 5, val: (d) => (d.a || []).length },
+  { id: 'cards20', txt: 'Revisar 20 cards', xp: 30, meta: 20, val: (d) => d.k || 0 },
+  { id: 'tempo60', txt: 'Estudar 1 hora', xp: 40, meta: 60, val: (d) => Math.floor(segundosEstudo(d) / 60) },
+  { id: 'pesq', txt: 'Investigar um tema da lista Para pesquisar', xp: 30, meta: 1, val: () => Object.values(S.pesquisa).filter((p) => p.s && p.f === hojeISO()).length },
+  { id: 'pend', txt: 'Encaixar uma sessão que ficou para trás', xp: 60, meta: 1, val: (d) => d.pd || 0, so: () => pendencias().some((x) => x.sessao) },
+];
+const MI = new Map(MISSOES.map((m) => [m.id, m]));
+const BAU_XP = 50, CHEFE_VIDA = 15, CHEFE_XP = 150;
+const CHEFES = { lgpd: 'O Vazador de Dados', regulacao: 'O Regulador Capturado', direito: 'O Burocrata Sem Motivação', linguas: 'A Esfinge dos Conectivos', seginfo: 'O Ransomware', gestao: 'O Risco Sem Dono', eca: 'O Algoritmo Viciante', economia: 'O Monopolista', comparado: 'O Exportador Sem Adequação' };
+function hashTxt(t) { let h = 2166136261; for (const c of t) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
+// As missões do dia são sorteadas uma vez (pela data) e ficam guardadas; a de pendência entra sempre que houver
+// sessão para encaixar, e nunca saem duas de "responder N itens" no mesmo dia
+function missoesHoje() {
+  const h = hojeISO(), rpg = (S.perfil.rpg ||= {}), m = (rpg.m ||= {});
+  if (!m[h]) {
+    const pool = MISSOES.filter((x) => !x.so || x.so());
+    const ids = pool.some((x) => x.id === 'pend') ? ['pend'] : [];
+    for (const x of pool.filter((y) => y.id !== 'pend').sort((a, b) => hashTxt(h + a.id) - hashTxt(h + b.id))) {
+      if (ids.length >= 3) break;
+      if (x.id.startsWith('q') && /^q\d/.test(x.id) && ids.some((i) => /^q\d/.test(i))) continue;
+      ids.push(x.id);
+    }
+    m[h] = { ids, ok: {} };
+    const limite = isoDeNum(HOJE() - 14);
+    for (const k of Object.keys(m)) if (k < limite) delete m[k];
+  }
+  return m[h];
+}
+function verificarRPG() {
+  const d = diaLog(), mh = missoesHoje();
+  let mudou = false;
+  for (const id of mh.ids) {
+    const x = MI.get(id);
+    if (!x || mh.ok[id] || x.val(d) < x.meta) continue;
+    mh.ok[id] = 1; mudou = true;
+    ganharXP(x.xp);
+    avisar('★', 'Missão cumprida', x.txt + ' · +' + x.xp + ' XP');
+  }
+  if (!mh.bau && mh.ids.length && mh.ids.every((id) => mh.ok[id])) {
+    mh.bau = 1; mudou = true;
+    ganharXP(BAU_XP);
+    avisar('◆', 'Baú do dia aberto', 'As três missões de hoje: +' + BAU_XP + ' XP');
+  }
+  if (mudou) Store.salvar('perfil');
+}
+function semanaAtual() { return isoDeNum(HOJE() - ((diaSemana(hojeISO()) + 6) % 7)); }
+function nomeChefe(bloco) { const b = BI.get(bloco); return CHEFES[b && b.disciplina] || 'O Chefão'; }
+// Chefão da semana (de segunda a domingo): o bloco mais fraco entre os já praticados (5 ou mais itens respondidos),
+// sem repetir o da semana anterior; quem ainda não praticou nada enfrenta o bloco mais fraco da prioridade 1
+function chefeDaSemana() {
+  const rpg = (S.perfil.rpg ||= {}), sem = semanaAtual();
+  if (!rpg.chefe || rpg.chefe.sem !== sem) {
+    const anterior = rpg.chefe && rpg.chefe.bloco;
+    const cand = BLOCOS.filter((b) => !FORA_DA_PROVA.has(b.id) && (POR_BLOCO.get(b.id) || []).length >= 20 && b.id !== anterior).map((b) => ({
+      b, dom: dominioBloco(b.id) || 0, resp: POR_BLOCO.get(b.id).filter((q) => { const r = rec(q.id); return r && r[0] >= 0; }).length,
+    }));
+    const praticados = cand.filter((x) => x.resp >= 5);
+    const alvo = (praticados.length ? praticados : cand.filter((x) => P1.includes(x.b.id))).sort((a, b) => a.dom - b.dom)[0] || cand[0];
+    rpg.chefe = { sem, bloco: alvo.b.id, vida: CHEFE_VIDA };
+  }
+  return rpg.chefe;
+}
+function golpeChefe(q) {
+  const c = chefeDaSemana();
+  if (c.vencido || q.b !== c.bloco) return;
+  c.vida = Math.max(0, c.vida - 1);
+  if (c.vida) return;
+  c.vencido = hojeISO();
+  ganharXP(CHEFE_XP);
+  (S.perfil.rpg.trofeus ||= []).unshift({ sem: c.sem, bloco: c.bloco, data: hojeISO() });
+  avisar('♛', 'Chefão derrotado', nomeChefe(c.bloco) + ' (' + nomeBloco(c.bloco) + ') caiu. +' + CHEFE_XP + ' XP e um troféu');
+}
+function cartaoJornada() {
+  const d = S.perfil.dias[hojeISO()] || {}, mh = missoesHoje(), c = chefeDaSemana();
+  const feitas = mh.ids.filter((id) => mh.ok[id]).length;
+  const missoes = mh.ids.map((id) => {
+    const x = MI.get(id);
+    if (!x) return '';
+    const v = x.val(d), ok = !!mh.ok[id], f = ok ? 1 : x.fr ? x.fr(d) : Math.min(1, v / x.meta);
+    return '<div class="missao' + (ok ? ' ok' : '') + '"><span class="m-ic" aria-hidden="true">' + (ok ? '✓' : '★') + '</span><div class="m-txt"><b>' + esc(x.txt) + '</b>' + barra(f, 'ouro') + '</div>' +
+      '<span class="mono pequeno">' + (ok ? '+' + x.xp + ' XP' : x.fr ? (d.r || 0) + '/20' : Math.min(v, x.meta) + '/' + x.meta) + '</span></div>';
+  }).join('');
+  const chefe = '<div class="chefe' + (c.vencido ? ' vencido' : '') + '"><div class="chefe-cab"><b>' + esc(nomeChefe(c.bloco)) + '</b><span class="mono pequeno">' + (c.vencido ? 'derrotado' : c.vida + '/' + CHEFE_VIDA + ' de vida') + '</span></div>' +
+    '<span class="pequeno">' + esc(nomeBloco(c.bloco)) + '</span>' +
+    barra(c.vida / CHEFE_VIDA, '', '--accent:var(--errado)') +
+    '<p class="pequeno mudo">' + (c.vencido ? 'Derrotado. Outro aparece na segunda-feira; o troféu está em Mais → Progresso.' : 'O chefão da semana é o bloco em que você está mais fraco agora. Cada acerto em item desse bloco, em qualquer sessão, tira 1 de vida; derrotá-lo até domingo vale +' + CHEFE_XP + ' XP e um troféu.') + '</p>' +
+    (c.vencido ? '' : '<div class="linha-btns"><button class="btn pequeno primario" data-acao="enfrentar-chefe">' + esc(rotuloPausa('chefe:' + c.sem, 'Enfrentar · 15 itens')) + '</button></div>') + '</div>';
+  return '<div class="cartao jornada"><div class="secao-cab"><h2>Jornada</h2><span class="mono pequeno mudo">' + feitas + ' de ' + mh.ids.length + ' missões' + (mh.bau ? ' · baú aberto' : '') + '</span></div>' +
+    '<div class="missoes">' + missoes + '</div><p class="pequeno mudo">' + (mh.bau ? 'Baú do dia aberto: +' + BAU_XP + ' XP. Amanhã tem missões novas.' : 'Cumpra as três para abrir o baú do dia (+' + BAU_XP + ' XP). Missão não feita não acumula: amanhã são outras.') + '</p>' + chefe + '</div>';
+}
+function cartaoTrofeus() {
+  const t = (S.perfil.rpg && S.perfil.rpg.trofeus) || [];
+  return '<div class="cartao"><div class="secao-cab"><h2>Chefões derrotados</h2><span class="mono pequeno mudo">' + t.length + '</span></div>' +
+    (t.length ? '<div class="trofeus">' + t.slice(0, 30).map((x) => '<div class="trofeu"><span aria-hidden="true">♛</span><div><b>' + esc(nomeChefe(x.bloco)) + '</b><span class="pequeno">' + esc(nomeBloco(x.bloco)) + '</span><span class="pequeno mudo">semana de ' + esc(fmtData(x.sem, { day: '2-digit', month: '2-digit' })) + ' · derrotado em ' + esc(fmtData(x.data, { day: '2-digit', month: '2-digit' })) + '</span></div></div>').join('') + '</div>'
+      : '<p class="pequeno mudo">Nenhum ainda. O chefão da semana está no painel, no card Jornada.</p>') + '</div>';
+}
 function renderHoje() {
   const ctx = contextoHoje();
   const d = diaLog();
@@ -1397,7 +1547,8 @@ function renderHoje() {
   if (ctx.tipo === 'dia') fora.add(ctx.dia.data);
   const stH = subtemaDoDia();
   if (stH) fora.add('t:' + stH.id + ':' + (estadoSubtema(stH.id).novos ? 'pre' : 'pratica'));
-  document.getElementById('vista-hoje').innerHTML = topo + cartaoPausas(fora) + cartaoTempo() + roteiro + nivel + modos + edital + '<p class="sync" id="sync"></p>';
+  verificarRPG();
+  document.getElementById('vista-hoje').innerHTML = topo + cartaoPausas(fora) + cartaoTempo() + roteiro + cartaoPendencias() + cartaoJornada() + nivel + modos + edital + '<p class="sync" id="sync"></p>';
   atualizarRodapeSync();
 }
 function atualizarRodapeSync() {
@@ -1918,6 +2069,7 @@ function marcarLido(art) {
   if (!d.a.includes(art)) d.a.push(art);
   if (!S.perfil.lidos[art]) S.perfil.lidos[art] = hojeISO();
   verificarConquistas();
+  verificarRPG();
   Store.salvar('perfil');
 }
 // Item real do Cebraspe sobre o artigo pesa mais que questão autoral: mostra o que a banca de fato cobra
@@ -2204,6 +2356,7 @@ function renderProgresso() {
   if (S.simulados.length) html += '<div class="cartao"><h2>Simulados</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Data</th><th>Itens</th><th>C</th><th>E</th><th>Nota</th></tr></thead><tbody>' + S.simulados.slice(0, 12).map((s) => '<tr><td>' + esc(fmtData(s.data, { day: '2-digit', month: '2-digit' })) + '</td><td class="num">' + s.n + '</td><td class="num">' + s.c + '</td><td class="num">' + s.e + '</td><td class="num">' + s.liq + ' (' + pct(s.liq, s.n) + '%)</td></tr>').join('') + '</tbody></table></div></div>';
   html += '<div class="secao"><div class="secao-cab"><h2>Conquistas</h2><span class="mudo pequeno">' + Object.keys(S.perfil.conq).length + ' de ' + CONQ.length + '</span></div><div class="conquistas">' +
     CONQ.map((c) => '<div class="conquista' + (S.perfil.conq[c.id] ? '' : ' bloqueada') + '"><div class="ic">' + esc(c.ic) + '</div><b>' + esc(c.nome) + '</b><span>' + esc(c.desc) + '</span></div>').join('') + '</div></div>';
+  html += cartaoTrofeus();
   return html;
 }
 function mapaCalor() {
@@ -2298,6 +2451,7 @@ function renderMetodo() {
     '<h3>Regras que não se negociam</h3><ul>' +
     '<li>O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça. Cada revisão traz só o que venceu: o que você já reviu hoje espera o próximo intervalo.</li>' +
     '<li>Interpretação de texto (português e inglês) não volta na revisão: reler o mesmo texto ensina o gabarito, não a leitura. No lugar, as sessões trazem textos inéditos.</li>' +
+    '<li>O que ficou de dias anteriores aparece em “Para encaixar”, depois do roteiro: a sessão do plano não concluída e os artigos da leitura nunca abertos. Faça quando sobrar tempo ou dispense o que já viu por outro caminho. Não há contador de atraso, e o que tem mais de três semanas sai sozinho.</li>' +
     '<li>O acerto também volta, para confirmar que não foi sorte: o acerto de primeira volta em cerca de 16 dias, e cada confirmação seguinte espaça mais (cerca de 35 dias). Os intervalos se adaptam: o item que você já errou ou acertou com dúvida volta antes, e a sua retenção real nas revisões calibra todos os prazos para mirar 90% de lembrança (Mais → Progresso). Esses acertos antigos entram na revisão do dia, no máximo ' + MANUTENCAO_DIA + ' por dia, os mais atrasados primeiro, e ocupam até um quarto das sessões de questões.</li>' +
     '<li>Intercale. Todo dia há uma sessão que mistura as matérias básicas com os blocos já estudados. Assunto novo entra em bloco; o que você já viu volta misturado, porque misturar obriga a reconhecer o tipo de questão e fixa mais (prática intercalada, somada à revisão espaçada e à recuperação ativa).</li>' +
     '<li>Revisão vem antes de questão nova. Quando a lista curta vencida passa de ' + REVISOES_DIA_PESADO + ' itens, a sessão de questões novas do dia encolhe sozinha.</li>' +
@@ -2680,6 +2834,14 @@ document.addEventListener('click', async (ev) => {
       ir(alvo.dataset.vista); break;
     case 'mais': fecharFolha(); UI.mais = alvo.dataset.sub || 'menu'; if (UI.vista !== 'mais') ir('mais'); else { renderMais(); window.scrollTo(0, 0); } break;
     case 'iniciar-dia': iniciarDia(alvo.dataset.dia); break;
+    case 'ler-pendente': { const x = pendencias().find((y) => y.dia.data === alvo.dataset.dia); if (x && x.ler.length) abrirArtigo(x.ler[0], x.ler); break; }
+    case 'dispensar-dia': {
+      (S.perfil.dispensados ||= {})[alvo.dataset.dia] = hojeISO();
+      Store.salvar('perfil'); renderHoje();
+      avisar('✓', 'Pendência dispensada', 'O dia ' + fmtData(alvo.dataset.dia, { day: '2-digit', month: '2-digit' }) + ' saiu da lista. O que você estudou dele continua contando.');
+      break;
+    }
+    case 'enfrentar-chefe': { const c = chefeDaSemana(); iniciarSessao({ modo: 'treino', n: 15, blocos: [c.bloco], filtro: 'mistas', titulo: 'Chefão: ' + nomeChefe(c.bloco), chave: 'chefe:' + c.sem }); break; }
     case 'iniciar-revisao': iniciarSessao({ modo: 'revisao', n: 30, chave: 'rev' }); break;
     case 'intercaladas': if (retomarPausa('i:' + hojeISO())) break; iniciarSessao({ modo: 'treino', intercalado: true, n: nIntercaladas(), titulo: 'Questões intercaladas', dia: 'i:' + hojeISO() }); break;
     case 'treino-rapido': iniciarSessao({ modo: 'treino', n: 20, blocos: [], filtro: 'mistas', chave: 'rapido' }); break;
