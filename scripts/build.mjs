@@ -149,6 +149,9 @@ export function montarDados() {
   }
   // Trilhas: subtemas únicos, artigos existentes e todo tema de trilha usado nas questões precisa existir
   const trilhas = JSON.parse(ler('dados', 'trilhas.json')).trilhas;
+  // Respostas às contestações: chegam com o banco, mesmo quando a contestação não conseguiu ir para a conta
+  const respostasContest = JSON.parse(ler('dados', 'contestacoes-respostas.json'));
+  for (const id of Object.keys(respostasContest)) if (!ids.has(id)) errosCb.push(`contestacoes-respostas.json: item inexistente ${id}`);
   const subtemas = new Set();
   const prefixos = new Set();
   for (const t of trilhas) {
@@ -207,6 +210,7 @@ export function montarDados() {
     trilhas,
     cloze,
     glossario: gloss,
+    respostasContest,
   };
 }
 

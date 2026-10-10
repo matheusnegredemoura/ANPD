@@ -2323,6 +2323,17 @@ const MOTIVOS_CONTEST = [['gabarito', 'O gabarito está errado'], ['comentario',
 const STATUS_CONTEST = { aberta: 'aberta', pendente: 'aguardando envio', procedente: 'procedente, item corrigido', improcedente: 'improcedente', anulado: 'item retirado do banco' };
 const CONTEST = lerLS(CHAVE_CONTEST) || [];
 function gravarContest() { gravarLS(CHAVE_CONTEST, CONTEST); }
+// Respostas que vêm com o banco: valem para a contestação daquele item feita até a data da resposta, mesmo que ela
+// nunca tenha chegado à conta (status "aguardando envio")
+(function aplicarRespostasDoBanco() {
+  let mudou = false;
+  for (const c of CONTEST) {
+    const r = (D.respostasContest || {})[c.q];
+    if (!r || (c.status !== 'aberta' && c.status !== 'pendente') || String(c.data).slice(0, 10) > r.data) continue;
+    c.status = r.status; c.resposta = r.resposta; mudou = true;
+  }
+  if (mudou) gravarContest();
+})();
 function folhaContestar(id) {
   const q = QI.get(id), ct = CONTEST.find((x) => x.q === id);
   let html = cabFolha('Contestar item', id) + (q ? '<p class="enunciado">' + esc(q.e) + '</p><p class="pequeno mudo">Gabarito ' + nomeGab(q) + ' · ' + esc(q.r) + '</p>' : '<p class="mudo">Este item não está mais no banco.</p>');
