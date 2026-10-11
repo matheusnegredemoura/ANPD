@@ -1,10 +1,14 @@
 // Para encaixar e Jornada:
 // - sessão do plano de dia anterior não concluída aparece em "Para encaixar" e pode ser dispensada;
-// - as três missões do dia são cumpridas pelo que já foi feito no dia, e o baú abre com o XP somado;
-// - acerto em item do bloco do chefão da semana tira 1 de vida, e a tela da resposta mostra o golpe;
-// - o resultado da sessão mostra o que ela rendeu (golpes no chefão, domínio que subiu);
+// - as três missões do dia são cumpridas pelo que já foi feito no dia, e o baú abre com o XP somado e um item;
+// - na batalha contra o chefão, acerto causa dano e erro custa um coração; sem corações, derrota (o dano fica);
+// - o golpe final derruba o chefão, registra o troféu e dá um item, que vai para o inventário e é equipado;
 // - a sequência de dias não zera com uma folga por semana (de segunda a sábado), e domingo não quebra.
 import { APP, abrirNavegador, placar, vigiarErros } from './comum.mjs';
+import { lerTodas } from '../lib/questoes.mjs';
+import { fileURLToPath } from 'node:url';
+
+const RAIZ = fileURLToPath(new URL('../..', import.meta.url));
 
 const browser = await abrirNavegador();
 const { conferir, passo, fim } = placar();
@@ -51,44 +55,73 @@ await passo('missões cumpridas pelo que já foi feito no dia abrem o baú', asy
     (h) => ({ 'tema teste': { t: 'Tema teste', o: 'teste', s: 1, d: h, f: h } }));
   const ok = await p.locator('.cartao.jornada .missao.ok').count();
   if (ok !== 3) throw new Error(ok + ' missões cumpridas (esperado 3)');
-  const cab = (await p.textContent('.cartao.jornada .secao-cab .mono')).trim();
-  if (!/baú aberto/.test(cab)) throw new Error('baú não abriu: ' + cab);
+  const card = await p.textContent('.cartao.jornada');
+  if (!/Baú aberto/.test(card)) throw new Error('baú não abriu: ' + card.slice(0, 200));
   const d = await salvo(p);
   const h = isoLocal(new Date());
   const m = d.perfil.rpg.m[h];
   if (!m || !m.bau || Object.keys(m.ok).length !== 3) throw new Error('estado das missões: ' + JSON.stringify(m));
   if (!(d.perfil.xp >= 50 + 3 * 30)) throw new Error('XP não somado: ' + d.perfil.xp);
+  if (!m.item || !d.perfil.rpg.inv[m.item]) throw new Error('baú sem item no inventário: ' + JSON.stringify(d.perfil.rpg));
   await ctx.close();
 });
 
-await passo('acerto em item do bloco do chefão tira 1 de vida', async () => {
+// Gabarito tirado do próprio banco, para o teste acertar ou errar de propósito
+const GAB = new Map(lerTodas(RAIZ).map((q) => [q.id, q.gab]));
+async function responder(p, certo) {
+  const id = (await p.textContent('.item-num')).trim(), g = GAB.get(id);
+  if (await p.locator('button.alt').count()) {
+    const letras = 'ABCDE', alvo = certo ? g : letras.split('').find((l) => l !== g);
+    await p.locator('button.alt').nth(letras.indexOf(alvo)).click();
+  } else await p.click(certo === (g === 'C') ? '.bolha.c' : '.bolha.e');
+  await p.waitForSelector('.veredito');
+}
+
+await passo('na batalha, acerto causa dano no chefão e erro custa um coração', async () => {
   const { ctx, p } = await abrir(() => ({}), () => ({}));
   const vida0 = (await p.textContent('.chefe .chefe-cab .mono')).trim();
-  if (!/^15\/15/.test(vida0)) throw new Error('vida inicial: ' + vida0);
+  if (vida0 !== 'HP 300/300') throw new Error('vida inicial: ' + vida0);
   await p.click('[data-acao="enfrentar-chefe"]');
-  await p.waitForSelector('#sessao:not([hidden])');
-  let acertou = false;
-  for (let i = 0; i < 15 && !acertou; i++) {
-    if (await p.locator('button.alt').count()) await p.locator('button.alt').first().click(); else await p.click('.bolha.c');
-    await p.waitForSelector('.veredito');
-    acertou = (await p.locator('.veredito.ok').count()) > 0;
-    if (!acertou) await p.click('[data-acao="proximo"]');
-  }
-  if (!acertou) throw new Error('nenhum acerto em 15 itens');
+  await p.waitForSelector('.arena');
+  await responder(p, true);
+  const dano = (await p.textContent('.arena .dano')).trim();
   const c = (await salvo(p)).perfil.rpg.chefe;
-  if (c.vida !== 14) throw new Error('vida depois de um acerto: ' + c.vida);
-  const golpe = (await p.textContent('.extra-resp.golpe')) || '';
-  if (!/14\/15/.test(golpe)) throw new Error('golpe não aparece na resposta: ' + golpe);
-  // Vai até o resultado: o cartão do que a sessão rendeu conta o golpe
-  for (let i = 0; i < 20 && !(await p.locator('.cartao.ganhos').count()); i++) {
-    if (!(await p.locator('.veredito').count())) {
-      if (await p.locator('button.alt').count()) await p.locator('button.alt').first().click(); else await p.click('.bolha.c');
-    }
+  if (!(c.vida < 300) || !/−\d+/.test(dano)) throw new Error('dano: ' + dano + ' · vida ' + c.vida);
+  await p.click('[data-acao="proximo"]');
+  await responder(p, false);
+  const cheios = await p.locator('.arena .cor.cheio').count(), total = await p.locator('.arena .cor').count();
+  if (cheios !== total - 1) throw new Error('corações depois de um erro: ' + cheios + ' de ' + total);
+  // Erra até acabar os corações: a batalha termina em derrota, e o dano causado fica
+  for (let i = 0; i < 10 && !(await p.locator('.batalha-fim').count()); i++) {
     await p.click('[data-acao="proximo"]');
+    if (await p.locator('.batalha-fim').count()) break;
+    await responder(p, false);
   }
-  await p.waitForSelector('.cartao.ganhos');
-  const ganhos = await p.textContent('.cartao.ganhos');
-  if (!/golpe/.test(ganhos)) throw new Error('resultado sem o golpe no chefão: ' + ganhos);
+  const fim = await p.textContent('.batalha-fim h2');
+  if (fim !== 'Derrota') throw new Error('fim da batalha: ' + fim);
+  if ((await salvo(p)).perfil.rpg.chefe.vida !== c.vida) throw new Error('a vida do chefão mudou depois da derrota');
+  await ctx.close();
+});
+
+await passo('golpe final derruba o chefão e dá um item, que é equipado', async () => {
+  // Chefão desta semana quase no chão, no bloco de conceitos da LGPD
+  const { ctx, p } = await abrir((h) => {
+    const d = new Date(h + 'T12:00:00'), seg = new Date(d - ((d.getDay() + 6) % 7) * 864e5);
+    const sem = seg.getFullYear() + '-' + String(seg.getMonth() + 1).padStart(2, '0') + '-' + String(seg.getDate()).padStart(2, '0');
+    return { rpg: { chefe: { sem, bloco: 'lgpd-5-11', vida: 5, max: 300 } } };
+  }, () => ({}));
+  await p.click('[data-acao="enfrentar-chefe"]');
+  await p.waitForSelector('.arena');
+  await responder(p, true);
+  await p.click('[data-acao="proximo"]');
+  await p.waitForSelector('.batalha-fim');
+  const fim = await p.textContent('.batalha-fim h2');
+  if (fim !== 'Vitória') throw new Error('fim da batalha: ' + fim);
+  if (!(await p.locator('.batalha-fim .item-rpg').count())) throw new Error('vitória sem saque');
+  const r = (await salvo(p)).perfil.rpg;
+  if (!r.chefe.vencido || !(r.trofeus || []).length) throw new Error('chefão não registrado como derrotado');
+  const inv = Object.keys(r.inv || {});
+  if (inv.length !== 1 || !Object.values(r.eq || {}).includes(inv[0])) throw new Error('item não foi para o inventário e o equipamento: ' + JSON.stringify(r));
   await ctx.close();
 });
 

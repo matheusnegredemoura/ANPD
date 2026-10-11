@@ -616,3 +616,88 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .extra-resp>span{color:var(--gold);font-weight:700}
 .extra-resp.golpe>span{color:var(--errado)}
 .icone-btn.som[aria-pressed="true"]{color:var(--accent)}
+/* RPG: raridades, arena de batalha, herói, saque e ficha do personagem */
+:root{--r-comum:#5f716a;--r-raro:#2563c4;--r-epico:#7c3aad;--r-lend:#9a5f06;--hp:#c9372a;--hp-trilho:#f2dcd8;--arena-bg:#18221f;--arena-ink:#eef3f1;--arena-mudo:#a3b5ae;--arena-line:#2f3e39;--arena-trilho:#3d2a26;--arena-ouro:#f2c46b;--arena-hp:#ff7a68}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--r-comum:#a2b5ad;--r-raro:#7eaaf3;--r-epico:#c495f2;--r-lend:#e9b24c;--hp:#ef6b5a;--hp-trilho:#3d2a26;--arena-bg:#0b100f;--arena-line:#26332f}}
+:root[data-theme="dark"],:root[data-tema="escuro"]{--r-comum:#a2b5ad;--r-raro:#7eaaf3;--r-epico:#c495f2;--r-lend:#e9b24c;--hp:#ef6b5a;--hp-trilho:#3d2a26;--arena-bg:#0b100f;--arena-line:#26332f}
+:root[data-tema="claro"]{--r-comum:#5f716a;--r-raro:#2563c4;--r-epico:#7c3aad;--r-lend:#9a5f06;--hp:#c9372a;--hp-trilho:#f2dcd8;--arena-bg:#18221f;--arena-line:#2f3e39}
+.r-comum{--rar:var(--r-comum)}.r-raro{--rar:var(--r-raro)}.r-epico{--rar:var(--r-epico)}.r-lendario{--rar:var(--r-lend)}
+.r-txt-comum{color:var(--r-comum)}.r-txt-raro{color:var(--r-raro)}.r-txt-epico{color:var(--r-epico)}.r-txt-lendario{color:var(--r-lend)}
+.brasao{display:inline-grid;place-items:center;color:var(--hp)}
+.brasao svg{width:40px;height:40px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.brasao .escudo{fill:var(--hp-trilho)}
+.hp{height:10px;border-radius:999px;background:var(--hp-trilho);overflow:hidden}
+.hp>i{display:block;height:100%;background:var(--hp);border-radius:999px;transition:width .7s cubic-bezier(.2,.8,.2,1)}
+/* Arena: painel escuro nos dois temas, como a tela de um jogo */
+.arena{background:var(--arena-bg);color:var(--arena-ink);border:1px solid var(--arena-line);border-radius:14px;padding:12px 14px;margin:6px 0 10px;display:flex;flex-direction:column;gap:10px}
+.arena.faixa{padding:8px 12px}
+.arena .brasao{color:var(--arena-hp)}
+.arena .brasao .escudo,.arena .hp{fill:var(--arena-trilho);background:var(--arena-trilho)}
+.arena .hp>i{background:var(--arena-hp)}
+.arena-inimigo{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:center}
+.arena.faixa .brasao svg{width:30px;height:30px}
+.arena-info{display:flex;flex-direction:column;gap:4px;min-width:0;padding-right:64px}
+.arena-info b{font-family:var(--f-titulo);font-size:1rem;font-weight:600}
+.hp-num{font-size:.74rem;color:var(--arena-mudo);font-variant-numeric:tabular-nums}
+.arena-inimigo.caido .brasao{opacity:.4;filter:grayscale(1)}
+.dano{position:absolute;right:2px;top:50%;margin-top:-1.1em;font-family:var(--f-mono);font-weight:700;font-size:1.45rem;line-height:1;color:var(--arena-ouro);text-align:right;animation:sobe 1s ease-out both}
+.dano.crit{font-size:1.85rem;color:var(--arena-hp)}
+.dano small{display:block;font-size:.58rem;letter-spacing:.14em}
+@keyframes sobe{0%{opacity:0;transform:translateY(10px) scale(.7)}25%{opacity:1;transform:translateY(0) scale(1.18)}100%{opacity:1;transform:translateY(-4px) scale(1)}}
+.arena-inimigo.atingido .brasao{animation:treme .38s ease}
+@keyframes treme{20%{transform:translateX(-4px) rotate(-4deg)}40%{transform:translateX(4px) rotate(4deg)}60%{transform:translateX(-2px)}80%{transform:translateX(2px)}}
+.arena-heroi{display:flex;align-items:center;gap:10px;border-top:1px solid var(--arena-line);padding-top:8px;font-size:.85rem;color:var(--arena-mudo)}
+.coracoes{display:flex;gap:3px;flex-wrap:wrap}
+.cor{width:20px;height:20px;fill:none;stroke:var(--arena-hp);stroke-width:1.8}
+.cor.cheio{fill:var(--arena-hp)}
+.cor.quebra{animation:quebra .55s ease}
+.cor.volta{animation:volta .55s ease}
+@keyframes quebra{0%{transform:scale(1.35)}50%{transform:scale(.7) rotate(-18deg)}100%{transform:scale(1)}}
+@keyframes volta{0%{transform:scale(.4)}60%{transform:scale(1.35)}100%{transform:scale(1)}}
+.serie{margin-left:auto;color:var(--arena-ouro);font-weight:700}
+.ganho small{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;margin-left:4px}
+/* Jornada no painel */
+.jornada{display:flex;flex-direction:column;gap:12px}
+.heroi{appearance:none;font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%;border:1px solid var(--line);background:var(--surface-2);border-radius:12px;padding:10px 12px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:6px 12px;align-items:center}
+.heroi .insignia,.insignia.grande{width:44px;height:44px;border-radius:12px;background:var(--accent-2);color:var(--accent);display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:1.1rem}
+.heroi .insignia{grid-row:1 / span 2}
+.insignia.grande{width:60px;height:60px;font-size:1.4rem;flex-shrink:0}
+.h-info{display:flex;flex-direction:column;gap:2px;min-width:0}
+.h-info b{font-family:var(--f-titulo);font-weight:600}
+.slots{display:flex;gap:6px;flex-wrap:wrap}
+.slot{font-size:.72rem;padding:2px 9px;border-radius:999px;border:1px solid var(--rar,var(--line));color:var(--rar,var(--ink-3))}
+.jornada .chefe{margin-top:0;flex-direction:row;align-items:center;gap:12px}
+.chefe-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+/* Saque e ficha */
+.item-rpg{border:1px solid var(--line);border-left:4px solid var(--rar,var(--line));border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;background:var(--surface)}
+.item-rpg.vazio{border-left-color:var(--line)}
+.ir-cab{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.ir-cab .mono{color:var(--rar)}
+.ir-efeito{font-weight:600;color:var(--rar);font-size:.92rem}
+.item-rpg q{font-style:italic;color:var(--ink-2);font-size:.9rem}
+.equip,.inventario{display:flex;flex-direction:column;gap:8px}
+.inv-linha{display:flex;justify-content:space-between;align-items:center;gap:10px;border-left:3px solid var(--rar);padding:4px 0 4px 10px}
+.inv-linha>div{display:flex;flex-direction:column;min-width:0}
+.ficha-cab{display:flex;gap:14px;align-items:center}
+.ficha-cab>div{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.ficha-cab h2{margin:0}
+.atributos{display:flex;flex-direction:column;gap:10px}
+.atributo{display:grid;grid-template-columns:24px minmax(0,1fr) 30px;gap:4px 10px;align-items:center}
+.atributo .barra{grid-column:2 / -1}
+.at-nome{font-size:.92rem}
+.atributo b{text-align:right}
+.brasao.mini{color:var(--accent)}
+.brasao.mini svg{width:24px;height:24px}
+.brasao.mini .escudo{fill:var(--accent-2)}
+/* Fim da batalha */
+.batalha-fim{display:flex;flex-direction:column;gap:10px}
+.batalha-fim.vitoria{border-color:var(--r-lend)}
+.batalha-fim.derrota{border-color:var(--hp)}
+.bf-cab{display:flex;gap:12px;align-items:center}
+.bf-cab .brasao svg{width:48px;height:48px}
+.bf-cab h2{font-size:1.5rem;margin:0}
+.batalha-fim.vitoria h2{color:var(--r-lend)}
+.batalha-fim.derrota h2{color:var(--hp)}
+.arena-heroi.ferido{animation:ferido .45s ease}
+@keyframes ferido{0%,100%{transform:none}25%{transform:translateX(-5px)}50%{transform:translateX(4px)}75%{transform:translateX(-2px)}}
+.missao .m-txt .linkish{align-self:flex-start}
