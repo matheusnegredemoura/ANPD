@@ -601,3 +601,18 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .grade-modos>.modo:last-child:nth-child(odd){grid-column:1 / -1}
 /* O botão de começar acompanha a lista de blocos, para não exigir rolar até o fim */
 .comecar-fixo{position:sticky;bottom:calc(var(--abas-h) + 12px + env(safe-area-inset-bottom,0px));z-index:5;box-shadow:var(--sombra)}
+/* Diversão com o estudo: resultado da sessão, linhas extras da resposta e botão de som */
+.cartao.ganhos{border-color:var(--gold);display:flex;flex-direction:column;gap:10px}
+.ganho-dom{display:flex;flex-direction:column;gap:5px}
+.gd-cab{display:flex;justify-content:space-between;gap:10px;font-size:.92rem}
+.gd-cab>span:first-child{min-width:0}
+.barra-ganho{display:flex;height:10px;border-radius:999px;background:var(--surface-2);overflow:hidden}
+.barra-ganho>i{display:block;height:100%;background:var(--accent)}
+.barra-ganho>i.novo{background:var(--gold);animation:cresce .9s ease both}
+@keyframes cresce{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
+.ganho-linha{margin:0;display:flex;gap:8px;align-items:baseline}
+.ganho-linha>span{color:var(--gold);font-weight:700}
+.extra-resp{margin:8px 0 0;font-size:.9rem;display:flex;gap:8px;align-items:baseline}
+.extra-resp>span{color:var(--gold);font-weight:700}
+.extra-resp.golpe>span{color:var(--errado)}
+.icone-btn.som[aria-pressed="true"]{color:var(--accent)}

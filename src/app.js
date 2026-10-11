@@ -25,6 +25,11 @@ const ARTS = LEI ? LEI.artigos : [];
 function artsDe(lei) { return LEIS[lei] ? LEIS[lei].artigos : []; }
 const POR_BLOCO = agrupar(Q, (q) => q.b);
 const POR_ART = agrupar(Q.filter((q) => q.art && LEIS[q.l]), (q) => chave(q.l, q.art));
+// Artigos citados por itens reais de prova: o acerto num item escrito para o banco sobre um deles vale 50% a mais,
+// porque é matéria que a banca já mostrou que cobra
+const REAIS_POR_ART = new Map();
+for (const [k, qs] of POR_ART) { const n = qs.filter((q) => q.o).length; if (n) REAIS_POR_ART.set(k, n); }
+function caiuEmProva(q) { return q.art && !q.o ? REAIS_POR_ART.get(chave(q.l, q.art)) || 0 : 0; }
 const DIAS = [];
 D.cronograma.fases.forEach((f) => f.semanas.forEach((s) => s.dias.forEach((d) => DIAS.push(Object.assign({ fase: f.id }, d)))));
 DIAS.sort((a, b) => (a.data < b.data ? -1 : 1));
@@ -122,7 +127,7 @@ const CONQ = [
   { id: 'r1000', ic: '1k', nome: 'Mil itens', desc: 'Respondeu 1.000 itens.' },
   { id: 'cards50', ic: 'C', nome: 'Cinquenta lacunas', desc: 'Revisou 50 cards cloze.' },
   { id: 'cards300', ic: 'C3', nome: 'Lei na ponta da língua', desc: 'Revisou 300 cards cloze.' },
-  { id: 'seq7', ic: '7d', nome: 'Semana firme', desc: '7 dias seguidos de estudo (domingo não quebra).' },
+  { id: 'seq7', ic: '7d', nome: 'Semana firme', desc: '7 dias seguidos de estudo (domingo e uma folga por semana não quebram).' },
   { id: 'seq30', ic: '30d', nome: 'Mês sem falhar', desc: '30 dias seguidos de estudo.' },
   { id: 'sim1', ic: 'S', nome: 'Primeiro simulado', desc: 'Entregou um simulado.' },
   { id: 'sim70', ic: '70', nome: 'Nota de corte', desc: 'Nota líquida de 70% ou mais em simulado de 30+ itens.' },
@@ -195,7 +200,7 @@ if (!UI.camadas) UI.camadas = { cai: true, num: true, alerta: true, verbo: true,
 let sessao = null;
 // Preferências que acompanham a conta (vão no documento do perfil), para não se perderem quando o navegador
 // ou o app do Claude limpam o armazenamento local. A aba aberta (vista) fica só neste aparelho.
-const CAMPOS_UI = ['modo', 'n', 'filtro', 'prova', 'blocos', 'blocosCards', 'camadas', 'lei', 'tema'];
+const CAMPOS_UI = ['modo', 'n', 'filtro', 'prova', 'blocos', 'blocosCards', 'camadas', 'lei', 'tema', 'som'];
 function prefsUI() { const o = {}; for (const k of CAMPOS_UI) if (UI[k] !== undefined) o[k] = UI[k]; return o; }
 function salvarUI() {
   const p = prefsUI();
@@ -671,12 +676,20 @@ function cartaoTempoHistorico() {
     '<p class="pequeno mudo">' + (S.perfil.tempoDesde ? 'O relógio conta desde ' + esc(fmtData(S.perfil.tempoDesde, { day: '2-digit', month: '2-digit', year: 'numeric' })) + '. ' : '') + 'Itens por hora e tempo por item medem só o tempo em sessões de questões. Painel, plano e ajustes não entram no total.</p></div>';
   return html;
 }
+// Dias seguidos de estudo. Domingo não quebra, e cada semana (de segunda a sábado) tem uma folga: um dia sem estudo
+// não zera a sequência, para um imprevisto não apagar semanas de constância. O dia de folga não conta como estudado.
 function sequencia() {
   let n = 0, dia = HOJE();
   if (!ativo(isoDeNum(dia))) dia--;
+  const folgas = new Set();
   for (let k = 0; k < 800; k++) {
     const iso = isoDeNum(dia);
-    if (ativo(iso)) n++; else if (diaSemana(iso) !== 0) break;
+    if (ativo(iso)) n++;
+    else if (diaSemana(iso) !== 0) {
+      const semana = dia - ((diaSemana(iso) + 6) % 7);
+      if (folgas.has(semana)) break;
+      folgas.add(semana);
+    }
     dia--;
   }
   return n;
@@ -765,7 +778,7 @@ function ganharXP(x) {
   S.perfil.xp += x;
   diaLog().xp += x;
   const depois = nivelDe(S.perfil.xp);
-  if (depois.n > antes) avisar('N' + depois.n, 'Subiu de nível', depois.nome);
+  if (depois.n > antes) { avisar('N' + depois.n, 'Subiu de nível', depois.nome); tocar('festa'); }
 }
 function verificarMeta() {
   const d = diaLog();
@@ -1133,7 +1146,7 @@ function novaSessao(cfg, ids) {
   return {
     modo: cfg.modo, titulo: cfg.titulo || tituloModo(cfg.modo), dia: cfg.dia || null, ids, i: 0,
     chave: MODOS_PAUSA.has(cfg.modo) ? cfg.chave || cfg.dia || 'x:' + Date.now().toString(36) : null, resp: {}, duv: {}, revelado: false,
-    combo: 0, comboMax: 0, xp: 0, ini: Date.now(), fim: false, confirmar: null, flash: null,
+    combo: 0, comboMax: 0, xp: 0, ini: Date.now(), fim: false, confirmar: null, flash: null, retrato: cfg.modo === 'cards' ? null : retratoSessao(ids),
     limite: cfg.modo === 'relampago' ? 90 : cfg.modo === 'simulado' ? (cfg.minutos || 0) * 60 : 0,
   };
 }
@@ -1183,11 +1196,16 @@ function responder(resp) {
     return;
   }
   if (sessao.revelado || sessao.flash || resp === BRANCO) return;
+  golpeRecente = null;
   const ok = registrar(q, resp, !!sessao.duv[id]);
+  sessao.golpe = golpeRecente;
   sessao.resp[id] = resp;
   let x = 0;
-  if (ok) { sessao.combo++; sessao.comboMax = Math.max(sessao.comboMax, sessao.combo); x = xpAcerto(q, sessao.combo, sessao.modo); }
-  else sessao.combo = 0;
+  if (ok) {
+    sessao.combo++; sessao.comboMax = Math.max(sessao.comboMax, sessao.combo); x = xpAcerto(q, sessao.combo, sessao.modo);
+    if (sessao.modo !== 'relampago' && caiuEmProva(q)) x = Math.round(x * 1.5);
+  } else sessao.combo = 0;
+  tocar(!ok ? 'erro' : sessao.golpe && sessao.golpe.vencido ? 'festa' : sessao.combo >= 5 && sessao.combo % 5 === 0 ? 'combo' : 'acerto');
   { const dl = diaLog(); if (sessao.combo > (dl.cmb || 0)) dl.cmb = sessao.combo; }
   if (sessao.comboMax > (S.perfil.recordes.combo || 0)) S.perfil.recordes.combo = sessao.comboMax;
   sessao.xp += x;
@@ -1264,6 +1282,9 @@ function finalizar() {
     let c = 0, e = 0;
     sessao.ids.forEach((id) => { const r = sessao.resp[id]; if (!r) return; if (r === QI.get(id).g) c++; else e++; });
     if (c - e > (S.perfil.recordes.relampago || 0)) { S.perfil.recordes.relampago = c - e; sessao.recorde = true; }
+    const d = diaLog();
+    d.rl = (d.rl || 0) + 1;
+    verificarRPG();
   }
   if (sessao.dia) {
     // Sessão de um dia anterior do plano: conta para a missão de encaixar pendências
@@ -1276,6 +1297,81 @@ function finalizar() {
   Store.salvarTudo();
   renderSessao();
   document.getElementById('sessao').scrollTop = 0;
+}
+
+/* ================= Sons ================= */
+// Sons curtos sintetizados na hora (sem arquivo de áudio), desligados por padrão: o botão de som fica no topo da
+// sessão. O navegador só libera o áudio depois de um toque, e toda chamada vem de uma resposta ou de um botão.
+let audioCtx = null;
+const SONS = { acerto: [[660, 0], [880, 0.07]], erro: [[196, 0]], combo: [[660, 0], [830, 0.06], [990, 0.12]], festa: [[523, 0], [659, 0.08], [784, 0.16], [1047, 0.26]] };
+function tocar(tipo) {
+  if (!UI.som || !SONS[tipo]) return;
+  try {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    const t0 = audioCtx.currentTime, dur = tipo === 'erro' ? 0.22 : 0.15;
+    for (const [f, dt] of SONS[tipo]) {
+      const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type = tipo === 'erro' ? 'triangle' : 'sine';
+      o.frequency.value = f;
+      g.gain.setValueAtTime(0.0001, t0 + dt);
+      g.gain.exponentialRampToValueAtTime(0.07, t0 + dt + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + dt + dur);
+      o.connect(g).connect(audioCtx.destination);
+      o.start(t0 + dt);
+      o.stop(t0 + dt + dur + 0.02);
+    }
+  } catch (e) { /* sem áudio neste navegador */ }
+}
+
+/* ================= O que a sessão rendeu ================= */
+// Retrato tirado no começo da sessão (ou na retomada): o resultado compara com ele o domínio dos blocos tocados, os
+// itens que saíram da lista curta, a vida do chefão, as missões e o nível
+function retratoSessao(ids) {
+  const blocos = [...new Set(ids.map((id) => (QI.get(id) || {}).b).filter(Boolean))];
+  const dom = {};
+  for (const b of blocos) dom[b] = dominioBloco(b) || 0;
+  const mh = missoesHoje(), c = chefeDaSemana();
+  return { dom, saidos: S.perfil.saidos || 0, sem: c.sem, vida: c.vencido ? 0 : c.vida, missoes: mh.ids.filter((x) => mh.ok[x]).length, bau: !!mh.bau, nivel: nivelDe(S.perfil.xp).n };
+}
+function cartaoGanhos() {
+  const r = sessao.retrato;
+  if (!r) return '';
+  const linhas = [];
+  const subiram = Object.entries(r.dom).map(([b, antes]) => ({ b, antes, depois: dominioBloco(b) || 0 }))
+    .filter((x) => Math.round(x.depois * 100) > Math.round(x.antes * 100))
+    .sort((a, b) => b.depois - b.antes - (a.depois - a.antes)).slice(0, 4);
+  for (const x of subiram) {
+    const a = Math.round(x.antes * 100), d = Math.round(x.depois * 100);
+    linhas.push('<div class="ganho-dom"><div class="gd-cab"><span>' + esc(nomeBloco(x.b)) + '</span><span class="mono">' + a + '% → <b>' + d + '%</b></span></div>' +
+      '<div class="barra-ganho" role="img" aria-label="Domínio de ' + a + '% para ' + d + '%"><i style="width:' + a + '%"></i><i class="novo" style="width:' + (d - a) + '%"></i></div></div>');
+  }
+  const saiu = (S.perfil.saidos || 0) - r.saidos;
+  if (saiu > 0) linhas.push('<p class="ganho-linha"><span aria-hidden="true">✓</span> ' + pl(saiu, 'item saiu', 'itens saíram') + ' da lista curta: agora ' + (saiu > 1 ? 'voltam' : 'volta') + ' só para confirmar, daqui a semanas.</p>');
+  const c = chefeDaSemana();
+  if (c.sem === r.sem && r.vida) {
+    const golpes = r.vida - (c.vencido ? 0 : c.vida);
+    if (c.vencido && c.vencido === hojeISO()) linhas.push('<p class="ganho-linha"><span aria-hidden="true">♛</span> ' + esc(nomeChefe(c.bloco)) + ' derrotado: +' + CHEFE_XP + ' XP e um troféu.</p>');
+    else if (golpes > 0) linhas.push('<p class="ganho-linha"><span aria-hidden="true">♛</span> ' + pl(golpes, 'golpe', 'golpes') + ' no chefão ' + esc(nomeChefe(c.bloco)) + ': faltam ' + c.vida + ' de vida.</p>');
+  }
+  const mh = missoesHoje(), m = mh.ids.filter((x) => mh.ok[x]).length - r.missoes;
+  if (m > 0) linhas.push('<p class="ganho-linha"><span aria-hidden="true">★</span> ' + pl(m, 'missão cumprida', 'missões cumpridas') + (mh.bau && !r.bau ? ' e o baú do dia aberto' : '') + '.</p>');
+  const nv = nivelDe(S.perfil.xp);
+  if (nv.n > r.nivel) linhas.push('<p class="ganho-linha"><span aria-hidden="true">▲</span> Nível ' + nv.n + ': ' + esc(nv.nome) + '.</p>');
+  const hoje = S.perfil.dias[hojeISO()] || {};
+  // Depois de um dia muito longo, o recado é parar: o cansaço pesa nos acertos e amanhã a revisão rende mais
+  const longo = (hoje.r || 0) >= 150 ? '<p class="pequeno mudo">Hoje já são ' + hoje.r + ' itens. Depois de tanto tempo, o cansaço começa a pesar nos acertos; parar aqui e voltar amanhã costuma render mais do que esticar.</p>' : '';
+  if (!linhas.length) return longo ? '<div class="cartao">' + longo + '</div>' : '';
+  return '<div class="cartao ganhos"><h2>O que esta sessão rendeu</h2>' + linhas.join('') + longo + '</div>';
+}
+// Linhas extras na tela da resposta: o artigo que já caiu em prova e o golpe no chefão
+function extrasResposta(q, ok) {
+  let h = '';
+  const n = caiuEmProva(q);
+  if (n) h += '<p class="extra-resp quente"><span aria-hidden="true">★</span> Este artigo aparece em ' + pl(n, 'item de prova real', 'itens de provas reais') + ' do banco' + (ok ? ': o acerto valeu 50% a mais.' : '. Vale rever com calma.') + '</p>';
+  const g = sessao.golpe;
+  if (g) h += '<p class="extra-resp golpe"><span aria-hidden="true">♛</span> ' + (g.vencido ? esc(g.nome) + ' derrotado! +' + CHEFE_XP + ' XP e um troféu.' : 'Golpe no chefão ' + esc(g.nome) + ': ' + g.vida + '/' + CHEFE_VIDA + ' de vida.') + '</p>';
+  return h;
 }
 
 /* ================= Avisos ================= */
@@ -1292,6 +1388,7 @@ function avisar(ic, titulo, texto) {
 
 /* ================= Componentes ================= */
 function iconeFogo() { return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 3.5 5 6 5 11a5 5 0 0 1-10 0c0-2.2 1-3.8 2.3-5 .2 1.6 1 2.7 2.2 3.1C11 8.5 11.3 5.2 12 2z"/></svg>'; }
+function iconeSom(ligado) { return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/>' + (ligado ? '<path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/>' : '<path d="M17 9l5 6M22 9l-5 6"/>') + '</svg>'; }
 function iconeLua() { return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>'; }
 function iconeSol() { return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'; }
 function iconeEngrenagem() { return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>'; }
@@ -1310,7 +1407,7 @@ function renderTopo() {
   const seq = sequencia();
   document.getElementById('topo').innerHTML =
     '<div class="marca"><b>Painel ANPD</b><span>Especialista em Regulação de Proteção de Dados · Nível ' + nv.n + '</span></div>' +
-    '<div class="status"><span class="pilula fogo' + (seq ? '' : ' apagado') + '" title="Dias seguidos de estudo">' + iconeFogo() + seq + '</span>' +
+    '<div class="status"><span class="pilula fogo' + (seq ? '' : ' apagado') + '" title="Dias seguidos de estudo (domingo e uma folga por semana não quebram)">' + iconeFogo() + seq + '</span>' +
     '<span class="pilula xp" title="Pontos de experiência">' + fmtNum(S.perfil.xp) + ' XP</span>' +
     '<button class="icone-btn" data-acao="tema-alternar" aria-label="' + (temaEscuroAtivo() ? 'Usar tema claro' : 'Usar modo noturno') + '" title="' + (temaEscuroAtivo() ? 'Tema claro' : 'Modo noturno') + '">' + (temaEscuroAtivo() ? iconeSol() : iconeLua()) + '</button>' +
     '<button class="icone-btn" data-acao="mais" data-sub="ajustes" aria-label="Ajustes">' + iconeEngrenagem() + '</button></div>';
@@ -1475,6 +1572,8 @@ const MISSOES = [
   { id: 'tempo60', txt: 'Estudar 1 hora', xp: 40, meta: 60, val: (d) => Math.floor(segundosEstudo(d) / 60) },
   { id: 'pesq', txt: 'Investigar um tema da lista Para pesquisar', xp: 30, meta: 1, val: () => Object.values(S.pesquisa).filter((p) => p.s && p.f === hojeISO()).length },
   { id: 'pend', txt: 'Encaixar uma sessão que ficou para trás', xp: 60, meta: 1, val: (d) => d.pd || 0, so: () => pendencias().some((x) => x.sessao) },
+  { id: 'rel', txt: 'Jogar uma rodada do Relâmpago', xp: 30, meta: 1, val: (d) => d.rl || 0, acao: () => '<button class="linkish pequeno" data-acao="relampago" data-blocos="' + P1.join(',') + '">Jogar</button>' },
+  { id: 'chefe5', txt: 'Tirar 5 de vida do chefão', xp: 40, meta: 5, val: (d) => d.cg || 0, so: () => !chefeDaSemana().vencido },
 ];
 const MI = new Map(MISSOES.map((m) => [m.id, m]));
 const BAU_XP = 50, CHEFE_VIDA = 15, CHEFE_XP = 150;
@@ -1507,11 +1606,13 @@ function verificarRPG() {
     mh.ok[id] = 1; mudou = true;
     ganharXP(x.xp);
     avisar('★', 'Missão cumprida', x.txt + ' · +' + x.xp + ' XP');
+    tocar('combo');
   }
   if (!mh.bau && mh.ids.length && mh.ids.every((id) => mh.ok[id])) {
     mh.bau = 1; mudou = true;
     ganharXP(BAU_XP);
     avisar('◆', 'Baú do dia aberto', 'As três missões de hoje: +' + BAU_XP + ' XP');
+    tocar('festa');
   }
   if (mudou) Store.salvar('perfil');
 }
@@ -1532,10 +1633,15 @@ function chefeDaSemana() {
   }
   return rpg.chefe;
 }
+// Último golpe dado no chefão, para a tela da resposta mostrar o efeito do acerto na hora
+let golpeRecente = null;
 function golpeChefe(q) {
   const c = chefeDaSemana();
   if (c.vencido || q.b !== c.bloco) return;
   c.vida = Math.max(0, c.vida - 1);
+  const d = diaLog();
+  d.cg = (d.cg || 0) + 1;
+  golpeRecente = { nome: nomeChefe(c.bloco), vida: c.vida, vencido: !c.vida };
   if (c.vida) return;
   c.vencido = hojeISO();
   ganharXP(CHEFE_XP);
@@ -1549,7 +1655,7 @@ function cartaoJornada() {
     const x = MI.get(id);
     if (!x) return '';
     const v = x.val(d), ok = !!mh.ok[id], f = ok ? 1 : x.fr ? x.fr(d) : Math.min(1, v / x.meta);
-    return '<div class="missao' + (ok ? ' ok' : '') + '"><span class="m-ic" aria-hidden="true">' + (ok ? '✓' : '★') + '</span><div class="m-txt"><b>' + esc(x.txt) + '</b>' + barra(f, 'ouro') + '</div>' +
+    return '<div class="missao' + (ok ? ' ok' : '') + '"><span class="m-ic" aria-hidden="true">' + (ok ? '✓' : '★') + '</span><div class="m-txt"><b>' + esc(x.txt) + '</b>' + barra(f, 'ouro') + (!ok && x.acao ? x.acao() : '') + '</div>' +
       '<span class="mono pequeno">' + (ok ? '+' + x.xp + ' XP' : x.fr ? (d.r || 0) + '/20' : Math.min(v, x.meta) + '/' + x.meta) + '</span></div>';
   }).join('');
   const chefe = '<div class="chefe' + (c.vencido ? ' vencido' : '') + '"><div class="chefe-cab"><b>' + esc(nomeChefe(c.bloco)) + '</b><span class="mono pequeno">' + (c.vencido ? 'derrotado' : c.vida + '/' + CHEFE_VIDA + ' de vida') + '</span></div>' +
@@ -1765,6 +1871,7 @@ function renderSessao() {
   let html = '<div class="sessao-corpo"><div class="sessao-topo"><button class="icone-btn" data-acao="sair-sessao" aria-label="Sair da sessão"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>' +
     '<div class="tit"><b>' + esc(sessao.titulo) + '</b><span>' + (total ? (sessao.modo === 'cards' ? 'Card ' : 'Item ') + ((sessao.feitasAntes || 0) + sessao.i + 1) + ' de ' + (sessao.totalOrig || total) : 'Item ' + (sessao.i + 1)) + (sessao.xp ? ' · +' + sessao.xp + ' XP' : '') + '</span></div>' +
     (sessao.modo !== 'simulado' && sessao.modo !== 'cards' && sessao.combo >= 2 ? '<span class="combo' + (sessao.revelado || sessao.flash ? ' pulso' : '') + '">combo ×' + sessao.combo + '</span>' : '') +
+    '<button class="icone-btn som" data-acao="som" aria-pressed="' + !!UI.som + '" aria-label="' + (UI.som ? 'Desligar o som' : 'Ligar o som') + '" title="' + (UI.som ? 'Som ligado' : 'Som desligado') + '">' + iconeSom(!!UI.som) + '</button>' +
     '<span class="relogio" id="relogio">' + relogio + '</span></div>';
   if (sessao.confirmar) html += renderConfirmacao();
   if (sessao.modo === 'cards') html += barra(sessao.i / sessao.ids.length) + renderCardSessao(CI.get(sessao.ids[sessao.i]));
@@ -1819,6 +1926,7 @@ function renderItem(q) {
   html += renderAlternativas(q, marcada, sessao.revelado || !!sessao.flash);
   if (sessao.flash) {
     html += '<div class="veredito ' + sessao.flash + '"><span>' + (sessao.flash === 'ok' ? 'Certo' : 'Errado: gabarito ' + nomeGab(q).toUpperCase()) + '</span>' + (sessao.ultimoGanho ? '<span class="ganho">+' + sessao.ultimoGanho + ' XP</span>' : '') + '</div>';
+    if (sessao.golpe) html += '<p class="extra-resp golpe"><span aria-hidden="true">♛</span> ' + (sessao.golpe.vencido ? 'Chefão derrotado!' : 'Golpe no chefão: ' + sessao.golpe.vida + '/' + CHEFE_VIDA) + '</p>';
   } else if (!sessao.revelado) {
     if (sessao.modo !== 'relampago') html += '<label class="duvida"><input type="checkbox" data-acao="duvida"' + (sessao.duv[id] ? ' checked' : '') + '> Estou em dúvida (mede quando vale chutar)</label>';
     const branco = sim ? '<button class="bolha b' + (marcada === BRANCO ? ' marcada' : '') + '" data-acao="responder" data-r="' + BRANCO + '">Em branco</button>' : '';
@@ -1835,6 +1943,7 @@ function renderItem(q) {
     const r = sessao.resp[id], ok = r === q.g;
     html += '<div class="veredito ' + (ok ? 'ok' : 'no') + '"><span>' + (ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + (q.al ? 'a letra ' + q.g : q.g === 'C' ? 'CERTO' : 'ERRADO') + '.') + '</span>' +
       (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP</span>' : '<span class="pequeno">' + (SEM_REPETICAO.has(id) ? 'Este texto não volta: vêm outros' : 'Foi para a lista curta') + '</span>') + '</div>';
+    html += extrasResposta(q, ok);
     html += renderExplicacao(q);
     html += '<button class="btn primario largo" data-acao="proximo">' + (sessao.i < sessao.ids.length - 1 ? 'Próximo item' : 'Ver resultado') + '</button><p class="atalhos">Enter = próximo</p>';
   }
@@ -1931,6 +2040,7 @@ function renderResultado() {
   if (sessao.ineditos && sessao.ineditos.n >= 5) html += '<p class="pequeno">Nos ' + sessao.ineditos.n + ' itens que você via pela primeira vez, acerto de <b>' + pct(sessao.ineditos.c, sessao.ineditos.n) + '%</b>. É a medida mais fiel do seu nível: item repetido se reconhece.</p>';
   if (sessao.comboMax >= 3) html += '<p class="mudo">Maior sequência de acertos: ' + sessao.comboMax + '.</p>';
   html += '</div>';
+  html += cartaoGanhos();
   if (sessao.modo === 'simulado' && Object.keys(porDisc).length > 1) {
     html += '<div class="cartao"><h2>Por disciplina</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>C</th><th>E</th><th>B</th><th>Líquida</th></tr></thead><tbody>' +
       Object.entries(porDisc).map(([dd, v]) => { const t = v.c + v.e + v.b; return '<tr><td>' + esc((DI.get(dd) || { nome: dd }).nome) + '</td><td class="num">' + v.c + '</td><td class="num">' + v.e + '</td><td class="num">' + v.b + '</td><td class="num">' + (v.c - v.e + v.eMc) + ' (' + pct(v.c - v.e + v.eMc, t) + '%)</td></tr>'; }).join('') + '</tbody></table></div></div>';
@@ -2548,7 +2658,7 @@ function renderMetodo() {
     '<li>Intercale. Todo dia há uma sessão que mistura as matérias básicas com os blocos já estudados. Assunto novo entra em bloco; o que você já viu volta misturado, porque misturar obriga a reconhecer o tipo de questão e fixa mais (prática intercalada, somada à revisão espaçada e à recuperação ativa).</li>' +
     '<li>Revisão vem antes de questão nova. Quando a lista curta vencida passa de ' + REVISOES_DIA_PESADO + ' itens, a sessão de questões novas do dia encolhe sozinha.</li>' +
     '<li>Errou, leia o artigo inteiro. O botão “Ler inteiro, grifado” aparece depois de cada questão e de cada card. A leitura do dia tem no máximo ' + LEITURA_MAX + ' artigos: quando os blocos do dia têm mais, o app escolhe os ligados à sua lista curta, os ainda não lidos e os mais cobrados.</li>' +
-    '<li>Domingo é livre por padrão e não quebra a sequência.</li>' +
+    '<li>Domingo é livre por padrão e não quebra a sequência. Cada semana tem ainda uma folga: um dia sem estudo, de segunda a sábado, não zera os dias seguidos.</li>' +
     '<li>Não pule a revisão para fazer questões novas: a lista curta cresce e o esquecimento come o que você estudou.</li></ul>' +
     '<h3>Estratégia Cebraspe</h3><ul>' +
     '<li>Uma errada anula uma certa; em branco vale zero. Chutar só compensa quando sua chance de acerto passa de 50%.</li>' +
@@ -2961,6 +3071,7 @@ document.addEventListener('click', async (ev) => {
     case 'revelar': proximo(); break;
     case 'avaliar': avaliar(Number(alvo.dataset.n)); break;
     case 'proximo': proximo(); break;
+    case 'som': UI.som = !UI.som; salvarUI(); tocar('acerto'); renderSessao(); break;
     case 'anterior': if (sessao && sessao.i > 0) { sessao.i--; renderSessao(); } break;
     case 'ir-item': if (sessao) { sessao.i = Number(alvo.dataset.i); renderSessao(); } break;
     case 'entregar': if (sessao) { sessao.confirmar = 'entregar'; renderSessao(); document.getElementById('sessao').scrollTop = 0; } break;
