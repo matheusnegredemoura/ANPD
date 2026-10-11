@@ -1,0 +1,321 @@
+// Casos práticos da LGPD, quarta leva: dados de saúde entre operadora, farmácias e laboratório (art. 11, §§ 1º a 5º),
+// cartório e Poder Público (art. 23, §§ 3º a 5º), empresa pública que opera política pública e também concorre no
+// mercado (arts. 5º, 24, 26 e 27) e titular que exerce seus direitos contra uma operadora de telefonia (arts. 18, 19
+// e 55-J). Itens escritos para o banco; trechos conferidos em fontes/lgpd.txt.
+
+apoio_PLANO: Uma operadora de planos privados de assistência à saúde negociou parceria com uma rede de farmácias: repassaria à rede a lista dos beneficiários com diagnóstico de diabetes, com os medicamentos prescritos, e receberia um percentual das vendas de produtos oferecidos a esses beneficiários. A operadora também pretende consultar o histórico de atendimentos dos candidatos a novos contratos para recusar os que tenham doenças crônicas. O laboratório credenciado envia à operadora os resultados dos exames para autorização e pagamento dos procedimentos. Um beneficiário que mudou de plano pediu que seus dados de exames fossem transferidos à nova operadora.
+apoio_CARTORIO: O oficial de um cartório de registro civil de pessoas naturais, serviço exercido em caráter privado por delegação do Poder Público, recebeu dois pedidos: a secretaria municipal de saúde pediu acesso eletrônico aos registros de óbito para atualizar o cadastro de vacinação do município, e um cidadão pediu a confirmação de quais dados seus o cartório trata. O cartório não indicou encarregado nem publica informações sobre os tratamentos de dados pessoais que realiza.
+apoio_ESTATAL: Uma empresa pública federal de tecnologia da informação foi contratada por um ministério para processar, segundo as regras e as finalidades definidas pelo ministério, o cadastro de um programa de transferência de renda instituído por lei. A mesma empresa vende, em regime de concorrência com empresas privadas, serviços de hospedagem de dados a bancos. O ministério pretende, ainda, transferir parte do cadastro a uma fundação privada que fará a avaliação de impacto do programa, por meio de convênio.
+apoio_TITULAR: Marina, cliente de uma operadora de telefonia, pediu por escrito: a confirmação de que a operadora trata seus dados; cópia integral desses dados, para levá-los a outra operadora; e a lista das empresas com as quais seus dados foram compartilhados. A operadora respondeu que entregaria a cópia mediante pagamento de taxa, que não incluiria os registros de uso da rede já anonimizados para estudos internos e que só atenderia pedidos feitos pessoalmente pela titular, sem procurador. Insatisfeita, Marina registrou reclamação num órgão de defesa do consumidor e pretende peticionar também à ANPD.
+
+=== kd-01
+gab: C
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: É vedado às operadoras de planos privados de assistência à saúde o tratamento de dados de saúde para a prática de seleção de riscos na contratação de qualquer modalidade
+apoio: @PLANO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: O uso do histórico de atendimentos para recusar candidatos com doenças crônicas configura seleção de riscos na contratação, prática vedada às operadoras de planos privados de assistência à saúde.
+comentario: Art. 11, § 5º, incluído pela Lei 13.853/2019. A vedação é objetiva: alcança a contratação de qualquer modalidade, e a lei não prevê consentimento ou outra hipótese que a afaste.
+
+=== kd-02
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: assim como na contratação e exclusão de beneficiários
+apoio: @PLANO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: extrapolacao
+dif: 2
+enunciado: A vedação de tratar dados de saúde para seleção de riscos alcança apenas a contratação de novos beneficiários; para decidir a exclusão de quem já é beneficiário, a operadora pode usar esses dados.
+comentario: Errado. Art. 11, § 5º: a vedação vale na contratação de qualquer modalidade, “assim como na contratação e exclusão de beneficiários”. Excluir o doente crônico da carteira é a mesma seleção de riscos, feita depois.
+
+=== kd-03
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: em benefício dos interesses dos titulares de dados, e para permitir
+apoio: @PLANO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: excecao
+dif: 3
+enunciado: O repasse da lista de beneficiários diabéticos à rede de farmácias, em troca de percentual das vendas, é lícito, porque a assistência farmacêutica está entre as exceções à vedação de uso compartilhado de dados de saúde com objetivo de vantagem econômica.
+comentario: Errado. A exceção do art. 11, § 4º, não é um salvo-conduto para o setor: exige que o compartilhamento seja feito em benefício dos interesses dos titulares e para permitir a portabilidade pedida pelo titular ou as transações financeiras e administrativas dos serviços prestados. Vender a lista para ofertas, em troca de comissão, atende ao interesse da operadora.
+
+=== kd-04
+gab: C
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: incluídos os serviços auxiliares de diagnose e terapia
+apoio: @PLANO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: O envio dos resultados de exames do laboratório credenciado à operadora, para autorização e pagamento dos procedimentos, enquadra-se nas hipóteses ressalvadas da vedação ao uso compartilhado de dados de saúde com objetivo de vantagem econômica.
+comentario: Certo. Art. 11, § 4º, II: a ressalva cobre a prestação de serviços de saúde, “incluídos os serviços auxiliares de diagnose e terapia”, para permitir “as transações financeiras e administrativas resultantes do uso e da prestação dos serviços”. É o caso do laboratório que fatura o exame.
+
+=== kd-05
+gab: C
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: a portabilidade de dados quando solicitada pelo titular
+apoio: @PLANO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: A transferência dos dados de exames à nova operadora, a pedido do beneficiário, enquadra-se em hipótese em que a LGPD admite a comunicação de dados de saúde entre controladores.
+comentario: Certo. Art. 11, § 4º, I: entre as exceções está a portabilidade “quando solicitada pelo titular”. A iniciativa é do beneficiário e o compartilhamento o favorece, ao contrário da parceria com a rede de farmácias.
+
+=== kd-06
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: poderá ser objeto de vedação ou de regulamentação por parte da autoridade nacional, ouvidos os órgãos setoriais do Poder Público
+apoio: @PLANO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: sujeito
+dif: 2
+enunciado: Cabe à agência reguladora do setor de saúde suplementar, e não à ANPD, vedar ou regulamentar a comunicação de dados sensíveis entre controladores com objetivo de obter vantagem econômica.
+comentario: Errado. Art. 11, § 3º: a vedação ou a regulamentação cabe à autoridade nacional, “ouvidos os órgãos setoriais do Poder Público, no âmbito de suas competências”. O órgão setorial é ouvido; quem decide é a ANPD (art. 55-K, parágrafo único: órgão central de interpretação da LGPD).
+
+=== kd-07
+gab: C
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: qualquer tratamento de dados pessoais que revele dados pessoais sensíveis e que possa causar dano ao titular
+apoio: @PLANO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: conceito
+dif: 2
+enunciado: Ainda que a lista repassada contivesse apenas nomes e medicamentos comprados, sem o diagnóstico, seu tratamento seguiria o regime dos dados sensíveis, se revelasse a condição de saúde dos beneficiários e pudesse causar-lhes dano.
+comentario: Certo. Art. 11, § 1º: o regime do artigo se aplica a qualquer tratamento que revele dados sensíveis e possa causar dano ao titular, ressalvada a legislação específica. A lista de quem compra insulina revela diabetes tanto quanto o prontuário.
+
+=== kd-08
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 11
+trecho: cumprimento de obrigação legal ou regulatória pelo controlador
+apoio: @PLANO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: absoluto
+dif: 2
+enunciado: Por não ser profissional nem serviço de saúde, a operadora só pode tratar dados de saúde dos beneficiários mediante consentimento específico e destacado.
+comentario: Errado. O consentimento (art. 11, I) é uma das hipóteses. Sem ele, o inciso II admite, entre outras, o cumprimento de obrigação legal ou regulatória (alínea “a”) e o exercício regular de direitos em contrato (alínea “d”). A tutela da saúde (alínea “f”) é que fica restrita a profissionais, serviços de saúde e autoridade sanitária.
+
+=== kd-09
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 23
+trecho: seja indicado um encarregado quando realizarem operações de tratamento de dados pessoais
+apoio: @CARTORIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Por receber da LGPD o mesmo tratamento dispensado às pessoas jurídicas de direito público, o cartório deve indicar encarregado e informar as hipóteses em que trata dados pessoais, preferencialmente em seu sítio eletrônico.
+comentario: Certo. O art. 23, § 4º, estende aos serviços notariais e de registro o tratamento do caput, que exige informar as hipóteses de tratamento em veículos de fácil acesso, preferencialmente nos sítios eletrônicos (inciso I), e indicar encarregado (inciso III).
+
+=== kd-10
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 23
+trecho: devem fornecer acesso aos dados por meio eletrônico para a administração pública
+apoio: @CARTORIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: O cartório deve fornecer à secretaria municipal de saúde acesso eletrônico aos registros de óbito, pois o pedido se destina a finalidade pública da administração.
+comentario: Certo. Art. 23, § 5º: os órgãos notariais e de registro devem fornecer acesso aos dados por meio eletrônico para a administração pública, tendo em vista as finalidades do caput (finalidade pública, interesse público, execução de competências legais). Atualizar o cadastro de vacinação é uma delas.
+
+=== kd-11
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 23
+trecho: Os prazos e procedimentos para exercício dos direitos do titular perante o Poder Público observarão o disposto em legislação específica
+apoio: @CARTORIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: comparacao
+dif: 3
+enunciado: O pedido de confirmação feito pelo cidadão rege-se exclusivamente pelos prazos e procedimentos da LGPD, que, por ser lei específica sobre dados pessoais, afasta a Lei do Habeas Data, a Lei n.º 9.784/1999 e a Lei de Acesso à Informação.
+comentario: Errado. É o contrário: o art. 23, § 3º, manda observar, perante o Poder Público, a legislação específica, “em especial” a Lei do Habeas Data, a Lei 9.784/1999 e a LAI. O cartório recebe o mesmo tratamento (§ 4º), de modo que a LGPD não afasta essas leis.
+
+=== kd-12
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 23
+trecho: terão o mesmo tratamento dispensado às pessoas jurídicas referidas no caput deste artigo
+apoio: @CARTORIO
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: excecao
+dif: 2
+enunciado: Como o oficial exerce a atividade em caráter privado, o cartório responde à LGPD como qualquer empresa privada, sem as regras do capítulo do tratamento de dados pelo Poder Público.
+comentario: Errado. Art. 23, § 4º: os serviços notariais e de registro exercidos em caráter privado, por delegação do Poder Público, terão o mesmo tratamento dispensado às pessoas jurídicas de direito público do caput. A delegação pesa mais que o caráter privado do exercício.
+
+=== kd-13
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 24
+trecho: quando estiverem operacionalizando políticas públicas e no âmbito da execução delas
+apoio: @ESTATAL
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Na operação do cadastro do programa de transferência de renda, a empresa pública recebe da LGPD o mesmo tratamento dispensado aos órgãos e às entidades do Poder Público.
+comentario: Certo. Art. 24, parágrafo único: empresas públicas e sociedades de economia mista, quando operacionalizam políticas públicas e no âmbito da execução delas, têm o tratamento do Poder Público.
+
+=== kd-14
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 24
+trecho: terão o mesmo tratamento dispensado às pessoas jurídicas de direito privado particulares
+apoio: @ESTATAL
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Na venda de serviços de hospedagem aos bancos, a empresa pública continua sujeita às regras do tratamento de dados pelo Poder Público, porque sua natureza jurídica não muda conforme a atividade exercida.
+comentario: Errado. O critério do art. 24 é a atividade, não a natureza jurídica: atuando em regime de concorrência (CF, art. 173), a empresa pública tem o mesmo tratamento das pessoas jurídicas de direito privado particulares. A mesma empresa pode, assim, estar nos dois regimes.
+
+=== kd-15
+gab: E
+bloco: lgpd-5-11
+ref: lgpd 5
+trecho: que realiza o tratamento de dados pessoais em nome do controlador
+apoio: @ESTATAL
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: conceito
+dif: 2
+enunciado: Por deter a infraestrutura e executar o processamento, a empresa pública é a controladora dos dados do cadastro do programa.
+comentario: Errado. Quem decide sobre o tratamento é o controlador (art. 5º, VI); a empresa processa os dados segundo as regras e finalidades definidas pelo ministério, isto é, em nome de outro, o que a faz operadora (art. 5º, VII). Deter a infraestrutura não muda o papel. No setor público, o guia da ANPD aponta como controladora a pessoa jurídica de direito público, cujas competências o ministério exerce.
+
+=== kd-16
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 26
+trecho: quando houver previsão legal ou a transferência for respaldada em contratos, convênios ou instrumentos congêneres
+apoio: @ESTATAL
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: A transferência de parte do cadastro à fundação privada pode amparar-se no convênio, e o instrumento deverá ser comunicado à autoridade nacional.
+comentario: Certo. Art. 26, § 1º, IV: a vedação de transferir dados a entidades privadas cede quando a transferência for respaldada em convênio. O § 2º exige que esses contratos e convênios sejam comunicados à autoridade nacional.
+
+=== kd-17
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 26
+trecho: deve atender a finalidades específicas de execução de políticas públicas e atribuição legal
+apoio: @ESTATAL
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: extrapolacao
+dif: 2
+enunciado: Recebidos os dados por convênio, a fundação poderá usá-los em qualquer pesquisa de seu interesse, já que os dados saíram de base pública.
+comentario: Errado. O uso compartilhado pelo Poder Público deve atender a finalidades específicas de execução de políticas públicas e atribuição legal (art. 26, caput), respeitados os princípios do art. 6º, entre eles a finalidade e a necessidade. A origem pública dos dados não os libera para outros fins.
+
+=== kd-18
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 27
+trecho: nas exceções constantes do § 1º do art. 26 desta Lei
+apoio: @ESTATAL
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: excecao
+dif: 3
+enunciado: Se a transferência à fundação estiver amparada no convênio, ficará dispensado o consentimento dos beneficiários do programa.
+comentario: Certo. O art. 27 exige consentimento para a comunicação de dados de pessoa jurídica de direito público a pessoa de direito privado, mas excetua, entre outras, as hipóteses do art. 26, § 1º (inciso III), entre as quais está a transferência respaldada em convênio. A comunicação do convênio à ANPD continua devida (art. 26, § 2º).
+
+=== kd-19
+gab: E
+bloco: lgpd-17-22
+ref: lgpd 18
+trecho: será atendido sem custos para o titular
+apoio: @TITULAR
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: A operadora pode cobrar a taxa pela cópia dos dados, desde que o valor corresponda ao custo de extração e envio.
+comentario: Errado. Art. 18, § 5º: o requerimento do titular será atendido sem custos para ele, nos prazos e nos termos do regulamento. A lei não admite repasse de custo, nem razoável.
+
+=== kd-20
+gab: C
+bloco: lgpd-17-22
+ref: lgpd 18
+trecho: não inclui dados que já tenham sido anonimizados pelo controlador
+apoio: @TITULAR
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: A recusa em incluir na portabilidade os registros de uso da rede já anonimizados encontra amparo na LGPD.
+comentario: Certo. Art. 18, § 7º: a portabilidade não inclui dados que já tenham sido anonimizados pelo controlador. Dado anonimizado nem é dado pessoal (art. 12), salvo se a anonimização puder ser revertida com esforços razoáveis.
+
+=== kd-21
+gab: E
+bloco: lgpd-17-22
+ref: lgpd 18
+trecho: mediante requerimento expresso do titular ou de representante legalmente constituído
+apoio: @TITULAR
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: extrapolacao
+dif: 2
+enunciado: A exigência de que só a própria titular apresente o pedido está de acordo com a LGPD, que veda o exercício dos direitos do titular por representante.
+comentario: Errado. Art. 18, § 3º: os direitos são exercidos mediante requerimento expresso do titular “ou de representante legalmente constituído”. Marina pode constituir procurador.
+
+=== kd-22
+gab: C
+bloco: lgpd-17-22
+ref: lgpd 18
+trecho: também poderá ser exercido perante os organismos de defesa do consumidor
+apoio: @TITULAR
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 1
+enunciado: Marina pode peticionar contra a operadora tanto perante a ANPD quanto perante os organismos de defesa do consumidor.
+comentario: Certo. Art. 18, § 1º (petição perante a autoridade nacional) e § 8º (o mesmo direito perante os organismos de defesa do consumidor). As vias não se excluem.
+
+=== kd-23
+gab: C
+bloco: lgpd-17-22
+ref: lgpd 18
+trecho: informação das entidades públicas e privadas com as quais o controlador realizou uso compartilhado de dados
+apoio: @TITULAR
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: literal
+dif: 1
+enunciado: Marina tem direito de obter da operadora a informação das entidades públicas e privadas com as quais seus dados foram compartilhados.
+comentario: Certo. Art. 18, VII. Esse direito é o que permite ao titular seguir o rastro dos dados e exercer os demais direitos também perante os destinatários.
+
+=== kd-24
+gab: E
+bloco: lgpd-17-22
+ref: lgpd 19
+trecho: em formato simplificado, imediatamente
+apoio: @TITULAR
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: numero
+dif: 2
+enunciado: Para responder ao pedido de confirmação da existência de tratamento, a operadora dispõe de até trinta dias, por meio de declaração clara e completa.
+comentario: Errado. Art. 19: a confirmação ou o acesso são providenciados em formato simplificado, imediatamente (inciso I), ou por declaração clara e completa, com origem, critérios e finalidade, em até 15 dias do requerimento (inciso II). A ANPD pode fixar prazos diferenciados para setores específicos (§ 4º).
+
+=== kd-25
+gab: C
+bloco: lgpd-55
+ref: lgpd 55-J
+trecho: após comprovada pelo titular a apresentação de reclamação ao controlador não solucionada no prazo estabelecido em regulamentação
+apoio: @TITULAR
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: caso
+dif: 2
+enunciado: Para que a ANPD aprecie sua petição contra a operadora, Marina deve comprovar que apresentou reclamação à própria operadora e que ela não foi solucionada no prazo estabelecido em regulamentação.
+comentario: Certo. Art. 55-J, V. A ANPD não é a primeira porta: o titular procura antes o controlador. O pedido escrito de Marina, não atendido, serve a essa comprovação.
+
+=== kd-26
+gab: E
+bloco: lgpd-55
+ref: lgpd 55-J
+trecho: poderão ser analisadas de forma agregada, e as eventuais providências delas decorrentes poderão ser adotadas de forma padronizada
+apoio: @TITULAR
+comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
+armadilha: absoluto
+dif: 2
+enunciado: Se muitas reclamações iguais à de Marina chegarem à ANPD, a agência deverá analisar cada uma separadamente, vedadas providências padronizadas.
+comentario: Errado. Art. 55-J, § 6º: as reclamações podem ser analisadas de forma agregada, e as providências delas decorrentes podem ser adotadas de forma padronizada. É o que permite à ANPD tratar condutas repetidas de um mesmo agente num só procedimento.
