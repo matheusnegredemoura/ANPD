@@ -590,6 +590,22 @@ button.dom-linha{appearance:none;border:0;background:none;width:100%;padding:0;t
 .trofeu{display:flex;gap:10px;align-items:flex-start}
 .trofeu>span{color:var(--gold);font-size:1.2rem;line-height:1.2}
 .trofeu>div{display:flex;flex-direction:column}
+/* Próximo passo do roteiro no primeiro cartão de Hoje */
+.proximo{grid-column:1 / -1;display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px solid var(--line)}
+.proximo b{font-size:1.02rem}
+.proximo.feito b{color:var(--certo)}
+/* Partes recolhidas: detalhes do tempo, listas longas do Progresso */
+details.det-tempo,details.det-lista{margin-top:8px}
+details.det-tempo>summary,details.det-lista>summary{cursor:pointer;font-size:.88rem;color:var(--accent);font-weight:600;padding:4px 0}
+details.det-lista>summary b{color:var(--ink);font-weight:600}
+details.det-lista[open]>summary{margin-bottom:10px}
+/* Atividade de dia anterior em Para encaixar: no máximo duas linhas */
+.pend-txt>span:first-of-type{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* Atalhos de teclado só fazem sentido com teclado */
+@media (hover:none) and (pointer:coarse){.atalhos{display:none}}
+.grade-modos>.modo:last-child:nth-child(odd){grid-column:1 / -1}
+/* O botão de começar acompanha a lista de blocos, para não exigir rolar até o fim */
+.comecar-fixo{position:sticky;bottom:calc(var(--abas-h) + 12px + env(safe-area-inset-bottom,0px));z-index:5;box-shadow:var(--sombra)}
 
 </style>
 
@@ -787,7 +803,8 @@ function diaNum(iso) { const [y, m, d] = iso.split('-').map(Number); return Math
 function isoDeNum(n) { return new Date(n * 86400000).toISOString().slice(0, 10); }
 const HOJE = () => diaNum(hojeISO());
 function diaSemana(iso) { return new Date(iso + 'T12:00:00').getDay(); }
-function fmtData(iso, op) { const s = new Date(iso + 'T12:00:00').toLocaleDateString('pt-BR', op); return s.charAt(0).toUpperCase() + s.slice(1); }
+function inicial(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+function fmtData(iso, op) { return inicial(new Date(iso + 'T12:00:00').toLocaleDateString('pt-BR', op)); }
 function embaralhar(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 function semAcento(s) { return String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
 function pl(n, s, p) { return n + ' ' + (n === 1 ? s : p); }
@@ -821,7 +838,7 @@ function perfilPadrao() {
 }
 const S = { perfil: perfilPadrao(), itens: {}, cards: {}, simulados: [], pesquisa: {}, disc: {} };
 const UI = Object.assign({ lei: 'lgpd', vista: 'hoje', modo: 'treino', n: 20, filtro: 'mistas', prova: 'blocos', blocos: P1.slice(), blocosCards: [], faseAberta: null, camadas: { cai: true, num: true, alerta: true, verbo: true, erro: true } }, lerLS(CHAVE_UI) || {});
-UI.discTema = null; UI.discFase = null; UI.discAval = {}; UI.discNE = 0;
+UI.discTema = null; UI.discFase = null; UI.discAval = {}; UI.discNE = 0; UI.det = {};
 UI.artSel = null; UI.busca = ''; UI.mais = 'menu'; UI.leiFila = null; UI.ranking = false; UI.filtroPesq = 'pendentes'; UI.buscaGloss = ''; UI.folhaArt = null; UI.folhaQ = null;
 if (!UI.camadas) UI.camadas = { cai: true, num: true, alerta: true, verbo: true, erro: true };
 let sessao = null;
@@ -1262,14 +1279,15 @@ function cartaoTempo() {
   return '<div class="cartao"><div class="secao-cab"><h2>Tempo de estudo</h2><span class="mono pequeno mudo">' + (meta ? 'meta do plano ' + fmtDur(meta * 60) : 'dia sem meta no plano') + '</span></div>' +
     '<div class="tempo-topo"><span class="tempo-grande mono" id="tempo-hoje">' + fmtDur(seg) + '</span><span class="mudo">' + (meta ? (seg >= meta * 60 ? 'meta cumprida' : 'faltam ' + fmtDur(meta * 60 - seg)) : 'hoje') + '</span></div>' +
     (meta ? '<div class="barra" id="tempo-barra"><i style="width:' + Math.min(100, Math.round((seg / 60 / meta) * 100)) + '%"></i></div>' : '') +
+    '<p class="pequeno mudo">Últimos 7 dias: <b>' + fmtDur(semSeg) + '</b> em ' + pl(semDias, 'dia', 'dias') + (semMetas.length ? ' · meta cumprida em ' + semOk + ' de ' + semMetas.length : '') + '.</p>' +
+    '<details class="det-tempo" data-det="tempo"' + (UI.det.tempo ? ' open' : '') + '><summary>Detalhes de hoje e da semana</summary>' +
     (seg ? '<div class="tempo-pilha" role="img" aria-label="' + esc('Hoje por atividade: ' + ATIV.map(([k, nome]) => nome + ' ' + fmtDur(t[k] || 0)).join(', ')) + '">' + ATIV.filter(([k]) => (t[k] || 0) >= 30).map(([k, nome]) => '<i style="flex-grow:' + t[k] + ';background:var(--at-' + k + ')" data-dica="' + esc(nome + ': ' + fmtDur(t[k])) + '"></i>').join('') + '</div>' : '') +
     legendaTempo(t) +
     '<div class="estat tempo-estat">' + met(r, 'itens respondidos') + met(r ? pct(d.c || 0, r) + '%' : '—', 'de acerto') +
     met(tq >= 60 && r ? Math.round(tq / r) + ' s' : '—', 'por item') + met(tq >= 300 && r ? Math.round(r / (tq / 3600)) : '—', 'itens por hora') +
     met(d.k || 0, 'cards revisados') + met((d.a || []).length, 'artigos lidos') + '</div>' +
     '<div class="tempo-semana" role="img" aria-label="' + esc('Últimos 7 dias: ' + sem.map(([iso, x]) => fmtData(iso, { weekday: 'short' }) + ' ' + fmtDur(segundosEstudo(x))).join(', ')) + '">' + colunasTempo(sem, 64) + '</div>' +
-    '<p class="pequeno mudo">Últimos 7 dias: <b>' + fmtDur(semSeg) + '</b> em ' + pl(semDias, 'dia', 'dias') + ' de estudo' + (semDias ? ', média de ' + fmtDur(semSeg / semDias) + ' por dia' : '') + (semMetas.length ? '. Meta do plano cumprida em ' + semOk + ' de ' + semMetas.length + '.' : '.') +
-    ' Conta só o tempo com o app aberto e em uso; parado por ' + OCIOSO_S / 60 + ' minutos, o relógio pausa. <button class="linkish" data-acao="mais" data-sub="progresso">Histórico</button></p></div>';
+    '<p class="pequeno mudo">' + (semDias ? 'Média de ' + fmtDur(semSeg / semDias) + ' por dia de estudo. ' : '') + 'Conta só o tempo com o app aberto e em uso; parado por ' + OCIOSO_S / 60 + ' minutos, o relógio pausa. <button class="linkish" data-acao="mais" data-sub="progresso">Histórico</button></p></details></div>';
 }
 // Progresso: 14 dias em colunas, resumo de 30 dias, divisão por atividade, ritmo e tabela dos últimos 7 dias
 function cartaoTempoHistorico() {
@@ -2010,27 +2028,27 @@ function roteiroHoje() {
   const passos = [];
   passos.push({
     titulo: 'Revisar o que venceu', feito: venc === 0 && manut === 0 && cardsV === 0,
-    texto: venc || manut || cardsV ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'acerto antigo para confirmar', 'acertos antigos para confirmar') : '', cardsV ? pl(cardsV, 'card', 'cards') : ''].filter(Boolean).join(' · ') + ' vencem hoje.' : 'Nada vencido. A revisão espaçada traz de volta o que você errou e, depois de semanas, o que acertou.',
+    texto: venc || manut || cardsV ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'acerto antigo para confirmar', 'acertos antigos para confirmar') : '', cardsV ? pl(cardsV, 'card', 'cards') : ''].filter(Boolean).join(' · ') + ' vencem hoje.' : 'Nada vencido hoje.',
     botoes: (venc + manut ? '<button class="btn pequeno primario" data-acao="iniciar-revisao">Questões (' + (venc + manut) + ')</button>' : '') + (cardsV ? '<button class="btn pequeno' + (venc + manut ? '' : ' primario') + '" data-acao="cards-revisao">Cards (' + cardsV + ')</button>' : ''),
   });
   if (dia) {
     const feito = !!S.perfil.feitos[dia.data];
     const nDia = nItensDoDia(dia);
     passos.push({ titulo: dia.modo === 'simulado' ? 'Simulado do dia' : dia.modo === 'revisao' ? 'Sessão de revisão do dia' : 'Questões do dia', feito,
-      texto: dia.atividade + (dia.modo === 'treino' && nDia < dia.n ? ' Dia pesado: ' + pl(venc, 'revisão vencida', 'revisões vencidas') + ', então a sessão cai de ' + dia.n + ' para ' + nDia + ' itens. Revisar primeiro evita acumular esquecimento.' : ''), botoes: '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' + esc(rotuloPausa(dia.data, (feito ? 'Outra rodada' : 'Começar') + ' · ' + rotuloModoDia(Object.assign({}, dia, { n: nDia })))) + '</button>' + botaoRecomecar(dia.data) });
+      texto: dia.modo === 'treino' && nDia < dia.n ? 'Sessão reduzida de ' + dia.n + ' para ' + nDia + ' itens: há ' + pl(venc, 'revisão vencida', 'revisões vencidas') + ', e elas vêm primeiro.' : '', botoes: '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' + esc(rotuloPausa(dia.data, (feito ? 'Outra rodada' : 'Começar') + ' · ' + rotuloModoDia(Object.assign({}, dia, { n: nDia })))) + '</button>' + botaoRecomecar(dia.data) });
   }
   const nInt = nIntercaladas();
   if (nInt > 0) {
     const chaveInt = 'i:' + hojeISO();
     passos.push({ titulo: 'Questões intercaladas', feito: !!S.perfil.feitos[chaveInt],
-      texto: nInt + ' itens misturando as matérias básicas (português, inglês, constitucional, administrativo, ética, LAI e processo administrativo) e os blocos que você já estudou. Misturar obriga a reconhecer o tipo de questão, e isso fixa mais.' + (nInt < (S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas) ? ' Dia pesado: a sessão ficou menor.' : ''),
+      texto: 'Matérias básicas e blocos já estudados, misturados.' + (nInt < (S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas) ? ' Sessão menor hoje (dia pesado).' : ''),
       botoes: '<button class="btn pequeno primario" data-acao="intercaladas">' + esc(rotuloPausa(chaveInt, (S.perfil.feitos[chaveInt] ? 'Outra rodada' : 'Começar') + ' · ' + nInt + ' itens')) + '</button>' + botaoRecomecar(chaveInt) });
   }
   const std = subtemaDoDia();
   if (std) {
     const e = estadoSubtema(std.id), chT = 't:' + hojeISO(), tipoT = e.novos ? 'pre' : 'pratica', chPT = 't:' + std.id + ':' + tipoT;
     passos.push({ titulo: 'Trilha de Direito do zero', feito: !!S.perfil.feitos[chT],
-      texto: 'Subtema de hoje: ' + std.nome + ' (' + ROTULO_ST[e.status] + (e.resp ? ', acerto atual ' + Math.round(e.acerto * 100) + '%' : '') + '). Comece pelas questões, mesmo sem saber a matéria; depois leia a aula curta e pratique até dominar.',
+      texto: std.nome + ' (' + ROTULO_ST[e.status] + (e.resp ? ', acerto ' + Math.round(e.acerto * 100) + '%' : '') + '). Questões primeiro, aula curta depois.',
       botoes: '<button class="btn pequeno primario" data-acao="trilha-sessao" data-st="' + esc(std.id) + '" data-tipo="' + tipoT + '">' + esc(rotuloPausa(chPT, e.novos ? 'Pré-teste · ' + pl(Math.min(8, e.novos), 'item', 'itens') : 'Praticar · ' + pl(Math.min(20, e.n), 'item', 'itens'))) + '</button>' + botaoRecomecar(chPT) +
         '<button class="btn pequeno" data-acao="subtema" data-st="' + esc(std.id) + '">Aula e subtema</button>' });
   }
@@ -2040,10 +2058,10 @@ function roteiroHoje() {
   }
   if (arts.length) {
     passos.push({ titulo: 'Lei seca grifada', feito: lidosHoje >= arts.length,
-      texto: (leitura.total > arts.length ? 'Leia na literalidade ' + arts.length + ' dos ' + leitura.total + ' artigos dos blocos do dia: os ligados à sua lista curta, os ainda não lidos e os mais cobrados.' : 'Leia na literalidade: ' + rotulosArts(arts) + '.') + ' Lidos hoje: ' + lidosHoje + ' de ' + arts.length + '.',
+      texto: (leitura.total > arts.length ? arts.length + ' dos ' + leitura.total + ' artigos do dia (lista curta, não lidos e mais cobrados)' : inicial(rotulosArts(arts))) + ' · lidos hoje: ' + lidosHoje + ' de ' + arts.length + '.',
       botoes: '<button class="btn pequeno" data-acao="ler-dia">Ler em sequência</button>' });
   } else {
-    passos.push({ titulo: 'Lei seca grifada', feito: (d.a || []).length >= 3, texto: 'Abra os artigos das questões que você errou. Os grifos mostram prazos, palavras de alerta e o que mais cai.',
+    passos.push({ titulo: 'Lei seca grifada', feito: (d.a || []).length >= 3, texto: 'Abra os artigos das questões que você errou.',
       botoes: '<button class="btn pequeno" data-acao="ir" data-vista="lei">Abrir a lei</button>' });
   }
   const metaNovos = Math.min(novosDisp + (d.n || 0), S.perfil.novosCards || 20, 10);
@@ -2052,7 +2070,7 @@ function roteiroHoje() {
     botoes: '<button class="btn pequeno" data-acao="cards-dia">Estudar cards</button>' });
   const sugest = sugestoesDoDia(blocos);
   passos.push({ titulo: 'Para pesquisar', feito: pesqHoje > 0,
-    texto: sugest.length ? 'Sugestão de hoje: ' + sugest[0] + '.' : 'Abra a sua lista e pesquise um tema.',
+    texto: sugest.length ? 'Sugestão: ' + sugest[0] + '.' : 'Abra a sua lista e pesquise um tema.',
     botoes: (sugest.length ? '<button class="btn pequeno primario" data-acao="investigar" data-t="' + esc(sugest[0]) + '" data-o="roteiro do dia">Investigar</button>' : '') +
       '<button class="btn pequeno" data-acao="mais" data-sub="pesquisar">Minha lista (' + Object.values(S.pesquisa).filter((p) => !p.s).length + ')</button>' });
   return { dia, passos };
@@ -2078,16 +2096,16 @@ function pendencias() {
 function cartaoPendencias() {
   const p = pendencias();
   if (!p.length) return '';
-  const linhas = p.slice(0, 3).map((x) => {
+  const linhas = p.slice(0, 2).map((x) => {
     const oque = [x.sessao ? (x.dia.modo === 'simulado' ? 'o simulado' : x.dia.modo === 'revisao' ? 'a sessão de revisão' : 'a sessão de ' + x.dia.n + ' itens') : '', x.ler.length ? pl(x.ler.length, 'artigo da leitura', 'artigos da leitura') : ''].filter(Boolean).join(' e ');
-    return '<div class="pend"><div class="pend-txt"><b>' + esc(fmtData(x.dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</b><span>' + esc(x.dia.atividade) + '</span><span class="pequeno mudo">Falta ' + esc(oque) + '.</span></div>' +
+    return '<div class="pend"><div class="pend-txt"><b>' + esc(fmtData(x.dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</b><span>' + esc(x.dia.atividade) + '</span><span class="pequeno mudo">Falta' + ((x.sessao && x.ler.length) || x.ler.length > 1 ? 'm ' : ' ') + esc(oque) + '.</span></div>' +
       '<div class="linha-btns">' + (x.sessao ? '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + x.dia.data + '">' + esc(rotuloPausa(x.dia.data, 'Fazer agora')) + '</button>' : '') +
       (x.ler.length ? '<button class="btn pequeno" data-acao="ler-pendente" data-dia="' + x.dia.data + '">Ler ' + x.ler.length + '</button>' : '') +
       '<button class="linkish pequeno" data-acao="dispensar-dia" data-dia="' + x.dia.data + '">Dispensar</button></div></div>';
   }).join('');
   return '<div class="cartao pendencias"><div class="secao-cab"><h2>Para encaixar</h2><span class="mono pequeno mudo">' + p.length + '</span></div>' +
-    '<p class="pequeno mudo">Ficou de dias anteriores. Sem pressa: o plano tem folga. Encaixe quando sobrar tempo, de preferência a mais antiga primeiro, ou dispense o que você já viu por outro caminho. Fazer uma delas conta como missão do dia.</p>' +
-    linhas + (p.length > 3 ? '<p class="pequeno mudo">E mais ' + pl(p.length - 3, 'dia', 'dias') + ' depois desses.</p>' : '') + '</div>';
+    '<p class="pequeno mudo">De dias anteriores, sem pressa. Dispense o que já viu por outro caminho.</p>' +
+    linhas + (p.length > 2 ? '<p class="pequeno mudo">E mais ' + pl(p.length - 2, 'dia', 'dias') + ' depois desses.</p>' : '') + '</div>';
 }
 
 /* ================= Jornada: missões do dia e chefão da semana ================= */
@@ -2186,10 +2204,10 @@ function cartaoJornada() {
   const chefe = '<div class="chefe' + (c.vencido ? ' vencido' : '') + '"><div class="chefe-cab"><b>' + esc(nomeChefe(c.bloco)) + '</b><span class="mono pequeno">' + (c.vencido ? 'derrotado' : c.vida + '/' + CHEFE_VIDA + ' de vida') + '</span></div>' +
     '<span class="pequeno">' + esc(nomeBloco(c.bloco)) + '</span>' +
     barra(c.vida / CHEFE_VIDA, '', '--accent:var(--errado)') +
-    '<p class="pequeno mudo">' + (c.vencido ? 'Derrotado. Outro aparece na segunda-feira; o troféu está em Mais → Progresso.' : 'O chefão da semana é o bloco em que você está mais fraco agora. Cada acerto em item desse bloco, em qualquer sessão, tira 1 de vida; derrotá-lo até domingo vale +' + CHEFE_XP + ' XP e um troféu.') + '</p>' +
+    '<p class="pequeno mudo">' + (c.vencido ? 'Derrotado. Outro aparece na segunda-feira; o troféu está em Mais → Progresso.' : 'Seu bloco mais fraco. Cada acerto nele, em qualquer sessão, tira 1 de vida; derrotá-lo até domingo vale +' + CHEFE_XP + ' XP e um troféu.') + '</p>' +
     (c.vencido ? '' : '<div class="linha-btns"><button class="btn pequeno primario" data-acao="enfrentar-chefe">' + esc(rotuloPausa('chefe:' + c.sem, 'Enfrentar · 15 itens')) + '</button></div>') + '</div>';
   return '<div class="cartao jornada"><div class="secao-cab"><h2>Jornada</h2><span class="mono pequeno mudo">' + feitas + ' de ' + mh.ids.length + ' missões' + (mh.bau ? ' · baú aberto' : '') + '</span></div>' +
-    '<div class="missoes">' + missoes + '</div><p class="pequeno mudo">' + (mh.bau ? 'Baú do dia aberto: +' + BAU_XP + ' XP. Amanhã tem missões novas.' : 'Cumpra as três para abrir o baú do dia (+' + BAU_XP + ' XP). Missão não feita não acumula: amanhã são outras.') + '</p>' + chefe + '</div>';
+    '<div class="missoes">' + missoes + '</div><p class="pequeno mudo">' + (mh.bau ? 'Baú do dia aberto: +' + BAU_XP + ' XP. Amanhã tem missões novas.' : 'Cumpra as três para abrir o baú (+' + BAU_XP + ' XP). Amanhã são outras.') + '</p>' + chefe + '</div>';
 }
 function cartaoTrofeus() {
   const t = (S.perfil.rpg && S.perfil.rpg.trofeus) || [];
@@ -2203,26 +2221,30 @@ function renderHoje() {
   const h = hojeISO();
   const rt = roteiroHoje();
   const feitos = rt.passos.filter((p) => p.feito).length;
+  const prox = rt.passos.find((p) => !p.feito);
   let topo = '<div class="cartao destaque"><div class="heroi">' +
     '<div><div class="dia">' + esc(fmtData(h, { weekday: 'long' })) + '</div><div class="data">' + esc(fmtData(h, { day: '2-digit', month: 'long', year: 'numeric' })) +
     (ctx.tipo === 'dia' ? ' · ' + esc(ctx.dia.duracao) : '') + '</div></div>' + anel(d.r, S.perfil.meta) +
-    '<p class="atividade">' + (ctx.tipo === 'dia' ? esc(ctx.dia.atividade) : ctx.tipo === 'folga' ? '<span class="mudo">Dia livre por padrão. Próxima sessão, ' + esc(fmtData(ctx.prox.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + ':</span> ' + esc(ctx.prox.atividade) : 'Cronograma concluído: recomece pelos blocos mais fracos e pelo conteúdo do edital.') + '</p></div></div>';
+    '<p class="atividade">' + (ctx.tipo === 'dia' ? esc(ctx.dia.atividade) : ctx.tipo === 'folga' ? '<span class="mudo">Dia livre por padrão. Próxima sessão, ' + esc(fmtData(ctx.prox.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + ':</span> ' + esc(ctx.prox.atividade) : 'Cronograma concluído: recomece pelos blocos mais fracos e pelo conteúdo do edital.') + '</p>' +
+    // O que fazer agora fica na primeira tela: o primeiro passo do roteiro ainda não feito, com o botão dele
+    (prox ? '<div class="proximo"><span class="rotulo">Próximo passo · ' + (rt.passos.indexOf(prox) + 1) + ' de ' + rt.passos.length + '</span><b>' + esc(prox.titulo) + '</b><div class="linha-btns">' + prox.botoes + '</div></div>'
+      : '<div class="proximo feito"><b>Roteiro de hoje completo.</b><span class="pequeno mudo">Se sobrar tempo, veja Para encaixar e a Jornada, mais abaixo.</span></div>') + '</div></div>';
   const aguard = ctx.tipo === 'dia' ? (ctx.dia.blocos || []).filter((b) => BI.get(b) && BI.get(b).aguardando && !(POR_BLOCO.get(b) || []).length) : [];
   if (aguard.length) topo += '<p class="nota-aguardando">' + esc(aguard.map(nomeBloco).join('; ')) + ': ainda sem questões. A sessão usa os blocos ligados ao tema. Cole o texto na conversa com o Claude para ganhar questões próprias.</p>';
   let roteiro = '<div class="cartao"><div class="secao-cab"><h2>Roteiro de hoje</h2><span class="mono pequeno mudo">' + feitos + ' de ' + rt.passos.length + '</span></div><div class="roteiro">';
   rt.passos.forEach((p, i) => {
-    roteiro += '<div class="passo' + (p.feito ? ' feito' : '') + '"><div class="marca-passo">' + (p.feito ? '✓' : i + 1) + '</div><div class="corpo-passo"><b>' + esc(p.titulo) + '</b><p>' + esc(p.texto) + '</p><div class="linha-btns">' + p.botoes + '</div></div></div>';
+    roteiro += '<div class="passo' + (p.feito ? ' feito' : '') + '"><div class="marca-passo">' + (p.feito ? '✓' : i + 1) + '</div><div class="corpo-passo"><b>' + esc(p.titulo) + '</b>' + (p.feito || !p.texto ? '' : '<p>' + esc(p.texto) + '</p>') + '<div class="linha-btns">' + p.botoes + '</div></div></div>';
   });
   roteiro += '</div><p class="pequeno mudo">A ordem é o método: revisão primeiro, depois questão, depois a lei onde você errou, depois a memorização com lacunas. <button class="linkish" data-acao="mais" data-sub="metodo">Entenda o método</button></p></div>';
   const nv = nivelDe(S.perfil.xp);
   const nivel = '<div class="cartao"><div class="nivel"><div class="insignia">' + nv.n + '</div><div class="info"><div class="titulo">' + esc(nv.nome) + '</div>' +
     barra((S.perfil.xp - nv.base) / (nv.prox - nv.base), 'ouro') + '<div class="pequeno mudo mono">' + fmtNum(S.perfil.xp) + ' / ' + fmtNum(nv.prox) + ' XP · faltam ' + fmtNum(nv.prox - S.perfil.xp) + '</div></div></div></div>';
   const modos = '<div class="secao"><div class="secao-cab"><h2>Modos de jogo</h2></div><div class="grade-modos">' +
-    '<button class="modo" data-acao="abrir-modo" data-modo="simulado"><b>Simulado Cebraspe</b><span>Uma errada anula uma certa. Prova completa na proporção estimada da prova ou só os seus blocos.</span><span class="num">' + pl(S.simulados.length, 'simulado feito', 'simulados feitos') + '</span></button>' +
-    '<button class="modo" data-acao="relampago" data-blocos="' + P1.join(',') + '"><b>Relâmpago 90 s</b><span>Quantos itens da prioridade 1 você acerta em um minuto e meio?</span><span class="num">Recorde: ' + (S.perfil.recordes.relampago || 0) + '</span></button>' +
-    '<button class="modo" data-acao="ir" data-vista="cards"><b>Cards cloze</b><span>A letra da lei com lacunas, no estilo do Anki, com revisão espaçada.</span><span class="num">' + CARDS.length + ' cards</span></button>' +
-    '<button class="modo" data-acao="mais" data-sub="discursiva"><b>Discursiva</b><span>Escreva no limite de linhas e corrija pelos quesitos do padrão de resposta.</span><span class="num">' + pl(TEMAS_DISC.length, 'tema', 'temas') + '</span></button>' +
-    '<button class="modo" data-acao="abrir-modo" data-modo="treino"><b>Treino livre</b><span>Escolha blocos e receba gabarito comentado a cada item.</span><span class="num">' + Q.length + ' questões</span></button></div></div>';
+    '<button class="modo" data-acao="abrir-modo" data-modo="simulado"><b>Simulado Cebraspe</b><span>Uma errada anula uma certa. Prova inteira ou só os seus blocos.</span><span class="num">' + pl(S.simulados.length, 'simulado feito', 'simulados feitos') + '</span></button>' +
+    '<button class="modo" data-acao="relampago" data-blocos="' + P1.join(',') + '"><b>Relâmpago 90 s</b><span>Prioridade 1 contra o relógio.</span><span class="num">Recorde: ' + (S.perfil.recordes.relampago || 0) + '</span></button>' +
+    '<button class="modo" data-acao="ir" data-vista="cards"><b>Cards cloze</b><span>A letra da lei com lacunas e revisão espaçada.</span><span class="num">' + CARDS.length + ' cards</span></button>' +
+    '<button class="modo" data-acao="mais" data-sub="discursiva"><b>Discursiva</b><span>Limite de linhas e correção por quesitos.</span><span class="num">' + pl(TEMAS_DISC.length, 'tema', 'temas') + '</span></button>' +
+    '<button class="modo" data-acao="abrir-modo" data-modo="treino"><b>Treino livre</b><span>Escolha os blocos; gabarito comentado a cada item.</span><span class="num">' + Q.length + ' questões</span></button></div></div>';
   // Duas contagens: o prazo legal do edital e a prova estimada (domingo cerca de três meses depois)
   const cr = D.cronograma, faltaEd = diaNum(cr.edital) - HOJE(), faltaPr = diaNum(cr.prova) - HOJE();
   const dataCurta = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit', year: 'numeric' });
@@ -2249,9 +2271,9 @@ function cartaoSoNoAparelho() {
   const dg = Store.diag, u = S.perfil.backupEm, dias = u ? HOJE() - diaNum(u) : null;
   const motivo = !dg.claude ? 'o app foi aberto fora do claude.ai' : dg.db !== 'ok' ? 'o banco de dados do app não respondeu' : dg.user !== 'ok' || dg.id !== 'ok' ? 'a sua conta não foi identificada (confira se entrou no claude.ai)' : dg.leitura !== 'ok' ? 'a leitura da conta falhou' : 'a conta recusou a gravação';
   return '<div class="cartao aviso-local' + (backupAtrasado() ? ' destaque' : '') + '"><div class="secao-cab"><h2>Progresso só neste aparelho</h2></div>' +
-    '<p>Nesta abertura, ' + esc(motivo) + '. O que você faz aqui fica guardado só neste navegador: se ele for limpo, ou se você estudar em outro aparelho, o progresso não vai junto.</p>' +
-    '<p class="pequeno">' + (u ? 'Último backup: ' + esc(fmtData(u, { day: '2-digit', month: '2-digit' })) + (dias ? ', há ' + pl(dias, 'dia', 'dias') : ', hoje') + '.' : 'Nenhum backup feito neste aparelho.') + ' Um backup a cada poucos dias basta; para levá-lo a outro aparelho, use Juntar em Mais → Ajustes, que soma sem apagar nada.</p>' +
-    '<div class="linha-btns"><button class="btn pequeno' + (backupAtrasado() ? ' primario' : '') + '" data-acao="backup-baixar">Baixar backup</button><button class="btn pequeno" data-acao="backup-copiar-hoje">Copiar como texto</button><button class="btn pequeno" data-acao="tentar-gravar">Tentar a conta de novo</button><button class="linkish pequeno" data-acao="mais" data-sub="ajustes">Diagnóstico</button></div></div>';
+    '<p>' + esc(inicial(motivo)) + '. ' + (u ? 'Último backup: ' + esc(fmtData(u, { day: '2-digit', month: '2-digit' })) + (dias ? ', há ' + pl(dias, 'dia', 'dias') : ', hoje') + '.' : 'Nenhum backup feito ainda.') + '</p>' +
+    '<p class="pequeno mudo">No outro aparelho: Mais → Ajustes → Juntar (soma, não apaga).</p>' +
+    '<div class="linha-btns"><button class="btn pequeno' + (backupAtrasado() ? ' primario' : '') + '" data-acao="backup-baixar">Baixar backup</button><button class="btn pequeno" data-acao="backup-copiar-hoje">Copiar texto</button><button class="btn pequeno" data-acao="tentar-gravar">Tentar a conta</button><button class="linkish pequeno" data-acao="mais" data-sub="ajustes">Diagnóstico</button></div></div>';
 }
 function atualizarRodapeSync() {
   const el = document.getElementById('sync');
@@ -2312,10 +2334,10 @@ function renderQuestoes() {
       '<div class="chips"><button class="chip" data-acao="preset" data-preset="p1">Prioridade 1</button><button class="chip" data-acao="preset" data-preset="lgpd">LGPD inteira</button><button class="chip" data-acao="preset" data-preset="tudo">Tudo</button><button class="chip" data-acao="preset" data-preset="nada">Limpar</button></div>';
     html += listaBlocos(sel, 'toggle-bloco', (b) => POR_BLOCO.get(b.id) || [], (b) => dominioBloco(b.id)) + '</div>';
   }
-  html += '<button class="btn primario largo" data-acao="comecar"' + (pool.length || usarProva ? '' : ' disabled') + '>Começar ' + esc({ treino: 'treino', simulado: 'simulado', relampago: 'relâmpago' }[modo]) + '</button>';
+  html += '<button class="btn primario largo comecar-fixo" data-acao="comecar"' + (pool.length || usarProva ? '' : ' disabled') + '>Começar ' + esc({ treino: 'treino', simulado: 'simulado', relampago: 'relâmpago' }[modo]) + '</button>';
   const conferidos = REAIS.filter(gabConferido).length;
   const nIades = REAIS.filter((q) => bancaDe(q) === 'IADES').length;
-  if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais de prova</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas anteriores, com comentário: ' + (REAIS.length - conferidos) + ' com gabarito oficial definitivo e ' + conferidos + ' avulsos, de provas de 2021 a 2026, com o gabarito conferido no texto da lei ou, em português, no texto da prova (a linha da prova avisa). ' + (nIades ? nIades + ' são de múltipla escolha do processo seletivo da própria ANPD (IADES, 2025), que mostra o recorte que a Autoridade escolheu cobrar. ' : '') + 'Servem para calibrar o estilo da banca; os de telecomunicações ficam fora do simulado de prova completa.</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
+  if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais de prova</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas de 2021 a 2026, com comentário: ' + (REAIS.length - conferidos) + ' com gabarito oficial definitivo e ' + conferidos + ' avulsos, com o gabarito conferido na lei ou no texto da prova. ' + (nIades ? nIades + ' são da seleção da própria ANPD (IADES, 2025). ' : '') + 'Os de telecomunicações ficam fora do simulado de prova completa.</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
   if (!usarProva && !UI.blocos.length) html += '<p class="mudo pequeno">Nenhum bloco marcado: a sessão usa o banco inteiro.</p>';
   document.getElementById('vista-questoes').innerHTML = html;
 }
@@ -3021,16 +3043,19 @@ function renderProgresso() {
     '<div><b>' + fmtNum(t.k) + '</b><span>cards revisados</span></div><div><b>' + seq + '</b><span>dias seguidos</span></div><div><b>' + (S.perfil.melhorSeq || 0) + '</b><span>melhor sequência</span></div></div>';
   html += cartaoTempoHistorico();
   html += '<div class="cartao"><div class="secao-cab"><h2>Constância</h2><span class="mudo pequeno">Últimas 16 semanas</span></div>' + mapaCalor() + '</div>';
-  html += '<div class="cartao"><div class="secao-cab"><h2>Domínio por bloco</h2><span class="mudo pequeno">Questões</span></div><div class="dominio">';
-  BLOCOS.filter((b) => (POR_BLOCO.get(b.id) || []).length).sort((a, b) => a.prioridade - b.prioridade).forEach((b) => {
-    const dmn = dominioBloco(b.id) || 0;
-    html += '<div class="dom-linha"><span class="nome">' + esc(b.nome) + '</span>' + barra(dmn) + '<span class="val">' + Math.round(dmn * 100) + '%</span></div>';
-  });
-  html += '</div><p class="pequeno mudo">Acerto de primeira vale 80%; o item chega a 100% quando você confirma o acerto na revisão seguinte. Erro zera.</p></div>';
+  // Os blocos já praticados vêm do mais fraco ao mais forte; os outros ficam recolhidos. Tocar num bloco abre um treino dele.
+  const doms = BLOCOS.filter((b) => (POR_BLOCO.get(b.id) || []).length).map((b) => ({ b, d: dominioBloco(b.id) || 0, resp: POR_BLOCO.get(b.id).filter((q) => { const r = rec(q.id); return r && r[0] >= 0; }).length }));
+  const prat = doms.filter((x) => x.resp).sort((a, b) => a.d - b.d), nprat = doms.filter((x) => !x.resp).sort((a, b) => a.b.prioridade - b.b.prioridade);
+  const linhaDom = (x) => '<button class="dom-linha" data-acao="treinar-bloco" data-bloco="' + esc(x.b.id) + '"><span class="nome">' + esc(x.b.nome) + (x.resp ? ' · ' + x.resp + ' respondidas' : '') + '</span>' + barra(x.d) + '<span class="val">' + Math.round(x.d * 100) + '%</span></button>';
+  html += '<div class="cartao"><div class="secao-cab"><h2>Domínio por bloco</h2><span class="mudo pequeno">' + pl(prat.length, 'bloco praticado', 'blocos praticados') + '</span></div>' +
+    (prat.length ? '<div class="dominio">' + prat.map(linhaDom).join('') + '</div>' : '<p class="mudo">Nenhum bloco praticado ainda.</p>') +
+    (nprat.length ? '<details class="det-lista" data-det="nprat"' + (UI.det.nprat ? ' open' : '') + '><summary>Ainda não praticados (' + nprat.length + ')</summary><div class="dominio">' + nprat.map(linhaDom).join('') + '</div></details>' : '') +
+    '<p class="pequeno mudo">Do mais fraco ao mais forte; toque num bloco para treinar 20 itens dele. Acerto de primeira vale 80%; o item chega a 100% quando você confirma o acerto na revisão seguinte. Erro zera.</p></div>';
   for (const t of TRILHAS) {
-    html += '<div class="cartao"><div class="secao-cab"><h2>Domínio por subtema · ' + esc(t.nome.replace(/ do zero$/, '')) + '</h2><span class="mudo pequeno">acerto atual</span></div><div class="dominio">' +
+    const dom = t.subtemas.filter((st) => estadoSubtema(st.id).status === 'dominado').length;
+    html += '<div class="cartao"><details class="det-lista" data-det="st-' + esc(t.id) + '"' + (UI.det['st-' + t.id] ? ' open' : '') + '><summary><b>Domínio por subtema · ' + esc(t.nome.replace(/ do zero$/, '')) + '</b> <span class="mudo pequeno">' + dom + ' de ' + t.subtemas.length + ' dominados</span></summary><div class="dominio">' +
       t.subtemas.map((st) => { const e = estadoSubtema(st.id); return '<button class="dom-linha" data-acao="subtema" data-st="' + esc(st.id) + '"><span class="nome">' + esc(st.nome) + '</span>' + barra(e.acerto * (e.n ? e.resp / e.n : 0)) + '<span class="val">' + (e.status === 'dominado' ? '✓' : e.resp + '/' + e.n) + '</span></button>'; }).join('') +
-      '</div><p class="pequeno mudo">A barra combina quanto do subtema você já respondeu e quanto acerta hoje. ✓ = dominado.</p></div>';
+      '</div><p class="pequeno mudo">A barra combina quanto do subtema você já respondeu e quanto acerta hoje. ✓ = dominado.</p></details></div>';
   }
   const porDisc = {};
   for (const q of Q) { const r = rec(q.id); if (!r || r[0] < 0) continue; const dd = (BI.get(q.b) || {}).disciplina; const x = (porDisc[dd] ||= { c: 0, e: 0 }); x.c += r[2]; x.e += r[3]; }
@@ -3654,6 +3679,7 @@ document.addEventListener('click', async (ev) => {
       if (ids.length) iniciarSessao({ modo: 'treino', ids, titulo: 'Armadilha · ' + (D.armadilhas[k] || k), chave: 'arm:' + k });
       break;
     }
+    case 'treinar-bloco': iniciarSessao({ modo: 'treino', n: 20, blocos: [alvo.dataset.bloco], filtro: 'mistas', titulo: 'Treino · ' + nomeBloco(alvo.dataset.bloco), chave: 'bloco:' + alvo.dataset.bloco }); break;
     case 'treinar-art': { const ids = (POR_ART.get(alvo.dataset.art) || []).map((q) => q.id); iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Questões · ' + nomeArt(alvo.dataset.art), chave: 'art:' + alvo.dataset.art }); break; }
     case 'cards-art': iniciarCards((CARDS_POR_ART.get(alvo.dataset.art) || []).map((c) => c.id), 'Cards · ' + nomeArt(alvo.dataset.art)); break;
     case 'reais-disc': {
@@ -3834,6 +3860,8 @@ document.addEventListener('change', (ev) => {
     leitor.readAsText(f);
   }
 });
+// Partes recolhidas (<details data-det>) continuam abertas ou fechadas quando a tela é redesenhada
+document.addEventListener('toggle', (ev) => { const d = ev.target; if (d && d.dataset && d.dataset.det) UI.det[d.dataset.det] = d.open; }, true);
 document.addEventListener('input', (ev) => {
   const id = ev.target.id;
   if (id === 'inv-texto') { if (UI.inv) UI.inv.rascunho = ev.target.value; return; }
