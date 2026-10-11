@@ -1,6 +1,6 @@
 // Nenhuma sessão recomeça do zero: simulado com marcações e tempo, itens reais como prova, treino por artigo pela
 // mesma porta, e a sessão guardada num aparelho continuando em outro (conta simulada compartilhada entre os dois).
-import { APP, abrirNavegador, foto, placar, vigiarErros } from './comum.mjs';
+import { APP, abrirNavegador, diaDeEstudo, foto, placar, vigiarErros } from './comum.mjs';
 
 const browser = await abrirNavegador();
 const { conferir, passo, fim } = placar();
@@ -10,6 +10,7 @@ const erros = [];
 const conta = {};
 async function aparelho(nome) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  await diaDeEstudo(ctx);
   await ctx.exposeFunction('__contaLer', (n) => conta[n] || null);
   await ctx.exposeFunction('__contaGravar', (n, v) => { conta[n] = v; });
   await ctx.addInitScript(() => {

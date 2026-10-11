@@ -191,7 +191,7 @@ export function montarDados() {
   });
   const lei = {};
   for (const [id, { lei: l }] of Object.entries(leis)) {
-    lei[id] = { nome: l.nome, curto: l.curto, url: l.url, artigos: l.artigos };
+    lei[id] = { nome: l.nome, curto: l.curto, url: l.url, artigos: l.artigos, ...(l.aviso ? { aviso: l.aviso } : {}) };
   }
   const grupos = GRUPOS_LEIS.map(([nome, ids]) => ({ nome, ids: ids.filter((id) => lei[id]) })).filter((g) => g.ids.length);
   return {

@@ -1,9 +1,10 @@
 // Sair da sessão do dia no meio e voltar: deve continuar de onde parou, inclusive depois de recarregar a página.
-import { APP, abrirNavegador, foto, placar, vigiarErros } from './comum.mjs';
+import { APP, abrirNavegador, diaDeEstudo, foto, placar, vigiarErros } from './comum.mjs';
 
 const browser = await abrirNavegador();
 const { conferir, fim } = placar();
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+await diaDeEstudo(ctx);
 const p = await ctx.newPage();
 const erros = [];
 vigiarErros(p, erros);

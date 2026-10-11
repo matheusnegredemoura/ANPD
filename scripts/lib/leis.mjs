@@ -337,6 +337,20 @@ export const LEIS = {
     curto: 'Lei 14.129',
     url: 'https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14129.htm',
   },
+  regimento: {
+    arquivo: 'regimento-anpd.txt',
+    nome: 'Regimento Interno da ANPD (2021) — Portaria nº 1/2021',
+    curto: 'Regimento 2021',
+    url: 'https://www.gov.br/anpd/pt-br',
+    // Mostrado no topo da norma e de cada artigo
+    aviso: 'Texto de 2021, de quando a ANPD integrava a Presidência da República. Onde diverge da Lei 13.848/2019 e da Estrutura Regimental do Decreto 12.881/2026 (unidades, quórum do Conselho Diretor, prazo de consulta pública, PAD de diretor), valem estas. Confira no site da ANPD se já há regimento mais novo.',
+  },
+  dec10046: {
+    arquivo: 'dec10046.txt',
+    nome: 'Decreto nº 10.046/2019 — Compartilhamento de dados na administração federal e Cadastro Base do Cidadão',
+    curto: 'Dec. 10.046',
+    url: 'https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/decreto/D10046.htm',
+  },
   dec9203: {
     arquivo: 'dec9203.txt',
     nome: 'Decreto nº 9.203/2017 — Política de governança',
@@ -359,10 +373,10 @@ export const LEIS = {
 
 // Grupos do seletor da lei seca, na ordem em que aparecem. Toda norma de LEIS entra em exatamente um grupo.
 export const GRUPOS_LEIS = [
-  ['LGPD e normas da ANPD', ['lgpd', 'lei15352', 'estrutura', 'dec12881', 'res1', 'res2', 'res4', 'res4ap', 'res15', 'res18', 'res19r', 'res19', 'res19c', 'res30', 'res31', 'res32', 'enun1']],
+  ['LGPD e normas da ANPD', ['lgpd', 'lei15352', 'estrutura', 'dec12881', 'regimento', 'res1', 'res2', 'res4', 'res4ap', 'res15', 'res18', 'res19r', 'res19', 'res19c', 'res30', 'res31', 'res32', 'enun1']],
   ['ECA Digital, internet e plataformas', ['lei15211', 'dec12880', 'dec12622', 'eca', 'mci', 'dec8771', 'dec12976', 'lei14852']],
   ['Regulação, agências e carreira', ['lei13848', 'lei9986', 'lei10871', 'dec10411', 'lei13874', 'lc182']],
-  ['Governança e gestão pública', ['dec9203', 'inmpcgu1']],
+  ['Governança e gestão pública', ['dec9203', 'inmpcgu1', 'dec10046']],
   ['Constituição', ['cf88']],
   ['Direito administrativo', ['lei9784', 'lindb', 'dec9830', 'lai', 'dec7724', 'lei13460', 'lei8429', 'lei12846', 'lei12813', 'lei8112', 'dec1171', 'lei9507', 'dl200', 'lei14133', 'lei8987', 'lei14129']],
   ['Segurança da informação', ['dec12572', 'dec11856', 'dec10748', 'ingsi1', 'nistcsf']],

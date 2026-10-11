@@ -1,6 +1,6 @@
 // Sincronização entre a conta (banco simulado em window.claude) e a cópia do navegador: nenhum cenário pode perder
 // progresso nem preferências. Foi escrito para a perda de dados da versão 18 e falha nela.
-import { APP, abrirNavegador, placar } from './comum.mjs';
+import { APP, abrirNavegador, diaDeEstudo, placar } from './comum.mjs';
 
 const browser = await abrirNavegador();
 const { conferir, fim } = placar();
@@ -11,6 +11,7 @@ function perfil(o) { return Object.assign({ xp: 0, meta: 30, novosCards: 20, int
 // nuvem: { perfil, itens, ... } (dados) com t; local: objeto do localStorage ou null; ui: CHAVE_UI ou null
 async function cenario(nome, { nuvem, tNuvem, local, ui, atrasoMs = 0, acao, epNuvem }, verificar) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  await diaDeEstudo(ctx);
   await ctx.addInitScript(({ nuvem, tNuvem, local, ui, atrasoMs, epNuvem }) => {
     if (!sessionStorage.getItem('semeado')) {
       sessionStorage.setItem('semeado', '1');

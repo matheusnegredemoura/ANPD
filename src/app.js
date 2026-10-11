@@ -2204,6 +2204,7 @@ function renderLei() {
   const lidos = arts.filter((a) => S.perfil.lidos && S.perfil.lidos[a.k]).length;
   let html = '<div class="secao"><div class="sel-lei-caixa">' + seletorLei() + '</div>' +
     '<div class="secao-cab"><h2>' + esc(L.nome) + '</h2><a class="pequeno" href="' + esc(L.url) + '" target="_blank" rel="noopener">Fonte oficial ↗</a></div>' +
+    (L.aviso ? '<p class="aviso-conferir">' + esc(L.aviso) + '</p>' : '') +
     '<p class="pequeno mudo">' + pl(arts.length, 'unidade', 'unidades') + ' · ' + lidos + ' lida' + (lidos === 1 ? '' : 's') + ' · ' + pl((arts.reduce((n, a) => n + (POR_ART.get(a.k) || []).length, 0)), 'questão ligada', 'questões ligadas') + '</p>' +
     '<input class="busca" id="busca-lei" type="search" placeholder="Buscar em todas as normas (ex.: quinze dias, encarregado, Senado)" value="' + esc(UI.busca) + '" aria-label="Buscar em todas as normas">' +
     '<div class="chips"><button class="chip" data-acao="ranking" aria-pressed="' + UI.ranking + '">Mais importantes primeiro</button><button class="chip" data-acao="ler-tudo">Ler do início</button></div>' +
@@ -2267,6 +2268,7 @@ function renderArtigo(k) {
   let html = '<div class="secao-cab"><button class="btn pequeno" data-acao="voltar-lei">' + esc(L.curto) + ': todos os artigos</button><div class="linha-btns">' +
     '<button class="btn pequeno" data-acao="nav-art" data-art="' + esc(ant || '') + '"' + (ant ? '' : ' disabled') + ' aria-label="Artigo anterior">←</button>' +
     '<button class="btn pequeno" data-acao="nav-art" data-art="' + esc(prox || '') + '"' + (prox ? '' : ' disabled') + ' aria-label="Próximo artigo">→</button></div></div>';
+  if (L.aviso) html += '<p class="aviso-conferir">' + esc(L.aviso) + '</p>';
   if (fila) html += '<div class="fila-leitura"><span>Leitura do dia: ' + (idx + 1) + ' de ' + fila.length + '</span>' + (prox ? '' : '<button class="btn pequeno" data-acao="fim-fila">Concluir leitura</button>') + '</div>';
   const est = estrelas(k);
   html += '<div class="cartao"><span class="rotulo">' + esc([L.curto].concat(a.estrutura).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +

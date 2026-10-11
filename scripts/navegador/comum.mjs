@@ -31,6 +31,15 @@ export async function abrirNavegador() {
   return chromium.launch(process.env.CHROMIUM ? { executablePath: process.env.CHROMIUM } : {});
 }
 
+// O plano deixa o domingo livre, sem sessão nem leitura do dia. Num domingo, os testes que dependem delas abrem o app
+// na segunda-feira seguinte; o relógio instalado continua correndo normalmente a partir dali.
+export async function diaDeEstudo(ctx) {
+  const d = new Date();
+  if (d.getDay() !== 0) return;
+  d.setDate(d.getDate() + 1);
+  await ctx.clock.install({ time: d });
+}
+
 // Erros de página e de console do próprio app. Falha ao baixar recurso externo (as fontes do Google, sem rede)
 // não conta: o app funciona sem elas.
 export function vigiarErros(p, erros) {

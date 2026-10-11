@@ -1,0 +1,285 @@
+bloco: lgpd-23-32
+// Decreto nº 10.046/2019 (compartilhamento de dados na administração pública federal, Cadastro Base do Cidadão e
+// Comitê Central de Governança de Dados), na redação vigente, a partir do texto compilado colado pelo usuário
+// (fontes/dec10046.txt). Itens escritos para o banco.
+
+
+=== d46-01
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 1
+trecho: entre os órgãos e as entidades da administração pública federal direta, autárquica e fundacional e os demais Poderes da União
+armadilha: literal
+dif: 1
+enunciado: O Decreto n.º 10.046/2019 estabelece normas e diretrizes para o compartilhamento de dados entre os órgãos e as entidades da administração pública federal direta, autárquica e fundacional e os demais Poderes da União.
+comentario: Certo: art. 1º. Entre as finalidades estão simplificar a oferta de serviços públicos e possibilitar a análise das condições de acesso e manutenção de benefícios sociais e fiscais.
+
+=== d46-02
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 1, § 1º
+trecho: não se aplica ao compartilhamento de dados com os conselhos de fiscalização de profissões regulamentadas e com o setor privado
+armadilha: extrapolacao
+dif: 2
+enunciado: O Decreto n.º 10.046/2019 disciplina também o compartilhamento de dados da administração pública federal com o setor privado e com os conselhos de fiscalização de profissões regulamentadas.
+comentario: Errado. O decreto não se aplica a esses compartilhamentos (art. 1º, § 1º). A transferência de dados do Poder Público a entidades privadas segue a LGPD (art. 26, § 1º, e art. 27).
+
+=== d46-03
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 1, § 2º
+trecho: Ficam excluídos do disposto no caput os dados protegidos por sigilo fiscal sob gestão da Secretaria Especial da Receita Federal do Brasil
+armadilha: excecao
+dif: 2
+enunciado: Os dados protegidos por sigilo fiscal sob gestão da Secretaria Especial da Receita Federal do Brasil estão excluídos do regime de compartilhamento do Decreto n.º 10.046/2019.
+comentario: Certo: art. 1º, § 2º. Dados da Receita não protegidos por sigilo fiscal, como a existência de bem imóvel em declaração de operações imobiliárias, são disponibilizados aos órgãos interessados (art. 28).
+
+=== d46-04
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 2, II
+trecho: características biológicas e comportamentais mensuráveis da pessoa natural
+armadilha: conceito
+dif: 2
+enunciado: Para o Decreto n.º 10.046/2019, atributos biométricos restringem-se a características biológicas, como as digitais e a íris, excluídas as características comportamentais, como a voz e a maneira de andar.
+comentario: Errado. Atributos biométricos são características biológicas e comportamentais mensuráveis, coletáveis para reconhecimento automatizado, e o próprio decreto cita a voz e a maneira de andar (art. 2º, II).
+
+=== d46-05
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 18, § 6º
+trecho: Excetuam-se do disposto no § 2º os atributos genéticos
+armadilha: excecao
+dif: 3
+enunciado: Os atributos genéticos não estão entre os dados que, por meio do número de inscrição no CPF, são acrescidos à base integradora do Cadastro Base do Cidadão.
+comentario: Certo: art. 18, § 6º, que excetua os atributos genéticos do acréscimo previsto no § 2º. Atributos genéticos são características hereditárias obtidas pela análise de ácidos nucleicos ou por outras análises científicas (art. 2º, IV).
+
+=== d46-06
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 3, I
+trecho: a informação do Estado será compartilhada da forma mais ampla possível, observadas as restrições legais
+armadilha: literal
+dif: 1
+enunciado: Uma das diretrizes do Decreto n.º 10.046/2019 é que a informação do Estado seja compartilhada da forma mais ampla possível, observadas as restrições legais, os requisitos de segurança da informação e a LGPD.
+comentario: Certo: art. 3º, I. O § 7º do art. 4º vai no mesmo sentido: prioriza-se a categoria de compartilhamento de maior abertura.
+
+=== d46-07
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 3, II
+trecho: o compartilhamento de dados sujeitos a sigilo implica a assunção, pelo recebedor de dados, dos deveres de sigilo e auditabilidade impostos ao custodiante dos dados
+armadilha: sujeito
+dif: 2
+enunciado: No compartilhamento de dados sujeitos a sigilo regido pelo Decreto n.º 10.046/2019, os deveres de sigilo e de auditabilidade permanecem exclusivamente com o custodiante, sem se transferirem ao recebedor.
+comentario: Errado. O recebedor assume os deveres de sigilo e auditabilidade impostos ao custodiante (art. 3º, II). Quem recebe dado sigiloso passa a responder pelo sigilo.
+
+=== d46-08
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 3, IX
+trecho: a limitação do compartilhamento de dados pessoais ao mínimo necessário para o atendimento da finalidade informada
+armadilha: literal
+dif: 2
+enunciado: Entre as diretrizes do Decreto n.º 10.046/2019 está a limitação do compartilhamento de dados pessoais ao mínimo necessário para atender à finalidade informada, nos termos do princípio da necessidade da LGPD.
+comentario: Certo: art. 3º, IX, incluído pelo Decreto 11.266/2022 com os incisos VII (propósitos legítimos, específicos e explícitos) e VIII (compatibilidade com a finalidade informada). Os três espelham os princípios da finalidade, da adequação e da necessidade (LGPD, art. 6º, I a III).
+
+=== d46-09
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 4, III
+trecho: cujo compartilhamento e regras sejam definidos pelo gestor de dados
+armadilha: comparacao
+dif: 2
+enunciado: No Decreto n.º 10.046/2019, as regras do compartilhamento específico são estabelecidas pelo Comitê Central de Governança de Dados, ao passo que as do compartilhamento restrito são definidas pelo gestor de dados.
+comentario: Errado: é o inverso. No restrito, o acesso vale para todos os órgãos e entidades do art. 1º, para execução de políticas públicas, com mecanismo e regras simplificados estabelecidos pelo Comitê Central (art. 4º, II). No específico, o acesso é dado a órgãos determinados, nas hipóteses previstas em lei, com regras definidas pelo gestor de dados (inciso III).
+
+=== d46-10
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 4, § 1º
+trecho: A categorização do nível de compartilhamento será feita pelo gestor de dados, com base na legislação
+armadilha: literal
+dif: 1
+enunciado: Segundo o Decreto n.º 10.046/2019, a categorização do nível de compartilhamento (amplo, restrito ou específico) é feita pelo gestor de dados, com base na legislação.
+comentario: Certo: art. 4º, § 1º. Se ainda não tiver sido feita, a categorização ocorre quando o gestor responde à solicitação de acesso (§ 5º).
+
+=== d46-11
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 4, § 6º
+trecho: será revista a cada cinco anos
+armadilha: numero
+dif: 1
+enunciado: A categorização do nível de compartilhamento prevista no Decreto n.º 10.046/2019 deve ser revista anualmente.
+comentario: Errado. A revisão ocorre a cada cinco anos, contados da publicação do decreto, ou sempre que mudarem as diretrizes que levaram à categorização (art. 4º, § 6º).
+
+=== d46-12
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 5
+trecho: Fica dispensada a celebração de convênio, acordo de cooperação técnica ou instrumentos congêneres
+armadilha: literal
+dif: 1
+enunciado: O compartilhamento de dados entre os órgãos e as entidades alcançados pelo Decreto n.º 10.046/2019 depende da celebração prévia de convênio ou de acordo de cooperação técnica.
+comentario: Errado. O art. 5º dispensa convênio, acordo de cooperação técnica ou instrumentos congêneres, observadas as diretrizes do art. 3º e a LGPD. Nos níveis restrito e específico, o compartilhamento é autorizado pelo gestor e formalizado em documentos de interoperabilidade (§ 3º).
+
+=== d46-13
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 5, § 4º
+trecho: o propósito legítimo, específico e explícito
+armadilha: rol
+dif: 2
+enunciado: Nas solicitações de interoperabilidade que envolvam dados pessoais, o Decreto n.º 10.046/2019 exige que se explicitem o propósito legítimo, específico e explícito, a compatibilidade com a finalidade e o compartilhamento do mínimo necessário.
+comentario: Certo: art. 5º, § 4º, incluído pelo Decreto 11.266/2022.
+
+=== d46-14
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 9
+trecho: o acesso aos dados ocorrerá no prazo de trinta dias, contado da data da solicitação
+armadilha: numero
+dif: 1
+enunciado: Atendidos os critérios necessários ao compartilhamento, o Decreto n.º 10.046/2019 fixa o prazo de dez dias, contado da solicitação, para o acesso aos dados.
+comentario: Errado. O prazo é de trinta dias (art. 9º). Trinta dias é também o prazo para o gestor se manifestar sobre pedido de compartilhamento específico (art. 15, § 2º).
+
+=== d46-15
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 10-A
+trecho: somente quando forem esgotadas as possibilidades de utilização dos cadastros base existentes
+armadilha: literal
+dif: 2
+enunciado: Pelo Decreto n.º 10.046/2019, os órgãos e as entidades só podem criar novas bases de dados quando esgotadas as possibilidades de uso dos cadastros base existentes.
+comentario: Certo: art. 10-A, incluído pelo Decreto 10.332/2020. A regra combate a duplicação de bases.
+
+=== d46-16
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 11
+trecho: O compartilhamento amplo de dados dispensa autorização prévia pelo gestor de dados
+armadilha: conceito
+dif: 1
+enunciado: No Decreto n.º 10.046/2019, o compartilhamento amplo depende de autorização prévia do gestor de dados, concedida caso a caso.
+comentario: Errado. O amplo dispensa autorização prévia e se faz pelos canais de dados abertos e de transparência ativa (art. 11). Os dados de compartilhamento amplo são catalogados no Portal Brasileiro de Dados Abertos (§ 5º).
+
+=== d46-17
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 12, § 4º
+trecho: Os dados recebidos por compartilhamento restrito não serão retransmitidos ou compartilhados com outros órgãos ou entidades, exceto quando previsto expressamente na autorização concedida pelo gestor de dados ou se houver posterior permissão deste
+armadilha: excecao
+dif: 3
+enunciado: Pela redação vigente do Decreto n.º 10.046/2019, os dados recebidos por compartilhamento restrito podem ser retransmitidos a outros órgãos que comprovem necessidade de acesso, salvo proibição expressa do gestor de dados.
+comentario: Errado. Essa era a redação original. Desde o Decreto 11.266/2022, a regra se inverteu: os dados não são retransmitidos, exceto se a autorização do gestor previr expressamente ou se houver permissão posterior dele (art. 12, § 4º). A mesma regra já valia para o compartilhamento específico (art. 14, § 2º).
+
+=== d46-18
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 15, § 2º
+trecho: O gestor de dados se manifestará quanto à solicitação de que trata o caput no prazo de trinta dias
+armadilha: numero
+dif: 2
+enunciado: No compartilhamento específico, o gestor de dados deve manifestar-se sobre a solicitação no prazo de trinta dias, contado do recebimento, conforme o Decreto n.º 10.046/2019.
+comentario: Certo: art. 15, § 2º. O solicitante fundamenta o pedido e especifica os dados no maior nível de detalhamento possível (caput).
+
+=== d46-19
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 15-A
+trecho: importará a responsabilidade civil do Estado pelos danos suportados pelos particulares
+armadilha: literal
+dif: 2
+enunciado: O tratamento de dados pessoais pelos órgãos e entidades alcançados pelo Decreto n.º 10.046/2019, em qualquer nível de compartilhamento, importa a responsabilidade civil do Estado pelos danos suportados pelos particulares.
+comentario: Certo: art. 15-A, incluído pelo Decreto 11.266/2022. Remete à responsabilidade do art. 37, § 6º, da Constituição: o Estado responde pelos danos, e o regresso contra o agente depende de culpa ou dolo (parágrafo único).
+
+=== d46-20
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 15-A
+trecho: exercício do direito de regresso contra os agentes públicos responsáveis pelo ato ilícito, em caso de culpa ou dolo
+armadilha: conceito
+dif: 2
+enunciado: Segundo o Decreto n.º 10.046/2019, o direito de regresso contra o agente público responsável por tratamento ilícito de dados pessoais independe de culpa ou dolo.
+comentario: Errado. O regresso exige culpa ou dolo do agente (art. 15-A, parágrafo único), na linha do art. 37, § 6º, da Constituição. Objetiva é a responsabilidade do Estado perante o particular.
+
+=== d46-21
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 16
+trecho: sem o consentimento expresso, prévio e específico dos indivíduos afetados e sem a devida transparência da motivação e finalidade
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um órgão federal pretende cruzar o Cadastro Base do Cidadão com outras bases para mapear comportamentos coletivos de cidadãos, sem consentimento e sem divulgar a motivação. Assertiva: o cruzamento é lícito porque serve à execução de política pública.
+comentario: Errado. O art. 16, parágrafo único, veda o uso do Cadastro Base, ou seu cruzamento com outras bases, para mapear ou explorar comportamentos individuais ou coletivos sem o consentimento expresso, prévio e específico dos afetados e sem transparência da motivação e da finalidade.
+
+=== d46-22
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 16, VI
+trecho: realizar o cruzamento de informações das bases de dados cadastrais oficiais a partir do número de inscrição do cidadão no CPF
+armadilha: literal
+dif: 2
+enunciado: Entre as finalidades do Cadastro Base do Cidadão, instituído pelo Decreto n.º 10.046/2019, está realizar o cruzamento de informações das bases de dados cadastrais oficiais a partir do número de inscrição do cidadão no CPF.
+comentario: Certo: art. 16, VI. O CPF é o atributo-chave para consolidar os atributos biográficos, biométricos e cadastrais na base integradora (art. 18, § 2º).
+
+=== d46-23
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 17, § 3º
+trecho: limitado a órgãos e entidades que comprovarem real necessidade de acesso aos dados pessoais nele reunidos
+armadilha: absoluto
+dif: 2
+enunciado: Pela redação vigente do Decreto n.º 10.046/2019, todos os órgãos e entidades do Poder Executivo federal têm acesso irrestrito ao Cadastro Base do Cidadão, por ser a base de referência sobre cidadãos.
+comentario: Errado. O acesso fica limitado a órgãos e entidades que comprovarem real necessidade, com mecanismos de controle definidos pelo Comitê Central (art. 17, § 3º), e condicionado ao atendimento integral das diretrizes de finalidade, compatibilidade e mínimo necessário (§ 2º).
+
+=== d46-24
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 22, IX
+trecho: dois de organizações da sociedade com atuação comprovada na temática de proteção de dados pessoais
+armadilha: rol
+dif: 2
+enunciado: O Comitê Central de Governança de Dados é composto exclusivamente por representantes de órgãos do Poder Executivo federal.
+comentario: Errado. Desde o Decreto 11.266/2022, o Comitê tem dois representantes de organizações da sociedade com atuação comprovada em proteção de dados pessoais (art. 22, IX), escolhidos por processo seletivo e com mandato de dois anos (§ 8º). CNJ, Senado e Câmara podem indicar membros convidados (§ 4º).
+
+=== d46-25
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 22, I
+trecho: um do órgão central do Sistema de Administração dos Recursos de Tecnologia da Informação - Sisp, que o presidirá
+armadilha: sujeito
+dif: 3
+enunciado: O Comitê Central de Governança de Dados é presidido pelo representante do órgão central do Sistema de Administração dos Recursos de Tecnologia da Informação (Sisp).
+comentario: Certo: art. 22, I. A Secretaria-Executiva cabe à Secretaria de Governo Digital do Ministério da Gestão e da Inovação em Serviços Públicos (art. 24).
+
+=== d46-26
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 23, § 1º
+trecho: o quórum de aprovação é de maioria simples
+armadilha: numero
+dif: 3
+enunciado: O Comitê Central de Governança de Dados reúne-se ordinariamente a cada três meses e aprova suas deliberações por consenso, com quórum de reunião de dois terços dos membros.
+comentario: Errado. Reunião ordinária a cada três meses e quórum de reunião de dois terços estão certos, mas a aprovação é por maioria simples (art. 23, § 1º). Consenso era a regra da redação original, alterada pelo Decreto 11.266/2022.
+
+=== d46-27
+gab: C
+bloco: lgpd-23-32
+ref: dec10046 26
+trecho: As controvérsias no compartilhamento de dados entre órgãos e entidades públicas federais solicitantes de dados e o gestor de dados serão decididas pelo Comitê Central de Governança de Dados
+armadilha: literal
+dif: 2
+enunciado: As controvérsias entre o órgão solicitante e o gestor de dados sobre compartilhamento de dados na administração pública federal são decididas pelo Comitê Central de Governança de Dados.
+comentario: Certo: art. 26. O Comitê busca compor os interesses e se manifesta por resolução (§ 3º).
+
+=== d46-28
+gab: E
+bloco: lgpd-23-32
+ref: dec10046 27
+trecho: A Advocacia-Geral da União, na hipótese de controvérsia a respeito da abrangência, do enquadramento ou do instituto jurídico aplicável
+armadilha: sujeito
+dif: 2
+enunciado: Havendo controvérsia jurídica sobre os níveis de compartilhamento previstos no Decreto n.º 10.046/2019, cabe à Controladoria-Geral da União fixar, por parecer, a interpretação a ser seguida pelos órgãos.
+comentario: Errado. Quem pode fixar a interpretação por parecer jurídico é a Advocacia-Geral da União (art. 27). A CGU tem assento no Comitê Central (art. 22, IV).

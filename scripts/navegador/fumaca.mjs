@@ -1,12 +1,13 @@
 // Teste de fumaça: percorre as telas e os fluxos principais no celular e no computador, em tema claro e escuro,
 // e falha em erro de página ou rolagem horizontal.
-import { APP, abrirNavegador, foto, placar, responder, sairDaSessao, vigiarErros } from './comum.mjs';
+import { APP, abrirNavegador, diaDeEstudo, foto, placar, responder, sairDaSessao, vigiarErros } from './comum.mjs';
 
 const browser = await abrirNavegador();
 const erros = [];
 const { conferir, passo, fim } = placar();
 async function pagina(opts) {
   const ctx = await browser.newContext(opts);
+  await diaDeEstudo(ctx);
   const p = await ctx.newPage();
   p.setDefaultTimeout(4000);
   vigiarErros(p, erros);
