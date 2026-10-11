@@ -37,7 +37,9 @@ async function cenario(nome, { nuvem, tNuvem, local, ui, atrasoMs = 0, acao, epN
   if (acao) await acao(p);
   await p.waitForTimeout(atrasoMs + 2500);
   const r = await p.evaluate(() => ({ nuvem: window.__nuvem, sets: window.__sets, local: JSON.parse(localStorage.getItem('painel-anpd-v3') || 'null'), ui: JSON.parse(localStorage.getItem('painel-anpd-ui') || 'null'), tema: document.documentElement.dataset.tema || '' }));
-  console.log('\n# ' + nome + ' (gravou na conta: ' + (r.sets.join(',') || 'nada') + ')');
+  // O histórico das questões fica em quatro partes (itens0 a itens3); "itens" é o documento antigo, só lido
+  r.itensConta = Object.assign({}, ...['itens0', 'itens1', 'itens2', 'itens3'].map((n) => (r.nuvem[n] && r.nuvem[n].q) || {}));
+  console.log('\n# ' + nome + ' (gravou na conta: ' + ([...new Set(r.sets)].join(',') || 'nada') + ')');
   await verificar(r, p);
   conferir('sem erro de página', !erros.length, erros.join(' | '));
   await ctx.close();
@@ -60,7 +62,8 @@ await cenario('Navegador limpo + toque no tema antes de carregar a conta', {
   conferir('XP da conta mantido (500)', r.nuvem.perfil.xp >= 500, 'xp=' + r.nuvem.perfil.xp);
   conferir('status do bloco mantido', r.nuvem.perfil.status['lgpd-55'] === 'dominado');
   conferir('dia do plano marcado mantido', r.nuvem.perfil.feitos['2026-09-01'] === 1);
-  conferir('respostas mantidas', !!r.nuvem.itens.q['l1-01'] && !!r.nuvem.itens.q['l1-02']);
+  conferir('respostas do documento antigo passam para as partes', !!r.itensConta['l1-01'] && !!r.itensConta['l1-02']);
+  conferir('documento antigo não é regravado', !r.sets.includes('itens'));
   conferir('simulado mantido', r.nuvem.simulados.lista.length === 1);
   conferir('preferências da conta aplicadas (blocos)', JSON.stringify(r.ui.blocos) === '["lgpd-55"]', JSON.stringify(r.ui.blocos));
   conferir('preferências da conta aplicadas (quantidade e filtro)', r.ui.n === 40 && r.ui.filtro === 'erradas');
@@ -84,8 +87,8 @@ await cenario('Navegador limpo + responde questão antes de carregar a conta', {
   conferir('XP da conta mantido (>= 500)', r.nuvem.perfil.xp >= 500, 'xp=' + r.nuvem.perfil.xp);
   conferir('status do bloco mantido', r.nuvem.perfil.status['lgpd-55'] === 'dominado');
   conferir('dia do plano marcado mantido', r.nuvem.perfil.feitos['2026-09-01'] === 1);
-  conferir('respostas antigas mantidas', !!r.nuvem.itens.q['l1-01'] && !!r.nuvem.itens.q['l1-02']);
-  conferir('resposta nova registrada', Object.keys(r.nuvem.itens.q).length >= 3, Object.keys(r.nuvem.itens.q).length + ' itens');
+  conferir('respostas antigas mantidas', !!r.itensConta['l1-01'] && !!r.itensConta['l1-02']);
+  conferir('resposta nova registrada', Object.keys(r.itensConta).length >= 3, Object.keys(r.itensConta).length + ' itens');
 });
 
 // 2) Navegador com cópia antiga; a conta é mais nova
@@ -96,7 +99,7 @@ await cenario('Navegador com cópia antiga, conta mais nova', {
 }, (r) => {
   conferir('meta da conta prevalece (60)', r.nuvem.perfil.meta === 60 && r.local.perfil.meta === 60);
   conferir('XP = maior das duas (500)', r.nuvem.perfil.xp === 500);
-  conferir('respostas unidas (conta + navegador)', ['l1-01', 'l1-02', 'l1-03'].every((k) => r.nuvem.itens.q[k]));
+  conferir('respostas unidas (conta + navegador)', ['l1-01', 'l1-02', 'l1-03'].every((k) => r.itensConta[k]));
   conferir('preferências da conta prevalecem (n=40, tema escuro)', r.ui.n === 40 && r.tema === 'escuro', 'n=' + r.ui.n + ' tema=' + r.tema);
 });
 
@@ -109,8 +112,8 @@ await cenario('Navegador mais novo que a conta', {
   conferir('meta do navegador prevalece (90)', r.nuvem.perfil.meta === 90);
   conferir('status do navegador prevalece', r.nuvem.perfil.status['lgpd-55'] === 'revisar');
   conferir('XP = 650', r.nuvem.perfil.xp === 650);
-  conferir('registro mais recente do item (nível 4)', r.nuvem.itens.q['l1-01'][0] === 4);
-  conferir('item só da conta mantido', !!r.nuvem.itens.q['l1-02']);
+  conferir('registro mais recente do item (nível 4)', r.itensConta['l1-01'][0] === 4);
+  conferir('item só da conta mantido', !!r.itensConta['l1-02']);
   conferir('simulado da conta mantido', r.nuvem.simulados.lista.length === 1);
   conferir('preferências do navegador prevalecem (n=60)', r.ui.n === 60 && r.nuvem.perfil.ui.n === 60);
 });
@@ -121,7 +124,7 @@ await cenario('Conta zerada em outro aparelho', {
   local: { perfil: perfil({ xp: 900 }), itens: { 'l1-09': [2, DIA + 3, 2, 0, DIA - 3, 0, 0] }, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: { perfil: agora - 86400e3 } },
 }, (r) => {
   conferir('XP zerado continua zerado', r.nuvem.perfil.xp === 0 && r.local.perfil.xp === 0, 'nuvem=' + r.nuvem.perfil.xp + ' local=' + r.local.perfil.xp);
-  conferir('respostas antigas não voltam', !r.nuvem.itens.q['l1-09']);
+  conferir('respostas antigas não voltam', !r.itensConta['l1-09'] && !r.local.itens['l1-09']);
 });
 
 // 5) Primeira abertura com esta versão: a conta não tem preferências, o navegador tem

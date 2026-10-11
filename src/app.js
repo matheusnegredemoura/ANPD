@@ -68,7 +68,18 @@ const REVISOES_DIA_PESADO = 40;
 // Intercalação: matérias básicas, treinadas todo dia, e blocos já estudados no cronograma, misturados na mesma sessão
 const BLOCOS_BASICOS = ['portugues', 'ingles', 'constitucional', 'administrativo', 'lai', 'etica-improbidade', 'lei-9784'];
 const MIN_DIA_ATIVO = 10;
-const DOCS = ['perfil', 'itens', 'cards', 'simulados', 'pesquisa', 'discursivas'];
+// O histórico das questões vai em quatro documentos (itens0 a itens3): cada documento da conta aceita até 256 KiB, e um
+// documento só estouraria por volta de 7 mil questões respondidas. No resto do app, "itens" continua sendo um nome só.
+const PARTES_ITENS = ['itens0', 'itens1', 'itens2', 'itens3'];
+const DOCS = ['perfil'].concat(PARTES_ITENS, ['cards', 'simulados', 'pesquisa', 'discursivas']);
+const PARTE_DE = new Map();
+function parteItem(id) {
+  let p = PARTE_DE.get(id);
+  if (!p) { p = PARTES_ITENS[hashTxt(id) % PARTES_ITENS.length]; PARTE_DE.set(id, p); }
+  return p;
+}
+// Acima disto o documento não é enviado: a conta recusaria (limite de 256 KiB) e o erro apareceria no diagnóstico
+const LIMITE_DOC = 240000;
 const CHAVE_LOCAL = 'painel-anpd-v3';
 const CHAVE_LOCAL_ANTIGA = 'painel-anpd-v2';
 const CHAVE_UI = 'painel-anpd-ui';
@@ -241,7 +252,7 @@ function mesclarDoc(n, nuvem, local, localNovo) {
   const novo = localNovo ? local : nuvem, velho = localNovo ? nuvem : local;
   const num = (x) => Number(x) || 0;
   // Item: [nível, próxima, acertos, erros, último dia, ...]; card: [vence, intervalo, facilidade, repetições, lapsos, último dia]
-  if (n === 'itens') return { q: mesclarMapa(nuvem.q, local.q, (a, b) => (num(b[4]) > num(a[4]) || (num(b[4]) === num(a[4]) && num(b[2]) + num(b[3]) > num(a[2]) + num(a[3])) ? b : a)) };
+  if (/^itens/.test(n)) return { q: mesclarMapa(nuvem.q, local.q, (a, b) => (num(b[4]) > num(a[4]) || (num(b[4]) === num(a[4]) && num(b[2]) + num(b[3]) > num(a[2]) + num(a[3])) ? b : a)) };
   if (n === 'cards') return { c: mesclarMapa(nuvem.c, local.c, (a, b) => (num(b[5]) > num(a[5]) || (num(b[5]) === num(a[5]) && num(b[3]) + num(b[4]) > num(a[3]) + num(a[4])) ? b : a)) };
   if (n === 'simulados') {
     const vistos = new Set(), lista = [];
@@ -268,13 +279,15 @@ function mesclarDoc(n, nuvem, local, localNovo) {
   p.lidos = mesclarMapa(nuvem.lidos, local.lidos, (a, b) => (b < a ? b : a));
   p.recordes = mesclarMapa(nuvem.recordes, local.recordes, (a, b) => Math.max(num(a), num(b)));
   p.criado = [nuvem.criado, local.criado].filter(Boolean).sort()[0] || hojeISO();
-  if (!p.ui) p.ui = velho.ui || undefined;
+  if (!p.ui && velho.ui) p.ui = velho.ui;
   return p;
 }
 // O progresso fica no banco do Artifact (por usuário) e, sempre, também neste navegador.
 // Na abertura, a cópia da conta e a deste navegador são mescladas (mesclarDoc): nenhuma apaga a outra.
 const Store = {
   modo: 'local', dev: Math.random().toString(36).slice(2, 10), refs: {}, timer: {}, gravando: {}, fila: {}, ultimoT: {}, erro: null,
+  // Partes do histórico de questões com resposta nova desde a última gravação; tamanho de cada documento enviado
+  itensSujos: new Set(), tamanhos: {},
   // Quando cada documento mudou neste navegador; decide qual cópia manda no que liga e desliga (metas, status, preferências)
   tLocal: {},
   // Até a conta ser lida, nada do navegador conta como mais novo que ela: as mudanças ficam marcadas em "sujo"
@@ -303,6 +316,7 @@ const Store = {
   },
   dados(n) {
     if (n === 'perfil') return S.perfil;
+    if (PARTES_ITENS.includes(n)) { const q = {}; for (const [id, r] of Object.entries(S.itens)) if (parteItem(id) === n) q[id] = r; return { q }; }
     if (n === 'itens') return { q: S.itens };
     if (n === 'cards') return { c: S.cards };
     if (n === 'simulados') return { lista: S.simulados };
@@ -311,7 +325,12 @@ const Store = {
   },
   definir(n, d) {
     if (n === 'perfil') { S.perfil = Object.assign(perfilPadrao(), d); podarPerfil(); aplicarPrefs(); }
-    else if (n === 'itens') { S.itens = d.q || {}; if (!(S.perfil.migr && S.perfil.migr.mesmoDia)) { corrigirAcertosDoMesmoDia(); Store.salvar('itens', 'perfil'); } }
+    else if (PARTES_ITENS.includes(n) || n === 'itens') {
+      if (n === 'itens') S.itens = {};
+      else for (const id of Object.keys(S.itens)) if (parteItem(id) === n) delete S.itens[id];
+      Object.assign(S.itens, (d && d.q) || {});
+      if (!(S.perfil.migr && S.perfil.migr.mesmoDia)) { corrigirAcertosDoMesmoDia(); Store.salvar('itens', 'perfil'); }
+    }
     else if (n === 'cards') S.cards = d.c || {};
     else if (n === 'simulados') S.simulados = d.lista || [];
     else if (n === 'discursivas') S.disc = d.d || {};
@@ -354,7 +373,8 @@ const Store = {
       this.db = db; this.uid = uid;
       const col = db.collection('data/users/' + uid);
       DOCS.forEach((n) => { this.refs[n] = col.doc(n); });
-      const snaps = await Promise.all(DOCS.map((n) => this.refs[n].get()));
+      // O documento antigo do histórico de questões é lido junto com os outros (ver juntarLegado)
+      const [snaps, legado] = await Promise.all([Promise.all(DOCS.map((n) => this.refs[n].get())), col.doc('itens').get().catch(() => null)]);
       this.diag.leitura = 'ok';
       this.modo = 'nuvem';
       if (!snaps.some((s) => s.exists)) {
@@ -366,11 +386,15 @@ const Store = {
         const dp = snaps[DOCS.indexOf('perfil')], epNuvem = (dp.exists && dp.data() && dp.data().dados && dp.data().dados.ep) || 0;
         snaps.forEach((s, i) => {
           const n = DOCS[i], d = s.exists ? s.data() : null;
-          if (!d || !d.dados || epLocal > epNuvem) this.gravar(n);
-          else if (epNuvem > epLocal) this.aplicar(n, d);
+          if (epLocal > epNuvem) this.gravar(n);
+          // Época mais nova na conta (zerou ou restaurou em outro aparelho): documento que lá não existe conta como vazio,
+          // para o que é deste navegador, de antes, não voltar para a conta
+          else if (epNuvem > epLocal) { if (d && d.dados) this.aplicar(n, d); else this.definir(n, {}); }
+          else if (!d || !d.dados) this.gravar(n);
           else this.mesclar(n, d, this.localReal && !!this.tLocal[n] && !!d.t && this.tLocal[n] > d.t);
         });
       }
+      this.juntarLegado(legado);
       DOCS.forEach((n) => {
         this.refs[n].onSnapshot((s) => {
           if (!s.exists) return;
@@ -389,6 +413,26 @@ const Store = {
     this.pronto();
     enviarContestacoesPendentes();
   },
+  // Antes da divisão em partes, o histórico das questões ia num documento só ("itens"). O que estiver lá, da mesma época,
+  // entra na junção e passa para as partes; versões antigas do app abertas em outro aparelho continuam gravando ali.
+  juntarLegado(s) {
+    const d = s && s.exists ? s.data() : null;
+    const q = d && d.dados && d.dados.q;
+    if (!q || !Object.keys(q).length || (d.ep || 0) < (S.perfil.ep || 0)) return;
+    const antes = JSON.stringify(S.itens);
+    S.itens = mesclarDoc('itens', d.dados, { q: S.itens }, true).q;
+    if (JSON.stringify(S.itens) !== antes) { this.guardarLocal(); this.salvar('itens'); }
+  },
+  // "itens" vira as partes com resposta nova (ou todas, se não se sabe quais mudaram)
+  expandir(nomes) {
+    const out = [];
+    for (const n of nomes) {
+      if (n !== 'itens') { out.push(n); continue; }
+      out.push(...(this.itensSujos.size ? [...this.itensSujos] : PARTES_ITENS));
+      this.itensSujos.clear();
+    }
+    return [...new Set(out)];
+  },
   pronto() {
     this.carregando = false;
     // O que mudou enquanto a conta era lida já está mesclado em S: agora vale como mudança deste navegador
@@ -400,6 +444,7 @@ const Store = {
     renderTudo();
   },
   salvar(...nomes) {
+    nomes = this.expandir(nomes);
     const agora = Date.now();
     for (const n of nomes) { if (this.carregando) this.sujo[n] = true; else this.tLocal[n] = agora; }
     this.guardarLocal();
@@ -407,7 +452,7 @@ const Store = {
     if (this.modo !== 'nuvem') return;
     for (const n of nomes) { clearTimeout(this.timer[n]); this.timer[n] = setTimeout(() => this.gravar(n), 1200); }
   },
-  salvarTudo() { this.salvar(...DOCS); },
+  salvarTudo() { this.itensSujos.clear(); this.salvar(...DOCS); },
   descarregar() {
     if (this.modo !== 'nuvem') return;
     for (const n of DOCS) if (this.timer[n]) { clearTimeout(this.timer[n]); this.timer[n] = null; this.gravar(n); }
@@ -415,17 +460,26 @@ const Store = {
   async gravar(n) {
     this.timer[n] = null;
     if (this.gravando[n]) { this.fila[n] = true; return; }
-    this.gravando[n] = true;
     const t = Date.now();
+    const corpo = { dev: this.dev, t, v: 3, ep: S.perfil.ep || 0, dados: this.dados(n) };
+    const tam = JSON.stringify(corpo).length;
+    this.tamanhos[n] = tam;
+    if (tam > LIMITE_DOC) {
+      this.erro = 'documento ' + n + ' com ' + Math.round(tam / 1024) + ' KB, acima do limite da conta';
+      this.diag.gravacao = 'erro: ' + this.erro;
+      atualizarRodapeSync();
+      return;
+    }
+    this.gravando[n] = true;
     try {
-      await this.refs[n].set({ dev: this.dev, t, v: 3, ep: S.perfil.ep || 0, dados: this.dados(n) });
+      await this.refs[n].set(corpo);
       this.ultimoT[n] = t;
       this.erro = null;
       this.diag.gravacao = 'ok';
     } catch (e) {
       this.erro = (e && e.code) || 'erro';
       this.diag.gravacao = 'erro ' + this.erro;
-      if (e && ['invalid_argument', 'revoked', 'not_granted', 'capability_disabled', 'capability_removed'].includes(e.code)) this.modo = 'local';
+      if (e && ['invalid_argument', 'transform_error', 'revoked', 'not_granted', 'capability_disabled', 'capability_removed'].includes(e.code)) this.modo = 'local';
       if (e && (e.code === 'unavailable' || e.code === 'resource_exhausted')) setTimeout(() => this.salvar(n), 3000 + Math.random() * 3000);
       atualizarRodapeSync();
     } finally {
@@ -692,6 +746,7 @@ function registrar(q, resp, duvida) {
   r[1] = hoje + intervalo(r);
   r[4] = hoje;
   S.itens[q.id] = r;
+  Store.itensSujos.add(parteItem(q.id));
   if (estavaNaLista && r[0] >= 3) S.perfil.saidos = (S.perfil.saidos || 0) + 1;
   const d = diaLog();
   if (resp === BRANCO) d.b = (d.b || 0) + 1; else { d.r++; if (ok) d.c++; else d.e++; }
@@ -1548,8 +1603,22 @@ function renderHoje() {
   const stH = subtemaDoDia();
   if (stH) fora.add('t:' + stH.id + ':' + (estadoSubtema(stH.id).novos ? 'pre' : 'pratica'));
   verificarRPG();
-  document.getElementById('vista-hoje').innerHTML = topo + cartaoPausas(fora) + cartaoTempo() + roteiro + cartaoPendencias() + cartaoJornada() + nivel + modos + edital + '<p class="sync" id="sync"></p>';
+  const local = cartaoSoNoAparelho(), localTopo = local && backupAtrasado();
+  document.getElementById('vista-hoje').innerHTML = topo + (localTopo ? local : '') + cartaoPausas(fora) + cartaoTempo() + roteiro + cartaoPendencias() + cartaoJornada() + nivel + modos + edital + (localTopo ? '' : local) + '<p class="sync" id="sync"></p>';
   atualizarRodapeSync();
+}
+// Quando a conta não está disponível, o aviso não fica escondido no rodapé: sobe para o topo se o último backup tiver
+// três dias ou mais (ou se nunca houve), com o motivo que o diagnóstico encontrou e os botões de backup
+function marcarBackup() { S.perfil.backupEm = hojeISO(); Store.salvar('perfil'); if (UI.vista === 'hoje') renderHoje(); }
+function backupAtrasado() { const u = S.perfil.backupEm; return !u || HOJE() - diaNum(u) >= 3; }
+function cartaoSoNoAparelho() {
+  if (Store.modo === 'nuvem' || Store.carregando) return '';
+  const dg = Store.diag, u = S.perfil.backupEm, dias = u ? HOJE() - diaNum(u) : null;
+  const motivo = !dg.claude ? 'o app foi aberto fora do claude.ai' : dg.db !== 'ok' ? 'o banco de dados do app não respondeu' : dg.user !== 'ok' || dg.id !== 'ok' ? 'a sua conta não foi identificada (confira se entrou no claude.ai)' : dg.leitura !== 'ok' ? 'a leitura da conta falhou' : 'a conta recusou a gravação';
+  return '<div class="cartao aviso-local' + (backupAtrasado() ? ' destaque' : '') + '"><div class="secao-cab"><h2>Progresso só neste aparelho</h2></div>' +
+    '<p>Nesta abertura, ' + esc(motivo) + '. O que você faz aqui fica guardado só neste navegador: se ele for limpo, ou se você estudar em outro aparelho, o progresso não vai junto.</p>' +
+    '<p class="pequeno">' + (u ? 'Último backup: ' + esc(fmtData(u, { day: '2-digit', month: '2-digit' })) + (dias ? ', há ' + pl(dias, 'dia', 'dias') : ', hoje') + '.' : 'Nenhum backup feito neste aparelho.') + ' Um backup a cada poucos dias basta; para levá-lo a outro aparelho, use Juntar em Mais → Ajustes, que soma sem apagar nada.</p>' +
+    '<div class="linha-btns"><button class="btn pequeno' + (backupAtrasado() ? ' primario' : '') + '" data-acao="backup-baixar">Baixar backup</button><button class="btn pequeno" data-acao="backup-copiar-hoje">Copiar como texto</button><button class="btn pequeno" data-acao="tentar-gravar">Tentar a conta de novo</button><button class="linkish pequeno" data-acao="mais" data-sub="ajustes">Diagnóstico</button></div></div>';
 }
 function atualizarRodapeSync() {
   const el = document.getElementById('sync');
@@ -1897,7 +1966,7 @@ function folhaArtigo(art, qid) {
   const a = ARTI.get(art);
   if (!a) return;
   marcarLido(art);
-  abrirFolha(cabFolha(LEIS[a.lei].curto, rotuloArt(art)) + '<p class="pequeno mudo">' + esc(a.estrutura.join(' · ')) + '</p>' + legendaCamadas() +
+  abrirFolha(cabFolha(LEIS[a.lei].curto, rotuloArt(art)) + (LEIS[a.lei].aviso ? '<p class="aviso-conferir">' + esc(LEIS[a.lei].aviso) + '</p>' : '') + '<p class="pequeno mudo">' + esc(a.estrutura.join(' · ')) + '</p>' + legendaCamadas() +
     '<div class="texto-lei">' + textoLei(a, qid ? [qid] : []) + '</div>', rotuloArt(art));
   UI.folhaArt = art;
   UI.folhaQ = qid || null;
@@ -2305,7 +2374,7 @@ function renderMais() {
       item('cebraspe', 'C/E', 'Como o Cebraspe cobra', 'A prova, o padrão por disciplina, itens reais e discursiva') +
       item('discursiva', '✎', 'Treino de discursiva', TEMAS_DISC.length + ' temas com quesitos no padrão Cebraspe, contador de linhas e nota estimada') +
       item('progresso', '▥', 'Progresso', 'Domínio por bloco, constância, onde você cai, conquistas') +
-      item('plano', '▦', 'Plano e cronograma', 'Seis fases até a prova provável (28/03/2027), status dos blocos, textos que faltam') +
+      item('plano', '▦', 'Plano e cronograma', 'Seis fases até a prova provável (' + fmtData(D.cronograma.prova, { day: '2-digit', month: '2-digit', year: 'numeric' }) + '), status dos blocos, textos que faltam') +
       item('pesquisar', '?', 'Para pesquisar', pend ? pl(pend, 'tema pendente', 'temas pendentes') + ' na sua lista' : 'Temas e termos para entender melhor') +
       item('glossario', 'Aa', 'Glossário', GLOSS.length + ' termos com definição e busca sugerida') +
       item('contestacoes', '!', 'Minhas contestações', CONTEST.length ? pl(CONTEST.length, 'contestação', 'contestações') + ', ' + CONTEST.filter((c) => c.status === 'aberta' || c.status === 'pendente').length + ' em aberto' : 'Itens que você apontou como errados e a resposta') +
@@ -2441,6 +2510,18 @@ function renderGlossario() {
     lista.map((g) => '<div class="gloss-item"><b>' + esc(g.t) + '</b><p>' + esc(g.d) + '</p><div class="linha-btns"><button class="linkish pequeno" data-acao="investigar" data-t="' + esc(g.t) + '" data-o="glossário">Investigar</button>' +
       (S.pesquisa[chavePesq(g.t)] ? '<span class="selo ok">Na lista</span>' : '<button class="linkish pequeno" data-acao="add-pesq" data-t="' + esc(g.t) + '" data-o="glossário">Guardar na lista</button>') + '</div></div>').join('');
 }
+// Fontes citadas por itens que ainda não têm o texto no app, contadas no próprio banco
+function fontesSemTexto() {
+  const nomes = [[/^STF/, 'decisões do STF'], [/^TJUE/, 'decisões do TJUE'], [/9\.472|LGT/, 'a LGT'], [/E-Ciber/, 'a E-Ciber'], [/Anatel/, 'resoluções da Anatel'], [/Manual de Redação/, 'o Manual de Redação da Presidência'], [/13\.303/, 'a Lei 13.303/2016']];
+  const vistos = [];
+  for (const q of Q) {
+    if (q.v !== 0) continue;
+    const x = nomes.find(([re]) => re.test(q.r || ''));
+    const nome = x ? x[1] : String(q.r || '').split(' · ')[0];
+    if (nome && !vistos.includes(nome)) vistos.push(nome);
+  }
+  return vistos.length > 1 ? vistos.slice(0, -1).join(', ') + ' e ' + vistos[vistos.length - 1] : vistos.join('');
+}
 function renderMetodo() {
   return '<div class="prosa"><h2>O método do Painel</h2>' +
     '<p>Sem prova anterior da ANPD, o estudo não começa pela leitura corrida da lei: começa pela questão. A questão mostra o que a banca troca; a lei, lida logo depois do erro, fixa a palavra exata; a lacuna e a revisão espaçada garantem que você ainda saiba aquilo no dia da prova.</p>' +
@@ -2468,7 +2549,7 @@ function renderMetodo() {
     '<li>Discursiva toda semana, no sábado longo: escreva sem consulta, no tempo e no limite de linhas, e corrija pelos quesitos. Na Anatel 2024 ela valia 30 pontos e eliminava quem fizesse menos de 15.</li></ul>' +
     '<h3>Semana típica</h3><p>Segunda e terça: bloco de prioridade da vez. Quarta: uma resolução da ANPD. Quinta: tronco regulatório (Lei 13.848/2019 e Lei 9.784/1999). Sexta: revisão da lista curta. Sábado: bloco longo ou simulado. Domingo: livre.</p>' +
     '<h3>Quando o edital sair</h3><p>O cronograma genérico para. O conteúdo programático oficial passa a mandar, os simulados ficam maiores e a revisão espaçada continua todos os dias. Cole o edital na conversa com o Claude para reorganizar os blocos.</p>' +
-    '<h3>Questões marcadas para conferir</h3><p>' + pl(Q.filter((q) => q.v === 0).length, 'item cita', 'itens citam') + ' fontes ainda não coladas no app: decisões do STF e do TJUE e, nos itens reais da Anatel, a LGT, a Lei 8.987, a E-Ciber e resoluções da Anatel. Eles mostram o aviso “confira na fonte” e só viram definitivos quando o texto oficial for anexado e cada trecho for conferido. Nos itens reais com gabarito oficial, o que falta conferir é a referência do comentário; nos avulsos, o próprio gabarito foi conferido na lei, e a linha da prova avisa.</p>' +
+    '<h3>Questões marcadas para conferir</h3><p>' + pl(Q.filter((q) => q.v === 0).length, 'item cita', 'itens citam') + ' fontes ainda não coladas no app: ' + fontesSemTexto() + '. Eles mostram o aviso “confira na fonte” e só viram definitivos quando o texto oficial for anexado e cada trecho for conferido. Nos itens reais com gabarito oficial, o que falta conferir é a referência do comentário; nos avulsos, o próprio gabarito foi conferido na lei, e a linha da prova avisa.</p>' +
     '<h3>Como a banca cobra</h3><p>A página Como o Cebraspe cobra, aqui em Mais, mostra o formato da prova, o padrão de cada disciplina com itens reais e o que pontua na discursiva.</p></div>';
 }
 /* ================= Contestação de itens ================= */
@@ -2481,7 +2562,7 @@ const CONTEST = lerLS(CHAVE_CONTEST) || [];
 function gravarContest() { gravarLS(CHAVE_CONTEST, CONTEST); }
 // Respostas que vêm com o banco: valem para a contestação daquele item feita até a data da resposta, mesmo que ela
 // nunca tenha chegado à conta (status "aguardando envio")
-(function aplicarRespostasDoBanco() {
+function aplicarRespostasDoBanco() {
   let mudou = false;
   for (const c of CONTEST) {
     const r = (D.respostasContest || {})[c.q];
@@ -2489,7 +2570,14 @@ function gravarContest() { gravarLS(CHAVE_CONTEST, CONTEST); }
     c.status = r.status; c.resposta = r.resposta; mudou = true;
   }
   if (mudou) gravarContest();
-})();
+}
+aplicarRespostasDoBanco();
+// Contestações que vêm num backup: entram as que este navegador ainda não tem
+function juntarContestacoes(lista) {
+  let n = 0;
+  for (const c of Array.isArray(lista) ? lista : []) if (c && c.q && !CONTEST.some((x) => x.q === c.q && x.data === c.data)) { CONTEST.push(c); n++; }
+  if (n) { gravarContest(); aplicarRespostasDoBanco(); }
+}
 function folhaContestar(id) {
   const q = QI.get(id), ct = CONTEST.find((x) => x.q === id);
   let html = cabFolha('Contestar item', id) + (q ? '<p class="enunciado">' + esc(q.e) + '</p><p class="pequeno mudo">Gabarito ' + nomeGab(q) + ' · ' + esc(q.r) + '</p>' : '<p class="mudo">Este item não está mais no banco.</p>');
@@ -2761,6 +2849,7 @@ function renderAjustes() {
     linha('Leitura do progresso salvo', dg.leitura, st(dg.leitura)) +
     linha('Última gravação', dg.gravacao, st(dg.gravacao)) +
     linha('Cópia neste navegador', dg.navegador, st(dg.navegador)) +
+    (Object.keys(Store.tamanhos).length ? (() => { const [n, t] = Object.entries(Store.tamanhos).sort((a, b) => b[1] - a[1])[0]; return linha('Maior documento enviado', n + ' · ' + Math.round(t / 1024) + ' KB de 256', t <= LIMITE_DOC); })() : '') +
     '</tbody></table></div><p class="pequeno">Se o banco aparecer como indisponível: abra o app pelo link do claude.ai com a sua conta conectada (não por arquivo baixado), no navegador ou no app do Claude, e confira as permissões do artifact. Enquanto isso, o progresso fica neste navegador e o backup em arquivo garante que nada se perca.</p>' +
     '<div class="linha-btns"><button class="btn" data-acao="permissoes">Abrir permissões do app</button><button class="btn" data-acao="tentar-gravar">Tentar gravar de novo</button></div></div>' +
     '<div class="cartao"><h2>Banco de conteúdo</h2><p class="pequeno mudo">' + Q.length + ' questões · ' + CARDS.length + ' cards cloze · ' + GLOSS.length + ' termos · versão ' + esc(D.versao) + '</p></div>' +
@@ -2793,7 +2882,7 @@ function restaurar(texto) {
   backupPendente = d;
   const z = document.getElementById('zona-backup');
   const resumo = 'Backup de ' + esc(fmtData(String(d.exportado).slice(0, 10), { day: '2-digit', month: '2-digit', year: 'numeric' })) + ': ' + fmtNum(d.perfil.xp || 0) + ' XP, ' + pl(Object.keys(d.itens || {}).length, 'questão', 'questões') + ' e ' + pl(Object.keys(d.cards || {}).length, 'card', 'cards') + ' com histórico.';
-  if (z) z.innerHTML = '<div class="cartao destaque"><p>' + resumo + '</p><p class="pequeno mudo">Restaurar substitui o progresso atual.</p><div class="linha-btns"><button class="btn primario" data-acao="backup-confirmar">Restaurar</button><button class="btn" data-acao="mais" data-sub="ajustes">Cancelar</button></div></div>';
+  if (z) z.innerHTML = '<div class="cartao destaque"><p>' + resumo + '</p><p class="pequeno mudo">Juntar soma o backup ao que já está neste aparelho: nenhuma resposta, card ou dia de estudo se perde, e em cada item fica o registro mais recente. Substituir apaga o progresso deste aparelho e põe o do backup no lugar.</p><div class="linha-btns"><button class="btn primario" data-acao="backup-juntar">Juntar com este aparelho</button><button class="btn" data-acao="backup-confirmar">Substituir tudo</button><button class="btn" data-acao="mais" data-sub="ajustes">Cancelar</button></div></div>';
 }
 
 /* ================= Navegação ================= */
@@ -3022,15 +3111,36 @@ document.addEventListener('click', async (ev) => {
     case 'novos-cards': S.perfil.novosCards = Number(alvo.dataset.n); Store.salvar('perfil'); renderTudo(); break;
     case 'backup-baixar': {
       const r = await salvarArquivo('painel-anpd-backup-' + hojeISO() + '.json', backupTexto());
-      if (r === null) mostrarTexto('zona-backup', backupTexto(), 'O download não está disponível aqui. Copie o texto e guarde num arquivo .json.');
+      if (r === true) marcarBackup();
+      else if (r === null) mostrarTexto(document.getElementById('zona-backup') ? 'zona-backup' : null, backupTexto(), 'O download não está disponível aqui. Copie o texto e guarde num arquivo .json.');
       break;
     }
+    case 'backup-copiar-hoje': mostrarTexto(null, backupTexto(), 'Copie e guarde este texto (num e-mail para você mesmo, por exemplo). Para restaurar, cole-o em Mais → Ajustes e escolha Juntar.'); break;
     case 'backup-mostrar': mostrarTexto('zona-backup', backupTexto(), 'Copie e guarde este texto. Para restaurar, cole-o em “Ou restaurar colando o texto do backup”, aqui mesmo.'); break;
     case 'backup-colado': { const t = document.getElementById('texto-backup'); if (!t || !t.value.trim()) avisar('!', 'Nada colado', 'Cole o texto do backup no campo acima.'); else restaurar(t.value); break; }
+    case 'backup-juntar': {
+      const d = backupPendente;
+      if (!d) break;
+      // No que liga e desliga (metas, status, preferências), vale a cópia com mais histórico; a época deste aparelho fica
+      const localNovo = Object.keys(S.itens).length >= Object.keys(d.itens || {}).length, ep = S.perfil.ep;
+      S.perfil = Object.assign(perfilPadrao(), mesclarDoc('perfil', d.perfil, S.perfil, localNovo));
+      if (ep) S.perfil.ep = ep; else delete S.perfil.ep;
+      podarPerfil(); aplicarPrefs();
+      S.itens = mesclarDoc('itens', { q: d.itens || {} }, { q: S.itens }).q;
+      S.cards = mesclarDoc('cards', { c: d.cards || {} }, { c: S.cards }).c;
+      S.simulados = mesclarDoc('simulados', { lista: d.simulados || [] }, { lista: S.simulados }, localNovo).lista;
+      S.pesquisa = mesclarDoc('pesquisa', { p: d.pesquisa || {} }, { p: S.pesquisa }, localNovo).p;
+      S.disc = mesclarDoc('discursivas', { d: d.disc || {} }, { d: S.disc }, localNovo).d;
+      juntarContestacoes(d.contestacoes);
+      backupPendente = null;
+      Store.salvarTudo(); renderTudo(); avisar('↺', 'Backup somado a este aparelho', fmtNum(S.perfil.xp) + ' XP · ' + pl(Object.keys(S.itens).length, 'questão', 'questões') + ' com histórico');
+      break;
+    }
     case 'backup-confirmar': {
       const d = backupPendente;
       if (!d) break;
       S.perfil = Object.assign(perfilPadrao(), d.perfil, { ep: Date.now() }); aplicarPrefs(); S.itens = d.itens || {}; S.cards = d.cards || {}; S.simulados = d.simulados || []; S.pesquisa = d.pesquisa || {}; S.disc = d.disc || {};
+      juntarContestacoes(d.contestacoes);
       backupPendente = null;
       Store.salvarTudo(); renderTudo(); avisar('↺', 'Progresso restaurado', fmtNum(S.perfil.xp) + ' XP');
       break;
@@ -3038,7 +3148,7 @@ document.addEventListener('click', async (ev) => {
     case 'copiar': {
       const ta = document.getElementById('texto-export');
       if (!ta) break;
-      try { await navigator.clipboard.writeText(ta.value); avisar('✓', 'Copiado', ''); } catch (e) { ta.focus(); ta.select(); }
+      try { await navigator.clipboard.writeText(ta.value); avisar('✓', 'Copiado', ''); if (ta.value.startsWith('{"app":"painel-anpd"')) marcarBackup(); } catch (e) { ta.focus(); ta.select(); }
       break;
     }
     case 'permissoes': {
@@ -3049,7 +3159,7 @@ document.addEventListener('click', async (ev) => {
     case 'tentar-gravar':
       if (Store.modo === 'nuvem') { Store.salvarTudo(); Store.descarregar(); avisar('↑', 'Gravando', 'Confira o diagnóstico em alguns segundos.'); }
       else { Object.assign(Store.diag, { db: '—', user: '—', id: '—', leitura: '—', gravacao: '—' }); Store.iniciar(); }
-      setTimeout(() => { if (UI.vista === 'mais') renderMais(); }, 2500);
+      setTimeout(() => { if (!sessao) renderTudo(); }, 2500);
       break;
     case 'zerar': document.getElementById('zona-zerar').innerHTML = '<p><b>Tem certeza?</b> Não dá para desfazer. Baixe um backup antes.</p><div class="linha-btns"><button class="btn primario" data-acao="confirmar-zerar">Apagar tudo</button><button class="btn" data-acao="mais" data-sub="ajustes">Cancelar</button></div>'; break;
     case 'confirmar-zerar':
