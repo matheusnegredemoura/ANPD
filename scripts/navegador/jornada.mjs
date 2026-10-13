@@ -1,5 +1,7 @@
 // Para encaixar e Jornada:
-// - sessão do plano de dia anterior não concluída aparece em "Para encaixar" e pode ser dispensada;
+// - sessão do plano de dia anterior não concluída aparece em "Atraso do plano" e pode ser dispensada;
+// - o dia perdido dá baixa sozinho quando a matéria dele é estudada por outro caminho, e o roteiro ganha o passo de
+//   recuperação, que monta a sessão com os blocos atrasados;
 // - as três missões do dia são cumpridas pelo que já foi feito no dia, e o baú abre com o XP somado e um item;
 // - na batalha contra o chefão, acerto causa dano e erro custa um coração; sem corações, derrota (o dano fica);
 // - o golpe final derruba o chefão, registra o troféu e dá um item, que vai para o inventário e é equipado;
@@ -36,13 +38,14 @@ async function abrir(perfilExtra, pesquisa) {
 }
 const salvo = (p) => p.evaluate(() => JSON.parse(localStorage.getItem('painel-anpd-v3')));
 
-await passo('sessões de dias anteriores aparecem em "Para encaixar" e podem ser dispensadas', async () => {
+await passo('dias anteriores aparecem em "Atraso do plano" e podem ser dispensados', async () => {
   const { ctx, p } = await abrir(() => ({}), () => ({}));
   const card = p.locator('.cartao.pendencias');
-  if (!(await card.count())) throw new Error('card Para encaixar ausente');
+  if (!(await card.count())) throw new Error('card Atraso do plano ausente');
   const n0 = await card.locator('.pend').count();
   if (!n0) throw new Error('nenhuma pendência listada');
   const total0 = Number((await card.locator('.secao-cab .mono').textContent()).trim());
+  await card.locator('details.det-lista > summary').click();
   await card.locator('[data-acao="dispensar-dia"]').first().click();
   await p.waitForTimeout(200);
   const total1 = (await p.locator('.cartao.pendencias').count()) ? Number((await p.locator('.cartao.pendencias .secao-cab .mono').textContent()).trim()) : 0;
@@ -122,6 +125,38 @@ await passo('golpe final derruba o chefão e dá um item, que é equipado', asyn
   if (!r.chefe.vencido || !(r.trofeus || []).length) throw new Error('chefão não registrado como derrotado');
   const inv = Object.keys(r.inv || {});
   if (inv.length !== 1 || !Object.values(r.eq || {}).includes(inv[0])) throw new Error('item não foi para o inventário e o equipamento: ' + JSON.stringify(r));
+  await ctx.close();
+});
+
+await passo('estudar a matéria por outro caminho dá baixa no dia perdido, e o roteiro chama a recuperação', async () => {
+  // Quarta, 14/10/2026, uso desde segunda 12. Segunda (lgpd-55, 25 itens) e terça (lgpd-33-36, 20 itens) sem sessão.
+  // Dez itens de lgpd-55 respondidos na terça compensam a segunda; a terça continua no atraso.
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  await ctx.clock.install({ time: new Date('2026-10-14T10:00:00') });
+  const terca = Math.round(Date.UTC(2026, 9, 13) / 864e5);
+  const itens = {};
+  for (const q of lerTodas(RAIZ).filter((x) => x.bloco === 'lgpd-55' && !(x.alt && x.alt.length)).slice(0, 10)) itens[q.id] = [4, terca + 16, 1, 0, terca, 0, 0, 1];
+  await ctx.addInitScript((itens) => {
+    if (sessionStorage.getItem('semeado')) return;
+    sessionStorage.setItem('semeado', '1');
+    const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-10-12', migr: { mesmoDia: '2026-09-01' } };
+    localStorage.setItem('painel-anpd-v3', JSON.stringify({ perfil, itens, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: {} }));
+  }, itens);
+  const p = await ctx.newPage();
+  vigiarErros(p, erros);
+  await p.goto(APP);
+  await p.waitForTimeout(600);
+  const chips = await p.locator('.cartao.pendencias .chip-atraso').allTextContents();
+  if (chips.length !== 1 || !/33 a 36|transfer/i.test(chips[0])) throw new Error('matérias atrasadas: ' + JSON.stringify(chips));
+  await p.locator('.cartao.pendencias details.det-lista > summary').click();
+  const dias = await p.locator('.cartao.pendencias .pend [data-acao="iniciar-dia"]').count();
+  if (dias !== 1) throw new Error('dias com sessão pendente: ' + dias + ' (esperado 1: a segunda foi compensada)');
+  const passo = p.locator('.roteiro .passo', { hasText: 'Recuperar o atraso' });
+  if (!(await passo.count())) throw new Error('roteiro sem o passo de recuperação');
+  await passo.locator('[data-acao="recuperar"]').click();
+  await p.waitForSelector('#sessao:not([hidden])');
+  const tit = await p.textContent('.sessao-topo .tit b');
+  if (!/^Recuperação/.test(tit)) throw new Error('sessão aberta: ' + tit);
   await ctx.close();
 });
 

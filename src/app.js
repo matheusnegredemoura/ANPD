@@ -1308,7 +1308,7 @@ function finalizar() {
   }
   if (sessao.dia) {
     // Sessão de um dia anterior do plano: conta para a missão de encaixar pendências
-    if (/^\d{4}-\d{2}-\d{2}$/.test(sessao.dia) && sessao.dia < hojeISO() && !S.perfil.feitos[sessao.dia]) { const d = diaLog(); d.pd = (d.pd || 0) + 1; }
+    if ((/^\d{4}-\d{2}-\d{2}$/.test(sessao.dia) && sessao.dia < hojeISO() || /^rec:/.test(sessao.dia)) && !S.perfil.feitos[sessao.dia]) { const d = diaLog(); d.pd = (d.pd || 0) + 1; }
     S.perfil.feitos[sessao.dia] = 1;
     verificarRPG();
   }
@@ -1501,6 +1501,13 @@ function roteiroHoje() {
     passos.push({ titulo: dia.modo === 'simulado' ? 'Simulado do dia' : dia.modo === 'revisao' ? 'Sessão de revisão do dia' : 'Questões do dia', feito,
       texto: dia.modo === 'treino' && nDia < dia.n ? 'Sessão reduzida de ' + dia.n + ' para ' + nDia + ' itens: há ' + pl(venc, 'revisão vencida', 'revisões vencidas') + ', e elas vêm primeiro.' : '', botoes: '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' + esc(rotuloPausa(dia.data, (feito ? 'Outra rodada' : 'Começar') + ' · ' + rotuloModoDia(Object.assign({}, dia, { n: nDia })))) + '</button>' + botaoRecomecar(dia.data) });
   }
+  const atrasados = blocosAtrasados();
+  if (atrasados.length) {
+    const nRec = dia ? 15 : 20;
+    passos.push({ titulo: 'Recuperar o atraso', feito: !!S.perfil.feitos['rec:' + hojeISO()],
+      texto: atrasados.slice(0, 3).map((x) => nomeBloco(x.b)).join(', ') + (atrasados.length > 3 ? ' e mais ' + (atrasados.length - 3) : '') + '.',
+      botoes: botaoRecuperar(nRec) });
+  }
   const nInt = nIntercaladas();
   if (nInt > 0) {
     const chaveInt = 'i:' + hojeISO();
@@ -1516,7 +1523,7 @@ function roteiroHoje() {
       botoes: '<button class="btn pequeno primario" data-acao="trilha-sessao" data-st="' + esc(std.id) + '" data-tipo="' + tipoT + '">' + esc(rotuloPausa(chPT, e.novos ? 'Pré-teste · ' + pl(Math.min(8, e.novos), 'item', 'itens') : 'Praticar · ' + pl(Math.min(20, e.n), 'item', 'itens'))) + '</button>' + botaoRecomecar(chPT) +
         '<button class="btn pequeno" data-acao="subtema" data-st="' + esc(std.id) + '">Aula e subtema</button>' });
   }
-  if (!dia) {
+  if (!dia && !atrasados.length) {
     passos.push({ titulo: 'Questões livres', feito: d.r >= S.perfil.meta, texto: 'Sem sessão programada para hoje. Uma rodada leve mantém a sequência.',
       botoes: '<button class="btn pequeno primario" data-acao="treino-rapido">Treino de 20 itens</button>' });
   }
@@ -1539,37 +1546,69 @@ function roteiroHoje() {
       '<button class="btn pequeno" data-acao="mais" data-sub="pesquisar">Minha lista (' + Object.values(S.pesquisa).filter((p) => !p.s).length + ')</button>' });
   return { dia, passos };
 }
-/* ================= Para encaixar: o que ficou de dias anteriores ================= */
-// Sessões do plano de dias anteriores que não foram concluídas e a leitura desses dias que nunca foi aberta. Não é
-// cobrança: o card vem depois do roteiro, sem contador de atraso, e cada pendência pode ser feita agora, continuada de
-// onde parou ou dispensada (quando o assunto já foi visto por outro caminho). Vale o que é das últimas três semanas e
-// posterior ao início do uso do app; o que for mais antigo sai sozinho, para a lista não virar uma montanha.
-const PENDENCIAS_DIAS = 21;
+/* ================= Atraso do plano: nada fica sem estudar ================= */
+// Dias do plano (desde o início do uso do app) cuja sessão não foi feita, e a leitura desses dias nunca aberta. Nada
+// sai daqui por prazo: o dia só sai quando a matéria dele é estudada, por qualquer caminho, ou quando é dispensado.
+// - Dia de questões dá baixa sozinho quando, a partir da data dele, você respondeu ao menos metade dos itens
+//   previstos (mínimo 10) dos blocos daquele dia, em qualquer sessão (recuperação, treino, batalha, intercaladas).
+// - Dia de revisão perdido não vira atraso: o que venceu continua na lista curta e entra na próxima revisão.
+// - Simulado perdido fica na lista, para ser feito quando der.
+// A recuperação mistura os blocos atrasados, dos dias mais antigos para os mais novos, e entra no roteiro do dia.
+function tocadosDesde(blocos, desde) {
+  let n = 0;
+  for (const b of blocos) for (const q of POR_BLOCO.get(b) || []) { const r = rec(q.id); if (r && r[0] >= 0 && r[4] >= desde) n++; }
+  return n;
+}
+function diaCompensado(dia) { return dia.modo === 'treino' && dia.blocos.length > 0 && tocadosDesde(dia.blocos, diaNum(dia.data)) >= Math.min(10, Math.ceil(dia.n / 2)); }
 function pendencias() {
-  const h = hojeISO(), ini = S.perfil.criado || h, desde = isoDeNum(HOJE() - PENDENCIAS_DIAS);
+  const h = hojeISO(), ini = S.perfil.criado || h;
   const disp = S.perfil.dispensados || {}, lidos = S.perfil.lidos || {};
   const out = [];
   for (const dia of DIAS) {
-    if (dia.data >= h || dia.data < ini || dia.data < desde || disp[dia.data]) continue;
-    const sessao = !S.perfil.feitos[dia.data];
+    if (dia.data >= h || dia.data < ini || disp[dia.data]) continue;
+    const sessao = !S.perfil.feitos[dia.data] && dia.modo !== 'revisao' && !diaCompensado(dia);
     const ler = leituraDoDia(dia).arts.filter((k) => !lidos[k]);
     if (sessao || ler.length) out.push({ dia, sessao, ler });
   }
   return out;
 }
+// Blocos dos dias de questões atrasados, na ordem do dia mais antigo; cada um com quantos dias o pedem
+function blocosAtrasados(p) {
+  const m = new Map();
+  for (const x of p || pendencias()) if (x.sessao && x.dia.modo === 'treino') for (const b of x.dia.blocos) m.set(b, (m.get(b) || 0) + 1);
+  return [...m.entries()].map(([b, dias]) => ({ b, dias }));
+}
+function leituraAtrasada(p) {
+  const arts = [];
+  for (const x of p || pendencias()) for (const k of x.ler) if (!arts.includes(k)) arts.push(k);
+  return arts;
+}
+// Sessão de recuperação: até três blocos atrasados por vez (os mais antigos), 15 itens (20 em dia sem sessão do plano)
+function cfgRecuperacao(n) {
+  const bs = blocosAtrasados().slice(0, 3).map((x) => x.b);
+  return bs.length ? { modo: 'treino', n, blocos: bs, filtro: 'mistas', titulo: 'Recuperação · ' + bs.map(nomeBloco).join(', '), dia: 'rec:' + hojeISO() } : null;
+}
+function botaoRecuperar(n) { return '<button class="btn pequeno primario" data-acao="recuperar" data-n="' + n + '">' + esc(rotuloPausa('rec:' + hojeISO(), 'Recuperar · ' + n + ' itens')) + '</button>'; }
 function cartaoPendencias() {
   const p = pendencias();
   if (!p.length) return '';
-  const linhas = p.slice(0, 2).map((x) => {
-    const oque = [x.sessao ? (x.dia.modo === 'simulado' ? 'o simulado' : x.dia.modo === 'revisao' ? 'a sessão de revisão' : 'a sessão de ' + x.dia.n + ' itens') : '', x.ler.length ? pl(x.ler.length, 'artigo da leitura', 'artigos da leitura') : ''].filter(Boolean).join(' e ');
-    return '<div class="pend"><div class="pend-txt"><b>' + esc(fmtData(x.dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</b><span>' + esc(x.dia.atividade) + '</span><span class="pequeno mudo">Falta' + ((x.sessao && x.ler.length) || x.ler.length > 1 ? 'm ' : ' ') + esc(oque) + '.</span></div>' +
-      '<div class="linha-btns">' + (x.sessao ? '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + x.dia.data + '">' + esc(rotuloPausa(x.dia.data, 'Fazer agora')) + '</button>' : '') +
-      (x.ler.length ? '<button class="btn pequeno" data-acao="ler-pendente" data-dia="' + x.dia.data + '">Ler ' + x.ler.length + '</button>' : '') +
-      '<button class="linkish pequeno" data-acao="dispensar-dia" data-dia="' + x.dia.data + '">Dispensar</button></div></div>';
-  }).join('');
-  return '<div class="cartao pendencias"><div class="secao-cab"><h2>Para encaixar</h2><span class="mono pequeno mudo">' + p.length + '</span></div>' +
-    '<p class="pequeno mudo">De dias anteriores, sem pressa. Dispense o que já viu por outro caminho.</p>' +
-    linhas + (p.length > 2 ? '<p class="pequeno mudo">E mais ' + pl(p.length - 2, 'dia', 'dias') + ' depois desses.</p>' : '') + '</div>';
+  const bs = blocosAtrasados(p), ler = leituraAtrasada(p), sims = p.filter((x) => x.sessao && x.dia.modo === 'simulado');
+  const dias = p.filter((x) => x.sessao).length;
+  let h = '<div class="cartao pendencias"><div class="secao-cab"><h2>Atraso do plano</h2><span class="mono pequeno mudo">' + p.length + '</span></div>' +
+    '<p class="pequeno mudo">Nada sai daqui sozinho: o dia só sai quando você estuda a matéria dele, por qualquer caminho, ou o dispensa.</p>';
+  if (bs.length) h += '<div class="atraso-materias">' + bs.slice(0, 6).map((x) => '<span class="chip-atraso">' + esc(nomeBloco(x.b)) + (x.dias > 1 ? ' <b>×' + x.dias + '</b>' : '') + '</span>').join('') + (bs.length > 6 ? '<span class="chip-atraso mais">+' + pl(bs.length - 6, 'matéria', 'matérias') + '</span>' : '') + '</div>' +
+    '<div class="linha-btns">' + botaoRecuperar(15) + (ler.length ? '<button class="btn pequeno" data-acao="ler-atraso">Ler ' + Math.min(ler.length, LEITURA_MAX) + (ler.length > LEITURA_MAX ? ' de ' + ler.length : '') + ' artigos</button>' : '') + '</div>';
+  else if (ler.length) h += '<div class="linha-btns"><button class="btn pequeno primario" data-acao="ler-atraso">Ler ' + Math.min(ler.length, LEITURA_MAX) + (ler.length > LEITURA_MAX ? ' de ' + ler.length : '') + ' artigos atrasados</button></div>';
+  for (const x of sims) h += '<div class="pend"><div class="pend-txt"><b>Simulado de ' + esc(fmtData(x.dia.data, { day: '2-digit', month: '2-digit' })) + '</b><span>' + esc(x.dia.atividade) + '</span></div><div class="linha-btns"><button class="btn pequeno" data-acao="iniciar-dia" data-dia="' + x.dia.data + '">' + esc(rotuloPausa(x.dia.data, 'Fazer agora')) + '</button></div></div>';
+  h += '<details class="det-lista" data-det="atraso"' + (UI.det.atraso ? ' open' : '') + '><summary>Ver os ' + pl(p.length, 'dia', 'dias') + (dias ? ' (' + dias + ' com sessão)' : '') + '</summary>' +
+    p.map((x) => {
+      const oque = [x.sessao ? (x.dia.modo === 'simulado' ? 'o simulado' : 'a sessão de ' + x.dia.n + ' itens') : '', x.ler.length ? pl(x.ler.length, 'artigo da leitura', 'artigos da leitura') : ''].filter(Boolean).join(' e ');
+      return '<div class="pend"><div class="pend-txt"><b>' + esc(fmtData(x.dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</b><span>' + esc(x.dia.atividade) + '</span><span class="pequeno mudo">Falta' + ((x.sessao && x.ler.length) || x.ler.length > 1 ? 'm ' : ' ') + esc(oque) + '.</span></div>' +
+        '<div class="linha-btns">' + (x.sessao ? '<button class="btn pequeno" data-acao="iniciar-dia" data-dia="' + x.dia.data + '">' + esc(rotuloPausa(x.dia.data, 'Fazer este dia')) + '</button>' : '') +
+        (x.ler.length ? '<button class="btn pequeno" data-acao="ler-pendente" data-dia="' + x.dia.data + '">Ler ' + x.ler.length + '</button>' : '') +
+        '<button class="linkish pequeno" data-acao="dispensar-dia" data-dia="' + x.dia.data + '">Dispensar</button></div></div>';
+    }).join('') + '</details>';
+  return h + '</div>';
 }
 
 /* ================= Jornada: RPG em cima do estudo de verdade ================= */
@@ -1588,7 +1627,7 @@ const MISSOES = [
   { id: 'cards20', txt: 'Revisar 20 cards', xp: 30, meta: 20, val: (d) => d.k || 0 },
   { id: 'tempo60', txt: 'Estudar 1 hora', xp: 40, meta: 60, val: (d) => Math.floor(segundosEstudo(d) / 60) },
   { id: 'pesq', txt: 'Investigar um tema da lista Para pesquisar', xp: 30, meta: 1, val: () => Object.values(S.pesquisa).filter((p) => p.s && p.f === hojeISO()).length },
-  { id: 'pend', txt: 'Encaixar uma sessão que ficou para trás', xp: 60, meta: 1, val: (d) => d.pd || 0, so: () => pendencias().some((x) => x.sessao) },
+  { id: 'pend', txt: 'Recuperar uma sessão do atraso', xp: 60, meta: 1, val: (d) => d.pd || 0, so: () => pendencias().some((x) => x.sessao) },
   { id: 'rel', txt: 'Jogar uma rodada do Relâmpago', xp: 30, meta: 1, val: (d) => d.rl || 0, acao: () => '<button class="linkish pequeno" data-acao="relampago" data-blocos="' + P1.join(',') + '">Jogar</button>' },
   { id: 'chefe5', txt: 'Acertar 5 golpes no chefão', xp: 40, meta: 5, val: (d) => d.cg || 0, so: () => !chefeDaSemana().vencido },
 ];
@@ -1868,7 +1907,7 @@ function renderHoje() {
     '<p class="atividade">' + (ctx.tipo === 'dia' ? esc(ctx.dia.atividade) : ctx.tipo === 'folga' ? '<span class="mudo">Dia livre por padrão. Próxima sessão, ' + esc(fmtData(ctx.prox.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + ':</span> ' + esc(ctx.prox.atividade) : 'Cronograma concluído: recomece pelos blocos mais fracos e pelo conteúdo do edital.') + '</p>' +
     // O que fazer agora fica na primeira tela: o primeiro passo do roteiro ainda não feito, com o botão dele
     (prox ? '<div class="proximo"><span class="rotulo">Próximo passo · ' + (rt.passos.indexOf(prox) + 1) + ' de ' + rt.passos.length + '</span><b>' + esc(prox.titulo) + '</b><div class="linha-btns">' + prox.botoes + '</div></div>'
-      : '<div class="proximo feito"><b>Roteiro de hoje completo.</b><span class="pequeno mudo">Se sobrar tempo, veja Para encaixar e a Jornada, mais abaixo.</span></div>') + '</div></div>';
+      : '<div class="proximo feito"><b>Roteiro de hoje completo.</b><span class="pequeno mudo">Se sobrar tempo, veja o Atraso do plano e a Jornada, mais abaixo.</span></div>') + '</div></div>';
   const aguard = ctx.tipo === 'dia' ? (ctx.dia.blocos || []).filter((b) => BI.get(b) && BI.get(b).aguardando && !(POR_BLOCO.get(b) || []).length) : [];
   if (aguard.length) topo += '<p class="nota-aguardando">' + esc(aguard.map(nomeBloco).join('; ')) + ': ainda sem questões. A sessão usa os blocos ligados ao tema. Cole o texto na conversa com o Claude para ganhar questões próprias.</p>';
   let roteiro = '<div class="cartao"><div class="secao-cab"><h2>Roteiro de hoje</h2><span class="mono pequeno mudo">' + feitos + ' de ' + rt.passos.length + '</span></div><div class="roteiro">';
@@ -2835,7 +2874,7 @@ function renderMetodo() {
     '<h3>Regras que não se negociam</h3><ul>' +
     '<li>O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça. Cada revisão traz só o que venceu: o que você já reviu hoje espera o próximo intervalo.</li>' +
     '<li>Interpretação de texto (português e inglês) não volta na revisão: reler o mesmo texto ensina o gabarito, não a leitura. No lugar, as sessões trazem textos inéditos.</li>' +
-    '<li>O que ficou de dias anteriores aparece em “Para encaixar”, depois do roteiro: a sessão do plano não concluída e os artigos da leitura nunca abertos. Faça quando sobrar tempo ou dispense o que já viu por outro caminho. Não há contador de atraso, e o que tem mais de três semanas sai sozinho.</li>' +
+    '<li>Perdeu um dia? A matéria dele não some. Os blocos dos dias sem sessão vão para “Atraso do plano”, e o roteiro ganha o passo “Recuperar o atraso”: uma sessão que mistura as matérias atrasadas, das mais antigas para as mais novas. O dia sai da lista sozinho quando você responde, por qualquer caminho, metade dos itens previstos dos blocos dele (mínimo 10), ou quando você o dispensa. Dia de revisão perdido não vira atraso: o que venceu continua na lista curta.</li>' +
     '<li>O acerto também volta, para confirmar que não foi sorte: o acerto de primeira volta em cerca de 16 dias, e cada confirmação seguinte espaça mais (cerca de 35 dias). Os intervalos se adaptam: o item que você já errou ou acertou com dúvida volta antes, e a sua retenção real nas revisões calibra todos os prazos para mirar 90% de lembrança (Mais → Progresso). Esses acertos antigos entram na revisão do dia, no máximo ' + MANUTENCAO_DIA + ' por dia, os mais atrasados primeiro, e ocupam até um quarto das sessões de questões.</li>' +
     '<li>Intercale. Todo dia há uma sessão que mistura as matérias básicas com os blocos já estudados. Assunto novo entra em bloco; o que você já viu volta misturado, porque misturar obriga a reconhecer o tipo de questão e fixa mais (prática intercalada, somada à revisão espaçada e à recuperação ativa).</li>' +
     '<li>Revisão vem antes de questão nova. Quando a lista curta vencida passa de ' + REVISOES_DIA_PESADO + ' itens, a sessão de questões novas do dia encolhe sozinha.</li>' +
@@ -3226,6 +3265,8 @@ document.addEventListener('click', async (ev) => {
       ir(alvo.dataset.vista); break;
     case 'mais': fecharFolha(); UI.mais = alvo.dataset.sub || 'menu'; if (UI.vista !== 'mais') ir('mais'); else { renderMais(); window.scrollTo(0, 0); } break;
     case 'iniciar-dia': iniciarDia(alvo.dataset.dia); break;
+    case 'recuperar': { const cfg = cfgRecuperacao(Number(alvo.dataset.n) || 15); if (cfg) iniciarSessao(cfg); else avisar('✓', 'Sem atraso', 'As matérias dos dias passados já foram estudadas.'); break; }
+    case 'ler-atraso': { const arts = leituraAtrasada().slice(0, LEITURA_MAX); if (arts.length) abrirArtigo(arts[0], arts); break; }
     case 'ler-pendente': { const x = pendencias().find((y) => y.dia.data === alvo.dataset.dia); if (x && x.ler.length) abrirArtigo(x.ler[0], x.ler); break; }
     case 'dispensar-dia': {
       (S.perfil.dispensados ||= {})[alvo.dataset.dia] = hojeISO();

@@ -701,3 +701,9 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .arena-heroi.ferido{animation:ferido .45s ease}
 @keyframes ferido{0%,100%{transform:none}25%{transform:translateX(-5px)}50%{transform:translateX(4px)}75%{transform:translateX(-2px)}}
 .missao .m-txt .linkish{align-self:flex-start}
+/* Atraso do plano */
+.atraso-materias{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.chip-atraso{font-size:.8rem;padding:3px 10px;border-radius:999px;background:var(--gold-bg);color:var(--ink);border:1px solid var(--line)}
+.chip-atraso b{color:var(--gold);font-variant-numeric:tabular-nums}
+.pendencias details.det-lista .pend{margin-top:10px}
+.chip-atraso.mais{background:transparent;color:var(--ink-2)}
