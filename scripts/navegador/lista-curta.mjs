@@ -9,7 +9,7 @@ const { conferir, passo, fim } = placar();
 const erros = [];
 
 function perfil() {
-  return { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-08-01', migr: { mesmoDia: '2026-09-01' } };
+  return { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-08-01' };
 }
 // itens: { id: [nível, vence em (dias a partir de hoje), acertos, erros, último dia (dias a partir de hoje)] }
 async function abrir(itens, comRelogio) {

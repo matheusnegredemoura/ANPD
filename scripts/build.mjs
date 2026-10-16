@@ -229,6 +229,32 @@ export function exportarAnki(dados) {
   return linhas.join('\n') + '\n';
 }
 
+// O pacote vai enxuto e o app o reconstitui ao abrir (app.js, logo depois de ler D): comandos das questões numa
+// tabela, estrutura do artigo só quando muda em relação ao anterior, rótulo "Art. N" implícito e campos vazios omitidos
+export function empacotar(d) {
+  const lei = {};
+  for (const [id, l] of Object.entries(d.lei)) {
+    let ant = null;
+    lei[id] = { ...l, artigos: l.artigos.map((a) => {
+      const o = { ...a }, est = JSON.stringify(a.estrutura);
+      if (est === ant) delete o.estrutura;
+      ant = est;
+      if (a.rotulo === 'Art. ' + a.id) delete o.rotulo;
+      return o;
+    }) };
+  }
+  const comandos = [...new Set(d.questoes.map((q) => q.cm).filter((c) => typeof c === 'string'))];
+  const idx = new Map(comandos.map((c, i) => [c, i]));
+  const questoes = d.questoes.map((q) => {
+    const o = { ...q };
+    if (typeof q.cm === 'string') o.cm = idx.get(q.cm);
+    if (q.art === null) delete o.art;
+    if (Array.isArray(q.t) && !q.t.length) delete o.t;
+    return o;
+  });
+  return { ...d, lei, questoes, comandos };
+}
+
 function jsonSeguro(obj) {
   return JSON.stringify(obj).replace(/</g, '\\u003c');
 }
@@ -240,7 +266,7 @@ function build() {
   const corpo = ler('src', 'app.html');
   const pagina = corpo
     .replace('/*__CSS__*/', () => css)
-    .replace('/*__DADOS__*/', () => jsonSeguro(dados))
+    .replace('/*__DADOS__*/', () => jsonSeguro(empacotar(dados)))
     .replace('/*__JS__*/', () => js);
   mkdirSync(join(RAIZ, 'dist'), { recursive: true });
   writeFileSync(join(RAIZ, 'dist', 'artifact.html'), pagina);

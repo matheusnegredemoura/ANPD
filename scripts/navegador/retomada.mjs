@@ -20,7 +20,7 @@ async function aparelho(nome) {
       onSnapshot: () => () => {},
     });
     const vazio = { get: async () => ({ docs: [] }), where: () => vazio, doc };
-    window.claude = { use: async (x) => (x === 'db' ? { collection: () => vazio } : x === 'user' ? { id: async () => 'u1', isOwner: async () => true } : null) };
+    window.claude = { use: async (x) => (x === 'db' ? { collection: () => vazio } : x === 'user' ? { id: async () => 'u1' } : null) };
   });
   const p = await ctx.newPage();
   p.setDefaultTimeout(5000);

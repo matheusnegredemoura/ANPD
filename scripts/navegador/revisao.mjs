@@ -8,7 +8,7 @@ const { conferir, passo, fim } = placar();
 const erros = [];
 
 function perfil(dias) {
-  return { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-08-01', migr: { mesmoDia: '2026-09-01' } };
+  return { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-08-01' };
 }
 // Prazo, em dias, do primeiro acerto de primeira numa sessão de treino, com m revisões de manutenção no prazo (mc certas)
 // ontem

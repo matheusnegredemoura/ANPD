@@ -6,9 +6,16 @@ const browser = await abrirNavegador();
 const { conferir, fim } = placar();
 
 const DIA = Math.round(Date.UTC(2026, 9, 6) / 86400000);
-function perfil(o) { return Object.assign({ xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-08-01', migr: { mesmoDia: '2026-09-01' } }, o); }
+function perfil(o) { return Object.assign({ xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-08-01' }, o); }
 
-// nuvem: { perfil, itens, ... } (dados) com t; local: objeto do localStorage ou null; ui: CHAVE_UI ou null
+// Mesmo espalhamento do app (hashTxt % 4): cada resposta vai para a sua parte do histórico (itens0 a itens3)
+function emPartes(q) {
+  const out = { itens0: { q: {} }, itens1: { q: {} }, itens2: { q: {} }, itens3: { q: {} } };
+  for (const [id, r] of Object.entries(q)) { let h = 2166136261; for (const c of id) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } out['itens' + ((h >>> 0) % 4)].q[id] = r; }
+  return out;
+}
+
+// nuvem: { perfil, itens0..itens3, ... } (dados) com t; local: objeto do localStorage ou null; ui: CHAVE_UI ou null
 async function cenario(nome, { nuvem, tNuvem, local, ui, atrasoMs = 0, acao, epNuvem }, verificar) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   await diaDeEstudo(ctx);
@@ -28,7 +35,7 @@ async function cenario(nome, { nuvem, tNuvem, local, ui, atrasoMs = 0, acao, epN
       onSnapshot: () => () => {},
     });
     const vazio = { get: async () => ({ docs: [] }), where: () => vazio, doc };
-    window.claude = { use: async (nome) => (nome === 'db' ? { collection: () => vazio } : nome === 'user' ? { id: async () => 'u1', isOwner: async () => true } : null) };
+    window.claude = { use: async (nome) => (nome === 'db' ? { collection: () => vazio } : nome === 'user' ? { id: async () => 'u1' } : null) };
   }, { nuvem, tNuvem, local, ui, atrasoMs, epNuvem });
   const p = await ctx.newPage();
   const erros = [];
@@ -37,7 +44,7 @@ async function cenario(nome, { nuvem, tNuvem, local, ui, atrasoMs = 0, acao, epN
   if (acao) await acao(p);
   await p.waitForTimeout(atrasoMs + 2500);
   const r = await p.evaluate(() => ({ nuvem: window.__nuvem, sets: window.__sets, local: JSON.parse(localStorage.getItem('painel-anpd-v3') || 'null'), ui: JSON.parse(localStorage.getItem('painel-anpd-ui') || 'null'), tema: document.documentElement.dataset.tema || '' }));
-  // O histórico das questões fica em quatro partes (itens0 a itens3); "itens" é o documento antigo, só lido
+  // O histórico das questões fica em quatro partes (itens0 a itens3)
   r.itensConta = Object.assign({}, ...['itens0', 'itens1', 'itens2', 'itens3'].map((n) => (r.nuvem[n] && r.nuvem[n].q) || {}));
   console.log('\n# ' + nome + ' (gravou na conta: ' + ([...new Set(r.sets)].join(',') || 'nada') + ')');
   await verificar(r, p);
@@ -48,7 +55,7 @@ async function cenario(nome, { nuvem, tNuvem, local, ui, atrasoMs = 0, acao, epN
 const agora = Date.now();
 const nuvemBase = {
   perfil: perfil({ xp: 500, meta: 60, intercaladas: 40, status: { 'lgpd-55': 'dominado' }, feitos: { '2026-09-01': 1 }, conq: { primeira: '2026-08-02' }, dias: { '2026-10-01': { r: 30, c: 20, e: 10, b: 0, xp: 200, k: 0, n: 0, a: [] } }, ui: { modo: 'simulado', n: 40, filtro: 'erradas', prova: 'blocos', blocos: ['lgpd-55'], blocosCards: [], camadas: { cai: true, num: false, alerta: true, verbo: true, erro: true }, lei: 'lgpd', tema: 'escuro' } }),
-  itens: { q: { 'l1-01': [3, DIA + 7, 3, 0, DIA - 2, 0, 0], 'l1-02': [0, DIA + 1, 0, 1, DIA - 1, 0, 0] } },
+  ...emPartes({ 'l1-01': [3, DIA + 7, 3, 0, DIA - 2, 0, 0], 'l1-02': [0, DIA + 1, 0, 1, DIA - 1, 0, 0] }),
   cards: { c: {} }, simulados: { lista: [{ data: '2026-10-01', n: 60, c: 40, e: 10, b: 10, liq: 30, seg: 3000, titulo: 'Simulado' }] }, pesquisa: { p: {} }, discursivas: { d: {} },
 };
 
@@ -62,8 +69,7 @@ await cenario('Navegador limpo + toque no tema antes de carregar a conta', {
   conferir('XP da conta mantido (500)', r.nuvem.perfil.xp >= 500, 'xp=' + r.nuvem.perfil.xp);
   conferir('status do bloco mantido', r.nuvem.perfil.status['lgpd-55'] === 'dominado');
   conferir('dia do plano marcado mantido', r.nuvem.perfil.feitos['2026-09-01'] === 1);
-  conferir('respostas do documento antigo passam para as partes', !!r.itensConta['l1-01'] && !!r.itensConta['l1-02']);
-  conferir('documento antigo não é regravado', !r.sets.includes('itens'));
+  conferir('respostas da conta mantidas', !!r.itensConta['l1-01'] && !!r.itensConta['l1-02']);
   conferir('simulado mantido', r.nuvem.simulados.lista.length === 1);
   conferir('preferências da conta aplicadas (blocos)', JSON.stringify(r.ui.blocos) === '["lgpd-55"]', JSON.stringify(r.ui.blocos));
   conferir('preferências da conta aplicadas (quantidade e filtro)', r.ui.n === 40 && r.ui.filtro === 'erradas');
@@ -120,7 +126,7 @@ await cenario('Navegador mais novo que a conta', {
 
 // 4) Progresso zerado em outro aparelho (época nova na conta): a cópia antiga do navegador não ressuscita
 await cenario('Conta zerada em outro aparelho', {
-  nuvem: Object.assign({}, nuvemBase, { perfil: perfil({ xp: 0, meta: 60, ep: agora - 7200e3 }), itens: { q: {} }, simulados: { lista: [] } }), tNuvem: agora - 3600e3, epNuvem: agora - 7200e3,
+  nuvem: Object.assign({}, nuvemBase, { perfil: perfil({ xp: 0, meta: 60, ep: agora - 7200e3 }), ...emPartes({}), simulados: { lista: [] } }), tNuvem: agora - 3600e3, epNuvem: agora - 7200e3,
   local: { perfil: perfil({ xp: 900 }), itens: { 'l1-09': [2, DIA + 3, 2, 0, DIA - 3, 0, 0] }, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: { perfil: agora - 86400e3 } },
 }, (r) => {
   conferir('XP zerado continua zerado', r.nuvem.perfil.xp === 0 && r.local.perfil.xp === 0, 'nuvem=' + r.nuvem.perfil.xp + ' local=' + r.local.perfil.xp);

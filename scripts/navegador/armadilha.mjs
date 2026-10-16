@@ -11,7 +11,7 @@ await ctx.addInitScript(() => {
   if (sessionStorage.getItem('semeado')) return;
   sessionStorage.setItem('semeado', '1');
   const hoje = Math.round(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) / 86400000);
-  const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-08-01', migr: { mesmoDia: '2026-09-01' } };
+  const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-08-01' };
   // ae-04 e ae-06 são de texto literal (três erros cada); ae-01 e ae-09, de rol (só acertos)
   const itens = { 'ae-04': [0, hoje + 1, 0, 3, hoje - 1, 0, 0, 0], 'ae-06': [0, hoje + 1, 0, 3, hoje - 1, 0, 0, 0], 'ae-01': [4, hoje + 16, 3, 0, hoje - 1, 0, 0, 1], 'ae-09': [4, hoje + 16, 3, 0, hoje - 1, 0, 0, 1] };
   localStorage.setItem('painel-anpd-v3', JSON.stringify({ perfil, itens, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: {} }));

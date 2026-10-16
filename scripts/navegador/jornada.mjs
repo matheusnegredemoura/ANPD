@@ -28,7 +28,7 @@ async function abrir(perfilExtra, pesquisa) {
     sessionStorage.setItem('semeado', '1');
     const iso = ${isoLocal.toString()};
     const hoje = new Date();
-    const perfil = Object.assign({ xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: iso(new Date(hoje - 6 * 864e5)), migr: { mesmoDia: '2026-09-01' } }, (${perfilExtra.toString()})(iso(hoje)));
+    const perfil = Object.assign({ xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: iso(new Date(hoje - 6 * 864e5)) }, (${perfilExtra.toString()})(iso(hoje)));
     localStorage.setItem('painel-anpd-v3', JSON.stringify({ perfil, itens: {}, cards: {}, simulados: [], pesquisa: (${pesquisa.toString()})(iso(hoje)), disc: {}, t: {} }));
   })();`);
   const p = await ctx2.newPage();
@@ -141,7 +141,7 @@ await passo('estudar a matéria por outro caminho dá baixa no dia perdido, e o 
   await ctx.addInitScript((itens) => {
     if (sessionStorage.getItem('semeado')) return;
     sessionStorage.setItem('semeado', '1');
-    const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-10-12', migr: { mesmoDia: '2026-09-01' } };
+    const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-10-12' };
     localStorage.setItem('painel-anpd-v3', JSON.stringify({ perfil, itens, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: {} }));
   }, itens);
   const p = await ctx.newPage();
@@ -170,7 +170,7 @@ await passo('começo do zero numa sexta de revisão: sem atraso, e a sessão do 
   await ctx.addInitScript(() => {
     if (sessionStorage.getItem('semeado')) return;
     sessionStorage.setItem('semeado', '1');
-    const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-10-16', migr: { mesmoDia: '2026-09-01' } };
+    const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-10-16' };
     localStorage.setItem('painel-anpd-v3', JSON.stringify({ perfil, itens: {}, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: {} }));
   });
   const p = await ctx.newPage();
@@ -210,7 +210,7 @@ await passo('dia com várias matérias só dá baixa quando cada uma é estudada
   await ctx.addInitScript((itens) => {
     if (sessionStorage.getItem('semeado')) return;
     sessionStorage.setItem('semeado', '1');
-    const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-10-10', migr: { mesmoDia: '2026-09-01' } };
+    const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-10-10' };
     localStorage.setItem('painel-anpd-v3', JSON.stringify({ perfil, itens, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: {} }));
   }, itens);
   const p = await ctx.newPage();
@@ -255,7 +255,7 @@ await passo('uma folga por semana não zera a sequência', async () => {
   await ctx.addInitScript((dias) => {
     if (sessionStorage.getItem('semeado')) return;
     sessionStorage.setItem('semeado', '1');
-    const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-10-01', migr: { mesmoDia: '2026-09-01' } };
+    const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-10-01' };
     localStorage.setItem('painel-anpd-v3', JSON.stringify({ perfil, itens: {}, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: {} }));
   }, dias);
   const p = await ctx.newPage();

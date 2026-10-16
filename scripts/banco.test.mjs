@@ -56,3 +56,18 @@ test('cards cloze e exportação do Anki', async () => {
   assert.equal(linhas.length - 6, d.cloze.length);
   for (const l of linhas.slice(6)) assert.match(l.split('\t')[0], /\{\{c1::/);
 });
+
+test('pacote compactado volta igual ao original no app', async () => {
+  const { empacotar } = await import('./build.mjs');
+  const { readFileSync } = await import('node:fs');
+  const d = montarDados();
+  const pacote = JSON.parse(JSON.stringify(empacotar(d)));
+  assert.ok(JSON.stringify(pacote).length < JSON.stringify(d).length);
+  // O mesmo trecho que o app roda logo depois de ler os dados
+  const js = readFileSync(new URL('../src/app.js', import.meta.url), 'utf8');
+  const ini = js.indexOf('// O pacote chega enxuto'), fim = js.indexOf('const Q = D.questoes;');
+  assert.ok(ini > 0 && fim > ini);
+  new Function('D', js.slice(ini, fim))(pacote);
+  delete pacote.comandos;
+  assert.deepEqual(pacote, JSON.parse(JSON.stringify(d)));
+});

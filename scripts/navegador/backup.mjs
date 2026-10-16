@@ -9,7 +9,7 @@ const { conferir, passo, fim } = placar();
 const erros = [];
 
 const DIA = Math.round(Date.UTC(2026, 9, 6) / 86400000);
-function perfil(o) { return Object.assign({ xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-09-01', migr: { mesmoDia: '2026-09-01' } }, o); }
+function perfil(o) { return Object.assign({ xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-09-01' }, o); }
 
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
 await ctx.grantPermissions(['clipboard-read', 'clipboard-write']);

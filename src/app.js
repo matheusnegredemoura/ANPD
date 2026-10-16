@@ -3,6 +3,12 @@
 
 /* ================= Dados embutidos ================= */
 const D = JSON.parse(document.getElementById('dados').textContent);
+// O pacote chega enxuto (scripts/build.mjs, empacotar); aqui volta à forma completa antes de qualquer uso
+for (const q of D.questoes) { if (typeof q.cm === 'number') q.cm = D.comandos[q.cm]; if (q.art === undefined) q.art = null; if (!q.t) q.t = []; }
+for (const l of Object.values(D.lei || {})) {
+  let est = [];
+  for (const a of l.artigos) { if (a.estrutura) est = a.estrutura; else a.estrutura = est; if (!a.rotulo) a.rotulo = 'Art. ' + a.id; }
+}
 const Q = D.questoes;
 // Múltipla escolha: q.al traz as alternativas e q.g é a letra; nos itens certo/errado, q.al não existe
 const LETRAS = 'ABCDE';
@@ -86,7 +92,6 @@ function parteItem(id) {
 // Acima disto o documento não é enviado: a conta recusaria (limite de 256 KiB) e o erro apareceria no diagnóstico
 const LIMITE_DOC = 240000;
 const CHAVE_LOCAL = 'painel-anpd-v3';
-const CHAVE_LOCAL_ANTIGA = 'painel-anpd-v2';
 const CHAVE_UI = 'painel-anpd-ui';
 const P1 = ['lgpd-17-22', 'lgpd-52-54', 'lgpd-55', 'lgpd-33-36', 'lgpd-5-11'];
 // Prova completa simulada: itens por disciplina numa prova de 120 (50 básicos + 70 específicos), estimativa para
@@ -319,12 +324,11 @@ const Store = {
   diag: { claude: false, db: '—', user: '—', id: '—', leitura: '—', gravacao: '—', navegador: '—' },
   carregarLocal() {
     this.localLido = true;
-    const l = lerLS(CHAVE_LOCAL) || lerLS(CHAVE_LOCAL_ANTIGA);
+    const l = lerLS(CHAVE_LOCAL);
     if (!l) return false;
     this.localReal = true;
     if (l.perfil) { S.perfil = Object.assign(perfilPadrao(), l.perfil); podarPerfil(); }
     if (l.itens) S.itens = l.itens;
-    corrigirAcertosDoMesmoDia();
     if (l.cards) S.cards = l.cards;
     if (l.simulados) S.simulados = l.simulados;
     if (l.pesquisa) S.pesquisa = l.pesquisa;
@@ -341,7 +345,6 @@ const Store = {
   dados(n) {
     if (n === 'perfil') return S.perfil;
     if (PARTES_ITENS.includes(n)) { const q = {}; for (const [id, r] of Object.entries(S.itens)) if (parteItem(id) === n) q[id] = r; return { q }; }
-    if (n === 'itens') return { q: S.itens };
     if (n === 'cards') return { c: S.cards };
     if (n === 'simulados') return { lista: S.simulados };
     if (n === 'discursivas') return { d: S.disc };
@@ -349,11 +352,9 @@ const Store = {
   },
   definir(n, d) {
     if (n === 'perfil') { S.perfil = Object.assign(perfilPadrao(), d); podarPerfil(); aplicarPrefs(); }
-    else if (PARTES_ITENS.includes(n) || n === 'itens') {
-      if (n === 'itens') S.itens = {};
-      else for (const id of Object.keys(S.itens)) if (parteItem(id) === n) delete S.itens[id];
+    else if (PARTES_ITENS.includes(n)) {
+      for (const id of Object.keys(S.itens)) if (parteItem(id) === n) delete S.itens[id];
       Object.assign(S.itens, (d && d.q) || {});
-      if (!(S.perfil.migr && S.perfil.migr.mesmoDia)) { corrigirAcertosDoMesmoDia(); Store.salvar('itens', 'perfil'); }
     }
     else if (n === 'cards') S.cards = d.c || {};
     else if (n === 'simulados') S.simulados = d.lista || [];
@@ -381,7 +382,6 @@ const Store = {
   async iniciar() {
     this.carregando = true;
     if (!this.localLido) this.carregarLocal();
-    const temLocal = this.localReal;
     const c = window.claude;
     this.diag.claude = !!(c && typeof c.use === 'function');
     if (!this.diag.claude) return this.pronto();
@@ -397,14 +397,11 @@ const Store = {
       this.db = db; this.uid = uid;
       const col = db.collection('data/users/' + uid);
       DOCS.forEach((n) => { this.refs[n] = col.doc(n); });
-      // O documento antigo do histórico de questões é lido junto com os outros (ver juntarLegado)
-      const [snaps, legado] = await Promise.all([Promise.all(DOCS.map((n) => this.refs[n].get())), col.doc('itens').get().catch(() => null)]);
+      const snaps = await Promise.all(DOCS.map((n) => this.refs[n].get()));
       this.diag.leitura = 'ok';
       this.modo = 'nuvem';
-      if (!snaps.some((s) => s.exists)) {
-        if (!temLocal) await migrarPainelAntigo(db, user);
-        DOCS.forEach((n) => this.gravar(n));
-      } else {
+      if (!snaps.some((s) => s.exists)) DOCS.forEach((n) => this.gravar(n));
+      else {
         // Zerar ou restaurar backup muda a "época" (perfil.ep): entre épocas diferentes vale a mais nova, inteira
         const epLocal = S.perfil.ep || 0;
         const dp = snaps[DOCS.indexOf('perfil')], epNuvem = (dp.exists && dp.data() && dp.data().dados && dp.data().dados.ep) || 0;
@@ -418,7 +415,6 @@ const Store = {
           else this.mesclar(n, d, this.localReal && !!this.tLocal[n] && !!d.t && this.tLocal[n] > d.t);
         });
       }
-      this.juntarLegado(legado);
       DOCS.forEach((n) => {
         this.refs[n].onSnapshot((s) => {
           if (!s.exists) return;
@@ -436,16 +432,6 @@ const Store = {
     }
     this.pronto();
     enviarContestacoesPendentes();
-  },
-  // Antes da divisão em partes, o histórico das questões ia num documento só ("itens"). O que estiver lá, da mesma época,
-  // entra na junção e passa para as partes; versões antigas do app abertas em outro aparelho continuam gravando ali.
-  juntarLegado(s) {
-    const d = s && s.exists ? s.data() : null;
-    const q = d && d.dados && d.dados.q;
-    if (!q || !Object.keys(q).length || (d.ep || 0) < (S.perfil.ep || 0)) return;
-    const antes = JSON.stringify(S.itens);
-    S.itens = mesclarDoc('itens', d.dados, { q: S.itens }, true).q;
-    if (JSON.stringify(S.itens) !== antes) { this.guardarLocal(); this.salvar('itens'); }
   },
   // "itens" vira as partes com resposta nova (ou todas, se não se sabe quais mudaram)
   expandir(nomes) {
@@ -512,20 +498,6 @@ const Store = {
     }
   },
 };
-async function migrarPainelAntigo(db, user) {
-  let dono = false;
-  try { dono = await user.isOwner(); } catch (e) { dono = false; }
-  if (!dono) return;
-  try {
-    const snap = await db.collection('progress').get();
-    snap.docs.forEach((d) => {
-      const st = d.data() && d.data().status;
-      const b = BLOCOS.find((x) => x.legado === Number(d.id));
-      if (b && st && st !== 'nao') S.perfil.status[b.id] = st;
-    });
-    S.perfil.migrado = hojeISO();
-  } catch (e) { /* sem dados antigos */ }
-}
 
 /* ================= Regras: questões ================= */
 // Itens de português e inglês presos a um texto não voltam na revisão espaçada: rever o mesmo texto ensina o gabarito,
@@ -540,7 +512,6 @@ function dominioBloco(bid) {
   if (!qs.length) return null;
   return qs.reduce((s, q) => s + dominioItem(q.id), 0) / qs.length;
 }
-function listaCurta() { return Q.filter((q) => emRevisao(q.id)); }
 function dominadoVencido(id) { const r = rec(id); return !!r && r[0] >= 3 && r[1] <= HOJE() && !SEM_REPETICAO.has(id); }
 function manutencaoFeitaHoje() { const d = S.perfil.dias[hojeISO()]; return (d && d.m) || 0; }
 // Itens dominados vencidos que entram hoje (respeitando o limite diário), dos mais atrasados para os mais recentes
@@ -569,14 +540,9 @@ function diaLog(iso) {
   return d;
 }
 // Só a lista de artigos lidos de hoje é usada; as antigas saem para o documento do perfil não crescer sem limite
-function corrigirAcertosDoMesmoDia() {
-  if (S.perfil.migr && S.perfil.migr.mesmoDia) return;
-  let n = 0;
-  for (const r of Object.values(S.itens)) if (r[0] === 2 && r[3] > 0 && r[1] - r[4] === 3) { r[0] = 1; r[1] = r[4] + 1; n++; }
-  S.perfil.migr = Object.assign({}, S.perfil.migr, { mesmoDia: hojeISO() });
-  if (n) setTimeout(() => Store.salvar('itens', 'perfil'), 0);
-}
 function podarPerfil() {
+  // Marcas de migrações de versões antigas do app, que não existem mais
+  delete S.perfil.migr; delete S.perfil.migrado;
   const limite = isoDeNum(HOJE() - 14);
   for (const [iso, d] of Object.entries(S.perfil.dias || {})) if (iso < limite && d.a && d.a.length) d.a = [];
 }
@@ -2772,9 +2738,9 @@ function renderMais() {
   }
 }
 function renderProgresso() {
-  const t = totais(), nv = nivelDe(S.perfil.xp), seq = sequencia();
-  let html = '<div class="cartao"><div class="nivel"><div class="insignia">' + nv.n + '</div><div class="info"><div class="titulo">' + esc(nv.nome) + '</div>' + barra((S.perfil.xp - nv.base) / (nv.prox - nv.base), 'ouro') + '<div class="pequeno mudo mono">' + fmtNum(S.perfil.xp) + ' XP · próximo nível em ' + fmtNum(nv.prox) + '</div></div></div></div>';
-  html += '<div class="estat"><div><b>' + fmtNum(t.r) + '</b><span>itens respondidos</span></div><div><b>' + pct(t.c, t.r) + '%</b><span>de acerto</span></div><div><b>' + fmtNum(t.c - t.e) + '</b><span>nota líquida acumulada</span></div>' +
+  const t = totais(), seq = sequencia();
+  // Nível e XP ficam na Jornada (Hoje) e na ficha do personagem
+  let html = '<div class="estat"><div><b>' + fmtNum(t.r) + '</b><span>itens respondidos</span></div><div><b>' + pct(t.c, t.r) + '%</b><span>de acerto</span></div><div><b>' + fmtNum(t.c - t.e) + '</b><span>nota líquida acumulada</span></div>' +
     '<div><b>' + fmtNum(t.k) + '</b><span>cards revisados</span></div><div><b>' + seq + '</b><span>dias seguidos</span></div><div><b>' + (S.perfil.melhorSeq || 0) + '</b><span>melhor sequência</span></div></div>';
   html += cartaoTempoHistorico();
   html += '<div class="cartao"><div class="secao-cab"><h2>Constância</h2><span class="mudo pequeno">Últimas 16 semanas</span></div>' + mapaCalor() + '</div>';
@@ -3281,8 +3247,6 @@ function restaurar(texto) {
 /* ================= Navegação ================= */
 const VISTAS = ['hoje', 'questoes', 'cards', 'lei', 'mais'];
 function ir(v) {
-  if (v === 'treinar') v = 'questoes';
-  if (v === 'progresso' || v === 'plano') { UI.mais = v; v = 'mais'; }
   if (!VISTAS.includes(v)) v = 'hoje';
   UI.vista = v;
   salvarUI();
@@ -3675,7 +3639,6 @@ setInterval(() => contarTempo(false), TIQUE_S * 1000);
 /* ================= Início ================= */
 function iniciar(dadosQuentes) {
   if (dadosQuentes && dadosQuentes.sessao) { sessao = dadosQuentes.sessao; if (dadosQuentes.ui) Object.assign(UI, dadosQuentes.ui); }
-  if (UI.vista === 'treinar') UI.vista = 'questoes';
   if (!VISTAS.includes(UI.vista)) UI.vista = 'hoje';
   // A cópia deste navegador entra antes da primeira tela: nada é desenhado (nem gravado) com o progresso zerado
   if (!Store.localLido) Store.carregarLocal();
