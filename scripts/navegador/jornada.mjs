@@ -5,6 +5,8 @@
 // - as três missões do dia são cumpridas pelo que já foi feito no dia, e o baú abre com o XP somado e um item;
 // - na batalha contra o chefão, acerto causa dano e erro custa um coração; sem corações, derrota (o dano fica);
 // - o golpe final derruba o chefão, registra o troféu e dá um item, que vai para o inventário e é equipado;
+// - o cartão do dia não herda o estilo do herói; dia de várias matérias só dá baixa com cada uma estudada, e a
+//   recuperação traz o que falta; batalha retomada mantém os corações;
 // - a sequência de dias não zera com uma folga por semana (de segunda a sábado), e domingo não quebra.
 import { APP, abrirNavegador, placar, vigiarErros } from './comum.mjs';
 import { lerTodas } from '../lib/questoes.mjs';
@@ -130,12 +132,12 @@ await passo('golpe final derruba o chefão e dá um item, que é equipado', asyn
 
 await passo('estudar a matéria por outro caminho dá baixa no dia perdido, e o roteiro chama a recuperação', async () => {
   // Quarta, 14/10/2026, uso desde segunda 12. Segunda (lgpd-55, 25 itens) e terça (lgpd-33-36, 20 itens) sem sessão.
-  // Dez itens de lgpd-55 respondidos na terça compensam a segunda; a terça continua no atraso.
+  // Treze itens de lgpd-55 (metade dos 25 previstos) respondidos na terça compensam a segunda; a terça continua no atraso.
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   await ctx.clock.install({ time: new Date('2026-10-14T10:00:00') });
   const terca = Math.round(Date.UTC(2026, 9, 13) / 864e5);
   const itens = {};
-  for (const q of lerTodas(RAIZ).filter((x) => x.bloco === 'lgpd-55' && !(x.alt && x.alt.length)).slice(0, 10)) itens[q.id] = [4, terca + 16, 1, 0, terca, 0, 0, 1];
+  for (const q of lerTodas(RAIZ).filter((x) => x.bloco === 'lgpd-55' && !(x.alt && x.alt.length)).slice(0, 13)) itens[q.id] = [4, terca + 16, 1, 0, terca, 0, 0, 1];
   await ctx.addInitScript((itens) => {
     if (sessionStorage.getItem('semeado')) return;
     sessionStorage.setItem('semeado', '1');
@@ -182,6 +184,63 @@ await passo('começo do zero numa sexta de revisão: sem atraso, e a sessão do 
   const BLOCO = new Map(lerTodas(RAIZ).map((q) => [q.id, q.bloco]));
   const id = (await p.textContent('.item-num')).trim();
   if (!semana.has(BLOCO.get(id))) throw new Error('item fora dos blocos da semana: ' + id + ' (' + BLOCO.get(id) + ')');
+  await ctx.close();
+});
+
+await passo('o cartão do dia, no topo, não herda o estilo do herói da Jornada', async () => {
+  const { ctx, p } = await abrir(() => ({}), () => ({}));
+  const r = await p.evaluate(() => {
+    const h = document.querySelector('#vista-hoje .cartao.destaque .heroi'), d = h && h.querySelector('.dia');
+    return h && d ? { col: getComputedStyle(h).gridTemplateColumns, larg: d.getBoundingClientRect().width } : null;
+  });
+  if (!r) throw new Error('cartão do dia não encontrado');
+  if (/^44px/.test(r.col) || r.larg < 120) throw new Error('cartão do dia desmontado: colunas ' + r.col + ', largura do dia ' + r.larg);
+  if (!(await p.locator('.cartao.jornada .heroi-rpg').count())) throw new Error('herói da Jornada ausente');
+  await ctx.close();
+});
+
+await passo('dia com várias matérias só dá baixa quando cada uma é estudada; a recuperação traz o que falta', async () => {
+  // Segunda, 12/10/2026, uso desde sábado 10. O sábado tinha lgpd-17-22, lgpd-52-54 e português (40 itens): cada
+  // matéria pede 7. Treze itens de português respondidos no domingo não bastam; faltam 7 + 7 das duas da LGPD.
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  await ctx.clock.install({ time: new Date('2026-10-12T10:00:00') });
+  const dom = Math.round(Date.UTC(2026, 9, 11) / 864e5);
+  const itens = {};
+  for (const q of lerTodas(RAIZ).filter((x) => x.bloco === 'portugues' && !(x.alt && x.alt.length)).slice(0, 13)) itens[q.id] = [4, dom + 16, 1, 0, dom, 0, 0, 1];
+  await ctx.addInitScript((itens) => {
+    if (sessionStorage.getItem('semeado')) return;
+    sessionStorage.setItem('semeado', '1');
+    const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-10-10', migr: { mesmoDia: '2026-09-01' } };
+    localStorage.setItem('painel-anpd-v3', JSON.stringify({ perfil, itens, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: {} }));
+  }, itens);
+  const p = await ctx.newPage();
+  vigiarErros(p, erros);
+  await p.goto(APP);
+  await p.waitForTimeout(600);
+  const passo = p.locator('.roteiro .passo', { hasText: 'Recuperar o atraso' });
+  if (!(await passo.count())) throw new Error('sábado deu baixa só com português');
+  const rot = (await passo.locator('[data-acao="recuperar"]').textContent()).trim();
+  if (!/10\/10 · 14 itens/.test(rot)) throw new Error('botão de recuperação: ' + rot);
+  await passo.locator('[data-acao="recuperar"]').click();
+  await p.waitForSelector('#sessao:not([hidden])');
+  const cab = (await p.textContent('.sessao-topo .tit span')).trim();
+  if (!/de 14/.test(cab)) throw new Error('sessão de recuperação: ' + cab);
+  await ctx.close();
+});
+
+await passo('batalha retomada continua com os corações de quando você saiu', async () => {
+  const { ctx, p } = await abrir(() => ({}), () => ({}));
+  await p.click('[data-acao="enfrentar-chefe"]');
+  await p.waitForSelector('.arena');
+  await responder(p, false);
+  await p.click('[data-acao="proximo"]');
+  await p.click('[data-acao="sair-sessao"]');
+  await p.click('[data-acao="confirmar-saida"]');
+  await p.waitForTimeout(300);
+  await p.click('.cartao.jornada [data-acao="enfrentar-chefe"]');
+  await p.waitForSelector('.arena');
+  const cheios = await p.locator('.arena .cor.cheio').count(), total = await p.locator('.arena .cor').count();
+  if (cheios !== total - 1) throw new Error('corações na retomada: ' + cheios + ' de ' + total);
   await ctx.close();
 });
 
