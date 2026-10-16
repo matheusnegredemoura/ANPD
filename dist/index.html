@@ -863,37 +863,109 @@ const REAIS = Q.filter((q) => q.o);
 const TEMAS_DISC = (D.discursivas && D.discursivas.temas) || [];
 const CARACTERES_LINHA = 70;
 
+// 40 níveis com degraus crescentes: os primeiros saem no primeiro dia; no ritmo de 500 a 1.000 XP por dia de estudo,
+// Diretor(a)-Presidente chega perto da prova. Depois dele, cada mandato pede MANDATO_XP.
 const NIVEIS = [
-  [0, 'Titular de dados'], [120, 'Curioso do art. 18'], [300, 'Operador(a)'], [600, 'Controlador(a)'],
-  [1000, 'Encarregado(a)'], [1600, 'Analista de conformidade'], [2400, 'Fiscal de campo'], [3400, 'Auditor(a) de algoritmos'],
-  [4700, 'Instrutor(a) de processo sancionador'], [6300, 'Especialista em Regulação'], [8300, 'Coordenador(a)-Geral'],
-  [10800, 'Diretor(a) do Conselho Diretor'], [14000, 'Diretor(a)-Presidente'],
+  [0, 'Titular de dados'], [150, 'Curioso(a) do art. 18'], [300, 'Leitor(a) de lei seca'], [500, 'Suboperador(a)'],
+  [700, 'Operador(a)'], [950, 'Controlador(a)'], [1200, 'Controlador(a) conjunto(a)'], [1500, 'Encarregado(a)'],
+  [1850, 'Guardião(ã) do consentimento'], [2200, 'Defensor(a) da finalidade'], [2600, 'Analista de conformidade'],
+  [3100, 'Mapeador(a) de dados'], [3600, 'Redator(a) de relatório de impacto'], [4200, 'Mestre da pseudonimização'],
+  [4800, 'Perito(a) em anonimização'], [5500, 'Projetista da privacidade desde a concepção'], [6400, 'Notificador(a) de incidentes'],
+  [7300, 'Caçador(a) de vazamentos'], [8300, 'Protetor(a) do ECA Digital'], [9400, 'Fiscal de campo'],
+  [10500, 'Auditor(a) de algoritmos'], [12000, 'Mediador(a) de petições de titulares'], [13500, 'Analista de transferência internacional'],
+  [15500, 'Instrutor(a) de processo sancionador'], [17500, 'Calculista da dosimetria'], [19500, 'Redator(a) de guia orientativo'],
+  [22000, 'Analista de impacto regulatório'], [25000, 'Relator(a) de consulta pública'], [28000, 'Arquiteto(a) do sandbox regulatório'],
+  [31500, 'Especialista em Regulação'], [35500, 'Especialista de referência'], [40000, 'Coordenador(a)'],
+  [45000, 'Coordenador(a)-Geral'], [50500, 'Ouvidor(a)'], [56500, 'Corregedor(a)'], [63500, 'Auditor(a)-Chefe'],
+  [71000, 'Superintendente'], [79500, 'Conselheiro(a) do CNPD'], [89000, 'Diretor(a) do Conselho Diretor'],
+  [100000, 'Diretor(a)-Presidente'],
 ];
+const MANDATO_XP = 10000;
 
+// Conquistas em cinco grupos (g); cada id fica gravado com a data em perfil.conq
+const GRUPOS_CONQ = [['q', 'Questões'], ['c', 'Constância'], ['l', 'Lei, cards e revisão'], ['p', 'Domínio e prova'], ['j', 'Jornada']];
 const CONQ = [
-  { id: 'primeira', ic: '1', nome: 'Primeira marcação', desc: 'Respondeu o primeiro item.' },
-  { id: 'meta', ic: 'M', nome: 'Meta batida', desc: 'Cumpriu a meta diária de itens.' },
-  { id: 'roteiro', ic: '5/5', nome: 'Roteiro completo', desc: 'Fechou os cinco passos do roteiro de um dia.' },
-  { id: 'combo10', ic: '10', nome: 'Dez seguidas', desc: 'Acertou 10 itens em sequência.' },
-  { id: 'combo25', ic: '25', nome: 'Gabarito limpo', desc: 'Acertou 25 itens em sequência.' },
-  { id: 'r100', ic: '100', nome: 'Cem itens', desc: 'Respondeu 100 itens.' },
-  { id: 'r500', ic: '500', nome: 'Quinhentos', desc: 'Respondeu 500 itens.' },
-  { id: 'r1000', ic: '1k', nome: 'Mil itens', desc: 'Respondeu 1.000 itens.' },
-  { id: 'cards50', ic: 'C', nome: 'Cinquenta lacunas', desc: 'Revisou 50 cards cloze.' },
-  { id: 'cards300', ic: 'C3', nome: 'Lei na ponta da língua', desc: 'Revisou 300 cards cloze.' },
-  { id: 'seq7', ic: '7d', nome: 'Semana firme', desc: '7 dias seguidos de estudo (domingo e uma folga por semana não quebram).' },
-  { id: 'seq30', ic: '30d', nome: 'Mês sem falhar', desc: '30 dias seguidos de estudo.' },
-  { id: 'sim1', ic: 'S', nome: 'Primeiro simulado', desc: 'Entregou um simulado.' },
-  { id: 'sim70', ic: '70', nome: 'Nota de corte', desc: 'Nota líquida de 70% ou mais em simulado de 30+ itens.' },
-  { id: 'relampago15', ic: 'R', nome: 'Relâmpago', desc: 'Nota líquida de 15 ou mais no modo relâmpago.' },
-  { id: 'lei20', ic: '§', nome: 'Lei seca', desc: 'Abriu 20 artigos no leitor da lei seca.' },
-  { id: 'leitodas', ic: '§§', nome: 'Lei inteira', desc: 'Abriu todos os artigos da LGPD no leitor.' },
-  { id: 'lista25', ic: 'LC', nome: 'Lista curta', desc: 'Tirou 25 itens da lista de erros.' },
-  { id: 'pesq10', ic: '?!', nome: 'Curiosidade', desc: 'Marcou 10 temas como pesquisados e entendidos.' },
-  { id: 'bloco80', ic: '80', nome: 'Bloco dominado', desc: 'Chegou a 80% de domínio em um bloco.' },
-  { id: 'p1', ic: 'P1', nome: 'Prioridade 1 em dia', desc: '60% de domínio nos quatro blocos de prioridade 1 da LGPD.' },
-  { id: 'calibrado', ic: '?', nome: 'Bem calibrado', desc: 'Marcou dúvida em 20 itens. Agora você sabe quando chutar.' },
-  { id: 'coruja', ic: '23h', nome: 'Coruja', desc: 'Estudou depois das 23h.' },
+  { g: 'q', id: 'primeira', ic: '1', nome: 'Primeira marcação', desc: 'Respondeu o primeiro item.' },
+  { g: 'q', id: 'r100', ic: '100', nome: 'Cem itens', desc: 'Respondeu 100 itens.' },
+  { g: 'q', id: 'r500', ic: '500', nome: 'Quinhentos', desc: 'Respondeu 500 itens.' },
+  { g: 'q', id: 'r1000', ic: '1k', nome: 'Mil itens', desc: 'Respondeu 1.000 itens.' },
+  { g: 'q', id: 'r2500', ic: '2,5k', nome: 'Dois mil e quinhentos', desc: 'Respondeu 2.500 itens.' },
+  { g: 'q', id: 'r5000', ic: '5k', nome: 'Cinco mil', desc: 'Respondeu 5.000 itens.' },
+  { g: 'q', id: 'metade', ic: '½', nome: 'Meio banco', desc: 'Respondeu metade dos itens diferentes do banco.' },
+  { g: 'q', id: 'combo10', ic: '10', nome: 'Dez seguidas', desc: 'Acertou 10 itens em sequência.' },
+  { g: 'q', id: 'combo25', ic: '25', nome: 'Gabarito limpo', desc: 'Acertou 25 itens em sequência.' },
+  { g: 'q', id: 'combo50', ic: '50', nome: 'Cinquenta seguidas', desc: 'Acertou 50 itens em sequência.' },
+  { g: 'q', id: 'maratona', ic: '»', nome: 'Maratona', desc: 'Respondeu 100 itens no mesmo dia.' },
+  { g: 'q', id: 'certeiro', ic: '90%', nome: 'Dia certeiro', desc: '90% de acerto em 30 ou mais itens no mesmo dia.' },
+  { g: 'q', id: 'reais50', ic: 'CB', nome: 'Cara a cara com a banca', desc: 'Respondeu 50 itens reais de prova.' },
+  { g: 'q', id: 'reais300', ic: 'CB+', nome: 'Veterano(a) de prova', desc: 'Respondeu 300 itens reais de prova.' },
+  { g: 'q', id: 'casca', ic: 'D3', nome: 'Casca grossa', desc: 'Dominou 50 itens de dificuldade alta.' },
+  { g: 'q', id: 'me20', ic: 'A–E', nome: 'Cinco alternativas', desc: 'Respondeu 20 itens de múltipla escolha.' },
+  { g: 'q', id: 'calibrado', ic: '?', nome: 'Bem calibrado', desc: 'Marcou dúvida em 20 itens. Agora você sabe quando chutar.' },
+  { g: 'q', id: 'relampago15', ic: 'R', nome: 'Relâmpago', desc: 'Nota líquida de 15 ou mais no modo relâmpago.' },
+  { g: 'q', id: 'relampago25', ic: 'R+', nome: 'Trovão', desc: 'Nota líquida de 25 ou mais no modo relâmpago.' },
+  { g: 'c', id: 'meta', ic: 'M', nome: 'Meta batida', desc: 'Cumpriu a meta diária de itens.' },
+  { g: 'c', id: 'meta10', ic: 'M10', nome: 'Meta é rotina', desc: 'Cumpriu a meta diária em 10 dias.' },
+  { g: 'c', id: 'meta50', ic: 'M50', nome: 'Meta inabalável', desc: 'Cumpriu a meta diária em 50 dias.' },
+  { g: 'c', id: 'seq7', ic: '7d', nome: 'Semana firme', desc: '7 dias seguidos de estudo (domingo e uma folga por semana não quebram).' },
+  { g: 'c', id: 'seq14', ic: '14d', nome: 'Quinzena firme', desc: '14 dias seguidos de estudo.' },
+  { g: 'c', id: 'seq30', ic: '30d', nome: 'Mês sem falhar', desc: '30 dias seguidos de estudo.' },
+  { g: 'c', id: 'seq60', ic: '60d', nome: 'Dois meses de pé', desc: '60 dias seguidos de estudo.' },
+  { g: 'c', id: 'seq100', ic: '100d', nome: 'Cem dias', desc: '100 dias seguidos de estudo.' },
+  { g: 'c', id: 'dias30', ic: '30', nome: 'Trinta dias de estudo', desc: '30 dias de estudo, seguidos ou não.' },
+  { g: 'c', id: 'dias100', ic: '100', nome: 'Cem dias de estudo', desc: '100 dias de estudo, seguidos ou não.' },
+  { g: 'c', id: 'fds', ic: 'S+D', nome: 'Ensaio de domingo', desc: 'Estudou no sábado e no domingo da mesma semana. A prova cai num domingo.' },
+  { g: 'c', id: 'hora1', ic: '1h', nome: 'Uma hora de foco', desc: 'Estudou 1 hora no mesmo dia (relógio do app).' },
+  { g: 'c', id: 'hora3', ic: '3h', nome: 'Três horas', desc: 'Estudou 3 horas no mesmo dia.' },
+  { g: 'c', id: 'horas100', ic: '100h', nome: 'Cem horas', desc: 'Somou 100 horas de estudo no app.' },
+  { g: 'c', id: 'coruja', ic: '23h', nome: 'Coruja', desc: 'Estudou depois das 23h.' },
+  { g: 'c', id: 'madrugador', ic: '6h', nome: 'Madrugador(a)', desc: 'Respondeu um item entre 4h e 7h.' },
+  { g: 'c', id: 'roteiro', ic: '5/5', nome: 'Roteiro completo', desc: 'Fechou todos os passos do roteiro de um dia.' },
+  { g: 'c', id: 'roteiro7', ic: '7×', nome: 'Semana de roteiros', desc: 'Fechou o roteiro completo em 7 dias.' },
+  { g: 'c', id: 'recuperacao', ic: '↺', nome: 'Nada fica para trás', desc: 'Terminou uma sessão de recuperação do atraso do plano.' },
+  { g: 'l', id: 'lei20', ic: '§', nome: 'Lei seca', desc: 'Abriu 20 artigos no leitor da lei seca.' },
+  { g: 'l', id: 'lei100', ic: '§100', nome: 'Cem artigos', desc: 'Abriu 100 artigos no leitor da lei seca.' },
+  { g: 'l', id: 'lei500', ic: '§500', nome: 'Biblioteca de normas', desc: 'Abriu 500 artigos no leitor da lei seca.' },
+  { g: 'l', id: 'leitodas', ic: '§§', nome: 'Lei inteira', desc: 'Abriu todos os artigos da LGPD no leitor.' },
+  { g: 'l', id: 'cards50', ic: 'C', nome: 'Cinquenta lacunas', desc: 'Revisou 50 cards cloze.' },
+  { g: 'l', id: 'cards300', ic: 'C3', nome: 'Lei na ponta da língua', desc: 'Revisou 300 cards cloze.' },
+  { g: 'l', id: 'cards1000', ic: 'C1k', nome: 'Mil lacunas', desc: 'Revisou 1.000 cards cloze.' },
+  { g: 'l', id: 'lista25', ic: 'LC', nome: 'Lista curta', desc: 'Tirou 25 itens da lista de erros.' },
+  { g: 'l', id: 'lista100', ic: 'LC+', nome: 'Erro que não volta', desc: 'Tirou 100 itens da lista de erros.' },
+  { g: 'l', id: 'lista300', ic: 'LC3', nome: 'Lista enxuta', desc: 'Tirou 300 itens da lista de erros.' },
+  { g: 'l', id: 'memoria50', ic: '↻', nome: 'Memória de longo prazo', desc: 'Confirmou 50 acertos antigos que voltaram para manutenção.' },
+  { g: 'l', id: 'pesq10', ic: '?!', nome: 'Curiosidade', desc: 'Marcou 10 temas como pesquisados e entendidos.' },
+  { g: 'l', id: 'pesq30', ic: '?!+', nome: 'Investigador(a)', desc: 'Marcou 30 temas como pesquisados e entendidos.' },
+  { g: 'l', id: 'explicar5', ic: '✎', nome: 'Com suas palavras', desc: 'Explicou 5 temas com suas palavras na investigação.' },
+  { g: 'l', id: 'subtema', ic: 'ST', nome: 'Subtema dominado', desc: 'Dominou um subtema de uma trilha do zero.' },
+  { g: 'l', id: 'trilha', ic: 'TR', nome: 'Trilha completa', desc: 'Dominou todos os subtemas de uma trilha.' },
+  { g: 'p', id: 'bloco80', ic: '80', nome: 'Bloco dominado', desc: 'Chegou a 80% de domínio em um bloco.' },
+  { g: 'p', id: 'blocos5', ic: '80×5', nome: 'Cinco blocos dominados', desc: '80% de domínio em 5 blocos.' },
+  { g: 'p', id: 'blocos20', ic: '80×20', nome: 'Vinte blocos dominados', desc: '80% de domínio em 20 blocos.' },
+  { g: 'p', id: 'p1', ic: 'P1', nome: 'Prioridade 1 em dia', desc: '60% de domínio nos blocos de prioridade 1 da LGPD.' },
+  { g: 'p', id: 'disciplina', ic: '70', nome: 'Disciplina firme', desc: '70% de domínio médio numa disciplina inteira.' },
+  { g: 'p', id: 'sim1', ic: 'S', nome: 'Primeiro simulado', desc: 'Entregou um simulado.' },
+  { g: 'p', id: 'sim5', ic: 'S5', nome: 'Cinco simulados', desc: 'Entregou 5 simulados.' },
+  { g: 'p', id: 'sim70', ic: '70%', nome: 'Nota de corte', desc: 'Nota líquida de 70% ou mais em simulado de 30+ itens.' },
+  { g: 'p', id: 'sim80', ic: '80%', nome: 'Acima do corte', desc: 'Nota líquida de 80% ou mais em simulado de 30+ itens.' },
+  { g: 'p', id: 'prova120', ic: '120', nome: 'Prova inteira', desc: 'Entregou um simulado de 120 itens.' },
+  { g: 'p', id: 'disc1', ic: 'Tx', nome: 'Primeira discursiva', desc: 'Salvou a correção de uma discursiva.' },
+  { g: 'p', id: 'disc5', ic: 'Tx5', nome: 'Cinco discursivas', desc: 'Salvou 5 correções de discursiva.' },
+  { g: 'p', id: 'discnota', ic: 'Tx+', nome: 'Texto de aprovação', desc: '70% ou mais da nota numa discursiva.' },
+  { g: 'p', id: 'lince', ic: '!', nome: 'Olho de lince', desc: 'Contestou um item que parecia errado.' },
+  { g: 'j', id: 'bau1', ic: '▣', nome: 'Baú do dia', desc: 'Cumpriu as missões de um dia e abriu o baú.' },
+  { g: 'j', id: 'bau7', ic: '▣7', nome: 'Sete baús', desc: 'Abriu 7 baús do dia.' },
+  { g: 'j', id: 'bau30', ic: '▣30', nome: 'Trinta baús', desc: 'Abriu 30 baús do dia.' },
+  { g: 'j', id: 'chefe1', ic: 'Ch', nome: 'Primeiro chefão', desc: 'Derrotou um chefão da semana.' },
+  { g: 'j', id: 'chefe5', ic: 'Ch5', nome: 'Caçador(a) de chefões', desc: 'Derrotou 5 chefões.' },
+  { g: 'j', id: 'chefe10', ic: 'Ch10', nome: 'Dez troféus', desc: 'Derrotou 10 chefões.' },
+  { g: 'j', id: 'perfeita', ic: '♥', nome: 'Vitória perfeita', desc: 'Derrotou o chefão numa batalha sem perder nenhum coração.' },
+  { g: 'j', id: 'lendario', ic: '★', nome: 'Item lendário', desc: 'Conseguiu um item lendário.' },
+  { g: 'j', id: 'equipado', ic: 'EQ', nome: 'Equipado(a)', desc: 'Arma, armadura e amuleto equipados ao mesmo tempo.' },
+  { g: 'j', id: 'colecao', ic: '12', nome: 'Arsenal completo', desc: 'Reuniu todos os itens do inventário.' },
+  { g: 'j', id: 'nivel10', ic: 'N10', nome: 'Nível 10', desc: 'Chegou ao nível 10: ' + NIVEIS[9][1] + '.' },
+  { g: 'j', id: 'nivel20', ic: 'N20', nome: 'Nível 20', desc: 'Chegou ao nível 20: ' + NIVEIS[19][1] + '.' },
+  { g: 'j', id: 'nivel30', ic: 'N30', nome: 'Nível 30', desc: 'Chegou ao nível 30: ' + NIVEIS[29][1] + '.' },
 ];
 
 /* ================= Utilitários ================= */
@@ -1014,6 +1086,7 @@ function mesclarRPG(velho, novo) {
   const r = Object.assign({}, velho, novo);
   r.inv = mesclarMapa(velho.inv, novo.inv, (a, b) => (b < a ? b : a));
   r.eq = Object.assign({}, velho.eq, novo.eq);
+  r.baus = Math.max(velho.baus || 0, novo.baus || 0);
   const vistos = new Set();
   r.trofeus = (novo.trofeus || []).concat(velho.trofeus || []).filter((t) => { const k = t.sem + '|' + t.bloco; if (vistos.has(k)) return false; vistos.add(k); return true; });
   const a = normalizarChefe(velho.chefe && Object.assign({}, velho.chefe)), b = normalizarChefe(novo.chefe && Object.assign({}, novo.chefe));
@@ -1273,9 +1346,9 @@ function nivelDe(xp) {
   let i = 0;
   while (i + 1 < NIVEIS.length && xp >= NIVEIS[i + 1][0]) i++;
   if (i === NIVEIS.length - 1) {
-    const mandato = 1 + Math.floor((xp - NIVEIS[i][0]) / 4000);
-    const base = NIVEIS[i][0] + (mandato - 1) * 4000;
-    return { n: i + mandato, nome: NIVEIS[i][1] + (mandato > 1 ? ' · mandato ' + mandato : ''), base, prox: base + 4000 };
+    const mandato = 1 + Math.floor((xp - NIVEIS[i][0]) / MANDATO_XP);
+    const base = NIVEIS[i][0] + (mandato - 1) * MANDATO_XP;
+    return { n: i + mandato, nome: NIVEIS[i][1] + (mandato > 1 ? ' · mandato ' + mandato : ''), base, prox: base + MANDATO_XP };
   }
   return { n: i + 1, nome: NIVEIS[i][1], base: NIVEIS[i][0], prox: NIVEIS[i + 1][0] };
 }
@@ -1527,35 +1600,100 @@ function conquistar(id) {
 }
 function verificarConquistas(ctx) {
   ctx = ctx || {};
+  const tem = (id) => !!S.perfil.conq[id];
+  const se = (cond, id) => { if (cond) conquistar(id); };
   const t = totais();
-  if (t.r >= 1) conquistar('primeira');
-  if (t.r >= 100) conquistar('r100');
-  if (t.r >= 500) conquistar('r500');
-  if (t.r >= 1000) conquistar('r1000');
-  if (t.k >= 50) conquistar('cards50');
-  if (t.k >= 300) conquistar('cards300');
-  if ((S.perfil.recordes.combo || 0) >= 10) conquistar('combo10');
-  if ((S.perfil.recordes.combo || 0) >= 25) conquistar('combo25');
+  se(t.r >= 1, 'primeira'); se(t.r >= 100, 'r100'); se(t.r >= 500, 'r500'); se(t.r >= 1000, 'r1000'); se(t.r >= 2500, 'r2500'); se(t.r >= 5000, 'r5000');
+  se(t.k >= 50, 'cards50'); se(t.k >= 300, 'cards300'); se(t.k >= 1000, 'cards1000');
+  const combo = S.perfil.recordes.combo || 0;
+  se(combo >= 10, 'combo10'); se(combo >= 25, 'combo25'); se(combo >= 50, 'combo50');
+  const relampago = S.perfil.recordes.relampago || 0;
+  se(relampago >= 15, 'relampago15'); se(relampago >= 25, 'relampago25');
   const seq = sequencia();
   if (seq > (S.perfil.melhorSeq || 0)) S.perfil.melhorSeq = seq;
-  if (seq >= 7) conquistar('seq7');
-  if (seq >= 30) conquistar('seq30');
-  if (S.simulados.length) conquistar('sim1');
-  if (S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.7)) conquistar('sim70');
-  if ((S.perfil.recordes.relampago || 0) >= 15) conquistar('relampago15');
-  const lidos = S.perfil.lidos || {};
-  if (Object.keys(lidos).length >= 20) conquistar('lei20');
-  if (ARTS.length && ARTS.every((a) => lidos[a.k])) conquistar('leitodas');
-  if ((S.perfil.saidos || 0) >= 25) conquistar('lista25');
-  if (Object.values(S.pesquisa).filter((p) => p.s).length >= 10) conquistar('pesq10');
-  if (BLOCOS.some((b) => (dominioBloco(b.id) || 0) >= 0.8)) conquistar('bloco80');
-  if (P1.every((b) => (dominioBloco(b) || 0) >= 0.6)) conquistar('p1');
-  let duv = 0;
-  for (const r of Object.values(S.itens)) duv += (r[5] || 0) + (r[6] || 0);
-  if (duv >= 20) conquistar('calibrado');
-  if (ctx.respondeu && new Date().getHours() >= 23) conquistar('coruja');
+  se(seq >= 7, 'seq7'); se(seq >= 14, 'seq14'); se(seq >= 30, 'seq30'); se(seq >= 60, 'seq60'); se(seq >= 100, 'seq100');
+  // Dias: estudo, meta, recordes do dia, manutenção, roteiro, recuperação e tempo
+  let ativos = 0, metas = 0, manut = 0, roteiros = 0, seg = 0;
+  for (const [iso, d] of Object.entries(S.perfil.dias)) {
+    if (ativo(iso)) ativos++;
+    if (d.metaOk) metas++;
+    manut += d.m || 0;
+    if (d.rt) roteiros++;
+    if (d.pd) conquistar('recuperacao');
+    if (d.r >= 100) conquistar('maratona');
+    if (d.r >= 30 && d.c / d.r >= 0.9) conquistar('certeiro');
+    const s = segundosEstudo(d);
+    seg += s;
+    se(s >= 3600, 'hora1'); se(s >= 3 * 3600, 'hora3');
+    // Domingo estudado com o sábado anterior também estudado
+    if (!tem('fds') && diaSemana(iso) === 0 && ativo(iso) && ativo(isoDeNum(diaNum(iso) - 1))) conquistar('fds');
+  }
+  se(ativos >= 30, 'dias30'); se(ativos >= 100, 'dias100');
+  se(metas >= 10, 'meta10'); se(metas >= 50, 'meta50');
+  se(manut >= 50, 'memoria50'); se(roteiros >= 7, 'roteiro7'); se(seg >= 100 * 3600, 'horas100');
+  se(S.simulados.length >= 1, 'sim1'); se(S.simulados.length >= 5, 'sim5');
+  se(S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.7), 'sim70');
+  se(S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.8), 'sim80');
+  se(S.simulados.some((s) => s.n >= 120), 'prova120');
+  const lidos = Object.keys(S.perfil.lidos || {}).length;
+  se(lidos >= 20, 'lei20'); se(lidos >= 100, 'lei100'); se(lidos >= 500, 'lei500');
+  if (!tem('leitodas') && ARTS.length && ARTS.every((a) => (S.perfil.lidos || {})[a.k])) conquistar('leitodas');
+  const saidos = S.perfil.saidos || 0;
+  se(saidos >= 25, 'lista25'); se(saidos >= 100, 'lista100'); se(saidos >= 300, 'lista300');
+  const pesq = Object.values(S.pesquisa).filter((p) => p.s).length;
+  se(pesq >= 10, 'pesq10'); se(pesq >= 30, 'pesq30');
+  se((S.perfil.recordes.ex || 0) >= 5, 'explicar5');
+  // Histórico das questões: dúvidas marcadas, itens diferentes, reais, múltipla escolha e domínio dos difíceis
+  let duv = 0, vistos = 0, reais = 0, me = 0, dificeis = 0;
+  for (const [id, r] of Object.entries(S.itens)) {
+    duv += (r[5] || 0) + (r[6] || 0);
+    if (r[0] < 0) continue;
+    vistos++;
+    const q = QI.get(id);
+    if (!q) continue;
+    if (q.o) reais++;
+    if (q.al) me++;
+    if (q.d === 3 && r[0] >= 3) dificeis++;
+  }
+  se(duv >= 20, 'calibrado'); se(vistos >= Math.ceil(Q.length / 2), 'metade');
+  se(reais >= 50, 'reais50'); se(reais >= 300, 'reais300'); se(me >= 20, 'me20'); se(dificeis >= 50, 'casca');
+  if (!tem('blocos20')) {
+    const fortes = BLOCOS.filter((b) => (dominioBloco(b.id) || 0) >= 0.8).length;
+    se(fortes >= 1, 'bloco80'); se(fortes >= 5, 'blocos5'); se(fortes >= 20, 'blocos20');
+  }
+  if (!tem('p1') && P1.every((b) => (dominioBloco(b) || 0) >= 0.6)) conquistar('p1');
+  if (!tem('disciplina') && DISC.some((d) => dominioDisciplina(d.id) >= 0.7)) conquistar('disciplina');
+  if (!tem('trilha')) {
+    for (const tr of TRILHAS) {
+      const sts = tr.subtemas.map((st) => estadoSubtema(st.id)).filter((e) => e.n), dom = sts.filter((e) => e.status === 'dominado').length;
+      se(dom >= 1, 'subtema'); se(sts.length && dom === sts.length, 'trilha');
+    }
+  }
+  // Discursivas: tentativas salvas e a melhor fração da nota
+  let tent = 0, melhor = 0;
+  for (const [id, st] of Object.entries(S.disc)) {
+    const tema = TEMAS_DISC.find((x) => x.id === id);
+    for (const x of st.tentativas || []) { tent++; if (tema && tema.pontos) melhor = Math.max(melhor, x.nq / tema.pontos); }
+  }
+  se(tent >= 1, 'disc1'); se(tent >= 5, 'disc5'); se(melhor >= 0.7, 'discnota');
+  se(CONTEST.length >= 1, 'lince');
+  // Jornada: baús, chefões, saque e nível
+  const r = rpg();
+  const baus = Math.max(r.baus || 0, Object.values(r.m || {}).filter((x) => x && x.bau).length);
+  se(baus >= 1, 'bau1'); se(baus >= 7, 'bau7'); se(baus >= 30, 'bau30');
+  const trofeus = (r.trofeus || []).length;
+  se(trofeus >= 1, 'chefe1'); se(trofeus >= 5, 'chefe5'); se(trofeus >= 10, 'chefe10');
+  se(ITENS_RPG.some((it) => it.rar === 'lendario' && r.inv[it.id]), 'lendario');
+  se(Object.keys(ENCAIXES).every((sl) => equipado(sl)), 'equipado');
+  se(ITENS_RPG.every((it) => r.inv[it.id]), 'colecao');
+  const nv = nivelDe(S.perfil.xp).n;
+  se(nv >= 10, 'nivel10'); se(nv >= 20, 'nivel20'); se(nv >= 30, 'nivel30');
+  if (ctx.respondeu) {
+    const h = new Date().getHours();
+    se(h >= 23, 'coruja'); se(h >= 4 && h < 7, 'madrugador');
+  }
   const rt = roteiroHoje();
-  if (rt && rt.passos.every((p) => p.feito) && (S.perfil.dias[hojeISO()] || {}).r > 0) conquistar('roteiro');
+  if (rt && rt.passos.every((p) => p.feito) && (S.perfil.dias[hojeISO()] || {}).r > 0) { diaLog().rt = 1; conquistar('roteiro'); }
 }
 
 /* ================= Regras: cards (estilo Anki) ================= */
@@ -1798,7 +1936,7 @@ function atualizarPausa() {
     pausas[k] = Object.assign({ modo: sessao.modo, titulo: sessao.titulo, dia: sessao.dia, data: hojeISO(), ts: Date.now() }, sim
       ? { ids: sessao.ids, resp: sessao.resp, duv: sessao.duv, i: sessao.i, gasto: Math.round(decorrido()), limite: sessao.limite, total: sessao.ids.length }
       : { ids: faltam, feitas: (sessao.feitasAntes || 0) + sessao.ids.length - faltam.length, total: sessao.totalOrig || sessao.ids.length },
-      sessao.batalha ? { cor: sessao.coracoes, dano: sessao.danoTotal || 0, crit: sessao.criticos || 0, cmb: sessao.comboMax } : {});
+      sessao.batalha ? { cor: sessao.coracoes, dano: sessao.danoTotal || 0, crit: sessao.criticos || 0, cmb: sessao.comboMax, per: sessao.perdas || 0 } : {});
   }
   const manter = new Set(Object.entries(pausas).filter(([, v]) => v && v.data && HOJE() - diaNum(v.data) <= PAUSA_DIAS)
     .sort((a, b) => (b[1].ts || 0) - (a[1].ts || 0)).slice(0, PAUSA_MAX).map(([x]) => x));
@@ -1826,7 +1964,7 @@ function retomarPausa(k) {
     sessao.feitasAntes = p.feitas || 0;
     sessao.totalOrig = p.total || p.ids.length;
     // Batalha retomada continua com os corações e o placar de quando você saiu
-    if (sessao.batalha && p.cor != null) { sessao.coracoes = Math.max(1, Math.min(p.cor, sessao.coracoesMax)); sessao.danoTotal = p.dano || 0; sessao.criticos = p.crit || 0; sessao.comboMax = p.cmb || 0; }
+    if (sessao.batalha && p.cor != null) { sessao.coracoes = Math.max(1, Math.min(p.cor, sessao.coracoesMax)); sessao.danoTotal = p.dano || 0; sessao.criticos = p.crit || 0; sessao.comboMax = p.cmb || 0; sessao.perdas = p.per || 0; }
   }
   abrirSessao();
   return true;
@@ -2501,6 +2639,8 @@ function verificarRPG() {
   }
   if (!mh.bau && mh.ids.length && mh.ids.every((id) => mh.ok[id])) {
     mh.bau = 1; mudou = true;
+    // O histórico de missões guarda só 14 dias; o total de baús fica num contador próprio
+    rpg().baus = (rpg().baus || 0) + 1;
     ganharXP(BAU_XP);
     const s = saque({ comum: 60, raro: 30, epico: 9, lendario: 1 });
     mh.item = s.it.id;
@@ -2583,11 +2723,11 @@ function renderArena(q) {
 function efeitoBatalha(ok) {
   sessao.perdeuCoracao = false; sessao.curou = false;
   if (!sessao.batalha) return;
-  if (!ok) { sessao.coracoes = Math.max(0, sessao.coracoes - 1); sessao.perdeuCoracao = true; }
+  if (!ok) { sessao.coracoes = Math.max(0, sessao.coracoes - 1); sessao.perdeuCoracao = true; sessao.perdas = (sessao.perdas || 0) + 1; }
   else if (sessao.combo && sessao.combo % 3 === 0 && sessao.coracoes < sessao.coracoesMax) { sessao.coracoes++; sessao.curou = true; }
   if (sessao.golpe) { sessao.danoTotal = (sessao.danoTotal || 0) + sessao.golpe.dano; if (sessao.golpe.crit) sessao.criticos = (sessao.criticos || 0) + 1; }
   if (!sessao.coracoes) sessao.desfecho = 'derrota';
-  else if (sessao.golpe && sessao.golpe.vencido) sessao.desfecho = 'vitoria';
+  else if (sessao.golpe && sessao.golpe.vencido) { sessao.desfecho = 'vitoria'; if (!sessao.perdas) conquistar('perfeita'); }
 }
 // Encerra a batalha antes do fim da fila: o resultado considera só os itens respondidos
 function encerrarBatalha() {
@@ -3169,7 +3309,7 @@ async function conferirInv() {
     });
     resposta.content = r.text + (r.truncated ? ' […]' : '');
     // Explicar com as próprias palavras vale XP (uma vez por tema e conversa): o incentivo é pensar, não responder rápido
-    if (!inv.xp && txt.length >= 80) { inv.xp = 1; ganharXP(5); Store.salvar('perfil'); avisar('✎', '+5 XP', 'Por explicar com suas palavras.'); }
+    if (!inv.xp && txt.length >= 80) { inv.xp = 1; ganharXP(5); S.perfil.recordes.ex = (S.perfil.recordes.ex || 0) + 1; verificarConquistas(); Store.salvar('perfil'); avisar('✎', '+5 XP', 'Por explicar com suas palavras.'); }
   } catch (e) {
     if (e && e.text) resposta.content = e.text + ' […]';
     else { inv.turnos.splice(-2, 2); inv.rascunho = txt; }
@@ -3486,6 +3626,18 @@ function renderMais() {
       item('ajustes', '⚙', 'Ajustes, backup e diagnóstico', 'Metas, salvar progresso em arquivo, conferir a gravação') + '</div>';
   }
 }
+// Conquistas: as quatro mais recentes à mostra (fecham duas linhas no celular) e os cinco grupos recolhidos, cada um com a contagem
+function cartaoConquistas() {
+  const feitas = CONQ.filter((c) => S.perfil.conq[c.id]);
+  const card = (c) => '<div class="conquista' + (S.perfil.conq[c.id] ? '' : ' bloqueada') + '"><div class="ic">' + esc(c.ic) + '</div><b>' + esc(c.nome) + '</b><span>' + esc(c.desc) + '</span></div>';
+  const recentes = feitas.slice().sort((a, b) => (S.perfil.conq[a.id] < S.perfil.conq[b.id] ? 1 : -1)).slice(0, 4);
+  return '<div class="secao"><div class="secao-cab"><h2>Conquistas</h2><span class="mudo pequeno">' + feitas.length + ' de ' + CONQ.length + '</span></div>' +
+    (recentes.length ? '<div class="conquistas">' + recentes.map(card).join('') + '</div>' : '<p class="mudo pequeno">Nenhuma ainda: a primeira sai no primeiro item respondido.</p>') +
+    GRUPOS_CONQ.map(([g, nome]) => {
+      const cs = CONQ.filter((c) => c.g === g), n = cs.filter((c) => S.perfil.conq[c.id]).length;
+      return '<details class="det-lista" data-det="cq-' + g + '"' + (UI.det['cq-' + g] ? ' open' : '') + '><summary>' + esc(nome) + ' <span class="mudo pequeno">' + n + ' de ' + cs.length + '</span></summary><div class="conquistas">' + cs.map(card).join('') + '</div></details>';
+    }).join('') + '</div>';
+}
 function renderProgresso() {
   const t = totais(), seq = sequencia();
   // Nível e XP ficam na Jornada (Hoje) e na ficha do personagem
@@ -3533,8 +3685,7 @@ function renderProgresso() {
   for (const r of Object.values(S.itens)) { dc += r[5] || 0; de += r[6] || 0; }
   html += '<div class="cartao"><h2>Calibragem do chute</h2>' + (dc + de >= 5 ? '<p>Quando marca dúvida, você acerta <b>' + pct(dc, dc + de) + '%</b> (' + dc + ' de ' + (dc + de) + '). ' + (pct(dc, dc + de) > 50 ? 'Acima de 50%: na prova, chutar tende a somar pontos.' : 'Até 50%: na prova, deixar em branco tende a ser melhor.') + '</p>' : '<p class="mudo">Marque “Estou em dúvida” antes de responder. Com 5 marcações já dá para saber se o seu chute compensa.</p>') + '</div>';
   if (S.simulados.length) html += '<div class="cartao"><h2>Simulados</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Data</th><th>Itens</th><th>C</th><th>E</th><th>Nota</th></tr></thead><tbody>' + S.simulados.slice(0, 12).map((s) => '<tr><td>' + esc(fmtData(s.data, { day: '2-digit', month: '2-digit' })) + '</td><td class="num">' + s.n + '</td><td class="num">' + s.c + '</td><td class="num">' + s.e + '</td><td class="num">' + s.liq + ' (' + pct(s.liq, s.n) + '%)</td></tr>').join('') + '</tbody></table></div></div>';
-  html += '<div class="secao"><div class="secao-cab"><h2>Conquistas</h2><span class="mudo pequeno">' + Object.keys(S.perfil.conq).length + ' de ' + CONQ.length + '</span></div><div class="conquistas">' +
-    CONQ.map((c) => '<div class="conquista' + (S.perfil.conq[c.id] ? '' : ' bloqueada') + '"><div class="ic">' + esc(c.ic) + '</div><b>' + esc(c.nome) + '</b><span>' + esc(c.desc) + '</span></div>').join('') + '</div></div>';
+  html += cartaoConquistas();
   html += cartaoTrofeus();
   return html;
 }
@@ -4167,6 +4318,7 @@ document.addEventListener('click', async (ev) => {
       st.tentativas.unshift({ d: hojeISO(), nc: Math.round(r.nc * 100) / 100, ne: r.ne, tl: r.tl, nq: Math.round(r.nq * 100) / 100, q: t.quesitos.map((q, i) => UI.discAval[i]), ia: UI.discIA ? 1 : undefined });
       st.tentativas = st.tentativas.slice(0, 8);
       ganharXP(30);
+      verificarConquistas();
       Store.salvar('discursivas', 'perfil');
       avisar('✎', 'Discursiva salva', r.nq.toFixed(2).replace('.', ',') + ' de ' + t.pontos + ' · +30 XP');
       renderMais();
@@ -4189,7 +4341,7 @@ document.addEventListener('click', async (ev) => {
       const motivo = (document.querySelector('input[name="contest-motivo"]:checked') || {}).value || 'outro';
       const texto = (document.getElementById('contest-texto') || {}).value || '';
       const rec = { q: alvo.dataset.q, motivo, texto: texto.trim().slice(0, 2000), data: new Date().toISOString(), versao: D.versao, status: 'pendente', resposta: '' };
-      CONTEST.push(rec); gravarContest();
+      CONTEST.push(rec); gravarContest(); verificarConquistas(); Store.salvar('perfil');
       alvo.disabled = true;
       const ok = await enviarContestacao(rec);
       gravarContest();

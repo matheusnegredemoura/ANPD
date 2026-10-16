@@ -127,6 +127,8 @@ await passo('golpe final derruba o chefão e dá um item, que é equipado', asyn
   if (!r.chefe.vencido || !(r.trofeus || []).length) throw new Error('chefão não registrado como derrotado');
   const inv = Object.keys(r.inv || {});
   if (inv.length !== 1 || !Object.values(r.eq || {}).includes(inv[0])) throw new Error('item não foi para o inventário e o equipamento: ' + JSON.stringify(r));
+  const conq = (await salvo(p)).perfil.conq;
+  if (!conq.perfeita || !conq.chefe1) throw new Error('vitória sem erro não deu Vitória perfeita e Primeiro chefão: ' + Object.keys(conq).join(','));
   await ctx.close();
 });
 
