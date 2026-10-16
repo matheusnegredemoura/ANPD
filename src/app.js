@@ -3173,10 +3173,39 @@ function idsSubtema(id, tipo, n) {
 function chipEstado(e) {
   return '<span class="selo st-' + e.status + '">' + esc(ROTULO_ST[e.status]) + '</span>';
 }
+// Aula estruturada (dados/trilhas.json, campo licao): ideia central, mapa mental e partes com tabela, lista, passos e caixas
+const CAIXAS_AULA = [['mnemo', 'Para lembrar'], ['ex', 'Exemplo'], ['atencao', 'Atenção'], ['porque', 'Por que é assim']];
+function htmlMapa(m) {
+  return '<figure class="mapa"><figcaption class="rotulo">Mapa mental</figcaption><div class="mapa-centro">' + grifarProsa(m.centro) + '</div><ul class="mapa-ramos">' +
+    m.ramos.map((r, i) => '<li class="ramo ramo-' + (i + 1) + '"><span class="ramo-t"><span>' + grifarProsa(r.t) + '</span></span>' +
+      (r.f.length ? '<ul class="folhas">' + r.f.map((f) => '<li>' + grifarProsa(f) + '</li>').join('') + '</ul>' : '') + '</li>').join('') + '</ul></figure>';
+}
+function htmlTabelaAula(t) {
+  // No celular a tabela vira fichas: cada célula leva o nome da coluna (data-c), lido pelo CSS
+  const cab = t.cab.map((c) => String(c).replace(/\*\*/g, ''));
+  return '<div class="tabela-env"><table class="tab-aula' + (cab.length > 2 ? ' fichas' : '') + '"><thead><tr>' + t.cab.map((c) => '<th scope="col">' + grifarProsa(c) + '</th>').join('') + '</tr></thead><tbody>' +
+    t.linhas.map((l) => '<tr>' + l.map((c, j) => j ? '<td data-c="' + esc(cab[j]) + '">' + grifarProsa(c) + '</td>' : '<th scope="row">' + grifarProsa(c) + '</th>').join('') + '</tr>').join('') + '</tbody></table></div>';
+}
+function htmlParteAula(p, i) {
+  let h = '<section class="parte"><h3><span class="parte-n">' + (i + 1) + '</span><span>' + grifarProsa(p.t) + '</span></h3>';
+  if (p.texto) h += '<p>' + grifarProsa(p.texto) + '</p>';
+  if (p.lista) h += '<ul class="lista-chave">' + p.lista.map((x) => '<li>' + grifarProsa(x) + '</li>').join('') + '</ul>';
+  if (p.passos) h += '<ol class="passos">' + p.passos.map((x) => '<li>' + grifarProsa(x) + '</li>').join('') + '</ol>';
+  if (p.tabela) h += htmlTabelaAula(p.tabela);
+  if (p.depois) h += '<p>' + grifarProsa(p.depois) + '</p>';
+  for (const [k, rot] of CAIXAS_AULA) if (p[k]) h += '<div class="caixa cx-' + k + '"><span class="rotulo">' + rot + '</span><p>' + grifarProsa(p[k]) + '</p></div>';
+  return h + '</section>';
+}
+function htmlAula(st) {
+  const li = st.licao;
+  if (!li) return '<div class="texto-aula">' + st.aula.map((p) => '<p>' + grifarProsa(p) + '</p>').join('') + '</div>';
+  return '<div class="texto-aula licao"><div class="ideia"><span class="rotulo">Ideia central</span><p>' + grifarProsa(li.ideia) + '</p></div>' +
+    htmlMapa(li.mapa) + li.partes.map(htmlParteAula).join('') + '</div>';
+}
 function folhaAula(id) {
   const st = SUBTEMAS.get(id);
   if (!st) return;
-  const html = cabFolha('Aula', st.nome) + legendaCamadas(true) + '<div class="texto-aula">' + st.aula.map((p) => '<p>' + grifarProsa(p) + '</p>').join('') + '</div>' +
+  const html = cabFolha('Aula', st.nome) + legendaCamadas(true) + htmlAula(st) +
     '<h3>Pontos-chave</h3><ul class="lista-chave">' + st.chave.map((c) => '<li>' + grifarProsa(c) + '</li>').join('') + '</ul>' +
     '<h3>Armadilhas</h3><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul>';
   abrirFolha(html, 'Aula: ' + st.nome);
@@ -3212,7 +3241,8 @@ function renderSubtema(id) {
     (e.n ? '<button class="btn' + (e.novos ? '' : ' primario') + '" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pratica">' + (e.novos ? '3. ' : '') + 'Praticar · ' + Math.min(20, e.n) + ' itens</button>' : '') +
     (e.erros ? '<button class="btn" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="erros">Refazer erros · ' + e.erros + '</button>' : '') +
     '</div></div>';
-  html += '<div class="cartao aula" id="aula-' + esc(id) + '"><h2>Aula</h2>' + legendaCamadas(true) + '<div class="texto-aula">' + st.aula.map((p) => '<p>' + grifarProsa(p) + '</p>').join('') + '</div></div>';
+  html += '<div class="cartao aula" id="aula-' + esc(id) + '"><h2>Aula</h2>' + legendaCamadas(true) + htmlAula(st) +
+    (e.n ? '<div class="linha-btns fim-aula"><button class="btn primario" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pratica">Fixar com questões · ' + Math.min(20, e.n) + ' itens</button></div>' : '') + '</div>';
   html += '<div class="cartao"><h2>Pontos-chave</h2><ul class="lista-chave">' + st.chave.map((c) => '<li>' + grifarProsa(c) + '</li>').join('') + '</ul></div>';
   html += '<div class="cartao"><h2>Como o Cebraspe tenta te derrubar</h2><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul></div>';
   const arts = (st.arts || []).filter((k) => ARTI.get(k));

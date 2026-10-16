@@ -188,6 +188,14 @@ await passo('aula da trilha com negritos e grifos', async () => {
   const neg = await p.locator('.texto-aula .neg').count(), num = await p.locator('.texto-aula .g-num').count();
   if (neg < 5 || num < 3) throw new Error('negritos ' + neg + ', números ' + num);
   if ((await p.textContent('.texto-aula')).includes('**')) throw new Error('marcação ** aparecendo no texto');
+  // Aula estruturada: ideia central, mapa mental com ramos e folhas, partes numeradas, caixas e tabela
+  const est = await p.evaluate(() => {
+    const a = document.querySelector('.cartao.aula');
+    return { ideia: a.querySelectorAll('.ideia').length, ramos: a.querySelectorAll('.mapa .ramo').length, folhas: a.querySelectorAll('.mapa .folhas li').length,
+      partes: a.querySelectorAll('.parte').length, porque: a.querySelectorAll('.cx-porque').length, tabelas: a.querySelectorAll('.tab-aula').length,
+      largura: document.documentElement.scrollWidth - document.documentElement.clientWidth };
+  });
+  if (est.ideia !== 1 || est.ramos < 4 || est.folhas < 8 || est.partes < 4 || !est.porque || !est.tabelas || est.largura > 0) throw new Error('aula estruturada: ' + JSON.stringify(est));
   await p.click('.cartao.aula [data-acao="camada"][data-c="num"]');
   if (await p.locator('.texto-aula .g-num').count()) throw new Error('camada de números não desligou');
   await p.click('.cartao.aula [data-acao="camada"][data-c="num"]');
