@@ -160,6 +160,16 @@ export function montarDados() {
       subtemas.add(st.id);
       prefixos.add(st.id.split('-')[0] + '-');
       if (!st.nome || !st.aula || !st.aula.length || !st.chave || !st.armadilhas) errosCb.push(`trilhas.json (${st.id}): campos obrigatórios`);
+      // Lição estruturada: ideia central, mapa mental e partes (cada uma com ao menos um conteúdo)
+      if (st.licao) {
+        const li = st.licao;
+        const mapaOk = li.mapa && li.mapa.centro && Array.isArray(li.mapa.ramos) && li.mapa.ramos.length && li.mapa.ramos.every((r) => r.t && Array.isArray(r.f));
+        if (!li.ideia || !mapaOk || !Array.isArray(li.partes) || !li.partes.length) errosCb.push(`trilhas.json (${st.id}): lição incompleta`);
+        for (const [i, p] of (li.partes || []).entries()) {
+          if (!p.t || !['texto', 'lista', 'passos', 'tabela', 'ex', 'mnemo', 'atencao', 'porque'].some((k) => p[k])) errosCb.push(`trilhas.json (${st.id}): parte ${i + 1} sem título ou conteúdo`);
+          if (p.tabela && !p.tabela.linhas.every((l) => l.length === p.tabela.cab.length)) errosCb.push(`trilhas.json (${st.id}): tabela da parte ${i + 1} com colunas desiguais`);
+        }
+      }
       st.arts = (st.artigos || []).map((k) => {
         const [l, a] = k.split(':');
         const ok = leis[l] && leis[l].lei.artigos.some((x) => x.id === a);
