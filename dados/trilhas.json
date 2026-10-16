@@ -103,7 +103,8 @@
                   "Promulgação pelas Mesas da Câmara e do Senado"
                 ],
                 "depois": "Não há sanção nem veto do Presidente.",
-                "porque": "Dois turnos e três quintos exigem consenso amplo e repetido no tempo: uma maioria ocasional não muda a Constituição num dia. Não há sanção porque a emenda é obra do poder reformador, exercido pelo Congresso; o Presidente pode propor, mas não tem a palavra final."
+                "porque": "Dois turnos e três quintos exigem consenso amplo e repetido no tempo: uma maioria ocasional não muda a Constituição num dia. Não há sanção porque a emenda é obra do poder reformador, exercido pelo Congresso; o Presidente pode propor, mas não tem a palavra final.",
+                "atencao": "Projeto de **lei** do Presidente começa na Câmara (art. 64), mas a **PEC** do Presidente pode começar na Câmara ou no Senado (STF, ADI 2.031): o art. 64 fala só de projetos de lei."
               },
               {
                 "t": "Até onde a emenda pode ir",
@@ -1272,7 +1273,8 @@
                   "t": "Fiscalização",
                   "f": [
                     "TCU auxilia",
-                    "contas do Presidente: TCU opina, Congresso julga"
+                    "contas do Presidente: TCU opina, Congresso julga",
+                    "CONgresso susta CONtrato"
                   ]
                 }
               ]
@@ -1412,7 +1414,37 @@
                 },
                 "depois": "Tratados comuns são aprovados por decreto legislativo, por maioria simples; os de direitos humanos aprovados pelo rito de emenda equivalem a emendas.",
                 "atencao": "Contas do Presidente: o TCU **aprecia** (parecer prévio) e o Congresso **julga**. Contas dos demais administradores: o TCU julga.",
-                "porque": "O TCU é órgão técnico que auxilia o Congresso. O julgamento das contas do Presidente é político e fica com os representantes eleitos; as contas dos gestores, técnicas, são julgadas pelo próprio TCU."
+                "porque": "O TCU é órgão técnico que auxilia o Congresso. O julgamento das contas do Presidente é político e fica com os representantes eleitos; as contas dos gestores, técnicas, são julgadas pelo próprio TCU.",
+                "mnemo": "**CONgresso susta CONtrato; TCU susta ATO** (atalho do prof. Aragonê Fernandes)."
+              },
+              {
+                "t": "Contas de prefeito: governo × gestão",
+                "tabela": {
+                  "cab": [
+                    "",
+                    "Contas de governo",
+                    "Contas de gestão"
+                  ],
+                  "linhas": [
+                    [
+                      "O que se avalia",
+                      "a execução do orçamento e das políticas como um todo",
+                      "atos concretos de quem ordena despesa: contratos, convênios, pagamentos"
+                    ],
+                    [
+                      "Quem julga",
+                      "a Câmara Municipal; o Tribunal de Contas só dá parecer prévio, que só cai por **2/3** dos vereadores (art. 31, § 2º)",
+                      "o próprio Tribunal de Contas, quando o prefeito atua como ordenador de despesa (art. 71, II)"
+                    ],
+                    [
+                      "Consequência",
+                      "a rejeição pela Câmara pode gerar inelegibilidade",
+                      "imputação de débito e multa, sem passar pela Câmara; inelegibilidade, não"
+                    ]
+                  ]
+                },
+                "atencao": "Para fins de **inelegibilidade**, a palavra final sobre as contas do prefeito é sempre da Câmara Municipal, nunca do Tribunal de Contas (STF, Tema 835).",
+                "porque": "Contas de governo medem escolhas políticas, e por isso quem julga são os representantes eleitos. Contas de gestão medem a legalidade de atos concretos, trabalho técnico do Tribunal de Contas. Tirar alguém da disputa eleitoral mexe no direito de ser votado, e essa decisão a Constituição reserva ao Legislativo."
               }
             ]
           },
@@ -1472,6 +1504,14 @@
                   ]
                 },
                 {
+                  "t": "Foro no STF",
+                  "f": [
+                    "1º escalão: crime comum",
+                    "2º escalão: comum e responsabilidade",
+                    "continua após o cargo"
+                  ]
+                },
+                {
                   "t": "Ministros (art. 87)",
                   "f": [
                     "brasileiros com mais de 21 anos",
@@ -1485,7 +1525,8 @@
               {
                 "t": "Eleição e sucessão",
                 "texto": "O Executivo federal é exercido pelo Presidente, auxiliado pelos Ministros de Estado (art. 76). O Presidente é eleito com o Vice por maioria absoluta dos votos válidos, com segundo turno se necessário, para mandato de quatro anos, admitida uma reeleição para o período subsequente. Na sua falta, sucedem-no o Vice e, temporariamente, os Presidentes da Câmara, do Senado e do STF.",
-                "porque": "A maioria absoluta dos votos válidos garante que o eleito tenha o apoio de mais da metade de quem votou; por isso pode haver segundo turno. Na sucessão, só o Vice foi eleito na mesma chapa; os demais assumem apenas temporariamente."
+                "porque": "A maioria absoluta dos votos válidos garante que o eleito tenha o apoio de mais da metade de quem votou; por isso pode haver segundo turno. Na sucessão, só o Vice foi eleito na mesma chapa; os demais assumem apenas temporariamente. A lógica da ADPF 402 vem do art. 86: se o próprio Presidente fica suspenso das funções quando o STF recebe denúncia contra ele, não faria sentido um substituto na mesma situação ocupar a cadeira.",
+                "atencao": "Quem está na linha sucessória e vira **réu** (denúncia recebida) continua no próprio cargo, mas **não pode assumir** a Presidência (STF, ADPF 402)."
               },
               {
                 "t": "Regulamento × decreto autônomo",
@@ -1527,6 +1568,32 @@
                 "depois": "Crimes de responsabilidade são atos que atentam contra a Constituição, como contra a probidade na administração e a lei orçamentária (art. 85). Durante o mandato, o Presidente não pode ser responsabilizado por atos estranhos ao exercício de suas funções.",
                 "atencao": "Crime comum do Presidente: STF julga. Crime de responsabilidade: Senado julga. Nos dois, a Câmara autoriza antes, por 2/3.",
                 "porque": "Crime de responsabilidade é infração político-administrativa: o julgamento é político (Senado) e a pena também, perda do cargo e inabilitação, nunca prisão. O Presidente do STF preside a sessão para dar garantias jurídicas a um julgamento político. A Câmara filtra antes, por 2/3, para que o mandato dado pelo voto não fique à mercê de qualquer maioria."
+              },
+              {
+                "t": "Foro das autoridades no STF",
+                "tabela": {
+                  "cab": [
+                    "Grupo",
+                    "Quem",
+                    "O STF julga"
+                  ],
+                  "linhas": [
+                    [
+                      "1º escalão (art. 102, I, b)",
+                      "Presidente, Vice, membros do Congresso, Ministros do STF, Procurador-Geral da República",
+                      "só os crimes **comuns**"
+                    ],
+                    [
+                      "2º escalão (art. 102, I, c)",
+                      "Ministros de Estado, Comandantes das Forças Armadas, membros dos Tribunais Superiores e do TCU, chefes de missão diplomática permanente",
+                      "crimes comuns **e** de responsabilidade"
+                    ]
+                  ]
+                },
+                "depois": "Ressalva: Ministro de Estado e Comandante, em crime de responsabilidade **conexo** com o do Presidente, são julgados pelo Senado (art. 52, I).",
+                "mnemo": "1º escalão, **um** crime no STF (o comum); 2º escalão, **dois** crimes (atalho do prof. Aragonê Fernandes).",
+                "atencao": "O foro **continua** depois que a autoridade deixa o cargo, para crimes praticados no cargo e em razão das funções, ainda que a investigação comece depois (STF, HC 232.627).",
+                "porque": "No 1º escalão, o crime de responsabilidade já tem julgamento político próprio: o Senado julga Presidente, Vice, Ministros do STF e PGR (art. 52), e o parlamentar responde perante a própria Casa, com a perda do mandato. Sobra ao STF o crime comum. No 2º escalão não há esse julgamento político, então o STF julga os dois. O foro sobrevive ao cargo porque protege a função, não a pessoa: se bastasse sair do cargo para mudar de juiz, renúncias virariam manobra para atrasar o processo até a prescrição."
               },
               {
                 "t": "Ministros de Estado",
@@ -1611,6 +1678,14 @@
                     "Defensoria: necessitados",
                     "advogado: indispensável"
                   ]
+                },
+                {
+                  "t": "Atalhos",
+                  "f": [
+                    "família: conflitos",
+                    "4-4, 2-2: recurso ordinário",
+                    "roupa suja: rescisória"
+                  ]
                 }
               ]
             },
@@ -1652,7 +1727,7 @@
                 "porque": "As garantias não são privilégio pessoal: protegem quem é julgado. Um juiz que pudesse ser demitido, transferido ou ter o salário cortado por decidir contra o governo não seria independente. As vedações fecham a porta do outro lado: o juiz não pode ter interesse no processo nem lado político. A quarentena impede que o ex-juiz use o prestígio no tribunal de onde saiu."
               },
               {
-                "t": "STF, STJ e TRFs",
+                "t": "Composição dos tribunais",
                 "tabela": {
                   "cab": [
                     "Tribunal",
@@ -1662,23 +1737,69 @@
                   "linhas": [
                     [
                       "STF",
-                      "11 Ministros, cidadãos com mais de 35 e menos de 70 anos, de notável saber jurídico e reputação ilibada, nomeados pelo Presidente após aprovação pela maioria absoluta do Senado (art. 101)",
+                      "11 Ministros, com mais de 35 e menos de 70 anos, notável saber jurídico e reputação ilibada; nomeados pelo Presidente após aprovação pela **maioria absoluta** do Senado (art. 101)",
                       "guarda da Constituição (art. 102)"
                     ],
                     [
                       "STJ",
-                      "no mínimo 33 Ministros",
+                      "**no mínimo** 33 Ministros (art. 104)",
                       "uniformiza a interpretação da lei federal (art. 105)"
                     ],
                     [
+                      "TST",
+                      "27 Ministros (art. 111-A)",
+                      "cúpula da Justiça do Trabalho"
+                    ],
+                    [
+                      "TSE",
+                      "**no mínimo** 7 membros (art. 119)",
+                      "cúpula da Justiça Eleitoral"
+                    ],
+                    [
+                      "STM",
+                      "15 Ministros vitalícios (art. 123)",
+                      "cúpula da Justiça Militar"
+                    ],
+                    [
                       "TRFs",
-                      "—",
-                      "julgam as revisões criminais e as ações rescisórias de seus julgados e dos juízes federais da região (art. 108)"
+                      "**no mínimo** 7 juízes (art. 107)",
+                      "segunda instância da Justiça Federal"
                     ]
                   ]
                 },
                 "depois": "Causas contra a União podem ser propostas no domicílio do autor, no local do fato, onde está a coisa ou no Distrito Federal (art. 109, § 2º).",
-                "porque": "Rescisória e revisão criminal atacam uma decisão já definitiva; não são recurso. Por isso quem as julga é o próprio tribunal que proferiu a decisão (ou ao qual o juiz está vinculado), e não um tribunal superior. A rescisória de julgado de TRF fica no TRF."
+                "porque": "Onde a Constituição diz \"no mínimo\", a lei pode aumentar o número de membros; onde fixa o número (STF, TST, STM), só emenda muda. A aprovação pelo Senado divide a escolha entre dois Poderes: o Presidente indica, mas não nomeia sozinho quem vai julgar os atos dele."
+              },
+              {
+                "t": "Quem julga o quê: três atalhos",
+                "tabela": {
+                  "cab": [
+                    "Tema",
+                    "Atalho",
+                    "Como funciona"
+                  ],
+                  "linhas": [
+                    [
+                      "Conflito de competência",
+                      "\"O Judiciário é uma família\"",
+                      "o STF, o pai, só entra se houver Tribunal Superior envolvido (art. 102, I, o); entre pai e filho não há conflito, manda o pai; entre irmãos, decide o pai (TJ × TJ: STJ; TRT × TRT: TST); entre primos, de pais diferentes, decide o STJ (art. 105, I, d)"
+                    ],
+                    [
+                      "Recurso ordinário",
+                      "\"Quatro-quatro, dois-dois\"",
+                      "o STF recebe de **4** tribunais (STJ, TST, TSE, STM) em **4** remédios (HC, MS, HD, MI) decididos em única instância (art. 102, II, a); o STJ recebe de **2** (TJ e TRF) em **2** remédios (HC e MS) (art. 105, II)"
+                    ],
+                    [
+                      "Rescisória e revisão criminal",
+                      "\"Roupa suja se lava em casa\"",
+                      "cada tribunal julga a rescisória e a revisão criminal dos próprios julgados (arts. 102, I, j; 105, I, e; 108, I, b)"
+                    ]
+                  ]
+                },
+                "depois": "As ações contra o CNJ e o CNMP são do STF (art. 102, I, r), inclusive as ações ordinárias contra atos praticados nas suas atribuições constitucionais (STF, ADI 4.412).",
+                "mnemo": "Família, quatro-quatro/dois-dois e roupa suja: atalho do prof. Aragonê Fernandes. Na dúvida sobre conflito de competência, o professor lembra que a resposta mais provável é o STJ.",
+                "atencao": "Nos remédios, o recurso ordinário só cabe contra decisão **denegatória** (crime político e causa de Estado estrangeiro contra Município ou pessoa residente no país seguem outra lógica). No STJ, o HC vem de decisão em única **ou última** instância; o MS, só de **única** instância. E o CNJ **nunca** resolve conflito de competência: não tem função jurisdicional.",
+                "porque": "Um tribunal só resolve conflito entre órgãos que estão abaixo dele; quando há um Tribunal Superior envolvido, só o STF está acima. Nos remédios, o recurso ordinário existe só contra decisão desfavorável porque é uma garantia a mais para quem pediu proteção de liberdade ou de direito: se o tribunal concedeu, quem perdeu foi o Poder Público. A rescisória fica no próprio tribunal porque não é recurso: ataca uma decisão já definitiva, e ninguém conhece melhor o julgado que quem o proferiu."
               },
               {
                 "t": "Funções essenciais à justiça",
@@ -1766,9 +1887,10 @@
                 {
                   "t": "Legitimados (art. 103)",
                   "f": [
-                    "Presidente, Mesas, Governador",
-                    "PGR, OAB",
-                    "partido no Congresso, entidade nacional"
+                    "3 pessoas",
+                    "3 Mesas",
+                    "3 entidades",
+                    "especiais: pertinência temática"
                   ]
                 },
                 {
@@ -1835,9 +1957,9 @@
                     ]
                   ]
                 },
-                "depois": "Nos tribunais, a inconstitucionalidade só se declara pelo voto da **maioria absoluta** dos membros ou do órgão especial (art. 97, reserva de plenário); órgão fracionário não pode afastar a lei sob esse fundamento (Súmula Vinculante 10).",
+                "depois": "Nos tribunais, o controle difuso tem uma regra a mais, a **reserva de plenário**, explicada na parte 5.",
                 "atencao": "A decisão em ADI e ADC **não** vincula o Legislativo na função de legislar. Súmula vinculante exige **dois terços** do STF, não maioria absoluta.",
-                "porque": "A lei nasce presumida constitucional, aprovada por representantes eleitos; por isso, num tribunal, só a maioria absoluta do plenário pode afastá-la, e uma turma sozinha não. O efeito vinculante não alcança o Legislativo na função de legislar para não congelar a interpretação: o Parlamento pode aprovar nova lei, que poderá ser questionada de novo."
+                "porque": "O efeito vinculante não alcança o Legislativo na função de legislar para não congelar a interpretação: o Parlamento pode aprovar nova lei, que poderá ser questionada de novo."
               },
               {
                 "t": "Ações do controle concentrado",
@@ -1869,17 +1991,55 @@
               },
               {
                 "t": "Legitimados e súmula vinculante",
-                "lista": [
-                  "Presidente da República",
-                  "Mesas do Senado, da Câmara, de Assembleia Legislativa ou da Câmara Legislativa do DF",
-                  "Governador de estado ou do DF",
-                  "Procurador-Geral da República",
-                  "Conselho Federal da OAB",
-                  "partido político com representação no Congresso",
-                  "confederação sindical ou entidade de classe de âmbito nacional"
-                ],
                 "depois": "**Súmula vinculante** (art. 103-A): o STF a aprova por dois terços dos membros, depois de reiteradas decisões sobre matéria constitucional; vincula o Judiciário e a administração, e contra ato que a contrarie cabe reclamação.",
-                "porque": "Os legitimados têm alcance nacional ou estadual porque uma ação em tese afeta o país inteiro: por isso a entidade de classe precisa ser de âmbito nacional e o partido, ter representação no Congresso. A súmula vinculante exige dois terços e decisões reiteradas porque cristaliza um entendimento que todos terão de seguir."
+                "porque": "Os legitimados têm alcance nacional ou estadual porque uma ação em tese afeta o país inteiro: por isso a entidade de classe precisa ser de âmbito nacional e o partido, ter representação no Congresso. Os especiais defendem o interesse de um estado ou de uma categoria; por isso o STF exige que a norma atacada tenha a ver com esse interesse. Os universais defendem a ordem constitucional como um todo. A súmula vinculante exige dois terços e decisões reiteradas porque cristaliza um entendimento que todos terão de seguir.",
+                "tabela": {
+                  "cab": [
+                    "Grupo",
+                    "Quem pode propor ADI, ADC, ADO e ADPF"
+                  ],
+                  "linhas": [
+                    [
+                      "3 pessoas",
+                      "Presidente da República; Governador de estado ou do DF; Procurador-Geral da República"
+                    ],
+                    [
+                      "3 Mesas",
+                      "do Senado; da Câmara; de Assembleia Legislativa ou da Câmara Legislativa do DF"
+                    ],
+                    [
+                      "3 entidades",
+                      "Conselho Federal da OAB; partido político com representação no Congresso; confederação sindical ou entidade de classe de âmbito nacional"
+                    ]
+                  ]
+                },
+                "mnemo": "**3 pessoas, 3 Mesas, 3 entidades** (atalho do prof. Aragonê Fernandes). Nove legitimados no art. 103.",
+                "atencao": "A Mesa do **Congresso Nacional** não está na lista. Governador, Mesa de Assembleia e confederação ou entidade de classe são legitimados **especiais**: precisam mostrar **pertinência temática**."
+              },
+              {
+                "t": "Reserva de plenário (art. 97)",
+                "texto": "Nos tribunais, só a **maioria absoluta** dos membros, ou do órgão especial, declara a inconstitucionalidade de lei. Turma, câmara ou seção não pode, nem de forma disfarçada: afastar a aplicação da lei sem dizer que é inconstitucional também viola a regra (Súmula Vinculante 10).",
+                "tabela": {
+                  "cab": [
+                    "",
+                    "Precisa do plenário",
+                    "Não precisa"
+                  ],
+                  "linhas": [
+                    [
+                      "Quem",
+                      "turmas, câmaras e seções dos tribunais, inclusive dos Tribunais Superiores",
+                      "juiz de primeiro grau; turmas recursais dos juizados; Turmas do STF"
+                    ],
+                    [
+                      "Quando",
+                      "declarar a inconstitucionalidade; afastar a aplicação da lei no todo ou em parte; declarar a inconstitucionalidade parcial sem redução de texto",
+                      "declarar a lei constitucional ou dar interpretação conforme; já haver decisão do plenário ou órgão especial do tribunal, ou do plenário do STF; reconhecer que lei anterior à Constituição não foi recepcionada"
+                    ]
+                  ]
+                },
+                "atencao": "A **não recepção** de lei anterior a 1988 não passa pelo plenário: não é inconstitucionalidade, é revogação pela Constituição nova.",
+                "porque": "A lei nasce presumida constitucional, votada por representantes eleitos. Para derrubá-la num tribunal, a Constituição quer a maioria de todos os membros, não de uma turma de três ou cinco. Por isso, declarar a lei válida não exige o plenário (só confirma a presunção), e deixar de aplicá-la exige, porque o efeito prático é o mesmo de declará-la inconstitucional. O juiz de primeiro grau decide sozinho porque não há colegiado; as turmas recursais são formadas por juízes de primeiro grau. Se o plenário ou o STF já decidiram, repetir a votação só atrasaria o processo."
               }
             ]
           },
@@ -1954,6 +2114,15 @@
                     "comunicação (220)",
                     "indígenas (231)"
                   ]
+                },
+                {
+                  "t": "Seguridade (art. 194)",
+                  "f": [
+                    "PAS",
+                    "saúde: todos",
+                    "previdência: quem contribui",
+                    "assistência: quem precisa"
+                  ]
                 }
               ]
             },
@@ -2001,6 +2170,36 @@
                 "t": "Serviços públicos (art. 175)",
                 "texto": "São prestados pelo Poder Público diretamente ou sob regime de concessão ou permissão, **sempre através de licitação**. A lei trata do regime das concessionárias, dos direitos dos usuários, da política tarifária e da obrigação de manter serviço adequado (Lei 8.987/1995).",
                 "porque": "Delegar um serviço público é entregar a um particular uma atividade do Estado, remunerada por tarifa paga pelos usuários. A escolha precisa ser impessoal e buscar a melhor proposta; daí a licitação obrigatória."
+              },
+              {
+                "t": "Seguridade social: PAS",
+                "tabela": {
+                  "cab": [
+                    "Área",
+                    "Para quem",
+                    "Paga contribuição?"
+                  ],
+                  "linhas": [
+                    [
+                      "**P**revidência (art. 201)",
+                      "quem contribui; filiação obrigatória",
+                      "sim: é contributiva"
+                    ],
+                    [
+                      "**A**ssistência (art. 203)",
+                      "quem dela necessitar",
+                      "não"
+                    ],
+                    [
+                      "**S**aúde (art. 196)",
+                      "todos: acesso universal e igualitário",
+                      "não"
+                    ]
+                  ]
+                },
+                "mnemo": "Seguridade = **PAS**: Previdência, Assistência e Saúde (atalho do prof. Aragonê Fernandes).",
+                "atencao": "**Educação** não integra a seguridade social; a banca costuma incluí-la ou tirar uma das três.",
+                "porque": "Cada área responde a uma pergunta diferente. A previdência é um seguro: protege quem pagou contra riscos como idade e incapacidade, por isso exige contribuição e equilíbrio entre o que entra e o que sai. A assistência existe justamente para quem não consegue pagar. A saúde é de todos porque doença não escolhe quem contribuiu."
               },
               {
                 "t": "Ordem social: o que mais cai",
@@ -3748,7 +3947,14 @@
           "id": "adm-licitacoes",
           "nome": "Licitações e contratos (Lei 14.133/2021)",
           "resumo": "Objetivos, modalidades, critérios de julgamento, contratação direta e procedimentos auxiliares.",
-          "artigos": [],
+          "artigos": [
+            "lei14133:11",
+            "lei14133:28",
+            "lei14133:29",
+            "lei14133:74",
+            "lei14133:75",
+            "lei14133:78"
+          ],
           "licao": {
             "ideia": "Licitar é escolher, com isonomia, a proposta mais vantajosa. A Lei 14.133 define as modalidades, os critérios de julgamento e quando se contrata sem licitação (dispensa ou inexigibilidade).",
             "mapa": {
