@@ -997,10 +997,12 @@ let relogioTimer = null;
 // o bloco é completado com itens irmãos ainda não vistos (até 5 por texto), e saem itens inéditos sem texto para manter o tamanho.
 const POR_APOIO = agrupar(Q.filter((q) => q.ap != null), (q) => q.ap);
 const ORDEM_Q = new Map(Q.map((q, i) => [q.id, i]));
-function emBlocosDeTexto(itens, puxar) {
+// Em sessão de blocos escolhidos (o dia do plano, a recuperação, a batalha), os itens irmãos do mesmo texto só vêm
+// desses blocos: na batalha, todo acerto tem de ser golpe no chefão
+function emBlocosDeTexto(itens, puxar, soBlocos) {
   const usados = new Set(itens.map((q) => q.id));
   const irmaos = (ap, k) => {
-    const extra = (POR_APOIO.get(ap) || []).filter((x) => !usados.has(x.id) && !rec(x.id)).slice(0, Math.max(0, k));
+    const extra = (POR_APOIO.get(ap) || []).filter((x) => !usados.has(x.id) && !rec(x.id) && (!soBlocos || soBlocos.has(x.b))).slice(0, Math.max(0, k));
     extra.forEach((x) => usados.add(x.id));
     return extra;
   };
@@ -1144,7 +1146,7 @@ function iniciarSessao(cfg) {
   else if (cfg.modo === 'relampago') itens = embaralhar(poolDe(cfg.blocos).filter((q) => !q.al));
   else itens = selecionar(poolDe(cfg.blocos), cfg.n || 20, cfg.filtro || 'mistas');
   if (!itens.length) { avisar('!', 'Sem itens', 'Nenhuma questão disponível com esse filtro.'); return; }
-  if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && cfg.modo !== 'revisao');
+  if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && cfg.modo !== 'revisao', cfg.blocos && cfg.blocos.length ? new Set(cfg.blocos) : null);
   sessao = novaSessao(cfg, itens.map((q) => q.id));
   abrirSessao();
 }
@@ -1439,6 +1441,14 @@ function contextoHoje() {
   return { tipo: 'fim' };
 }
 function blocosDoDia(dia) { return dia && dia.blocos ? dia.blocos : []; }
+// Blocos dos dias de questões da semana do plano (segunda até o dia): é o que a revisão do dia treina quando não há
+// nada vencido, como no começo do estudo; sem nenhum, a prioridade 1
+function blocosDaSemana(dia) {
+  const seg = isoDeNum(diaNum(dia.data) - ((diaSemana(dia.data) + 6) % 7));
+  const bs = [];
+  for (const d of DIAS) if (d.data >= seg && d.data <= dia.data && d.modo === 'treino') for (const b of d.blocos) if (!bs.includes(b)) bs.push(b);
+  return bs.length ? bs : P1.slice();
+}
 function artigoVivo(k) { return ARTI.has(k) && !/^Art\. [\d\-A-Zº]+\.? \((VETADO|Revogado)/.test(ARTI.get(k).texto); }
 // Leitura do dia: todos os artigos dos blocos do dia, se couberem em LEITURA_MAX; senão, uma seleção
 // equilibrada entre os blocos: primeiro os artigos de questões que estão na sua lista curta, depois os
@@ -1474,6 +1484,8 @@ function rotuloModoDia(dia) {
   if (dia.modo === 'simulado') return 'simulado de ' + dia.n;
   return dia.n + ' itens';
 }
+// O cartão do topo repete só a ação principal do passo: "Recomeçar do zero" apaga a sessão guardada e fica no roteiro
+function semRecomecar(botoes) { return botoes.replace(/<button[^>]*data-acao="descartar-pausa"[^>]*>[^<]*<\/button>/g, ''); }
 function botaoRecomecar(k) { return pausaDe(k) ? '<button class="btn pequeno" data-acao="descartar-pausa" data-k="' + esc(k) + '">Recomeçar do zero</button>' : ''; }
 function roteiroHoje() {
   const ctx = contextoHoje();
@@ -1906,7 +1918,7 @@ function renderHoje() {
     (ctx.tipo === 'dia' ? ' · ' + esc(ctx.dia.duracao) : '') + '</div></div>' + anel(d.r, S.perfil.meta) +
     '<p class="atividade">' + (ctx.tipo === 'dia' ? esc(ctx.dia.atividade) : ctx.tipo === 'folga' ? '<span class="mudo">Dia livre por padrão. Próxima sessão, ' + esc(fmtData(ctx.prox.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + ':</span> ' + esc(ctx.prox.atividade) : 'Cronograma concluído: recomece pelos blocos mais fracos e pelo conteúdo do edital.') + '</p>' +
     // O que fazer agora fica na primeira tela: o primeiro passo do roteiro ainda não feito, com o botão dele
-    (prox ? '<div class="proximo"><span class="rotulo">Próximo passo · ' + (rt.passos.indexOf(prox) + 1) + ' de ' + rt.passos.length + '</span><b>' + esc(prox.titulo) + '</b><div class="linha-btns">' + prox.botoes + '</div></div>'
+    (prox ? '<div class="proximo"><span class="rotulo">Próximo passo · ' + (rt.passos.indexOf(prox) + 1) + ' de ' + rt.passos.length + '</span><b>' + esc(prox.titulo) + '</b><div class="linha-btns">' + semRecomecar(prox.botoes) + '</div></div>'
       : '<div class="proximo feito"><b>Roteiro de hoje completo.</b><span class="pequeno mudo">Se sobrar tempo, veja o Atraso do plano e a Jornada, mais abaixo.</span></div>') + '</div></div>';
   const aguard = ctx.tipo === 'dia' ? (ctx.dia.blocos || []).filter((b) => BI.get(b) && BI.get(b).aguardando && !(POR_BLOCO.get(b) || []).length) : [];
   if (aguard.length) topo += '<p class="nota-aguardando">' + esc(aguard.map(nomeBloco).join('; ')) + ': ainda sem questões. A sessão usa os blocos ligados ao tema. Cole o texto na conversa com o Claude para ganhar questões próprias.</p>';
@@ -1963,7 +1975,7 @@ function iniciarDia(data) {
   if (retomarPausa(dia.data)) return;
   const titulo = fmtData(dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' }) + ' · ' + (dia.modo === 'revisao' ? 'Revisão' : dia.modo === 'simulado' ? 'Simulado' : 'Treino do dia');
   if (dia.modo === 'revisao') {
-    if (!listaVencida().length && !manutencaoHoje().length) { iniciarSessao({ modo: 'treino', n: Math.min(dia.n, 20), blocos: [], filtro: 'mistas', titulo, dia: dia.data }); return; }
+    if (!listaVencida().length && !manutencaoHoje().length) { iniciarSessao({ modo: 'treino', n: Math.min(dia.n, 20), blocos: blocosDaSemana(dia), filtro: 'mistas', titulo, dia: dia.data }); return; }
     iniciarSessao({ modo: 'revisao', n: dia.n, titulo, dia: dia.data });
     return;
   }

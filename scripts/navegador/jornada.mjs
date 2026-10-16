@@ -160,6 +160,31 @@ await passo('estudar a matéria por outro caminho dá baixa no dia perdido, e o 
   await ctx.close();
 });
 
+await passo('começo do zero numa sexta de revisão: sem atraso, e a sessão do dia usa os blocos da semana', async () => {
+  // Sexta, 16/10/2026, primeiro dia de uso. A semana do plano (12 a 15/10) teve lgpd-55, lgpd-33-36, res-4-2023,
+  // lgpd-52-54, lei-9784, lgpd-23-32 e lei-13460; sem nada vencido, a revisão do dia treina esses blocos.
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  await ctx.clock.install({ time: new Date('2026-10-16T10:00:00') });
+  await ctx.addInitScript(() => {
+    if (sessionStorage.getItem('semeado')) return;
+    sessionStorage.setItem('semeado', '1');
+    const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-10-16', migr: { mesmoDia: '2026-09-01' } };
+    localStorage.setItem('painel-anpd-v3', JSON.stringify({ perfil, itens: {}, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: {} }));
+  });
+  const p = await ctx.newPage();
+  vigiarErros(p, erros);
+  await p.goto(APP);
+  await p.waitForTimeout(600);
+  if (await p.locator('.cartao.pendencias').count()) throw new Error('atraso no primeiro dia');
+  await p.locator('.roteiro [data-acao="iniciar-dia"]').first().click();
+  await p.waitForSelector('#sessao:not([hidden])');
+  const semana = new Set(['lgpd-55', 'lgpd-33-36', 'res-4-2023', 'lgpd-52-54', 'lei-9784', 'lgpd-23-32', 'lei-13460']);
+  const BLOCO = new Map(lerTodas(RAIZ).map((q) => [q.id, q.bloco]));
+  const id = (await p.textContent('.item-num')).trim();
+  if (!semana.has(BLOCO.get(id))) throw new Error('item fora dos blocos da semana: ' + id + ' (' + BLOCO.get(id) + ')');
+  await ctx.close();
+});
+
 await passo('uma folga por semana não zera a sequência', async () => {
   // Sábado, 17/10/2026. Estudou seg 12, ter 13, qui 15 e sex 16 (folga na quarta 14); na semana anterior, qui 08, sex 09
   // e sáb 10 (folga na quarta 07); domingo 11 não quebra. A terça 06 é a segunda falta daquela semana e encerra a conta.

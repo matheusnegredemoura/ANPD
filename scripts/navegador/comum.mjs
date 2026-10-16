@@ -8,7 +8,7 @@
 //   CHROMIUM  caminho do executável do Chromium (sem ela, usa o do Playwright)
 //   APP       endereço do app (padrão: dist/index.html deste repositório; aceita outro arquivo, para comparar versões)
 //   FOTOS     pasta das capturas de tela (padrão: pasta temporária do sistema)
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -31,12 +31,17 @@ export async function abrirNavegador() {
   return chromium.launch(process.env.CHROMIUM ? { executablePath: process.env.CHROMIUM } : {});
 }
 
-// O plano deixa o domingo livre, sem sessão nem leitura do dia. Num domingo, os testes que dependem delas abrem o app
-// na segunda-feira seguinte; o relógio instalado continua correndo normalmente a partir dali.
+// Só os dias de questões do plano têm sessão de blocos e leitura do dia: domingo é livre, e dia de revisão ou de
+// simulado não tem leitura. Os testes que dependem delas abrem o app no próximo dia de questões do plano (hoje, se for
+// um), à mesma hora; o relógio instalado continua correndo normalmente a partir dali.
+const isoLocal = (d) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
 export async function diaDeEstudo(ctx) {
-  const d = new Date();
-  if (d.getDay() !== 0) return;
-  d.setDate(d.getDate() + 1);
+  const d = new Date(), hoje = isoLocal(d);
+  const plano = JSON.parse(readFileSync(join(RAIZ, 'dados', 'cronograma.json'), 'utf8'));
+  const prox = plano.fases.flatMap((f) => f.semanas.flatMap((s) => s.dias)).filter((x) => x.modo === 'treino' && x.data >= hoje).map((x) => x.data).sort()[0];
+  if (!prox || prox === hoje) return;
+  const [y, m, dd] = prox.split('-').map(Number);
+  d.setFullYear(y, m - 1, dd);
   await ctx.clock.install({ time: d });
 }
 
