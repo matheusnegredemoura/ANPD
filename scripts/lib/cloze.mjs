@@ -1,4 +1,4 @@
-// Cards cloze (estilo Anki) e glossário.
+// Cards cloze e glossário.
 //
 // cloze/*.txt — uma nota por linha:
 //   bloco: lgpd-19-22                     (vale para as linhas seguintes)
@@ -39,12 +39,6 @@ export function lacunas(texto) {
     return t;
   });
   return out;
-}
-
-// Normaliza para o formato Anki: {{c1::...}}
-export function paraAnki(texto) {
-  let auto = 0;
-  return texto.replace(RE_LACUNA, (_, n, t) => `{{c${n ? n : ++auto}::${t}}}`);
 }
 
 export function lerCloze(raiz) {

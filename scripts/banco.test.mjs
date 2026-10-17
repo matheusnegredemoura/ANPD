@@ -56,14 +56,9 @@ test('questões de lei não anexada saem marcadas para conferir', () => {
   }
 });
 
-test('cards cloze e exportação do Anki', async () => {
-  const { exportarAnki } = await import('./build.mjs');
+test('cards cloze têm ao menos uma lacuna', () => {
   const d = montarDados();
-  const txt = exportarAnki(d);
-  const linhas = txt.trim().split('\n');
-  assert.equal(linhas[2], '#notetype:Cloze');
-  assert.equal(linhas.length - 6, d.cloze.length);
-  for (const l of linhas.slice(6)) assert.match(l.split('\t')[0], /\{\{c1::/);
+  for (const n of d.cloze) assert.match(n.t, /\{\{[^}]+\}\}/, n.r);
 });
 
 test('pacote compactado volta igual ao original no app', async () => {

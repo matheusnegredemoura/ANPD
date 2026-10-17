@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { ARMADILHAS, parseRef } from './lib/questoes.mjs';
 import { GRUPOS_LEIS, LEIS } from './lib/leis.mjs';
 import { validar } from './validar.mjs';
-import { lacunas, paraAnki, semMarcas } from './lib/cloze.mjs';
+import { lacunas, semMarcas } from './lib/cloze.mjs';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ler = (...p) => readFileSync(join(RAIZ, ...p), 'utf8');
@@ -258,16 +258,6 @@ export function regexTermo(padroes) {
   return new RegExp('(?<![\\p{L}\\d])(?:' + padroes.map(esc).join('|') + ')(?![\\p{L}\\d])', 'iu');
 }
 
-export function exportarAnki(dados) {
-  const linhas = ['#separator:tab', '#html:true', '#notetype:Cloze', '#deck:ANPD::Lei seca', '#tags column:3', '#columns:Text\tBack Extra\tTags'];
-  const limpa = (s) => String(s).replace(/[\t\n\r]+/g, ' ');
-  for (const n of dados.cloze) {
-    const extra = n.r + (n.dc ? ' · dica: ' + n.dc : '');
-    linhas.push([limpa(paraAnki(n.t)), limpa(extra), n.b + ' ' + n.l].join('\t'));
-  }
-  return linhas.join('\n') + '\n';
-}
-
 // O pacote vai enxuto e o app o reconstitui ao abrir (app.js, logo depois de ler D): comandos das questões numa
 // tabela, estrutura do artigo só quando muda em relação ao anterior, rótulo "Art. N" implícito e campos vazios omitidos
 export function empacotar(d) {
@@ -314,7 +304,6 @@ function build() {
     '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">' +
     '</head><body>' + pagina + '</body></html>';
   writeFileSync(join(RAIZ, 'dist', 'index.html'), completo);
-  writeFileSync(join(RAIZ, 'dist', 'anki-lgpd-cloze.txt'), exportarAnki(dados));
   const kb = (Buffer.byteLength(pagina) / 1024).toFixed(0);
   const cards = dados.cloze.reduce((s, n) => s + new Set(lacunas(n.t).map((l) => l.n)).size, 0);
   console.log(`dist/ gerado: ${dados.questoes.length} questões, ${cards} cards, ${dados.glossario.length} termos, ${kb} KB.`);

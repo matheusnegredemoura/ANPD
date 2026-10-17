@@ -126,8 +126,6 @@ function cotasProva(n) {
   base.slice().sort((a, b) => b[3] - a[3]).forEach((b) => { if (falta > 0) { b[2]++; falta--; } });
   return base.map(([p, d, k]) => [p, d, k]);
 }
-// Blocos que não entram no simulado de prova completa (conteúdo de outra agência, útil só para ver o estilo da banca)
-const FORA_DA_PROVA = new Set(['anatel-setorial']);
 const REAIS = Q.filter((q) => q.o);
 // Discursiva: temas com quesitos; a linha manuscrita da folha de texto definitivo é estimada em 70 caracteres
 const TEMAS_DISC = (D.discursivas && D.discursivas.temas) || [];
@@ -1100,7 +1098,7 @@ function selecionarProva(n) {
   const escolhidos = [];
   const usados = new Set();
   for (const [parte, disc, k] of cotasProva(n)) {
-    const pool = Q.filter((q) => { const b = BI.get(q.b); return b && b.disciplina === disc && parteProva(q) === parte && !FORA_DA_PROVA.has(b.id) && !q.al; });
+    const pool = Q.filter((q) => { const b = BI.get(q.b); return b && b.disciplina === disc && parteProva(q) === parte && !q.al; });
     // Metade da fatia vem de itens reais inéditos, que medem o nível da banca melhor que os escritos para o banco.
     // Depois agrupa por texto dentro da fatia: os irmãos do mesmo texto são da mesma disciplina, e a cota não muda; como
     // os irmãos de um item real também são reais, a parte real pode passar da metade.
@@ -1108,14 +1106,14 @@ function selecionarProva(n) {
     const sorteio = reais.concat(selecionar(pool.filter((q) => !reais.includes(q)), Math.min(pool.length, k) - reais.length, 'novas'));
     emBlocosDeTexto(sorteio, true, null).forEach((q) => { if (!usados.has(q.id)) { escolhidos.push(q); usados.add(q.id); } });
   }
-  if (escolhidos.length < n) selecionar(Q.filter((q) => !usados.has(q.id) && !FORA_DA_PROVA.has(q.b) && !q.al), n - escolhidos.length, 'novas').forEach((q) => escolhidos.push(q));
+  if (escolhidos.length < n) selecionar(Q.filter((q) => !usados.has(q.id) && !q.al), n - escolhidos.length, 'novas').forEach((q) => escolhidos.push(q));
   return embaralhar(escolhidos.slice(0, n));
 }
 
 function inedito(q) { const r = rec(q.id); return !r || r[0] < 0; }
 // Itens reais certo/errado ainda não respondidos, repartidos pelo peso de cada disciplina na nota
 function selecionarReais(n) {
-  const livres = embaralhar(REAIS.filter((q) => !q.al && inedito(q) && !FORA_DA_PROVA.has(q.b)));
+  const livres = embaralhar(REAIS.filter((q) => !q.al && inedito(q)));
   const porD = new Map();
   for (const q of livres) { const d = (BI.get(q.b) || {}).disciplina; if (!porD.has(d)) porD.set(d, []); porD.get(d).push(q); }
   const base = Object.entries(PONTOS_DISC).map(([d, w]) => { const x = (n * w) / PONTOS_PROVA; return [d, Math.floor(x), x - Math.floor(x)]; });
@@ -1129,7 +1127,7 @@ function selecionarReais(n) {
 // Blocos já vistos no cronograma (dias anteriores a hoje), fora as básicas
 function blocosEstudados() {
   const h = hojeISO();
-  return [...new Set(DIAS.filter((d) => d.data < h).flatMap((d) => d.blocos || []))].filter((b) => !BLOCOS_BASICOS.includes(b) && !FORA_DA_PROVA.has(b) && (POR_BLOCO.get(b) || []).length);
+  return [...new Set(DIAS.filter((d) => d.data < h).flatMap((d) => d.blocos || []))].filter((b) => !BLOCOS_BASICOS.includes(b) && (POR_BLOCO.get(b) || []).length);
 }
 // Metade das matérias básicas, metade dos blocos já estudados, tudo misturado
 function selecionarIntercaladas(n) {
@@ -2028,7 +2026,7 @@ function chefeDaSemana() {
   const r = rpg(), sem = semanaAtual();
   if (!r.chefe || r.chefe.sem !== sem) {
     const anterior = r.chefe && r.chefe.bloco;
-    const cand = BLOCOS.filter((b) => !FORA_DA_PROVA.has(b.id) && (POR_BLOCO.get(b.id) || []).length >= 20 && b.id !== anterior).map((b) => ({
+    const cand = BLOCOS.filter((b) => (POR_BLOCO.get(b.id) || []).length >= 20 && b.id !== anterior).map((b) => ({
       b, dom: dominioBloco(b.id) || 0, resp: POR_BLOCO.get(b.id).filter((q) => { const x = rec(q.id); return x && x[0] >= 0; }).length,
     }));
     const praticados = cand.filter((x) => x.resp >= 5);
@@ -2141,7 +2139,7 @@ function cartaoJornada() {
 // Ficha do personagem (Mais → Personagem): atributos medidos pelo domínio real, equipamento e inventário
 function dominioDisciplina(disc) {
   let s = 0, n = 0;
-  for (const b of BLOCOS) if (b.disciplina === disc && !FORA_DA_PROVA.has(b.id)) { const qs = POR_BLOCO.get(b.id) || []; if (!qs.length) continue; s += (dominioBloco(b.id) || 0) * qs.length; n += qs.length; }
+  for (const b of BLOCOS) if (b.disciplina === disc) { const qs = POR_BLOCO.get(b.id) || []; if (!qs.length) continue; s += (dominioBloco(b.id) || 0) * qs.length; n += qs.length; }
   return n ? s / n : 0;
 }
 function renderPersonagem() {
@@ -3036,7 +3034,7 @@ function prontidao() {
 }
 function cartaoProntidao() {
   const pr = prontidao(), { real, banco } = pr;
-  const livres = REAIS.filter((q) => !q.al && inedito(q) && !FORA_DA_PROVA.has(q.b)).length;
+  const livres = REAIS.filter((q) => !q.al && inedito(q)).length;
   const taxa = (t) => (t.n ? pct(t.c, t.n) + '%' : '—');
   let html = '<div class="cartao"><div class="secao-cab"><h2>Prontidão para a prova</h2><span class="mudo pequeno">' + pl(real.n, 'item real respondido', 'itens reais respondidos') + '</span></div>';
   html += '<div class="dominio">' +
@@ -3766,7 +3764,7 @@ document.addEventListener('click', async (ev) => {
     case 'treinar-arm': {
       // Itens da armadilha escolhida, de preferência nos blocos de prioridade 1 e 2; vencidas e inéditas primeiro
       const k = alvo.dataset.a;
-      const todos = Q.filter((q) => q.a === k && !q.al && !FORA_DA_PROVA.has(q.b));
+      const todos = Q.filter((q) => q.a === k && !q.al);
       const fortes = todos.filter((q) => (BI.get(q.b) || {}).prioridade <= 2);
       const ids = selecionar(fortes.length >= 20 ? fortes : todos, 20, 'mistas').map((q) => q.id);
       if (ids.length) iniciarSessao({ modo: 'treino', ids, titulo: 'Armadilha · ' + (D.armadilhas[k] || k), chave: 'arm:' + k });
@@ -3843,7 +3841,7 @@ document.addEventListener('click', async (ev) => {
     }
     case 'rolar': { const el = document.getElementById(alvo.dataset.alvo); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); break; }
     case 'reais': {
-      const ids = REAIS.filter((q) => alvo.dataset.modo === 'treino' || !FORA_DA_PROVA.has(q.b)).map((q) => q.id);
+      const ids = REAIS.map((q) => q.id);
       iniciarSessao({ modo: alvo.dataset.modo, ids: alvo.dataset.modo === 'simulado' ? ids.sort((a, b) => ordemProva(QI.get(a)) - ordemProva(QI.get(b))) : embaralhar(ids), titulo: alvo.dataset.modo === 'simulado' ? 'Itens reais como prova' : 'Itens reais de prova', chave: 'reais-' + alvo.dataset.modo });
       break;
     }
