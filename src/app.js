@@ -1702,7 +1702,7 @@ function roteiroHoje() {
   const std = subtemaDoDia();
   if (std) {
     const e = estadoSubtema(std.id), chT = 't:' + hojeISO(), tipoT = e.novos ? 'pre' : 'pratica', chPT = 't:' + std.id + ':' + tipoT;
-    passos.push({ titulo: 'Trilha de Direito do zero', feito: !!S.perfil.feitos[chT],
+    passos.push({ titulo: nomeTrilha(std.trilha) || 'Trilha do zero', feito: !!S.perfil.feitos[chT],
       texto: std.nome + ' (' + ROTULO_ST[e.status] + (e.resp ? ', acerto ' + Math.round(e.acerto * 100) + '%' : '') + '). Questões primeiro, aula curta depois.',
       botoes: '<button class="btn pequeno primario" data-acao="trilha-sessao" data-st="' + esc(std.id) + '" data-tipo="' + tipoT + '">' + esc(rotuloPausa(chPT, e.novos ? 'Pré-teste · ' + pl(Math.min(8, e.novos), 'item', 'itens') : 'Praticar · ' + pl(Math.min(20, e.n), 'item', 'itens'))) + '</button>' +
         '<button class="btn pequeno" data-acao="subtema" data-st="' + esc(std.id) + '">Aula e subtema</button>', extra: botaoRecomecar(chPT) });
@@ -2955,7 +2955,7 @@ function renderMais() {
     const pend = Object.values(S.pesquisa).filter((p) => !p.s).length;
     const item = (s, ic, t, d) => '<button data-acao="mais" data-sub="' + s + '"><span class="ic">' + ic + '</span><span class="tx"><b>' + t + '</b><span class="s">' + d + '</span></span><span class="mudo">›</span></button>';
     el.innerHTML = '<div class="secao-cab"><h2>Mais</h2></div><div class="menu-mais">' +
-      item('trilha', '§', 'Trilhas do zero', 'Direito constitucional e administrativo por subtema: pré-teste, aula, prática e domínio') +
+      item('trilha', '§', 'Trilhas do zero', TRILHAS.length + ' matérias por subtema, para quem começa: pré-teste, aula, prática e domínio') +
       item('metodo', '1·2', 'Método', 'Como estudar com o app para passar') +
       item('cebraspe', 'C/E', 'Como o Cebraspe cobra', 'A prova, o padrão por disciplina, itens reais e discursiva') +
       item('discursiva', '✎', 'Treino de discursiva', TEMAS_DISC.length + ' temas com quesitos no padrão Cebraspe, contador de linhas e nota estimada') +
@@ -3299,17 +3299,21 @@ function proximoSubtema(trilhaId) {
   if (!t) return null;
   return t.subtemas.find((st) => { const e = estadoSubtema(st.id); return e.n && e.status !== 'dominado'; }) || null;
 }
-// Alterna as trilhas de direito dia a dia; se uma estiver toda dominada, fica a outra
+// Blocos de cada trilha e de cada subtema: os das questões que entram nele
+const BLOCOS_ST = new Map([...SUBTEMAS.keys()].map((id) => [id, new Set((POR_TEMA.get(id) || []).map((q) => q.b))]));
+const BLOCOS_TR = new Map(TRILHAS.map((t) => [t.id, new Set(t.subtemas.flatMap((st) => [...BLOCOS_ST.get(st.id)]))]));
+// Uma aula por dia: o próximo subtema da trilha que cobre a matéria do plano de hoje (o próprio subtema, se cobrir;
+// senão, a trilha). Sem matéria no plano, ou com ela já dominada, as trilhas se alternam dia a dia.
 function subtemaDoDia() {
-  const ordem = ['constitucional', 'administrativo'].filter((id) => TRILHAS.some((t) => t.id === id));
-  if (!ordem.length) return null;
-  const dia = Math.floor(Date.parse(hojeISO() + 'T12:00:00Z') / 864e5);
-  for (let k = 0; k < ordem.length; k++) {
-    const st = proximoSubtema(ordem[(dia + k) % ordem.length]);
-    if (st) return SUBTEMAS.get(st.id);
-  }
-  return null;
+  const cands = TRILHAS.map((t) => proximoSubtema(t.id)).filter(Boolean).map((st) => SUBTEMAS.get(st.id));
+  if (!cands.length) return null;
+  const dia = DIAS.find((d) => d.data === hojeISO()), hoje = new Set((dia && dia.blocos) || []);
+  const cruza = (s) => [...s].some((b) => hoje.has(b));
+  const doPlano = cands.find((st) => cruza(BLOCOS_ST.get(st.id))) || cands.find((st) => cruza(BLOCOS_TR.get(st.trilha)));
+  if (doPlano) return doPlano;
+  return cands[Math.floor(Date.parse(hojeISO() + 'T12:00:00Z') / 864e5) % cands.length];
 }
+function nomeTrilha(id) { const t = TRILHAS.find((x) => x.id === id); return t ? t.nome : ''; }
 // Pré-teste: itens ainda não vistos primeiro; prática: não vistos, depois os errados, depois os vencidos
 function idsSubtema(id, tipo, n) {
   const qs = POR_TEMA.get(id) || [];
@@ -3365,10 +3369,11 @@ function renderTrilhas() {
   if (UI.subtema && SUBTEMAS.get(UI.subtema)) return renderSubtema(UI.subtema);
   let html = '<div class="secao-cab"><h2>Trilhas do zero</h2></div>' +
     '<p class="mudo">Para quem está começando a matéria. Em cada subtema: faça primeiro as questões (pré-teste, mesmo sem saber), depois leia a aula e então pratique até dominar. Errar antes de estudar faz a explicação grudar mais.</p>';
+  if (TRILHAS.length > 2) html += '<div class="chips cb-nav">' + TRILHAS.map((t) => '<button class="chip" data-acao="rolar" data-alvo="tr-' + esc(t.id) + '">' + esc(t.nome.replace(/ do zero$/, '')) + '</button>').join('') + '</div>';
   for (const t of TRILHAS) {
     const est = t.subtemas.map((st) => estadoSubtema(st.id));
     const dom = est.filter((e) => e.status === 'dominado').length;
-    html += '<div class="cartao trilha"><div class="secao-cab"><h2>' + esc(t.nome) + '</h2><span class="mudo pequeno">' + dom + ' de ' + t.subtemas.length + ' dominados</span></div>' +
+    html += '<div class="cartao trilha" id="tr-' + esc(t.id) + '"><div class="secao-cab"><h2>' + esc(t.nome) + '</h2><span class="mudo pequeno">' + dom + ' de ' + t.subtemas.length + ' dominados</span></div>' +
       '<p class="pequeno mudo">' + esc(t.resumo) + '</p><ol class="lista-st">' +
       t.subtemas.map((st, i) => {
         const e = est[i];

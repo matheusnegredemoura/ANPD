@@ -2,6 +2,1903 @@
   "nota": "Trilhas de estudo do zero. Cada subtema tem aula curta, pontos-chave, armadilhas do Cebraspe e artigos; as questões entram pelo campo tema: dos arquivos de questoes/. Domínio: respondeu ao menos 70% dos itens do subtema (mínimo de 10) e acerta hoje 80% ou mais deles.",
   "trilhas": [
     {
+      "id": "lgpd",
+      "nome": "LGPD do zero",
+      "resumo": "Da pergunta \"a lei se aplica?\" até as sanções e a própria ANPD, na ordem em que a LGPD faz sentido para quem começa.",
+      "subtemas": [
+        {
+          "id": "pd-alcance",
+          "nome": "Para que serve a LGPD e a quem ela se aplica",
+          "resumo": "Objetivo, fundamentos, quando a lei se aplica (art. 3º) e quando não se aplica (art. 4º).",
+          "artigos": [
+            "lgpd:1",
+            "lgpd:2",
+            "lgpd:3",
+            "lgpd:4"
+          ],
+          "licao": {
+            "ideia": "A LGPD protege a **pessoa natural** sempre que alguém trata dados dela, no papel ou no digital, seja empresa, governo ou pessoa física com fim econômico. Ela vale para todo o país e alcança até quem está no exterior, se o tratamento tocar o Brasil.",
+            "mapa": {
+              "centro": "LGPD: alcance",
+              "ramos": [
+                {
+                  "t": "Objetivo (art. 1º)",
+                  "f": [
+                    "liberdade",
+                    "privacidade",
+                    "livre desenvolvimento da personalidade"
+                  ]
+                },
+                {
+                  "t": "Fundamentos (art. 2º)",
+                  "f": [
+                    "privacidade",
+                    "autodeterminação informativa",
+                    "inovação e livre iniciativa",
+                    "direitos humanos"
+                  ]
+                },
+                {
+                  "t": "Aplica-se (art. 3º)",
+                  "f": [
+                    "tratamento no Brasil",
+                    "oferta a quem está no Brasil",
+                    "coleta no Brasil"
+                  ]
+                },
+                {
+                  "t": "Não se aplica (art. 4º)",
+                  "f": [
+                    "uso particular e não econômico",
+                    "jornalístico, artístico, acadêmico",
+                    "segurança pública e defesa",
+                    "dados de fora em trânsito"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Quem e o quê",
+                "texto": "A lei trata do **tratamento de dados pessoais**, inclusive nos meios digitais, feito por **pessoa natural** ou **pessoa jurídica de direito público ou privado** (art. 1º). Protege só a pessoa natural: dado de empresa (CNPJ, faturamento) não é dado pessoal. As normas gerais da LGPD são de **interesse nacional** e obrigam União, Estados, DF e Municípios (art. 1º, parágrafo único).",
+                "ex": "Um dentista que atende como pessoa física, sem empresa, também trata dados de pacientes com fim econômico: a LGPD se aplica a ele (exemplo do prof. Maurício Franceschini)."
+              },
+              {
+                "t": "Fundamentos (art. 2º)",
+                "lista": [
+                  "respeito à **privacidade**",
+                  "**autodeterminação informativa**",
+                  "liberdade de expressão, de informação, de comunicação e de opinião",
+                  "inviolabilidade da intimidade, da honra e da imagem",
+                  "desenvolvimento econômico e tecnológico e a **inovação**",
+                  "livre iniciativa, livre concorrência e defesa do consumidor",
+                  "direitos humanos, livre desenvolvimento da personalidade, dignidade e exercício da cidadania"
+                ],
+                "mnemo": "Fundamentos são os **pilares** em que a lei se apoia; princípios (art. 6º) são a **bússola** que orienta cada tratamento (imagem do prof. Maurício Franceschini).",
+                "porque": "A lista mistura proteção da pessoa com economia e inovação de propósito: a LGPD não quer impedir o uso de dados, quer que ele aconteça com regras. Por isso a banca gosta de perguntar se \"desenvolvimento econômico\" ou \"livre concorrência\" são fundamentos. São."
+              },
+              {
+                "t": "Quando a lei se aplica (art. 3º)",
+                "texto": "Vale para qualquer tratamento, **independentemente do meio, do país da sede ou de onde estejam os dados**, desde que ocorra uma destas situações:",
+                "tabela": {
+                  "cab": [
+                    "Hipótese",
+                    "Exemplo"
+                  ],
+                  "linhas": [
+                    [
+                      "o tratamento é feito no território nacional",
+                      "empresa brasileira organiza o cadastro de clientes"
+                    ],
+                    [
+                      "o objetivo é ofertar bens ou serviços, ou tratar dados de indivíduos **localizados no Brasil**",
+                      "loja estrangeira vende pela internet para quem está no Brasil"
+                    ],
+                    [
+                      "os dados foram **coletados no Brasil**",
+                      "aplicativo estrangeiro coleta dados de quem estava no Brasil no momento da coleta"
+                    ]
+                  ]
+                },
+                "atencao": "Basta uma das três. Sede no exterior ou servidor na nuvem fora do país não afastam a lei. Considera-se coletado no Brasil o dado cujo titular aqui estava no momento da coleta (art. 3º, § 1º)."
+              },
+              {
+                "t": "Quando a lei não se aplica (art. 4º)",
+                "tabela": {
+                  "cab": [
+                    "Exceção",
+                    "Detalhe que a banca cobra"
+                  ],
+                  "linhas": [
+                    [
+                      "pessoa natural, fins **exclusivamente particulares e não econômicos**",
+                      "a agenda pessoal no celular; se houver fim econômico, a lei volta"
+                    ],
+                    [
+                      "fins exclusivamente **jornalísticos e artísticos**",
+                      "afasta a lei inteira"
+                    ],
+                    [
+                      "fins exclusivamente **acadêmicos**",
+                      "mas aplicam-se os arts. 7º e 11 (bases legais)"
+                    ],
+                    [
+                      "**segurança pública, defesa nacional, segurança do Estado, investigação e repressão de infrações penais**",
+                      "regidos por lei específica; privado só trata sob tutela de pessoa jurídica de direito público, com informe à ANPD"
+                    ],
+                    [
+                      "dados vindos de fora, sem compartilhamento com agente brasileiro nem transferência a terceiro país",
+                      "desde que o país de origem tenha proteção adequada"
+                    ]
+                  ]
+                },
+                "atencao": "A exceção acadêmica é parcial: os arts. 7º e 11 continuam valendo. E nenhum banco de dados de segurança pública pode ser tratado por inteiro por pessoa de direito privado, salvo a de capital integralmente público (art. 4º, § 4º).",
+                "porque": "As exceções protegem outros valores constitucionais (liberdade de imprensa, de criação, de pesquisa e a segurança), que têm regras próprias. Por isso a exceção é para fins \"exclusivamente\" daquela natureza: se o jornal usa a mesma base para vender anúncios, a lei volta."
+              }
+            ]
+          },
+          "chave": [
+            "Objetivo: proteger liberdade, privacidade e livre desenvolvimento da personalidade da pessoa natural.",
+            "Normas gerais de interesse nacional: obrigam União, Estados, DF e Municípios.",
+            "Art. 3º: basta tratamento no Brasil, oferta a quem está no Brasil ou coleta no Brasil, qualquer que seja a sede.",
+            "Art. 4º: uso particular não econômico, jornalístico, artístico, acadêmico (com arts. 7º e 11) e segurança pública ficam fora.",
+            "Dado de pessoa jurídica não é dado pessoal."
+          ],
+          "armadilhas": [
+            "Dizer que a LGPD protege dados de pessoas jurídicas.",
+            "Afastar a lei porque a empresa tem sede ou servidores no exterior.",
+            "Tratar a exceção acadêmica como total: os arts. 7º e 11 se aplicam.",
+            "Dizer que pessoa natural nunca se sujeita à LGPD: só fica fora o uso particular e não econômico."
+          ],
+          "blocos": [
+            "lgpd-1-4-14"
+          ],
+          "soArtigos": true
+        },
+        {
+          "id": "pd-conceitos",
+          "nome": "Conceitos-chave: dado pessoal, sensível, anonimizado e os personagens",
+          "resumo": "As definições do art. 5º que a prova usa como armadilha: o que é dado, quem trata e o que é tratar.",
+          "artigos": [
+            "lgpd:5"
+          ],
+          "licao": {
+            "ideia": "Quase toda questão de LGPD depende de uma definição do art. 5º. Separe em três grupos: **os dados** (pessoal, sensível, anonimizado), **os personagens** (titular, controlador, operador, encarregado) e **as ações** (tratamento, anonimização, bloqueio, eliminação, transferência).",
+            "mapa": {
+              "centro": "Art. 5º em três núcleos",
+              "ramos": [
+                {
+                  "t": "Dados",
+                  "f": [
+                    "pessoal: identificada ou identificável",
+                    "sensível: rol fechado",
+                    "anonimizado: não identifica"
+                  ]
+                },
+                {
+                  "t": "Personagens",
+                  "f": [
+                    "titular",
+                    "controlador decide",
+                    "operador executa",
+                    "encarregado é o canal"
+                  ]
+                },
+                {
+                  "t": "Ações",
+                  "f": [
+                    "tratamento: toda operação",
+                    "bloqueio: suspensão temporária",
+                    "eliminação: exclusão"
+                  ]
+                },
+                {
+                  "t": "Documentos",
+                  "f": [
+                    "relatório de impacto",
+                    "banco de dados físico ou eletrônico"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Os dados",
+                "tabela": {
+                  "cab": [
+                    "Termo",
+                    "Definição",
+                    "Pegadinha"
+                  ],
+                  "linhas": [
+                    [
+                      "**dado pessoal**",
+                      "informação relacionada a pessoa natural **identificada ou identificável**",
+                      "não precisa identificar sozinho; basta tornar identificável"
+                    ],
+                    [
+                      "**dado sensível**",
+                      "origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização religiosa, filosófica ou política, saúde, vida sexual, dado genético ou biométrico",
+                      "o rol não traz \"gênero\", \"renda\" nem \"antecedentes\""
+                    ],
+                    [
+                      "**dado anonimizado**",
+                      "relativo a titular que não possa ser identificado, por meios técnicos razoáveis disponíveis na ocasião",
+                      "não é dado pessoal (art. 12), salvo se a anonimização puder ser revertida"
+                    ],
+                    [
+                      "**banco de dados**",
+                      "conjunto estruturado de dados pessoais, em um ou vários locais, em suporte eletrônico ou físico",
+                      "fichário de papel também é banco de dados"
+                    ]
+                  ]
+                },
+                "mnemo": "Gênero não está no rol de dados sensíveis; vida sexual está. O prof. Maurício Franceschini lembra que essa diferença já caiu em prova do TCU."
+              },
+              {
+                "t": "Os personagens",
+                "tabela": {
+                  "cab": [
+                    "Quem",
+                    "Papel"
+                  ],
+                  "linhas": [
+                    [
+                      "**titular**",
+                      "pessoa natural a quem os dados se referem"
+                    ],
+                    [
+                      "**controlador**",
+                      "pessoa natural ou jurídica, pública ou privada, a quem competem as **decisões** sobre o tratamento"
+                    ],
+                    [
+                      "**operador**",
+                      "pessoa natural ou jurídica que trata dados **em nome do controlador**"
+                    ],
+                    [
+                      "**encarregado**",
+                      "pessoa indicada pelo controlador e pelo operador para ser o **canal de comunicação** com os titulares e com a ANPD"
+                    ],
+                    [
+                      "**agentes de tratamento**",
+                      "o controlador e o operador (o encarregado não é agente)"
+                    ]
+                  ]
+                },
+                "atencao": "Encarregado não é agente de tratamento. E controlador pode ser pessoa natural.",
+                "porque": "A divisão entre quem decide e quem executa define a responsabilidade. Quem decide (controlador) responde pelas escolhas; quem só executa (operador) responde quando foge das instruções lícitas ou da lei. Por isso a prova troca os papéis: leia sempre \"decide\" ou \"em nome de\"."
+              },
+              {
+                "t": "As ações",
+                "tabela": {
+                  "cab": [
+                    "Termo",
+                    "Definição"
+                  ],
+                  "linhas": [
+                    [
+                      "**tratamento**",
+                      "toda operação com dados pessoais: coleta, produção, recepção, classificação, utilização, acesso, reprodução, transmissão, distribuição, processamento, arquivamento, armazenamento, eliminação, avaliação, controle, modificação, comunicação, transferência, difusão ou extração"
+                    ],
+                    [
+                      "**anonimização**",
+                      "uso de meios técnicos razoáveis para o dado perder a possibilidade de associação, direta ou indireta, a um indivíduo"
+                    ],
+                    [
+                      "**bloqueio**",
+                      "suspensão **temporária** de qualquer operação, com guarda do dado"
+                    ],
+                    [
+                      "**eliminação**",
+                      "exclusão do dado, qualquer que seja o procedimento"
+                    ],
+                    [
+                      "**consentimento**",
+                      "manifestação **livre, informada e inequívoca** de concordância com o tratamento para finalidade determinada"
+                    ],
+                    [
+                      "**uso compartilhado**",
+                      "comunicação, difusão, transferência internacional, interconexão ou tratamento compartilhado de bancos de dados entre órgãos públicos, entre eles e privados, ou entre privados"
+                    ]
+                  ]
+                },
+                "atencao": "Só armazenar já é tratamento. E bloqueio é temporário; eliminação é definitiva."
+              }
+            ]
+          },
+          "chave": [
+            "Dado pessoal: pessoa natural identificada ou identificável.",
+            "Dado sensível é rol do art. 5º, II; gênero não está nele.",
+            "Controlador decide; operador trata em nome do controlador; encarregado é o canal de comunicação.",
+            "Agentes de tratamento são só o controlador e o operador.",
+            "Tratamento é qualquer operação, inclusive armazenar ou eliminar."
+          ],
+          "armadilhas": [
+            "Dizer que o encarregado é agente de tratamento.",
+            "Incluir gênero, renda ou antecedentes no rol de dados sensíveis.",
+            "Exigir que o dado identifique sozinho a pessoa: basta torná-la identificável.",
+            "Trocar bloqueio (temporário) por eliminação (definitiva)."
+          ],
+          "blocos": [
+            "lgpd-5-11"
+          ],
+          "soArtigos": true
+        },
+        {
+          "id": "pd-principios",
+          "nome": "Os dez princípios e a boa-fé",
+          "resumo": "Finalidade, adequação, necessidade, livre acesso, qualidade, transparência, segurança, prevenção, não discriminação e responsabilização.",
+          "artigos": [
+            "lgpd:6"
+          ],
+          "licao": {
+            "ideia": "Todo tratamento precisa de boa-fé e dos dez princípios do art. 6º. A banca troca a definição de um pelo nome de outro: aprenda cada um pela pergunta que ele responde.",
+            "mapa": {
+              "centro": "Art. 6º: boa-fé + 10",
+              "ramos": [
+                {
+                  "t": "Por quê?",
+                  "f": [
+                    "finalidade",
+                    "adequação",
+                    "necessidade"
+                  ]
+                },
+                {
+                  "t": "O titular sabe?",
+                  "f": [
+                    "livre acesso",
+                    "transparência",
+                    "qualidade dos dados"
+                  ]
+                },
+                {
+                  "t": "Está protegido?",
+                  "f": [
+                    "segurança",
+                    "prevenção"
+                  ]
+                },
+                {
+                  "t": "É justo?",
+                  "f": [
+                    "não discriminação"
+                  ]
+                },
+                {
+                  "t": "Prova?",
+                  "f": [
+                    "responsabilização e prestação de contas"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Cada princípio pela pergunta que responde",
+                "tabela": {
+                  "cab": [
+                    "Princípio",
+                    "Pergunta",
+                    "O que exige"
+                  ],
+                  "linhas": [
+                    [
+                      "**finalidade**",
+                      "para quê?",
+                      "propósitos legítimos, específicos, explícitos e informados, sem uso posterior incompatível"
+                    ],
+                    [
+                      "**adequação**",
+                      "combina?",
+                      "compatibilidade do tratamento com as finalidades informadas, conforme o contexto"
+                    ],
+                    [
+                      "**necessidade**",
+                      "precisa de tudo isso?",
+                      "mínimo necessário: dados pertinentes, proporcionais e não excessivos"
+                    ],
+                    [
+                      "**livre acesso**",
+                      "posso consultar?",
+                      "consulta facilitada e **gratuita** sobre forma e duração do tratamento e a integralidade dos dados"
+                    ],
+                    [
+                      "**qualidade dos dados**",
+                      "está certo?",
+                      "exatidão, clareza, relevância e atualização"
+                    ],
+                    [
+                      "**transparência**",
+                      "sei quem trata e como?",
+                      "informações claras, precisas e acessíveis, observados os segredos comercial e industrial"
+                    ],
+                    [
+                      "**segurança**",
+                      "está protegido?",
+                      "medidas técnicas e administrativas contra acessos não autorizados e incidentes"
+                    ],
+                    [
+                      "**prevenção**",
+                      "evitou o dano?",
+                      "medidas para prevenir danos"
+                    ],
+                    [
+                      "**não discriminação**",
+                      "é para discriminar?",
+                      "proíbe fins discriminatórios **ilícitos ou abusivos**"
+                    ],
+                    [
+                      "**responsabilização e prestação de contas**",
+                      "consegue provar?",
+                      "demonstrar medidas eficazes e a eficácia delas"
+                    ]
+                  ]
+                },
+                "mnemo": "Os três primeiros andam juntos: **finalidade** diz o porquê, **adequação** confere se o uso combina com ele, **necessidade** corta o excesso."
+              },
+              {
+                "t": "Onde a banca erra de propósito",
+                "lista": [
+                  "livre acesso é sobre **consultar** os próprios dados de graça; transparência é sobre **informar** quem trata e como",
+                  "não discriminação não proíbe toda diferenciação: só a ilícita ou abusiva (um seguro pode precificar risco legítimo)",
+                  "responsabilização exige demonstrar não só as medidas, mas a **eficácia** delas",
+                  "a boa-fé está no caput do art. 6º, ao lado dos princípios"
+                ],
+                "porque": "Os princípios valem mesmo quando o consentimento é dispensado (art. 7º, § 6º). Por isso a ANPD consegue punir um tratamento com base legal válida, mas excessivo: a base legal autoriza tratar, os princípios dizem como."
+              }
+            ]
+          },
+          "chave": [
+            "Boa-fé mais dez princípios (art. 6º).",
+            "Finalidade, adequação e necessidade formam o trio do propósito.",
+            "Livre acesso é consulta gratuita; transparência é informação clara sobre o tratamento e os agentes.",
+            "Não discriminação veda só fins ilícitos ou abusivos.",
+            "Responsabilização: demonstrar medidas eficazes e sua eficácia."
+          ],
+          "armadilhas": [
+            "Trocar a definição de livre acesso pela de transparência.",
+            "Dizer que necessidade autoriza coletar tudo o que for útil no futuro.",
+            "Dizer que dispensado o consentimento os princípios deixam de valer.",
+            "Ler a não discriminação como proibição de qualquer diferenciação."
+          ],
+          "blocos": [
+            "lgpd-5-11"
+          ],
+          "soArtigos": true
+        },
+        {
+          "id": "pd-bases",
+          "nome": "Bases legais: quando se pode tratar dados (arts. 7º a 10)",
+          "resumo": "As dez hipóteses do art. 7º, o consentimento e o legítimo interesse.",
+          "artigos": [
+            "lgpd:7",
+            "lgpd:8",
+            "lgpd:9",
+            "lgpd:10"
+          ],
+          "licao": {
+            "ideia": "Só se trata dado pessoal se houver uma **base legal** do art. 7º. O consentimento é **uma** delas, não a principal: há outras nove, e nenhuma é superior às demais.",
+            "mapa": {
+              "centro": "Art. 7º: dez bases",
+              "ramos": [
+                {
+                  "t": "Vontade",
+                  "f": [
+                    "consentimento",
+                    "contrato a pedido do titular"
+                  ]
+                },
+                {
+                  "t": "Dever",
+                  "f": [
+                    "obrigação legal ou regulatória",
+                    "políticas públicas (administração)",
+                    "exercício regular de direitos"
+                  ]
+                },
+                {
+                  "t": "Proteção",
+                  "f": [
+                    "vida e incolumidade física",
+                    "tutela da saúde (profissionais)",
+                    "proteção do crédito"
+                  ]
+                },
+                {
+                  "t": "Outros",
+                  "f": [
+                    "pesquisa (órgão de pesquisa)",
+                    "legítimo interesse"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "As dez hipóteses",
+                "tabela": {
+                  "cab": [
+                    "Inciso",
+                    "Base legal"
+                  ],
+                  "linhas": [
+                    [
+                      "I",
+                      "**consentimento** do titular"
+                    ],
+                    [
+                      "II",
+                      "cumprimento de **obrigação legal ou regulatória** pelo controlador"
+                    ],
+                    [
+                      "III",
+                      "pela **administração pública**, para políticas públicas previstas em leis e regulamentos ou em contratos e convênios"
+                    ],
+                    [
+                      "IV",
+                      "estudos por **órgão de pesquisa**, com anonimização sempre que possível"
+                    ],
+                    [
+                      "V",
+                      "execução de **contrato** ou procedimentos preliminares, **a pedido do titular**"
+                    ],
+                    [
+                      "VI",
+                      "**exercício regular de direitos** em processo judicial, administrativo ou arbitral"
+                    ],
+                    [
+                      "VII",
+                      "proteção da **vida** ou da incolumidade física do titular ou de terceiro"
+                    ],
+                    [
+                      "VIII",
+                      "**tutela da saúde**, exclusivamente por profissionais de saúde, serviços de saúde ou autoridade sanitária"
+                    ],
+                    [
+                      "IX",
+                      "**legítimo interesse** do controlador ou de terceiro, salvo se prevalecerem direitos e liberdades do titular"
+                    ],
+                    [
+                      "X",
+                      "**proteção do crédito**"
+                    ]
+                  ]
+                },
+                "atencao": "Não há hierarquia entre as bases. E dispensar o consentimento não dispensa os princípios nem os direitos do titular (art. 7º, § 6º)."
+              },
+              {
+                "t": "Consentimento (arts. 8º e 9º)",
+                "lista": [
+                  "por escrito ou outro meio que demonstre a vontade; se escrito, em **cláusula destacada**",
+                  "o **ônus da prova** é do controlador",
+                  "deve ter **finalidade determinada**: autorização genérica é nula",
+                  "pode ser **revogado a qualquer momento**, de forma gratuita e facilitada; os tratamentos feitos antes continuam válidos",
+                  "é nulo se a informação ao titular for enganosa, abusiva ou não tiver sido apresentada previamente com transparência",
+                  "para compartilhar com outros controladores, novo consentimento específico (art. 7º, § 5º)"
+                ],
+                "porque": "O consentimento só vale se o titular sabia o que aceitava. Por isso a lei pune o genérico e o mal informado com a nulidade: sem informação clara não há manifestação livre, informada e inequívoca."
+              },
+              {
+                "t": "Legítimo interesse (art. 10)",
+                "texto": "Serve para finalidades legítimas, a partir de **situações concretas**, como apoio e promoção das atividades do controlador e proteção do exercício de direitos do titular ou serviços que o beneficiem, respeitadas suas **legítimas expectativas**. Só os dados **estritamente necessários** podem ser tratados, com transparência, e a ANPD pode pedir relatório de impacto.",
+                "atencao": "Legítimo interesse não serve para dado sensível: o art. 11 não o lista."
+              },
+              {
+                "t": "Dados públicos",
+                "texto": "Dado de acesso público se trata considerando a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização (§ 3º). Dado **tornado manifestamente público pelo titular** dispensa consentimento, mas não dispensa os direitos e os princípios (§ 4º).",
+                "ex": "Estar na internet não libera o uso para qualquer fim: um dado publicado num portal de transparência não autoriza montar cadastro de marketing."
+              }
+            ]
+          },
+          "chave": [
+            "Dez bases legais no art. 7º, sem hierarquia entre elas.",
+            "Consentimento: livre, informado, inequívoco, para finalidade determinada; revogável a qualquer tempo.",
+            "Ônus de provar o consentimento é do controlador.",
+            "Contrato é base quando a pedido do titular; tutela da saúde, só por profissionais, serviços de saúde ou autoridade sanitária.",
+            "Legítimo interesse: só dados estritamente necessários; não serve para dado sensível."
+          ],
+          "armadilhas": [
+            "Dizer que o consentimento é a base preferencial ou obrigatória.",
+            "Dizer que revogar o consentimento invalida o que foi feito antes.",
+            "Aceitar autorização genérica como consentimento válido.",
+            "Usar legítimo interesse para dado sensível."
+          ],
+          "blocos": [
+            "lgpd-5-11"
+          ],
+          "soArtigos": true
+        },
+        {
+          "id": "pd-sensiveis",
+          "nome": "Dados sensíveis e dados de crianças e adolescentes",
+          "resumo": "As hipóteses do art. 11, as vedações em saúde e o melhor interesse de crianças e adolescentes.",
+          "artigos": [
+            "lgpd:11",
+            "lgpd:14"
+          ],
+          "licao": {
+            "ideia": "Dado sensível tem lista de bases **mais curta e mais exigente**: o consentimento precisa ser **específico e destacado**, e as hipóteses sem consentimento só valem quando o tratamento for **indispensável**. Para crianças, a regra é o **melhor interesse** e o consentimento de um dos pais.",
+            "mapa": {
+              "centro": "Proteção reforçada",
+              "ramos": [
+                {
+                  "t": "Sensível com consentimento",
+                  "f": [
+                    "específico e destacado",
+                    "finalidades específicas"
+                  ]
+                },
+                {
+                  "t": "Sensível sem consentimento",
+                  "f": [
+                    "indispensável",
+                    "sem legítimo interesse",
+                    "sem proteção do crédito",
+                    "com prevenção à fraude"
+                  ]
+                },
+                {
+                  "t": "Saúde",
+                  "f": [
+                    "vedado compartilhar por vantagem econômica (exceções)",
+                    "planos: sem seleção de riscos"
+                  ]
+                },
+                {
+                  "t": "Crianças",
+                  "f": [
+                    "melhor interesse",
+                    "consentimento de um dos pais",
+                    "exceção: contatar os pais ou proteger"
+                  ]
+                },
+                {
+                  "t": "Adolescentes",
+                  "f": [
+                    "melhor interesse",
+                    "sem a regra do § 1º"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Bases para dado sensível (art. 11)",
+                "tabela": {
+                  "cab": [
+                    "Com consentimento",
+                    "Sem consentimento, quando indispensável para"
+                  ],
+                  "linhas": [
+                    [
+                      "titular ou responsável legal consente de forma **específica e destacada**, para finalidades específicas",
+                      "obrigação legal ou regulatória; políticas públicas da administração; estudos por órgão de pesquisa; exercício regular de direitos, **inclusive em contrato**; proteção da vida; tutela da saúde; **prevenção à fraude** e segurança do titular em identificação e autenticação de cadastro"
+                    ]
+                  ]
+                },
+                "atencao": "Comparando com o art. 7º: somem o **legítimo interesse** e a **proteção do crédito**; aparece a **prevenção à fraude** em cadastros eletrônicos.",
+                "porque": "Esses dados podem levar a discriminação e a dano grave. Por isso a lei tira as bases mais abertas (legítimo interesse) e pede que o uso seja indispensável, e não só útil."
+              },
+              {
+                "t": "Saúde: duas vedações",
+                "lista": [
+                  "é vedado comunicar ou compartilhar dados de saúde entre controladores **para obter vantagem econômica**, salvo na prestação de serviços de saúde, assistência farmacêutica e assistência à saúde, em benefício dos titulares, para permitir a portabilidade pedida pelo titular ou as transações financeiras e administrativas desses serviços (§ 4º)",
+                  "operadoras de **planos de saúde** não podem usar dados de saúde para **seleção de riscos** na contratação nem na exclusão de beneficiários (§ 5º)"
+                ]
+              },
+              {
+                "t": "Crianças e adolescentes (art. 14)",
+                "tabela": {
+                  "cab": [
+                    "Regra",
+                    "Conteúdo"
+                  ],
+                  "linhas": [
+                    [
+                      "Princípio",
+                      "tratamento sempre no **melhor interesse** da criança e do adolescente"
+                    ],
+                    [
+                      "Crianças: consentimento",
+                      "específico e em destaque, dado por **pelo menos um dos pais** ou pelo responsável legal"
+                    ],
+                    [
+                      "Sem consentimento",
+                      "para **contatar os pais** (uso uma única vez, sem armazenar) ou para **proteção** da criança; nunca repassar a terceiros sem consentimento"
+                    ],
+                    [
+                      "Jogos e aplicativos",
+                      "não condicionar a participação a dados além dos estritamente necessários"
+                    ],
+                    [
+                      "Verificação",
+                      "o controlador faz esforços razoáveis para verificar que o consentimento veio do responsável"
+                    ],
+                    [
+                      "Informação",
+                      "simples, clara e acessível, com recursos audiovisuais quando adequado"
+                    ]
+                  ]
+                },
+                "atencao": "O consentimento parental do § 1º é para **crianças**. Para adolescentes vale o melhor interesse, sem essa exigência específica no art. 14. Basta **um** dos pais, não os dois."
+              }
+            ]
+          },
+          "chave": [
+            "Sensível com consentimento: específico e destacado, para finalidades específicas.",
+            "Sensível sem consentimento só quando indispensável; não há legítimo interesse nem proteção do crédito.",
+            "Prevenção à fraude em cadastros eletrônicos é base própria do art. 11.",
+            "Planos de saúde não podem usar dados de saúde para seleção de riscos.",
+            "Criança: melhor interesse e consentimento de pelo menos um dos pais."
+          ],
+          "armadilhas": [
+            "Aplicar o legítimo interesse a dado sensível.",
+            "Exigir consentimento dos dois pais.",
+            "Estender o consentimento parental obrigatório aos adolescentes.",
+            "Dizer que o compartilhamento de dados de saúde por vantagem econômica é sempre proibido, sem as exceções."
+          ],
+          "blocos": [
+            "lgpd-5-11",
+            "lgpd-1-4-14"
+          ],
+          "soArtigos": true
+        },
+        {
+          "id": "pd-anonimizacao",
+          "nome": "Anonimização, pesquisa e fim do tratamento",
+          "resumo": "Quando o dado anonimizado deixa de ser pessoal, pesquisa em saúde pública, pseudonimização e a eliminação ao final.",
+          "artigos": [
+            "lgpd:12",
+            "lgpd:13",
+            "lgpd:15",
+            "lgpd:16"
+          ],
+          "licao": {
+            "ideia": "Dado anonimizado **não é dado pessoal**, a menos que a anonimização possa ser revertida com esforço razoável. E todo tratamento tem fim: terminado, os dados são **eliminados**, salvo quatro hipóteses de conservação.",
+            "mapa": {
+              "centro": "Ciclo final do dado",
+              "ramos": [
+                {
+                  "t": "Anonimizado (art. 12)",
+                  "f": [
+                    "fora da lei",
+                    "salvo reversão razoável",
+                    "perfil comportamental pode ser dado pessoal"
+                  ]
+                },
+                {
+                  "t": "Pseudonimizado (art. 13)",
+                  "f": [
+                    "continua pessoal",
+                    "chave guardada à parte"
+                  ]
+                },
+                {
+                  "t": "Pesquisa em saúde (art. 13)",
+                  "f": [
+                    "dentro do órgão",
+                    "ambiente seguro",
+                    "sem revelar dados"
+                  ]
+                },
+                {
+                  "t": "Término (art. 15)",
+                  "f": [
+                    "finalidade alcançada",
+                    "fim do período",
+                    "pedido do titular",
+                    "ordem da ANPD"
+                  ]
+                },
+                {
+                  "t": "Conservação (art. 16)",
+                  "f": [
+                    "obrigação legal",
+                    "pesquisa",
+                    "transferência a terceiro",
+                    "uso exclusivo anonimizado"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Anonimizado ou pseudonimizado?",
+                "texto": "O que é \"razoável\" considera fatores objetivos, como **custo e tempo** para reverter, conforme as tecnologias disponíveis (art. 12, § 1º). Dados usados para formar o **perfil comportamental** de pessoa identificada podem ser considerados pessoais (§ 2º).",
+                "tabela": {
+                  "cab": [
+                    "",
+                    "Anonimização",
+                    "Pseudonimização"
+                  ],
+                  "linhas": [
+                    [
+                      "O que é",
+                      "o dado perde a possibilidade de associação ao indivíduo",
+                      "o dado só volta a ser associado com informação adicional mantida separadamente pelo controlador"
+                    ],
+                    [
+                      "É dado pessoal?",
+                      "não, salvo se revertida por meios próprios ou com esforços razoáveis",
+                      "sim"
+                    ],
+                    [
+                      "Onde está",
+                      "art. 5º, XI, e art. 12",
+                      "art. 13, § 4º"
+                    ]
+                  ]
+                },
+                "porque": "Pseudonimizar é trocar o nome por um código, guardando a tabela que liga um ao outro: quem tem a tabela reidentifica. Por isso o dado continua pessoal. Anonimizar de verdade é destruir o caminho de volta."
+              },
+              {
+                "t": "Pesquisa em saúde pública (art. 13)",
+                "lista": [
+                  "órgãos de pesquisa podem acessar bases de dados pessoais, tratados **exclusivamente dentro do órgão** e para a pesquisa",
+                  "ambiente controlado e seguro, com anonimização ou pseudonimização sempre que possível",
+                  "a divulgação dos resultados **em nenhuma hipótese** revela dados pessoais",
+                  "o órgão responde pela segurança e **não pode transferir** os dados a terceiro"
+                ]
+              },
+              {
+                "t": "Término e eliminação (arts. 15 e 16)",
+                "tabela": {
+                  "cab": [
+                    "O tratamento termina quando",
+                    "Pode-se conservar o dado para"
+                  ],
+                  "linhas": [
+                    [
+                      "a finalidade foi alcançada ou o dado deixou de ser necessário",
+                      "cumprir obrigação legal ou regulatória"
+                    ],
+                    [
+                      "acabou o período de tratamento",
+                      "estudo por órgão de pesquisa (anonimizando, se possível)"
+                    ],
+                    [
+                      "o titular comunicou, inclusive revogando o consentimento, resguardado o interesse público",
+                      "transferência a terceiro, respeitados os requisitos da lei"
+                    ],
+                    [
+                      "a ANPD determinou, por violação à lei",
+                      "uso exclusivo do controlador, sem acesso de terceiro, **desde que anonimizado**"
+                    ]
+                  ]
+                },
+                "atencao": "Na conservação para uso exclusivo do controlador, o dado tem de estar anonimizado."
+              }
+            ]
+          },
+          "chave": [
+            "Dado anonimizado não é pessoal, salvo reversão por meios próprios ou com esforço razoável.",
+            "Pseudonimizado continua sendo dado pessoal.",
+            "Pesquisa em saúde: dentro do órgão, ambiente seguro, sem transferir a terceiros nem revelar dados.",
+            "Término: finalidade, prazo, pedido do titular ou determinação da ANPD.",
+            "Conservação para uso exclusivo do controlador só com dados anonimizados."
+          ],
+          "armadilhas": [
+            "Dizer que dado pseudonimizado deixa de ser pessoal.",
+            "Afirmar que o órgão de pesquisa pode repassar os dados a parceiros.",
+            "Dizer que o controlador pode guardar para uso próprio dados ainda identificáveis após o término.",
+            "Esquecer que o perfil comportamental de pessoa identificada pode ser dado pessoal."
+          ],
+          "blocos": [
+            "lgpd-12-16"
+          ]
+        },
+        {
+          "id": "pd-direitos",
+          "nome": "Direitos do titular e decisões automatizadas",
+          "resumo": "O que o titular pode pedir ao controlador (art. 18), prazos de acesso (art. 19) e revisão de decisões automatizadas (art. 20).",
+          "artigos": [
+            "lgpd:17",
+            "lgpd:18",
+            "lgpd:19",
+            "lgpd:20"
+          ],
+          "licao": {
+            "ideia": "O titular é dono dos seus dados (art. 17) e pode pedir ao **controlador**, a qualquer momento e **sem custo**, confirmação, acesso, correção, eliminação e outros direitos. Se a decisão sobre ele for **unicamente automatizada**, pode pedir revisão.",
+            "mapa": {
+              "centro": "Direitos do titular",
+              "ramos": [
+                {
+                  "t": "Saber",
+                  "f": [
+                    "confirmação",
+                    "acesso",
+                    "com quem compartilhou",
+                    "consequências de negar consentimento"
+                  ]
+                },
+                {
+                  "t": "Corrigir e apagar",
+                  "f": [
+                    "correção",
+                    "anonimização, bloqueio ou eliminação do excessivo",
+                    "eliminação do tratado com consentimento"
+                  ]
+                },
+                {
+                  "t": "Levar e revogar",
+                  "f": [
+                    "portabilidade",
+                    "revogação do consentimento"
+                  ]
+                },
+                {
+                  "t": "Contestar",
+                  "f": [
+                    "oposição",
+                    "petição à ANPD e ao consumidor",
+                    "revisão de decisão automatizada"
+                  ]
+                },
+                {
+                  "t": "Prazos (art. 19)",
+                  "f": [
+                    "simplificado: imediato",
+                    "completo: até 15 dias"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "O rol do art. 18",
+                "tabela": {
+                  "cab": [
+                    "Inciso",
+                    "Direito"
+                  ],
+                  "linhas": [
+                    [
+                      "I",
+                      "confirmação da existência de tratamento"
+                    ],
+                    [
+                      "II",
+                      "acesso aos dados"
+                    ],
+                    [
+                      "III",
+                      "correção de dados incompletos, inexatos ou desatualizados"
+                    ],
+                    [
+                      "IV",
+                      "anonimização, bloqueio ou eliminação de dados **desnecessários, excessivos ou tratados em desconformidade**"
+                    ],
+                    [
+                      "V",
+                      "**portabilidade** a outro fornecedor, mediante requisição expressa, conforme regulamento da ANPD"
+                    ],
+                    [
+                      "VI",
+                      "eliminação dos dados tratados **com consentimento**, salvo as hipóteses de conservação do art. 16"
+                    ],
+                    [
+                      "VII",
+                      "informação sobre as entidades com as quais houve uso compartilhado"
+                    ],
+                    [
+                      "VIII",
+                      "informação sobre a possibilidade de não consentir e as consequências da negativa"
+                    ],
+                    [
+                      "IX",
+                      "revogação do consentimento"
+                    ]
+                  ]
+                },
+                "atencao": "Portabilidade não inclui dados já anonimizados (§ 7º). O pedido é atendido **sem custos** (§ 5º). O titular pode peticionar contra o controlador perante a ANPD e também nos órgãos de defesa do consumidor (§§ 1º e 8º)."
+              },
+              {
+                "t": "Como o pedido funciona",
+                "texto": "O titular também pode **se opor** a tratamento feito sem consentimento, em caso de descumprimento da lei (§ 2º).",
+                "passos": [
+                  "o titular, ou representante legal, faz requerimento expresso a agente de tratamento (§ 3º)",
+                  "se não puder atender de imediato, o controlador responde dizendo que não é o agente (e indicando quem é, se possível) ou as razões que impedem a providência (§ 4º)",
+                  "correção, eliminação, anonimização ou bloqueio são comunicados de imediato a quem recebeu os dados por uso compartilhado, salvo impossibilidade comprovada ou esforço desproporcional (§ 6º)"
+                ]
+              },
+              {
+                "t": "Prazos de acesso (art. 19)",
+                "tabela": {
+                  "cab": [
+                    "Formato",
+                    "Prazo"
+                  ],
+                  "linhas": [
+                    [
+                      "simplificado",
+                      "imediatamente"
+                    ],
+                    [
+                      "declaração clara e completa (origem, critérios, finalidade)",
+                      "até **15 dias** do requerimento"
+                    ]
+                  ]
+                },
+                "depois": "Quando o tratamento se baseia em consentimento ou contrato, o titular pode pedir **cópia eletrônica integral** em formato que permita reutilização (§ 3º)."
+              },
+              {
+                "t": "Decisões automatizadas (art. 20)",
+                "texto": "O titular pode pedir **revisão** de decisões tomadas **unicamente** com base em tratamento automatizado que afetem seus interesses, inclusive as de perfil pessoal, profissional, de consumo e de crédito. O controlador informa os critérios e procedimentos, observados os segredos comercial e industrial; se recusar com base em segredo, a ANPD pode fazer **auditoria** de aspectos discriminatórios.",
+                "atencao": "A lei não exige que a revisão seja feita por pessoa natural: esse trecho foi vetado. E os dados do titular sobre o exercício regular de direitos não podem ser usados contra ele (art. 21).",
+                "porque": "Sem saber os critérios, o titular não consegue contestar. Por isso o direito à revisão vem junto com o direito à explicação, e o segredo comercial não blinda o algoritmo: a ANPD pode auditar."
+              }
+            ]
+          },
+          "chave": [
+            "Direitos exercidos perante o controlador, a qualquer momento, sem custo.",
+            "Eliminação do art. 18, VI vale para dados tratados com consentimento, salvo o art. 16.",
+            "Acesso simplificado imediato; declaração completa em até 15 dias.",
+            "Revisão de decisão unicamente automatizada; a revisão por pessoa natural foi vetada.",
+            "Petição contra o controlador perante a ANPD e os órgãos de defesa do consumidor."
+          ],
+          "armadilhas": [
+            "Dizer que a portabilidade inclui dados anonimizados.",
+            "Exigir revisão humana da decisão automatizada.",
+            "Cobrar taxa pelo atendimento do pedido do titular.",
+            "Trocar o prazo de 15 dias da declaração completa por 30 dias ou por imediato."
+          ],
+          "blocos": [
+            "lgpd-17-22"
+          ]
+        },
+        {
+          "id": "pd-poder-publico",
+          "nome": "Tratamento de dados pelo Poder Público",
+          "resumo": "Finalidade pública, encarregado, uso compartilhado e as exceções para repassar dados a entes privados (arts. 23 a 32).",
+          "artigos": [
+            "lgpd:23",
+            "lgpd:24",
+            "lgpd:26",
+            "lgpd:27"
+          ],
+          "licao": {
+            "ideia": "O Poder Público trata dados para cumprir sua **finalidade pública** e suas competências legais, informando com clareza o que faz e indicando um encarregado. Repassar dados a entes privados é, em regra, **vedado**, com exceções.",
+            "mapa": {
+              "centro": "Poder Público e dados",
+              "ramos": [
+                {
+                  "t": "Requisitos (art. 23)",
+                  "f": [
+                    "finalidade pública",
+                    "informar hipóteses e base legal",
+                    "indicar encarregado"
+                  ]
+                },
+                {
+                  "t": "Estatais (art. 24)",
+                  "f": [
+                    "em concorrência: regras do privado",
+                    "executando política pública: regras do público"
+                  ]
+                },
+                {
+                  "t": "Compartilhar (arts. 25 e 26)",
+                  "f": [
+                    "formato interoperável",
+                    "finalidade de política pública"
+                  ]
+                },
+                {
+                  "t": "Repasse a privado",
+                  "f": [
+                    "vedado em regra",
+                    "cinco exceções",
+                    "contratos comunicados à ANPD"
+                  ]
+                },
+                {
+                  "t": "ANPD (arts. 29 a 32)",
+                  "f": [
+                    "pede informações",
+                    "envia informe",
+                    "pede relatório de impacto"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Quem e como",
+                "texto": "As pessoas jurídicas de direito público da LAI (art. 1º, parágrafo único, da Lei 12.527) tratam dados para atender sua **finalidade pública**, na persecução do interesse público, desde que **informem** as hipóteses em que tratam dados, com a previsão legal, a finalidade e as práticas, de preferência em seus sites, e **indiquem encarregado**. Cartórios (serviços notariais e de registro) têm o mesmo tratamento.",
+                "depois": "Os direitos do titular perante o Poder Público seguem também a Lei do Habeas Data, a Lei 9.784 e a LAI (art. 23, § 3º)."
+              },
+              {
+                "t": "Empresas estatais (art. 24)",
+                "tabela": {
+                  "cab": [
+                    "Situação",
+                    "Regime na LGPD"
+                  ],
+                  "linhas": [
+                    [
+                      "empresa pública ou sociedade de economia mista **em regime de concorrência** (art. 173 da CF)",
+                      "o mesmo das pessoas jurídicas de direito privado"
+                    ],
+                    [
+                      "estatal **operacionalizando política pública**",
+                      "o mesmo dos órgãos e entidades do Poder Público"
+                    ]
+                  ]
+                }
+              },
+              {
+                "t": "Repasse a entidades privadas (art. 26, § 1º)",
+                "texto": "É **vedado** ao Poder Público transferir a entidades privadas dados de suas bases, **exceto**:",
+                "lista": [
+                  "execução descentralizada de atividade pública que exija a transferência, só para esse fim",
+                  "dados acessíveis publicamente",
+                  "previsão legal ou respaldo em contratos, convênios ou instrumentos congêneres",
+                  "transferência exclusivamente para prevenir fraudes e irregularidades ou proteger a segurança e a integridade do titular, vedado outro uso"
+                ],
+                "depois": "Os contratos e convênios dessas exceções são **comunicados à ANPD** (§ 2º). A comunicação ou o uso compartilhado de dados de pessoa jurídica de direito público com pessoa de direito privado é informado à ANPD e depende de consentimento, salvo nas hipóteses de dispensa, no uso compartilhado com publicidade ou nas exceções do art. 26, § 1º (art. 27).",
+                "atencao": "Para órgão público, a ANPD não aplica multa: as sanções do art. 52 aplicáveis a órgãos e entidades públicos são advertência, publicização, bloqueio, eliminação, suspensões e proibição (art. 52, § 3º)."
+              },
+              {
+                "t": "O papel da ANPD",
+                "lista": [
+                  "solicitar informações sobre o tratamento e emitir parecer técnico complementar (art. 29)",
+                  "estabelecer normas complementares para comunicação e uso compartilhado (art. 30)",
+                  "enviar **informe** com medidas para fazer cessar a violação (art. 31)",
+                  "solicitar a publicação de relatórios de impacto e sugerir padrões e boas práticas (art. 32)"
+                ]
+              }
+            ]
+          },
+          "chave": [
+            "Poder Público trata dados pela finalidade pública, informando hipóteses e indicando encarregado.",
+            "Estatal em concorrência segue o regime privado; executando política pública, o público.",
+            "Repasse de dados a entes privados é vedado em regra, com exceções do art. 26, § 1º.",
+            "Contratos e convênios do art. 26, § 1º são comunicados à ANPD.",
+            "Órgão público não sofre multa da LGPD (art. 52, § 3º)."
+          ],
+          "armadilhas": [
+            "Dizer que toda estatal segue sempre o regime do Poder Público.",
+            "Afirmar que o Poder Público pode repassar livremente dados a entes privados.",
+            "Incluir a multa simples entre as sanções aplicáveis a órgãos públicos.",
+            "Esquecer que cartórios têm o mesmo tratamento das pessoas jurídicas de direito público."
+          ],
+          "blocos": [
+            "lgpd-23-32"
+          ]
+        },
+        {
+          "id": "pd-transferencia",
+          "nome": "Transferência internacional de dados",
+          "resumo": "As nove hipóteses do art. 33, adequação, cláusulas-padrão e o papel da ANPD (arts. 33 a 36 e Resolução 19/2024).",
+          "artigos": [
+            "lgpd:33",
+            "lgpd:34",
+            "lgpd:35"
+          ],
+          "licao": {
+            "ideia": "Mandar dados para outro país só é permitido nas hipóteses do art. 33. As mais usadas são o país com **proteção adequada** (decisão de adequação da ANPD) e as **garantias** oferecidas pelo controlador, como as **cláusulas-padrão** aprovadas pela ANPD.",
+            "mapa": {
+              "centro": "Art. 33",
+              "ramos": [
+                {
+                  "t": "Adequação",
+                  "f": [
+                    "país ou organismo com proteção adequada",
+                    "ANPD avalia (art. 34)"
+                  ]
+                },
+                {
+                  "t": "Garantias do controlador",
+                  "f": [
+                    "cláusulas específicas",
+                    "cláusulas-padrão",
+                    "normas corporativas globais",
+                    "selos e códigos de conduta"
+                  ]
+                },
+                {
+                  "t": "Necessidade",
+                  "f": [
+                    "cooperação jurídica",
+                    "proteger a vida",
+                    "política pública",
+                    "acordo internacional"
+                  ]
+                },
+                {
+                  "t": "Vontade",
+                  "f": [
+                    "consentimento específico e destacado"
+                  ]
+                },
+                {
+                  "t": "Outras",
+                  "f": [
+                    "autorização da ANPD",
+                    "obrigação legal, contrato, exercício de direitos"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "As hipóteses",
+                "tabela": {
+                  "cab": [
+                    "Inciso",
+                    "Hipótese"
+                  ],
+                  "linhas": [
+                    [
+                      "I",
+                      "país ou organismo internacional com grau de proteção **adequado**"
+                    ],
+                    [
+                      "II",
+                      "controlador oferece e comprova garantias: cláusulas contratuais específicas, **cláusulas-padrão contratuais**, **normas corporativas globais**, selos, certificados e códigos de conduta"
+                    ],
+                    [
+                      "III",
+                      "cooperação jurídica internacional entre órgãos de inteligência, investigação e persecução"
+                    ],
+                    [
+                      "IV",
+                      "proteção da vida ou da incolumidade física"
+                    ],
+                    [
+                      "V",
+                      "**autorização da ANPD**"
+                    ],
+                    [
+                      "VI",
+                      "compromisso em acordo de cooperação internacional"
+                    ],
+                    [
+                      "VII",
+                      "execução de política pública ou atribuição legal do serviço público, com publicidade"
+                    ],
+                    [
+                      "VIII",
+                      "**consentimento específico e em destaque**, com informação prévia sobre o caráter internacional"
+                    ],
+                    [
+                      "IX",
+                      "obrigação legal ou regulatória, execução de contrato ou exercício regular de direitos (art. 7º, II, V e VI)"
+                    ]
+                  ]
+                },
+                "atencao": "Legítimo interesse não está no art. 33. E o consentimento para transferir tem de ser específico, em destaque e distinguir a transferência de outras finalidades."
+              },
+              {
+                "t": "Quem decide o quê",
+                "tabela": {
+                  "cab": [
+                    "Instrumento",
+                    "Papel da ANPD"
+                  ],
+                  "linhas": [
+                    [
+                      "adequação de país",
+                      "avalia o nível de proteção considerando normas do destino, natureza dos dados, princípios, medidas de segurança e garantias judiciais e institucionais (art. 34)"
+                    ],
+                    [
+                      "cláusulas-padrão",
+                      "define o conteúdo (art. 35); a Resolução CD/ANPD 19/2024 aprovou o modelo"
+                    ],
+                    [
+                      "cláusulas específicas, normas corporativas globais, selos",
+                      "verifica e aprova; pode designar organismos de certificação, que fica fiscalizando (art. 35, §§ 3º e 4º)"
+                    ],
+                    [
+                      "alterações nas garantias",
+                      "devem ser comunicadas à ANPD (art. 36)"
+                    ]
+                  ]
+                },
+                "porque": "O dado sai do alcance da fiscalização brasileira quando cruza a fronteira. As hipóteses existem para garantir que a proteção viaja com ele: ou o destino já protege (adequação), ou o contrato obriga quem recebe (cláusulas), ou há uma necessidade que justifique o risco."
+              },
+              {
+                "t": "Na prática da ANPD",
+                "ex": "Uma empresa brasileira que hospeda dados de clientes em nuvem nos Estados Unidos pode usar as cláusulas-padrão da Resolução 19/2024 no contrato com o provedor. Para a União Europeia, a Resolução CD/ANPD 32/2026 reconheceu a adequação."
+              }
+            ]
+          },
+          "chave": [
+            "Transferência só nas nove hipóteses do art. 33.",
+            "Adequação de país é avaliada pela ANPD (art. 34).",
+            "Cláusulas-padrão têm conteúdo definido pela ANPD (Resolução 19/2024).",
+            "Consentimento para transferir: específico, em destaque, com informação prévia.",
+            "Alterações nas garantias são comunicadas à ANPD."
+          ],
+          "armadilhas": [
+            "Incluir o legítimo interesse entre as hipóteses de transferência.",
+            "Dizer que qualquer consentimento genérico autoriza a transferência.",
+            "Atribuir a adequação de país ao Ministério das Relações Exteriores.",
+            "Dizer que o organismo de certificação escapa da fiscalização da ANPD."
+          ],
+          "blocos": [
+            "lgpd-33-36",
+            "res-19-2024"
+          ]
+        },
+        {
+          "id": "pd-agentes",
+          "nome": "Agentes de tratamento, encarregado e responsabilidade",
+          "resumo": "Registro de operações, relatório de impacto, encarregado e quem indeniza o dano (arts. 37 a 45).",
+          "artigos": [
+            "lgpd:37",
+            "lgpd:38",
+            "lgpd:41",
+            "lgpd:42",
+            "lgpd:43"
+          ],
+          "licao": {
+            "ideia": "Controlador e operador registram o que fazem, o controlador indica o encarregado, e quem causa dano em violação à lei **repara**. O operador responde junto com o controlador quando descumpre a lei ou as instruções lícitas.",
+            "mapa": {
+              "centro": "Agentes e responsabilidade",
+              "ramos": [
+                {
+                  "t": "Deveres",
+                  "f": [
+                    "registro das operações",
+                    "relatório de impacto, se a ANPD pedir"
+                  ]
+                },
+                {
+                  "t": "Operador",
+                  "f": [
+                    "segue instruções do controlador"
+                  ]
+                },
+                {
+                  "t": "Encarregado",
+                  "f": [
+                    "canal com titulares e ANPD",
+                    "orienta funcionários",
+                    "identidade pública"
+                  ]
+                },
+                {
+                  "t": "Reparação (art. 42)",
+                  "f": [
+                    "dano patrimonial ou moral, individual ou coletivo",
+                    "solidariedade",
+                    "inversão do ônus da prova"
+                  ]
+                },
+                {
+                  "t": "Exclusão (art. 43)",
+                  "f": [
+                    "não tratou",
+                    "não violou a lei",
+                    "culpa exclusiva do titular ou de terceiro"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Deveres de controlador e operador",
+                "lista": [
+                  "**registro** das operações de tratamento, especialmente quando baseadas em legítimo interesse (art. 37)",
+                  "a ANPD pode determinar ao controlador o **relatório de impacto**, inclusive de dados sensíveis, com no mínimo a descrição dos dados, a metodologia de coleta e de segurança e as medidas de mitigação de risco (art. 38)",
+                  "o operador trata segundo as instruções do controlador, que verifica o cumprimento (art. 39)"
+                ]
+              },
+              {
+                "t": "Encarregado (art. 41 e Resolução 18/2024)",
+                "tabela": {
+                  "cab": [
+                    "Ponto",
+                    "Regra"
+                  ],
+                  "linhas": [
+                    [
+                      "Quem indica",
+                      "o controlador"
+                    ],
+                    [
+                      "Publicidade",
+                      "identidade e contato divulgados publicamente, de preferência no site"
+                    ],
+                    [
+                      "Atividades",
+                      "receber reclamações e comunicações dos titulares e da ANPD, orientar funcionários e contratados, executar outras atribuições"
+                    ],
+                    [
+                      "Dispensa",
+                      "a ANPD pode prever, conforme natureza e porte da entidade ou volume de operações"
+                    ]
+                  ]
+                },
+                "atencao": "A Resolução 18/2024 detalha o encarregado: pode ser pessoa natural ou jurídica, de dentro ou de fora da organização, e não responde pessoalmente perante a ANPD pela conformidade do tratamento, que é do controlador."
+              },
+              {
+                "t": "Quem paga o dano (arts. 42 a 44)",
+                "texto": "O juiz pode **inverter o ônus da prova** a favor do titular quando a alegação for verossímil, houver hipossuficiência ou a prova for excessivamente onerosa para ele. O tratamento é **irregular** quando não observa a lei ou não dá a segurança que o titular pode esperar.",
+                "tabela": {
+                  "cab": [
+                    "Situação",
+                    "Responsabilidade"
+                  ],
+                  "linhas": [
+                    [
+                      "controlador ou operador causa dano violando a legislação",
+                      "repara o dano patrimonial ou moral, individual ou coletivo"
+                    ],
+                    [
+                      "operador descumpre a lei ou as instruções lícitas",
+                      "responde **solidariamente** e se equipara ao controlador"
+                    ],
+                    [
+                      "vários controladores diretamente envolvidos",
+                      "respondem **solidariamente**"
+                    ],
+                    [
+                      "quem pagou",
+                      "tem direito de regresso contra os demais, na medida da participação"
+                    ]
+                  ]
+                },
+                "porque": "O titular raramente consegue provar o que aconteceu dentro dos sistemas da empresa. A solidariedade e a inversão do ônus existem para que a indenização não dependa de o titular adivinhar quem errou."
+              },
+              {
+                "t": "Quando o agente não responde (art. 43)",
+                "lista": [
+                  "prova que **não realizou** o tratamento atribuído",
+                  "prova que tratou, mas **não violou** a legislação",
+                  "prova que o dano decorre de **culpa exclusiva do titular ou de terceiro**"
+                ],
+                "atencao": "Nas relações de consumo continuam valendo as regras de responsabilidade do CDC (art. 45)."
+              }
+            ]
+          },
+          "chave": [
+            "Controlador e operador mantêm registro das operações (art. 37).",
+            "ANPD pode determinar relatório de impacto ao controlador (art. 38).",
+            "Controlador indica o encarregado, com identidade e contato públicos.",
+            "Operador responde solidariamente quando descumpre a lei ou instruções lícitas.",
+            "Excludentes: não tratou, não violou a lei ou culpa exclusiva do titular ou de terceiro."
+          ],
+          "armadilhas": [
+            "Dizer que só o controlador responde, nunca o operador.",
+            "Dizer que o encarregado responde pessoalmente pelas infrações do controlador.",
+            "Incluir caso fortuito genérico entre as excludentes do art. 43.",
+            "Afirmar que a inversão do ônus da prova é automática em todo caso."
+          ],
+          "blocos": [
+            "lgpd-37-45",
+            "res-18-2024"
+          ]
+        },
+        {
+          "id": "pd-seguranca",
+          "nome": "Segurança, incidentes e boas práticas",
+          "resumo": "Medidas de segurança desde a concepção, comunicação de incidente e programas de governança (arts. 46 a 51 e Resolução 15/2024).",
+          "artigos": [
+            "lgpd:46",
+            "lgpd:48",
+            "lgpd:50"
+          ],
+          "licao": {
+            "ideia": "Agentes de tratamento protegem os dados **desde a concepção** do produto até a execução. Se houver incidente que possa causar **risco ou dano relevante**, o controlador comunica à **ANPD e aos titulares**. Boas práticas e governança são voluntárias, mas contam a favor na dosimetria.",
+            "mapa": {
+              "centro": "Segurança na LGPD",
+              "ramos": [
+                {
+                  "t": "Medidas (art. 46)",
+                  "f": [
+                    "técnicas e administrativas",
+                    "desde a concepção",
+                    "padrões mínimos da ANPD"
+                  ]
+                },
+                {
+                  "t": "Sigilo (art. 47)",
+                  "f": [
+                    "quem intervém no tratamento",
+                    "mesmo após o término"
+                  ]
+                },
+                {
+                  "t": "Incidente (art. 48)",
+                  "f": [
+                    "risco ou dano relevante",
+                    "comunicar ANPD e titular",
+                    "prazo da Resolução 15"
+                  ]
+                },
+                {
+                  "t": "Governança (art. 50)",
+                  "f": [
+                    "regras de boas práticas",
+                    "programa de governança em privacidade"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Medidas de segurança",
+                "texto": "Os agentes adotam medidas **técnicas e administrativas** contra acessos não autorizados e situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou tratamento inadequado (art. 46). As medidas valem **desde a fase de concepção** do produto ou serviço até sua execução (§ 2º): é a privacidade desde a concepção. Quem intervém em qualquer fase do tratamento garante a segurança **mesmo após o término** (art. 47).",
+                "atencao": "Responde pelos danos da violação de segurança o controlador ou o operador que, deixando de adotar as medidas do art. 46, der causa ao dano (art. 44, parágrafo único)."
+              },
+              {
+                "t": "Comunicação de incidente (art. 48)",
+                "texto": "A ANPD avalia a gravidade e pode determinar ampla divulgação em meios de comunicação e medidas para reverter ou mitigar os efeitos. Pesa a favor do controlador ter tornado os dados **ininteligíveis** para terceiros, como pela criptografia (§ 3º).",
+                "tabela": {
+                  "cab": [
+                    "Ponto",
+                    "Regra"
+                  ],
+                  "linhas": [
+                    [
+                      "Quando",
+                      "incidente que possa acarretar **risco ou dano relevante** aos titulares"
+                    ],
+                    [
+                      "Quem comunica",
+                      "o **controlador**"
+                    ],
+                    [
+                      "A quem",
+                      "à ANPD **e** ao titular"
+                    ],
+                    [
+                      "Prazo",
+                      "razoável, definido pela ANPD: **3 dias úteis**, contados de quando o controlador soube que o incidente afetou dados pessoais (Resolução CD/ANPD 15/2024, arts. 6º e 9º)"
+                    ],
+                    [
+                      "Conteúdo mínimo",
+                      "natureza dos dados, titulares envolvidos, medidas de segurança, riscos, motivos da demora e medidas para mitigar"
+                    ]
+                  ]
+                },
+                "porque": "O titular precisa saber para se proteger (trocar senha, bloquear cartão), e a ANPD precisa saber para avaliar o risco sistêmico. Por isso a comunicação vai às duas pontas, e o critério é o risco relevante, não qualquer incidente."
+              },
+              {
+                "t": "Boas práticas e governança (art. 50)",
+                "texto": "Controladores e operadores **podem** formular regras de boas práticas e de governança, sozinhos ou por associações, e o controlador **pode** implementar programa de governança em privacidade com, no mínimo: comprometimento com políticas internas, abrangência sobre todos os dados sob controle, adaptação à estrutura e ao porte, avaliação sistemática de impactos e riscos, relação de confiança com o titular, integração à governança geral, **planos de resposta a incidentes** e atualização constante.",
+                "atencao": "O programa de governança é facultativo (\"poderá\"), mas a adoção de boas práticas e governança é critério de dosimetria a favor do infrator (art. 52, § 1º, IX)."
+              }
+            ]
+          },
+          "chave": [
+            "Medidas técnicas e administrativas desde a concepção até a execução.",
+            "Dever de sigilo continua após o término do tratamento.",
+            "Incidente com risco ou dano relevante: controlador comunica à ANPD e ao titular.",
+            "Prazo de 3 dias úteis pela Resolução 15/2024.",
+            "Programa de governança é facultativo, mas atenua sanções."
+          ],
+          "armadilhas": [
+            "Dizer que todo incidente, mesmo sem risco relevante, tem de ser comunicado.",
+            "Atribuir a comunicação ao operador ou só à ANPD.",
+            "Tratar o programa de governança como obrigatório para todos.",
+            "Dizer que a segurança só se exige depois que o produto entra em operação."
+          ],
+          "blocos": [
+            "lgpd-46-51",
+            "res-15-2024"
+          ]
+        },
+        {
+          "id": "pd-sancoes",
+          "nome": "Fiscalização e sanções",
+          "resumo": "As sanções do art. 52, os critérios de dosimetria, a multa de até 2% limitada a R$ 50 milhões e o processo sancionador.",
+          "artigos": [
+            "lgpd:52",
+            "lgpd:53",
+            "lgpd:54"
+          ],
+          "licao": {
+            "ideia": "A ANPD aplica sanções **depois de processo** com ampla defesa, de forma **gradativa, isolada ou cumulativa**, pesando critérios como gravidade, boa-fé e cooperação. A multa simples vai até **2% do faturamento** no Brasil, limitada a **R$ 50 milhões por infração**.",
+            "mapa": {
+              "centro": "Sanções da LGPD",
+              "ramos": [
+                {
+                  "t": "Leves",
+                  "f": [
+                    "advertência com prazo",
+                    "publicização"
+                  ]
+                },
+                {
+                  "t": "Multas",
+                  "f": [
+                    "simples: 2%, teto R$ 50 mi por infração",
+                    "diária, no mesmo teto"
+                  ]
+                },
+                {
+                  "t": "Sobre os dados",
+                  "f": [
+                    "bloqueio",
+                    "eliminação"
+                  ]
+                },
+                {
+                  "t": "Graves (só depois de outra)",
+                  "f": [
+                    "suspensão parcial do banco",
+                    "suspensão da atividade",
+                    "proibição"
+                  ]
+                },
+                {
+                  "t": "Processo",
+                  "f": [
+                    "ampla defesa",
+                    "critérios do § 1º",
+                    "Resoluções 1/2021 e 4/2023"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "As sanções (art. 52)",
+                "tabela": {
+                  "cab": [
+                    "Inciso",
+                    "Sanção",
+                    "Detalhe"
+                  ],
+                  "linhas": [
+                    [
+                      "I",
+                      "**advertência**",
+                      "com prazo para medidas corretivas"
+                    ],
+                    [
+                      "II",
+                      "**multa simples**",
+                      "até 2% do faturamento da pessoa jurídica de direito privado, grupo ou conglomerado no Brasil no último exercício, sem tributos, limitada a **R$ 50 milhões por infração**"
+                    ],
+                    [
+                      "III",
+                      "**multa diária**",
+                      "observado o mesmo limite total"
+                    ],
+                    [
+                      "IV",
+                      "**publicização** da infração",
+                      "depois de apurada e confirmada"
+                    ],
+                    [
+                      "V",
+                      "**bloqueio** dos dados da infração",
+                      "até a regularização"
+                    ],
+                    [
+                      "VI",
+                      "**eliminação** dos dados da infração",
+                      ""
+                    ],
+                    [
+                      "X",
+                      "suspensão **parcial do funcionamento do banco de dados**",
+                      "até 6 meses, prorrogável por igual período"
+                    ],
+                    [
+                      "XI",
+                      "suspensão do **exercício da atividade** de tratamento",
+                      "até 6 meses, prorrogável por igual período"
+                    ],
+                    [
+                      "XII",
+                      "**proibição** parcial ou total de atividades de tratamento",
+                      ""
+                    ]
+                  ]
+                },
+                "atencao": "As sanções X, XI e XII só vêm depois de já aplicada ao menos uma das sanções II a VI no mesmo caso (§ 6º). O dinheiro das multas vai para o **Fundo de Defesa de Direitos Difusos** (§ 5º), e não para a ANPD."
+              },
+              {
+                "t": "Critérios de dosimetria (§ 1º)",
+                "lista": [
+                  "gravidade e natureza das infrações e dos direitos afetados",
+                  "boa-fé do infrator",
+                  "vantagem auferida ou pretendida",
+                  "condição econômica",
+                  "reincidência",
+                  "grau do dano",
+                  "cooperação",
+                  "mecanismos internos para minimizar o dano",
+                  "política de boas práticas e governança",
+                  "pronta adoção de medidas corretivas",
+                  "proporcionalidade entre a gravidade da falta e a intensidade da sanção"
+                ],
+                "depois": "A metodologia de cálculo da multa está no regulamento de dosimetria (Resolução CD/ANPD 4/2023); o art. 53 exige que esse regulamento seja objeto de consulta pública e que a metodologia seja publicada antes. O processo sancionador e a fiscalização estão na Resolução CD/ANPD 1/2021."
+              },
+              {
+                "t": "Órgãos públicos e conciliação",
+                "texto": "Órgãos e entidades públicos podem receber advertência, publicização, bloqueio, eliminação, suspensões e proibição (incisos I, IV, V, VI, X, XI e XII), **sem multa**, e sem prejuízo da Lei 8.112, da Lei de Improbidade e da LAI (§ 3º). Vazamentos individuais ou acessos não autorizados podem ser objeto de **conciliação direta** entre controlador e titular; sem acordo, o controlador fica sujeito às sanções (§ 7º).",
+                "porque": "A lógica é a da regulação responsiva: começar pelo mais leve e subir conforme a resistência do regulado. Por isso as sanções mais duras exigem que outra já tenha sido aplicada, e cooperação e boas práticas reduzem a pena."
+              }
+            ]
+          },
+          "chave": [
+            "Sanções após procedimento com ampla defesa, gradativas, isoladas ou cumulativas.",
+            "Multa simples: até 2% do faturamento no Brasil, sem tributos, limitada a R$ 50 milhões por infração.",
+            "Suspensões e proibição só depois de outra sanção (II a VI) no mesmo caso.",
+            "Multas vão para o Fundo de Defesa de Direitos Difusos.",
+            "Órgãos públicos não recebem multa."
+          ],
+          "armadilhas": [
+            "Dizer que o teto de R$ 50 milhões vale por ano ou por empresa, e não por infração.",
+            "Dizer que a multa incide sobre o faturamento mundial.",
+            "Aplicar suspensão ou proibição como primeira sanção.",
+            "Dizer que o valor das multas é receita da ANPD."
+          ],
+          "blocos": [
+            "lgpd-52-54",
+            "res-4-2023",
+            "res-1-2021"
+          ]
+        },
+        {
+          "id": "pd-anpd",
+          "nome": "A ANPD e o Conselho Nacional de Proteção de Dados",
+          "resumo": "Natureza de agência reguladora, Conselho Diretor, competências do art. 55-J e o CNPD (arts. 55-A a 58-B).",
+          "artigos": [
+            "lgpd:55-A",
+            "lgpd:55-D",
+            "lgpd:55-J",
+            "lgpd:55-K",
+            "lgpd:58-A"
+          ],
+          "licao": {
+            "ideia": "A ANPD é a **Agência Nacional de Proteção de Dados**, autarquia de natureza especial vinculada ao Ministério da Justiça e Segurança Pública, com autonomia e regime de agência reguladora (Lei 13.848). Ela fiscaliza, regulamenta e sanciona, e é a **intérprete central** da LGPD.",
+            "mapa": {
+              "centro": "ANPD",
+              "ramos": [
+                {
+                  "t": "Natureza (art. 55-A)",
+                  "f": [
+                    "autarquia especial",
+                    "vinculada ao MJSP",
+                    "autonomia funcional, técnica, decisória, administrativa e financeira"
+                  ]
+                },
+                {
+                  "t": "Estrutura (art. 55-C)",
+                  "f": [
+                    "Conselho Diretor",
+                    "CNPD",
+                    "Corregedoria e Ouvidoria",
+                    "Procuradoria e Auditoria"
+                  ]
+                },
+                {
+                  "t": "Conselho Diretor",
+                  "f": [
+                    "5 diretores",
+                    "Presidente nomeia após o Senado",
+                    "mandato de 4 anos"
+                  ]
+                },
+                {
+                  "t": "Competências (art. 55-J)",
+                  "f": [
+                    "fiscalizar e sancionar",
+                    "regulamentar com consulta e AIR",
+                    "apreciar petições"
+                  ]
+                },
+                {
+                  "t": "CNPD (art. 58-A)",
+                  "f": [
+                    "23 representantes",
+                    "não remunerado",
+                    "propõe diretrizes"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Natureza e estrutura",
+                "texto": "Criada como **autarquia de natureza especial**, vinculada ao Ministério da Justiça e Segurança Pública, com autonomia **funcional, técnica, decisória, administrativa e financeira**, patrimônio próprio e sede no Distrito Federal, nos termos da Lei 13.848 (art. 55-A, na redação da Lei 15.352/2026). É composta de Conselho Diretor (órgão máximo), CNPD, Corregedoria, Ouvidoria, Procuradoria, Auditoria e unidades administrativas e especializadas (art. 55-C).",
+                "atencao": "A redação atual fala em **Agência** Nacional de Proteção de Dados, vinculada ao **MJSP**. Itens que a tratem como órgão da Presidência da República sem autonomia descrevem uma fase já superada."
+              },
+              {
+                "t": "Conselho Diretor",
+                "tabela": {
+                  "cab": [
+                    "Ponto",
+                    "Regra"
+                  ],
+                  "linhas": [
+                    [
+                      "Composição",
+                      "5 diretores, incluído o Diretor-Presidente"
+                    ],
+                    [
+                      "Escolha",
+                      "pelo Presidente da República, nomeados após aprovação do **Senado**"
+                    ],
+                    [
+                      "Requisitos",
+                      "brasileiros, reputação ilibada, nível superior e elevado conceito na área"
+                    ],
+                    [
+                      "Mandato",
+                      "**4 anos**; na vacância, o sucessor completa o prazo"
+                    ],
+                    [
+                      "Perda do cargo",
+                      "só por renúncia, condenação judicial transitada em julgado ou demissão em processo disciplinar"
+                    ]
+                  ]
+                },
+                "porque": "Mandato fixo e perda do cargo só em hipóteses restritas são o que dá autonomia de verdade: o diretor não pode ser demitido por decidir contra o interesse do governo do momento."
+              },
+              {
+                "t": "Competências que mais caem (art. 55-J)",
+                "lista": [
+                  "zelar pela proteção dos dados e pelos segredos comercial e industrial",
+                  "elaborar diretrizes para a Política Nacional de Proteção de Dados Pessoais e da Privacidade",
+                  "**fiscalizar e aplicar sanções**, em processo com contraditório, ampla defesa e recurso",
+                  "apreciar **petições de titulares** contra controlador, depois de comprovada reclamação não resolvida no prazo",
+                  "editar regulamentos, inclusive sobre relatório de impacto para tratamentos de alto risco",
+                  "celebrar **compromisso** com agentes para eliminar irregularidade ou incerteza jurídica",
+                  "normas simplificadas para micro e pequenas empresas e startups",
+                  "deliberar, em **caráter terminativo** na esfera administrativa, sobre a interpretação da LGPD"
+                ],
+                "depois": "Os regulamentos da ANPD são precedidos de **consulta e audiência públicas e de análise de impacto regulatório** (§ 2º). Ao impor condicionantes a agentes privados, observa a **mínima intervenção** (§ 1º).",
+                "atencao": "A aplicação das sanções da LGPD compete **exclusivamente** à ANPD, e suas competências prevalecem sobre as de outros órgãos no tema (art. 55-K)."
+              },
+              {
+                "t": "Conselho Nacional de Proteção de Dados Pessoais e da Privacidade",
+                "tabela": {
+                  "cab": [
+                    "Ponto",
+                    "Regra"
+                  ],
+                  "linhas": [
+                    [
+                      "Composição",
+                      "23 representantes, titulares e suplentes (5 do Executivo federal; Senado, Câmara, CNJ, CNMP e Comitê Gestor da Internet com 1 cada; sociedade civil, instituições científicas e confederações sindicais com 3 cada; setor empresarial e setor laboral com 2 cada)"
+                    ],
+                    [
+                      "Mandato",
+                      "2 anos para os representantes da sociedade, com 1 recondução"
+                    ],
+                    [
+                      "Remuneração",
+                      "nenhuma: serviço público relevante"
+                    ],
+                    [
+                      "Competências",
+                      "propor diretrizes e subsídios para a Política Nacional e para a ANPD, avaliar a execução da política, sugerir ações, fazer estudos e audiências, disseminar conhecimento"
+                    ]
+                  ]
+                },
+                "atencao": "O CNPD **propõe e sugere**; quem decide, regula e sanciona é a ANPD."
+              }
+            ]
+          },
+          "chave": [
+            "ANPD: autarquia de natureza especial vinculada ao MJSP, com autonomia, nos termos da Lei 13.848.",
+            "Conselho Diretor: 5 membros, aprovados pelo Senado, mandato de 4 anos.",
+            "Sanções da LGPD são de competência exclusiva da ANPD (art. 55-K).",
+            "Regulamentos precedidos de consulta e audiência públicas e de AIR.",
+            "CNPD: 23 representantes, não remunerado, consultivo."
+          ],
+          "armadilhas": [
+            "Dizer que a ANPD é órgão da Presidência da República sem autonomia.",
+            "Dizer que o mandato dos diretores é de 5 anos ou que dispensa aprovação do Senado.",
+            "Dizer que o Procon pode aplicar as sanções do art. 52.",
+            "Atribuir ao CNPD poder de sancionar ou regulamentar."
+          ],
+          "blocos": [
+            "lgpd-55"
+          ]
+        }
+      ]
+    },
+    {
       "id": "constitucional",
       "nome": "Direito constitucional do zero",
       "resumo": "Da ideia de Constituição ao controle de constitucionalidade, na ordem em que a matéria faz sentido para quem começa.",

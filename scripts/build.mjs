@@ -182,6 +182,23 @@ export function montarDados() {
       delete st.artigos;
     }
   }
+  // Subtema com "blocos" recebe até "itens" questões do banco (padrão 30) desses blocos; com "soArtigos", só as que
+  // citam os artigos do subtema. Vêm as mais fáceis primeiro e, no mesmo nível, numa ordem fixa pelo id, para o
+  // conjunto não mudar de um build para outro. Questão com tema escrito no arquivo fica com ele; múltipla escolha fica fora.
+  const hashId = (s) => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.codePointAt(0), 16777619); return h >>> 0; };
+  for (const t of trilhas) for (const st of t.subtemas) {
+    if (!st.blocos) continue;
+    for (const b of st.blocos) if (!blocos.some((x) => x.id === b)) errosCb.push(`trilhas.json (${st.id}): bloco inexistente ${b}`);
+    const bl = new Set(st.blocos), arts = st.soArtigos ? new Set(st.arts) : null;
+    const cand = lista.filter((q) => !q.tm && !q.al && bl.has(q.b) && (!arts || (q.art && arts.has(q.l === 'lgpd' ? q.art : q.l + ':' + q.art))));
+    cand.sort((a, b) => a.d - b.d || hashId(a.id) - hashId(b.id));
+    // Perto de 55% certo e 45% errado, como no resto do banco, quando há itens dos dois lados
+    const n = Math.min(cand.length, st.itens || 30), cs = cand.filter((q) => q.g === 'C'), es = cand.filter((q) => q.g !== 'C');
+    const nC = Math.min(cs.length, Math.max(n - es.length, Math.round(n * 0.55)));
+    for (const q of cs.slice(0, nC).concat(es.slice(0, n - nC))) q.tm = st.id;
+    if (cand.length < 12) errosCb.push(`trilhas.json (${st.id}): só ${cand.length} itens nos blocos indicados`);
+    delete st.blocos; delete st.soArtigos; delete st.itens;
+  }
   for (const q of lista) {
     if (!q.tm) continue;
     const pre = q.tm.split('-')[0] + '-';
