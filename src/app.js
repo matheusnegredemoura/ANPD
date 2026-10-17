@@ -1661,6 +1661,13 @@ function roteiroHoje() {
     passos.push({ titulo: dia.modo === 'simulado' ? 'Simulado do dia' : dia.modo === 'revisao' ? 'Sessão de revisão do dia' : 'Questões do dia', feito,
       texto: dia.modo === 'treino' && nDia < dia.n ? 'Sessão reduzida de ' + dia.n + ' para ' + nDia + ' itens: há ' + pl(venc, 'revisão vencida', 'revisões vencidas') + ', e elas vêm primeiro.' : '', botoes: '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' + esc(rotuloPausa(dia.data, (feito ? 'Outra rodada' : 'Começar') + ' · ' + rotuloModoDia(Object.assign({}, dia, { n: nDia })))) + '</button>', extra: botaoRecomecar(dia.data) });
   }
+  const dd = discDeHoje();
+  if (dd) {
+    const t = temaDisc(dd), atr = pendencias().filter((x) => x.disc).length;
+    passos.push({ titulo: 'Discursiva do dia', feito: discFeita(dd),
+      texto: (t ? t.titulo + ': até ' + t.linhas + ' linhas, ' + t.minutos + ' min, sem consulta. Corrija pelos quesitos e salve.' : '') + (atr ? ' Há ' + pl(atr, 'discursiva atrasada', 'discursivas atrasadas') + ': cada uma salva dá baixa primeiro na de hoje e depois na mais antiga.' : ''),
+      botoes: discFeita(dd) ? '' : botaoDiscDia(dd, true) });
+  }
   const rec = proximaRecuperacao();
   const atrasados = blocosAtrasados();
   if (rec) {
@@ -1739,6 +1746,23 @@ function leituraAtrasadaDoDia(dia, lidos) {
   const todos = artigosTodosDoDia(dia), alvo = Math.min(todos.length, LEITURA_MAX), feitos = todos.filter((k) => lidos[k]).length;
   return feitos >= alvo ? [] : todos.filter((k) => !lidos[k]).sort((a, b) => importancia(b) - importancia(a)).slice(0, alvo - feitos);
 }
+// Discursiva do plano: o dia com "disc" pede uma discursiva corrigida e salva (uma por semana; duas nas seis últimas).
+// Cada correção salva dá baixa em um dia: o de hoje primeiro, depois o atrasado mais antigo, depois o próximo da semana
+// (adiantar vale). Vale qualquer tema; o do dia vem sugerido. A baixa fica em S.perfil.feitos['disc:' + data].
+const DIAS_DISC = DIAS.filter((d) => d.disc);
+function discFeita(dia) { return !!S.perfil.feitos['disc:' + dia.data]; }
+function discDeHoje() { const h = hojeISO(); return DIAS_DISC.find((d) => d.data === h) || null; }
+function temaDisc(dia) { return TEMAS_DISC.find((t) => t.id === dia.disc) || null; }
+function darBaixaDisc() {
+  const h = hojeISO(), fim = isoDeNum(HOJE() + ((7 - diaSemana(h)) % 7));
+  const atrasadas = pendencias().filter((x) => x.disc).map((x) => x.dia);
+  const alvo = [discDeHoje()].concat(atrasadas, DIAS_DISC.filter((d) => d.data > h && d.data <= fim)).find((d) => d && !discFeita(d));
+  if (alvo) S.perfil.feitos['disc:' + alvo.data] = 1;
+  return alvo;
+}
+function botaoDiscDia(dia, primario) {
+  return '<button class="btn pequeno' + (primario ? ' primario' : '') + '" data-acao="disc-dia" data-t="' + esc(dia.disc) + '">' + (estadoDisc(dia.disc).rascunho ? 'Continuar a discursiva' : 'Escrever a discursiva') + '</button>';
+}
 // Várias partes da tela pedem as pendências no mesmo desenho: o cálculo vale até o fim da tarefa atual
 function pendencias() {
   if (!pendCache) { pendCache = calcularPendencias(); queueMicrotask(() => { pendCache = null; }); }
@@ -1752,7 +1776,8 @@ function calcularPendencias() {
     if (dia.data >= h || dia.data < ini || disp[dia.data]) continue;
     const sessao = !S.perfil.feitos[dia.data] && dia.modo !== 'revisao' && !diaCompensado(dia);
     const ler = leituraAtrasadaDoDia(dia, lidos);
-    if (sessao || ler.length) out.push({ dia, sessao, ler });
+    const disc = !!dia.disc && !discFeita(dia);
+    if (sessao || ler.length || disc) out.push({ dia, sessao, ler, disc });
   }
   return out;
 }
@@ -1796,13 +1821,16 @@ function cartaoPendencias() {
   if (bs.length) h += '<div class="atraso-materias">' + bs.slice(0, 6).map((x) => '<span class="chip-atraso">' + esc(nomeBloco(x.b)) + (x.dias > 1 ? ' <b>×' + x.dias + '</b>' : '') + '</span>').join('') + (bs.length > 6 ? '<span class="chip-atraso mais">+' + pl(bs.length - 6, 'matéria', 'matérias') + '</span>' : '') + '</div>' +
     '<div class="linha-btns">' + botaoRecuperar(p) + (ler.length ? '<button class="btn pequeno" data-acao="ler-atraso">Ler ' + Math.min(ler.length, LEITURA_MAX) + (ler.length > LEITURA_MAX ? ' de ' + ler.length : '') + ' artigos</button>' : '') + '</div>';
   else if (ler.length) h += '<div class="linha-btns"><button class="btn pequeno primario" data-acao="ler-atraso">Ler ' + Math.min(ler.length, LEITURA_MAX) + (ler.length > LEITURA_MAX ? ' de ' + ler.length : '') + ' artigos atrasados</button></div>';
+  const discs = p.filter((x) => x.disc);
+  if (discs.length) h += '<div class="pend"><div class="pend-txt"><b>' + pl(discs.length, 'discursiva atrasada', 'discursivas atrasadas') + '</b><span>A mais antiga: ' + esc(fmtData(discs[0].dia.data, { day: '2-digit', month: '2-digit' })) + ', ' + esc((temaDisc(discs[0].dia) || { titulo: discs[0].dia.disc }).titulo) + '. Cada discursiva corrigida e salva dá baixa numa delas.</span></div><div class="linha-btns">' + botaoDiscDia(discs[0].dia, !bs.length) + '</div></div>';
   for (const x of sims) h += '<div class="pend"><div class="pend-txt"><b>Simulado de ' + esc(fmtData(x.dia.data, { day: '2-digit', month: '2-digit' })) + '</b><span>' + esc(x.dia.atividade) + '</span></div><div class="linha-btns"><button class="btn pequeno" data-acao="iniciar-dia" data-dia="' + x.dia.data + '">' + esc(rotuloPausa(x.dia.data, 'Fazer agora')) + '</button></div></div>';
   h += '<details class="det-lista" data-det="atraso"' + (UI.det.atraso ? ' open' : '') + '><summary>Ver os ' + pl(p.length, 'dia', 'dias') + (dias ? ' (' + dias + ' com sessão)' : '') + '</summary>' +
     p.map((x) => {
-      const oque = [x.sessao ? (x.dia.modo === 'simulado' ? 'o simulado' : 'a sessão de ' + x.dia.n + ' itens') : '', x.ler.length ? pl(x.ler.length, 'artigo da leitura', 'artigos da leitura') : ''].filter(Boolean).join(' e ');
+      const oque = [x.sessao ? (x.dia.modo === 'simulado' ? 'o simulado' : 'a sessão de ' + x.dia.n + ' itens') : '', x.ler.length ? pl(x.ler.length, 'artigo da leitura', 'artigos da leitura') : '', x.disc ? 'a discursiva' : ''].filter(Boolean).join(', ').replace(/, ([^,]*)$/, ' e $1');
       return '<div class="pend"><div class="pend-txt"><b>' + esc(fmtData(x.dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</b><span>' + esc(x.dia.atividade) + '</span><span class="pequeno mudo">Falta' + ((x.sessao && x.ler.length) || x.ler.length > 1 ? 'm ' : ' ') + esc(oque) + '.</span></div>' +
         '<div class="linha-btns">' + (x.sessao && x.dia.modo !== 'simulado' ? '<button class="btn pequeno" data-acao="iniciar-dia" data-dia="' + x.dia.data + '">' + esc(rotuloPausa(x.dia.data, 'Fazer este dia')) + '</button>' : '') +
         (x.ler.length ? '<button class="btn pequeno" data-acao="ler-pendente" data-dia="' + x.dia.data + '">Ler ' + x.ler.length + '</button>' : '') +
+        (x.disc ? botaoDiscDia(x.dia) : '') +
         '<button class="linkish pequeno" data-acao="dispensar-dia" data-dia="' + x.dia.data + '">Dispensar</button></div></div>';
     }).join('') + '</details>';
   return h + '</div>';
@@ -3383,11 +3411,22 @@ function resultadoDisc(t) {
   const f = (x) => x.toFixed(2).replace('.', ',');
   return '<b>Nota estimada: ' + f(r.nq) + ' de ' + t.pontos + '</b><span>Conteúdo ' + f(r.nc) + ' − desconto de português ' + f(r.desc) + ' (' + t.fatorErro + ' × ' + r.ne + ' erros ÷ ' + r.tl + ' linhas)' + (r.completo ? '' : ' · marque um conceito em cada quesito') + '</span>';
 }
+// Cadência da discursiva no plano: quantas já deviam ter sido feitas, quantas foram e qual vem a seguir
+function cartaoDiscPlano() {
+  if (!DIAS_DISC.length) return '';
+  const h = hojeISO(), ini = S.perfil.criado || h, disp = S.perfil.dispensados || {};
+  const devidas = DIAS_DISC.filter((d) => d.data <= h && d.data >= ini && !disp[d.data]);
+  const feitas = devidas.filter(discFeita).length, prox = DIAS_DISC.find((d) => (d.data > h || (d.data === h && !discFeita(d))) && !disp[d.data]);
+  const restam = DIAS_DISC.filter((d) => d.data > h).length;
+  return '<div class="cartao"><div class="secao-cab"><h2>Discursiva no plano</h2><span class="mono pequeno mudo">' + feitas + ' de ' + devidas.length + '</span></div>' +
+    '<p>Uma por semana; duas por semana nas seis últimas antes da prova. ' + (devidas.length ? (feitas >= devidas.length ? 'Você está em dia.' : pl(devidas.length - feitas, 'discursiva atrasada', 'discursivas atrasadas') + ': cada correção salva dá baixa numa delas, da mais antiga para a mais nova.') : '') + '</p>' +
+    (prox ? '<p class="pequeno">Próxima: <b>' + esc(fmtData(prox.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</b>, ' + esc((temaDisc(prox) || { titulo: prox.disc }).titulo) + '. Depois dela, mais ' + Math.max(0, restam - (prox.data > h ? 1 : 0)) + ' até a prova.</p><div class="linha-btns">' + botaoDiscDia(prox, true) + '</div>' : '') + '</div>';
+}
 function renderDiscursiva() {
   const t = TEMAS_DISC.find((x) => x.id === UI.discTema);
   if (!t) {
     UI.discTema = null;
-    return '<div class="prosa"><h2>Treino de discursiva</h2><p>' + esc((D.discursivas || {}).fonte || '') + '</p><p>Escreva como na prova: sem consulta, no tempo sugerido e dentro do limite de linhas. Depois corrija pelos quesitos com honestidade. O conceito máximo exige explicar, não só citar.</p></div>' +
+    return '<div class="prosa"><h2>Treino de discursiva</h2><p>' + esc((D.discursivas || {}).fonte || '') + '</p><p>Escreva como na prova: sem consulta, no tempo sugerido e dentro do limite de linhas. Depois corrija pelos quesitos com honestidade. O conceito máximo exige explicar, não só citar.</p></div>' + cartaoDiscPlano() +
       TEMAS_DISC.map((x) => {
         const tent = estadoDisc(x.id).tentativas, ult = tent[0];
         return '<div class="cartao disc-tema"><div class="secao-cab"><h2>' + esc(x.titulo) + '</h2><span class="selo mono">' + x.linhas + ' linhas · ' + x.pontos + ' pts</span></div>' +
@@ -3698,6 +3737,7 @@ document.addEventListener('click', async (ev) => {
     case 'disc-corrigir':
       if (!estadoDisc(UI.discTema).rascunho.trim()) { avisar('!', 'Texto vazio', 'Escreva a resposta antes de corrigir.'); break; }
       UI.discFase = 'correcao'; renderMais(); break;
+    case 'disc-dia': fecharFolha(); UI.mais = 'discursiva'; UI.discTema = alvo.dataset.t; UI.discFase = 'escrita'; UI.discAval = {}; UI.discNE = 0; UI.discIA = null; if (UI.vista !== 'mais') ir('mais'); else renderMais(); window.scrollTo(0, 0); break;
     case 'disc-editar': UI.discFase = 'escrita'; UI.discIA = null; renderMais(); break;
     case 'disc-limpar': { const t = estadoDisc(UI.discTema); t.rascunho = ''; Store.salvar('discursivas'); renderMais(); break; }
     case 'disc-salvar': {
@@ -3710,8 +3750,9 @@ document.addEventListener('click', async (ev) => {
       st.tentativas = st.tentativas.slice(0, 8);
       ganharXP(30);
       verificarConquistas();
+      const baixa = darBaixaDisc();
       Store.salvar('discursivas', 'perfil');
-      avisar('✎', 'Discursiva salva', r.nq.toFixed(2).replace('.', ',') + ' de ' + t.pontos + ' · +30 XP');
+      avisar('✎', 'Discursiva salva', r.nq.toFixed(2).replace('.', ',') + ' de ' + t.pontos + ' · +30 XP' + (baixa ? ' · plano de ' + fmtData(baixa.data, { day: '2-digit', month: '2-digit' }) + ' em dia' : ''));
       renderMais();
       break;
     }

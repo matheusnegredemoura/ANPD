@@ -20,6 +20,15 @@ test('dados do build cobrem blocos, lei e cronograma', () => {
   const blocos = new Set(d.blocos.map((b) => b.id));
   for (const q of d.questoes) assert.ok(blocos.has(q.b), q.id);
   for (const f of d.cronograma.fases) for (const s of f.semanas) for (const dia of s.dias) for (const b of dia.blocos) assert.ok(blocos.has(b), dia.data + ' ' + b);
+  // Discursiva no plano: uma por semana, duas por semana nas seis últimas antes da prova
+  const temas = new Set(d.discursivas.temas.map((t) => t.id));
+  const discs = d.cronograma.fases.flatMap((f) => f.semanas.flatMap((s) => s.dias)).filter((x) => x.disc);
+  for (const x of discs) assert.ok(temas.has(x.disc), x.data + ' ' + x.disc);
+  const semana = (iso) => { const t = Date.parse(iso + 'T12:00:00Z') / 86400000; return Math.floor((t - 4) / 7); };
+  const porSemana = new Map();
+  for (const x of discs) porSemana.set(semana(x.data), (porSemana.get(semana(x.data)) || 0) + 1);
+  const ultima = semana(d.cronograma.prova);
+  for (let w = semana(discs[0].data); w <= ultima; w++) assert.ok((porSemana.get(w) || 0) >= (ultima - w < 6 ? 2 : 1), 'semana ' + w + ': ' + (porSemana.get(w) || 0));
   assert.equal(d.lei.lgpd.artigos.length, 80);
 });
 

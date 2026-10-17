@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { FOTOS } from './comum.mjs';
 
 const DIR = dirname(fileURLToPath(import.meta.url));
-const TESTES = ['fumaca.mjs', 'sincronizacao.mjs', 'pausa.mjs', 'retomada.mjs', 'ia.mjs', 'revisao.mjs', 'multipla-escolha.mjs', 'cards.mjs', 'armadilha.mjs', 'lista-curta.mjs', 'jornada.mjs', 'conquistas.mjs', 'backup.mjs', 'pesos.mjs', 'prontidao.mjs'];
+const TESTES = ['fumaca.mjs', 'sincronizacao.mjs', 'pausa.mjs', 'retomada.mjs', 'ia.mjs', 'revisao.mjs', 'multipla-escolha.mjs', 'cards.mjs', 'armadilha.mjs', 'lista-curta.mjs', 'jornada.mjs', 'conquistas.mjs', 'backup.mjs', 'pesos.mjs', 'prontidao.mjs', 'discursiva-plano.mjs'];
 const resultado = [];
 for (const t of TESTES) {
   console.log('\n=== ' + t);

@@ -147,6 +147,9 @@ export function montarDados() {
     if (!t.id || !t.comando || !t.aspectos.length || ![15, 30].includes(t.linhas) || !t.pontos || !t.fatorErro) errosCb.push(`discursivas.json (${t.id}): campos obrigatórios`);
     for (const q of t.quesitos) if (q.conceitos.length !== q.max + 1 || !q.esperado.length) errosCb.push(`discursivas.json (${t.id}, ${q.titulo}): ${q.conceitos.length} conceitos para nota máxima ${q.max}`);
   }
+  // Dia de discursiva no plano: o tema precisa existir
+  const temasDisc = new Set(discursivas.temas.map((t) => t.id));
+  for (const f of cronograma.fases) for (const s of f.semanas) for (const dia of s.dias) if (dia.disc && !temasDisc.has(dia.disc)) errosCb.push(`cronograma.json (${dia.data}): tema de discursiva inexistente ${dia.disc}`);
   // Trilhas: subtemas únicos, artigos existentes e todo tema de trilha usado nas questões precisa existir
   const trilhas = JSON.parse(ler('dados', 'trilhas.json')).trilhas;
   // Respostas às contestações: chegam com o banco, mesmo quando a contestação não conseguiu ir para a conta
