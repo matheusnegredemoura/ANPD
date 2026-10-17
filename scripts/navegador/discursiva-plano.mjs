@@ -15,7 +15,7 @@ const browser = await abrirNavegador();
 const { conferir, fim } = placar();
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
 await ctx.clock.install({ time: new Date(d1.data + 'T10:00:00') });
-const p = await ctx.newPage();
+let p = await ctx.newPage();
 const erros = [];
 vigiarErros(p, erros);
 await p.goto(APP);
@@ -77,6 +77,28 @@ await p.waitForTimeout(200);
 if (await p.locator('[data-acao="disc-voltar"]').count()) await p.click('[data-acao="disc-voltar"]');
 const cartao = ((await p.locator('.cartao', { hasText: 'Discursiva no plano' }).textContent()) || '').replace(/\s+/g, ' ');
 conferir('a página de discursiva mostra o plano em dia', /3 de 3/.test(cartao) && /em dia/.test(cartao), cartao.slice(0, 200));
+
+// Adiantar: nas semanas com duas discursivas, a segunda correção do dia dá baixa na próxima da semana, que deixa de
+// aparecer como próxima (perfil novo, para não haver atraso de antes)
+const semana = (iso) => { const d = new Date(iso + 'T12:00:00'); d.setDate(d.getDate() - d.getDay()); return d.toISOString().slice(0, 10); };
+const par = discs.findIndex((d, i) => i + 1 < discs.length && semana(d.data) === semana(discs[i + 1].data) && d.data !== discs[i + 1].data);
+const [e1, e2, e3] = [discs[par], discs[par + 1], discs[par + 2]];
+const ctx2 = await browser.newContext({ viewport: { width: 390, height: 844 } });
+await ctx2.clock.install({ time: new Date(e1.data + 'T10:00:00') });
+p = await ctx2.newPage();
+vigiarErros(p, erros);
+await p.goto(APP);
+await p.waitForTimeout(500);
+await passoDisc().locator('[data-acao="disc-dia"]').click();
+await escreverESalvar();
+await p.click('[data-acao="disc-editar"]');
+await escreverESalvar();
+const aviso2 = ((await p.textContent('#avisos').catch(() => '')) || '');
+conferir('a segunda correção do dia adianta a de ' + e2.data, aviso2.includes(e2.data.slice(8, 10) + '/' + e2.data.slice(5, 7)), aviso2.slice(-120));
+if (await p.locator('[data-acao="disc-voltar"]').count()) await p.click('[data-acao="disc-voltar"]');
+const cartao2 = ((await p.locator('.cartao', { hasText: 'Discursiva no plano' }).textContent()) || '').replace(/\s+/g, ' ');
+const dm = (d) => d.data.slice(8, 10) + '/' + d.data.slice(5, 7);
+conferir('a próxima é a seguinte à adiantada', !!e3 && cartao2.includes(dm(e3)) && !cartao2.includes(dm(e2)), cartao2.slice(0, 220));
 
 await browser.close();
 fim(erros);

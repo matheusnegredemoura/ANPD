@@ -1779,7 +1779,8 @@ function darBaixaDisc() {
   const h = hojeISO(), fim = isoDeNum(HOJE() + ((7 - diaSemana(h)) % 7));
   const atrasadas = pendencias().filter((x) => x.disc).map((x) => x.dia);
   const alvo = [discDeHoje()].concat(atrasadas, DIAS_DISC.filter((d) => d.data > h && d.data <= fim)).find((d) => d && !discFeita(d));
-  if (alvo) S.perfil.feitos['disc:' + alvo.data] = 1;
+  // a baixa muda as pendências: o cálculo guardado para esta tarefa deixa de valer
+  if (alvo) { S.perfil.feitos['disc:' + alvo.data] = 1; pendCache = null; }
   return alvo;
 }
 function botaoDiscDia(dia, primario) {
@@ -1849,7 +1850,7 @@ function cartaoPendencias() {
   h += '<details class="det-lista" data-det="atraso"' + (UI.det.atraso ? ' open' : '') + '><summary>Ver os ' + pl(p.length, 'dia', 'dias') + (dias ? ' (' + dias + ' com sessão)' : '') + '</summary>' +
     p.map((x) => {
       const oque = [x.sessao ? (x.dia.modo === 'simulado' ? 'o simulado' : 'a sessão de ' + x.dia.n + ' itens') : '', x.ler.length ? pl(x.ler.length, 'artigo da leitura', 'artigos da leitura') : '', x.disc ? 'a discursiva' : ''].filter(Boolean).join(', ').replace(/, ([^,]*)$/, ' e $1');
-      return '<div class="pend"><div class="pend-txt"><b>' + esc(fmtData(x.dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</b><span>' + esc(x.dia.atividade) + '</span><span class="pequeno mudo">Falta' + ((x.sessao && x.ler.length) || x.ler.length > 1 ? 'm ' : ' ') + esc(oque) + '.</span></div>' +
+      return '<div class="pend"><div class="pend-txt"><b>' + esc(fmtData(x.dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</b><span>' + esc(x.dia.atividade) + '</span><span class="pequeno mudo">Falta' + (!!x.sessao + !!x.ler.length + !!x.disc > 1 || x.ler.length > 1 ? 'm ' : ' ') + esc(oque) + '.</span></div>' +
         '<div class="linha-btns">' + (x.sessao && x.dia.modo !== 'simulado' ? '<button class="btn pequeno" data-acao="iniciar-dia" data-dia="' + x.dia.data + '">' + esc(rotuloPausa(x.dia.data, 'Fazer este dia')) + '</button>' : '') +
         (x.ler.length ? '<button class="btn pequeno" data-acao="ler-pendente" data-dia="' + x.dia.data + '">Ler ' + x.ler.length + '</button>' : '') +
         (x.disc ? botaoDiscDia(x.dia) : '') +
@@ -3027,7 +3028,7 @@ function cartaoProntidao() {
   let leitura;
   if (real.n < 30) leitura = 'Com ' + pl(real.n, 'item real respondido', 'itens reais respondidos') + ', ainda não dá para comparar. A medida fica confiável perto de 100 itens reais: faltam ' + Math.max(0, 100 - real.n) + '. Até lá, a estimativa usa os itens do banco, que tendem a ser mais fáceis que os da banca.';
   else {
-    const dif = Math.round((banco.c / banco.n - real.c / real.n) * 100);
+    const dif = banco.n ? Math.round((banco.c / banco.n - real.c / real.n) * 100) : 0;
     leitura = dif > 2 ? 'Nos itens reais você acerta ' + dif + ' pontos percentuais a menos que nos do banco. A estimativa já desconta essa diferença nas disciplinas com poucos itens reais respondidos.'
       : dif < -2 ? 'Nos itens reais você acerta ' + -dif + ' pontos percentuais a mais que nos do banco: o banco não está facilitando para você.'
       : 'Nos itens reais e nos do banco o seu acerto é parecido: o banco está medindo bem o seu nível.';
@@ -3040,7 +3041,7 @@ function cartaoProntidao() {
       comDados.map((l) => '<tr><td>' + esc((DI.get(l.d) || { nome: l.d }).nome) + '</td><td class="num">' + PONTOS_DISC[l.d] + '</td><td class="num">' + (l.x.r.n ? pct(l.x.r.c, l.x.r.n) + '% de ' + l.x.r.n : '—') + '</td><td class="num">' + (l.x.b.n ? pct(l.x.b.c, l.x.b.n) + '% de ' + l.x.b.n : '—') + '</td><td>' + (l.p == null ? 'menos de 10 respostas' : Math.round(l.p * 100) + '% (' + l.fonte + ')') + '</td></tr>').join('') +
       '</tbody></table></div></details>';
   }
-  html += livres ? '<div class="linha-btns"><button class="btn primario" data-acao="treinar-reais">Treinar ' + pl(Math.min(20, livres), 'item real inédito', 'itens reais inéditos') + '</button></div>' : '';
+  html += livres ? '<div class="linha-btns"><button class="btn primario" data-acao="treinar-reais">' + esc(rotuloPausa('reais:ineditos', 'Treinar ' + pl(Math.min(20, livres), 'item real inédito', 'itens reais inéditos'))) + '</button></div>' : '';
   html += '<p class="pequeno mudo">Conta só a primeira resposta de cada item certo/errado, no peso da nota (básica vale 1, específica vale 2). ' + pl(livres, 'item real ainda inédito', 'itens reais ainda inéditos') + ' no banco. Nos simulados de prova completa, pelo menos metade de cada disciplina vem deles enquanto houver inéditos.</p></div>';
   return html;
 }
@@ -3445,8 +3446,9 @@ function cartaoDiscPlano() {
   if (!DIAS_DISC.length) return '';
   const h = hojeISO(), ini = S.perfil.criado || h, disp = S.perfil.dispensados || {};
   const devidas = DIAS_DISC.filter((d) => d.data <= h && d.data >= ini && !disp[d.data]);
-  const feitas = devidas.filter(discFeita).length, prox = DIAS_DISC.find((d) => (d.data > h || (d.data === h && !discFeita(d))) && !disp[d.data]);
-  const restam = DIAS_DISC.filter((d) => d.data > h).length;
+  const feitas = devidas.filter(discFeita).length, prox = DIAS_DISC.find((d) => d.data >= h && !discFeita(d) && !disp[d.data]);
+  // as adiantadas já têm baixa e não contam como próximas
+  const restam = DIAS_DISC.filter((d) => d.data > h && !discFeita(d) && !disp[d.data]).length;
   return '<div class="cartao"><div class="secao-cab"><h2>Discursiva no plano</h2><span class="mono pequeno mudo">' + feitas + ' de ' + devidas.length + '</span></div>' +
     '<p>Uma por semana; duas por semana nas seis últimas antes da prova. ' + (devidas.length ? (feitas >= devidas.length ? 'Você está em dia.' : pl(devidas.length - feitas, 'discursiva atrasada', 'discursivas atrasadas') + ': cada correção salva dá baixa numa delas, da mais antiga para a mais nova.') : '') + '</p>' +
     (prox ? '<p class="pequeno">Próxima: <b>' + esc(fmtData(prox.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</b>, ' + esc((temaDisc(prox) || { titulo: prox.disc }).titulo) + '. Depois dela, mais ' + Math.max(0, restam - (prox.data > h ? 1 : 0)) + ' até a prova.</p><div class="linha-btns">' + botaoDiscDia(prox, true) + '</div>' : '') + '</div>';
