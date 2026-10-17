@@ -1084,13 +1084,31 @@ function selecionarProva(n) {
   const usados = new Set();
   for (const [parte, disc, k] of cotasProva(n)) {
     const pool = Q.filter((q) => { const b = BI.get(q.b); return b && b.disciplina === disc && parteProva(q) === parte && !FORA_DA_PROVA.has(b.id) && !q.al; });
-    // Agrupa por texto dentro da fatia: os itens irmãos do mesmo texto são da mesma disciplina, e a cota não muda
-    emBlocosDeTexto(selecionar(pool, Math.min(pool.length, k), 'novas'), true, null).forEach((q) => { if (!usados.has(q.id)) { escolhidos.push(q); usados.add(q.id); } });
+    // Metade da fatia vem de itens reais inéditos, que medem o nível da banca melhor que os escritos para o banco.
+    // Depois agrupa por texto dentro da fatia: os irmãos do mesmo texto são da mesma disciplina, e a cota não muda; como
+    // os irmãos de um item real também são reais, a parte real pode passar da metade.
+    const reais = embaralhar(pool.filter((q) => q.o && inedito(q))).slice(0, Math.ceil(k / 2));
+    const sorteio = reais.concat(selecionar(pool.filter((q) => !reais.includes(q)), Math.min(pool.length, k) - reais.length, 'novas'));
+    emBlocosDeTexto(sorteio, true, null).forEach((q) => { if (!usados.has(q.id)) { escolhidos.push(q); usados.add(q.id); } });
   }
   if (escolhidos.length < n) selecionar(Q.filter((q) => !usados.has(q.id) && !FORA_DA_PROVA.has(q.b) && !q.al), n - escolhidos.length, 'novas').forEach((q) => escolhidos.push(q));
   return embaralhar(escolhidos.slice(0, n));
 }
 
+function inedito(q) { const r = rec(q.id); return !r || r[0] < 0; }
+// Itens reais certo/errado ainda não respondidos, repartidos pelo peso de cada disciplina na nota
+function selecionarReais(n) {
+  const livres = embaralhar(REAIS.filter((q) => !q.al && inedito(q) && !FORA_DA_PROVA.has(q.b)));
+  const porD = new Map();
+  for (const q of livres) { const d = (BI.get(q.b) || {}).disciplina; if (!porD.has(d)) porD.set(d, []); porD.get(d).push(q); }
+  const base = Object.entries(PONTOS_DISC).map(([d, w]) => { const x = (n * w) / PONTOS_PROVA; return [d, Math.floor(x), x - Math.floor(x)]; });
+  let falta = n - base.reduce((a, b) => a + b[1], 0);
+  base.slice().sort((a, b) => b[2] - a[2]).forEach((b) => { if (falta > 0) { b[1]++; falta--; } });
+  const out = [];
+  for (const [d, k] of base) out.push(...(porD.get(d) || []).slice(0, k));
+  if (out.length < n) out.push(...livres.filter((q) => !out.includes(q)).slice(0, n - out.length));
+  return embaralhar(out);
+}
 // Blocos já vistos no cronograma (dias anteriores a hoje), fora as básicas
 function blocosEstudados() {
   const h = hojeISO();
@@ -1417,11 +1435,11 @@ function finalizar() {
     sessao.ids.forEach((id) => {
       const q = QI.get(id);
       const r = sessao.resp[id] || BRANCO;
-      const inedito = !rec(id) || rec(id)[0] < 0;
+      const novo = inedito(q);
       const ok = registrar(q, r, !!sessao.duv[id]);
       const w = pesoItem(q);
       ptMax += w;
-      if (inedito && r !== BRANCO) { ni++; if (ok) nc++; }
+      if (novo && r !== BRANCO) { ni++; if (ok) nc++; }
       if (q.o && r !== BRANCO) { nr++; if (ok) cr++; }
       if (r === BRANCO) b++; else if (ok) { c++; xp += 10; pt += w; } else { e++; if (q.al) eMc++; else pt -= w; }
     });
@@ -2917,11 +2935,69 @@ function cartaoConquistas() {
       return '<details class="det-lista" data-det="cq-' + g + '"' + (UI.det['cq-' + g] ? ' open' : '') + '><summary>' + esc(nome) + ' <span class="mudo pequeno">' + n + ' de ' + cs.length + '</span></summary><div class="conquistas">' + cs.map(card).join('') + '</div></details>';
     }).join('') + '</div>';
 }
+// Prontidão: acerto na primeira resposta de cada item (inédito), separado em itens reais de prova e itens escritos para
+// o banco, que tendem a ser mais fáceis. A nota estimada usa, por disciplina, o acerto nos reais quando há 10 ou mais
+// respondidos; senão, o acerto nos do banco multiplicado pela razão geral reais ÷ banco (medida a partir de 30 reais).
+// Conta só certo/errado e supõe todos os itens marcados: cada item vale 2p − 1 do seu peso.
+function prontidao() {
+  const z = () => ({ c: 0, n: 0 });
+  const real = z(), banco = z(), porD = {};
+  for (const q of Q) {
+    if (q.al) continue;
+    const r = rec(q.id), d = (BI.get(q.b) || {}).disciplina;
+    if (!r || r[7] == null || !PONTOS_DISC[d]) continue;
+    const x = (porD[d] ||= { r: z(), b: z() });
+    for (const t of q.o ? [real, x.r] : [banco, x.b]) { t.n++; t.c += r[7]; }
+  }
+  const fator = real.n >= 30 && banco.n >= 30 && banco.c ? real.c / real.n / (banco.c / banco.n) : 1;
+  let soma = 0, peso = 0;
+  const linhas = Object.keys(PONTOS_DISC).sort((a, b) => PONTOS_DISC[b] - PONTOS_DISC[a]).map((d) => {
+    const x = porD[d] || { r: z(), b: z() };
+    let p = null, fonte = 'sem dados';
+    if (x.r.n >= 10) { p = x.r.c / x.r.n; fonte = 'reais'; }
+    else if (x.b.n >= 10) { p = Math.min(1, (x.b.c / x.b.n) * fator); fonte = fator === 1 ? 'banco' : 'banco corrigido'; }
+    if (p != null) { soma += PONTOS_DISC[d] * (2 * p - 1); peso += PONTOS_DISC[d]; }
+    return { d, x, p, fonte };
+  });
+  return { real, banco, fator, linhas, nota: peso ? (soma / peso) * PONTOS_PROVA : null, cobre: peso / PONTOS_PROVA };
+}
+function cartaoProntidao() {
+  const pr = prontidao(), { real, banco } = pr;
+  const livres = REAIS.filter((q) => !q.al && inedito(q) && !FORA_DA_PROVA.has(q.b)).length;
+  const taxa = (t) => (t.n ? pct(t.c, t.n) + '%' : '—');
+  let html = '<div class="cartao"><div class="secao-cab"><h2>Prontidão para a prova</h2><span class="mudo pequeno">' + pl(real.n, 'item real respondido', 'itens reais respondidos') + '</span></div>';
+  html += '<div class="dominio">' +
+    '<div class="dom-linha"><span class="nome">Itens reais de prova · ' + pl(real.n, 'primeira resposta', 'primeiras respostas') + '</span>' + barra(real.n ? real.c / real.n : 0) + '<span class="val">' + taxa(real) + '</span></div>' +
+    '<div class="dom-linha"><span class="nome">Itens escritos para o banco · ' + pl(banco.n, 'primeira resposta', 'primeiras respostas') + '</span>' + barra(banco.n ? banco.c / banco.n : 0) + '<span class="val">' + taxa(banco) + '</span></div></div>';
+  if (pr.nota != null && pr.cobre >= 0.5) {
+    html += '<div class="nota-final"><span class="grande">' + Math.round(pr.nota) + '</span><span class="mudo">de ' + PONTOS_PROVA + ' pontos líquidos, se marcasse a prova inteira hoje' + (pr.cobre < 0.99 ? ' (estimativa sobre ' + Math.round(pr.cobre * 100) + '% da nota; o resto ainda não tem respostas)' : '') + '</span></div>';
+  }
+  let leitura;
+  if (real.n < 30) leitura = 'Com ' + pl(real.n, 'item real respondido', 'itens reais respondidos') + ', ainda não dá para comparar. A medida fica confiável perto de 100 itens reais: faltam ' + Math.max(0, 100 - real.n) + '. Até lá, a estimativa usa os itens do banco, que tendem a ser mais fáceis que os da banca.';
+  else {
+    const dif = Math.round((banco.c / banco.n - real.c / real.n) * 100);
+    leitura = dif > 2 ? 'Nos itens reais você acerta ' + dif + ' pontos percentuais a menos que nos do banco. A estimativa já desconta essa diferença nas disciplinas com poucos itens reais respondidos.'
+      : dif < -2 ? 'Nos itens reais você acerta ' + -dif + ' pontos percentuais a mais que nos do banco: o banco não está facilitando para você.'
+      : 'Nos itens reais e nos do banco o seu acerto é parecido: o banco está medindo bem o seu nível.';
+    if (real.n < 100) leitura += ' Faltam ' + (100 - real.n) + ' itens reais para a medida ficar confiável.';
+  }
+  html += '<p>' + leitura + '</p>';
+  const comDados = pr.linhas.filter((l) => l.x.r.n + l.x.b.n);
+  if (comDados.length) {
+    html += '<details class="det-lista" data-det="prontidao"' + (UI.det.prontidao ? ' open' : '') + '><summary>Por disciplina</summary><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>Na nota</th><th>Reais</th><th>Banco</th><th>Usado</th></tr></thead><tbody>' +
+      comDados.map((l) => '<tr><td>' + esc((DI.get(l.d) || { nome: l.d }).nome) + '</td><td class="num">' + PONTOS_DISC[l.d] + '</td><td class="num">' + (l.x.r.n ? pct(l.x.r.c, l.x.r.n) + '% de ' + l.x.r.n : '—') + '</td><td class="num">' + (l.x.b.n ? pct(l.x.b.c, l.x.b.n) + '% de ' + l.x.b.n : '—') + '</td><td>' + (l.p == null ? 'menos de 10 respostas' : Math.round(l.p * 100) + '% (' + l.fonte + ')') + '</td></tr>').join('') +
+      '</tbody></table></div></details>';
+  }
+  html += livres ? '<div class="linha-btns"><button class="btn primario" data-acao="treinar-reais">Treinar ' + pl(Math.min(20, livres), 'item real inédito', 'itens reais inéditos') + '</button></div>' : '';
+  html += '<p class="pequeno mudo">Conta só a primeira resposta de cada item certo/errado, no peso da nota (básica vale 1, específica vale 2). ' + pl(livres, 'item real ainda inédito', 'itens reais ainda inéditos') + ' no banco. Nos simulados de prova completa, pelo menos metade de cada disciplina vem deles enquanto houver inéditos.</p></div>';
+  return html;
+}
 function renderProgresso() {
   const t = totais(), seq = sequencia();
   // Nível e XP ficam na Jornada (Hoje) e na ficha do personagem
   let html = '<div class="estat"><div><b>' + fmtNum(t.r) + '</b><span>itens respondidos</span></div><div><b>' + pct(t.c, t.r) + '%</b><span>de acerto</span></div><div><b>' + fmtNum(t.c - t.e) + '</b><span>nota líquida acumulada</span></div>' +
     '<div><b>' + fmtNum(t.k) + '</b><span>cards revisados</span></div><div><b>' + seq + '</b><span>dias seguidos</span></div><div><b>' + (S.perfil.melhorSeq || 0) + '</b><span>melhor sequência</span></div></div>';
+  html += cartaoProntidao();
   html += cartaoTempoHistorico();
   html += '<div class="cartao"><div class="secao-cab"><h2>Constância</h2><span class="mudo pequeno">Últimas 16 semanas</span></div>' + mapaCalor() + '</div>';
   // Os blocos já praticados vêm do mais fraco ao mais forte; os outros ficam recolhidos. Tocar num bloco abre um treino dele.
@@ -2963,7 +3039,8 @@ function renderProgresso() {
   let dc = 0, de = 0;
   for (const r of Object.values(S.itens)) { dc += r[5] || 0; de += r[6] || 0; }
   html += '<div class="cartao"><h2>Calibragem do chute</h2>' + (dc + de >= 5 ? '<p>Quando marca dúvida, você acerta <b>' + pct(dc, dc + de) + '%</b> (' + dc + ' de ' + (dc + de) + '). ' + (pct(dc, dc + de) > 50 ? 'Acima de 50%: na prova, chutar tende a somar pontos.' : 'Até 50%: na prova, deixar em branco tende a ser melhor.') + '</p>' : '<p class="mudo">Marque “Estou em dúvida” antes de responder. Com 5 marcações já dá para saber se o seu chute compensa.</p>') + '</div>';
-  if (S.simulados.length) html += '<div class="cartao"><h2>Simulados</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Data</th><th>Itens</th><th>C</th><th>E</th><th>Nota</th></tr></thead><tbody>' + S.simulados.slice(0, 12).map((s) => '<tr><td>' + esc(fmtData(s.data, { day: '2-digit', month: '2-digit' })) + '</td><td class="num">' + s.n + '</td><td class="num">' + s.c + '</td><td class="num">' + s.e + '</td><td class="num">' + s.liq + ' (' + pct(s.liq, s.n) + '%)</td></tr>').join('') + '</tbody></table></div></div>';
+  if (S.simulados.length) html += '<div class="cartao"><h2>Simulados</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Data</th><th>Itens</th><th>C</th><th>E</th><th>Nota</th><th>Pontos</th><th>Reais</th></tr></thead><tbody>' + S.simulados.slice(0, 12).map((s) => '<tr><td>' + esc(fmtData(s.data, { day: '2-digit', month: '2-digit' })) + '</td><td class="num">' + s.n + '</td><td class="num">' + s.c + '</td><td class="num">' + s.e + '</td><td class="num">' + s.liq + ' (' + pct(s.liq, s.n) + '%)</td><td class="num">' + (s.ptMax ? s.pt + ' de ' + s.ptMax : '—') + '</td><td class="num">' + (s.nr ? pct(s.cr, s.nr) + '% de ' + s.nr : '—') + '</td></tr>').join('') + '</tbody></table></div>' +
+    '<p class="pequeno mudo">Pontos: nota com os pesos da prova (básica vale 1, específica vale 2). Reais: acerto nos itens reais de prova do simulado.</p></div>';
   html += cartaoConquistas();
   html += cartaoTrofeus();
   return html;
@@ -3599,6 +3676,11 @@ document.addEventListener('click', async (ev) => {
     case 'treinar-bloco': iniciarSessao({ modo: 'treino', n: 20, blocos: [alvo.dataset.bloco], filtro: 'mistas', titulo: 'Treino · ' + nomeBloco(alvo.dataset.bloco), chave: 'bloco:' + alvo.dataset.bloco }); break;
     case 'treinar-art': { const ids = (POR_ART.get(alvo.dataset.art) || []).map((q) => q.id); iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Questões · ' + nomeArt(alvo.dataset.art), chave: 'art:' + alvo.dataset.art }); break; }
     case 'cards-art': iniciarCards((CARDS_POR_ART.get(alvo.dataset.art) || []).map((c) => c.id), 'Cards · ' + nomeArt(alvo.dataset.art)); break;
+    case 'treinar-reais': {
+      const ids = selecionarReais(20).map((q) => q.id);
+      if (ids.length) iniciarSessao({ modo: 'treino', ids, titulo: 'Itens reais inéditos', chave: 'reais:ineditos' });
+      break;
+    }
     case 'reais-disc': {
       const d = (D.cebraspe ? D.cebraspe.disciplinas : []).find((x) => x.id === alvo.dataset.d);
       const ids = d ? reaisDaDisc(d.id).map((q) => q.id) : [];

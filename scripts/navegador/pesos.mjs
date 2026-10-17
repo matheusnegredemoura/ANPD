@@ -21,10 +21,14 @@ await p.click('[data-acao="comecar"]');
 await p.waitForSelector('#sessao:not([hidden])');
 
 // Marca os 12 primeiros (um erro anula um acerto) e entrega o resto em branco
+let reais = 0;
 for (let i = 0; i < 12; i++) {
+  if (await p.locator('#sessao .selo.real').count()) reais++;
   await responder(p, i % 3 ? 'c' : 'e');
   await p.click('[data-acao="proximo"]');
 }
+// Pelo menos metade de cada fatia vem de itens reais inéditos (os irmãos de texto podem passar disso)
+conferir('simulado traz itens reais', reais >= 4, reais + ' de 12');
 await p.click('[data-acao="entregar"]');
 await p.click('[data-acao="confirmar-entrega"]');
 await p.waitForSelector('.placar');
