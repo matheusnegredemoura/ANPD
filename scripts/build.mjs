@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { ARMADILHAS, parseRef } from './lib/questoes.mjs';
 import { GRUPOS_LEIS, LEIS } from './lib/leis.mjs';
 import { validar } from './validar.mjs';
-import { lacunas, semMarcas } from './lib/cloze.mjs';
+import { lacunas } from './lib/cloze.mjs';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ler = (...p) => readFileSync(join(RAIZ, ...p), 'utf8');

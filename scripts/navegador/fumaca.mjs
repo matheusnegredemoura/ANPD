@@ -127,13 +127,10 @@ await passo('como o Cebraspe cobra', async () => {
   await sairDaSessao(p);
 });
 
-await passo('aba cards e exportação para o Anki', async () => {
+await passo('aba cards', async () => {
   await p.click('.aba[data-vista="cards"]');
   await p.screenshot({ path: foto('cards.png'), fullPage: true });
-  await p.click('[data-acao="exportar-anki"]');
-  await p.waitForTimeout(300);
-  if (!(await p.locator('textarea').count())) throw new Error('sem área de exportação');
-  await p.click('[data-acao="fechar-folha"]');
+  if (!(await p.locator('[data-acao="cards-iniciar"]').count())) throw new Error('aba cards sem o botão de estudar');
 });
 
 await passo('lei seca: ranking, grifos e busca', async () => {

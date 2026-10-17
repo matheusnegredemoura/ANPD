@@ -1901,7 +1901,7 @@ const MISSOES = [
 ];
 const MI = new Map(MISSOES.map((m) => [m.id, m]));
 const BAU_XP = 50, CHEFE_VIDA = 300, CHEFE_XP = 150, CORACOES = 5, BATALHA_N = 15;
-const CHEFES = { lgpd: 'O Vazador de Dados', regulacao: 'O Regulador Capturado', direito: 'O Burocrata Sem Motivação', linguas: 'A Esfinge dos Conectivos', seginfo: 'O Ransomware', gestao: 'O Risco Sem Dono', eca: 'O Algoritmo Viciante', economia: 'O Monopolista', comparado: 'O Exportador Sem Adequação' };
+const CHEFES = { lgpd: 'O Vazador de Dados', regulacao: 'O Regulador Capturado', direito: 'O Burocrata Sem Motivação', linguas: 'A Esfinge dos Conectivos', seginfo: 'O Ransomware', gestao: 'O Risco Sem Dono', eca: 'O Algoritmo Viciante', economia: 'O Monopolista', comparado: 'O Exportador Sem Adequação', contabil: 'O Rombo nas Contas' };
 // Brasão de cada chefão: um escudo com o símbolo da disciplina
 const SIMBOLOS = {
   lgpd: '<rect x="9" y="11" width="6" height="5" rx="1"/><path d="M10 11V9.5a2 2 0 0 1 4 0V11"/>',
@@ -1913,6 +1913,7 @@ const SIMBOLOS = {
   eca: '<path d="M6.5 12s2-3.5 5.5-3.5 5.5 3.5 5.5 3.5-2 3.5-5.5 3.5S6.5 12 6.5 12z"/><circle cx="12" cy="12" r="1.4"/>',
   economia: '<circle cx="12" cy="12" r="4"/><path d="M12 9.5v5M10.8 10.5h2a.9.9 0 0 1 0 1.8h-1.6a.9.9 0 0 0 0 1.8h2"/>',
   comparado: '<circle cx="12" cy="12" r="4"/><path d="M8 12h8M12 8c1.3 1.2 1.3 6.8 0 8M12 8c-1.3 1.2-1.3 6.8 0 8"/>',
+  contabil: '<path d="M7.5 8.5h9M7.5 12h9M7.5 15.5h9M12 7v10"/>',
 };
 function brasao(disc) { return '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="escudo" d="M12 2.5 19.5 5v6.2c0 4.6-3.2 8.3-7.5 10.3-4.3-2-7.5-5.7-7.5-10.3V5z"/>' + (SIMBOLOS[disc] || SIMBOLOS.lgpd) + '</svg>'; }
 function coracao(cheio, cls) { return '<svg class="cor' + (cheio ? ' cheio' : '') + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>'; }
@@ -2150,7 +2151,7 @@ function renderPersonagem() {
     '<div class="placar"><div><b>' + coracoesMax() + '</b><span>corações</span></div><div><b>+' + bonusDano() + '%</b><span>dano</span></div><div><b>' + chanceCritico() + '%</b><span>crítico</span></div><div><b>' + ((r.trofeus || []).length) + '</b><span>chefões</span></div></div></div>';
   // Pontos de 1 a 20 pela raiz do domínio: o começo rende pontos visíveis, e o 20 exige dominar o banco inteiro
   h += '<div class="cartao"><div class="secao-cab"><h2>Atributos</h2><span class="pequeno mudo">de 1 a 20, pelo domínio real</span></div><div class="atributos">' +
-    DISC.filter((d) => d.id !== 'contabil').map((d) => { const v = dominioDisciplina(d.id), pts = 1 + Math.round(19 * Math.sqrt(v)); return '<div class="atributo"><span class="brasao mini">' + brasao(d.id) + '</span><span class="at-nome">' + esc(d.nome) + ' <span class="pequeno mudo">' + Math.round(v * 100) + '%</span></span><b class="mono">' + pts + '</b>' + barra(pts / 20) + '</div>'; }).join('') + '</div></div>';
+    DISC.map((d) => { const v = dominioDisciplina(d.id), pts = 1 + Math.round(19 * Math.sqrt(v)); return '<div class="atributo"><span class="brasao mini">' + brasao(d.id) + '</span><span class="at-nome">' + esc(d.nome) + ' <span class="pequeno mudo">' + Math.round(v * 100) + '%</span></span><b class="mono">' + pts + '</b>' + barra(pts / 20) + '</div>'; }).join('') + '</div></div>';
   h += '<div class="cartao"><div class="secao-cab"><h2>Equipamento</h2></div><div class="equip">' + Object.keys(ENCAIXES).map((s) => { const it = equipado(s); return it ? cartaoItem(it, 'equipado') : '<div class="item-rpg vazio"><b>' + ENCAIXES[s] + '</b><span class="pequeno mudo">Vazio. Baús e chefões dão itens.</span></div>'; }).join('') + '</div></div>';
   const inv = ITENS_RPG.filter((x) => r.inv[x.id]);
   h += '<div class="cartao"><div class="secao-cab"><h2>Inventário</h2><span class="mono pequeno mudo">' + inv.length + '/' + ITENS_RPG.length + '</span></div>' +
@@ -2285,7 +2286,7 @@ function renderQuestoes() {
   html += '<button class="btn primario largo comecar-fixo" data-acao="comecar"' + (pool.length || usarProva ? '' : ' disabled') + '>Começar ' + esc({ treino: 'treino', simulado: 'simulado', relampago: 'relâmpago' }[modo]) + '</button>';
   const conferidos = REAIS.filter(gabConferido).length;
   const nIades = REAIS.filter((q) => bancaDe(q) === 'IADES').length;
-  if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais de prova</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas de 2021 a 2026, com comentário: ' + (REAIS.length - conferidos) + ' com gabarito oficial definitivo e ' + conferidos + ' avulsos, com o gabarito conferido na lei ou no texto da prova. ' + (nIades ? nIades + ' são da seleção da própria ANPD (IADES, 2025). ' : '') + 'Os de telecomunicações ficam fora do simulado de prova completa.</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
+  if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais de prova</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas de 2021 a 2026, com comentário: ' + (REAIS.length - conferidos) + ' com gabarito oficial definitivo e ' + conferidos + ' avulsos, com o gabarito conferido na lei ou no texto da prova. ' + (nIades ? nIades + ' são da seleção da própria ANPD (IADES, 2025). ' : '') + '</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
   if (!usarProva && !UI.blocos.length) html += '<p class="mudo pequeno">Nenhum bloco marcado: a sessão usa o banco inteiro.</p>';
   document.getElementById('vista-questoes').innerHTML = html;
 }
@@ -2337,21 +2338,8 @@ function renderCards() {
   if (!rest) html += '<p class="pequeno mudo">Limite de cards novos de hoje atingido (' + (S.perfil.novosCards || 20) + '). Ajuste em Mais → Ajustes.</p>';
   html += '<div class="secao"><div class="secao-cab"><h2>Baralhos</h2><span class="mudo pequeno">Nenhum marcado = todos</span></div>' +
     listaBlocos(sel, 'toggle-bloco-card', (b) => CARDS_POR_BLOCO.get(b.id) || [], (b) => dominioCardsBloco(b.id)) + '</div>';
-  html += '<div class="cartao"><h2>Levar para o Anki</h2><p class="pequeno">Baixe o arquivo e importe no Anki (Arquivo → Importar). Ele já vem com o tipo de nota Cloze e o baralho “ANPD::Lei seca”, com etiquetas do bloco e da norma. O progresso do Anki não volta para o app.</p>' +
-    '<div class="linha-btns"><button class="btn" data-acao="exportar-anki">Baixar arquivo do Anki (.txt)</button></div></div>';
   document.getElementById('vista-cards').innerHTML = html;
 }
-function exportarAnkiTexto() {
-  const linhas = ['#separator:tab', '#html:true', '#notetype:Cloze', '#deck:ANPD::Lei seca', '#tags column:3', '#columns:Text\tBack Extra\tTags'];
-  const limpa = (s) => String(s).replace(/[\t\n\r]+/g, ' ');
-  for (const n of NOTAS) {
-    let auto = 0;
-    const texto = n.t.replace(RE_LACUNA, (m, num, t) => '{{c' + (num ? num : ++auto) + '::' + t + '}}');
-    linhas.push([limpa(texto), limpa(n.r + (n.dc ? ' · dica: ' + n.dc : '')), n.b + ' ' + n.l].join('\t'));
-  }
-  return linhas.join('\n') + '\n';
-}
-
 /* ================= Render da sessão ================= */
 function renderSessao() {
   const el = document.getElementById('sessao');
@@ -3199,7 +3187,7 @@ function renderGlossario() {
 }
 // Fontes citadas por itens que ainda não têm o texto no app, contadas no próprio banco
 function fontesSemTexto() {
-  const nomes = [[/^STF/, 'decisões do STF'], [/^TJUE/, 'decisões do TJUE'], [/9\.472|LGT/, 'a LGT'], [/E-Ciber/, 'a E-Ciber'], [/Anatel/, 'resoluções da Anatel'], [/Manual de Redação/, 'o Manual de Redação da Presidência'], [/13\.303/, 'a Lei 13.303/2016']];
+  const nomes = [[/^STF/, 'decisões do STF'], [/^TJUE/, 'decisões do TJUE'], [/E-Ciber/, 'a E-Ciber'], [/Manual de Redação/, 'o Manual de Redação da Presidência'], [/13\.303/, 'a Lei 13.303/2016']];
   const vistos = [];
   for (const q of Q) {
     if (q.v !== 0) continue;
@@ -3798,7 +3786,8 @@ document.addEventListener('click', async (ev) => {
       UI.discFase = 'correcao'; renderMais(); break;
     case 'disc-dia': fecharFolha(); UI.mais = 'discursiva'; UI.discTema = alvo.dataset.t; UI.discFase = 'escrita'; UI.discAval = {}; UI.discNE = 0; UI.discIA = null; if (UI.vista !== 'mais') ir('mais'); else renderMais(); window.scrollTo(0, 0); break;
     case 'disc-editar': UI.discFase = 'escrita'; UI.discIA = null; renderMais(); break;
-    case 'disc-limpar': { const t = estadoDisc(UI.discTema); t.rascunho = ''; Store.salvar('discursivas'); renderMais(); break; }
+    case 'disc-limpar': alvo.outerHTML = '<button class="btn" data-acao="disc-limpar-ok">Apagar mesmo o texto</button>'; break;
+    case 'disc-limpar-ok': { const t = estadoDisc(UI.discTema); t.rascunho = ''; Store.salvar('discursivas'); renderMais(); break; }
     case 'disc-salvar': {
       const t = TEMAS_DISC.find((x) => x.id === UI.discTema);
       if (!t) break;
@@ -3855,12 +3844,6 @@ document.addEventListener('click', async (ev) => {
       iniciarSessao({ modo: 'cards', blocos: bs, novos: novosRestantesHoje(), titulo: 'Cards do dia' });
       break;
     }
-    case 'exportar-anki': {
-      const txt = exportarAnkiTexto();
-      const r = await salvarArquivo('anki-lgpd-cloze.txt', txt);
-      if (r === null) mostrarTexto(null, txt, 'O download não está disponível aqui. Copie o texto, salve como anki-lgpd-cloze.txt e importe no Anki.');
-      break;
-    }
     case 'fase': UI.faseAberta = UI.faseAberta === alvo.dataset.fase ? '' : alvo.dataset.fase; renderMais(); break;
     case 'status': { const b = alvo.dataset.bloco; S.perfil.status[b] = STATUS_CICLO[S.perfil.status[b] || 'nao']; Store.salvar('perfil'); renderMais(); break; }
     case 'tema': UI.tema = alvo.dataset.tema; salvarUI(); aplicarTema(); renderTudo(); break;
@@ -3898,7 +3881,7 @@ document.addEventListener('click', async (ev) => {
     case 'backup-confirmar': {
       const d = backupPendente;
       if (!d) break;
-      S.perfil = Object.assign(perfilPadrao(), d.perfil, { ep: Date.now() }); aplicarPrefs(); S.itens = d.itens || {}; S.cards = d.cards || {}; S.simulados = d.simulados || []; S.pesquisa = d.pesquisa || {}; S.disc = d.disc || {};
+      S.perfil = Object.assign(perfilPadrao(), d.perfil, { ep: Date.now() }); podarPerfil(); aplicarPrefs(); S.itens = d.itens || {}; S.cards = d.cards || {}; S.simulados = d.simulados || []; S.pesquisa = d.pesquisa || {}; S.disc = d.disc || {};
       juntarContestacoes(d.contestacoes);
       backupPendente = null;
       Store.salvarTudo(); renderTudo(); avisar('↺', 'Progresso restaurado', fmtNum(S.perfil.xp) + ' XP');

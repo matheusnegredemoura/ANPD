@@ -101,5 +101,13 @@ const cartao2 = ((await p.locator('.cartao', { hasText: 'Discursiva no plano' })
 const dm = (d) => d.data.slice(8, 10) + '/' + d.data.slice(5, 7);
 conferir('a próxima é a seguinte à adiantada', !!e3 && cartao2.includes(dm(e3)) && !cartao2.includes(dm(e2)), cartao2.slice(0, 220));
 
+// Apagar o rascunho pede um segundo toque: o primeiro só troca o botão
+await p.locator('[data-acao="disc-abrir"]').first().click();
+await p.fill('#disc-texto', 'Rascunho que não pode sumir com um toque só.');
+await p.click('[data-acao="disc-limpar"]');
+conferir('o primeiro toque em apagar não apaga', (await p.inputValue('#disc-texto')).startsWith('Rascunho'));
+await p.click('[data-acao="disc-limpar-ok"]');
+conferir('o segundo toque apaga', (await p.inputValue('#disc-texto')) === '');
+
 await browser.close();
 fim(erros);
