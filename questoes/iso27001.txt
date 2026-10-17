@@ -1,0 +1,223 @@
+bloco: seginfo
+// ABNT NBR ISO/IEC 27001:2022 (SGSI) e 27002:2022 (controles), para a trilha de Segurança da informação do zero.
+// Itens reais e adaptados das questões comentadas no e-book do prof. Gabriel Pacheco (Gran), com o gabarito dado
+// lá e conferido no texto da norma que o e-book transcreve (introdução, escopo e cláusulas 4 a 10). Os autorais
+// seguem os mesmos trechos.
+
+=== iso-01
+gab: C
+origem: real
+prova: Cebraspe · CAU-BR 2024 · Analista de Infraestrutura de Tecnologia da Informação
+ref: doutrina ABNT NBR ISO/IEC 27001:2022
+comando: Considerando as normas ISO/IEC 27001 e ISO/IEC 27002, julgue o seguinte item.
+armadilha: literal
+dif: 1
+enunciado: A ISO/IEC 27001 apresenta os requisitos necessários para estabelecer, implementar, manter e melhorar continuamente um sistema de gestão da segurança da informação dentro do contexto da organização.
+comentario: Certo: é o escopo da norma, quase literal. A 27001 traz requisitos (o que o SGSI precisa ter) e por isso é a norma certificável; a 27002 é o guia de controles.
+
+=== iso-02
+gab: C
+origem: real
+prova: Cebraspe · STJ 2024 · Analista Judiciário, Suporte em Tecnologia da Informação
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 5.1
+armadilha: literal
+dif: 1
+enunciado: Por meio da promoção de melhoria contínua, a alta direção de uma organização demonstra sua liderança e seu comprometimento em relação ao sistema de gestão de segurança da informação.
+comentario: Certo: a cláusula 5.1 lista a promoção da melhoria contínua entre os meios pelos quais a alta direção demonstra liderança e comprometimento com o SGSI.
+
+=== iso-03
+gab: C
+origem: real
+prova: Cebraspe · MPE-TO 2024 · Técnico Ministerial Especializado
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 5.2
+comando: À luz do disposto na norma ABNT NBR ISO/IEC 27001, julgue o item a seguir.
+armadilha: literal
+dif: 1
+enunciado: A política de segurança da informação, que deve ser aprovada pela alta direção da organização, deve ser documentada e comunicada a todos os funcionários.
+comentario: Certo. A política é estabelecida pela alta direção, fica disponível como informação documentada e é comunicada dentro da organização; os funcionários estão entre as partes interessadas a quem ela se dirige.
+
+=== iso-04
+gab: E
+origem: real
+prova: Cebraspe · Codevasf 2021 · Analista em Desenvolvimento Regional
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 5.2
+armadilha: extrapolacao
+dif: 1
+enunciado: Em uma organização, a alta direção deve estabelecer uma política de segurança da informação, independentemente de esta ser apropriada ou não ao propósito da organização, para que existam controles e ações que diminuam os riscos de segurança da informação.
+comentario: Errado. A norma exige justamente que a política seja apropriada ao propósito da organização (5.2, a). O item inverte a exigência com o "independentemente".
+
+=== iso-05
+gab: C
+origem: real
+prova: Quadrix · CREF 3ª Região (SC) 2023 · Analista de Tecnologia da Informação
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 4.2
+armadilha: literal
+dif: 2
+enunciado: Segundo a Norma NBR ISO/IEC 27001:2013, antes de uma empresa iniciar um processo de gestão de riscos, ela deverá determinar as partes interessadas que são relevantes para o Sistema de Gestão da Segurança da Informação e os requisitos dessas partes interessadas que são relevantes para a segurança da informação.
+comentario: Certo. Entender as partes interessadas e seus requisitos faz parte do contexto da organização (cláusula 4.2), etapa que antecede o planejamento das ações para abordar riscos. A versão de 2022 manteve a regra.
+
+=== iso-06
+gab: C
+origem: real
+prova: Quadrix · CREF 3ª Região (SC) 2023 · Analista de Tecnologia da Informação
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 6.1.3
+armadilha: literal
+dif: 1
+enunciado: Conforme a Norma NBR ISO/IEC 27001:2013, a organização deverá manter a informação documentada relativa ao processo de tratamento dos riscos de segurança da informação.
+comentario: Certo. A norma manda reter informação documentada sobre o processo de tratamento de riscos, o que permite auditar o SGSI e demonstrar as decisões tomadas.
+
+=== iso-07
+gab: C
+origem: adaptada
+prova: Adaptado de Cebraspe · Finep 2024 · Analista, Tecnologia da Informação · item I
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 6.1.2
+armadilha: literal
+dif: 1
+enunciado: Pela ISO/IEC 27001:2022, a organização deve estabelecer e manter critérios de risco de segurança da informação que incluam critérios de aceitação de risco.
+comentario: Certo: 6.1.2, a. Os critérios de aceitação dizem quais riscos podem ser aceitos sem tratamento imediato; sem eles, a avaliação de riscos não teria régua para decidir.
+
+=== iso-08
+gab: C
+origem: adaptada
+prova: Adaptado de Cebraspe · Finep 2024 · Analista, Tecnologia da Informação · item II
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 6.1.2
+armadilha: absoluto
+dif: 2
+enunciado: Pela ISO/IEC 27001:2022, toda organização que implanta um SGSI, qualquer que seja o seu porte, deve definir e aplicar um processo de avaliação de riscos de segurança da informação.
+comentario: Certo. Os requisitos da norma são genéricos e valem para organizações de qualquer tipo, tamanho ou natureza, e a avaliação de riscos é requisito das cláusulas 6 e 8: o porte muda a escala do processo, não a obrigação de tê-lo.
+
+=== iso-09
+gab: E
+origem: adaptada
+prova: Adaptado de Cebraspe · Finep 2024 · Analista, Tecnologia da Informação · item III
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 6.1.2
+armadilha: extrapolacao
+dif: 2
+enunciado: A ISO/IEC 27001:2022 determina que a identificação dos proprietários dos riscos seja feita em processo separado da avaliação de riscos, para simplificar o entendimento do risco.
+comentario: Errado. A identificação dos proprietários dos riscos integra o próprio processo de avaliação: ao identificar cada risco, identifica-se quem responde por ele (6.1.2, c).
+
+=== iso-10
+gab: C
+origem: adaptada
+prova: Adaptado de Cebraspe · MPE-RO 2023 · Analista de Redes e Comunicação de Dados · alternativa C
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 5.1
+armadilha: literal
+dif: 1
+enunciado: Comunicar a importância de uma gestão eficaz da segurança da informação e da conformidade com os requisitos do SGSI é um dos meios pelos quais a alta direção demonstra liderança e comprometimento, segundo a ISO/IEC 27001.
+comentario: Certo: é um dos meios listados na cláusula 5.1, ao lado de assegurar recursos, integrar o SGSI aos processos e promover a melhoria contínua.
+
+=== iso-11
+gab: E
+origem: adaptada
+prova: Adaptado de Cebraspe · MPE-RO 2023 · Analista de Redes e Comunicação de Dados · alternativa D
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 4.2
+armadilha: conceito
+dif: 2
+enunciado: Na ISO/IEC 27001, determinar as partes interessadas relevantes para o SGSI e os requisitos delas é um dos meios pelos quais a alta direção demonstra liderança e comprometimento.
+comentario: Errado. Partes interessadas e seus requisitos estão no contexto da organização (cláusula 4.2), não entre os meios de liderança e comprometimento (5.1). A banca troca a cláusula.
+
+=== iso-12
+gab: C
+origem: adaptada
+prova: Adaptado de FGV · TJ-RR 2024 · Analista Judiciário, Infraestrutura de TI
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, introdução
+armadilha: literal
+dif: 1
+enunciado: Os requisitos da ABNT NBR ISO/IEC 27001:2022 são genéricos e se destinam a ser aplicáveis a todas as organizações, independentemente de tipo, tamanho ou natureza.
+comentario: Certo. A generalidade amplia o alcance da norma sem comprometer a eficácia: cada organização ajusta o SGSI ao seu contexto.
+
+=== iso-13
+gab: E
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, escopo
+armadilha: excecao
+dif: 2
+enunciado: Organização que busca conformidade com a ISO/IEC 27001 pode excluir requisitos das seções 4 a 10 que considere inadequados ao seu porte, desde que justifique a exclusão na declaração de aplicabilidade.
+comentario: Errado. A exclusão de qualquer requisito das seções 4 a 10 não é aceitável para quem busca conformidade. A declaração de aplicabilidade justifica a exclusão de controles do Anexo A, não de requisitos.
+
+=== iso-14
+gab: C
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 6.1.3
+armadilha: literal
+dif: 2
+enunciado: A declaração de aplicabilidade da ISO/IEC 27001 contém os controles necessários, a indicação de estarem implementados ou não e a justificativa para excluir controles do Anexo A.
+comentario: Certo: 6.1.3, d. É o documento que liga o tratamento de riscos à lista do Anexo A e mostra ao auditor o que foi escolhido e por quê.
+
+=== iso-15
+gab: E
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 6.1.3
+armadilha: conceito
+dif: 2
+enunciado: Na ISO/IEC 27001, os controles de segurança são determinados durante a análise de riscos, cabendo ao tratamento apenas aceitar ou rejeitar os riscos identificados.
+comentario: Errado. Os controles são determinados no tratamento de riscos (6.1.3, b): escolhidas as opções de tratamento, definem-se os controles para implementá-las e comparam-se com o Anexo A.
+
+=== iso-16
+gab: C
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 6.1.3
+armadilha: rol
+dif: 1
+enunciado: A lista de controles do Anexo A da ISO/IEC 27001 não é exaustiva, e a organização pode incluir controles adicionais quando necessário.
+comentario: Certo: é o que diz a nota da cláusula 6.1.3. O Anexo A serve para conferir que nenhum controle necessário foi esquecido, não para limitar a escolha.
+
+=== iso-17
+gab: E
+ref: doutrina ABNT NBR ISO/IEC 27002:2022
+armadilha: comparacao
+dif: 1
+enunciado: A ISO/IEC 27002 é a norma da família 27000 que estabelece os requisitos para a certificação de um sistema de gestão da segurança da informação.
+comentario: Errado. Os requisitos certificáveis estão na ISO/IEC 27001. A 27002 é um guia de boas práticas para implementar controles.
+
+=== iso-18
+gab: C
+ref: doutrina ABNT NBR ISO/IEC 27002:2022
+armadilha: numero
+dif: 2
+enunciado: Na edição de 2022, a ISO/IEC 27002 organiza seus 93 controles em quatro temas: organizacionais, de pessoas, físicos e tecnológicos.
+comentario: Certo. A revisão de 2022 reagrupou os controles em 4 temas, no lugar das 14 seções da edição de 2013.
+
+=== iso-19
+gab: E
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, introdução
+armadilha: sujeito
+dif: 1
+enunciado: A adoção de um SGSI é decisão operacional da área de tecnologia da informação, que dispensa o envolvimento da alta direção.
+comentario: Errado. A adoção do SGSI é decisão estratégica da organização, e a alta direção precisa demonstrar liderança e comprometimento (cláusula 5).
+
+=== iso-20
+gab: C
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, introdução
+armadilha: literal
+dif: 1
+enunciado: Segundo a ISO/IEC 27001, o sistema de gestão da segurança da informação preserva a confidencialidade, a integridade e a disponibilidade da informação pela aplicação de um processo de gestão de riscos.
+comentario: Certo: introdução da norma. O SGSI dá às partes interessadas confiança de que os riscos são adequadamente gerenciados.
+
+=== iso-21
+gab: E
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, introdução
+armadilha: extrapolacao
+dif: 2
+enunciado: Como os requisitos da ISO/IEC 27001 são genéricos, a organização pode implementar o SGSI sem considerar o contexto em que atua, copiando o sistema de outra organização do mesmo setor.
+comentario: Errado. Genéricos são os requisitos; o SGSI é moldado pelas necessidades, objetivos, requisitos de segurança, processos, tamanho e estrutura de cada organização, e muda com o tempo.
+
+=== iso-22
+gab: C
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, introdução
+armadilha: literal
+dif: 1
+enunciado: A ISO/IEC 27001 prevê que a segurança da informação seja considerada no projeto de processos, sistemas de informação e controles.
+comentario: Certo. A segurança pensada desde o desenho, e não como complemento posterior, é a mesma ideia da privacidade desde a concepção (LGPD, art. 46, § 2º).
+
+=== iso-23
+gab: E
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, introdução
+armadilha: absoluto
+dif: 1
+enunciado: A ISO/IEC 27001 aplica-se somente a empresas privadas de grande porte, porque exige certificação.
+comentario: Errado. Os requisitos valem para qualquer organização, pública ou privada, de qualquer porte, e a certificação é voluntária: a organização pode seguir a norma sem se certificar.
+
+=== iso-24
+gab: E
+ref: doutrina ABNT NBR ISO/IEC 27001:2022, 5.2
+armadilha: extrapolacao
+dif: 1
+enunciado: Pela ISO/IEC 27001, a política de segurança da informação deve ser mantida em sigilo pela alta direção, sem comunicação dentro da organização, para não expor os controles adotados.
+comentario: Errado. A política é comunicada dentro da organização e fica disponível às partes interessadas, conforme apropriado (5.2). Política que ninguém conhece não orienta ninguém.

@@ -2686,6 +2686,1129 @@
       ]
     },
     {
+      "id": "seguranca",
+      "nome": "Segurança da informação do zero",
+      "resumo": "Dos três pilares da segurança aos sistemas de gestão, riscos e resposta a incidentes, para quem nunca estudou a matéria.",
+      "subtemas": [
+        {
+          "id": "sg-principios",
+          "nome": "Os princípios: confidencialidade, integridade e disponibilidade",
+          "resumo": "A tríade CID, autenticidade e não repúdio, e o hexagrama parkeriano.",
+          "artigos": [],
+          "licao": {
+            "ideia": "Segurança da informação é entregar **a informação certa, à pessoa certa, no momento certo** (prof. Patrícia Quintão). Isso se decompõe em três pilares: **confidencialidade** (só quem pode vê), **integridade** (ninguém altera sem autorização) e **disponibilidade** (está lá quando se precisa).",
+            "mapa": {
+              "centro": "Princípios",
+              "ramos": [
+                {
+                  "t": "Confidencialidade",
+                  "f": [
+                    "só quem tem autorização acessa",
+                    "criptografia, controle de acesso"
+                  ]
+                },
+                {
+                  "t": "Integridade",
+                  "f": [
+                    "sem alteração indevida",
+                    "hash, assinatura digital"
+                  ]
+                },
+                {
+                  "t": "Disponibilidade",
+                  "f": [
+                    "acessível quando necessário",
+                    "backup, redundância"
+                  ]
+                },
+                {
+                  "t": "Complementares",
+                  "f": [
+                    "autenticidade",
+                    "não repúdio (irretratabilidade)"
+                  ]
+                },
+                {
+                  "t": "Hexagrama parkeriano",
+                  "f": [
+                    "CID + autenticidade",
+                    "posse ou controle",
+                    "utilidade"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "A tríade CID",
+                "tabela": {
+                  "cab": [
+                    "Princípio",
+                    "Pergunta",
+                    "Ameaça típica",
+                    "Controle típico"
+                  ],
+                  "linhas": [
+                    [
+                      "**confidencialidade**",
+                      "quem pode ver?",
+                      "vazamento, acesso indevido",
+                      "criptografia, controle de acesso, classificação da informação"
+                    ],
+                    [
+                      "**integridade**",
+                      "foi alterado?",
+                      "adulteração, erro de processamento",
+                      "hash, assinatura digital, controle de versões"
+                    ],
+                    [
+                      "**disponibilidade**",
+                      "está acessível quando preciso?",
+                      "negação de serviço, ransomware, falha de hardware",
+                      "backup, redundância, plano de continuidade"
+                    ]
+                  ]
+                },
+                "mnemo": "**CID**: Confidencialidade, Integridade, Disponibilidade. Na LGPD, o art. 46 protege contra acesso não autorizado (C), alteração (I) e destruição ou perda (D).",
+                "porque": "Cada incidente ataca pelo menos um pilar. O vazamento quebra a confidencialidade; a adulteração de um cadastro, a integridade; o ransomware que sequestra os arquivos, a disponibilidade (e, se os dados forem publicados, também a confidencialidade)."
+              },
+              {
+                "t": "Princípios complementares",
+                "tabela": {
+                  "cab": [
+                    "Princípio",
+                    "O que garante",
+                    "Mecanismo"
+                  ],
+                  "linhas": [
+                    [
+                      "**autenticidade**",
+                      "a identidade de quem envia ou acessa e a origem da informação são genuínas",
+                      "senhas, tokens, biometria, certificado digital"
+                    ],
+                    [
+                      "**não repúdio** (irretratabilidade)",
+                      "o autor não pode negar depois que praticou o ato",
+                      "assinatura digital"
+                    ]
+                  ]
+                },
+                "atencao": "A assinatura digital garante **autenticidade, integridade e não repúdio**, mas **não** confidencialidade: quem quiser sigilo precisa também cifrar a mensagem."
+              },
+              {
+                "t": "Hexagrama parkeriano",
+                "texto": "Donn Parker acrescentou três atributos à tríade, somando seis: **confidencialidade, integridade, disponibilidade, autenticidade, posse ou controle** (quem detém os dados, mesmo sem lê-los) e **utilidade** (os dados servem para algo: um backup cifrado cuja chave se perdeu está disponível, mas inútil).",
+                "ex": "Um pen drive com dados cifrados é furtado: a confidencialidade ainda está protegida, mas a **posse** foi perdida."
+              }
+            ]
+          },
+          "chave": [
+            "CID: confidencialidade, integridade e disponibilidade.",
+            "Autenticidade: identidade e origem genuínas; não repúdio: o autor não pode negar o ato.",
+            "Assinatura digital dá autenticidade, integridade e não repúdio, não sigilo.",
+            "Hexagrama parkeriano: CID, autenticidade, posse ou controle e utilidade.",
+            "Hash verifica integridade."
+          ],
+          "armadilhas": [
+            "Dizer que a assinatura digital garante confidencialidade.",
+            "Trocar integridade (não alteração) por autenticidade (origem genuína).",
+            "Dizer que firewall sozinho garante disponibilidade.",
+            "Tratar não repúdio como sinônimo de confidencialidade."
+          ],
+          "blocos": [
+            "seginfo"
+          ],
+          "excluir": [
+            "NIST",
+            "CSF",
+            "IN GSI",
+            "Política Nacional",
+            "PNCiber",
+            "Comitê",
+            "Decreto",
+            "Instrução Normativa",
+            "ISO"
+          ],
+          "termos": [
+            "confidencialidade",
+            "integridade",
+            "disponibilidade",
+            "autenticidade",
+            "não repúdio",
+            "irretratabilidade",
+            "hexagrama",
+            "Parker"
+          ]
+        },
+        {
+          "id": "sg-ameacas",
+          "nome": "Ameaças, vulnerabilidades e ataques",
+          "resumo": "O vocabulário do risco (ativo, ameaça, vulnerabilidade, impacto) e os ataques e códigos maliciosos mais cobrados.",
+          "artigos": [],
+          "licao": {
+            "ideia": "Risco nasce do encontro de uma **ameaça** com uma **vulnerabilidade** de um **ativo**. Os ataques mais cobrados exploram pessoas (engenharia social, phishing), programas maliciosos (malware, ransomware) e a disponibilidade (negação de serviço).",
+            "mapa": {
+              "centro": "Ameaças",
+              "ramos": [
+                {
+                  "t": "Vocabulário",
+                  "f": [
+                    "ativo",
+                    "ameaça",
+                    "vulnerabilidade",
+                    "impacto e probabilidade"
+                  ]
+                },
+                {
+                  "t": "Engenharia social",
+                  "f": [
+                    "phishing",
+                    "pretexto",
+                    "explora a confiança"
+                  ]
+                },
+                {
+                  "t": "Malware",
+                  "f": [
+                    "vírus precisa de hospedeiro",
+                    "worm se replica sozinho",
+                    "cavalo de troia se disfarça",
+                    "ransomware sequestra"
+                  ]
+                },
+                {
+                  "t": "Espionagem",
+                  "f": [
+                    "spyware",
+                    "keylogger",
+                    "backdoor"
+                  ]
+                },
+                {
+                  "t": "Disponibilidade",
+                  "f": [
+                    "negação de serviço (DoS)",
+                    "DDoS por botnet"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "O vocabulário",
+                "tabela": {
+                  "cab": [
+                    "Termo",
+                    "Sentido",
+                    "Exemplo"
+                  ],
+                  "linhas": [
+                    [
+                      "**ativo**",
+                      "o que tem valor para a organização",
+                      "banco de dados de clientes"
+                    ],
+                    [
+                      "**vulnerabilidade**",
+                      "fraqueza que pode ser explorada",
+                      "sistema sem atualização, senha fraca"
+                    ],
+                    [
+                      "**ameaça**",
+                      "causa potencial de um incidente",
+                      "criminoso, funcionário descontente, enchente"
+                    ],
+                    [
+                      "**risco**",
+                      "combinação da probabilidade de a ameaça explorar a vulnerabilidade com o impacto",
+                      "vazamento provável e grave"
+                    ],
+                    [
+                      "**incidente**",
+                      "evento que de fato compromete a segurança",
+                      "acesso indevido à base"
+                    ]
+                  ]
+                },
+                "porque": "Sem vulnerabilidade a ameaça não tem por onde entrar; sem ameaça, a vulnerabilidade não é explorada. Por isso a gestão de riscos ataca as duas pontas: reduz vulnerabilidades (atualizar, treinar) e dificulta a ameaça (monitorar, bloquear)."
+              },
+              {
+                "t": "Códigos maliciosos",
+                "tabela": {
+                  "cab": [
+                    "Tipo",
+                    "Como age"
+                  ],
+                  "linhas": [
+                    [
+                      "**vírus**",
+                      "insere cópias de si em outros programas ou arquivos e depende da execução do hospedeiro"
+                    ],
+                    [
+                      "**worm**",
+                      "se propaga sozinho pela rede, explorando vulnerabilidades, sem precisar de hospedeiro"
+                    ],
+                    [
+                      "**cavalo de troia** (trojan)",
+                      "parece legítimo e executa funções maliciosas escondidas"
+                    ],
+                    [
+                      "**ransomware**",
+                      "torna os dados inacessíveis (em geral cifrando) e exige resgate"
+                    ],
+                    [
+                      "**spyware** e **keylogger**",
+                      "monitoram a atividade e capturam dados, como o que é digitado"
+                    ],
+                    [
+                      "**backdoor**",
+                      "abre um acesso escondido para retorno do invasor"
+                    ],
+                    [
+                      "**bot** e **botnet**",
+                      "máquinas controladas remotamente, usadas em massa, por exemplo em DDoS"
+                    ]
+                  ]
+                },
+                "mnemo": "Vírus precisa de **hospedeiro**; worm **anda sozinho**. Essa é a diferença que a banca mais troca."
+              },
+              {
+                "t": "Ataques que exploram pessoas e serviços",
+                "lista": [
+                  "**engenharia social**: manipula a confiança das pessoas para obter informação ou acesso",
+                  "**phishing**: mensagem falsa que imita instituição confiável para roubar credenciais ou instalar malware",
+                  "**negação de serviço (DoS)**: sobrecarrega o serviço para torná-lo indisponível; **DDoS** é a versão distribuída, de muitas origens"
+                ],
+                "atencao": "DoS e DDoS atacam a **disponibilidade**, não a confidencialidade. E a defesa contra engenharia social é sobretudo **conscientização e treinamento**, não só tecnologia."
+              }
+            ]
+          },
+          "chave": [
+            "Risco: ameaça explorando vulnerabilidade de um ativo, com probabilidade e impacto.",
+            "Vírus depende de hospedeiro; worm se propaga sozinho.",
+            "Ransomware sequestra os dados e cobra resgate.",
+            "Phishing e engenharia social exploram pessoas; a defesa principal é conscientização.",
+            "DoS e DDoS atacam a disponibilidade."
+          ],
+          "armadilhas": [
+            "Trocar vírus por worm.",
+            "Chamar a vulnerabilidade de ameaça.",
+            "Dizer que DDoS compromete principalmente a confidencialidade.",
+            "Dizer que antivírus sozinho resolve a engenharia social."
+          ],
+          "blocos": [
+            "seginfo"
+          ],
+          "excluir": [
+            "NIST",
+            "CSF",
+            "IN GSI",
+            "Política Nacional",
+            "PNCiber",
+            "Comitê",
+            "Decreto",
+            "Instrução Normativa",
+            "ISO"
+          ],
+          "termos": [
+            "malware",
+            "vírus",
+            "worm",
+            "cavalo de troia",
+            "trojan",
+            "ransomware",
+            "phishing",
+            "engenharia social",
+            "negação de serviço",
+            "DDoS",
+            "spyware",
+            "keylogger",
+            "backdoor",
+            "botnet",
+            "vulnerabilidade",
+            "ameaça",
+            "ataque"
+          ]
+        },
+        {
+          "id": "sg-cripto",
+          "nome": "Criptografia, hash, assinatura e certificado digital",
+          "resumo": "Simétrica e assimétrica, para que serve o hash, como a assinatura digital funciona e o papel da ICP-Brasil.",
+          "artigos": [],
+          "licao": {
+            "ideia": "A criptografia **simétrica** usa a mesma chave para cifrar e decifrar; a **assimétrica** usa um par: chave pública e chave privada. O **hash** resume a mensagem e denuncia qualquer alteração. A **assinatura digital** combina hash e chave privada; o **certificado digital** liga a chave pública a uma pessoa.",
+            "mapa": {
+              "centro": "Criptografia",
+              "ramos": [
+                {
+                  "t": "Simétrica",
+                  "f": [
+                    "mesma chave",
+                    "rápida",
+                    "problema: distribuir a chave"
+                  ]
+                },
+                {
+                  "t": "Assimétrica",
+                  "f": [
+                    "par pública e privada",
+                    "cifra com a pública do destinatário"
+                  ]
+                },
+                {
+                  "t": "Hash",
+                  "f": [
+                    "resumo de tamanho fixo",
+                    "mão única",
+                    "verifica integridade"
+                  ]
+                },
+                {
+                  "t": "Assinatura digital",
+                  "f": [
+                    "hash cifrado com a privada do autor",
+                    "autenticidade, integridade, não repúdio"
+                  ]
+                },
+                {
+                  "t": "Certificado digital",
+                  "f": [
+                    "liga chave pública a titular",
+                    "emitido por autoridade certificadora"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Simétrica × assimétrica",
+                "tabela": {
+                  "cab": [
+                    "",
+                    "Simétrica",
+                    "Assimétrica"
+                  ],
+                  "linhas": [
+                    [
+                      "Chaves",
+                      "uma só, compartilhada",
+                      "par: **pública** (divulgada) e **privada** (secreta)"
+                    ],
+                    [
+                      "Velocidade",
+                      "rápida",
+                      "mais lenta"
+                    ],
+                    [
+                      "Desafio",
+                      "entregar a chave com segurança",
+                      "garantir que a chave pública é mesmo do dono"
+                    ],
+                    [
+                      "Exemplos",
+                      "AES",
+                      "RSA"
+                    ]
+                  ]
+                },
+                "porque": "Na prática os dois se combinam: a assimétrica serve para trocar com segurança uma chave simétrica, e a simétrica cifra o grande volume de dados. É assim que funciona o cadeado do navegador."
+              },
+              {
+                "t": "Quem usa qual chave",
+                "tabela": {
+                  "cab": [
+                    "Objetivo",
+                    "Cifra com",
+                    "Decifra com"
+                  ],
+                  "linhas": [
+                    [
+                      "**sigilo** para o destinatário",
+                      "chave **pública do destinatário**",
+                      "chave **privada do destinatário**"
+                    ],
+                    [
+                      "**assinatura** do autor",
+                      "chave **privada do autor** (sobre o hash)",
+                      "chave **pública do autor**"
+                    ]
+                  ]
+                },
+                "mnemo": "Sigilo: uso a chave **do outro** (pública dele). Assinatura: uso a **minha** (privada minha)."
+              },
+              {
+                "t": "Hash e certificado",
+                "lista": [
+                  "**hash**: função que gera um resumo de tamanho fixo; é de mão única (não se volta à mensagem) e qualquer mudança na mensagem muda o resumo, por isso verifica **integridade**",
+                  "hash **não é** criptografia reversível e, sozinho, não garante autoria",
+                  "**certificado digital**: documento eletrônico, emitido por **autoridade certificadora**, que associa uma chave pública a uma pessoa ou entidade; no Brasil, a infraestrutura oficial é a **ICP-Brasil**"
+                ],
+                "ex": "Na LGPD, dados cifrados de forma que fiquem ininteligíveis para terceiros pesam a favor do controlador na avaliação da gravidade do incidente (art. 48, § 3º)."
+              }
+            ]
+          },
+          "chave": [
+            "Simétrica: uma chave; assimétrica: par pública e privada.",
+            "Sigilo: cifra com a pública do destinatário.",
+            "Assinatura: hash cifrado com a privada do autor; verifica-se com a pública do autor.",
+            "Hash é de mão única e verifica integridade.",
+            "Certificado digital liga a chave pública ao titular; é emitido por autoridade certificadora."
+          ],
+          "armadilhas": [
+            "Dizer que na assinatura digital o autor usa a chave pública dele para assinar.",
+            "Dizer que hash permite recuperar a mensagem original.",
+            "Dizer que a criptografia simétrica usa um par de chaves.",
+            "Dizer que a assinatura digital garante sigilo."
+          ],
+          "blocos": [
+            "seginfo"
+          ],
+          "excluir": [
+            "NIST",
+            "CSF",
+            "IN GSI",
+            "Política Nacional",
+            "PNCiber",
+            "Comitê",
+            "Decreto",
+            "Instrução Normativa",
+            "ISO"
+          ],
+          "termos": [
+            "criptografia",
+            "cifra",
+            "hash",
+            "assinatura digital",
+            "certificado digital",
+            "chave pública",
+            "chave privada",
+            "simétric",
+            "assimétric",
+            "ICP"
+          ]
+        },
+        {
+          "id": "sg-iso",
+          "nome": "ISO/IEC 27001 e 27002: sistema de gestão e controles",
+          "resumo": "O que é um SGSI, o que a 27001 exige (seções 4 a 10 e declaração de aplicabilidade) e como a 27002 organiza os controles.",
+          "artigos": [],
+          "licao": {
+            "ideia": "A **ISO/IEC 27001** traz os **requisitos** de um Sistema de Gestão da Segurança da Informação (SGSI) e é a norma **certificável**. A **ISO/IEC 27002** é o **guia de controles**: diz como implementar as medidas que a 27001 manda escolher a partir da avaliação de riscos.",
+            "mapa": {
+              "centro": "Família 27000",
+              "ramos": [
+                {
+                  "t": "27001",
+                  "f": [
+                    "requisitos do SGSI",
+                    "certificável",
+                    "seções 4 a 10 obrigatórias"
+                  ]
+                },
+                {
+                  "t": "27002",
+                  "f": [
+                    "guia de controles",
+                    "93 controles em 4 temas (2022)"
+                  ]
+                },
+                {
+                  "t": "27005",
+                  "f": [
+                    "gestão de riscos de segurança da informação"
+                  ]
+                },
+                {
+                  "t": "SGSI",
+                  "f": [
+                    "decisão estratégica da direção",
+                    "integrado aos processos",
+                    "melhoria contínua"
+                  ]
+                },
+                {
+                  "t": "Declaração de aplicabilidade",
+                  "f": [
+                    "controles necessários",
+                    "implementados ou não",
+                    "justifica exclusões"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "27001: o que é exigido",
+                "texto": "O SGSI preserva confidencialidade, integridade e disponibilidade por meio de um **processo de gestão de riscos**. É uma **decisão estratégica** da alta direção, integrada aos processos e à estrutura de gestão, e evolui continuamente. Os requisitos das **seções 4 a 10** (contexto da organização, liderança, planejamento, apoio, operação, avaliação de desempenho e melhoria) **não podem ser excluídos** por quem busca conformidade (prof. Gabriel Pacheco).",
+                "tabela": {
+                  "cab": [
+                    "Seção",
+                    "Tema"
+                  ],
+                  "linhas": [
+                    [
+                      "4",
+                      "contexto da organização e escopo do SGSI"
+                    ],
+                    [
+                      "5",
+                      "liderança: comprometimento da direção e política de segurança"
+                    ],
+                    [
+                      "6",
+                      "planejamento: avaliação e tratamento de riscos, objetivos"
+                    ],
+                    [
+                      "7",
+                      "apoio: recursos, competência, conscientização, comunicação, documentação"
+                    ],
+                    [
+                      "8",
+                      "operação: executar a avaliação e o tratamento de riscos"
+                    ],
+                    [
+                      "9",
+                      "avaliação de desempenho: monitoramento, auditoria interna, análise crítica pela direção"
+                    ],
+                    [
+                      "10",
+                      "melhoria: não conformidade, ação corretiva e melhoria contínua"
+                    ]
+                  ]
+                },
+                "atencao": "Os controles são definidos na fase de **tratamento** dos riscos, e não na avaliação. A organização compara os controles escolhidos com a lista do **Anexo A** e registra tudo na **declaração de aplicabilidade**: controles necessários, se estão implementados e a justificativa para excluir algum do Anexo A."
+              },
+              {
+                "t": "27002: os controles",
+                "texto": "A edição de 2022 reorganizou os controles em **93**, agrupados em **4 temas**: **organizacionais**, **de pessoas**, **físicos** e **tecnológicos**. Ela orienta como implementar; não é, por si, objeto de certificação.",
+                "mnemo": "27001 diz **o quê** (requisitos, certifica); 27002 diz **como** (boas práticas de controle)."
+              },
+              {
+                "t": "Ciclo de melhoria",
+                "texto": "A lógica do sistema de gestão segue o ciclo **PDCA**: planejar (contexto, riscos, objetivos), fazer (operar os controles), checar (monitorar, auditar) e agir (corrigir e melhorar). As seções 6 a 10 da 27001 percorrem esse ciclo.",
+                "ex": "Na ANPD, a Resolução 15/2024 e o art. 46 da LGPD pedem medidas técnicas e administrativas de segurança; um SGSI baseado na 27001 é uma forma de demonstrar essas medidas (responsabilização e prestação de contas)."
+              }
+            ]
+          },
+          "chave": [
+            "27001: requisitos do SGSI; é a certificável.",
+            "Seções 4 a 10 da 27001 não podem ser excluídas por quem busca conformidade.",
+            "Controles são escolhidos no tratamento de riscos e registrados na declaração de aplicabilidade.",
+            "27002:2022: 93 controles em 4 temas (organizacionais, pessoas, físicos e tecnológicos).",
+            "SGSI é decisão estratégica da direção, integrada aos processos."
+          ],
+          "armadilhas": [
+            "Dizer que a 27002 é a norma certificável.",
+            "Dizer que se pode excluir requisito das seções 4 a 10 e manter a conformidade.",
+            "Dizer que os controles são definidos durante a avaliação de riscos.",
+            "Tratar o SGSI como tarefa só da área de TI."
+          ],
+          "blocos": [
+            "seginfo",
+            "riscos"
+          ],
+          "termos": [
+            "27001",
+            "27002",
+            "27000",
+            "SGSI",
+            "declaração de aplicabilidade",
+            "Anexo A"
+          ],
+          "excluir": [
+            "31000"
+          ]
+        },
+        {
+          "id": "sg-riscos",
+          "nome": "Gestão de riscos: ISO 31000",
+          "resumo": "Risco como efeito da incerteza nos objetivos, os oito princípios, a estrutura e o processo de gestão de riscos.",
+          "artigos": [],
+          "licao": {
+            "ideia": "Para a ISO 31000, **risco é o efeito da incerteza nos objetivos**, e pode ser negativo ou positivo. A gestão de riscos existe para **criar e proteger valor** e segue um processo: definir contexto, identificar, analisar, avaliar, tratar, monitorar e comunicar.",
+            "mapa": {
+              "centro": "ISO 31000",
+              "ramos": [
+                {
+                  "t": "Propósito",
+                  "f": [
+                    "criação e proteção de valor"
+                  ]
+                },
+                {
+                  "t": "Princípios",
+                  "f": [
+                    "integrada",
+                    "estruturada e abrangente",
+                    "personalizada e inclusiva",
+                    "dinâmica",
+                    "melhor informação, fatores humanos, melhoria contínua"
+                  ]
+                },
+                {
+                  "t": "Estrutura",
+                  "f": [
+                    "liderança e comprometimento",
+                    "integração, concepção, implementação, avaliação, melhoria"
+                  ]
+                },
+                {
+                  "t": "Processo",
+                  "f": [
+                    "escopo, contexto e critérios",
+                    "identificar, analisar, avaliar",
+                    "tratar",
+                    "monitorar, comunicar, registrar"
+                  ]
+                },
+                {
+                  "t": "Tratamento",
+                  "f": [
+                    "evitar",
+                    "mitigar",
+                    "compartilhar",
+                    "aceitar"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "O que é risco e para que gerir",
+                "texto": "Risco é o **efeito da incerteza nos objetivos**: um desvio em relação ao esperado, que pode trazer perdas ou oportunidades. A norma traz **diretrizes** aplicáveis a qualquer organização, pública ou privada, e **não é certificável**.",
+                "mnemo": "O prof. Gabriel Pacheco situa as normas: a **ISO 31000** trabalha na camada mais alta, a gestão de riscos da organização inteira; a **ISO 27005** desce para os riscos de segurança da informação."
+              },
+              {
+                "t": "Os oito princípios",
+                "tabela": {
+                  "cab": [
+                    "Princípio",
+                    "Ideia"
+                  ],
+                  "linhas": [
+                    [
+                      "**integrada**",
+                      "parte de todas as atividades da organização"
+                    ],
+                    [
+                      "**estruturada e abrangente**",
+                      "abordagem sistemática que gera resultados consistentes e comparáveis"
+                    ],
+                    [
+                      "**personalizada**",
+                      "proporcional ao contexto e aos objetivos"
+                    ],
+                    [
+                      "**inclusiva**",
+                      "envolve as partes interessadas no momento certo"
+                    ],
+                    [
+                      "**dinâmica**",
+                      "acompanha riscos que surgem, mudam ou desaparecem"
+                    ],
+                    [
+                      "**melhor informação disponível**",
+                      "decide com base em dados históricos, atuais e expectativas, reconhecendo limitações"
+                    ],
+                    [
+                      "**fatores humanos e culturais**",
+                      "comportamento e cultura influenciam todos os aspectos"
+                    ],
+                    [
+                      "**melhoria contínua**",
+                      "aprende com a experiência"
+                    ]
+                  ]
+                },
+                "atencao": "No centro dos princípios está o **propósito**: criação e proteção de valor. Na estrutura, o centro é **liderança e comprometimento**."
+              },
+              {
+                "t": "O processo",
+                "passos": [
+                  "**comunicação e consulta** com as partes interessadas, ao longo de todo o processo",
+                  "**escopo, contexto e critérios**: o que se avalia e quanto risco é aceitável",
+                  "**processo de avaliação de riscos**: **identificação**, **análise** (natureza, probabilidade, consequências, nível do risco) e **avaliação** (comparar com os critérios e decidir se trata)",
+                  "**tratamento** dos riscos: escolher e implementar opções",
+                  "**monitoramento e análise crítica**, também contínuos",
+                  "**registro e relato** dos resultados"
+                ],
+                "atencao": "\"Avaliação de riscos\" é o nome do conjunto identificação, análise e avaliação. A banca usa a palavra avaliação para os dois sentidos."
+              },
+              {
+                "t": "Opções de tratamento",
+                "tabela": {
+                  "cab": [
+                    "Opção",
+                    "O que é",
+                    "Exemplo"
+                  ],
+                  "linhas": [
+                    [
+                      "**evitar**",
+                      "não iniciar ou encerrar a atividade que gera o risco",
+                      "desistir de coletar um dado sensível desnecessário"
+                    ],
+                    [
+                      "**mitigar** (modificar)",
+                      "reduzir probabilidade ou consequência",
+                      "criptografar a base, treinar a equipe"
+                    ],
+                    [
+                      "**compartilhar** (transferir)",
+                      "dividir o risco com outra parte",
+                      "seguro, contrato com fornecedor"
+                    ],
+                    [
+                      "**aceitar** (reter)",
+                      "decisão consciente de não tratar além do que existe",
+                      "risco dentro do apetite, ou controle mais caro que o dano"
+                    ]
+                  ]
+                },
+                "depois": "**Apetite a risco** é quanto risco a organização aceita para atingir seus objetivos; **tolerância** é a variação aceitável em torno de um objetivo específico.",
+                "atencao": "Seguro **compartilha** o risco; não o evita. E aceitar é decisão informada, não omissão."
+              }
+            ]
+          },
+          "chave": [
+            "Risco: efeito da incerteza nos objetivos, negativo ou positivo.",
+            "Propósito da gestão de riscos: criação e proteção de valor; ISO 31000 não é certificável.",
+            "Oito princípios: integrada, estruturada e abrangente, personalizada, inclusiva, dinâmica, melhor informação, fatores humanos e culturais, melhoria contínua.",
+            "Avaliação de riscos = identificação + análise + avaliação.",
+            "Tratamento: evitar, mitigar, compartilhar ou aceitar."
+          ],
+          "armadilhas": [
+            "Dizer que a ISO 31000 serve para certificação.",
+            "Dizer que risco só tem efeito negativo.",
+            "Dizer que contratar seguro é evitar o risco.",
+            "Restringir a ISO 31000 ao setor privado."
+          ],
+          "blocos": [
+            "riscos",
+            "seginfo"
+          ],
+          "termos": [
+            "risco",
+            "31000",
+            "27005",
+            "apetite",
+            "três linhas",
+            "COSO"
+          ]
+        },
+        {
+          "id": "sg-nist",
+          "nome": "NIST CSF 2.0 e incidentes no governo federal",
+          "resumo": "As seis funções do NIST CSF 2.0, perfis e níveis, e a estrutura de resposta a incidentes da administração federal.",
+          "artigos": [
+            "nistcsf:GV",
+            "ingsi1:15",
+            "ingsi1:16",
+            "dec10748:2"
+          ],
+          "licao": {
+            "ideia": "O **NIST CSF 2.0** organiza a cibersegurança em **seis funções**: Governar, Identificar, Proteger, Detectar, Responder e Recuperar. Na administração federal, cada órgão tem gestor de segurança, comitê e uma equipe de resposta a incidentes (ETIR), ligados a uma rede coordenada pelo GSI.",
+            "mapa": {
+              "centro": "Cibersegurança",
+              "ramos": [
+                {
+                  "t": "Governar (GV)",
+                  "f": [
+                    "estratégia, papéis, política",
+                    "nova na versão 2.0",
+                    "cadeia de suprimentos"
+                  ]
+                },
+                {
+                  "t": "Antes do incidente",
+                  "f": [
+                    "Identificar (ID)",
+                    "Proteger (PR)"
+                  ]
+                },
+                {
+                  "t": "Durante",
+                  "f": [
+                    "Detectar (DE)",
+                    "Responder (RS)"
+                  ]
+                },
+                {
+                  "t": "Depois",
+                  "f": [
+                    "Recuperar (RC)"
+                  ]
+                },
+                {
+                  "t": "Perfis e níveis",
+                  "f": [
+                    "perfil atual e perfil-alvo",
+                    "4 níveis (Tiers)"
+                  ]
+                },
+                {
+                  "t": "Governo federal",
+                  "f": [
+                    "gestor de segurança",
+                    "comitê",
+                    "ETIR",
+                    "Rede Federal (GSI)"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "As seis funções",
+                "tabela": {
+                  "cab": [
+                    "Função",
+                    "Resultado esperado"
+                  ],
+                  "linhas": [
+                    [
+                      "**Governar** (GV)",
+                      "a estratégia, as expectativas e a política de gestão de riscos cibernéticos são estabelecidas, comunicadas e monitoradas"
+                    ],
+                    [
+                      "**Identificar** (ID)",
+                      "os riscos atuais são compreendidos: ativos, fornecedores, riscos"
+                    ],
+                    [
+                      "**Proteger** (PR)",
+                      "salvaguardas são usadas para gerir os riscos: identidade e acesso, conscientização, segurança de dados e plataformas"
+                    ],
+                    [
+                      "**Detectar** (DE)",
+                      "possíveis ataques e comprometimentos são encontrados e analisados"
+                    ],
+                    [
+                      "**Responder** (RS)",
+                      "ações são tomadas diante de incidente detectado, para conter seus efeitos"
+                    ],
+                    [
+                      "**Recuperar** (RC)",
+                      "ativos e operações afetados são restaurados"
+                    ]
+                  ]
+                },
+                "mnemo": "A função **Governar** é a novidade da versão 2.0 e fica no centro: ela informa como as outras cinco são priorizadas."
+              },
+              {
+                "t": "Perfis e níveis",
+                "texto": "O **Perfil Organizacional** descreve a postura **atual** e a **desejada** (alvo) em termos dos resultados do Core. Os **níveis** (Tiers) caracterizam o rigor da governança e da gestão de riscos: **Parcial** (1), **Informado pelo risco** (2), **Repetível** (3) e **Adaptativo** (4). O CSF serve a organizações de qualquer porte e setor.",
+                "atencao": "Tiers não são níveis de maturidade obrigatórios nem certificação: ajudam a organização a escolher onde quer chegar."
+              },
+              {
+                "t": "Incidentes na administração pública federal",
+                "tabela": {
+                  "cab": [
+                    "Estrutura",
+                    "Regra"
+                  ],
+                  "linhas": [
+                    [
+                      "Órgão ou entidade (IN GSI 1/2020, art. 16)",
+                      "designa **gestor de segurança da informação**, institui **Comitê de Segurança da Informação** e uma **ETIR** (Equipe de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos)"
+                    ],
+                    [
+                      "Política de Segurança da Informação (art. 10)",
+                      "elaborada sob coordenação do gestor de segurança, com participação do comitê"
+                    ],
+                    [
+                      "Rede Federal de Gestão de Incidentes Cibernéticos (Decreto 10.748/2021)",
+                      "coordena órgãos da administração direta, autárquica e fundacional na prevenção, tratamento e resposta a incidentes; coordenada pelo GSI por meio do Centro de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos de Governo"
+                    ]
+                  ]
+                },
+                "ex": "Uma agência reguladora tem papel duplo no Decreto 10.748: suas equipes podem coordenar a resposta a incidentes no setor regulado, como **equipe de coordenação setorial**."
+              }
+            ]
+          },
+          "chave": [
+            "NIST CSF 2.0: Governar, Identificar, Proteger, Detectar, Responder e Recuperar.",
+            "Governar é a função nova da versão 2.0.",
+            "Perfil atual × perfil-alvo; quatro níveis: parcial, informado pelo risco, repetível e adaptativo.",
+            "IN GSI 1/2020: gestor de segurança, comitê e ETIR em cada órgão.",
+            "Rede Federal de Gestão de Incidentes Cibernéticos é coordenada pelo GSI."
+          ],
+          "armadilhas": [
+            "Dizer que o NIST CSF 2.0 tem cinco funções.",
+            "Trocar Detectar por Responder.",
+            "Tratar os Tiers como certificação obrigatória.",
+            "Dizer que a Rede Federal é coordenada pela ANPD."
+          ],
+          "blocos": [
+            "seginfo"
+          ],
+          "termos": [
+            "NIST",
+            "CSF",
+            "incidente",
+            "GSI",
+            "10\\.748",
+            "PNCiber",
+            "ETIR",
+            "ciberseguran"
+          ]
+        },
+        {
+          "id": "sg-privacidade",
+          "nome": "Privacidade desde a concepção e por padrão",
+          "resumo": "Os princípios de privacy by design, a ligação com a LGPD e técnicas que reduzem o risco aos titulares.",
+          "artigos": [
+            "lgpd:46",
+            "lgpd:49"
+          ],
+          "licao": {
+            "ideia": "Privacidade desde a concepção (**privacy by design**) é pensar a proteção dos dados **antes** de o sistema existir, e não remendar depois. Privacidade **por padrão** é a configuração mais protetiva já vir ligada, sem o usuário precisar agir.",
+            "mapa": {
+              "centro": "Privacy by design",
+              "ramos": [
+                {
+                  "t": "Origem",
+                  "f": [
+                    "Ann Cavoukian",
+                    "7 princípios"
+                  ]
+                },
+                {
+                  "t": "Ideias centrais",
+                  "f": [
+                    "proativo, não reativo",
+                    "privacidade como padrão",
+                    "embutida no projeto"
+                  ]
+                },
+                {
+                  "t": "Na LGPD",
+                  "f": [
+                    "art. 46, § 2º: desde a concepção",
+                    "art. 49: sistemas estruturados",
+                    "princípio da necessidade"
+                  ]
+                },
+                {
+                  "t": "Técnicas",
+                  "f": [
+                    "minimização",
+                    "pseudonimização",
+                    "anonimização",
+                    "criptografia"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Os sete princípios (Ann Cavoukian)",
+                "lista": [
+                  "**proativo, e não reativo**; preventivo, e não corretivo",
+                  "**privacidade como configuração padrão**",
+                  "**privacidade incorporada ao projeto**",
+                  "**funcionalidade total**: soma positiva, e não soma zero (privacidade e funcionalidade juntas)",
+                  "**segurança de ponta a ponta**: proteção durante todo o ciclo de vida do dado",
+                  "**visibilidade e transparência**",
+                  "**respeito pela privacidade do usuário**: centrado no usuário"
+                ],
+                "porque": "Corrigir um sistema depois de pronto é caro e incompleto; desenhar com privacidade é mais barato e mais eficaz. E a soma positiva desfaz o falso dilema: dá para ter produto útil e protetivo ao mesmo tempo."
+              },
+              {
+                "t": "Onde isso está na LGPD",
+                "tabela": {
+                  "cab": [
+                    "Dispositivo",
+                    "Regra"
+                  ],
+                  "linhas": [
+                    [
+                      "art. 46, § 2º",
+                      "medidas de segurança observadas **desde a fase de concepção** do produto ou do serviço até a sua execução"
+                    ],
+                    [
+                      "art. 49",
+                      "sistemas estruturados para atender aos requisitos de segurança, às boas práticas e governança e aos princípios"
+                    ],
+                    [
+                      "art. 6º, III",
+                      "necessidade: o mínimo de dados para a finalidade"
+                    ]
+                  ]
+                },
+                "mnemo": "Por **padrão** é o ponto de partida protetivo (as opções de compartilhamento vêm desligadas); desde a **concepção** é o processo de projeto."
+              },
+              {
+                "t": "Técnicas que reduzem o risco",
+                "tabela": {
+                  "cab": [
+                    "Técnica",
+                    "Efeito"
+                  ],
+                  "linhas": [
+                    [
+                      "**minimização**",
+                      "coletar e guardar só o necessário"
+                    ],
+                    [
+                      "**pseudonimização**",
+                      "substituir identificadores; o dado continua pessoal, mas o risco cai"
+                    ],
+                    [
+                      "**anonimização**",
+                      "romper o vínculo com a pessoa; o dado deixa de ser pessoal, salvo reversão razoável"
+                    ],
+                    [
+                      "**criptografia**",
+                      "tornar o dado ininteligível para quem não tem a chave"
+                    ]
+                  ]
+                },
+                "atencao": "Pseudonimizar não anonimiza: com a informação adicional guardada à parte, o dado volta a identificar."
+              }
+            ]
+          },
+          "chave": [
+            "Privacy by design: proteção desde a concepção, proativa e não reativa.",
+            "Privacy by default: a configuração mais protetiva vem ligada.",
+            "Sete princípios de Ann Cavoukian, incluindo soma positiva e segurança de ponta a ponta.",
+            "LGPD, art. 46, § 2º: segurança desde a concepção até a execução.",
+            "Pseudonimização reduz risco, mas o dado continua pessoal."
+          ],
+          "armadilhas": [
+            "Dizer que privacy by design é ajustar o sistema depois do incidente.",
+            "Tratar privacidade e funcionalidade como soma zero.",
+            "Dizer que dado pseudonimizado deixa de ser pessoal.",
+            "Dizer que a LGPD só exige segurança depois que o produto está em operação."
+          ],
+          "blocos": [
+            "seginfo"
+          ],
+          "termos": [
+            "privacidade desde",
+            "privacidade por padrão",
+            "by design",
+            "by default",
+            "Cavoukian",
+            "pseudonimiza",
+            "anonimiza",
+            "minimização",
+            "\\bPETs?\\b"
+          ],
+          "excluir": [
+            "NIST",
+            "CSF",
+            "IN GSI",
+            "Política Nacional",
+            "PNCiber",
+            "Comitê",
+            "Decreto",
+            "Instrução Normativa",
+            "ISO"
+          ]
+        }
+      ]
+    },
+    {
       "id": "constitucional",
       "nome": "Direito constitucional do zero",
       "resumo": "Da ideia de Constituição ao controle de constitucionalidade, na ordem em que a matéria faz sentido para quem começa.",
