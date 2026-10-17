@@ -98,14 +98,33 @@ const P1 = ['lgpd-17-22', 'lgpd-52-54', 'lgpd-55', 'lgpd-33-36', 'lgpd-5-11'];
 // Especialista em Regulação feita sobre a estrutura da Anatel 2024 e da ANAC 2024 até sair o edital. Gestão fica em 8
 // (o guia do cargo dá 4% do estudo): o terço de gestão do processo seletivo da ANPD (2025) veio do cargo gerencial, e
 // o específico do especialista deve concentrar-se na LGPD e nas normas da ANPD.
-const ITENS_PROVA = { linguas: 21, direito: 19, regulacao: 14, lgpd: 36, eca: 8, seginfo: 8, gestao: 8, comparado: 3, economia: 3 };
+// Cada item básico vale 1 ponto e cada específico vale 2 (50 + 140 = 190): é a hipótese do plano até sair o edital.
+// Na Anatel 2024, todo item valia 1; se o edital da ANPD repetir isso, basta pôr PESO_ESPECIFICA = 1.
+// Regulação aparece nas duas partes: Lei 13.848 e Lei 9.784 na básica, teoria da regulação na específica.
+const PESO_BASICA = 1, PESO_ESPECIFICA = 2;
+const PROVA_BASICA = { linguas: 21, direito: 19, regulacao: 10 };
+const PROVA_ESPECIFICA = { regulacao: 4, lgpd: 36, eca: 8, seginfo: 8, gestao: 8, comparado: 3, economia: 3 };
+const REG_NA_BASICA = new Set(['lei-13848', 'lei-9784']);
+const ITENS_PROVA = {};
+for (const parte of [PROVA_BASICA, PROVA_ESPECIFICA]) for (const [d, k] of Object.entries(parte)) ITENS_PROVA[d] = (ITENS_PROVA[d] || 0) + k;
 const TOTAL_PROVA = Object.values(ITENS_PROVA).reduce((a, b) => a + b, 0);
-// Cotas por disciplina para n itens, pelo método do maior resto (a soma dá exatamente n)
+const PONTOS_DISC = {};
+for (const [d, k] of Object.entries(PROVA_BASICA)) PONTOS_DISC[d] = (PONTOS_DISC[d] || 0) + k * PESO_BASICA;
+for (const [d, k] of Object.entries(PROVA_ESPECIFICA)) PONTOS_DISC[d] = (PONTOS_DISC[d] || 0) + k * PESO_ESPECIFICA;
+const PONTOS_PROVA = Object.values(PONTOS_DISC).reduce((a, b) => a + b, 0);
+// Parte da prova em que o item cairia: 'b' (básica, peso 1) ou 'e' (específica, peso 2)
+function parteProva(q) {
+  const d = (BI.get(q.b) || {}).disciplina;
+  return d === 'linguas' || d === 'direito' || (d === 'regulacao' && REG_NA_BASICA.has(q.b)) ? 'b' : 'e';
+}
+function pesoItem(q) { return parteProva(q) === 'b' ? PESO_BASICA : PESO_ESPECIFICA; }
+// Fatias da prova (parte + disciplina) para n itens, pelo método do maior resto (a soma dá exatamente n)
 function cotasProva(n) {
-  const base = Object.entries(ITENS_PROVA).map(([d, k]) => { const x = (n * k) / TOTAL_PROVA; return [d, Math.floor(x), x - Math.floor(x)]; });
-  let falta = n - base.reduce((a, b) => a + b[1], 0);
-  base.slice().sort((a, b) => b[2] - a[2]).forEach((b) => { if (falta > 0) { b[1]++; falta--; } });
-  return base.map(([d, k]) => [d, k]);
+  const fatias = Object.entries(PROVA_BASICA).map(([d, k]) => ['b', d, k]).concat(Object.entries(PROVA_ESPECIFICA).map(([d, k]) => ['e', d, k]));
+  const base = fatias.map(([p, d, k]) => { const x = (n * k) / TOTAL_PROVA; return [p, d, Math.floor(x), x - Math.floor(x)]; });
+  let falta = n - base.reduce((a, b) => a + b[2], 0);
+  base.slice().sort((a, b) => b[3] - a[3]).forEach((b) => { if (falta > 0) { b[2]++; falta--; } });
+  return base.map(([p, d, k]) => [p, d, k]);
 }
 // Blocos que não entram no simulado de prova completa (conteúdo de outra agência, útil só para ver o estilo da banca)
 const FORA_DA_PROVA = new Set(['anatel-setorial']);
@@ -1063,9 +1082,10 @@ function selecionar(pool, n, filtro) {
 function selecionarProva(n) {
   const escolhidos = [];
   const usados = new Set();
-  for (const [disc, k] of cotasProva(n)) {
-    const pool = Q.filter((q) => { const b = BI.get(q.b); return b && b.disciplina === disc && !FORA_DA_PROVA.has(b.id) && !q.al; });
-    selecionar(pool, Math.min(pool.length, k), 'novas').forEach((q) => { escolhidos.push(q); usados.add(q.id); });
+  for (const [parte, disc, k] of cotasProva(n)) {
+    const pool = Q.filter((q) => { const b = BI.get(q.b); return b && b.disciplina === disc && parteProva(q) === parte && !FORA_DA_PROVA.has(b.id) && !q.al; });
+    // Agrupa por texto dentro da fatia: os itens irmãos do mesmo texto são da mesma disciplina, e a cota não muda
+    emBlocosDeTexto(selecionar(pool, Math.min(pool.length, k), 'novas'), true, null).forEach((q) => { if (!usados.has(q.id)) { escolhidos.push(q); usados.add(q.id); } });
   }
   if (escolhidos.length < n) selecionar(Q.filter((q) => !usados.has(q.id) && !FORA_DA_PROVA.has(q.b) && !q.al), n - escolhidos.length, 'novas').forEach((q) => escolhidos.push(q));
   return embaralhar(escolhidos.slice(0, n));
@@ -1185,7 +1205,7 @@ function atualizarPausa() {
   if (sessao.fim || sessao.desfecho || (!sim && !faltam.length)) delete pausas[k];
   else {
     pausas[k] = Object.assign({ modo: sessao.modo, titulo: sessao.titulo, dia: sessao.dia, data: hojeISO(), ts: Date.now() }, sim
-      ? { ids: sessao.ids, resp: sessao.resp, duv: sessao.duv, i: sessao.i, gasto: Math.round(decorrido()), limite: sessao.limite, total: sessao.ids.length }
+      ? { ids: sessao.ids, resp: sessao.resp, duv: sessao.duv, i: sessao.i, gasto: Math.round(decorrido()), limite: sessao.limite, total: sessao.ids.length, prova: sessao.prova || undefined }
       : { ids: faltam, feitas: (sessao.feitasAntes || 0) + sessao.ids.length - faltam.length, total: sessao.totalOrig || sessao.ids.length },
       sessao.batalha ? { cor: sessao.coracoes, dano: sessao.danoTotal || 0, crit: sessao.criticos || 0, cmb: sessao.comboMax, per: sessao.perdas || 0 } : {});
   }
@@ -1203,7 +1223,7 @@ function guardarSessaoAberta() {
 function retomarPausa(k) {
   const p = pausaDe(k);
   if (!p) return false;
-  sessao = novaSessao({ modo: p.modo, titulo: p.titulo, dia: p.dia, chave: k }, p.ids);
+  sessao = novaSessao({ modo: p.modo, titulo: p.titulo, dia: p.dia, chave: k, prova: p.prova }, p.ids);
   sessao.retomada = true;
   if (p.modo === 'simulado') {
     sessao.resp = p.resp;
@@ -1256,7 +1276,7 @@ function iniciarSessao(cfg) {
   else if (cfg.modo === 'relampago') itens = embaralhar(poolDe(cfg.blocos).filter((q) => !q.al));
   else itens = selecionar(poolDe(cfg.blocos), cfg.n || 20, cfg.filtro || 'mistas');
   if (!itens.length) { avisar('!', 'Sem itens', 'Nenhuma questão disponível com esse filtro.'); return; }
-  if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && cfg.modo !== 'revisao', cfg.blocos && cfg.blocos.length && !cfg.prova && !cfg.intercalado ? new Set(cfg.blocos) : null);
+  if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && !cfg.prova && cfg.modo !== 'revisao', cfg.blocos && cfg.blocos.length && !cfg.prova && !cfg.intercalado ? new Set(cfg.blocos) : null);
   sessao = novaSessao(cfg, itens.map((q) => q.id));
   abrirSessao();
 }
@@ -1274,7 +1294,7 @@ function novaSessao(cfg, ids) {
   return {
     modo: cfg.modo, titulo: cfg.titulo || tituloModo(cfg.modo), dia: cfg.dia || null, ids, i: 0,
     chave: MODOS_PAUSA.has(cfg.modo) ? cfg.chave || cfg.dia || 'x:' + Date.now().toString(36) : null, resp: {}, duv: {}, revelado: false,
-    combo: 0, comboMax: 0, xp: 0, ini: Date.now(), fim: false, confirmar: null, flash: null, retrato: cfg.modo === 'cards' ? null : retratoSessao(ids),
+    combo: 0, comboMax: 0, xp: 0, ini: Date.now(), fim: false, prova: !!cfg.prova, confirmar: null, flash: null, retrato: cfg.modo === 'cards' ? null : retratoSessao(ids),
     batalha: String(cfg.chave || '').startsWith('chefe:'), coracoes: coracoesMax(), coracoesMax: coracoesMax(),
     limite: cfg.modo === 'relampago' ? 90 : cfg.modo === 'simulado' ? (cfg.minutos || 0) * 60 : 0,
   };
@@ -1392,20 +1412,24 @@ function finalizar() {
   sessao.dur = decorrido();
   clearInterval(relogioTimer);
   if (sessao.modo === 'simulado') {
-    let c = 0, e = 0, b = 0, xp = 0, eMc = 0, ni = 0, nc = 0;
+    // pt: nota ponderada (item básico vale 1, específico vale 2); nr/cr: itens reais de prova respondidos e acertados
+    let c = 0, e = 0, b = 0, xp = 0, eMc = 0, ni = 0, nc = 0, pt = 0, ptMax = 0, nr = 0, cr = 0;
     sessao.ids.forEach((id) => {
       const q = QI.get(id);
       const r = sessao.resp[id] || BRANCO;
       const inedito = !rec(id) || rec(id)[0] < 0;
       const ok = registrar(q, r, !!sessao.duv[id]);
+      const w = pesoItem(q);
+      ptMax += w;
       if (inedito && r !== BRANCO) { ni++; if (ok) nc++; }
-      if (r === BRANCO) b++; else if (ok) { c++; xp += 10; } else { e++; if (q.al) eMc++; }
+      if (q.o && r !== BRANCO) { nr++; if (ok) cr++; }
+      if (r === BRANCO) b++; else if (ok) { c++; xp += 10; pt += w; } else { e++; if (q.al) eMc++; else pt -= w; }
     });
     sessao.ineditos = { n: ni, c: nc };
     xp += 40;
     sessao.xp = xp;
     ganharXP(xp);
-    S.simulados.unshift({ data: hojeISO(), n: sessao.ids.length, c, e, b, liq: c - (e - eMc), seg: Math.round(sessao.dur), titulo: sessao.titulo, ni, nc });
+    S.simulados.unshift({ data: hojeISO(), n: sessao.ids.length, c, e, b, liq: c - (e - eMc), seg: Math.round(sessao.dur), titulo: sessao.titulo, ni, nc, pt, ptMax, nr, cr });
     S.simulados = S.simulados.slice(0, 60);
     verificarMeta();
   }
@@ -2160,7 +2184,7 @@ function renderQuestoes() {
     html += '<div class="campo"><span class="rot">Composição</span><div class="chips">' +
       '<button class="chip" data-acao="set-prova" data-prova="prova" aria-pressed="' + usarProva + '">Prova completa (básicos + específicos)</button>' +
       '<button class="chip" data-acao="set-prova" data-prova="blocos" aria-pressed="' + !usarProva + '">Só os blocos marcados</button></div>' +
-      (usarProva ? '<p class="pequeno mudo">Numa prova de ' + TOTAL_PROVA + ' itens: ' + Object.entries(ITENS_PROVA).map(([d, k]) => esc(DI.get(d).nome) + ' ' + k).join(' · ') + '. Estimativa para Especialista em Regulação, sobre as provas da Anatel e da ANAC de 2024 (50 itens básicos e 70 específicos), com o específico concentrado na LGPD e nas normas da ANPD; muda quando sair o edital.</p>' : '') + '</div>';
+      (usarProva ? '<p class="pequeno mudo">Numa prova de ' + TOTAL_PROVA + ' itens e ' + PONTOS_PROVA + ' pontos. Básica, cada item vale 1: ' + Object.entries(PROVA_BASICA).map(([d, k]) => esc(DI.get(d).nome) + ' ' + k).join(' · ') + '. Específica, cada item vale 2: ' + Object.entries(PROVA_ESPECIFICA).map(([d, k]) => esc(DI.get(d).nome) + ' ' + k).join(' · ') + '. Estimativa para Especialista em Regulação, sobre as provas da Anatel e da ANAC de 2024; muda quando sair o edital.</p>' : '') + '</div>';
   }
   if (modo !== 'relampago') html += '<div class="campo"><span class="rot">Quantidade de itens</span><div class="chips">' + ns.map((n) => '<button class="chip" data-acao="set-n" data-n="' + n + '" aria-pressed="' + (UI.n === n) + '">' + n + '</button>').join('') + '</div></div>';
   if (modo === 'treino') html += '<div class="campo"><span class="rot">Quais itens</span><div class="chips">' + [['mistas', 'Vencidas + inéditas'], ['novas', 'Só inéditas'], ['erradas', 'Só as que já errei']].map(([v, t]) => '<button class="chip" data-acao="set-filtro" data-filtro="' + v + '" aria-pressed="' + (UI.filtro === v) + '">' + t + '</button>').join('') + '</div></div>';
@@ -2400,13 +2424,15 @@ function renderResultadoCards() {
 function renderResultado() {
   const ids = sessao.modo === 'relampago' ? sessao.ids.filter((id) => sessao.resp[id]) : sessao.ids;
   // No Cebraspe, erro em item certo/errado anula um acerto; erro em múltipla escolha não desconta
-  let c = 0, e = 0, b = 0, dc = 0, de = 0, eMc = 0;
+  let c = 0, e = 0, b = 0, dc = 0, de = 0, eMc = 0, pt = 0, ptMax = 0;
   const porDisc = {};
   ids.forEach((id) => {
     const r = sessao.resp[id] || BRANCO, q = QI.get(id), duv = !!sessao.duv[id] && !q.al;
     const disc = (BI.get(q.b) || {}).disciplina || 'outros';
-    const pd = (porDisc[disc] ||= { c: 0, e: 0, b: 0, eMc: 0 });
-    if (r === BRANCO) { b++; pd.b++; } else if (r === q.g) { c++; pd.c++; if (duv) dc++; } else { e++; pd.e++; if (duv) de++; if (q.al) { eMc++; pd.eMc++; } }
+    const pd = (porDisc[disc] ||= { c: 0, e: 0, b: 0, eMc: 0, pt: 0, ptMax: 0 });
+    const w = pesoItem(q);
+    ptMax += w; pd.ptMax += w;
+    if (r === BRANCO) { b++; pd.b++; } else if (r === q.g) { c++; pd.c++; pt += w; pd.pt += w; if (duv) dc++; } else { e++; pd.e++; if (duv) de++; if (q.al) { eMc++; pd.eMc++; } else { pt -= w; pd.pt -= w; } }
   });
   const liq = c - (e - eMc), n = ids.length;
   let html = '<div class="sessao-topo"><div class="tit"><b>' + esc(sessao.titulo) + '</b><span>Resultado · ' + fmtTempo(sessao.dur) + '</span></div><button class="btn" data-acao="fechar-sessao">Concluir</button></div>';
@@ -2415,13 +2441,15 @@ function renderResultado() {
     '<div class="placar"><div class="C"><b>' + c + '</b><span>certas</span></div><div class="E"><b>' + e + '</b><span>erradas</span></div><div><b>' + b + '</b><span>em branco</span></div><div class="L"><b>+' + sessao.xp + '</b><span>XP</span></div></div>';
   if (sessao.modo === 'relampago') html += '<p>' + (sessao.recorde ? '<b>Novo recorde!</b> ' : '') + 'Recorde pessoal: ' + (S.perfil.recordes.relampago || 0) + '.</p>';
   if (eMc) html += '<p class="mudo pequeno">' + pl(eMc, 'erro', 'erros') + ' em múltipla escolha não ' + (eMc > 1 ? 'descontaram' : 'descontou') + ' ponto, como no Cebraspe.</p>';
+  if (sessao.modo === 'simulado' && ptMax !== n) html += '<p class="pequeno">Nota com os pesos da prova (básica vale 1, específica vale 2): <b>' + pt + '</b> de ' + ptMax + ' pontos · <b>' + pct(pt, ptMax) + '%</b>.</p>';
   if (sessao.ineditos && sessao.ineditos.n >= 5) html += '<p class="pequeno">Nos ' + sessao.ineditos.n + ' itens que você via pela primeira vez, acerto de <b>' + pct(sessao.ineditos.c, sessao.ineditos.n) + '%</b>. É a medida mais fiel do seu nível: item repetido se reconhece.</p>';
   if (sessao.comboMax >= 3) html += '<p class="mudo">Maior sequência de acertos: ' + sessao.comboMax + '.</p>';
   html += '</div>';
   html += cartaoGanhos();
   if (sessao.modo === 'simulado' && Object.keys(porDisc).length > 1) {
-    html += '<div class="cartao"><h2>Por disciplina</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>C</th><th>E</th><th>B</th><th>Líquida</th></tr></thead><tbody>' +
-      Object.entries(porDisc).map(([dd, v]) => { const t = v.c + v.e + v.b; return '<tr><td>' + esc((DI.get(dd) || { nome: dd }).nome) + '</td><td class="num">' + v.c + '</td><td class="num">' + v.e + '</td><td class="num">' + v.b + '</td><td class="num">' + (v.c - v.e + v.eMc) + ' (' + pct(v.c - v.e + v.eMc, t) + '%)</td></tr>'; }).join('') + '</tbody></table></div></div>';
+    html += '<div class="cartao"><h2>Por disciplina</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>C</th><th>E</th><th>B</th><th>Líquida</th><th>Pontos</th></tr></thead><tbody>' +
+      Object.entries(porDisc).sort((a, b) => b[1].ptMax - a[1].ptMax).map(([dd, v]) => { const t = v.c + v.e + v.b; return '<tr><td>' + esc((DI.get(dd) || { nome: dd }).nome) + '</td><td class="num">' + v.c + '</td><td class="num">' + v.e + '</td><td class="num">' + v.b + '</td><td class="num">' + (v.c - v.e + v.eMc) + ' (' + pct(v.c - v.e + v.eMc, t) + '%)</td><td class="num">' + v.pt + ' de ' + v.ptMax + '</td></tr>'; }).join('') + '</tbody></table></div>' +
+      '<p class="pequeno mudo">Pontos: cada item básico vale 1 e cada específico vale 2. A ordem segue o que cada disciplina pesa na nota.</p></div>';
   }
   const nd = dc + de;
   if (nd) {
@@ -2977,7 +3005,7 @@ function renderPlano() {
     }
     html += '</div>';
   }
-  html += '</div><div class="cartao"><h2>Peso por disciplina</h2><div class="tabela-env"><table class="tabela"><tbody>' + DISC.map((d) => '<tr><td>' + esc(d.nome) + '</td><td style="text-align:right"><span class="selo' + (d.peso === 'MÁXIMO' ? ' p1' : d.peso === 'ALTO' ? ' p2' : '') + '">' + esc(d.peso) + '</span></td></tr>').join('') + '</tbody></table></div><p class="pequeno mudo">Ordem de estudo do guia do cargo, não percentual de prova. Português e inglês são base: entram um pouco todo dia, nas questões intercaladas.</p></div>';
+  html += '</div><div class="cartao"><h2>Peso por disciplina</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>Na nota</th><th>Prioridade</th></tr></thead><tbody>' + DISC.slice().sort((a, b) => (PONTOS_DISC[b.id] || 0) - (PONTOS_DISC[a.id] || 0)).map((d) => '<tr><td>' + esc(d.nome) + '</td><td class="num">' + (PONTOS_DISC[d.id] ? (Math.round((PONTOS_DISC[d.id] / PONTOS_PROVA) * 1000) / 10).toLocaleString('pt-BR') + '%' : '—') + '</td><td style="text-align:right"><span class="selo' + (d.peso === 'MÁXIMO' ? ' p1' : d.peso === 'ALTO' ? ' p2' : '') + '">' + esc(d.peso) + '</span></td></tr>').join('') + '</tbody></table></div><p class="pequeno mudo">Na nota: quanto a disciplina vale numa prova de ' + PONTOS_PROVA + ' pontos, em que cada item básico vale 1 e cada específico vale 2 (estimativa até sair o edital). Prioridade: ordem de estudo do guia do cargo. Português e inglês entram um pouco todo dia, nas questões intercaladas.</p></div>';
   html += '<div class="cartao"><div class="secao-cab"><h2>Status dos blocos</h2><span class="mudo pequeno">Toque no status para mudar</span></div><div class="tabela-env"><table class="tabela"><thead><tr><th>Bloco</th><th>Domínio</th><th>Status</th></tr></thead><tbody>';
   BLOCOS.slice().sort((a, b) => a.prioridade - b.prioridade).forEach((b) => {
     const st = S.perfil.status[b.id] || 'nao', dmn = dominioBloco(b.id);
