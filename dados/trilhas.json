@@ -1054,8 +1054,13 @@
           "artigos": [
             "lgpd:23",
             "lgpd:24",
+            "lgpd:25",
             "lgpd:26",
-            "lgpd:27"
+            "lgpd:27",
+            "lgpd:29",
+            "lgpd:30",
+            "lgpd:31",
+            "lgpd:32"
           ],
           "licao": {
             "ideia": "O Poder Público trata dados para cumprir sua **finalidade pública** e suas competências legais, informando com clareza o que faz e indicando um encarregado. Repassar dados a entes privados é, em regra, **vedado**, com exceções.",
@@ -1165,7 +1170,8 @@
           ],
           "blocos": [
             "lgpd-23-32"
-          ]
+          ],
+          "soArtigos": true
         },
         {
           "id": "pd-transferencia",
@@ -1775,7 +1781,7 @@
                   "f": [
                     "5 diretores",
                     "Presidente nomeia após o Senado",
-                    "mandato de 4 anos"
+                    "mandato: 4 anos na LGPD × 5 na Lei 9.986"
                   ]
                 },
                 {
@@ -1816,7 +1822,7 @@
                     ],
                     [
                       "Escolha",
-                      "pelo Presidente da República, nomeados após aprovação do **Senado**"
+                      "nomeados pelo Presidente da República após aprovação do **Senado** (art. 55-D, § 1º); pela Estrutura Regimental de 2026, indicados em ato do Ministro da Justiça e Segurança Pública"
                     ],
                     [
                       "Requisitos",
@@ -1824,7 +1830,7 @@
                     ],
                     [
                       "Mandato",
-                      "**4 anos**; na vacância, o sucessor completa o prazo"
+                      "o texto compilado da LGPD ainda diz **4 anos** (art. 55-D, § 3º); as nomeações posteriores à Lei 15.352/2026 seguem a Lei 9.986: **5 anos, vedada a recondução** (Lei 15.352, art. 12; Estrutura Regimental, art. 6º); na vacância, o sucessor completa o prazo"
                     ],
                     [
                       "Perda do cargo",
@@ -1881,19 +1887,800 @@
           },
           "chave": [
             "ANPD: autarquia de natureza especial vinculada ao MJSP, com autonomia, nos termos da Lei 13.848.",
-            "Conselho Diretor: 5 membros, aprovados pelo Senado, mandato de 4 anos.",
+            "Conselho Diretor: 5 membros aprovados pelo Senado; mandato de 4 anos no texto da LGPD e de 5 anos, sem recondução, nas nomeações pela Lei 9.986.",
             "Sanções da LGPD são de competência exclusiva da ANPD (art. 55-K).",
             "Regulamentos precedidos de consulta e audiência públicas e de AIR.",
             "CNPD: 23 representantes, não remunerado, consultivo."
           ],
           "armadilhas": [
             "Dizer que a ANPD é órgão da Presidência da República sem autonomia.",
-            "Dizer que o mandato dos diretores é de 5 anos ou que dispensa aprovação do Senado.",
+            "Dizer que a nomeação dos diretores dispensa aprovação do Senado.",
+            "Ignorar a divergência do mandato: em item de lei seca da LGPD, 4 anos; em item sobre o regime atual das nomeações, 5 anos sem recondução.",
             "Dizer que o Procon pode aplicar as sanções do art. 52.",
             "Atribuir ao CNPD poder de sancionar ou regulamentar."
           ],
           "blocos": [
             "lgpd-55"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regulacao",
+      "nome": "Regulação do zero",
+      "resumo": "Por que o Estado regula, como funcionam as agências e como a ANPD fiscaliza, na ordem em que a matéria faz sentido para quem começa.",
+      "subtemas": [
+        {
+          "id": "rg-por-que",
+          "nome": "Por que e como o Estado regula",
+          "resumo": "Ordem econômica na Constituição, formas de atuação do Estado e as falhas de mercado que justificam regular.",
+          "artigos": [
+            "cf88:170",
+            "cf88:173",
+            "cf88:174",
+            "cf88:175"
+          ],
+          "licao": {
+            "ideia": "Na Constituição, a regra é a **livre iniciativa**: o Estado só explora atividade econômica diretamente em casos excepcionais e, no mais, atua como **agente normativo e regulador**. Regular se justifica quando o mercado sozinho falha: monopólio natural, externalidades, bens públicos e assimetria de informação.",
+            "mapa": {
+              "centro": "Estado e mercado",
+              "ramos": [
+                {
+                  "t": "Ordem econômica (art. 170)",
+                  "f": [
+                    "valorização do trabalho e livre iniciativa",
+                    "existência digna",
+                    "livre concorrência e defesa do consumidor"
+                  ]
+                },
+                {
+                  "t": "Atuação direta (art. 173)",
+                  "f": [
+                    "segurança nacional",
+                    "relevante interesse coletivo"
+                  ]
+                },
+                {
+                  "t": "Agente regulador (art. 174)",
+                  "f": [
+                    "fiscalização",
+                    "incentivo",
+                    "planejamento"
+                  ]
+                },
+                {
+                  "t": "Falhas de mercado",
+                  "f": [
+                    "monopólio natural",
+                    "externalidades",
+                    "bens públicos",
+                    "assimetria de informação"
+                  ]
+                },
+                {
+                  "t": "Falhas de governo",
+                  "f": [
+                    "captura",
+                    "custo e excesso de regras"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "O que a Constituição diz",
+                "tabela": {
+                  "cab": [
+                    "Artigo",
+                    "Regra"
+                  ],
+                  "linhas": [
+                    [
+                      "170",
+                      "ordem econômica fundada na **valorização do trabalho humano e na livre iniciativa**, para assegurar existência digna; princípios como soberania nacional, propriedade privada e sua função social, **livre concorrência**, **defesa do consumidor**, defesa do meio ambiente e tratamento favorecido às empresas de pequeno porte"
+                    ],
+                    [
+                      "170, parágrafo único",
+                      "livre exercício de qualquer atividade econômica, sem autorização de órgão público, salvo nos casos previstos em lei"
+                    ],
+                    [
+                      "173",
+                      "exploração **direta** de atividade econômica pelo Estado só quando necessária aos imperativos da **segurança nacional** ou a **relevante interesse coletivo**, conforme definidos em lei"
+                    ],
+                    [
+                      "174",
+                      "como **agente normativo e regulador**, o Estado exerce fiscalização, incentivo e planejamento, sendo este **determinante para o setor público e indicativo para o setor privado**"
+                    ],
+                    [
+                      "175",
+                      "serviços públicos: o Poder Público presta diretamente ou sob concessão ou permissão, sempre por licitação"
+                    ]
+                  ]
+                },
+                "mnemo": "Planejamento: **determinante** para o público, **indicativo** para o privado. O prof. Diogo Surdi explica por quê: o Estado não pode planejar como cada atividade privada será executada, só indicar caminhos.",
+                "porque": "Num regime de livre iniciativa o Estado não comanda o mercado; ele cria regras do jogo e fiscaliza. Por isso a atuação regulatória (indireta) é a regra, e a exploração direta precisa de justificativa constitucional."
+              },
+              {
+                "t": "As falhas de mercado",
+                "tabela": {
+                  "cab": [
+                    "Falha",
+                    "O que acontece",
+                    "Exemplo"
+                  ],
+                  "linhas": [
+                    [
+                      "**monopólio natural**",
+                      "uma só empresa atende o mercado com custo menor do que várias, por causa de custos fixos enormes",
+                      "redes de distribuição de energia ou de água"
+                    ],
+                    [
+                      "**externalidade**",
+                      "a atividade gera custo (negativa) ou benefício (positiva) para terceiros, que o preço não reflete",
+                      "poluição; vacinação; vazamento de dados que expõe milhões"
+                    ],
+                    [
+                      "**bem público**",
+                      "não rival e não excludente: ninguém paga porque ninguém pode ser excluído (problema do carona)",
+                      "iluminação pública, defesa nacional"
+                    ],
+                    [
+                      "**assimetria de informação**",
+                      "uma parte sabe muito mais que a outra",
+                      "o titular não sabe o que a empresa faz com seus dados"
+                    ]
+                  ]
+                },
+                "atencao": "Assimetria de informação tem dois efeitos clássicos: **seleção adversa** (informação escondida **antes** do contrato) e **risco moral** (comportamento escondido **depois** do contrato).",
+                "porque": "Em cada falha, o preço deixa de transmitir a informação certa e o mercado entrega quantidade ou qualidade erradas. A proteção de dados é um caso típico de assimetria e de externalidade: o titular não vê o tratamento, e o dano de um incidente se espalha."
+              },
+              {
+                "t": "Formas e tipos de regulação",
+                "tabela": {
+                  "cab": [
+                    "Par",
+                    "Diferença"
+                  ],
+                  "linhas": [
+                    [
+                      "estatal × autorregulação",
+                      "a estatal é feita pelo Estado, sobretudo por agências; a autorregulação é feita pelo próprio mercado, como selos de associações"
+                    ],
+                    [
+                      "setorial × transversal",
+                      "a setorial alcança um setor (telecomunicações, energia); a transversal alcança vários setores ao mesmo tempo, como a proteção de dados"
+                    ],
+                    [
+                      "econômica × social",
+                      "a econômica mira preço, entrada e qualidade do mercado; a social mira saúde, segurança, meio ambiente e direitos"
+                    ]
+                  ]
+                },
+                "depois": "Regular também pode falhar (falhas de governo): custo excessivo, regra que não resolve o problema e captura do regulador. Daí as ferramentas das próximas aulas, como a AIR e a participação social.",
+                "ex": "A ANPD faz regulação transversal: a LGPD vale para bancos, hospitais, aplicativos e governo ao mesmo tempo, por isso a lei manda a ANPD se articular com os reguladores setoriais (art. 55-J, § 3º)."
+              }
+            ]
+          },
+          "chave": [
+            "Ordem econômica: valorização do trabalho e livre iniciativa, para existência digna.",
+            "Exploração direta pelo Estado só por segurança nacional ou relevante interesse coletivo (art. 173).",
+            "Estado regulador: fiscalização, incentivo e planejamento (determinante para o público, indicativo para o privado).",
+            "Falhas de mercado: monopólio natural, externalidades, bens públicos e assimetria de informação.",
+            "Seleção adversa é antes do contrato; risco moral, depois."
+          ],
+          "armadilhas": [
+            "Dizer que o planejamento estatal é determinante para o setor privado.",
+            "Tratar monopólio natural como monopólio criado por lei.",
+            "Trocar seleção adversa por risco moral.",
+            "Dizer que a exploração direta de atividade econômica pelo Estado é livre."
+          ],
+          "blocos": [
+            "regulacao-teoria",
+            "economia",
+            "constitucional"
+          ],
+          "termos": [
+            "ordem econômica",
+            "agente normativo",
+            "exploração direta",
+            "desestatiza",
+            "intervenção",
+            "falhas? de (mercado|governo)",
+            "externalidade",
+            "assimetria",
+            "monopólio natural",
+            "bens? públicos?",
+            "seleção adversa",
+            "risco moral",
+            "poder de mercado",
+            "autorregula"
+          ]
+        },
+        {
+          "id": "rg-teorias",
+          "nome": "Teorias da regulação: interesse público, captura e escolha pública",
+          "resumo": "Por que o regulador às vezes protege o regulado, e o que as regras de transparência fazem contra isso.",
+          "artigos": [],
+          "licao": {
+            "ideia": "A teoria do **interesse público** diz que se regula para corrigir falhas de mercado. As teorias **econômicas** (Stigler, Peltzman, escolha pública) mostram que regulador e políticos também agem por interesse próprio, e que o regulado pode **capturar** a agência.",
+            "mapa": {
+              "centro": "Teorias",
+              "ramos": [
+                {
+                  "t": "Interesse público",
+                  "f": [
+                    "corrigir falhas",
+                    "regulador benevolente"
+                  ]
+                },
+                {
+                  "t": "Captura",
+                  "f": [
+                    "regulado domina o regulador",
+                    "porta giratória",
+                    "assimetria de informação"
+                  ]
+                },
+                {
+                  "t": "Econômica (Stigler)",
+                  "f": [
+                    "regulação é demandada",
+                    "grupos organizados ganham"
+                  ]
+                },
+                {
+                  "t": "Escolha pública",
+                  "f": [
+                    "agentes públicos maximizam interesse próprio",
+                    "busca de renda"
+                  ]
+                },
+                {
+                  "t": "Antídotos",
+                  "f": [
+                    "autonomia e mandato",
+                    "quarentena",
+                    "transparência e participação"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Comparando as teorias",
+                "tabela": {
+                  "cab": [
+                    "Teoria",
+                    "Ideia central",
+                    "Consequência"
+                  ],
+                  "linhas": [
+                    [
+                      "**interesse público**",
+                      "o Estado regula para corrigir falhas de mercado em benefício da sociedade",
+                      "a regulação é solução técnica"
+                    ],
+                    [
+                      "**captura**",
+                      "com o tempo, a agência passa a servir aos interesses do setor regulado",
+                      "regras que protegem os incumbentes e barram concorrentes"
+                    ],
+                    [
+                      "**teoria econômica da regulação** (Stigler, depois Peltzman)",
+                      "a regulação é um bem demandado e ofertado; grupos pequenos e organizados conseguem regras a seu favor",
+                      "o regulador equilibra apoio político entre grupos"
+                    ],
+                    [
+                      "**escolha pública**",
+                      "políticos e burocratas maximizam seus próprios interesses",
+                      "busca de renda (rent-seeking): gastar recursos para obter vantagem regulatória"
+                    ]
+                  ]
+                },
+                "porque": "O setor regulado tem muito a ganhar com cada regra e pouca gente para coordenar; os consumidores ganham pouco cada um e são muitos. Quem tem mais a ganhar se organiza mais, frequenta mais o regulador e tem a informação técnica. Por isso a captura não precisa de corrupção: basta a assimetria de interesse e de informação."
+              },
+              {
+                "t": "Como o desenho institucional combate a captura",
+                "tabela": {
+                  "cab": [
+                    "Instrumento",
+                    "Onde está"
+                  ],
+                  "linhas": [
+                    [
+                      "mandato fixo e não coincidente dos dirigentes, sem recondução",
+                      "Lei 9.986, arts. 5º e 6º"
+                    ],
+                    [
+                      "quarentena de 6 meses após deixar o cargo",
+                      "Lei 9.986, art. 8º"
+                    ],
+                    [
+                      "decisão colegiada e reuniões públicas gravadas",
+                      "Lei 13.848, arts. 7º e 8º"
+                    ],
+                    [
+                      "consulta pública com AIR e respostas publicadas",
+                      "Lei 13.848, arts. 6º e 9º"
+                    ],
+                    [
+                      "ouvidor com mandato, sem subordinação hierárquica",
+                      "Lei 13.848, arts. 22 e 23"
+                    ]
+                  ]
+                },
+                "mnemo": "O prof. Manuel Piñon resume: processos abertos de participação e AIR **reduzem o risco de captura**, porque tornam as discussões transparentes e documentadas.",
+                "atencao": "Autonomia protege contra o governo do momento; transparência e participação protegem contra o regulado. A banca costuma perguntar qual instrumento serve a qual risco."
+              }
+            ]
+          },
+          "chave": [
+            "Interesse público: regular para corrigir falhas de mercado.",
+            "Captura: a agência passa a servir ao setor regulado.",
+            "Stigler: regulação é demandada por grupos organizados.",
+            "Escolha pública: agentes públicos também maximizam interesse próprio (busca de renda).",
+            "Quarentena, mandatos, colegiado, transparência e participação reduzem a captura."
+          ],
+          "armadilhas": [
+            "Dizer que captura exige corrupção.",
+            "Atribuir à teoria do interesse público a ideia de que o regulador serve ao regulado.",
+            "Confundir autonomia diante do governo com proteção contra o regulado.",
+            "Dizer que a quarentena dos dirigentes é de 1 ano: na Lei 9.986 é de 6 meses."
+          ],
+          "blocos": [
+            "regulacao-teoria",
+            "economia"
+          ],
+          "termos": [
+            "captura",
+            "Stigler",
+            "Peltzman",
+            "escolha pública",
+            "grupos de interesse",
+            "teoria d[ao]s? regula",
+            "teoria econômica",
+            "teoria do interesse público",
+            "busca de renda",
+            "porta giratória"
+          ]
+        },
+        {
+          "id": "rg-agencias",
+          "nome": "Agências reguladoras: natureza especial, decisões e controle",
+          "resumo": "O que faz da agência uma autarquia especial e como ela decide, presta contas e se relaciona com o controle (Lei 13.848).",
+          "artigos": [
+            "lei13848:3",
+            "lei13848:4",
+            "lei13848:5",
+            "lei13848:7",
+            "lei13848:8",
+            "lei13848:14",
+            "lei13848:22"
+          ],
+          "licao": {
+            "ideia": "Agência reguladora é **autarquia de natureza especial**: sem subordinação ao ministério, com autonomia e dirigentes com mandato. Ela decide **em colegiado**, em reunião pública, motivando e medindo a proporcionalidade, e presta contas ao Congresso, com auxílio do TCU.",
+            "mapa": {
+              "centro": "Lei 13.848",
+              "ramos": [
+                {
+                  "t": "Natureza especial (art. 3º)",
+                  "f": [
+                    "sem tutela ou subordinação",
+                    "autonomia funcional, decisória, administrativa e financeira",
+                    "mandato e estabilidade"
+                  ]
+                },
+                {
+                  "t": "Como decide",
+                  "f": [
+                    "proporcionalidade (art. 4º)",
+                    "motivação (art. 5º)",
+                    "colegiado por maioria absoluta (art. 7º)"
+                  ]
+                },
+                {
+                  "t": "Reuniões (art. 8º)",
+                  "f": [
+                    "públicas e gravadas",
+                    "pauta: 3 dias úteis antes",
+                    "gravação: 15 dias úteis; ata: 5 dias úteis"
+                  ]
+                },
+                {
+                  "t": "Controle",
+                  "f": [
+                    "externo: Congresso com TCU (art. 14)",
+                    "relatório anual",
+                    "ouvidor"
+                  ]
+                },
+                {
+                  "t": "Planejamento",
+                  "f": [
+                    "plano estratégico quadrienal",
+                    "plano de gestão anual",
+                    "agenda regulatória"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "De onde vem o nome",
+                "texto": "A Lei 13.848/2019 é a lei geral das agências: gestão, organização, processo decisório e controle social. Seu art. 2º lista as agências federais, e a **ANPD** foi incluída no inciso XII.",
+                "mnemo": "**Agência** vem da reforma administrativa (gestão por resultados, eficiência); **reguladora** vem do papel do Estado depois da desestatização, quando deixou de executar e passou a regular (atalho do prof. Diogo Surdi)."
+              },
+              {
+                "t": "Natureza especial (art. 3º)",
+                "texto": "A autonomia administrativa inclui pedir diretamente autorização para concursos e provimento de cargos, conceder diárias e passagens e celebrar e prorrogar contratos de custeio **independentemente do valor** (§ 2º). As agências também adotam gestão de riscos, controle interno e **programa de integridade** (§ 3º).",
+                "lista": [
+                  "**ausência de tutela ou de subordinação hierárquica**",
+                  "**autonomia funcional, decisória, administrativa e financeira**",
+                  "**investidura a termo** dos dirigentes e **estabilidade durante os mandatos**"
+                ],
+                "porque": "Sem subordinação, o ministro não revê a decisão técnica da agência por discordar dela. É o que dá previsibilidade ao setor: as regras não mudam a cada troca de governo."
+              },
+              {
+                "t": "Como a agência decide",
+                "tabela": {
+                  "cab": [
+                    "Regra",
+                    "Conteúdo"
+                  ],
+                  "linhas": [
+                    [
+                      "Proporcionalidade (art. 4º)",
+                      "adequação entre meios e fins, vedadas obrigações, restrições e sanções além do necessário ao interesse público"
+                    ],
+                    [
+                      "Motivação (art. 5º)",
+                      "indicar os pressupostos de fato e de direito, **inclusive para editar ou não** atos normativos"
+                    ],
+                    [
+                      "Colegiado (art. 7º)",
+                      "decisão sobre regulação é colegiada, por **maioria absoluta** dos membros; pode haver delegação interna, com direito de reexame pelo colegiado"
+                    ],
+                    [
+                      "Reuniões (art. 8º)",
+                      "públicas e gravadas; pauta divulgada com **3 dias úteis**; gravação em até **15 dias úteis**; ata em até **5 dias úteis** após a aprovação"
+                    ]
+                  ]
+                },
+                "atencao": "Não se aplicam as regras de reunião pública às deliberações sobre documentos sigilosos e matéria administrativa; e matéria urgente e relevante pode entrar fora da pauta, a critério do presidente (§§ 5º e 6º)."
+              },
+              {
+                "t": "Controle e dirigentes",
+                "tabela": {
+                  "cab": [
+                    "Ponto",
+                    "Regra"
+                  ],
+                  "linhas": [
+                    [
+                      "Controle externo",
+                      "Congresso Nacional, com auxílio do **TCU** (art. 14)"
+                    ],
+                    [
+                      "Prestação de contas",
+                      "relatório anual de atividades; plano estratégico quadrienal; plano de gestão anual, que inclui a agenda regulatória"
+                    ],
+                    [
+                      "Ouvidor",
+                      "1 por agência, sem subordinação hierárquica, nomeado após aprovação do Senado, mandato de **3 anos sem recondução**; seus relatórios não têm caráter impositivo"
+                    ],
+                    [
+                      "Dirigentes (Lei 9.986)",
+                      "mandatos não coincidentes de **5 anos, vedada a recondução**; quarentena de **6 meses** após deixar o cargo"
+                    ]
+                  ]
+                },
+                "atencao": "Para a ANPD, o texto compilado da LGPD ainda fala em mandato de 4 anos (art. 55-D, § 3º); as nomeações posteriores à Lei 15.352/2026 seguem a Lei 9.986 (5 anos)."
+              }
+            ]
+          },
+          "chave": [
+            "Natureza especial: sem subordinação, autonomia funcional, decisória, administrativa e financeira, mandato e estabilidade.",
+            "Decisão regulatória colegiada, por maioria absoluta.",
+            "Reuniões públicas e gravadas: pauta 3 dias úteis antes, gravação em 15 e ata em 5 dias úteis.",
+            "Controle externo pelo Congresso com auxílio do TCU.",
+            "Dirigentes: 5 anos sem recondução; quarentena de 6 meses (Lei 9.986)."
+          ],
+          "armadilhas": [
+            "Dizer que a agência é subordinada ao ministério supervisor.",
+            "Trocar maioria absoluta por maioria simples nas decisões colegiadas.",
+            "Dizer que o controle externo é exercido pelo TCU sozinho.",
+            "Dizer que os relatórios do ouvidor vinculam o colegiado."
+          ],
+          "blocos": [
+            "lei-13848"
+          ],
+          "excluir": [
+            "carreira",
+            "cargos? ",
+            "servidor",
+            "jornada",
+            "remunera",
+            "concurso"
+          ]
+        },
+        {
+          "id": "rg-participacao",
+          "nome": "AIR, ARR, consulta pública e agenda regulatória",
+          "resumo": "Antes da norma, a análise de impacto; depois, a avaliação de resultado; no meio, a participação da sociedade (Lei 13.848 e Decreto 10.411).",
+          "artigos": [
+            "lei13848:6",
+            "lei13848:9",
+            "lei13848:21",
+            "dec10411:3",
+            "dec10411:4",
+            "dec10411:7"
+          ],
+          "licao": {
+            "ideia": "Antes de editar norma de interesse geral, o regulador faz a **AIR** (análise **ex ante**) e ouve a sociedade em **consulta pública**. Depois, verifica se a norma funcionou com a **ARR** (avaliação **ex post**). A **agenda regulatória** diz com antecedência o que será regulado.",
+            "mapa": {
+              "centro": "Ciclo da boa regulação",
+              "ramos": [
+                {
+                  "t": "Agenda regulatória",
+                  "f": [
+                    "temas prioritários",
+                    "integra o plano de gestão anual"
+                  ]
+                },
+                {
+                  "t": "AIR (antes)",
+                  "f": [
+                    "problema e alternativas",
+                    "inclui não agir",
+                    "metodologia justificada"
+                  ]
+                },
+                {
+                  "t": "Participação",
+                  "f": [
+                    "consulta pública: 45 dias",
+                    "audiência pública: oral"
+                  ]
+                },
+                {
+                  "t": "Decisão",
+                  "f": [
+                    "manifestação do colegiado sobre a AIR"
+                  ]
+                },
+                {
+                  "t": "ARR (depois)",
+                  "f": [
+                    "objetivos alcançados?",
+                    "agenda de ARR",
+                    "estoque regulatório"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "AIR: o que é e quando se exige",
+                "texto": "Procedimento que parte da **definição do problema regulatório** e avalia, antes da edição do ato, seus prováveis efeitos, para verificar a razoabilidade do impacto e subsidiar a decisão (Decreto 10.411, art. 2º, I). É exigida para editar, alterar ou revogar atos normativos de **interesse geral** de agentes econômicos ou usuários (art. 3º).",
+                "tabela": {
+                  "cab": [
+                    "Não se aplica (art. 3º, § 2º)",
+                    "Pode ser dispensada, com decisão fundamentada (art. 4º)"
+                  ],
+                  "linhas": [
+                    [
+                      "atos de natureza administrativa interna; de efeitos concretos; de execução orçamentária; de política cambial e monetária; de segurança nacional; de consolidação sem mudança de mérito",
+                      "urgência; norma superior que não deixa alternativas; **baixo impacto**; atualização ou revogação de normas obsoletas; liquidez e solvência de mercados; convergência a padrões internacionais; redução de exigências; atualização tecnológica"
+                    ]
+                  ]
+                },
+                "atencao": "Dispensada a AIR, faz-se **nota técnica** que fundamente a proposta. Se a dispensa foi por urgência, o ato passa por **ARR em até 3 anos** (art. 12)."
+              },
+              {
+                "t": "O relatório e as metodologias",
+                "lista": [
+                  "sumário executivo em linguagem simples",
+                  "problema regulatório, causas e extensão",
+                  "afetados, base legal e objetivos",
+                  "alternativas, **inclusive a de não agir** e, se possível, soluções não normativas",
+                  "impactos e custos regulatórios, inclusive sobre micro e pequenas empresas",
+                  "experiência internacional",
+                  "comparação das alternativas e a escolhida, com estratégia de implementação e monitoramento"
+                ],
+                "depois": "Metodologias do art. 7º: **análise multicritério, custo-benefício, custo-efetividade, custo, risco e risco-risco**. A escolha é justificada, e pode-se usar outra se for a mais adequada.",
+                "mnemo": "AIR é **antes** (ex ante); ARR é **depois** (ex post). A AIR avalia até se é preciso regular, e por isso compara com a opção de não agir (prof. Manuel Piñon)."
+              },
+              {
+                "t": "Participação social",
+                "tabela": {
+                  "cab": [
+                    "Instrumento",
+                    "Regra na Lei 13.848"
+                  ],
+                  "linhas": [
+                    [
+                      "Consulta pública (art. 9º)",
+                      "obrigatória para minutas de atos normativos de interesse geral; críticas e sugestões por escrito; mínimo de **45 dias**; AIR e estudos disponíveis desde o início; contribuições publicadas em até 10 dias úteis; posicionamento da agência em até 30 dias úteis após a deliberação"
+                    ],
+                    [
+                      "Audiência pública (art. 10)",
+                      "facultativa, por decisão colegiada; manifestação **oral** em sessão pública; aviso com 5 dias úteis de antecedência"
+                    ],
+                    [
+                      "Agenda regulatória (art. 21)",
+                      "planejamento da atividade normativa com os temas prioritários; aprovada pelo colegiado e integrada ao plano de gestão anual"
+                    ]
+                  ]
+                },
+                "atencao": "Consulta é escrita e obrigatória para norma de interesse geral; audiência é oral e facultativa. Na LGPD, os regulamentos da ANPD exigem consulta **e** audiência públicas, além de AIR (art. 55-J, § 2º)."
+              }
+            ]
+          },
+          "chave": [
+            "AIR: análise ex ante a partir do problema regulatório, comparando alternativas, inclusive não agir.",
+            "ARR: avaliação ex post dos efeitos; obrigatória em 3 anos quando a AIR foi dispensada por urgência.",
+            "Metodologias: multicritério, custo-benefício, custo-efetividade, custo, risco e risco-risco.",
+            "Consulta pública: escrita, mínimo de 45 dias; audiência: oral e facultativa na Lei 13.848.",
+            "Agenda regulatória integra o plano de gestão anual."
+          ],
+          "armadilhas": [
+            "Dizer que a ARR é feita antes da norma.",
+            "Dizer que dispensa de AIR dispensa qualquer fundamentação.",
+            "Trocar consulta (escrita) por audiência (oral).",
+            "Esquecer que a AIR deve considerar a alternativa de não regular."
+          ],
+          "blocos": [
+            "regulacao-teoria",
+            "lei-13848"
+          ],
+          "termos": [
+            "\\bAIR\\b",
+            "impacto regulatório",
+            "\\bARR\\b",
+            "resultado regulatório",
+            "agenda regulatória",
+            "estoque regulatório",
+            "10\\.411",
+            "custo-benefício",
+            "multicritério",
+            "consulta pública",
+            "audiência pública"
+          ]
+        },
+        {
+          "id": "rg-responsiva",
+          "nome": "Regulação responsiva e a fiscalização da ANPD",
+          "resumo": "A pirâmide de enforcement e como a Resolução CD/ANPD 1/2021 a aplica: monitorar, orientar, prevenir e só então reprimir.",
+          "artigos": [
+            "res1:15",
+            "res1:17",
+            "res1:32"
+          ],
+          "licao": {
+            "ideia": "Na regulação responsiva, o regulador começa pelo diálogo e só sobe para sanções mais duras quando o regulado não coopera: é a **pirâmide** de Ayres e Braithwaite. A ANPD adota esse modelo: monitoramento, orientação, prevenção e, se preciso, repressão.",
+            "mapa": {
+              "centro": "Fiscalização responsiva",
+              "ramos": [
+                {
+                  "t": "Pirâmide",
+                  "f": [
+                    "base: persuasão e orientação",
+                    "meio: advertências e multas",
+                    "topo: suspensão e proibição"
+                  ]
+                },
+                {
+                  "t": "Monitoramento",
+                  "f": [
+                    "levantar dados",
+                    "ciclo e temas prioritários"
+                  ]
+                },
+                {
+                  "t": "Orientação",
+                  "f": [
+                    "guias e modelos",
+                    "não é sanção"
+                  ]
+                },
+                {
+                  "t": "Prevenção",
+                  "f": [
+                    "aviso",
+                    "solicitação de regularização",
+                    "plano de conformidade"
+                  ]
+                },
+                {
+                  "t": "Repressão",
+                  "f": [
+                    "processo sancionador",
+                    "sanções do art. 52"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "A ideia da pirâmide",
+                "texto": "A maior parte da atuação fica na **base**: informar, persuadir, orientar. Se o regulado não responde, o regulador **sobe** um degrau (avisos, medidas corretivas, multas) e, no topo, aplica as medidas mais graves (suspensão, proibição). Quem coopera volta a ser tratado na base.",
+                "mnemo": "O prof. Manuel Piñon define: a resposta do regulador se **adapta ao comportamento do regulado**, começando por orientação e educação e escalando para sanções só quando necessário.",
+                "porque": "Punir sempre é caro e gera resistência; nunca punir não dá credibilidade. A pirâmide funciona porque o topo existe: o regulado coopera na base sabendo que a escalada é possível."
+              },
+              {
+                "t": "As quatro atividades da ANPD (Resolução 1/2021, art. 15)",
+                "tabela": {
+                  "cab": [
+                    "Atividade",
+                    "Para quê",
+                    "Exemplos"
+                  ],
+                  "linhas": [
+                    [
+                      "**monitoramento**",
+                      "levantar informações para decidir e assegurar o funcionamento do ambiente regulado",
+                      "relatório de ciclo de monitoramento, mapa de temas prioritários"
+                    ],
+                    [
+                      "**orientação**",
+                      "conscientizar e educar agentes e titulares, com economicidade",
+                      "guias de boas práticas, modelos de documentos, ferramentas de autoavaliação"
+                    ],
+                    [
+                      "**prevenção**",
+                      "reconduzir à conformidade por construção conjunta e dialogada",
+                      "divulgação de informações, **aviso**, **solicitação de regularização ou informe**, **plano de conformidade**"
+                    ],
+                    [
+                      "**repressão**",
+                      "interromper dano ou risco e punir",
+                      "**processo administrativo sancionador** com as sanções do art. 52 da LGPD"
+                    ]
+                  ]
+                },
+                "atencao": "Medidas de orientação e preventivas **não constituem sanção** (arts. 28 e 31). Mas não atender medida preventiva faz a ANPD progredir na atuação e conta como **agravante** se houver processo sancionador (art. 32, § 2º)."
+              },
+              {
+                "t": "Premissas da fiscalização (art. 17)",
+                "lista": [
+                  "atuação baseada em **evidências e riscos regulatórios**, com foco no resultado",
+                  "atuação **responsiva**, com medidas proporcionais ao risco e à postura do regulado",
+                  "estímulo à cultura de proteção de dados e à conciliação direta entre as partes",
+                  "**mínima intervenção** ao impor condicionantes ao tratamento",
+                  "atuação integrada e coordenada com órgãos e entidades da administração pública"
+                ],
+                "depois": "A ANPD pode atuar de ofício, por programas periódicos de fiscalização, em coordenação com outros órgãos ou em cooperação com autoridades de outros países (art. 16).",
+                "ex": "Uma empresa que não atende a solicitação de regularização sobe na pirâmide: a ANPD pode instaurar processo sancionador e considerar a recusa como agravante."
+              }
+            ]
+          },
+          "chave": [
+            "Pirâmide de Ayres e Braithwaite: começar pelo diálogo e escalar conforme a postura do regulado.",
+            "ANPD: monitoramento, orientação, prevenção e repressão (Resolução 1/2021, art. 15).",
+            "Medidas preventivas: divulgação de informações, aviso, solicitação de regularização ou informe e plano de conformidade.",
+            "Orientação e prevenção não são sanção.",
+            "Não atender medida preventiva é agravante no processo sancionador."
+          ],
+          "armadilhas": [
+            "Dizer que medida preventiva é sanção.",
+            "Dizer que a regulação responsiva dispensa sanções.",
+            "Colocar o plano de conformidade entre as sanções do art. 52.",
+            "Dizer que a ANPD só pode agir mediante denúncia: ela atua também de ofício e por programas periódicos."
+          ],
+          "blocos": [
+            "regulacao-teoria",
+            "res-1-2021"
+          ],
+          "termos": [
+            "responsiv",
+            "pirâmide",
+            "Braithwaite",
+            "Ayres",
+            "enforcement",
+            "monitoramento",
+            "orientação",
+            "preventiv",
+            "repressiv"
           ]
         }
       ]
