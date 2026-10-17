@@ -179,7 +179,9 @@ await passo('começo do zero numa sexta de revisão: sem atraso, e a sessão do 
   vigiarErros(p, erros);
   await p.goto(APP);
   await p.waitForTimeout(600);
-  if (await p.locator('.cartao.pendencias').count()) throw new Error('atraso no primeiro dia');
+  // sem atraso, o cartão só aparece vazio, com o aviso dos dias do plano anteriores ao perfil e o botão de incluí-los
+  if (await p.locator('.cartao.pendencias:not(.vazio)').count()) throw new Error('atraso no primeiro dia');
+  if (!(await p.locator('.cartao.pendencias.vazio [data-acao="atraso-desde-inicio"]').count())) throw new Error('sem o aviso dos dias anteriores ao perfil');
   await p.locator('.roteiro [data-acao="iniciar-dia"]').first().click();
   await p.waitForSelector('#sessao:not([hidden])');
   const semana = new Set(['lgpd-55', 'lgpd-33-36', 'res-4-2023', 'lgpd-52-54', 'lei-9784', 'lgpd-23-32', 'lei-13460']);

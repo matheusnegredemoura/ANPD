@@ -95,15 +95,16 @@ const CHAVE_LOCAL = 'painel-anpd-v3';
 const CHAVE_UI = 'painel-anpd-ui';
 const P1 = ['lgpd-17-22', 'lgpd-52-54', 'lgpd-55', 'lgpd-33-36', 'lgpd-5-11'];
 // Prova completa simulada: itens por disciplina numa prova de 120 (50 básicos + 70 específicos), estimativa para
-// Especialista em Regulação feita sobre a estrutura da Anatel 2024 e da ANAC 2024 até sair o edital. Gestão fica em 8
+// Especialista em Regulação feita sobre a estrutura da Anatel 2024 e da ANAC 2024 até sair o edital. Gestão fica em 6
 // (o guia do cargo dá 4% do estudo): o terço de gestão do processo seletivo da ANPD (2025) veio do cargo gerencial, e
-// o específico do especialista deve concentrar-se na LGPD e nas normas da ANPD.
+// o específico do especialista deve concentrar-se na LGPD e nas normas da ANPD. Contabilidade e finanças públicas
+// (orçamento, Lei 4.320, LRF e contabilidade geral) ficam com 2, peso BAIXO no guia.
 // Cada item básico vale 1 ponto e cada específico vale 2 (50 + 140 = 190): é a hipótese do plano até sair o edital.
 // Na Anatel 2024, todo item valia 1; se o edital da ANPD repetir isso, basta pôr PESO_ESPECIFICA = 1.
 // Regulação aparece nas duas partes: Lei 13.848 e Lei 9.784 na básica, teoria da regulação na específica.
 const PESO_BASICA = 1, PESO_ESPECIFICA = 2;
 const PROVA_BASICA = { linguas: 21, direito: 19, regulacao: 10 };
-const PROVA_ESPECIFICA = { regulacao: 4, lgpd: 36, eca: 8, seginfo: 8, gestao: 8, comparado: 3, economia: 3 };
+const PROVA_ESPECIFICA = { regulacao: 4, lgpd: 36, eca: 8, seginfo: 8, gestao: 6, contabil: 2, comparado: 3, economia: 3 };
 const REG_NA_BASICA = new Set(['lei-13848', 'lei-9784']);
 const ITENS_PROVA = {};
 for (const parte of [PROVA_BASICA, PROVA_ESPECIFICA]) for (const [d, k] of Object.entries(parte)) ITENS_PROVA[d] = (ITENS_PROVA[d] || 0) + k;
@@ -1853,7 +1854,7 @@ function cartaoPendencias() {
   const p = pendencias();
   if (!p.length) {
     const nota = notaForaDoAtraso();
-    return nota ? '<div class="cartao pendencias"><div class="secao-cab"><h2>Atraso do plano</h2><span class="mono pequeno mudo">0</span></div><p class="pequeno mudo">Nada ficou para trás desde ' + esc(fmtData(inicioAtraso(), { day: '2-digit', month: '2-digit' })) + '.</p>' + nota + '</div>' : '';
+    return nota ? '<div class="cartao pendencias vazio"><div class="secao-cab"><h2>Atraso do plano</h2><span class="mono pequeno mudo">0</span></div><p class="pequeno mudo">Nada ficou para trás desde ' + esc(fmtData(inicioAtraso(), { day: '2-digit', month: '2-digit' })) + '.</p>' + nota + '</div>' : '';
   }
   const bs = blocosAtrasados(p), ler = leituraAtrasada(p), sims = p.filter((x) => x.sessao && x.dia.modo === 'simulado');
   const dias = p.filter((x) => x.sessao).length;

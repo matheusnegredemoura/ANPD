@@ -369,6 +369,18 @@ export const LEIS = {
     curto: 'Dec. 12.976',
     url: 'https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/decreto/d12976.htm',
   },
+  lei4320: {
+    arquivo: 'lei4320.txt',
+    nome: 'Lei nº 4.320/1964 — Normas gerais de direito financeiro',
+    curto: 'Lei 4.320',
+    url: 'https://www.planalto.gov.br/ccivil_03/leis/l4320.htm',
+  },
+  lc101: {
+    arquivo: 'lc101.txt',
+    nome: 'Lei Complementar nº 101/2000 — Lei de Responsabilidade Fiscal',
+    curto: 'LRF',
+    url: 'https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp101.htm',
+  },
 };
 
 // Grupos do seletor da lei seca, na ordem em que aparecem. Toda norma de LEIS entra em exatamente um grupo.
@@ -377,6 +389,7 @@ export const GRUPOS_LEIS = [
   ['ECA Digital, internet e plataformas', ['lei15211', 'dec12880', 'dec12622', 'eca', 'mci', 'dec8771', 'dec12976', 'lei14852']],
   ['Regulação, agências e carreira', ['lei13848', 'lei9986', 'lei10871', 'dec10411', 'lei13874', 'lc182']],
   ['Governança e gestão pública', ['dec9203', 'inmpcgu1', 'dec10046']],
+  ['Finanças públicas e contabilidade', ['lei4320', 'lc101']],
   ['Constituição', ['cf88']],
   ['Direito administrativo', ['lei9784', 'lindb', 'dec9830', 'lai', 'dec7724', 'lei13460', 'lei8429', 'lei12846', 'lei12813', 'lei8112', 'dec1171', 'lei9507', 'dl200', 'lei14133', 'lei8987', 'lei14129']],
   ['Segurança da informação', ['dec12572', 'dec11856', 'dec10748', 'ingsi1', 'nistcsf']],

@@ -1,0 +1,202 @@
+bloco: orcamento
+// Finanças públicas: Lei 4.320/1964 (exercício, despesa, restos a pagar, receitas, créditos adicionais e balanços) e Lei de
+// Responsabilidade Fiscal (despesa com pessoal, relatórios, fim de mandato e alienação de bens). Trechos conferidos em
+// fontes/lei4320.txt e fontes/lc101.txt, colados do Planalto em 17/10/2026. A Lei 4.320 conserva a grafia de 1964 ("nêle").
+
+=== fp-01
+gab: C
+ref: lei4320 35
+trecho: as despesas nêle legalmente empenhadas
+armadilha: literal
+dif: 1
+enunciado: Pela Lei 4.320/1964, pertencem ao exercício financeiro as receitas nele arrecadadas e as despesas nele legalmente empenhadas.
+comentario: Certo: art. 35. É o regime orçamentário: a receita entra pelo que foi arrecadado; a despesa, pelo que foi empenhado. A contabilidade patrimonial do setor público, por sua vez, segue a competência para receitas e despesas.
+
+=== fp-02
+gab: E
+ref: lei4320 35
+trecho: as receitas nêle arrecadadas
+armadilha: literal
+dif: 1
+enunciado: Pela Lei 4.320/1964, pertencem ao exercício financeiro as receitas nele lançadas e as despesas nele efetivamente pagas.
+comentario: Errado. O art. 35 fala em receitas arrecadadas e despesas legalmente empenhadas. Lançamento é etapa da receita (art. 53), e o pagamento é o último estágio da despesa.
+
+=== fp-03
+gab: C
+ref: lei4320 60
+trecho: É vedada a realização de despesa sem prévio empenho
+armadilha: literal
+dif: 1
+enunciado: É vedada a realização de despesa pública sem prévio empenho.
+comentario: Certo: art. 60 da Lei 4.320/1964. O empenho é o primeiro estágio da despesa e reserva a dotação para aquele gasto.
+
+=== fp-04
+gab: E
+ref: lei4320 60, § 1º
+trecho: será dispensada a emissão da nota de empenho
+armadilha: excecao
+dif: 2
+enunciado: Em casos especiais previstos na legislação específica, a Lei 4.320/1964 admite a realização de despesa sem prévio empenho.
+comentario: Errado. O que a lei dispensa, em casos especiais, é a emissão da nota de empenho (art. 60, § 1º), e não o próprio empenho, sem o qual a despesa é vedada.
+
+=== fp-05
+gab: C
+ref: lei4320 62
+trecho: O pagamento da despesa só será efetuado quando ordenado após sua regular liquidação
+armadilha: literal
+dif: 1
+enunciado: O pagamento da despesa pública só será efetuado quando ordenado após a sua regular liquidação.
+comentario: Certo: art. 62. A ordem é empenho, liquidação e pagamento.
+
+=== fp-06
+gab: E
+ref: lei4320 63
+trecho: A liquidação da despesa consiste na verificação do direito adquirido pelo credor
+armadilha: conceito
+dif: 2
+enunciado: Na Lei 4.320/1964, a liquidação da despesa é o ato da autoridade competente que cria para o Estado obrigação de pagamento, pendente ou não de implemento de condição.
+comentario: Errado. Essa é a definição de empenho (art. 58). A liquidação é a verificação do direito adquirido pelo credor, com base nos títulos e documentos comprobatórios do crédito (art. 63).
+
+=== fp-07
+gab: C
+ref: lei4320 36
+trecho: Consideram-se Restos a Pagar as despesas empenhadas mas não pagas até o dia 31 de dezembro distinguindo-se as processadas das não processadas
+armadilha: literal
+dif: 1
+enunciado: Consideram-se restos a pagar as despesas empenhadas, mas não pagas até 31 de dezembro, distinguindo-se as processadas das não processadas.
+comentario: Certo: art. 36. Processados são os restos a pagar já liquidados; não processados, os ainda não liquidados.
+
+=== fp-08
+gab: E
+ref: lei4320 36
+trecho: distinguindo-se as processadas das não processadas
+armadilha: rol
+dif: 2
+enunciado: Consideram-se restos a pagar apenas as despesas empenhadas e já liquidadas que não tenham sido pagas até 31 de dezembro.
+comentario: Errado. Restos a pagar são as despesas empenhadas e não pagas até 31 de dezembro, liquidadas ou não: a lei distingue as processadas (liquidadas) das não processadas (art. 36).
+
+=== fp-09
+gab: C
+ref: lc101 19
+trecho: União: 50% (cinqüenta por cento)
+armadilha: numero
+dif: 1
+enunciado: Pela Lei de Responsabilidade Fiscal, a despesa total com pessoal da União não pode exceder 50% da receita corrente líquida, e a dos Estados e a dos Municípios, 60%.
+comentario: Certo: art. 19 da LC 101/2000. A repartição desses limites entre os Poderes e o Ministério Público está no art. 20.
+
+=== fp-10
+gab: E
+ref: lc101 19
+trecho: Municípios: 60% (sessenta por cento)
+armadilha: numero
+dif: 1
+enunciado: Pela Lei de Responsabilidade Fiscal, o limite da despesa total com pessoal dos Municípios é de 50% da receita corrente líquida, o mesmo da União.
+comentario: Errado. União, 50%; Estados e Municípios, 60% da receita corrente líquida (art. 19).
+
+=== fp-11
+gab: C
+ref: lc101 52
+trecho: será publicado até trinta dias após o encerramento de cada bimestre
+armadilha: numero
+dif: 2
+enunciado: O relatório resumido da execução orçamentária abrange todos os Poderes e o Ministério Público e deve ser publicado até trinta dias após o encerramento de cada bimestre.
+comentario: Certo: art. 52 da LRF, que regulamenta o art. 165, § 3º, da Constituição. O relatório resumido é bimestral; o de gestão fiscal, quadrimestral.
+
+=== fp-12
+gab: E
+ref: lc101 54
+trecho: Ao final de cada quadrimestre será emitido pelos titulares dos Poderes e órgãos referidos no art. 20 Relatório de Gestão Fiscal
+armadilha: numero
+dif: 2
+enunciado: Pela Lei de Responsabilidade Fiscal, o relatório de gestão fiscal é emitido ao final de cada bimestre, junto com o relatório resumido da execução orçamentária.
+comentario: Errado. O relatório de gestão fiscal é emitido ao final de cada quadrimestre (art. 54) e publicado em até trinta dias (art. 55, § 2º). Municípios com menos de cinquenta mil habitantes podem optar por divulgá-lo semestralmente (art. 63).
+
+=== fp-13
+gab: C
+ref: lei4320 11, § 2º
+trecho: São Receitas de Capital as provenientes da realização de recursos financeiros oriundos de constituição de dívidas; da conversão, em espécie, de bens e direitos
+armadilha: conceito
+dif: 2
+enunciado: Pela Lei 4.320/1964, são receitas de capital as provenientes de constituição de dívidas e da conversão, em espécie, de bens e direitos, como as operações de crédito e a alienação de bens.
+comentario: Certo: art. 11, § 2º. No esquema do § 4º, operações de crédito, alienação de bens, amortização de empréstimos e transferências de capital são receitas de capital.
+
+=== fp-14
+gab: E
+ref: lei4320 11, § 1º
+trecho: São Receitas Correntes as receitas tributária, de contribuições, patrimonial
+armadilha: conceito
+dif: 1
+enunciado: Pela Lei 4.320/1964, a receita tributária é classificada como receita de capital.
+comentario: Errado. A receita tributária é receita corrente, ao lado das de contribuições, patrimonial, agropecuária, industrial, de serviços e das transferências correntes (art. 11, § 1º).
+
+=== fp-15
+gab: C
+ref: lc101 22, parágrafo único
+trecho: Se a despesa total com pessoal exceder a 95% (noventa e cinco por cento) do limite
+armadilha: numero
+dif: 2
+enunciado: Se a despesa total com pessoal de um Poder exceder 95% do limite da LRF, ficam vedadas a ele, entre outras medidas, a criação de cargo, emprego ou função e a contratação de hora extra, ressalvadas as exceções legais.
+comentario: Certo: art. 22, parágrafo único, o chamado limite prudencial. Também ficam vedados aumentos de remuneração (salvo os derivados de sentença ou de determinação legal ou contratual e a revisão geral) e o provimento de cargos, ressalvadas as reposições na educação, na saúde e na segurança.
+
+=== fp-16
+gab: E
+ref: lc101 23
+trecho: o percentual excedente terá de ser eliminado nos dois quadrimestres seguintes, sendo pelo menos um terço no primeiro
+armadilha: numero
+dif: 2
+enunciado: Ultrapassado o limite da despesa com pessoal, o Poder deve eliminar integralmente o percentual excedente no quadrimestre seguinte.
+comentario: Errado. O excesso deve ser eliminado nos dois quadrimestres seguintes, sendo pelo menos um terço no primeiro (art. 23).
+
+=== fp-17
+gab: C
+ref: lc101 42
+trecho: nos últimos dois quadrimestres do seu mandato, contrair obrigação de despesa que não possa ser cumprida integralmente dentro dele
+armadilha: literal
+dif: 2
+enunciado: É vedado ao titular de Poder, nos dois últimos quadrimestres do mandato, contrair obrigação de despesa que não possa ser cumprida integralmente dentro dele ou que tenha parcelas a pagar no exercício seguinte sem suficiente disponibilidade de caixa.
+comentario: Certo: art. 42 da LRF. Na disponibilidade de caixa entram os encargos e as despesas compromissadas a pagar até o fim do exercício (parágrafo único).
+
+=== fp-18
+gab: E
+ref: lc101 44
+trecho: É vedada a aplicação da receita de capital derivada da alienação de bens e direitos que integram o patrimônio público para o financiamento de despesa corrente
+armadilha: excecao
+dif: 2
+enunciado: A receita obtida com a alienação de bens públicos pode financiar despesas correntes, desde que haja autorização na lei de diretrizes orçamentárias.
+comentario: Errado. A LRF veda usar a receita de alienação de bens e direitos para financiar despesa corrente, salvo se destinada por lei aos regimes de previdência social, geral e próprio dos servidores (art. 44).
+
+=== fp-19
+gab: C
+ref: lei4320 41
+trecho: extraordinários, os destinados a despesas urgentes e imprevistas, em caso de guerra, comoção intestina ou calamidade pública
+armadilha: rol
+dif: 1
+enunciado: Os créditos adicionais classificam-se em suplementares, para reforço de dotação; especiais, para despesas sem dotação específica; e extraordinários, para despesas urgentes e imprevistas, como em caso de guerra, comoção intestina ou calamidade pública.
+comentario: Certo: art. 41 da Lei 4.320/1964. Suplementares e especiais dependem de autorização legislativa e são abertos por decreto (art. 42).
+
+=== fp-20
+gab: E
+ref: lei4320 44
+trecho: Os créditos extraordinários serão abertos por decreto do Poder Executivo, que dêles dará imediato conhecimento ao Poder Legislativo
+armadilha: excecao
+dif: 2
+enunciado: Pela Lei 4.320/1964, os créditos extraordinários, assim como os suplementares e os especiais, dependem de prévia autorização legislativa.
+comentario: Errado. Suplementares e especiais são autorizados por lei e abertos por decreto (art. 42). Os extraordinários são abertos por decreto, com imediato conhecimento ao Legislativo (art. 44). Na União, a Constituição faz a abertura do crédito extraordinário por medida provisória (arts. 62 e 167, § 3º).
+
+=== fp-21
+gab: C
+ref: lei4320 105, § 1º
+trecho: O Ativo Financeiro compreenderá os créditos e valores realizáveis independentemente de autorização orçamentária e os valores numerários
+armadilha: literal
+dif: 2
+enunciado: No balanço patrimonial da Lei 4.320/1964, o ativo financeiro compreende os créditos e valores realizáveis independentemente de autorização orçamentária e os valores numerários.
+comentario: Certo: art. 105, § 1º. Já o ativo permanente reúne os bens, créditos e valores cuja mobilização ou alienação dependa de autorização legislativa (§ 2º).
+
+=== fp-22
+gab: E
+ref: lei4320 101
+trecho: Balanço Orçamentário, no Balanço Financeiro, no Balanço Patrimonial, na Demonstração das Variações Patrimoniais
+armadilha: rol
+dif: 1
+enunciado: Pela Lei 4.320/1964, os resultados gerais do exercício são demonstrados apenas no balanço orçamentário e no balanço patrimonial.
+comentario: Errado. O art. 101 lista quatro demonstrações: balanço orçamentário, balanço financeiro, balanço patrimonial e demonstração das variações patrimoniais.
