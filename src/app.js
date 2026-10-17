@@ -402,6 +402,12 @@ function mesclarDoc(n, nuvem, local, localNovo) {
   p.rpg = mesclarRPG(velho.rpg, novo.rpg);
   return p;
 }
+// O banco entrega o documento congelado, inclusive por dentro: sem uma cópia, marcar artigo como lido, dar baixa num
+// dia ou somar o tempo falharia (às vezes em silêncio) em tudo o que veio da conta
+function lerDoc(s) {
+  const d = s && s.exists ? s.data() : null;
+  return d ? JSON.parse(JSON.stringify(d)) : null;
+}
 // O progresso fica no banco do Artifact (por usuário) e, sempre, também neste navegador.
 // Na abertura, a cópia da conta e a deste navegador são mescladas (mesclarDoc): nenhuma apaga a outra.
 const Store = {
@@ -495,9 +501,9 @@ const Store = {
       else {
         // Zerar ou restaurar backup muda a "época" (perfil.ep): entre épocas diferentes vale a mais nova, inteira
         const epLocal = S.perfil.ep || 0;
-        const dp = snaps[DOCS.indexOf('perfil')], epNuvem = (dp.exists && dp.data() && dp.data().dados && dp.data().dados.ep) || 0;
-        snaps.forEach((s, i) => {
-          const n = DOCS[i], d = s.exists ? s.data() : null;
+        const docs = snaps.map(lerDoc), dp = docs[DOCS.indexOf('perfil')], epNuvem = (dp && dp.dados && dp.dados.ep) || 0;
+        docs.forEach((d, i) => {
+          const n = DOCS[i];
           if (epLocal > epNuvem) this.gravar(n);
           // Época mais nova na conta (zerou ou restaurou em outro aparelho): documento que lá não existe conta como vazio,
           // para o que é deste navegador, de antes, não voltar para a conta
@@ -508,8 +514,7 @@ const Store = {
       }
       DOCS.forEach((n) => {
         this.refs[n].onSnapshot((s) => {
-          if (!s.exists) return;
-          const d = s.data();
+          const d = lerDoc(s);
           if (!d || d.dev === this.dev) return;
           // Com gravação pendente aqui, junta as duas; sem nada pendente, adota a do outro aparelho
           if ((this.timer[n] || this.gravando[n]) && (d.ep || 0) === (S.perfil.ep || 0)) this.mesclar(n, d, true); else this.aplicar(n, d);
@@ -650,9 +655,12 @@ const ATIV = [['q', 'Questões'], ['c', 'Cards'], ['l', 'Leitura'], ['d', 'Discu
 const LEITURA_MAIS = new Set(['trilha', 'cebraspe', 'glossario', 'pesquisar']);
 let ultimoUso = Date.now(), ultimoTique = Date.now(), tempoNaoSalvo = 0;
 function atividadeAtual() {
-  // Artigo ou aula aberta na folha é leitura, mesmo se abertos a partir de um item da sessão
-  if (UI.artInline || UI.folhaAula) return 'l';
-  if (sessao && !sessao.fim) return sessao.modo === 'cards' ? 'c' : 'q';
+  // Artigo aberto na tela, aula, e o que se lê na folha (item revisado, termo, Investigar) são leitura, mesmo a partir
+  // de um item da sessão
+  const folha = document.getElementById('folha');
+  if (UI.artInline || UI.folhaAula || (folha && !folha.hidden)) return 'l';
+  // a tela de resultado da sessão (revisar os itens) também é questão
+  if (sessao) return sessao.modo === 'cards' ? 'c' : 'q';
   if (UI.vista === 'lei') return 'l';
   if (UI.vista === 'mais') return UI.mais === 'discursiva' ? 'd' : LEITURA_MAIS.has(UI.mais) ? 'l' : 'o';
   return 'o';
@@ -672,16 +680,18 @@ function atualizarCronometro() {
   el.hidden = !mostra;
   if (!mostra) return;
   const agora = Date.now(), parado = ocioso(k, agora);
-  const seg = ((((S.perfil.dias[hojeISO()] || {}).t) || {})[k] || 0) + (parado ? 0 : Math.min(agora - ultimoTique, TIQUE_S * 2000) / 1000);
+  const seg = ((((S.perfil.dias[hojeISO()] || {}).t) || {})[k] || 0) + (parado ? 0 : Math.min(agora - ultimoTique, (k === 'l' ? OCIOSO_LER_S : OCIOSO_S) * 1000) / 1000);
   el.classList.toggle('parado', parado);
   el.innerHTML = '<i aria-hidden="true"></i>' + (k === 'l' ? 'Leitura' : 'Discursiva') + ' hoje <b class="mono">' + fmtRelogio(seg) + '</b>' + (parado ? ' · pausado' : '');
 }
 // final: chamada ao esconder ou fechar a página, para gravar o pedaço do intervalo em curso
 function contarTempo(final) {
   const agora = Date.now();
-  const dt = Math.min(agora - ultimoTique, TIQUE_S * 2000) / 1000;
-  ultimoTique = agora;
   const k = atividadeAtual();
+  // Com uso recente, todo o intervalo desde o último tique conta, mesmo que o navegador tenha atrasado o relógio; o teto
+  // é o próprio limite de ociosidade (um aparelho que dormiu não soma horas: sem toque recente, nada conta)
+  const dt = Math.min(agora - ultimoTique, (k === 'l' ? OCIOSO_LER_S : OCIOSO_S) * 1000) / 1000;
+  ultimoTique = agora;
   if ((document.hidden && !final) || ocioso(k, agora) || dt < 1) return;
   if (!S.perfil.tempoDesde) S.perfil.tempoDesde = hojeISO();
   const t = (diaLog().t ||= {});
@@ -735,7 +745,7 @@ function cartaoTempo() {
     met(tq >= 60 && r ? Math.round(tq / r) + ' s' : '—', 'por item') + met(tq >= 300 && r ? Math.round(r / (tq / 3600)) : '—', 'itens por hora') +
     met(d.k || 0, 'cards revisados') + met((d.a || []).length, 'artigos lidos') + '</div>' +
     '<div class="tempo-semana" role="img" aria-label="' + esc('Últimos 7 dias: ' + sem.map(([iso, x]) => fmtData(iso, { weekday: 'short' }) + ' ' + fmtDur(segundosEstudo(x))).join(', ')) + '">' + colunasTempo(sem, 64) + '</div>' +
-    '<p class="pequeno mudo">' + (semDias ? 'Média de ' + fmtDur(semSeg / semDias) + ' por dia de estudo. ' : '') + 'Conta só o tempo com o app aberto e em uso; parado por ' + OCIOSO_S / 60 + ' minutos, o relógio pausa. <button class="linkish" data-acao="mais" data-sub="progresso">Histórico</button></p></details></div>';
+    '<p class="pequeno mudo">' + (semDias ? 'Média de ' + fmtDur(semSeg / semDias) + ' por dia de estudo. ' : '') + 'Conta só o tempo com o app aberto e em uso; parado por ' + OCIOSO_S / 60 + ' minutos (' + OCIOSO_LER_S / 60 + ' na leitura), o relógio pausa.' + ((t.o || 0) >= 60 ? ' Hoje, mais ' + fmtDur(t.o) + ' no painel, no plano e nos ajustes, que não entram na conta.' : '') + ' <button class="linkish" data-acao="mais" data-sub="progresso">Histórico</button></p></details></div>';
 }
 // Progresso: 14 dias em colunas, resumo de 30 dias, divisão por atividade, ritmo e tabela dos últimos 7 dias
 function cartaoTempoHistorico() {
@@ -1635,7 +1645,16 @@ function blocosDaSemana(dia) {
   for (const d of DIAS) if (d.data >= seg && d.data <= dia.data && d.modo === 'treino') for (const b of d.blocos) if (!bs.includes(b)) bs.push(b);
   return bs.length ? bs : P1.slice();
 }
-function artigoVivo(k) { return ARTI.has(k) && !/^Art\. [\d\-A-Zº]+\.? \((VETADO|Revogado)/.test(ARTI.get(k).texto); }
+function artigoVivo(k) { return ARTI.has(k) && !/^Art\. [\d\-A-Zº]+\.? \((VETADO|Revogado)/.test(ARTI.get(k).texto) && !linhaRevogada(ARTI.get(k).texto.split('\n')[0]); }
+// Dispositivo revogado: o texto antigo não vale mais e não se estuda. Fica só o rótulo (a numeração pula, e a banca às
+// vezes cobra que o parágrafo caiu) com a nota de quem revogou. Notas de redação depois da revogação não mudam isso.
+const RE_ROTULO = /^\s*[“"]?(?:Art\.\s?[\dA-Zº°-]+\s?\.?|§\s?\d+\s?\.?\s?[º°]?\.?|Parágrafo único\.?|[IVXLC]+(?:-[A-Z])?\s?[-–]|[a-z]\))/;
+function linhaRevogada(linha) {
+  const m = /\((Revogad[oa][^)]*)\)(?:[\s.;,:”"]*(?:\((?:Redação dada|Incluíd[oa]|NR|Vide)[^)]*\)|Revogad[oa] pel[oa] [^()]*))*[\s.;,:”"]*$/.exec(linha);
+  if (!m) return null;
+  const r = RE_ROTULO.exec(linha);
+  return { rotulo: r ? r[0].replace(/^[\s“"]+/, '').trim() : '', nota: '(' + m[1] + ')' };
+}
 // Leitura do dia: todos os artigos dos blocos do dia, se couberem em LEITURA_MAX; senão, uma seleção
 // equilibrada entre os blocos: primeiro os artigos de questões que estão na sua lista curta, depois os
 // nunca lidos (o que foi lido pela primeira vez hoje continua contando como não lido), depois os mais cobrados.
@@ -1905,7 +1924,9 @@ function cartaoPendencias() {
   h += '<details class="det-lista" data-det="atraso"' + (UI.det.atraso ? ' open' : '') + '><summary>Ver os ' + pl(p.length, 'dia', 'dias') + (dias ? ' (' + dias + ' com sessão)' : '') + '</summary>' +
     p.map((x) => {
       const oque = [x.sessao ? (x.dia.modo === 'simulado' ? 'o simulado' : 'a sessão de ' + x.dia.n + ' itens') : '', x.ler.length ? pl(x.ler.length, 'artigo da leitura', 'artigos da leitura') : '', x.disc ? 'a discursiva' : ''].filter(Boolean).join(', ').replace(/, ([^,]*)$/, ' e $1');
-      return '<div class="pend"><div class="pend-txt"><b>' + esc(fmtData(x.dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</b><span>' + esc(x.dia.atividade) + '</span><span class="pequeno mudo">Falta' + (!!x.sessao + !!x.ler.length + !!x.disc > 1 || x.ler.length > 1 ? 'm ' : ' ') + esc(oque) + '.</span></div>' +
+      // O que o dia já tem fica à vista: feita a sessão, sobra só a leitura (ou a discursiva)
+      const jaFeito = !x.sessao && x.dia.modo !== 'revisao' ? (x.dia.modo === 'simulado' ? 'Simulado feito. ' : 'Questões feitas. ') : '';
+      return '<div class="pend"><div class="pend-txt"><b>' + esc(fmtData(x.dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + '</b><span>' + esc(x.dia.atividade) + '</span><span class="pequeno mudo">' + (jaFeito ? '✓ ' + jaFeito : '') + 'Falta' + (!!x.sessao + !!x.ler.length + !!x.disc > 1 || x.ler.length > 1 ? 'm ' : ' ') + esc(oque) + '.</span></div>' +
         '<div class="linha-btns">' + (x.sessao && x.dia.modo !== 'simulado' ? '<button class="btn pequeno" data-acao="iniciar-dia" data-dia="' + x.dia.data + '">' + esc(rotuloPausa(x.dia.data, 'Fazer este dia')) + '</button>' : '') +
         (x.ler.length ? '<button class="btn pequeno" data-acao="ler-pendente" data-dia="' + x.dia.data + '">Ler ' + x.ler.length + '</button>' : '') +
         (x.disc ? botaoDiscDia(x.dia) : '') +
@@ -2240,8 +2261,9 @@ function renderHoje() {
   // Sessões guardadas que não têm botão próprio no roteiro (o dia, as intercaladas e a trilha de hoje já mostram Continuar)
   const fora = new Set(['i:' + h]);
   if (ctx.tipo === 'dia') fora.add(ctx.dia.data);
-  const stH = subtemaDoDia();
-  if (stH) fora.add('t:' + stH.id + ':' + (estadoSubtema(stH.id).novos ? 'pre' : 'pratica'));
+  // num dia de subtema, o roteiro tem botão só para o pré-teste; a prática guardada continua na lista
+  const stH = subtemaDoDia(), diaSt = ctx.tipo === 'dia' && ctx.dia.modo === 'treino' && stDoDia(ctx.dia);
+  if (stH) fora.add('t:' + stH.id + ':' + (diaSt || estadoSubtema(stH.id).novos ? 'pre' : 'pratica'));
   verificarRPG();
   const local = cartaoSoNoAparelho(), localTopo = local && backupAtrasado();
   document.getElementById('vista-hoje').innerHTML = topo + (localTopo ? local : '') + cartaoPausas(fora) + cartaoTempo() + roteiro + cartaoPendencias() + cartaoJornada() + modos + edital + (localTopo ? '' : local) + '<p class="sync" id="sync"></p>';
@@ -2846,7 +2868,9 @@ function textoLei(a, qExtras) {
   for (const c of CARDS_POR_ART.get(a.k) || []) cai.push(c.nota.t.replace(RE_LACUNA, '$2'));
   for (const id of qExtras || []) { const q = QI.get(id); if (q) extras.push(...q.t); }
   return a.texto.split('\n').map((linha, k) => {
-    // Vetos não têm valor de estudo: a linha aparece apagada e sem grifo
+    // Vetos e revogações não têm valor de estudo: a linha aparece apagada e sem grifo, e a revogada sem o texto antigo
+    const rev = linhaRevogada(linha);
+    if (rev) return '<p class="par vetado">' + (rev.rotulo ? esc(rev.rotulo) + ' ' : '') + '<span class="nota">' + esc(rev.nota) + '</span></p>';
     if (/^(?:Art\. [\dA-Zº-]+\.?|§ \d+º|Parágrafo único\.?|[IVXL]+(?:-[A-Z])? -|[a-z]\))\s*\(VETADO\)/.test(linha)) return '<p class="par vetado">' + esc(linha) + '</p>';
     let rs = [];
     if (cam.cai) rs = rs.concat(rangesTexto(linha, cai, 'g-cai'));
@@ -4177,6 +4201,7 @@ document.addEventListener('pointerover', (ev) => {
 });
 document.addEventListener('visibilitychange', () => { if (document.hidden) { contarTempo(true); guardarSessaoAberta(); Store.descarregar(); } else { ultimoTique = Date.now(); marcarUso(); } });
 window.addEventListener('pagehide', () => { contarTempo(true); guardarSessaoAberta(); Store.descarregar(); });
+window.addEventListener('pageshow', (e) => { if (e.persisted) ultimoTique = Date.now(); });
 ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach((ev) => document.addEventListener(ev, marcarUso, { passive: true, capture: true }));
 // Rolar dentro da folha ou da sessão também é uso: o evento de rolagem não sobe, mas passa pela captura no documento
 document.addEventListener('scroll', marcarUso, { passive: true, capture: true });

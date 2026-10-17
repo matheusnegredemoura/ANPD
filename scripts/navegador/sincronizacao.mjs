@@ -29,8 +29,10 @@ async function cenario(nome, { nuvem, tNuvem, local, ui, atrasoMs = 0, acao, epN
     window.__nuvem = JSON.parse(JSON.stringify(nuvem));
     window.__sets = [];
     const espera = (ms) => new Promise((r) => setTimeout(r, ms));
+    // Como no claude.ai: o documento lido do banco vem congelado, inclusive por dentro
+    const congelar = (o) => { if (o && typeof o === 'object') { Object.values(o).forEach(congelar); Object.freeze(o); } return o; };
     const doc = (n) => ({
-      get: async () => { await espera(atrasoMs); const d = window.__nuvem[n]; return { exists: !!d, data: () => (d ? { dev: 'outro', t: tNuvem, v: 3, ep: epNuvem || 0, dados: JSON.parse(JSON.stringify(d)) } : null) }; },
+      get: async () => { await espera(atrasoMs); const d = window.__nuvem[n]; return { exists: !!d, data: () => (d ? congelar({ dev: 'outro', t: tNuvem, v: 3, ep: epNuvem || 0, dados: JSON.parse(JSON.stringify(d)) }) : null) }; },
       set: async (v) => { window.__sets.push(n); window.__nuvem[n] = JSON.parse(JSON.stringify(v.dados)); },
       onSnapshot: () => () => {},
     });
@@ -141,6 +143,30 @@ await cenario('Conta sem preferências, navegador com preferências', {
 }, (r) => {
   conferir('preferências do navegador sobem para a conta', r.nuvem.perfil.ui && r.nuvem.perfil.ui.n === 30 && JSON.stringify(r.nuvem.perfil.ui.blocos) === '["lgpd-33-36","res-19-2024"]', JSON.stringify(r.nuvem.perfil.ui));
   conferir('preferências do navegador continuam valendo', r.ui.n === 30 && r.tema === 'escuro');
+});
+
+// 6) A conta é mais nova e já tem o dia de hoje: o que se faz depois de abrir (ler um artigo, fechar um dia) fica
+// guardado, mesmo com o documento da conta congelado
+const hojeLocal = await (async () => { const c = await browser.newContext(); await diaDeEstudo(c); const pg = await c.newPage(); const h = await pg.evaluate(() => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }); await c.close(); return h; })();
+await cenario('Conta mais nova com o dia de hoje: leitura e baixa de dia ficam guardadas', {
+  nuvem: Object.assign({}, nuvemBase, { perfil: perfil({ xp: 500, meta: 60, feitos: { '2026-09-01': 1 }, lidos: { 'lgpd:5': '2026-09-01' }, dias: { [hojeLocal]: { r: 3, c: 2, e: 1, b: 0, xp: 20, k: 0, n: 0, a: [] } } }) }), tNuvem: agora - 60e3,
+  local: { perfil: perfil({ xp: 100 }), itens: {}, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: { perfil: agora - 86400e3 } },
+  acao: async (p) => {
+    await p.waitForTimeout(800);
+    await p.click('.aba[data-vista="lei"]');
+    await p.locator('#vista-lei [data-acao="abrir-art"]').first().click();
+    await p.click('.aba[data-vista="mais"]');
+    await p.click('.menu-mais [data-sub="plano"]');
+    await p.locator('#vista-mais input[data-acao="dia-feito"]:not(:checked)').first().click();
+  },
+}, async (r, p) => {
+  const novo = Object.keys(r.local.perfil.lidos || {}).find((k) => k !== 'lgpd:5');
+  conferir('o artigo lido entrou em lidos', !!novo, JSON.stringify(r.local.perfil.lidos));
+  conferir('e no registro do dia', ((r.local.perfil.dias[hojeLocal] || {}).a || []).includes(novo), JSON.stringify(r.local.perfil.dias[hojeLocal]));
+  conferir('o dia marcado como feito ficou feito', Object.keys(r.local.perfil.feitos).length > 1, JSON.stringify(r.local.perfil.feitos));
+  conferir('a conta recebeu a leitura', !!((r.nuvem.perfil.lidos || {})[novo]));
+  const erros = await p.evaluate(() => (JSON.parse(localStorage.getItem('painel-anpd-v3')).perfil.erros || []).map((e) => e.m));
+  conferir('nenhum erro guardado no diagnóstico', !erros.length, erros.join(' | '));
 });
 
 await browser.close();

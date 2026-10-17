@@ -1,4 +1,5 @@
 // O artigo abre na própria tela, logo abaixo do botão: no comentário do item (sessão), no card e na página do subtema.
+// Dispositivo revogado aparece sem o texto antigo.
 // Sem folha por cima e sem trocar de aba, para não depender do jeito como o aparelho desenha camadas fixas. Um erro
 // qualquer vira aviso e fica no diagnóstico.
 import { APP, abrirNavegador, placar, responder, vigiarErros } from './comum.mjs';
@@ -53,6 +54,17 @@ await passo('na página do subtema, cada artigo abre embaixo dos botões, com an
   if (!/Art\. 2/.test(t2)) throw new Error('próximo artigo: ' + t2);
   if ((await chips.nth(1).getAttribute('aria-expanded')) !== 'true') throw new Error('o chip do artigo novo não ficou marcado');
   if (!(await p.locator('#vista-mais').isVisible())) throw new Error('trocou de aba');
+});
+
+await passo('parágrafo revogado aparece só com o rótulo e a nota, sem o texto antigo', async () => {
+  await p.click('.aba[data-vista="lei"]');
+  await p.selectOption('#vista-lei select[data-acao="sel-lei"]', 'res1');
+  await p.click('#vista-lei [data-acao="abrir-art"][data-art="res1:35"]');
+  const linhas = (await p.locator('#vista-lei .texto-lei p').allTextContents()).map((t) => t.trim());
+  const rev = linhas.find((t) => /^§ 4º/.test(t)) || '';
+  if (!/^§ 4º \(Revogado pela Resolução CD\/ANPD nº 4/.test(rev)) throw new Error('§ 4º: ' + rev);
+  if (/não atendimento/.test(linhas.join(' '))) throw new Error('o texto revogado continua lá');
+  if (!(await p.locator('#vista-lei .texto-lei p.vetado').count())) throw new Error('a linha revogada não ficou apagada');
 });
 
 await passo('um erro de programa vira aviso e aparece no diagnóstico', async () => {
