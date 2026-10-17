@@ -292,7 +292,7 @@ const S = { perfil: perfilPadrao(), itens: {}, cards: {}, simulados: [], pesquis
 let golpeRecente = null, pendCache = null;
 const UI = Object.assign({ lei: 'lgpd', vista: 'hoje', modo: 'treino', n: 20, filtro: 'mistas', prova: 'blocos', blocos: P1.slice(), blocosCards: [], faseAberta: null, camadas: { cai: true, num: true, alerta: true, verbo: true, erro: true } }, lerLS(CHAVE_UI) || {});
 UI.discTema = null; UI.discFase = null; UI.discAval = {}; UI.discNE = 0; UI.det = {};
-UI.artSel = null; UI.busca = ''; UI.mais = 'menu'; UI.leiFila = null; UI.ranking = false; UI.filtroPesq = 'pendentes'; UI.buscaGloss = ''; UI.folhaArt = null; UI.folhaQ = null;
+UI.artSel = null; UI.busca = ''; UI.mais = 'menu'; UI.leiFila = null; UI.ranking = false; UI.filtroPesq = 'pendentes'; UI.buscaGloss = ''; UI.artInline = null;
 if (!UI.camadas) UI.camadas = { cai: true, num: true, alerta: true, verbo: true, erro: true };
 let sessao = null;
 // Preferências que acompanham a conta (vão no documento do perfil), para não se perderem quando o navegador
@@ -651,7 +651,7 @@ const LEITURA_MAIS = new Set(['trilha', 'cebraspe', 'glossario', 'pesquisar']);
 let ultimoUso = Date.now(), ultimoTique = Date.now(), tempoNaoSalvo = 0;
 function atividadeAtual() {
   // Artigo ou aula aberta na folha é leitura, mesmo se abertos a partir de um item da sessão
-  if (UI.folhaArt || UI.folhaAula) return 'l';
+  if (UI.artInline || UI.folhaAula) return 'l';
   if (sessao && !sessao.fim) return sessao.modo === 'cards' ? 'c' : 'q';
   if (UI.vista === 'lei') return 'l';
   if (UI.vista === 'mais') return UI.mais === 'discursiva' ? 'd' : LEITURA_MAIS.has(UI.mais) ? 'l' : 'o';
@@ -1574,6 +1574,22 @@ function avisar(ic, titulo, texto) {
   setTimeout(() => el.remove(), 3800);
 }
 
+// Erros: aparecem num aviso, ficam no diagnóstico (Ajustes) e vão para o perfil na conta (os cinco últimos), para um
+// problema que só acontece num aparelho poder ser lido e corrigido depois
+const ERROS = [];
+function registrarErro(onde, e) {
+  const msg = String((e && (e.message || (e.reason && e.reason.message))) || e || 'erro desconhecido').slice(0, 200);
+  const linha = (onde ? onde + ': ' : '') + msg;
+  if (ERROS.some((x) => x.m === linha)) return;
+  const pilha = String((e && e.stack) || '').split('\n').slice(0, 4).map((x) => x.trim()).join(' | ').slice(0, 400);
+  ERROS.unshift({ m: linha, p: pilha, t: new Date().toISOString(), v: D.versao, ua: String(navigator.userAgent || '').slice(0, 160) });
+  ERROS.length = Math.min(ERROS.length, 5);
+  try { S.perfil.erros = ERROS.slice(); Store.salvar('perfil'); } catch (x) { /* sem gravação, fica só na tela */ }
+  try { avisar('!', 'Algo falhou nesta tela', linha.slice(0, 120) + ' (detalhes em Mais → Ajustes)'); } catch (x) { /* sem aviso */ }
+}
+window.addEventListener('error', (ev) => registrarErro('', ev.error || ev.message));
+window.addEventListener('unhandledrejection', (ev) => registrarErro('', ev.reason));
+
 /* ================= Componentes ================= */
 function iconeFogo() { return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 3.5 5 6 5 11a5 5 0 0 1-10 0c0-2.2 1-3.8 2.3-5 .2 1.6 1 2.7 2.2 3.1C11 8.5 11.3 5.2 12 2z"/></svg>'; }
 function iconeSom(ligado) { return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/>' + (ligado ? '<path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/>' : '<path d="M17 9l5 6M22 9l-5 6"/>') + '</svg>'; }
@@ -2343,6 +2359,7 @@ function renderCards() {
 /* ================= Render da sessão ================= */
 function renderSessao() {
   const el = document.getElementById('sessao');
+  UI.artInline = null;
   if (!sessao) return;
   if (sessao.fim) { el.innerHTML = '<div class="sessao-corpo">' + (sessao.modo === 'cards' ? renderResultadoCards() : renderResultado()) + '</div>'; return; }
   const total = sessao.modo === 'relampago' ? null : sessao.ids.length;
@@ -2433,7 +2450,7 @@ function renderExplicacao(q) {
   html += '<p>' + marcarTermos(q.c, 3) + '</p>';
   if (q.t && q.t.length) {
     html += '<div class="citacao">' + q.t.map((t) => '<q>' + esc(t) + '</q>').join('') + '<span class="fonte">' + esc(q.r) + '</span>' +
-      (q.art && ARTI.get(chave(q.l, q.art)) ? '<div><button class="linkish" data-acao="ver-art" data-art="' + esc(chave(q.l, q.art)) + '" data-q="' + esc(q.id) + '">Ler inteiro, grifado: ' + esc(nomeArt(chave(q.l, q.art))) + '</button></div>' : '') + '</div>';
+      (q.art && ARTI.get(chave(q.l, q.art)) ? '<div>' + botaoArt(chave(q.l, q.art), q.id) + '</div>' : '') + '</div>';
   } else html += '<div class="citacao"><span class="fonte">Fonte: ' + esc(q.r) + '</span></div>';
   if (q.v === 0) html += '<p class="aviso-conferir">Texto oficial ainda não anexado ao app: confira esta referência na fonte antes de confiar nela.</p>';
   if (q.tm && SUBTEMAS.get(q.tm)) html += '<p class="pequeno"><button class="linkish" data-acao="aula-folha" data-st="' + esc(q.tm) + '">Rever a aula: ' + esc(SUBTEMAS.get(q.tm).nome) + '</button></p>';
@@ -2475,7 +2492,7 @@ function renderCardSessao(card) {
     html += '<div class="notas-card">' + [[1, 'Errei'], [2, 'Difícil'], [3, 'Bom'], [4, 'Fácil']].map(([n, t]) => '<button class="n' + n + '" data-acao="avaliar" data-n="' + n + '">' + t + '<small>' + (n === 1 ? 'agora' : fmtIntervalo(calcularCard(card.id, n)[1])) + '</small></button>').join('') + '</div>';
     html += '<p class="atalhos">Teclado: 1 Errei · 2 Difícil · 3 Bom · 4 Fácil</p>';
     const kn = nota.art ? chave(nota.l || 'lgpd', nota.art) : null;
-    if (kn && ARTI.get(kn)) html += '<div><button class="linkish" data-acao="ver-art" data-art="' + esc(kn) + '">Ler inteiro, grifado: ' + esc(nomeArt(kn)) + '</button></div>';
+    if (kn && ARTI.get(kn)) html += '<div>' + botaoArt(kn) + '</div>';
     html += blocoPesquisar(nota.t.replace(RE_LACUNA, '$2'), null, 'card');
   }
   return html + '</article>';
@@ -2554,7 +2571,7 @@ function abrirFolha(html, rotulo) {
   const b = f.querySelector('[data-acao="fechar-folha"]');
   if (b) b.focus();
 }
-function fecharFolha() { const f = document.getElementById('folha'); f.hidden = true; f.innerHTML = ''; UI.folhaArt = null; UI.folhaAula = null; }
+function fecharFolha() { const f = document.getElementById('folha'); f.hidden = true; f.innerHTML = ''; UI.folhaAula = null; }
 function cabFolha(rotulo, titulo) { return '<div class="folha-cab"><div><span class="rotulo">' + esc(rotulo) + '</span><h2>' + esc(titulo) + '</h2></div><button class="btn pequeno" data-acao="fechar-folha">Fechar</button></div>'; }
 function folhaItem(id, resp) {
   const q = QI.get(id);
@@ -2562,14 +2579,39 @@ function folhaItem(id, resp) {
   if (resp) html += '<div class="veredito ' + (resp !== BRANCO && resp === q.g ? 'ok' : 'no') + '"><span>' + (resp === BRANCO ? 'Em branco.' : 'Você marcou ' + nomeResp(q, resp) + '.') + ' Gabarito: ' + nomeGab(q).toUpperCase() + '.</span></div>';
   abrirFolha(html + renderExplicacao(q), 'Item ' + q.id);
 }
-function folhaArtigo(art, qid) {
-  const a = ARTI.get(art);
-  if (!a) return;
-  marcarLido(art);
-  abrirFolha(cabFolha(LEIS[a.lei].curto, rotuloArt(art)) + (LEIS[a.lei].aviso ? '<p class="aviso-conferir">' + esc(LEIS[a.lei].aviso) + '</p>' : '') + '<p class="pequeno mudo">' + esc(a.estrutura.join(' · ')) + '</p>' + legendaCamadas() +
-    '<div class="texto-lei">' + textoLei(a, qid ? [qid] : []) + '</div>', rotuloArt(art));
-  UI.folhaArt = art;
-  UI.folhaQ = qid || null;
+// Artigo aberto na própria tela, logo abaixo do botão: sem folha por cima e sem trocar de aba, para funcionar igual em
+// qualquer aparelho. O mesmo botão fecha. Com "lista" (os artigos de um subtema), a caixa ganha anterior e próximo.
+let nCaixaArt = 0;
+function botaoArt(k, qid, rotulo, lista) {
+  const id = 'art-' + (++nCaixaArt);
+  return '<button class="linkish" data-acao="art-inline" data-art="' + esc(k) + '"' + (qid ? ' data-q="' + esc(qid) + '"' : '') + ' data-box="' + id + '" aria-expanded="false" aria-controls="' + id + '">' + esc(rotulo || 'Ler inteiro, grifado: ' + nomeArt(k)) + '</button>' +
+    '<div class="art-inline" id="' + id + '"' + (lista ? ' data-lista="' + esc(lista.join(',')) + '"' : '') + ' hidden></div>';
+}
+function htmlArtInline(k, qid, lista, box) {
+  const a = ARTI.get(k), L = LEIS[a.lei], i = lista ? lista.indexOf(k) : -1;
+  const nav = (x, t) => '<button class="btn pequeno" data-acao="art-inline" data-art="' + esc(x) + '" data-box="' + box + '">' + t + '</button>';
+  return '<div class="art-inline-cab"><b>' + esc(L.curto + ' · ' + rotuloArt(k)) + '</b>' + (a.estrutura.length ? '<span class="pequeno mudo">' + esc(a.estrutura.join(' · ')) + '</span>' : '') + '</div>' +
+    (L.aviso ? '<p class="aviso-conferir">' + esc(L.aviso) + '</p>' : '') + '<div class="texto-lei">' + textoLei(a, qid ? [qid] : []) + '</div>' +
+    '<p class="pequeno mudo legenda-fixa">Grifos: <span class="g-cai">o que cai</span> · <span class="g-num">prazos e números</span> · <span class="g-alerta">alerta</span> · <span class="g-verbo">deve × pode</span> · <span class="g-erro">seus erros</span></p>' +
+    (i >= 0 ? '<div class="linha-btns">' + (i > 0 ? nav(lista[i - 1], '← ' + esc(nomeArt(lista[i - 1]))) : '') + (i < lista.length - 1 ? nav(lista[i + 1], esc(nomeArt(lista[i + 1])) + ' →') : '') + '</div>' : '');
+}
+function abrirArtInline(alvo) {
+  const k = alvo.dataset.art, box = document.getElementById(alvo.dataset.box);
+  if (!box || !ARTI.get(k)) return;
+  const fechar = !box.hidden && box.dataset.art === k;
+  document.querySelectorAll('[data-box="' + alvo.dataset.box + '"]').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+  if (fechar) { box.hidden = true; box.innerHTML = ''; box.dataset.art = ''; UI.artInline = null; return; }
+  const lista = box.dataset.lista ? box.dataset.lista.split(',') : null;
+  box.innerHTML = htmlArtInline(k, alvo.dataset.q || box.dataset.q, lista, alvo.dataset.box);
+  if (alvo.dataset.q) box.dataset.q = alvo.dataset.q;
+  box.hidden = false;
+  box.dataset.art = k;
+  const dono = document.querySelector('[aria-controls="' + alvo.dataset.box + '"][data-art="' + k + '"]');
+  if (dono) dono.setAttribute('aria-expanded', 'true');
+  UI.artInline = k;
+  // ao trocar pelo anterior ou próximo, o começo do artigo novo fica à vista
+  if (!alvo.getAttribute('aria-controls')) box.scrollIntoView({ block: 'start' });
+  try { marcarLido(k); } catch (e) { registrarErro('marcar o artigo como lido', e); }
 }
 /* ================= Investigar e correção com o Claude ================= */
 // A página pergunta ao Claude pela conta de quem estuda (capacidade "sample"): gasta o uso dessa conta, e a primeira
@@ -3420,7 +3462,12 @@ function renderSubtema(id) {
   html += '<div class="cartao"><h2>Pontos-chave</h2><ul class="lista-chave">' + st.chave.map((c) => '<li>' + grifarProsa(c) + '</li>').join('') + '</ul></div>';
   html += '<div class="cartao"><h2>Como o Cebraspe tenta te derrubar</h2><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul></div>';
   const arts = (st.arts || []).filter((k) => ARTI.get(k));
-  if (arts.length) html += '<div class="cartao"><h2>Lei seca deste subtema</h2><div class="chips">' + arts.map((k) => '<button class="chip" data-acao="abrir-art" data-art="' + esc(k) + '">' + esc(nomeArt(k)) + '</button>').join('') + '</div><p class="pequeno mudo">Leia com os grifos depois da aula: prazos, exceções e palavras de alerta são o que a banca troca.</p></div>';
+  if (arts.length) {
+    const caixa = 'art-st-' + id.replace(/[^\w-]/g, '');
+    html += '<div class="cartao" id="lei-' + esc(id) + '"><h2>Lei seca deste subtema</h2><p class="pequeno mudo">Leia depois da aula, um artigo por vez: o texto abre aqui embaixo, com os grifos. Prazos, exceções e palavras de alerta são o que a banca troca.</p><div class="chips">' +
+      arts.map((k) => '<button class="chip" data-acao="art-inline" data-art="' + esc(k) + '" data-box="' + caixa + '" aria-expanded="false" aria-controls="' + caixa + '">' + esc(nomeArt(k)) + '</button>').join('') + '</div>' +
+      '<div class="art-inline" id="' + caixa + '" data-lista="' + esc(arts.join(',')) + '" hidden></div></div>';
+  }
   const reais = (POR_TEMA.get(id) || []).filter((q) => q.o).length;
   if (reais) html += '<p class="pequeno mudo">' + pl(reais, 'item real', 'itens reais') + ' do Cebraspe neste subtema, misturados aos demais.</p>';
   if (prox) html += '<div class="linha-btns"><button class="btn" data-acao="subtema" data-st="' + esc(prox.id) + '">Próximo: ' + esc(prox.nome) + ' ›</button></div>';
@@ -3575,9 +3622,10 @@ function renderAjustes() {
     linha('Leitura do progresso salvo', dg.leitura, st(dg.leitura)) +
     linha('Última gravação', dg.gravacao, st(dg.gravacao)) +
     linha('Cópia neste navegador', dg.navegador, st(dg.navegador)) +
+    linha('Erros nesta abertura', ERROS.length ? ERROS.length + ' · o último: ' + ERROS[0].m : 'nenhum', !ERROS.length) +
     (Object.keys(Store.tamanhos).length ? (() => { const [n, t] = Object.entries(Store.tamanhos).sort((a, b) => b[1] - a[1])[0]; return linha('Maior documento enviado', n + ' · ' + Math.round(t / 1024) + ' KB de 256', t <= LIMITE_DOC); })() : '') +
     '</tbody></table></div><p class="pequeno">Se o banco aparecer como indisponível: abra o app pelo link do claude.ai com a sua conta conectada (não por arquivo baixado), no navegador ou no app do Claude, e confira as permissões do artifact. Enquanto isso, o progresso fica neste navegador e o backup em arquivo garante que nada se perca.</p>' +
-    '<div class="linha-btns"><button class="btn" data-acao="permissoes">Abrir permissões do app</button><button class="btn" data-acao="tentar-gravar">Tentar gravar de novo</button></div></div>' +
+    '<div class="linha-btns"><button class="btn" data-acao="permissoes">Abrir permissões do app</button><button class="btn" data-acao="tentar-gravar">Tentar gravar de novo</button>' + (ERROS.length ? '<button class="btn" data-acao="copiar-erros">Copiar os erros</button>' : '') + '</div></div>' +
     '<div class="cartao"><h2>Banco de conteúdo</h2><p class="pequeno mudo">' + Q.length + ' questões · ' + CARDS.length + ' cards cloze · ' + GLOSS.length + ' termos · versão ' + esc(D.versao) + '</p></div>' +
     '<div class="cartao"><h2>Recomeçar do zero</h2><p class="pequeno mudo">Apaga XP, respostas, cards, sequência, simulados, discursivas e lista de pesquisa.</p><div id="zona-zerar"><button class="btn" data-acao="zerar">Zerar progresso</button></div></div>';
 }
@@ -3621,6 +3669,7 @@ function ir(v) {
   window.scrollTo(0, 0);
 }
 function renderTudo() {
+  UI.artInline = null;
   renderTopo();
   VISTAS.forEach((v) => { document.getElementById('vista-' + v).hidden = v !== UI.vista; });
   document.querySelectorAll('.aba').forEach((b) => { if (b.dataset.vista === UI.vista) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
@@ -3632,8 +3681,8 @@ function abrirArtigo(art, fila) {
   UI.artSel = art;
   UI.lei = ARTI.get(art).lei;
   if (fila !== undefined) UI.leiFila = fila;
-  marcarLido(art);
   if (UI.vista !== 'lei') ir('lei'); else { renderLei(); window.scrollTo(0, 0); }
+  try { marcarLido(art); } catch (e) { registrarErro('marcar o artigo como lido', e); }
 }
 
 /* ================= Eventos ================= */
@@ -3642,6 +3691,9 @@ document.addEventListener('click', async (ev) => {
   if (!alvo) { if (ev.target.id === 'folha') fecharFolha(); return; }
   const a = alvo.dataset.acao;
   if (alvo.tagName === 'INPUT' || alvo.tagName === 'SELECT') return;
+  try { await executar(a, alvo); } catch (e) { registrarErro('botão ' + a, e); }
+});
+async function executar(a, alvo) {
   switch (a) {
     case 'ir':
       // A aba Mais sempre abre o menu do Mais, não a última página aberta lá dentro
@@ -3718,7 +3770,7 @@ document.addEventListener('click', async (ev) => {
       break;
     }
     case 'revisar-item': folhaItem(alvo.dataset.q, alvo.dataset.r); break;
-    case 'ver-art': folhaArtigo(alvo.dataset.art, alvo.dataset.q); break;
+    case 'art-inline': abrirArtInline(alvo); break;
     case 'fechar-folha': fecharFolha(); break;
     case 'termo': folhaTermo(Number(alvo.dataset.t)); break;
     case 'treinar-termo': {
@@ -3746,8 +3798,7 @@ document.addEventListener('click', async (ev) => {
     case 'camada':
       UI.camadas[alvo.dataset.c] = !UI.camadas[alvo.dataset.c];
       salvarUI();
-      if (alvo.closest('#folha') && UI.folhaArt) folhaArtigo(UI.folhaArt, UI.folhaQ);
-      else if (alvo.closest('#folha') && UI.folhaAula) folhaAula(UI.folhaAula);
+      if (alvo.closest('#folha') && UI.folhaAula) folhaAula(UI.folhaAula);
       else if (UI.vista === 'mais') renderMais(); else renderLei();
       break;
     case 'treinar-arm': {
@@ -3909,9 +3960,10 @@ document.addEventListener('click', async (ev) => {
       S.itens = {}; S.cards = {}; S.simulados = []; S.pesquisa = {}; S.disc = {};
       Store.salvarTudo(); renderTudo(); avisar('0', 'Progresso zerado', 'Status dos blocos, metas e preferências foram mantidos.');
       break;
+    case 'copiar-erros': if (await copiarTexto(JSON.stringify(ERROS, null, 1))) avisar('✓', 'Erros copiados', 'Cole na conversa com o Claude.'); break;
     default: break;
   }
-});
+}
 document.addEventListener('change', (ev) => {
   const alvo = ev.target.closest('[data-acao]');
   if (!alvo) return;

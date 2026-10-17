@@ -22,7 +22,7 @@ for (const [bloco, rotulo, comLink] of [['riscos', /^Doutrina · /, false], ['le
     const ref = (await p.textContent('#sessao p.mono.pequeno')).trim();
     if (!rotulo.test(ref)) throw new Error('referência inesperada: ' + ref);
     await p.click('[data-acao="revelar"]');
-    const link = (await p.locator('#sessao [data-acao="ver-art"]').count()) > 0;
+    const link = (await p.locator('#sessao [data-acao="art-inline"]').count()) > 0;
     if (link !== comLink) throw new Error(comLink ? 'card de lei sem link para o artigo' : 'card de doutrina com link para artigo');
     await p.locator('#sessao').screenshot({ path: foto('card-' + bloco + '.png') });
     await p.click('[data-acao="avaliar"][data-n="3"]');

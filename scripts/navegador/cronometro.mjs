@@ -24,8 +24,8 @@ const s1 = await segundos();
 conferir('um minuto lendo vira cerca de 1:00', s1 >= 55 && s1 <= 75, String(s1));
 await p.screenshot({ path: foto('cronometro-lei.png') });
 
-// Abre um artigo na folha (leitura também) e rola dentro dela: rolar conta como uso
-await p.locator('[data-acao="ver-art"], [data-acao="abrir-art"]').first().click().catch(() => {});
+// Abre um artigo (leitura também): rolar conta como uso
+await p.locator('[data-acao="art-inline"], [data-acao="abrir-art"]').first().click().catch(() => {});
 await p.clock.runFor(30000);
 const s2 = await segundos();
 conferir('o tempo continua correndo', s2 > s1, s1 + ' → ' + s2);

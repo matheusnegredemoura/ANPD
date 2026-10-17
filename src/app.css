@@ -756,3 +756,10 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .cx-porque{background:var(--accent-2);border-color:transparent}.cx-porque .rotulo{color:var(--accent)}
 .cx-ex{border-style:dashed}
 .fim-aula{margin-top:18px}
+/* Artigo aberto na própria tela, abaixo do botão que o chamou */
+.art-inline{margin-top:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.art-inline-cab{display:flex;flex-direction:column;gap:2px}
+.art-inline-cab b{font-family:var(--f-mono);font-size:.86rem}
+.art-inline .texto-lei{font-size:1rem}
+.legenda-fixa{line-height:1.8}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
