@@ -1,0 +1,466 @@
+// Reforço de subtemas das trilhas do zero com poucos itens ou gabarito desequilibrado (auditoria das trilhas):
+// privacidade desde a concepção (sg-privacidade, 12 itens) e avaliação de políticas (ec-avaliacao, 17 itens com 82% Certo).
+// Trechos conferidos em fontes/lgpd.txt e fontes/gdpr.txt; os de doutrina seguem os sete princípios de Ann Cavoukian e os
+// manuais de avaliação de impacto (contrafactual, viés de seleção, diferenças em diferenças, regressão descontínua).
+
+=== pv-01
+gab: C
+bloco: seginfo
+tema: sg-privacidade
+ref: lgpd 46, § 2º
+trecho: deverão ser observadas desde a fase de concepção do produto ou do serviço até a sua execução
+armadilha: literal
+dif: 1
+enunciado: Pela LGPD, as medidas de segurança, técnicas e administrativas, devem ser observadas desde a fase de concepção do produto ou do serviço até a sua execução.
+comentario: Certo: art. 46, § 2º. É a forma como a LGPD incorpora a ideia de privacidade e segurança desde a concepção.
+
+=== pv-02
+gab: E
+bloco: seginfo
+tema: sg-privacidade
+ref: lgpd 46, § 2º
+trecho: deverão ser observadas desde a fase de concepção do produto ou do serviço até a sua execução
+armadilha: literal
+dif: 1
+enunciado: Pela LGPD, as medidas de segurança devem ser observadas a partir do lançamento do produto ou do serviço, já que, na fase de concepção, ainda não há tratamento de dados pessoais.
+comentario: Errado. O art. 46, § 2º, manda observar as medidas desde a fase de concepção do produto ou do serviço até a sua execução. Esperar o lançamento é justamente o que a privacidade desde a concepção quer evitar.
+
+=== pv-03
+gab: E
+bloco: seginfo
+tema: sg-privacidade
+ref: lgpd 13, § 4º
+trecho: senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro
+armadilha: conceito
+dif: 2
+enunciado: Para a LGPD, pseudonimização é o tratamento pelo qual o dado perde, de forma definitiva, a possibilidade de associação a um indivíduo, mesmo com o uso de informação adicional mantida pelo controlador.
+comentario: Errado. Pelo art. 13, § 4º, o dado pseudonimizado perde a associação ao indivíduo, senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro. A perda definitiva é a ideia de anonimização.
+
+=== pv-04
+gab: C
+bloco: seginfo
+tema: sg-privacidade
+ref: lgpd 13, § 4º
+trecho: a pseudonimização é o tratamento por meio do qual um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo
+armadilha: literal
+dif: 2
+enunciado: A LGPD define pseudonimização como o tratamento por meio do qual um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo, senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro.
+comentario: Certo: art. 13, § 4º. Como a chave para reidentificar existe, o dado pseudonimizado continua pessoal para quem a guarda.
+
+=== pv-05
+gab: C
+bloco: seginfo
+tema: sg-privacidade
+ref: gdpr 25
+trecho: That obligation applies to the amount of personal data collected, the extent of their processing, the period of their storage and their accessibility
+armadilha: literal
+dif: 2
+enunciado: No GDPR, a proteção de dados por defeito exige medidas para que, por padrão, só sejam tratados os dados pessoais necessários para cada finalidade específica, obrigação que alcança a quantidade de dados coletados, a extensão do tratamento, o prazo de conservação e a acessibilidade.
+comentario: Certo: art. 25, 2, do GDPR. A configuração padrão deve ser a mais restrita nas quatro dimensões: quantidade, extensão do tratamento, prazo de conservação e acessibilidade.
+
+=== pv-06
+gab: E
+bloco: seginfo
+tema: sg-privacidade
+ref: gdpr 25
+trecho: both at the time of the determination of the means for processing and at the time of the processing itself
+armadilha: literal
+dif: 2
+enunciado: No GDPR, a proteção de dados desde a concepção é dever do momento em que os dados começam a ser tratados e não alcança a fase em que o responsável define os meios do tratamento.
+comentario: Errado. O art. 25, 1, exige as medidas tanto no momento da definição dos meios do tratamento quanto no do próprio tratamento.
+
+=== pv-07
+gab: C
+bloco: seginfo
+tema: sg-privacidade
+ref: gdpr 25
+trecho: such as pseudonymisation, which are designed to implement data-protection principles, such as data minimisation
+armadilha: literal
+dif: 3
+enunciado: O GDPR cita a pseudonimização como exemplo de medida técnica e organizativa destinada a aplicar de forma eficaz princípios de proteção de dados, como a minimização dos dados.
+comentario: Certo: art. 25, 1. A pseudonimização é o exemplo de medida e a minimização é o exemplo de princípio que a medida ajuda a cumprir.
+
+=== pv-08
+gab: E
+bloco: seginfo
+tema: sg-privacidade
+ref: doutrina Privacidade desde a concepção
+armadilha: conceito
+dif: 2
+enunciado: Entre os sete princípios da privacidade desde a concepção, a proteção da privacidade deve ser tratada como um módulo adicional, acoplado ao sistema depois de pronto, para não comprometer o projeto original.
+comentario: Errado. Um dos sete princípios é a privacidade incorporada ao design: ela faz parte da arquitetura e das funcionalidades desde o início, e não é um acessório acrescentado depois.
+
+=== pv-09
+gab: C
+bloco: seginfo
+tema: sg-privacidade
+ref: doutrina Privacidade desde a concepção
+armadilha: conceito
+dif: 2
+enunciado: O princípio da segurança de ponta a ponta, na privacidade desde a concepção, pede proteção dos dados durante todo o ciclo de vida, da coleta à eliminação segura.
+comentario: Certo. A segurança de ponta a ponta cobre o ciclo de vida inteiro do dado, e não só o armazenamento ou a transmissão.
+
+=== pv-10
+gab: E
+bloco: seginfo
+tema: sg-privacidade
+ref: doutrina Privacidade desde a concepção
+armadilha: conceito
+dif: 3
+enunciado: O princípio da visibilidade e transparência, na privacidade desde a concepção, dispensa verificação independente, pois basta a declaração do próprio controlador de que cumpre o que promete.
+comentario: Errado. A visibilidade e transparência pede que as práticas sejam abertas e sujeitas a verificação independente, para que titulares e parceiros confiem que o sistema funciona como prometido.
+
+=== pv-11
+gab: C
+bloco: seginfo
+tema: sg-privacidade
+ref: lgpd 6
+trecho: limitação do tratamento ao mínimo necessário para a realização de suas finalidades
+armadilha: conceito
+dif: 1
+enunciado: A minimização dos dados, associada à privacidade desde a concepção, corresponde na LGPD ao princípio da necessidade, que limita o tratamento ao mínimo necessário para a realização das finalidades.
+comentario: Certo: art. 6º, III. A necessidade pede dados pertinentes, proporcionais e não excessivos em relação às finalidades.
+
+=== pv-12
+gab: E
+bloco: seginfo
+tema: sg-privacidade
+ref: lgpd 49
+trecho: Os sistemas utilizados para o tratamento de dados pessoais devem ser estruturados de forma a atender aos requisitos de segurança
+armadilha: literal
+dif: 2
+enunciado: Pela LGPD, estruturar os sistemas usados no tratamento de dados pessoais para atender aos requisitos de segurança e aos padrões de boas práticas é recomendação, sem caráter obrigatório.
+comentario: Errado. O art. 49 diz que os sistemas devem ser estruturados para atender aos requisitos de segurança, aos padrões de boas práticas e de governança e aos princípios gerais da lei. É dever, não recomendação.
+
+=== pv-13
+gab: E
+bloco: seginfo
+tema: sg-privacidade
+ref: doutrina Privacidade por padrão
+armadilha: conceito
+dif: 2
+enunciado: Na privacidade por padrão, as opções mais protetivas ficam desligadas até que o usuário as ative, para não prejudicar a experiência de quem não se preocupa com privacidade.
+comentario: Errado. Privacidade por padrão é o contrário: a configuração mais protetiva já vem ligada, e o usuário só abre mão dela se quiser. O GDPR (art. 25, 2) e o ECA Digital seguem essa lógica.
+
+=== pv-14
+gab: C
+bloco: seginfo
+tema: sg-privacidade
+ref: lgpd 38, parágrafo único
+trecho: a descrição dos tipos de dados coletados, a metodologia utilizada para a coleta e para a garantia da segurança das informações
+armadilha: rol
+dif: 2
+enunciado: O relatório de impacto à proteção de dados pessoais deve conter, no mínimo, a descrição dos tipos de dados coletados, a metodologia usada para a coleta e para a garantia da segurança das informações e a análise do controlador sobre medidas, salvaguardas e mecanismos de mitigação de risco.
+comentario: Certo: art. 38, parágrafo único. O relatório é uma ferramenta de privacidade desde a concepção: mapeia riscos antes que virem incidentes.
+
+=== av-01
+gab: E
+bloco: gestao-publica
+tema: ec-avaliacao
+ref: doutrina Avaliação de impacto
+armadilha: conceito
+dif: 1
+enunciado: Na avaliação de impacto, o contrafactual corresponde ao resultado observado nos beneficiários depois da intervenção.
+comentario: Errado. O contrafactual é o que teria acontecido com os beneficiários sem a intervenção. Como não se observa, é estimado por um grupo de comparação. O impacto é a diferença entre o resultado observado e o contrafactual.
+
+=== av-02
+gab: E
+bloco: gestao-publica
+tema: ec-avaliacao
+ref: doutrina Avaliação de impacto
+armadilha: extrapolacao
+dif: 2
+enunciado: Comparar a renda dos participantes de um programa de qualificação antes e depois da participação basta para medir o impacto do programa, pois isola o efeito da intervenção de outras mudanças ocorridas no período.
+comentario: Errado. A comparação antes e depois mistura o efeito do programa com tudo o que mudou no período (a economia, o mercado de trabalho, a idade dos participantes). Sem grupo de comparação, não há contrafactual.
+
+=== av-03
+gab: E
+bloco: gestao-publica
+tema: ec-avaliacao
+ref: doutrina Avaliação de impacto
+armadilha: conceito
+dif: 2
+enunciado: Viés de seleção ocorre quando o avaliador escolhe indicadores de resultado que favorecem a política avaliada.
+comentario: Errado. Viés de seleção é a diferença sistemática entre participantes e não participantes que já existia antes da política, como mais motivação ou escolaridade. Ela contamina a comparação entre os grupos.
+
+=== av-04
+gab: C
+bloco: gestao-publica
+tema: ec-avaliacao
+ref: doutrina Avaliação de impacto
+armadilha: caso
+dif: 2
+enunciado: Se os inscritos voluntariamente em um programa forem mais motivados que os não inscritos, a simples comparação de resultados entre os dois grupos tende a superestimar o impacto do programa.
+comentario: Certo. A motivação maior melhoraria o resultado mesmo sem o programa, e a comparação simples atribui esse ganho à política. É o viés de seleção.
+
+=== av-05
+gab: E
+bloco: gestao-publica
+tema: ec-avaliacao
+ref: doutrina Avaliação de impacto
+armadilha: conceito
+dif: 2
+enunciado: No método de diferenças em diferenças, supõe-se que, sem a intervenção, os grupos tratado e de comparação teriam o mesmo nível de resultado, e não apenas a mesma tendência.
+comentario: Errado. A hipótese é a das tendências paralelas: os grupos podem partir de níveis diferentes, desde que, sem a intervenção, evoluíssem do mesmo jeito. O método tira a diferença de nível ao comparar variações.
+
+=== av-06
+gab: E
+bloco: gestao-publica
+tema: ec-avaliacao
+ref: doutrina Avaliação de impacto
+armadilha: conceito
+dif: 3
+enunciado: A regressão descontínua compara beneficiários e não beneficiários escolhidos ao acaso, sem relação com qualquer critério de elegibilidade.
+comentario: Errado. A regressão descontínua usa um critério de elegibilidade com ponto de corte (nota, renda, idade) e compara quem ficou logo acima com quem ficou logo abaixo. Sorteio é aleatorização, outro método.
+
+=== av-07
+gab: C
+bloco: gestao-publica
+tema: ec-avaliacao
+ref: doutrina Avaliação de impacto
+armadilha: conceito
+dif: 3
+enunciado: Na regressão descontínua, o efeito da política é estimado comparando unidades logo acima e logo abaixo de um ponto de corte do critério de elegibilidade, como uma nota ou uma renda.
+comentario: Certo. Perto do corte, os dois lados são parecidos em tudo, menos na elegibilidade, e por isso a diferença de resultado se atribui à política. O efeito estimado vale para quem está perto do corte.
+
+=== av-08
+gab: E
+bloco: economia
+tema: ec-avaliacao
+ref: doutrina Análise custo-efetividade
+armadilha: conceito
+dif: 1
+enunciado: A análise custo-efetividade exige que todos os benefícios da política sejam convertidos em valores monetários.
+comentario: Errado. Quem monetiza tudo é a análise custo-benefício. A custo-efetividade mede o custo por unidade de resultado em unidade física (vidas salvas, alunos alfabetizados) e serve para comparar alternativas com o mesmo objetivo.
+
+=== av-09
+gab: E
+bloco: economia
+tema: ec-avaliacao
+ref: doutrina Análise custo-benefício
+armadilha: conceito
+dif: 2
+enunciado: Na análise custo-benefício, aumentar a taxa de desconto eleva o valor presente dos benefícios que só ocorrem no futuro distante.
+comentario: Errado. Quanto maior a taxa de desconto, menor o valor presente do que acontece no futuro. Por isso políticas com benefícios de longo prazo (ambientais, educacionais) perdem atratividade quando a taxa sobe.
+
+=== av-10
+gab: E
+bloco: gestao-publica
+tema: ec-avaliacao
+ref: doutrina Avaliação de desempenho
+armadilha: conceito
+dif: 1
+enunciado: Efetividade mede a relação entre os recursos empregados e os produtos entregues pela política.
+comentario: Errado. Recursos versus produtos é eficiência. Eficácia é o alcance das metas, e efetividade é o impacto, a mudança real na vida do público ou no problema que motivou a política.
+
+=== av-11
+gab: E
+bloco: gestao-publica
+tema: ec-avaliacao
+ref: doutrina Avaliação de políticas públicas
+armadilha: conceito
+dif: 2
+enunciado: A avaliação de processo, também chamada de avaliação de implementação, tem como objetivo principal estimar o impacto causal da política sobre os beneficiários.
+comentario: Errado. A avaliação de processo verifica se a política foi executada como desenhada (cobertura, focalização, entregas, gargalos). Estimar o efeito causal é o papel da avaliação de impacto.
+
+=== av-12
+gab: E
+bloco: gestao-publica
+tema: ec-avaliacao
+ref: doutrina Avaliação de políticas públicas
+armadilha: conceito
+dif: 2
+enunciado: Na avaliação ex ante, a política já está em execução, e a avaliação se baseia nos resultados efetivamente alcançados.
+comentario: Errado. A avaliação ex ante é feita antes da implementação: diagnóstico do problema, desenho, custos e resultados esperados. Olhar resultados alcançados é próprio da avaliação ex post.
+
+=== av-13
+gab: C
+bloco: gestao-publica
+tema: ec-avaliacao
+ref: doutrina Avaliação de impacto
+armadilha: conceito
+dif: 2
+enunciado: A aleatorização da participação em um programa, quando viável, tende a tornar os grupos de tratamento e de controle semelhantes também nas características não observáveis.
+comentario: Certo. O sorteio distribui ao acaso tanto o que se mede quanto o que não se mede, como a motivação. Por isso é o padrão-ouro: o grupo de controle vira um bom contrafactual.
+
+=== av-14
+gab: E
+bloco: gestao-publica
+tema: ec-avaliacao
+ref: doutrina Avaliação de impacto
+armadilha: conceito
+dif: 3
+enunciado: A validade externa de uma avaliação de impacto refere-se à ausência de viés na estimativa do efeito sobre a própria população estudada.
+comentario: Errado. Isso é validade interna. Validade externa é a possibilidade de generalizar o resultado para outras populações, lugares ou escalas.
+
+// Base da trilha ECA Digital do zero (ed-base): o art. 227 da Constituição não tinha nenhum item, e o art. 14 da LGPD
+// precisava de itens sobre o alcance do consentimento parental (criança × adolescente). Trechos conferidos em
+// fontes/cf88.txt, eca.txt e lgpd.txt.
+
+=== ed-01
+gab: C
+bloco: constitucional
+tema: ed-base
+ref: cf88 227
+trecho: É dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade
+armadilha: literal
+dif: 1
+enunciado: É dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade, o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária.
+comentario: Certo: art. 227, caput, da Constituição. É a base da prioridade absoluta que o ECA, a LGPD (art. 14) e o ECA Digital desdobram.
+
+=== ed-02
+gab: E
+bloco: constitucional
+tema: ed-base
+ref: cf88 227
+trecho: É dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade
+armadilha: sujeito
+dif: 1
+enunciado: A Constituição atribui exclusivamente ao Estado o dever de assegurar à criança e ao adolescente, com absoluta prioridade, os direitos nela previstos, cabendo à família apenas o dever de educação.
+comentario: Errado. O art. 227 atribui o dever à família, à sociedade e ao Estado, juntos. É um dever compartilhado, e não exclusivo do Estado.
+
+=== ed-03
+gab: E
+bloco: constitucional
+tema: ed-base
+ref: cf88 227
+trecho: à criança, ao adolescente e ao jovem, com absoluta prioridade
+armadilha: rol
+dif: 2
+enunciado: A prioridade absoluta prevista no art. 227 da Constituição alcança a criança e o adolescente, mas não o jovem.
+comentario: Errado. Desde a Emenda Constitucional 65/2010, o art. 227 inclui o jovem: é dever assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade, os direitos ali listados.
+
+=== ed-04
+gab: C
+bloco: constitucional
+tema: ed-base
+ref: cf88 227
+trecho: a salvo de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão
+armadilha: literal
+dif: 2
+enunciado: Pela Constituição, a criança e o adolescente devem ser colocados a salvo de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão.
+comentario: Certo: art. 227, caput. O ECA Digital aplica a mesma ideia ao ambiente digital, ao exigir prevenção contra exploração, abuso e violência desde a concepção dos produtos (art. 6º da Lei 15.211/2025).
+
+=== ed-05
+gab: E
+bloco: eca-digital
+tema: ed-base
+ref: eca 2
+trecho: adolescente aquela entre doze e dezoito anos de idade
+armadilha: numero
+dif: 1
+enunciado: Para o Estatuto da Criança e do Adolescente, adolescente é a pessoa entre doze e vinte e um anos de idade.
+comentario: Errado. Adolescente é quem tem entre doze e dezoito anos (art. 2º). Entre dezoito e vinte e um anos, o ECA só se aplica excepcionalmente, nos casos expressos em lei (parágrafo único). O ECA Digital adota esses conceitos (Lei 15.211, art. 2º, § 1º).
+
+=== ed-06
+gab: E
+bloco: lgpd-1-4-14
+tema: ed-base
+ref: lgpd 14, § 1º
+trecho: O tratamento de dados pessoais de crianças deverá ser realizado com o consentimento específico e em destaque dado por pelo menos um dos pais ou pelo responsável legal
+armadilha: sujeito
+dif: 2
+enunciado: Pela LGPD, o tratamento de dados pessoais de adolescentes deve ser realizado com o consentimento específico e em destaque dado por pelo menos um dos pais ou pelo responsável legal.
+comentario: Errado. O § 1º do art. 14 exige esse consentimento para dados de crianças. Para adolescentes vale o melhor interesse do caput, e a ANPD admite as bases legais dos arts. 7º e 11 (Enunciado CD/ANPD 1/2023).
+
+=== ed-07
+gab: E
+bloco: lgpd-1-4-14
+tema: ed-base
+ref: lgpd 14, § 3º
+trecho: em nenhum caso poderão ser repassados a terceiro sem o consentimento de que trata o § 1º deste artigo
+armadilha: excecao
+dif: 2
+enunciado: Os dados de criança coletados sem consentimento para contatar os pais podem ser repassados a terceiros sem consentimento quando isso for necessário para a proteção da criança.
+comentario: Errado. O art. 14, § 3º, permite coletar sem consentimento para contatar os pais (uma única vez e sem armazenamento) ou para a proteção da criança, mas diz que esses dados em nenhum caso poderão ser repassados a terceiro sem o consentimento do § 1º.
+
+=== ed-08
+gab: C
+bloco: lgpd-1-4-14
+tema: ed-base
+ref: lgpd 14, § 3º
+trecho: quando a coleta for necessária para contatar os pais ou o responsável legal, utilizados uma única vez e sem armazenamento
+armadilha: excecao
+dif: 1
+enunciado: Dados pessoais de criança podem ser coletados sem o consentimento dos pais quando forem necessários para contatá-los, desde que utilizados uma única vez e sem armazenamento.
+comentario: Certo: art. 14, § 3º. É uma das duas exceções ao consentimento parental; a outra é a coleta para a proteção da criança.
+
+// Segurança e privacidade por padrão no ECA Digital (ed-padrao): arts. 6º a 8º da Lei 15.211/2025 e art. 9º do
+// Decreto 12.880/2026, conferidos em fontes/lei15211.txt e dec12880.txt.
+
+=== edp-01
+gab: C
+bloco: eca-digital
+tema: ed-padrao
+ref: lei15211 7
+trecho: garantir, por padrão, a configuração no modelo mais protetivo disponível em relação à privacidade e à proteção de dados pessoais
+armadilha: literal
+dif: 1
+enunciado: Os fornecedores de produtos ou serviços de tecnologia da informação direcionados a crianças e adolescentes ou de acesso provável por eles devem garantir, por padrão, a configuração no modelo mais protetivo disponível em relação à privacidade e à proteção de dados pessoais.
+comentario: Certo: art. 7º da Lei 15.211/2025. É a privacidade por padrão aplicada a crianças e adolescentes, desde a concepção do produto.
+
+=== edp-02
+gab: E
+bloco: eca-digital
+tema: ed-padrao
+ref: lei15211 7, § 1º
+trecho: possam exercer escolhas informadas quanto à eventual adoção de configurações menos protetivas
+armadilha: absoluto
+dif: 2
+enunciado: No ECA Digital, o produto deve operar no grau mais elevado de proteção da privacidade, sendo vedado oferecer à criança, ao adolescente ou a seus responsáveis qualquer configuração menos protetiva.
+comentario: Errado. O padrão é o mais protetivo, mas o art. 7º, § 1º, admite configurações menos protetivas por escolha informada, desde que haja informações claras, acessíveis e adequadas para a criança ou o adolescente e seus responsáveis.
+
+=== edp-03
+gab: E
+bloco: eca-digital
+tema: ed-padrao
+ref: lei15211 6, § 1º
+trecho: O disposto neste artigo não exime os pais e responsáveis legais
+armadilha: sujeito
+dif: 2
+enunciado: O dever de prevenir a exposição de crianças e adolescentes a conteúdos de exploração e abuso sexual, previsto no ECA Digital, recai exclusivamente sobre os fornecedores, o que afasta o dever de atuação dos pais e das autoridades.
+comentario: Errado. O art. 6º, § 1º, diz que o dever dos fornecedores não exime pais e responsáveis legais, quem lucra com a distribuição de imagens de crianças e as autoridades administrativas, judiciárias e policiais de atuarem para impedir a exposição.
+
+=== edp-04
+gab: C
+bloco: eca-digital
+tema: ed-padrao
+ref: lei15211 8
+trecho: desenvolver desde a concepção e adotar por padrão configurações que evitem o uso compulsivo de produtos ou serviços por crianças e adolescentes
+armadilha: literal
+dif: 1
+enunciado: O ECA Digital obriga os fornecedores a desenvolver desde a concepção e a adotar por padrão configurações que evitem o uso compulsivo de seus produtos ou serviços por crianças e adolescentes.
+comentario: Certo: art. 8º, IV. O Decreto 12.880/2026 (art. 9º) detalha os gatilhos de uso compulsivo que devem ser evitados.
+
+=== edp-05
+gab: E
+bloco: eca-digital
+tema: ed-padrao
+ref: dec12880 9
+trecho: a oferta de recompensas pelo tempo de uso
+armadilha: rol
+dif: 2
+enunciado: Segundo o Decreto 12.880/2026, oferecer recompensas pelo tempo de uso é estratégia legítima de engajamento e não é considerado mecanismo de incentivo ao uso excessivo, problemático ou compulsivo.
+comentario: Errado. O art. 9º, parágrafo único, lista como mecanismos de incentivo ao uso compulsivo a ocultação de pontos naturais de parada, o acionamento de novos conteúdos sem solicitação, a oferta de recompensas pelo tempo de uso e as notificações excessivas.
+
+=== edp-06
+gab: E
+bloco: eca-digital
+tema: ed-padrao
+ref: lei15211 6
+trecho: desde a concepção e ao longo da operação de suas aplicações
+armadilha: extrapolacao
+dif: 2
+enunciado: Pelo ECA Digital, as medidas para prevenir o contato de crianças e adolescentes com conteúdos nocivos devem ser tomadas na fase de concepção do produto, e a obrigação cessa com o seu lançamento.
+comentario: Errado. O art. 6º exige medidas razoáveis desde a concepção e ao longo da operação das aplicações. A prevenção acompanha o produto durante todo o seu funcionamento.
+
+=== edp-07
+gab: C
+bloco: eca-digital
+tema: ed-padrao
+ref: lei15211 8
+trecho: informar extensivamente a todos os usuários sobre a faixa etária indicada para o produto ou serviço no momento do acesso
+armadilha: literal
+dif: 1
+enunciado: Os fornecedores de produtos ou serviços direcionados a crianças e adolescentes ou de acesso provável por eles devem informar a todos os usuários, no momento do acesso, a faixa etária indicada para o produto ou serviço, conforme a política de classificação indicativa.
+comentario: Certo: art. 8º, V. A informação vale para todos os usuários, e não só para os responsáveis.

@@ -183,10 +183,12 @@ export function montarDados() {
     }
   }
   // Subtema com "blocos" recebe até "itens" questões do banco (padrão 30) desses blocos; com "soArtigos", só as que
-  // citam os artigos do subtema; com "termos", só aquelas cujo enunciado traz um dos termos ("excluir" tira as que trazem). Vêm as mais fáceis primeiro
-  // e, no mesmo nível, numa ordem fixa pelo id, para o conjunto não mudar de um build para outro. Questão cujo tema já é
-  // de outra trilha fica com ele (um tema antigo que não é subtema pode ser trocado); múltipla escolha fica fora.
+  // citam os artigos do subtema; com "termos", só aquelas cujo enunciado traz um dos termos ("excluir" tira as que trazem).
+  // A dificuldade vem misturada, perto de metade fácil, um terço média e o resto difícil (o nível que faltar cede a vez
+  // aos outros), e, no mesmo nível, numa ordem fixa pelo id, para o conjunto não mudar de um build para outro. Questão
+  // cujo tema já é de outra trilha fica com ele (um tema antigo que não é subtema pode ser trocado); múltipla escolha fica fora.
   const hashId = (s) => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.codePointAt(0), 16777619); return h >>> 0; };
+  const PESO_DIF = { 1: 0.5, 2: 0.35, 3: 0.15 };
   for (const t of trilhas) for (const st of t.subtemas) {
     if (!st.blocos) continue;
     for (const b of st.blocos) if (!blocos.some((x) => x.id === b)) errosCb.push(`trilhas.json (${st.id}): bloco inexistente ${b}`);
@@ -194,12 +196,16 @@ export function montarDados() {
     const re = st.termos ? new RegExp(st.termos.join('|'), 'i') : null, fora = st.excluir ? new RegExp(st.excluir.join('|'), 'i') : null;
     const cand = lista.filter((q) => (!q.tm || !subtemas.has(q.tm)) && !q.al && bl.has(q.b) && (!arts || (q.art && arts.has(q.l === 'lgpd' ? q.art : q.l + ':' + q.art))) &&
       (!re || re.test(q.e)) && (!fora || !fora.test(q.e)));
-    cand.sort((a, b) => a.d - b.d || hashId(a.id) - hashId(b.id));
+    const pos = new Map(), vistos = {};
+    for (const q of cand.sort((a, b) => hashId(a.id) - hashId(b.id))) { vistos[q.d] = (vistos[q.d] || 0) + 1; pos.set(q, (vistos[q.d] - 0.5) / (PESO_DIF[q.d] || 0.15)); }
+    cand.sort((a, b) => pos.get(a) - pos.get(b) || a.d - b.d);
     // Perto de 55% certo e 45% errado, como no resto do banco, quando há itens dos dois lados
+    // Itens que já trazem o tema do subtema no próprio arquivo contam para o mínimo de 12
+    const proprios = lista.filter((q) => q.tm === st.id).length;
     const n = Math.min(cand.length, st.itens || 30), cs = cand.filter((q) => q.g === 'C'), es = cand.filter((q) => q.g !== 'C');
     const nC = Math.min(cs.length, Math.max(n - es.length, Math.round(n * 0.55)));
     for (const q of cs.slice(0, nC).concat(es.slice(0, n - nC))) q.tm = st.id;
-    if (cand.length < 12) errosCb.push(`trilhas.json (${st.id}): só ${cand.length} itens nos blocos indicados`);
+    if (cand.length + proprios < 12) errosCb.push(`trilhas.json (${st.id}): só ${cand.length + proprios} itens nos blocos indicados`);
     delete st.blocos; delete st.soArtigos; delete st.itens; delete st.termos; delete st.excluir;
   }
   for (const q of lista) {

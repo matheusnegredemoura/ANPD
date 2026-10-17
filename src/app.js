@@ -3296,7 +3296,9 @@ function estadoSubtema(id) {
   const qs = POR_TEMA.get(id) || [];
   const resp = qs.filter((q) => { const r = rec(q.id); return r && r[0] >= 0; });
   const certos = resp.filter((q) => rec(q.id)[0] >= 1).length;
-  const n = qs.length, minimo = Math.min(n, Math.max(10, Math.ceil(n * 0.7)));
+  // Domínio: 70% dos itens respondidos (de 10 a 25 itens) com 80% de acerto. O teto de 25 vale para os subtemas grandes
+  // (processo administrativo e LAI têm mais de 100 itens), que senão travariam a trilha por semanas
+  const n = qs.length, minimo = Math.min(n, Math.max(10, Math.min(25, Math.ceil(n * 0.7))));
   const acerto = resp.length ? certos / resp.length : 0;
   const status = !n ? 'vazio' : !resp.length ? 'novo' : resp.length >= minimo && acerto >= 0.8 ? 'dominado' : 'curso';
   return { n, resp: resp.length, certos, acerto, minimo, status, novos: qs.filter((q) => !rec(q.id)).length, erros: resp.length - certos };
@@ -3311,22 +3313,24 @@ function proximoSubtema(trilhaId) {
 const BLOCOS_ST = new Map([...SUBTEMAS.keys()].map((id) => [id, new Set((POR_TEMA.get(id) || []).map((q) => q.b))]));
 const BLOCOS_TR = new Map(TRILHAS.map((t) => [t.id, new Set(t.subtemas.flatMap((st) => [...BLOCOS_ST.get(st.id)]))]));
 // Uma aula por dia: o próximo subtema da trilha que cobre a matéria do plano de hoje (o próprio subtema, se cobrir;
-// senão, a trilha). Sem matéria no plano, ou com ela já dominada, as trilhas se alternam dia a dia.
+// senão, a trilha), olhando os blocos do dia na ordem do plano, em que a matéria principal vem primeiro. Sem matéria
+// no plano, ou com ela já dominada, as trilhas se alternam dia a dia.
 function subtemaDoDia() {
   const cands = TRILHAS.map((t) => proximoSubtema(t.id)).filter(Boolean).map((st) => SUBTEMAS.get(st.id));
   if (!cands.length) return null;
-  const dia = DIAS.find((d) => d.data === hojeISO()), hoje = new Set((dia && dia.blocos) || []);
-  const cruza = (s) => [...s].some((b) => hoje.has(b));
-  const doPlano = cands.find((st) => cruza(BLOCOS_ST.get(st.id))) || cands.find((st) => cruza(BLOCOS_TR.get(st.trilha)));
+  const dia = DIAS.find((d) => d.data === hojeISO()), blocosHoje = (dia && dia.blocos) || [];
+  const achar = (de) => blocosHoje.map((b) => cands.find((st) => de(st).has(b))).find(Boolean);
+  const doPlano = achar((st) => BLOCOS_ST.get(st.id)) || achar((st) => BLOCOS_TR.get(st.trilha));
   if (doPlano) return doPlano;
   return cands[Math.floor(Date.parse(hojeISO() + 'T12:00:00Z') / 864e5) % cands.length];
 }
 function nomeTrilha(id) { const t = TRILHAS.find((x) => x.id === id); return t ? t.nome : ''; }
-// Pré-teste: itens ainda não vistos primeiro; prática: não vistos, depois os errados, depois os vencidos
+// Pré-teste: itens ainda não vistos primeiro; prática: não vistos, depois os errados, depois os vencidos. Os não vistos
+// vêm do mais fácil ao mais difícil, para quem começa do zero subir aos poucos
 function idsSubtema(id, tipo, n) {
   const qs = POR_TEMA.get(id) || [];
   if (tipo === 'erros') return embaralhar(qs.filter((q) => { const r = rec(q.id); return r && r[0] === 0; }).map((q) => q.id));
-  const novos = embaralhar(qs.filter((q) => !rec(q.id)));
+  const novos = embaralhar(qs.filter((q) => !rec(q.id))).sort((a, b) => a.d - b.d);
   const errados = embaralhar(qs.filter((q) => { const r = rec(q.id); return r && r[0] === 0; }));
   const resto = embaralhar(qs.filter((q) => { const r = rec(q.id); return r && r[0] > 0; })).sort((a, b) => rec(a.id)[1] - rec(b.id)[1]);
   const ordem = tipo === 'pre' ? novos.concat(errados) : novos.concat(errados, resto);

@@ -1698,7 +1698,7 @@
                     ]
                   ]
                 },
-                "atencao": "As sanções X, XI e XII só vêm depois de já aplicada ao menos uma das sanções II a VI no mesmo caso (§ 6º). O dinheiro das multas vai para o **Fundo de Defesa de Direitos Difusos** (§ 5º), e não para a ANPD."
+                "atencao": "As sanções X, XI e XII só vêm depois de já aplicada ao menos uma das sanções II a VI no mesmo caso e, se o controlador estiver sujeito a outro órgão com poder sancionador, depois de ouvi-lo (§ 6º). O dinheiro das multas vai para o **Fundo de Defesa de Direitos Difusos** (§ 5º), e não para a ANPD."
               },
               {
                 "t": "Critérios de dosimetria (§ 1º)",
@@ -1715,7 +1715,7 @@
                   "pronta adoção de medidas corretivas",
                   "proporcionalidade entre a gravidade da falta e a intensidade da sanção"
                 ],
-                "depois": "A metodologia de cálculo da multa está no regulamento de dosimetria (Resolução CD/ANPD 4/2023); o art. 53 exige que esse regulamento seja objeto de consulta pública e que a metodologia seja publicada antes. O processo sancionador e a fiscalização estão na Resolução CD/ANPD 1/2021."
+                "depois": "A metodologia de cálculo da multa está no regulamento de dosimetria (Resolução CD/ANPD 4/2023); o art. 53 exige que esse regulamento seja objeto de consulta pública e que a metodologia seja publicada antes. O processo sancionador e a fiscalização estão na Resolução CD/ANPD 1/2021. Se não tiver o faturamento do ramo em que ocorreu a infração, ou se o valor vier incompleto ou sem prova idônea, a ANPD pode considerar o faturamento total da empresa ou do grupo (§ 4º)."
               },
               {
                 "t": "Órgãos públicos e conciliação",
@@ -1902,6 +1902,932 @@
           "blocos": [
             "lgpd-55"
           ]
+        }
+      ]
+    },
+    {
+      "id": "eca",
+      "nome": "ECA Digital do zero",
+      "resumo": "Da prioridade absoluta da Constituição às sanções da Lei 15.211/2025, a lei que a ANPD fiscaliza para proteger crianças e adolescentes no ambiente digital.",
+      "subtemas": [
+        {
+          "id": "ed-base",
+          "nome": "Criança e adolescente: a base da proteção",
+          "resumo": "Prioridade absoluta na Constituição (art. 227), quem é criança e adolescente (ECA, art. 2º) e as regras da LGPD para os dados deles (art. 14 e Enunciado CD/ANPD 1/2023).",
+          "artigos": [
+            "cf88:227",
+            "eca:2",
+            "lgpd:14",
+            "enun1:1"
+          ],
+          "licao": {
+            "ideia": "A Constituição manda família, sociedade e Estado protegerem crianças, adolescentes e jovens com **absoluta prioridade** (art. 227). O ECA define quem é criança (até **12 anos incompletos**) e adolescente (de **12 a 18**), e a LGPD exige que todo tratamento dos dados deles seja feito no seu **melhor interesse** (art. 14). O ECA Digital (Lei 15.211/2025) leva essa lógica para os produtos e serviços digitais.",
+            "mapa": {
+              "centro": "Proteção de crianças e adolescentes",
+              "ramos": [
+                {
+                  "t": "CF, art. 227",
+                  "f": [
+                    "absoluta prioridade",
+                    "família, sociedade e Estado",
+                    "a salvo de negligência, exploração e violência"
+                  ]
+                },
+                {
+                  "t": "ECA, art. 2º",
+                  "f": [
+                    "criança: até 12 anos incompletos",
+                    "adolescente: de 12 a 18",
+                    "excepcionalmente, de 18 a 21"
+                  ]
+                },
+                {
+                  "t": "LGPD, art. 14",
+                  "f": [
+                    "melhor interesse",
+                    "criança: consentimento de um dos pais",
+                    "informação simples e acessível"
+                  ]
+                },
+                {
+                  "t": "Enunciado CD/ANPD 1/2023",
+                  "f": [
+                    "bases do art. 7º ou do art. 11",
+                    "prevalece o melhor interesse"
+                  ]
+                },
+                {
+                  "t": "ECA Digital",
+                  "f": [
+                    "Lei 15.211/2025",
+                    "ambiente digital",
+                    "fiscalizado pela ANPD"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Prioridade absoluta (CF, art. 227)",
+                "texto": "O art. 227 é a raiz de tudo: é **dever da família, da sociedade e do Estado** assegurar à criança, ao adolescente e ao jovem, **com absoluta prioridade**, o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária, além de colocá-los **a salvo de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão**.",
+                "atencao": "O dever é **compartilhado** por família, sociedade e Estado. Item que o atribui só ao Estado, ou só aos pais, está errado. O jovem entrou no texto com a Emenda Constitucional 65/2010.",
+                "porque": "Criança e adolescente estão em desenvolvimento e não conseguem se defender sozinhos. Por isso a Constituição não os trata como mais um interesse a ponderar: os interesses deles passam na frente."
+              },
+              {
+                "t": "Quem é criança e quem é adolescente (ECA, art. 2º)",
+                "tabela": {
+                  "cab": [
+                    "Quem",
+                    "Idade"
+                  ],
+                  "linhas": [
+                    [
+                      "criança",
+                      "até **12 anos incompletos**"
+                    ],
+                    [
+                      "adolescente",
+                      "de **12 a 18 anos**"
+                    ],
+                    [
+                      "exceção",
+                      "nos casos expressos em lei, o ECA se aplica a pessoas **entre 18 e 21 anos**"
+                    ]
+                  ]
+                },
+                "depois": "O ECA Digital usa esses mesmos conceitos (Lei 15.211, art. 2º, § 1º).",
+                "mnemo": "Fez 12, deixou de ser criança: \"até doze anos **incompletos**\"."
+              },
+              {
+                "t": "Os dados de crianças e adolescentes na LGPD (art. 14)",
+                "tabela": {
+                  "cab": [
+                    "Regra",
+                    "O que diz"
+                  ],
+                  "linhas": [
+                    [
+                      "caput",
+                      "tratamento sempre no **melhor interesse** de crianças e adolescentes"
+                    ],
+                    [
+                      "§ 1º",
+                      "dados de **criança**: **consentimento específico e em destaque** dado por **pelo menos um dos pais** ou pelo responsável legal"
+                    ],
+                    [
+                      "§ 2º",
+                      "o controlador mantém **pública** a informação sobre os tipos de dados coletados, a forma de uso e o modo de exercer os direitos do art. 18"
+                    ],
+                    [
+                      "§ 3º",
+                      "sem consentimento, só para **contatar os pais** (uma única vez e sem armazenamento) ou para a **proteção** da criança, e **nunca** repassados a terceiro sem o consentimento"
+                    ],
+                    [
+                      "§ 4º",
+                      "não condicionar a participação em jogos, aplicações ou atividades a dados além dos **estritamente necessários**"
+                    ],
+                    [
+                      "§ 5º",
+                      "**todos os esforços razoáveis** para verificar que o consentimento veio do responsável, consideradas as tecnologias disponíveis"
+                    ],
+                    [
+                      "§ 6º",
+                      "informação **simples, clara e acessível**, adequada ao entendimento da criança, com recursos audiovisuais quando adequado"
+                    ]
+                  ]
+                },
+                "atencao": "O consentimento do § 1º é exigido para dados de **criança**. Para o adolescente, a lei não exige o consentimento dos pais: vale o melhor interesse do caput."
+              },
+              {
+                "t": "Qual base legal usar (Enunciado CD/ANPD 1/2023)",
+                "texto": "A ANPD esclareceu que o tratamento de dados de crianças e adolescentes **pode usar as bases legais do art. 7º ou do art. 11** da LGPD, e não só o consentimento, **desde que observado e prevalecente o melhor interesse**, avaliado no caso concreto.",
+                "ex": "Uma escola pública trata dados de alunos de 8 anos para fazer a matrícula e controlar a frequência. Não precisa do consentimento dos pais para isso: a base pode ser o cumprimento de obrigação legal ou a execução de política pública, sempre no melhor interesse da criança.",
+                "porque": "Se o consentimento dos pais fosse a única base, escolas, postos de saúde e conselhos tutelares ficariam travados. O enunciado mantém a proteção (o melhor interesse) sem paralisar serviços essenciais."
+              }
+            ]
+          },
+          "chave": [
+            "CF, art. 227: absoluta prioridade, dever da família, da sociedade e do Estado.",
+            "Criança: até 12 anos incompletos; adolescente: de 12 a 18 (ECA, art. 2º).",
+            "LGPD, art. 14: tratamento sempre no melhor interesse.",
+            "Dados de criança: consentimento específico e em destaque de ao menos um dos pais ou do responsável.",
+            "Enunciado 1/2023: valem as bases dos arts. 7º e 11, se prevalecer o melhor interesse."
+          ],
+          "armadilhas": [
+            "Exigir o consentimento de ambos os pais.",
+            "Estender ao adolescente a exigência de consentimento parental do § 1º.",
+            "Dizer que o consentimento é a única base legal para dados de crianças.",
+            "Atribuir o dever do art. 227 só ao Estado."
+          ],
+          "blocos": [
+            "eca-digital",
+            "lgpd-1-4-14",
+            "constitucional"
+          ],
+          "soArtigos": true
+        },
+        {
+          "id": "ed-alcance",
+          "nome": "O ECA Digital: a quem se aplica e quem fiscaliza",
+          "resumo": "Produtos e serviços digitais direcionados a crianças ou de acesso provável por elas, as definições da lei, os fundamentos e o papel da ANPD.",
+          "artigos": [
+            "lei15211:1",
+            "lei15211:2",
+            "lei15211:3",
+            "lei15211:4",
+            "lei15211:5",
+            "lei15211:39",
+            "lei15211:40",
+            "lei15211:41-A",
+            "dec12622:2"
+          ],
+          "licao": {
+            "ideia": "O ECA Digital (Lei 15.211/2025, em vigor desde **17 de março de 2026**) vale para **todo produto ou serviço de tecnologia da informação direcionado a crianças e adolescentes no País ou de acesso provável por eles**, onde quer que a empresa esteja. Esses produtos devem garantir **proteção prioritária**, ter o **melhor interesse** como parâmetro e assegurar nível elevado de privacidade, proteção de dados e segurança. Quem fiscaliza é a **ANPD**.",
+            "mapa": {
+              "centro": "ECA Digital: alcance",
+              "ramos": [
+                {
+                  "t": "Aplica-se (art. 1º)",
+                  "f": [
+                    "direcionado a crianças e adolescentes",
+                    "de acesso provável",
+                    "não importa onde está a empresa"
+                  ]
+                },
+                {
+                  "t": "Acesso provável",
+                  "f": [
+                    "probabilidade de uso e atratividade",
+                    "facilidade de acesso",
+                    "risco significativo"
+                  ]
+                },
+                {
+                  "t": "Definições (art. 2º)",
+                  "f": [
+                    "rede social",
+                    "caixa de recompensa",
+                    "perfilamento",
+                    "supervisão parental"
+                  ]
+                },
+                {
+                  "t": "Fundamentos (art. 4º)",
+                  "f": [
+                    "proteção integral",
+                    "prevalência absoluta dos interesses",
+                    "proteção contra exploração comercial"
+                  ]
+                },
+                {
+                  "t": "Quem fiscaliza",
+                  "f": [
+                    "autoridade administrativa autônoma",
+                    "ANPD (Decreto 12.622/2025)"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Quando a lei se aplica (art. 1º)",
+                "texto": "A lei se aplica a todo produto ou serviço de TI **direcionado** a crianças e adolescentes no País **ou de acesso provável** por eles, **independentemente** de sua localização, desenvolvimento, fabricação, oferta, comercialização e operação. Há acesso provável em qualquer destas situações:",
+                "lista": [
+                  "suficiente **probabilidade de uso e atratividade** para crianças e adolescentes",
+                  "considerável **facilidade de acesso** e de utilização por eles",
+                  "significativo **grau de risco** à privacidade, à segurança ou ao desenvolvimento biopsicossocial, especialmente em serviços de **interação social** e compartilhamento em larga escala"
+                ],
+                "ex": "Uma rede social para maiores de 13 anos, sediada no exterior e muito usada por adolescentes brasileiros, está no alcance da lei: é de acesso provável, e a localização da empresa não importa.",
+                "atencao": "Não é preciso que o produto seja feito **para** crianças: basta o **acesso provável**. Por isso redes sociais e jogos para o público geral entram."
+              },
+              {
+                "t": "Definições que a prova cobra (art. 2º)",
+                "tabela": {
+                  "cab": [
+                    "Termo",
+                    "Definição resumida"
+                  ],
+                  "linhas": [
+                    [
+                      "produto ou serviço de TI",
+                      "fornecido a distância, por meio eletrônico, por requisição individual: aplicações de internet, programas, sistemas operacionais, **lojas de aplicações** e **jogos eletrônicos** conectados"
+                    ],
+                    [
+                      "rede social",
+                      "aplicação cuja principal finalidade é o compartilhamento e a disseminação, pelos usuários, de opiniões e informações, com contas conectadas e conexão entre usuários"
+                    ],
+                    [
+                      "caixa de recompensa",
+                      "no jogo, compra de itens virtuais ou vantagens **aleatórias**, sem conhecer o conteúdo antes nem ter garantia de utilidade"
+                    ],
+                    [
+                      "perfilamento",
+                      "tratamento de dados, automatizado ou não, para classificar a pessoa em grupo ou perfil e fazer inferências sobre comportamento, interesses, desejos de consumo e outras características"
+                    ],
+                    [
+                      "supervisão parental",
+                      "configurações e ferramentas que permitem aos pais supervisionar, limitar e gerenciar o uso, o conteúdo acessado e o tratamento de dados"
+                    ],
+                    [
+                      "serviço com controle editorial",
+                      "conteúdo **previamente selecionado**, sem seleção automatizada, por agente econômico responsável"
+                    ]
+                  ]
+                },
+                "depois": "As funcionalidades essenciais ao funcionamento da internet, como protocolos e padrões técnicos abertos, não são produto ou serviço de TI para a lei (§ 2º)."
+              },
+              {
+                "t": "Fundamentos e deveres gerais (arts. 3º a 5º)",
+                "texto": "Os produtos devem garantir **proteção prioritária**, ter como parâmetro o **melhor interesse** e assegurar **nível elevado de privacidade, de proteção de dados e de segurança** (art. 3º). Aos pais cabe o **cuidado ativo e contínuo**, com ferramentas de supervisão parental (art. 3º, parágrafo único). Os fornecedores observam deveres de **prevenção, proteção, informação e segurança**, também à luz do CDC e do ECA (art. 5º).",
+                "lista": [
+                  "fundamentos (art. 4º): **proteção integral**, **prevalência absoluta** dos interesses, condição peculiar de pessoa em desenvolvimento, segurança contra violência, autonomia e **desenvolvimento progressivo**, **proteção contra a exploração comercial**, princípios do Estatuto da Pessoa com Deficiência, **educação digital** e transparência no tratamento de dados",
+                  "melhor interesse (art. 5º, § 2º): privacidade, segurança, saúde mental e física, acesso à informação, liberdade de participação na sociedade, acesso significativo às tecnologias digitais e bem-estar"
+                ],
+                "porque": "A lei não proíbe crianças de usar tecnologia: reconhece o direito de acesso e de participação e cobra que o produto seja seguro para quem está em desenvolvimento. Por isso o melhor interesse inclui acesso à informação e participação, e não só proteção."
+              },
+              {
+                "t": "Quem fiscaliza e desde quando",
+                "tabela": {
+                  "cab": [
+                    "Ponto",
+                    "Regra"
+                  ],
+                  "linhas": [
+                    [
+                      "autoridade",
+                      "a lei prevê uma **autoridade administrativa autônoma** de proteção dos direitos de crianças e adolescentes no ambiente digital, que segue no processo decisório o Capítulo I da Lei 13.848/2019 (art. 2º, X); o **Decreto 12.622/2025 designou a ANPD**"
+                    ],
+                    [
+                      "poderes",
+                      "fiscalizar a lei em todo o território nacional e editar normas complementares (art. 34), com **abordagem responsiva** e atenção às assimetrias regulatórias (art. 34, § 2º)"
+                    ],
+                    [
+                      "limite",
+                      "a regulamentação **não pode** criar vigilância massiva, genérica ou indiscriminada (arts. 34, § 1º, e 37, parágrafo único)"
+                    ],
+                    [
+                      "representante no País",
+                      "os fornecedores mantêm **representante legal no Brasil** com poderes para receber citações e responder a autoridades (art. 40)"
+                    ],
+                    [
+                      "vigência",
+                      "**17 de março de 2026** (art. 41-A, incluído pela Lei 15.352/2026)"
+                    ]
+                  ]
+                },
+                "atencao": "Os deveres dos arts. 6º, 17 a 20, 27 a 29, 31, 32 e 40 são **modulados** pelo porte, pelo número de usuários e pelo grau de interferência do fornecedor sobre o conteúdo. Serviços com **controle editorial** e de conteúdo licenciado ficam dispensados deles se cumprirem as condições do art. 39, § 1º: classificação indicativa, transparência na classificação etária, mediação parental e canal de denúncias."
+              }
+            ]
+          },
+          "chave": [
+            "Aplica-se a produto ou serviço de TI direcionado a crianças e adolescentes ou de acesso provável por eles, onde quer que a empresa esteja.",
+            "Acesso provável: atratividade, facilidade de acesso ou risco significativo.",
+            "Parâmetro: melhor interesse, com nível elevado de privacidade, proteção de dados e segurança.",
+            "A ANPD é a autoridade do ECA Digital (Decreto 12.622/2025).",
+            "Em vigor desde 17 de março de 2026."
+          ],
+          "armadilhas": [
+            "Dizer que a lei só vale para produtos feitos especificamente para crianças.",
+            "Dizer que empresa sediada no exterior está fora do alcance da lei.",
+            "Atribuir a fiscalização da lei ao conselho tutelar ou ao Ministério Público.",
+            "Dizer que a regulamentação pode instituir vigilância generalizada para proteger crianças."
+          ],
+          "blocos": [
+            "eca-digital"
+          ],
+          "soArtigos": true
+        },
+        {
+          "id": "ed-padrao",
+          "nome": "Segurança e privacidade por padrão",
+          "resumo": "Prevenir riscos desde a concepção, a configuração mais protetiva por padrão, o gerenciamento de riscos e o combate ao uso compulsivo e às práticas manipulativas.",
+          "artigos": [
+            "lei15211:6",
+            "lei15211:7",
+            "lei15211:8",
+            "dec12880:9",
+            "dec12880:10"
+          ],
+          "licao": {
+            "ideia": "Quem oferece produto digital a crianças, ou de acesso provável por elas, precisa pensar na proteção **desde a concepção**: prevenir o contato com conteúdos e práticas nocivas (art. 6º), entregar o produto já na **configuração mais protetiva disponível** (art. 7º), gerenciar riscos e evitar o **uso compulsivo** (art. 8º).",
+            "mapa": {
+              "centro": "Proteção desde a concepção",
+              "ramos": [
+                {
+                  "t": "Riscos a prevenir (art. 6º)",
+                  "f": [
+                    "exploração e abuso sexual",
+                    "violência e assédio",
+                    "automutilação e suicídio",
+                    "apostas, tabaco e álcool",
+                    "publicidade predatória",
+                    "pornografia"
+                  ]
+                },
+                {
+                  "t": "Por padrão (art. 7º)",
+                  "f": [
+                    "modelo mais protetivo disponível",
+                    "reduzir só com escolha informada"
+                  ]
+                },
+                {
+                  "t": "Deveres (art. 8º)",
+                  "f": [
+                    "gerenciamento de riscos",
+                    "classificação indicativa",
+                    "barrar conteúdo ilegal",
+                    "evitar uso compulsivo"
+                  ]
+                },
+                {
+                  "t": "Decreto 12.880",
+                  "f": [
+                    "uso excessivo (art. 9º)",
+                    "práticas manipulativas (art. 10)"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "O que prevenir (art. 6º)",
+                "texto": "Os fornecedores devem tomar **medidas razoáveis desde a concepção e ao longo da operação** para prevenir e mitigar riscos de acesso, exposição, recomendação ou facilitação de contato com:",
+                "lista": [
+                  "exploração e abuso sexual",
+                  "violência física, intimidação sistemática virtual e assédio",
+                  "indução a práticas que causem dano à saúde física ou mental, como uso de substâncias que causem dependência, autodiagnóstico e automedicação, automutilação e suicídio",
+                  "promoção e venda de jogos de azar, **apostas de quota fixa**, loterias, tabaco, bebidas alcoólicas e narcóticos",
+                  "práticas publicitárias predatórias, injustas ou enganosas",
+                  "conteúdo pornográfico"
+                ],
+                "atencao": "Isso **não exime** pais, responsáveis e autoridades administrativas, judiciárias e policiais de também agirem (art. 6º, § 1º). A responsabilidade é compartilhada."
+              },
+              {
+                "t": "A configuração mais protetiva por padrão (art. 7º)",
+                "texto": "Desde a concepção, o produto deve vir, **por padrão**, no **modelo mais protetivo disponível** de privacidade e proteção de dados. Se a criança ou o adolescente e seus responsáveis quiserem configurações **menos protetivas**, precisam ter informações claras, acessíveis e adequadas para fazer uma **escolha informada** (§ 1º). E o fornecedor não pode tratar dados de forma que cause, facilite ou contribua para violar a privacidade ou outros direitos deles (§ 2º).",
+                "ex": "Um aplicativo de vídeos deve abrir com o perfil da adolescente **privado** e o compartilhamento de localização **desligado**. Ela pode abrir o perfil, mas só depois de ser informada, de forma clara, do que isso significa.",
+                "porque": "Quase ninguém muda a configuração padrão. Se o padrão é aberto, a maioria fica exposta sem ter escolhido; se o padrão é protetivo, quem se expõe o faz por decisão informada. É a mesma lógica da privacidade por padrão do GDPR (art. 25, 2)."
+              },
+              {
+                "t": "Deveres permanentes (art. 8º)",
+                "tabela": {
+                  "cab": [
+                    "Inciso",
+                    "Dever"
+                  ],
+                  "linhas": [
+                    [
+                      "I",
+                      "**gerenciamento de riscos** dos recursos, funcionalidades e sistemas e de seus impactos na segurança e na saúde"
+                    ],
+                    [
+                      "II",
+                      "avaliar o conteúdo por faixa etária, compatível com a **classificação indicativa**"
+                    ],
+                    [
+                      "III",
+                      "sistemas para impedir o acesso a conteúdos **ilegais e pornográficos** e a outros manifestamente inadequados à idade"
+                    ],
+                    [
+                      "IV",
+                      "desde a concepção e **por padrão**, configurações que evitem o **uso compulsivo**"
+                    ],
+                    [
+                      "V",
+                      "informar a todos os usuários a **faixa etária indicada**, no momento do acesso"
+                    ]
+                  ]
+                }
+              },
+              {
+                "t": "O que o Decreto 12.880 detalha",
+                "tabela": {
+                  "cab": [
+                    "Tema",
+                    "Regra"
+                  ],
+                  "linhas": [
+                    [
+                      "uso excessivo (art. 9º)",
+                      "são mecanismos de incentivo ao uso compulsivo: **ocultar pontos naturais de parada**, **acionar novos conteúdos sem solicitação**, dar **recompensas pelo tempo de uso** e enviar **notificações excessivas**"
+                    ],
+                    [
+                      "práticas manipulativas (art. 10)",
+                      "a ANPD regulamenta os requisitos mínimos de segurança por padrão e coíbe arquiteturas de escolha que interfiram na autonomia decisória do usuário ou explorem suas vulnerabilidades, sobretudo as cognitivas e etárias"
+                    ]
+                  ]
+                },
+                "mnemo": "Os quatro gatilhos do uso compulsivo: **sem parada, sem pedir, prêmio pelo tempo, notificação demais**."
+              }
+            ]
+          },
+          "chave": [
+            "Prevenir riscos desde a concepção e ao longo da operação (art. 6º).",
+            "Padrão: o modelo mais protetivo disponível; reduzir a proteção só com escolha informada (art. 7º).",
+            "Gerenciamento de riscos, classificação indicativa e barreira a conteúdo ilegal (art. 8º).",
+            "Configurações que evitem o uso compulsivo, por padrão.",
+            "Decreto 12.880: ocultar paradas, conteúdo sem pedido, recompensa pelo tempo e notificações excessivas incentivam o uso compulsivo."
+          ],
+          "armadilhas": [
+            "Dizer que o padrão protetivo só vale se o responsável pedir.",
+            "Dizer que a configuração protetiva não pode ser alterada em nenhuma hipótese.",
+            "Dizer que os deveres do fornecedor isentam pais e autoridades.",
+            "Limitar a prevenção ao lançamento do produto, e não ao longo da operação."
+          ],
+          "blocos": [
+            "eca-digital"
+          ],
+          "soArtigos": true
+        },
+        {
+          "id": "ed-idade",
+          "nome": "Verificação de idade, lojas de aplicativos e redes sociais",
+          "resumo": "Conteúdo proibido para menores de 18, verificação de idade sem autodeclaração, o papel das lojas e dos sistemas operacionais e as contas de até 16 anos.",
+          "artigos": [
+            "lei15211:9",
+            "lei15211:10",
+            "lei15211:11",
+            "lei15211:12",
+            "lei15211:13",
+            "lei15211:14",
+            "lei15211:15",
+            "lei15211:24",
+            "dec12880:15",
+            "dec12880:24",
+            "dec12880:25"
+          ],
+          "licao": {
+            "ideia": "Conteúdo, produto ou serviço impróprio para menores de 18 anos exige **verificação de idade confiável a cada acesso**, e a **autodeclaração não vale** (art. 9º). Lojas de aplicativos e sistemas operacionais aferem a idade e passam um **sinal de idade** aos aplicativos, e o download por criança ou adolescente depende do **consentimento dos pais**. As contas de quem tem **até 16 anos** ficam vinculadas à conta de um responsável (art. 24).",
+            "mapa": {
+              "centro": "Idade",
+              "ramos": [
+                {
+                  "t": "Conteúdo proibido (art. 9º)",
+                  "f": [
+                    "medidas eficazes",
+                    "verificação a cada acesso",
+                    "vedada a autodeclaração"
+                  ]
+                },
+                {
+                  "t": "Lojas e sistemas (art. 12)",
+                  "f": [
+                    "aferir idade",
+                    "supervisão parental",
+                    "sinal de idade por API"
+                  ]
+                },
+                {
+                  "t": "Download",
+                  "f": [
+                    "consentimento dos pais",
+                    "o silêncio não autoriza"
+                  ]
+                },
+                {
+                  "t": "Dados da verificação (art. 13)",
+                  "f": [
+                    "só para verificar a idade",
+                    "nada de perfil comportamental"
+                  ]
+                },
+                {
+                  "t": "Contas (art. 24)",
+                  "f": [
+                    "até 16 anos: vinculada a responsável",
+                    "indício de criança: suspender e permitir apelação"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Conteúdo impróprio para menores de 18 (art. 9º)",
+                "texto": "Quem oferece conteúdo, produto ou serviço **impróprio, inadequado ou proibido para menores de 18 anos** deve adotar medidas eficazes para impedir o acesso de crianças e adolescentes, com **mecanismos confiáveis de verificação de idade a cada acesso**, **vedada a autodeclaração** (§ 1º). Quem disponibiliza pornografia deve impedir a criação de contas por crianças e adolescentes (§ 3º).",
+                "depois": "O Decreto 12.880 (art. 15) lista conteúdos, produtos e serviços proibidos para crianças e adolescentes, como armas e munições, bebidas alcoólicas, cigarros e cigarros eletrônicos, produtos que causem dependência e fogos de artifício.",
+                "atencao": "\"Clique aqui se você tem 18 anos\" é autodeclaração e **não basta**."
+              },
+              {
+                "t": "Lojas de aplicativos e sistemas operacionais (art. 12)",
+                "texto": "Os provedores de **lojas de aplicações** e de **sistemas operacionais** de terminais devem:",
+                "lista": [
+                  "aferir a idade ou a faixa etária com medidas **proporcionais, auditáveis e tecnicamente seguras**, observados os princípios da LGPD",
+                  "permitir que os pais configurem **supervisão parental** e acompanhem o acesso a aplicativos e conteúdos",
+                  "fornecer **sinal de idade** aos aplicativos por **API segura**, só para as finalidades da lei, com **minimização de dados** e sem compartilhamento contínuo, automatizado e irrestrito (§ 1º)"
+                ],
+                "depois": "O **download** de aplicativos por crianças e adolescentes depende de **consentimento livre e informado dos pais** ou responsáveis, **vedada a presunção** de autorização quando eles não se manifestam (§ 2º). Pelo Decreto 12.880 (art. 25), o sinal de idade é fornecido **gratuitamente** e se limita ao estritamente necessário para confirmar a idade mínima exigida: é **vedado** enviar a data de nascimento exata, a identidade civil ou dados de perfilamento.",
+                "atencao": "Os aplicativos não ficam dispensados: devem receber o sinal de idade e ter **mecanismos próprios** contra o acesso indevido (art. 14), e todos na cadeia digital respondem **solidariamente** pela proteção integral (art. 15).",
+                "porque": "A loja e o sistema operacional são a porta de entrada do celular. O sinal de idade passa aos aplicativos só a informação mínima (se o usuário tem ou não a idade exigida), sem espalhar documentos de crianças."
+              },
+              {
+                "t": "Os dados usados para verificar a idade (arts. 11 e 13)",
+                "texto": "Os dados coletados para verificar a idade **só podem ser usados para isso**, vedado qualquer outro propósito (art. 13). O Decreto 12.880 reforça que essa vedação alcança a criação de **perfis comportamentais** (art. 24, § 1º). O poder público pode atuar como **regulador, certificador ou promotor** de soluções de verificação de idade, com consulta pública e participação social (art. 11).",
+                "ex": "Uma plataforma que pede selfie para estimar a idade não pode usar a imagem para alimentar a recomendação de anúncios."
+              },
+              {
+                "t": "Contas de crianças e adolescentes (art. 24)",
+                "tabela": {
+                  "cab": [
+                    "Regra",
+                    "O que diz"
+                  ],
+                  "linhas": [
+                    [
+                      "contas até 16 anos",
+                      "os provedores de produtos ou serviços direcionados a crianças e adolescentes ou de acesso provável por eles garantem que as contas de quem tem **até 16 anos** estejam **vinculadas à conta de um dos responsáveis legais**"
+                    ],
+                    [
+                      "rede imprópria",
+                      "a rede social imprópria para crianças avisa que não é apropriada, restringe conteúdo feito para atraí-las e aprimora a verificação de idade (§ 1º)"
+                    ],
+                    [
+                      "indício de criança",
+                      "com **fundados indícios** de conta operada por criança ou adolescente fora da idade mínima, a rede **suspende o acesso** e garante procedimento célere em que o responsável pode **apelar** e comprovar a idade (§ 4º)"
+                    ],
+                    [
+                      "sem conta do responsável",
+                      "não se pode reduzir a supervisão parental abaixo do padrão dos arts. 3º e 7º (§ 5º)"
+                    ]
+                  ]
+                },
+                "mnemo": "**16** é o número das contas vinculadas; **18** é o do conteúdo proibido."
+              }
+            ]
+          },
+          "chave": [
+            "Conteúdo impróprio para menores de 18: verificação de idade confiável a cada acesso, vedada a autodeclaração.",
+            "Lojas e sistemas operacionais aferem a idade, oferecem supervisão parental e mandam sinal de idade por API.",
+            "Download por criança ou adolescente: consentimento dos pais; o silêncio não autoriza.",
+            "Dados da verificação de idade: só para verificar a idade.",
+            "Contas de até 16 anos vinculadas à conta de um responsável."
+          ],
+          "armadilhas": [
+            "Aceitar a autodeclaração de idade como verificação.",
+            "Presumir a autorização dos pais quando eles não se manifestam.",
+            "Trocar os 16 anos das contas vinculadas por 18 ou por 13.",
+            "Dizer que o sinal de idade da loja dispensa o aplicativo de ter mecanismos próprios."
+          ],
+          "blocos": [
+            "eca-digital"
+          ],
+          "soArtigos": true
+        },
+        {
+          "id": "ed-supervisao",
+          "nome": "Supervisão parental, jogos e publicidade",
+          "resumo": "As ferramentas que os pais devem ter, o padrão mais protetivo, as caixas de recompensa vedadas e o fim da publicidade dirigida por perfilamento.",
+          "artigos": [
+            "lei15211:16",
+            "lei15211:17",
+            "lei15211:18",
+            "lei15211:19",
+            "lei15211:20",
+            "lei15211:21",
+            "lei15211:22",
+            "lei15211:23",
+            "lei15211:25",
+            "lei15211:26",
+            "dec12880:23"
+          ],
+          "licao": {
+            "ideia": "Os pais têm de ter ferramentas **fáceis** para supervisionar o uso, e elas já vêm no **mais alto nível de proteção disponível** (art. 17, § 4º). Nos jogos, as **caixas de recompensa (loot boxes)** são **vedadas** para crianças e adolescentes (art. 20). E é **vedado** usar perfilamento, análise emocional ou realidade aumentada, estendida e virtual para **direcionar publicidade** a eles (art. 22).",
+            "mapa": {
+              "centro": "Pais, jogos e publicidade",
+              "ramos": [
+                {
+                  "t": "Informação (art. 16)",
+                  "f": [
+                    "riscos e medidas de segurança",
+                    "relatório de impacto"
+                  ]
+                },
+                {
+                  "t": "Supervisão parental (arts. 17 e 18)",
+                  "f": [
+                    "ferramentas fáceis",
+                    "limitar o tempo de uso",
+                    "restringir compras",
+                    "ver os adultos com quem fala"
+                  ]
+                },
+                {
+                  "t": "Padrão (art. 17, § 4º)",
+                  "f": [
+                    "mais alto nível de proteção",
+                    "sem contato de estranhos",
+                    "sem autoplay e recompensas",
+                    "geolocalização restrita"
+                  ]
+                },
+                {
+                  "t": "Jogos (arts. 20 e 21)",
+                  "f": [
+                    "loot boxes vedadas",
+                    "interação limitada por padrão"
+                  ]
+                },
+                {
+                  "t": "Publicidade (arts. 22, 23 e 26)",
+                  "f": [
+                    "sem perfilamento",
+                    "sem análise emocional",
+                    "sem monetizar conteúdo erotizado"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Informar e avaliar riscos (art. 16)",
+                "texto": "Os fornecedores informam a pais, crianças e adolescentes os **riscos** e as **medidas de segurança** adotadas, inclusive de privacidade, com acesso independente da compra do produto. Quando tratam dados de crianças e adolescentes, sobretudo para fins além dos estritamente necessários, o controlador deve **mapear os riscos** e elaborar **relatório de impacto**, compartilhado sob requisição da ANPD (parágrafo único)."
+              },
+              {
+                "t": "As ferramentas dos pais (arts. 17 e 18)",
+                "tabela": {
+                  "cab": [
+                    "Os pais devem poder",
+                    "Base"
+                  ],
+                  "linhas": [
+                    [
+                      "visualizar, configurar e gerenciar a conta e a privacidade",
+                      "art. 18, I"
+                    ],
+                    [
+                      "**restringir compras** e transações financeiras",
+                      "art. 18, II"
+                    ],
+                    [
+                      "**identificar os adultos** com quem a criança se comunica",
+                      "art. 18, III"
+                    ],
+                    [
+                      "ver métricas do **tempo total de uso**",
+                      "art. 18, IV"
+                    ],
+                    [
+                      "ativar ou desativar salvaguardas",
+                      "art. 18, V"
+                    ],
+                    [
+                      "usar informações e controles em **língua portuguesa**",
+                      "art. 18, VI"
+                    ],
+                    [
+                      "limitar e monitorar o tempo de uso",
+                      "art. 17, IV"
+                    ]
+                  ]
+                },
+                "atencao": "É **vedado** projetar ou manipular interfaces para comprometer a autonomia ou a escolha do usuário, sobretudo se isso enfraquecer a supervisão parental (art. 18, § 2º). Submeter as ferramentas à ANPD é **opcional**, e não pré-requisito para lançar o produto (art. 17, § 3º)."
+              },
+              {
+                "t": "O padrão das ferramentas (art. 17, § 4º)",
+                "texto": "As configurações-padrão da supervisão parental adotam o **mais alto nível de proteção disponível**, com, no mínimo:",
+                "lista": [
+                  "restrição à comunicação com crianças e adolescentes por usuários **não autorizados**",
+                  "limitação de recursos que estendem artificialmente o uso, como **reprodução automática**, **recompensas pelo tempo de uso** e **notificações**",
+                  "ferramentas de acompanhamento do uso saudável e interface para ver e **limitar o tempo de uso**",
+                  "controle sobre **sistemas de recomendação** personalizados, com opção de **desativar**",
+                  "restrição ao compartilhamento da **geolocalização** e aviso prévio sobre rastreamento",
+                  "educação digital midiática, revisão regular das ferramentas de **inteligência artificial** e, quando viável, acesso a apoio emocional"
+                ]
+              },
+              {
+                "t": "Jogos eletrônicos e monitoramento (arts. 19 a 21)",
+                "tabela": {
+                  "cab": [
+                    "Regra",
+                    "O que diz"
+                  ],
+                  "linhas": [
+                    [
+                      "loot boxes (art. 20)",
+                      "**vedadas** as caixas de recompensa em jogos direcionados a crianças e adolescentes ou de acesso provável por eles, nos termos da classificação indicativa"
+                    ],
+                    [
+                      "interação nos jogos (art. 21)",
+                      "jogos com mensagens, áudio, vídeo ou troca de conteúdos seguem as salvaguardas do art. 16 da Lei 14.852/2024 (Marco Legal dos Jogos Eletrônicos) e, **por padrão**, limitam a interação para assegurar o consentimento dos pais"
+                    ],
+                    [
+                      "monitoramento infantil (art. 19)",
+                      "produtos de monitoramento garantem a **inviolabilidade** das imagens e dos sons captados e **avisam a criança**, em linguagem apropriada, de que há monitoramento"
+                    ]
+                  ]
+                },
+                "depois": "O Decreto 12.880 (art. 23) exige verificação de idade nos jogos com caixas de recompensa, para impedir o acesso de crianças e adolescentes a essa funcionalidade; a verificação é dispensada se o jogo oferecer versão sem loot boxes ou bloqueá-las totalmente por padrão."
+              },
+              {
+                "t": "Publicidade e monetização (arts. 22, 23, 25 e 26)",
+                "lista": [
+                  "**vedado** usar técnicas de **perfilamento** para direcionar publicidade comercial a crianças e adolescentes, e também **análise emocional** e **realidade aumentada, estendida ou virtual** para esse fim (art. 22)",
+                  "**vedado** criar **perfis comportamentais** de crianças e adolescentes para publicidade, inclusive com dados da verificação de idade e com dados grupais e coletivos (art. 26)",
+                  "**vedados** a **monetização** e o **impulsionamento** de conteúdos que retratem crianças e adolescentes de forma **erotizada** ou sexualmente sugestiva (art. 23)",
+                  "as redes sociais têm **regras específicas e documentadas** para os dados de crianças e adolescentes, com base no melhor interesse (art. 25)"
+                ],
+                "porque": "Publicidade dirigida por perfil explora justamente o que a criança ainda não domina: distinguir anúncio de conteúdo e resistir a estímulos. Por isso a lei não apenas limita, mas proíbe o direcionamento por perfilamento."
+              }
+            ]
+          },
+          "chave": [
+            "Ferramentas de supervisão parental fáceis, com padrão no mais alto nível de proteção.",
+            "Os pais podem restringir compras, ver os adultos com quem a criança fala e o tempo de uso.",
+            "Loot boxes vedadas em jogos direcionados ou de acesso provável por crianças e adolescentes.",
+            "Vedada a publicidade dirigida por perfilamento, análise emocional ou realidade virtual.",
+            "Vedados a monetização e o impulsionamento de conteúdo que erotize crianças e adolescentes."
+          ],
+          "armadilhas": [
+            "Dizer que loot boxes são permitidas com autorização dos pais.",
+            "Dizer que submeter as ferramentas de supervisão parental à ANPD é condição para lançar o produto.",
+            "Dizer que a configuração padrão da supervisão parental é a menos restritiva, ajustável pelos pais.",
+            "Dizer que o produto de monitoramento infantil pode funcionar sem que a criança saiba."
+          ],
+          "blocos": [
+            "eca-digital"
+          ],
+          "soArtigos": true
+        },
+        {
+          "id": "ed-fiscalizacao",
+          "nome": "Conteúdo ilegal, denúncias, transparência e sanções",
+          "resumo": "Remover e comunicar abuso sexual, retirar conteúdo violador sem ordem judicial, relatórios de transparência e as sanções do art. 35.",
+          "artigos": [
+            "lei15211:27",
+            "lei15211:28",
+            "lei15211:29",
+            "lei15211:30",
+            "lei15211:31",
+            "lei15211:32",
+            "lei15211:33",
+            "lei15211:34",
+            "lei15211:35",
+            "lei15211:36-A",
+            "dec12622:3",
+            "dec12880:36",
+            "dec12880:43",
+            "dec12880:44"
+          ],
+          "licao": {
+            "ideia": "Conteúdo de **exploração e abuso sexual**, sequestro e aliciamento deve ser **removido e comunicado** às autoridades (art. 27). Conteúdo que viola direitos de crianças sai do ar assim que a **vítima**, seus **representantes**, o **Ministério Público** ou **entidades de defesa** comunicarem, **sem ordem judicial** (art. 29). A **ANPD** aplica **advertência e multa** (até **10%** do faturamento do grupo no Brasil, com teto de **R$ 50 milhões por infração**); **suspensão e proibição** das atividades ficam com o **Judiciário** (art. 35).",
+            "mapa": {
+              "centro": "Fiscalização e sanções",
+              "ramos": [
+                {
+                  "t": "Abuso sexual (art. 27)",
+                  "f": [
+                    "remover e comunicar",
+                    "Polícia Federal centraliza",
+                    "guarda pelo prazo do Marco Civil"
+                  ]
+                },
+                {
+                  "t": "Retirada (art. 29)",
+                  "f": [
+                    "sem ordem judicial",
+                    "vítima, representantes, MP, entidades",
+                    "vedada a denúncia anônima"
+                  ]
+                },
+                {
+                  "t": "Contestação (art. 30)",
+                  "f": [
+                    "notificação e motivo",
+                    "recurso com prazos"
+                  ]
+                },
+                {
+                  "t": "Transparência (art. 31)",
+                  "f": [
+                    "mais de 1 milhão de usuários",
+                    "relatório semestral em português"
+                  ]
+                },
+                {
+                  "t": "Sanções (art. 35)",
+                  "f": [
+                    "ANPD: advertência e multa",
+                    "Judiciário: suspensão e proibição",
+                    "multas para o Fundo da Criança"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Abuso sexual e violações graves (art. 27)",
+                "texto": "Os fornecedores **disponíveis no território nacional** devem **remover e comunicar** às autoridades nacionais e internacionais os conteúdos de aparente **exploração, abuso sexual, sequestro e aliciamento** detectados. Os dados do relatório (o conteúdo, seus metadados e os dados do usuário responsável) ficam guardados pelo prazo do art. 15 do Marco Civil, de **6 meses**, que pode ser maior mediante requerimento (§§ 2º e 3º).",
+                "depois": "O Decreto 12.880 fez da **Polícia Federal** a autoridade de recebimento centralizado desses relatórios (art. 36) e autorizou o **Centro Nacional de Triagem de Notificações**, no âmbito dela (art. 37).",
+                "atencao": "O dever do art. 27 vale para **todos** os fornecedores disponíveis no País, e não só para os direcionados a crianças."
+              },
+              {
+                "t": "Retirada sem ordem judicial (arts. 28 a 30)",
+                "passos": [
+                  "o fornecedor oferece mecanismo de **notificação** de violações (art. 28) e o torna público e de fácil acesso (art. 29, § 3º)",
+                  "a **vítima**, seus **representantes**, o **Ministério Público** ou **entidades representativas** de defesa de crianças e adolescentes comunicam o caráter ofensivo do conteúdo",
+                  "o fornecedor **retira o conteúdo**, **independentemente de ordem judicial** (art. 29)",
+                  "quem publicou recebe a notificação e o motivo (com a informação de se a análise foi humana ou automatizada) e pode **recorrer**, com prazos definidos (art. 30)"
+                ],
+                "depois": "O Decreto 12.880 (art. 43) incluiu as **autoridades policiais** entre os notificantes e exige que as entidades da sociedade civil tenham **reconhecida atuação nacional**; a ANPD as habilita (art. 44). Os conselhos tutelares provocam o Ministério Público para que ele notifique.",
+                "atencao": "A notificação precisa identificar o conteúdo e o **autor da notificação**, sob pena de nulidade: **é vedada a denúncia anônima** (art. 29, § 2º). Conteúdos **jornalísticos** e com **controle editorial** não seguem esse procedimento (§ 4º)."
+              },
+              {
+                "t": "Transparência e denúncias abusivas (arts. 31 a 33)",
+                "texto": "Aplicações direcionadas a crianças ou de acesso provável por elas com **mais de 1 milhão de usuários** dessa faixa etária registrados no País publicam **relatórios semestrais**, em português, com os canais de denúncia, a quantidade de denúncias e de moderações, as medidas de identificação de contas infantis e as avaliações de risco (art. 31). Também dão acesso **gratuito** a dados para **pesquisa** de instituições acadêmicas, científicas, tecnológicas, de inovação ou jornalísticas, vedado o uso comercial (parágrafo único). E coíbem o **uso abusivo das denúncias** para censura ou perseguição, com sanções como suspensão e cancelamento da conta do denunciante abusivo (arts. 32 e 33)."
+              },
+              {
+                "t": "Sanções (art. 35)",
+                "tabela": {
+                  "cab": [
+                    "Sanção",
+                    "Quem aplica",
+                    "Detalhe"
+                  ],
+                  "linhas": [
+                    [
+                      "I. advertência",
+                      "ANPD",
+                      "com prazo de **até 30 dias** para medidas corretivas"
+                    ],
+                    [
+                      "II. multa simples",
+                      "ANPD",
+                      "até **10% do faturamento do grupo econômico no Brasil** no último exercício; sem faturamento, de **R$ 10 a R$ 1.000 por usuário cadastrado**; limite de **R$ 50 milhões por infração**"
+                    ],
+                    [
+                      "III. suspensão temporária das atividades",
+                      "**Poder Judiciário**",
+                      "se o infrator não cumprir, ordem de bloqueio às prestadoras de conexão, aos pontos de troca de tráfego e aos serviços de nomes de domínio (§ 6º)"
+                    ],
+                    [
+                      "IV. proibição de exercício das atividades",
+                      "**Poder Judiciário**",
+                      "mesmo mecanismo de bloqueio"
+                    ]
+                  ]
+                },
+                "depois": "Na gradação pesam a gravidade, a reincidência, a capacidade econômica (na multa) e a finalidade social do fornecedor (§ 1º). Filial, sucursal ou escritório no País responde **solidariamente** pela multa de empresa estrangeira (§ 2º). O processo segue as regras do ECA para infrações administrativas (§ 3º). As multas vão, por **5 anos**, para o **Fundo Nacional para a Criança e o Adolescente** (art. 36-A). Pelo Decreto 12.622, a **Anatel** recebe e distribui as ordens judiciais de bloqueio às prestadoras, e o **CGI.br** recebe as relativas a domínios \".br\".",
+                "atencao": "Compare com a LGPD: lá a multa simples vai até **2%** do faturamento no Brasil, excluídos os tributos; no ECA Digital, até **10%** do faturamento do grupo econômico. O teto de **R$ 50 milhões por infração** é o mesmo nas duas."
+              }
+            ]
+          },
+          "chave": [
+            "Abuso sexual, sequestro e aliciamento: remover e comunicar; a Polícia Federal centraliza os relatórios.",
+            "Conteúdo que viola direitos de crianças sai sem ordem judicial, a pedido da vítima, de representantes, do MP ou de entidades.",
+            "Denúncia anônima é vedada; quem publicou pode recorrer.",
+            "ANPD: advertência (até 30 dias) e multa (até 10% do faturamento ou R$ 10 a R$ 1.000 por usuário, teto de R$ 50 milhões).",
+            "Suspensão e proibição das atividades: só o Judiciário."
+          ],
+          "armadilhas": [
+            "Exigir ordem judicial para retirar conteúdo que viola direitos de crianças.",
+            "Dizer que a ANPD pode suspender ou proibir as atividades do fornecedor.",
+            "Trocar os 10% do ECA Digital pelos 2% da LGPD.",
+            "Admitir denúncia anônima no procedimento de retirada."
+          ],
+          "blocos": [
+            "eca-digital"
+          ],
+          "soArtigos": true
         }
       ]
     },
