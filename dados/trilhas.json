@@ -3809,6 +3809,1171 @@
       ]
     },
     {
+      "id": "economia-gestao",
+      "nome": "Economia e gestão do zero",
+      "resumo": "Mercados, estatística e avaliação de políticas, depois políticas públicas, estratégia, dados e orçamento: o básico das matérias de apoio da prova.",
+      "subtemas": [
+        {
+          "id": "ec-mercado",
+          "nome": "Oferta, demanda e elasticidade",
+          "resumo": "Como preço e quantidade se formam no mercado e quanto a demanda reage a preço e renda.",
+          "artigos": [],
+          "licao": {
+            "ideia": "O preço de mercado sai do encontro entre **demanda** (quanto os compradores querem a cada preço) e **oferta** (quanto os vendedores querem vender). A **elasticidade** mede a força da reação: quanto a quantidade muda, em porcentagem, quando o preço ou a renda muda 1%.",
+            "mapa": {
+              "centro": "Mercado",
+              "ramos": [
+                {
+                  "t": "Demanda",
+                  "f": [
+                    "preço sobe, quantidade cai",
+                    "desloca: renda, gostos, outros bens"
+                  ]
+                },
+                {
+                  "t": "Oferta",
+                  "f": [
+                    "preço sobe, quantidade sobe",
+                    "desloca: custos, tecnologia"
+                  ]
+                },
+                {
+                  "t": "Equilíbrio",
+                  "f": [
+                    "demanda = oferta",
+                    "preço máximo: escassez",
+                    "preço mínimo: excedente"
+                  ]
+                },
+                {
+                  "t": "Elasticidade-preço",
+                  "f": [
+                    "elástica > 1",
+                    "inelástica < 1",
+                    "receita total"
+                  ]
+                },
+                {
+                  "t": "Outras elasticidades",
+                  "f": [
+                    "renda: normal ou inferior",
+                    "cruzada: substitutos ou complementares"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Movimento ao longo da curva × deslocamento",
+                "tabela": {
+                  "cab": [
+                    "Mudança",
+                    "Efeito na demanda"
+                  ],
+                  "linhas": [
+                    [
+                      "preço do próprio bem",
+                      "**movimento ao longo** da curva (muda a quantidade demandada)"
+                    ],
+                    [
+                      "renda, preferências, expectativas, preço de substitutos e complementares",
+                      "**deslocamento** da curva inteira (muda a demanda)"
+                    ]
+                  ]
+                },
+                "atencao": "A banca troca os dois: \"o aumento do preço reduziu a demanda\" está tecnicamente errado; o que cai é a **quantidade demandada**.",
+                "porque": "A curva já descreve a reação ao próprio preço. Por isso só fatores de fora do gráfico (renda, gostos, outros preços) a deslocam."
+              },
+              {
+                "t": "Equilíbrio e controle de preços",
+                "lista": [
+                  "no equilíbrio, quantidade demandada = quantidade ofertada",
+                  "acima do equilíbrio sobra produto (excedente) e o preço tende a cair; abaixo, falta (escassez) e o preço tende a subir",
+                  "**preço máximo** abaixo do equilíbrio gera escassez e filas; **preço mínimo** acima gera excedente"
+                ]
+              },
+              {
+                "t": "Elasticidades",
+                "tabela": {
+                  "cab": [
+                    "Elasticidade",
+                    "Leitura"
+                  ],
+                  "linhas": [
+                    [
+                      "**preço da demanda** (|%ΔQ ÷ %ΔP|)",
+                      "maior que 1: **elástica**; menor que 1: **inelástica**; igual a 1: unitária"
+                    ],
+                    [
+                      "**renda**",
+                      "positiva: bem **normal** (acima de 1, de luxo); negativa: bem **inferior**"
+                    ],
+                    [
+                      "**cruzada**",
+                      "positiva: **substitutos** (café e chá); negativa: **complementares** (carro e gasolina)"
+                    ]
+                  ]
+                },
+                "mnemo": "Receita total: com demanda **elástica**, baixar o preço **aumenta** a receita; com demanda **inelástica**, subir o preço aumenta a receita.",
+                "porque": "A demanda é mais elástica quando há substitutos próximos, o bem não é essencial, pesa muito no orçamento e há tempo para se ajustar. Remédio de uso contínuo é inelástico; uma marca específica de refrigerante, elástica."
+              }
+            ]
+          },
+          "chave": [
+            "Preço do próprio bem: movimento ao longo da curva; outros fatores deslocam a curva.",
+            "Preço máximo abaixo do equilíbrio gera escassez; preço mínimo acima gera excedente.",
+            "Elasticidade-preço maior que 1: elástica; menor que 1: inelástica.",
+            "Elasticidade-renda negativa: bem inferior; cruzada positiva: substitutos.",
+            "Demanda elástica: reduzir o preço aumenta a receita total."
+          ],
+          "armadilhas": [
+            "Dizer que a alta do preço desloca a curva de demanda.",
+            "Trocar bem inferior por bem de luxo.",
+            "Dizer que, com demanda inelástica, reduzir o preço aumenta a receita.",
+            "Trocar substitutos (cruzada positiva) por complementares (negativa)."
+          ],
+          "blocos": [
+            "economia"
+          ],
+          "termos": [
+            "demanda",
+            "oferta",
+            "elasticidade",
+            "equilíbrio",
+            "preço"
+          ],
+          "excluir": [
+            "monopol",
+            "oligopól",
+            "concorrência",
+            "Cournot",
+            "Bertrand",
+            "Stackelberg",
+            "cartel",
+            "discrimina",
+            "mark-up",
+            "plataforma"
+          ]
+        },
+        {
+          "id": "ec-estruturas",
+          "nome": "Estruturas de mercado: concorrência, monopólio e oligopólio",
+          "resumo": "Quantos vendem, se o produto é igual e se é fácil entrar: o que isso faz com preço, quantidade e bem-estar.",
+          "artigos": [],
+          "licao": {
+            "ideia": "Do mais competitivo ao menos: **concorrência perfeita**, **concorrência monopolística**, **oligopólio** e **monopólio**. Quanto menos competição, maior o preço e menor a quantidade, com perda de bem-estar. O **monopólio natural** é o caso em que uma empresa só atende o mercado com custo menor, e por isso se regula em vez de fragmentar.",
+            "mapa": {
+              "centro": "Estruturas",
+              "ramos": [
+                {
+                  "t": "Concorrência perfeita",
+                  "f": [
+                    "muitos, produto igual",
+                    "livre entrada",
+                    "tomadora de preço"
+                  ]
+                },
+                {
+                  "t": "Concorrência monopolística",
+                  "f": [
+                    "muitos, produto diferenciado"
+                  ]
+                },
+                {
+                  "t": "Oligopólio",
+                  "f": [
+                    "poucos",
+                    "interdependência",
+                    "cartel instável"
+                  ]
+                },
+                {
+                  "t": "Monopólio",
+                  "f": [
+                    "um vendedor",
+                    "barreiras",
+                    "preço acima do custo marginal"
+                  ]
+                },
+                {
+                  "t": "Monopólio natural",
+                  "f": [
+                    "economias de escala",
+                    "regula-se o preço"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Comparando",
+                "tabela": {
+                  "cab": [
+                    "Estrutura",
+                    "Vendedores",
+                    "Produto",
+                    "Entrada",
+                    "Poder de preço"
+                  ],
+                  "linhas": [
+                    [
+                      "**concorrência perfeita**",
+                      "muitos",
+                      "homogêneo",
+                      "livre",
+                      "nenhum: preço = custo marginal"
+                    ],
+                    [
+                      "**concorrência monopolística**",
+                      "muitos",
+                      "diferenciado",
+                      "livre",
+                      "pequeno (marca)"
+                    ],
+                    [
+                      "**oligopólio**",
+                      "poucos",
+                      "igual ou diferenciado",
+                      "difícil",
+                      "grande, mas cada um depende da reação dos rivais"
+                    ],
+                    [
+                      "**monopólio**",
+                      "um",
+                      "sem substituto próximo",
+                      "bloqueada",
+                      "máximo: preço acima do custo marginal"
+                    ]
+                  ]
+                },
+                "porque": "O monopolista sabe que, para vender mais, precisa baixar o preço de todas as unidades; por isso produz menos que o eficiente e cobra mais. A diferença entre o que a sociedade perde e o que o monopolista ganha é o **peso morto**."
+              },
+              {
+                "t": "Oligopólio e cartel",
+                "lista": [
+                  "**interdependência estratégica**: a decisão de cada empresa depende do que espera dos rivais",
+                  "modelos clássicos: **Cournot** (concorrem em quantidade), **Bertrand** (em preço) e **Stackelberg** (uma líder decide primeiro)",
+                  "**cartel**: acordo para agir como monopólio; é instável, porque cada membro ganha ao trair e vender mais"
+                ],
+                "depois": "A concentração se mede, por exemplo, pelo **índice HHI**: a soma dos quadrados das participações de mercado. Quanto maior, mais concentrado."
+              },
+              {
+                "t": "Monopólio natural",
+                "texto": "Ocorre quando o **custo médio cai** em toda a faixa relevante de produção (grandes economias de escala, custos fixos enormes): uma só empresa atende o mercado mais barato do que várias. Não é monopólio criado por lei; é uma característica de custo. A resposta é **regular** preço e qualidade (por exemplo, preço-teto) em vez de dividir o mercado.",
+                "ex": "Em mercados digitais, **efeitos de rede** (o serviço vale mais quanto mais gente usa) também levam à concentração; é por isso que dados e plataformas entraram na pauta de reguladores e da defesa da concorrência."
+              }
+            ]
+          },
+          "chave": [
+            "Concorrência perfeita: muitos, produto homogêneo, livre entrada; preço = custo marginal.",
+            "Monopólio: preço acima do custo marginal, menos quantidade e peso morto.",
+            "Oligopólio: poucos e interdependentes; cartel é instável.",
+            "Monopólio natural vem de economias de escala, não de lei.",
+            "HHI: soma dos quadrados das participações de mercado."
+          ],
+          "armadilhas": [
+            "Dizer que monopólio natural é o criado por lei.",
+            "Dizer que em concorrência perfeita a empresa escolhe o preço.",
+            "Tratar cartel como estável por definição.",
+            "Confundir concorrência monopolística com monopólio."
+          ],
+          "blocos": [
+            "economia",
+            "regulacao-teoria"
+          ],
+          "termos": [
+            "monopólio",
+            "oligopólio",
+            "concorrência perfeita",
+            "concorrência monopolística",
+            "concentração",
+            "Herfindahl",
+            "HHI",
+            "cartel",
+            "barreiras? à entrada",
+            "efeitos? de rede"
+          ]
+        },
+        {
+          "id": "ec-estatistica",
+          "nome": "Estatística para quem avalia políticas",
+          "resumo": "Média, mediana e dispersão, correlação, regressão linear, testes de hipótese e séries temporais.",
+          "artigos": [],
+          "licao": {
+            "ideia": "Para avaliar uma política com dados, é preciso resumir (média, mediana, desvio padrão), relacionar variáveis (correlação e regressão) e testar se um efeito é real ou acaso (teste de hipótese). **Correlação não é causalidade.**",
+            "mapa": {
+              "centro": "Estatística",
+              "ramos": [
+                {
+                  "t": "Centro",
+                  "f": [
+                    "média: sensível a extremos",
+                    "mediana: robusta",
+                    "moda"
+                  ]
+                },
+                {
+                  "t": "Dispersão",
+                  "f": [
+                    "variância",
+                    "desvio padrão",
+                    "coeficiente de variação"
+                  ]
+                },
+                {
+                  "t": "Relação",
+                  "f": [
+                    "correlação: −1 a 1",
+                    "não prova causa"
+                  ]
+                },
+                {
+                  "t": "Regressão",
+                  "f": [
+                    "Y = β0 + β1X + erro",
+                    "mínimos quadrados",
+                    "R²"
+                  ]
+                },
+                {
+                  "t": "Inferência",
+                  "f": [
+                    "hipótese nula",
+                    "p-valor",
+                    "erros tipo I e II"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Resumir os dados",
+                "tabela": {
+                  "cab": [
+                    "Medida",
+                    "O que diz",
+                    "Cuidado"
+                  ],
+                  "linhas": [
+                    [
+                      "**média**",
+                      "centro aritmético",
+                      "puxada por valores extremos (renda, multas)"
+                    ],
+                    [
+                      "**mediana**",
+                      "valor do meio",
+                      "robusta a extremos"
+                    ],
+                    [
+                      "**desvio padrão**",
+                      "dispersão, na mesma unidade dos dados",
+                      "é a raiz da variância"
+                    ],
+                    [
+                      "**coeficiente de variação**",
+                      "desvio padrão ÷ média",
+                      "compara dispersões de grandezas diferentes"
+                    ]
+                  ]
+                }
+              },
+              {
+                "t": "Correlação e regressão",
+                "lista": [
+                  "a **correlação** vai de −1 a 1 e mede a força da relação **linear**; zero não exclui relação não linear",
+                  "**regressão linear simples**: Y = β0 + β1X + ε; β1 é a variação esperada de Y quando X aumenta uma unidade",
+                  "os **mínimos quadrados ordinários** escolhem a reta que minimiza a soma dos quadrados dos resíduos",
+                  "o **R²** (de 0 a 1) é a fração da variação de Y explicada pelo modelo"
+                ],
+                "atencao": "Correlação alta não prova causa: pode haver variável omitida ou causalidade reversa. Por isso a avaliação de impacto precisa de um contrafactual (próxima aula)."
+              },
+              {
+                "t": "Teste de hipótese e séries",
+                "tabela": {
+                  "cab": [
+                    "Conceito",
+                    "Sentido"
+                  ],
+                  "linhas": [
+                    [
+                      "hipótese nula (H0)",
+                      "em geral, \"não há efeito\""
+                    ],
+                    [
+                      "**p-valor**",
+                      "probabilidade de um resultado tão extremo se H0 fosse verdadeira; se menor que o nível de significância, rejeita-se H0"
+                    ],
+                    [
+                      "**erro tipo I**",
+                      "rejeitar H0 verdadeira (falso positivo)"
+                    ],
+                    [
+                      "**erro tipo II**",
+                      "não rejeitar H0 falsa (falso negativo)"
+                    ],
+                    [
+                      "série temporal",
+                      "tendência, sazonalidade, ciclo e componente aleatório"
+                    ]
+                  ]
+                },
+                "mnemo": "Tipo **I**: acusar um **I**nocente (falso positivo). Tipo II: deixar o culpado escapar."
+              }
+            ]
+          },
+          "chave": [
+            "Mediana resiste a extremos; média, não.",
+            "Desvio padrão é a raiz da variância e tem a unidade dos dados.",
+            "Correlação vai de −1 a 1 e não prova causalidade.",
+            "MQO minimiza a soma dos quadrados dos resíduos; R² é a fração explicada.",
+            "Erro tipo I: rejeitar H0 verdadeira; tipo II: não rejeitar H0 falsa."
+          ],
+          "armadilhas": [
+            "Dizer que correlação alta comprova causa.",
+            "Trocar erro tipo I por tipo II.",
+            "Dizer que o R² mede a inclinação da reta.",
+            "Dizer que a média é a medida mais robusta a valores extremos."
+          ],
+          "blocos": [
+            "economia"
+          ],
+          "termos": [
+            "média",
+            "mediana",
+            "variância",
+            "desvio",
+            "regressão",
+            "correlação",
+            "amostra",
+            "hipótese",
+            "intervalo de confiança",
+            "série",
+            "p-valor",
+            "significância"
+          ]
+        },
+        {
+          "id": "ec-avaliacao",
+          "nome": "Avaliação de impacto e custo-benefício",
+          "resumo": "Contrafactual, viés de seleção, métodos de avaliação e as análises de custo-benefício e de custo-efetividade.",
+          "artigos": [],
+          "licao": {
+            "ideia": "Avaliar o **impacto** de uma política é comparar o que aconteceu com o que **teria acontecido sem ela** (o contrafactual). Como não se observa o contrafactual, os métodos constroem um grupo de comparação parecido. Antes de adotar a medida, a **análise de custo-benefício** compara ganhos e custos.",
+            "mapa": {
+              "centro": "Avaliação",
+              "ramos": [
+                {
+                  "t": "Momento",
+                  "f": [
+                    "ex ante: AIR, custo-benefício",
+                    "ex post: impacto, ARR"
+                  ]
+                },
+                {
+                  "t": "Problema",
+                  "f": [
+                    "contrafactual",
+                    "viés de seleção"
+                  ]
+                },
+                {
+                  "t": "Métodos",
+                  "f": [
+                    "experimento aleatorizado",
+                    "diferenças em diferenças",
+                    "pareamento",
+                    "regressão descontínua"
+                  ]
+                },
+                {
+                  "t": "Custos",
+                  "f": [
+                    "custo-benefício: tudo em dinheiro",
+                    "custo-efetividade: custo por resultado"
+                  ]
+                },
+                {
+                  "t": "Desempenho",
+                  "f": [
+                    "eficiência",
+                    "eficácia",
+                    "efetividade"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "O problema do contrafactual",
+                "texto": "Comparar quem participou com quem não participou costuma enganar: os participantes podem ser diferentes desde o início (**viés de seleção**). O método resolve isso quando garante que os grupos só diferem pela política.",
+                "tabela": {
+                  "cab": [
+                    "Método",
+                    "Ideia",
+                    "Hipótese-chave"
+                  ],
+                  "linhas": [
+                    [
+                      "**experimento aleatorizado**",
+                      "sorteia quem recebe a política",
+                      "o sorteio torna os grupos comparáveis; é o padrão-ouro"
+                    ],
+                    [
+                      "**diferenças em diferenças**",
+                      "compara a evolução dos tratados com a dos não tratados, antes e depois",
+                      "**tendências paralelas** sem a política"
+                    ],
+                    [
+                      "**pareamento** (escore de propensão)",
+                      "compara cada tratado com não tratado de características parecidas",
+                      "não há diferença relevante não observada"
+                    ],
+                    [
+                      "**regressão descontínua**",
+                      "compara quem ficou logo acima e logo abaixo de um corte",
+                      "perto do corte, os grupos são parecidos"
+                    ]
+                  ]
+                }
+              },
+              {
+                "t": "Custo-benefício × custo-efetividade",
+                "tabela": {
+                  "cab": [
+                    "Análise",
+                    "Quando usar",
+                    "Resultado"
+                  ],
+                  "linhas": [
+                    [
+                      "**custo-benefício**",
+                      "quando custos e benefícios podem ser expressos em dinheiro",
+                      "valor presente líquido: benefícios menos custos, trazidos a valor presente"
+                    ],
+                    [
+                      "**custo-efetividade**",
+                      "quando o benefício não se monetiza bem (vidas, horas, casos resolvidos)",
+                      "custo por unidade de resultado; escolhe a alternativa mais barata para o mesmo resultado"
+                    ]
+                  ]
+                },
+                "depois": "Ambas estão entre as metodologias da AIR no Decreto 10.411 (art. 7º), ao lado de multicritério, custo, risco e risco-risco."
+              },
+              {
+                "t": "Eficiência, eficácia e efetividade",
+                "tabela": {
+                  "cab": [
+                    "Dimensão",
+                    "Pergunta"
+                  ],
+                  "linhas": [
+                    [
+                      "**eficiência**",
+                      "usou bem os recursos? (relação entre insumos e produtos)"
+                    ],
+                    [
+                      "**eficácia**",
+                      "atingiu as metas e produtos previstos?"
+                    ],
+                    [
+                      "**efetividade**",
+                      "mudou a realidade da sociedade? (impacto)"
+                    ]
+                  ]
+                },
+                "ex": "Uma campanha da ANPD que imprime os folhetos previstos com pouco gasto foi eficiente e eficaz; se as reclamações por uso indevido de dados caíram por causa dela, foi também efetiva."
+              }
+            ]
+          },
+          "chave": [
+            "Impacto = diferença entre o resultado e o contrafactual.",
+            "Viés de seleção: participantes diferentes desde o início.",
+            "Aleatorização é o padrão-ouro; diferenças em diferenças supõe tendências paralelas.",
+            "Custo-benefício monetiza tudo; custo-efetividade mede custo por resultado.",
+            "Eficiência: recursos; eficácia: metas; efetividade: impacto."
+          ],
+          "armadilhas": [
+            "Dizer que comparar participantes e não participantes basta para medir impacto.",
+            "Trocar custo-efetividade por custo-benefício.",
+            "Trocar eficácia por efetividade.",
+            "Esquecer a hipótese de tendências paralelas em diferenças em diferenças."
+          ],
+          "blocos": [
+            "economia",
+            "gestao-publica"
+          ],
+          "termos": [
+            "avaliação de impacto",
+            "contrafactual",
+            "diferenças em diferenças",
+            "aleatori",
+            "ex ante",
+            "ex post",
+            "custo-benefício",
+            "custo-efetividade",
+            "pareamento",
+            "eficácia",
+            "efetividade"
+          ]
+        },
+        {
+          "id": "gp-politicas",
+          "nome": "Políticas públicas: ciclo, agenda e decisão",
+          "resumo": "O ciclo de políticas públicas, como um problema entra na agenda, modelos de decisão e de implementação.",
+          "artigos": [],
+          "licao": {
+            "ideia": "Política pública é a resposta do Estado a um **problema público**. Ela passa por um **ciclo**: o problema é percebido, entra na **agenda**, alternativas são formuladas, decide-se, implementa-se e avalia-se. Modelos explicam por que alguns temas entram na agenda e outros não.",
+            "mapa": {
+              "centro": "Políticas públicas",
+              "ramos": [
+                {
+                  "t": "Ciclo",
+                  "f": [
+                    "problema",
+                    "agenda",
+                    "formulação",
+                    "decisão",
+                    "implementação",
+                    "avaliação"
+                  ]
+                },
+                {
+                  "t": "Agenda (Kingdon)",
+                  "f": [
+                    "fluxo de problemas",
+                    "fluxo de soluções",
+                    "fluxo político",
+                    "janela de oportunidade"
+                  ]
+                },
+                {
+                  "t": "Decisão",
+                  "f": [
+                    "racional",
+                    "incremental",
+                    "lata de lixo"
+                  ]
+                },
+                {
+                  "t": "Implementação",
+                  "f": [
+                    "de cima para baixo",
+                    "de baixo para cima",
+                    "burocrata de nível de rua"
+                  ]
+                },
+                {
+                  "t": "Tipos (Lowi)",
+                  "f": [
+                    "distributiva",
+                    "redistributiva",
+                    "regulatória",
+                    "constitutiva"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "O ciclo",
+                "passos": [
+                  "**identificação do problema**: a diferença entre a situação atual e a desejada",
+                  "**formação da agenda**: o problema passa a receber atenção",
+                  "**formulação de alternativas**",
+                  "**tomada de decisão**",
+                  "**implementação**",
+                  "**avaliação**",
+                  "**extinção**, quando o problema se resolve ou a política perde sentido"
+                ],
+                "atencao": "O ciclo é um modelo didático: na prática as fases se sobrepõem e voltam. A banca gosta de dizer que o ciclo é rígido e sequencial; não é."
+              },
+              {
+                "t": "Como um tema entra na agenda (Kingdon)",
+                "texto": "Três fluxos correm separados: **problemas** (indicadores, crises), **soluções** (propostas prontas de especialistas) e **política** (humor nacional, eleições, grupos de pressão). Quando eles convergem, abre-se uma **janela de oportunidade**, e o **empreendedor de políticas** aproveita para emplacar sua proposta.",
+                "ex": "Grandes vazamentos de dados (problema), propostas de lei de proteção de dados já discutidas (solução) e pressão internacional e eleitoral (política) abriram a janela para a LGPD em 2018."
+              },
+              {
+                "t": "Decisão e implementação",
+                "tabela": {
+                  "cab": [
+                    "Modelo",
+                    "Ideia"
+                  ],
+                  "linhas": [
+                    [
+                      "**racional**",
+                      "comparar todas as alternativas e escolher a ótima"
+                    ],
+                    [
+                      "**incremental** (Lindblom)",
+                      "pequenos ajustes sobre o que já existe, por limites de informação e de consenso"
+                    ],
+                    [
+                      "**lata de lixo**",
+                      "problemas, soluções e participantes se misturam; decisões saem de encontros quase casuais"
+                    ],
+                    [
+                      "**de cima para baixo** (top-down)",
+                      "implementação como execução fiel do que foi decidido no topo"
+                    ],
+                    [
+                      "**de baixo para cima** (bottom-up)",
+                      "quem executa na ponta (o burocrata de nível de rua, de Lipsky) molda a política"
+                    ]
+                  ]
+                },
+                "depois": "Na tipologia de Lowi, as políticas são **distributivas** (benefícios concentrados, custos difusos), **redistributivas** (transferem de um grupo para outro), **regulatórias** (regras de conduta, como a LGPD) e **constitutivas** (regras sobre as próprias regras e instituições)."
+              }
+            ]
+          },
+          "chave": [
+            "Ciclo: problema, agenda, formulação, decisão, implementação, avaliação e extinção.",
+            "O ciclo é didático; as fases se sobrepõem.",
+            "Kingdon: fluxos de problemas, soluções e política convergem numa janela de oportunidade.",
+            "Incrementalismo: ajustes marginais sobre o existente.",
+            "Lowi: distributivas, redistributivas, regulatórias e constitutivas."
+          ],
+          "armadilhas": [
+            "Dizer que o ciclo de políticas é rígido e sempre sequencial.",
+            "Atribuir a Kingdon o modelo incremental.",
+            "Trocar top-down por bottom-up.",
+            "Classificar a LGPD como política redistributiva."
+          ],
+          "blocos": [
+            "gestao-publica"
+          ],
+          "termos": [
+            "política pública",
+            "políticas públicas",
+            "ciclo",
+            "agenda",
+            "formulação",
+            "implementação",
+            "Secchi",
+            "Kingdon",
+            "incremental",
+            "Lowi"
+          ],
+          "excluir": [
+            "PDCA",
+            "governança",
+            "Agenda 2030",
+            "Desenvolvimento Sustentável",
+            "ODS"
+          ]
+        },
+        {
+          "id": "gp-estrategia",
+          "nome": "Gestão estratégica, indicadores e governança pública",
+          "resumo": "Planejamento estratégico, SWOT, BSC e os princípios de governança do Decreto 9.203/2017.",
+          "artigos": [
+            "dec9203:3"
+          ],
+          "licao": {
+            "ideia": "Planejar estrategicamente é saber **aonde se quer chegar** (missão, visão), **onde se está** (SWOT) e **como medir** o caminho (indicadores, BSC). No setor público, a **governança** garante que a gestão seja dirigida, monitorada e avaliada em favor da sociedade.",
+            "mapa": {
+              "centro": "Estratégia",
+              "ramos": [
+                {
+                  "t": "Identidade",
+                  "f": [
+                    "missão",
+                    "visão",
+                    "valores"
+                  ]
+                },
+                {
+                  "t": "Diagnóstico (SWOT)",
+                  "f": [
+                    "forças e fraquezas: internas",
+                    "oportunidades e ameaças: externas"
+                  ]
+                },
+                {
+                  "t": "BSC",
+                  "f": [
+                    "financeira",
+                    "clientes",
+                    "processos internos",
+                    "aprendizado e crescimento"
+                  ]
+                },
+                {
+                  "t": "Indicadores",
+                  "f": [
+                    "eficiência",
+                    "eficácia",
+                    "efetividade"
+                  ]
+                },
+                {
+                  "t": "Governança (Decreto 9.203)",
+                  "f": [
+                    "capacidade de resposta",
+                    "integridade",
+                    "confiabilidade",
+                    "melhoria regulatória",
+                    "prestação de contas",
+                    "transparência"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "SWOT",
+                "tabela": {
+                  "cab": [
+                    "",
+                    "Ajuda",
+                    "Atrapalha"
+                  ],
+                  "linhas": [
+                    [
+                      "**Interno** (a organização controla)",
+                      "forças",
+                      "fraquezas"
+                    ],
+                    [
+                      "**Externo** (fora do controle)",
+                      "oportunidades",
+                      "ameaças"
+                    ]
+                  ]
+                },
+                "atencao": "Lei nova que amplia as competências da agência é **oportunidade** (externa), não força. Quadro técnico qualificado é **força** (interna)."
+              },
+              {
+                "t": "Balanced Scorecard (Kaplan e Norton)",
+                "texto": "Traduz a estratégia em objetivos e indicadores em **quatro perspectivas** ligadas por relações de causa e efeito: **aprendizado e crescimento** sustenta **processos internos**, que geram valor para os **clientes**, que leva aos resultados **financeiros**.",
+                "depois": "No setor público, costuma-se colocar a **sociedade** (ou o cidadão) no topo e tratar o financeiro como meio, porque o objetivo não é lucro.",
+                "porque": "Indicadores só financeiros olham para trás. O BSC acrescenta indicadores que antecipam o desempenho, como capacitação e qualidade dos processos."
+              },
+              {
+                "t": "Governança pública (Decreto 9.203/2017)",
+                "texto": "Governança é o conjunto de mecanismos de **liderança, estratégia e controle** para avaliar, direcionar e monitorar a gestão, com vistas à condução de políticas públicas e à prestação de serviços de interesse da sociedade.",
+                "lista": [
+                  "**capacidade de resposta**",
+                  "**integridade**",
+                  "**confiabilidade**",
+                  "**melhoria regulatória**",
+                  "**prestação de contas e responsabilidade**",
+                  "**transparência**"
+                ],
+                "mnemo": "Governança **dirige e monitora**; gestão **executa**. A banca troca os papéis."
+              }
+            ]
+          },
+          "chave": [
+            "SWOT: forças e fraquezas são internas; oportunidades e ameaças, externas.",
+            "BSC: financeira, clientes, processos internos, aprendizado e crescimento.",
+            "Setor público: sociedade no topo do mapa estratégico.",
+            "Decreto 9.203: capacidade de resposta, integridade, confiabilidade, melhoria regulatória, prestação de contas e transparência.",
+            "Governança avalia, direciona e monitora; gestão executa."
+          ],
+          "armadilhas": [
+            "Classificar mudança na lei, externa, como força.",
+            "Incluir eficiência entre os princípios de governança do Decreto 9.203.",
+            "Dizer que o BSC usa só indicadores financeiros.",
+            "Confundir governança com gestão."
+          ],
+          "blocos": [
+            "gestao-publica"
+          ],
+          "termos": [
+            "estratégi",
+            "BSC",
+            "SWOT",
+            "balanced",
+            "governança pública",
+            "9\\.203",
+            "missão",
+            "visão de futuro",
+            "indicador"
+          ]
+        },
+        {
+          "id": "gp-dados",
+          "nome": "Dados, qualidade e governança de dados",
+          "resumo": "A roda DAMA-DMBOK, papéis na governança de dados, dimensões de qualidade, metadados e BI.",
+          "artigos": [],
+          "licao": {
+            "ideia": "Governança de dados é exercer **autoridade, controle e decisão compartilhada** sobre os dados como ativo. Na roda **DAMA-DMBOK**, ela fica no **centro**, e as outras dez áreas (arquitetura, segurança, qualidade, metadados e mais) giram em volta, seguindo suas políticas.",
+            "mapa": {
+              "centro": "Dados",
+              "ramos": [
+                {
+                  "t": "Roda DAMA",
+                  "f": [
+                    "governança no centro",
+                    "10 áreas ao redor"
+                  ]
+                },
+                {
+                  "t": "Papéis",
+                  "f": [
+                    "data owner: responde pelo dado",
+                    "data steward: cuida no dia a dia"
+                  ]
+                },
+                {
+                  "t": "Qualidade",
+                  "f": [
+                    "precisão",
+                    "completude",
+                    "consistência",
+                    "oportunidade",
+                    "validade",
+                    "unicidade"
+                  ]
+                },
+                {
+                  "t": "Metadados",
+                  "f": [
+                    "dados sobre dados",
+                    "técnicos, de negócio, de linhagem"
+                  ]
+                },
+                {
+                  "t": "BI",
+                  "f": [
+                    "data warehouse",
+                    "ETL",
+                    "OLAP"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "A roda DAMA-DMBOK v2",
+                "texto": "São **11 áreas** de conhecimento: a **governança de dados** no centro e, ao redor, arquitetura de dados; modelagem e design; armazenamento e operações; **segurança de dados**; integração e interoperabilidade; gestão de documentos e conteúdo; dados mestres e de referência; data warehousing e BI; **metadados**; e **qualidade de dados** (prof. Patrícia Quintão).",
+                "atencao": "Governança não é uma área entre iguais: ela dá as políticas, papéis e métricas que guiam as outras dez."
+              },
+              {
+                "t": "Qualidade de dados",
+                "tabela": {
+                  "cab": [
+                    "Dimensão",
+                    "Pergunta"
+                  ],
+                  "linhas": [
+                    [
+                      "**precisão**",
+                      "o dado reflete a realidade?"
+                    ],
+                    [
+                      "**completude**",
+                      "está tudo que é necessário?"
+                    ],
+                    [
+                      "**consistência**",
+                      "é igual em todas as fontes?"
+                    ],
+                    [
+                      "**oportunidade**",
+                      "está disponível quando se precisa?"
+                    ],
+                    [
+                      "**validade**",
+                      "segue as regras e formatos definidos?"
+                    ],
+                    [
+                      "**unicidade**",
+                      "não há duplicidade?"
+                    ]
+                  ]
+                },
+                "ex": "Na LGPD, o princípio da **qualidade dos dados** (art. 6º, V) pede exatidão, clareza, relevância e atualização: a mesma ideia, do ponto de vista do titular."
+              },
+              {
+                "t": "Metadados e BI",
+                "lista": [
+                  "**metadados** são dados sobre dados: o metadado técnico diz que o campo CPF tem 11 caracteres; o de negócio diz o que o CPF significa; o de **linhagem** diz de onde o dado veio e por onde passou",
+                  "**data warehouse**: repositório integrado, orientado a assunto, não volátil e variável no tempo, alimentado por **ETL** (extrair, transformar, carregar)",
+                  "**OLAP**: análise multidimensional (por tempo, região, produto); **data lake** guarda dados brutos, inclusive não estruturados"
+                ]
+              }
+            ]
+          },
+          "chave": [
+            "Governança de dados: autoridade, controle e decisão compartilhada sobre os dados.",
+            "DAMA-DMBOK v2: 11 áreas, governança no centro.",
+            "Data owner responde pelo dado; data steward cuida dele no dia a dia.",
+            "Qualidade: precisão, completude, consistência, oportunidade, validade e unicidade.",
+            "Metadados são dados sobre dados; linhagem mostra origem e caminho."
+          ],
+          "armadilhas": [
+            "Colocar a segurança de dados no centro da roda DAMA.",
+            "Dizer que metadados são os próprios dados do negócio.",
+            "Trocar completude por consistência.",
+            "Dizer que data warehouse é volátil e só guarda o dado atual."
+          ],
+          "blocos": [
+            "dados-bi"
+          ]
+        },
+        {
+          "id": "gp-orcamento",
+          "nome": "Orçamento público: PPA, LDO e LOA",
+          "resumo": "As três leis orçamentárias, a exclusividade da LOA, créditos adicionais e as etapas da despesa.",
+          "artigos": [
+            "cf88:165",
+            "cf88:167"
+          ],
+          "licao": {
+            "ideia": "O orçamento federal se organiza em três leis de **iniciativa do Executivo** (CF, art. 165): o **PPA** planeja quatro anos, a **LDO** traz metas e prioridades do ano e orienta a elaboração da **LOA**, que estima a receita e fixa a despesa do exercício.",
+            "mapa": {
+              "centro": "Orçamento",
+              "ramos": [
+                {
+                  "t": "PPA",
+                  "f": [
+                    "diretrizes, objetivos e metas",
+                    "regionalizado",
+                    "quatro anos"
+                  ]
+                },
+                {
+                  "t": "LDO",
+                  "f": [
+                    "metas e prioridades",
+                    "orienta a LOA",
+                    "política fiscal"
+                  ]
+                },
+                {
+                  "t": "LOA",
+                  "f": [
+                    "fiscal",
+                    "investimento das estatais",
+                    "seguridade social",
+                    "exclusividade"
+                  ]
+                },
+                {
+                  "t": "Créditos adicionais",
+                  "f": [
+                    "suplementar",
+                    "especial",
+                    "extraordinário"
+                  ]
+                },
+                {
+                  "t": "Despesa",
+                  "f": [
+                    "empenho",
+                    "liquidação",
+                    "pagamento"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "As três leis",
+                "tabela": {
+                  "cab": [
+                    "Lei",
+                    "Conteúdo"
+                  ],
+                  "linhas": [
+                    [
+                      "**PPA**",
+                      "de forma **regionalizada**, diretrizes, objetivos e metas para despesas de capital e programas de duração continuada (art. 165, § 1º)"
+                    ],
+                    [
+                      "**LDO**",
+                      "metas e prioridades, diretrizes de política fiscal e metas, orienta a elaboração da LOA, dispõe sobre alterações na legislação tributária (§ 2º)"
+                    ],
+                    [
+                      "**LOA**",
+                      "três orçamentos: **fiscal**, **de investimento das empresas** em que a União tem a maioria do capital votante e **da seguridade social** (§ 5º)"
+                    ]
+                  ]
+                },
+                "atencao": "Princípio da **exclusividade**: a LOA não contém dispositivo estranho à previsão da receita e à fixação da despesa, salvo autorização para créditos suplementares e operações de crédito, inclusive por antecipação de receita (§ 8º)."
+              },
+              {
+                "t": "Prazos de envio (ADCT, art. 35, § 2º)",
+                "tabela": {
+                  "cab": [
+                    "Projeto",
+                    "Envio ao Congresso",
+                    "Devolução para sanção"
+                  ],
+                  "linhas": [
+                    [
+                      "PPA",
+                      "até 4 meses antes do fim do primeiro exercício do mandato",
+                      "até o encerramento da sessão legislativa"
+                    ],
+                    [
+                      "LDO",
+                      "até 8 meses e meio antes do fim do exercício",
+                      "até o encerramento do primeiro período da sessão legislativa"
+                    ],
+                    [
+                      "LOA",
+                      "até 4 meses antes do fim do exercício",
+                      "até o encerramento da sessão legislativa"
+                    ]
+                  ]
+                },
+                "mnemo": "A LDO é a única devolvida no **meio do ano** (fim do primeiro período legislativo): sem ela aprovada, o Congresso não entra em recesso de julho."
+              },
+              {
+                "t": "Créditos adicionais e vedações",
+                "lista": [
+                  "vedado iniciar programa ou projeto não incluído na LOA (art. 167, I)",
+                  "vedado realizar despesa ou assumir obrigação que exceda os créditos orçamentários ou adicionais (II)",
+                  "vedado vincular receita de impostos a órgão, fundo ou despesa, salvo as exceções constitucionais (IV)"
+                ],
+                "tabela": {
+                  "cab": [
+                    "Crédito",
+                    "Para quê"
+                  ],
+                  "linhas": [
+                    [
+                      "**suplementar**",
+                      "reforçar dotação que já existe"
+                    ],
+                    [
+                      "**especial**",
+                      "despesa sem dotação específica no orçamento"
+                    ],
+                    [
+                      "**extraordinário**",
+                      "despesas **imprevisíveis e urgentes**, como guerra, comoção interna ou calamidade pública; na União, por medida provisória (art. 167, § 3º)"
+                    ]
+                  ]
+                },
+                "depois": "Etapas da despesa: **empenho** (reserva da dotação), **liquidação** (verificação de que o serviço ou bem foi entregue) e **pagamento**."
+              }
+            ]
+          },
+          "chave": [
+            "PPA, LDO e LOA são leis de iniciativa do Executivo.",
+            "LOA: orçamentos fiscal, de investimento das estatais e da seguridade social.",
+            "Exclusividade: LOA só prevê receita e fixa despesa, salvo créditos suplementares e operações de crédito.",
+            "Crédito extraordinário: despesas imprevisíveis e urgentes (guerra, comoção, calamidade).",
+            "Despesa: empenho, liquidação e pagamento."
+          ],
+          "armadilhas": [
+            "Dizer que a LOA pode tratar de qualquer matéria.",
+            "Trocar crédito especial (sem dotação) por suplementar (reforço).",
+            "Dizer que crédito extraordinário serve para qualquer despesa relevante.",
+            "Inverter liquidação e empenho."
+          ],
+          "blocos": [
+            "orcamento"
+          ]
+        }
+      ]
+    },
+    {
       "id": "constitucional",
       "nome": "Direito constitucional do zero",
       "resumo": "Da ideia de Constituição ao controle de constitucionalidade, na ordem em que a matéria faz sentido para quem começa.",
