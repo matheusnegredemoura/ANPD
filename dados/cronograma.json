@@ -3,7 +3,7 @@
   "prova": "2027-03-28",
   "doc": "https://claude.ai/code/artifact/dc438565-b7df-4271-adaa-11c991fa271e",
   "fases": [
-    { "id": "f1", "titulo": "Fase 1", "subtitulo": "LGPD prioridade 1 e as 3 resoluções máximas", "periodo": "05/10 a 25/10", "semanas": [
+    { "id": "f1", "titulo": "Fase 1", "subtitulo": "Primeiro contato e a base da LGPD (conceitos, princípios, bases legais)", "periodo": "05/10 a 25/10", "semanas": [
       { "titulo": "Semana 1", "periodo": "05/10 a 11/10", "dias": [
         { "data": "2026-10-05", "atividade": "Questões + leitura literal: LGPD arts. 17 a 22 (direitos do titular e decisão automatizada)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-17-22"], "n": 20 },
         { "data": "2026-10-06", "atividade": "Questões + leitura literal: LGPD arts. 52 a 54 (sanções e dosimetria)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-52-54"], "n": 20 },
@@ -21,142 +21,142 @@
         { "data": "2026-10-17", "atividade": "Bloco longo: bateria de questões (55-A a 58-B e 33-36) + discursiva: sanções da LGPD e dosimetria (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["lgpd-55", "lgpd-33-36", "ingles"], "n": 40, "disc": "sancoes" }
       ]},
       { "titulo": "Semana 3", "periodo": "19/10 a 25/10", "dias": [
-        { "data": "2026-10-19", "atividade": "Questões + leitura: Resoluções CD/ANPD 1/2021 (fiscalização e processo sancionador) e 4/2023 (dosimetria), com LGPD arts. 17 a 22 e 52 a 54", "duracao": "1h45", "modo": "treino", "blocos": ["res-1-2021", "res-4-2023", "lgpd-17-22", "lgpd-52-54"], "n": 30 },
-        { "data": "2026-10-20", "atividade": "Segurança da informação do zero: confidencialidade, integridade, disponibilidade e autenticidade; controles e o dever de segurança da LGPD (art. 46)", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo"], "n": 25 },
-        { "data": "2026-10-21", "atividade": "Questões + leitura: Resolução CD/ANPD 15/2024 (comunicação de incidente)", "duracao": "1h45", "modo": "treino", "blocos": ["res-15-2024", "lgpd-46-51"], "n": 20 },
-        { "data": "2026-10-22", "atividade": "Tronco fixo: revisão cruzada de Lei 13.848/2019 e Lei 9.784/1999 + Lei 13.460/2017", "duracao": "1h45", "modo": "treino", "blocos": ["lei-13848", "lei-9784", "regulacao-teoria", "lei-13460"], "n": 15 },
-        { "data": "2026-10-23", "atividade": "Revisão geral da Fase 1: todos os erros acumulados das 3 semanas + discursiva: comunicação de incidente de segurança (Mais → Treino de discursiva)", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 40, "disc": "incidente" },
-        { "data": "2026-10-24", "atividade": "Simulado curto: LGPD prioridade 1 completa + as 3 resoluções máximas (1/2021, 4/2023 e 15/2024)", "duracao": "3h", "modo": "simulado", "blocos": ["lgpd-17-22", "lgpd-52-54", "lgpd-55", "lgpd-33-36", "res-1-2021", "res-4-2023", "res-15-2024"], "n": 40 }
+        { "data": "2026-10-19", "atividade": "LGPD do zero: conceitos-chave do art. 5º (dado pessoal, sensível e anonimizado; titular, controlador e operador)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-5-11"], "n": 25, "st": "pd-conceitos" },
+        { "data": "2026-10-20", "atividade": "LGPD do zero: os dez princípios e a boa-fé (art. 6º)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-5-11"], "n": 20, "st": "pd-principios" },
+        { "data": "2026-10-21", "atividade": "LGPD do zero: bases legais, quando se pode tratar dados (arts. 7º a 10)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-5-11"], "n": 20, "st": "pd-bases" },
+        { "data": "2026-10-22", "atividade": "Direito administrativo do zero: regime jurídico-administrativo e princípios", "duracao": "1h45", "modo": "treino", "blocos": ["administrativo"], "n": 15, "st": "adm-principios" },
+        { "data": "2026-10-23", "atividade": "Revisão da lista curta da semana + discursiva: dados de acesso público e tornados públicos pelo titular (Mais → Treino de discursiva)", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 40, "disc": "dados-publicos" },
+        { "data": "2026-10-24", "atividade": "Bloco longo: dados sensíveis e dados de crianças e adolescentes (arts. 11 e 14) + português", "duracao": "3h", "modo": "treino", "blocos": ["lgpd-5-11", "lgpd-1-4-14", "portugues"], "n": 30, "st": "pd-sensiveis" }
       ]}
     ]},
-    { "id": "f2", "titulo": "Fase 2", "subtitulo": "LGPD prioridade 2 e mais 2 resoluções", "periodo": "26/10 a 08/11", "semanas": [
+    { "id": "f2", "titulo": "Fase 2", "subtitulo": "LGPD do zero: dados sensíveis, titular, Poder Público, transferência, agentes e segurança", "periodo": "26/10 a 08/11", "semanas": [
       { "titulo": "Semana 4", "periodo": "26/10 a 01/11", "dias": [
-        { "data": "2026-10-26", "atividade": "Questões + leitura literal: LGPD arts. 5º a 16 (conceitos, princípios, bases legais, anonimização)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-5-11", "lgpd-12-16"], "n": 30 },
-        { "data": "2026-10-27", "atividade": "Questões + leitura literal: LGPD arts. 23 a 32 (Poder Público)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-23-32"], "n": 20 },
-        { "data": "2026-10-28", "atividade": "Questões + leitura: Resolução CD/ANPD 19/2024 (transferência internacional e cláusulas-padrão)", "duracao": "1h45", "modo": "treino", "blocos": ["res-19-2024", "lgpd-33-36"], "n": 20 },
-        { "data": "2026-10-29", "atividade": "Vídeo introdutório + leitura: regulação e teoria da captura", "duracao": "1h45", "modo": "treino", "blocos": ["regulacao-teoria"], "n": 15 },
+        { "data": "2026-10-26", "atividade": "LGPD do zero: anonimização, pesquisa e término do tratamento (arts. 12 a 16)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-12-16"], "n": 25, "st": "pd-anonimizacao" },
+        { "data": "2026-10-27", "atividade": "LGPD do zero: direitos do titular e decisões automatizadas (arts. 17 a 22)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-17-22"], "n": 25, "st": "pd-direitos" },
+        { "data": "2026-10-28", "atividade": "LGPD do zero: tratamento de dados pelo Poder Público (arts. 23 a 32)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-23-32"], "n": 20, "st": "pd-poder-publico" },
+        { "data": "2026-10-29", "atividade": "Direito administrativo do zero: organização administrativa (administração direta e indireta, autarquias, agências e a ANPD)", "duracao": "1h45", "modo": "treino", "blocos": ["administrativo", "lei-13848"], "n": 15, "st": "adm-organizacao" },
         { "data": "2026-10-30", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
-        { "data": "2026-10-31", "atividade": "Bloco longo: bateria de questões (arts. 5-16 e 23-32) + discursiva curta: transferência internacional (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["lgpd-5-11", "lgpd-12-16", "lgpd-23-32", "portugues"], "n": 40, "disc": "transferencia" }
+        { "data": "2026-10-31", "atividade": "Bloco longo: bateria de LGPD arts. 1º a 32 (o que já foi estudado) + português + discursiva: direitos do titular e seu exercício (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["lgpd-1-4-14", "lgpd-5-11", "lgpd-12-16", "lgpd-17-22", "lgpd-23-32", "portugues"], "n": 40, "disc": "direitos-titular" }
       ]},
       { "titulo": "Semana 5", "periodo": "02/11 a 08/11", "dias": [
-        { "data": "2026-11-02", "atividade": "Questões + leitura literal: LGPD arts. 46 a 51 (segurança, incidente, boas práticas)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-46-51"], "n": 20 },
-        { "data": "2026-11-03", "atividade": "Questões + leitura: ISO/IEC 27001 e 27002 (sistema de gestão e controles de segurança) e ISO 31000 (gestão de riscos)", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo", "riscos"], "n": 30 },
-        { "data": "2026-11-04", "atividade": "Questões + leitura: Resolução CD/ANPD 18/2024 (atuação do encarregado)", "duracao": "1h45", "modo": "treino", "blocos": ["res-18-2024", "lgpd-37-45"], "n": 20 },
-        { "data": "2026-11-05", "atividade": "Questões: políticas públicas, gestão estratégica, projetos, processos e riscos (o maior bloco da prova específica da Anatel 2024) + gestão de riscos (ISO 31000, três linhas, matriz)", "duracao": "1h45", "modo": "treino", "blocos": ["gestao-publica", "regulacao-teoria", "riscos"], "n": 20 },
+        { "data": "2026-11-02", "atividade": "LGPD do zero: transferência internacional (arts. 33 a 36 e Resolução 19/2024)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-33-36", "res-19-2024", "res-32-2026"], "n": 20, "st": "pd-transferencia" },
+        { "data": "2026-11-03", "atividade": "LGPD do zero: agentes de tratamento, encarregado e responsabilidade (arts. 37 a 45 e Resolução 18/2024)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-37-45", "res-18-2024", "res-2-2022"], "n": 25, "st": "pd-agentes" },
+        { "data": "2026-11-04", "atividade": "LGPD do zero: segurança, incidentes e boas práticas (arts. 46 a 51 e Resolução 15/2024)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-46-51", "res-15-2024"], "n": 25, "st": "pd-seguranca" },
+        { "data": "2026-11-05", "atividade": "Direito administrativo do zero: poderes administrativos e poder de polícia", "duracao": "1h45", "modo": "treino", "blocos": ["administrativo"], "n": 20, "st": "adm-poderes" },
         { "data": "2026-11-06", "atividade": "Revisão geral da Fase 2: erros acumulados + discursiva: segurança, boas práticas e governança (Mais → Treino de discursiva)", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 40, "disc": "seguranca-governanca" },
-        { "data": "2026-11-07", "atividade": "Simulado curto: LGPD prioridade 1 + prioridade 2 (acumulativo)", "duracao": "3h", "modo": "simulado", "blocos": ["lgpd-17-22", "lgpd-52-54", "lgpd-55", "lgpd-33-36", "lgpd-5-11", "lgpd-12-16", "lgpd-23-32", "lgpd-46-51"], "n": 50 }
+        { "data": "2026-11-07", "atividade": "Simulado curto: LGPD arts. 1º a 51 (tudo o que já foi estudado)", "duracao": "3h", "modo": "simulado", "blocos": ["lgpd-1-4-14", "lgpd-5-11", "lgpd-12-16", "lgpd-17-22", "lgpd-23-32", "lgpd-33-36", "lgpd-37-45", "lgpd-46-51"], "n": 50 }
       ]}
     ]},
-    { "id": "f3", "titulo": "Fase 3", "subtitulo": "ECA Digital, plataformas, IA e mais 2 resoluções", "periodo": "09/11 a 22/11", "semanas": [
+    { "id": "f3", "titulo": "Fase 3", "subtitulo": "Sanções e ANPD, ECA Digital e o começo de segurança da informação", "periodo": "09/11 a 22/11", "semanas": [
       { "titulo": "Semana 6", "periodo": "09/11 a 15/11", "dias": [
-        { "data": "2026-11-09", "atividade": "Leitura + questões: Lei 15.211/2025 (ECA Digital), parte 1", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital", "lgpd-1-4-14"], "n": 20 },
-        { "data": "2026-11-10", "atividade": "Leitura + questões: Decreto 12.880/2026 (regulamenta o ECA Digital)", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital", "lgpd-1-4-14"], "n": 20 },
-        { "data": "2026-11-11", "atividade": "Questões + leitura: Resolução CD/ANPD 2/2022 (pequeno porte)", "duracao": "1h45", "modo": "treino", "blocos": ["res-2-2022", "lgpd-55", "lgpd-37-45"], "n": 20 },
-        { "data": "2026-11-12", "atividade": "Vídeo introdutório + questões: economia, estatística, avaliação de impacto, orçamento público e dados (qualidade, BI e governança de dados)", "duracao": "1h45", "modo": "treino", "blocos": ["economia", "dados-bi", "orcamento", "contabilidade"], "n": 20 },
+        { "data": "2026-11-09", "atividade": "LGPD do zero: fiscalização e sanções (arts. 52 a 54 e Resoluções 1/2021 e 4/2023)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-52-54", "res-1-2021", "res-4-2023"], "n": 25, "st": "pd-sancoes" },
+        { "data": "2026-11-10", "atividade": "LGPD do zero: a ANPD e o CNPD (arts. 55-A a 58-B, com a Lei 15.352/2026)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-55"], "n": 20, "st": "pd-anpd" },
+        { "data": "2026-11-11", "atividade": "ECA Digital do zero: criança e adolescente, a base da proteção", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital", "lgpd-1-4-14", "constitucional"], "n": 20, "st": "ed-base" },
+        { "data": "2026-11-12", "atividade": "Direito administrativo do zero: atos administrativos", "duracao": "1h45", "modo": "treino", "blocos": ["administrativo"], "n": 20, "st": "adm-atos" },
         { "data": "2026-11-13", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
-        { "data": "2026-11-14", "atividade": "Bloco longo: ECA Digital, decreto e Resolução 2/2022 + discursiva curta: encarregado (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["eca-digital", "res-2-2022", "lgpd-1-4-14", "ingles"], "n": 40, "disc": "encarregado" }
+        { "data": "2026-11-14", "atividade": "Bloco longo: segurança da informação do zero (confidencialidade, integridade e disponibilidade) + inglês + discursiva: encarregado (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["seginfo", "ingles"], "n": 30, "st": "sg-principios", "disc": "encarregado" }
       ]},
       { "titulo": "Semana 7", "periodo": "16/11 a 22/11", "dias": [
-        { "data": "2026-11-16", "atividade": "Leitura + questões: Marco Civil, Decreto 8.771/2016 e responsabilidade das plataformas", "duracao": "1h45", "modo": "treino", "blocos": ["marco-civil", "eca-digital", "constitucional"], "n": 20 },
-        { "data": "2026-11-17", "atividade": "Leitura + questões: IA generativa, decisões automatizadas e limites regulatórios", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-17-22", "gdpr", "regulacao-teoria", "ia"], "n": 20 },
-        { "data": "2026-11-18", "atividade": "Questões + leitura: Resolução CD/ANPD 32/2026 (adequação da União Europeia)", "duracao": "1h45", "modo": "treino", "blocos": ["res-32-2026", "gdpr", "lgpd-33-36"], "n": 20 },
-        { "data": "2026-11-19", "atividade": "Revisão cruzada: teoria da regulação, gestão pública, dados e economia", "duracao": "1h45", "modo": "treino", "blocos": ["regulacao-teoria", "gestao-publica", "dados-bi", "economia", "riscos"], "n": 25 },
+        { "data": "2026-11-16", "atividade": "ECA Digital do zero: a quem se aplica e quem fiscaliza", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital"], "n": 20, "st": "ed-alcance" },
+        { "data": "2026-11-17", "atividade": "ECA Digital do zero: segurança e privacidade por padrão", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital"], "n": 20, "st": "ed-padrao" },
+        { "data": "2026-11-18", "atividade": "ECA Digital do zero: verificação de idade, lojas de aplicativos e redes sociais", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital"], "n": 20, "st": "ed-idade" },
+        { "data": "2026-11-19", "atividade": "Direito administrativo do zero: processo administrativo federal (Lei 9.784/1999)", "duracao": "1h45", "modo": "treino", "blocos": ["lei-9784"], "n": 25, "st": "adm-processo" },
         { "data": "2026-11-20", "atividade": "Revisão geral da Fase 3 + discursiva: ECA Digital, deveres das plataformas e atuação da ANPD (Mais → Treino de discursiva)", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 40, "disc": "eca-digital" },
-        { "data": "2026-11-21", "atividade": "Simulado curto: ECA Digital, plataformas, IA e resoluções 2/2022 e 32/2026", "duracao": "3h", "modo": "simulado", "blocos": ["eca-digital", "marco-civil", "res-2-2022", "res-32-2026", "gdpr", "regulacao-teoria", "economia", "lgpd-17-22"], "n": 40 }
+        { "data": "2026-11-21", "atividade": "Bloco longo: ameaças, vulnerabilidades e ataques + português", "duracao": "3h", "modo": "treino", "blocos": ["seginfo", "portugues"], "n": 30, "st": "sg-ameacas" }
       ]}
     ]},
-    { "id": "f4", "titulo": "Fase 4", "subtitulo": "Segurança da informação, LGPD prioridade 3 e tronco completo", "periodo": "23/11 a 06/12", "semanas": [
+    { "id": "f4", "titulo": "Fase 4", "subtitulo": "ECA Digital, segurança da informação e o começo de regulação", "periodo": "23/11 a 06/12", "semanas": [
       { "titulo": "Semana 8", "periodo": "23/11 a 29/11", "dias": [
-        { "data": "2026-11-23", "atividade": "Leitura + questões: segurança da informação e privacidade desde a concepção", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo", "lgpd-46-51"], "n": 25 },
-        { "data": "2026-11-24", "atividade": "Questões + leitura literal: LGPD arts. 37 a 45 (agentes, encarregado, responsabilidade)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-37-45"], "n": 20 },
-        { "data": "2026-11-25", "atividade": "Questões + leitura: NIST CSF 2.0 e governança de dados (DAMA-DMBOK, qualidade e metadados)", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo", "dados-bi"], "n": 20 },
-        { "data": "2026-11-26", "atividade": "Tronco fixo: Lei 13.848/2019 e Lei 9.784/1999, revisão final combinada + Lei 13.460/2017", "duracao": "1h45", "modo": "treino", "blocos": ["lei-13848", "lei-9784", "regulacao-teoria", "lei-13460"], "n": 20 },
+        { "data": "2026-11-23", "atividade": "ECA Digital do zero: supervisão parental, jogos e publicidade", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital"], "n": 20, "st": "ed-supervisao" },
+        { "data": "2026-11-24", "atividade": "ECA Digital do zero: conteúdo ilegal, denúncias, transparência e sanções", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital"], "n": 20, "st": "ed-fiscalizacao" },
+        { "data": "2026-11-25", "atividade": "Segurança da informação do zero: criptografia, hash, assinatura e certificado digital", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo"], "n": 20, "st": "sg-cripto" },
+        { "data": "2026-11-26", "atividade": "Regulação do zero: por que e como o Estado regula", "duracao": "1h45", "modo": "treino", "blocos": ["regulacao-teoria", "economia"], "n": 20, "st": "rg-por-que" },
         { "data": "2026-11-27", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
-        { "data": "2026-11-28", "atividade": "Bloco longo: segurança da informação e LGPD prioridade 3 + discursiva: comunicação de incidente de segurança (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["seginfo", "lgpd-37-45", "lgpd-1-4-14", "portugues"], "n": 40, "disc": "incidente" }
+        { "data": "2026-11-28", "atividade": "Bloco longo: ISO/IEC 27001 e 27002 (sistema de gestão e controles) + inglês + discursiva: comunicação de incidente de segurança (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["seginfo", "riscos", "ingles"], "n": 30, "st": "sg-iso", "disc": "incidente" }
       ]},
       { "titulo": "Semana 9", "periodo": "30/11 a 06/12", "dias": [
-        { "data": "2026-11-30", "atividade": "Questões mistas: LGPD prioridade 3 + segurança da informação", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo", "lgpd-37-45", "lgpd-1-4-14"], "n": 30 },
-        { "data": "2026-12-01", "atividade": "Simulado parcial: LGPD completa (prioridades 1, 2 e 3 intercaladas)", "duracao": "1h45", "modo": "simulado", "blocos": ["lgpd-17-22", "lgpd-52-54", "lgpd-55", "lgpd-33-36", "lgpd-5-11", "lgpd-12-16", "lgpd-23-32", "lgpd-46-51", "lgpd-37-45", "lgpd-1-4-14"], "n": 50 },
-        { "data": "2026-12-02", "atividade": "Revisão das resoluções em conjunto: questões cruzadas", "duracao": "1h45", "modo": "treino", "blocos": ["res-1-2021", "res-4-2023", "res-15-2024", "res-19-2024", "res-18-2024", "res-2-2022", "res-32-2026"], "n": 30 },
-        { "data": "2026-12-03", "atividade": "Revisão geral do tronco regulatório (Lei 13.848/2019 + Lei 9.784/1999)", "duracao": "1h45", "modo": "treino", "blocos": ["lei-13848", "lei-9784", "regulacao-teoria"], "n": 25 },
+        { "data": "2026-11-30", "atividade": "Segurança da informação do zero: gestão de riscos (ISO 31000)", "duracao": "1h45", "modo": "treino", "blocos": ["riscos", "seginfo"], "n": 25, "st": "sg-riscos" },
+        { "data": "2026-12-01", "atividade": "Simulado: LGPD completa, do art. 1º ao 58-B", "duracao": "1h45", "modo": "simulado", "blocos": ["lgpd-1-4-14", "lgpd-5-11", "lgpd-12-16", "lgpd-17-22", "lgpd-23-32", "lgpd-33-36", "lgpd-37-45", "lgpd-46-51", "lgpd-52-54", "lgpd-55"], "n": 50 },
+        { "data": "2026-12-02", "atividade": "Segurança da informação do zero: NIST CSF 2.0 e incidentes no governo federal", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo"], "n": 25, "st": "sg-nist" },
+        { "data": "2026-12-03", "atividade": "Regulação do zero: teorias da regulação (interesse público, captura e escolha pública)", "duracao": "1h45", "modo": "treino", "blocos": ["regulacao-teoria", "economia"], "n": 20, "st": "rg-teorias" },
         { "data": "2026-12-04", "atividade": "Revisão geral da Fase 4 + discursiva: fiscalização responsiva da ANPD (Mais → Treino de discursiva)", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 40, "disc": "fiscalizacao" },
-        { "data": "2026-12-05", "atividade": "Simulado curto: LGPD + resoluções + ECA Digital acumulado", "duracao": "3h", "modo": "simulado", "blocos": [], "n": 60 }
+        { "data": "2026-12-05", "atividade": "Simulado curto: LGPD, resoluções da ANPD, ECA Digital e segurança da informação", "duracao": "3h", "modo": "simulado", "blocos": ["lgpd-5-11", "lgpd-17-22", "lgpd-33-36", "lgpd-46-51", "lgpd-52-54", "lgpd-55", "res-1-2021", "res-4-2023", "res-15-2024", "res-18-2024", "res-19-2024", "eca-digital", "seginfo"], "n": 60 }
       ]}
     ]},
-    { "id": "f5", "titulo": "Fase 5", "subtitulo": "Direito constitucional e administrativo, comparado, economia e simulados gerais", "periodo": "07/12 a 22/12", "semanas": [
+    { "id": "f5", "titulo": "Fase 5", "subtitulo": "Segurança, direito constitucional e regulação, e o primeiro simulado completo", "periodo": "07/12 a 22/12", "semanas": [
       { "titulo": "Semana 10", "periodo": "07/12 a 13/12", "dias": [
-        { "data": "2026-12-07", "atividade": "Leitura + questões: direito constitucional (direitos fundamentais e proteção de dados)", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional"], "n": 15 },
-        { "data": "2026-12-08", "atividade": "Leitura + questões: direito administrativo (poder de polícia, processo administrativo aplicado à ANPD)", "duracao": "1h45", "modo": "treino", "blocos": ["administrativo", "lai", "etica-improbidade", "lei-9784", "constitucional", "lgpd-55"], "n": 20 },
-        { "data": "2026-12-09", "atividade": "Leitura + questões: GDPR comparado (adequação, cláusulas-padrão)", "duracao": "1h45", "modo": "treino", "blocos": ["gdpr", "lgpd-33-36"], "n": 25 },
-        { "data": "2026-12-10", "atividade": "Vídeo + leitura: economia e estatística aplicadas à regulação", "duracao": "1h45", "modo": "treino", "blocos": ["economia"], "n": 15 },
+        { "data": "2026-12-07", "atividade": "Segurança da informação do zero: privacidade desde a concepção e por padrão", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo", "lgpd-46-51"], "n": 20, "st": "sg-privacidade" },
+        { "data": "2026-12-08", "atividade": "Direito constitucional do zero: Constituição, poder constituinte, emendas e eficácia das normas", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional"], "n": 20, "st": "const-eficacia" },
+        { "data": "2026-12-09", "atividade": "Direito constitucional do zero: princípios fundamentais e forma de Estado e de governo", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional"], "n": 20, "st": "const-principios" },
+        { "data": "2026-12-10", "atividade": "Regulação do zero: agências reguladoras, natureza especial, decisões e controle (Lei 13.848/2019)", "duracao": "1h45", "modo": "treino", "blocos": ["lei-13848"], "n": 20, "st": "rg-agencias" },
         { "data": "2026-12-11", "atividade": "Revisão dos erros da semana", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
-        { "data": "2026-12-12", "atividade": "Bloco longo: simulado misto (constitucional, administrativo, comparado) + discursiva: agências reguladoras e AIR (Mais → Treino de discursiva)", "duracao": "3h", "modo": "simulado", "blocos": ["lai", "etica-improbidade", "constitucional", "lei-9784", "administrativo", "gestao-publica", "gdpr", "economia", "ingles", "portugues", "lei-13460", "riscos", "ia"], "n": 40, "disc": "agencias-air" }
+        { "data": "2026-12-12", "atividade": "Bloco longo: direitos e garantias fundamentais (art. 5º, com a proteção de dados da EC 115/2022) + inglês + discursiva: agências reguladoras e AIR (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["constitucional", "ingles"], "n": 30, "st": "const-direitos", "disc": "agencias-air" }
       ]},
       { "titulo": "Semana 11", "periodo": "14/12 a 20/12", "dias": [
-        { "data": "2026-12-14", "atividade": "Simulado completo nº 1: todas as disciplinas, cronometrado", "duracao": "1h45", "modo": "simulado", "blocos": [], "n": 80 },
-        { "data": "2026-12-15", "atividade": "Correção do simulado + leitura dos dispositivos errados", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
-        { "data": "2026-12-16", "atividade": "Simulado completo nº 2: todas as disciplinas, cronometrado", "duracao": "1h45", "modo": "simulado", "blocos": [], "n": 80 },
-        { "data": "2026-12-17", "atividade": "Correção do simulado + leitura dos dispositivos errados", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
-        { "data": "2026-12-18", "atividade": "Revisão geral: lista acumulada de erros de todo o período + discursiva: decisões automatizadas e direito à revisão (Mais → Treino de discursiva)", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 50, "disc": "decisao-automatizada" },
-        { "data": "2026-12-19", "atividade": "Simulado completo nº 3: todas as disciplinas, cronometrado", "duracao": "3h", "modo": "simulado", "blocos": [], "n": 120 }
+        { "data": "2026-12-14", "atividade": "Direito constitucional do zero: remédios constitucionais (habeas data e os demais)", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional"], "n": 20, "st": "const-remedios" },
+        { "data": "2026-12-15", "atividade": "Direito constitucional do zero: direitos sociais, nacionalidade e direitos políticos", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional"], "n": 20, "st": "const-nacionalidade" },
+        { "data": "2026-12-16", "atividade": "Regulação do zero: AIR, ARR, consulta pública e agenda regulatória", "duracao": "1h45", "modo": "treino", "blocos": ["regulacao-teoria", "lei-13848"], "n": 20, "st": "rg-participacao" },
+        { "data": "2026-12-17", "atividade": "Regulação do zero: regulação responsiva e a fiscalização da ANPD", "duracao": "1h45", "modo": "treino", "blocos": ["res-1-2021", "regulacao-teoria"], "n": 20, "st": "rg-responsiva" },
+        { "data": "2026-12-18", "atividade": "Revisão geral: lista curta acumulada de tudo o que já foi estudado + discursiva: decisões automatizadas e o direito à revisão (Mais → Treino de discursiva)", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 50, "disc": "decisao-automatizada" },
+        { "data": "2026-12-19", "atividade": "Simulado completo nº 1, cronometrado: um diagnóstico antes do edital (o que ainda não foi estudado vai errar, e tudo bem)", "duracao": "3h", "modo": "simulado", "blocos": [], "n": 120 }
       ]},
       { "titulo": "Reta final", "periodo": "21/12 a 22/12", "dias": [
         { "data": "2026-12-21", "atividade": "Revisão livre dos pontos mais fracos dos 3 simulados + checagem de notícia de edital + discursiva curta: dados pessoais de acesso público (Mais → Treino de discursiva)", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 30, "disc": "dados-publicos" },
         { "data": "2026-12-22", "atividade": "Prazo legal máximo do edital: revisão livre e checagem de notícia de edital + discursiva: segurança, boas práticas e governança (Mais → Treino de discursiva)", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 30, "disc": "seguranca-governanca" }
-      ], "nota": "Se o edital não sair até 22/12, a Fase 6 segue em ciclos pelos blocos de prioridade até a prova provável; os simulados apontam onde reforçar." }
+      ], "nota": "Se o edital não sair até 22/12, a Fase 6 completa a primeira volta até 04/02 (direito constitucional e administrativo, economia, gestão e comparado) e depois segue em ciclos pelos blocos de prioridade até a prova provável; os simulados apontam onde reforçar." }
     ]},
-    { "id": "f6", "titulo": "Fase 6", "subtitulo": "Até a prova provável: ciclos de prioridade, simulados quinzenais e revisão", "periodo": "23/12 a 28/03", "semanas": [
+    { "id": "f6", "titulo": "Fase 6", "subtitulo": "Até a prova provável: completar a primeira volta (direito, economia, gestão e comparado) e ciclos de revisão com simulados", "periodo": "23/12 a 28/03", "semanas": [
       { "titulo": "Semana 12", "periodo": "23/12 a 27/12", "dias": [
-        { "data": "2026-12-23", "atividade": "Questões + leitura: ECA Digital e decretos", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital"], "n": 20 },
+        { "data": "2026-12-23", "atividade": "Direito constitucional do zero: organização do Estado e repartição de competências", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional"], "n": 20, "st": "const-organizacao" },
         { "data": "2026-12-24", "atividade": "Véspera de Natal: revisão leve, só o que venceu na revisão espaçada", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 20 },
         { "data": "2026-12-25", "atividade": "Natal: revisão leve, só o que venceu na revisão espaçada", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 20 },
         { "data": "2026-12-26", "atividade": "Simulado completo cronometrado (120 itens, uma errada anula uma certa) + correção pelos dispositivos errados", "duracao": "4h", "modo": "simulado", "blocos": [], "n": 120 }
       ]},
       { "titulo": "Semana 13", "periodo": "28/12 a 03/01", "dias": [
-        { "data": "2026-12-28", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 17 a 22 (direitos do titular)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-17-22"], "n": 25 },
-        { "data": "2026-12-29", "atividade": "Gestão: políticas públicas (ciclo de políticas), gestão estratégica e governança de dados", "duracao": "1h45", "modo": "treino", "blocos": ["gestao-publica", "dados-bi"], "n": 25 },
-        { "data": "2026-12-30", "atividade": "Questões + leitura: Marco Civil e deveres das plataformas + ECA Digital e decretos + IA e proteção de dados", "duracao": "1h45", "modo": "treino", "blocos": ["marco-civil", "eca-digital", "ia"], "n": 20 },
+        { "data": "2026-12-28", "atividade": "Direito constitucional do zero: administração pública na Constituição (arts. 37 a 41)", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional", "administrativo"], "n": 20, "st": "const-adm-publica" },
+        { "data": "2026-12-29", "atividade": "Economia do zero: oferta, demanda e elasticidade", "duracao": "1h45", "modo": "treino", "blocos": ["economia"], "n": 20, "st": "ec-mercado" },
+        { "data": "2026-12-30", "atividade": "Marco Civil da Internet, deveres das plataformas e inteligência artificial", "duracao": "1h45", "modo": "treino", "blocos": ["marco-civil", "eca-digital", "ia"], "n": 20 },
         { "data": "2026-12-31", "atividade": "Véspera de Ano-Novo: revisão leve, só o que venceu", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 20 },
         { "data": "2027-01-01", "atividade": "Ano-Novo: revisão leve, só o que venceu", "duracao": "livre", "modo": "revisao", "blocos": [], "n": 20 },
-        { "data": "2027-01-02", "atividade": "Bloco longo: economia, políticas públicas e inglês + discursiva: tratamento de dados pelo Poder Público (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["economia", "gestao-publica", "ingles", "portugues", "riscos"], "n": 40, "disc": "poder-publico" }
+        { "data": "2027-01-02", "atividade": "Bloco longo: estruturas de mercado (concorrência, monopólio e oligopólio) + inglês e português + discursiva: tratamento de dados pelo Poder Público (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["economia", "regulacao-teoria", "ingles", "portugues"], "n": 40, "st": "ec-estruturas", "disc": "poder-publico" }
       ]},
       { "titulo": "Semana 14", "periodo": "04/01 a 10/01", "dias": [
-        { "data": "2027-01-04", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 52 a 54 (sanções) + Resolução 4/2023 (dosimetria)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-52-54", "res-4-2023"], "n": 25 },
-        { "data": "2027-01-05", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 23 a 32 (Poder Público) + LAI", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-23-32", "lai"], "n": 25 },
-        { "data": "2027-01-06", "atividade": "Questões + leitura: segurança da informação (NIST CSF, PNCiber, ISO)", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo"], "n": 25 },
-        { "data": "2027-01-07", "atividade": "Tronco regulatório e direito: Lei 13.848/2019 + AIR (Decreto 10.411/2020)", "duracao": "1h45", "modo": "treino", "blocos": ["lei-13848", "regulacao-teoria"], "n": 20 },
+        { "data": "2027-01-04", "atividade": "Direito constitucional do zero: Poder Legislativo, processo legislativo e fiscalização", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional"], "n": 20, "st": "const-legislativo" },
+        { "data": "2027-01-05", "atividade": "Economia do zero: estatística para quem avalia políticas", "duracao": "1h45", "modo": "treino", "blocos": ["economia"], "n": 20, "st": "ec-estatistica" },
+        { "data": "2027-01-06", "atividade": "Direito administrativo do zero: agentes públicos e Lei 8.112/1990", "duracao": "1h45", "modo": "treino", "blocos": ["administrativo", "etica-improbidade"], "n": 20, "st": "adm-agentes" },
+        { "data": "2027-01-07", "atividade": "Direito administrativo do zero: responsabilidade civil do Estado", "duracao": "1h45", "modo": "treino", "blocos": ["administrativo"], "n": 20, "st": "adm-responsabilidade" },
         { "data": "2027-01-08", "atividade": "Revisão da lista curta de erros da semana + questões de reforço + discursiva: sanções da LGPD e dosimetria (Mais → Treino de discursiva)", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30, "disc": "sancoes" },
         { "data": "2027-01-09", "atividade": "Simulado completo cronometrado (120 itens, uma errada anula uma certa) + correção pelos dispositivos errados", "duracao": "4h", "modo": "simulado", "blocos": [], "n": 120 }
       ]},
       { "titulo": "Semana 15", "periodo": "11/01 a 17/01", "dias": [
-        { "data": "2027-01-11", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 55-A a 58-B (a ANPD) + Resolução 1/2021 (fiscalização e processo sancionador)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-55", "res-1-2021"], "n": 25 },
-        { "data": "2027-01-12", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 46 a 51 (segurança e boas práticas) + Resolução 15/2024 (incidente)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-46-51", "res-15-2024"], "n": 25 },
-        { "data": "2027-01-13", "atividade": "Questões + leitura: GDPR e Convenção 108+ + LGPD arts. 33 a 36 (transferência internacional)", "duracao": "1h45", "modo": "treino", "blocos": ["gdpr", "lgpd-33-36"], "n": 20 },
-        { "data": "2027-01-14", "atividade": "Tronco regulatório e direito: Lei 9.784/1999 + direito administrativo (poder de polícia e atos) + Lei 13.460/2017", "duracao": "1h45", "modo": "treino", "blocos": ["lei-9784", "administrativo", "lei-13460"], "n": 20 },
+        { "data": "2027-01-11", "atividade": "Direito constitucional do zero: Poder Executivo", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional"], "n": 20, "st": "const-executivo" },
+        { "data": "2027-01-12", "atividade": "Economia e gestão do zero: avaliação de impacto e custo-benefício", "duracao": "1h45", "modo": "treino", "blocos": ["gestao-publica", "economia"], "n": 20, "st": "ec-avaliacao" },
+        { "data": "2027-01-13", "atividade": "Direito comparado: GDPR e Convenção 108+, ao lado da transferência internacional da LGPD", "duracao": "1h45", "modo": "treino", "blocos": ["gdpr", "lgpd-33-36"], "n": 20 },
+        { "data": "2027-01-14", "atividade": "Direito administrativo do zero: controle da administração", "duracao": "1h45", "modo": "treino", "blocos": ["administrativo"], "n": 20, "st": "adm-controle" },
         { "data": "2027-01-15", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
-        { "data": "2027-01-16", "atividade": "Bloco longo: economia, orçamento público, políticas públicas e inglês + discursiva: decisões automatizadas e direito à revisão (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["economia", "gestao-publica", "ingles", "portugues", "riscos", "orcamento", "contabilidade"], "n": 40, "disc": "decisao-automatizada" }
+        { "data": "2027-01-16", "atividade": "Bloco longo: políticas públicas (ciclo, agenda e decisão) + inglês e português + discursiva: decisões automatizadas e o direito à revisão (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["gestao-publica", "ingles", "portugues"], "n": 40, "st": "gp-politicas", "disc": "decisao-automatizada" }
       ]},
       { "titulo": "Semana 16", "periodo": "18/01 a 24/01", "dias": [
-        { "data": "2027-01-18", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 33 a 36 (transferência internacional) + Resolução 19/2024 (cláusulas-padrão) + Resolução 32/2026 (adequação da UE)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-33-36", "res-19-2024", "res-32-2026"], "n": 25 },
-        { "data": "2027-01-19", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 12 a 16 + LGPD arts. 37 a 45 (agentes e responsabilidade) + Resolução 18/2024 (encarregado)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-12-16", "lgpd-37-45", "res-18-2024"], "n": 25 },
-        { "data": "2027-01-20", "atividade": "Questões + leitura: ECA Digital e decretos", "duracao": "1h45", "modo": "treino", "blocos": ["eca-digital"], "n": 20 },
-        { "data": "2027-01-21", "atividade": "Tronco regulatório e direito: Constituição (direitos fundamentais e EC 115/2022) + LAI", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional", "lai"], "n": 20 },
+        { "data": "2027-01-18", "atividade": "Direito constitucional do zero: Poder Judiciário e funções essenciais à justiça", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional"], "n": 20, "st": "const-judiciario" },
+        { "data": "2027-01-19", "atividade": "Gestão do zero: gestão estratégica, indicadores e governança pública", "duracao": "1h45", "modo": "treino", "blocos": ["gestao-publica"], "n": 20, "st": "gp-estrategia" },
+        { "data": "2027-01-20", "atividade": "Direito administrativo do zero: acesso à informação, transparência e governo digital (LAI)", "duracao": "1h45", "modo": "treino", "blocos": ["lai"], "n": 25, "st": "adm-lai" },
+        { "data": "2027-01-21", "atividade": "Direito administrativo do zero: improbidade administrativa e Lei Anticorrupção", "duracao": "1h45", "modo": "treino", "blocos": ["etica-improbidade"], "n": 20, "st": "adm-improbidade" },
         { "data": "2027-01-22", "atividade": "Revisão da lista curta de erros da semana + questões de reforço + discursiva: transferência internacional de dados (Mais → Treino de discursiva)", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30, "disc": "transferencia" },
         { "data": "2027-01-23", "atividade": "Simulado completo cronometrado (120 itens, uma errada anula uma certa) + correção pelos dispositivos errados", "duracao": "4h", "modo": "simulado", "blocos": [], "n": 120 }
       ]},
       { "titulo": "Semana 17", "periodo": "25/01 a 31/01", "dias": [
-        { "data": "2027-01-25", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 17 a 22 (direitos do titular)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-17-22"], "n": 25 },
-        { "data": "2027-01-26", "atividade": "Prioridade 2: questões + lei seca de LGPD arts. 1º a 4º e 14 + Resolução 2/2022 (pequeno porte)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-1-4-14", "res-2-2022"], "n": 25 },
-        { "data": "2027-01-27", "atividade": "Questões + leitura: Marco Civil e deveres das plataformas + ECA Digital e decretos + IA e proteção de dados", "duracao": "1h45", "modo": "treino", "blocos": ["marco-civil", "eca-digital", "ia"], "n": 20 },
-        { "data": "2027-01-28", "atividade": "Tronco regulatório e direito: Lei 13.848/2019 + Lei 9.784/1999 + ética, integridade e conflito de interesses", "duracao": "1h45", "modo": "treino", "blocos": ["lei-13848", "lei-9784", "etica-improbidade"], "n": 20 },
+        { "data": "2027-01-25", "atividade": "Direito constitucional do zero: controle de constitucionalidade", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional"], "n": 20, "st": "const-controle" },
+        { "data": "2027-01-26", "atividade": "Gestão do zero: dados, qualidade e governança de dados", "duracao": "1h45", "modo": "treino", "blocos": ["dados-bi"], "n": 20, "st": "gp-dados" },
+        { "data": "2027-01-27", "atividade": "Plataformas e IA: Marco Civil, ECA Digital e decisões automatizadas, em questões mistas", "duracao": "1h45", "modo": "treino", "blocos": ["marco-civil", "eca-digital", "ia"], "n": 20 },
+        { "data": "2027-01-28", "atividade": "Direito administrativo do zero: ética no serviço público e conflito de interesses", "duracao": "1h45", "modo": "treino", "blocos": ["etica-improbidade", "administrativo"], "n": 20, "st": "adm-etica" },
         { "data": "2027-01-29", "atividade": "Revisão da lista curta de erros da semana + questões de reforço", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30 },
-        { "data": "2027-01-30", "atividade": "Bloco longo: economia, políticas públicas, dados e inglês + discursiva: fiscalização responsiva da ANPD (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["economia", "gestao-publica", "ingles", "portugues", "riscos", "dados-bi"], "n": 40, "disc": "fiscalizacao" }
+        { "data": "2027-01-30", "atividade": "Bloco longo: orçamento público (PPA, LDO e LOA, Lei 4.320 e LRF) + noções de contabilidade + inglês e português + discursiva: fiscalização responsiva da ANPD (Mais → Treino de discursiva)", "duracao": "3h", "modo": "treino", "blocos": ["orcamento", "contabilidade", "ingles", "portugues"], "n": 40, "st": "gp-orcamento", "disc": "fiscalizacao" }
       ]},
       { "titulo": "Semana 18", "periodo": "01/02 a 07/02", "dias": [
-        { "data": "2027-02-01", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 52 a 54 (sanções) + Resolução 4/2023 (dosimetria)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-52-54", "res-4-2023"], "n": 25 },
-        { "data": "2027-02-02", "atividade": "Prioridade 1: questões + lei seca de LGPD arts. 5º a 11 (conceitos, princípios, bases legais)", "duracao": "1h45", "modo": "treino", "blocos": ["lgpd-5-11"], "n": 25 },
-        { "data": "2027-02-03", "atividade": "Questões + leitura: segurança da informação (NIST CSF, PNCiber, ISO)", "duracao": "1h45", "modo": "treino", "blocos": ["seginfo"], "n": 25 },
-        { "data": "2027-02-04", "atividade": "Tronco regulatório e direito: Lei 13.848/2019 + AIR (Decreto 10.411/2020)", "duracao": "1h45", "modo": "treino", "blocos": ["lei-13848", "regulacao-teoria"], "n": 20 },
+        { "data": "2027-02-01", "atividade": "Direito constitucional do zero: ordem econômica e ordem social", "duracao": "1h45", "modo": "treino", "blocos": ["constitucional"], "n": 20, "st": "const-ordem-social" },
+        { "data": "2027-02-02", "atividade": "Direito administrativo do zero: licitações e contratos (Lei 14.133/2021)", "duracao": "1h45", "modo": "treino", "blocos": ["administrativo"], "n": 20, "st": "adm-licitacoes" },
+        { "data": "2027-02-03", "atividade": "Direito administrativo do zero: serviços públicos, concessões e direitos do usuário", "duracao": "1h45", "modo": "treino", "blocos": ["administrativo", "lei-13460"], "n": 20, "st": "adm-servicos" },
+        { "data": "2027-02-04", "atividade": "Direito administrativo do zero: LINDB e segurança jurídica nas decisões públicas", "duracao": "1h45", "modo": "treino", "blocos": ["administrativo"], "n": 20, "st": "adm-lindb" },
         { "data": "2027-02-05", "atividade": "Revisão da lista curta de erros da semana + questões de reforço + discursiva: agências reguladoras e AIR (Mais → Treino de discursiva)", "duracao": "1h45", "modo": "revisao", "blocos": [], "n": 30, "disc": "agencias-air" },
         { "data": "2027-02-06", "atividade": "Simulado completo cronometrado (120 itens, uma errada anula uma certa) + correção pelos dispositivos errados", "duracao": "4h", "modo": "simulado", "blocos": [], "n": 120 }
       ]},

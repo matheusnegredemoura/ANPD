@@ -131,7 +131,7 @@ def: Envio de dados pessoais para país estrangeiro ou organismo internacional (
 busca: transferência internacional de dados Resolução CD/ANPD 19/2024 mecanismos
 
 === Decisão de adequação
-padroes: adequação | adequado | grau de proteção
+padroes: decisão de adequação | decisões de adequação | grau de proteção de dados pessoais adequado | nível de proteção adequado | nível adequado de proteção
 def: Reconhecimento de que um país ou organismo oferece proteção de dados adequada, o que libera a transferência (art. 33, I). No Brasil decide a ANPD; na UE, a Comissão Europeia.
 busca: decisão de adequação ANPD União Europeia Resolução 32/2026
 
@@ -311,7 +311,7 @@ def: Mecanismo do GDPR (art. 56) em que a autoridade do estabelecimento principa
 busca: one-stop-shop GDPR art. 56 autoridade principal
 
 === Tríade CID
-padroes: confidencialidade, integridade e disponibilidade | confidencialidade | integridade | disponibilidade
+padroes: confidencialidade, integridade e disponibilidade | confidencialidade | tríade CID | integridade e disponibilidade | integridade dos dados | disponibilidade dos dados | disponibilidade da informação
 def: Pilares da segurança da informação: confidencialidade (só acessa quem pode), integridade (sem alteração indevida) e disponibilidade (acessível quando preciso).
 busca: tríade CID confidencialidade integridade disponibilidade exemplos
 
@@ -634,3 +634,33 @@ busca: Centro Nacional de Triagem de Notificações Polícia Federal ECA Digital
 padroes: limitação do tratamento | bloqueio dos dados | bloqueio de dados
 def: No GDPR, a limitação (art. 18) mantém os dados guardados, mas restringe seu uso, por exemplo enquanto se verifica a exatidão contestada. Na LGPD, o bloqueio é a suspensão temporária de qualquer operação, com guarda do dado (art. 5º, XIII), e o titular pode pedi-lo para dados desnecessários, excessivos ou tratados em desconformidade (art. 18, IV).
 busca: limitação do tratamento GDPR bloqueio LGPD diferença
+
+=== Lei seca
+padroes: lei seca
+def: O texto da lei como ele é, sem comentário de doutrina. O Cebraspe cobra muito a literalidade: troca uma palavra, um prazo ou um sujeito do artigo e pergunta se o item continua certo.
+busca: como estudar lei seca concurso Cebraspe literalidade
+
+=== Caput, parágrafo, inciso e alínea
+padroes: caput | inciso | incisos | alínea | alíneas
+def: As partes de um artigo de lei. Caput é a cabeça, o texto principal logo depois do número; o parágrafo (§) completa ou excepciona o caput; os incisos (I, II, III…) enumeram itens; as alíneas (a, b, c…) dividem um inciso.
+busca: estrutura do artigo de lei caput parágrafo inciso alínea Lei Complementar 95/1998
+
+=== Pessoa natural × pessoa jurídica
+padroes: pessoa natural | pessoas naturais | pessoa física | pessoas físicas
+def: Pessoa natural (ou física) é o ser humano; pessoa jurídica é a entidade que o direito cria, como empresas, associações, autarquias e os próprios entes públicos. A LGPD protege só os dados da pessoa natural, mas obriga pessoas naturais e jurídicas que tratam dados.
+busca: diferença pessoa natural pessoa jurídica LGPD titular de dados
+
+=== Pessoa jurídica de direito público × de direito privado
+padroes: pessoa jurídica de direito público | pessoas jurídicas de direito público | pessoa jurídica de direito privado | pessoas jurídicas de direito privado
+def: De direito público são a União, os Estados, o Distrito Federal, os Municípios, as autarquias (como a ANPD e as agências reguladoras) e as fundações públicas de direito público: agem com as prerrogativas e as sujeições do Estado. De direito privado são as empresas e associações e também as empresas estatais, que seguem, em regra, o regime das empresas privadas.
+busca: pessoa jurídica de direito público e de direito privado exemplos administração indireta
+
+=== Administração direta e indireta
+padroes: administração direta | administração indireta | administração pública direta | administração pública indireta
+def: Administração direta são os próprios entes (União, Estados, Distrito Federal e Municípios) e seus órgãos sem personalidade própria, como ministérios e secretarias. Indireta são as entidades criadas ou autorizadas por lei, com personalidade própria: autarquias (a ANPD é uma), fundações públicas, empresas públicas e sociedades de economia mista.
+busca: administração direta e indireta diferença autarquia fundação empresa pública Decreto-Lei 200/1967
+
+=== Autodeterminação informativa
+padroes: autodeterminação informativa
+def: O direito de cada pessoa decidir sobre o uso dos próprios dados: saber quem trata, para quê, e poder controlar esse uso. É fundamento da LGPD (art. 2º, II) e está na base do direito fundamental à proteção de dados (CF, art. 5º, LXXIX).
+busca: autodeterminação informativa LGPD fundamento STF ADI 6387

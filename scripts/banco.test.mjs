@@ -75,3 +75,24 @@ test('pacote compactado volta igual ao original no app', async () => {
   delete pacote.comandos;
   assert.deepEqual(pacote, JSON.parse(JSON.stringify(d)));
 });
+
+test('plano do zero: subtemas existem, seguem a ordem da trilha e trazem os blocos dos próprios itens', () => {
+  const d = montarDados();
+  const dias = d.cronograma.fases.flatMap((f) => f.semanas.flatMap((s) => s.dias)).filter((x) => x.st);
+  assert.ok(dias.length >= 60, 'poucos dias com subtema: ' + dias.length);
+  const pos = new Map(), trilhaDe = new Map();
+  for (const t of d.trilhas) t.subtemas.forEach((st, i) => { pos.set(st.id, i); trilhaDe.set(st.id, t.id); });
+  const primeiro = new Map();
+  for (const x of dias) {
+    assert.ok(pos.has(x.st), x.data + ': subtema inexistente ' + x.st);
+    assert.equal(x.modo, 'treino', x.data + ': subtema em dia que não é de treino');
+    if (!primeiro.has(x.st)) primeiro.set(x.st, x.data);
+    // a maior parte dos itens do subtema vem dos blocos do dia (o atraso dá baixa por bloco)
+    const itens = d.questoes.filter((q) => q.tm === x.st), noDia = itens.filter((q) => x.blocos.includes(q.b)).length;
+    assert.ok(noDia * 2 >= itens.length, x.data + ' ' + x.st + ': só ' + noDia + ' de ' + itens.length + ' itens nos blocos do dia');
+  }
+  for (const [st, data] of primeiro) for (const [outro, data2] of primeiro) {
+    if (trilhaDe.get(st) !== trilhaDe.get(outro) || pos.get(st) >= pos.get(outro)) continue;
+    assert.ok(data < data2, 'fora da ordem da trilha: ' + st + ' (' + data + ') depois de ' + outro + ' (' + data2 + ')');
+  }
+});

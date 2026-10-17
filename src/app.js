@@ -1639,7 +1639,12 @@ function artigoVivo(k) { return ARTI.has(k) && !/^Art\. [\d\-A-Zº]+\.? \((VETAD
 // Leitura do dia: todos os artigos dos blocos do dia, se couberem em LEITURA_MAX; senão, uma seleção
 // equilibrada entre os blocos: primeiro os artigos de questões que estão na sua lista curta, depois os
 // nunca lidos (o que foi lido pela primeira vez hoje continua contando como não lido), depois os mais cobrados.
+// Dia de matéria nova (com subtema no plano): a leitura são os artigos do subtema, os mesmos da aula e das questões
+function stDoDia(dia) { return dia && dia.st ? SUBTEMAS.get(dia.st) || null : null; }
+function artsDoSubtema(st) { return [...new Set((st.arts || []).filter((k) => artigoVivo(k)))]; }
 function leituraDoDia(dia) {
+  const st = stDoDia(dia);
+  if (st) { const arts = artsDoSubtema(st); return { arts: arts.slice(0, LEITURA_MAX), total: arts.length }; }
   const porBloco = [], todos = [];
   for (const b of blocosDoDia(dia)) {
     const bl = BI.get(b), lista = [];
@@ -1692,10 +1697,23 @@ function roteiroHoje() {
     texto: venc || manut || cardsV ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'acerto antigo para confirmar', 'acertos antigos para confirmar') : '', cardsV ? pl(cardsV, 'card', 'cards') : ''].filter(Boolean).join(' · ') + ' vencem hoje.' : 'Nada vencido hoje.',
     botoes: (venc + manut ? '<button class="btn pequeno primario" data-acao="iniciar-revisao">Questões (' + (venc + manut) + ')</button>' : '') + (cardsV ? '<button class="btn pequeno' + (venc + manut ? '' : ' primario') + '" data-acao="cards-revisao">Cards (' + cardsV + ')</button>' : ''),
   });
+  const stH = dia && dia.modo === 'treino' ? stDoDia(dia) : null;
+  if (stH) {
+    const e = estadoSubtema(stH.id), artsSt = artsDoSubtema(stH), lidos = S.perfil.lidos || {}, nLidos = artsSt.filter((k) => lidos[k]).length, chPre = 't:' + stH.id + ':pre';
+    if (e.novos || e.resp) passos.push({ titulo: 'Pré-teste: ' + stH.nome, feito: e.resp > 0,
+      texto: 'Antes de estudar, ' + pl(Math.min(8, e.novos), 'item', 'itens') + ' para ver o que você já sabe. Errar aqui é esperado: o erro mostra o que procurar na lei e na aula.',
+      botoes: '<button class="btn pequeno primario" data-acao="trilha-sessao" data-st="' + esc(stH.id) + '" data-tipo="pre">' + esc(rotuloPausa(chPre, 'Pré-teste · ' + pl(Math.min(8, e.novos), 'item', 'itens'))) + '</button>', extra: botaoRecomecar(chPre) });
+    if (artsSt.length) passos.push({ titulo: 'Lei seca do dia', feito: nLidos >= artsSt.length,
+      texto: inicial(rotulosArts(artsSt)) + ' · lidos: ' + nLidos + ' de ' + artsSt.length + '. As palavras difíceis vêm explicadas logo acima dos artigos.',
+      botoes: '<button class="btn pequeno primario" data-acao="st-lei" data-st="' + esc(stH.id) + '">Ler os artigos</button>' });
+    passos.push({ titulo: 'Aula do dia', feito: !!S.perfil.feitos['aula:' + dia.data],
+      texto: (nomeTrilha(stH.trilha) || 'Trilha do zero') + ': ' + stH.nome + '. A aula explica o que você leu; as citações de artigo abrem o texto ali mesmo.',
+      botoes: '<button class="btn pequeno primario" data-acao="st-aula" data-st="' + esc(stH.id) + '">Abrir a aula</button>' });
+  }
   if (dia) {
     const feito = !!S.perfil.feitos[dia.data];
     const nDia = nItensDoDia(dia);
-    passos.push({ titulo: dia.modo === 'simulado' ? 'Simulado do dia' : dia.modo === 'revisao' ? 'Sessão de revisão do dia' : 'Questões do dia', feito,
+    passos.push({ titulo: dia.modo === 'simulado' ? 'Simulado do dia' : dia.modo === 'revisao' ? 'Sessão de revisão do dia' : stH ? 'Questões do dia: ' + stH.nome : 'Questões do dia', feito,
       texto: dia.modo === 'treino' && nDia < dia.n ? 'Sessão reduzida de ' + dia.n + ' para ' + nDia + ' itens: há ' + pl(venc, 'revisão vencida', 'revisões vencidas') + ', e elas vêm primeiro.' : '', botoes: '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' + esc(rotuloPausa(dia.data, (feito ? 'Outra rodada' : 'Começar') + ' · ' + rotuloModoDia(Object.assign({}, dia, { n: nDia })))) + '</button>', extra: botaoRecomecar(dia.data) });
   }
   const dd = discDeHoje();
@@ -1716,14 +1734,14 @@ function roteiroHoje() {
   if (nInt > 0) {
     const chaveInt = 'i:' + hojeISO();
     passos.push({ titulo: 'Questões intercaladas', feito: !!S.perfil.feitos[chaveInt],
-      texto: 'Matérias básicas e blocos já estudados, misturados.' + (nInt < (S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas) ? ' Sessão menor hoje (dia pesado).' : ''),
+      texto: 'Matérias básicas e blocos já estudados, misturados.' + (nInt < (S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas) ? (listaVencida().length > REVISOES_DIA_PESADO ? ' Sessão menor hoje: há muita revisão vencida.' : ' Sessão menor hoje, para o dia de 1h45 caber no tempo.') : ''),
       botoes: '<button class="btn pequeno primario" data-acao="intercaladas">' + esc(rotuloPausa(chaveInt, (S.perfil.feitos[chaveInt] ? 'Outra rodada' : 'Começar') + ' · ' + nInt + ' itens')) + '</button>', extra: botaoRecomecar(chaveInt) });
   }
-  const std = subtemaDoDia();
+  const std = stH ? null : subtemaDoDia();
   if (std) {
     const e = estadoSubtema(std.id), chT = 't:' + hojeISO(), tipoT = e.novos ? 'pre' : 'pratica', chPT = 't:' + std.id + ':' + tipoT;
     passos.push({ titulo: nomeTrilha(std.trilha) || 'Trilha do zero', feito: !!S.perfil.feitos[chT],
-      texto: std.nome + ' (' + ROTULO_ST[e.status] + (e.resp ? ', acerto ' + Math.round(e.acerto * 100) + '%' : '') + '). Questões primeiro, aula curta depois.',
+      texto: std.nome + ' (' + ROTULO_ST[e.status] + (e.resp ? ', acerto ' + Math.round(e.acerto * 100) + '%' : '') + '). Pré-teste, depois a lei e a aula na página do subtema.',
       botoes: '<button class="btn pequeno primario" data-acao="trilha-sessao" data-st="' + esc(std.id) + '" data-tipo="' + tipoT + '">' + esc(rotuloPausa(chPT, e.novos ? 'Pré-teste · ' + pl(Math.min(8, e.novos), 'item', 'itens') : 'Praticar · ' + pl(Math.min(20, e.n), 'item', 'itens'))) + '</button>' +
         '<button class="btn pequeno" data-acao="subtema" data-st="' + esc(std.id) + '">Aula e subtema</button>', extra: botaoRecomecar(chPT) });
   }
@@ -1731,7 +1749,7 @@ function roteiroHoje() {
     passos.push({ titulo: 'Questões livres', feito: d.r >= S.perfil.meta, texto: 'Sem sessão programada para hoje. Uma rodada leve mantém a sequência.',
       botoes: '<button class="btn pequeno primario" data-acao="treino-rapido">Treino de 20 itens</button>' });
   }
-  if (arts.length) {
+  if (stH) { /* a lei do dia já é um passo acima */ } else if (arts.length) {
     passos.push({ titulo: 'Lei seca grifada', feito: lidosHoje >= arts.length,
       texto: (leitura.total > arts.length ? arts.length + ' dos ' + leitura.total + ' artigos do dia (lista curta, não lidos e mais cobrados)' : inicial(rotulosArts(arts))) + ' · lidos hoje: ' + lidosHoje + ' de ' + arts.length + '.',
       botoes: '<button class="btn pequeno" data-acao="ler-dia">Ler em sequência</button>' });
@@ -1773,6 +1791,7 @@ function faltaDoDia(dia) {
 function diaCompensado(dia) { return dia.modo === 'treino' && dia.blocos.length > 0 && !faltaDoDia(dia).length; }
 // Todos os artigos vivos dos blocos do dia (a leitura do dia mostra no máximo LEITURA_MAX deles)
 function artigosTodosDoDia(dia) {
+  if (stDoDia(dia)) return artsDoSubtema(stDoDia(dia));
   const out = [];
   for (const b of blocosDoDia(dia)) { const bl = BI.get(b); for (const a of (bl && bl.artigos) || []) { const k = chave(bl.lei || 'lgpd', a); if (artigoVivo(k) && !out.includes(k)) out.push(k); } }
   return out;
@@ -1850,8 +1869,9 @@ function cfgRecuperacao() {
   const r = proximaRecuperacao();
   if (!r) return null;
   const usados = new Set();
-  const ids = [];
-  for (const f of r.falta) for (const q of selecionar(poolDe([f.b]).filter((q) => !usados.has(q.id)), f.falta, 'mistas')) { usados.add(q.id); ids.push(q.id); }
+  const st = stDoDia(r.dia);
+  const ids = st ? idsDoSubtemaNoDia(st, r.dia.blocos, Math.max(r.n, 10)) : [];
+  if (!st) for (const f of r.falta) for (const q of selecionar(poolDe([f.b]).filter((q) => !usados.has(q.id)), f.falta, 'mistas')) { usados.add(q.id); ids.push(q.id); }
   return ids.length ? { modo: 'treino', ids: embaralhar(ids), titulo: 'Recuperação · ' + fmtData(r.dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' }), dia: 'rec:' + hojeISO() } : null;
 }
 function botaoRecuperar(p) {
@@ -2203,7 +2223,7 @@ function renderHoje() {
   rt.passos.forEach((p, i) => {
     roteiro += '<div class="passo' + (p.feito ? ' feito' : '') + '"><div class="marca-passo">' + (p.feito ? '✓' : i + 1) + '</div><div class="corpo-passo"><b>' + esc(p.titulo) + '</b>' + (p.feito || !p.texto ? '' : '<p>' + esc(p.texto) + '</p>') + '<div class="linha-btns">' + p.botoes + (p.extra || '') + '</div></div></div>';
   });
-  roteiro += '</div><p class="pequeno mudo">A ordem é o método: revisão primeiro, depois questão, depois a lei onde você errou, depois a memorização com lacunas. <button class="linkish" data-acao="mais" data-sub="metodo">Entenda o método</button></p></div>';
+  roteiro += '</div><p class="pequeno mudo">' + (stDoDia(rt.dia) ? 'Matéria nova: revisão do que venceu, pré-teste, lei, aula e questões do mesmo tema, nessa ordem; depois as intercaladas e as lacunas.' : 'A ordem é o método: revisão primeiro, depois questão, depois a lei onde você errou, depois a memorização com lacunas.') + ' <button class="linkish" data-acao="mais" data-sub="metodo">Entenda o método</button></p></div>';
   const modos = '<div class="secao"><div class="secao-cab"><h2>Modos de jogo</h2></div><div class="grade-modos">' +
     '<button class="modo" data-acao="abrir-modo" data-modo="simulado"><b>Simulado Cebraspe</b><span>Uma errada anula uma certa. Prova inteira ou só os seus blocos.</span><span class="num">' + pl(S.simulados.length, 'simulado feito', 'simulados feitos') + '</span></button>' +
     '<button class="modo" data-acao="relampago" data-blocos="' + P1.join(',') + '"><b>Relâmpago 90 s</b><span>Prioridade 1 contra o relógio.</span><span class="num">Recorde: ' + (S.perfil.recordes.relampago || 0) + '</span></button>' +
@@ -2260,7 +2280,14 @@ function iniciarDia(data) {
     iniciarSessao({ modo: 'simulado', n: dia.n, blocos: dia.blocos, prova: !dia.blocos.length, titulo, dia: dia.data, minutos: Math.round(dia.n * 1.5) });
     return;
   }
+  const st = stDoDia(dia);
+  if (st) { iniciarSessao({ modo: 'treino', ids: idsDoSubtemaNoDia(st, dia.blocos, nItensDoDia(dia)), titulo: titulo + ' · ' + st.nome, dia: dia.data }); return; }
   iniciarSessao({ modo: 'treino', n: nItensDoDia(dia), blocos: dia.blocos, filtro: 'mistas', titulo, dia: dia.data });
+}
+function idsDoSubtemaNoDia(st, blocos, n) {
+  const ids = idsSubtema(st.id, 'pratica', n), usados = new Set(ids);
+  if (ids.length < n) for (const q of selecionar(poolDe(blocos).filter((q) => !usados.has(q.id) && !q.al), n - ids.length, 'mistas')) ids.push(q.id);
+  return ids;
 }
 // Em dia pesado (lista curta vencida acima de REVISOES_DIA_PESADO), a sessão de questões do dia encolhe, até o mínimo de 10
 function nItensDoDia(dia) {
@@ -2855,7 +2882,19 @@ const RE_NUM_PROSA = /(?<![\p{L}\d])(?:\d+(?:[.,]\d+)?%|\d+\s(?:dias(?: úteis| 
 const RE_REF_PROSA = /(?<![\p{L}])(?:arts?\.\s\d+[º°]?(?:-[A-Z])?(?:,\s(?:[IVXL]+|§\s\d+[º°]?|caput|parágrafo único))*|§§?\s\d+[º°]?|(?:ADI|ADPF|RE|ARE|MS|HC)\s[\d.]+)/gu;
 const RE_DEF_PROSA = /(?:^|(?<=[.;]\s))([A-ZÁÉÍÓÚÂÊÔÃÕÇ][\p{L}\-]*(?:\s[\p{L}\-]+){0,4}?)(?=:\s|\s(?:é|são)\s(?:o|a|os|as|um|uma|aquel[ea]s?|quando|instrumento|atividade|ato|poder|princípio|dever|direito|garantia|norma|conjunto|pessoa|órgão|entidade)(?![\p{L}]))/gu;
 const NAO_NEGRITO = /^(?:(?:Ela|Ele|Elas|Eles|Isso|Isto|Há|Também|Mas|Já|Aqui|Ambos|Ambas|Cada|Toda|Todo|Na|No|Nas|Nos|Em|A|O|As|Os|É|Esse|Essa|Este|Esta)$|(?:O que|Que|Quem|Como|Quando|Onde)(?![\p{L}]))/u;
-function grifarProsa(texto) {
+// refs (opcional): { mapa: Map(número do artigo → chave), lei, box } — a citação "art. 3º" vira botão que abre o artigo na
+// caixa da parte da aula. Só vira botão o que se resolve sem dúvida: um artigo do subtema, ou da norma única do subtema
+// quando a frase não cita outra norma logo antes.
+const OUTRA_NORMA = /(?:Lei|Decreto|Resolução|Res\.|CF|Constituição|GDPR|LINDB|Código|Regimento|Portaria|IN |Convenção|ECA|Súmula)[^.;]{0,30}$/;
+function refDeArtigo(refs, txt, antes) {
+  const m = /arts?\.\s(\d+(?:-[A-Z])?)/.exec(txt);
+  if (!refs || !m) return null;
+  if (refs.mapa.has(m[1])) return refs.mapa.get(m[1]);
+  if (!refs.lei || OUTRA_NORMA.test(antes)) return null;
+  const k = chave(refs.lei, m[1]);
+  return ARTI.has(k) && artigoVivo(k) ? k : null;
+}
+function grifarProsa(texto, refs) {
   const cam = UI.camadas;
   // **termo** vira negrito explícito; as posições são contadas no texto já sem os asteriscos
   const fortes = [];
@@ -2876,7 +2915,9 @@ function grifarProsa(texto) {
   if (cam.num) rs = rs.concat(rangesRegex(limpo, RE_NUM_PROSA, 'g-num'));
   if (cam.alerta) rs = rs.concat(rangesRegex(limpo, RE_ALERTA, 'g-alerta'));
   if (cam.verbo) rs = rs.concat(rangesRegex(limpo, RE_VERBO, 'g-verbo'));
-  rs = rs.concat(rangesRegex(limpo, RE_REF_PROSA, 'ref-dispo'));
+  const citacoes = rangesRegex(limpo, RE_REF_PROSA, 'ref-dispo');
+  rs = rs.concat(citacoes);
+  const alvo = new Map(refs ? citacoes.map((r) => [r, refDeArtigo(refs, limpo.slice(r[0], r[1]), limpo.slice(Math.max(0, r[0] - 40), r[0]))]) : []);
   const cortes = new Set([0, limpo.length]);
   rs.forEach(([i, f]) => { cortes.add(i); cortes.add(f); });
   const pts = [...cortes].sort((x, y) => x - y);
@@ -2885,7 +2926,9 @@ function grifarProsa(texto) {
     const i = pts[j], f = pts[j + 1];
     const classes = [...new Set(rs.filter((r) => r[0] <= i && r[1] >= f).map((r) => r[2]))];
     const seg = esc(limpo.slice(i, f));
-    html += classes.length ? '<span class="' + classes.join(' ') + '">' + seg + '</span>' : seg;
+    const cit = refs && classes.includes('ref-dispo') ? citacoes.find((r) => r[0] <= i && r[1] >= f) : null, k = cit && alvo.get(cit);
+    if (k) html += '<button class="' + classes.join(' ') + ' ref-art" data-acao="art-inline" data-art="' + esc(k) + '" data-box="' + refs.box + '" aria-controls="' + refs.box + '" aria-expanded="false">' + seg + '</button>';
+    else html += classes.length ? '<span class="' + classes.join(' ') + '">' + seg + '</span>' : seg;
   }
   return html;
 }
@@ -3241,13 +3284,15 @@ function fontesSemTexto() {
 }
 function renderMetodo() {
   return '<div class="prosa"><h2>O método do Painel</h2>' +
-    '<p>Sem prova anterior da ANPD, o estudo não começa pela leitura corrida da lei: começa pela questão. A questão mostra o que a banca troca; a lei, lida logo depois do erro, fixa a palavra exata; a lacuna e a revisão espaçada garantem que você ainda saiba aquilo no dia da prova.</p>' +
-    '<h3>O ciclo de cada dia (aba Hoje)</h3><ol>' +
-    '<li><b>Revisar o que venceu.</b> Primeiro a lista curta de questões e os cards vencidos. É o que mais rende por minuto: você reforça o que estava a ponto de esquecer.</li>' +
-    '<li><b>Questões do dia.</b> O bloco do cronograma, no formato certo/errado. Marque “Estou em dúvida” sempre que não tiver certeza: isso mede o seu chute.</li>' +
-    '<li><b>Lei seca grifada.</b> Leia os artigos do dia na literalidade. Os grifos mostram onde a banca mexe: prazos e números, palavras de alerta (somente, salvo, vedado), deve × pode e os seus erros.</li>' +
-    '<li><b>Cards cloze.</b> As lacunas tiram a palavra exata do texto da lei; nos temas sem lei (gestão, riscos, dados, IA e economia), tiram o conceito-chave. Faça os novos do dia e responda de cabeça antes de revelar.</li>' +
-    '<li><b>Para pesquisar.</b> Os termos das questões erradas entram sozinhos na sua lista. Investigue um tema por dia: o painel pergunta, você explica com suas palavras e o Claude confere e aprofunda. Explicar é o que fixa.</li></ol>' +
+    '<p>O plano segue a ordem em que cada matéria faz sentido para quem começa do zero: na LGPD, primeiro o que a lei protege e as palavras que ela usa, depois quando se pode tratar dados, os direitos, os casos especiais e, por fim, quem fiscaliza e pune. Até fevereiro, quase todo dia de semana é um subtema novo de uma trilha; depois, o plano passa a ciclos de revisão e simulados.</p>' +
+    '<h3>Dia de matéria nova (aba Hoje)</h3><ol>' +
+    '<li><b>Revisar o que venceu.</b> A lista curta de questões e os cards vencidos. É o que mais rende por minuto: você reforça o que estava a ponto de esquecer.</li>' +
+    '<li><b>Pré-teste.</b> Oito itens do subtema antes de estudar. Errar aqui é esperado: o erro mostra o que procurar na lei e na aula, e a explicação gruda mais depois dele.</li>' +
+    '<li><b>Lei seca do dia.</b> Os artigos do subtema, um por vez, com os grifos. Antes deles, as palavras difíceis vêm explicadas e um guia mostra como ler um artigo (caput, parágrafo, inciso, exceção). Não precisa entender tudo: a aula vem a seguir.</li>' +
+    '<li><b>Aula do dia.</b> Explica o que você leu, com mapa mental, tabelas e exemplos. As citações de artigo (“art. 3º”) abrem o texto ali mesmo.</li>' +
+    '<li><b>Questões do dia.</b> Os itens do mesmo subtema, do mais fácil ao mais difícil. Marque “Estou em dúvida” sempre que não tiver certeza: isso mede o seu chute.</li>' +
+    '<li><b>Intercaladas, cards e pesquisa.</b> Matérias básicas e blocos já estudados, misturados; as lacunas da letra da lei; e um tema da sua lista Para pesquisar, em que você explica com suas palavras e o Claude confere.</li></ol>' +
+    '<h3>Dias de revisão, bloco longo e simulado</h3><p>Sexta é revisão da lista curta. Sábado é bloco longo (um subtema, uma língua e, quase sempre, uma discursiva) ou simulado. Nesses dias, e quando a matéria já foi vista, a ordem é questão primeiro e lei onde você errou: a questão mostra o que a banca troca, e a lei lida logo depois do erro fixa a palavra exata.</p>' +
     '<h3>Regras que não se negociam</h3><ul>' +
     '<li>O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça. Cada revisão traz só o que venceu: o que você já reviu hoje espera o próximo intervalo.</li>' +
     '<li>Interpretação de texto (português e inglês) não volta na revisão: reler o mesmo texto ensina o gabarito, não a leitura. No lugar, as sessões trazem textos inéditos.</li>' +
@@ -3262,9 +3307,9 @@ function renderMetodo() {
     '<li>Uma errada anula uma certa; em branco vale zero. Chutar só compensa quando sua chance de acerto passa de 50%.</li>' +
     '<li>A aba Progresso mostra a sua taxa de acerto quando marca dúvida. Acima de 50%, chute; abaixo, deixe em branco.</li>' +
     '<li>Desconfie de palavras absolutas (sempre, nunca, somente, exclusivamente) e de itens que acrescentam algo à lei.</li>' +
-    '<li>A partir da Fase 2, faça ao menos um simulado de prova completa por semana.</li>' +
+    '<li>Até terminar a primeira volta, os simulados curtos do plano medem só o que já foi estudado; o primeiro simulado completo, em dezembro, é um diagnóstico. Depois, o plano traz um simulado completo a cada duas semanas.</li>' +
     '<li>Discursiva toda semana, no sábado longo: escreva sem consulta, no tempo e no limite de linhas, e corrija pelos quesitos. Na Anatel 2024 ela valia 30 pontos e eliminava quem fizesse menos de 15.</li></ul>' +
-    '<h3>Semana típica</h3><p>Segunda e terça: bloco de prioridade da vez. Quarta: uma resolução da ANPD. Quinta: tronco regulatório (Lei 13.848/2019 e Lei 9.784/1999). Sexta: revisão da lista curta. Sábado: bloco longo ou simulado. Domingo: livre.</p>' +
+    '<h3>Semana típica</h3><p>Segunda a quarta: um subtema por dia da matéria principal da fase (LGPD até novembro, depois ECA Digital, segurança da informação e, em janeiro, direito constitucional, economia e gestão). Quinta: direito administrativo ou regulação, também do zero. Sexta: revisão da lista curta. Sábado: bloco longo ou simulado. Domingo: livre.</p>' +
     '<h3>Quando o edital sair</h3><p>O cronograma genérico para. O conteúdo programático oficial passa a mandar, os simulados ficam maiores e a revisão espaçada continua todos os dias. Cole o edital na conversa com o Claude para reorganizar os blocos.</p>' +
     '<h3>Questões marcadas para conferir</h3><p>' + pl(Q.filter((q) => q.v === 0).length, 'item cita', 'itens citam') + ' fontes ainda não coladas no app: ' + fontesSemTexto() + '. Eles mostram o aviso “confira na fonte” e só viram definitivos quando o texto oficial for anexado e cada trecho for conferido. Nos itens reais com gabarito oficial, o que falta conferir é a referência do comentário; nos avulsos, o próprio gabarito foi conferido na lei, e a linha da prova avisa.</p>' +
     '<h3>Como a banca cobra</h3><p>A página Como o Cebraspe cobra, aqui em Mais, mostra o formato da prova, o padrão de cada disciplina com itens reais e o que pontua na discursiva.</p></div>';
@@ -3365,9 +3410,11 @@ const BLOCOS_TR = new Map(TRILHAS.map((t) => [t.id, new Set(t.subtemas.flatMap((
 // senão, a trilha), olhando os blocos do dia na ordem do plano, em que a matéria principal vem primeiro. Sem matéria
 // no plano, ou com ela já dominada, as trilhas se alternam dia a dia.
 function subtemaDoDia() {
+  const dia = DIAS.find((d) => d.data === hojeISO());
+  if (dia && dia.st && SUBTEMAS.get(dia.st)) return SUBTEMAS.get(dia.st);
   const cands = TRILHAS.map((t) => proximoSubtema(t.id)).filter(Boolean).map((st) => SUBTEMAS.get(st.id));
   if (!cands.length) return null;
-  const dia = DIAS.find((d) => d.data === hojeISO()), blocosHoje = (dia && dia.blocos) || [];
+  const blocosHoje = (dia && dia.blocos) || [];
   const achar = (de) => blocosHoje.map((b) => cands.find((st) => de(st).has(b))).find(Boolean);
   const doPlano = achar((st) => BLOCOS_ST.get(st.id)) || achar((st) => BLOCOS_TR.get(st.trilha));
   if (doPlano) return doPlano;
@@ -3395,27 +3442,72 @@ function htmlMapa(m) {
     m.ramos.map((r, i) => '<li class="ramo ramo-' + (i + 1) + '"><span class="ramo-t"><span>' + grifarProsa(r.t) + '</span></span>' +
       (r.f.length ? '<ul class="folhas">' + r.f.map((f) => '<li>' + grifarProsa(f) + '</li>').join('') + '</ul>' : '') + '</li>').join('') + '</ul></figure>';
 }
-function htmlTabelaAula(t) {
+function htmlTabelaAula(t, refs) {
   // No celular a tabela vira fichas: cada célula leva o nome da coluna (data-c), lido pelo CSS
   const cab = t.cab.map((c) => String(c).replace(/\*\*/g, ''));
   return '<div class="tabela-env"><table class="tab-aula' + (cab.length > 2 ? ' fichas' : '') + '"><thead><tr>' + t.cab.map((c) => '<th scope="col">' + grifarProsa(c) + '</th>').join('') + '</tr></thead><tbody>' +
-    t.linhas.map((l) => '<tr>' + l.map((c, j) => j ? '<td data-c="' + esc(cab[j]) + '">' + grifarProsa(c) + '</td>' : '<th scope="row">' + grifarProsa(c) + '</th>').join('') + '</tr>').join('') + '</tbody></table></div>';
+    t.linhas.map((l) => '<tr>' + l.map((c, j) => j ? '<td data-c="' + esc(cab[j]) + '">' + grifarProsa(c, refs) + '</td>' : '<th scope="row">' + grifarProsa(c, refs) + '</th>').join('') + '</tr>').join('') + '</tbody></table></div>';
 }
-function htmlParteAula(p, i) {
+// Referências da aula: os artigos do subtema pelo número, e a norma única dele (se houver uma só)
+function refsDaAula(st) {
+  const arts = (st.arts || []).filter((k) => ARTI.has(k)), leis = [...new Set(arts.map((k) => ARTI.get(k).lei))], porNum = new Map();
+  for (const k of arts) { const n = ARTI.get(k).id; porNum.set(n, porNum.has(n) ? null : k); }
+  return { mapa: new Map([...porNum].filter(([, k]) => k)), lei: leis.length === 1 ? leis[0] : null };
+}
+function caixaRefs(base) { const box = 'art-' + (++nCaixaArt); return [Object.assign({}, base, { box }), '<div class="art-inline" id="' + box + '" hidden></div>']; }
+function htmlParteAula(p, i, base) {
+  const [refs, caixa] = caixaRefs(base);
   let h = '<section class="parte"><h3><span class="parte-n">' + (i + 1) + '</span><span>' + grifarProsa(p.t) + '</span></h3>';
-  if (p.texto) h += '<p>' + grifarProsa(p.texto) + '</p>';
-  if (p.lista) h += '<ul class="lista-chave">' + p.lista.map((x) => '<li>' + grifarProsa(x) + '</li>').join('') + '</ul>';
-  if (p.passos) h += '<ol class="passos">' + p.passos.map((x) => '<li>' + grifarProsa(x) + '</li>').join('') + '</ol>';
-  if (p.tabela) h += htmlTabelaAula(p.tabela);
-  if (p.depois) h += '<p>' + grifarProsa(p.depois) + '</p>';
-  for (const [k, rot] of CAIXAS_AULA) if (p[k]) h += '<div class="caixa cx-' + k + '"><span class="rotulo">' + rot + '</span><p>' + grifarProsa(p[k]) + '</p></div>';
-  return h + '</section>';
+  if (p.texto) h += '<p>' + grifarProsa(p.texto, refs) + '</p>';
+  if (p.lista) h += '<ul class="lista-chave">' + p.lista.map((x) => '<li>' + grifarProsa(x, refs) + '</li>').join('') + '</ul>';
+  if (p.passos) h += '<ol class="passos">' + p.passos.map((x) => '<li>' + grifarProsa(x, refs) + '</li>').join('') + '</ol>';
+  if (p.tabela) h += htmlTabelaAula(p.tabela, refs);
+  if (p.depois) h += '<p>' + grifarProsa(p.depois, refs) + '</p>';
+  for (const [k, rot] of CAIXAS_AULA) if (p[k]) h += '<div class="caixa cx-' + k + '"><span class="rotulo">' + rot + '</span><p>' + grifarProsa(p[k], refs) + '</p></div>';
+  return h + caixa + '</section>';
 }
 function htmlAula(st) {
-  const li = st.licao;
-  if (!li) return '<div class="texto-aula">' + st.aula.map((p) => '<p>' + grifarProsa(p) + '</p>').join('') + '</div>';
-  return '<div class="texto-aula licao"><div class="ideia"><span class="rotulo">Ideia central</span><p>' + grifarProsa(li.ideia) + '</p></div>' +
-    htmlMapa(li.mapa) + li.partes.map(htmlParteAula).join('') + '</div>';
+  const li = st.licao, base = refsDaAula(st);
+  if (!li) { const [refs, caixa] = caixaRefs(base); return '<div class="texto-aula">' + st.aula.map((p) => '<p>' + grifarProsa(p, refs) + '</p>').join('') + caixa + '</div>'; }
+  const [refs, caixa] = caixaRefs(base);
+  return '<div class="texto-aula licao"><div class="ideia"><span class="rotulo">Ideia central</span><p>' + grifarProsa(li.ideia, refs) + '</p>' + caixa + '</div>' +
+    htmlMapa(li.mapa) + li.partes.map((p, i) => htmlParteAula(p, i, base)).join('') + '</div>';
+}
+// Palavras desta aula: os termos do glossário que aparecem nos artigos e na aula do subtema, na ordem em que surgem.
+// Vêm primeiro as que os subtemas anteriores da mesma trilha ainda não mostraram (no máximo seis), para a caixa não
+// repetir sempre os mesmos termos básicos
+const PALAVRAS_ST = new Map();
+function termosDoSubtema(st) {
+  const li = st.licao || {};
+  const partes = (li.partes || []).flatMap((p) => [p.t, p.texto, p.depois].concat(p.lista || [], p.passos || [], p.tabela ? p.tabela.linhas.flat() : [], CAIXAS_AULA.map(([k]) => p[k])));
+  const texto = (st.arts || []).filter((k) => ARTI.has(k)).map((k) => ARTI.get(k).texto).concat(li.ideia || '', partes, st.aula || [], st.chave || []).filter(Boolean).join('\n').replace(/\*\*/g, '');
+  return GLOSS.map((g) => ({ g, i: texto.search(g.re) })).filter((x) => x.i >= 0).sort((a, b) => a.i - b.i).map((x) => x.g);
+}
+function palavrasDoSubtema(st) {
+  if (PALAVRAS_ST.has(st.id)) return PALAVRAS_ST.get(st.id);
+  const t = TRILHAS.find((x) => x.id === st.trilha), vistas = new Set();
+  for (const ant of t ? t.subtemas : []) { if (ant.id === st.id) break; for (const g of palavrasDoSubtema(SUBTEMAS.get(ant.id))) vistas.add(g.t); }
+  const todas = termosDoSubtema(st), novas = todas.filter((g) => !vistas.has(g.t));
+  const out = (novas.length >= 3 ? novas : novas.concat(todas.filter((g) => vistas.has(g.t)))).slice(0, 6);
+  PALAVRAS_ST.set(st.id, out);
+  return out;
+}
+function htmlPalavras(st) {
+  const ps = palavrasDoSubtema(st);
+  return ps.length ? '<details class="palavras" open><summary>Antes de ler: ' + pl(ps.length, 'palavra que aparece aqui', 'palavras que aparecem aqui') + '</summary><dl>' + ps.map((g) => '<dt>' + esc(g.t) + '</dt><dd>' + esc(g.d) + '</dd>').join('') + '</dl></details>' : '';
+}
+// Para quem nunca leu lei: como se lê um artigo (aberto até 15 artigos lidos)
+function htmlComoLer() {
+  const novato = Object.keys(S.perfil.lidos || {}).length < 15;
+  return '<details class="como-ler"' + (novato ? ' open' : '') + '><summary>Primeira vez lendo lei? Como ler um artigo</summary><ul class="lista-chave">' +
+    '<li><b>Art.</b> é a unidade da lei. O texto logo depois do número é o <b>caput</b>: a regra principal.</li>' +
+    '<li><b>§</b> (parágrafo) completa o caput ou abre uma exceção; quando é um só, vem como “Parágrafo único”.</li>' +
+    '<li><b>Incisos</b> (I, II, III…) são os itens de uma lista; <b>alíneas</b> (a, b, c…) dividem um inciso.</li>' +
+    '<li><span class="g-alerta">salvo</span>, <span class="g-alerta">exceto</span>, <span class="g-alerta">desde que</span> e <span class="g-alerta">somente</span> mudam a regra: é ali que a banca mexe.</li>' +
+    '<li><span class="g-verbo">deve</span> obriga; <span class="g-verbo">pode</span> permite. Trocar um pelo outro é a pegadinha mais comum.</li>' +
+    '<li>Prazos e números (<span class="g-num">15 (quinze) dias</span>) importam com a unidade: dias, dias úteis, meses.</li>' +
+    '<li>“(Redação dada pela Lei…)” avisa que o texto mudou; “(VETADO)” e “(Revogado)” não valem.</li>' +
+    '<li>Leia o artigo inteiro antes de concluir: a exceção costuma estar no parágrafo seguinte.</li></ul></details>';
 }
 function folhaAula(id) {
   const st = SUBTEMAS.get(id);
@@ -3429,7 +3521,7 @@ function folhaAula(id) {
 function renderTrilhas() {
   if (UI.subtema && SUBTEMAS.get(UI.subtema)) return renderSubtema(UI.subtema);
   let html = '<div class="secao-cab"><h2>Trilhas do zero</h2></div>' +
-    '<p class="mudo">Para quem está começando a matéria. Em cada subtema: faça primeiro as questões (pré-teste, mesmo sem saber), depois leia a aula e então pratique até dominar. Errar antes de estudar faz a explicação grudar mais.</p>';
+    '<p class="mudo">Para quem está começando a matéria. Em cada subtema: faça o pré-teste, mesmo sem saber (errar antes de estudar faz a explicação grudar mais), leia os artigos da lei com as palavras difíceis explicadas, depois a aula, que explica o que você leu, e pratique até dominar.</p>';
   if (TRILHAS.length > 2) html += '<div class="chips cb-nav">' + TRILHAS.map((t) => '<button class="chip" data-acao="rolar" data-alvo="tr-' + esc(t.id) + '">' + esc(t.nome.replace(/ do zero$/, '')) + '</button>').join('') + '</div>';
   for (const t of TRILHAS) {
     const est = t.subtemas.map((st) => estadoSubtema(st.id));
@@ -3443,6 +3535,14 @@ function renderTrilhas() {
   }
   return html;
 }
+function passosDoSubtema(st, e) {
+  const out = [], arts = artsDoSubtema(st);
+  if (e.novos) out.push({ rot: 'Pré-teste · ' + Math.min(8, e.novos) + ' itens', attrs: 'data-acao="trilha-sessao" data-st="' + esc(st.id) + '" data-tipo="pre"', primario: !e.resp });
+  if (arts.length) out.push({ rot: 'Lei seca', attrs: 'data-acao="st-lei" data-st="' + esc(st.id) + '"' });
+  out.push({ rot: 'Aula', attrs: 'data-acao="st-aula" data-st="' + esc(st.id) + '"' });
+  if (e.n) out.push({ rot: 'Praticar · ' + Math.min(20, e.n) + ' itens', attrs: 'data-acao="trilha-sessao" data-st="' + esc(st.id) + '" data-tipo="pratica"', primario: !!e.resp });
+  return out;
+}
 function renderSubtema(id) {
   const st = SUBTEMAS.get(id), e = estadoSubtema(id);
   const t = TRILHAS.find((x) => x.id === st.trilha);
@@ -3451,23 +3551,22 @@ function renderSubtema(id) {
   let html = '<button class="btn pequeno voltar" data-acao="subtema" data-st="">← Trilhas</button>' +
     '<div class="cartao destaque"><span class="rotulo">Subtema ' + (pos + 1) + ' de ' + t.subtemas.length + '</span><h2 class="titulo-st">' + esc(st.nome) + '</h2><p>' + esc(st.resumo) + '</p>' +
     '<div class="linha-st">' + chipEstado(e) + '<span class="pequeno mudo">' + pl(e.n, 'questão', 'questões') + ' · ' + e.resp + ' respondidas · ' + (e.resp ? 'acerto atual ' + Math.round(e.acerto * 100) + '%' : 'nenhuma respondida') + ' · domínio pede ' + e.minimo + ' respondidas com 80% de acerto</span></div>' +
-    '<div class="linha-btns">' +
-    (e.novos ? '<button class="btn primario" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pre">1. Pré-teste · ' + Math.min(8, e.novos) + ' itens</button>' : '') +
-    '<button class="btn" data-acao="rolar" data-alvo="aula-' + esc(id) + '">' + (e.novos ? '2. ' : '') + 'Aula</button>' +
-    (e.n ? '<button class="btn' + (e.novos ? '' : ' primario') + '" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pratica">' + (e.novos ? '3. ' : '') + 'Praticar · ' + Math.min(20, e.n) + ' itens</button>' : '') +
+    '<div class="linha-btns">' + passosDoSubtema(st, e).map((x, i, a) => '<button class="btn' + (x.primario ? ' primario' : '') + '" ' + x.attrs + '>' + (a.length > 1 ? (i + 1) + '. ' : '') + x.rot + '</button>').join('') +
     (e.erros ? '<button class="btn" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="erros">Refazer erros · ' + e.erros + '</button>' : '') +
     '</div></div>';
-  html += '<div class="cartao aula" id="aula-' + esc(id) + '"><h2>Aula</h2>' + legendaCamadas(true) + htmlAula(st) +
-    (e.n ? '<div class="linha-btns fim-aula"><button class="btn primario" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pratica">Fixar com questões · ' + Math.min(20, e.n) + ' itens</button></div>' : '') + '</div>';
-  html += '<div class="cartao"><h2>Pontos-chave</h2><ul class="lista-chave">' + st.chave.map((c) => '<li>' + grifarProsa(c) + '</li>').join('') + '</ul></div>';
-  html += '<div class="cartao"><h2>Como o Cebraspe tenta te derrubar</h2><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul></div>';
-  const arts = (st.arts || []).filter((k) => ARTI.get(k));
+  const arts = artsDoSubtema(st).filter((k) => ARTI.get(k));
   if (arts.length) {
     const caixa = 'art-st-' + id.replace(/[^\w-]/g, '');
-    html += '<div class="cartao" id="lei-' + esc(id) + '"><h2>Lei seca deste subtema</h2><p class="pequeno mudo">Leia depois da aula, um artigo por vez: o texto abre aqui embaixo, com os grifos. Prazos, exceções e palavras de alerta são o que a banca troca.</p><div class="chips">' +
+    html += '<div class="cartao" id="lei-' + esc(id) + '"><h2>Lei seca deste subtema</h2><p class="pequeno mudo">Leia antes da aula, um artigo por vez: o texto abre aqui embaixo, com os grifos. Não precisa entender tudo agora; a aula explica o que ficar difícil.</p>' +
+      htmlPalavras(st) + htmlComoLer() + '<div class="chips">' +
       arts.map((k) => '<button class="chip" data-acao="art-inline" data-art="' + esc(k) + '" data-box="' + caixa + '" aria-expanded="false" aria-controls="' + caixa + '">' + esc(nomeArt(k)) + '</button>').join('') + '</div>' +
       '<div class="art-inline" id="' + caixa + '" data-lista="' + esc(arts.join(',')) + '" hidden></div></div>';
   }
+  html += '<div class="cartao aula" id="aula-' + esc(id) + '"><h2>Aula</h2>' + (arts.length ? '' : htmlPalavras(st)) + legendaCamadas(true) +
+    (arts.length ? '<p class="pequeno mudo">Toque numa citação sublinhada (“art. 3º”) para ler o artigo ali mesmo.</p>' : '') + htmlAula(st) +
+    (e.n ? '<div class="linha-btns fim-aula"><button class="btn primario" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pratica">Fixar com questões · ' + Math.min(20, e.n) + ' itens</button></div>' : '') + '</div>';
+  html += '<div class="cartao"><h2>Pontos-chave</h2><ul class="lista-chave">' + st.chave.map((c) => '<li>' + grifarProsa(c) + '</li>').join('') + '</ul></div>';
+  html += '<div class="cartao"><h2>Como o Cebraspe tenta te derrubar</h2><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul></div>';
   const reais = (POR_TEMA.get(id) || []).filter((q) => q.o).length;
   if (reais) html += '<p class="pequeno mudo">' + pl(reais, 'item real', 'itens reais') + ' do Cebraspe neste subtema, misturados aos demais.</p>';
   if (prox) html += '<div class="linha-btns"><button class="btn" data-acao="subtema" data-st="' + esc(prox.id) + '">Próximo: ' + esc(prox.nome) + ' ›</button></div>';
@@ -3676,6 +3775,24 @@ function renderTudo() {
   ({ hoje: renderHoje, questoes: renderQuestoes, cards: renderCards, lei: renderLei, mais: renderMais })[UI.vista]();
   if (sessao) renderSessao();
 }
+// Página do subtema já na parte pedida: na lei, abre o primeiro artigo ainda não lido; na aula do dia, dá baixa no passo
+function abrirSubtemaEm(id, parte) {
+  if (!SUBTEMAS.get(id)) return;
+  fecharFolha();
+  UI.subtema = id;
+  UI.mais = 'trilha';
+  if (UI.vista !== 'mais') ir('mais'); else renderMais();
+  const el = document.getElementById(parte + '-' + id);
+  if (el) el.scrollIntoView({ block: 'start' });
+  if (parte === 'aula') {
+    const dia = DIAS.find((d) => d.data === hojeISO());
+    if (dia && dia.st === id && !S.perfil.feitos['aula:' + dia.data]) { S.perfil.feitos['aula:' + dia.data] = 1; Store.salvar('perfil'); }
+    return;
+  }
+  const lidos = S.perfil.lidos || {}, chips = [...document.querySelectorAll('#lei-' + id + ' .chip[data-acao="art-inline"]')];
+  const c = chips.find((b) => !lidos[b.dataset.art]) || chips[0];
+  if (c) abrirArtInline(c);
+}
 function abrirArtigo(art, fila) {
   if (!ARTI.get(art)) return;
   UI.artSel = art;
@@ -3858,6 +3975,7 @@ async function executar(a, alvo) {
     case 'contestar': folhaContestar(alvo.dataset.q); break;
     case 'subtema': fecharFolha(); UI.subtema = alvo.dataset.st || null; UI.mais = 'trilha'; if (UI.vista !== 'mais') ir('mais'); else renderMais(); window.scrollTo(0, 0); break;
     case 'aula-folha': folhaAula(alvo.dataset.st); break;
+    case 'st-lei': case 'st-aula': abrirSubtemaEm(alvo.dataset.st, a === 'st-lei' ? 'lei' : 'aula'); break;
     case 'trilha-sessao': {
       const st = SUBTEMAS.get(alvo.dataset.st), tipo = alvo.dataset.tipo;
       const chT = 't:' + st.id + ':' + tipo;

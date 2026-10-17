@@ -59,6 +59,70 @@
             },
             "partes": [
               {
+                "t": "Como a LGPD é organizada",
+                "texto": "A LGPD tem 65 artigos em dez capítulos. Quem nunca leu a lei ganha muito em ver o mapa antes: cada capítulo responde a uma pergunta, e o plano de estudo segue essa ordem.",
+                "tabela": {
+                  "cab": [
+                    "Capítulo",
+                    "Artigos",
+                    "Pergunta que responde"
+                  ],
+                  "linhas": [
+                    [
+                      "I · Disposições preliminares",
+                      "1º a 6º",
+                      "O que a lei protege, a quem se aplica, que palavras usa (**conceitos**, art. 5º) e que **princípios** seguem todo tratamento (art. 6º)?"
+                    ],
+                    [
+                      "II · Tratamento de dados pessoais",
+                      "7º a 16",
+                      "Quando se pode tratar dados (**bases legais**), com regras próprias para dados sensíveis e de crianças, anonimização e fim do tratamento?"
+                    ],
+                    [
+                      "III · Direitos do titular",
+                      "17 a 22",
+                      "O que a pessoa pode exigir de quem trata os dados dela?"
+                    ],
+                    [
+                      "IV · Poder Público",
+                      "23 a 32",
+                      "Como órgãos e entidades públicas podem tratar dados?"
+                    ],
+                    [
+                      "V · Transferência internacional",
+                      "33 a 36",
+                      "Quando os dados podem ir para outro país?"
+                    ],
+                    [
+                      "VI · Agentes de tratamento",
+                      "37 a 45",
+                      "Quem é controlador, operador e encarregado, e quem responde por danos?"
+                    ],
+                    [
+                      "VII · Segurança e boas práticas",
+                      "46 a 51",
+                      "Que cuidados de segurança são obrigatórios e o que fazer num incidente?"
+                    ],
+                    [
+                      "VIII · Fiscalização",
+                      "52 a 54",
+                      "Que sanções a ANPD aplica e como as calcula?"
+                    ],
+                    [
+                      "IX · ANPD e CNPD",
+                      "55-A a 58-B",
+                      "Quem fiscaliza (a agência) e quem aconselha (o conselho)?"
+                    ],
+                    [
+                      "X · Disposições finais",
+                      "60 a 65",
+                      "Que outras leis mudaram e quando cada parte entrou em vigor?"
+                    ]
+                  ]
+                },
+                "porque": "A ordem não é por acaso: as sanções do capítulo VIII só fazem sentido depois que se sabe o que é tratamento, quem é controlador e quais são as bases legais. Por isso o estudo começa pelos conceitos, mesmo que sanções e direitos do titular estejam entre os temas mais cobrados."
+              },
+              {
                 "t": "Quem e o quê",
                 "texto": "A lei trata do **tratamento de dados pessoais**, inclusive nos meios digitais, feito por **pessoa natural** ou **pessoa jurídica de direito público ou privado** (art. 1º). Protege só a pessoa natural: dado de empresa (CNPJ, faturamento) não é dado pessoal. As normas gerais da LGPD são de **interesse nacional** e obrigam União, Estados, DF e Municípios (art. 1º, parágrafo único).",
                 "ex": "Um dentista que atende como pessoa física, sem empresa, também trata dados de pacientes com fim econômico: a LGPD se aplica a ele (exemplo do prof. Maurício Franceschini)."
@@ -8786,6 +8850,203 @@
           ]
         },
         {
+          "id": "adm-processo",
+          "nome": "Processo administrativo federal (Lei 9.784/1999)",
+          "resumo": "Princípios, competência, delegação, impedimento, prazos, decisão, recursos e revisão.",
+          "artigos": [
+            "lei9784:2",
+            "lei9784:3",
+            "lei9784:11",
+            "lei9784:12",
+            "lei9784:13",
+            "lei9784:15",
+            "lei9784:18",
+            "lei9784:20",
+            "lei9784:24",
+            "lei9784:44",
+            "lei9784:49",
+            "lei9784:56",
+            "lei9784:57",
+            "lei9784:59",
+            "lei9784:61",
+            "lei9784:64",
+            "lei9784:65"
+          ],
+          "licao": {
+            "ideia": "A Lei 9.784 é o roteiro do processo administrativo federal: quem decide, como se delega, quem não pode atuar, prazos, decisão e recurso. Vale também, de forma subsidiária, para o processo sancionador da ANPD.",
+            "mapa": {
+              "centro": "Lei 9.784/1999",
+              "ramos": [
+                {
+                  "t": "Princípios (art. 2º)",
+                  "f": [
+                    "legalidade, finalidade, motivação",
+                    "razoabilidade, proporcionalidade",
+                    "contraditório, ampla defesa"
+                  ]
+                },
+                {
+                  "t": "Competência",
+                  "f": [
+                    "irrenunciável",
+                    "delegável, com exceções",
+                    "avocação excepcional"
+                  ]
+                },
+                {
+                  "t": "Quem não pode atuar",
+                  "f": [
+                    "impedimento: objetivo",
+                    "suspeição: subjetiva"
+                  ]
+                },
+                {
+                  "t": "Prazos",
+                  "f": [
+                    "5 dias: atos",
+                    "3 dias úteis: intimação",
+                    "10 dias: alegações e recurso",
+                    "30 dias: decisão"
+                  ]
+                },
+                {
+                  "t": "Recurso",
+                  "f": [
+                    "legalidade e mérito",
+                    "até 3 instâncias",
+                    "pode agravar, com aviso"
+                  ]
+                },
+                {
+                  "t": "Revisão",
+                  "f": [
+                    "a qualquer tempo",
+                    "fato novo",
+                    "não agrava"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Alcance e princípios",
+                "texto": "Rege o processo na administração federal direta e indireta e se aplica subsidiariamente aos processos com lei própria. Princípios do art. 2º: legalidade, finalidade, motivação, razoabilidade, proporcionalidade, moralidade, ampla defesa, contraditório, segurança jurídica, interesse público e eficiência. Entre os critérios do parágrafo único: interpretar a norma do modo que melhor garanta o fim público, **vedada a aplicação retroativa de nova interpretação**, e gratuidade, salvo exceções legais.",
+                "porque": "A nova interpretação não retroage para proteger quem agiu de boa-fé conforme o entendimento da época: é a segurança jurídica aplicada ao processo."
+              },
+              {
+                "t": "Competência e delegação",
+                "texto": "A competência é irrenunciável (art. 11). Parte dela pode ser delegada, mesmo a quem não seja subordinado (art. 12). A avocação temporária de competência de órgão inferior é excepcional e justificada (art. 15). Não se delegam (art. 13):",
+                "lista": [
+                  "a edição de atos normativos",
+                  "a decisão de recursos administrativos",
+                  "as matérias de competência exclusiva"
+                ],
+                "porque": "Os três têm lógica. Quem recebeu da lei o poder de criar regras gerais não pode repassá-lo. Delegar o julgamento do recurso poderia devolvê-lo a quem está abaixo, esvaziando a revisão por outra instância. E na competência exclusiva a própria lei disse que só aquela autoridade decide."
+              },
+              {
+                "t": "Impedimento × suspeição",
+                "tabela": {
+                  "cab": [
+                    "",
+                    "Impedimento (art. 18)",
+                    "Suspeição (art. 20)"
+                  ],
+                  "linhas": [
+                    [
+                      "Natureza",
+                      "objetiva",
+                      "subjetiva"
+                    ],
+                    [
+                      "Exemplos",
+                      "interesse direto na matéria; participou ou vai participar como perito, testemunha ou representante; litígio com o interessado",
+                      "amizade íntima ou inimizade notória"
+                    ],
+                    [
+                      "Consequência",
+                      "dever de comunicar e se abster",
+                      "pode ser alegada; o indeferimento admite recurso sem efeito suspensivo (art. 21)"
+                    ]
+                  ]
+                },
+                "porque": "Impedimento é um fato verificável (participou ou não como perito), por isso é objetivo e obriga a se afastar. Suspeição depende de um sentimento, mais difícil de provar, e por isso é subjetiva e precisa ser alegada."
+              },
+              {
+                "t": "Prazos",
+                "tabela": {
+                  "cab": [
+                    "Prazo",
+                    "Para quê"
+                  ],
+                  "linhas": [
+                    [
+                      "5 dias",
+                      "praticar atos, na falta de regra específica (art. 24)"
+                    ],
+                    [
+                      "3 dias úteis",
+                      "antecedência mínima da intimação (art. 26, § 2º)"
+                    ],
+                    [
+                      "10 dias",
+                      "alegações finais, encerrada a instrução (art. 44), e interposição de recurso (art. 59)"
+                    ],
+                    [
+                      "30 dias",
+                      "a Administração decidir, prorrogáveis por igual período, motivadamente (art. 49)"
+                    ]
+                  ]
+                },
+                "depois": "Os prazos começam a correr da cientificação oficial, excluindo-se o dia do começo e incluindo-se o do vencimento.",
+                "porque": "Um padrão ajuda: 3 e 5 dias são para avisar e para atos simples; 10 dias é o tempo de quem se defende ou recorre; 30 dias é o tempo de quem decide. Na dúvida, pergunte quem está agindo: o interessado (10) ou a Administração (30)."
+              },
+              {
+                "t": "Recurso × revisão",
+                "passos": [
+                  "Recurso em 10 dias, por razões de legalidade e de mérito",
+                  "Dirigido à autoridade que decidiu, que reconsidera em 5 dias ou encaminha à superior",
+                  "Tramita por no máximo 3 instâncias",
+                  "Decisão em 30 dias; em regra, sem efeito suspensivo",
+                  "O órgão pode confirmar, modificar, anular ou revogar a decisão"
+                ],
+                "tabela": {
+                  "cab": [
+                    "",
+                    "Recurso",
+                    "Revisão do processo sancionador"
+                  ],
+                  "linhas": [
+                    [
+                      "Quando",
+                      "contra a decisão, em 10 dias",
+                      "a qualquer tempo, diante de fatos novos"
+                    ],
+                    [
+                      "Pode agravar a situação?",
+                      "sim, se o recorrente for cientificado para alegar antes",
+                      "não (art. 65, parágrafo único)"
+                    ]
+                  ]
+                },
+                "porque": "O recurso devolve o caso à Administração, que deve buscar a decisão legal, ainda que pior para o recorrente; por isso o aviso prévio, para ele se defender. A revisão é um pedido que o interessado faz a qualquer tempo com base em fato novo: se pudesse piorar a sanção, ninguém arriscaria pedi-la."
+              }
+            ]
+          },
+          "chave": [
+            "Indelegáveis: atos normativos, decisão de recursos, competência exclusiva.",
+            "Impedimento: objetivo. Suspeição: subjetiva.",
+            "5 dias (atos), 3 dias úteis (intimação), 10 dias (alegações e recurso), 30 dias (decisão).",
+            "Até 3 instâncias; reconsideração em 5 dias; sem efeito suspensivo como regra.",
+            "Recurso pode agravar (com ciência prévia); revisão não pode agravar."
+          ],
+          "armadilhas": [
+            "Admitir delegação de ato normativo por interesse público (TRF6 2025, item 17).",
+            "Trocar o prazo de recurso (10 dias) pelo de decisão (30 dias).",
+            "Proibir a reformatio in pejus no recurso: ela é proibida na revisão.",
+            "Exigir subordinação hierárquica para delegar."
+          ]
+        },
+        {
           "id": "adm-agentes",
           "nome": "Agentes públicos e Lei 8.112/1990",
           "resumo": "Espécies de agentes, provimento, vacância, deveres, proibições, penalidades e processo disciplinar.",
@@ -9241,203 +9502,6 @@
             "Inverter recurso hierárquico próprio e impróprio (ANAC 2024, item 15).",
             "Dizer que o Judiciário pode rever a conveniência e a oportunidade do ato.",
             "Exigir esgotamento da via administrativa como regra."
-          ]
-        },
-        {
-          "id": "adm-processo",
-          "nome": "Processo administrativo federal (Lei 9.784/1999)",
-          "resumo": "Princípios, competência, delegação, impedimento, prazos, decisão, recursos e revisão.",
-          "artigos": [
-            "lei9784:2",
-            "lei9784:3",
-            "lei9784:11",
-            "lei9784:12",
-            "lei9784:13",
-            "lei9784:15",
-            "lei9784:18",
-            "lei9784:20",
-            "lei9784:24",
-            "lei9784:44",
-            "lei9784:49",
-            "lei9784:56",
-            "lei9784:57",
-            "lei9784:59",
-            "lei9784:61",
-            "lei9784:64",
-            "lei9784:65"
-          ],
-          "licao": {
-            "ideia": "A Lei 9.784 é o roteiro do processo administrativo federal: quem decide, como se delega, quem não pode atuar, prazos, decisão e recurso. Vale também, de forma subsidiária, para o processo sancionador da ANPD.",
-            "mapa": {
-              "centro": "Lei 9.784/1999",
-              "ramos": [
-                {
-                  "t": "Princípios (art. 2º)",
-                  "f": [
-                    "legalidade, finalidade, motivação",
-                    "razoabilidade, proporcionalidade",
-                    "contraditório, ampla defesa"
-                  ]
-                },
-                {
-                  "t": "Competência",
-                  "f": [
-                    "irrenunciável",
-                    "delegável, com exceções",
-                    "avocação excepcional"
-                  ]
-                },
-                {
-                  "t": "Quem não pode atuar",
-                  "f": [
-                    "impedimento: objetivo",
-                    "suspeição: subjetiva"
-                  ]
-                },
-                {
-                  "t": "Prazos",
-                  "f": [
-                    "5 dias: atos",
-                    "3 dias úteis: intimação",
-                    "10 dias: alegações e recurso",
-                    "30 dias: decisão"
-                  ]
-                },
-                {
-                  "t": "Recurso",
-                  "f": [
-                    "legalidade e mérito",
-                    "até 3 instâncias",
-                    "pode agravar, com aviso"
-                  ]
-                },
-                {
-                  "t": "Revisão",
-                  "f": [
-                    "a qualquer tempo",
-                    "fato novo",
-                    "não agrava"
-                  ]
-                }
-              ]
-            },
-            "partes": [
-              {
-                "t": "Alcance e princípios",
-                "texto": "Rege o processo na administração federal direta e indireta e se aplica subsidiariamente aos processos com lei própria. Princípios do art. 2º: legalidade, finalidade, motivação, razoabilidade, proporcionalidade, moralidade, ampla defesa, contraditório, segurança jurídica, interesse público e eficiência. Entre os critérios do parágrafo único: interpretar a norma do modo que melhor garanta o fim público, **vedada a aplicação retroativa de nova interpretação**, e gratuidade, salvo exceções legais.",
-                "porque": "A nova interpretação não retroage para proteger quem agiu de boa-fé conforme o entendimento da época: é a segurança jurídica aplicada ao processo."
-              },
-              {
-                "t": "Competência e delegação",
-                "texto": "A competência é irrenunciável (art. 11). Parte dela pode ser delegada, mesmo a quem não seja subordinado (art. 12). A avocação temporária de competência de órgão inferior é excepcional e justificada (art. 15). Não se delegam (art. 13):",
-                "lista": [
-                  "a edição de atos normativos",
-                  "a decisão de recursos administrativos",
-                  "as matérias de competência exclusiva"
-                ],
-                "porque": "Os três têm lógica. Quem recebeu da lei o poder de criar regras gerais não pode repassá-lo. Delegar o julgamento do recurso poderia devolvê-lo a quem está abaixo, esvaziando a revisão por outra instância. E na competência exclusiva a própria lei disse que só aquela autoridade decide."
-              },
-              {
-                "t": "Impedimento × suspeição",
-                "tabela": {
-                  "cab": [
-                    "",
-                    "Impedimento (art. 18)",
-                    "Suspeição (art. 20)"
-                  ],
-                  "linhas": [
-                    [
-                      "Natureza",
-                      "objetiva",
-                      "subjetiva"
-                    ],
-                    [
-                      "Exemplos",
-                      "interesse direto na matéria; participou ou vai participar como perito, testemunha ou representante; litígio com o interessado",
-                      "amizade íntima ou inimizade notória"
-                    ],
-                    [
-                      "Consequência",
-                      "dever de comunicar e se abster",
-                      "pode ser alegada; o indeferimento admite recurso sem efeito suspensivo (art. 21)"
-                    ]
-                  ]
-                },
-                "porque": "Impedimento é um fato verificável (participou ou não como perito), por isso é objetivo e obriga a se afastar. Suspeição depende de um sentimento, mais difícil de provar, e por isso é subjetiva e precisa ser alegada."
-              },
-              {
-                "t": "Prazos",
-                "tabela": {
-                  "cab": [
-                    "Prazo",
-                    "Para quê"
-                  ],
-                  "linhas": [
-                    [
-                      "5 dias",
-                      "praticar atos, na falta de regra específica (art. 24)"
-                    ],
-                    [
-                      "3 dias úteis",
-                      "antecedência mínima da intimação (art. 26, § 2º)"
-                    ],
-                    [
-                      "10 dias",
-                      "alegações finais, encerrada a instrução (art. 44), e interposição de recurso (art. 59)"
-                    ],
-                    [
-                      "30 dias",
-                      "a Administração decidir, prorrogáveis por igual período, motivadamente (art. 49)"
-                    ]
-                  ]
-                },
-                "depois": "Os prazos começam a correr da cientificação oficial, excluindo-se o dia do começo e incluindo-se o do vencimento.",
-                "porque": "Um padrão ajuda: 3 e 5 dias são para avisar e para atos simples; 10 dias é o tempo de quem se defende ou recorre; 30 dias é o tempo de quem decide. Na dúvida, pergunte quem está agindo: o interessado (10) ou a Administração (30)."
-              },
-              {
-                "t": "Recurso × revisão",
-                "passos": [
-                  "Recurso em 10 dias, por razões de legalidade e de mérito",
-                  "Dirigido à autoridade que decidiu, que reconsidera em 5 dias ou encaminha à superior",
-                  "Tramita por no máximo 3 instâncias",
-                  "Decisão em 30 dias; em regra, sem efeito suspensivo",
-                  "O órgão pode confirmar, modificar, anular ou revogar a decisão"
-                ],
-                "tabela": {
-                  "cab": [
-                    "",
-                    "Recurso",
-                    "Revisão do processo sancionador"
-                  ],
-                  "linhas": [
-                    [
-                      "Quando",
-                      "contra a decisão, em 10 dias",
-                      "a qualquer tempo, diante de fatos novos"
-                    ],
-                    [
-                      "Pode agravar a situação?",
-                      "sim, se o recorrente for cientificado para alegar antes",
-                      "não (art. 65, parágrafo único)"
-                    ]
-                  ]
-                },
-                "porque": "O recurso devolve o caso à Administração, que deve buscar a decisão legal, ainda que pior para o recorrente; por isso o aviso prévio, para ele se defender. A revisão é um pedido que o interessado faz a qualquer tempo com base em fato novo: se pudesse piorar a sanção, ninguém arriscaria pedi-la."
-              }
-            ]
-          },
-          "chave": [
-            "Indelegáveis: atos normativos, decisão de recursos, competência exclusiva.",
-            "Impedimento: objetivo. Suspeição: subjetiva.",
-            "5 dias (atos), 3 dias úteis (intimação), 10 dias (alegações e recurso), 30 dias (decisão).",
-            "Até 3 instâncias; reconsideração em 5 dias; sem efeito suspensivo como regra.",
-            "Recurso pode agravar (com ciência prévia); revisão não pode agravar."
-          ],
-          "armadilhas": [
-            "Admitir delegação de ato normativo por interesse público (TRF6 2025, item 17).",
-            "Trocar o prazo de recurso (10 dias) pelo de decisão (30 dias).",
-            "Proibir a reformatio in pejus no recurso: ela é proibida na revisão.",
-            "Exigir subordinação hierárquica para delegar."
           ]
         },
         {
