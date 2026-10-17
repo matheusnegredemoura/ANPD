@@ -80,7 +80,8 @@ conferir('a página de discursiva mostra o plano em dia', /3 de 3/.test(cartao) 
 
 // Adiantar: nas semanas com duas discursivas, a segunda correção do dia dá baixa na próxima da semana, que deixa de
 // aparecer como próxima (perfil novo, para não haver atraso de antes)
-const semana = (iso) => { const d = new Date(iso + 'T12:00:00'); d.setDate(d.getDate() - d.getDay()); return d.toISOString().slice(0, 10); };
+// semana de segunda a domingo, como no app (a baixa adiantada vai até o domingo)
+const semana = (iso) => { const d = new Date(iso + 'T12:00:00'); d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return d.toISOString().slice(0, 10); };
 const par = discs.findIndex((d, i) => i + 1 < discs.length && semana(d.data) === semana(discs[i + 1].data) && d.data !== discs[i + 1].data);
 const [e1, e2, e3] = [discs[par], discs[par + 1], discs[par + 2]];
 const ctx2 = await browser.newContext({ viewport: { width: 390, height: 844 } });
