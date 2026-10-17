@@ -642,16 +642,19 @@ function ativo(iso) { const d = S.perfil.dias[iso]; return !!d && (d.r + (d.k ||
 
 /* ================= Tempo de estudo ================= */
 // O relógio do dia conta o tempo com o app aberto, visível e em uso. Sem toque, tecla ou rolagem por OCIOSO_S
-// segundos, ele para até o próximo toque (ler um comentário longo sem tocar na tela ainda conta). Cada intervalo vai
-// para a atividade da tela: questões (sessões e simulados), cards, leitura (lei seca, trilhas, Como o Cebraspe cobra,
-// glossário) e discursiva. O tempo no painel, no plano, no método e nos ajustes fica à parte ("o"), fora do total.
-const OCIOSO_S = 180, TIQUE_S = 15;
+// segundos (OCIOSO_LER_S na leitura, em que um artigo longo se lê sem tocar), ele para até o próximo toque. Cada
+// intervalo vai para a atividade da tela: questões (sessões e simulados), cards, leitura (lei seca, artigo aberto,
+// aula, trilhas, Como o Cebraspe cobra, glossário) e discursiva. O tempo no painel, no plano, no método e nos ajustes
+// fica à parte ("o"), fora do total. Na leitura e na discursiva, um cronômetro na tela mostra o tempo do dia.
+const OCIOSO_S = 180, OCIOSO_LER_S = 300, TIQUE_S = 15;
 const ATIV = [['q', 'Questões'], ['c', 'Cards'], ['l', 'Leitura'], ['d', 'Discursiva']];
 const LEITURA_MAIS = new Set(['trilha', 'cebraspe', 'glossario', 'pesquisar']);
 let ultimoUso = Date.now(), ultimoTique = Date.now(), tempoNaoSalvo = 0;
 function atividadeAtual() {
+  // Artigo ou aula aberta na folha é leitura, mesmo se abertos a partir de um item da sessão
+  if (UI.folhaArt || UI.folhaAula) return 'l';
   if (sessao && !sessao.fim) return sessao.modo === 'cards' ? 'c' : 'q';
-  if (UI.folhaArt || UI.vista === 'lei') return 'l';
+  if (UI.vista === 'lei') return 'l';
   if (UI.vista === 'mais') return UI.mais === 'discursiva' ? 'd' : LEITURA_MAIS.has(UI.mais) ? 'l' : 'o';
   return 'o';
 }
@@ -660,15 +663,29 @@ function fmtDur(seg) { const m = Math.floor((seg || 0) / 60); return m < 60 ? m 
 // Duração prevista no plano para o dia ("1h45", "3h"); dia livre ou fora do plano não tem meta de tempo
 function metaMin(iso) { const dia = DIAS.find((x) => x.data === iso); const m = dia && /^(\d+)h(\d+)?$/.exec(dia.duracao || ''); return m ? Number(m[1]) * 60 + Number(m[2] || 0) : null; }
 function marcarUso() { ultimoUso = Date.now(); }
+function ocioso(k, agora) { return agora - ultimoUso > (k === 'l' ? OCIOSO_LER_S : OCIOSO_S) * 1000; }
+function fmtRelogio(seg) { const s = Math.floor(seg), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60); return (h ? h + ':' + String(m).padStart(2, '0') : m) + ':' + String(s % 60).padStart(2, '0'); }
+// Cronômetro da leitura e da discursiva: o tempo do dia nessa atividade, correndo enquanto conta, ou pausado
+function atualizarCronometro() {
+  const el = document.getElementById('cronometro');
+  if (!el) return;
+  const k = atividadeAtual(), mostra = (k === 'l' || k === 'd') && !document.hidden;
+  el.hidden = !mostra;
+  if (!mostra) return;
+  const agora = Date.now(), parado = ocioso(k, agora);
+  const seg = ((((S.perfil.dias[hojeISO()] || {}).t) || {})[k] || 0) + (parado ? 0 : Math.min(agora - ultimoTique, TIQUE_S * 2000) / 1000);
+  el.classList.toggle('parado', parado);
+  el.innerHTML = '<i aria-hidden="true"></i>' + (k === 'l' ? 'Leitura' : 'Discursiva') + ' hoje <b class="mono">' + fmtRelogio(seg) + '</b>' + (parado ? ' · pausado' : '');
+}
 // final: chamada ao esconder ou fechar a página, para gravar o pedaço do intervalo em curso
 function contarTempo(final) {
   const agora = Date.now();
   const dt = Math.min(agora - ultimoTique, TIQUE_S * 2000) / 1000;
   ultimoTique = agora;
-  if ((document.hidden && !final) || agora - ultimoUso > OCIOSO_S * 1000 || dt < 1) return;
+  const k = atividadeAtual();
+  if ((document.hidden && !final) || ocioso(k, agora) || dt < 1) return;
   if (!S.perfil.tempoDesde) S.perfil.tempoDesde = hojeISO();
   const t = (diaLog().t ||= {});
-  const k = atividadeAtual();
   t[k] = Math.round((t[k] || 0) + dt);
   tempoNaoSalvo += dt;
   if (final || tempoNaoSalvo >= 60) { tempoNaoSalvo = 0; Store.salvar('perfil'); }
@@ -3966,8 +3983,10 @@ document.addEventListener('pointerover', (ev) => {
 document.addEventListener('visibilitychange', () => { if (document.hidden) { contarTempo(true); guardarSessaoAberta(); Store.descarregar(); } else { ultimoTique = Date.now(); marcarUso(); } });
 window.addEventListener('pagehide', () => { contarTempo(true); guardarSessaoAberta(); Store.descarregar(); });
 ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach((ev) => document.addEventListener(ev, marcarUso, { passive: true, capture: true }));
-window.addEventListener('scroll', marcarUso, { passive: true });
+// Rolar dentro da folha ou da sessão também é uso: o evento de rolagem não sobe, mas passa pela captura no documento
+document.addEventListener('scroll', marcarUso, { passive: true, capture: true });
 setInterval(() => contarTempo(false), TIQUE_S * 1000);
+setInterval(atualizarCronometro, 1000);
 
 /* ================= Início ================= */
 function iniciar(dadosQuentes) {

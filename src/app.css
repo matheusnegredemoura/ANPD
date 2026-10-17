@@ -332,6 +332,13 @@ button.alt{cursor:pointer;transition:border-color .15s}
 .calor i.hoje{outline:2px solid var(--accent);outline-offset:1px}
 .calor-leg{display:flex;align-items:center;gap:4px;font-size:.74rem;color:var(--ink-2)}
 .calor-leg i{width:12px;height:12px;border-radius:3px;display:inline-block}
+/* Cronômetro da leitura e da discursiva: só informa, não bloqueia toque */
+.cronometro{position:fixed;right:12px;bottom:calc(var(--abas-h) + 12px + env(safe-area-inset-bottom,0px));z-index:45;pointer-events:none;display:flex;align-items:center;gap:6px;background:var(--surface);color:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:.78rem;box-shadow:var(--sombra)}
+.cronometro b{color:var(--ink);font-variant-numeric:tabular-nums}
+.cronometro i{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pisca 2s ease-in-out infinite}
+.cronometro.parado i{background:var(--ink-3);animation:none}
+@keyframes pisca{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.cronometro i{animation:none}}
 .dica{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:var(--bg);font-size:.78rem;padding:5px 8px;border-radius:6px;white-space:nowrap;font-family:var(--f-mono)}
 .conquistas{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .conquista{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface);display:flex;flex-direction:column;gap:4px;min-height:96px}
