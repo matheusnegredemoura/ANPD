@@ -1,6 +1,6 @@
 // O artigo abre na própria tela, logo abaixo do botão: no comentário do item (sessão), no card e na página do subtema.
 // Dispositivo revogado aparece sem o texto antigo; remissão a outro artigo da mesma norma abre logo abaixo da linha; o
-// juridiquês do artigo vem traduzido embaixo dele.
+// artigo em português claro vem antes do texto da lei.
 // Sem folha por cima e sem trocar de aba, para não depender do jeito como o aparelho desenha camadas fixas. Um erro
 // qualquer vira aviso e fica no diagnóstico.
 import { APP, abrirNavegador, placar, responder, vigiarErros } from './comum.mjs';
@@ -81,8 +81,11 @@ await passo('no texto da lei, "art. 16 desta Lei" abre o art. 16 logo abaixo da 
   if (!/Art\. 16/.test(cab)) throw new Error('abriu: ' + cab);
   if (!(await caixa.locator('.texto-lei p').count())) throw new Error('caixa sem o texto');
   if (await caixa.locator('.legenda-fixa').count()) throw new Error('a caixa da remissão repete a legenda');
-  const jur = await p.locator('#vista-lei details.juridiques[open] dt').allTextContents();
-  if (!jur.includes('mediante')) throw new Error('o juridiquês do art. 18 não veio traduzido: ' + jur.join(', '));
+  // o artigo em português claro vem antes do texto da lei; os termos técnicos, recolhidos, depois
+  const ordem = await p.evaluate(() => { const c = document.querySelector('#vista-lei .cartao .claro'), t = document.querySelector('#vista-lei .cartao .texto-lei'); return c && t ? !!(c.compareDocumentPosition(t) & Node.DOCUMENT_POSITION_FOLLOWING) : null; });
+  if (ordem !== true) throw new Error('o art. 18 em português claro não veio antes do texto: ' + ordem);
+  if (!/^Em português claro\s*Lista o que o titular pode pedir/.test(((await p.locator('#vista-lei .cartao .claro').first().textContent()) || '').trim())) throw new Error('tradução errada do art. 18');
+  if (await p.locator('#vista-lei details.juridiques[open]').count()) throw new Error('os termos técnicos deviam vir recolhidos');
   await ref.tap();
   if (await p.locator('#vista-lei .art-inline.remissao:not([hidden])').count()) throw new Error('o segundo toque não fechou');
   // citação de outra norma não vira botão: "art. 52 da Constituição Federal" no art. 55-D

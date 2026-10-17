@@ -61,7 +61,7 @@ const CARDS_POR_ART = agrupar(CARDS.filter((c) => c.nota.art), (c) => chave(c.no
 const BLOCO_DO_ART = new Map();
 for (const b of BLOCOS) for (const a of b.artigos || []) { const k = chave(b.lei || 'lgpd', a); if (!BLOCO_DO_ART.has(k)) BLOCO_DO_ART.set(k, b); }
 
-// Glossário com expressão regular por termo; as expressões de juridiquês (j) só aparecem traduzidas embaixo dos artigos
+// Glossário com expressão regular por termo; os termos jurídicos (j) só aparecem explicados embaixo dos artigos
 const GLOSS = (D.glossario || []).map((g, i) => Object.assign({ i, re: regexTermo(g.p) }, g));
 const JURIDIQUES = GLOSS.filter((g) => g.j);
 function regexTermo(padroes) {
@@ -2641,7 +2641,7 @@ function htmlArtInline(k, qid, lista, box, remissao) {
   const a = ARTI.get(k), L = LEIS[a.lei], i = lista ? lista.indexOf(k) : -1;
   const nav = (x, t) => '<button class="btn pequeno" data-acao="art-inline" data-art="' + esc(x) + '" data-box="' + box + '">' + t + '</button>';
   return '<div class="art-inline-cab"><b>' + esc(L.curto + ' · ' + rotuloArt(k)) + '</b>' + (a.estrutura.length ? '<span class="pequeno mudo">' + esc(a.estrutura.join(' · ')) + '</span>' : '') + '</div>' +
-    (L.aviso ? '<p class="aviso-conferir">' + esc(L.aviso) + '</p>' : '') + '<div class="texto-lei">' + textoLei(a, qid ? [qid] : []) + '</div>' + (remissao ? '' : caixaJuridiques(a)) +
+    (L.aviso ? '<p class="aviso-conferir">' + esc(L.aviso) + '</p>' : '') + htmlClaro(a, remissao) + '<div class="texto-lei">' + textoLei(a, qid ? [qid] : []) + '</div>' + (remissao ? '' : caixaJuridiques(a)) +
     (remissao ? '' : '<p class="pequeno mudo legenda-fixa">Grifos: <span class="g-cai">o que cai</span> · <span class="g-num">prazos e números</span> · <span class="g-alerta">alerta</span> · <span class="g-verbo">deve × pode</span> · <span class="g-erro">seus erros</span></p>') +
     (i >= 0 ? '<div class="linha-btns">' + (i > 0 ? nav(lista[i - 1], '← ' + esc(nomeArt(lista[i - 1]))) : '') + (i < lista.length - 1 ? nav(lista[i + 1], esc(nomeArt(lista[i + 1])) + ' →') : '') + '</div>' : '');
 }
@@ -2896,15 +2896,50 @@ function remissoesDaLinha(linha, a) {
   }
   return out;
 }
-// Juridiquês do artigo, traduzido, na ordem em que aparece (linhas revogadas e vetadas não contam). Vem aberto para
-// quem está começando (menos de 40 artigos lidos); depois, recolhido, a um toque
+// Texto vigente do artigo: sem as linhas revogadas e vetadas
+function textoVigente(a) { return a.texto.split('\n').filter((l) => !linhaRevogada(l) && !/\(VETADO\)/.test(l)).join('\n'); }
+// Termos técnicos do artigo (de ofício, ônus da prova, ad referendum…), na ordem em que aparecem, recolhidos a um toque
 function caixaJuridiques(a) {
-  const texto = a.texto.split('\n').filter((l) => !linhaRevogada(l) && !/\(VETADO\)/.test(l)).join('\n');
+  const texto = textoVigente(a);
   const achados = JURIDIQUES.map((g) => ({ g, i: texto.search(g.re) })).filter((x) => x.i >= 0).sort((x, y) => x.i - y.i).slice(0, 8);
   if (!achados.length) return '';
-  const aberto = Object.keys(S.perfil.lidos || {}).length < 40;
-  return '<details class="juridiques"' + (aberto ? ' open' : '') + '><summary>Juridiquês deste artigo, traduzido (' + achados.length + ')</summary><dl>' +
+  return '<details class="juridiques"><summary>Termos técnicos deste artigo (' + achados.length + ')</summary><dl>' +
     achados.map(({ g }) => '<dt>' + esc(g.t) + '</dt><dd>' + esc(g.d) + '</dd>').join('') + '</dl></details>';
+}
+// O artigo em português claro, antes do texto da lei: o que ele manda, para quem, quando e com que exceção. Os das
+// trilhas vêm escritos e conferidos (dados/claro.json); nos outros, o Claude traduz na hora, a pedido, com o aviso de
+// conferir no texto. A tradução gerada fica guardada só nesta abertura. Na caixa de remissão, só a escrita.
+const CLARO = D.claro || {};
+const CLARO_IA = new Map();
+function htmlClaro(a, enxuto) {
+  if (CLARO[a.k]) return '<div class="claro"><span class="rotulo">Em português claro</span><p>' + grifarProsa(CLARO[a.k]) + '</p></div>';
+  if (enxuto) return '';
+  if (CLARO_IA.has(a.k)) return '<div class="claro ia"><span class="rotulo">Em português claro · gerado pelo Claude, confira no texto</span><p>' + esc(CLARO_IA.get(a.k)) + '</p></div>';
+  return iaPronta() ? '<div class="claro vazio"><button class="btn pequeno" data-acao="claro-ia" data-art="' + esc(a.k) + '">Explicar este artigo em português claro (Claude)</button></div>' : '';
+}
+function pedidoClaro(a) {
+  return 'Explique em português claro, para quem estuda para concurso e nunca leu lei, o que diz o dispositivo abaixo (' + LEIS[a.lei].curto + ', ' + rotuloArt(a.k) + '). Regras: ' +
+    '1) diga o que ele manda, proíbe ou permite, para quem, quando e com que exceções, seguindo a ordem do texto; ' +
+    '2) não acrescente nada que o texto não diga, não cite jurisprudência nem doutrina e, se algo depender de outro artigo, diga só que depende; ' +
+    '3) explique cada termo técnico com palavras do dia a dia na própria frase; ' +
+    '4) texto corrido, de 3 a 6 frases, sem markdown, títulos ou listas.\n\nTexto:\n' + textoVigente(a);
+}
+async function traduzirIA(alvo) {
+  const k = alvo.dataset.art, a = ARTI.get(k), caixa = alvo.closest('.claro');
+  if (!a || !caixa || !iaPronta()) return;
+  caixa.classList.remove('vazio');
+  caixa.innerHTML = '<span class="rotulo">Em português claro · o Claude está escrevendo…</span><p></p>';
+  const p = caixa.querySelector('p');
+  try {
+    const r = await IA(pedidoClaro(a), { onText: ({ text }) => { p.textContent = text; } });
+    CLARO_IA.set(k, r.text.trim() + (r.truncated ? ' […]' : ''));
+    caixa.classList.add('ia');
+    caixa.innerHTML = '<span class="rotulo">Em português claro · gerado pelo Claude, confira no texto</span><p>' + esc(CLARO_IA.get(k)) + '</p>';
+  } catch (e) {
+    caixa.classList.add('vazio');
+    caixa.innerHTML = '<button class="btn pequeno" data-acao="claro-ia" data-art="' + esc(k) + '">Explicar este artigo em português claro (Claude)</button>';
+    if (!e || e.code !== 'cancelled') avisar('!', 'Claude indisponível', erroIA(e));
+  }
 }
 function textoLei(a, qExtras) {
   const cam = UI.camadas;
@@ -3101,7 +3136,7 @@ function renderArtigo(k) {
   if (fila) html += '<div class="fila-leitura"><span>Leitura do dia: ' + (idx + 1) + ' de ' + fila.length + '</span>' + (prox ? '' : '<button class="btn pequeno" data-acao="fim-fila">Concluir leitura</button>') + '</div>';
   const est = estrelas(k);
   html += '<div class="cartao"><span class="rotulo">' + esc([L.curto].concat(a.estrutura).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +
-    legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div>' + caixaJuridiques(a) + '<div class="linha-btns">';
+    htmlClaro(a) + legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div>' + caixaJuridiques(a) + '<div class="linha-btns">';
   if (qs.length) html += '<button class="btn primario" data-acao="treinar-art" data-art="' + esc(k) + '">Questões deste artigo (' + qs.length + ')</button>';
   if (cs.length) html += '<button class="btn" data-acao="cards-art" data-art="' + esc(k) + '">Cards deste artigo (' + cs.length + ')</button>';
   html += '</div>';
@@ -3341,8 +3376,8 @@ function renderGlossario() {
   const lista = GLOSS.filter((g) => !q || semAcento(g.t + ' ' + g.d).includes(q)).sort((a, b) => a.t.localeCompare(b.t, 'pt'));
   return '<div class="secao-cab"><h2>Glossário</h2><span class="mudo pequeno">' + GLOSS.length + ' termos</span></div>' +
     '<input class="busca" id="busca-gloss" type="search" placeholder="Buscar termo" value="' + esc(UI.buscaGloss) + '" aria-label="Buscar no glossário">' +
-    '<p class="mudo pequeno">Os termos sublinhados com pontos nas questões e nos cards abrem estas definições. As expressões marcadas como juridiquês aparecem traduzidas embaixo de cada artigo da lei seca.</p>' +
-    lista.map((g) => '<div class="gloss-item"><b>' + esc(g.t) + '</b>' + (g.j ? ' <span class="selo">juridiquês</span>' : '') + '<p>' + esc(g.d) + '</p><div class="linha-btns"><button class="linkish pequeno" data-acao="investigar" data-t="' + esc(g.t) + '" data-o="glossário">Investigar</button>' +
+    '<p class="mudo pequeno">Os termos sublinhados com pontos nas questões e nos cards abrem estas definições. Os marcados como termo jurídico aparecem explicados embaixo de cada artigo da lei seca.</p>' +
+    lista.map((g) => '<div class="gloss-item"><b>' + esc(g.t) + '</b>' + (g.j ? ' <span class="selo">termo jurídico</span>' : '') + '<p>' + esc(g.d) + '</p><div class="linha-btns"><button class="linkish pequeno" data-acao="investigar" data-t="' + esc(g.t) + '" data-o="glossário">Investigar</button>' +
       (S.pesquisa[chavePesq(g.t)] ? '<span class="selo ok">Na lista</span>' : '<button class="linkish pequeno" data-acao="add-pesq" data-t="' + esc(g.t) + '" data-o="glossário">Guardar na lista</button>') + '</div></div>').join('');
 }
 // Fontes citadas por itens que ainda não têm o texto no app, contadas no próprio banco
@@ -3583,7 +3618,7 @@ function htmlComoLer() {
     '<li>Prazos e números (<span class="g-num">15 (quinze) dias</span>) importam com a unidade: dias, dias úteis, meses.</li>' +
     '<li>“(Redação dada pela Lei…)” avisa que o texto mudou; “(VETADO)” e “(Revogado)” não valem, e o texto revogado nem aparece.</li>' +
     '<li>Quando o artigo cita outro da mesma lei (“nas hipóteses do <span class="ref-art">art. 16</span> desta Lei”), toque na citação: o artigo citado abre logo abaixo.</li>' +
-    '<li>Embaixo de cada artigo, as expressões de juridiquês dele (“sem prejuízo”, “mediante”, “facultado”…) vêm traduzidas.</li>' +
+    '<li>Antes do texto de cada artigo vem o mesmo artigo em português claro: leia primeiro, depois a letra da lei, que é o que a banca cobra. Embaixo, os termos técnicos dele (“de ofício”, “ônus da prova”…) explicados.</li>' +
     '<li>Leia o artigo inteiro antes de concluir: a exceção costuma estar no parágrafo seguinte.</li></ul></details>';
 }
 // O subtema contado como se conta a alguém que nunca leu a lei: vem antes da lei seca e da aula
@@ -4030,6 +4065,7 @@ async function executar(a, alvo) {
     case 'inv-copiar': copiarInv(); break;
     case 'inv-entendi': { const p = S.pesquisa[alvo.dataset.k]; if (p && !p.s) { p.s = 1; p.f = hojeISO(); ganharXP(5); verificarConquistas(); Store.salvar('pesquisa', 'perfil'); } if (UI.inv) folhaInvestigar(UI.inv.t, UI.inv.o); if (UI.vista === 'mais') renderMais(); break; }
     case 'disc-ia': corrigirDiscIA(); break;
+    case 'claro-ia': await traduzirIA(alvo); break;
     case 'disc-corrigir':
       if (!estadoDisc(UI.discTema).rascunho.trim()) { avisar('!', 'Texto vazio', 'Escreva a resposta antes de corrigir.'); break; }
       UI.discFase = 'correcao'; renderMais(); break;

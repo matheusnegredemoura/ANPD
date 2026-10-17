@@ -776,7 +776,12 @@ details.det-lista[open]>summary{margin-bottom:10px}
 /* Em palavras simples: o subtema contado sem juridiquês, no topo da página */
 .simples{margin-top:12px;background:var(--surface-2);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px}
 .simples p{margin:0;line-height:1.55}
-/* Juridiquês do artigo, traduzido: lista curta embaixo do texto da lei */
+/* O artigo em português claro, antes do texto da lei */
+.claro{background:var(--surface-2);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:10px 12px;display:flex;flex-direction:column;gap:4px;margin:6px 0 10px}
+.claro p{margin:0;line-height:1.55}
+.claro.vazio{background:none;border-left:0;padding:0}
+.claro.ia .rotulo{color:var(--ink-2)}
+/* Termos técnicos do artigo: lista curta embaixo do texto da lei */
 .juridiques{border-top:1px dashed var(--line);padding-top:10px}
 .juridiques summary{cursor:pointer;font-size:.8rem;font-weight:700;letter-spacing:.04em;color:var(--ink-2)}
 .juridiques[open] summary{margin-bottom:8px}

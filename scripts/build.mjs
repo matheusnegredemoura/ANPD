@@ -153,6 +153,15 @@ export function montarDados() {
   // Respostas às contestações: chegam com o banco, mesmo quando a contestação não conseguiu ir para a conta
   const respostasContest = JSON.parse(ler('dados', 'contestacoes-respostas.json'));
   for (const id of Object.keys(respostasContest)) if (!ids.has(id)) errosCb.push(`contestacoes-respostas.json: item inexistente ${id}`);
+  // Artigos em português claro: a chave segue o formato das trilhas (lei:artigo) e o artigo precisa existir
+  const claro = {};
+  for (const [k, txt] of Object.entries(JSON.parse(ler('dados', 'claro.json')).artigos)) {
+    const [l, a] = k.split(':');
+    if (!leis[l] || !leis[l].lei.artigos.some((x) => x.id === a)) errosCb.push(`claro.json: artigo inexistente ${k}`);
+    if (typeof txt !== 'string' || txt.length < 80 || txt.length > 1500) errosCb.push(`claro.json (${k}): texto ausente ou fora de 80 a 1500 caracteres`);
+    if (/\*\*|\n/.test(txt)) errosCb.push(`claro.json (${k}): sem negrito com ** nem quebra de linha`);
+    claro[l === 'lgpd' ? a : k] = txt;
+  }
   const subtemas = new Set();
   const prefixos = new Set();
   for (const t of trilhas) {
@@ -249,6 +258,7 @@ export function montarDados() {
     cloze,
     glossario: gloss,
     respostasContest,
+    claro,
   };
 }
 

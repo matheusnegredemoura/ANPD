@@ -1,5 +1,5 @@
-// Investigar e correção da discursiva com o Claude, usando um Claude simulado (nada é enviado de verdade), e o caminho
-// manual quando a página não tem o Claude.
+// Investigar, correção da discursiva e artigo em português claro com o Claude, usando um Claude simulado (nada é
+// enviado de verdade), e o caminho manual quando a página não tem o Claude.
 import { APP, abrirNavegador, foto, placar, vigiarErros } from './comum.mjs';
 
 const browser = await abrirNavegador();
@@ -87,6 +87,25 @@ await passo('Discursiva: o Claude sugere conceitos e erros, e dá para salvar', 
   conferir('tentativa salva marcada como corrigida pelo Claude', ia);
 });
 
+await passo('Artigo sem tradução escrita: o Claude explica em português claro, com aviso de conferir', async () => {
+  await p.click('.aba[data-vista="lei"]');
+  if (await p.locator('#vista-lei [data-acao="voltar-lei"]').count()) await p.click('#vista-lei [data-acao="voltar-lei"]');
+  await p.selectOption('#vista-lei select[data-acao="sel-lei"]', 'lai');
+  await p.evaluate(() => document.querySelector('#vista-lei [data-acao="abrir-art"][data-art="lai:7"]').click());
+  const n = await p.evaluate(() => window.__pedidos.length);
+  await p.click('#vista-lei [data-acao="claro-ia"]');
+  await p.waitForSelector('#vista-lei .claro.ia');
+  const txt = (await p.textContent('#vista-lei .claro.ia')) || '';
+  if (!/confira no texto[^]*Está certo que o titular/.test(txt)) throw new Error('caixa: ' + txt.slice(0, 120));
+  const pedido = await p.evaluate((n) => String(window.__pedidos[n]), n);
+  conferir('o pedido leva o texto do artigo e as regras', /português claro/.test(pedido) && /Texto:\nArt\. 7º/.test(pedido), pedido.slice(0, 160));
+  // num artigo com tradução escrita, não há botão do Claude
+  await p.click('#vista-lei [data-acao="voltar-lei"]');
+  await p.selectOption('#vista-lei select[data-acao="sel-lei"]', 'lgpd');
+  await p.evaluate(() => document.querySelector('#vista-lei [data-acao="abrir-art"][data-art="18"]').click());
+  conferir('artigo das trilhas vem com a tradução escrita, sem botão', !(await p.locator('#vista-lei [data-acao="claro-ia"]').count()) && (await p.locator('#vista-lei .claro:not(.ia)').count()) === 1);
+});
+
 const q = await pagina(false);
 await passo('Sem o Claude: some o botão de conferir e fica o Copiar', async () => {
   await abrirPesquisar(q);
@@ -105,6 +124,14 @@ await passo('Sem o Claude: some o botão de conferir e fica o Copiar', async () 
   await q.fill('#disc-texto', 'Texto de teste.');
   await q.click('[data-acao="disc-corrigir"]');
   if (await q.locator('[data-acao="disc-ia"]').count()) throw new Error('correção pelo Claude apareceu sem o Claude');
+});
+
+await passo('Sem o Claude, o artigo sem tradução escrita não mostra o botão', async () => {
+  await q.click('.aba[data-vista="lei"]');
+  if (await q.locator('#vista-lei [data-acao="voltar-lei"]').count()) await q.click('#vista-lei [data-acao="voltar-lei"]');
+  await q.selectOption('#vista-lei select[data-acao="sel-lei"]', 'lai');
+  await q.evaluate(() => document.querySelector('#vista-lei [data-acao="abrir-art"][data-art="lai:7"]').click());
+  if (await q.locator('#vista-lei [data-acao="claro-ia"]').count()) throw new Error('botão do Claude sem o Claude');
 });
 
 await browser.close();
