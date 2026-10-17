@@ -1791,8 +1791,17 @@ function pendencias() {
   if (!pendCache) { pendCache = calcularPendencias(); queueMicrotask(() => { pendCache = null; }); }
   return pendCache;
 }
+// O atraso conta a partir da criação do perfil (quem começa no meio do plano não herda semanas de atraso), ou do
+// início do plano, se a pessoa pedir para incluir os dias anteriores (S.perfil.atrasoDesde)
+function inicioAtraso() { return S.perfil.atrasoDesde || S.perfil.criado || hojeISO(); }
+// Dias do plano antes do início do atraso, já passados e não dispensados (revisão sem discursiva não conta, como no
+// atraso): ficam de fora até a pessoa incluí-los
+function diasAntesDoAtraso() {
+  const ini = inicioAtraso(), disp = S.perfil.dispensados || {};
+  return DIAS.filter((d) => d.data < ini && d.data < hojeISO() && !disp[d.data] && (d.modo !== 'revisao' || d.disc));
+}
 function calcularPendencias() {
-  const h = hojeISO(), ini = S.perfil.criado || h;
+  const h = hojeISO(), ini = inicioAtraso();
   const disp = S.perfil.dispensados || {}, lidos = S.perfil.lidos || {};
   const out = [];
   for (const dia of DIAS) {
@@ -1834,9 +1843,20 @@ function botaoRecuperar(p) {
   const r = proximaRecuperacao(p);
   return r ? '<button class="btn pequeno primario" data-acao="recuperar">' + esc(rotuloPausa('rec:' + hojeISO(), 'Recuperar ' + fmtData(r.dia.data, { day: '2-digit', month: '2-digit' }) + ' · ' + pl(r.n, 'item', 'itens'))) + '</button>' : '';
 }
+// Linha que explica o que não entra no atraso: os dias antes do perfil (com botão para incluí-los) e a revisão de ontem
+function notaForaDoAtraso() {
+  const antes = diasAntesDoAtraso(), ontem = DIAS.find((d) => d.data === isoDeNum(HOJE() - 1));
+  let t = '';
+  if (antes.length) t += '<p class="pequeno">Os ' + pl(antes.length, 'dia', 'dias') + ' do plano de ' + esc(fmtData(antes[0].data, { day: '2-digit', month: '2-digit' })) + ' a ' + esc(fmtData(antes[antes.length - 1].data, { day: '2-digit', month: '2-digit' })) + ' ficaram fora do atraso porque o seu perfil começou em ' + esc(fmtData(inicioAtraso(), { day: '2-digit', month: '2-digit' })) + '. <button class="linkish" data-acao="atraso-desde-inicio">Incluir esses dias no atraso</button></p>';
+  if (ontem && ontem.modo === 'revisao' && !S.perfil.feitos[ontem.data] && ontem.data >= inicioAtraso()) t += '<p class="pequeno mudo">A revisão de ontem não vira atraso: o que venceu continua na lista curta e entra na próxima revisão.</p>';
+  return t;
+}
 function cartaoPendencias() {
   const p = pendencias();
-  if (!p.length) return '';
+  if (!p.length) {
+    const nota = notaForaDoAtraso();
+    return nota ? '<div class="cartao pendencias"><div class="secao-cab"><h2>Atraso do plano</h2><span class="mono pequeno mudo">0</span></div><p class="pequeno mudo">Nada ficou para trás desde ' + esc(fmtData(inicioAtraso(), { day: '2-digit', month: '2-digit' })) + '.</p>' + nota + '</div>' : '';
+  }
   const bs = blocosAtrasados(p), ler = leituraAtrasada(p), sims = p.filter((x) => x.sessao && x.dia.modo === 'simulado');
   const dias = p.filter((x) => x.sessao).length;
   let h = '<div class="cartao pendencias"><div class="secao-cab"><h2>Atraso do plano</h2><span class="mono pequeno mudo">' + p.length + '</span></div>' +
@@ -1856,7 +1876,7 @@ function cartaoPendencias() {
         (x.disc ? botaoDiscDia(x.dia) : '') +
         '<button class="linkish pequeno" data-acao="dispensar-dia" data-dia="' + x.dia.data + '">Dispensar</button></div></div>';
     }).join('') + '</details>';
-  return h + '</div>';
+  return h + notaForaDoAtraso() + '</div>';
 }
 
 /* ================= Jornada: RPG em cima do estudo de verdade ================= */
@@ -3448,7 +3468,7 @@ function resultadoDisc(t) {
 // Cadência da discursiva no plano: quantas já deviam ter sido feitas, quantas foram e qual vem a seguir
 function cartaoDiscPlano() {
   if (!DIAS_DISC.length) return '';
-  const h = hojeISO(), ini = S.perfil.criado || h, disp = S.perfil.dispensados || {};
+  const h = hojeISO(), ini = inicioAtraso(), disp = S.perfil.dispensados || {};
   const devidas = DIAS_DISC.filter((d) => d.data <= h && d.data >= ini && !disp[d.data]);
   const feitas = devidas.filter(discFeita).length, prox = DIAS_DISC.find((d) => d.data >= h && !discFeita(d) && !disp[d.data]);
   // as adiantadas já têm baixa e não contam como próximas
@@ -3645,6 +3665,11 @@ document.addEventListener('click', async (ev) => {
     case 'recuperar': { if (retomarPausa('rec:' + hojeISO())) break; const cfg = cfgRecuperacao(); if (cfg) iniciarSessao(cfg); else avisar('✓', 'Sem atraso', 'As matérias dos dias passados já foram estudadas.'); break; }
     case 'ler-atraso': { const arts = leituraAtrasada().slice(0, LEITURA_MAX); if (arts.length) abrirArtigo(arts[0], arts); break; }
     case 'ler-pendente': { const x = pendencias().find((y) => y.dia.data === alvo.dataset.dia); if (x && x.ler.length) abrirArtigo(x.ler[0], x.ler); break; }
+    case 'atraso-desde-inicio':
+      S.perfil.atrasoDesde = DIAS[0].data;
+      Store.salvar('perfil'); pendCache = null; renderHoje();
+      avisar('✓', 'Atraso desde o início do plano', 'Os dias desde ' + fmtData(DIAS[0].data, { day: '2-digit', month: '2-digit' }) + ' entram no atraso. Os que você não quiser fazer podem ser dispensados um a um.');
+      break;
     case 'dispensar-dia': {
       (S.perfil.dispensados ||= {})[alvo.dataset.dia] = hojeISO();
       Store.salvar('perfil'); renderHoje();
