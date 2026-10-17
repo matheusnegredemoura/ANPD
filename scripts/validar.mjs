@@ -141,6 +141,7 @@ export function validar({ silencioso = false } = {}) {
     if (termosVistos.has(t.termo)) erros.push(`glossário: termo repetido ${t.termo}`);
     termosVistos.add(t.termo);
     if (!t.def || t.def.length < 25) erros.push(`glossário: definição curta demais em ${t.termo}`);
+    if (t.tipo && t.tipo !== 'juridiques') erros.push(`glossário: tipo desconhecido em ${t.termo}: ${t.tipo}`);
   }
 
   if (!silencioso) {

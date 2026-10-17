@@ -161,6 +161,7 @@ export function montarDados() {
       subtemas.add(st.id);
       prefixos.add(st.id.split('-')[0] + '-');
       if (!st.nome || !((st.aula && st.aula.length) || st.licao) || !st.chave || !st.armadilhas) errosCb.push(`trilhas.json (${st.id}): campos obrigatórios`);
+      if (!st.simples || st.simples.length < 150 || st.simples.length > 700) errosCb.push(`trilhas.json (${st.id}): "simples" (o subtema em palavras simples) ausente ou fora de 150 a 700 caracteres`);
       // Lição estruturada: ideia central, mapa mental e partes (cada uma com ao menos um conteúdo)
       if (st.licao) {
         const li = st.licao;
@@ -224,7 +225,7 @@ export function montarDados() {
   const gloss = glossario.map((t) => {
     const re = regexTermo(t.padroes);
     const n = textos.filter((x) => re.test(x)).length;
-    return { t: t.termo, p: t.padroes, d: t.def, s: t.busca, f: Math.round((n / textos.length) * 1000) / 1000 };
+    return { t: t.termo, p: t.padroes, d: t.def, s: t.busca, f: Math.round((n / textos.length) * 1000) / 1000, ...(t.tipo === 'juridiques' ? { j: 1 } : {}) };
   });
   const lei = {};
   for (const [id, { lei: l }] of Object.entries(leis)) {

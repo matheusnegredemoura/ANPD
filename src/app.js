@@ -61,8 +61,9 @@ const CARDS_POR_ART = agrupar(CARDS.filter((c) => c.nota.art), (c) => chave(c.no
 const BLOCO_DO_ART = new Map();
 for (const b of BLOCOS) for (const a of b.artigos || []) { const k = chave(b.lei || 'lgpd', a); if (!BLOCO_DO_ART.has(k)) BLOCO_DO_ART.set(k, b); }
 
-// Glossário com expressão regular por termo
+// Glossário com expressão regular por termo; as expressões de juridiquês (j) só aparecem traduzidas embaixo dos artigos
 const GLOSS = (D.glossario || []).map((g, i) => Object.assign({ i, re: regexTermo(g.p) }, g));
+const JURIDIQUES = GLOSS.filter((g) => g.j);
 function regexTermo(padroes) {
   const e = padroes.map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
   try { return new RegExp('(?<![\\p{L}\\d])(?:' + e + ')(?![\\p{L}\\d])', 'iu'); } catch (err) { return new RegExp('(?:' + e + ')', 'i'); }
@@ -1037,7 +1038,7 @@ function novosRestantesHoje() { return Math.max(0, (S.perfil.novosCards || 20) -
 function termosDe(texto, limite, maxFreq) {
   const achados = [];
   for (const g of GLOSS) {
-    if (maxFreq != null && g.f > maxFreq) continue;
+    if (g.j || (maxFreq != null && g.f > maxFreq)) continue;
     const m = g.re.exec(texto);
     if (m) achados.push({ g, i: m.index, len: m[0].length });
   }
@@ -2636,12 +2637,12 @@ function botaoArt(k, qid, rotulo, lista) {
   return '<button class="linkish" data-acao="art-inline" data-art="' + esc(k) + '"' + (qid ? ' data-q="' + esc(qid) + '"' : '') + ' data-box="' + id + '" aria-expanded="false" aria-controls="' + id + '">' + esc(rotulo || 'Ler inteiro, grifado: ' + nomeArt(k)) + '</button>' +
     '<div class="art-inline" id="' + id + '"' + (lista ? ' data-lista="' + esc(lista.join(',')) + '"' : '') + ' hidden></div>';
 }
-function htmlArtInline(k, qid, lista, box) {
+function htmlArtInline(k, qid, lista, box, remissao) {
   const a = ARTI.get(k), L = LEIS[a.lei], i = lista ? lista.indexOf(k) : -1;
   const nav = (x, t) => '<button class="btn pequeno" data-acao="art-inline" data-art="' + esc(x) + '" data-box="' + box + '">' + t + '</button>';
   return '<div class="art-inline-cab"><b>' + esc(L.curto + ' · ' + rotuloArt(k)) + '</b>' + (a.estrutura.length ? '<span class="pequeno mudo">' + esc(a.estrutura.join(' · ')) + '</span>' : '') + '</div>' +
-    (L.aviso ? '<p class="aviso-conferir">' + esc(L.aviso) + '</p>' : '') + '<div class="texto-lei">' + textoLei(a, qid ? [qid] : []) + '</div>' +
-    '<p class="pequeno mudo legenda-fixa">Grifos: <span class="g-cai">o que cai</span> · <span class="g-num">prazos e números</span> · <span class="g-alerta">alerta</span> · <span class="g-verbo">deve × pode</span> · <span class="g-erro">seus erros</span></p>' +
+    (L.aviso ? '<p class="aviso-conferir">' + esc(L.aviso) + '</p>' : '') + '<div class="texto-lei">' + textoLei(a, qid ? [qid] : []) + '</div>' + (remissao ? '' : caixaJuridiques(a)) +
+    (remissao ? '' : '<p class="pequeno mudo legenda-fixa">Grifos: <span class="g-cai">o que cai</span> · <span class="g-num">prazos e números</span> · <span class="g-alerta">alerta</span> · <span class="g-verbo">deve × pode</span> · <span class="g-erro">seus erros</span></p>') +
     (i >= 0 ? '<div class="linha-btns">' + (i > 0 ? nav(lista[i - 1], '← ' + esc(nomeArt(lista[i - 1]))) : '') + (i < lista.length - 1 ? nav(lista[i + 1], esc(nomeArt(lista[i + 1])) + ' →') : '') + '</div>' : '');
 }
 function abrirArtInline(alvo) {
@@ -2649,9 +2650,14 @@ function abrirArtInline(alvo) {
   if (!box || !ARTI.get(k)) return;
   const fechar = !box.hidden && box.dataset.art === k;
   document.querySelectorAll('[data-box="' + alvo.dataset.box + '"]').forEach((b) => b.setAttribute('aria-expanded', 'false'));
-  if (fechar) { box.hidden = true; box.innerHTML = ''; box.dataset.art = ''; UI.artInline = null; return; }
+  if (fechar) {
+    box.hidden = true; box.innerHTML = ''; box.dataset.art = '';
+    const aberta = [...document.querySelectorAll('.art-inline:not([hidden])')].pop();
+    UI.artInline = aberta ? aberta.dataset.art : null;
+    return;
+  }
   const lista = box.dataset.lista ? box.dataset.lista.split(',') : null;
-  box.innerHTML = htmlArtInline(k, alvo.dataset.q || box.dataset.q, lista, alvo.dataset.box);
+  box.innerHTML = htmlArtInline(k, alvo.dataset.q || box.dataset.q, lista, alvo.dataset.box, box.classList.contains('remissao'));
   if (alvo.dataset.q) box.dataset.q = alvo.dataset.q;
   box.hidden = false;
   box.dataset.art = k;
@@ -2861,6 +2867,45 @@ function rangesTexto(linha, trechos, cls) {
   }
   return out;
 }
+// Remissão dentro do texto ("exceto nas hipóteses previstas no art. 16 desta Lei"): o artigo citado abre logo abaixo da
+// linha, na própria tela. Só vale para a mesma norma: depois do número, "da Lei nº…", "do Decreto…" ou "do ADCT" é outra
+// norma, e "desta Lei" ou nada é a própria; antes do número, "Medida Provisória nº 2.228-1, de 2001, os arts. 1º…"
+// (cláusula de revogação) também é outra. Linha recuada ou entre aspas é texto de outra norma alterada por esta.
+const RE_REMISSAO = /(?<![\p{L}])arts?\.\s(\d+)(?:\s?[º°o])?(-[A-Z])?((?:(?:,\s|\se\s|\sa\s)\d+(?:\s?[º°o])?(?:-[A-Z])?)*)/gu;
+const OUTRA_NORMA_DEPOIS = /^[^.;:]{0,80}?(?:\s(?:d[aoe]s?|n[ao]s?)\s(?:Lei|Decreto|Constituição|Código|Medida Provisória|Emenda|Resolução|Convenção|Regimento|Ato das Disposições|ADCT|Consolidação|Estatuto)(?![\p{L}])|\s-\s?ADCT)/u;
+const MESMA_NORMA = /^[^.;:]{0,80}?\s(?:desta|deste)\s(?:Lei|Decreto|Resolução|Regulamento|Constituição|Código|Estatuto|Portaria|Regimento)/u;
+const OUTRA_NORMA_ANTES = /(?:Lei|Decreto|Decreto-Lei|Medida Provisória|Lei Complementar|Resolução)(?: Complementar)? nº [\d.\-]+(?:, de [^,;]{1,30})?,?\s(?:e\s)?(?:os|o|as|a|nos|no|dos|do)?\s?$/u;
+function remissoesDaLinha(linha, a) {
+  if (/^[\s“"]/.test(linha)) return [];
+  const semAbrev = (t) => t.replace(/(?<![\p{L}])(arts?|inc|al|n)\./gu, '$1');
+  const out = [];
+  RE_REMISSAO.lastIndex = 0;
+  let m;
+  while ((m = RE_REMISSAO.exec(linha))) {
+    const depois = semAbrev(linha.slice(m.index + m[0].length, m.index + m[0].length + 120));
+    if (!MESMA_NORMA.test(depois) && OUTRA_NORMA_DEPOIS.test(depois)) continue;
+    if (OUTRA_NORMA_ANTES.test(linha.slice(Math.max(0, m.index - 90), m.index))) continue;
+    // cada número da lista ("arts. 7º e 11") vira o seu botão
+    const ini = m.index + m[0].indexOf(m[1]), lista = linha.slice(ini, m.index + m[0].length), re = /(\d+)(?:\s?[º°o])?(-[A-Z])?/g;
+    let n;
+    while ((n = re.exec(lista))) {
+      const k = chave(a.lei, n[1] + (n[2] || ''));
+      // o primeiro número leva junto o "art.", para o toque ter onde pegar
+      if (k !== a.k && ARTI.has(k)) out.push([n.index ? ini + n.index : m.index, ini + n.index + n[0].length, 'ref-lei', k]);
+    }
+  }
+  return out;
+}
+// Juridiquês do artigo, traduzido, na ordem em que aparece (linhas revogadas e vetadas não contam). Vem aberto para
+// quem está começando (menos de 40 artigos lidos); depois, recolhido, a um toque
+function caixaJuridiques(a) {
+  const texto = a.texto.split('\n').filter((l) => !linhaRevogada(l) && !/\(VETADO\)/.test(l)).join('\n');
+  const achados = JURIDIQUES.map((g) => ({ g, i: texto.search(g.re) })).filter((x) => x.i >= 0).sort((x, y) => x.i - y.i).slice(0, 8);
+  if (!achados.length) return '';
+  const aberto = Object.keys(S.perfil.lidos || {}).length < 40;
+  return '<details class="juridiques"' + (aberto ? ' open' : '') + '><summary>Juridiquês deste artigo, traduzido (' + achados.length + ')</summary><dl>' +
+    achados.map(({ g }) => '<dt>' + esc(g.t) + '</dt><dd>' + esc(g.d) + '</dd>').join('') + '</dl></details>';
+}
 function textoLei(a, qExtras) {
   const cam = UI.camadas;
   const erros = [], cai = [], extras = [];
@@ -2879,23 +2924,29 @@ function textoLei(a, qExtras) {
     if (cam.num) rs = rs.concat(rangesRegex(linha, RE_NUM, 'g-num'));
     if (cam.alerta) rs = rs.concat(rangesRegex(linha, RE_ALERTA, 'g-alerta'));
     if (cam.verbo) rs = rs.concat(rangesRegex(linha, RE_VERBO, 'g-verbo'));
+    const remissoes = remissoesDaLinha(linha, a);
+    rs = rs.concat(remissoes);
     const cortes = new Set([0, linha.length]);
     rs.forEach(([i, f]) => { cortes.add(i); cortes.add(f); });
     const pts = [...cortes].sort((x, y) => x - y);
-    let html = '';
+    let html = '', caixa = null;
     for (let j = 0; j < pts.length - 1; j++) {
       const i = pts[j], f = pts[j + 1];
       const classes = new Set(rs.filter((r) => r[0] <= i && r[1] >= f).map((r) => r[2]));
       if (classes.has('g-erro')) classes.delete('g-cai');
       const seg = fmtNotas(esc(linha.slice(i, f)));
-      html += classes.size ? '<span class="' + [...classes].join(' ') + '">' + seg + '</span>' : seg;
+      const rem = classes.delete('ref-lei') && remissoes.find((r) => r[0] <= i && r[1] >= f);
+      if (rem) {
+        caixa ||= 'art-' + (++nCaixaArt);
+        html += '<button class="ref-art' + (classes.size ? ' ' + [...classes].join(' ') : '') + '" data-acao="art-inline" data-art="' + esc(rem[3]) + '" data-box="' + caixa + '" aria-controls="' + caixa + '" aria-expanded="false" aria-label="Ler ' + esc(nomeArt(rem[3])) + ' aqui">' + seg + '</button>';
+      } else html += classes.size ? '<span class="' + [...classes].join(' ') + '">' + seg + '</span>' : seg;
     }
     let cls = 'par';
     if (k === 0) cls = 'caput';
     else if (/^[IVXL]+(-[A-Z])?\s-/.test(linha)) cls = 'inc';
     else if (/^[a-z]\)/.test(linha) || /^\((?:[a-z]{1,2}|[ivx]+)\) /.test(linha)) cls = 'ali';
     else if (/^\(\d+\) /.test(linha)) cls = 'inc';
-    return '<p class="' + cls + '">' + html + '</p>';
+    return '<p class="' + cls + '">' + html + '</p>' + (caixa ? '<div class="art-inline remissao" id="' + caixa + '" hidden></div>' : '');
   }).join('');
 }
 // Grifos das aulas da trilha: as mesmas camadas da lei seca (prazos e números, alerta, deve × pode), com números por
@@ -3050,7 +3101,7 @@ function renderArtigo(k) {
   if (fila) html += '<div class="fila-leitura"><span>Leitura do dia: ' + (idx + 1) + ' de ' + fila.length + '</span>' + (prox ? '' : '<button class="btn pequeno" data-acao="fim-fila">Concluir leitura</button>') + '</div>';
   const est = estrelas(k);
   html += '<div class="cartao"><span class="rotulo">' + esc([L.curto].concat(a.estrutura).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +
-    legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div><div class="linha-btns">';
+    legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div>' + caixaJuridiques(a) + '<div class="linha-btns">';
   if (qs.length) html += '<button class="btn primario" data-acao="treinar-art" data-art="' + esc(k) + '">Questões deste artigo (' + qs.length + ')</button>';
   if (cs.length) html += '<button class="btn" data-acao="cards-art" data-art="' + esc(k) + '">Cards deste artigo (' + cs.length + ')</button>';
   html += '</div>';
@@ -3290,8 +3341,8 @@ function renderGlossario() {
   const lista = GLOSS.filter((g) => !q || semAcento(g.t + ' ' + g.d).includes(q)).sort((a, b) => a.t.localeCompare(b.t, 'pt'));
   return '<div class="secao-cab"><h2>Glossário</h2><span class="mudo pequeno">' + GLOSS.length + ' termos</span></div>' +
     '<input class="busca" id="busca-gloss" type="search" placeholder="Buscar termo" value="' + esc(UI.buscaGloss) + '" aria-label="Buscar no glossário">' +
-    '<p class="mudo pequeno">Os termos sublinhados com pontos nas questões e nos cards abrem estas definições.</p>' +
-    lista.map((g) => '<div class="gloss-item"><b>' + esc(g.t) + '</b><p>' + esc(g.d) + '</p><div class="linha-btns"><button class="linkish pequeno" data-acao="investigar" data-t="' + esc(g.t) + '" data-o="glossário">Investigar</button>' +
+    '<p class="mudo pequeno">Os termos sublinhados com pontos nas questões e nos cards abrem estas definições. As expressões marcadas como juridiquês aparecem traduzidas embaixo de cada artigo da lei seca.</p>' +
+    lista.map((g) => '<div class="gloss-item"><b>' + esc(g.t) + '</b>' + (g.j ? ' <span class="selo">juridiquês</span>' : '') + '<p>' + esc(g.d) + '</p><div class="linha-btns"><button class="linkish pequeno" data-acao="investigar" data-t="' + esc(g.t) + '" data-o="glossário">Investigar</button>' +
       (S.pesquisa[chavePesq(g.t)] ? '<span class="selo ok">Na lista</span>' : '<button class="linkish pequeno" data-acao="add-pesq" data-t="' + esc(g.t) + '" data-o="glossário">Guardar na lista</button>') + '</div></div>').join('');
 }
 // Fontes citadas por itens que ainda não têm o texto no app, contadas no próprio banco
@@ -3505,7 +3556,7 @@ function termosDoSubtema(st) {
   const li = st.licao || {};
   const partes = (li.partes || []).flatMap((p) => [p.t, p.texto, p.depois].concat(p.lista || [], p.passos || [], p.tabela ? p.tabela.linhas.flat() : [], CAIXAS_AULA.map(([k]) => p[k])));
   const texto = (st.arts || []).filter((k) => ARTI.has(k)).map((k) => ARTI.get(k).texto).concat(li.ideia || '', partes, st.aula || [], st.chave || []).filter(Boolean).join('\n').replace(/\*\*/g, '');
-  return GLOSS.map((g) => ({ g, i: texto.search(g.re) })).filter((x) => x.i >= 0).sort((a, b) => a.i - b.i).map((x) => x.g);
+  return GLOSS.filter((g) => !g.j).map((g) => ({ g, i: texto.search(g.re) })).filter((x) => x.i >= 0).sort((a, b) => a.i - b.i).map((x) => x.g);
 }
 function palavrasDoSubtema(st) {
   if (PALAVRAS_ST.has(st.id)) return PALAVRAS_ST.get(st.id);
@@ -3530,13 +3581,19 @@ function htmlComoLer() {
     '<li><span class="g-alerta">salvo</span>, <span class="g-alerta">exceto</span>, <span class="g-alerta">desde que</span> e <span class="g-alerta">somente</span> mudam a regra: é ali que a banca mexe.</li>' +
     '<li><span class="g-verbo">deve</span> obriga; <span class="g-verbo">pode</span> permite. Trocar um pelo outro é a pegadinha mais comum.</li>' +
     '<li>Prazos e números (<span class="g-num">15 (quinze) dias</span>) importam com a unidade: dias, dias úteis, meses.</li>' +
-    '<li>“(Redação dada pela Lei…)” avisa que o texto mudou; “(VETADO)” e “(Revogado)” não valem.</li>' +
+    '<li>“(Redação dada pela Lei…)” avisa que o texto mudou; “(VETADO)” e “(Revogado)” não valem, e o texto revogado nem aparece.</li>' +
+    '<li>Quando o artigo cita outro da mesma lei (“nas hipóteses do <span class="ref-art">art. 16</span> desta Lei”), toque na citação: o artigo citado abre logo abaixo.</li>' +
+    '<li>Embaixo de cada artigo, as expressões de juridiquês dele (“sem prejuízo”, “mediante”, “facultado”…) vêm traduzidas.</li>' +
     '<li>Leia o artigo inteiro antes de concluir: a exceção costuma estar no parágrafo seguinte.</li></ul></details>';
+}
+// O subtema contado como se conta a alguém que nunca leu a lei: vem antes da lei seca e da aula
+function htmlSimples(st) {
+  return st.simples ? '<div class="simples"><span class="rotulo">Em palavras simples</span><p>' + grifarProsa(st.simples) + '</p></div>' : '';
 }
 function folhaAula(id) {
   const st = SUBTEMAS.get(id);
   if (!st) return;
-  const html = cabFolha('Aula', st.nome) + legendaCamadas(true) + htmlAula(st) +
+  const html = cabFolha('Aula', st.nome) + htmlSimples(st) + legendaCamadas(true) + htmlAula(st) +
     '<h3>Pontos-chave</h3><ul class="lista-chave">' + st.chave.map((c) => '<li>' + grifarProsa(c) + '</li>').join('') + '</ul>' +
     '<h3>Armadilhas</h3><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul>';
   abrirFolha(html, 'Aula: ' + st.nome);
@@ -3573,7 +3630,7 @@ function renderSubtema(id) {
   const pos = t.subtemas.findIndex((x) => x.id === id);
   const prox = t.subtemas[pos + 1];
   let html = '<button class="btn pequeno voltar" data-acao="subtema" data-st="">← Trilhas</button>' +
-    '<div class="cartao destaque"><span class="rotulo">Subtema ' + (pos + 1) + ' de ' + t.subtemas.length + '</span><h2 class="titulo-st">' + esc(st.nome) + '</h2><p>' + esc(st.resumo) + '</p>' +
+    '<div class="cartao destaque"><span class="rotulo">Subtema ' + (pos + 1) + ' de ' + t.subtemas.length + '</span><h2 class="titulo-st">' + esc(st.nome) + '</h2><p>' + esc(st.resumo) + '</p>' + htmlSimples(st) +
     '<div class="linha-st">' + chipEstado(e) + '<span class="pequeno mudo">' + pl(e.n, 'questão', 'questões') + ' · ' + e.resp + ' respondidas · ' + (e.resp ? 'acerto atual ' + Math.round(e.acerto * 100) + '%' : 'nenhuma respondida') + ' · domínio pede ' + e.minimo + ' respondidas com 80% de acerto</span></div>' +
     '<div class="linha-btns">' + passosDoSubtema(st, e).map((x, i, a) => '<button class="btn' + (x.primario ? ' primario' : '') + '" ' + x.attrs + '>' + (a.length > 1 ? (i + 1) + '. ' : '') + x.rot + '</button>').join('') +
     (e.erros ? '<button class="btn" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="erros">Refazer erros · ' + e.erros + '</button>' : '') +

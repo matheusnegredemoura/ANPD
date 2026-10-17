@@ -1,5 +1,6 @@
 // O artigo abre na própria tela, logo abaixo do botão: no comentário do item (sessão), no card e na página do subtema.
-// Dispositivo revogado aparece sem o texto antigo.
+// Dispositivo revogado aparece sem o texto antigo; remissão a outro artigo da mesma norma abre logo abaixo da linha; o
+// juridiquês do artigo vem traduzido embaixo dele.
 // Sem folha por cima e sem trocar de aba, para não depender do jeito como o aparelho desenha camadas fixas. Um erro
 // qualquer vira aviso e fica no diagnóstico.
 import { APP, abrirNavegador, placar, responder, vigiarErros } from './comum.mjs';
@@ -65,6 +66,29 @@ await passo('parágrafo revogado aparece só com o rótulo e a nota, sem o texto
   if (!/^§ 4º \(Revogado pela Resolução CD\/ANPD nº 4/.test(rev)) throw new Error('§ 4º: ' + rev);
   if (/não atendimento/.test(linhas.join(' '))) throw new Error('o texto revogado continua lá');
   if (!(await p.locator('#vista-lei .texto-lei p.vetado').count())) throw new Error('a linha revogada não ficou apagada');
+});
+
+await passo('no texto da lei, "art. 16 desta Lei" abre o art. 16 logo abaixo da linha, e o mesmo toque fecha', async () => {
+  await p.click('#vista-lei [data-acao="voltar-lei"]');
+  await p.selectOption('#vista-lei select[data-acao="sel-lei"]', 'lgpd');
+  // o artigo fica dentro do capítulo recolhido: aciona o botão direto
+  await p.evaluate(() => document.querySelector('#vista-lei [data-acao="abrir-art"][data-art="18"]').click());
+  const ref = p.locator('#vista-lei .texto-lei .ref-art[data-art="16"]').first();
+  if (!(await ref.count())) throw new Error('a remissão ao art. 16 não virou botão');
+  await ref.tap();
+  const caixa = p.locator('#vista-lei .art-inline.remissao:not([hidden])');
+  const cab = (await caixa.locator('.art-inline-cab b').textContent()) || '';
+  if (!/Art\. 16/.test(cab)) throw new Error('abriu: ' + cab);
+  if (!(await caixa.locator('.texto-lei p').count())) throw new Error('caixa sem o texto');
+  if (await caixa.locator('.legenda-fixa').count()) throw new Error('a caixa da remissão repete a legenda');
+  const jur = await p.locator('#vista-lei details.juridiques[open] dt').allTextContents();
+  if (!jur.includes('mediante')) throw new Error('o juridiquês do art. 18 não veio traduzido: ' + jur.join(', '));
+  await ref.tap();
+  if (await p.locator('#vista-lei .art-inline.remissao:not([hidden])').count()) throw new Error('o segundo toque não fechou');
+  // citação de outra norma não vira botão: "art. 52 da Constituição Federal" no art. 55-D
+  await p.click('#vista-lei [data-acao="voltar-lei"]');
+  await p.evaluate(() => document.querySelector('#vista-lei [data-acao="abrir-art"][data-art="55-D"]').click());
+  if (await p.locator('#vista-lei .texto-lei .ref-art[data-art="52"]').count()) throw new Error('"art. 52 da Constituição" virou link para o art. 52 da LGPD');
 });
 
 await passo('um erro de programa vira aviso e aparece no diagnóstico', async () => {

@@ -1,5 +1,6 @@
 // Dia de matéria nova no plano (campo st): o roteiro traz pré-teste, lei, aula e questões do mesmo subtema, nessa
-// ordem; "Ler os artigos" abre o primeiro artigo do subtema na própria página, com as palavras e o guia de leitura;
+// ordem; "Ler os artigos" abre o primeiro artigo do subtema na própria página, com as palavras, o guia de leitura e o
+// subtema em palavras simples;
 // a aula dá baixa no passo; as questões do dia são do subtema; a citação de artigo dentro da aula abre o texto ali.
 import { readFileSync } from 'node:fs';
 import { APP, abrirNavegador, placar, vigiarErros } from './comum.mjs';
@@ -38,6 +39,8 @@ await passo('"Ler os artigos" abre o art. 6º na página do subtema, com as pala
   if (!/Art\. 6/.test(cab)) throw new Error('artigo aberto: ' + cab);
   if (!(await p.locator('#lei-pd-principios details.palavras dt').count())) throw new Error('sem as palavras do subtema');
   if (!(await p.locator('#lei-pd-principios details.como-ler[open]').count())) throw new Error('sem o guia de leitura aberto');
+  const simples = (await p.locator('#vista-mais .cartao.destaque .simples').textContent()) || '';
+  if (!/Em palavras simples[^]*boa-fé/.test(simples)) throw new Error('sem o subtema em palavras simples: ' + simples.slice(0, 80));
 });
 
 await passo('a aula dá baixa no passo do roteiro', async () => {

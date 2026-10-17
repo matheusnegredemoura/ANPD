@@ -773,3 +773,17 @@ details.det-lista[open]>summary{margin-bottom:10px}
 /* Citação de artigo dentro da aula: abre o texto na caixa da parte */
 .ref-art{appearance:none;border:0;background:none;padding:0;font:inherit;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .ref-art[aria-expanded="true"]{background:var(--mark);border-radius:3px}
+/* Em palavras simples: o subtema contado sem juridiquês, no topo da página */
+.simples{margin-top:12px;background:var(--surface-2);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px}
+.simples p{margin:0;line-height:1.55}
+/* Juridiquês do artigo, traduzido: lista curta embaixo do texto da lei */
+.juridiques{border-top:1px dashed var(--line);padding-top:10px}
+.juridiques summary{cursor:pointer;font-size:.8rem;font-weight:700;letter-spacing:.04em;color:var(--ink-2)}
+.juridiques[open] summary{margin-bottom:8px}
+.juridiques dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:2px}
+.juridiques dt{font-weight:600;margin-top:6px}
+.juridiques dt:first-child{margin-top:0}
+.juridiques dd{margin:0;color:var(--ink-2);font-size:.92rem;line-height:1.45}
+/* Artigo citado dentro do texto da lei: abre logo abaixo da linha, recuado, como uma nota */
+.art-inline.remissao{margin:2px 0 10px 10px;padding:10px 12px;border-left:3px solid var(--accent);border-radius:0 10px 10px 0}
+.art-inline.remissao .texto-lei{font-size:.95rem}
