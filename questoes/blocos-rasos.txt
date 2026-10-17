@@ -1,0 +1,383 @@
+// Blocos rasos (ponto 5 da análise): orçamento, ética e improbidade e Resolução 2/2022 até 40 itens, e casos de
+// aplicação da Resolução 32/2026 (adequação da União Europeia) em vez de mais itens literais sobre os seus 6 artigos.
+// Trechos conferidos em fontes/cf88.txt, lei8429.txt, lei12813.txt, res2.txt, res32.txt e lgpd.txt.
+
+=== orc-01
+gab: C
+bloco: orcamento
+ref: cf88 166
+trecho: serão apreciados pelas duas Casas do Congresso Nacional, na forma do regimento comum
+armadilha: literal
+dif: 1
+enunciado: Os projetos de lei do plano plurianual, das diretrizes orçamentárias, do orçamento anual e dos créditos adicionais são apreciados pelas duas Casas do Congresso Nacional, na forma do regimento comum.
+comentario: Certo: art. 166, caput. A apreciação é conjunta, em sessão do Congresso Nacional, e não em uma Casa depois da outra, como no processo legislativo comum.
+
+=== orc-02
+gab: E
+bloco: orcamento
+ref: cf88 166, § 1º
+trecho: Caberá a uma Comissão mista permanente de Senadores e Deputados
+armadilha: sujeito
+dif: 1
+enunciado: O parecer sobre o projeto de lei orçamentária anual cabe à comissão de finanças da Câmara dos Deputados, e só depois o Senado Federal examina a matéria.
+comentario: Errado. O parecer é de uma comissão mista permanente de Senadores e Deputados (art. 166, § 1º), e as duas Casas apreciam o projeto juntas, na forma do regimento comum.
+
+=== orc-03
+gab: C
+bloco: orcamento
+ref: cf88 166, § 1º
+trecho: e sobre as contas apresentadas anualmente pelo Presidente da República
+armadilha: literal
+dif: 2
+enunciado: Cabe à comissão mista permanente de Senadores e Deputados emitir parecer também sobre as contas apresentadas anualmente pelo Presidente da República.
+comentario: Certo: art. 166, § 1º, I. A mesma comissão que examina os projetos orçamentários dá parecer sobre as contas do Presidente e acompanha a fiscalização orçamentária.
+
+=== orc-04
+gab: E
+bloco: orcamento
+ref: cf88 166, § 2º
+trecho: As emendas serão apresentadas na Comissão mista, que sobre elas emitirá parecer
+armadilha: extrapolacao
+dif: 1
+enunciado: As emendas ao projeto de lei orçamentária são apresentadas diretamente no Plenário de cada Casa, dispensado o parecer da comissão mista.
+comentario: Errado. As emendas são apresentadas na comissão mista, que emite parecer, e depois apreciadas pelo Plenário das duas Casas (art. 166, § 2º).
+
+=== orc-05
+gab: E
+bloco: orcamento
+ref: cf88 166, § 3º
+trecho: dotações para pessoal e seus encargos
+armadilha: excecao
+dif: 2
+enunciado: Emenda ao projeto de lei orçamentária anual pode indicar como fonte de recursos a anulação de dotações para pessoal e seus encargos, desde que compatível com o plano plurianual e com a lei de diretrizes orçamentárias.
+comentario: Errado. A emenda só pode indicar recursos de anulação de despesa, e estão excluídas as anulações de dotações para pessoal e encargos, do serviço da dívida e das transferências tributárias constitucionais (art. 166, § 3º, II).
+
+=== orc-06
+gab: C
+bloco: orcamento
+ref: cf88 166, § 3º
+trecho: sejam compatíveis com o plano plurianual e com a lei de diretrizes orçamentárias
+armadilha: literal
+dif: 1
+enunciado: Para ser aprovada, a emenda ao projeto de lei orçamentária anual deve ser compatível com o plano plurianual e com a lei de diretrizes orçamentárias.
+comentario: Certo: art. 166, § 3º, I. É a hierarquia entre as três leis: a LOA segue a LDO, que segue o PPA.
+
+=== orc-07
+gab: E
+bloco: orcamento
+ref: cf88 166, § 3º
+trecho: serviço da dívida
+armadilha: excecao
+dif: 2
+enunciado: A anulação de despesas com o serviço da dívida pode servir de fonte de recursos para emendas parlamentares ao projeto de lei orçamentária anual.
+comentario: Errado. O serviço da dívida está entre as despesas cuja anulação não pode financiar emendas (art. 166, § 3º, II, b), ao lado de pessoal e transferências tributárias constitucionais.
+
+=== orc-08
+gab: C
+bloco: orcamento
+ref: cf88 166, § 5º
+trecho: enquanto não iniciada a votação, na Comissão mista, da parte cuja alteração é proposta
+armadilha: literal
+dif: 2
+enunciado: O Presidente da República pode enviar mensagem ao Congresso Nacional propondo modificação no projeto de lei orçamentária enquanto não iniciada, na comissão mista, a votação da parte que pretende alterar.
+comentario: Certo: art. 166, § 5º. Iniciada a votação daquela parte na comissão mista, a proposta de alteração do Executivo não cabe mais.
+
+=== orc-09
+gab: C
+bloco: orcamento
+ref: cf88 166, § 8º
+trecho: mediante créditos especiais ou suplementares, com prévia e específica autorização legislativa
+armadilha: literal
+dif: 2
+enunciado: Recursos que, em decorrência de veto, emenda ou rejeição do projeto de lei orçamentária anual, ficarem sem despesas correspondentes podem ser utilizados mediante créditos especiais ou suplementares, com prévia e específica autorização legislativa.
+comentario: Certo: art. 166, § 8º. O dinheiro não some; volta a ser usado, mas só com autorização específica do Legislativo.
+
+=== orc-10
+gab: E
+bloco: orcamento
+ref: cf88 166, § 9º
+trecho: a metade desse percentual será destinada a ações e serviços públicos de saúde
+armadilha: numero
+dif: 2
+enunciado: As emendas individuais ao projeto de lei orçamentária são aprovadas no limite de 2% da receita corrente líquida do exercício anterior, e um quarto desse percentual se destina obrigatoriamente a ações e serviços públicos de saúde.
+comentario: Errado na fração: é a metade do percentual que vai para ações e serviços públicos de saúde (art. 166, § 9º). O limite de 2% da receita corrente líquida está certo.
+
+=== orc-11
+gab: C
+bloco: orcamento
+ref: cf88 168
+trecho: ser-lhes-ão entregues até o dia 20 de cada mês, em duodécimos
+armadilha: numero
+dif: 1
+enunciado: Os recursos das dotações orçamentárias destinados aos órgãos dos Poderes Legislativo e Judiciário, do Ministério Público e da Defensoria Pública são entregues até o dia 20 de cada mês, em duodécimos.
+comentario: Certo: art. 168. Os duodécimos garantem a autonomia financeira desses órgãos: o Executivo não pode segurar o repasse.
+
+=== orc-12
+gab: E
+bloco: orcamento
+ref: cf88 169
+trecho: não pode exceder os limites estabelecidos em lei complementar
+armadilha: extrapolacao
+dif: 2
+enunciado: Os limites da despesa com pessoal ativo e inativo e pensionistas são fixados diretamente pela Constituição, em percentuais da receita corrente líquida de cada ente.
+comentario: Errado. A Constituição remete os limites à lei complementar (art. 169, caput); os percentuais estão na Lei de Responsabilidade Fiscal (LC 101/2000).
+
+=== orc-13
+gab: C
+bloco: orcamento
+ref: cf88 169, § 1º
+trecho: se houver autorização específica na lei de diretrizes orçamentárias, ressalvadas as empresas públicas e as sociedades de economia mista
+armadilha: excecao
+dif: 2
+enunciado: A criação de cargos e a admissão de pessoal pela administração direta e indireta exigem prévia dotação orçamentária suficiente e autorização específica na lei de diretrizes orçamentárias, ressalvadas, quanto a esta última, as empresas públicas e as sociedades de economia mista.
+comentario: Certo: art. 169, § 1º. A ressalva das estatais vale só para a autorização na LDO; a dotação suficiente continua exigida.
+
+=== orc-14
+gab: E
+bloco: orcamento
+ref: cf88 169, § 3º
+trecho: redução em pelo menos vinte por cento das despesas com cargos em comissão e funções de confiança
+armadilha: comparacao
+dif: 2
+enunciado: Para voltar ao limite de despesa com pessoal, o ente deve primeiro exonerar servidores estáveis e, só se isso não bastar, reduzir as despesas com cargos em comissão e funções de confiança.
+comentario: Errado: a ordem é a inversa. Primeiro, reduzir em pelo menos 20% as despesas com cargos em comissão e funções de confiança e exonerar os não estáveis (§ 3º); só se não bastar, o servidor estável pode perder o cargo (§ 4º).
+
+=== orc-15
+gab: C
+bloco: orcamento
+ref: cf88 169, § 5º
+trecho: fará jus a indenização correspondente a um mês de remuneração por ano de serviço
+armadilha: numero
+dif: 2
+enunciado: O servidor estável que perde o cargo para que o ente cumpra o limite de despesa com pessoal tem direito a indenização correspondente a um mês de remuneração por ano de serviço.
+comentario: Certo: art. 169, § 5º. E o cargo é extinto, vedada a criação de cargo com atribuições iguais ou assemelhadas por quatro anos (§ 6º).
+
+=== eti-01
+gab: E
+bloco: etica-improbidade
+ref: lei8429 1, § 1º
+trecho: as condutas dolosas tipificadas nos arts. 9º, 10 e 11 desta Lei
+armadilha: revogado
+dif: 1
+enunciado: Depois da Lei nº 14.230/2021, o ato de improbidade que causa lesão ao erário continua podendo ser punido na modalidade culposa.
+comentario: Errado. A reforma exigiu dolo em todos os tipos: são atos de improbidade as condutas dolosas dos arts. 9º, 10 e 11 (art. 1º, § 1º). A modalidade culposa do art. 10 deixou de existir.
+
+=== eti-02
+gab: C
+bloco: etica-improbidade
+ref: lei8429 1, § 2º
+trecho: não bastando a voluntariedade do agente
+armadilha: conceito
+dif: 2
+enunciado: Para a Lei de Improbidade Administrativa, dolo é a vontade livre e consciente de alcançar o resultado ilícito tipificado, não bastando a voluntariedade do agente.
+comentario: Certo: art. 1º, § 2º. Não basta ter agido voluntariamente; é preciso querer o resultado ilícito.
+
+=== eti-03
+gab: C
+bloco: etica-improbidade
+ref: lei8429 1, § 3º
+trecho: sem comprovação de ato doloso com fim ilícito, afasta a responsabilidade por ato de improbidade administrativa
+armadilha: literal
+dif: 1
+enunciado: O mero exercício da função ou desempenho de competências públicas, sem comprovação de ato doloso com fim ilícito, afasta a responsabilidade por ato de improbidade administrativa.
+comentario: Certo: art. 1º, § 3º. A reforma de 2021 separou o gestor que erra do agente desonesto: improbidade exige fim ilícito comprovado.
+
+=== eti-04
+gab: E
+bloco: etica-improbidade
+ref: lei8429 12
+trecho: pagamento de multa civil de até 24 (vinte e quatro) vezes o valor da remuneração percebida pelo agente
+armadilha: comparacao
+dif: 2
+enunciado: O ato de improbidade que atenta contra os princípios da administração pública sujeita o agente à suspensão dos direitos políticos por até 14 anos.
+comentario: Errado. Para o art. 11, as sanções são multa civil de até 24 vezes a remuneração e proibição de contratar com o poder público por até 4 anos (art. 12, III); não há suspensão dos direitos políticos. Os 14 anos são do enriquecimento ilícito (art. 9º).
+
+=== eti-05
+gab: C
+bloco: etica-improbidade
+ref: lei8429 12
+trecho: suspensão dos direitos políticos até 12 (doze) anos, pagamento de multa civil equivalente ao valor do dano
+armadilha: numero
+dif: 2
+enunciado: No ato de improbidade que causa lesão ao erário, a suspensão dos direitos políticos vai até 12 anos, e a multa civil equivale ao valor do dano.
+comentario: Certo: art. 12, II. A escada é 14 anos (enriquecimento ilícito), 12 anos (lesão ao erário) e nenhuma suspensão (princípios).
+
+=== eti-06
+gab: C
+bloco: etica-improbidade
+ref: lei8429 23
+trecho: prescreve em 8 (oito) anos, contados a partir da ocorrência do fato
+armadilha: numero
+dif: 1
+enunciado: A ação para aplicação das sanções da Lei de Improbidade prescreve em 8 anos, contados da ocorrência do fato ou, nas infrações permanentes, do dia em que cessou a permanência.
+comentario: Certo: art. 23, caput, na redação da Lei 14.230/2021. O prazo deixou de depender do término do mandato ou do cargo.
+
+=== eti-07
+gab: E
+bloco: etica-improbidade
+ref: lei12813 6
+trecho: no período de 6 (seis) meses, contado da data da dispensa, exoneração, destituição, demissão ou aposentadoria
+armadilha: numero
+dif: 1
+enunciado: Pela Lei de Conflito de Interesses, a vedação de prestar serviço a pessoa com quem o ex-ocupante de cargo do Executivo federal teve relacionamento relevante em razão do cargo dura um ano após o desligamento.
+comentario: Errado: a quarentena do art. 6º, II, é de 6 meses, contados da dispensa, exoneração, destituição, demissão ou aposentadoria, salvo autorização da Comissão de Ética Pública ou da CGU.
+
+=== eti-08
+gab: C
+bloco: etica-improbidade
+ref: lei12813 6
+trecho: a qualquer tempo, divulgar ou fazer uso de informação privilegiada obtida em razão das atividades exercidas
+armadilha: excecao
+dif: 2
+enunciado: A vedação de divulgar ou fazer uso de informação privilegiada obtida no cargo não se limita à quarentena de 6 meses: ela vale a qualquer tempo após o exercício do cargo.
+comentario: Certo: art. 6º, I. A quarentena (inciso II) tem prazo; o uso de informação privilegiada é vedado para sempre.
+
+=== pp2-01
+gab: E
+bloco: res-2-2022
+ref: res2 1
+trecho: Este regulamento não se aplica ao tratamento de dados pessoais realizado por pessoa natural para fins exclusivamente particulares e não econômicos
+armadilha: extrapolacao
+dif: 1
+enunciado: A Resolução CD/ANPD nº 2/2022 dá tratamento simplificado também à pessoa natural que trata dados pessoais para fins exclusivamente particulares e não econômicos.
+comentario: Errado. Esse tratamento está fora da própria LGPD (art. 4º, I), e o regulamento diz expressamente que não se aplica a ele (art. 1º, parágrafo único). Pessoa natural pode ser agente de pequeno porte quando trata dados com fim econômico.
+
+=== pp2-02
+gab: C
+bloco: res-2-2022
+ref: res2 10
+trecho: A ANPD disporá sobre flexibilização ou procedimento simplificado de comunicação de incidente de segurança para agentes de tratamento de pequeno porte
+armadilha: literal
+dif: 2
+enunciado: A Resolução CD/ANPD nº 2/2022 remete à regulamentação específica a flexibilização ou o procedimento simplificado de comunicação de incidente de segurança para agentes de tratamento de pequeno porte.
+comentario: Certo: art. 10. A regulamentação veio com a Resolução 15/2024, que manteve o prazo em dobro do art. 14, II.
+
+=== pp2-03
+gab: C
+bloco: res-2-2022
+ref: res2 14
+trecho: no caso da comunicação, à ANPD e ao titular, da ocorrência de incidente de segurança
+armadilha: numero
+dif: 2
+enunciado: O agente de tratamento de pequeno porte tem prazo em dobro para comunicar à ANPD e ao titular a ocorrência de incidente de segurança que possa acarretar risco ou dano relevante.
+comentario: Certo: art. 14, II. Como o prazo geral da Resolução 15/2024 é de 3 dias úteis, o agente de pequeno porte tem 6 dias úteis.
+
+=== pp2-04
+gab: E
+bloco: res-2-2022
+ref: res2 13
+trecho: A ANPD considerará a existência de política simplificada de segurança da informação
+armadilha: conceito
+dif: 2
+enunciado: A política simplificada de segurança da informação é obrigatória para os agentes de tratamento de pequeno porte e, por isso, não é considerada a favor deles na dosimetria das sanções.
+comentario: Errado nas duas partes. A política simplificada é facultativa ("podem estabelecer", art. 13), e a ANPD a considera para os fins do art. 6º, X, e do art. 52, § 1º, VIII e IX, da LGPD, isto é, a favor do agente.
+
+=== pp2-05
+gab: C
+bloco: res-2-2022
+ref: res2 8
+trecho: inclusive àqueles que realizem tratamento de alto risco
+armadilha: excecao
+dif: 2
+enunciado: Mesmo o agente de tratamento de pequeno porte que realiza tratamento de alto risco pode organizar-se por meio de entidades de representação para negociar, mediar e conciliar reclamações de titulares.
+comentario: Certo: art. 8º. É uma das poucas facilidades que alcançam também quem faz tratamento de alto risco, que em regra fica fora do regime diferenciado (art. 3º, I).
+
+=== r32c-01
+gab: C
+bloco: res-32-2026
+ref: res32 1
+trecho: os três países da Associação Europeia de Livre Comércio - AELC que integram o Espaço Econômico Europeu - EEE (Islândia, Liechtenstein e Noruega)
+armadilha: caso
+dif: 2
+enunciado: Uma startup brasileira que passa a hospedar a base de clientes em provedor de nuvem situado na Noruega pode apoiar essa transferência internacional na decisão de adequação da Resolução CD/ANPD nº 32/2026.
+comentario: Certo. A adequação alcança os Estados membros da União Europeia e os três países da AELC que integram o Espaço Econômico Europeu: Islândia, Liechtenstein e Noruega (art. 1º, parágrafo único).
+
+=== r32c-02
+gab: E
+bloco: res-32-2026
+ref: res32 1
+trecho: os três países da Associação Europeia de Livre Comércio - AELC que integram o Espaço Econômico Europeu - EEE (Islândia, Liechtenstein e Noruega)
+armadilha: caso
+dif: 3
+enunciado: A decisão de adequação da Resolução CD/ANPD nº 32/2026 alcança as transferências para a Suíça, por ser membro da Associação Europeia de Livre Comércio.
+comentario: Errado. Da AELC, só entram os três países que integram o Espaço Econômico Europeu (Islândia, Liechtenstein e Noruega). A Suíça é da AELC, mas não do EEE; para ela, valem os outros mecanismos do art. 33 da LGPD.
+
+=== r32c-03
+gab: E
+bloco: res-32-2026
+ref: res32 1
+trecho: para todos os Estados membros da União Europeia
+armadilha: caso
+dif: 2
+enunciado: Depois da Resolução CD/ANPD nº 32/2026, transferências de dados para o Reino Unido podem apoiar-se na adequação europeia, por força do antigo vínculo do país com o bloco.
+comentario: Errado. A decisão alcança os Estados membros da União Europeia, os três países do EEE da AELC e as instituições do bloco; o Reino Unido não está em nenhum desses grupos.
+
+=== r32c-04
+gab: C
+bloco: res-32-2026
+ref: res32 1
+trecho: bem como as instituições, órgãos e agências da União Europeia
+armadilha: caso
+dif: 2
+enunciado: A transferência de dados de uma agência reguladora brasileira para uma agência da própria União Europeia pode apoiar-se na decisão de adequação da Resolução CD/ANPD nº 32/2026.
+comentario: Certo. Além dos países, a adequação alcança as instituições, órgãos e agências da União Europeia (art. 1º, parágrafo único), desde que a finalidade não seja das excluídas no art. 2º.
+
+=== r32c-05
+gab: C
+bloco: res-32-2026
+ref: res32 4
+trecho: podendo solicitar informações adicionais e realizar avaliações periódicas
+armadilha: literal
+dif: 1
+enunciado: No monitoramento contínuo do nível de proteção mantido pela União Europeia, a ANPD pode solicitar informações adicionais e realizar avaliações periódicas.
+comentario: Certo: art. 4º, caput. Além disso, a decisão é reavaliada em quatro anos (§ 1º).
+
+=== r32c-06
+gab: C
+bloco: res-32-2026
+ref: res32 3
+trecho: harmonização de práticas regulatórias e compartilhamento de melhores práticas
+armadilha: literal
+dif: 1
+enunciado: A Resolução CD/ANPD nº 32/2026 prevê que a ANPD poderá estabelecer mecanismos de cooperação com a Comissão Europeia e as autoridades europeias, entre outros fins, para harmonizar práticas regulatórias.
+comentario: Certo: art. 3º, II. A cooperação também serve ao intercâmbio de informações sobre as duas legislações e ao monitoramento contínuo do nível de proteção.
+
+=== r32c-07
+gab: E
+bloco: res-32-2026
+ref: res32 4, § 2º
+trecho: alterações na legislação de proteção de dados pessoais posteriores à emissão da presente decisão de adequação
+armadilha: extrapolacao
+dif: 2
+enunciado: Na reavaliação da decisão de adequação da União Europeia, a ANPD só pode considerar fatos anteriores à edição da Resolução CD/ANPD nº 32/2026.
+comentario: Errado. A reavaliação considera, entre outros aspectos, as alterações na legislação europeia posteriores à decisão (art. 4º, § 2º): é justamente para isso que ela existe.
+
+=== r32c-08
+gab: E
+bloco: res-32-2026
+ref: res32 2
+trecho: Esta decisão de adequação não se aplica às transferências internacionais de dados realizadas para fins exclusivos de segurança pública
+armadilha: caso
+dif: 2
+enunciado: Uma polícia estadual que compartilha dados com a Europol para investigação criminal pode apoiar a transferência na decisão de adequação da Resolução CD/ANPD nº 32/2026.
+comentario: Errado. A decisão não se aplica a transferências para fins exclusivos de segurança pública ou de investigação e repressão de infrações penais (art. 2º), que nem estão sob a LGPD (art. 4º, III).
+
+=== r32c-09
+gab: C
+bloco: res-32-2026
+ref: lgpd 34
+trecho: a existência de garantias judiciais e institucionais para o respeito aos direitos de proteção de dados pessoais
+armadilha: rol
+dif: 2
+enunciado: Pela LGPD, a avaliação do nível de proteção de país ou organismo internacional considera, entre outros fatores, a existência de garantias judiciais e institucionais para o respeito aos direitos de proteção de dados pessoais.
+comentario: Certo: art. 34, V. Os outros fatores são as normas do destino, a natureza dos dados, os princípios e direitos, as medidas de segurança e outras circunstâncias da transferência.
+
+=== r32c-10
+gab: E
+bloco: res-32-2026
+ref: lgpd 33
+trecho: A transferência internacional de dados pessoais somente é permitida nos seguintes casos
+armadilha: absoluto
+dif: 1
+enunciado: Antes da Resolução CD/ANPD nº 32/2026, as transferências internacionais de dados para a União Europeia eram proibidas, porque a decisão de adequação é o único mecanismo de transferência da LGPD.
+comentario: Errado. O art. 33 tem nove hipóteses; antes da decisão, as transferências ao bloco já podiam usar cláusulas-padrão, normas corporativas globais, consentimento específico e outras. A adequação só acrescentou um caminho mais simples.
