@@ -1646,7 +1646,17 @@ function blocosDaSemana(dia) {
   for (const d of DIAS) if (d.data >= seg && d.data <= dia.data && d.modo === 'treino') for (const b of d.blocos) if (!bs.includes(b)) bs.push(b);
   return bs.length ? bs : P1.slice();
 }
-function artigoVivo(k) { return ARTI.has(k) && !/^Art\. [\d\-A-Zº]+\.? \((VETADO|Revogado)/.test(ARTI.get(k).texto) && !linhaRevogada(ARTI.get(k).texto.split('\n')[0]); }
+// Vivo: algum dispositivo não vetado nem revogado. Caput vetado com parágrafo em vigor (Lei 9.507, art. 1º; LAI, art. 35) continua
+// vivo; caput revogado leva o artigo inteiro, porque revogar "o art. X" alcança os parágrafos, mesmo sem nota neles.
+const VIVO = new Map();
+function artigoVivo(k) {
+  if (!ARTI.has(k)) return false;
+  if (!VIVO.has(k)) {
+    const linhas = ARTI.get(k).texto.split('\n');
+    VIVO.set(k, !linhaRevogada(linhas[0]) && linhas.some((l) => l.trim() && !linhaRevogada(l) && !/\(VETADO\)/.test(l)));
+  }
+  return VIVO.get(k);
+}
 // Dispositivo revogado: o texto antigo não vale mais e não se estuda. Fica só o rótulo (a numeração pula, e a banca às
 // vezes cobra que o parágrafo caiu) com a nota de quem revogou. Notas de redação depois da revogação não mudam isso.
 const RE_ROTULO = /^\s*[“"]?(?:Art\.\s?[\dA-Zº°-]+\s?\.?|§\s?\d+\s?\.?\s?[º°]?\.?|Parágrafo único\.?|[IVXLC]+(?:-[A-Z])?\s?[-–]|[a-z]\))/;
@@ -2915,6 +2925,7 @@ function caixaJuridiques(a) {
 const CLARO = D.claro || {};
 const CLARO_IA = new Map();
 function htmlClaro(a, enxuto) {
+  if (!artigoVivo(a.k)) return '';
   if (CLARO[a.k]) return '<div class="claro"><span class="rotulo">Em português claro</span><p>' + grifarProsa(CLARO[a.k]) + '</p></div>';
   if (enxuto) return '';
   if (CLARO_IA.has(a.k)) return '<div class="claro ia"><span class="rotulo">Em português claro · gerado pelo Claude, confira no texto</span><p>' + esc(CLARO_IA.get(a.k)) + '</p></div>';
