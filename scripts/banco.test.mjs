@@ -96,3 +96,27 @@ test('plano do zero: subtemas existem, seguem a ordem da trilha e trazem os bloc
     assert.ok(data < data2, 'fora da ordem da trilha: ' + st + ' (' + data + ') depois de ' + outro + ' (' + data2 + ')');
   }
 });
+
+test('normas sem redação antiga repetida ao lado da atual (mesmo rótulo, texto quase igual, em linhas seguidas)', () => {
+  const d = montarDados();
+  const rot = (l) => { const m = /^\s*[“"]?((?:Art\.\s?[\dA-Zº°-]+|§\s?\d+\s?[º°]?(?:-[A-Z])?|Parágrafo único|[IVXLC]+(?:-[A-Z])?\s?[-–]|[a-z]\)))/.exec(l); return m ? m[1].replace(/\s/g, '') : null; };
+  const palavras = (s) => new Set(s.toLowerCase().replace(/\([^)]*\)/g, '').split(/[^a-zà-ú0-9]+/).filter((w) => w.length > 3));
+  const repetidas = [];
+  for (const [id, L] of Object.entries(d.lei)) for (const a of L.artigos) {
+    const ls = a.texto.split('\n').filter((x) => x.trim());
+    for (let i = 1; i < ls.length; i++) {
+      const r = rot(ls[i]);
+      if (!r || r !== rot(ls[i - 1])) continue;
+      const A = palavras(ls[i - 1]), B = palavras(ls[i]);
+      if ([...A].filter((w) => B.has(w)).length / Math.max(1, Math.min(A.size, B.size)) >= 0.5) repetidas.push(id + ':' + a.id + ' ' + r);
+    }
+  }
+  assert.deepEqual(repetidas, []);
+});
+
+test('notas de redação, inclusão e revogação nas normas sempre fechadas com parêntese', () => {
+  const d = montarDados();
+  const abertas = [];
+  for (const [id, L] of Object.entries(d.lei)) for (const a of L.artigos) for (const l of a.texto.split('\n')) if (/\((Redação dada|Incluíd[oa]|Revogad[oa])[^)]*$/.test(l)) abertas.push(id + ':' + a.id + ' ' + l.slice(0, 60));
+  assert.deepEqual(abertas, []);
+});

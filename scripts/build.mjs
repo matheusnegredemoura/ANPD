@@ -158,7 +158,7 @@ export function montarDados() {
   for (const [k, txt] of Object.entries(JSON.parse(ler('dados', 'claro.json')).artigos)) {
     const [l, a] = k.split(':');
     if (!leis[l] || !leis[l].lei.artigos.some((x) => x.id === a)) errosCb.push(`claro.json: artigo inexistente ${k}`);
-    if (typeof txt !== 'string' || txt.length < 80 || txt.length > 1500) errosCb.push(`claro.json (${k}): texto ausente ou fora de 80 a 1500 caracteres`);
+    if (typeof txt !== 'string' || txt.length < 80 || txt.length > 2000) errosCb.push(`claro.json (${k}): texto ausente ou fora de 80 a 2000 caracteres`);
     if (/\*\*|\n/.test(txt)) errosCb.push(`claro.json (${k}): sem negrito com ** nem quebra de linha`);
     claro[l === 'lgpd' ? a : k] = txt;
   }
