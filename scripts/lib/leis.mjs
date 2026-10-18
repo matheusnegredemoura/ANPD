@@ -408,7 +408,7 @@ const RE_ARTICLE = /^(?:Article (\d+)$|Artigo (\d+)(?:\.º)? [–—] )/;
 // Itens em algarismo romano que são a unidade da norma (Código de Ética do Decreto nº 1.171/1994).
 const RE_ITEM = /^([IVXL]+) - /;
 // Rótulo de link do site do Planalto colado depois das notas ("(Incluído ...) Vigência", "(Vigência)"): não é texto da norma
-const RE_LINK_VIGENCIA = /(?<=[).\d]|Regulamento)\s+\(?Vigência\)?(?=\s|$)/g;
+const RE_LINK_VIGENCIA = /(?<=[).\d]|Regulamento)\s+\(?[Vv]igência\)?(?=\s|$)/g;
 
 export function normalizar(s) {
   return s
