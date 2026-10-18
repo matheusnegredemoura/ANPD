@@ -66,6 +66,12 @@ await passo('parágrafo revogado aparece só com o rótulo e a nota, sem o texto
   if (!/^§ 4º \(Revogado pela Resolução CD\/ANPD nº 4/.test(rev)) throw new Error('§ 4º: ' + rev);
   if (/não atendimento/.test(linhas.join(' '))) throw new Error('o texto revogado continua lá');
   if (!(await p.locator('#vista-lei .texto-lei p.vetado').count())) throw new Error('a linha revogada não ficou apagada');
+  // revogada em minúscula e sem parênteses ("a) revogada;") também fica apagada
+  await p.click('#vista-lei [data-acao="voltar-lei"]');
+  await p.selectOption('#vista-lei select[data-acao="sel-lei"]', 'cf88');
+  await p.evaluate(() => document.querySelector('#vista-lei [data-acao="abrir-art"][data-art="cf88:12"]').click());
+  const apagadas = (await p.locator('#vista-lei .texto-lei p.vetado').allTextContents()).map((t) => t.trim());
+  if (!apagadas.some((t) => /^a\) \(revogada\)$/.test(t))) throw new Error('cf88:12 a) revogada: ' + apagadas.join(' | '));
 });
 
 await passo('no texto da lei, "art. 16 desta Lei" abre o art. 16 logo abaixo da linha, e o mesmo toque fecha', async () => {

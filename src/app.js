@@ -1651,10 +1651,13 @@ function artigoVivo(k) { return ARTI.has(k) && !/^Art\. [\d\-A-Zº]+\.? \((VETAD
 // vezes cobra que o parágrafo caiu) com a nota de quem revogou. Notas de redação depois da revogação não mudam isso.
 const RE_ROTULO = /^\s*[“"]?(?:Art\.\s?[\dA-Zº°-]+\s?\.?|§\s?\d+\s?\.?\s?[º°]?\.?|Parágrafo único\.?|[IVXLC]+(?:-[A-Z])?\s?[-–]|[a-z]\))/;
 function linhaRevogada(linha) {
-  const m = /\((Revogad[oa][^)]*)\)(?:[\s.;,:”"]*(?:\((?:Redação dada|Incluíd[oa]|NR|Vide)[^)]*\)|Revogad[oa] pel[oa] [^()]*))*[\s.;,:”"]*$/.exec(linha);
-  if (!m) return null;
   const r = RE_ROTULO.exec(linha);
-  return { rotulo: r ? r[0].replace(/^[\s“"]+/, '').trim() : '', nota: '(' + m[1] + ')' };
+  const rotulo = r ? r[0].replace(/^[\s“"]+/, '').trim() : '';
+  const m = /\((Revogad[oa][^)]*)\)(?:[\s.;,:”"]*(?:\((?:Redação dada|Incluíd[oa]|NR|Vide)[^)]*\)|Revogad[oa] pel[oa] [^()]*))*[\s.;,:”"]*$/.exec(linha);
+  if (m) return { rotulo, nota: '(' + m[1] + ')' };
+  // Só o rótulo e a palavra, em minúscula ou sem parênteses: "a) revogada;", "XXI - (revogado);"
+  const s = r && /^\s*\(?(revogad[oa]s?)\)?[\s.;,:”"]*(?:\((?:Redação dada|Incluíd[oa]|NR|Vide)[^)]*\)[\s.;,:”"]*)*$/i.exec(linha.slice(r.index + r[0].length));
+  return s ? { rotulo, nota: '(' + s[1].toLowerCase() + ')' } : null;
 }
 // Leitura do dia: todos os artigos dos blocos do dia, se couberem em LEITURA_MAX; senão, uma seleção
 // equilibrada entre os blocos: primeiro os artigos de questões que estão na sua lista curta, depois os

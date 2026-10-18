@@ -117,6 +117,10 @@ test('normas sem redação antiga repetida ao lado da atual (mesmo rótulo, text
 test('notas de redação, inclusão e revogação nas normas sempre fechadas com parêntese', () => {
   const d = montarDados();
   const abertas = [];
-  for (const [id, L] of Object.entries(d.lei)) for (const a of L.artigos) for (const l of a.texto.split('\n')) if (/\((Redação dada|Incluíd[oa]|Revogad[oa])[^)]*$/.test(l)) abertas.push(id + ':' + a.id + ' ' + l.slice(0, 60));
+  for (const [id, L] of Object.entries(d.lei)) for (const a of L.artigos) for (const l of a.texto.split('\n')) {
+    if (/\((Redação dada|Incluíd[oa]|Revogad[oa])[^)]*$/.test(l)) abertas.push(id + ':' + a.id + ' ' + l.slice(0, 60));
+    // e abertas: "c) Revogada);" sem o parêntese de abertura
+    if (/(?:^|[\s)–-])Revogad[oa]\)/.test(l) && !/\(Revogad[oa]\)/.test(l)) abertas.push(id + ':' + a.id + ' ' + l.slice(0, 60));
+  }
   assert.deepEqual(abertas, []);
 });
