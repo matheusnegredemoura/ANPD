@@ -407,6 +407,8 @@ const RE_ESTRUTURA = /^(?:(LIVRO|TÍTULO|CAPÍTULO|SEÇÃO|Seção|Subseção|SU
 const RE_ARTICLE = /^(?:Article (\d+)$|Artigo (\d+)(?:\.º)? [–—] )/;
 // Itens em algarismo romano que são a unidade da norma (Código de Ética do Decreto nº 1.171/1994).
 const RE_ITEM = /^([IVXL]+) - /;
+// Rótulo de link do site do Planalto colado depois das notas ("(Incluído ...) Vigência", "(Vigência)"): não é texto da norma
+const RE_LINK_VIGENCIA = /(?<=[).\d]|Regulamento)\s+\(?Vigência\)?(?=\s|$)/g;
 
 export function normalizar(s) {
   return s
@@ -431,8 +433,9 @@ export function carregarLei(raiz, id) {
   let noAnexo = false;
 
   for (const bruta of linhas) {
-    const linha = bruta.trimEnd();
-    if (!linha.trim() || linha.startsWith('#')) continue;
+    if (bruta.startsWith('#')) continue;
+    const linha = bruta.replace(RE_LINK_VIGENCIA, '').trimEnd();
+    if (!linha.trim()) continue;
     const e = linha.match(RE_ESTRUTURA);
     if (e) {
       const tipo = e[3] ? 'livro' : e[4] ? (e[4].startsWith('CHAPTER') ? 'capítulo' : 'seção') : (e[1] || e[2]).toLowerCase();
