@@ -1,6 +1,13 @@
 // Investigar, correção da discursiva e artigo em português claro com o Claude, usando um Claude simulado (nada é
 // enviado de verdade), e o caminho manual quando a página não tem o Claude.
+import { readFileSync } from 'node:fs';
 import { APP, abrirNavegador, foto, placar, vigiarErros } from './comum.mjs';
+
+// Um artigo da Lei 8.112 ainda sem tradução escrita: as traduções crescem, então a escolha não fica fixa no teste
+const CLARO = JSON.parse(readFileSync(new URL('../../dados/claro.json', import.meta.url), 'utf8')).artigos;
+const NUM_SEM = [...readFileSync(new URL('../../fontes/lei8112.txt', import.meta.url), 'utf8').matchAll(/^Art\. (\d+)º?\.? (.*)$/gm)]
+  .filter((m) => !/Revogad|VETADO/i.test(m[2])).map((m) => m[1]).find((n) => +n > 20 && !CLARO['lei8112:' + n]);
+const SEM = 'lei8112:' + NUM_SEM;
 
 const browser = await abrirNavegador();
 const { conferir, passo, fim } = placar();
@@ -90,15 +97,15 @@ await passo('Discursiva: o Claude sugere conceitos e erros, e dá para salvar', 
 await passo('Artigo sem tradução escrita: o Claude explica em português claro, com aviso de conferir', async () => {
   await p.click('.aba[data-vista="lei"]');
   if (await p.locator('#vista-lei [data-acao="voltar-lei"]').count()) await p.click('#vista-lei [data-acao="voltar-lei"]');
-  await p.selectOption('#vista-lei select[data-acao="sel-lei"]', 'lai');
-  await p.evaluate(() => document.querySelector('#vista-lei [data-acao="abrir-art"][data-art="lai:7"]').click());
+  await p.selectOption('#vista-lei select[data-acao="sel-lei"]', 'lei8112');
+  await p.evaluate((k) => document.querySelector('#vista-lei [data-acao="abrir-art"][data-art="' + k + '"]').click(), SEM);
   const n = await p.evaluate(() => window.__pedidos.length);
   await p.click('#vista-lei [data-acao="claro-ia"]');
   await p.waitForSelector('#vista-lei .claro.ia');
   const txt = (await p.textContent('#vista-lei .claro.ia')) || '';
   if (!/confira no texto[^]*Está certo que o titular/.test(txt)) throw new Error('caixa: ' + txt.slice(0, 120));
   const pedido = await p.evaluate((n) => String(window.__pedidos[n]), n);
-  conferir('o pedido leva o texto do artigo e as regras', /português claro/.test(pedido) && /Texto:\nArt\. 7º/.test(pedido), pedido.slice(0, 160));
+  conferir('o pedido leva o texto do artigo e as regras', /português claro/.test(pedido) && new RegExp('Texto:\\nArt\\. ' + NUM_SEM + '\\b').test(pedido), pedido.slice(0, 160));
   // num artigo com tradução escrita, não há botão do Claude
   await p.click('#vista-lei [data-acao="voltar-lei"]');
   await p.selectOption('#vista-lei select[data-acao="sel-lei"]', 'lgpd');
@@ -129,8 +136,8 @@ await passo('Sem o Claude: some o botão de conferir e fica o Copiar', async () 
 await passo('Sem o Claude, o artigo sem tradução escrita não mostra o botão', async () => {
   await q.click('.aba[data-vista="lei"]');
   if (await q.locator('#vista-lei [data-acao="voltar-lei"]').count()) await q.click('#vista-lei [data-acao="voltar-lei"]');
-  await q.selectOption('#vista-lei select[data-acao="sel-lei"]', 'lai');
-  await q.evaluate(() => document.querySelector('#vista-lei [data-acao="abrir-art"][data-art="lai:7"]').click());
+  await q.selectOption('#vista-lei select[data-acao="sel-lei"]', 'lei8112');
+  await q.evaluate((k) => document.querySelector('#vista-lei [data-acao="abrir-art"][data-art="' + k + '"]').click(), SEM);
   if (await q.locator('#vista-lei [data-acao="claro-ia"]').count()) throw new Error('botão do Claude sem o Claude');
 });
 

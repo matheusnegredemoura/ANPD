@@ -166,7 +166,14 @@ await passo('lei seca: outras normas', async () => {
 
 await passo('leitura do dia até o fim da fila', async () => {
   await p.click('.aba[data-vista="hoje"]');
-  await p.click('[data-acao="ler-dia"]');
+  // dia de matéria nova: a leitura sai pela página do subtema; nos outros dias, pela fila do dia
+  if (await p.locator('[data-acao="ler-dia"]').count()) await p.click('[data-acao="ler-dia"]');
+  else {
+    // "Ler os artigos" já abre o primeiro artigo do subtema
+    await p.click('[data-acao="st-lei"]');
+    await p.waitForSelector('#vista-mais .art-inline:not([hidden]) .art-inline-cab');
+    return;
+  }
   await p.waitForSelector('.fila-leitura');
   for (let i = 0; i < 40; i++) {
     if (await p.locator('[data-acao="fim-fila"]').count()) { await p.click('[data-acao="fim-fila"]'); return; }
