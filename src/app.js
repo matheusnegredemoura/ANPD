@@ -15,7 +15,7 @@ for (const q of D.questoes) {
   deTabela(q);
   if (q.art === undefined) q.art = null;
   // Trecho guardado como [início, tamanho] no texto do artigo
-  q.t = (q.t || []).map((t) => (Array.isArray(t) ? TEXTO_ART.get(q.l + ':' + q.art).slice(t[0], t[0] + t[1]) : t));
+  q.t = (q.t || []).map((t) => (Array.isArray(t) ? (TEXTO_ART.get(q.l + ':' + q.art) || '').slice(t[0], t[0] + t[1]) : t));
 }
 for (const c of D.cloze || []) deTabela(c);
 const Q = D.questoes;
@@ -393,7 +393,13 @@ function mesclarDoc(n, nuvem, local, localNovo) {
     return { lista };
   }
   if (n === 'pesquisa') return { p: mesclarMapa(velho.p, novo.p, (a, b) => b) };
-  if (n === 'discursivas') return { d: mesclarMapa(velho.d, novo.d, (a, b) => ((a.tentativas || []).length > (b.tentativas || []).length ? a : b)) };
+  // Discursiva: fica o rascunho mais novo que não esteja vazio (um aparelho com o texto em branco não apaga o do outro)
+  // e a lista de tentativas mais longa
+  if (n === 'discursivas') return { d: mesclarMapa(velho.d, novo.d, (a, b) => {
+    const ras = b && b.rascunho && b.rascunho.trim() ? b.rascunho : (a && a.rascunho) || '';
+    const tA = (a && a.tentativas) || [], tB = (b && b.tentativas) || [];
+    return Object.assign({}, a, b, { rascunho: ras, tentativas: tB.length >= tA.length ? tB : tA });
+  }) };
   const atividade = (d) => num(d && d.r) + num(d && d.k) + num(d && d.b);
   const p = Object.assign(perfilPadrao(), velho, novo);
   p.xp = Math.max(num(nuvem.xp), num(local.xp));
@@ -405,12 +411,24 @@ function mesclarDoc(n, nuvem, local, localNovo) {
     return Object.keys(t).length ? Object.assign({}, dia, { t }) : dia;
   });
   p.conq = Object.assign({}, velho.conq, novo.conq);
+  // Dia, aula ou discursiva dados como feitos num aparelho continuam feitos no outro
+  p.feitos = Object.assign({}, velho.feitos, novo.feitos);
+  p.cad = mesclarCad(velho.cad, novo.cad);
   p.lidos = mesclarMapa(nuvem.lidos, local.lidos, (a, b) => (b < a ? b : a));
   p.recordes = mesclarMapa(nuvem.recordes, local.recordes, (a, b) => Math.max(num(a), num(b)));
   p.criado = [nuvem.criado, local.criado].filter(Boolean).sort()[0] || hojeISO();
   if (!p.ui && velho.ui) p.ui = velho.ui;
   p.rpg = mesclarRPG(velho.rpg, novo.rpg);
   return p;
+}
+// Caderno de erros: a anotação mais recente de cada questão e as metas da semana marcadas em qualquer aparelho
+function mesclarCad(velho, novo) {
+  if (!velho && !novo) return undefined;
+  velho = velho || {}; novo = novo || {};
+  const r = Object.assign({}, velho, novo);
+  r.erros = mesclarMapa(velho.erros, novo.erros, (a, b) => ((a.data || '') > (b.data || '') ? a : b));
+  r.checkSem = mesclarMapa(velho.checkSem, novo.checkSem, (a, b) => Object.assign({}, a, b));
+  return r;
 }
 // O banco entrega o documento congelado, inclusive por dentro: sem uma cópia, marcar artigo como lido, dar baixa num
 // dia ou somar o tempo falharia (às vezes em silêncio) em tudo o que veio da conta
@@ -638,11 +656,12 @@ function nivelDe(xp) {
 }
 function diaLog(iso) {
   iso = iso || hojeISO();
-  if (!S.perfil.dias[iso]) S.perfil.dias[iso] = { r: 0, c: 0, e: 0, b: 0, xp: 0, k: 0, n: 0, a: [] };
+  if (!S.perfil.dias[iso]) S.perfil.dias[iso] = { r: 0, c: 0, e: 0, b: 0, xp: 0, k: 0, n: 0, a: [], t: {} };
   const d = S.perfil.dias[iso];
   if (d.k == null) d.k = 0;
   if (d.n == null) d.n = 0;
-  if (!d.a) d.a = [];
+  if (!d.a || !Array.isArray(d.a) || !Object.isExtensible(d.a)) d.a = Array.from(d.a || []);
+  if (!d.t || typeof d.t !== 'object' || !Object.isExtensible(d.t)) d.t = Object.assign({}, d.t || {});
   return d;
 }
 // Só a lista de artigos lidos de hoje é usada; as antigas saem para o documento do perfil não crescer sem limite
@@ -1086,11 +1105,21 @@ function sugerirPesquisaDoErro(q) {
 }
 
 /* ================= Seleção de itens ================= */
-function poolDe(blocos) {
+// Itens dos blocos escolhidos (todos, se nenhum tem itens). O filtro de banca e formato vale só para as sessões montadas
+// na aba Questões: o plano do dia, a recuperação e as trilhas usam o banco inteiro
+const FILTROS_BANCA = {
+  cebraspe: (q) => !q.al,
+  reais: (q) => !!q.o,
+  ineditas: (q) => !q.o,
+  multipla: (q) => !!q.al,
+};
+function poolDe(blocos, banca) {
   const disp = (blocos || []).filter((b) => (POR_BLOCO.get(b) || []).length);
-  if (!disp.length) return Q.slice();
-  const set = new Set(disp);
-  return Q.filter((q) => set.has(q.b));
+  const set = disp.length ? new Set(disp) : null;
+  const base = set ? Q.filter((q) => set.has(q.b)) : Q.slice();
+  const f = FILTROS_BANCA[banca];
+  const filtrada = f ? base.filter(f) : base;
+  return filtrada.length ? filtrada : base;
 }
 function selecionar(pool, n, filtro) {
   const hoje = HOJE();
@@ -1164,12 +1193,7 @@ function selecionarIntercaladas(n) {
 // Tamanho das intercaladas: o escolhido em Ajustes, menor em dia pesado (até o mínimo de 10)
 // Em dia de 1h45 do plano, as intercaladas ficam em no máximo 20, para o dia caber no tempo
 function nIntercaladas() {
-  const ctx = contextoHoje();
-  const curto = ctx.tipo === 'dia' && ctx.dia && ctx.dia.duracao === '1h45';
-  const escolha = S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas;
-  const base = curto ? Math.min(escolha, 20) : escolha;
-  const excesso = listaVencida().length - REVISOES_DIA_PESADO;
-  return excesso > 0 ? Math.max(Math.min(10, base), base - Math.ceil(excesso / 2)) : base;
+  return 6; // 6 itens rápidos para caber nos 10 min do Passo 7 da rotina de 1h30
 }
 
 /* ================= Sessões ================= */
@@ -1328,7 +1352,7 @@ function iniciarSessao(cfg) {
   else if (cfg.intercalado) itens = selecionarIntercaladas(cfg.n || 30);
   else if (cfg.prova) itens = selecionarProva(cfg.n || 60);
   else if (cfg.modo === 'relampago') itens = embaralhar(poolDe(cfg.blocos).filter((q) => !q.al));
-  else itens = selecionar(poolDe(cfg.blocos), cfg.n || 20, cfg.filtro || 'mistas');
+  else itens = selecionar(poolDe(cfg.blocos, cfg.banca), cfg.n || 20, cfg.filtro || 'mistas');
   if (!itens.length) { avisar('!', 'Sem itens', 'Nenhuma questão disponível com esse filtro.'); return; }
   if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && !cfg.prova && cfg.modo !== 'revisao', cfg.blocos && cfg.blocos.length && !cfg.prova && !cfg.intercalado ? new Set(cfg.blocos) : null);
   sessao = novaSessao(cfg, itens.map((q) => q.id));
@@ -1346,7 +1370,7 @@ function iniciarCards(ids, titulo) {
 }
 function novaSessao(cfg, ids) {
   return {
-    modo: cfg.modo, titulo: cfg.titulo || tituloModo(cfg.modo), dia: cfg.dia || null, ids, i: 0,
+    modo: cfg.modo, st: cfg.st || null, tipoSubtema: cfg.tipoSubtema || null, titulo: cfg.titulo || tituloModo(cfg.modo), dia: cfg.dia || null, ids, i: 0,
     chave: MODOS_PAUSA.has(cfg.modo) ? cfg.chave || cfg.dia || 'x:' + Date.now().toString(36) : null, resp: {}, duv: {}, revelado: false,
     combo: 0, comboMax: 0, xp: 0, ini: Date.now(), fim: false, prova: !!cfg.prova, confirmar: null, flash: null, retrato: cfg.modo === 'cards' ? null : retratoSessao(ids),
     batalha: String(cfg.chave || '').startsWith('chefe:'), coracoes: coracoesMax(), coracoesMax: coracoesMax(),
@@ -1599,13 +1623,14 @@ function avisar(ic, titulo, texto) {
 const ERROS = [];
 function registrarErro(onde, e) {
   const msg = String((e && (e.message || (e.reason && e.reason.message))) || e || 'erro desconhecido').slice(0, 200);
+  if (/ResizeObserver|Script error|chrome-extension|moz-extension|safari-extension|frame\.claudeusercontent/i.test(msg)) return;
   const linha = (onde ? onde + ': ' : '') + msg;
   if (ERROS.some((x) => x.m === linha)) return;
   const pilha = String((e && e.stack) || '').split('\n').slice(0, 4).map((x) => x.trim()).join(' | ').slice(0, 400);
+  console.warn('[Painel ANPD]', linha, pilha);
   ERROS.unshift({ m: linha, p: pilha, t: new Date().toISOString(), v: D.versao, ua: String(navigator.userAgent || '').slice(0, 160) });
   ERROS.length = Math.min(ERROS.length, 5);
-  try { S.perfil.erros = ERROS.slice(); Store.salvar('perfil'); } catch (x) { /* sem gravação, fica só na tela */ }
-  try { avisar('!', 'Algo falhou nesta tela', linha.slice(0, 120) + ' (detalhes em Mais → Ajustes)'); } catch (x) { /* sem aviso */ }
+  try { S.perfil.erros = ERROS.slice(); Store.salvar('perfil'); } catch (x) { /* sem gravação */ }
 }
 window.addEventListener('error', (ev) => registrarErro('', ev.error || ev.message));
 window.addEventListener('unhandledrejection', (ev) => registrarErro('', ev.reason));
@@ -1702,27 +1727,14 @@ function leituraDoDia(dia) {
   return { arts: todos.filter((k) => escolhidos.has(k)), total: todos.length };
 }
 function artigosDoDia(dia) { return leituraDoDia(dia).arts; }
-function rotulosArts(arts) {
-  if (arts.length <= 3) return arts.map(nomeArt).join(', ');
-  const a0 = ARTI.get(arts[0]), a1 = ARTI.get(arts[arts.length - 1]);
-  const pref = a0.lei !== 'lgpd' && a0.lei === a1.lei ? LEIS[a0.lei].curto + ', ' : '';
-  return pref + 'arts. ' + a0.id + ' a ' + a1.id + ' (' + arts.length + ' artigos)';
-}
-function sugestoesDoDia(blocos) {
-  const fonte = (blocos.length ? blocos : P1).flatMap((b) => (BI.get(b) && BI.get(b).pesquisar) || []);
-  return fonte.filter((t) => !S.pesquisa[chavePesq(t)]);
-}
-function rotuloModoDia(dia) {
-  if (dia.modo === 'revisao') return 'revisão';
-  if (dia.modo === 'simulado') return 'simulado de ' + dia.n;
-  return dia.n + ' itens';
-}
-// "Recomeçar do zero" apaga a sessão guardada: vai em "extra" do passo, que o roteiro mostra e o cartão do topo não
-function botaoRecomecar(k) { return pausaDe(k) ? '<button class="btn pequeno" data-acao="descartar-pausa" data-k="' + esc(k) + '">Recomeçar do zero</button>' : ''; }
+
+
+
+
 function roteiroHoje() {
   const ctx = contextoHoje();
   const dia = ctx.tipo === 'dia' ? ctx.dia : null;
-  const d = S.perfil.dias[hojeISO()] || { r: 0, k: 0, n: 0, a: [] };
+  const d = diaLog();
   const blocos = blocosDoDia(dia);
   const venc = listaVencida().length;
   const manut = manutencaoHoje().length;
@@ -1733,83 +1745,132 @@ function roteiroHoje() {
   const cardsBlocos = blocos.filter((b) => (CARDS_POR_BLOCO.get(b) || []).length);
   const novosDisp = cardsNovos(cardsBlocos.length ? cardsBlocos : null).length;
   const pesqHoje = Object.values(S.pesquisa).filter((p) => p.s && p.f === hojeISO()).length;
-  const passos = [];
-  passos.push({
-    titulo: 'Revisar o que venceu', feito: venc === 0 && manut === 0 && cardsV === 0,
-    texto: venc || manut || cardsV ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'acerto antigo para confirmar', 'acertos antigos para confirmar') : '', cardsV ? pl(cardsV, 'card', 'cards') : ''].filter(Boolean).join(' · ') + ' vencem hoje.' : 'Nada vencido hoje.',
-    botoes: (venc + manut ? '<button class="btn pequeno primario" data-acao="iniciar-revisao">Questões (' + (venc + manut) + ')</button>' : '') + (cardsV ? '<button class="btn pequeno' + (venc + manut ? '' : ' primario') + '" data-acao="cards-revisao">Cards (' + cardsV + ')</button>' : ''),
-  });
-  const stH = dia && dia.modo === 'treino' ? stDoDia(dia) : null;
-  if (stH) {
-    const e = estadoSubtema(stH.id), artsSt = artsDoSubtema(stH), lidos = S.perfil.lidos || {}, nLidos = artsSt.filter((k) => lidos[k]).length, chPre = 't:' + stH.id + ':pre';
-    if (e.novos || e.resp) passos.push({ titulo: 'Pré-teste: ' + stH.nome, feito: e.resp > 0,
-      texto: 'Antes de estudar, ' + pl(Math.min(8, e.novos), 'item', 'itens') + ' para ver o que você já sabe. Errar aqui é esperado: o erro mostra o que procurar na lei e na aula.',
-      botoes: '<button class="btn pequeno primario" data-acao="trilha-sessao" data-st="' + esc(stH.id) + '" data-tipo="pre">' + esc(rotuloPausa(chPre, 'Pré-teste · ' + pl(Math.min(8, e.novos), 'item', 'itens'))) + '</button>', extra: botaoRecomecar(chPre) });
-    if (artsSt.length) passos.push({ titulo: 'Lei seca do dia', feito: nLidos >= artsSt.length,
-      texto: inicial(rotulosArts(artsSt)) + ' · lidos: ' + nLidos + ' de ' + artsSt.length + '. As palavras difíceis vêm explicadas logo acima dos artigos.',
-      botoes: '<button class="btn pequeno primario" data-acao="st-lei" data-st="' + esc(stH.id) + '">Ler os artigos</button>' });
-    passos.push({ titulo: 'Aula do dia', feito: !!S.perfil.feitos['aula:' + dia.data],
-      texto: (nomeTrilha(stH.trilha) || 'Trilha do zero') + ': ' + stH.nome + '. A aula explica o que você leu; as citações de artigo abrem o texto ali mesmo.',
-      botoes: '<button class="btn pequeno primario" data-acao="st-aula" data-st="' + esc(stH.id) + '">Abrir a aula</button>' });
-  }
-  if (dia) {
-    const feito = !!S.perfil.feitos[dia.data];
-    const nDia = nItensDoDia(dia);
-    passos.push({ titulo: dia.modo === 'simulado' ? 'Simulado do dia' : dia.modo === 'revisao' ? 'Sessão de revisão do dia' : stH ? 'Questões do dia: ' + stH.nome : 'Questões do dia', feito,
-      texto: dia.modo === 'treino' && nDia < dia.n ? 'Sessão reduzida de ' + dia.n + ' para ' + nDia + ' itens: há ' + pl(venc, 'revisão vencida', 'revisões vencidas') + ', e elas vêm primeiro.' : '', botoes: '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' + esc(rotuloPausa(dia.data, (feito ? 'Outra rodada' : 'Começar') + ' · ' + rotuloModoDia(Object.assign({}, dia, { n: nDia })))) + '</button>', extra: botaoRecomecar(dia.data) });
-  }
+  const stH = dia && dia.modo === 'treino' ? (stDoDia(dia) || subtemaDoDia()) : subtemaDoDia();
   const dd = discDeHoje();
-  if (dd) {
-    const t = temaDisc(dd), atr = pendencias().filter((x) => x.disc).length;
-    passos.push({ titulo: 'Discursiva do dia', feito: discFeita(dd),
-      texto: (t ? t.titulo + ': até ' + t.linhas + ' linhas, ' + t.minutos + ' min, sem consulta. Corrija pelos quesitos e salve.' : '') + (atr ? ' Há ' + pl(atr, 'discursiva atrasada', 'discursivas atrasadas') + ': cada uma salva dá baixa primeiro na de hoje e depois na mais antiga.' : ''),
-      botoes: discFeita(dd) ? '' : botaoDiscDia(dd, true) });
-  }
-  const rec = proximaRecuperacao();
-  const atrasados = blocosAtrasados();
-  if (rec) {
-    passos.push({ titulo: 'Recuperar o atraso', feito: !!S.perfil.feitos['rec:' + hojeISO()],
-      texto: rec.falta.map((f) => nomeBloco(f.b)).join(', ') + (atrasados.length > rec.falta.length ? ' (depois, mais ' + pl(atrasados.length - rec.falta.length, 'matéria', 'matérias') + ')' : '') + '.',
-      botoes: botaoRecuperar() });
-  }
-  const nInt = nIntercaladas();
-  if (nInt > 0) {
-    const chaveInt = 'i:' + hojeISO();
-    passos.push({ titulo: 'Questões intercaladas', feito: !!S.perfil.feitos[chaveInt],
-      texto: 'Matérias básicas e blocos já estudados, misturados.' + (nInt < (S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas) ? (listaVencida().length > REVISOES_DIA_PESADO ? ' Sessão menor hoje: há muita revisão vencida.' : ' Sessão menor hoje, para o dia de 1h45 caber no tempo.') : ''),
-      botoes: '<button class="btn pequeno primario" data-acao="intercaladas">' + esc(rotuloPausa(chaveInt, (S.perfil.feitos[chaveInt] ? 'Outra rodada' : 'Começar') + ' · ' + nInt + ' itens')) + '</button>', extra: botaoRecomecar(chaveInt) });
-  }
-  const std = stH ? null : subtemaDoDia();
-  if (std) {
-    const e = estadoSubtema(std.id), chT = 't:' + hojeISO(), tipoT = e.novos ? 'pre' : 'pratica', chPT = 't:' + std.id + ':' + tipoT;
-    passos.push({ titulo: nomeTrilha(std.trilha) || 'Trilha do zero', feito: !!S.perfil.feitos[chT],
-      texto: std.nome + ' (' + ROTULO_ST[e.status] + (e.resp ? ', acerto ' + Math.round(e.acerto * 100) + '%' : '') + '). Pré-teste, depois a lei e a aula na página do subtema.',
-      botoes: '<button class="btn pequeno primario" data-acao="trilha-sessao" data-st="' + esc(std.id) + '" data-tipo="' + tipoT + '">' + esc(rotuloPausa(chPT, e.novos ? 'Pré-teste · ' + pl(Math.min(8, e.novos), 'item', 'itens') : 'Praticar · ' + pl(Math.min(20, e.n), 'item', 'itens'))) + '</button>' +
-        '<button class="btn pequeno" data-acao="subtema" data-st="' + esc(std.id) + '">Aula e subtema</button>', extra: botaoRecomecar(chPT) });
-  }
-  if (!dia && !atrasados.length) {
-    passos.push({ titulo: 'Questões livres', feito: d.r >= S.perfil.meta, texto: 'Sem sessão programada para hoje. Uma rodada leve mantém a sequência.',
-      botoes: '<button class="btn pequeno primario" data-acao="treino-rapido">Treino de 20 itens</button>' });
-  }
-  if (stH) { /* a lei do dia já é um passo acima */ } else if (arts.length) {
-    passos.push({ titulo: 'Lei seca grifada', feito: lidosHoje >= arts.length,
-      texto: (leitura.total > arts.length ? arts.length + ' dos ' + leitura.total + ' artigos do dia (lista curta, não lidos e mais cobrados)' : inicial(rotulosArts(arts))) + ' · lidos hoje: ' + lidosHoje + ' de ' + arts.length + '.',
-      botoes: '<button class="btn pequeno" data-acao="ler-dia">Ler em sequência</button>' });
+  const chaveInt = 'i:' + hojeISO();
+
+  const passos = [];
+
+  // Passo 1: Revisão Espaçada (~10 min)
+  const revFeita = venc === 0 && manut === 0 && cardsV === 0;
+  passos.push({
+    titulo: '1. Revisão espaçada (~10 min)',
+    feito: revFeita,
+    texto: (venc || manut || cardsV)
+      ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'item de manutenção', 'itens de manutenção') : '', cardsV ? pl(cardsV, 'card vencido', 'cards vencidos') : ''].filter(Boolean).join(' e ') + ' prontos para ativar a memória de curto prazo.'
+      : 'Memória em dia! Nenhum item pendente de revisão para agora.',
+    botoes: (venc + manut ? '<button class="btn pequeno primario" data-acao="iniciar-revisao">Revisar questões (' + (venc + manut) + ')</button>' : '') +
+            (cardsV ? '<button class="btn pequeno' + (venc + manut ? '' : ' primario') + '" data-acao="cards-revisao">Revisar cards (' + cardsV + ')</button>' : '')
+  });
+
+  // Passo 2: Questões do Tema / Pré-teste (~15 min)
+  let qTemaFeita = false;
+  let qTemaBtns = '';
+  let qTemaTxt = '';
+  if (dia) {
+    qTemaFeita = !!S.perfil.feitos[dia.data];
+    const nDia = nItensDoDia(dia);
+    qTemaTxt = dia.modo === 'simulado'
+      ? 'Simulado do dia: ' + nDia + ' itens, com tempo e nota líquida.'
+      : nDia + ' questões para achar os pontos cegos do tema (' + esc((dia.blocos || []).map(nomeBloco).join(', ')) + ').';
+    qTemaBtns = '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' +
+      esc(rotuloPausa(dia.data, (qTemaFeita ? 'Outra rodada' : 'Resolver questões') + ' · ' + nDia + ' itens')) + '</button>';
   } else {
-    passos.push({ titulo: 'Lei seca grifada', feito: (d.a || []).length >= 3, texto: 'Abra os artigos das questões que você errou.',
-      botoes: '<button class="btn pequeno" data-acao="ir" data-vista="lei">Abrir a lei</button>' });
+    qTemaFeita = !!S.perfil.feitos['r:' + hojeISO()];
+    qTemaTxt = 'Sem sessão programada hoje: 8 questões para medir o nível nos blocos centrais.';
+    qTemaBtns = '<button class="btn pequeno primario" data-acao="treino-rapido" data-n="8">Treino rápido (8 itens)</button>';
   }
-  const metaNovos = Math.min(novosDisp + (d.n || 0), S.perfil.novosCards || 20, 10);
-  passos.push({ titulo: 'Cards cloze', feito: (d.n || 0) >= metaNovos && cardsV === 0,
-    texto: (cardsBlocos.length ? 'Lacunas dos artigos do dia. ' : 'Lacunas de todas as normas. ') + 'Novos hoje: ' + (d.n || 0) + ' de ' + (S.perfil.novosCards || 20) + '.',
-    botoes: '<button class="btn pequeno" data-acao="cards-dia">Estudar cards</button>' });
-  const sugest = sugestoesDoDia(blocos);
-  passos.push({ titulo: 'Para pesquisar', feito: pesqHoje > 0,
-    texto: sugest.length ? 'Sugestão: ' + sugest[0] + '.' : 'Abra a sua lista e pesquise um tema.',
-    botoes: (sugest.length ? '<button class="btn pequeno primario" data-acao="investigar" data-t="' + esc(sugest[0]) + '" data-o="roteiro do dia">Investigar</button>' : '') +
-      '<button class="btn pequeno" data-acao="mais" data-sub="pesquisar">Minha lista (' + Object.values(S.pesquisa).filter((p) => !p.s).length + ')</button>' });
+  passos.push({
+    titulo: '2. Questões do tema (~15 min)',
+    feito: qTemaFeita,
+    texto: qTemaTxt,
+    botoes: qTemaBtns
+  });
+
+  // Passo 3: Lei Seca com Grifos (~15 min)
+  const metaLeitura = arts.length ? Math.min(arts.length, 6) : 0;
+  const leiFeita = arts.length ? lidosHoje >= metaLeitura : (d.a || []).length >= 3;
+  passos.push({
+    titulo: '3. Lei seca com grifos (~15 min)',
+    feito: leiFeita,
+    texto: arts.length
+      ? 'Leitura atenta dos ' + metaLeitura + ' artigos prioritários com grifos de prazos, verbos e exceções (' + lidosHoje + ' de ' + metaLeitura + ' lidos hoje).'
+      : 'Consulte os artigos das normas com destaque para armadilhas Cebraspe.',
+    botoes: arts.length
+      ? '<button class="btn pequeno' + (!leiFeita && qTemaFeita ? ' primario' : '') + '" data-acao="ler-dia">Ler artigos (' + lidosHoje + '/' + metaLeitura + ')</button>'
+      : '<button class="btn pequeno" data-acao="ir" data-vista="lei">Abrir legislação</button>'
+  });
+
+  // Passo 4: Aula da Trilha & Jurisprudência (~15 min)
+  const aulaFeita = !!S.perfil.feitos['aula:' + hojeISO()] || (dia && !!S.perfil.feitos['aula:' + dia.data]);
+  passos.push({
+    titulo: '4. Aula da trilha & jurisprudência (~15 min)',
+    feito: aulaFeita,
+    texto: stH
+      ? 'Aula do subtema ' + esc(stH.nome) + ': mapa mental, exemplos e as armadilhas da banca.'
+      : 'Sem subtema para hoje: abra uma aula das Trilhas do zero.',
+    botoes: stH ? '<button class="btn pequeno' + (leiFeita && !aulaFeita ? ' primario' : '') + '" data-acao="aula-folha" data-st="' + esc(stH.id) + '" data-marca="1">Abrir aula da trilha</button>' : '<button class="btn pequeno" data-acao="mais" data-sub="trilha">Trilhas do zero</button>'
+  });
+
+  // Passo 5: Fixação Prática (~10 min)
+  const chT = 't:' + hojeISO();
+  const fixFeita = !!S.perfil.feitos[chT];
+  passos.push({
+    titulo: '5. Fixação prática (~10 min)',
+    feito: fixFeita,
+    texto: '5 itens práticos para aplicar os artigos lidos e consolidar os pontos exigidos pela banca.',
+    botoes: stH
+      ? '<button class="btn pequeno' + (aulaFeita && !fixFeita ? ' primario' : '') + '" data-acao="trilha-sessao" data-st="' + esc(stH.id) + '" data-tipo="pratica" data-n="5">Fixar na prática (5 itens)</button>'
+      : '<button class="btn pequeno" data-acao="treino-rapido" data-n="5">Treino curto (5 itens)</button>'
+  });
+
+  // Passo 6: Cards Cloze de Memorização (~10 min)
+  const metaNovos = Math.min(novosDisp + (d.n || 0), 5);
+  const cardsFeitos = (d.n || 0) >= metaNovos && cardsV === 0;
+  passos.push({
+    titulo: '6. Cards cloze de memorização (~10 min)',
+    feito: cardsFeitos,
+    texto: 'Fixação ativa de 5 lacunas cruciais: prazos, alíquotas de dosimetria, sanções e competências (' + (d.n || 0) + '/5 concluídos).',
+    botoes: '<button class="btn pequeno' + (fixFeita && !cardsFeitos ? ' primario' : '') + '" data-acao="cards-dia">Estudar 5 cards</button>'
+  });
+
+  // Passo 7: Treino Intercalado (~10 min)
+  const intFeita = !!S.perfil.feitos[chaveInt];
+  passos.push({
+    titulo: '7. Treino intercalado (~10 min)',
+    feito: intFeita,
+    texto: '6 itens rápidos alternando matérias básicas (Português, Inglês, Constitucional e Administrativo).',
+    botoes: '<button class="btn pequeno' + (cardsFeitos && !intFeita ? ' primario' : '') + '" data-acao="intercaladas">' + esc(rotuloPausa(chaveInt, 'Treinar 6 itens intercalados')) + '</button>'
+  });
+
+  // Passo 8: Discursiva Focal ou Espelho (~10 min)
+  const discOk = (dd ? discFeita(dd) : false) || (d.t && (d.t.d || 0) >= 300) || !!S.perfil.feitos['disc:' + hojeISO()];
+  const tDisc = dd ? temaDisc(dd) : TEMAS_DISC[0];
+  passos.push({
+    titulo: '8. Discursiva ou espelho (~10 min)',
+    feito: discOk,
+    texto: dd
+      ? 'Tema do dia: ' + esc(tDisc ? tDisc.titulo : 'Tema do edital') + '. Esboce os quesitos ou analise o espelho Cebraspe.'
+      : 'Pratique a estruturação de tópicos e o padrão de resposta Cebraspe de um tema da ANPD.',
+    botoes: '<button class="btn pequeno' + (intFeita && !discOk ? ' primario' : '') + '" data-acao="disc-dia" data-t="' + esc((tDisc && tDisc.id) || 'sancoes') + '">Escrever / Ver espelho</button>'
+  });
+
+  // Passo 9: Caderno de Erros e Pesquisa (~5 min)
+  const errosCad = Object.values(cadState().erros || {}).filter((e) => e.data === hojeISO()).length;
+  const erroFeito = pesqHoje > 0 || errosCad > 0 || d.e === 0;
+  passos.push({
+    titulo: '9. Caderno de erros e pesquisa (~5 min)',
+    feito: erroFeito,
+    texto: d.e > 0
+      ? 'Catalogar a causa dos erros de hoje (' + d.e + ' ' + pl(d.e, 'erro', 'erros') + ') para blindar a véspera.'
+      : 'Pesquisar 1 termo do glossário regulatório ou revisar suas regras pessoais.',
+    botoes: '<button class="btn pequeno' + (!erroFeito && d.e > 0 ? ' primario' : '') + '" data-acao="mais" data-sub="erros">Caderno de erros' + (d.e ? ' (' + d.e + ')' : '') + '</button>' +
+            '<button class="btn pequeno" data-acao="mais" data-sub="pesquisar">Pesquisar termo</button>'
+  });
+
   return { dia, passos };
 }
+
 /* ================= Atraso do plano: nada fica sem estudar ================= */
 // Dias do plano (desde o início do uso do app) cuja sessão não foi feita, e a leitura desses dias nunca aberta. Nada
 // sai daqui por prazo: o dia só sai quando a matéria dele é estudada, por qualquer caminho, ou quando é dispensado.
@@ -1828,7 +1889,7 @@ function alvoBloco(dia, b) { return Math.min((POR_BLOCO.get(b) || []).length, Ma
 // O que ainda falta em cada matéria do dia para ele dar baixa
 function faltaDoDia(dia) {
   const desde = diaNum(dia.data);
-  return dia.blocos.map((b) => ({ b, falta: Math.max(0, alvoBloco(dia, b) - tocadosDesde(b, desde)) })).filter((x) => x.falta > 0);
+  return (dia.blocos || []).map((b) => ({ b, falta: Math.max(0, alvoBloco(dia, b) - tocadosDesde(b, desde)) })).filter((x) => x.falta > 0);
 }
 function diaCompensado(dia) { return dia.modo === 'treino' && dia.blocos.length > 0 && !faltaDoDia(dia).length; }
 // Todos os artigos vivos dos blocos do dia (a leitura do dia mostra no máximo LEITURA_MAX deles)
@@ -1864,8 +1925,12 @@ function botaoDiscDia(dia, primario) {
 }
 // Várias partes da tela pedem as pendências no mesmo desenho: o cálculo vale até o fim da tarefa atual
 function pendencias() {
-  if (!pendCache) { pendCache = calcularPendencias(); queueMicrotask(() => { pendCache = null; }); }
-  return pendCache;
+  if (!pendCache) {
+    pendCache = calcularPendencias();
+    if (typeof queueMicrotask === 'function') queueMicrotask(() => { pendCache = null; });
+    else setTimeout(() => { pendCache = null; }, 0);
+  }
+  return pendCache || [];
 }
 // O atraso conta a partir da criação do perfil (quem começa no meio do plano não herda semanas de atraso), ou do
 // início do plano, se a pessoa pedir para incluir os dias anteriores (S.perfil.atrasoDesde)
@@ -2148,7 +2213,7 @@ function golpeChefe(q) {
 // corações valem; fora dela, a faixa aparece só quando o item é do bloco do chefão.
 function hpBarra(vida, max, cls) { return '<div class="hp' + (cls ? ' ' + cls : '') + '" role="img" aria-label="Vida ' + vida + ' de ' + max + '"><i style="width:' + Math.round((vida / max) * 100) + '%"></i></div>'; }
 function renderArena(q) {
-  if (sessao.modo === 'simulado') return '';
+  if (!sessao || sessao.modo === 'simulado') return '';
   const c = chefeDaSemana(), g = sessao.revelado || sessao.flash ? sessao.golpe : null, bat = sessao.batalha;
   if (!bat && (c.vencido || !q || q.b !== c.bloco) && !g) return '';
   const disc = discChefe(c.bloco);
@@ -2289,7 +2354,7 @@ function renderHoje() {
   if (stH) fora.add('t:' + stH.id + ':' + (diaSt || estadoSubtema(stH.id).novos ? 'pre' : 'pratica'));
   verificarRPG();
   const local = cartaoSoNoAparelho(), localTopo = local && backupAtrasado();
-  document.getElementById('vista-hoje').innerHTML = topo + (localTopo ? local : '') + cartaoPausas(fora) + cartaoTempo() + roteiro + cartaoPendencias() + cartaoJornada() + modos + edital + (localTopo ? '' : local) + '<p class="sync" id="sync"></p>';
+  document.getElementById('vista-hoje').innerHTML = topo + (localTopo ? local : '') + cartaoPausas(fora) + roteiro + cartaoTempo() + cartaoTaticoMentorando() + cartaoPendencias() + cartaoJornada() + modos + edital + (localTopo ? '' : local) + '<p class="sync" id="sync"></p>';
   atualizarRodapeSync();
 }
 // Quando a conta não está disponível, o aviso não fica escondido no rodapé: sobe para o topo se o último backup tiver
@@ -2322,7 +2387,8 @@ function iniciarDia(data) {
     return;
   }
   if (dia.modo === 'simulado') {
-    iniciarSessao({ modo: 'simulado', n: dia.n, blocos: dia.blocos, prova: !dia.blocos.length, titulo, dia: dia.data, minutos: Math.round(dia.n * 1.5) });
+    const n = nItensDoDia(dia);
+    iniciarSessao({ modo: 'simulado', n, blocos: dia.blocos, prova: !dia.blocos.length, titulo, dia: dia.data, minutos: Math.round(n * 1.5) });
     return;
   }
   const st = stDoDia(dia);
@@ -2336,9 +2402,8 @@ function idsDoSubtemaNoDia(st, blocos, n) {
 }
 // Em dia pesado (lista curta vencida acima de REVISOES_DIA_PESADO), a sessão de questões do dia encolhe, até o mínimo de 10
 function nItensDoDia(dia) {
-  if (dia.modo !== 'treino') return dia.n;
-  const excesso = listaVencida().length - REVISOES_DIA_PESADO;
-  return excesso > 0 ? Math.max(Math.min(10, dia.n), dia.n - Math.ceil(excesso / 2)) : dia.n;
+  if (dia.modo !== 'treino') return Math.min(dia.n, 30);
+  return 8; // 8 itens para caber exatamente nos 15 min do Passo 2 da rotina de 1h30
 }
 
 /* ================= Questões (montar sessão) ================= */
@@ -2347,7 +2412,7 @@ function renderQuestoes() {
   const ns = modo === 'simulado' ? [30, 60, 120] : [10, 20, 30, 50];
   if (!ns.includes(UI.n)) UI.n = ns[1];
   const sel = new Set(UI.blocos);
-  const pool = poolDe(UI.blocos);
+  const pool = poolDe(UI.blocos, UI.filtroBanca);
   const usarProva = modo === 'simulado' && UI.prova === 'prova';
   let html = cartaoPausas() +
     '<div class="secao"><div class="secao-cab"><h2>Montar sessão</h2><span class="mudo pequeno mono">' + Q.length + ' questões no banco</span></div>' +
@@ -2359,12 +2424,27 @@ function renderQuestoes() {
       relampago: 'Um minuto e meio. Acerto soma, erro subtrai. Vale o recorde.',
     }[modo]) + '</p></div>';
   if (modo === 'simulado') {
+    html += '<div class="cartao destaque anpd-sim-banner">' +
+      '<div class="secao-cab"><h2>Simulado no formato projetado da ANPD</h2><span class="selo mono">120 itens · 3h30</span></div>' +
+      '<p class="pequeno"><b>50 itens de conhecimentos básicos (P1)</b> e <b>70 de específicos (P2)</b>, como na Anatel 2024. No fim, a régua de eliminação daquele edital (nota mínima de 10 na P1, 21 na P2 e 36 no conjunto). O edital da ANPD ainda não saiu: estrutura e cortes são projeção.</p>' +
+      '<div class="linha-btns"><button class="btn primario" data-acao="simulado-oficial-120">Começar (120 itens · 3h30)</button></div>' +
+      '</div>' +
+      '<div class="cartao">' +
+      '<div class="secao-cab"><h2>Provas recentes do Cebraspe</h2><span class="selo mono">Gabarito oficial</span></div>' +
+      '<p class="pequeno mudo">Os itens destas provas que estão no banco, com o tempo proporcional ao da prova. Ficaram de fora os que dependem de texto da prova que não veio junto.</p>' +
+      '<div class="linha-btns">' +
+      '<button class="btn pequeno" data-acao="simulado-anvisa-2024">ANVISA 2024 · ' + pl(Q.filter((q) => q.id.startsWith('anvisa-2024-cebraspe-')).length, 'item', 'itens') + '</button>' +
+      '<button class="btn pequeno" data-acao="simulado-tcu-2026">TCU 2026 (AUFC) · ' + pl(Q.filter((q) => q.id.startsWith('tcu-aufc-2026-')).length, 'item', 'itens') + '</button>' +
+      '</div></div>';
     html += '<div class="campo"><span class="rot">Composição</span><div class="chips">' +
       '<button class="chip" data-acao="set-prova" data-prova="prova" aria-pressed="' + usarProva + '">Prova completa (básicos + específicos)</button>' +
       '<button class="chip" data-acao="set-prova" data-prova="blocos" aria-pressed="' + !usarProva + '">Só os blocos marcados</button></div>' +
       (usarProva ? '<p class="pequeno mudo">Numa prova de ' + TOTAL_PROVA + ' itens e ' + PONTOS_PROVA + ' pontos. Básica, cada item vale 1: ' + Object.entries(PROVA_BASICA).map(([d, k]) => esc(DI.get(d).nome) + ' ' + k).join(' · ') + '. Específica, cada item vale 2: ' + Object.entries(PROVA_ESPECIFICA).map(([d, k]) => esc(DI.get(d).nome) + ' ' + k).join(' · ') + '. Estimativa para Especialista em Regulação, sobre as provas da Anatel e da ANAC de 2024; muda quando sair o edital.</p>' : '') + '</div>';
   }
   if (modo !== 'relampago') html += '<div class="campo"><span class="rot">Quantidade de itens</span><div class="chips">' + ns.map((n) => '<button class="chip" data-acao="set-n" data-n="' + n + '" aria-pressed="' + (UI.n === n) + '">' + n + '</button>').join('') + '</div></div>';
+  if (modo !== 'relampago') html += '<div class="campo"><span class="rot">Banca e formato</span><div class="chips">' +
+    [['todas', 'Todos (' + Q.length + ')'], ['cebraspe', 'Só certo ou errado'], ['reais', 'Só itens de prova'], ['ineditas', 'Só itens do painel'], ['multipla', 'Só múltipla escolha']].map(([v, t]) => '<button class="chip" data-acao="set-banca" data-banca="' + v + '" aria-pressed="' + ((UI.filtroBanca || 'todas') === v) + '">' + t + '</button>').join('') + '</div></div>';
+
   if (modo === 'treino') html += '<div class="campo"><span class="rot">Quais itens</span><div class="chips">' + [['mistas', 'Vencidas + inéditas'], ['novas', 'Só inéditas'], ['erradas', 'Só as que já errei']].map(([v, t]) => '<button class="chip" data-acao="set-filtro" data-filtro="' + v + '" aria-pressed="' + (UI.filtro === v) + '">' + t + '</button>').join('') + '</div></div>';
   if (!usarProva) {
     html += '<div class="secao"><div class="secao-cab"><h2>Blocos</h2><span class="mudo pequeno mono">' + pool.length + ' itens disponíveis</span></div>' +
@@ -2401,8 +2481,8 @@ function listaBlocos(sel, acao, itensDe, dominioDe) {
 }
 function comecarConfigurado() {
   if (UI.modo === 'relampago') iniciarSessao({ modo: 'relampago', blocos: UI.blocos });
-  else if (UI.modo === 'simulado') iniciarSessao({ modo: 'simulado', n: UI.n, blocos: UI.blocos, prova: UI.prova === 'prova', minutos: Math.round(UI.n * 1.5), titulo: UI.prova === 'prova' ? 'Simulado · prova completa' : 'Simulado Cebraspe' });
-  else iniciarSessao({ modo: 'treino', n: UI.n, blocos: UI.blocos, filtro: UI.filtro });
+  else if (UI.modo === 'simulado') iniciarSessao({ modo: 'simulado', n: UI.n, blocos: UI.blocos, banca: UI.filtroBanca, prova: UI.prova === 'prova', minutos: Math.round(UI.n * 1.5), titulo: UI.prova === 'prova' ? 'Simulado · prova completa' : 'Simulado Cebraspe' });
+  else iniciarSessao({ modo: 'treino', n: UI.n, blocos: UI.blocos, filtro: UI.filtro, banca: UI.filtroBanca });
 }
 
 /* ================= Cards (montar sessão) ================= */
@@ -2527,6 +2607,7 @@ function renderExplicacao(q) {
   if (q.v === 0) html += '<p class="aviso-conferir">Texto oficial ainda não anexado ao app: confira esta referência na fonte antes de confiar nela.</p>';
   if (q.tm && SUBTEMAS.get(q.tm)) html += '<p class="pequeno"><button class="linkish" data-acao="aula-folha" data-st="' + esc(q.tm) + '">Rever a aula: ' + esc(SUBTEMAS.get(q.tm).nome) + '</button></p>';
   html += blocoPesquisar(q.e + ' ' + q.c, q.p, 'questão ' + q.id);
+  html += caixaCadernoErro(q);
   const ct = CONTEST.find((x) => x.q === q.id);
   html += '<div class="contestar"><button class="linkish pequeno" data-acao="contestar" data-q="' + esc(q.id) + '">' + (ct ? 'Contestação enviada (' + esc(STATUS_CONTEST[ct.status] || ct.status) + ') · ver' : 'Contestar este item') + '</button></div>';
   return html + '</div>';
@@ -2605,6 +2686,30 @@ function renderResultado() {
   html += cartaoBatalha();
   html += '<div class="cartao destaque"><span class="rotulo">Nota líquida Cebraspe (certas − erradas)</span><div class="nota-final"><span class="grande">' + liq + '</span><span class="mudo">de ' + n + ' possíveis · ' + (n ? Math.round((liq / n) * 100) : 0) + '%</span></div>' +
     '<div class="placar"><div class="C"><b>' + c + '</b><span>certas</span></div><div class="E"><b>' + e + '</b><span>erradas</span></div><div><b>' + b + '</b><span>em branco</span></div><div class="L"><b>+' + sessao.xp + '</b><span>XP</span></div></div>';
+  // Régua de eliminação do edital da Anatel 2024 (Cebraspe), usada como projeção: só faz sentido na prova de 120 itens
+  if (sessao.modo === 'simulado' && sessao.prova && ids.length >= 120) {
+    let c1 = 0, e1 = 0, b1 = 0, c2 = 0, e2 = 0, b2 = 0;
+    ids.forEach((id) => {
+      const q = QI.get(id), r = sessao.resp[id] || BRANCO, isBasica = parteProva(q) === 'b';
+      if (isBasica) { if (r === BRANCO) b1++; else if (r === q.g) c1++; else e1++; }
+      else { if (r === BRANCO) b2++; else if (r === q.g) c2++; else e2++; }
+    });
+    const liq1 = c1 - e1, liq2 = c2 - e2, liqTot = liq1 + liq2;
+    const ptFinal = liq1 * 1 + liq2 * 2;
+    const okP1 = liq1 >= 10, okP2 = liq2 >= 21, okTot = liqTot >= 36;
+    const aprovado = okP1 && okP2 && okTot;
+    const faixaCorte = !aprovado ? 'Eliminado pela régua de nota mínima' : (liqTot >= 72 ? 'Nota alta (60% ou mais da prova)' : liqTot >= 54 ? 'Nota intermediária (45% a 59%)' : 'Nota baixa (menos de 45%)');
+    const badgeCls = !aprovado ? 'eliminado' : (liqTot >= 72 ? 'aprovado' : 'alerta');
+    html += '<div class="cartao" style="border-left:4px solid var(--accent);margin-top:10px">' +
+      '<div class="secao-cab"><h2>Régua de eliminação (Anatel 2024, como projeção)</h2><span class="corte-badge ' + badgeCls + '">' + (aprovado ? 'HABILITADO' : 'ELIMINADO') + '</span></div>' +
+      '<div class="corte-grid">' +
+        '<div class="corte-kpi"><b>P1 · Básicos (50 itens)</b><span>Líquida: <b>' + liq1 + '</b> pts (' + c1 + 'C / ' + e1 + 'E / ' + b1 + 'B)</span><span class="corte-badge ' + (okP1 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP1 ? 'Mínimo atingido (≥ 10)' : 'Abaixo do mínimo (< 10)') + '</span></div>' +
+        '<div class="corte-kpi"><b>P2 · Específicos (70 itens)</b><span>Líquida: <b>' + liq2 + '</b> pts (' + c2 + 'C / ' + e2 + 'E / ' + b2 + 'B)</span><span class="corte-badge ' + (okP2 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP2 ? 'Mínimo atingido (≥ 21)' : 'Abaixo do mínimo (< 21)') + '</span></div>' +
+        '<div class="corte-kpi"><b>Conjunto Objetivas (P1+P2)</b><span>Líquida: <b>' + liqTot + '</b> pts · com os pesos do painel: <b>' + ptFinal + '</b> de 190</span><span class="corte-badge ' + (okTot ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okTot ? 'Habilitado para Discursiva (≥ 36)' : 'Eliminado do concurso (< 36)') + '</span></div>' +
+      '</div>' +
+      '<p class="pequeno"><b>Faixa:</b> <span class="corte-badge ' + badgeCls + '">' + faixaCorte + '</span> <span class="mudo">Nenhuma nota de corte da ANPD existe ainda; as faixas são só referência.</span></p>' +
+      '</div>';
+  }
   if (sessao.modo === 'relampago') html += '<p>' + (sessao.recorde ? '<b>Novo recorde!</b> ' : '') + 'Recorde pessoal: ' + (S.perfil.recordes.relampago || 0) + '.</p>';
   if (eMc) html += '<p class="mudo pequeno">' + pl(eMc, 'erro', 'erros') + ' em múltipla escolha não ' + (eMc > 1 ? 'descontaram' : 'descontou') + ' ponto, como no Cebraspe.</p>';
   if (sessao.modo === 'simulado' && ptMax !== n) html += '<p class="pequeno">Nota com os pesos da prova (básica vale 1, específica vale 2): <b>' + pt + '</b> de ' + ptMax + ' pontos · <b>' + pct(pt, ptMax) + '%</b>.</p>';
@@ -2629,7 +2734,19 @@ function renderResultado() {
   const ordenada = lista.filter((x) => x.cls !== 'C').concat(lista.filter((x) => x.cls === 'C'));
   html += '<div class="secao"><div class="secao-cab"><h2>Revisar itens</h2><span class="mudo pequeno">Erros e brancos primeiro</span></div><div class="lista-rev">' +
     ordenada.map((x) => '<button data-acao="revisar-item" data-q="' + esc(x.q.id) + '" data-r="' + esc(sessao.resp[x.q.id] || BRANCO) + '"><span class="marca-res ' + x.cls + '">' + ({ C: '✓', E: '✗', B: '–' }[x.cls]) + '</span><span class="txt">' + esc(x.q.e) + '</span></button>').join('') + '</div></div>';
-  html += '<div class="linha-btns"><button class="btn primario" data-acao="fechar-sessao">Concluir</button>' + (idsParaRefazer().length ? '<button class="btn" data-acao="refazer-erros">Refazer ' + pl(idsParaRefazer().length, 'erro ou branco', 'erros e brancos') + '</button>' : '') + '</div>';
+  let proximoAcaoBtn = '';
+  if (sessao.st && sessao.tipoSubtema === 'pre') {
+    proximoAcaoBtn = '<button class="btn primario" data-acao="st-lei" data-st="' + esc(sessao.st) + '">2. Ler Lei Seca do Subtema ›</button>';
+  } else if (sessao.st && sessao.tipoSubtema === 'pratica') {
+    proximoAcaoBtn = '<button class="btn primario" data-acao="subtema" data-st="' + esc(sessao.st) + '">Voltar ao Subtema ›</button>';
+  }
+  const btnErros = e > 0 ? '<button class="btn" data-acao="mais" data-sub="erros">Caderno de Erros (' + e + ')</button>' : '';
+  html += '<div class="linha-btns">' +
+    (proximoAcaoBtn || '<button class="btn primario" data-acao="fechar-sessao">Concluir</button>') +
+    (idsParaRefazer().length ? '<button class="btn" data-acao="refazer-erros">Refazer ' + pl(idsParaRefazer().length, 'erro ou branco', 'erros e brancos') + '</button>' : '') +
+    btnErros +
+    (proximoAcaoBtn ? '<button class="btn" data-acao="fechar-sessao">Concluir</button>' : '') +
+    '</div>';
   return html;
 }
 
@@ -2854,6 +2971,7 @@ function folhaTermo(i) {
 function marcarLido(art) {
   if (!S.perfil.lidos) S.perfil.lidos = {};
   const d = diaLog();
+  if (!Array.isArray(d.a) || !Object.isExtensible(d.a)) d.a = Array.from(d.a || []);
   if (!d.a.includes(art)) d.a.push(art);
   if (!S.perfil.lidos[art]) S.perfil.lidos[art] = hojeISO();
   verificarConquistas();
@@ -3080,6 +3198,41 @@ function seletorLei() {
     GRUPOS.map((g) => '<optgroup label="' + esc(g.nome) + '">' + g.ids.map((id) => '<option value="' + esc(id) + '"' + (id === UI.lei ? ' selected' : '') + '>' + esc(LEIS[id].nome) + '</option>').join('') + '</optgroup>').join('') + '</select>';
 }
 function primeiraLinha(a) { const ls = a.texto.split('\n'); return (/^Article \d+$/.test(ls[0]) && ls[1] ? ls[1] : ls[0]).replace(/^(Art\.|CLÁUSULA|APÊNDICE|ENUNCIADO)\s*[\dIVXL\-A-Zº°o.]+\s*/, '').replace(/^[IVXL]+ - /, ''); }
+
+function diagnosticoArtigo(k) {
+  const qs = POR_ART.get(k) || [];
+  let c = 0, e = 0, nResp = 0, pendentes = 0, erradasIds = [];
+  const ce = (cadState() && cadState().erros) || {};
+  for (const q of qs) {
+    const r = rec(q.id);
+    if (r && (r[2] + r[3] > 0)) {
+      nResp++;
+      c += r[2];
+      e += r[3];
+      if (r[0] === 0 || r[3] > r[2] || ce[q.id]) {
+        pendentes++;
+        erradasIds.push(q.id);
+      }
+    }
+  }
+  const tot = qs.length;
+  const taxa = (c + e > 0) ? Math.round((c / (c + e)) * 100) : null;
+  const est = estrelas(k);
+  let nivel = 'neutro';
+  if (c + e > 0) {
+    if (pendentes > 0 || (nResp >= 2 && taxa < 65) || (c === 0 && e > 0)) {
+      nivel = 'vermelho';
+    } else if (taxa >= 80 && nResp >= 3 && pendentes === 0) {
+      nivel = 'verde';
+    } else {
+      nivel = 'amarelo';
+    }
+  } else if (est >= 2 && tot >= 5) {
+    nivel = 'amarelo';
+  }
+  return { k, tot, nResp, c, e, taxa, pendentes, erradasIds, nivel, est };
+}
+
 function renderLei() {
   const el = document.getElementById('vista-lei');
   if (!Object.keys(LEIS).length) { el.innerHTML = '<p class="vazio-msg">Nenhum texto legal anexado ainda.</p>'; return; }
@@ -3094,10 +3247,66 @@ function renderLei() {
     (L.aviso ? '<p class="aviso-conferir">' + esc(L.aviso) + '</p>' : '') +
     '<p class="pequeno mudo">' + pl(arts.length, 'unidade', 'unidades') + ' · ' + lidos + ' lida' + (lidos === 1 ? '' : 's') + ' · ' + pl((arts.reduce((n, a) => n + (POR_ART.get(a.k) || []).length, 0)), 'questão ligada', 'questões ligadas') + '</p>' +
     '<input class="busca" id="busca-lei" type="search" placeholder="Buscar em todas as normas (ex.: quinze dias, encarregado, Senado)" value="' + esc(UI.busca) + '" aria-label="Buscar em todas as normas">' +
-    '<div class="chips"><button class="chip" data-acao="ranking" aria-pressed="' + UI.ranking + '">Mais importantes primeiro</button><button class="chip" data-acao="ler-tudo">Ler do início</button></div>' +
-    '<p class="pequeno mudo">Estrelas: quanto o artigo pesa no banco (questões, itens reais do Cebraspe com peso maior, cards e prioridade do bloco). Pontos: as questões sobre ele (verde dominada, vermelho na lista curta, cinza não respondida).</p></div>';
+    '<div class="chips"><button class="chip" data-acao="ranking" aria-pressed="' + (UI.ranking && !UI.termometro) + '">Mais importantes primeiro</button><button class="chip" data-acao="ler-tudo">Ler do início</button><button class="chip" data-acao="toggle-termometro" aria-pressed="' + !!UI.termometro + '">Termômetro de Vulnerabilidades</button></div>' +
+    '<p class="pequeno mudo">Estrelas: quanto o artigo pesa no banco. Pontos: acertos e erros. Borda termossensível: Crítico, Atenção, Dominado.</p></div>';
+  const diagArts = arts.map((a) => diagnosticoArtigo(a.k));
+  const vermArts = diagArts.filter((d) => d.nivel === 'vermelho');
+  const amarArts = diagArts.filter((d) => d.nivel === 'amarelo');
+  const verdArts = diagArts.filter((d) => d.nivel === 'verde');
+  const neutArts = diagArts.filter((d) => d.nivel === 'neutro');
+  let totQuestoesVerm = 0;
+  for (const d of vermArts) totQuestoesVerm += (d.erradasIds && d.erradasIds.length ? d.erradasIds.length : d.tot);
+
+  html += '<div class="cartao destaque termometro-card">' +
+    '<div class="secao-cab"><h2>Termômetro de Vulnerabilidade · ' + esc(L.curto || L.nome) + '</h2>' +
+    '<span class="selo mono">' + vermArts.length + ' Críticos · ' + amarArts.length + ' Atenção · ' + verdArts.length + ' Dominados</span></div>' +
+    '<p class="pequeno">Diagnóstico do seu desempenho cruzando as questões com os artigos da norma. Identifica onde a banca Cebraspe pode te derrubar.</p>' +
+    '<div class="termo-barra-container"><div class="termo-barra">' +
+      '<div class="termo-seg verm" style="width:' + pct(vermArts.length, arts.length) + '%" title="' + vermArts.length + ' Artigos Críticos"></div>' +
+      '<div class="termo-seg amar" style="width:' + pct(amarArts.length, arts.length) + '%" title="' + amarArts.length + ' Artigos em Atenção"></div>' +
+      '<div class="termo-seg verd" style="width:' + pct(verdArts.length, arts.length) + '%" title="' + verdArts.length + ' Artigos Dominados"></div>' +
+      '<div class="termo-seg neut" style="width:' + pct(neutArts.length, arts.length) + '%" title="' + neutArts.length + ' Não Testados"></div>' +
+    '</div></div>' +
+    '<div class="linha-btns" style="margin-top:10px">' +
+      (vermArts.length ? '<button class="btn primario" data-acao="neutralizar-vulnerabilidades">Neutralizar Vulnerabilidades (' + pl(totQuestoesVerm, 'item crítico', 'itens críticos') + ')</button>' : amarArts.length ? '<button class="btn primario" data-acao="neutralizar-vulnerabilidades">Treinar Artigos em Atenção (' + amarArts.length + ')</button>' : '') +
+      '<button class="chip" data-acao="toggle-termometro" aria-pressed="' + !!UI.termometro + '">' + (UI.termometro ? 'Ver estrutura da lei' : 'Ver ranking de vulnerabilidades') + '</button>' +
+    '</div></div>';
   if (UI.busca.trim().length >= 3) html += '<div class="resultado-busca">' + buscarLei(UI.busca) + '</div>';
-  else if (UI.ranking) {
+  else if (UI.termometro) {
+    const diagList = arts.map((a) => ({ a, d: diagnosticoArtigo(a.k) }))
+                         .filter((x) => x.d.tot > 0)
+                         .sort((x, y) => {
+                           const ordem = { vermelho: 0, amarelo: 1, neutro: 2, verde: 3 };
+                           if (ordem[x.d.nivel] !== ordem[y.d.nivel]) return ordem[x.d.nivel] - ordem[y.d.nivel];
+                           if (x.d.pendentes !== y.d.pendentes) return y.d.pendentes - x.d.pendentes;
+                           return y.d.est - x.d.est;
+                         });
+    html += '<div class="ranking-vuln">';
+    if (!diagList.length) html += '<p class="vazio-msg">Nenhum artigo com questões ligadas nesta norma.</p>';
+    else {
+      for (const { a, d } of diagList) {
+        const estStr = d.est ? '★'.repeat(d.est) : '';
+        const nivelLabel = d.nivel === 'vermelho' ? 'Crítico' : d.nivel === 'amarelo' ? 'Atenção' : d.nivel === 'verde' ? 'Dominado' : 'Não testado';
+        const taxaStr = d.taxa != null ? d.taxa + '% acerto (' + d.c + 'C / ' + d.e + 'E)' : d.tot + ' questões no banco';
+        html += '<div class="ranking-vuln-item ' + (d.nivel === 'vermelho' ? 'verm' : d.nivel === 'amarelo' ? 'amar' : d.nivel === 'verde' ? 'verd' : '') + '">' +
+          '<div style="flex:1;min-width:200px">' +
+            '<div style="display:flex;align-items:center;gap:6px">' +
+              '<b>' + esc(rotuloArt(a.k)) + '</b>' +
+              (estStr ? '<span class="estrelas" style="color:var(--gold)">' + estStr + '</span>' : '') +
+              '<span class="corte-badge ' + (d.nivel === 'vermelho' ? 'eliminado' : d.nivel === 'amarelo' ? 'alerta' : d.nivel === 'verde' ? 'aprovado' : '') + '">' + nivelLabel + '</span>' +
+            '</div>' +
+            '<div class="pequeno mudo" style="margin-top:2px">' + esc(primeiraLinha(a).slice(0, 85)) + '</div>' +
+            '<div class="pequeno" style="margin-top:2px;font-weight:600">' + taxaStr + (d.pendentes ? ' · <span style="color:var(--errado)">' + pl(d.pendentes, 'pendência', 'pendências') + '</span>' : '') + '</div>' +
+          '</div>' +
+          '<div class="linha-btns" style="margin:0">' +
+            '<button class="btn pequeno' + (d.nivel === 'vermelho' ? ' primario' : '') + '" data-acao="treinar-art" data-art="' + esc(a.k) + '">Treinar (' + d.tot + ')</button>' +
+            '<button class="btn pequeno" data-acao="abrir-art" data-art="' + esc(a.k) + '">Ler lei</button>' +
+          '</div>' +
+        '</div>';
+      }
+    }
+    html += '</div>';
+  } else if (UI.ranking) {
     const top = arts.map((a) => ({ a, s: importancia(a.k) })).filter((x) => x.s > 0).sort((x, y) => y.s - x.s).slice(0, 30);
     html += top.length
       ? '<div class="ranking">' + top.map(({ a }) => '<button data-acao="abrir-art" data-art="' + esc(a.k) + '"><b>' + esc(rotuloArt(a.k)) + '</b><span class="t">' + esc(primeiraLinha(a).slice(0, 90)) + '</span><span class="estrelas">' + '★'.repeat(estrelas(a.k)) + '</span></button>').join('') + '</div>'
@@ -3115,7 +3324,9 @@ function renderLei() {
       const pontos = qs.slice(0, 6).map((q) => { const r = rec(q.id); return '<i class="' + (!r || r[0] < 0 ? 'nv' : r[0] >= 3 ? 'ok' : 'no') + '"></i>'; }).join('');
       const vetado = /\((VETADO|Revogad[oa])/.test(a.texto.split('\n')[0]);
       const est = estrelas(a.k);
-      html += '<button class="art-btn' + (S.perfil.lidos && S.perfil.lidos[a.k] ? ' lido' : '') + '" data-acao="abrir-art" data-art="' + esc(a.k) + '"' + (vetado ? ' style="opacity:.5"' : '') + ' aria-label="' + esc(rotuloArt(a.k)) + '">' + esc(a.id) + (est ? '<span class="estrelas">' + '★'.repeat(est) + '</span>' : '') + '<span class="pontos">' + pontos + '</span></button>';
+      const dArt = diagnosticoArtigo(a.k);
+      const termoCls = dArt.nivel === 'vermelho' ? ' termo-verm' : dArt.nivel === 'amarelo' ? ' termo-amar' : dArt.nivel === 'verde' ? ' termo-verd' : '';
+      html += '<button class="art-btn' + (S.perfil.lidos && S.perfil.lidos[a.k] ? ' lido' : '') + termoCls + '" data-acao="abrir-art" data-art="' + esc(a.k) + '"' + (vetado ? ' style="opacity:.5"' : '') + ' aria-label="' + esc(rotuloArt(a.k)) + '" title="' + esc(rotuloArt(a.k)) + (dArt.taxa != null ? ' · ' + dArt.taxa + '% acerto' : '') + '">' + esc(a.id) + (est ? '<span class="estrelas">' + '★'.repeat(est) + '</span>' : '') + '<span class="pontos">' + pontos + '</span></button>';
     }
     if (aberto) html += '</div></div>';
   }
@@ -3158,7 +3369,21 @@ function renderArtigo(k) {
   if (L.aviso) html += '<p class="aviso-conferir">' + esc(L.aviso) + '</p>';
   if (fila) html += '<div class="fila-leitura"><span>Leitura do dia: ' + (idx + 1) + ' de ' + fila.length + '</span>' + (prox ? '' : '<button class="btn pequeno" data-acao="fim-fila">Concluir leitura</button>') + '</div>';
   const est = estrelas(k);
+  const dArt = diagnosticoArtigo(k);
+  let avisoVuln = '';
+  if (dArt.tot > 0) {
+    if (dArt.nivel === 'vermelho') {
+      avisoVuln = '<div class="aviso-vulnerabilidade verm"><div><b>Ponto Crítico Cebraspe:</b> ' + (dArt.taxa != null ? dArt.taxa + '% de acerto (' + dArt.c + 'C / ' + dArt.e + 'E)' : 'Sem acertos consolidados') + (dArt.pendentes ? ' · ' + pl(dArt.pendentes, 'questão', 'questões') + ' com erro pendente' : '') + '.</div>' +
+        (qs.length ? '<button class="btn pequeno primario" data-acao="treinar-art" data-art="' + esc(k) + '">Treinar questões (' + qs.length + ')</button>' : '') + '</div>';
+    } else if (dArt.nivel === 'amarelo') {
+      avisoVuln = '<div class="aviso-vulnerabilidade amar"><div><b>Artigo em Atenção:</b> ' + (dArt.taxa != null ? dArt.taxa + '% de acerto (' + dArt.c + 'C / ' + dArt.e + 'E)' : 'Artigo relevante (' + '★'.repeat(dArt.est) + ') ainda não testado') + '.</div>' +
+        (qs.length ? '<button class="btn pequeno" data-acao="treinar-art" data-art="' + esc(k) + '">Treinar questões (' + qs.length + ')</button>' : '') + '</div>';
+    } else if (dArt.nivel === 'verde') {
+      avisoVuln = '<div class="aviso-vulnerabilidade verd"><div><b>Artigo Dominado:</b> ' + dArt.taxa + '% de acerto consolidado nas questões resolvidas (' + dArt.c + 'C / ' + dArt.e + 'E).</div></div>';
+    }
+  }
   html += '<div class="cartao"><span class="rotulo">' + esc([L.curto].concat(a.estrutura).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +
+    avisoVuln +
     htmlClaro(a) + legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div>' + caixaJuridiques(a) + '<div class="linha-btns">';
   if (qs.length) html += '<button class="btn primario" data-acao="treinar-art" data-art="' + esc(k) + '">Questões deste artigo (' + qs.length + ')</button>';
   if (cs.length) html += '<button class="btn" data-acao="cards-art" data-art="' + esc(k) + '">Cards deste artigo (' + cs.length + ')</button>';
@@ -3178,6 +3403,9 @@ function renderMais() {
   else if (sub === 'pesquisar') el.innerHTML = voltarMais() + renderPesquisar();
   else if (sub === 'glossario') el.innerHTML = voltarMais() + renderGlossario();
   else if (sub === 'metodo') el.innerHTML = voltarMais() + renderMetodo();
+  else if (sub === 'edital') el.innerHTML = voltarMais() + renderEditalANPD();
+  else if (sub === 'raiox') el.innerHTML = voltarMais() + renderRaioXANPD();
+  else if (sub === 'erros') el.innerHTML = voltarMais() + renderCadernoErros();
   else if (sub === 'cebraspe') el.innerHTML = voltarMais() + renderCebraspe();
   else if (sub === 'discursiva') el.innerHTML = (UI.discTema ? '' : voltarMais()) + renderDiscursiva() + (UI.discTema ? '' : htmlEsqueletos());
   else if (sub === 'contestacoes') el.innerHTML = voltarMais() + renderContestacoes();
@@ -3189,7 +3417,10 @@ function renderMais() {
     const item = (s, ic, t, d) => '<button data-acao="mais" data-sub="' + s + '"><span class="ic">' + ic + '</span><span class="tx"><b>' + t + '</b><span class="s">' + d + '</span></span><span class="mudo">›</span></button>';
     el.innerHTML = '<div class="secao-cab"><h2>Mais</h2></div><div class="menu-mais">' +
       item('trilha', '§', 'Trilhas do zero', TRILHAS.length + ' matérias por subtema, para quem começa: pré-teste, aula, prática e domínio') +
-      item('metodo', '1·2', 'Método', 'Como estudar com o app para passar') +
+      item('metodo', '1·2', 'Método do Mentor (6 Degraus)', 'Ciclo 25h, degraus de foco, métricas semanais e checklist') +
+      item('edital', '≡', 'Edital Projetado e Verticalizado', '10 disciplinas, 38 tópicos com prioridades A/B/C e treino direto') +
+      item('raiox', '◎', 'Raio-X do Concurso ANPD', 'Diagnóstico da carreira, banca Cebraspe e sinergia com TCU') +
+      item('erros', '✗', 'Caderno de Erros (4 causas)', (() => { const n = Object.keys(cadState().erros).length; return n ? pl(n, 'erro classificado', 'erros classificados') : 'Classifique cada erro e escreva a regra de 1 linha'; })()) +
       item('cebraspe', 'C/E', 'Como o Cebraspe cobra', 'A prova, o padrão por disciplina, itens reais e discursiva') +
       item('discursiva', '✎', 'Treino de discursiva', TEMAS_DISC.length + ' temas com quesitos no padrão Cebraspe, contador de linhas e nota estimada') +
       item('personagem', '♛', 'Personagem', 'Nível, atributos, equipamento, inventário e chefões derrotados') +
@@ -3404,48 +3635,339 @@ function renderGlossario() {
       (S.pesquisa[chavePesq(g.t)] ? '<span class="selo ok">Na lista</span>' : '<button class="linkish pequeno" data-acao="add-pesq" data-t="' + esc(g.t) + '" data-o="glossário">Guardar na lista</button>') + '</div></div>').join('');
 }
 // Fontes citadas por itens que ainda não têm o texto no app, contadas no próprio banco
-function fontesSemTexto() {
-  const nomes = [[/^STF/, 'decisões do STF'], [/^TJUE/, 'decisões do TJUE'], [/E-Ciber/, 'a E-Ciber'], [/Manual de Redação/, 'o Manual de Redação da Presidência'], [/13\.303/, 'a Lei 13.303/2016']];
-  const vistos = [];
-  for (const q of Q) {
-    if (q.v !== 0) continue;
-    const x = nomes.find(([re]) => re.test(q.r || ''));
-    const nome = x ? x[1] : String(q.r || '').split(' · ')[0];
-    if (nome && !vistos.includes(nome)) vistos.push(nome);
+
+function metricasSemanaMentor() {
+  const semIni = semanaAtual();
+  const hoje = hojeISO();
+  let r = 0, c = 0, e = 0, b = 0, k = 0, seg = 0;
+  for (const [iso, d] of Object.entries(S.perfil.dias || {})) {
+    if (iso >= semIni && iso <= hoje) {
+      r += d.r || 0;
+      c += d.c || 0;
+      e += d.e || 0;
+      b += d.b || 0;
+      k += d.k || 0;
+      seg += segundosEstudo(d);
+    }
   }
-  return vistos.length > 1 ? vistos.slice(0, -1).join(', ') + ' e ' + vistos[vistos.length - 1] : vistos.join('');
+  const total = c + e;
+  const liq = total > 0 ? (c - e) / total : 0;
+  const liqPontos = c - e;
+  const venc = listaVencida().length;
+  const cardsV = cardsVencidos().length;
+  const cad = cadState();
+  const errosPendentes = Object.values(cad.erros || {}).filter((x) => !x.causa || x.causa === 'sem').length;
+  const degrauAtual = cad.degrau || 1;
+  const md = metricasDegrau(degrauAtual);
+
+  let discSem = false;
+  if (S.disc) {
+    for (const t of Object.values(S.disc)) {
+      if (t.tentativas && t.tentativas.some((x) => x.data && x.data >= semIni)) {
+        discSem = true; break;
+      }
+      if (t.rascunho && t.rascunho.length >= 200 && S.perfil.feitos && S.perfil.feitos['disc:' + hoje]) {
+        discSem = true; break;
+      }
+    }
+  }
+
+  return {
+    semIni, r, c, e, b, k, seg, total, liq, liqPontos,
+    venc, cardsV, revisaoTotal: venc + cardsV,
+    errosPendentes, degrauAtual, md, discSem,
+    metaQuestoes: 200, metaHorasSeg: 25 * 3600
+  };
 }
+
+function fimDeSemana(iso = hojeISO()) {
+  const d = diaSemana(iso);
+  return d === 0 || d === 6;
+}
+
+function cartaoTaticoMentorando(forcar = false) {
+  if (!forcar && !fimDeSemana()) return '';
+  const ms = metricasSemanaMentor();
+  const deg = (D.mentor && D.mentor.metodo && D.mentor.metodo.degrausFoco && D.mentor.metodo.degrausFoco.find((x) => x.ordem === ms.degrauAtual)) || { bloco: 'Núcleo Duro ANPD', ordem: 1 };
+  const liqPct = ms.total > 0 ? (ms.liq >= 0 ? '+' : '') + Math.round(ms.liq * 100) + '%' : '—';
+  const liqCor = ms.total === 0 ? 'var(--mudo)' : ms.liq >= 0.6 ? 'var(--certo)' : ms.liq >= 0.4 ? 'var(--accent)' : 'var(--errado)';
+  const pctQ = Math.min(100, Math.round((ms.r / ms.metaQuestoes) * 100));
+
+  let prescricao = '';
+  let acaoSugerida = '';
+  if (ms.revisaoTotal > 0) {
+    prescricao = '<b>Atenção à curva do esquecimento:</b> Você possui <b>' + pl(ms.revisaoTotal, 'item pendente', 'itens pendentes') + '</b> de revisão espaçada (' + ms.venc + ' questões, ' + ms.cardsV + ' cards). No Método ANPD, zerar revisões vem antes de avançar para evitar o acúmulo de pontos cegos.';
+    acaoSugerida = '<button class="btn pequeno primario" data-acao="iniciar-revisao">Zerar revisão agora</button>';
+  } else if (ms.md.totalRespostas >= 40 && ms.md.pronto && ms.degrauAtual < 6) {
+    prescricao = '<b>Meta de Degrau Atingida:</b> Parabéns! Você atingiu domínio no <b>' + ms.degrauAtual + 'º Degrau</b> (' + Math.round(ms.md.dom * 100) + '% domínio, nota líquida ' + (ms.md.liq >= 0 ? '+' : '') + ms.md.liq.toFixed(2).replace('.', ',') + '). O mentor recomenda promover seu degrau ativo para o próximo nível!';
+    acaoSugerida = '<button class="btn pequeno primario" data-acao="anpd-set-degrau" data-deg="' + (ms.degrauAtual + 1) + '">Avançar para o ' + (ms.degrauAtual + 1) + 'º Degrau</button>';
+  } else if (ms.errosPendentes > 0) {
+    prescricao = '<b>Blindagem de Lacunas:</b> Você possui <b>' + pl(ms.errosPendentes, 'erro não classificado', 'erros não classificados') + '</b> no Caderno de Erros. Classifique a causa (Conceito, Pegadinha, Leitura ou Chute) e registre sua regra de 1 linha.';
+    acaoSugerida = '<button class="btn pequeno primario" data-acao="mais" data-sub="erros">Classificar erros (' + ms.errosPendentes + ')</button>';
+  } else if (ms.total > 15 && ms.liq < 0.6) {
+    prescricao = '<b>Calibragem Cebraspe:</b> Sua nota líquida da semana está em ' + liqPct + ' (meta: ≥ +60%). Lembre-se: no Cebraspe, 1 erro anula 1 acerto. Deixe em branco itens com termos absolutos suspeitos (“sempre”, “incondicionalmente”, “indelegável”) se não tiver 100% de certeza.';
+    acaoSugerida = '<button class="btn pequeno" data-acao="mais" data-sub="cebraspe">Ver armadilhas Cebraspe</button>';
+  } else {
+    prescricao = '<b>Ritmo Firme e Consistente:</b> Memória blindada e sem revisões atrasadas. Seu degrau ativo é o <b>' + ms.degrauAtual + 'º Degrau (' + esc(deg.bloco) + ')</b>. Siga o roteiro de 9 passos de 90 min com foco nas peculiaridades da banca Cebraspe.';
+    acaoSugerida = '<button class="btn pequeno primario" data-acao="mais" data-sub="metodo">Ver ciclo e degraus</button>';
+  }
+
+  let html = '<div class="cartao destaque termometro-card" style="border-left:4px solid var(--accent);margin-bottom:14px">' +
+    '<div class="secao-cab"><div style="display:flex;align-items:center;gap:8px">' +
+    '<span class="selo p1" style="font-weight:700">Balanço Semanal do Mentorando</span>' +
+    '<span class="mono pequeno mudo">' + esc(fmtData(ms.semIni, { day: '2-digit', month: '2-digit' })) + ' a ' + esc(fmtData(hojeISO(), { day: '2-digit', month: '2-digit' })) + '</span>' +
+    '</div><button class="linkish pequeno" data-acao="mais" data-sub="metodo">Método 6 Degraus ›</button></div>' +
+    '<div class="estat" style="grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:10px 0 12px">' +
+    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--raio)">' +
+      '<b class="mono" style="font-size:1.15rem">' + ms.r + ' <span class="pequeno mudo" style="font-size:.75rem">/ ' + ms.metaQuestoes + '</span></b>' +
+      '<span style="font-size:.76rem">itens na semana</span>' +
+      '<div class="barra" style="height:4px;margin-top:6px"><i style="width:' + pctQ + '%"></i></div>' +
+    '</div>' +
+    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--raio)">' +
+      '<b class="mono" style="font-size:1.15rem;color:' + liqCor + '">' + liqPct + '</b>' +
+      '<span style="font-size:.76rem">líquido Cebraspe (meta ≥ +60%)</span>' +
+    '</div>' +
+    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--raio)">' +
+      '<b class="mono" style="font-size:1.15rem">' + ms.degrauAtual + 'º <span class="pequeno mudo" style="font-size:.75rem">/ 6</span></b>' +
+      '<span style="font-size:.76rem">degrau ativo (' + Math.round(ms.md.dom * 100) + '% dom)</span>' +
+    '</div>' +
+    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--raio)">' +
+      '<b class="mono" style="font-size:1.15rem;' + (ms.revisaoTotal ? 'color:var(--errado)' : 'color:var(--certo)') + '">' + (ms.revisaoTotal ? ms.revisaoTotal : '✓ 0') + '</b>' +
+      '<span style="font-size:.76rem">' + (ms.revisaoTotal ? 'revisões pendentes' : 'revisão em dia') + '</span>' +
+    '</div>' +
+    '</div>' +
+    '<div style="background:var(--surface);padding:10px 12px;border-radius:var(--raio);font-size:.86rem;border-left:3px solid var(--accent)">' +
+    '<p style="margin:0 0 6px 0;line-height:1.45">' + prescricao + '</p>' +
+    '<div class="linha-btns" style="margin-top:4px">' + acaoSugerida +
+    '<button class="btn pequeno" data-acao="anpd-treino-rapido" data-deg="' + ms.degrauAtual + '">Treinar 20 itens do ' + ms.degrauAtual + 'º Degrau</button>' +
+    '</div></div>' +
+    '</div>';
+  return html;
+}
+
+function metricasDegrau(degNum) {
+  const discs = new Set(DISC.filter((d) => d.degrau === degNum).map((d) => d.id));
+  const qs = Q.filter((q) => { const b = BI.get(q.b); return b && discs.has(b.disciplina); });
+  let resp = 0, c = 0, e = 0, domSoma = 0;
+  for (const q of qs) {
+    const r = rec(q.id);
+    if (!r || r[0] < 0) continue;
+    resp++;
+    c += r[2] || 0;
+    e += r[3] || 0;
+    domSoma += dominioItem(q.id);
+  }
+  const totalRespostas = c + e;
+  const liq = totalRespostas ? (c - e) / totalRespostas : 0;
+  return { totalQ: qs.length, resp, totalRespostas, liq, dom: qs.length ? domSoma / qs.length : 0, pronto: resp >= 40 && liq >= 0.6 };
+}
+
+function cartaoFaseANPD() {
+  const c = cadState();
+  const f = c.fase || 'f2';
+  let html = '<div class="cartao anpd-banner-fase"><div class="secao-cab"><h2>Fase e Ciclo do Método ANPD</h2>' +
+    '<div class="chips"><button class="linkish pequeno" data-acao="mais" data-sub="raiox">Ver Raio-X</button>' +
+    '<button class="linkish pequeno" data-acao="mais" data-sub="edital">Ver Edital Verticalizado</button></div></div>' +
+    '<div class="chips" role="group" aria-label="Fase de preparação">' +
+    [['f1', 'Fase 1 · Base ANPD + Tronco TCU'], ['f2', 'Fase 2 · Ciclo 25h e 6 Degraus'], ['f3', 'Fase 3 · Reta Final Pós-Edital']].map(([id, rot]) => '<button class="chip" data-acao="anpd-set-fase" data-fase="' + id + '" aria-pressed="' + (f === id) + '">' + rot + '</button>').join('') +
+    '</div>';
+  if (f === 'f1') {
+    html += '<p class="pequeno mudo">Pré-edital com foco em construção de base: <b>18 a 25 horas semanais</b> divididas entre o Núcleo Duro da ANPD (LGPD, 7 Resoluções, ECA Digital e Regulação) e o <b>Tronco Comum</b> compartilhado com o TCU (Constitucional, Administrativo, Gestão, Economia e Português), trazido do Painel TCU com 1 clique (Ajustes), quando os dois estão abertos no mesmo navegador.</p>';
+  } else if (f === 'f2') {
+    html += '<p class="pequeno mudo">Fase de tração e fechamento de lacunas: <b>25 horas por semana</b> organizadas no ciclo rotativo com foco na subida dos <b>6 Degraus de Prioridade</b>. Só avance para o próximo degrau quando atingir a nota líquida de saída (≥ +0,60).</p>';
+  } else {
+    html += '<p class="pequeno mudo">Pós-edital anunciado ou publicado: <b>35 a 40 horas semanais</b> com foco em velocidade de resolução de itens Cebraspe (450+ questões/semana), simulados de 120 itens todo sábado e treino intensivo das 4 causas de erro do Caderno de Erros.</p>';
+  }
+  html += '</div>';
+  return html;
+}
+
 function renderMetodo() {
-  return '<div class="prosa"><h2>O método do Painel</h2>' +
-    '<p>O plano segue a ordem em que cada matéria faz sentido para quem começa do zero: na LGPD, primeiro o que a lei protege e as palavras que ela usa, depois quando se pode tratar dados, os direitos, os casos especiais e, por fim, quem fiscaliza e pune. Até fevereiro, quase todo dia de semana é um subtema novo de uma trilha; depois, o plano passa a ciclos de revisão e simulados.</p>' +
-    '<h3>Dia de matéria nova (aba Hoje)</h3><ol>' +
-    '<li><b>Revisar o que venceu.</b> A lista curta de questões e os cards vencidos. É o que mais rende por minuto: você reforça o que estava a ponto de esquecer.</li>' +
-    '<li><b>Pré-teste.</b> Oito itens do subtema antes de estudar. Errar aqui é esperado: o erro mostra o que procurar na lei e na aula, e a explicação gruda mais depois dele.</li>' +
-    '<li><b>Lei seca do dia.</b> Os artigos do subtema, um por vez, com os grifos. Antes deles, as palavras difíceis vêm explicadas e um guia mostra como ler um artigo (caput, parágrafo, inciso, exceção). Não precisa entender tudo: a aula vem a seguir.</li>' +
-    '<li><b>Aula do dia.</b> Explica o que você leu, com mapa mental, tabelas e exemplos. As citações de artigo (“art. 3º”) abrem o texto ali mesmo.</li>' +
-    '<li><b>Questões do dia.</b> Os itens do mesmo subtema, do mais fácil ao mais difícil. Marque “Estou em dúvida” sempre que não tiver certeza: isso mede o seu chute.</li>' +
-    '<li><b>Intercaladas, cards e pesquisa.</b> Matérias básicas e blocos já estudados, misturados; as lacunas da letra da lei; e um tema da sua lista Para pesquisar, em que você explica com suas palavras e o Claude confere.</li></ol>' +
-    '<h3>Dias de revisão, bloco longo e simulado</h3><p>Sexta é revisão da lista curta. Sábado é bloco longo (um subtema, uma língua e, quase sempre, uma discursiva) ou simulado. Nesses dias, e quando a matéria já foi vista, a ordem é questão primeiro e lei onde você errou: a questão mostra o que a banca troca, e a lei lida logo depois do erro fixa a palavra exata.</p>' +
+  const mt = (D.mentor && D.mentor.metodo) || {};
+  if (!mt.degrausFoco) {
+    return '<div class="prosa"><h2>Método Operacional ANPD</h2><p>Carregando método...</p></div>';
+  }
+  const c = cadState();
+  const semKey = semanaAtual();
+  const chk = (c.checkSem && c.checkSem[semKey]) || {};
+  let html = '<div class="prosa"><h2>Método do Mentor · Especialista em Regulação ANPD</h2>' +
+    '<p>Roteiro operacional de estudo focado na carreira de regulação da ANPD: 6 métricas semanais quantitativas, subida sequencial pelos 6 Degraus de Prioridade, ciclo de 25 horas e checklist semanal de controle.</p></div>';
+  html += cartaoFaseANPD();
+  html += cartaoTaticoMentorando(true);
+
+  html += '<div class="cartao"><div class="secao-cab"><h2>1. As 6 métricas semanais do método</h2><span class="selo mono">Controle por números</span></div>' +
+    '<div class="tabela-env"><table class="tabela"><thead><tr><th>Métrica</th><th>Como medir</th><th>Meta por fase</th></tr></thead><tbody>' +
+    mt.metricasSemanais.map((m) => '<tr><td><b>' + esc(m.metrica) + '</b></td><td class="pequeno">' + esc(m.como) + '</td><td><b>' + esc(m.meta) + '</b></td></tr>').join('') +
+    '</tbody></table></div></div>';
+
+  html += '<div class="cartao"><div class="secao-cab"><h2>2. Os 6 Degraus de Prioridade (Subida em Sequência)</h2><span class="selo p1">Nota líquida ≥ +0,60</span></div>' +
+    '<p class="pequeno mudo">Não estude as 10 disciplinas ao mesmo tempo sem critério. Suba um degrau de foco por vez; ao atingir a meta de saída, a disciplina entra em modo de manutenção no ciclo semanal (questões intercaladas + revisão espaçada).</p>' +
+    mt.degrausFoco.map((d) => {
+      const md = metricasDegrau(d.ordem);
+      const ativo = Number(c.degrau || 1) === d.ordem;
+      const discsDeg = d.discs || DISC.filter((x) => x.degrau === d.ordem).map((x) => x.id);
+      const blocosDeg = BLOCOS.filter((b) => discsDeg.includes(b.disciplina)).map((b) => b.id);
+      return '<div class="anpd-degrau' + (ativo ? ' ativo' : '') + (md.pronto ? ' ok' : '') + '">' +
+        '<div class="secao-cab"><b>' + d.ordem + 'º degrau · ' + esc(d.bloco) + '</b><span class="mono pequeno">' + (md.pronto ? '✓ Meta atingida' : Math.round(md.dom * 100) + '% domínio · ' + md.resp + ' itens vistos') + '</span></div>' +
+        '<p class="pequeno" style="margin:4px 0">' + esc(d.motivo) + '</p>' +
+        '<p class="pequeno mudo">Critério para avançar: <b>' + esc(d.saida) + '</b> · Nota líquida atual: <b>' + (md.totalRespostas ? (md.liq >= 0 ? '+' : '') + md.liq.toFixed(2).replace('.', ',') : '—') + '</b></p>' +
+        '<div class="linha-btns"><button class="btn pequeno' + (ativo ? ' primario' : '') + '" data-acao="anpd-treino-rapido" data-blocos="' + esc(blocosDeg.join(',')) + '" data-tit="Degrau ' + d.ordem + ' · ' + esc(d.bloco) + '">Treinar 20 itens deste degrau</button>' +
+        (ativo ? '<span class="selo ok">Degrau ativo no ciclo</span>' : '<button class="btn pequeno" data-acao="anpd-set-degrau" data-deg="' + d.ordem + '">Definir como degrau ativo</button>') +
+        '</div></div>';
+    }).join('') + '</div>';
+
+  html += '<div class="cartao"><div class="secao-cab"><h2>3. Ciclo Semanal de 25 Horas (Fase 2)</h2><span class="selo mono">Soma = 25h</span></div>' +
+    '<p class="pequeno mudo">Se a sua semana tiver mais ou menos horas, ajuste proporcionalmente mantendo as proporções do núcleo ANPD. Nenhuma disciplina fica abandonada.</p>' +
+    '<div class="tabela-env"><table class="tabela"><thead><tr><th>Bloco do ciclo</th><th>Horas</th><th>%</th><th>Ação rápida</th></tr></thead><tbody>' +
+    mt.ciclo25h.map((c) => {
+      const pct = Math.round((c.horas / 25) * 100);
+      return '<tr><td><b>' + esc(c.materia) + '</b></td><td class="mono">' + String(c.horas).replace('.', ',') + 'h</td><td class="mono">' + pct + '%</td><td>' +
+        '<button class="btn pequeno" data-acao="treinar-bloco" data-bloco="' + esc(c.bloco) + '">Treinar</button></td></tr>';
+    }).join('') +
+    '</tbody></table></div></div>';
+
+  html += '<div class="cartao"><div class="secao-cab"><h2>4. Como estudar cada tipo de conteúdo</h2></div>' +
+    '<div class="tabela-env"><table class="tabela"><thead><tr><th>Tipo</th><th>Matérias</th><th>Como estudar</th><th>Erro que mais reprova</th></tr></thead><tbody>' +
+    mt.tecnicaPorTipo.map((tp) => '<tr><td><b>' + esc(tp.tipo) + '</b></td><td class="pequeno">' + esc(tp.materias) + '</td><td class="pequeno">' + esc(tp.como) + '</td><td class="pequeno mudo">' + esc(tp.erro) + '</td></tr>').join('') +
+    '</tbody></table></div>' +
+    '<h3>Espelhos de prova Cebraspe para usar como banco de treino</h3>' +
+    '<div class="tabela-env"><table class="tabela"><thead><tr><th>Prova</th><th>Para que usar</th><th>Link oficial</th></tr></thead><tbody>' +
+    mt.provasTreino.map((p) => '<tr><td><b>' + esc(p.prova) + '</b></td><td class="pequeno">' + esc(p.uso) + '</td><td><a class="linkish pequeno" href="' + esc(p.url) + '" target="_blank" rel="noopener">Abrir ↗</a></td></tr>').join('') +
+    '</tbody></table></div></div>';
+
+  html += '<div class="cartao"><div class="secao-cab"><h2>5. Materiais de referência e fontes primárias</h2></div>' +
+    '<div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>Fontes primárias (obrigatórias)</th><th>Livro ou curso de apoio</th><th>Observação</th></tr></thead><tbody>' +
+    mt.materiaisPorDisciplina.map((m) => '<tr><td><b>' + esc(m.mat) + '</b></td><td class="pequeno">' + esc(m.primarias) + '</td><td class="pequeno">' + esc(m.livro) + '</td><td class="pequeno mudo">' + esc(m.obs) + '</td></tr>').join('') +
+    '</tbody></table></div></div>';
+
+  html += '<div class="cartao"><div class="secao-cab"><h2>6. Reta Final Pós-Edital (16 Semanas)</h2><span class="selo p1">35–40h/sem · 450+ questões/sem</span></div>' +
+    '<div class="tabela-env"><table class="tabela"><thead><tr><th>Período</th><th>Foco principal</th></tr></thead><tbody>' +
+    (mt.retaFinal16Semanas || []).map((r) => '<tr><td><b>' + esc(r.semanas) + '</b></td><td>' + esc(r.foco) + '</td></tr>').join('') +
+    '</tbody></table></div></div>';
+
+  const ms = metricasSemanaMentor();
+  const chkFeitos = Object.values(chk).filter(Boolean).length;
+  const chkTotal = (mt.checklistSemanal && mt.checklistSemanal.length) || 7;
+  const chkPct = Math.min(100, Math.round((chkFeitos / chkTotal) * 100));
+
+  html += '<div class="cartao destaque termometro-card"><div class="secao-cab">' +
+    '<div><h2>7. Checklist Operacional da Semana</h2>' +
+    '<span class="mono pequeno mudo">' + esc(fmtData(semKey, { day: '2-digit', month: '2-digit' })) + ' · ' + chkFeitos + ' de ' + chkTotal + ' metas cumpridas</span></div>' +
+    '<span class="selo ' + (chkFeitos === chkTotal ? 'ok' : 'p1') + '">' + (chkFeitos === chkTotal ? '✓ Semana Completa (+50 XP)' : chkPct + '% concluído') + '</span></div>' +
+    '<div class="barra" style="margin:8px 0 12px"><i style="width:' + chkPct + '%"></i></div>' +
+    '<p class="pequeno mudo">Cada item cumprido concede <b>+15 XP</b>. Fechar as 7 metas na semana concede <b>+50 XP de Bônus de Excelência</b>.</p>' +
+    '<div class="lista-pesq">' +
+    (mt.checklistSemanal || []).map((item, i) => {
+      let dicaAuto = '';
+      if (i === 0) dicaAuto = ms.revisaoTotal === 0 ? '<span class="selo ok pequeno" style="margin-left:6px">✓ Zerado hoje</span>' : '<span class="selo p2 pequeno" style="margin-left:6px">' + ms.revisaoTotal + ' pendentes</span>';
+      else if (i === 1) dicaAuto = '<span class="selo mono pequeno" style="margin-left:6px">' + ms.r + '/200 itens · ' + (ms.total > 0 ? (ms.liq >= 0 ? '+' : '') + Math.round(ms.liq * 100) + '% líq' : '0%') + '</span>';
+      else if (i === 3) dicaAuto = ms.errosPendentes === 0 ? '<span class="selo ok pequeno" style="margin-left:6px">✓ 100% classificados</span>' : '<span class="selo p2 pequeno" style="margin-left:6px">' + ms.errosPendentes + ' sem classificar</span>';
+      else if (i === 5) dicaAuto = ms.discSem ? '<span class="selo ok pequeno" style="margin-left:6px">✓ Feito na semana</span>' : '<span class="selo mono pequeno" style="margin-left:6px">Pendente para sábado</span>';
+      return '<label class="pesq-linha' + (chk[i] ? ' feito' : '') + '"><input type="checkbox" data-acao="anpd-check-sem" data-i="' + i + '"' + (chk[i] ? ' checked' : '') + '><div class="tx"><b>' + esc(item.texto || item) + '</b> ' + dicaAuto + '</div></label>';
+    }).join('') +
+    '</div></div>';
+
+  html += '<div class="cartao"><details><summary><b>Princípios operacionais e regras do app (Expandir)</b></summary><div class="prosa" style="margin-top:10px">' +
     '<h3>Regras que não se negociam</h3><ul>' +
-    '<li>O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça. Cada revisão traz só o que venceu: o que você já reviu hoje espera o próximo intervalo.</li>' +
-    '<li>Interpretação de texto (português e inglês) não volta na revisão: reler o mesmo texto ensina o gabarito, não a leitura. No lugar, as sessões trazem textos inéditos.</li>' +
-    '<li>Perdeu um dia? A matéria dele não some. Os blocos dos dias sem sessão vão para “Atraso do plano”, e o roteiro ganha o passo “Recuperar o atraso”, começando pelo dia mais antigo. A recuperação fecha um dia por vez, com os itens que faltam em cada matéria dele. O dia também sai sozinho quando cada matéria dele recebe, por qualquer caminho, ao menos metade da sua parte dos itens previstos (mínimo 3), ou quando você o dispensa. Dia de revisão perdido não vira atraso: o que venceu continua na lista curta.</li>' +
-    '<li>O acerto também volta, para confirmar que não foi sorte: o acerto de primeira volta em cerca de 16 dias, e cada confirmação seguinte espaça mais (cerca de 35 dias). Os intervalos se adaptam: o item que você já errou ou acertou com dúvida volta antes, e a sua retenção real nas revisões calibra todos os prazos para mirar 90% de lembrança (Mais → Progresso). Esses acertos antigos entram na revisão do dia, no máximo ' + MANUTENCAO_DIA + ' por dia, os mais atrasados primeiro, e ocupam até um quarto das sessões de questões.</li>' +
-    '<li>Intercale. Todo dia há uma sessão que mistura as matérias básicas com os blocos já estudados. Assunto novo entra em bloco; o que você já viu volta misturado, porque misturar obriga a reconhecer o tipo de questão e fixa mais (prática intercalada, somada à revisão espaçada e à recuperação ativa).</li>' +
-    '<li>Revisão vem antes de questão nova. Quando a lista curta vencida passa de ' + REVISOES_DIA_PESADO + ' itens, a sessão de questões novas do dia encolhe sozinha.</li>' +
-    '<li>Errou, leia o artigo inteiro. O botão “Ler inteiro, grifado” aparece depois de cada questão e de cada card. A leitura do dia tem no máximo ' + LEITURA_MAX + ' artigos: quando os blocos do dia têm mais, o app escolhe os ligados à sua lista curta, os ainda não lidos e os mais cobrados.</li>' +
-    '<li>Domingo é livre por padrão e não quebra a sequência. Cada semana tem ainda uma folga: um dia sem estudo, de segunda a sábado, não zera os dias seguidos.</li>' +
-    '<li>Não pule a revisão para fazer questões novas: a lista curta cresce e o esquecimento come o que você estudou.</li></ul>' +
-    '<h3>Estratégia Cebraspe</h3><ul>' +
-    '<li>Uma errada anula uma certa; em branco vale zero. Chutar só compensa quando sua chance de acerto passa de 50%.</li>' +
-    '<li>A aba Progresso mostra a sua taxa de acerto quando marca dúvida. Acima de 50%, chute; abaixo, deixe em branco.</li>' +
-    '<li>Desconfie de palavras absolutas (sempre, nunca, somente, exclusivamente) e de itens que acrescentam algo à lei.</li>' +
-    '<li>Até terminar a primeira volta, os simulados curtos do plano medem só o que já foi estudado; o primeiro simulado completo, em dezembro, é um diagnóstico. Depois, o plano traz um simulado completo a cada duas semanas.</li>' +
-    '<li>Discursiva toda semana, no sábado longo: escreva sem consulta, no tempo e no limite de linhas, e corrija pelos quesitos. Na Anatel 2024 ela valia 30 pontos e eliminava quem fizesse menos de 15.</li></ul>' +
-    '<h3>Semana típica</h3><p>Segunda a quarta: um subtema por dia da matéria principal da fase (LGPD até novembro, depois ECA Digital, segurança da informação e, em janeiro, direito constitucional, economia e gestão). Quinta: direito administrativo ou regulação, também do zero. Sexta: revisão da lista curta. Sábado: bloco longo ou simulado. Domingo: livre.</p>' +
-    '<h3>Quando o edital sair</h3><p>O cronograma genérico para. O conteúdo programático oficial passa a mandar, os simulados ficam maiores e a revisão espaçada continua todos os dias. Cole o edital na conversa com o Claude para reorganizar os blocos.</p>' +
-    '<h3>Questões marcadas para conferir</h3><p>' + pl(Q.filter((q) => q.v === 0).length, 'item cita', 'itens citam') + ' fontes ainda não coladas no app: ' + fontesSemTexto() + '. Eles mostram o aviso “confira na fonte” e só viram definitivos quando o texto oficial for anexado e cada trecho for conferido. Nos itens reais com gabarito oficial, o que falta conferir é a referência do comentário; nos avulsos, o próprio gabarito foi conferido na lei, e a linha da prova avisa.</p>' +
-    '<h3>Como a banca cobra</h3><p>A página Como o Cebraspe cobra, aqui em Mais, mostra o formato da prova, o padrão de cada disciplina com itens reais e o que pontua na discursiva.</p></div>';
+    '<li>O erro entra na lista curta e volta com intervalos crescentes (no mesmo dia, depois de 1 dia, depois de 3 dias): sai da lista depois de três acertos seguidos, e errou de novo, recomeça.</li>' +
+    '<li>Interpretação de texto não volta na revisão: reler o mesmo texto ensina o gabarito, não a leitura. No lugar, as sessões trazem textos inéditos.</li>' +
+    '<li>Intercale. Todo dia faça uma sessão mista com blocos já estudados para fixação ativa.</li>' +
+    '<li>Revisão vem antes de matéria nova: zere a lista curta e os cards cloze vencidos antes de abrir novo conteúdo.</li>' +
+    '<li>Discursiva todo sábado: escreva no limite de linhas (30–45) sem consulta, usando os esqueletos técnicos.</li>' +
+    '</ul></div></details></div>';
+
+  return html;
+}
+
+function renderRaioXANPD() {
+  const rx = (D.mentor && D.mentor.raiox) || {};
+  if (!rx.veredito) return '<div class="prosa"><h2>Raio-X ANPD</h2><p>Carregando Raio-X...</p></div>';
+  let html = '<div class="prosa"><h2>Raio-X — Especialista em Regulação de Proteção de Dados (ANPD)</h2><p class="pequeno mudo">Atualizado em ' + esc(rx.atualizadoEm) + ' · Diagnóstico do cargo, banca Cebraspe, histórico e sinergia com TCU</p></div>';
+  html += '<div class="cartao destaque"><span class="rotulo">Veredito do mentor</span>' +
+    rx.veredito.map((p, i) => '<p' + (i === 0 || i === rx.veredito.length - 1 ? ' style="font-weight:600"' : ' class="pequeno"') + '>' + esc(p) + '</p>').join('') +
+    '</div>';
+
+  html += '<div class="cartao"><div class="secao-cab"><h2>Situação atual (' + esc(rx.atualizadoEm) + ')</h2><span class="selo p1">Concurso efetivo · pré-edital</span></div>' +
+    '<div class="tabela-env"><table class="tabela"><thead><tr><th>Item</th><th>Situação</th></tr></thead><tbody>' +
+    rx.situacao.map((s) => '<tr><td><b>' + esc(s.item) + '</b></td><td>' + esc(s.valor) + '</td></tr>').join('') +
+    '</tbody></table></div>' +
+    '<h3>Sinais a monitorar, nesta ordem</h3><ol class="lista-cb">' + rx.sinais.map((s) => '<li>' + esc(s) + '</li>').join('') + '</ol></div>';
+
+  html += '<div class="cartao"><div class="secao-cab"><h2>O cargo e a carreira (Lei nº 15.352/2026)</h2><span class="selo mono">40h · Brasília</span></div>' +
+    '<div class="tabela-env"><table class="tabela"><thead><tr><th>Componente</th><th>Valor ou regra</th></tr></thead><tbody>' +
+    rx.remuneracao.map((r) => '<tr><td><b>' + esc(r.comp) + '</b></td><td>' + esc(r.val) + '</td></tr>').join('') +
+    '</tbody></table></div>' +
+    '<h3>Atribuições típicas do Especialista em Regulação da ANPD</h3><ul class="lista-cb">' +
+    rx.atribuicoes.map((a) => '<li>' + esc(a) + '</li>').join('') + '</ul></div>';
+
+  html += '<div class="cartao"><h2>Histórico de editais e espelhos Cebraspe</h2>' +
+    '<div class="tabela-env"><table class="tabela"><thead><tr><th>Concurso</th><th>Banca</th><th>Vagas</th><th>Inscritos</th><th>Observação</th></tr></thead><tbody>' +
+    rx.historicoEditais.map((h) => '<tr><td><b>' + esc(h.ano + ' · ' + h.banca) + '</b></td><td class="mono">' + esc(h.banca) + '</td><td class="mono">' + esc(h.vagas) + '</td><td class="mono">' + esc(h.inscritos) + '</td><td class="pequeno">' + esc(h.obs) + '</td></tr>').join('') +
+    '</tbody></table></div>' + (rx.historicoNota ? '<p class="pequeno mudo">' + esc(rx.historicoNota) + '</p>' : '') + '</div>';
+
+  html += '<div class="cartao"><h2>Comparativo: Cebraspe vs. PSS Anterior</h2>' +
+    '<div class="tabela-env"><table class="tabela"><thead><tr><th>Aspecto</th><th>PSS Anterior (Temporários)</th><th>Concurso Efetivo (Cebraspe)</th></tr></thead><tbody>' +
+    rx.comparativoBancas.map((cb) => '<tr><td><b>' + esc(cb.item) + '</b></td><td class="pequeno">' + esc(cb.pss) + '</td><td class="pequeno"><b>' + esc(cb.cebraspe) + '</b></td></tr>').join('') +
+    '</tbody></table></div></div>';
+
+  html += '<div class="cartao"><h2>Novidades regulatórias e marcos 2025/2026</h2><ul class="lista-cb">' +
+    rx.novidades2025.map((n) => '<li>' + esc(n) + '</li>').join('') + '</ul></div>';
+
+  return html;
+}
+
+function renderEditalANPD() {
+  const ed = (D.mentor && (D.mentor.edital || D.mentor.edital2027)) || {};
+  const fPrio = UI.edPrio || 'todas';
+  const busca = semAcento((UI.edBusca || '').trim());
+  let html = '<div class="prosa"><h2>Edital Projetado e Conteúdo Programático — ANPD</h2>' +
+    '<p>Estrutura projetada para Especialista em Regulação com base na Lei 15.352/2026, Decreto 12.881/2026 e no padrão das agências federais no Cebraspe (Anatel, ANAC e BACEN). Clique em <b>Treinar</b> em qualquer tópico para abrir uma bateria direta com questões do bloco.</p></div>';
+
+  if (ed.pesosProjetados && ed.pesosProjetados.length) {
+    html += '<div class="cartao"><div class="secao-cab"><h2>Pesos projetados das 10 disciplinas</h2><span class="selo mono">Básicos vs. Específicos</span></div>' +
+      '<div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>Peso projetado</th><th>Bloco de prova</th><th>Justificativa</th></tr></thead><tbody>' +
+      ed.pesosProjetados.map((p) => '<tr><td><b>' + esc(p.mat) + '</b></td><td class="mono"><b>' + esc(p.faixa) + '</b></td><td>' + esc(p.bloco) + '</td><td class="pequeno">' + esc(p.motivo) + '</td></tr>').join('') +
+      '</tbody></table></div></div>';
+  }
+
+  const topicos = ed.topicos || [];
+  html += '<div class="cartao"><div class="campo"><span class="rot">Filtrar por prioridade</span><div class="chips">' +
+    [['todas', 'Todas (' + topicos.length + ' tópicos)'], ['A', 'Prioridade A (~70% da prova)'], ['B', 'Prioridade B (~20%)'], ['C', 'Prioridade C (~10%)']].map(([v, t]) => '<button class="chip" data-acao="ed-prio" data-v="' + v + '" aria-pressed="' + (fPrio === v) + '">' + t + '</button>').join('') +
+    '</div></div>' +
+    '<input class="busca" id="busca-edital" type="search" placeholder="Filtrar tópico, norma ou conceito no edital (ex.: legítimo interesse, encarregado, AIR, NIST, DPO)" value="' + esc(UI.edBusca || '') + '"></div>';
+
+  const porMat = new Map();
+  for (const t of topicos) {
+    if (fPrio !== 'todas' && t.prio !== fPrio) continue;
+    if (busca && !semAcento((t.grupo || '') + ' ' + (t.mat || '') + ' ' + (t.topico || '') + ' ' + (t.estudar || '')).includes(busca)) continue;
+    if (!porMat.has(t.mat)) porMat.set(t.mat, { grupo: t.grupo, topicos: [] });
+    porMat.get(t.mat).topicos.push(t);
+  }
+
+  for (const [matNome, info] of porMat.entries()) {
+    html += '<div class="cartao"><div class="secao-cab"><h2>' + esc(matNome) + '</h2><span class="selo mono">' + esc(info.grupo) + ' · ' + info.topicos.length + ' tópicos</span></div><div>' +
+      info.topicos.map((t) => {
+        const nQ = (POR_BLOCO.get(t.bloco) || []).length;
+        return '<div class="anpd-topico-linha"><div><div><span class="selo ' + (t.prio === 'A' ? 'p1' : t.prio === 'B' ? 'p2' : '') + '">Prio ' + esc(t.prio) + '</span> ' +
+          '<span class="anpd-tag-hist">' + esc(t.hist || 'Core') + '</span> ' +
+          '<b>' + esc(t.topico) + '</b></div>' +
+          '<p class="pequeno mudo" style="margin:3px 0 0">' + esc(t.estudar) + '</p></div>' +
+          (t.bloco && nQ ? '<button class="btn pequeno" data-acao="treinar-bloco" data-bloco="' + esc(t.bloco) + '">Treinar (' + nQ + ')</button>' : '') + '</div>';
+      }).join('') + '</div></div>';
+  }
+
+  if (ed.provasTCs && ed.provasTCs.length) {
+    html += '<div class="cartao"><h2>Espelhos Cebraspe para Especialista em Regulação</h2>' +
+      '<div class="tabela-env"><table class="tabela"><thead><tr><th>Prova</th><th>Banca</th><th>Estrutura</th><th>O que sinaliza</th></tr></thead><tbody>' +
+      ed.provasTCs.map((p) => '<tr><td><b>' + esc(p.prova) + '</b></td><td class="mono">' + esc(p.banca) + '</td><td class="pequeno">' + esc(p.est) + '</td><td class="pequeno mudo">' + esc(p.sinal) + '</td></tr>').join('') +
+      '</tbody></table></div></div>';
+  }
+
+  if (ed.naoCaiu && ed.naoCaiu.length) {
+    html += '<div class="cartao"><h2>O que NÃO priorizar no estudo (Custo × Benefício baixo)</h2><ul class="lista-cb">' +
+      ed.naoCaiu.map((n) => '<li>' + esc(n) + '</li>').join('') + '</ul></div>';
+  }
+  return html;
 }
 /* ================= Contestação de itens ================= */
 // Cada contestação fica neste navegador e numa coleção compartilhada do banco do app, onde o Claude lê,
@@ -3553,9 +4075,7 @@ function subtemaDoDia() {
   if (doPlano) return doPlano;
   return cands[Math.floor(Date.parse(hojeISO() + 'T12:00:00Z') / 864e5) % cands.length];
 }
-function nomeTrilha(id) { const t = TRILHAS.find((x) => x.id === id); return t ? t.nome : ''; }
-// Pré-teste: itens ainda não vistos primeiro; prática: não vistos, depois os errados, depois os vencidos. Os não vistos
-// vêm do mais fácil ao mais difícil, para quem começa do zero subir aos poucos
+
 function idsSubtema(id, tipo, n) {
   const qs = POR_TEMA.get(id) || [];
   if (tipo === 'erros') return embaralhar(qs.filter((q) => { const r = rec(q.id); return r && r[0] === 0; }).map((q) => q.id));
@@ -3716,6 +4236,14 @@ function renderSubtema(id) {
 function linhasEstimadas(texto) {
   return String(texto || '').split('\n').reduce((n, p) => n + (p.trim() ? Math.ceil(p.length / CARACTERES_LINHA) : 0), 0);
 }
+// Passa o texto da caixa para o rascunho do tema aberto e grava (navegador na hora; conta logo em seguida)
+function guardarRascunhoDisc() {
+  const area = document.getElementById('disc-texto');
+  if (!area || !UI.discTema || area.readOnly) return;
+  estadoDisc(UI.discTema).rascunho = area.value;
+  clearTimeout(timerDisc);
+  Store.salvar('discursivas');
+}
 function estadoDisc(id) { return (S.disc[id] ||= { rascunho: '', tentativas: [] }); }
 function contadorDisc(t) {
   const txt = estadoDisc(t.id).rascunho, l = linhasEstimadas(txt), palavras = (txt.match(/\S+/g) || []).length;
@@ -3765,10 +4293,18 @@ function renderDiscursiva() {
   let html = '<button class="btn pequeno voltar" data-acao="disc-voltar">← Temas</button>' +
     '<div class="cartao"><span class="rotulo">Discursiva · até ' + t.linhas + ' linhas · ' + t.pontos + ' pontos · tempo sugerido ' + t.minutos + ' min</span><h2>' + esc(t.titulo) + '</h2>' +
     '<p>' + esc(t.comando) + '</p><ol class="lista-cb">' + t.aspectos.map((a) => '<li>' + esc(a) + '</li>').join('') + '</ol></div>' +
-    '<label class="rotulo" for="disc-texto">Seu texto</label><textarea id="disc-texto" class="disc-area" rows="16" spellcheck="false"' + (corrigindo ? ' readonly' : '') + ' placeholder="Escreva aqui, em parágrafos, um para cada aspecto do comando.">' + esc(st.rascunho) + '</textarea>' +
-    '<p class="pequeno mudo" id="disc-cont">' + contadorDisc(t) + '</p>';
+    '<div class="secao-cab" style="margin-top:10px"><label class="rotulo" for="disc-texto">Folha de resposta (' + t.linhas + ' linhas)</label><span class="mudo pequeno mono" id="disc-cont">' + contadorDisc(t) + '</span></div>' +
+    '<div class="regua-discursiva">' +
+      '<div class="linhas-numeradas" id="disc-regua">' + Array.from({ length: t.linhas }, (_, i) => '<span>' + (i + 1) + '</span>').join('') + '</div>' +
+      '<textarea id="disc-texto" class="disc-area-30" rows="' + t.linhas + '" style="min-height:' + (t.linhas * 24 + 16) + 'px" spellcheck="false"' + (corrigindo ? ' readonly' : '') + ' placeholder="Escreva aqui o seu texto discursivo, parágrafo por parágrafo, contemplando todos os aspectos do comando...">' + esc(st.rascunho) + '</textarea>' +
+    '</div>';
   if (!corrigindo) {
-    html += '<div class="linha-btns"><button class="btn primario" data-acao="disc-corrigir">Terminei: corrigir pelos quesitos</button><button class="btn" data-acao="disc-limpar">Apagar e recomeçar</button></div>';
+    html += '<div class="linha-btns" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px">' +
+      '<button class="btn primario" data-acao="disc-corrigir">Terminei: corrigir pelos quesitos</button>' +
+      '<button class="btn" data-acao="disc-salvar-rascunho" title="Salva imediatamente o rascunho no navegador">Salvar rascunho</button>' +
+      '<button class="btn" data-acao="disc-limpar">Apagar e recomeçar</button>' +
+      '<span id="disc-status-salvo" class="pequeno verde" style="font-weight:600"></span>' +
+      '</div>';
     return html;
   }
   const aval = UI.discAval || {};
@@ -3829,6 +4365,7 @@ function renderCebraspe() {
 }
 // Raio-x dos itens reais: artigos da LGPD e armadilhas mais frequentes, contados no banco, e os padrões que a banca repete
 function renderRaioX(cb, chip) {
+  cb = cb || { padroes: [], disciplinas: [] };
   const conta = (lista, chave) => { const m = new Map(); for (const q of lista) { const k = chave(q); if (k) m.set(k, (m.get(k) || 0) + 1); } return [...m].sort((a, b) => b[1] - a[1]); };
   const arts = conta(REAIS.filter((q) => q.l === 'lgpd'), (q) => q.art).slice(0, 8);
   const arms = conta(REAIS.filter((q) => q.l !== 'texto'), (q) => q.a).slice(0, 6);
@@ -3836,12 +4373,15 @@ function renderRaioX(cb, chip) {
   let html = '<div class="cartao cb-disc" id="cb-raiox"><h2>O que a banca repete</h2>' +
     '<p class="pequeno mudo">Contado nos ' + REAIS.length + ' itens reais do banco.</p>' +
     (arts.length ? '<p><b>Artigos da LGPD mais cobrados.</b> ' + arts.map(([a, n]) => esc(rotArt(a)) + ' (' + n + ')').join(' · ') + '</p>' : '') +
-    '<p><b>Armadilhas mais frequentes nos itens de norma.</b> ' + arms.map(([a, n]) => esc(D.armadilhas[a] || a) + ' (' + n + ')').join(' · ') + '</p>';
-  for (const p of cb.padroes || []) html += '<h3>' + esc(p.titulo) + '</h3><p>' + esc(p.texto) + '</p>' + (p.exemplos.length ? '<div class="chips">' + p.exemplos.map(chip).join('') + '</div>' : '');
+    '<p><b>Armadilhas mais frequentes nos itens de norma.</b> ' + arms.map(([a, n]) => esc((D.armadilhas && D.armadilhas[a]) || a) + ' (' + n + ')').join(' · ') + '</p>';
+  for (const p of (cb.padroes || [])) {
+    if (!p) continue;
+    html += '<h3>' + esc(p.titulo || '') + '</h3><p>' + esc(p.texto || '') + '</p>' + (p.exemplos && p.exemplos.length ? '<div class="chips">' + p.exemplos.map(chip).join('') + '</div>' : '');
+  }
   return html + '</div>';
 }
 function renderAjustes() {
-  const metas = [20, 30, 40, 60, 90], novos = [5, 10, 15, 20, 30], inter = [0, 20, 30, 40, 50];
+  const metas = [20, 30, 40, 60, 90], novos = [5, 10, 15, 20, 30];
   const dg = Store.diag;
   const linha = (rot, val, ok) => '<tr><td>' + rot + '</td><td class="' + (ok === true ? 'ok' : ok === false ? 'no' : '') + '">' + esc(val) + '</td></tr>';
   const st = (v) => (v === 'ok' ? true : v === '—' ? null : false);
@@ -3849,7 +4389,6 @@ function renderAjustes() {
     '<div class="cartao destaque"><h2>Sincronizar com o Painel TCU</h2><p class="pequeno">Traz as respostas, cards e artigos lidos do tronco comum (Constitucional, Administrativo, LAI, Línguas, Gestão, Economia e Contabilidade) feitos no Painel TCU neste navegador. Fica o registro mais recente de cada item; nada é apagado.</p><div class="linha-btns"><button class="btn primario" data-acao="sync-tcu">⇄ Trazer progresso do Painel TCU</button></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha fica salva na sua conta, como as demais preferências.</p></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' + metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div></div>' +
-    '<div class="campo"><span class="rot">Questões intercaladas por dia</span><div class="chips">' + inter.map((m) => '<button class="chip" data-acao="intercaladas-n" data-n="' + m + '" aria-pressed="' + ((S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas) === m) + '">' + (m || 'Desligar') + '</button>').join('') + '</div><p class="pequeno mudo">Metade das matérias básicas, metade dos blocos já estudados, misturadas. Em dia pesado de revisão a sessão encolhe sozinha.</p></div>' +
     '<div class="campo"><span class="rot">Cards novos por dia</span><div class="chips">' + novos.map((m) => '<button class="chip" data-acao="novos-cards" data-n="' + m + '" aria-pressed="' + ((S.perfil.novosCards || 20) === m) + '">' + m + '</button>').join('') + '</div><p class="pequeno mudo">Cada card novo volta várias vezes nos dias seguintes. 20 por dia é o equilíbrio para quem tem 1h45 de estudo.</p></div></div>' +
     '<div class="cartao"><h2>Backup do progresso</h2><p class="pequeno">Salve um arquivo com todo o seu progresso. Se a gravação na conta falhar, ou se você trocar de aparelho, é só restaurar.</p>' +
     '<div class="linha-btns"><button class="btn primario" data-acao="backup-baixar">Baixar backup (.json)</button><button class="btn" data-acao="backup-mostrar">Copiar como texto</button></div>' +
@@ -3872,6 +4411,86 @@ function renderAjustes() {
     '<div class="cartao"><h2>Recomeçar do zero</h2><p class="pequeno mudo">Apaga XP, respostas, cards, sequência, simulados, discursivas e lista de pesquisa.</p><div id="zona-zerar"><button class="btn" data-acao="zerar">Zerar progresso</button></div></div>';
 }
 
+/* ================= Caderno de erros ================= */
+function cadState() {
+  const c = (S.perfil.cad ||= {});
+  c.erros ||= {};
+  c.checkSem ||= {};
+  if (!c.degrau) c.degrau = 1;
+  if (!c.fase) c.fase = 'f2';
+  return c;
+}
+function caixaCadernoErro(q) {
+  const r = rec(q.id);
+  const errouSessao = sessao && sessao.resp && sessao.resp[q.id] && sessao.resp[q.id] !== q.g && sessao.resp[q.id] !== BRANCO;
+  if (!errouSessao && (!r || !r[3])) return '';
+  const ce = cadState().erros[q.id] || {};
+  return '<div class="cad-box" id="ce-box-' + esc(q.id) + '"><span class="rotulo">Caderno de Erros · Qual foi a causa?</span>' +
+    '<div class="chips" style="margin:6px 0">' + CAUSAS_ERRO.map(([k, rot]) => '<button class="chip" data-acao="set-causa-erro" data-q="' + esc(q.id) + '" data-causa="' + k + '" aria-pressed="' + (ce.causa === k) + '">' + esc(rot) + '</button>').join('') + '</div>' +
+    '<div style="display:flex;gap:6px;margin-top:6px"><input class="busca" id="ce-nota-' + esc(q.id) + '" style="font-size:.82rem" placeholder="Regra de 1 linha para não errar de novo (ex.: prazo é 3 dias úteis, não 72h)" value="' + esc(ce.nota || '') + '">' +
+    '<button class="btn pequeno" data-acao="salvar-nota-erro" data-q="' + esc(q.id) + '">Salvar regra</button></div></div>';
+}
+const CAUSAS_ERRO = [
+  ['nao-sabia', 'Não sabia o ponto', 'Voltar à lei seca só naquele dispositivo e revisar os cards do artigo.'],
+  ['leu-errado', 'Li errado o comando', 'Sublinhar as palavras de comando (exceto, somente, vedado, pode, deve) antes de julgar o item.'],
+  ['pegadinha', 'Caí em pegadinha conhecida', 'Anotar o par de termos que a banca trocou (ex.: 3 dias úteis × 72 horas; 2% × 4%; controlador × encarregado).'],
+  ['chute', 'Chutei sem convicção', 'No Cebraspe, chute duvidoso dá prejuízo esperado negativo. Deixe em branco se a chance for < 50%.'],
+];
+function causaDe(k) { return CAUSAS_ERRO.find((c) => c[0] === k); }
+function errosDoBanco() {
+  return Q.filter((q) => { const r = rec(q.id); return (r && r[3] > 0) || (cadState().erros[q.id] && cadState().erros[q.id].causa); });
+}
+function renderCadernoErros() {
+  const ce = cadState().erros;
+  const filtro = UI.filtroCausa || 'todas';
+  const erradas = errosDoBanco();
+  const cont = { 'nao-sabia': 0, 'leu-errado': 0, 'pegadinha': 0, 'chute': 0, 'sem': 0 };
+  for (const q of erradas) {
+    const c = (ce[q.id] && ce[q.id].causa) || 'sem';
+    cont[c] = (cont[c] || 0) + 1;
+  }
+  const filtradas = erradas.filter((q) => {
+    const c = (ce[q.id] && ce[q.id].causa) || 'sem';
+    return filtro === 'todas' || c === filtro;
+  });
+  let html = '<div class="prosa" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">' +
+    '<div style="flex:1;min-width:260px"><h2>Caderno de Erros · Diagnóstico por Causa</h2>' +
+    '<p>O Cebraspe pune a repetição do mesmo erro. Classifique cada item que você errou em uma das quatro causas do método e escreva a regra de 1 linha para não cair de novo.</p></div>' +
+    '<button class="btn pequeno primario" data-acao="imprimir-folha-vespera" style="align-self:flex-start;margin-top:4px">Folha de véspera</button>' +
+    '</div>';
+  html += '<div class="cad-grid">' +
+    CAUSAS_ERRO.map(([k, rot, rem]) => '<div class="cad-kpi"><b>' + (cont[k] || 0) + ' · ' + esc(rot) + '</b><span>' + esc(rem) + '</span>' +
+      (cont[k] ? '<div class="linha-btns" style="margin-top:6px"><button class="btn pequeno primario" data-acao="treinar-causa-erro" data-causa="' + k + '">Treinar (' + cont[k] + ')</button></div>' : '') +
+      '</div>').join('') +
+    '<div class="cad-kpi"><b>' + (cont.sem || 0) + ' · Sem classificar</b><span>Erros do histórico que ainda não receberam causa.</span>' +
+    (cont.sem ? '<div class="linha-btns" style="margin-top:6px"><button class="btn pequeno primario" data-acao="treinar-causa-erro" data-causa="sem">Classificar (' + cont.sem + ')</button></div>' : '') +
+    '</div></div>';
+
+  html += '<div class="cartao"><div class="secao-cab"><h2>Questões registradas (' + filtradas.length + ')</h2>' +
+    '<div class="chips">' + [['todas', 'Todas (' + erradas.length + ')']].concat(CAUSAS_ERRO.map(([k, r]) => [k, r + ' (' + (cont[k] || 0) + ')'])).concat([['sem', 'Sem causa (' + (cont.sem || 0) + ')']]).map(([v, t]) => '<button class="chip" data-acao="set-filtro-causa" data-causa="' + v + '" aria-pressed="' + (filtro === v) + '">' + t + '</button>').join('') +
+    '</div></div>';
+
+  if (!filtradas.length) html += '<p class="mudo pequeno">Nenhuma questão encontrada com esse filtro.</p>';
+  else {
+    html += '<div class="lista-erros">' + filtradas.slice(0, 50).map((q) => {
+      const e = ce[q.id] || {};
+      const r = rec(q.id);
+      return '<div class="cartao" style="margin-bottom:8px"><div class="secao-cab"><span class="selo ' + (q.g === 'C' ? 'ok' : 'p1') + '">' + q.g + '</span>' +
+        '<span class="mono pequeno">' + esc(nomeBloco(q.b)) + ' · ' + esc(q.r || '') + '</span>' +
+        (r ? '<span class="pequeno mudo">' + r[2] + 'C / ' + r[3] + 'E</span>' : '') + '</div>' +
+        '<p style="margin:6px 0">' + esc(q.e) + '</p>' +
+        (q.c ? '<p class="pequeno mudo">' + esc(q.c) + '</p>' : '') +
+        '<div class="chips" style="margin:6px 0">' + CAUSAS_ERRO.map(([k, rot]) => '<button class="chip" data-acao="set-causa-erro" data-q="' + esc(q.id) + '" data-causa="' + k + '" aria-pressed="' + (e.causa === k) + '">' + esc(rot) + '</button>').join('') + '</div>' +
+        '<div style="display:flex;gap:6px;margin-top:6px"><input class="busca" id="ce-nota-' + esc(q.id) + '" style="font-size:.82rem" placeholder="Regra de 1 linha para não errar de novo" value="' + esc(e.nota || '') + '">' +
+        '<button class="btn pequeno" data-acao="salvar-nota-erro" data-q="' + esc(q.id) + '">Salvar regra</button>' +
+        (e.causa ? '<button class="btn pequeno" data-acao="limpar-causa-erro" data-q="' + esc(q.id) + '">Limpar</button>' : '') + '</div>' +
+        '</div>';
+    }).join('') + (filtradas.length > 50 ? '<p class="pequeno mudo">Mostrando as primeiras 50 de ' + filtradas.length + ' questões.</p>' : '') + '</div>';
+  }
+  html += '</div>';
+  return html;
+}
+
 function htmlEsqueletos() {
   const ests = (D.discursivas && D.discursivas.estruturas) || [];
   if (!ests.length) return '';
@@ -3883,7 +4502,7 @@ function htmlEsqueletos() {
 function sincronizarDoTCU() {
   const origem = lerLS('painel-tcu-v1');
   if (!origem || (!origem.itens && !origem.perfil)) { avisar('!', 'Painel TCU não encontrado neste navegador', 'Abra o Painel TCU neste mesmo navegador ao menos uma vez.'); return; }
-  let nItens = 0, nCards = 0, nLidos = 0;
+  let nItens = 0, nCards = 0, nLidos = 0, nErros = 0;
   const num = (x) => Number(x) || 0;
   for (const [id, r] of Object.entries(origem.itens || {})) {
     if (!QI.has(id) || !Array.isArray(r)) continue;
@@ -3899,8 +4518,17 @@ function sincronizarDoTCU() {
   for (const [k, dt] of Object.entries((origem.perfil && origem.perfil.lidos) || {})) {
     if (ARTI.has(k) && (!S.perfil.lidos[k] || dt < S.perfil.lidos[k])) { S.perfil.lidos[k] = dt; nLidos++; }
   }
+  if (origem.perfil && origem.perfil.tcu && origem.perfil.tcu.erros) {
+    const ceLocal = (cadState().erros ||= {});
+    for (const [qid, obj] of Object.entries(origem.perfil.tcu.erros)) {
+      if (QI.has(qid) && (!ceLocal[qid] || (!ceLocal[qid].nota && obj.nota))) {
+        ceLocal[qid] = Object.assign({}, obj);
+        nErros++;
+      }
+    }
+  }
   Store.salvarTudo(); renderTudo();
-  avisar('⇄', 'Tronco comum trazido do Painel TCU', pl(nItens, 'questão', 'questões') + ', ' + pl(nCards, 'card', 'cards') + ' e ' + pl(nLidos, 'artigo lido', 'artigos lidos') + ' aproveitados.');
+  avisar('⇄', 'Tronco comum trazido do Painel TCU', pl(nItens, 'questão', 'questões') + ', ' + pl(nCards, 'card', 'cards') + (nErros ? ', ' + pl(nErros, 'anotação de erro', 'anotações de erro') : '') + ' e ' + pl(nLidos, 'artigo lido', 'artigos lidos') + ' aproveitados.');
 }
 
 /* ================= Backup ================= */
@@ -3915,7 +4543,17 @@ async function salvarArquivo(nome, conteudo) {
     try { await dl.save({ filename: nome, data: conteudo }); avisar('↓', 'Arquivo pronto', nome); return true; }
     catch (e) { if (e && e.code === 'declined') return false; }
   }
-  return null;
+  if (window.claude) return null;
+  // Arquivo aberto do disco (fora do claude.ai): o navegador baixa por um link comum
+  try {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([conteudo], { type: 'application/json;charset=utf-8' }));
+    a.download = nome;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1500);
+    avisar('↓', 'Arquivo pronto', nome);
+    return true;
+  } catch (e) { return null; }
 }
 function mostrarTexto(destino, conteudo, rotulo) {
   const el = destino ? document.getElementById(destino) : null;
@@ -3990,7 +4628,7 @@ async function executar(a, alvo) {
       // A aba Mais sempre abre o menu do Mais, não a última página aberta lá dentro
       if (alvo.classList.contains('aba') && alvo.dataset.vista === 'mais') { UI.mais = 'menu'; UI.subtema = null; if (UI.vista === 'mais') { renderMais(); window.scrollTo(0, 0); break; } }
       ir(alvo.dataset.vista); break;
-    case 'mais': fecharFolha(); UI.mais = alvo.dataset.sub || 'menu'; if (UI.vista !== 'mais') ir('mais'); else { renderMais(); window.scrollTo(0, 0); } break;
+    case 'mais': if (sessao) fecharSessao(true); fecharFolha(); UI.mais = alvo.dataset.sub || 'menu'; if (UI.vista !== 'mais') ir('mais'); else { renderMais(); window.scrollTo(0, 0); } break;
     case 'iniciar-dia': iniciarDia(alvo.dataset.dia); break;
     case 'recuperar': { if (retomarPausa('rec:' + hojeISO())) break; const cfg = cfgRecuperacao(); if (cfg) iniciarSessao(cfg); else avisar('✓', 'Sem atraso', 'As matérias dos dias passados já foram estudadas.'); break; }
     case 'ler-atraso': { const arts = leituraAtrasada().slice(0, LEITURA_MAX); if (arts.length) abrirArtigo(arts[0], arts); break; }
@@ -4015,19 +4653,75 @@ async function executar(a, alvo) {
     case 'equipar': { const it = IR.get(alvo.dataset.item); if (it && rpg().inv[it.id]) { rpg().eq[it.slot] = it.id; Store.salvar('perfil'); renderMais(); } break; }
     case 'iniciar-revisao': iniciarSessao({ modo: 'revisao', n: 30, chave: 'rev' }); break;
     case 'intercaladas': if (retomarPausa('i:' + hojeISO())) break; iniciarSessao({ modo: 'treino', intercalado: true, n: nIntercaladas(), titulo: 'Questões intercaladas', dia: 'i:' + hojeISO() }); break;
-    case 'treino-rapido': iniciarSessao({ modo: 'treino', n: 20, blocos: [], filtro: 'mistas', chave: 'rapido' }); break;
+    case 'treino-rapido': iniciarSessao({ modo: 'treino', n: Number(alvo.dataset.n) || 20, blocos: [], filtro: 'mistas', chave: 'rapido', dia: alvo.dataset.n === '8' ? 'r:' + hojeISO() : undefined }); break;
     case 'abrir-modo': UI.modo = alvo.dataset.modo; if (UI.modo === 'simulado') UI.prova = 'prova'; ir('questoes'); break;
     case 'relampago': iniciarSessao({ modo: 'relampago', blocos: (alvo.dataset.blocos || '').split(',').filter(Boolean) }); break;
     case 'set-modo': UI.modo = alvo.dataset.modo; salvarUI(); renderQuestoes(); break;
     case 'set-prova': UI.prova = alvo.dataset.prova; salvarUI(); renderQuestoes(); break;
     case 'set-n': UI.n = Number(alvo.dataset.n); salvarUI(); renderQuestoes(); break;
     case 'set-filtro': UI.filtro = alvo.dataset.filtro; salvarUI(); renderQuestoes(); break;
+    case 'set-banca': UI.filtroBanca = alvo.dataset.banca; salvarUI(); renderQuestoes(); break;
+    case 'anpd-set-fase': cadState().fase = alvo.dataset.fase; Store.salvar('perfil'); renderMais(); break;
+    case 'anpd-set-degrau': cadState().degrau = Number(alvo.dataset.deg); Store.salvar('perfil'); renderMais(); break;
+    case 'anpd-treino-rapido': {
+      let bls = (alvo.dataset.blocos || '').split(',').filter(Boolean);
+      let tit = alvo.dataset.tit;
+      if (!bls.length && alvo.dataset.deg) {
+        const degNum = Number(alvo.dataset.deg);
+        const discsDeg = DISC.filter((x) => x.degrau === degNum).map((x) => x.id);
+        bls = BLOCOS.filter((b) => discsDeg.includes(b.disciplina)).map((b) => b.id);
+        tit = degNum + 'º Degrau · Treino Focado (20 itens)';
+      }
+      iniciarSessao({ modo: 'treino', n: 20, blocos: bls, filtro: 'mistas', titulo: tit || 'Treino ANPD' });
+      break;
+    }
+    case 'ed-prio': UI.edPrio = alvo.dataset.v; renderMais(); break;
+    case 'set-filtro-causa': UI.filtroCausa = alvo.dataset.causa; renderMais(); break;
+    case 'set-causa-erro': {
+      const qid = alvo.dataset.q, e = (cadState().erros[qid] ||= {});
+      e.causa = alvo.dataset.causa; e.data = hojeISO();
+      const inp = document.getElementById('ce-nota-' + qid); if (inp && inp.value.trim()) e.nota = inp.value.trim();
+      Store.salvar('perfil'); renderMais(); break;
+    }
+    case 'salvar-nota-erro': {
+      const qid = alvo.dataset.q, e = (cadState().erros[qid] ||= {});
+      const inp = document.getElementById('ce-nota-' + qid);
+      if (inp) { e.nota = inp.value.trim(); e.data = hojeISO(); Store.salvar('perfil'); avisar('✓', 'Regra salva no Caderno de Erros'); renderMais(); }
+      break;
+    }
+    case 'limpar-causa-erro': {
+      const qid = alvo.dataset.q; delete cadState().erros[qid]; Store.salvar('perfil'); renderMais(); break;
+    }
+    case 'treinar-causa-erro': {
+      const causa = alvo.dataset.causa;
+      const ids = errosDoBanco().filter((q) => {
+        const c = (cadState().erros[q.id] && cadState().erros[q.id].causa) || 'sem';
+        return causa === 'sem' ? c === 'sem' : c === causa;
+      }).map((q) => q.id);
+      if (!ids.length) { avisar('!', 'Nenhuma questão encontrada'); break; }
+      iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Treino · Erros (' + (causaDe(causa) ? causaDe(causa)[1] : 'Sem causa') + ')' });
+      break;
+    }
     case 'preset': {
       const p = alvo.dataset.preset, comQ = BLOCOS.filter((b) => (POR_BLOCO.get(b.id) || []).length);
       UI.blocos = p === 'p1' ? P1.slice() : p === 'lgpd' ? comQ.filter((b) => b.disciplina === 'lgpd').map((b) => b.id) : p === 'tudo' ? comQ.map((b) => b.id) : [];
       salvarUI(); renderQuestoes(); break;
     }
     case 'comecar': comecarConfigurado(); break;
+    case 'simulado-oficial-120': iniciarSessao({ modo: 'simulado', n: 120, prova: true, minutos: 210, titulo: 'Simulado · formato projetado (120 itens)' }); break;
+    case 'simulado-anvisa-2024': {
+      const ids = Q.filter((q) => q.id.startsWith('anvisa-2024-cebraspe-')).map((q) => q.id);
+      if (!ids.length) { avisar('!', 'Caderno vazio', 'Nenhum item da ANVISA 2024 encontrado.'); break; }
+      iniciarSessao({ modo: 'simulado', ids, minutos: Math.round(ids.length * 1.75), titulo: 'ANVISA 2024 · Cebraspe · ' + ids.length + ' itens' });
+      break;
+    }
+    case 'simulado-tcu-2026': {
+      const ids = Q.filter((q) => q.id.startsWith('tcu-aufc-2026-')).map((q) => q.id);
+      if (!ids.length) { avisar('!', 'Caderno vazio', 'Nenhum item do TCU 2026 encontrado.'); break; }
+      iniciarSessao({ modo: 'simulado', ids, minutos: Math.round(ids.length * 1.75), titulo: 'TCU 2026 · AUFC · Cebraspe · ' + ids.length + ' itens' });
+      break;
+    }
+    case 'imprimir-folha-vespera': abrirFolhaVespera(); break;
     case 'responder': responder(alvo.dataset.r); break;
     case 'revelar': proximo(); break;
     case 'avaliar': avaliar(Number(alvo.dataset.n)); break;
@@ -4085,7 +4779,27 @@ async function executar(a, alvo) {
     case 'ler-dia': { const ctx = contextoHoje(); const arts = artigosDoDia(ctx.tipo === 'dia' ? ctx.dia : null); if (arts.length) abrirArtigo(arts[0], arts); break; }
     case 'ler-tudo': if (artsDe(UI.lei).length) abrirArtigo(artsDe(UI.lei)[0].k, null); break;
     case 'fim-fila': UI.leiFila = null; UI.artSel = null; avisar('§', 'Leitura do dia concluída', 'Agora os cards cloze desses artigos.'); ir('hoje'); break;
-    case 'ranking': UI.ranking = !UI.ranking; renderLei(); break;
+    case 'ranking': UI.ranking = !UI.ranking; if (UI.ranking) UI.termometro = false; renderLei(); break;
+    case 'toggle-termometro': UI.termometro = !UI.termometro; if (UI.termometro) UI.ranking = false; renderLei(); break;
+    case 'neutralizar-vulnerabilidades': {
+      const L = LEIS[UI.lei || 'lgpd'];
+      const diagArts = L.artigos.map((a) => diagnosticoArtigo(a.k));
+      const verms = diagArts.filter((d) => d.nivel === 'vermelho');
+      let ids = [];
+      for (const d of verms) {
+        if (d.erradasIds && d.erradasIds.length) ids.push(...d.erradasIds);
+        else { const qs = POR_ART.get(d.k) || []; ids.push(...qs.map((q) => q.id)); }
+      }
+      ids = [...new Set(ids)];
+      if (!ids.length) {
+        const amars = diagArts.filter((d) => d.nivel === 'amarelo');
+        for (const d of amars) { const qs = POR_ART.get(d.k) || []; ids.push(...qs.map((q) => q.id)); }
+        ids = [...new Set(ids)];
+      }
+      if (!ids.length) { avisar('✓', 'Nenhuma vulnerabilidade crítica', 'Parabéns! Você não tem artigos com desempenho crítico nesta norma.'); break; }
+      iniciarSessao({ modo: 'treino', ids: embaralhar(ids).slice(0, 30), titulo: 'Neutralizar Vulnerabilidades · ' + (L.curto || L.nome), chave: 'vuln:' + (UI.lei || 'lgpd') });
+      break;
+    }
     case 'camada':
       UI.camadas[alvo.dataset.c] = !UI.camadas[alvo.dataset.c];
       salvarUI();
@@ -4116,7 +4830,13 @@ async function executar(a, alvo) {
       break;
     }
     case 'disc-abrir': UI.discTema = alvo.dataset.t; UI.discFase = 'escrita'; UI.discAval = {}; UI.discNE = 0; UI.discIA = null; renderMais(); window.scrollTo(0, 0); break;
-    case 'disc-voltar': UI.discTema = null; UI.discFase = null; renderMais(); window.scrollTo(0, 0); break;
+    case 'disc-salvar-rascunho': {
+      guardarRascunhoDisc();
+      const el = document.getElementById('disc-status-salvo');
+      if (el) el.textContent = '✓ Salvo às ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+      break;
+    }
+    case 'disc-voltar': guardarRascunhoDisc(); UI.discTema = null; UI.discFase = null; renderMais(); window.scrollTo(0, 0); break;
     case 'investigar': folhaInvestigar(alvo.dataset.t, alvo.dataset.o); break;
     case 'inv-conferir': conferirInv(); break;
     case 'inv-parar': if (UI.inv && UI.inv.ctl) UI.inv.ctl.abort(); break;
@@ -4125,6 +4845,7 @@ async function executar(a, alvo) {
     case 'disc-ia': corrigirDiscIA(); break;
     case 'claro-ia': await traduzirIA(alvo); break;
     case 'disc-corrigir':
+      guardarRascunhoDisc();
       if (!estadoDisc(UI.discTema).rascunho.trim()) { avisar('!', 'Texto vazio', 'Escreva a resposta antes de corrigir.'); break; }
       UI.discFase = 'correcao'; renderMais(); break;
     case 'disc-dia': fecharFolha(); UI.mais = 'discursiva'; UI.discTema = alvo.dataset.t; UI.discFase = 'escrita'; UI.discAval = {}; UI.discNE = 0; UI.discIA = null; if (UI.vista !== 'mais') ir('mais'); else renderMais(); window.scrollTo(0, 0); break;
@@ -4149,16 +4870,18 @@ async function executar(a, alvo) {
     }
     case 'contestar': folhaContestar(alvo.dataset.q); break;
     case 'subtema': fecharFolha(); UI.subtema = alvo.dataset.st || null; UI.mais = 'trilha'; if (UI.vista !== 'mais') ir('mais'); else renderMais(); window.scrollTo(0, 0); break;
-    case 'aula-folha': folhaAula(alvo.dataset.st); break;
+    case 'aula-folha':
+      if (alvo.dataset.marca && !S.perfil.feitos['aula:' + hojeISO()]) { S.perfil.feitos['aula:' + hojeISO()] = 1; Store.salvar('perfil'); }
+      folhaAula(alvo.dataset.st); break;
     case 'st-lei': case 'st-aula': abrirSubtemaEm(alvo.dataset.st, a === 'st-lei' ? 'lei' : 'aula'); break;
     case 'trilha-sessao': {
       const st = SUBTEMAS.get(alvo.dataset.st), tipo = alvo.dataset.tipo;
       const chT = 't:' + st.id + ':' + tipo;
       if (pausaDe(chT)) { fecharFolha(); retomarPausa(chT); break; }
-      const ids = idsSubtema(st.id, tipo, tipo === 'pre' ? 8 : 20);
+      const ids = idsSubtema(st.id, tipo, Number(alvo.dataset.n) || (tipo === 'pre' ? 8 : 20));
       if (!ids.length) { avisar('§', 'Nada para fazer aqui', tipo === 'erros' ? 'Você não tem erros pendentes neste subtema.' : 'Todos os itens já foram vistos: use Praticar.'); break; }
       fecharFolha();
-      iniciarSessao({ modo: 'treino', ids, titulo: (tipo === 'pre' ? 'Pré-teste · ' : tipo === 'erros' ? 'Erros · ' : 'Prática · ') + st.nome, dia: 't:' + hojeISO(), chave: chT });
+      iniciarSessao({ modo: 'treino', ids, titulo: (tipo === 'pre' ? 'Pré-teste · ' : tipo === 'erros' ? 'Erros · ' : 'Prática · ') + st.nome, dia: 't:' + hojeISO(), chave: chT, st: st.id, tipoSubtema: tipo });
       break;
     }
     case 'contestar-enviar': {
@@ -4193,7 +4916,6 @@ async function executar(a, alvo) {
     case 'tema': UI.tema = alvo.dataset.tema; salvarUI(); aplicarTema(); renderTudo(); break;
     case 'tema-alternar': UI.tema = temaEscuroAtivo() ? 'claro' : 'escuro'; salvarUI(); aplicarTema(); renderTudo(); break;
     case 'meta': S.perfil.meta = Number(alvo.dataset.meta); Store.salvar('perfil'); renderTudo(); break;
-    case 'intercaladas-n': S.perfil.intercaladas = Number(alvo.dataset.n); Store.salvar('perfil'); renderTudo(); break;
     case 'novos-cards': S.perfil.novosCards = Number(alvo.dataset.n); Store.salvar('perfil'); renderTudo(); break;
     case 'backup-baixar': {
       const r = await salvarArquivo('painel-anpd-backup-' + hojeISO() + '.json', backupTexto());
@@ -4278,6 +5000,24 @@ document.addEventListener('change', (ev) => {
     if (t && el) el.innerHTML = resultadoDisc(t);
   }
   else if (a === 'dia-feito') { if (alvo.checked) S.perfil.feitos[alvo.dataset.dia] = 1; else delete S.perfil.feitos[alvo.dataset.dia]; Store.salvar('perfil'); renderMais(); }
+  else if (a === 'anpd-check-sem' || a === 'tcu-check-sem') {
+    const semKey = semanaAtual(), cs = ((cadState().checkSem ||= {})[semKey] ||= {});
+    if (alvo.checked) {
+      cs[alvo.dataset.i] = true;
+      ganharXP(15);
+      const totalChecks = ((D.mentor && D.mentor.metodo && D.mentor.metodo.checklistSemanal) || []).length || 7;
+      const feitos = Object.values(cs).filter(Boolean).length;
+      if (feitos >= totalChecks) {
+        ganharXP(50);
+        avisar('★', 'Semana 100% Cumprida!', 'Checklist semanal do mentor zerado (+50 XP de bônus)');
+      }
+    } else {
+      delete cs[alvo.dataset.i];
+    }
+    Store.salvar('perfil');
+    if (UI.vista === 'mais') renderMais();
+    else if (UI.vista === 'hoje') renderHoje();
+  }
   else if (a === 'pesq-feito') {
     const p = S.pesquisa[alvo.dataset.k];
     if (p) { p.s = alvo.checked ? 1 : 0; p.f = alvo.checked ? hojeISO() : null; if (alvo.checked) ganharXP(5); verificarConquistas(); Store.salvar('pesquisa', 'perfil'); renderMais(); }
@@ -4289,6 +5029,8 @@ document.addEventListener('change', (ev) => {
     leitor.readAsText(f);
   }
 });
+// Sair da caixa de texto da discursiva grava o rascunho na hora, sem esperar a pausa da digitação
+document.addEventListener('focusout', (ev) => { if (ev.target && ev.target.id === 'disc-texto') guardarRascunhoDisc(); });
 // Partes recolhidas (<details data-det>) continuam abertas ou fechadas quando a tela é redesenhada
 document.addEventListener('toggle', (ev) => { const d = ev.target; if (d && d.dataset && d.dataset.det) UI.det[d.dataset.det] = d.open; }, true);
 document.addEventListener('input', (ev) => {
@@ -4306,9 +5048,11 @@ document.addEventListener('input', (ev) => {
     timerDisc = setTimeout(() => Store.salvar('discursivas'), 1000);
     return;
   }
-  if (id !== 'busca-lei' && id !== 'busca-gloss') return;
+  if (id !== 'busca-lei' && id !== 'busca-gloss' && id !== 'busca-edital') return;
   const pos = ev.target.selectionStart;
-  if (id === 'busca-lei') { UI.busca = ev.target.value; renderLei(); } else { UI.buscaGloss = ev.target.value; renderMais(); }
+  if (id === 'busca-lei') { UI.busca = ev.target.value; renderLei(); }
+  else if (id === 'busca-edital') { UI.edBusca = ev.target.value; renderMais(); }
+  else { UI.buscaGloss = ev.target.value; renderMais(); }
   const novo = document.getElementById(id);
   if (novo) { novo.focus(); try { novo.setSelectionRange(pos, pos); } catch (e) { /* ignore */ } }
 });
@@ -4359,6 +5103,27 @@ window.addEventListener('pageshow', (e) => { if (e.persisted) ultimoTique = Date
 document.addEventListener('scroll', marcarUso, { passive: true, capture: true });
 setInterval(() => contarTempo(false), TIQUE_S * 1000);
 setInterval(atualizarCronometro, 1000);
+
+// Folha de véspera: os erros anotados, por disciplina, com a regra pessoal de cada um, para reler antes da prova
+function abrirFolhaVespera() {
+  const erradas = errosDoBanco();
+  if (!erradas.length) { avisar('!', 'Nenhum erro registrado', 'Você ainda não registrou erros para gerar a folha.'); return; }
+  const ce = cadState().erros;
+  const porDisc = {};
+  for (const q of erradas) (porDisc[(BI.get(q.b) || {}).disciplina || 'outros'] ||= []).push(q);
+  let html = '<div class="folha-impressao"><p class="pequeno mudo">Revisão final · ' + pl(erradas.length, 'questão anotada', 'questões anotadas') + '</p>';
+  for (const [disc, qs] of Object.entries(porDisc)) {
+    html += '<h2>' + esc((DI.get(disc) || { nome: disc }).nome) + ' (' + qs.length + ')</h2>';
+    for (const q of qs) {
+      const e = ce[q.id] || {}, causa = causaDe(e.causa);
+      html += '<div class="folha-item"><div class="folha-meta">' + esc(nomeBloco(q.b)) + ' · ' + esc(q.r || '') + ' · Gabarito: <b>' + esc(nomeGab(q)) + '</b>' + (causa ? ' · ' + esc(causa[1]) : '') + '</div>' +
+        '<p class="folha-enunciado">' + esc(q.e) + '</p>' +
+        (e.nota ? '<div class="folha-regra"><b>Regra pessoal:</b> ' + esc(e.nota) + '</div>' : '') +
+        (q.c ? '<p class="pequeno mudo"><em>' + esc(q.c) + '</em></p>' : '') + '</div>';
+    }
+  }
+  abrirFolha(cabFolha('Caderno de erros', 'Folha de véspera') + html + '</div>', 'Folha de véspera');
+}
 
 /* ================= Início ================= */
 function iniciar(dadosQuentes) {

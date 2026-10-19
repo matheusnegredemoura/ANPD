@@ -164,6 +164,13 @@ export function montarDados() {
     const [l, art] = a.art.includes(':') ? a.art.split(':') : ['lgpd', a.art];
     if (!leis[l] || !leis[l].lei.artigos.some((x) => x.id === art)) errosCb.push(`armadilhas-anpd.json (${a.id}): artigo inexistente ${a.art}`);
   }
+  // Método do mentor, raio-x e edital projetado: cada bloco, disciplina e tema citado precisa existir
+  const { nota: _notaMentor, ...mentor } = JSON.parse(ler('dados', 'mentor.json'));
+  const idsBlocos = new Set(blocos.map((b) => b.id));
+  for (const d of mentor.metodo.degrausFoco) for (const x of d.discs) if (!discs.has(x)) errosCb.push(`mentor.json (degrau ${d.ordem}): disciplina inexistente ${x}`);
+  for (const c of mentor.metodo.ciclo25h) if (!idsBlocos.has(c.bloco) || !discs.has(c.disc)) errosCb.push(`mentor.json (ciclo ${c.id}): bloco ou disciplina inexistente`);
+  for (const t of mentor.edital.topicos) if (!idsBlocos.has(t.bloco) || !['A', 'B', 'C'].includes(t.prio)) errosCb.push(`mentor.json (tópico ${t.topico}): bloco inexistente ou prioridade fora de A, B e C`);
+  if (mentor.metodo.ciclo25h.reduce((n, c) => n + c.horas, 0) !== 25) errosCb.push('mentor.json: o ciclo semanal não soma 25 horas');
   // Dia de discursiva no plano: o tema precisa existir
   const temasDisc = new Set(discursivas.temas.map((t) => t.id));
   for (const f of cronograma.fases) for (const s of f.semanas) for (const dia of s.dias) if (dia.disc && !temasDisc.has(dia.disc)) errosCb.push(`cronograma.json (${dia.data}): tema de discursiva inexistente ${dia.disc}`);
@@ -266,6 +273,7 @@ export function montarDados() {
     blocos,
     armadilhas: ARMADILHAS,
     armadilhasANPD,
+    mentor,
     questoes: lista,
     apoios,
     lei,
@@ -345,6 +353,7 @@ function build() {
   const completo =
     '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">' +
     '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">' +
+    '<meta name="theme-color" content="#0c6b66"><meta name="apple-mobile-web-app-title" content="Painel ANPD">' +
     '</head><body>' + pagina + '</body></html>';
   writeFileSync(join(RAIZ, 'dist', 'index.html'), completo);
   const kb = (Buffer.byteLength(pagina) / 1024).toFixed(0);

@@ -795,3 +795,69 @@ details.det-lista[open]>summary{margin-bottom:10px}
 
 /* Esqueletos de peça e parecer na discursiva */
 .esq pre{white-space:pre-wrap;font-family:var(--f-mono);font-size:.8rem;background:var(--bg);padding:10px;border-radius:8px;border:1px solid var(--line)}
+
+/* Caderno de erros, método do mentor, régua do simulado, folha da discursiva, termômetro da lei e folha de véspera */
+.cad-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:10px 0}
+.cad-kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.cad-kpi b{display:block;font-size:1.05rem}
+.cad-kpi span{font-size:.8rem;color:var(--ink-2)}
+.anpd-banner-fase{border-left:4px solid var(--accent)}
+.anpd-degrau{border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px;background:var(--surface)}
+.anpd-degrau.ativo{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.anpd-degrau.ok{border-left:4px solid var(--certo)}
+.anpd-topico-linha{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.anpd-tag-hist{display:inline-block;padding:1px 6px;border-radius:4px;font-size:.72rem;background:var(--surface-2);color:var(--ink-2);font-family:var(--f-mono);border:1px solid var(--line)}
+.anpd-tag-hist.novo{background:var(--gold-bg);color:var(--gold);border-color:var(--gold)}
+.cad-box{margin-top:12px;padding:10px 12px;border-radius:8px;background:var(--bg);border:1px dashed var(--line)}
+.anpd-sim-banner{background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;margin-bottom:14px}
+.corte-badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:6px;font-size:.78rem;font-weight:700;font-family:var(--f-mono)}
+.corte-badge.aprovado{background:var(--certo-bg);color:var(--certo)}
+.corte-badge.alerta{background:var(--gold-bg);color:var(--gold)}
+.corte-badge.eliminado{background:var(--errado-bg);color:var(--errado)}
+.corte-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:12px 0}
+.corte-kpi{background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.corte-kpi b{display:block;font-size:1.05rem;margin-bottom:2px;color:var(--ink)}
+.corte-kpi span{font-size:.8rem;color:var(--ink-2);display:block}
+.regua-discursiva{display:flex;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden;margin-bottom:8px}
+.linhas-numeradas{width:34px;background:var(--surface-2);color:var(--ink-3);font-family:var(--f-mono);font-size:.82rem;line-height:24px;text-align:right;padding:8px 6px 8px 0;user-select:none;border-right:1px solid var(--line);flex-shrink:0}
+.linhas-numeradas span{display:block;height:24px}
+.disc-area-30{flex:1;border:0;outline:none;padding:8px 12px;font-family:var(--f-corpo);font-size:.95rem;line-height:24px;resize:vertical;min-height:720px;background:transparent;color:var(--ink)}
+.termometro-card{background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;margin-bottom:14px}
+.termo-barra-container{background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:6px;margin:10px 0}
+.termo-barra{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--bg)}
+.termo-seg{height:100%;transition:width .3s}
+.termo-seg.verm{background:var(--errado)}
+.termo-seg.amar{background:var(--gold)}
+.termo-seg.verd{background:var(--certo)}
+.termo-seg.neut{background:var(--line)}
+.art-btn.termo-verm{border-left:3px solid var(--errado);box-shadow:inset 0 0 0 1px var(--errado-bg)}
+.art-btn.termo-amar{border-left:3px solid var(--gold);box-shadow:inset 0 0 0 1px var(--gold-bg)}
+.art-btn.termo-verd{border-left:3px solid var(--certo);box-shadow:inset 0 0 0 1px var(--certo-bg)}
+.aviso-vulnerabilidade{padding:10px 12px;border-radius:8px;font-size:.88rem;line-height:1.45;margin:8px 0 12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--ink)}
+.aviso-vulnerabilidade.verm{background:var(--errado-bg);border-left:4px solid var(--errado)}
+.aviso-vulnerabilidade.amar{background:var(--gold-bg);border-left:4px solid var(--gold)}
+.aviso-vulnerabilidade.verd{background:var(--certo-bg);border-left:4px solid var(--certo)}
+.ranking-vuln{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.ranking-vuln-item{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left}
+.ranking-vuln-item.verm{border-left:4px solid var(--errado)}
+.ranking-vuln-item.amar{border-left:4px solid var(--gold)}
+.ranking-vuln-item.verd{border-left:4px solid var(--certo)}
+.folha-impressao{padding:10px 0;color:var(--ink)}
+.folha-cabecalho{border-bottom:2px solid var(--accent);padding-bottom:10px;margin-bottom:15px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.folha-cabecalho h1{font-family:var(--f-titulo);font-size:1.4rem;color:var(--accent);margin:0}
+.folha-impressao h2{font-family:var(--f-titulo);font-size:1.1rem;color:var(--ink);margin:16px 0 8px;border-bottom:1px solid var(--line);padding-bottom:4px}
+.folha-item{border-bottom:1px dashed var(--line);padding:10px 0;margin-bottom:10px}
+.folha-meta{font-size:.82rem;font-weight:700;color:var(--ink-2);margin-bottom:4px}
+.folha-enunciado{margin:4px 0;font-size:.92rem;line-height:1.5;color:var(--ink)}
+.folha-regra{margin:6px 0;font-size:.85rem;color:var(--accent);background:var(--surface-2);padding:6px 10px;border-radius:6px;border-left:3px solid var(--accent);font-family:var(--f-corpo)}
+@media print{
+  body{background:#fff!important;color:#000!important}
+  .topo,.abas,.linha-btns,.icone-btn,.chips,button,.seletor-bloco,.secao-cab>button,.secao-cab>.icone-btn{display:none!important}
+  .folha-impressao{padding:0!important}
+  .folha-painel{max-height:none!important;overflow:visible!important;box-shadow:none!important;border:none!important;padding:0!important;background:transparent!important}
+  #folha{position:static!important;background:none!important;display:block!important;overflow:visible!important}
+  .folha-item{page-break-inside:avoid;border-bottom:1px solid #ccc!important}
+  .folha-regra{background:#eee!important;color:#000!important;border-left:3px solid #333!important}
+  .folha-cabecalho h1{color:#000!important}
+  .app{max-width:100%!important;padding:0!important}
+}
