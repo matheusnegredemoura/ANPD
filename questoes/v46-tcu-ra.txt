@@ -1,0 +1,67 @@
+// Itens de prova trazidos na versão 4.6 enviada pelo usuário (banco de questões dele). Gabarito como veio; os do TCU 2026
+// conferem com o gabarito oficial. Ficaram de fora os que dependem de texto da prova que não veio junto e os autorais.
+
+=== tcu-ra-001
+bloco: portugues
+gab: B
+alt: A | O sistema eletrônico de compras implantado em janeiro de 2025 teve custo de desenvolvimento inferior ao previsto no orçamento anual do órgão X.
+alt: B | No exercício de 2025, devido à queda internacional do preço das matérias-primas e à deflação setorial, todos os demais órgãos federais que NÃO implantaram o novo sistema também registraram queda média de 30% nos preços dos mesmos itens.
+alt: C | Os servidores do setor de licitações do órgão X receberam treinamento de 40 horas para operar o novo sistema eletrônico em dezembro de 2024.
+alt: D | O Tribunal de Contas da União recomendou a adoção de sistemas eletrônicos de compras em acórdão proferido em 2023.
+alt: E | O número total de fornecedores cadastrados no país cresceu 2% entre 2023 e 2024.
+origem: real
+prova: Cebraspe · TCU 2025 (molde Raciocínio Analítico)
+ref: doutrina Língua portuguesa
+armadilha: caso
+dif: 2
+enunciado: Considere o seguinte argumento apresentado por um gestor auditado: 'A implantação do novo sistema eletrônico de compras no órgão X em janeiro de 2025 foi a responsável direta pela queda de 30% nos preços médios contratados em 2025, pois, no exercício de 2024, quando o sistema ainda não existia, os preços pagos pelo órgão X haviam sido 30% superiores.' Assinale a alternativa que, se verdadeira, mais enfraquece a conclusão causal do gestor.
+comentario: Letra B. O argumento do gestor incorre na falácia causal *post hoc ergo propter hoc* (atribuir toda a queda após janeiro de 2025 exclusivamente ao novo sistema). Mostrar que um grupo de controle (órgãos que NÃO adotaram o sistema) teve a exata mesma queda de 30% em razão de um fator externo (deflação setorial) fornece uma causa alternativa suficiente e destrói o nexo causal alegado.
+
+=== tcu-ra-002
+bloco: portugues
+gab: E
+origem: real
+prova: Cebraspe · TCU 2025 · Auditor TI
+ref: doutrina Língua portuguesa
+armadilha: conceito
+dif: 2
+enunciado: Quando um debatedor distorce, exagera ou simplifica caricaturalmente a tese de seu interlocutor para torná-la mais fácil de ser refutada, ele comete a falácia informal denominada argumento ad hominem circunstancial.
+comentario: Errado. Distorcer ou caricaturar a posição do adversário para atacar uma versão enfraquecida que ele não defendeu é a falácia do ESPANTALHO (*straw man*). Já a falácia *ad hominem* consiste em atacar a pessoa ou as circunstâncias pessoais do argumentador em vez de refutar as premissas ou a lógica do argumento.
+
+=== tcu-ra-101
+bloco: portugues
+gab: C
+origem: real
+prova: Cebraspe · TCU 2025 · Auditor TI
+ref: doutrina Língua portuguesa
+armadilha: conceito
+dif: 2
+enunciado: Comete a falácia da composição quem conclui que um todo possui determinada propriedade apenas porque cada uma de suas partes isoladamente possui essa propriedade; inversamente, comete a falácia da divisão quem transfere indevidamente um atributo global do todo para cada uma de suas partes individuais.
+comentario: Certo. Distinção clássica em Raciocínio Analítico do Cebraspe: Parte $\rightarrow$ Todo = Falácia da Composição (ex.: 'cada servidor da equipe é excelente, logo a equipe sem coordenação será excelente'); Todo $\rightarrow$ Parte = Falácia da Divisão (ex.: 'o órgão X é altamente eficiente no agregado, logo cada setor individual do órgão X é eficiente').
+
+=== tcu-ra-102
+bloco: portugues
+gab: D
+alt: A | Se houve manifestação prévia do MPTCU, então o Plenário obrigatoriamente homologou o acordo de solução consensual.
+alt: B | A manifestação prévia do MPTCU é condição suficiente, mas não necessária, para a homologação do acordo pelo Plenário.
+alt: C | Se o Plenário não homologou o acordo de solução consensual, então certamente não houve manifestação do MPTCU.
+alt: D | Se o Plenário homologou o acordo de solução consensual, então necessariamente houve prévia e expressa manifestação do Ministério Público junto ao TCU.
+alt: E | Não pode haver manifestação do MPTCU sem que o acordo seja homologado pelo Plenário.
+origem: real
+prova: Cebraspe · TCE-MS 2025 (molde)
+ref: doutrina Língua portuguesa
+armadilha: caso
+dif: 2
+enunciado: Considere a premissa normativa: 'Somente se houver prévia e expressa manifestação do Ministério Público junto ao TCU, o Plenário poderá homologar acordo de solução consensual.' Assinale a alternativa que apresenta uma inferência logicamente válida a partir dessa premissa.
+comentario: Letra D. A expressão '$P$ somente se $Q$' traduz-se logicamente por $P \rightarrow Q$ (em que $Q$ é condição NECESSÁRIA para $P$, e $P$ é condição SUFICIENTE para $Q$). Aqui, $P = $ 'Plenário homologa o acordo' e $Q = $ 'houve prévia manifestação do MPTCU'. Portanto, se o Plenário homologou ($P$), necessariamente houve manifestação do MPTCU ($Q$).
+
+=== tcu-ra-103
+bloco: portugues
+gab: E
+origem: real
+prova: Cebraspe · TCU 2025 · Auditor TI
+ref: doutrina Língua portuguesa
+armadilha: conceito
+dif: 2
+enunciado: No modelo argumentativo de Stephen Toulmin, o elemento denominado 'Qualificador Modal' (Qualifier) indica o conjunto de evidências fáticas iniciais das quais parte o argumento, enquanto a 'Refutação' (Rebuttal) expressa a regra geral absoluta que jamais comporta exceções.
+comentario: Errado. No modelo de Toulmin: (1) os 'Dados/Grounds' (D) são os fatos ou evidências iniciais; (2) a 'Conclusão/Alegação/Claim' (C) é a tese defendida; (3) a 'Garantia/Warrant' (W) é a regra ou ponte que autoriza passar dos Dados à Conclusão; (4) o 'Respaldo/Backing' (B) dá suporte à Garantia (ex.: a norma legal ou estudo empírico); (5) o 'Qualificador Modal' (Q) indica a força/grau de certeza da conclusão ('provavelmente', 'presumivelmente'); e (6) a 'Reserva/Refutação' (R) aponta as condições excepcionais em que a conclusão não se aplica ('a menos que...').

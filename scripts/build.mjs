@@ -152,7 +152,7 @@ export function montarDados() {
   // Discursiva: cada quesito precisa de um conceito para cada nota de 0 até o máximo
   const discursivas = JSON.parse(ler('dados', 'discursivas.json'));
   for (const t of discursivas.temas) {
-    if (!t.id || !t.comando || !t.aspectos.length || ![15, 30].includes(t.linhas) || !t.pontos || !t.fatorErro) errosCb.push(`discursivas.json (${t.id}): campos obrigatórios`);
+    if (!t.id || !t.comando || !t.aspectos.length || !(Number.isInteger(t.linhas) && t.linhas >= 10 && t.linhas <= 60) || !t.pontos || !t.fatorErro) errosCb.push(`discursivas.json (${t.id}): campos obrigatórios`);
     for (const q of t.quesitos) if (q.conceitos.length !== q.max + 1 || !q.esperado.length) errosCb.push(`discursivas.json (${t.id}, ${q.titulo}): ${q.conceitos.length} conceitos para nota máxima ${q.max}`);
   }
   for (const e of discursivas.estruturas || []) if (!e.id || !e.nome || !e.uso || !e.modelo) errosCb.push(`discursivas.json (esqueleto ${e.id}): campos obrigatórios`);

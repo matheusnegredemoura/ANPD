@@ -1,0 +1,132 @@
+// Itens de prova trazidos na versão 4.6 enviada pelo usuário (banco de questões dele). Gabarito como veio; os do TCU 2026
+// conferem com o gabarito oficial. Ficaram de fora os que dependem de texto da prova que não veio junto e os autorais.
+
+=== tcu-est-001
+bloco: economia
+gab: A
+alt: A | R$ 90,00.
+alt: B | R$ 75,00.
+alt: C | R$ 80,00.
+alt: D | R$ 100,00.
+alt: E | R$ 110,00.
+origem: real
+prova: FGV · TCU 2021 · Estatística
+ref: doutrina Economia da regulação e estatística
+armadilha: caso
+dif: 2
+enunciado: Ao auditar os preços unitários de um insumo hospitalar adquirido por diversos órgãos federais, um auditor obteve o primeiro quartil $Q_1 = \text{R\$ } 40{,}00$, a mediana $Q_2 = \text{R\$ } 50{,}00$ e o terceiro quartil $Q_3 = \text{R\$ } 60{,}00$. Utilizando o critério clássico do boxplot de Tukey ($Q_3 + 1{,}5 \times \text{AIQ}$), a partir de qual valor estritamente superior uma compra será classificada como outlier superior (potencial sobrepreço)?
+comentario: Letra A. A Amplitude Interquartílica é $\text{AIQ} = Q_3 - Q_1 = 60 - 40 = 20$. Pelo critério de Tukey para boxplot, o limite superior adjacente é $Q_3 + 1{,}5 \times \text{AIQ} = 60 + 1{,}5 \times 20 = 60 + 30 = \text{R\$ } 90{,}00$ (e o limite inferior é $Q_1 - 1{,}5 \times \text{AIQ} = 40 - 30 = \text{R\$ } 10{,}00$). Qualquer valor acima de R$ 90,00 é classificado como outlier superior.
+
+=== tcu-est-002
+bloco: economia
+gab: C
+origem: real
+prova: Cebraspe · TCU 2015 (adaptada) · Estatística
+ref: doutrina Economia da regulação e estatística
+armadilha: caso
+dif: 3
+enunciado: Considere que, historicamente, 5% dos processos licitatórios de determinada carteira possuam irregularidade grave. Um sistema automatizado de triagem (trilha de auditoria) sinaliza alerta em 90% dos processos que de fato têm irregularidade grave (sensibilidade = 0,90), mas também gera falso alerta em 10% dos processos regulares (taxa de falso positivo = 0,10). Nesse cenário, dado que um processo foi sinalizado pelo sistema, a probabilidade a posteriori de que ele realmente possua irregularidade grave é inferior a 35%.
+comentario: Certo. Pelo Teorema de Bayes: $P(\text{Irreg} \mid \text{Alerta}) = \frac{0{,}05 \times 0{,}90}{0{,}05 \times 0{,}90 + 0{,}95 \times 0{,}10} = \frac{0{,}045}{0{,}045 + 0{,}095} = \frac{0{,}045}{0{,}140} = \frac{9}{28} \approx 32{,}14\%$, valor que é de fato inferior a 35%.
+
+=== tcu-est-003
+bloco: economia
+gab: C
+alt: A | [R$ 480,00 ; R$ 520,00]
+alt: B | [R$ 450,00 ; R$ 550,00]
+alt: C | [R$ 460,80 ; R$ 539,20]
+alt: D | [R$ 304,00 ; R$ 696,00]
+alt: E | [R$ 496,08 ; R$ 503,92]
+origem: real
+prova: FGV · TCU 2021 · Estatística
+ref: doutrina Economia da regulação e estatística
+armadilha: caso
+dif: 2
+enunciado: Em uma amostra aleatória simples de $n = 100$ notas fiscais extraída de uma população muito grande, a média amostral do valor glosado foi $\bar{x} = \text{R\$ } 500{,}00$ e o desvio-padrão amostral foi $s = \text{R\$ } 200{,}00$. Adotando a aproximação normal com $z_{0{,}975} = 1{,}96$, o intervalo de 95% de confiança para a média populacional $\mu$ é:
+comentario: Letra C. O erro-padrão da média é $\text{EP}(\bar{x}) = \frac{s}{\sqrt{n}} = \frac{200}{\sqrt{100}} = \frac{200}{10} = 20$. A margem de erro para 95% de confiança é $E = 1{,}96 \times 20 = 39{,}20$. Portanto, $\text{IC}_{95\%}(\mu) = 500 \pm 39{,}20 = [\text{R\$ } 460{,}80 \; ; \; \text{R\$ } 539{,}20]$.
+
+=== tcu-est-004
+bloco: economia
+gab: E
+origem: real
+prova: Cebraspe · TCU 2015 · Estatística
+ref: doutrina Economia da regulação e estatística
+armadilha: extrapolacao
+dif: 2
+enunciado: A amostragem estratificada apresenta maior ganho de precisão estatística quando os estratos são internamente heterogêneos e externamente homogêneos entre si; já na amostragem por conglomerados, o ideal é que cada conglomerado seja internamente homogêneo e muito diferente dos demais.
+comentario: Errado. É exatamente o oposto! Na Amostragem ESTRATIFICADA (em que se sorteiam elementos de TODOS os estratos), busca-se que cada estrato seja internamente HOMOGÊNEO (variância dentro baixa) e que os estratos sejam HETEROGÊNEOS entre si. Já na Amostragem por CONGLOMERADOS (em que se sorteiam apenas alguns conglomerados), o ideal para precisão é que cada conglomerado seja uma miniatura da população: internamente HETEROGÊNEO e externamente HOMOGÊNEO entre si.
+
+=== tcu-est-101
+bloco: economia
+gab: C
+origem: real
+prova: Cebraspe · TCU 2015 / 2025
+ref: doutrina Economia da regulação e estatística
+armadilha: conceito
+dif: 2
+enunciado: Se todos os salários de uma carreira auditada sofrerem um reajuste linear da forma $Y = 1{,}10 X + 500$, então a nova média salarial será $\bar{Y} = 1{,}10 \bar{X} + 500$, o novo desvio-padrão será $s_Y = 1{,}10 s_X$ (pois somar constante não altera a dispersão) e a nova variância será $s_Y^2 = (1{,}10)^2 s_X^2 = 1{,}21 s_X^2$.
+comentario: Certo. Propriedade fundamental e campeã de cobrança: para $Y = aX + b$, tem-se $E(Y) = aE(X) + b$, $DP(Y) = |a| \cdot DP(X)$ e $Var(Y) = a^2 \cdot Var(X)$. A constante aditiva $b = 500$ desloca a posição, mas não altera a variância nem o desvio-padrão!
+
+=== tcu-est-102
+bloco: economia
+gab: D
+alt: A | 20,00%.
+alt: B | 25,60%.
+alt: C | 51,20%.
+alt: D | 40,96%.
+alt: E | 80,00%.
+origem: real
+prova: FGV · TCU 2021 · Estatística
+ref: doutrina Economia da regulação e estatística
+armadilha: caso
+dif: 2
+enunciado: Em um lote grande de notas de empenho, a probabilidade de uma nota escolhida ao acaso conter erro formal é constante e igual a $p = 0{,}20$. Selecionando-se uma amostra aleatória de $n = 4$ notas com reposição (distribuição Binomial), a probabilidade de que EXATAMENTE uma nota da amostra contenha erro formal é:
+comentario: Letra D. Pela distribuição Binomial $X \sim \text{Bin}(n=4, p=0{,}2)$: $P(X = 1) = \binom{4}{1} \cdot (0{,}2)^1 \cdot (0{,}8)^3 = 4 \times 0{,}2 \times 0{,}512 = 0{,}8 \times 0{,}512 = 0{,}4096 = 40{,}96\%$.
+
+=== tcu-est-103
+bloco: economia
+gab: E
+origem: real
+prova: Cebraspe · TCU 2015
+ref: doutrina Economia da regulação e estatística
+armadilha: extrapolacao
+dif: 1
+enunciado: Em uma distribuição unimodal fortemente assimétrica à direita (assimetria positiva, típica de distribuições de renda e de valores de contratos públicos), verifica-se a relação $\text{Média} < \text{Mediana} < \text{Moda}$.
+comentario: Errado. Na assimetria positiva (cauda longa à direita, puxada por grandes valores/outliers superiores), a média é puxada para a direita mais que a mediana, resultando em $\text{Moda} < \text{Mediana} < \text{Média}$.
+
+=== tcu-est-104
+bloco: economia
+gab: C
+origem: real
+prova: Cebraspe · TCU 2025
+ref: doutrina Economia da regulação e estatística
+armadilha: conceito
+dif: 2
+enunciado: Em um teste de hipóteses bilateral ao nível de significância $\alpha = 5\%$, caso o valor-$p$ (*p-value*) calculado a partir da amostra seja igual a $0{,}018$ ($1{,}8\%$), o auditor deve rejeitar a hipótese nula $H_0$ ao nível de $5\%$, mas não a rejeitaria ao nível de significância de $\alpha = 1\%$.
+comentario: Certo. Rejeita-se $H_0$ sempre que $\text{valor-}p \le \alpha$. Como $0{,}018 \le 0{,}05$, rejeita-se $H_0$ a 5%; porém, como $0{,}018 > 0{,}01$, não se rejeita $H_0$ ao nível de 1%.
+
+=== tcu-est-105
+bloco: economia
+gab: B
+alt: A | SQR = 400 e SQE = 100.
+alt: B | SQR = 320 e SQE = 180.
+alt: C | SQR = 180 e SQE = 320.
+alt: D | SQR = 250 e SQE = 250.
+alt: E | SQR = 450 e SQE = 50.
+origem: real
+prova: FGV · TCU 2021 (molde Estatística)
+ref: doutrina Economia da regulação e estatística
+armadilha: caso
+dif: 2
+enunciado: Em um modelo de regressão linear simples $Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i$ ajustado por Mínimos Quadrados Ordinários (MQO) para estimar o custo de manutenção de rodovias ($Y$) em função da extensão em km ($X$), obteve-se correlação linear de Pearson $r = 0{,}80$, soma total dos quadrados $\text{SQT} = 500$ e inclinação estimada $\hat{\beta}_1 > 0$. Nessas condições, a Soma dos Quadrados da Regressão (SQR, variação explicada) e a Soma dos Quadrados dos Resíduos (SQE, variação não explicada) são, respectivamente:
+comentario: Letra B. Na regressão linear simples com intercepto ajustada por MQO, o coeficiente de determinação é $R^2 = r^2 = (0{,}80)^2 = 0{,}64$ ($64\%$). Como $R^2 = \frac{\text{SQR}}{\text{SQT}}$, temos $\text{SQR} = 0{,}64 \times 500 = 320$, e a soma dos quadrados dos resíduos é $\text{SQE} = \text{SQT} - \text{SQR} = 500 - 320 = 180$.
+
+=== tcu-est-106
+bloco: economia
+gab: C
+origem: real
+prova: FGV · TCU 2021 (adaptada)
+ref: doutrina Economia da regulação e estatística
+armadilha: conceito
+dif: 2
+enunciado: Em uma tabela de contingência com $L = 3$ linhas e $C = 4$ colunas utilizada para testar a independência entre a modalidade licitatória e a região geográfica do órgão, a estatística qui-quadrado de Pearson segue assintoticamente, sob a hipótese nula de independência, uma distribuição qui-quadrado com $(L-1)(C-1) = 2 \times 3 = 6$ graus de liberdade.
+comentario: Certo. No teste qui-quadrado de independência em tabela $L \times C$ (cobrado na FGV TCU 2021), o número de graus de liberdade é $gl = (L - 1)(C - 1)$.
