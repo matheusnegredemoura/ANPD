@@ -72,7 +72,7 @@ test('pacote compactado volta igual ao original no app', async () => {
   const ini = js.indexOf('// O pacote chega enxuto'), fim = js.indexOf('const Q = D.questoes;');
   assert.ok(ini > 0 && fim > ini);
   new Function('D', js.slice(ini, fim))(pacote);
-  delete pacote.comandos;
+  delete pacote.tab;
   assert.deepEqual(pacote, JSON.parse(JSON.stringify(d)));
 });
 

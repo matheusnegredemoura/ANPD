@@ -287,13 +287,17 @@ export function regexTermo(padroes) {
   return new RegExp('(?<![\\p{L}\\d])(?:' + padroes.map(esc).join('|') + ')(?![\\p{L}\\d])', 'iu');
 }
 
-// O pacote vai enxuto e o app o reconstitui ao abrir (app.js, logo depois de ler D): comandos das questões numa
-// tabela, estrutura do artigo só quando muda em relação ao anterior, rótulo "Art. N" implícito e campos vazios omitidos
+// O pacote vai enxuto e o app o reconstitui ao abrir (app.js, logo depois de ler D): textos que se repetem nas questões
+// e nos cards (rótulo da referência, bloco, norma, prova, armadilha, tema e comando) viram índice numa tabela, o trecho
+// da lei vira [início, tamanho] dentro do texto do artigo, a estrutura do artigo só vai quando muda em relação ao
+// anterior, o rótulo "Art. N" fica implícito e campos vazios são omitidos
+const TABELADOS = ['r', 'b', 'l', 'pv', 'a', 'tm', 'cm'];
 export function empacotar(d) {
-  const lei = {};
+  const lei = {}, textoArt = new Map();
   for (const [id, l] of Object.entries(d.lei)) {
     let ant = null;
     lei[id] = { ...l, artigos: l.artigos.map((a) => {
+      textoArt.set(id + ':' + a.id, a.texto);
       const o = { ...a }, est = JSON.stringify(a.estrutura);
       if (est === ant) delete o.estrutura;
       ant = est;
@@ -301,16 +305,26 @@ export function empacotar(d) {
       return o;
     }) };
   }
-  const comandos = [...new Set(d.questoes.map((q) => q.cm).filter((c) => typeof c === 'string'))];
-  const idx = new Map(comandos.map((c, i) => [c, i]));
+  const tab = Object.fromEntries(TABELADOS.map((k) => [k, []])), pos = Object.fromEntries(TABELADOS.map((k) => [k, new Map()]));
+  const tabelar = (o, campos) => {
+    for (const k of campos) {
+      if (typeof o[k] !== 'string') continue;
+      let i = pos[k].get(o[k]);
+      if (i === undefined) { i = tab[k].push(o[k]) - 1; pos[k].set(o[k], i); }
+      o[k] = i;
+    }
+    return o;
+  };
   const questoes = d.questoes.map((q) => {
-    const o = { ...q };
-    if (typeof q.cm === 'string') o.cm = idx.get(q.cm);
+    const o = tabelar({ ...q }, TABELADOS);
     if (q.art === null) delete o.art;
+    const txt = q.art ? textoArt.get(q.l + ':' + q.art) : null;
     if (Array.isArray(q.t) && !q.t.length) delete o.t;
+    else if (txt) o.t = q.t.map((t) => { const i = txt.indexOf(t); return i < 0 ? t : [i, t.length]; });
     return o;
   });
-  return { ...d, lei, questoes, comandos };
+  const cloze = d.cloze.map((c) => tabelar({ ...c }, ['r', 'b', 'l']));
+  return { ...d, lei, questoes, cloze, tab };
 }
 
 function jsonSeguro(obj) {

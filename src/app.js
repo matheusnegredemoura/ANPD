@@ -4,11 +4,20 @@
 /* ================= Dados embutidos ================= */
 const D = JSON.parse(document.getElementById('dados').textContent);
 // O pacote chega enxuto (scripts/build.mjs, empacotar); aqui volta à forma completa antes de qualquer uso
-for (const q of D.questoes) { if (typeof q.cm === 'number') q.cm = D.comandos[q.cm]; if (q.art === undefined) q.art = null; if (!q.t) q.t = []; }
-for (const l of Object.values(D.lei || {})) {
+const TEXTO_ART = new Map();
+for (const [id, l] of Object.entries(D.lei || {})) {
   let est = [];
-  for (const a of l.artigos) { if (a.estrutura) est = a.estrutura; else a.estrutura = est; if (!a.rotulo) a.rotulo = 'Art. ' + a.id; }
+  for (const a of l.artigos) { if (a.estrutura) est = a.estrutura; else a.estrutura = est; if (!a.rotulo) a.rotulo = 'Art. ' + a.id; TEXTO_ART.set(id + ':' + a.id, a.texto); }
 }
+const TAB = D.tab || {};
+function deTabela(o) { for (const k in TAB) if (typeof o[k] === 'number') o[k] = TAB[k][o[k]]; }
+for (const q of D.questoes) {
+  deTabela(q);
+  if (q.art === undefined) q.art = null;
+  // Trecho guardado como [início, tamanho] no texto do artigo
+  q.t = (q.t || []).map((t) => (Array.isArray(t) ? TEXTO_ART.get(q.l + ':' + q.art).slice(t[0], t[0] + t[1]) : t));
+}
+for (const c of D.cloze || []) deTabela(c);
 const Q = D.questoes;
 // Múltipla escolha: q.al traz as alternativas e q.g é a letra; nos itens certo/errado, q.al não existe
 const LETRAS = 'ABCDE';
