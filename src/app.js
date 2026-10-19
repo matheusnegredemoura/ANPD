@@ -3869,6 +3869,7 @@ function htmlEsqueletos() {
   return '<div class="cartao esq"><h2>Esqueletos de peça e parecer (ANPD)</h2><p class="pequeno mudo">Domine os três moldes antes de treinar velocidade. Copie e preencha os colchetes com os fatos do enunciado.</p>' +
     ests.map((e) => '<details><summary><b>' + esc(e.nome) + '</b></summary><p class="pequeno"><b>Quando usar:</b> ' + esc(e.uso) + '</p><pre>' + esc(e.modelo) + '</pre></details>').join('') + '</div>';
 }
+
 // Sincronização inversa: traz do Painel TCU (mesmo navegador) as respostas, cards e leituras do tronco comum
 function sincronizarDoTCU() {
   const origem = lerLS('painel-tcu-v1');
@@ -3878,7 +3879,7 @@ function sincronizarDoTCU() {
   for (const [id, r] of Object.entries(origem.itens || {})) {
     if (!QI.has(id) || !Array.isArray(r)) continue;
     const at = S.itens[id];
-    if (!at || num(r[4]) > num(at[4]) || (num(r[4]) === num(at[4]) && num(r[2]) + num(r[3]) > num(at[2]) + num(at[3]))) { S.itens[id] = r.slice(); Store.itensSujos.add(parteItem(id)); nItens++; }
+    if (!at || num(r[4]) > num(at[4]) || (num(r[4]) === num(at[4]) && num(r[2]) + num(r[3]) > num(at[2]) + num(at[3]))) { S.itens[id] = r.slice(); nItens++; }
   }
   for (const [id, c] of Object.entries(origem.cards || {})) {
     if (!CI.has(id) || !Array.isArray(c)) continue;

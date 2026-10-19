@@ -3,11 +3,15 @@
 import { readFileSync } from 'node:fs';
 import { APP, abrirNavegador, foto, placar, vigiarErros } from './comum.mjs';
 
-// Um artigo da Lei 8.112 ainda sem tradução escrita: as traduções crescem, então a escolha não fica fixa no teste
+// Um artigo ainda sem tradução escrita, na primeira destas normas que tiver algum: as traduções crescem, então a
+// escolha não fica fixa no teste
 const CLARO = JSON.parse(readFileSync(new URL('../../dados/claro.json', import.meta.url), 'utf8')).artigos;
-const NUM_SEM = [...readFileSync(new URL('../../fontes/lei8112.txt', import.meta.url), 'utf8').matchAll(/^Art\. (\d+)º?\.? (.*)$/gm)]
-  .filter((m) => !/Revogad|VETADO/i.test(m[2])).map((m) => m[1]).find((n) => +n > 20 && !CLARO['lei8112:' + n]);
-const SEM = 'lei8112:' + NUM_SEM;
+const ARQUIVO = { lei8112: 'lei8112', lei4320: 'lei4320', dl200: 'dl200', regimento: 'regimento-anpd' };
+const semTraducao = (lei) => [...readFileSync(new URL('../../fontes/' + ARQUIVO[lei] + '.txt', import.meta.url), 'utf8').matchAll(/^Art\. (\d+)º?\.? (.*)$/gm)]
+  .filter((m) => !/Revogad|VETADO/i.test(m[2])).map((m) => m[1]).find((n) => +n > 20 && !CLARO[lei + ':' + n]);
+const LEI_SEM = Object.keys(ARQUIVO).find((l) => semTraducao(l));
+const NUM_SEM = semTraducao(LEI_SEM);
+const SEM = LEI_SEM + ':' + NUM_SEM;
 
 const browser = await abrirNavegador();
 const { conferir, passo, fim } = placar();
@@ -97,7 +101,7 @@ await passo('Discursiva: o Claude sugere conceitos e erros, e dá para salvar', 
 await passo('Artigo sem tradução escrita: o Claude explica em português claro, com aviso de conferir', async () => {
   await p.click('.aba[data-vista="lei"]');
   if (await p.locator('#vista-lei [data-acao="voltar-lei"]').count()) await p.click('#vista-lei [data-acao="voltar-lei"]');
-  await p.selectOption('#vista-lei select[data-acao="sel-lei"]', 'lei8112');
+  await p.selectOption('#vista-lei select[data-acao="sel-lei"]', LEI_SEM);
   await p.evaluate((k) => document.querySelector('#vista-lei [data-acao="abrir-art"][data-art="' + k + '"]').click(), SEM);
   const n = await p.evaluate(() => window.__pedidos.length);
   await p.click('#vista-lei [data-acao="claro-ia"]');
@@ -136,7 +140,7 @@ await passo('Sem o Claude: some o botão de conferir e fica o Copiar', async () 
 await passo('Sem o Claude, o artigo sem tradução escrita não mostra o botão', async () => {
   await q.click('.aba[data-vista="lei"]');
   if (await q.locator('#vista-lei [data-acao="voltar-lei"]').count()) await q.click('#vista-lei [data-acao="voltar-lei"]');
-  await q.selectOption('#vista-lei select[data-acao="sel-lei"]', 'lei8112');
+  await q.selectOption('#vista-lei select[data-acao="sel-lei"]', LEI_SEM);
   await q.evaluate((k) => document.querySelector('#vista-lei [data-acao="abrir-art"][data-art="' + k + '"]').click(), SEM);
   if (await q.locator('#vista-lei [data-acao="claro-ia"]').count()) throw new Error('botão do Claude sem o Claude');
 });
