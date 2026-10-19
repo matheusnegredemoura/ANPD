@@ -1631,6 +1631,7 @@ function registrarErro(onde, e) {
   ERROS.unshift({ m: linha, p: pilha, t: new Date().toISOString(), v: D.versao, ua: String(navigator.userAgent || '').slice(0, 160) });
   ERROS.length = Math.min(ERROS.length, 5);
   try { S.perfil.erros = ERROS.slice(); Store.salvar('perfil'); } catch (x) { /* sem gravação */ }
+  try { avisar('!', 'Algo falhou nesta tela', linha.slice(0, 120) + ' (detalhes em Mais → Ajustes)'); } catch (x) { /* sem aviso */ }
 }
 window.addEventListener('error', (ev) => registrarErro('', ev.error || ev.message));
 window.addEventListener('unhandledrejection', (ev) => registrarErro('', ev.reason));
@@ -1747,7 +1748,8 @@ function roteiroHoje() {
   const cardsBlocos = blocos.filter((b) => (CARDS_POR_BLOCO.get(b) || []).length);
   const novosDisp = cardsNovos(cardsBlocos.length ? cardsBlocos : null).length;
   const pesqHoje = Object.values(S.pesquisa).filter((p) => p.s && p.f === hojeISO()).length;
-  const stH = dia && dia.modo === 'treino' ? (stDoDia(dia) || subtemaDoDia()) : subtemaDoDia();
+  const stPlano = dia && dia.modo === 'treino' ? stDoDia(dia) : null;
+  const stH = stPlano || subtemaDoDia();
   const dd = discDeHoje();
   const chaveInt = 'i:' + hojeISO();
 
@@ -1805,7 +1807,8 @@ function roteiroHoje() {
     texto: arts.length
       ? 'Leitura atenta dos ' + metaLeitura + ' artigos prioritários com grifos de prazos, verbos e exceções (' + lidosHoje + ' de ' + metaLeitura + ' lidos hoje).'
       : 'Consulte os artigos das normas com destaque para armadilhas Cebraspe.',
-    botoes: arts.length
+    botoes: stPlano ? '<button class="btn pequeno' + (!leiFeita && qTemaFeita ? ' primario' : '') + '" data-acao="st-lei" data-st="' + esc(stPlano.id) + '">Ler os artigos</button>'
+      : arts.length
       ? '<button class="btn pequeno' + (!leiFeita && qTemaFeita ? ' primario' : '') + '" data-acao="ler-dia">Ler artigos (' + lidosHoje + '/' + metaLeitura + ')</button>'
       : '<button class="btn pequeno" data-acao="ir" data-vista="lei">Abrir legislação</button>'
   });
@@ -1816,9 +1819,10 @@ function roteiroHoje() {
     titulo: '4. Aula da trilha & jurisprudência (~15 min)',
     feito: aulaFeita,
     texto: stH
-      ? 'Aula do subtema ' + esc(stH.nome) + ': mapa mental, exemplos e as armadilhas da banca.'
+      ? esc(nomeTrilha(stH.trilha) || 'Trilha do zero') + ': ' + esc(stH.nome) + '. Mapa mental, exemplos e as armadilhas da banca.'
       : 'Sem subtema para hoje: abra uma aula das Trilhas do zero.',
-    botoes: stH ? '<button class="btn pequeno' + (leiFeita && !aulaFeita ? ' primario' : '') + '" data-acao="aula-folha" data-st="' + esc(stH.id) + '" data-marca="1">Abrir aula da trilha</button>' : '<button class="btn pequeno" data-acao="mais" data-sub="trilha">Trilhas do zero</button>'
+    botoes: stPlano ? '<button class="btn pequeno' + (leiFeita && !aulaFeita ? ' primario' : '') + '" data-acao="st-aula" data-st="' + esc(stPlano.id) + '">Abrir a aula</button>'
+      : stH ? '<button class="btn pequeno' + (leiFeita && !aulaFeita ? ' primario' : '') + '" data-acao="aula-folha" data-st="' + esc(stH.id) + '" data-marca="1">Abrir aula da trilha</button>' : '<button class="btn pequeno" data-acao="mais" data-sub="trilha">Trilhas do zero</button>'
   });
 
   // Passo 5: Fixação Prática (~10 min)
@@ -1855,12 +1859,12 @@ function roteiroHoje() {
 
   // Passo 8: Discursiva Focal ou Espelho (~10 min)
   const discOk = (dd ? discFeita(dd) : false) || (d.t && (d.t.d || 0) >= 300) || !!S.perfil.feitos['disc:' + hojeISO()];
-  const tDisc = dd ? temaDisc(dd) : TEMAS_DISC[0];
+  const tDisc = dd ? temaDisc(dd) : TEMAS_DISC[0], atrDisc = dd ? pendencias().filter((x) => x.disc).length : 0;
   passos.push({
     titulo: dd ? '8. Discursiva do dia (~10 min)' : '8. Discursiva ou espelho (~10 min)',
     feito: discOk,
     texto: dd
-      ? 'Tema do dia: ' + esc(tDisc ? tDisc.titulo : 'Tema do edital') + '. Esboce os quesitos ou analise o espelho Cebraspe.'
+      ? 'Tema do dia: ' + esc(tDisc ? tDisc.titulo : 'Tema do edital') + '. Esboce os quesitos ou analise o espelho Cebraspe.' + (atrDisc ? ' Há ' + pl(atrDisc, 'discursiva atrasada', 'discursivas atrasadas') + ': cada uma salva dá baixa primeiro na de hoje e depois na mais antiga.' : '')
       : 'Pratique a estruturação de tópicos e o padrão de resposta Cebraspe de um tema da ANPD.',
     botoes: '<button class="btn pequeno' + (intFeita && !discOk ? ' primario' : '') + '" data-acao="disc-dia" data-t="' + esc((tDisc && tDisc.id) || 'sancoes') + '">Escrever / Ver espelho</button>'
   });
@@ -4086,6 +4090,7 @@ function subtemaDoDia() {
   return cands[Math.floor(Date.parse(hojeISO() + 'T12:00:00Z') / 864e5) % cands.length];
 }
 
+function nomeTrilha(id) { const t = TRILHAS.find((x) => x.id === id); return t ? t.nome : ''; }
 function idsSubtema(id, tipo, n) {
   const qs = POR_TEMA.get(id) || [];
   if (tipo === 'erros') return embaralhar(qs.filter((q) => { const r = rec(q.id); return r && r[0] === 0; }).map((q) => q.id));

@@ -23,10 +23,10 @@ await p.waitForTimeout(600);
 
 const titulos = async () => (await p.locator('.roteiro .passo b').allTextContents()).map((t) => t.trim());
 
-await passo('o roteiro de ' + dia.data + ' traz pré-teste, lei, aula e questões do mesmo subtema, nessa ordem', async () => {
+await passo('o roteiro de ' + dia.data + ' traz questões, lei, aula e prática do mesmo subtema, nessa ordem', async () => {
   const t = await titulos();
   const i = (re) => t.findIndex((x) => re.test(x));
-  const ordem = [i(/^Pré-teste: Os dez princípios/), i(/^Lei seca do dia$/), i(/^Aula do dia$/), i(/^Questões do dia: Os dez princípios/)];
+  const ordem = [i(/^2\. Questões do tema/), i(/^3\. Lei seca/), i(/^4\. Aula/), i(/^5\. Fixação/)];
   if (ordem.some((x) => x < 0) || ordem.some((x, k) => k && x <= ordem[k - 1])) throw new Error(t.join(' | '));
   if (t.some((x) => /^Lei seca grifada$/.test(x))) throw new Error('lei seca repetida no roteiro');
 });
@@ -48,9 +48,9 @@ await passo('a aula dá baixa no passo do roteiro', async () => {
   await p.locator('.roteiro [data-acao="st-aula"]').first().tap();
   await p.waitForTimeout(200);
   await p.click('.aba[data-vista="hoje"]');
-  const feito = await p.locator('.roteiro .passo.feito', { hasText: 'Aula do dia' }).count();
+  const feito = await p.locator('.roteiro .passo.feito', { hasText: '4. Aula' }).count();
   if (!feito) throw new Error('passo da aula sem baixa');
-  const lei = await p.locator('.roteiro .passo.feito', { hasText: 'Lei seca do dia' }).count();
+  const lei = await p.locator('.roteiro .passo.feito', { hasText: '3. Lei seca' }).count();
   conferir('a lei do dia também ficou feita (art. 6º lido)', lei === 1);
 });
 
