@@ -1731,6 +1731,8 @@ function artigosDoDia(dia) { return leituraDoDia(dia).arts; }
 
 
 
+// "Recomeçar do zero" apaga a sessão guardada: vai em "extra" do passo, que o roteiro mostra e o cartão do topo não
+function botaoRecomecar(k) { return pausaDe(k) ? '<button class="btn pequeno" data-acao="descartar-pausa" data-k="' + esc(k) + '">Recomeçar do zero</button>' : ''; }
 function roteiroHoje() {
   const ctx = contextoHoje();
   const dia = ctx.tipo === 'dia' ? ctx.dia : null;
@@ -1784,8 +1786,15 @@ function roteiroHoje() {
     titulo: '2. Questões do tema (~15 min)',
     feito: qTemaFeita,
     texto: qTemaTxt,
-    botoes: qTemaBtns
+    botoes: qTemaBtns,
+    extra: dia ? botaoRecomecar(dia.data) : ''
   });
+
+  // Dias perdidos do plano: a recuperação entra logo depois das questões do dia
+  const rec = proximaRecuperacao(), atrasados = blocosAtrasados();
+  if (rec) passos.push({ titulo: 'Recuperar o atraso', feito: !!S.perfil.feitos['rec:' + hojeISO()],
+    texto: rec.falta.map((f) => nomeBloco(f.b)).join(', ') + (atrasados.length > rec.falta.length ? ' (depois, mais ' + pl(atrasados.length - rec.falta.length, 'matéria', 'matérias') + ')' : '') + '.',
+    botoes: botaoRecuperar() });
 
   // Passo 3: Lei Seca com Grifos (~15 min)
   const metaLeitura = arts.length ? Math.min(arts.length, 6) : 0;
@@ -1840,14 +1849,15 @@ function roteiroHoje() {
     titulo: '7. Treino intercalado (~10 min)',
     feito: intFeita,
     texto: '6 itens rápidos alternando matérias básicas (Português, Inglês, Constitucional e Administrativo).',
-    botoes: '<button class="btn pequeno' + (cardsFeitos && !intFeita ? ' primario' : '') + '" data-acao="intercaladas">' + esc(rotuloPausa(chaveInt, 'Treinar 6 itens intercalados')) + '</button>'
+    botoes: '<button class="btn pequeno' + (cardsFeitos && !intFeita ? ' primario' : '') + '" data-acao="intercaladas">' + esc(rotuloPausa(chaveInt, 'Treinar 6 itens intercalados')) + '</button>',
+    extra: botaoRecomecar(chaveInt)
   });
 
   // Passo 8: Discursiva Focal ou Espelho (~10 min)
   const discOk = (dd ? discFeita(dd) : false) || (d.t && (d.t.d || 0) >= 300) || !!S.perfil.feitos['disc:' + hojeISO()];
   const tDisc = dd ? temaDisc(dd) : TEMAS_DISC[0];
   passos.push({
-    titulo: '8. Discursiva ou espelho (~10 min)',
+    titulo: dd ? '8. Discursiva do dia (~10 min)' : '8. Discursiva ou espelho (~10 min)',
     feito: discOk,
     texto: dd
       ? 'Tema do dia: ' + esc(tDisc ? tDisc.titulo : 'Tema do edital') + '. Esboce os quesitos ou analise o espelho Cebraspe.'

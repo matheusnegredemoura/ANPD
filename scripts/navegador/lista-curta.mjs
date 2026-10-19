@@ -38,7 +38,7 @@ await passo('revisão traz só o vencido e não repete o que já foi revisto hoj
   // A venceu hoje; B foi revisto hoje e volta amanhã; C volta em 2 dias
   const { ctx, p } = await abrir({ 'lgpd-17-01': [0, 0, 0, 1, -1], 'lgpd-21-01': [1, 1, 1, 1, 0], 'lgpd-22-01': [2, 2, 2, 1, -1] });
   const botao = p.locator('.roteiro [data-acao="iniciar-revisao"]');
-  if ((await botao.textContent()).trim() !== 'Questões (1)') throw new Error('botão: ' + (await botao.textContent()));
+  if ((await botao.textContent()).trim() !== 'Revisar questões (1)') throw new Error('botão: ' + (await botao.textContent()));
   await botao.click();
   await p.waitForSelector('#sessao:not([hidden])');
   const tit = (await p.textContent('#sessao .sessao-topo .tit span')).trim();
@@ -55,7 +55,7 @@ await passo('revisão traz só o vencido e não repete o que já foi revisto hoj
 await passo('erro em interpretação de texto não entra na lista curta', async () => {
   const { ctx, p } = await abrir({ 'pt9-01': [0, 0, 0, 1, 0], 'lgpd-17-01': [0, 0, 0, 1, 0] });
   const t = (await p.locator('.roteiro [data-acao="iniciar-revisao"]').textContent()).trim();
-  if (t !== 'Questões (1)') throw new Error('botão: ' + t + ' (o item de texto não deveria contar)');
+  if (t !== 'Revisar questões (1)') throw new Error('botão: ' + t + ' (o item de texto não deveria contar)');
   await ctx.close();
 });
 
