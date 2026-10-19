@@ -118,10 +118,18 @@ export const LEIS = {
     curto: 'Enunciado 1/2023',
     url: 'https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd',
   },
+  guias: {
+    arquivo: 'guias.txt',
+    nome: 'Guias orientativos da ANPD — resumo dos pontos principais (agentes e encarregado, Poder Público, legítimo interesse, cookies, segurança para pequeno porte, anonimização, IA e fiscalização)',
+    curto: 'Guias ANPD',
+    url: 'https://www.gov.br/anpd/pt-br',
+    marcadores: true,
+    aviso: 'Resumo em tópicos dos guias e estudos da ANPD, não o texto oficial deles. Serve para estudar e ligar os itens; antes de citar, confira o guia no site da ANPD.',
+  },
   stfsum: {
     arquivo: 'stfsum.txt',
-    nome: 'Súmulas e teses do STF e do STJ — aplicação selecionada pelos tribunais',
-    curto: 'STF e STJ (súmulas)',
+    nome: 'Súmulas, teses e decisões do STF e do STJ (e os casos Schrems, do TJUE)',
+    curto: 'Jurisprudência',
     url: 'https://portal.stf.jus.br/',
     marcadores: true,
   },
@@ -385,7 +393,7 @@ export const LEIS = {
 
 // Grupos do seletor da lei seca, na ordem em que aparecem. Toda norma de LEIS entra em exatamente um grupo.
 export const GRUPOS_LEIS = [
-  ['LGPD e normas da ANPD', ['lgpd', 'lei15352', 'estrutura', 'dec12881', 'regimento', 'res1', 'res2', 'res4', 'res4ap', 'res15', 'res18', 'res19r', 'res19', 'res19c', 'res30', 'res31', 'res32', 'enun1']],
+  ['LGPD e normas da ANPD', ['lgpd', 'lei15352', 'estrutura', 'dec12881', 'regimento', 'guias', 'res1', 'res2', 'res4', 'res4ap', 'res15', 'res18', 'res19r', 'res19', 'res19c', 'res30', 'res31', 'res32', 'enun1']],
   ['ECA Digital, internet e plataformas', ['lei15211', 'dec12880', 'dec12622', 'eca', 'mci', 'dec8771', 'dec12976', 'lei14852']],
   ['Regulação, agências e carreira', ['lei13848', 'lei9986', 'lei10871', 'dec10411', 'lei13874', 'lc182']],
   ['Governança e gestão pública', ['dec9203', 'inmpcgu1', 'dec10046']],
@@ -394,7 +402,7 @@ export const GRUPOS_LEIS = [
   ['Direito administrativo', ['lei9784', 'lindb', 'dec9830', 'lai', 'dec7724', 'lei13460', 'lei8429', 'lei12846', 'lei12813', 'lei8112', 'dec1171', 'lei9507', 'dl200', 'lei14133', 'lei8987', 'lei14129']],
   ['Segurança da informação', ['dec12572', 'dec11856', 'dec10748', 'ingsi1', 'nistcsf']],
   ['Direito comparado (Europa)', ['gdpr', 'conv108']],
-  ['Jurisprudência do STF e do STJ', ['stfsum']],
+  ['Jurisprudência (STF, STJ e TJUE)', ['stfsum']],
 ];
 
 // Unidade da norma: artigo, cláusula (cláusulas-padrão), apêndice, anexo ou enunciado.

@@ -1,0 +1,85 @@
+{
+  "nota": "As armadilhas que mais derrubam na ANPD, trazidas do Painel ANPD que o usuário enviou em 18/10/2026. Aparecem em Como o Cebraspe cobra; \"bloco\" abre o treino e \"art\" aponta o dispositivo (lei:artigo; só o número para a LGPD).",
+  "armadilhas": [
+    {
+      "id": "arm-1",
+      "bloco": "lgpd-5-11",
+      "titulo": "Legítimo interesse em dados sensíveis ou no Poder Público",
+      "errado": "Aplicar o legítimo interesse (art. 10) a dados pessoais sensíveis ou a atos de império do Poder Público.",
+      "certo": "Legítimo interesse só vale para dados NÃO sensíveis (art. 7º, IX) e não se aplica a atividades típicas de Estado (Guia Poder Público).",
+      "art": "guias:5"
+    },
+    {
+      "id": "arm-2",
+      "bloco": "res-15-2024",
+      "titulo": "Prazo de comunicação de incidente: 3 dias úteis × 72 horas",
+      "errado": "Dizer que na LGPD/ANPD o prazo de comunicação de incidente é de 72 horas corridas ou 2 dias úteis.",
+      "certo": "A Res. CD/ANPD nº 15/2024 fixou 3 dias úteis (6 dias úteis para Agentes de Pequeno Porte) e guarda do registro por 5 anos.",
+      "art": "res15:6"
+    },
+    {
+      "id": "arm-3",
+      "bloco": "lgpd-52-54",
+      "titulo": "Teto da multa na LGPD × GDPR e proibição de multa a órgão público",
+      "errado": "Dizer que a multa da LGPD chega a 4% do faturamento global (GDPR) ou que se aplica a autarquias e municípios.",
+      "certo": "Na LGPD a multa é de até 2% do faturamento no Brasil, limitada a R$ 50 milhões por infração, e NUNCA se aplica a entidades e órgãos públicos (art. 52, § 3º).",
+      "art": "52"
+    },
+    {
+      "id": "arm-4",
+      "bloco": "lgpd-52-54",
+      "titulo": "Suspensão de banco de dados ou atividade sem sanção prévia",
+      "errado": "Afirmar que a advertência isolada habilita a aplicação de suspensão parcial do banco de dados ou da atividade.",
+      "certo": "As suspensões (art. 52, X e XI, máx. 6 meses + 6 meses) exigem que já tenha sido imposta ao menos 1 das sanções dos incisos II, III, IV, V ou VI no mesmo caso (§ 6º).",
+      "art": "52"
+    },
+    {
+      "id": "arm-5",
+      "bloco": "res-18-2024",
+      "titulo": "Encarregado (DPO): pessoa jurídica e responsabilidade final",
+      "errado": "Dizer que o encarregado deve ser obrigatoriamente pessoa natural ou que responde solidariamente perante a ANPD.",
+      "certo": "Pela Res. nº 18/2024, o encarregado pode ser pessoa natural ou jurídica (ato formal, art. 3º), e a responsabilidade final pela conformidade é exclusiva do agente de tratamento (art. 17).",
+      "art": "res18:17"
+    },
+    {
+      "id": "arm-6",
+      "bloco": "res-2-2022",
+      "titulo": "Agentes de Pequeno Porte (APP) em tratamento de alto risco",
+      "errado": "Conceder dispensa de encarregado e prazos em dobro a startup ou microempresa que realiza tratamento de alto risco.",
+      "certo": "Quem realiza tratamento de alto risco (1 critério geral + 1 específico, art. 4º da Res. 2/2022) perde o direito ao tratamento diferenciado de pequeno porte.",
+      "art": "res2:3"
+    },
+    {
+      "id": "arm-7",
+      "bloco": "res-19-2024",
+      "titulo": "Alteração unilateral de Cláusulas-Padrão Contratuais",
+      "errado": "Admitir que o controlador adapte livremente o texto das Cláusulas-Padrão do Anexo II da Res. 19/2024.",
+      "certo": "Cláusulas-Padrão só valem se adotadas integralmente e sem alterações; texto adaptado exige aprovação prévia do Conselho Diretor como cláusulas específicas.",
+      "art": "res19:16"
+    },
+    {
+      "id": "arm-8",
+      "bloco": "lgpd-12-16",
+      "titulo": "Dado pseudonimizado × Dado anonimizado",
+      "errado": "Dizer que a pseudonimização afasta a aplicação da LGPD por substituir o nome por um código.",
+      "certo": "O dado pseudonimizado (art. 13, § 4º) permite reidentificação mediante informação adicional mantida pelo controlador e CONTINUA sendo dado pessoal sujeito à LGPD.",
+      "art": "guias:8"
+    },
+    {
+      "id": "arm-9",
+      "bloco": "eca-digital",
+      "titulo": "ECA Digital (Lei 15.211/2025): alcance e privacidade por padrão",
+      "errado": "Restringir o ECA Digital apenas a aplicativos exclusivamente infantis ou permitir perfilamento comercial de adolescentes.",
+      "certo": "Aplica-se a serviços direcionados ou de acesso provável por crianças e adolescentes, exige alto nível de privacidade por padrão e veda perfilamento para publicidade e loot boxes.",
+      "art": "lei15211:3"
+    },
+    {
+      "id": "arm-10",
+      "bloco": "lei-13848",
+      "titulo": "Lei das Agências (Lei 13.848/2019): mandato, quarentena e consulta pública",
+      "errado": "Falar em mandato de 4 anos com recondução ou consulta pública mínima de 30 dias.",
+      "certo": "Mandato de 5 anos sem recondução, quarentena de 6 meses (Lei 9.986) e consulta pública com prazo mínimo de 45 dias (salvo urgência motivada).",
+      "art": "lei13848:9"
+    }
+  ]
+}

@@ -3170,7 +3170,7 @@ function renderMais() {
   else if (sub === 'glossario') el.innerHTML = voltarMais() + renderGlossario();
   else if (sub === 'metodo') el.innerHTML = voltarMais() + renderMetodo();
   else if (sub === 'cebraspe') el.innerHTML = voltarMais() + renderCebraspe();
-  else if (sub === 'discursiva') el.innerHTML = (UI.discTema ? '' : voltarMais()) + renderDiscursiva();
+  else if (sub === 'discursiva') el.innerHTML = (UI.discTema ? '' : voltarMais()) + renderDiscursiva() + (UI.discTema ? '' : htmlEsqueletos());
   else if (sub === 'contestacoes') el.innerHTML = voltarMais() + renderContestacoes();
   else if (sub === 'trilha') el.innerHTML = (UI.subtema ? '' : voltarMais()) + renderTrilhas();
   else if (sub === 'ajustes') el.innerHTML = voltarMais() + renderAjustes();
@@ -3807,6 +3807,9 @@ function renderCebraspe() {
       (d.exemplos.length ? '<div class="campo"><span class="rot">Abrir item real</span><div class="chips">' + d.exemplos.map(chip).join('') + '</div></div>' : '') +
       (nReais ? '<div class="linha-btns"><button class="btn" data-acao="reais-disc" data-d="' + esc(d.id) + '">Treinar ' + pl(nReais, 'item real', 'itens reais') + '</button></div>' : '<p class="pequeno mudo">Sem item real desta matéria no banco ainda.</p>') + '</div>';
   }
+  if (D.armadilhasANPD && D.armadilhasANPD.length) html += '<div class="cartao cb-disc" id="cb-armadilhas-anpd"><h2>As ' + D.armadilhasANPD.length + ' armadilhas que mais derrubam na ANPD</h2>' +
+    D.armadilhasANPD.map((a) => '<div class="gloss-item"><b>' + esc(a.titulo) + '</b><p class="pequeno"><span class="selo p1">Errado</span> ' + esc(a.errado) + '</p><p class="pequeno"><span class="selo ok">Certo</span> ' + esc(a.certo) + '</p>' +
+      '<div class="linha-btns"><button class="btn pequeno" data-acao="treinar-bloco" data-bloco="' + esc(a.bloco) + '">Treinar bloco</button></div></div>').join('') + '</div>';
   const ds = cb.discursiva;
   html += '<div class="cartao cb-disc" id="cb-discursiva"><h2>Discursiva</h2><ul class="lista-cb">' + ds.formato.map(li).join('') + '</ul>' +
     '<h3>O que caiu e como foi pontuado</h3><ul class="lista-cb">' + ds.caiu.map(li).join('') + '</ul>' +
@@ -3834,6 +3837,7 @@ function renderAjustes() {
   const linha = (rot, val, ok) => '<tr><td>' + rot + '</td><td class="' + (ok === true ? 'ok' : ok === false ? 'no' : '') + '">' + esc(val) + '</td></tr>';
   const st = (v) => (v === 'ok' ? true : v === '—' ? null : false);
   return '<div class="secao-cab"><h2>Ajustes</h2></div>' +
+    '<div class="cartao destaque"><h2>Sincronizar com o Painel TCU</h2><p class="pequeno">Traz as respostas, cards e artigos lidos do tronco comum (Constitucional, Administrativo, LAI, Línguas, Gestão, Economia e Contabilidade) feitos no Painel TCU neste navegador. Fica o registro mais recente de cada item; nada é apagado.</p><div class="linha-btns"><button class="btn primario" data-acao="sync-tcu">⇄ Trazer progresso do Painel TCU</button></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha fica salva na sua conta, como as demais preferências.</p></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' + metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div></div>' +
     '<div class="campo"><span class="rot">Questões intercaladas por dia</span><div class="chips">' + inter.map((m) => '<button class="chip" data-acao="intercaladas-n" data-n="' + m + '" aria-pressed="' + ((S.perfil.intercaladas == null ? 30 : S.perfil.intercaladas) === m) + '">' + (m || 'Desligar') + '</button>').join('') + '</div><p class="pequeno mudo">Metade das matérias básicas, metade dos blocos já estudados, misturadas. Em dia pesado de revisão a sessão encolhe sozinha.</p></div>' +
@@ -3857,6 +3861,36 @@ function renderAjustes() {
     '<div class="linha-btns"><button class="btn" data-acao="permissoes">Abrir permissões do app</button><button class="btn" data-acao="tentar-gravar">Tentar gravar de novo</button>' + (ERROS.length ? '<button class="btn" data-acao="copiar-erros">Copiar os erros</button>' : '') + '</div></div>' +
     '<div class="cartao"><h2>Banco de conteúdo</h2><p class="pequeno mudo">' + Q.length + ' questões · ' + CARDS.length + ' cards cloze · ' + GLOSS.length + ' termos · versão ' + esc(D.versao) + '</p></div>' +
     '<div class="cartao"><h2>Recomeçar do zero</h2><p class="pequeno mudo">Apaga XP, respostas, cards, sequência, simulados, discursivas e lista de pesquisa.</p><div id="zona-zerar"><button class="btn" data-acao="zerar">Zerar progresso</button></div></div>';
+}
+
+function htmlEsqueletos() {
+  const ests = (D.discursivas && D.discursivas.estruturas) || [];
+  if (!ests.length) return '';
+  return '<div class="cartao esq"><h2>Esqueletos de peça e parecer (ANPD)</h2><p class="pequeno mudo">Domine os três moldes antes de treinar velocidade. Copie e preencha os colchetes com os fatos do enunciado.</p>' +
+    ests.map((e) => '<details><summary><b>' + esc(e.nome) + '</b></summary><p class="pequeno"><b>Quando usar:</b> ' + esc(e.uso) + '</p><pre>' + esc(e.modelo) + '</pre></details>').join('') + '</div>';
+}
+// Sincronização inversa: traz do Painel TCU (mesmo navegador) as respostas, cards e leituras do tronco comum
+function sincronizarDoTCU() {
+  const origem = lerLS('painel-tcu-v1');
+  if (!origem || (!origem.itens && !origem.perfil)) { avisar('!', 'Painel TCU não encontrado neste navegador', 'Abra o Painel TCU neste mesmo navegador ao menos uma vez.'); return; }
+  let nItens = 0, nCards = 0, nLidos = 0;
+  const num = (x) => Number(x) || 0;
+  for (const [id, r] of Object.entries(origem.itens || {})) {
+    if (!QI.has(id) || !Array.isArray(r)) continue;
+    const at = S.itens[id];
+    if (!at || num(r[4]) > num(at[4]) || (num(r[4]) === num(at[4]) && num(r[2]) + num(r[3]) > num(at[2]) + num(at[3]))) { S.itens[id] = r.slice(); Store.itensSujos.add(parteItem(id)); nItens++; }
+  }
+  for (const [id, c] of Object.entries(origem.cards || {})) {
+    if (!CI.has(id) || !Array.isArray(c)) continue;
+    const at = S.cards[id];
+    if (!at || num(c[5]) > num(at[5])) { S.cards[id] = c.slice(); nCards++; }
+  }
+  S.perfil.lidos ||= {};
+  for (const [k, dt] of Object.entries((origem.perfil && origem.perfil.lidos) || {})) {
+    if (ARTI.has(k) && (!S.perfil.lidos[k] || dt < S.perfil.lidos[k])) { S.perfil.lidos[k] = dt; nLidos++; }
+  }
+  Store.salvarTudo(); renderTudo();
+  avisar('⇄', 'Tronco comum trazido do Painel TCU', pl(nItens, 'questão', 'questões') + ', ' + pl(nCards, 'card', 'cards') + ' e ' + pl(nLidos, 'artigo lido', 'artigos lidos') + ' aproveitados.');
 }
 
 /* ================= Backup ================= */
@@ -4210,6 +4244,7 @@ async function executar(a, alvo) {
       Store.salvarTudo(); renderTudo(); avisar('0', 'Progresso zerado', 'Status dos blocos, metas e preferências foram mantidos.');
       break;
     case 'copiar-erros': if (await copiarTexto(JSON.stringify(ERROS, null, 1))) avisar('✓', 'Erros copiados', 'Cole na conversa com o Claude.'); break;
+    case 'sync-tcu': sincronizarDoTCU(); break;
     default: break;
   }
 }

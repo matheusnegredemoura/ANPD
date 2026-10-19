@@ -3,52 +3,112 @@
     {
       "id": "lgpd",
       "nome": "LGPD e normas da ANPD",
-      "peso": "MÁXIMO"
+      "peso": "MÁXIMO",
+      "curto": "LGPD e ANPD",
+      "faixa": "28–35%",
+      "prio": "A",
+      "blocoProva": "Específicos (Peso 2)",
+      "pontoPartida": "Núcleo Central",
+      "degrau": 1
     },
     {
       "id": "regulacao",
       "nome": "Regulação e processo sancionador",
-      "peso": "ALTO"
+      "peso": "ALTO",
+      "curto": "Regulação e Proc.",
+      "faixa": "12–16%",
+      "prio": "A",
+      "blocoProva": "Básicos + Específicos",
+      "pontoPartida": "Alta Prioridade",
+      "degrau": 2
     },
     {
       "id": "eca",
       "nome": "ECA Digital, plataformas e IA",
-      "peso": "ALTO"
+      "peso": "ALTO",
+      "curto": "ECA Digital e IA",
+      "faixa": "8–12%",
+      "prio": "A",
+      "blocoProva": "Específicos (Peso 2)",
+      "pontoPartida": "Novidade 2025/2026",
+      "degrau": 3
     },
     {
       "id": "seginfo",
       "nome": "Segurança da informação e privacidade",
-      "peso": "MÉDIO-ALTO"
+      "peso": "MÉDIO-ALTO",
+      "curto": "Seg. da Informação",
+      "faixa": "8–12%",
+      "prio": "A",
+      "blocoProva": "Específicos (Peso 2)",
+      "pontoPartida": "Técnico Essencial",
+      "degrau": 3
     },
     {
       "id": "direito",
       "nome": "Direito administrativo e constitucional",
-      "peso": "MÉDIO"
+      "peso": "MÉDIO",
+      "curto": "Const. e Adm.",
+      "faixa": "12–16%",
+      "prio": "B",
+      "blocoProva": "Básicos (Peso 1)",
+      "pontoPartida": "Tronco Comum TCU",
+      "degrau": 4
     },
     {
       "id": "comparado",
       "nome": "Comparado e transferência internacional (GDPR e Convenção 108+)",
-      "peso": "MÉDIO"
+      "peso": "MÉDIO",
+      "curto": "GDPR e Conv. 108+",
+      "faixa": "4–6%",
+      "prio": "B",
+      "blocoProva": "Específicos (Peso 2)",
+      "pontoPartida": "Diferencial",
+      "degrau": 4
     },
     {
       "id": "economia",
       "nome": "Economia, estatística e avaliação",
-      "peso": "MÉDIO"
+      "peso": "MÉDIO",
+      "curto": "Economia e Estat.",
+      "faixa": "3–5%",
+      "prio": "B",
+      "blocoProva": "Específicos (Peso 2)",
+      "pontoPartida": "Vantagem Quant.",
+      "degrau": 5
     },
     {
       "id": "gestao",
       "nome": "Gestão pública, políticas públicas e dados",
-      "peso": "MÉDIO"
+      "peso": "MÉDIO",
+      "curto": "Gestão e Dados",
+      "faixa": "5–8%",
+      "prio": "B",
+      "blocoProva": "Específicos (Peso 2)",
+      "pontoPartida": "Tronco Comum TCU",
+      "degrau": 5
     },
     {
       "id": "linguas",
       "nome": "Português e inglês",
-      "peso": "BASE"
+      "peso": "BASE",
+      "curto": "Português e Inglês",
+      "faixa": "12–18%",
+      "prio": "C",
+      "blocoProva": "Básicos (Peso 1)",
+      "pontoPartida": "Base Contínua",
+      "degrau": 6
     },
     {
       "id": "contabil",
       "nome": "Contabilidade e finanças públicas",
-      "peso": "BAIXO"
+      "peso": "BAIXO",
+      "curto": "Orçamento e Contab.",
+      "faixa": "2–4%",
+      "prio": "C",
+      "blocoProva": "Específicos (Peso 2)",
+      "pontoPartida": "Tronco Comum TCU",
+      "degrau": 6
     }
   ],
   "blocos": [
@@ -72,7 +132,9 @@
         "Razões do veto ao § 3º do art. 20 (revisão por pessoa natural) na Lei 13.853/2019",
         "Portabilidade de dados e a regulamentação pela ANPD",
         "Tutela coletiva de dados pessoais: ação civil pública (art. 22)"
-      ]
+      ],
+      "prio": "A",
+      "hist": "Core LGPD"
     },
     {
       "id": "lgpd-52-54",
@@ -91,7 +153,9 @@
         "Multa diária como medida coercitiva e seus limites",
         "Fundo de Defesa de Direitos Difusos (Lei 7.347/1985, art. 13)",
         "Derrubada dos vetos à Lei 13.853/2019 nos incisos X a XII do art. 52"
-      ]
+      ],
+      "prio": "A",
+      "hist": "Core LGPD"
     },
     {
       "id": "lgpd-55",
@@ -128,7 +192,9 @@
         "Quarentena da Lei 12.813/2013 (conflito de interesses)",
         "Compromisso do art. 26 da LINDB",
         "Composição e funcionamento do CNPD na prática"
-      ]
+      ],
+      "prio": "A",
+      "hist": "Core LGPD"
     },
     {
       "id": "lgpd-33-36",
@@ -148,7 +214,9 @@
         "Normas corporativas globais (binding corporate rules no GDPR)",
         "Schrems II e o fim do Privacy Shield",
         "Diferença entre transferência internacional e coleta internacional"
-      ]
+      ],
+      "prio": "A",
+      "hist": "Core LGPD"
     },
     {
       "id": "lgpd-5-11",
@@ -171,7 +239,9 @@
         "O que vicia o consentimento (art. 8º, § 3º)",
         "Bases legais do Poder Público e o guia da ANPD",
         "Princípio da responsabilização e prestação de contas (accountability)"
-      ]
+      ],
+      "prio": "A",
+      "hist": "Core LGPD"
     },
     {
       "id": "lgpd-12-16",
@@ -190,7 +260,9 @@
         "Guia de anonimização da ANPD (art. 12, § 3º, Fase 1 da Agenda Regulatória)",
         "Reidentificação: casos Netflix Prize e AOL",
         "Prazo de retenção e eliminação de dados"
-      ]
+      ],
+      "prio": "B",
+      "hist": "Core LGPD"
     },
     {
       "id": "lgpd-23-32",
@@ -215,7 +287,9 @@
         "Compartilhamento de dados no Poder Público: Decreto 10.046/2019 e ADI 6.649",
         "Guia da ANPD para tratamento de dados pelo Poder Público",
         "Estatais em regime de concorrência (CF, art. 173)"
-      ]
+      ],
+      "prio": "B",
+      "hist": "Core LGPD"
     },
     {
       "id": "lgpd-46-51",
@@ -236,7 +310,9 @@
         "Privacy by design e privacy by default",
         "Programa de governança em privacidade: o que uma auditoria verifica",
         "Códigos de conduta e selos de certificação"
-      ]
+      ],
+      "prio": "B",
+      "hist": "Core LGPD"
     },
     {
       "id": "lgpd-37-45",
@@ -260,7 +336,9 @@
         "Controladoria conjunta e responsabilidade solidária",
         "Responsabilidade civil na LGPD: objetiva ou subjetiva? (debate doutrinário)",
         "Inversão do ônus da prova: CDC, art. 6º, VIII, e LGPD, art. 42, § 2º"
-      ]
+      ],
+      "prio": "C",
+      "hist": "Core LGPD"
     },
     {
       "id": "lgpd-1-4-14",
@@ -286,7 +364,9 @@
         "Anteprojeto de LGPD Penal (segurança pública e investigação)",
         "Melhor interesse da criança: LGPD, art. 14, e ECA Digital",
         "Aplicação extraterritorial: LGPD, art. 3º, × GDPR, art. 3º"
-      ]
+      ],
+      "prio": "C",
+      "hist": "Core LGPD"
     },
     {
       "id": "res-1-2021",
@@ -371,7 +451,9 @@
         "69",
         "70",
         "71"
-      ]
+      ],
+      "prio": "A",
+      "hist": "Res. ANPD"
     },
     {
       "id": "res-4-2023",
@@ -413,7 +495,9 @@
         "26",
         "27",
         "28"
-      ]
+      ],
+      "prio": "A",
+      "hist": "Res. ANPD"
     },
     {
       "id": "res-15-2024",
@@ -451,7 +535,9 @@
         "22",
         "23",
         "24"
-      ]
+      ],
+      "prio": "A",
+      "hist": "Novo 2024–2026"
     },
     {
       "id": "res-19-2024",
@@ -498,7 +584,9 @@
         "32",
         "33",
         "34"
-      ]
+      ],
+      "prio": "B",
+      "hist": "Novo 2024–2026"
     },
     {
       "id": "res-18-2024",
@@ -533,7 +621,9 @@
         "19",
         "20",
         "21"
-      ]
+      ],
+      "prio": "B",
+      "hist": "Novo 2024–2026"
     },
     {
       "id": "res-2-2022",
@@ -563,7 +653,9 @@
         "14",
         "15",
         "16"
-      ]
+      ],
+      "prio": "B",
+      "hist": "Res. ANPD"
     },
     {
       "id": "res-32-2026",
@@ -582,7 +674,9 @@
         "4",
         "5",
         "6"
-      ]
+      ],
+      "prio": "B",
+      "hist": "Novo 2024–2026"
     },
     {
       "id": "lei-13848",
@@ -650,7 +744,9 @@
         "51",
         "52",
         "53"
-      ]
+      ],
+      "prio": "A",
+      "hist": "Anatel/ANAC 24"
     },
     {
       "id": "lei-9784",
@@ -746,7 +842,9 @@
         "69",
         "69-A",
         "70"
-      ]
+      ],
+      "prio": "A",
+      "hist": "Anatel/ANAC 24"
     },
     {
       "id": "regulacao-teoria",
@@ -759,7 +857,9 @@
         "Regulação responsiva (Ayres e Braithwaite)",
         "Sandbox regulatório (LC 182/2021)",
         "Regulação baseada em risco"
-      ]
+      ],
+      "prio": "A",
+      "hist": "Anatel/ANAC 24"
     },
     {
       "id": "administrativo",
@@ -772,7 +872,9 @@
         "Poder de polícia: ciclo e delegação",
         "Anulação × revogação (Súmula 473 do STF)",
         "Controle da administração: interno, externo e judicial"
-      ]
+      ],
+      "prio": "B",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "lai",
@@ -803,7 +905,9 @@
         "LAI × LGPD: informação pessoal e transparência",
         "Transparência ativa × transparência passiva",
         "Comissão Mista de Reavaliação de Informações"
-      ]
+      ],
+      "prio": "B",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "etica-improbidade",
@@ -824,7 +928,9 @@
         "Reforma da Lei de Improbidade (Lei 14.230/2021)",
         "Acordo de leniência e programa de integridade",
         "Conflito de interesses e quarentena no Executivo federal"
-      ]
+      ],
+      "prio": "B",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "eca-digital",
@@ -883,7 +989,9 @@
         "40",
         "41",
         "41-A"
-      ]
+      ],
+      "prio": "A",
+      "hist": "Novo 2024–2026"
     },
     {
       "id": "marco-civil",
@@ -913,7 +1021,9 @@
         "STF, Tema 987: responsabilidade de plataformas por conteúdo de terceiros",
         "Decreto 12.975/2026: dever de cuidado e falha sistêmica",
         "Neutralidade de rede e zero rating"
-      ]
+      ],
+      "prio": "B",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "ia",
@@ -925,7 +1035,9 @@
         "ANPD: Radar Tecnológico — inteligência artificial generativa",
         "ANPD: Sandbox regulatório de IA e proteção de dados",
         "Explicabilidade de modelos de aprendizado de máquina e o art. 20 da LGPD"
-      ]
+      ],
+      "prio": "B",
+      "hist": "Novo 2024–2026"
     },
     {
       "id": "seginfo",
@@ -938,7 +1050,9 @@
         "NIST Cybersecurity Framework 2.0",
         "Criptografia simétrica × assimétrica",
         "k-anonimato, l-diversidade e privacidade diferencial"
-      ]
+      ],
+      "prio": "B",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "constitucional",
@@ -961,7 +1075,9 @@
         "52",
         "60",
         "84"
-      ]
+      ],
+      "prio": "B",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "lei-13460",
@@ -999,7 +1115,9 @@
       "pesquisar": [
         "Lei 13.460/2017: direitos básicos do usuário e Carta de Serviços",
         "Decreto 9.492/2018: Sistema de Ouvidoria do Poder Executivo federal"
-      ]
+      ],
+      "prio": "A",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "gdpr",
@@ -1013,7 +1131,9 @@
         "Diretrizes do EDPB mais citadas",
         "Efeito Bruxelas",
         "Convenção 108+: quem já ratificou o Protocolo STCE 223"
-      ]
+      ],
+      "prio": "B",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "economia",
@@ -1026,7 +1146,9 @@
         "Seleção adversa × risco moral",
         "Testes de hipótese: erros tipo I e II, valor-p",
         "Avaliação de impacto: diferenças em diferenças e experimentos aleatorizados"
-      ]
+      ],
+      "prio": "B",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "ingles",
@@ -1037,7 +1159,9 @@
       "pesquisar": [
         "Estratégias de leitura para itens de inglês do Cebraspe",
         "Falsos cognatos comuns em textos de regulação"
-      ]
+      ],
+      "prio": "C",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "portugues",
@@ -1049,7 +1173,9 @@
         "Colocação pronominal: casos de próclise obrigatória",
         "Crase: casos obrigatórios e proibidos",
         "Funções do pronome relativo “que”"
-      ]
+      ],
+      "prio": "C",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "gestao-publica",
@@ -1061,7 +1187,9 @@
         "Leonardo Secchi, Políticas públicas: conceitos, esquemas de análise, casos práticos",
         "Ciclo de políticas públicas: agenda, formulação, implementação, avaliação",
         "PMBOK: planos de gerenciamento do projeto"
-      ]
+      ],
+      "prio": "B",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "dados-bi",
@@ -1073,7 +1201,9 @@
         "Dimensões da qualidade de dados (DAMA-DMBOK)",
         "Business intelligence × business analytics",
         "Bancos de dados NoSQL de documentos"
-      ]
+      ],
+      "prio": "C",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "riscos",
@@ -1085,7 +1215,9 @@
         "ABNT NBR ISO 31000: princípios, estrutura e processo de gestão de riscos",
         "IIA: modelo das três linhas (2020)",
         "Matriz de probabilidade e impacto e apetite a risco"
-      ]
+      ],
+      "prio": "C",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "orcamento",
@@ -1105,7 +1237,9 @@
         "Créditos adicionais: suplementares, especiais e extraordinários",
         "Estágios da despesa: empenho, liquidação e pagamento",
         "LRF: limites de despesa com pessoal e relatórios (RREO e RGF)"
-      ]
+      ],
+      "prio": "C",
+      "hist": "PSS 25 · Base"
     },
     {
       "id": "contabilidade",
@@ -1117,13 +1251,15 @@
         "Características qualitativas fundamentais e de melhoria (CPC 00 R2)",
         "Provisão, passivo contingente e ativo contingente (CPC 25)",
         "Hierarquia do valor justo (CPC 46)"
-      ]
+      ],
+      "prio": "C",
+      "hist": "PSS 25 · Base"
     }
   ],
   "faltam": [
-    "Edital do concurso da ANPD, assim que sair: disciplinas, pesos, conteúdo e regras de pontuação. É o que mais muda o plano.",
-    "Guias orientativos e regulamentos novos da ANPD (legítimo interesse, tratamento pelo Poder Público, encarregado, incidentes, cookies, anonimização e pseudonimização) e o regimento interno vigente, se houver um mais novo que o de 2021. A LGPD é cerca de 30% da prova, e esses textos são a interpretação da própria ANPD.",
-    "Itens reais do Cebraspe do seu outro banco de questões (LGPD, regulação, português e inglês), colados como antes.",
-    "Nada além disso é necessário. Jurisprudência, guias de governança, textos da Anatel e leis de prioridade baixa só tirariam o aviso “confira na fonte” de poucos itens do banco."
+    "Edital oficial do concurso efetivo da ANPD, assim que publicado: confirmar o quadro exato de disciplinas, pesos, conteúdo, regras de pontuação e número de linhas da discursiva. É o que mais muda o plano.",
+    "Texto oficial dos guias orientativos da ANPD (agentes e encarregado, Poder Público, legítimo interesse, cookies, segurança para pequeno porte, anonimização e pseudonimização). Hoje o painel tem um resumo deles em tópicos, não o texto; com o original, os itens e cards dos guias passam a conferir com a fonte. Vale também para resoluções ou guias que o Conselho Diretor aprovar até o edital e para regimento interno mais novo que o de 2021.",
+    "E-Ciber (Decreto 10.222/2020) e Manual de Redação da Presidência da República: são os textos que faltam para conferir os poucos itens que ainda pedem confira na fonte (combate à pirataria de software, impessoalidade e pronomes de tratamento na redação oficial).",
+    "Itens reais do Cebraspe do seu outro banco de questões (LGPD, regulação, português e inglês), colados como antes."
   ]
 }

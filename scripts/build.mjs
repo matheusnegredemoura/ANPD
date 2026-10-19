@@ -47,12 +47,15 @@ const NOMES_FONTE = {
 };
 
 // Unidades que não são artigos
-const UNIDADE = { res19c: 'cláusula', res4ap: 'Apêndice', enun1: 'Enunciado' };
+const UNIDADE = { res19c: 'cláusula', res4ap: 'Apêndice', enun1: 'Enunciado', guias: 'tema' };
 
 function rotuloArtigo(art) {
   if (/^\d$/.test(art)) return `art. ${art}º`;
   return `art. ${art}`;
 }
+
+// Rótulo de cada unidade da jurisprudência anexada (fontes/stfsum.txt), preenchido em montarDados
+const ROTULO_JURIS = new Map();
 
 export function rotuloRef(ref) {
   const r = parseRef(ref);
@@ -62,6 +65,12 @@ export function rotuloRef(ref) {
   if (r.lei === 'decreto') return 'Decreto nº ' + r.art.replace(/(\d+)(\d{3})$/, '$1.$2') + '/2020';
   if (r.lei === 'lc') return 'Lei Complementar nº ' + r.art + '/2021';
   if (r.lei === 'stf') return 'STF · ' + ref.slice(4).trim();
+  // Jurisprudência anexada: tribunal e nome curto da unidade ("STF · Tema 532 (RE 633.782)", "STJ · Súmula 37")
+  if (r.lei === 'stfsum' && ROTULO_JURIS.has(r.art)) {
+    const trib = r.art.startsWith('STJ') ? 'STJ' : r.art === 'SCHREMS' ? 'TJUE' : 'STF';
+    const nome = r.art === 'SCHREMS' ? 'Schrems I e II (C-362/14 e C-311/18)' : ROTULO_JURIS.get(r.art).split(' — ')[0].replace(/ do STJ$/, '');
+    return trib + ' · ' + nome + (r.disp ? ', ' + r.disp : '');
+  }
   if (r.lei === 'tjue') {
     const caso = ref.slice(5).trim();
     const apelido = { 'C-311/18': 'Schrems II', 'C-362/14': 'Schrems I' }[caso];
@@ -129,6 +138,7 @@ export function montarDados() {
   }
   const { disciplinas, blocos, faltam } = JSON.parse(ler('questoes', 'blocos.json'));
   const cronograma = JSON.parse(ler('dados', 'cronograma.json'));
+  if (leis.stfsum) for (const a of leis.stfsum.lei.artigos) ROTULO_JURIS.set(a.id, a.rotulo);
   const { lista, apoios } = compactar(questoes, new Set(Object.keys(leis)));
   // Página "Como o Cebraspe cobra": cada disciplina e cada item real citado precisam existir no banco
   const cebraspe = JSON.parse(ler('dados', 'cebraspe.json'));
@@ -144,6 +154,15 @@ export function montarDados() {
   for (const t of discursivas.temas) {
     if (!t.id || !t.comando || !t.aspectos.length || ![15, 30].includes(t.linhas) || !t.pontos || !t.fatorErro) errosCb.push(`discursivas.json (${t.id}): campos obrigatórios`);
     for (const q of t.quesitos) if (q.conceitos.length !== q.max + 1 || !q.esperado.length) errosCb.push(`discursivas.json (${t.id}, ${q.titulo}): ${q.conceitos.length} conceitos para nota máxima ${q.max}`);
+  }
+  for (const e of discursivas.estruturas || []) if (!e.id || !e.nome || !e.uso || !e.modelo) errosCb.push(`discursivas.json (esqueleto ${e.id}): campos obrigatórios`);
+  // Armadilhas que mais derrubam na ANPD (Como o Cebraspe cobra): o bloco abre o treino e o artigo precisa existir
+  const { armadilhas: armadilhasANPD } = JSON.parse(ler('dados', 'armadilhas-anpd.json'));
+  for (const a of armadilhasANPD) {
+    if (!a.titulo || !a.errado || !a.certo) errosCb.push(`armadilhas-anpd.json (${a.id}): campos obrigatórios`);
+    if (!blocos.some((b) => b.id === a.bloco)) errosCb.push(`armadilhas-anpd.json (${a.id}): bloco inexistente ${a.bloco}`);
+    const [l, art] = a.art.includes(':') ? a.art.split(':') : ['lgpd', a.art];
+    if (!leis[l] || !leis[l].lei.artigos.some((x) => x.id === art)) errosCb.push(`armadilhas-anpd.json (${a.id}): artigo inexistente ${a.art}`);
   }
   // Dia de discursiva no plano: o tema precisa existir
   const temasDisc = new Set(discursivas.temas.map((t) => t.id));
@@ -242,10 +261,11 @@ export function montarDados() {
   }
   const grupos = GRUPOS_LEIS.map(([nome, ids]) => ({ nome, ids: ids.filter((id) => lei[id]) })).filter((g) => g.ids.length);
   return {
-    versao: new Date().toISOString().slice(0, 10),
+    versao: 'ANPD 2026/2027 · ' + new Date().toISOString().slice(0, 10),
     disciplinas,
     blocos,
     armadilhas: ARMADILHAS,
+    armadilhasANPD,
     questoes: lista,
     apoios,
     lei,

@@ -10475,6 +10475,360 @@
           ]
         }
       ]
+    },
+    {
+      "id": "normas-anpd",
+      "nome": "Resoluções e Guias da ANPD do zero",
+      "resumo": "Fiscalização (Res. 1), dosimetria (Res. 4), incidentes em 3 dias úteis (Res. 15), pequeno porte (Res. 2), encarregado (Res. 18), transferência internacional (Res. 19 e 32) e Guias Orientativos.",
+      "subtemas": [
+        {
+          "id": "an-fisc-dosimetria",
+          "nome": "Fiscalização responsiva (Res. 1/2021) e Dosimetria (Res. 4/2023)",
+          "resumo": "Monitoramento, orientação, prevenção e repressão; cálculo de multa, atenuantes, agravantes e reincidência.",
+          "simples": "A ANPD não começa multando: ela usa uma pirâmide que vai do monitoramento e orientação até a prevenção e o processo sancionador. Quando aplica sanção, a Resolução nº 4/2023 classifica a infração em leve, média ou grave e calcula a multa passo a passo.",
+          "licao": {
+            "ideia": "A **Resolução CD/ANPD nº 1/2021** estrutura a fiscalização responsiva em **4 eixos** (monitoramento, orientação, prevenção e repressão), podendo acionar a repressão direto se a gravidade exigir. Já a **Resolução nº 4/2023** fixa a metodologia de **dosimetria**: classifica a infração (leve, média ou grave), define a alíquota-base pelo grau do dano (0 a 3), aplica agravantes (reincidência específica = até 40%, genérica = até 20%, descumprimento de medida preventiva = 20% por item, até 80%) e atenuantes (cessação, boas práticas, cooperação).",
+            "mapa": {
+              "centro": "Fiscalização e Dosimetria",
+              "ramos": [
+                {
+                  "t": "Res. 1/2021 (4 Eixos)",
+                  "f": [
+                    "Monitoramento",
+                    "Orientação",
+                    "Prevenção (plano de conformidade)",
+                    "Repressão (PAS)"
+                  ]
+                },
+                {
+                  "t": "Res. 4/2023 (Gravidade)",
+                  "f": [
+                    "Leve",
+                    "Média (afeta direitos ou 1 critério)",
+                    "Grave (obstrução, alto risco, dolo)"
+                  ]
+                },
+                {
+                  "t": "Sanções",
+                  "f": [
+                    "Advertência, multa até 2% (R$ 50 mi)",
+                    "Suspensão máx. 6 meses (+6m) após sanção prévia"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Pirâmide Responsiva e Processo Sancionador",
+                "texto": "Na prevenção, o agente pode apresentar plano de conformidade. Na repressão, lavra-se auto de infração, abre-se defesa e decisão de 1ª instância (Coordenação-Geral de Fiscalização), cabendo recurso ao Conselho Diretor."
+              }
+            ]
+          },
+          "chave": [
+            "Quatro atividades da fiscalização: monitoramento, orientação, prevenção e repressão.",
+            "Não é obrigatório seguir ordem sequencial quando a gravidade exigir repressão direta.",
+            "Reincidência específica (mesmo dispositivo em 5 anos): agravante de 10% por caso, até 40%.",
+            "Reincidência genérica: 5% por caso, até 20%."
+          ],
+          "armadilhas": [
+            "Dizer que a ANPD é obrigada a passar por orientação e prevenção antes de instaurar PAS.",
+            "Confundir o percentual da reincidência específica (10% até 40%) com a genérica (5% até 20%).",
+            "Aplicar multa a órgãos e entidades públicas (vedado pelo art. 52, § 3º da LGPD)."
+          ],
+          "artigos": [
+            "res1:14",
+            "res1:15",
+            "res1:37",
+            "res4:7",
+            "res4:8",
+            "res4:12",
+            "res4:13",
+            "guias:10"
+          ],
+          "blocos": [
+            "res-1-2021",
+            "res-4-2023"
+          ],
+          "itens": 40
+        },
+        {
+          "id": "an-incidentes-app",
+          "nome": "Incidentes de Segurança (Res. 15/2024) e Pequeno Porte (Res. 2/2022)",
+          "resumo": "Prazo de 3 dias úteis (6 para APP), critérios de risco relevante, registro por 5 anos e dispensas de APP.",
+          "simples": "Se um vazamento ou invasão puder causar risco ou dano relevante aos titulares, o controlador tem 3 dias úteis para avisar a ANPD e os afetados (6 dias úteis se for agente de pequeno porte). E mesmo quando não precisa comunicar, tem de guardar o registro por 5 anos.",
+          "licao": {
+            "ideia": "Pela **Resolução CD/ANPD nº 15/2024**, o incidente deve ser comunicado à ANPD e aos titulares em **3 dias úteis** (ou **6 dias úteis** para Agentes de Pequeno Porte) sempre que houver **risco ou dano relevante** — configurado quando combina **afetação significativa de interesses/direitos fundamentais** com ao menos um critério como dados sensíveis, de crianças, adolescentes ou idosos, dados financeiros, credenciais de autenticação, dados protegidos por sigilo ou larga escala.",
+            "mapa": {
+              "centro": "Res. 15/2024 e Res. 2/2022",
+              "ramos": [
+                {
+                  "t": "Prazo de Comunicação",
+                  "f": [
+                    "Regra: 3 dias úteis do conhecimento",
+                    "APP: 6 dias úteis (prazo em dobro)",
+                    "Complementação: até 20 dias úteis"
+                  ]
+                },
+                {
+                  "t": "Registro Interno",
+                  "f": [
+                    "Obrigatório para TODO incidente",
+                    "Prazo mínimo de guarda: 5 anos"
+                  ]
+                },
+                {
+                  "t": "Pequeno Porte (Res. 2/2022)",
+                  "f": [
+                    "Dispensado de indicar encarregado (mantém canal)",
+                    "Vedado se houver tratamento de alto risco"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Quando comunicar e o que fazer",
+                "texto": "A comunicação deve ser individualizada sempre que possível; se inviável, admite-se divulgação ampla pelos meios de comunicação."
+              }
+            ]
+          },
+          "chave": [
+            "Prazo geral da Res. 15/2024: 3 dias úteis contados da ciência de que o incidente afetou dados pessoais.",
+            "Prazo para complementar comunicação preliminar: até 20 dias úteis.",
+            "Guarda do registro de incidentes (mesmo os não comunicados): mínimo de 5 anos.",
+            "Agente de Pequeno Porte (Res. 2/2022): dispensado de encarregado (se mantiver canal) e prazos em dobro, salvo tratamento de alto risco."
+          ],
+          "armadilhas": [
+            "Dizer que o prazo de comunicação é de 2 dias úteis ou 72 horas corridas (72h é no GDPR; na ANPD são 3 dias úteis).",
+            "Achar que o registro interno de 5 anos só vale para incidentes comunicados à ANPD.",
+            "Dizer que APP que trata dados em alto risco mantém direito às dispensas da Res. 2/2022."
+          ],
+          "artigos": [
+            "res15:5",
+            "res15:6",
+            "res15:9",
+            "res15:10",
+            "res2:3",
+            "res2:4",
+            "res2:11",
+            "guias:7"
+          ],
+          "blocos": [
+            "res-15-2024",
+            "res-2-2022"
+          ],
+          "itens": 40
+        },
+        {
+          "id": "an-encarregado-transf",
+          "nome": "Encarregado (Res. 18/2024) e Transferência Internacional (Res. 19 e 32)",
+          "resumo": "Ato formal, DPO pessoa física ou jurídica, conflito de interesses, cláusulas-padrão e adequação da União Europeia.",
+          "simples": "O encarregado (DPO) pode ser pessoa física ou empresa terceirizada, nomeado por ato formal, sem poder acumular cargo que decida como os dados são usados. Já na transferência para o exterior, a ANPD aprovou cláusulas-padrão (Res. 19/2024) e reconheceu a adequação da União Europeia (Res. 32/2026).",
+          "licao": {
+            "ideia": "A **Resolução nº 18/2024** exige designação do encarregado por **ato formal**, admite **pessoa natural ou jurídica**, exige indicação de **substituto** nas ausências e veda **conflito de interesses** (acumular com chefia que decide finalidades/meios do tratamento). A **Resolução nº 19/2024** disciplina a transferência internacional (cláusulas-padrão no Anexo II exigem adoção **integral e sem alterações**), e a **Resolução nº 32/2026** reconheceu a **União Europeia** como adequada (art. 33, I da LGPD).",
+            "mapa": {
+              "centro": "Res. 18, 19 e 32",
+              "ramos": [
+                {
+                  "t": "Encarregado (Res. 18/2024)",
+                  "f": [
+                    "PF ou PJ por ato formal",
+                    "Sem conflito de interesses",
+                    "Responsabilidade final é do agente"
+                  ]
+                },
+                {
+                  "t": "Transferência (Res. 19/2024)",
+                  "f": [
+                    "Cláusulas-padrão: sem alteração",
+                    "Cláusulas específicas / BCR: aprovação do CD"
+                  ]
+                },
+                {
+                  "t": "Adequação UE (Res. 32/2026)",
+                  "f": [
+                    "Reconhece países sob o GDPR",
+                    "Dispensa autorização específica"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Hierarquia prática na transferência internacional",
+                "texto": "Se o país tem decisão de adequação (como a UE pela Res. 32/2026), transfere-se pelo art. 33, I. Sem adequação, usam-se garantias contratuais (cláusulas-padrão integrais, cláusulas específicas ou normas corporativas globais)."
+              }
+            ]
+          },
+          "chave": [
+            "Encarregado: PF ou PJ, designado por ato formal, com nome e contato públicos no site.",
+            "Encarregado não responde perante a ANPD pela conformidade: a responsabilidade é do agente de tratamento.",
+            "Cláusulas-padrão do Anexo II da Res. 19/2024 só valem se adotadas sem alterações.",
+            "Res. 32/2026 reconheceu a adequação da União Europeia para tratamentos regidos pelo GDPR."
+          ],
+          "armadilhas": [
+            "Exigir que o encarregado seja obrigatoriamente pessoa natural ou certificado por órgão oficial.",
+            "Permitir que as partes alterem cláusulas-padrão sem pedir aprovação de cláusulas específicas.",
+            "Estender a decisão de adequação da UE a tratamentos de defesa nacional fora do escopo do GDPR."
+          ],
+          "artigos": [
+            "res18:3",
+            "res18:4",
+            "res18:9",
+            "res18:10",
+            "res18:17",
+            "res19:9",
+            "res19:15",
+            "res32:1",
+            "res32:3",
+            "guias:2"
+          ],
+          "blocos": [
+            "res-18-2024",
+            "res-19-2024",
+            "res-32-2026"
+          ],
+          "itens": 40
+        },
+        {
+          "id": "an-guias-orientativos",
+          "nome": "Guias Orientativos da ANPD: Legítimo Interesse, Cookies e IA",
+          "resumo": "Teste de balanceamento em 3 fases (LIA), cookies necessários vs. publicitários, dark patterns e web scraping.",
+          "simples": "Os Guias da ANPD mostram como a autoridade interpreta a LGPD na prática: o teste de 3 passos do legítimo interesse, a proibição de banners de cookies sem botão de rejeitar no primeiro nível e os limites para treinar IA com dados da internet.",
+          "licao": {
+            "ideia": "Os **Guias Orientativos da ANPD** consolidam a interpretação oficial da autoridade: (1) **Legítimo Interesse** exige teste em 3 fases (*Finalidade concreta*, *Necessidade/minimização* e *Balanceamento/expectativas legítimas + opt-out*) e nunca cabe para dados sensíveis; (2) **Cookies** estritamente necessários dispensam consentimento, mas cookies analíticos não anonimizados e publicitários exigem consentimento granular com botão de **rejeitar no 1º nível**; (3) **Dados públicos e IA** (art. 7º, §§ 4º e 7º) exigem finalidade compatível, boa-fé e respeito aos direitos do titular.",
+            "mapa": {
+              "centro": "Guias Orientativos ANPD",
+              "ramos": [
+                {
+                  "t": "Legítimo Interesse (LIA)",
+                  "f": [
+                    "1. Finalidade legítima e concreta",
+                    "2. Necessidade (meio menos intrusivo)",
+                    "3. Balanceamento, expectativas e salvaguardas"
+                  ]
+                },
+                {
+                  "t": "Cookies e Banners",
+                  "f": [
+                    "Necessários: sem consentimento",
+                    "Publicitários: consentimento granular",
+                    "Botão Rejeitar no 1º nível"
+                  ]
+                },
+                {
+                  "t": "IA e Anonimização",
+                  "f": [
+                    "Pseudonimizado = continua dado pessoal",
+                    "Scraping de dados públicos tem limites"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Pontos mais cobrados dos Guias",
+                "texto": "Suboperador equipara-se ao operador; funcionários subordinados não são agentes autônomos; Poder Público não usa legítimo interesse em atos de império."
+              }
+            ]
+          },
+          "chave": [
+            "Teste de Balanceamento (LIA): Finalidade -> Necessidade -> Balanceamento e Salvaguardas.",
+            "Cookies estritamente necessários não pedem consentimento; os demais exigem opt-in real e botão de rejeitar no 1º nível.",
+            "Dado pseudonimizado continua sendo dado pessoal (art. 13, § 4º).",
+            "Subordinados (gerente de TI/RH) não são operadores: o agente é a pessoa jurídica."
+          ],
+          "armadilhas": [
+            "Usar legítimo interesse para dados sensíveis ou para atos típicos de império do Poder Público.",
+            "Exigir consentimento para cookies estritamente necessários.",
+            "Tratar pseudonimização como exclusão da incidência da LGPD."
+          ],
+          "artigos": [
+            "guias:1",
+            "guias:3",
+            "guias:4",
+            "guias:5",
+            "guias:6",
+            "guias:8",
+            "guias:9"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "comparado",
+      "nome": "Direito Comparado: GDPR e Convenção 108+ do zero",
+      "resumo": "As 6 bases legais do GDPR (sem proteção ao crédito), DPO, violação em 72h, multas de 20 mi €/4%, Convenção 108+ e casos Schrems I e II.",
+      "subtemas": [
+        {
+          "id": "cp-gdpr",
+          "nome": "GDPR, Convenção 108+ do Conselho da Europa e Jurisprudência Schrems",
+          "resumo": "Comparativo direto LGPD × GDPR (6 vs. 10 bases legais, 72h vs. 3 dias úteis, multas, DPO) e Convenção 108+.",
+          "simples": "O GDPR europeu inspirou a LGPD, mas a banca adora cobrar onde eles são diferentes: o GDPR só tem 6 bases legais (não tem proteção ao crédito!), exige notificar vazamento em até 72 horas e aplica multas de até 20 milhões de euros ou 4% do faturamento global.",
+          "licao": {
+            "ideia": "O **GDPR (Regulamento UE 2016/679)** possui **6 bases legais** no art. 6º (consentimento, contrato, obrigação legal, interesses vitais, interesse público/autoridade pública e interesses legítimos — **não possui proteção ao crédito nem tutela da saúde autônoma no art. 6º**). A notificação de violação à autoridade supervisora ocorre em até **72 horas** (art. 33), e as multas administrativas chegam a **20 milhões de euros ou 4% do faturamento anual global** (art. 83). Na **Convenção 108+**, o protocolo modernizado exige avaliação proporcional e supervisão independente. Nos casos **Schrems I e II**, o TJUE invalidou o *Safe Harbor* e o *Privacy Shield*, mantendo as cláusulas-padrão com avaliação caso a caso (TIA).",
+            "mapa": {
+              "centro": "LGPD × GDPR × Conv. 108+",
+              "ramos": [
+                {
+                  "t": "Bases Legais",
+                  "f": [
+                    "LGPD: 10 bases (inclui crédito)",
+                    "GDPR: 6 bases (art. 6º)"
+                  ]
+                },
+                {
+                  "t": "Incidentes e Multas",
+                  "f": [
+                    "GDPR: até 72 horas",
+                    "ANPD (Res. 15): 3 dias úteis",
+                    "GDPR: € 20 mi ou 4% global"
+                  ]
+                },
+                {
+                  "t": "Schrems I e II (TJUE)",
+                  "f": [
+                    "Invalidou Safe Harbor e Privacy Shield",
+                    "Manteve SCCs com avaliação caso a caso"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Diferenças clássicas cobradas pelo Cebraspe",
+                "texto": "No GDPR, a idade padrão para consentimento digital de menor é 16 anos (Estados-membros podem reduzir até 13 anos, art. 8º). O DPO é obrigatório para autoridades públicas, monitoramento sistemático em larga escala ou dados sensíveis/criminais em larga escala (art. 37)."
+              }
+            ]
+          },
+          "chave": [
+            "GDPR art. 6º: 6 bases legais (não inclui proteção ao crédito).",
+            "Notificação de violação no GDPR (art. 33): sem demora injustificada e, quando possível, em até 72 horas.",
+            "Multa máxima no GDPR (art. 83): 20 milhões de euros ou 4% do faturamento anual mundial.",
+            "Schrems II (C-311/18): invalidou o Privacy Shield, mas preservou as cláusulas-padrão (SCCs) com exigência de avaliação de impacto da transferência."
+          ],
+          "armadilhas": [
+            "Dizer que o GDPR prevê a proteção ao crédito como uma de suas bases legais.",
+            "Trocar a multa da LGPD (2% no Brasil, teto R$ 50 mi) pela do GDPR (4% global, € 20 mi).",
+            "Afirmar que o caso Schrems II invalidou as cláusulas contratuais-padrão."
+          ],
+          "artigos": [
+            "gdpr:3",
+            "gdpr:5",
+            "gdpr:6",
+            "gdpr:8",
+            "gdpr:33",
+            "gdpr:37",
+            "gdpr:83",
+            "conv108:1",
+            "stfsum:SCHREMS"
+          ],
+          "blocos": [
+            "gdpr"
+          ],
+          "itens": 40
+        }
+      ]
     }
   ]
 }

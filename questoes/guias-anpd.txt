@@ -1,0 +1,215 @@
+// Itens sobre os guias orientativos da ANPD e resoluções, trazidos do Painel ANPD que o usuário enviou em 18/10/2026.
+// Os ligados a "guias" conferem com o resumo dos guias em fontes/guias.txt, que não é o texto oficial deles.
+// Onde o item cabia num artigo de lei ou resolução anexada, a ref aponta para ele, com o trecho literal.
+
+=== ga-01
+bloco: lgpd-37-45
+gab: E
+ref: guias 1
+trecho: NÃO são controladores nem operadores autônomos
+armadilha: sujeito
+dif: 2
+tema: pd-agentes
+enunciado: O gerente de tecnologia da informação ou de recursos humanos de uma sociedade empresária que executa rotinas de banco de dados no exercício de suas atribuições funcionais qualifica-se juridicamente como operador autônomo perante a LGPD.
+comentario: Errado. Segundo o Guia Orientativo da ANPD sobre Agentes de Tratamento, funcionários, servidores ou gestores que atuam subordinados à estrutura organizacional não são controladores nem operadores autônomos: o agente de tratamento é a própria pessoa jurídica (ou ente público) a que pertencem.
+
+=== ga-02
+bloco: lgpd-37-45
+gab: C
+ref: guias 1
+trecho: o suboperador equipara-se ao operador
+armadilha: conceito
+dif: 2
+tema: pd-agentes
+enunciado: O suboperador, contratado pelo operador para auxiliá-lo a realizar o tratamento de dados pessoais em nome do controlador, equipara-se ao operador perante o titular e a ANPD no que tange às obrigações de segurança e responsabilidade.
+comentario: Certo. Embora a LGPD não mencione expressamente a palavra 'suboperador', o Guia Orientativo da ANPD define a figura e esclarece que ele exerce função análoga à do operador, recomendando que o operador obtenha autorização prévia (geral ou específica) do controlador antes da subcontratação.
+
+=== ga-03
+bloco: res-18-2024
+gab: C
+ref: guias 2
+trecho: o encarregado pode ser pessoa natural (integrante do quadro ou externa) ou pessoa jurídica (prestadora de serviços)
+trecho: Configura conflito de interesses o acúmulo da função de encarregado com cargos de chefia que determinem finalidades e meios essenciais do tratamento de dados
+armadilha: conceito
+dif: 2
+tema: an-encarregado-transf
+enunciado: A função de encarregado pelo tratamento de dados pessoais pode ser exercida tanto por pessoa natural quanto por pessoa jurídica contratada, sendo vedado o acúmulo com atribuições que impliquem tomada de decisões estratégicas sobre finalidades e meios essenciais do tratamento em nome do controlador.
+comentario: Certo. A Resolução CD/ANPD nº 18/2024 admite encarregado pessoa natural ou jurídica (DPO as a service) e veda o conflito de interesses decorrente da acumulação com cargos de chefia que determinem finalidades e meios essenciais do tratamento.
+
+=== ga-04
+bloco: res-18-2024
+gab: E
+ref: res18 17
+trecho: não confere ao encarregado a responsabilidade, perante a ANPD, pela conformidade do tratamento dos dados pessoais realizado pelo controlador
+armadilha: sujeito
+dif: 2
+tema: an-encarregado-transf
+enunciado: Nos termos do Regulamento do Encarregado da ANPD, o encarregado responde pessoal e solidariamente perante a Autoridade Nacional pela conformidade do tratamento de dados pessoais realizado pelo controlador.
+comentario: Errado. A Resolução CD/ANPD nº 18/2024 é expressa (art. 17): o desempenho das atividades do encarregado não lhe confere a responsabilidade, perante a ANPD, pela conformidade do tratamento, que continua sendo do agente de tratamento.
+
+=== ga-05
+bloco: lgpd-23-32
+gab: E
+ref: guias 3
+trecho: NÃO deve ser utilizado pelo Poder Público para o exercício de suas atribuições típicas de Estado e atos de império
+armadilha: conceito
+dif: 2
+tema: pd-poder-publico
+enunciado: O legítimo interesse do controlador constitui a base legal preferencial para o tratamento de dados pessoais realizado por órgãos públicos no exercício de suas competências administrativas e do poder de polícia.
+comentario: Errado. Segundo o Guia de Tratamento de Dados pelo Poder Público da ANPD, o legítimo interesse (art. 7º, IX) é incompatível com o exercício de prerrogativas estatais e atos de império; o Poder Público deve fundamentar suas atividades típicas no cumprimento de obrigação legal/regulatória (art. 7º, II) ou na execução de políticas públicas (art. 7º, III, c/c art. 23).
+
+=== ga-06
+bloco: lgpd-23-32
+gab: C
+ref: lgpd 26, § 1º, V
+trecho: objetivar exclusivamente a prevenção de fraudes e irregularidades
+trecho: desde que vedado o tratamento para outras finalidades
+armadilha: excecao
+dif: 3
+tema: pd-poder-publico
+enunciado: É vedado ao Poder Público transferir a entidades privadas dados pessoais constantes de bases de dados a que tenha acesso, salvo, entre outras hipóteses legais, quando a transferência for indicada exclusivamente para prevenir fraudes e irregularidades, vedado o tratamento para outras finalidades.
+comentario: Certo. O art. 26, § 1º, V, da LGPD (detalhado no Guia do Poder Público da ANPD) prevê essa exceção à proibição geral de transferir dados de bases públicas ao setor privado, exigindo finalidade exclusiva de prevenir fraudes e irregularidades ou proteger a segurança e a integridade do titular, vedado o tratamento para outras finalidades.
+
+=== ga-07
+bloco: lgpd-5-11
+gab: C
+ref: guias 5
+trecho: estrutura-se em 3 fases obrigatórias
+armadilha: conceito
+dif: 2
+tema: an-guias-orientativos
+enunciado: De acordo com o Guia Orientativo da ANPD sobre Legítimo Interesse, o teste de balanceamento divide-se em três fases: verificação da finalidade legítima e concreta, avaliação da necessidade (inexistência de meio menos intrusivo) e ponderação de direitos e legítimas expectativas do titular com adoção de salvaguardas.
+comentario: Certo. É a estrutura tripartite do Teste de Balanceamento (LIA) consagrada pela ANPD com base no art. 10 da LGPD: (1) finalidade legítima, concreta e específica; (2) necessidade/minimização; e (3) balanceamento, expectativas legítimas do titular e salvaguardas (como opt-out).
+
+=== ga-08
+bloco: lgpd-5-11
+gab: E
+ref: guias 5
+trecho: aplica-se apenas a dados pessoais NÃO sensíveis
+armadilha: extrapolacao
+dif: 2
+tema: an-guias-orientativos
+enunciado: Desde que elaborado previamente o teste de balanceamento e garantida a transparência ativa, o legítimo interesse pode amparar o tratamento de dados pessoais sensíveis para fins de prevenção à fraude e segurança do titular.
+comentario: Errado. O legítimo interesse (art. 7º, IX e art. 10) NÃO se aplica a dados pessoais sensíveis. Para dados sensíveis, a prevenção à fraude e segurança do titular tem base legal autônoma e específica no art. 11, II, 'g', da LGPD (em processos de identificação e autenticação de cadastro em sistemas eletrônicos).
+
+=== ga-09
+bloco: lgpd-5-11
+gab: E
+ref: guias 6
+trecho: NÃO dependem de consentimento prévio
+armadilha: conceito
+dif: 2
+tema: an-guias-orientativos
+enunciado: Segundo a orientação técnica da ANPD, todos os cookies utilizados em páginas da internet, inclusive os estritamente necessários ao funcionamento técnico e à autenticação de sessão, dependem de consentimento prévio e expresso do usuário no banner inicial.
+comentario: Errado. Cookies estritamente necessários não exigem consentimento (amparam-se no legítimo interesse ou execução de contrato), exigindo apenas transparência. O consentimento livre, informado e granular é exigido para cookies não necessários (como os de publicidade comportamental e analíticos não anonimizados).
+
+=== ga-10
+bloco: lgpd-5-11
+gab: C
+ref: guias 6
+trecho: caixas de seleção pré-marcadas (opt-in tácito) para cookies não essenciais
+armadilha: conceito
+dif: 2
+tema: an-guias-orientativos
+enunciado: No desenho de banners de coleta de cookies não essenciais, a ausência de botão de rejeição direta no primeiro nível ou o uso de caixas de seleção pré-marcadas descaracteriza a manifestação livre e inequívoca do consentimento.
+comentario: Certo. O Guia de Cookies da ANPD aponta essas práticas como padrões enganosos (dark patterns): o usuário deve poder rejeitar cookies não necessários com a mesma facilidade com que os aceita, no primeiro nível do banner, e caixas pré-marcadas são inválidas.
+
+=== ga-11
+bloco: res-2-2022
+gab: E
+ref: res2 11, § 1º
+trecho: deve disponibilizar um canal de comunicação com o titular de dados
+armadilha: absoluto
+dif: 2
+tema: an-incidentes-app
+enunciado: O agente de tratamento de pequeno porte que fica dispensado de indicar encarregado pelo tratamento de dados pessoais está igualmente desobrigado de manter canal de comunicação com os titulares e de adotar medidas técnicas de segurança.
+comentario: Errado. A Resolução CD/ANPD nº 2/2022 (art. 11, § 1º) dispensa o APP de indicar encarregado, mas obriga-o a disponibilizar canal de comunicação para atender o titular, além de manter o dever de adotar medidas essenciais de segurança da informação (art. 12).
+
+=== ga-12
+bloco: lgpd-12-16
+gab: E
+ref: guias 8
+trecho: o dado pseudonimizado CONTINUA SENDO DADO PESSOAL
+armadilha: conceito
+dif: 2
+tema: pd-anonimizacao
+enunciado: A pseudonimização, por substituir os identificadores diretos do titular por um código alfanumérico, equipara-se juridicamente à anonimização e retira os dados pseudonimizados do âmbito de incidência da LGPD.
+comentario: Errado. Na pseudonimização (art. 13, § 4º), a informação adicional que permite reatribuir o dado ao indivíduo é mantida separadamente pelo controlador; por isso, o dado pseudonimizado continua sendo dado pessoal sujeito à LGPD (funcionando como salvaguarda técnica), ao contrário do dado efetivamente anonimizado (art. 12).
+
+=== ga-13
+bloco: ia
+gab: C
+ref: guias 9
+trecho: exige base legal válida, boa-fé
+armadilha: conceito
+dif: 3
+tema: an-guias-orientativos
+enunciado: A coleta automatizada de dados pessoais tornados manifestamente públicos na internet por meio de raspagem (web scraping) para treinamento de modelos de inteligência artificial não é livre de restrições, devendo respeitar a boa-fé, os direitos do titular e a compatibilidade com os propósitos legítimos e específicos informados.
+comentario: Certo. O art. 7º, § 4º, da LGPD dispensa o consentimento para dados tornados manifestamente públicos pelo titular, mas ressalva os direitos do titular e os princípios da lei, e o § 7º exige propósitos legítimos e específicos para novos tratamentos, diretriz aplicada pela ANPD nos casos de raspagem de dados para treinamento de IA.
+
+=== ga-14
+bloco: res-32-2026
+gab: C
+ref: res32 1
+trecho: Fica reconhecida a União Europeia como organismo internacional que proporciona grau de proteção de dados pessoais adequado
+trecho: com base no mecanismo previsto no art. 33, I
+armadilha: literal
+dif: 2
+tema: an-encarregado-transf
+enunciado: A Resolução CD/ANPD nº 32/2026 reconheceu que a União Europeia proporciona grau de proteção de dados pessoais adequado ao previsto na LGPD, autorizando a transferência internacional de dados com fundamento no art. 33, I, da Lei nº 13.709/2018 sem necessidade de autorização específica da ANPD.
+comentario: Certo. Pela Resolução CD/ANPD nº 32/2026 (art. 1º e parágrafo único), transferências para os Estados-membros da União Europeia e para os três países do Espaço Econômico Europeu (Islândia, Liechtenstein e Noruega) podem usar o mecanismo do art. 33, I, da LGPD. A decisão não vale para fins exclusivos de segurança pública, defesa, segurança do Estado ou persecução penal (art. 2º).
+
+=== ga-16
+bloco: res-19-2024
+gab: E
+ref: res19 16
+trecho: pressupõe a adoção integral e sem alteração do texto disponibilizado no Anexo II
+armadilha: literal
+dif: 2
+tema: an-encarregado-transf
+enunciado: Para que as cláusulas-padrão contratuais aprovadas pela ANPD no Anexo II da Resolução nº 19/2024 sejam válidas como mecanismo de transferência internacional, as partes podem alterar livremente suas disposições de responsabilidade, desde que comuniquem a alteração à ANPD em até 15 dias.
+comentario: Errado. As cláusulas-padrão contratuais (Anexo II da Res. 19/2024) só são reconhecidas como cláusulas-padrão quando adotadas INTEGRALMENTE e sem alterações em seu texto. Caso o controlador queira cláusulas adaptadas, deverá submeter cláusulas específicas à aprovação prévia do Conselho Diretor.
+
+=== ga-17
+bloco: res-15-2024
+gab: C
+ref: res15 6
+trecho: no prazo de três dias úteis
+trecho: são contados em dobro para os agentes de pequeno porte
+armadilha: numero
+dif: 2
+tema: an-incidentes-app
+enunciado: O controlador deve comunicar à ANPD e ao titular a ocorrência de incidente de segurança que possa acarretar risco ou dano relevante no prazo de três dias úteis contados do conhecimento de que o incidente afetou dados pessoais, prazo esse que é contado em dobro para os agentes de tratamento de pequeno porte.
+comentario: Certo. A Resolução CD/ANPD nº 15/2024 fixou o prazo geral de 3 dias úteis (complementável em até 20 dias úteis na comunicação preliminar) e manteve o prazo em dobro (6 dias úteis) para Agentes de Pequeno Porte, além da obrigação de manter o registro do incidente por no mínimo 5 anos.
+
+=== ga-18
+bloco: res-1-2021
+gab: C
+ref: guias 10
+trecho: escalonando a atuação da ANPD em quatro macroinstrumentos
+armadilha: conceito
+dif: 2
+tema: an-fisc-dosimetria
+enunciado: No modelo de fiscalização responsiva adotado pela ANPD, a atuação da autoridade articula atividades de monitoramento, orientação, prevenção e repressão, não sendo obrigatório percorrer sequencialmente todas as etapas antes de instaurar processo administrativo sancionador quando a gravidade da infração exigir repressão imediata.
+comentario: Certo. Embora inspirada na pirâmide responsiva de Ayres e Braithwaite, a Resolução CD/ANPD nº 1/2021 permite à ANPD acionar diretamente medidas preventivas ou repressivas conforme o risco, o comportamento do agente e a gravidade da conduta.
+
+=== ga-19
+bloco: contabilidade
+gab: C
+ref: doutrina MCASP, enfoque patrimonial
+armadilha: conceito
+dif: 2
+tema: ct-contabilidade-casp
+enunciado: Na contabilidade aplicada ao setor público, o regime patrimonial reconhece as variações patrimoniais aumentativas (VPA) e diminutivas (VPD) pelo regime de competência, no momento do fato gerador, independentemente da execução orçamentária da receita ou da despesa.
+comentario: Certo. Sob o enfoque patrimonial (MCASP / NBC TSP), as VPA e VPD seguem o regime de competência (fato gerador), ao passo que o enfoque orçamentário (Lei 4.320/1964, art. 35) reconhece a receita pela arrecadação (caixa) e a despesa pelo empenho.
+
+=== ga-20
+bloco: contabilidade
+gab: E
+ref: lei4320 105, § 1º
+trecho: O Ativo Financeiro compreenderá os créditos e valores realizáveis independentemente de autorização orçamentária e os valores numerários.
+armadilha: conceito
+dif: 2
+tema: ct-contabilidade-casp
+enunciado: No Balanço Patrimonial público segundo a Lei nº 4.320/1964, o ativo financeiro compreende exclusivamente os bens móveis e imóveis de uso especial da administração, enquanto os créditos e valores realizáveis independentemente de autorização orçamentária integram o ativo permanente.
+comentario: Errado. Pelo art. 105, § 1º, da Lei 4.320/1964, o Ativo Financeiro compreende justamente os créditos e valores realizáveis independentemente de autorização orçamentária e os valores numerários; os bens, créditos e valores cuja alienação ou mobilização dependa de autorização legislativa integram o Ativo Permanente (§ 2º).
