@@ -109,10 +109,10 @@ const P1 = ['lgpd-17-22', 'lgpd-52-54', 'lgpd-55', 'lgpd-33-36', 'lgpd-5-11'];
 // (o guia do cargo dá 4% do estudo): o terço de gestão do processo seletivo da ANPD (2025) veio do cargo gerencial, e
 // o específico do especialista deve concentrar-se na LGPD e nas normas da ANPD. Contabilidade e finanças públicas
 // (orçamento, Lei 4.320, LRF e contabilidade geral) ficam com 2, peso BAIXO no guia.
-// Cada item básico vale 1 ponto e cada específico vale 2 (50 + 140 = 190): é a hipótese do plano até sair o edital.
-// Na Anatel 2024, todo item valia 1; se o edital da ANPD repetir isso, basta pôr PESO_ESPECIFICA = 1.
+// Cada item vale 1 ponto, básico ou específico, como no edital da Anatel 2024 (item 8.11.2): é a hipótese do plano até sair o edital.
+// Se o edital da ANPD der peso maior aos específicos, basta mudar PESO_ESPECIFICA.
 // Regulação aparece nas duas partes: Lei 13.848 e Lei 9.784 na básica, teoria da regulação na específica.
-const PESO_BASICA = 1, PESO_ESPECIFICA = 2;
+const PESO_BASICA = 1, PESO_ESPECIFICA = 1;
 const PROVA_BASICA = { linguas: 21, direito: 19, regulacao: 10 };
 const PROVA_ESPECIFICA = { regulacao: 4, lgpd: 36, eca: 8, seginfo: 8, gestao: 6, contabil: 2, comparado: 3, economia: 3 };
 const REG_NA_BASICA = new Set(['lei-13848', 'lei-9784']);
@@ -123,7 +123,7 @@ const PONTOS_DISC = {};
 for (const [d, k] of Object.entries(PROVA_BASICA)) PONTOS_DISC[d] = (PONTOS_DISC[d] || 0) + k * PESO_BASICA;
 for (const [d, k] of Object.entries(PROVA_ESPECIFICA)) PONTOS_DISC[d] = (PONTOS_DISC[d] || 0) + k * PESO_ESPECIFICA;
 const PONTOS_PROVA = Object.values(PONTOS_DISC).reduce((a, b) => a + b, 0);
-// Parte da prova em que o item cairia: 'b' (básica, peso 1) ou 'e' (específica, peso 2)
+// Parte da prova em que o item cairia: 'b' (básica) ou 'e' (específica)
 function parteProva(q) {
   const d = (BI.get(q.b) || {}).disciplina;
   return d === 'linguas' || d === 'direito' || (d === 'regulacao' && REG_NA_BASICA.has(q.b)) ? 'b' : 'e';
@@ -137,7 +137,8 @@ function cotasProva(n) {
   base.slice().sort((a, b) => b[3] - a[3]).forEach((b) => { if (falta > 0) { b[2]++; falta--; } });
   return base.map(([p, d, k]) => [p, d, k]);
 }
-const REAIS = Q.filter((q) => q.o);
+// Itens reais do Cebraspe, a banca projetada: os de outras bancas treinam, mas não medem a prontidão
+const REAIS = Q.filter((q) => q.o && /cebraspe|cespe/i.test(q.pv || ''));
 // Discursiva: temas com quesitos; a linha manuscrita da folha de texto definitivo é estimada em 70 caracteres
 const TEMAS_DISC = (D.discursivas && D.discursivas.temas) || [];
 const CARACTERES_LINHA = 70;
@@ -1495,7 +1496,7 @@ function finalizar() {
   sessao.dur = decorrido();
   clearInterval(relogioTimer);
   if (sessao.modo === 'simulado') {
-    // pt: nota ponderada (item básico vale 1, específico vale 2); nr/cr: itens reais de prova respondidos e acertados
+    // pt: nota ponderada (cada item no seu peso); nr/cr: itens reais de prova respondidos e acertados
     let c = 0, e = 0, b = 0, xp = 0, eMc = 0, ni = 0, nc = 0, pt = 0, ptMax = 0, nr = 0, cr = 0;
     sessao.ids.forEach((id) => {
       const q = QI.get(id);
@@ -2453,7 +2454,7 @@ function renderQuestoes() {
     html += '<div class="campo"><span class="rot">Composição</span><div class="chips">' +
       '<button class="chip" data-acao="set-prova" data-prova="prova" aria-pressed="' + usarProva + '">Prova completa (básicos + específicos)</button>' +
       '<button class="chip" data-acao="set-prova" data-prova="blocos" aria-pressed="' + !usarProva + '">Só os blocos marcados</button></div>' +
-      (usarProva ? '<p class="pequeno mudo">Numa prova de ' + TOTAL_PROVA + ' itens e ' + PONTOS_PROVA + ' pontos. Básica, cada item vale 1: ' + Object.entries(PROVA_BASICA).map(([d, k]) => esc(DI.get(d).nome) + ' ' + k).join(' · ') + '. Específica, cada item vale 2: ' + Object.entries(PROVA_ESPECIFICA).map(([d, k]) => esc(DI.get(d).nome) + ' ' + k).join(' · ') + '. Estimativa para Especialista em Regulação, sobre as provas da Anatel e da ANAC de 2024; muda quando sair o edital.</p>' : '') + '</div>';
+      (usarProva ? '<p class="pequeno mudo">Numa prova de ' + TOTAL_PROVA + ' itens e ' + PONTOS_PROVA + ' pontos. Básica: ' + Object.entries(PROVA_BASICA).map(([d, k]) => esc(DI.get(d).nome) + ' ' + k).join(' · ') + '. Específica: ' + Object.entries(PROVA_ESPECIFICA).map(([d, k]) => esc(DI.get(d).nome) + ' ' + k).join(' · ') + '. Estimativa para Especialista em Regulação, sobre as provas da Anatel e da ANAC de 2024; muda quando sair o edital.</p>' : '') + '</div>';
   }
   if (modo !== 'relampago') html += '<div class="campo"><span class="rot">Quantidade de itens</span><div class="chips">' + ns.map((n) => '<button class="chip" data-acao="set-n" data-n="' + n + '" aria-pressed="' + (UI.n === n) + '">' + n + '</button>').join('') + '</div></div>';
   if (modo !== 'relampago') html += '<div class="campo"><span class="rot">Banca e formato</span><div class="chips">' +
@@ -2709,7 +2710,6 @@ function renderResultado() {
       else { if (r === BRANCO) b2++; else if (r === q.g) c2++; else e2++; }
     });
     const liq1 = c1 - e1, liq2 = c2 - e2, liqTot = liq1 + liq2;
-    const ptFinal = liq1 * 1 + liq2 * 2;
     const okP1 = liq1 >= 10, okP2 = liq2 >= 21, okTot = liqTot >= 36;
     const aprovado = okP1 && okP2 && okTot;
     const faixaCorte = !aprovado ? 'Eliminado pela régua de nota mínima' : (liqTot >= 72 ? 'Nota alta (60% ou mais da prova)' : liqTot >= 54 ? 'Nota intermediária (45% a 59%)' : 'Nota baixa (menos de 45%)');
@@ -2719,14 +2719,14 @@ function renderResultado() {
       '<div class="corte-grid">' +
         '<div class="corte-kpi"><b>P1 · Básicos (50 itens)</b><span>Líquida: <b>' + liq1 + '</b> pts (' + c1 + 'C / ' + e1 + 'E / ' + b1 + 'B)</span><span class="corte-badge ' + (okP1 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP1 ? 'Mínimo atingido (≥ 10)' : 'Abaixo do mínimo (< 10)') + '</span></div>' +
         '<div class="corte-kpi"><b>P2 · Específicos (70 itens)</b><span>Líquida: <b>' + liq2 + '</b> pts (' + c2 + 'C / ' + e2 + 'E / ' + b2 + 'B)</span><span class="corte-badge ' + (okP2 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP2 ? 'Mínimo atingido (≥ 21)' : 'Abaixo do mínimo (< 21)') + '</span></div>' +
-        '<div class="corte-kpi"><b>Conjunto Objetivas (P1+P2)</b><span>Líquida: <b>' + liqTot + '</b> pts · com os pesos do painel: <b>' + ptFinal + '</b> de 190</span><span class="corte-badge ' + (okTot ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okTot ? 'Habilitado para Discursiva (≥ 36)' : 'Eliminado do concurso (< 36)') + '</span></div>' +
+        '<div class="corte-kpi"><b>Conjunto Objetivas (P1+P2)</b><span>Líquida: <b>' + liqTot + '</b> pts</span><span class="corte-badge ' + (okTot ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okTot ? 'Habilitado para Discursiva (≥ 36)' : 'Eliminado do concurso (< 36)') + '</span></div>' +
       '</div>' +
       '<p class="pequeno"><b>Faixa:</b> <span class="corte-badge ' + badgeCls + '">' + faixaCorte + '</span> <span class="mudo">Nenhuma nota de corte da ANPD existe ainda; as faixas são só referência.</span></p>' +
       '</div>';
   }
   if (sessao.modo === 'relampago') html += '<p>' + (sessao.recorde ? '<b>Novo recorde!</b> ' : '') + 'Recorde pessoal: ' + (S.perfil.recordes.relampago || 0) + '.</p>';
   if (eMc) html += '<p class="mudo pequeno">' + pl(eMc, 'erro', 'erros') + ' em múltipla escolha não ' + (eMc > 1 ? 'descontaram' : 'descontou') + ' ponto, como no Cebraspe.</p>';
-  if (sessao.modo === 'simulado' && ptMax !== n) html += '<p class="pequeno">Nota com os pesos da prova (básica vale 1, específica vale 2): <b>' + pt + '</b> de ' + ptMax + ' pontos · <b>' + pct(pt, ptMax) + '%</b>.</p>';
+  if (sessao.modo === 'simulado' && ptMax !== n) html += '<p class="pequeno">Nota com os pesos da prova (cada item vale ' + (PESO_ESPECIFICA === 1 ? '1' : '1 na básica e ' + PESO_ESPECIFICA + ' na específica') + '): <b>' + pt + '</b> de ' + ptMax + ' pontos · <b>' + pct(pt, ptMax) + '%</b>.</p>';
   if (sessao.viradas) html += '<p class="pequeno">' + pl(sessao.viradas, 'virada', 'viradas') + ': ' + pl(sessao.viradas, 'item que você tinha errado em outro dia agora certo', 'itens que você tinha errado em outro dia agora certos') + ', com XP em dobro.</p>';
   if (sessao.ineditos && sessao.ineditos.n >= 5) html += '<p class="pequeno">Nos ' + sessao.ineditos.n + ' itens que você via pela primeira vez, acerto de <b>' + pct(sessao.ineditos.c, sessao.ineditos.n) + '%</b>. É a medida mais fiel do seu nível: item repetido se reconhece.</p>';
   if (sessao.comboMax >= 3) html += '<p class="mudo">Maior sequência de acertos: ' + sessao.comboMax + '.</p>';
@@ -2735,7 +2735,7 @@ function renderResultado() {
   if (sessao.modo === 'simulado' && Object.keys(porDisc).length > 1) {
     html += '<div class="cartao"><h2>Por disciplina</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>C</th><th>E</th><th>B</th><th>Líquida</th><th>Pontos</th></tr></thead><tbody>' +
       Object.entries(porDisc).sort((a, b) => b[1].ptMax - a[1].ptMax).map(([dd, v]) => { const t = v.c + v.e + v.b; return '<tr><td>' + esc((DI.get(dd) || { nome: dd }).nome) + '</td><td class="num">' + v.c + '</td><td class="num">' + v.e + '</td><td class="num">' + v.b + '</td><td class="num">' + (v.c - v.e + v.eMc) + ' (' + pct(v.c - v.e + v.eMc, t) + '%)</td><td class="num">' + v.pt + ' de ' + v.ptMax + '</td></tr>'; }).join('') + '</tbody></table></div>' +
-      '<p class="pequeno mudo">Pontos: cada item básico vale 1 e cada específico vale 2. A ordem segue o que cada disciplina pesa na nota.</p></div>';
+      '<p class="pequeno mudo">Pontos: cada item vale 1, como na Anatel 2024. A ordem segue o que cada disciplina pesa na nota.</p></div>';
   }
   const nd = dc + de;
   if (nd) {
@@ -3512,7 +3512,7 @@ function cartaoProntidao() {
       '</tbody></table></div></details>';
   }
   html += livres ? '<div class="linha-btns"><button class="btn primario" data-acao="treinar-reais">' + esc(rotuloPausa('reais:ineditos', 'Treinar ' + pl(Math.min(20, livres), 'item real inédito', 'itens reais inéditos'))) + '</button></div>' : '';
-  html += '<p class="pequeno mudo">Conta só a primeira resposta de cada item certo/errado, no peso da nota (básica vale 1, específica vale 2). ' + pl(livres, 'item real ainda inédito', 'itens reais ainda inéditos') + ' no banco. Nos simulados de prova completa, pelo menos metade de cada disciplina vem deles enquanto houver inéditos.</p></div>';
+  html += '<p class="pequeno mudo">Conta só a primeira resposta de cada item certo/errado, no peso da nota (cada item vale ' + (PESO_ESPECIFICA === 1 ? '1' : '1 na básica e ' + PESO_ESPECIFICA + ' na específica') + '). ' + pl(livres, 'item real ainda inédito', 'itens reais ainda inéditos') + ' no banco. Nos simulados de prova completa, pelo menos metade de cada disciplina vem deles enquanto houver inéditos.</p></div>';
   return html;
 }
 function renderProgresso() {
@@ -3563,7 +3563,7 @@ function renderProgresso() {
   for (const r of Object.values(S.itens)) { dc += r[5] || 0; de += r[6] || 0; }
   html += '<div class="cartao"><h2>Calibragem do chute</h2>' + (dc + de >= 5 ? '<p>Quando marca dúvida, você acerta <b>' + pct(dc, dc + de) + '%</b> (' + dc + ' de ' + (dc + de) + '). ' + (pct(dc, dc + de) > 50 ? 'Acima de 50%: na prova, chutar tende a somar pontos.' : 'Até 50%: na prova, deixar em branco tende a ser melhor.') + '</p>' : '<p class="mudo">Marque “Estou em dúvida” antes de responder. Com 5 marcações já dá para saber se o seu chute compensa.</p>') + '</div>';
   if (S.simulados.length) html += '<div class="cartao"><h2>Simulados</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Data</th><th>Itens</th><th>C</th><th>E</th><th>Nota</th><th>Pontos</th><th>Reais</th></tr></thead><tbody>' + S.simulados.slice(0, 12).map((s) => '<tr><td>' + esc(fmtData(s.data, { day: '2-digit', month: '2-digit' })) + '</td><td class="num">' + s.n + '</td><td class="num">' + s.c + '</td><td class="num">' + s.e + '</td><td class="num">' + s.liq + ' (' + pct(s.liq, s.n) + '%)</td><td class="num">' + (s.ptMax ? s.pt + ' de ' + s.ptMax : '—') + '</td><td class="num">' + (s.nr ? pct(s.cr, s.nr) + '% de ' + s.nr : '—') + '</td></tr>').join('') + '</tbody></table></div>' +
-    '<p class="pequeno mudo">Pontos: nota com os pesos da prova (básica vale 1, específica vale 2). Reais: acerto nos itens reais de prova do simulado.</p></div>';
+    '<p class="pequeno mudo">Pontos: nota com os pesos da prova (cada item vale ' + (PESO_ESPECIFICA === 1 ? '1' : '1 na básica e ' + PESO_ESPECIFICA + ' na específica') + '). Reais: acerto nos itens reais de prova do simulado.</p></div>';
   html += cartaoConquistas();
   html += cartaoTrofeus();
   return html;
