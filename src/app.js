@@ -270,6 +270,8 @@ const CONQ = [
   { g: 'j', id: 'chefe1', ic: 'Ch', nome: 'Primeiro chefão', desc: 'Derrotou um chefão da semana.' },
   { g: 'j', id: 'chefe5', ic: 'Ch5', nome: 'Caçador(a) de chefões', desc: 'Derrotou 5 chefões.' },
   { g: 'j', id: 'chefe10', ic: 'Ch10', nome: 'Dez troféus', desc: 'Derrotou 10 chefões.' },
+  { g: 'j', id: 'andar10', ic: '▼10', nome: 'Explorador(a) de masmorras', desc: 'Limpou 10 andares da masmorra da semana.' },
+  { g: 'j', id: 'masmorra', ic: '▼▼', nome: 'Masmorra limpa', desc: 'Limpou todos os andares de uma masmorra da semana.' },
   { g: 'j', id: 'peg10', ic: 'P!', nome: 'Faro de banca', desc: 'Acertou o tipo de 10 pegadinhas no Caça-Pegadinha.' },
   { g: 'j', id: 'peg100', ic: 'P!!', nome: 'Caçador(a) de pegadinhas', desc: 'Acertou o tipo de 100 pegadinhas no Caça-Pegadinha.' },
   { g: 'j', id: 'perfeita', ic: '♥', nome: 'Vitória perfeita', desc: 'Derrotou o chefão numa batalha sem perder nenhum coração.' },
@@ -960,7 +962,7 @@ function registrar(q, resp, duvida) {
   const d = diaLog();
   if (resp === BRANCO) d.b = (d.b || 0) + 1; else { d.r++; if (ok) d.c++; else d.e++; }
   if (antes < 0 && resp !== BRANCO) d.ni = (d.ni || 0) + 1;
-  if (ok) golpeChefe(q);
+  if (ok) { golpeChefe(q); verificarAndar(q); }
   if (eraManutencao) { d.m = (d.m || 0) + 1; if (ok && !duvida) d.mc = (d.mc || 0) + 1; }
   if (pontual) { d.mp = (d.mp || 0) + 1; if (ok && !duvida) d.mpc = (d.mpc || 0) + 1; }
   if (ok === false) sugerirPesquisaDoErro(q);
@@ -1085,6 +1087,7 @@ function verificarConquistas(ctx) {
   const trofeus = (r.trofeus || []).length;
   const peg = (r.peg || [0])[0];
   se(peg >= 10, 'peg10'); se(peg >= 100, 'peg100');
+  se((r.andares || 0) >= 10, 'andar10'); se((r.masmorras || 0) >= 1, 'masmorra');
   se(trofeus >= 1, 'chefe1'); se(trofeus >= 5, 'chefe5'); se(trofeus >= 10, 'chefe10');
   se(ITENS_RPG.some((it) => it.rar === 'lendario' && r.inv[it.id]), 'lendario');
   se(Object.keys(ENCAIXES).every((sl) => equipado(sl)), 'equipado');
@@ -2354,6 +2357,59 @@ function chefeDaSemana() {
   normalizarChefe(r.chefe);
   return r.chefe;
 }
+// Masmorra da semana: cada artigo de um bloco de lei é um andar, na ordem da lei. O bloco é o do chefão quando ele tem
+// pelo menos 3 andares; senão, o bloco de lei mais fraco entre os praticados. O andar fica limpo quando nenhum item dele
+// está com erro pendente e pelo menos ANDAR_MIN (ou todos, se forem menos) estão certos no último registro. Limpar um
+// andar respondendo um item dele dá ANDAR_XP, uma vez por semana; andar que já estava limpo aparece limpo.
+const ANDAR_MIN = 5, ANDAR_XP = 20;
+let posArt = null;
+function andaresDe(bloco) {
+  if (!posArt) posArt = new Map([...ARTI.keys()].map((k, i) => [k, i]));
+  const porArt = agrupar((POR_BLOCO.get(bloco) || []).filter((q) => q.art && LEIS[q.l]), (q) => chave(q.l, q.art));
+  return [...porArt.entries()].filter(([k]) => ARTI.has(k)).sort((a, b) => posArt.get(a[0]) - posArt.get(b[0])).map(([k, qs]) => {
+    let ok = 0, pend = 0;
+    for (const q of qs) { const r = rec(q.id); if (!r) continue; if (r[0] > 0) ok++; else if (r[0] === 0 && r[3] > 0) pend++; }
+    const meta = Math.min(ANDAR_MIN, qs.length);
+    return { k, ok, pend, meta, limpo: !pend && ok >= meta };
+  });
+}
+function masmorra() {
+  const r = rpg(), c = chefeDaSemana();
+  if (!r.masm || r.masm.sem !== c.sem) {
+    let bloco = andaresDe(c.bloco).length >= 3 ? c.bloco : null;
+    if (!bloco) {
+      const cand = BLOCOS.map((b) => ({ id: b.id, n: andaresDe(b.id).length, dom: dominioBloco(b.id) || 0, resp: (POR_BLOCO.get(b.id) || []).filter((q) => { const x = rec(q.id); return x && x[0] >= 0; }).length }))
+        .filter((x) => x.n >= 3);
+      const praticados = cand.filter((x) => x.resp >= 5);
+      const alvo = (praticados.length ? praticados : cand.filter((x) => P1.includes(x.id))).sort((a, b) => a.dom - b.dom)[0] || cand[0];
+      bloco = alvo ? alvo.id : null;
+    }
+    r.masm = { sem: c.sem, bloco, ok: [] };
+  }
+  if (!r.masm.bloco) return null;
+  const andares = andaresDe(r.masm.bloco);
+  return { bloco: r.masm.bloco, andares, limpos: andares.filter((a) => a.limpo).length, prox: andares.find((a) => !a.limpo) };
+}
+function verificarAndar(q) {
+  const m = masmorra();
+  if (!m || q.b !== m.bloco || !q.art) return;
+  const k = chave(q.l, q.art), a = m.andares.find((x) => x.k === k), r = rpg();
+  if (!a || !a.limpo || r.masm.ok.includes(k)) return;
+  r.masm.ok.push(k);
+  r.andares = (r.andares || 0) + 1;
+  ganharXP(ANDAR_XP);
+  avisar('▼', 'Andar limpo: ' + rotuloArt(k), m.limpos === m.andares.length ? 'Masmorra inteira limpa! +' + ANDAR_XP + ' XP' : 'Faltam ' + (m.andares.length - m.limpos) + ' andares · +' + ANDAR_XP + ' XP');
+  if (m.limpos === m.andares.length) r.masmorras = (r.masmorras || 0) + 1;
+}
+function cartaoMasmorra() {
+  const m = masmorra();
+  if (!m) return '';
+  const tot = m.andares.length, p = m.prox;
+  return '<div class="masmorra"><div class="masm-cab"><b>Masmorra da semana</b><span class="mono pequeno">' + m.limpos + '/' + tot + ' andares</span></div>' +
+    '<span class="pequeno mudo">' + esc(nomeBloco(m.bloco)) + '</span>' + barra(m.limpos / tot, 'ouro') +
+    (p ? '<p class="pequeno">Próximo andar: <b>' + esc(rotuloArt(p.k)) + '</b> · ' + (p.pend ? pl(p.pend, 'erro pendente', 'erros pendentes') : p.ok + '/' + p.meta + ' acertos') +
+      ' <button class="linkish pequeno" data-acao="treinar-art" data-art="' + esc(p.k) + '">Descer</button></p>' : '<p class="pequeno">Masmorra limpa nesta semana.</p>') + '</div>';
+}
 // Dano de um acerto: 10, 15 ou 20 pela dificuldade do item, mais o bônus da arma. É crítico (dano em dobro) quando o
 // artigo do item já caiu em prova real ou, ao acaso, pela chance do amuleto.
 function danoDe(q) {
@@ -2453,7 +2509,7 @@ function cartaoJornada() {
     (c.vencido ? '' : '<button class="btn pequeno primario" data-acao="enfrentar-chefe">' + esc(rotuloPausa('chefe:' + c.sem, 'Batalhar')) + '</button>') + '</div>';
   const bau = mh.bau && mh.item && IR.get(mh.item) ? '<p class="pequeno">Baú aberto: <b class="r-txt-' + IR.get(mh.item).rar + '">' + esc(IR.get(mh.item).nome) + '</b></p>' : '<p class="pequeno mudo">Três missões abrem o baú do dia, com um item.</p>';
   return '<div class="cartao jornada"><div class="secao-cab"><h2>Jornada</h2><span class="mono pequeno mudo">' + feitas + '/' + mh.ids.length + ' missões</span></div>' +
-    heroi + chefe + '<div class="missoes">' + missoes + '</div>' + bau + '</div>';
+    heroi + chefe + cartaoMasmorra() + '<div class="missoes">' + missoes + '</div>' + bau + '</div>';
 }
 // Ficha do personagem (Mais → Personagem): atributos medidos pelo domínio real, equipamento e inventário
 function dominioDisciplina(disc) {

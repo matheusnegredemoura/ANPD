@@ -861,3 +861,7 @@ body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}
 .erro-art{border-top:1px dashed var(--line);padding-top:8px;margin-top:8px}
 .erro-art p{margin:4px 0}
 .erro-art.virou{opacity:.8}
+/* Masmorra da semana na Jornada */
+.masmorra{margin:10px 0;padding:10px 12px;border-radius:10px;background:var(--surface-2);display:flex;flex-direction:column;gap:4px}
+.masm-cab{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.masmorra p{margin:4px 0 0}

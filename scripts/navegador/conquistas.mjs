@@ -96,7 +96,7 @@ await passo('Progresso mostra as conquistas em seis grupos', async () => {
   const grupos = p.locator('details[data-det^="cq-"]');
   if ((await grupos.count()) !== 6) throw new Error('grupos: ' + (await grupos.count()));
   const cab = await p.textContent('.secao:has(details[data-det^="cq-"]) .secao-cab');
-  if (!/de 104/.test(cab)) throw new Error('cabeçalho: ' + cab.trim());
+  if (!/de 106/.test(cab)) throw new Error('cabeçalho: ' + cab.trim());
   await grupos.first().locator('summary').click();
   if ((await grupos.first().locator('.conquista').count()) < 10) throw new Error('grupo de questões vazio');
   if ((await p.locator('.secao:has(details[data-det^="cq-"]) > .conquistas .conquista').count()) !== 4) throw new Error('recentes: esperado 4');
