@@ -1,0 +1,168 @@
+// Guias orientativos da ANPD, parte 2: agentes de tratamento, Poder Público, legítimo interesse, cookies,
+// anonimização e IA. O fontes/guias.txt é um resumo, não o texto oficial dos guias: cada item afirma só o que a própria
+// LGPD sustenta, e o comentário indica o artigo.
+
+=== ga2-01
+bloco: lgpd-37-45
+gab: C
+tema: an-guias-orientativos
+ref: guias 1
+trecho: Pessoas naturais que atuam como profissionais subordinados ou membros de órgãos de uma empresa ou entidade pública NÃO são controladores nem operadores autônomos, pois agem sob o poder diretivo da organização
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: analista de recursos humanos de uma empresa decide, conforme as rotinas internas, quais dados dos candidatos são coletados nas entrevistas. Assertiva: segundo a orientação da ANPD, a controladora é a empresa, e não o analista, que age sob o poder de direção dela.
+comentario: Certo. Controlador é a pessoa natural ou jurídica a quem competem as decisões sobre o tratamento (LGPD, art. 5º, VI). Para a ANPD, o empregado ou servidor que atua subordinado à organização não é agente de tratamento autônomo: suas decisões são da organização.
+
+=== ga2-02
+bloco: lgpd-37-45
+gab: E
+tema: an-guias-orientativos
+ref: guias 1
+trecho: respondendo solidariamente
+armadilha: conceito
+dif: 2
+enunciado: Na controladoria conjunta, cada controlador responde apenas pelos danos ligados à parte do tratamento que lhe coube decidir, sem solidariedade perante o titular.
+comentario: Errado. Os controladores diretamente envolvidos no tratamento do qual decorreram danos ao titular respondem solidariamente (LGPD, art. 42, § 1º, II), salvo as excludentes do art. 43. A divisão interna das responsabilidades não é oponível ao titular.
+
+=== ga2-03
+bloco: lgpd-37-45
+gab: C
+tema: an-guias-orientativos
+ref: guias 1
+trecho: podendo definir apenas meios não essenciais (técnicos/operacionais)
+armadilha: conceito
+dif: 2
+enunciado: Segundo a ANPD, o operador trata os dados conforme as instruções lícitas do controlador, mas pode decidir sobre aspectos técnicos e operacionais, como a ferramenta usada, sem deixar de ser operador.
+comentario: Certo. O operador realiza o tratamento em nome do controlador (LGPD, art. 5º, VII) e segue suas instruções lícitas (art. 39). Decidir meios não essenciais, como a ferramenta, não o torna controlador; quem define a finalidade e os elementos essenciais é o controlador.
+
+=== ga2-04
+bloco: lgpd-37-45
+gab: E
+tema: an-guias-orientativos
+ref: guias 1
+trecho: perante a ANPD e o titular, o suboperador equipara-se ao operador
+armadilha: excecao
+dif: 2
+enunciado: O suboperador, contratado pelo operador para ajudá-lo no tratamento, não responde perante a ANPD nem perante o titular, porque não tem relação jurídica com o controlador.
+comentario: Errado. Para a ANPD, o suboperador equipara-se ao operador perante a autoridade e o titular, e recomenda-se autorização prévia do controlador para a subcontratação. A LGPD não cria uma categoria isenta: quem trata dados em nome do controlador responde como operador (art. 42).
+
+=== ga2-05
+bloco: lgpd-23-32
+gab: E
+tema: an-guias-orientativos
+ref: guias 3
+trecho: O consentimento (art. 7º, I) é residual no setor público devido à assimetria de poder entre Estado e cidadão
+armadilha: conceito
+dif: 2
+enunciado: Segundo a orientação da ANPD para o Poder Público, o consentimento é a base legal preferencial para o tratamento de dados pelo Estado, por respeitar melhor a autonomia do cidadão.
+comentario: Errado. No setor público o consentimento é residual: a assimetria entre Estado e cidadão compromete a manifestação livre (LGPD, art. 5º, XII). As bases típicas são o cumprimento de obrigação legal (art. 7º, II) e a execução de políticas públicas (art. 7º, III), sempre para atender à finalidade pública (art. 23).
+
+=== ga2-06
+bloco: lgpd-23-32
+gab: C
+tema: an-guias-orientativos
+ref: guias 3
+trecho: O legítimo interesse (art. 7º, IX) NÃO deve ser utilizado pelo Poder Público para o exercício de suas atribuições típicas de Estado e atos de império
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: órgão de fiscalização tributária pretende fundamentar no legítimo interesse o cruzamento de dados de contribuintes para lançar tributos. Assertiva: pela orientação da ANPD, a escolha é inadequada, pois essa atividade é atribuição típica de Estado e tem base própria na lei.
+comentario: Certo. A ANPD orienta que o Poder Público não use o legítimo interesse (art. 7º, IX) no exercício de atribuições típicas de Estado. Lançar tributo é cumprir obrigação legal (art. 7º, II) no exercício de competência legal (art. 23).
+
+=== ga2-07
+bloco: lgpd-23-32
+gab: E
+tema: an-guias-orientativos
+ref: guias 4
+trecho: Em regra, é VEDADO ao Poder Público transferir a entidades privadas dados pessoais constantes de bases de dados a que tenha acesso
+armadilha: excecao
+dif: 2
+enunciado: Em regra, o Poder Público pode transferir a entidades privadas dados pessoais de suas bases, bastando comunicar a operação à ANPD.
+comentario: Errado. A regra do art. 26, § 1º, da LGPD é a vedação; as exceções são a execução descentralizada de atividade pública, os dados acessíveis publicamente, a previsão legal ou o respaldo em contrato ou convênio e a prevenção de fraudes ou a proteção do titular. A comunicação à ANPD do art. 27, parágrafo único, não substitui essas hipóteses.
+
+=== ga2-08
+bloco: lgpd-5-11
+gab: E
+tema: an-guias-orientativos
+ref: guias 5
+trecho: concreto (baseado em situação atual, e não meramente especulativa)
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma loja invoca o legítimo interesse para guardar por anos os dados de navegação de todos os clientes, para usos futuros ainda não definidos. Assertiva: a primeira fase do teste de balanceamento está atendida, pois basta que o interesse seja lícito.
+comentario: Errado. Para a ANPD, o interesse legítimo precisa ser lícito, concreto (situação atual, não especulativa) e ligado a finalidade específica. É o que pede o art. 10 da LGPD: finalidades legítimas, consideradas a partir de situações concretas, e só os dados estritamente necessários (§ 1º).
+
+=== ga2-09
+bloco: lgpd-5-11
+gab: C
+tema: an-guias-orientativos
+ref: guias 5
+trecho: a ANPD poderá solicitar ao controlador o relatório de impacto à proteção de dados pessoais — RIPD (art. 10, § 3º)
+armadilha: conceito
+dif: 1
+enunciado: Quando o tratamento se apoia no legítimo interesse, a ANPD pode pedir ao controlador o relatório de impacto à proteção de dados pessoais, observados os segredos comercial e industrial.
+comentario: Certo. LGPD, art. 10, § 3º. O relatório de impacto documenta os riscos às liberdades civis e aos direitos fundamentais e as medidas para mitigá-los (art. 5º, XVII); é peça natural do teste de balanceamento.
+
+=== ga2-10
+bloco: lgpd-5-11
+gab: C
+tema: an-guias-orientativos
+ref: guias 6
+trecho: Cookies que permitem identificar direta ou indiretamente uma pessoa natural ou singularizar seu dispositivo/perfil comportamental constituem dados pessoais sujeitos à LGPD
+armadilha: conceito
+dif: 2
+enunciado: Para a ANPD, cookies que permitem identificar o usuário, ainda que indiretamente, ou formar seu perfil comportamental tratam dados pessoais e se sujeitam à LGPD.
+comentario: Certo. Dado pessoal é informação relacionada a pessoa natural identificada ou identificável (LGPD, art. 5º, I), e os dados usados para formar o perfil comportamental de pessoa identificada podem ser considerados pessoais (art. 12, § 2º). Por isso o banner de cookies não é mera formalidade.
+
+=== ga2-11
+bloco: lgpd-12-16
+gab: E
+tema: an-guias-orientativos
+ref: guias 8
+trecho: o dado pseudonimizado CONTINUA SENDO DADO PESSOAL e submete-se integralmente à LGPD
+armadilha: comparacao
+dif: 2
+enunciado: Por trocar nome e CPF por um código, o dado pseudonimizado deixa de ser dado pessoal, ainda que o controlador guarde separadamente a tabela que liga cada código ao titular.
+comentario: Errado. Na pseudonimização, o dado só perde a associação ao indivíduo sem a informação adicional mantida em separado pelo controlador (LGPD, art. 13, § 4º); com ela, a reidentificação continua possível, e o dado continua pessoal. Fora da LGPD fica só o dado anonimizado de forma que não se reverta com esforço razoável (art. 12).
+
+=== ga2-12
+bloco: lgpd-12-16
+gab: C
+tema: an-guias-orientativos
+ref: guias 8
+trecho: consideram-se o custo e o tempo necessários para reidentificar, as tecnologias existentes no momento do tratamento
+armadilha: conceito
+dif: 2
+enunciado: Para saber se uma base anonimizada pode ser revertida com esforço razoável, consideram-se fatores objetivos, como o custo e o tempo da reidentificação e as tecnologias disponíveis.
+comentario: Certo. LGPD, art. 12, § 1º: o razoável se mede por fatores objetivos, como custo e tempo necessários para reverter a anonimização, de acordo com as tecnologias disponíveis, e o uso exclusivo de meios próprios. A ANPD acrescenta o cruzamento com bases externas como risco a avaliar.
+
+=== ga2-13
+bloco: lgpd-5-11
+gab: E
+tema: an-guias-orientativos
+ref: guias 9
+trecho: NÃO dispensa a observância da LGPD
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: empresa raspa perfis abertos de redes sociais para treinar modelo de inteligência artificial, sob o argumento de que dados tornados públicos pelo titular podem ser tratados livremente. Assertiva: o argumento está de acordo com a LGPD.
+comentario: Errado. Dado tornado manifestamente público dispensa só o consentimento (LGPD, art. 7º, § 4º). O tratamento continua sujeito à finalidade, à boa-fé e ao interesse público que justificaram a publicação (§ 3º), aos princípios e aos direitos do titular, e o uso para nova finalidade exige propósito legítimo e específico (§ 7º).
+
+=== ga2-14
+bloco: lgpd-17-22
+gab: C
+tema: an-guias-orientativos
+ref: guias 9
+trecho: sob pena de auditoria técnica determinada pela ANPD (art. 20, § 2º)
+armadilha: conceito
+dif: 2
+enunciado: Se o controlador se recusa a explicar os critérios de uma decisão automatizada alegando segredo comercial, a ANPD pode realizar auditoria para verificar aspectos discriminatórios no tratamento.
+comentario: Certo. LGPD, art. 20, § 2º. O titular tem direito à revisão da decisão automatizada e a informações claras sobre os critérios (caput e § 1º); se o segredo comercial ou industrial impede a explicação, a resposta da lei é a auditoria da ANPD.
+
+=== ga2-15
+bloco: lgpd-23-32
+gab: C
+tema: an-guias-orientativos
+ref: guias 3
+trecho: As bases legais típicas da atuação estatal são o cumprimento de obrigação legal ou regulatória (art. 7º, II) e a execução de políticas públicas
+armadilha: conceito
+dif: 1
+enunciado: Na atuação estatal, as bases legais mais comuns para tratar dados pessoais são o cumprimento de obrigação legal ou regulatória e a execução de políticas públicas, que dispensam o consentimento do titular.
+comentario: Certo. LGPD, art. 7º, II e III. O tratamento pelo Poder Público serve à finalidade pública e ao exercício de competências legais (art. 23), e por isso se apoia sobretudo nessas duas bases, e não no consentimento.
