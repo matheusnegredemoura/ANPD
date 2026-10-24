@@ -3555,7 +3555,37 @@ function gavetaErrosArt(qs) {
         '<p class="pequeno"><b>Gabarito: ' + esc(nomeGab(q)) + '.</b> ' + marcarTermos(q.c, 3) + '</p>' + (nota ? '<p class="pequeno"><b>Sua regra:</b> ' + esc(nota) + '</p>' : '') + '</div>';
     }).join('') + (errados.length > 8 ? '<p class="pequeno mudo">Mais ' + (errados.length - 8) + ' no Caderno de Erros.</p>' : '') + '</details>';
 }
+// Ouvir o artigo: a voz do aparelho lê o texto vigente, sem as notas de redação; cada trecho lido conta como uso, para
+// o relógio da leitura não parar enquanto a pessoa escuta. Sai do artigo, a voz para.
+let falando = null;
+const PODE_FALAR = typeof window !== 'undefined' && 'speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined';
+function textoParaFala(a) {
+  return (a.rotulo + '. ' + textoVigente(a))
+    .replace(/\((Redação dada|Incluíd[oa]|Acrescid[oa]|Renumerad[oa]|Vide|Vigência|Regulamento)[^)]*\)/gi, '')
+    .replace(/§§/g, 'parágrafos').replace(/§/g, 'parágrafo').replace(/\bArt\./g, 'Artigo').replace(/\bnº/g, 'número').replace(/\s+/g, ' ').trim();
+}
+function pararFala() { if (falando && PODE_FALAR) speechSynthesis.cancel(); falando = null; }
+function rotuloFala(k) { return falando === k ? 'Parar a leitura em voz' : 'Ouvir o artigo'; }
+function ouvirArtigo(k) {
+  const a = ARTI.get(k);
+  if (!a || !PODE_FALAR) return;
+  if (falando === k) { pararFala(); } else {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(textoParaFala(a));
+    u.lang = 'pt-BR';
+    const voz = speechSynthesis.getVoices().find((v) => /^pt[-_]BR/i.test(v.lang)) || speechSynthesis.getVoices().find((v) => /^pt/i.test(v.lang));
+    if (voz) u.voice = voz;
+    u.onboundary = marcarUso;
+    u.onend = u.onerror = () => { if (falando === k) { falando = null; const b = document.querySelector('[data-acao="ouvir-art"]'); if (b) b.textContent = rotuloFala(k); } };
+    falando = k;
+    speechSynthesis.speak(u);
+    marcarUso();
+  }
+  const b = document.querySelector('[data-acao="ouvir-art"]');
+  if (b) b.textContent = rotuloFala(k);
+}
 function renderArtigo(k) {
+  if (falando && falando !== k) pararFala();
   const a = ARTI.get(k);
   const L = LEIS[a.lei];
   const fila = UI.leiFila && UI.leiFila.includes(k) ? UI.leiFila : null;
@@ -3588,6 +3618,7 @@ function renderArtigo(k) {
     htmlClaro(a) + legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div>' + caixaJuridiques(a) + '<div class="linha-btns">';
   if (qs.length) html += '<button class="btn primario" data-acao="treinar-art" data-art="' + esc(k) + '">Questões deste artigo (' + qs.length + ')</button>';
   if (cs.length) html += '<button class="btn" data-acao="cards-art" data-art="' + esc(k) + '">Cards deste artigo (' + cs.length + ')</button>';
+  if (PODE_FALAR) html += '<button class="btn" data-acao="ouvir-art" data-art="' + esc(k) + '">' + rotuloFala(k) + '</button>';
   html += '</div>';
   if (!qs.length && !cs.length) html += '<p class="mudo pequeno">Nenhuma questão ou card do banco cita este artigo diretamente.</p>';
   const termos = termosDe(a.texto, 5, 0.5);
@@ -4781,6 +4812,7 @@ const VISTAS = ['hoje', 'questoes', 'cards', 'lei', 'mais'];
 const ROLAGEM = {};
 function ir(v, rolar = 0) {
   if (!VISTAS.includes(v)) v = 'hoje';
+  if (v !== 'lei') pararFala();
   UI.vista = v;
   salvarUI();
   renderTudo();
@@ -4995,7 +5027,8 @@ async function executar(a, alvo) {
     case 'filtro-pesq': UI.filtroPesq = alvo.dataset.f; renderMais(); break;
     case 'abrir-art': abrirArtigo(alvo.dataset.art, null); break;
     case 'nav-art': if (alvo.dataset.art) abrirArtigo(alvo.dataset.art); break;
-    case 'voltar-lei': if (UI.artSel && ARTI.get(UI.artSel)) UI.lei = ARTI.get(UI.artSel).lei; UI.artSel = null; UI.leiFila = null; renderLei(); window.scrollTo(0, 0); break;
+    case 'ouvir-art': ouvirArtigo(alvo.dataset.art); break;
+    case 'voltar-lei': pararFala(); if (UI.artSel && ARTI.get(UI.artSel)) UI.lei = ARTI.get(UI.artSel).lei; UI.artSel = null; UI.leiFila = null; renderLei(); window.scrollTo(0, 0); break;
     case 'ler-dia': { const ctx = contextoHoje(); const arts = artigosDoDia(ctx.tipo === 'dia' ? ctx.dia : null); if (arts.length) abrirArtigo(arts[0], arts); break; }
     case 'ler-tudo': if (artsDe(UI.lei).length) abrirArtigo(artsDe(UI.lei)[0].k, null); break;
     case 'fim-fila': UI.leiFila = null; UI.artSel = null; avisar('§', 'Leitura do dia concluída', 'Agora os cards cloze desses artigos.'); ir('hoje'); break;
