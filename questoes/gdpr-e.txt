@@ -1,0 +1,193 @@
+bloco: gdpr
+// Direito comparado, quinta leva: tarefas e poderes das autoridades de controle (arts. 57 a 59), cooperação e
+// coerência (arts. 61, 62, 64, 65 e 70), monitoramento de códigos e certificação (arts. 41 e 43) e categorias
+// especiais (art. 9º). Trechos conferidos no texto oficial em inglês (fontes/gdpr.txt).
+
+=== gd5-01
+gab: C
+ref: gdpr 57, 1, (f)
+trecho: handle complaints lodged by a data subject
+armadilha: rol
+dif: 2
+enunciado: Entre as tarefas das autoridades de controle no GDPR está tratar as reclamações dos titulares, investigar o assunto na medida adequada e informar o reclamante do andamento e do resultado em prazo razoável.
+comentario: Certo. GDPR, art. 57, 1, f. Na LGPD, a ANPD também aprecia petições do titular contra o controlador (art. 55-J, V), depois de comprovada a reclamação não resolvida no prazo da regulamentação.
+
+=== gd5-02
+gab: E
+ref: gdpr 57, 3
+trecho: The performance of the tasks of each supervisory authority shall be free of charge for the data subject
+armadilha: absoluto
+dif: 2
+enunciado: No GDPR, as autoridades de controle podem cobrar do titular uma taxa por reclamação apresentada, para custear a análise do caso.
+comentario: Errado. Pelo art. 57, 3, o desempenho das tarefas da autoridade é gratuito para o titular. Só diante de pedidos manifestamente infundados ou excessivos, sobretudo repetitivos, a autoridade pode cobrar taxa razoável ou recusar-se a agir, e cabe a ela demonstrar esse caráter (art. 57, 4).
+
+=== gd5-03
+gab: C
+ref: gdpr 57, 1, (b)
+trecho: Activities addressed specifically to children shall receive specific attention
+armadilha: conceito
+dif: 2
+enunciado: No GDPR, a tarefa de promover a consciência pública sobre riscos, regras, salvaguardas e direitos no tratamento de dados prevê atenção específica às atividades dirigidas a crianças.
+comentario: Certo. GDPR, art. 57, 1, b. A mesma preocupação aparece no Brasil, onde a ANPD atua também como autoridade do ECA Digital (Decreto 12.622/2025).
+
+=== gd5-04
+gab: E
+ref: gdpr 58, 1, (f)
+trecho: in accordance with Union or Member State procedural law
+armadilha: excecao
+dif: 3
+enunciado: Os poderes de investigação do GDPR permitem à autoridade de controle obter acesso às instalações do controlador e aos seus equipamentos de tratamento independentemente das regras processuais nacionais.
+comentario: Errado. O art. 58, 1, f, dá esse acesso “in accordance with Union or Member State procedural law”: segundo o direito processual da União ou do Estado-membro. E o art. 58, 4, sujeita todos os poderes a salvaguardas, inclusive recurso judicial efetivo e devido processo.
+
+=== gd5-05
+gab: C
+ref: gdpr 58, 2, (b)
+trecho: to issue reprimands to a controller or a processor where processing operations have infringed provisions of this Regulation
+armadilha: comparacao
+dif: 3
+enunciado: No GDPR, a advertência (warning) dirige-se a operações de tratamento pretendidas que provavelmente violarão o regulamento, enquanto a repreensão (reprimand) recai sobre tratamento que já o violou.
+comentario: Certo. Art. 58, 2, a e b: o warning é preventivo, para o tratamento que se pretende fazer; o reprimand é corretivo, para a infração já ocorrida. Na LGPD, a advertência é sanção aplicada à infração já ocorrida, com prazo para medidas corretivas (art. 52, I).
+
+=== gd5-06
+gab: E
+ref: gdpr 58, 2, (i)
+trecho: in addition to, or instead of measures referred to in this paragraph
+armadilha: excecao
+dif: 3
+enunciado: No GDPR, a multa administrativa só pode ser aplicada depois de esgotadas as demais medidas corretivas, como a ordem de adequar o tratamento.
+comentario: Errado. Pelo art. 58, 2, i, a multa (art. 83) pode ser aplicada em acréscimo ou em substituição às demais medidas corretivas, conforme as circunstâncias de cada caso. Não há exigência de esgotar antes as outras medidas.
+
+=== gd5-07
+gab: C
+ref: gdpr 58, 2, (j)
+trecho: to order the suspension of data flows to a recipient in a third country or to an international organisation
+armadilha: conceito
+dif: 2
+enunciado: Entre os poderes corretivos das autoridades de controle europeias está ordenar a suspensão dos fluxos de dados para destinatário em país terceiro ou organização internacional.
+comentario: Certo. GDPR, art. 58, 2, j. É o poder usado quando a transferência deixa de ter garantias adequadas, como na discussão posterior ao caso Schrems II sobre transferências aos Estados Unidos.
+
+=== gd5-08
+gab: C
+ref: gdpr 58, 2, (f)
+trecho: to impose a temporary or definitive limitation including a ban on processing
+armadilha: comparacao
+dif: 2
+enunciado: Assim como a LGPD prevê a proibição parcial ou total do exercício de atividades de tratamento, o GDPR permite à autoridade de controle impor limitação temporária ou definitiva do tratamento, incluída a sua proibição.
+comentario: Certo. GDPR, art. 58, 2, f; LGPD, art. 52, XII. Diferença: na LGPD, essa sanção e as suspensões só vêm depois de aplicada, no mesmo caso, ao menos uma das sanções dos incisos II a VI, ou seja, não basta a advertência (art. 52, § 6º).
+
+=== gd5-09
+gab: E
+ref: gdpr 58, 4
+trecho: shall be subject to appropriate safeguards, including effective judicial remedy and due process
+armadilha: conceito
+dif: 2
+enunciado: Por serem independentes, as autoridades de controle europeias exercem seus poderes de investigação e de correção sem sujeição a controle judicial.
+comentario: Errado. O art. 58, 4, sujeita o exercício dos poderes a salvaguardas adequadas, incluídos o recurso judicial efetivo e o devido processo. Independência (art. 52) não é imunidade ao Judiciário; o art. 78 garante recurso judicial contra decisões da autoridade.
+
+=== gd5-10
+gab: C
+ref: gdpr 59
+trecho: Each supervisory authority shall draw up an annual report on its activities
+armadilha: conceito
+dif: 2
+enunciado: No GDPR, cada autoridade de controle elabora relatório anual de atividades, que pode listar os tipos de infração notificados e de medidas corretivas adotadas e é enviado ao parlamento e ao governo nacionais.
+comentario: Certo. GDPR, art. 59, que manda ainda publicar o relatório. Na LGPD, a ANPD também elabora relatórios de gestão anuais (art. 55-J, XII).
+
+=== gd5-11
+gab: E
+ref: gdpr 61, 2
+trecho: no later than one month after receiving the request
+armadilha: numero
+dif: 2
+enunciado: No GDPR, a autoridade de controle que recebe pedido de assistência mútua de outra autoridade deve respondê-lo no prazo máximo de três meses.
+comentario: Errado. Pelo art. 61, 2, a resposta vem sem demora injustificada e, no máximo, um mês depois do recebimento do pedido. O número é o erro.
+
+=== gd5-12
+gab: C
+ref: gdpr 61, 3
+trecho: Information exchanged shall be used only for the purpose for which it was requested
+armadilha: conceito
+dif: 2
+enunciado: No GDPR, a informação trocada entre autoridades de controle em pedido de assistência mútua só pode ser usada para a finalidade para a qual foi solicitada.
+comentario: Certo. Art. 61, 3: o pedido traz a finalidade e as razões, e a informação fica vinculada a elas. É a limitação da finalidade aplicada às próprias autoridades.
+
+=== gd5-13
+gab: E
+ref: gdpr 62, 2
+trecho: shall have the right to participate in joint operations
+armadilha: excecao
+dif: 3
+enunciado: No GDPR, quando o controlador tem estabelecimentos em vários Estados-membros, a participação das autoridades desses Estados em operações conjuntas depende sempre de convite da autoridade que as conduz.
+comentario: Errado. Pelo art. 62, 2, nesses casos, e também quando muitos titulares de mais de um Estado podem ser substancialmente afetados, a autoridade de cada Estado tem direito de participar das operações conjuntas. Não depende de convite.
+
+=== gd5-14
+gab: E
+ref: gdpr 65, 2
+trecho: by a two-thirds majority of the members of the Board
+armadilha: numero
+dif: 2
+enunciado: Na resolução de litígios entre autoridades de controle, o Comitê Europeu de Proteção de Dados adota a decisão vinculante por maioria simples de seus membros.
+comentario: Errado. Pelo art. 65, 2, a decisão vinculante é adotada por maioria de dois terços dos membros, em um mês da submissão, prorrogável por mais um mês pela complexidade. Só se não houver decisão nesse prazo, o Comitê decide por maioria simples (art. 65, 3).
+
+=== gd5-15
+gab: C
+ref: gdpr 65, 1, (b)
+trecho: where there are conflicting views on which of the supervisory authorities concerned is competent for the main establishment
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: duas autoridades de controle europeias divergem sobre qual delas é competente quanto ao estabelecimento principal de uma plataforma. Assertiva: o GDPR prevê que o Comitê Europeu de Proteção de Dados adote decisão vinculante para resolver o conflito.
+comentario: Certo. Art. 65, 1, b. A decisão vinculante do Comitê também cabe quando há objeção relevante e fundamentada ao projeto de decisão da autoridade principal (a) ou quando a autoridade não pede ou não segue o parecer obrigatório do Comitê (c).
+
+=== gd5-16
+gab: C
+ref: gdpr 64, 1, (a)
+trecho: aims to adopt a list of the processing operations subject to the requirement for a data protection impact assessment
+armadilha: conceito
+dif: 3
+enunciado: No GDPR, a autoridade de controle que pretende adotar a lista de operações de tratamento sujeitas a avaliação de impacto deve submeter o projeto ao Comitê Europeu de Proteção de Dados, que emite parecer.
+comentario: Certo. Art. 64, 1, a. O parecer serve à coerência entre os Estados-membros; também é exigido, por exemplo, para aprovar critérios de acreditação (c), fixar cláusulas-padrão de proteção de dados (d) e aprovar regras corporativas vinculantes (f).
+
+=== gd5-17
+gab: E
+ref: gdpr 70, 1, (a)
+trecho: without prejudice to the tasks of national supervisory authorities
+armadilha: sujeito
+dif: 2
+enunciado: O Comitê Europeu de Proteção de Dados substitui as autoridades nacionais na fiscalização dos controladores, para garantir a aplicação uniforme do GDPR.
+comentario: Errado. O Comitê garante a aplicação coerente do regulamento, sobretudo com pareceres, decisões vinculantes em litígios e diretrizes (art. 70), “without prejudice to the tasks of national supervisory authorities”. A fiscalização continua com as autoridades nacionais.
+
+=== gd5-18
+gab: C
+ref: gdpr 41, 1
+trecho: Without prejudice to the tasks and powers of the competent supervisory authority under Articles 57 and 58
+armadilha: conceito
+dif: 3
+enunciado: No GDPR, o cumprimento de um código de conduta pode ser monitorado por organismo acreditado pela autoridade de controle, o que não afasta os poderes de investigação e de correção da própria autoridade.
+comentario: Certo. Art. 41, 1. O organismo precisa demonstrar independência e conhecimento técnico e manter procedimentos para tratar reclamações (art. 41, 2), mas a autoridade conserva as tarefas e os poderes dos arts. 57 e 58.
+
+=== gd5-19
+gab: E
+ref: gdpr 43, 1
+trecho: the national accreditation body named in accordance with Regulation
+armadilha: rol
+dif: 3
+enunciado: No GDPR, só a autoridade de controle pode acreditar organismos de certificação em proteção de dados.
+comentario: Errado. Pelo art. 43, 1, a acreditação pode caber à autoridade de controle competente, ao organismo nacional de acreditação (segundo a ISO/IEC 17065 e requisitos adicionais da autoridade) ou a ambos, conforme o Estado-membro.
+
+=== gd5-20
+gab: C
+ref: gdpr 9, 2, (e)
+trecho: processing relates to personal data which are manifestly made public by the data subject
+armadilha: excecao
+dif: 2
+enunciado: No GDPR, a proibição de tratar categorias especiais de dados não se aplica aos dados manifestamente tornados públicos pelo próprio titular.
+comentario: Certo. Art. 9º, 2, e. Ainda assim, o tratamento precisa de base no art. 6º e deve respeitar os princípios do art. 5º. Na LGPD, os dados tornados manifestamente públicos dispensam o consentimento (art. 7º, § 4º), resguardados os direitos do titular.
+
+=== gd5-21
+gab: E
+ref: gdpr 9, 2, (a)
+trecho: except where Union or Member State law provide that the prohibition referred to in paragraph 1 may not be lifted by the data subject
+armadilha: absoluto
+dif: 3
+enunciado: No GDPR, o consentimento explícito do titular sempre afasta a proibição de tratar dados de categorias especiais, para finalidades especificadas.
+comentario: Errado. O art. 9º, 2, a, ressalva os casos em que o direito da União ou do Estado-membro prevê que a proibição não pode ser afastada pelo titular. O consentimento explícito funciona como regra, mas não sempre.

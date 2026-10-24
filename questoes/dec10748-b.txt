@@ -102,3 +102,66 @@ armadilha: sujeito
 dif: 3
 enunciado: Os incidentes cibernéticos de maior impacto, que devem ser notificados ao centro de resposta do governo, são definidos por esse centro, com base em classificação de severidade única para a administração federal.
 comentario: Errado. São estabelecidos com base na classificação de severidade do processo de gestão de riscos de segurança da informação de cada órgão ou entidade (art. 12, § 1º, do Decreto 10.748/2021).
+
+=== rfg-12
+gab: E
+ref: dec10748 8
+trecho: deverão reportar-se à equipe de coordenação setorial à qual estiverem vinculadas ou, na sua inexistência, diretamente ao Centro de Prevenção
+armadilha: sujeito
+dif: 3
+enunciado: A entidade privada que aderiu à Rede Federal de Gestão de Incidentes Cibernéticos e está vinculada a uma equipe de coordenação setorial reporta-se diretamente ao centro de resposta do governo (CTIR Gov) quando um incidente extrapola a sua capacidade de saná-lo.
+comentario: Errado. Pelo art. 8º do Decreto 10.748/2021, a pessoa jurídica de fora da administração federal direta, autárquica e fundacional que aderiu à Rede reporta-se à equipe de coordenação setorial à qual está vinculada; só na falta dela vai diretamente ao CTIR Gov.
+
+=== rfg-13
+gab: C
+ref: dec10748 8
+trecho: vulnerabilidade em ativos de informação que a sua equipe de prevenção, tratamento e resposta a incidentes cibernéticos julgue que possa causar incidente cibernético
+armadilha: rol
+dif: 2
+enunciado: A entidade aderente à Rede Federal de Gestão de Incidentes Cibernéticos deve reportar não só o incidente que extrapole sua capacidade de saná-lo, mas também a vulnerabilidade que sua equipe de resposta julgue capaz de causar incidente, em sua rede ou na de outras entidades.
+comentario: Certo. Art. 8º, I e II, do Decreto 10.748/2021. A adesão é voluntária para quem está fora da administração federal direta, autárquica e fundacional, mas, uma vez firmado o termo, o dever de reportar existe nessas duas hipóteses.
+
+=== rfg-14
+gab: C
+ref: dec10748 11
+trecho: elaborar, atualizar e divulgar o plano de gestão de incidentes cibernéticos para os órgãos e as entidades da administração pública federal direta, autárquica e fundacional
+armadilha: sujeito
+dif: 2
+enunciado: Cabe ao Departamento de Segurança da Informação do GSI, por meio do CTIR Gov, coordenar as equipes de resposta a incidentes dos integrantes da Rede Federal e elaborar o plano de gestão de incidentes cibernéticos da administração federal direta, autárquica e fundacional.
+comentario: Certo. Art. 11, I e III, do Decreto 10.748/2021. O CTIR Gov também difunde alertas, recomendações e estatísticas aos integrantes da Rede (VI) e busca cooperação internacional (V).
+
+=== rfg-15
+gab: E
+ref: dec10748 11
+trecho: buscar a cooperação internacional, com ênfase no compartilhamento de informações sobre ameaças, vulnerabilidade e incidentes cibernéticos
+armadilha: rol
+dif: 2
+enunciado: A articulação com órgãos de outros países e a busca de cooperação internacional sobre incidentes cibernéticos não estão entre as competências atribuídas ao CTIR Gov no Decreto 10.748/2021.
+comentario: Errado. Estão, sim: o art. 11, IV e V, manda articular-se com órgãos ou unidades correlatos de outros países e buscar cooperação internacional, com ênfase no compartilhamento de informações sobre ameaças, vulnerabilidades e incidentes.
+
+=== rfg-16
+gab: E
+ref: dec10748 15
+trecho: divulgará em seu sítio eletrônico estatísticas gerais de interesse público
+armadilha: excecao
+dif: 3
+enunciado: O CTIR Gov divulga em seu sítio eletrônico as informações específicas sobre incidentes ocorridos em cada órgão federal, em nome da transparência.
+comentario: Errado. As informações específicas sobre incidentes e sobre configurações de ativos de cada órgão são imprescindíveis à segurança da sociedade e do Estado e só podem ser acessadas por profissionais autorizados (art. 15, caput e § 1º). O que o CTIR Gov divulga são estatísticas gerais de interesse público (art. 15, § 2º), e o art. 11, VII, ressalva expressamente o art. 15.
+
+=== rfg-17
+gab: C
+ref: dec10748 14
+trecho: coordenar as atividades e centralizar as notificações de incidentes recebidas das demais equipes
+armadilha: conceito
+dif: 1
+enunciado: Cabe às equipes de coordenação setorial elaborar o plano setorial de gestão de incidentes cibernéticos e centralizar as notificações de incidentes recebidas das equipes das entidades sob sua coordenação.
+comentario: Certo. Art. 14, I e II, do Decreto 10.748/2021. As agências reguladoras, o Banco Central e a CNEN instituem ou designam essas equipes (art. 13, I).
+
+=== rfg-18
+gab: E
+ref: dec10748 14
+trecho: elaborar o plano setorial de gestão de incidentes cibernéticos de que trata o inciso VI do caput do art. 13
+armadilha: sujeito
+dif: 3
+enunciado: O plano setorial de gestão de incidentes cibernéticos de cada área regulada é elaborado pelo CTIR Gov, que recebe das agências reguladoras a análise dos riscos do setor.
+comentario: Errado. O plano setorial é elaborado pela equipe de coordenação setorial (art. 14, I). As agências reguladoras analisam os riscos que devem constar dele (art. 13, VI); ao CTIR Gov cabe o plano de gestão de incidentes da administração federal direta, autárquica e fundacional (art. 11, III).
