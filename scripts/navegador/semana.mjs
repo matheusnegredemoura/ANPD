@@ -2,6 +2,9 @@
 // discursiva e o simulado de 30 itens (o simulado feito na semana cumpre a cota) e a lista Para pesquisar só com os 10
 // pendentes mais recentes.
 import { APP, abrirNavegador, diaDeEstudo, placar, vigiarErros } from './comum.mjs';
+import { montarDados } from '../build.mjs';
+
+const oficiais = montarDados().discursivas.temas.filter((t) => /^oficial-/.test(t.id)).map((t) => t.titulo);
 
 const browser = await abrirNavegador();
 const { conferir, passo, fim } = placar();
@@ -28,6 +31,7 @@ await passo('Hoje: prontidão no topo, Jornada recolhida e cartão da semana', a
   conferir('Jornada recolhida', (await p.locator('details[data-det="jornada"][open]').count()) === 0);
   conferir('resumo da Jornada com nível e missões', /nível \d+ · \d+\/\d+ missões/.test(await p.textContent('.jornada-resumo')));
   const sem = (await p.textContent('.cartao.semana')).replace(/\s+/g, ' ');
+  conferir('a discursiva sugerida é de tema com espelho oficial', oficiais.some((t) => sem.includes(t)), sem.slice(0, 200));
   conferir('discursiva e simulado da semana pendentes', /0 de 2/.test(sem) && /Discursiva da semana/.test(sem) && /Simulado da semana \(30 itens\)/.test(sem), sem.slice(0, 120));
   const ordem = await p.evaluate(() => [...document.querySelectorAll('#vista-hoje > .cartao')].map((c) => c.className));
   const iR = ordem.findIndex((c) => /semana/.test(c)), iJ = ordem.findIndex((c) => /jornada/.test(c));

@@ -7,7 +7,7 @@ import { montarDados } from '../build.mjs';
 const browser = await abrirNavegador();
 const { conferir, passo, fim } = placar();
 const erros = [];
-const Q = montarDados().questoes.filter((q) => !q.al && !q.ap && /\b(somente|exclusivamente|salvo|sempre)\b/i.test(q.e));
+const Q = montarDados().questoes.filter((q) => !q.al && !q.ap && q.art && /\b(somente|exclusivamente|salvo|sempre)\b/i.test(q.e));
 const ids = Q.slice(0, 3).map((q) => q.id);
 const gab = new Map(Q.map((q) => [q.id, q.g]));
 
@@ -43,6 +43,8 @@ await passo('relógio do item, grifo de polaridade depois da resposta e causa do
   const cad = await p.evaluate(() => JSON.parse(localStorage.getItem('painel-anpd-v3')).perfil.cad);
   conferir('causa gravada no Caderno de Erros', cad && cad.erros && cad.erros[Object.keys(cad.erros)[0]].causa === 'leu-errado', JSON.stringify(cad));
   conferir('chip marcado', (await p.locator('.causa-agora [data-causa="leu-errado"]').getAttribute('aria-pressed')) === 'true');
+  await p.click('.causa-agora [data-causa="nao-sabia"]');
+  conferir('não sabia: botão para o artigo ali mesmo', /Abrir o artigo agora/.test(await p.textContent('.causa-agora')));
   for (let k = 0; k < 2; k++) {
     await p.click('[data-acao="proximo"]');
     const i2 = await atual();

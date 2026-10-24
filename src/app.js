@@ -156,6 +156,11 @@ function cotasProva(n) {
 }
 // Itens reais do Cebraspe, a banca projetada: os de outras bancas treinam, mas não medem a prontidão
 const REAIS = Q.filter((q) => q.o && /cebraspe|cespe/i.test(q.pv || ''));
+// Reserva de medida: ~40% dos itens reais (sorteio fixo pelo id) ficam fora do treino e só aparecem em simulado, para
+// que perto da prova ainda haja itens reais intocados para medir a prontidão em condição de prova. Os outros entram no
+// treino com cota mínima (REAIS_TREINO) entre os itens novos, porque o banco é mais fácil que a prova.
+const RESERVA_MEDIDA = new Set(REAIS.filter((q) => hashTxt('reserva:' + q.id) % 10 < 4).map((q) => q.id));
+const REAIS_TREINO = 0.25;
 // Discursiva: temas com quesitos; a linha manuscrita da folha de texto definitivo é estimada em 70 caracteres
 const TEMAS_DISC = (D.discursivas && D.discursivas.temas) || [];
 const CARACTERES_LINHA = 70;
@@ -1219,14 +1224,24 @@ function selecionar(pool, n, filtro) {
   const venc = [], novas = [], lista = [], domV = [], resto = [];
   for (const q of pool) {
     const r = rec(q.id);
-    if (!r || r[0] < 0) novas.push(q);
+    if (!r || r[0] < 0) { if (!RESERVA_MEDIDA.has(q.id)) novas.push(q); }
     else if (SEM_REPETICAO.has(q.id)) resto.push(q);
     else if (r[0] < 3 && r[1] <= hoje) venc.push(q);
     else if (r[0] < 3) lista.push(q);
     else if (r[1] <= hoje) domV.push(q);
     else resto.push(q);
   }
-  embaralhar(venc); embaralhar(novas); embaralhar(lista);
+  embaralhar(venc); embaralhar(lista);
+  // Inéditas com pelo menos REAIS_TREINO de itens reais (ou a proporção natural do bloco, se for maior), intercalados
+  {
+    const reaisN = embaralhar(novas.filter((q) => q.o)), bancoN = embaralhar(novas.filter((q) => !q.o));
+    const alvo = Math.max(REAIS_TREINO, reaisN.length / (novas.length || 1));
+    novas.length = 0;
+    for (let i = 0; reaisN.length || bancoN.length; i++) {
+      const vezReal = Math.floor((i + 1) * alvo) > Math.floor(i * alvo);
+      novas.push((vezReal && reaisN.length) || !bancoN.length ? reaisN.shift() : bancoN.shift());
+    }
+  }
   domV.sort((a, b) => rec(a.id)[1] - rec(b.id)[1]);
   resto.sort((a, b) => rec(a.id)[1] - rec(b.id)[1]);
   // Itens dominados que venceram: até um quarto da sessão, antes das inéditas (revisão espaçada intercalada)
@@ -2118,7 +2133,9 @@ function cotaSemana() {
   const discOk = Object.values(S.disc).some((st) => (st.tentativas || []).some((x) => x.d >= sem));
   const simOk = S.simulados.some((x) => x.data >= sem && x.n >= SIM_SEMANA_N);
   const tent = (id) => ((S.disc[id] || {}).tentativas || []).length;
-  const tema = TEMAS_DISC.slice().sort((a, b) => tent(a.id) - tent(b.id))[0];
+  // Entre os menos treinados, primeiro os temas com espelho oficial da banca: são a única régua externa de severidade
+  const oficial = (t) => (/^oficial-/.test(t.id) ? 0 : 1);
+  const tema = TEMAS_DISC.slice().sort((a, b) => tent(a.id) - tent(b.id) || oficial(a) - oficial(b))[0];
   const simPlano = DIAS.find((x) => x.modo === 'simulado' && x.data >= hojeISO() && x.data <= fim);
   const chaveSim = 'sim:' + sem;
   return [
@@ -2605,7 +2622,8 @@ function cartaoTrofeus() {
 function linhaProntidao() {
   const pr = prontidao(), n = pr.real.n;
   const txt = pr.nota != null && pr.cobre >= 0.5
-    ? 'Prontidão: <b>' + Math.round(pr.nota) + '</b> de ' + PONTOS_PROVA + ' pontos líquidos estimados · itens reais: ' + pct(pr.real.c, n || 1) + '% em ' + n
+    ? 'Prontidão: <b>' + Math.round(pr.nota) + '</b> de ' + PONTOS_PROVA + ' pontos líquidos' + (pr.faixa ? ' (provavelmente entre ' + pr.faixa[0] + ' e ' + pr.faixa[1] + ')' : '') + ' · itens reais: ' + pct(pr.real.c, n || 1) + '% em ' + n +
+      (pr.semReais + pr.semDados ? ' · ' + pl(pr.semReais + pr.semDados, 'disciplina ainda sem medida própria', 'disciplinas ainda sem medida própria') : '')
     : 'Prontidão: ' + (n ? pct(pr.real.c, n) + '% nos ' + pl(n, 'item real respondido', 'itens reais respondidos') + '; ' : '') + 'a estimativa fica confiável perto de 100 itens reais (o simulado da semana ajuda)';
   return '<p class="pront-topo">' + txt + ' <button class="linkish pequeno" data-acao="mais" data-sub="progresso">detalhes</button></p>';
 }
@@ -3874,7 +3892,14 @@ function prontidao() {
     if (p != null) { soma += PONTOS_DISC[d] * (2 * p - 1); peso += PONTOS_DISC[d]; }
     return { d, x, p, fonte };
   });
-  return { real, banco, fator, linhas, nota: peso ? (soma / peso) * PONTOS_PROVA : null, cobre: peso / PONTOS_PROVA };
+  // Faixa de 95%: a incerteza do acerto nos itens reais (p ± 1,96·√(p(1−p)/n)) vale para a nota inteira, e cada ponto
+  // percentual de acerto vira 2 pontos líquidos (2p − 1). Aproximação conservadora: as disciplinas medidas pelo banco
+  // herdam a incerteza dos reais pela correção.
+  const nota = peso ? (soma / peso) * PONTOS_PROVA : null;
+  const pr = real.n ? real.c / real.n : null, meia = pr != null ? 2 * 1.96 * Math.sqrt((pr * (1 - pr)) / real.n) * PONTOS_PROVA : null;
+  const faixa = nota != null && meia != null ? [Math.max(-PONTOS_PROVA, Math.round(nota - meia)), Math.min(PONTOS_PROVA, Math.round(nota + meia))] : null;
+  const semReais = linhas.filter((l) => l.p != null && l.fonte !== 'reais').length, semDados = linhas.filter((l) => l.p == null).length;
+  return { real, banco, fator, linhas, nota, faixa, semReais, semDados, cobre: peso / PONTOS_PROVA };
 }
 function cartaoProntidao() {
   const pr = prontidao(), { real, banco } = pr;
@@ -3885,7 +3910,7 @@ function cartaoProntidao() {
     '<div class="dom-linha"><span class="nome">Itens reais de prova · ' + pl(real.n, 'primeira resposta', 'primeiras respostas') + '</span>' + barra(real.n ? real.c / real.n : 0) + '<span class="val">' + taxa(real) + '</span></div>' +
     '<div class="dom-linha"><span class="nome">Itens escritos para o banco · ' + pl(banco.n, 'primeira resposta', 'primeiras respostas') + '</span>' + barra(banco.n ? banco.c / banco.n : 0) + '<span class="val">' + taxa(banco) + '</span></div></div>';
   if (pr.nota != null && pr.cobre >= 0.5) {
-    html += '<div class="nota-final"><span class="grande">' + Math.round(pr.nota) + '</span><span class="mudo">de ' + PONTOS_PROVA + ' pontos líquidos, se marcasse a prova inteira hoje' + (pr.cobre < 0.99 ? ' (estimativa sobre ' + Math.round(pr.cobre * 100) + '% da nota; o resto ainda não tem respostas)' : '') + '</span></div>';
+    html += '<div class="nota-final"><span class="grande">' + Math.round(pr.nota) + '</span><span class="mudo">de ' + PONTOS_PROVA + ' pontos líquidos, se marcasse a prova inteira hoje' + (pr.faixa ? '; com 95% de confiança, entre ' + pr.faixa[0] + ' e ' + pr.faixa[1] + ' (a faixa estreita conforme você responde itens reais)' : '') + (pr.cobre < 0.99 ? ' (estimativa sobre ' + Math.round(pr.cobre * 100) + '% da nota; o resto ainda não tem respostas)' : '') + (pr.semReais ? '. ' + pl(pr.semReais, 'disciplina é estimada', 'disciplinas são estimadas') + ' pelo banco, por ter menos de 10 itens reais respondidos' : '') + '</span></div>';
   }
   let leitura;
   if (real.n < 30) leitura = 'Com ' + pl(real.n, 'item real respondido', 'itens reais respondidos') + ', ainda não dá para comparar. A medida fica confiável perto de 100 itens reais: faltam ' + Math.max(0, 100 - real.n) + '. Até lá, a estimativa usa os itens do banco, que tendem a ser mais fáceis que os da banca.';
@@ -4867,7 +4892,9 @@ function renderCausaAgora(q) {
   const atual = (cadState().erros[q.id] || {}).causa;
   return '<div class="causa-agora" role="group" aria-label="Por que errou"><span class="pequeno">Por que errou?</span><div class="chips">' +
     CAUSAS_ERRO.map(([k, rot]) => '<button class="chip" data-acao="causa-agora" data-causa="' + k + '" aria-pressed="' + (atual === k) + '">' + esc(rot) + '</button>').join('') + '</div>' +
-    (atual ? '<p class="pequeno mudo">' + esc(causaDe(atual)[2]) + '</p>' : '') + '</div>';
+    (atual ? '<p class="pequeno mudo">' + esc(causaDe(atual)[2]) + '</p>' : '') +
+    // Não sabia o ponto: o caminho para o artigo fica ali mesmo, no lugar do erro
+    (atual === 'nao-sabia' && q.art && ARTI.get(chave(q.l, q.art)) ? '<div class="linha-btns">' + botaoArt(chave(q.l, q.art), q.id, 'Abrir o artigo agora') + '</div>' : '') + '</div>';
 }
 function errosDoBanco() {
   return Q.filter((q) => { const r = rec(q.id); return (r && r[3] > 0) || (cadState().erros[q.id] && cadState().erros[q.id].causa); });
