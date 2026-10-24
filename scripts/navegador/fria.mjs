@@ -41,7 +41,6 @@ await passo('artigo lido hoje abre normal; lido em outro dia abre em leitura fri
   // O estado guardado volta por um script de início, sem depender do armazenamento sobreviver ao reload
   await ctx.addInitScript((g) => { for (const [c, v] of Object.entries(g)) localStorage.setItem(c, v); }, guardado);
   await p.reload();
-  // Com a bateria em paralelo o app demora mais a abrir: espera a barra de abas antes de navegar
   await p.waitForSelector('.aba');
   await p.waitForTimeout(600);
   // O mesmo artigo (o ranking pode mudar de ordem depois da leitura)

@@ -131,13 +131,13 @@ enunciado: Situação hipotética: portal jornalístico submetido a controle edi
 comentario: Errado. Estão dispensados (art. 22, parágrafo único), sem condição adicional. Já os serviços com controle editorial e catálogo licenciado se dispensam apenas se oferecerem perfis infantis e supervisão parental (caput).
 
 === ecd3-15
-gab: C
+gab: E
 ref: dec12880 27
 trecho: deverá possibilitar ao usuário meio adequado para contestar a idade ou a faixa etária aferida ou verificada
-armadilha: caso
+armadilha: sujeito
 dif: 2
-enunciado: Situação hipotética: após aferição de idade, plataforma classificou usuário adulto como menor de idade. Assertiva: o fornecedor deve oferecer ao usuário meio adequado para contestar a faixa etária atribuída.
-comentario: Certo: art. 27. Nenhum método é infalível; um adulto classificado como adolescente precisa de como corrigir o erro.
+enunciado: Situação hipotética: após aferição de idade, plataforma classificou usuário adulto como menor de idade. Assertiva: para contestar a faixa etária atribuída, o usuário deve recorrer à ANPD, pois o fornecedor não revê a própria aferição.
+comentario: Errado. O fornecedor que afere ou verifica a idade deve possibilitar ao usuário meio adequado para contestar a idade ou a faixa etária aferida (art. 27 do Decreto 12.880/2025).
 
 === ecd3-16
 gab: E
@@ -185,13 +185,13 @@ enunciado: Os relatórios de notificação de conteúdo enviados ao Centro Nacio
 comentario: Errado. Têm classificação de sigilo compatível com a natureza sensível das informações e devem ser protegidos contra acesso e divulgação indevidos (art. 38). A transparência vem por relatórios estatísticos periódicos do Centro (art. 37, V).
 
 === ecd3-21
-gab: C
+gab: E
 ref: dec12880 39
 trecho: preservados os demais dados da conta, as informações do usuário e os metadados associados
-armadilha: conceito
+armadilha: fecho
 dif: 3
-enunciado: Confirmado o recebimento da notificação pelo Centro Nacional de Triagem, o fornecedor deve excluir de seus servidores o conteúdo de exploração e abuso sexual infantil, preservando os demais dados da conta, as informações do usuário e os metadados associados.
-comentario: Certo: art. 39, § 2º. Primeiro remove e preserva para encaminhar (§ 1º); depois da confirmação, apaga o material ilícito, mas guarda o resto, que serve à investigação.
+enunciado: Confirmado o recebimento da notificação pelo Centro Nacional de Triagem, o fornecedor deve excluir de seus servidores o conteúdo de exploração e abuso sexual infantil, bem como os demais dados da conta e os metadados associados.
+comentario: Errado no fecho. O conteúdo é excluído, mas os demais dados da conta, as informações do usuário e os metadados associados são preservados (art. 39 do Decreto 12.880/2025): servem à investigação.
 
 === ecd3-22
 gab: E
@@ -239,10 +239,10 @@ enunciado: Até a aprovação da estrutura regimental do Centro Nacional de Tria
 comentario: Errado. O apoio vem do Ministério da Justiça e Segurança Pública, por força-tarefa integrada ou profissionais de segurança pública mobilizados para esse fim (art. 51).
 
 === ecd3-27
-gab: E
+gab: C
 ref: dec12880 37
 trecho: equiparam-se, para todos os fins jurídicos e probatórios, aos relatórios apresentados diretamente ao Centro Nacional de Triagem de Notificações
 armadilha: conceito
 dif: 3
-enunciado: Os relatórios de notificação enviados pelos fornecedores a centrais de triagem de outros países não têm valor probatório no Brasil, ainda que estejam disponíveis para a Polícia Federal.
-comentario: Errado. Depois de processados e validados, equiparam-se, para todos os fins jurídicos e probatórios, aos relatórios apresentados diretamente ao Centro (art. 37, § 3º). Por isso o fornecedor que já notifica central estrangeira por força de lei fica dispensado de notificar em duplicidade (§ 2º).
+enunciado: Os relatórios de notificação enviados a centrais de triagem de outros países e disponíveis para a Polícia Federal valem como prova no Brasil, depois de processados e validados, ainda que não apresentados ao Centro Nacional.
+comentario: Art. 37, § 3º, do Decreto 12.880/2025: equiparam-se, para todos os fins jurídicos e probatórios, aos relatórios apresentados diretamente ao Centro. Por isso o fornecedor que já notifica central estrangeira por força de lei fica dispensado de notificar em duplicidade (§ 2º).

@@ -1,5 +1,5 @@
-// Aplica reescritas de itens (JSON: [{ id, e, a?, d?, c? }]) nos arquivos de questoes/: troca enunciado (e), armadilha
-// (a), dificuldade (d) e comentário (c), mantendo gabarito, referência e trechos. Uso: node aplicar.mjs lote.json
+// Aplica reescritas de itens (JSON: [{ id, e, a?, d?, c?, g? }]) nos arquivos de questoes/: troca enunciado (e), armadilha
+// (a), dificuldade (d), comentário (c) e gabarito (g, para virar certo em errado ou o contrário), mantendo referência e trechos. Uso: node aplicar.mjs lote.json
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -7,7 +7,7 @@ const RAIZ = join(new URL('.', import.meta.url).pathname, '..', '..');
 const DIR = join(RAIZ, 'questoes');
 const lote = JSON.parse(readFileSync(process.argv[2], 'utf8'));
 const porId = new Map(lote.map((x) => [x.id, x]));
-const CAMPO = { e: 'enunciado', a: 'armadilha', d: 'dif', c: 'comentario' };
+const CAMPO = { e: 'enunciado', a: 'armadilha', d: 'dif', c: 'comentario', g: 'gab' };
 const feitos = new Set();
 for (const f of readdirSync(DIR).filter((x) => x.endsWith('.txt'))) {
   const linhas = readFileSync(join(DIR, f), 'utf8').split('\n');

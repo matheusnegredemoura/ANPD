@@ -22,14 +22,14 @@ enunciado: No GDPR, as autoridades públicas podem fundamentar no legítimo inte
 comentario: Errado. O art. 6º, 1, do GDPR afasta expressamente o legítimo interesse (alínea f) do tratamento feito por autoridades públicas no desempenho de suas atribuições; para elas, a base típica é a missão de interesse público ou o exercício de autoridade pública (alínea e).
 
 === gd3-03
-gab: C
+gab: E
 ref: gdpr 7
 trecho: It shall be as easy to withdraw as to give consent.
 trecho: The withdrawal of consent shall not affect the lawfulness of processing based on consent before its withdrawal.
-armadilha: caso
+armadilha: conceito
 dif: 2
-enunciado: Situação hipotética: usuário que consentiu com um clique só consegue retirar o consentimento por carta registrada. Assertiva: a exigência contraria o RGPD, segundo o qual retirar o consentimento deve ser tão fácil quanto dá-lo.
-comentario: Art. 7º, 3. A LGPD tem regra próxima: revogação a qualquer momento, por procedimento gratuito e facilitado, ratificados os tratamentos realizados sob o consentimento anterior (art. 8º, § 5º).
+enunciado: Situação hipotética: usuário que consentiu com um clique só consegue retirar o consentimento por carta registrada. Assertiva: a exigência é válida, pois o RGPD deixa ao responsável definir a forma de retirada do consentimento.
+comentario: Errado. Pelo art. 7º, 3, retirar o consentimento deve ser tão fácil quanto dá-lo; a retirada não afeta a licitude do tratamento anterior.
 
 === gd3-04
 gab: C
@@ -124,13 +124,13 @@ enunciado: No GDPR, o subcontratante que passa a determinar as finalidades e os 
 comentario: Art. 28, 10. Na LGPD, a ideia aparece na responsabilidade solidária do operador que descumpre a lei ou age fora das instruções lícitas do controlador, caso em que se equipara ao controlador (art. 42, § 1º, I).
 
 === gd3-14
-gab: E
+gab: C
 ref: gdpr 28
 trecho: The processor shall not engage another processor without prior specific or general written authorisation of the controller.
 armadilha: extrapolacao
 dif: 2
-enunciado: Situação hipotética: empresa subcontratante de serviços em nuvem contratou outra empresa para parte do tratamento e comunicou o fato ao responsável depois da contratação. Assertiva: no GDPR, a conduta é regular, pois o subcontratante pode contratar livremente outro subcontratante, bastando a comunicação posterior.
-comentario: Errado. A subcontratação exige autorização escrita prévia, específica ou geral, do responsável; na autorização geral, o subcontratante informa as mudanças pretendidas para permitir oposição (art. 28, 2).
+enunciado: Situação hipotética: empresa subcontratante de serviços em nuvem pretende contratar outra empresa para parte do tratamento. Assertiva: no GDPR, não basta comunicar o responsável depois da contratação, pois se exige autorização escrita prévia, específica ou geral, dele.
+comentario: Art. 28, 2, do GDPR. Na autorização geral, o subcontratante informa as mudanças pretendidas, para permitir a oposição do responsável.
 
 === gd3-15
 gab: C
@@ -162,13 +162,13 @@ enunciado: No GDPR, a comunicação da violação aos titulares é dispensada se
 comentario: Art. 34, 3, a e c. Também se dispensa quando medidas posteriores tornam improvável o risco elevado (b). A autoridade pode exigir a comunicação (§ 4º).
 
 === gd3-18
-gab: C
+gab: E
 ref: gdpr 36
 trecho: The controller shall consult the supervisory authority prior to processing where a data protection impact assessment under Article 35 indicates that the processing would result in a high risk in the absence of measures taken by the controller to mitigate the risk.
 armadilha: conceito
 dif: 3
-enunciado: No GDPR, se a avaliação de impacto indicar risco elevado na ausência de medidas de mitigação, o responsável deve consultar previamente a autoridade de controle antes de iniciar o tratamento.
-comentario: Art. 36, 1. A autoridade responde por escrito em até oito semanas, prorrogáveis por seis (art. 36, 2). Na LGPD não há consulta prévia equivalente; a ANPD pode determinar ao controlador que elabore relatório de impacto (art. 38).
+enunciado: No GDPR, se a avaliação de impacto indicar risco elevado na ausência de medidas de mitigação, o responsável deve obter autorização prévia da autoridade de controle antes de iniciar o tratamento.
+comentario: Errado. O art. 36, 1, exige consulta prévia, não autorização. A autoridade pode dar orientações por escrito e usar seus poderes do art. 58 (art. 36, 2).
 
 === gd3-19
 gab: E

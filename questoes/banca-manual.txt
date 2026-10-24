@@ -52,22 +52,22 @@ enunciado: Interrompem a prescrição da ação punitiva federal, entre outros m
 comentario: Certo: art. 2º, II e III, da Lei 9.873/1999. Também interrompem a notificação ou citação do acusado (I) e o ato inequívoco de tentativa de solução conciliatória no âmbito da administração federal (IV).
 
 === bm-06
-gab: E
+gab: C
 ref: lei9873 1, § 2º
 trecho: Quando o fato objeto da ação punitiva da Administração também constituir crime, a prescrição reger-se-á pelo prazo previsto na lei penal.
 armadilha: excecao
 dif: 3
-enunciado: Ainda que a infração administrativa também constitua crime, a prescrição da ação punitiva da administração permanece de cinco anos, já que as esferas penal e administrativa são independentes.
-comentario: Errado. Quando o fato também é crime, a prescrição da ação punitiva administrativa segue o prazo da lei penal (art. 1º, § 2º, da Lei 9.873/1999). A independência das instâncias não afasta essa regra de prazo.
+enunciado: Ainda que as esferas penal e administrativa sejam independentes, a prescrição da ação punitiva da administração segue o prazo da lei penal quando a infração administrativa também constituir crime.
+comentario: Art. 1º, § 2º, da Lei 9.873/1999. A independência das instâncias não afasta essa regra de prazo.
 
 === bm-07
-gab: E
+gab: C
 ref: lei9873 1-A
 trecho: prescreve em 5 (cinco) anos a ação de execução da administração pública federal relativa a crédito decorrente da aplicação de multa
 armadilha: extrapolacao
 dif: 3
-enunciado: Constituído definitivamente o crédito da multa aplicada pela ANPD, a execução pode ser proposta a qualquer tempo, porque o prazo de cinco anos da Lei 9.873/1999 alcança apenas a apuração da infração.
-comentario: Errado. O art. 1º-A (incluído pela Lei 11.941/2009) fixa também cinco anos para a ação de execução da multa, contados da constituição definitiva do crédito, com causas próprias de interrupção (art. 2º-A).
+enunciado: Constituído definitivamente o crédito da multa aplicada pela ANPD, a execução não pode ser proposta a qualquer tempo, pois também a ação de execução relativa a crédito decorrente de multa prescreve em cinco anos.
+comentario: Art. 1º-A da Lei 9.873/1999, incluído pela Lei 11.941/2009: cinco anos contados da constituição definitiva do crédito, com causas próprias de interrupção (art. 2º-A).
 
 === bm-08
 gab: C
@@ -89,23 +89,23 @@ enunciado: Absolvido na esfera criminal por insuficiência de provas, o servidor
 comentario: Errado. A absolvição criminal só repercute na esfera administrativa quando nega a existência do fato ou a autoria (art. 126 da Lei 8.112/1990). Absolvição por falta de provas mantém a independência das instâncias, e o processo disciplinar pode concluir pela punição.
 
 === bm-10
-gab: E
+gab: C
 bloco: lgpd-17-22
 ref: lgpd 20, § 1º
 trecho: informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada
 armadilha: extrapolacao
 dif: 3
-enunciado: Situação hipotética: um banco usa modelo de pontuação de crédito com acurácia muito alta nos testes. Assertiva: nessa situação, o desempenho comprovado do modelo dispensa o banco de informar ao titular, quando solicitado, os critérios e procedimentos da decisão automatizada.
-comentario: Errado. O dever do art. 20, § 1º, não depende da qualidade estatística do modelo: o controlador deve informar critérios e procedimentos, observados os segredos comercial e industrial. Se recusar com base nesses segredos, a ANPD pode auditar aspectos discriminatórios do tratamento (§ 2º). Acurácia alta não afasta viés.
+enunciado: Situação hipotética: um banco usa modelo de pontuação de crédito com acurácia muito alta nos testes. Assertiva: o desempenho comprovado do modelo não dispensa o banco de fornecer ao titular, quando solicitado, informações claras e adequadas sobre os critérios e procedimentos da decisão automatizada.
+comentario: Art. 20, § 1º, da LGPD. O dever de informar não depende da qualidade estatística do modelo; ficam ressalvados os segredos comercial e industrial, e, havendo recusa com base neles, a ANPD pode auditar aspectos discriminatórios (§ 2º).
 
 === bm-11
-gab: E
+gab: C
 bloco: economia
 ref: doutrina Fronteiras de eficiência (DEA e SFA)
 armadilha: comparacao
 dif: 3
-enunciado: Na estimação da fronteira de eficiência usada para calcular o fator X, a análise envoltória de dados (DEA) separa o ruído estatístico da ineficiência, ao passo que a fronteira estocástica (SFA) dispensa a escolha prévia de forma funcional.
-comentario: Errado por troca de atributos. A DEA é não paramétrica (programação linear) e dispensa forma funcional, mas trata todo desvio da fronteira como ineficiência. A SFA é paramétrica (econométrica): exige forma funcional e, em troca, separa o erro aleatório da ineficiência técnica.
+enunciado: Na estimação da fronteira de eficiência usada para calcular o fator X, a análise envoltória de dados (DEA) dispensa a escolha prévia de forma funcional, ao passo que a fronteira estocástica (SFA) separa o ruído estatístico da ineficiência.
+comentario: Certo. A DEA é não paramétrica (programação linear) e dispensa forma funcional, mas trata todo desvio da fronteira como ineficiência. A SFA é paramétrica: exige forma funcional e, em troca, separa o erro aleatório da ineficiência técnica.
 
 === bm-12
 gab: C
@@ -171,13 +171,13 @@ enunciado: Em plataforma digital de dois lados, cobrar preço zero de um dos lad
 comentario: Errado. Em mercados de dois lados, as externalidades cruzadas de rede fazem do preço zero (ou abaixo do custo) para um lado uma forma de equilibrar a plataforma, não um indício automático de predação. A análise antitruste olha a plataforma como um todo e a intenção e capacidade de eliminar concorrentes.
 
 === bm-19
-gab: C
+gab: E
 bloco: economia
 ref: doutrina Preços de Ramsey
 armadilha: conceito
 dif: 3
-enunciado: Pela regra de Ramsey-Boiteux, para cobrir os custos fixos de um monopólio natural sem subsídio, a margem de preço sobre o custo marginal deve ser maior nos serviços de demanda menos elástica.
-comentario: Certo. É a regra da elasticidade inversa: o desvio do custo marginal pesa mais onde a quantidade reage menos ao preço, o que minimiza a perda de bem-estar. Preço igual ao custo marginal (first-best) daria prejuízo, porque no monopólio natural o custo médio fica acima do marginal.
+enunciado: Pela regra de Ramsey-Boiteux, para cobrir os custos fixos de um monopólio natural sem subsídio, a margem de preço sobre o custo marginal deve ser maior nos serviços de demanda mais elástica.
+comentario: Errado por inversão. A margem é maior onde a demanda é menos elástica (regra da elasticidade inversa): o desvio do custo marginal pesa mais onde a quantidade reage menos ao preço, o que minimiza a perda de bem-estar.
 
 === bm-20
 gab: E
@@ -217,14 +217,14 @@ enunciado: O controlador deve empregar esforços razoáveis para verificar se o 
 comentario: Errado na causa. O dever de verificação existe (art. 14, § 5º), mas o consentimento não é a única base: a própria lei admite coleta sem ele para contatar os pais ou proteger a criança (§ 3º), e o Enunciado CD/ANPD 1/2023 afirma que dados de crianças e adolescentes podem ser tratados com base nas hipóteses dos arts. 7º ou 11, desde que prevaleça o melhor interesse.
 
 === bm-24
-gab: E
+gab: C
 bloco: lgpd-33-36
 ref: lgpd 33, I
 trecho: para países ou organismos internacionais que proporcionem grau de proteção de dados pessoais adequado ao previsto nesta Lei
 armadilha: causalidade
 dif: 3
-enunciado: A transferência internacional para país reconhecido como de proteção adequada dispensa o consentimento do titular porque a decisão de adequação equivale a um consentimento presumido de todos os titulares.
-comentario: Errado na causa. A transferência para país com proteção adequada de fato não depende de consentimento (art. 33, I), mas porque a adequação é hipótese autônoma da lei, e não consentimento presumido. O consentimento é outra hipótese, que exige ser específico e em destaque (art. 33, VIII).
+enunciado: A transferência internacional para país reconhecido como de proteção adequada dispensa o consentimento do titular, porque a adequação constitui, por si, hipótese autorizadora prevista na LGPD.
+comentario: Art. 33, I, da LGPD. A adequação é hipótese autônoma de transferência, ao lado do consentimento específico e em destaque (inciso VIII), que é outra hipótese.
 
 === bm-25
 gab: E
@@ -246,14 +246,14 @@ enunciado: Da revisão de processo administrativo de que resultou sanção não 
 comentario: Errado na causa. A vedação de agravamento existe (art. 65, parágrafo único), mas a revisão cabe a pedido ou de ofício, a qualquer tempo, quando surgirem fatos novos ou circunstâncias relevantes (art. 65, caput). A proibição de agravar não decorre de quem pede a revisão.
 
 === bm-27
-gab: E
+gab: C
 bloco: lgpd-17-22
 ref: lgpd 18, § 5º
 trecho: será atendido sem custos para o titular
 armadilha: fecho
 dif: 3
-enunciado: O titular pode opor-se a tratamento realizado com base em hipótese que dispensa o consentimento quando houver descumprimento da LGPD, devendo arcar com os custos do requerimento apresentado ao agente de tratamento.
-comentario: Errado no fecho. O começo reproduz o art. 18, § 2º; mas o requerimento do titular é atendido sem custos para ele (art. 18, § 5º).
+enunciado: O titular pode opor-se a tratamento realizado com base em hipótese que dispensa o consentimento, em caso de descumprimento da LGPD, e o requerimento apresentado ao agente de tratamento será atendido sem custos para ele.
+comentario: Art. 18, §§ 2º e 5º, da LGPD. A oposição cabe quando há descumprimento da lei, e os requerimentos do titular são atendidos sem custos.
 
 === bm-28
 gab: E
@@ -275,11 +275,11 @@ enunciado: Transcorrido o prazo para manifestação do colegiado, o ouvidor enca
 comentario: Errado no fecho. O art. 22, § 6º, da Lei 13.848/2019 manda encaminhar o relatório, com a manifestação do colegiado se houver, e também divulgá-los no sítio da agência na internet.
 
 === bm-30
-gab: E
+gab: C
 bloco: lgpd-23-32
 ref: lgpd 26, § 2º
 trecho: Os contratos e convênios de que trata o § 1º deste artigo deverão ser comunicados à autoridade nacional.
 armadilha: fecho
 dif: 3
-enunciado: O Poder Público não pode transferir a entidades privadas dados pessoais de suas bases, salvo em hipóteses como previsão legal ou respaldo em contratos e convênios, instrumentos que dispensam comunicação à ANPD.
-comentario: Errado no fecho. A regra e a exceção estão certas (art. 26, § 1º, IV), mas os contratos e convênios que respaldam a transferência devem ser comunicados à ANPD (§ 2º).
+enunciado: É vedado ao Poder Público transferir a entidades privadas dados pessoais de suas bases, salvo exceções como previsão legal ou respaldo em contratos e convênios, instrumentos que não dispensam comunicação à ANPD.
+comentario: Art. 26, §§ 1º, IV, e 2º, da LGPD. Os contratos e convênios que respaldam a transferência devem ser comunicados à autoridade nacional.

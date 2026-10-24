@@ -813,9 +813,10 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .corte-kpi{background:var(--surface-2)}
 .corte-kpi b{margin-bottom:2px;color:var(--ink)}
 .corte-kpi span{display:block}
-.regua-discursiva{display:flex;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden;margin-bottom:8px}
-/* Pauta de 24px que acompanha o texto (a caixa cresce com ele e não rola por dentro); a contagem que vale é a de linhas da folha da banca */
-.disc-area-30{flex:1;border:0;outline:none;padding:8px 12px;font-family:var(--f-corpo);font-size:.95rem;line-height:24px;resize:none;overflow:hidden;min-height:720px;color:var(--ink);background:repeating-linear-gradient(transparent 0 23px,var(--line) 23px 24px) 0 8px/100% 24px local}
+.regua-discursiva{display:flex;width:max-content;max-width:100%;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden;margin-bottom:8px}
+/* Pauta de 24px que acompanha o texto (a caixa cresce com ele e não rola por dentro). Letra de largura fixa e linha de
+   70 caracteres, a mesma estimativa da linha manuscrita usada no contador: a linha da tela vale uma linha da folha */
+.disc-area-30{flex:0 1 auto;width:calc(70ch + 26px);max-width:100%;border:0;outline:none;padding:8px 12px;font-family:var(--f-mono);font-size:.9rem;line-height:24px;resize:none;overflow:hidden;min-height:720px;color:var(--ink);background:repeating-linear-gradient(transparent 0 23px,var(--line) 23px 24px) 0 8px/100% 24px local}
 .termometro-card{background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;margin-bottom:14px}
 .termo-barra-container{background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:6px;margin:10px 0}
 .termo-barra{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--bg)}
@@ -892,10 +893,12 @@ body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}
   .topo{margin-inline:-32px;padding-inline:32px}
   .abas{top:0;bottom:0;right:auto;width:var(--trilho);flex-direction:column;justify-content:center;gap:6px;border-top:0;border-right:1px solid var(--line);padding:16px 8px}
   .abas>.aba{flex:0 0 auto;max-width:none;width:100%;padding:12px 4px;font-size:.78rem}
-  #vista-hoje,#vista-questoes,#vista-cards,#vista-mais,#vista-lei{display:block;column-width:460px;column-gap:24px}
-  #vista-mais,#vista-lei{column-width:540px}
-  .vista>*{break-inside:avoid;margin:0 0 18px}
-  .vista>.secao-cab,.vista>.voltar,.vista>.menu-mais{column-span:all}
+  /* Grade, e não colunas de jornal: abrir um <details> ou um artigo em linha não faz cartões pularem de coluna */
+  #vista-hoje,#vista-questoes,#vista-cards,#vista-mais,#vista-lei{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));column-gap:24px;align-items:start}
+  #vista-mais,#vista-lei{grid-template-columns:repeat(auto-fill,minmax(540px,1fr))}
+  #vista-mais.com-folha{grid-template-columns:minmax(0,960px)}
+  .vista>*{min-width:0;margin:0 0 18px}
+  .vista>.secao-cab,.vista>.voltar,.vista>.menu-mais{grid-column:1 / -1}
   .menu-mais{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:10px}
   .sessao-corpo{max-width:1600px;padding-inline:32px}
   .sessao-corpo>.item:not(.dupla){width:100%;max-width:960px;align-self:center}

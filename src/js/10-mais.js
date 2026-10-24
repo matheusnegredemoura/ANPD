@@ -2,6 +2,8 @@
 function renderMais() {
   const el = document.getElementById('vista-mais');
   const sub = UI.mais;
+  // Folha da discursiva aberta: uma coluna só, para a pauta ter a largura da linha da folha da banca
+  el.classList.toggle('com-folha', sub === 'discursiva' && !!UI.discTema);
   if (sub === 'progresso') el.innerHTML = voltarMais() + renderProgresso();
   else if (sub === 'plano') el.innerHTML = voltarMais() + renderPlano();
   else if (sub === 'pesquisar') el.innerHTML = voltarMais() + renderPesquisar();
