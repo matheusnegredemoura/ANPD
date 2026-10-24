@@ -3238,7 +3238,8 @@ function legendaCamadas(soTexto) {
   return '<div class="camadas" aria-label="Grifos">' +
     (soTexto ? '' : item('cai', 'O que cai', 'background:var(--mark)')) + item('num', 'Prazos e números', 'background:var(--accent)') +
     item('alerta', 'Palavras de alerta', 'background:var(--errado)') + item('verbo', 'Deve × pode', 'border:1.5px dotted var(--ink)') +
-    (soTexto ? '' : item('erro', 'Meus erros', 'background:var(--errado-bg);box-shadow:inset 0 -2px 0 var(--errado)')) + '</div>';
+    (soTexto ? '' : item('erro', 'Meus erros', 'background:var(--errado-bg);box-shadow:inset 0 -2px 0 var(--errado)')) +
+    item('teste', 'Testar: esconder prazos e deve × pode', 'background:var(--surface-2);border:1px solid var(--line)') + '</div>';
 }
 function seletorLei() {
   return '<label class="rotulo" for="sel-lei">Norma</label><select id="sel-lei" class="sel-lei" data-acao="sel-lei">' +
@@ -3380,10 +3381,12 @@ function renderLei() {
   el.innerHTML = html;
 }
 // Busca em todas as normas: a norma aberta vem primeiro; no máximo 60 resultados
-function buscarLei(termo) {
+// Sem resultado exato, tenta a família da palavra: "transferencia" acha "transferir" (prefixo de 60% da palavra)
+function buscarLei(termo, aprox) {
   const palavras = semAcento(termo.trim()).split(/[^a-z0-9º]+/).filter(Boolean);
   if (!palavras.length) return '';
-  const re = new RegExp(palavras.map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('[^a-z0-9º]+'));
+  const raiz = (p) => (aprox && p.length > 5 ? p.slice(0, Math.max(4, Math.round(p.length * 0.6))) : p);
+  const re = new RegExp(palavras.map((p) => raiz(p).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + (aprox && p.length > 5 ? '[a-z]*' : '')).join('[^a-z0-9º]+'));
   const ordem = [UI.lei].concat(GRUPOS.flatMap((g) => g.ids).filter((id) => id !== UI.lei));
   const res = [];
   let total = 0;
@@ -3398,8 +3401,8 @@ function buscarLei(termo) {
       res.push('<button data-acao="abrir-art" data-art="' + esc(a.k) + '"><b>' + esc(id === UI.lei ? rotuloArt(a.k) : LEIS[id].curto + ' · ' + rotuloArt(a.k)) + '</b><span>' + esc((ini ? '…' : '') + a.texto.slice(ini, m.index + m[0].length + 90).replace(/\n/g, ' ') + '…') + '</span></button>');
     }
   }
-  if (!res.length) return '<p class="vazio-msg">Nada encontrado para “' + esc(termo) + '”.</p>';
-  return (total > res.length ? '<p class="pequeno mudo">' + total + ' resultados; mostrando os 60 primeiros (norma aberta primeiro).</p>' : '') + res.join('');
+  if (!res.length) return !aprox && palavras.some((p) => p.length > 5) ? buscarLei(termo, true) : '<p class="vazio-msg">Nada encontrado para “' + esc(termo) + '”.</p>';
+  return (aprox ? '<p class="pequeno mudo">Nada exato para “' + esc(termo) + '”; mostrando palavras da mesma família.</p>' : '') + (total > res.length ? '<p class="pequeno mudo">' + total + ' resultados; mostrando os 60 primeiros (norma aberta primeiro).</p>' : '') + res.join('');
 }
 function renderArtigo(k) {
   const a = ARTI.get(k);
@@ -4628,6 +4631,7 @@ function ir(v) {
   window.scrollTo(0, 0);
 }
 function renderTudo() {
+  document.documentElement.classList.toggle('lei-teste', !!UI.camadas.teste);
   UI.artInline = null;
   renderTopo();
   VISTAS.forEach((v) => { document.getElementById('vista-' + v).hidden = v !== UI.vista; });
@@ -4666,6 +4670,9 @@ function abrirArtigo(art, fila) {
 
 /* ================= Eventos ================= */
 document.addEventListener('click', async (ev) => {
+  // Modo Testar da lei seca: a tarja some no toque e volta no segundo
+  const tarja = UI.camadas.teste && ev.target.closest('.texto-lei .g-num, .texto-lei .g-verbo');
+  if (tarja) { tarja.classList.toggle('revelado'); return; }
   const alvo = ev.target.closest('[data-acao]');
   if (!alvo) { if (ev.target.id === 'folha') fecharFolha(); return; }
   const a = alvo.dataset.acao;
@@ -4853,6 +4860,8 @@ async function executar(a, alvo) {
     }
     case 'camada':
       UI.camadas[alvo.dataset.c] = !UI.camadas[alvo.dataset.c];
+      if (alvo.dataset.c === 'teste' && UI.camadas.teste) UI.camadas.num = UI.camadas.verbo = true;
+      document.documentElement.classList.toggle('lei-teste', !!UI.camadas.teste);
       salvarUI();
       if (alvo.closest('#folha') && UI.folhaAula) folhaAula(UI.folhaAula);
       else if (UI.vista === 'mais') renderMais(); else renderLei();

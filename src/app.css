@@ -854,3 +854,5 @@ details.det-lista[open]>summary{margin-bottom:10px}
 
 /* Com o teclado do celular aberto, o que é fixo embaixo sai do caminho do texto */
 @media (hover:none){body:has(textarea:focus,input:not([type=checkbox]):not([type=radio]):not([type=file]):focus) :is(.abas,.cronometro,.comecar-fixo){display:none}}
+/* Lei seca no modo Testar: prazos e deve × pode viram tarjas que o toque revela */
+.lei-teste .texto-lei :is(.g-num,.g-verbo):not(.revelado){color:transparent;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line);border-radius:3px;text-decoration:none;cursor:pointer}
