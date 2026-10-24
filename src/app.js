@@ -321,7 +321,7 @@ if (!UI.camadas) UI.camadas = { cai: true, num: true, alerta: true, verbo: true,
 let sessao = null;
 // Preferências que acompanham a conta (vão no documento do perfil), para não se perderem quando o navegador
 // ou o app do Claude limpam o armazenamento local. A aba aberta (vista) fica só neste aparelho.
-const CAMPOS_UI = ['modo', 'n', 'filtro', 'prova', 'blocos', 'blocosCards', 'camadas', 'lei', 'tema', 'som'];
+const CAMPOS_UI = ['modo', 'n', 'filtro', 'prova', 'blocos', 'blocosCards', 'camadas', 'lei', 'tema', 'som', 'foco'];
 function prefsUI() { const o = {}; for (const k of CAMPOS_UI) if (UI[k] !== undefined) o[k] = UI[k]; return o; }
 function salvarUI() {
   const p = prefsUI();
@@ -2259,7 +2259,7 @@ function golpeChefe(q) {
 // corações valem; fora dela, a faixa aparece só quando o item é do bloco do chefão.
 function hpBarra(vida, max, cls) { return '<div class="hp' + (cls ? ' ' + cls : '') + '" role="img" aria-label="Vida ' + vida + ' de ' + max + '"><i style="width:' + Math.round((vida / max) * 100) + '%"></i></div>'; }
 function renderArena(q) {
-  if (!sessao || sessao.modo === 'simulado') return '';
+  if (!sessao || sessao.modo === 'simulado' || UI.foco) return '';
   const c = chefeDaSemana(), g = sessao.revelado || sessao.flash ? sessao.golpe : null, bat = sessao.batalha;
   if (!bat && (c.vencido || !q || q.b !== c.bloco) && !g) return '';
   const disc = discChefe(c.bloco);
@@ -2564,7 +2564,8 @@ function renderSessao() {
   const relogio = sessao.limite ? fmtTempo(sessao.limite - decorrido()) : fmtTempo(decorrido());
   let html = '<div class="sessao-corpo"><div class="sessao-topo"><button class="icone-btn" data-acao="sair-sessao" aria-label="Sair da sessão"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>' +
     '<div class="tit"><b>' + esc(sessao.titulo) + '</b><span>' + (total ? (sessao.modo === 'cards' ? 'Card ' : 'Item ') + ((sessao.feitasAntes || 0) + sessao.i + 1) + ' de ' + (sessao.totalOrig || total) : 'Item ' + (sessao.i + 1)) + (sessao.xp ? ' · +' + sessao.xp + ' XP' : '') + '</span></div>' +
-    (sessao.modo !== 'simulado' && sessao.modo !== 'cards' && sessao.combo >= 2 ? '<span class="combo' + (sessao.revelado || sessao.flash ? ' pulso' : '') + '">combo ×' + sessao.combo + '</span>' : '') +
+    (!UI.foco && sessao.modo !== 'simulado' && sessao.modo !== 'cards' && sessao.combo >= 2 ? '<span class="combo' + (sessao.revelado || sessao.flash ? ' pulso' : '') + '">combo ×' + sessao.combo + '</span>' : '') +
+    '<button class="icone-btn" data-acao="foco" aria-pressed="' + !!UI.foco + '" aria-label="' + (UI.foco ? 'Mostrar a arena' : 'Modo foco: esconder a arena e o combo') + '" title="' + (UI.foco ? 'Modo foco ligado' : 'Modo foco desligado') + '"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></button>' +
     '<button class="icone-btn som" data-acao="som" aria-pressed="' + !!UI.som + '" aria-label="' + (UI.som ? 'Desligar o som' : 'Ligar o som') + '" title="' + (UI.som ? 'Som ligado' : 'Som desligado') + '">' + iconeSom(!!UI.som) + '</button>' +
     '<span class="relogio" id="relogio">' + relogio + '</span></div>';
   if (sessao.confirmar) html += renderConfirmacao();
@@ -4774,6 +4775,7 @@ async function executar(a, alvo) {
     case 'avaliar': avaliar(Number(alvo.dataset.n)); break;
     case 'proximo': proximo(); break;
     case 'som': UI.som = !UI.som; salvarUI(); tocar('acerto'); renderSessao(); break;
+    case 'foco': UI.foco = !UI.foco; salvarUI(); renderSessao(); break;
     case 'anterior': if (sessao && sessao.i > 0) { sessao.i--; renderSessao(); } break;
     case 'ir-item': if (sessao) { sessao.i = Number(alvo.dataset.i); renderSessao(); } break;
     case 'entregar': if (sessao) { sessao.confirmar = 'entregar'; renderSessao(); document.getElementById('sessao').scrollTop = 0; } break;
