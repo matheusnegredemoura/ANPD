@@ -18,9 +18,9 @@ gab: E
 ref: mci 5
 trecho: registro de conexão: o conjunto de informações referentes à data e hora de início e término de uma conexão à internet, sua duração e o endereço IP utilizado pelo terminal
 trecho: registros de acesso a aplicações de internet: o conjunto de informações referentes à data e hora de uso de uma determinada aplicação de internet a partir de um determinado endereço IP
-armadilha: conceito
-dif: 2
-enunciado: No Marco Civil da Internet, registro de conexão é o conjunto de informações referentes à data e hora de uso de uma determinada aplicação de internet a partir de um determinado endereço IP.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: provedor de aplicações guardou a data e a hora em que certo usuário acessou seu serviço a partir de determinado endereço IP. Assertiva: no Marco Civil, essa informação é registro de conexão.
 comentario: O item descreve o registro de acesso a aplicações (art. 5º, VIII). Registro de conexão é a data e hora de início e término da conexão, sua duração e o IP usado (VI). A distinção define quem guarda o quê: provedor de conexão guarda registros de conexão (1 ano); provedor de aplicação, registros de acesso a aplicações (6 meses).
 
 === mci-03
@@ -28,9 +28,9 @@ gab: C
 ref: mci 7
 trecho: não suspensão da conexão à internet, salvo por débito diretamente decorrente de sua utilização
 trecho: exclusão definitiva dos dados pessoais que tiver fornecido a determinada aplicação de internet, a seu requerimento, ao término da relação entre as partes
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: O Marco Civil assegura ao usuário a não suspensão da conexão, salvo por débito decorrente de sua utilização, e a exclusão definitiva dos dados pessoais fornecidos a uma aplicação, a seu requerimento, ao término da relação, ressalvada a guarda obrigatória de registros.
+enunciado: Situação hipotética: encerrada a relação com uma aplicação de internet, o usuário pediu a exclusão definitiva dos dados pessoais que lhe havia fornecido. Assertiva: o Marco Civil lhe assegura esse direito, ressalvadas as hipóteses de guarda obrigatória de registros.
 comentario: Art. 7º, IV e X (redação da LGPD). O acesso à internet é essencial ao exercício da cidadania (caput).
 
 === mci-04
@@ -69,9 +69,9 @@ comentario: Art. 10, §§ 1º e 3º: registros exigem ordem judicial; dados cada
 gab: C
 ref: mci 11
 trecho: aplica-se mesmo que as atividades sejam realizadas por pessoa jurídica sediada no exterior, desde que oferte serviço ao público brasileiro ou pelo menos uma integrante do mesmo grupo econômico possua estabelecimento no Brasil
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: O dever de respeitar a legislação brasileira na coleta e no tratamento de dados por provedores aplica-se mesmo a pessoa jurídica sediada no exterior, desde que oferte serviço ao público brasileiro ou que uma integrante do grupo econômico tenha estabelecimento no Brasil.
+enunciado: Situação hipotética: empresa sediada no exterior, sem estabelecimento no Brasil, oferta serviço ao público brasileiro e coleta dados de usuários no país. Assertiva: aplica-se a ela o dever de respeitar a legislação brasileira previsto no Marco Civil.
 comentario: Art. 11, § 2º. Compare com a aplicação territorial da LGPD (art. 3º), que usa critérios semelhantes: tratamento no Brasil, oferta de bens ou serviços a indivíduos no Brasil, dados coletados no país.
 
 === mci-08
@@ -106,27 +106,27 @@ comentario: Art. 13, §§ 2º, 3º e 5º. O requerimento perde eficácia se o pe
 gab: E
 ref: mci 14
 trecho: Na provisão de conexão, onerosa ou gratuita, é vedado guardar os registros de acesso a aplicações de internet.
-armadilha: literal
-dif: 2
-enunciado: O provedor de conexão à internet pode guardar os registros de acesso a aplicações de internet de seus usuários, desde que o faça sob sigilo e por até seis meses.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: provedor de conexão gratuita passou a guardar, sob sigilo e por seis meses, os registros de acesso a aplicações de seus usuários. Assertiva: a prática é lícita, por se tratar de provisão gratuita.
 comentario: Art. 14: na provisão de conexão é vedado guardar registros de acesso a aplicações. Isso impede que a operadora monte o histórico de navegação do usuário.
 
 === mci-12
 gab: C
 ref: mci 18
 trecho: O provedor de conexão à internet não será responsabilizado civilmente por danos decorrentes de conteúdo gerado por terceiros.
-armadilha: literal
+armadilha: caso
 dif: 1
-enunciado: O provedor de conexão à internet não é responsabilizado civilmente por danos decorrentes de conteúdo gerado por terceiros.
+enunciado: Situação hipotética: usuário publicou conteúdo ofensivo usando a conexão de certa operadora de telefonia. Assertiva: a operadora, como provedora de conexão, não responde civilmente pelos danos decorrentes desse conteúdo.
 comentario: Art. 18. Já o provedor de aplicações responde, pela regra do art. 19, se descumprir ordem judicial específica de remoção; o Decreto 12.975/2026 criou deveres de cuidado adicionais (Decreto 8.771, arts. 16-A a 16-P).
 
 === mci-13
 gab: E
 ref: mci 19
 trecho: o provedor de aplicações de internet somente poderá ser responsabilizado civilmente por danos decorrentes de conteúdo gerado por terceiros se, após ordem judicial específica, não tomar as providências
-armadilha: literal
-dif: 2
-enunciado: Pelo texto do art. 19 do Marco Civil, o provedor de aplicações responde civilmente por conteúdo de terceiros se, após simples notificação extrajudicial do ofendido, não remover o conteúdo.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: o ofendido notificou extrajudicialmente rede social sobre publicação difamatória, e a rede não removeu o conteúdo. Assertiva: pelo texto do art. 19 do Marco Civil, a rede já responde civilmente pelos danos, independentemente de ordem judicial.
 comentario: Art. 19: a regra do texto legal exige ordem judicial específica. As exceções legais são a cena de nudez ou ato sexual privado (art. 21, notificação do participante) e os regimes especiais do ECA Digital (art. 29). O STF, no Tema 987 (2025), declarou o art. 19 parcialmente inconstitucional, e o Decreto 12.975/2026 regulou deveres de cuidado; em prova de lei seca, vale o texto.
 pesquisar: STF, Tema 987 e Tema 533: responsabilidade de plataformas (2025)
 
@@ -205,9 +205,9 @@ gab: C
 ref: dec8771 15-A
 trecho: abrangerá a porta lógica de origem associada sempre que necessário para a identificação inequívoca do terminal de origem
 trecho: O dever de guarda da porta lógica de origem independerá de prévia requisição e recairá autonomamente sobre cada provedor.
-armadilha: literal
+armadilha: caso
 dif: 3
-enunciado: Pelo Decreto nº 12.975/2026, o dever de guarda de registros de endereço IP abrange a porta lógica de origem, quando necessária para identificar inequivocamente o terminal, e independe de prévia requisição.
+enunciado: Situação hipotética: provedor guarda o endereço IP de cada acesso, mas descarta a porta lógica de origem, embora ela seja necessária para identificar inequivocamente o terminal. Assertiva: o provedor descumpre o dever de guarda, que independe de prévia requisição.
 comentario: Art. 15-A do Decreto 8.771. Com o compartilhamento de IPs (CGNAT), o IP sozinho não identifica o usuário; a porta lógica completa a identificação. O fornecimento segue os arts. 10 e 22 do Marco Civil (ordem judicial).
 pesquisar: Porta lógica de origem e CGNAT
 
@@ -234,9 +234,9 @@ comentario: Art. 16-G, combinado com o art. 16-J, I. O provedor pode manter o co
 gab: C
 ref: dec8771 16-L
 trecho: Presume-se a responsabilidade do provedor de aplicações de internet quando o conteúdo ilícito for veiculado em anúncios, impulsionamentos pagos ou distribuído por meio de redes artificiais de distribuição de conteúdos, independentemente de notificação.
-armadilha: literal
-dif: 2
-enunciado: Presume-se a responsabilidade do provedor de aplicações quando o conteúdo ilícito for veiculado em anúncio, impulsionamento pago ou rede artificial de distribuição, independentemente de notificação, salvo se comprovar atuação diligente e em tempo razoável.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: anúncio pago com conteúdo ilícito circulou em plataforma sem que ninguém a notificasse. Assertiva: ainda assim, presume-se a responsabilidade do provedor de aplicações.
 comentario: Art. 16-L e parágrafo único. Os provedores de anúncios devem guardar por um ano as informações de cada anúncio e anunciante (art. 16-M).
 
 === d8771-10
@@ -253,9 +253,9 @@ comentario: Art. 16-O: os arts. 16-B a 16-J não se aplicam a e-mail, a mensager
 gab: C
 ref: dec8771 16-I
 trecho: É vedada à autoridade competente a notificação de provedores de aplicações de internet para moderação de conteúdos criminosos ou ilícitos de forma isolada.
-armadilha: literal
+armadilha: caso
 dif: 3
-enunciado: Na apuração da responsabilidade administrativa do provedor, a autoridade avalia a atuação diligente, proporcional e célere no tratamento das notificações, sendo-lhe vedado notificar provedores para moderar conteúdos de forma isolada.
+enunciado: Situação hipotética: a autoridade competente notificou provedor para moderar, de forma isolada, uma publicação ilícita. Assertiva: a notificação é vedada pelo Decreto nº 8.771/2016.
 comentario: Art. 16-I e parágrafo único. A supervisão é sistêmica, não caso a caso: também é vedada a responsabilização fundada só na manutenção ou remoção isolada de um conteúdo.
 
 === d8771-12
@@ -263,9 +263,9 @@ gab: E
 ref: dec8771 16-A
 trecho: constituir e manter sede e representante legal no País
 trecho: O representante legal de que trata o inciso I do caput será constituído na forma de pessoa jurídica
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: O provedor de aplicações estrangeiro pode cumprir o dever de representação no Brasil indicando como representante legal uma pessoa natural residente no país.
+enunciado: Situação hipotética: provedor de aplicações estrangeiro indicou como representante legal no Brasil uma pessoa natural residente no país. Assertiva: a indicação cumpre o dever de representação.
 comentario: Art. 16-A, I e parágrafo único: o provedor deve ter sede e representante legal no País, e o representante será pessoa jurídica, com contatos acessíveis no sítio do representado. Deve ainda manter canal de denúncia permanente e coibir redes artificiais de distribuição (II e III).
 
 === d8771-13

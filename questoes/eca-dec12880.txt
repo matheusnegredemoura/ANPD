@@ -27,9 +27,9 @@ gab: C
 ref: dec12880 2
 trecho: sinal de idade - informação ou credencial indicativa que atesta a idade ou a faixa etária de um usuário aos fornecedores
 trecho: sem revelar dados pessoais adicionais
-armadilha: conceito
+armadilha: caso
 dif: 2
-enunciado: No Decreto nº 12.880/2026, sinal de idade é a informação ou credencial que atesta a idade ou a faixa etária do usuário aos fornecedores, sem revelar dados pessoais adicionais.
+enunciado: Situação hipotética: o sistema operacional informa ao aplicativo apenas a faixa etária do usuário, sem transmitir nome, data de nascimento ou documento. Assertiva: essa informação corresponde ao que o Decreto nº 12.880/2026 define como sinal de idade.
 comentario: Art. 2º, VI. O art. 25, § 1º, reforça: o sinal se limita ao estritamente necessário para confirmar a idade mínima, vedado enviar data de nascimento exata, identidade civil ou dados de perfilamento.
 
 === d12880-04
@@ -47,9 +47,9 @@ ref: dec12880 9
 trecho: a ocultação de pontos naturais de parada
 trecho: o acionamento de novos conteúdos sem solicitação
 trecho: a oferta de recompensas pelo tempo de uso
-armadilha: rol
+armadilha: caso
 dif: 2
-enunciado: O Decreto nº 12.880/2026 considera mecanismos de incentivo ao uso excessivo ou compulsivo a ocultação de pontos naturais de parada, o acionamento de novos conteúdos sem solicitação, a oferta de recompensas pelo tempo de uso e as notificações excessivas.
+enunciado: Situação hipotética: aplicativo de vídeos curtos reproduz automaticamente novos conteúdos sem pedido do usuário e oferece recompensas a quem permanece mais tempo conectado. Assertiva: ambas as práticas estão entre os mecanismos de incentivo ao uso excessivo ou compulsivo descritos no Decreto nº 12.880/2026.
 comentario: Art. 9º, parágrafo único, I a IV. Rolagem infinita e reprodução automática são exemplos práticos dos dois primeiros incisos. Liga-se ao art. 8º, IV, e ao art. 17, § 4º, II, do ECA Digital.
 
 === d12880-06
@@ -95,9 +95,9 @@ comentario: Art. 15, § 1º, X: são proibidos serviços ou aplicações com fin
 gab: C
 ref: dec12880 16
 trecho: Equipara-se a conteúdo pornográfico a interação com sistemas que permitam diálogos, produção ou troca de vídeos e imagens, de forma artificial ou automatizada, de teor sexualmente explícito
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: Para o Decreto nº 12.880/2026, equipara-se a conteúdo pornográfico a interação com sistemas que permitam diálogos ou produção de vídeos e imagens, de forma artificial ou automatizada, de teor sexualmente explícito.
+enunciado: Situação hipotética: aplicativo de companhia virtual baseado em inteligência artificial mantém com usuários diálogos de teor sexualmente explícito. Assertiva: o Decreto nº 12.880/2026 equipara essa interação a conteúdo pornográfico.
 comentario: Art. 16, § 4º, que alcança chatbots e geradores de imagem de teor sexual. Não é pornográfico o conteúdo educativo, artístico, informativo ou jornalístico nas condições do § 2º (como livros sem imagens e reprodução de música).
 
 === d12880-11
@@ -105,9 +105,9 @@ gab: E
 ref: dec12880 17
 trecho: exigir verificação de idade para desbloqueio, vedada a mera autodeclaração
 trecho: ocultar, desfocar ou não exibir, por padrão, conteúdo pornográfico
-armadilha: literal
-dif: 2
-enunciado: Plataforma que permite a visualização de conteúdo pornográfico pode liberá-lo ao usuário não cadastrado mediante simples declaração de que é maior de 18 anos.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: plataforma que hospeda conteúdo pornográfico passou a exibi-lo desfocado por padrão e a desbloqueá-lo quando o usuário declara ter mais de dezoito anos. Assertiva: o procedimento atende ao Decreto nº 12.880/2026.
 comentario: Art. 17: para usuário não cadastrado, com idade não verificada ou conta de criança ou adolescente, o fornecedor deve ocultar, desfocar ou não exibir o conteúdo por padrão, ou exigir verificação de idade para desbloqueio, vedada a mera autodeclaração (também art. 9º, § 1º, do ECA Digital).
 
 === d12880-12
@@ -123,9 +123,9 @@ comentario: Art. 19, I e II. A alternativa é adotar verificação de idade efet
 gab: C
 ref: dec12880 24, § 3º
 trecho: vedado o armazenamento, a retenção ou qualquer forma de conservação da imagem, da cópia do documento ou da informação, que deverá ser eliminada de modo imediato e irreversível após a captura da informação necessária
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: Na aferição de idade por documento, o tratamento deve limitar-se ao dado da idade ou da faixa etária, vedada a conservação da imagem ou cópia do documento, que deve ser eliminada de modo imediato e irreversível após a captura da informação.
+enunciado: Situação hipotética: na aferição de idade por documento, um serviço capturou a faixa etária do usuário e, em seguida, apagou de modo imediato e irreversível a imagem do documento. Assertiva: o procedimento está de acordo com o Decreto nº 12.880/2026, que veda conservar a imagem ou a cópia do documento.
 comentario: Art. 24, § 3º: aplicação concreta do princípio da necessidade (LGPD, art. 6º, III). Os princípios da aferição incluem proporcionalidade ao risco, minimização, vedação de rastreabilidade do histórico de verificações e interoperabilidade (art. 24, I a XI).
 
 === d12880-14
@@ -152,9 +152,9 @@ gab: E
 ref: dec12880 30
 trecho: A ANPD disciplinará o processo de certificação de soluções técnicas de aferição de idade
 trecho: poderá fazê-lo diretamente ou por meio do reconhecimento de entidades acreditadoras
-armadilha: sujeito
+armadilha: fecho
 dif: 3
-enunciado: O processo de certificação de soluções técnicas de aferição de idade é disciplinado exclusivamente pelo Inmetro, sem participação da ANPD.
+enunciado: A ANPD disciplina o processo de certificação das soluções técnicas de aferição de idade, mas não pode reconhecer entidades acreditadoras para essa finalidade.
 comentario: Art. 30: a ANPD disciplina a certificação, diretamente ou reconhecendo entidades acreditadoras. O MGI pode oferecer solução pública e gratuita de verificação de idade (art. 28).
 
 === d12880-17
@@ -162,9 +162,9 @@ gab: C
 ref: dec12880 34
 trecho: deverão requerer dos seus usuários autorização judicial regularmente emitida nos termos do disposto no art. 149 da Lei nº 8.069
 trecho: Verificada a ausência da autorização judicial referida no caput, o fornecedor deverá retirar imediatamente o conteúdo.
-armadilha: literal
+armadilha: caso
 dif: 3
-enunciado: Quando o conteúdo monetizado ou impulsionado explorar, de forma habitual, a imagem ou a rotina de criança ou adolescente, o fornecedor deve exigir do usuário autorização judicial nos termos do art. 149 do ECA e retirar imediatamente o conteúdo se ela faltar.
+enunciado: Situação hipotética: perfil monetizado publica, de forma habitual, vídeos da rotina de uma criança, e o usuário não apresentou ao fornecedor autorização judicial nos termos do art. 149 do ECA. Assertiva: o fornecedor deve retirar imediatamente o conteúdo.
 comentario: Art. 34 e § 1º. É a disciplina dos chamados influenciadores mirins. Vale para monetização ou impulsionamento iniciados a partir de noventa dias da publicação do decreto (§ 2º).
 pesquisar: Trabalho artístico infantil e autorização judicial (ECA, art. 149)
 
@@ -210,7 +210,7 @@ comentario: Art. 48: a ANPD habilita as instituições por edital público, exig
 gab: C
 ref: dec12880 50
 trecho: Este produto permite acesso à internet. Conteúdos da internet podem apresentar riscos a crianças e adolescentes. O uso do produto requer supervisão parental.
-armadilha: literal
+armadilha: caso
 dif: 3
-enunciado: Até regulamentação da ANPD, a embalagem de equipamentos eletrônicos com acesso à internet direcionados exclusivamente a crianças e adolescentes deve trazer a mensagem: Este produto permite acesso à internet. Conteúdos da internet podem apresentar riscos a crianças e adolescentes. O uso do produto requer supervisão parental.
+enunciado: Situação hipotética: tablet direcionado exclusivamente ao público infantil chega ao mercado antes de a ANPD regulamentar a matéria. Assertiva: sua embalagem deve informar que o produto permite acesso à internet, que os conteúdos da internet podem apresentar riscos a crianças e adolescentes e que o uso requer supervisão parental.
 comentario: Art. 50, § 1º, com prazo de trinta dias da publicação para os fabricantes e importadores (caput), não aplicável aos equipamentos produzidos ou importados até a publicação (§ 2º). Regulamenta o art. 38 do ECA Digital.
