@@ -1,6 +1,6 @@
 # Itens do Gran em quarentena, por prova
 
-**1261 itens** de **338 provas** (328 com link para a prova no Gran). Ficaram fora do banco porque o gabarito veio preenchido por padrão: A em quase toda múltipla escolha e CERTO em quase todo item certo/errado.
+**1261 itens** de **338 provas** (328 com link para a prova no Gran) ainda em quarentena. Ficaram fora do banco porque o gabarito veio preenchido por padrão: A em quase toda múltipla escolha e CERTO em quase todo item certo/errado.
 
 ## A prova de que o gabarito está errado
 
@@ -10,7 +10,16 @@
 
 ## Como usar a planilha
 
-`gran-quarentena-por-prova.csv` tem uma linha por item, já agrupada por prova (as maiores primeiro). Para cada prova: abra o link, confira o gabarito definitivo e preencha a coluna `gabarito_oficial` (C ou E nos itens certo/errado; a letra da alternativa, na ordem da coluna `alternativas`, nos de múltipla escolha). A coluna `questao_gran` é o número da questão no site.
+`gran-quarentena-por-prova.csv` tem uma linha por item, já agrupada por prova (as maiores primeiro). Para cada prova: abra o link, confira o gabarito definitivo e preencha a coluna `gabarito_oficial` (C ou E nos itens certo/errado; a letra da alternativa, na ordem da coluna `alternativas`, nos de múltipla escolha; ANULADA quando a banca anulou o item). A coluna `questao_gran` é o número da questão no site. O Excel pode salvar a planilha do jeito dele (separador ponto e vírgula): o script lê os dois formatos.
+
+Depois, uma leva de cada vez:
+
+```sh
+python3 scripts/aplicar_gabaritos.py relatorios/gran-quarentena-por-prova.csv "saida/Painel TCU.html"
+python3 scripts/lista_gran_por_prova.py "saida/Painel TCU.html" relatorios   # a planilha passa a listar só o que falta
+```
+
+O primeiro devolve ao banco os itens conferidos (e para sem gravar nada se algum gabarito estiver fora do formato). Quando o gabarito oficial difere do que veio do Gran, o item volta como inédito: o que você respondeu nele tinha sido corrigido contra o gabarito errado. Tudo o que é aplicado fica registrado em `gabaritos-conferidos.csv`, que devolve os itens depois de um build novo. O segundo refaz a planilha só com o que falta, mantendo o que você já preencheu.
 
 Os 20 itens sem link vieram com só o nome da prova; precisam ser procurados pelo enunciado.
 

@@ -1024,9 +1024,12 @@ const D = JSON.parse(await lerDados());
 // Quarentena: a raspagem do Gran (ids gran-*) veio com o gabarito preenchido por padrão — A em 693 dos 698 itens de
 // múltipla escolha e CERTO em 547 dos 563 itens C/E —, e a conferência por amostra achou gabaritos errados. Os itens
 // seguem no pacote, mas ficam fora do banco (treino, simulados e estatísticas) até voltarem com o gabarito oficial.
+// Item a item: o que já teve o gabarito conferido no gabarito oficial da banca (q.gv = 'oficial') volta ao banco; o
+// anulado pela banca (q.gv = 'anulada') fica fora de vez e sai da contagem do que falta conferir
 const QUARENTENA = [/^gran-/];
-function emQuarentena(q) { return QUARENTENA.some((r) => r.test(q.id)); }
-const N_QUARENTENA = D.questoes.filter(emQuarentena).length;
+function emQuarentena(q) { return q.gv !== 'oficial' && QUARENTENA.some((r) => r.test(q.id)); }
+const N_QUARENTENA = D.questoes.filter((q) => emQuarentena(q) && q.gv !== 'anulada').length;
+const N_CONFERIDOS = D.questoes.filter((q) => q.gv === 'oficial' && QUARENTENA.some((r) => r.test(q.id))).length;
 D.questoes = D.questoes.filter((q) => !emQuarentena(q));
 // O pacote chega enxuto (scripts/build.mjs, empacotar); aqui volta à forma completa antes de qualquer uso
 const TEXTO_ART = new Map();
@@ -6490,7 +6493,7 @@ function renderAjustes() {
     renderImportadorProvasTCU() +
     renderAutodiagnosticoTCU() +
     '<div class="cartao destaque"><h2>Sincronizar com o Painel ANPD</h2><p class="pequeno">Traz as respostas, cards e artigos lidos do tronco comum (Constitucional, Administrativo, LAI, Línguas, Gestão, Economia e Contabilidade) feitos no Painel ANPD neste navegador. Fica o registro mais recente de cada item; nada é apagado.</p><div class="linha-btns"><button class="btn primario" data-acao="sync-anpd">⇄ Trazer progresso do Painel ANPD</button></div></div>' +
-    (N_QUARENTENA ? '<div class="cartao"><h2>Itens em quarentena</h2><p class="pequeno">' + fmtNum(N_QUARENTENA) + ' questões da raspagem do Gran estão fora do banco: vieram com o gabarito preenchido por padrão (A ou CERTO), e a conferência achou gabaritos errados. Voltam quando forem reimportadas com o gabarito oficial; o que você já respondeu nelas fica guardado.</p></div>' : '') +
+    (N_QUARENTENA ? '<div class="cartao"><h2>Itens em quarentena</h2><p class="pequeno">' + fmtNum(N_QUARENTENA) + ' questões da raspagem do Gran estão fora do banco: vieram com o gabarito preenchido por padrão (A ou CERTO), e a conferência achou gabaritos errados. Cada uma volta assim que o gabarito dela for conferido no gabarito oficial da banca; o que você já respondeu nelas fica guardado.' + (N_CONFERIDOS ? ' Já voltaram ' + fmtNum(N_CONFERIDOS) + ', conferidas.' : '') + '</p></div>' : '') +
     '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha fica salva na sua conta, como as demais preferências.</p></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' + metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div>' +
       '<p class="pequeno mudo">Meta de hoje: <b>' + metaDia() + ' itens</b>, o maior entre o plano (' + (metaPlano() ? metaPlano() + ' por dia para ver os inéditos até ' + esc(dataProva().split('-').reverse().join('/')) : 'sem data de prova') +

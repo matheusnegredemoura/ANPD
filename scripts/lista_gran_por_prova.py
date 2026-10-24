@@ -1,20 +1,38 @@
-# Lista os itens do Gran em quarentena (ids gran-*) agrupados pela prova de origem, para reimportar com o gabarito oficial.
-# Uso: python3 scripts/lista_gran_por_prova.py pacote.json relatorios/
-# O pacote é o JSON do #dados do Painel TCU já descomprimido (gzip + base64).
-# Gera gran-quarentena-por-prova.md (resumo) e gran-quarentena-por-prova.csv (planilha de trabalho, uma linha por item,
-# com a coluna gabarito_oficial em branco para preencher).
+# Lista os itens do Gran ainda em quarentena (ids gran-* sem gabarito oficial conferido) agrupados pela prova de origem,
+# para conferir o gabarito oficial e devolvê-los ao banco com aplicar_gabaritos.py.
+# Uso: python3 scripts/lista_gran_por_prova.py "saida/Painel TCU.html" relatorios/
+# (aceita também o JSON do #dados já descomprimido). Gera gran-quarentena-por-prova.md (resumo) e
+# gran-quarentena-por-prova.csv (planilha de trabalho, uma linha por item, com a coluna gabarito_oficial para
+# preencher). Se a planilha já existe, os gabaritos preenchidos nela são mantidos.
+import base64
 import collections
 import csv
+import gzip
 import json
+import os
 import re
 import sys
 import unicodedata
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from planilha import ler_planilha  # noqa: E402
+
 pacote, saida = sys.argv[1:3]
-d = json.load(open(pacote, encoding='utf-8'))
+if pacote.endswith('.html'):
+    m = re.search(r'<script type="text/plain" id="dados">(.*?)</script>', open(pacote, encoding='utf-8').read(), re.S)
+    d = json.loads(gzip.decompress(base64.b64decode(m.group(1).strip())))
+else:
+    d = json.load(open(pacote, encoding='utf-8'))
 B = {b['id']: b for b in d['blocos']}
 DI = {x['id']: x for x in d['disciplinas']}
-G = [q for q in d['questoes'] if q['id'].startswith('gran-')]
+TODOS_GRAN = [q for q in d['questoes'] if q['id'].startswith('gran-')]
+G = [q for q in TODOS_GRAN if not q.get('gv')]
+csv_saida = saida + '/gran-quarentena-por-prova.csv'
+preenchidos = {}
+if os.path.exists(csv_saida):
+    for l in ler_planilha(csv_saida):
+        if (l.get('gabarito_oficial') or '').strip() and not (l.get('situacao') or '').startswith('duplicado'):
+            preenchidos[l['id']] = l['gabarito_oficial'].strip()
 O = [q for q in d['questoes'] if not q['id'].startswith('gran-')]
 LINK = re.compile(r'^\[([^\]]*)\]\((https?://[^)]*)\)$')
 LETRAS = 'ABCDE'
@@ -74,7 +92,7 @@ for q in G:
         'disciplina': DI[b['disciplina']]['nome'], 'bloco': q['b'],
         'tipo': 'múltipla escolha' if q.get('al') else 'certo/errado',
         'gabarito_no_pacote': q['g'],
-        'gabarito_oficial': gab_gemeo if sit == 'duplicado' else '',
+        'gabarito_oficial': gab_gemeo if sit == 'duplicado' else preenchidos.get(q['id'], ''),
         'situacao': (sit + ' de ' + gid) if sit else 'conferir',
         'enunciado': q['e'],
         'alternativas': ' | '.join(LETRAS[i] + ') ' + a for i, a in enumerate(q.get('al') or [])),
@@ -86,7 +104,7 @@ for l in linhas:
 ordem = sorted(por_prova, key=lambda k: (-len(por_prova[k]), k[0]))
 linhas = [l for k in ordem for l in sorted(por_prova[k], key=lambda l: l['id'])]
 
-with open(saida + '/gran-quarentena-por-prova.csv', 'w', newline='', encoding='utf-8') as f:
+with open(csv_saida, 'w', newline='', encoding='utf-8') as f:
     w = csv.DictWriter(f, fieldnames=list(linhas[0]))
     w.writeheader()
     w.writerows(linhas)
@@ -106,8 +124,9 @@ def cobertura(n):
 
 
 L = ['# Itens do Gran em quarentena, por prova', '',
-     f'**{len(G)} itens** de **{len(por_prova)} provas** ({sum(1 for k in por_prova if k[1])} com link para a prova no Gran). '
-     'Ficaram fora do banco porque o gabarito veio preenchido por padrão: A em quase toda múltipla escolha e CERTO em quase todo item certo/errado.', '',
+     f'**{len(G)} itens** de **{len(por_prova)} provas** ({sum(1 for k in por_prova if k[1])} com link para a prova no Gran) ainda em quarentena. '
+     'Ficaram fora do banco porque o gabarito veio preenchido por padrão: A em quase toda múltipla escolha e CERTO em quase todo item certo/errado.'
+     + (f' Já voltaram ao banco, com o gabarito oficial conferido: {sum(1 for q in TODOS_GRAN if q.get("gv") == "oficial")}; anulados pela banca: {sum(1 for q in TODOS_GRAN if q.get("gv") == "anulada")}.' if len(G) < len(TODOS_GRAN) else ''), '',
      '## A prova de que o gabarito está errado', '',
      f'- **{len(dup)} itens do Gran já estão no banco**, copiados de uma prova completa importada de outra fonte. '
      f'Em **{len(diverge)} deles o gabarito do Gran diverge** do gabarito da prova completa. '
@@ -117,8 +136,17 @@ L = ['# Itens do Gran em quarentena, por prova', '',
      '## Como usar a planilha', '',
      '`gran-quarentena-por-prova.csv` tem uma linha por item, já agrupada por prova (as maiores primeiro). '
      'Para cada prova: abra o link, confira o gabarito definitivo e preencha a coluna `gabarito_oficial` '
-     '(C ou E nos itens certo/errado; a letra da alternativa, na ordem da coluna `alternativas`, nos de múltipla escolha). '
-     'A coluna `questao_gran` é o número da questão no site.', '',
+     '(C ou E nos itens certo/errado; a letra da alternativa, na ordem da coluna `alternativas`, nos de múltipla escolha; '
+     'ANULADA quando a banca anulou o item). A coluna `questao_gran` é o número da questão no site. '
+     'O Excel pode salvar a planilha do jeito dele (separador ponto e vírgula): o script lê os dois formatos.', '',
+     'Depois, uma leva de cada vez:', '',
+     '```sh', 'python3 scripts/aplicar_gabaritos.py relatorios/gran-quarentena-por-prova.csv "saida/Painel TCU.html"',
+     'python3 scripts/lista_gran_por_prova.py "saida/Painel TCU.html" relatorios   # a planilha passa a listar só o que falta',
+     '```', '',
+     'O primeiro devolve ao banco os itens conferidos (e para sem gravar nada se algum gabarito estiver fora do formato). '
+     'Quando o gabarito oficial difere do que veio do Gran, o item volta como inédito: o que você respondeu nele tinha sido '
+     'corrigido contra o gabarito errado. Tudo o que é aplicado fica registrado em `gabaritos-conferidos.csv`, que devolve os '
+     'itens depois de um build novo. O segundo refaz a planilha só com o que falta, mantendo o que você já preencheu.', '',
      f'Os {len(sem_link)} itens sem link vieram com só o nome da prova; precisam ser procurados pelo enunciado.', '',
      '## Por onde começar', '',
      f'As provas são muitas e pequenas: as 20 maiores somam {cobertura(20)} itens ({100 * cobertura(20) / len(G):.0f}%), '
