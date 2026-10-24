@@ -74,7 +74,10 @@ function mesclarRPG(velho, novo) {
   const vistos = new Set();
   r.trofeus = (novo.trofeus || []).concat(velho.trofeus || []).filter((t) => { const k = t.sem + '|' + t.bloco; if (vistos.has(k)) return false; vistos.add(k); return true; });
   const a = normalizarChefe(velho.chefe && Object.assign({}, velho.chefe)), b = normalizarChefe(novo.chefe && Object.assign({}, novo.chefe));
-  if (a && b && a.sem === b.sem && a.bloco === b.bloco) r.chefe = Object.assign({}, b, { vida: Math.min(a.vida, b.vida), vencido: b.vencido || a.vencido, item: b.item || a.item });
+  if (a && b && a.sem === b.sem && a.bloco === b.bloco) {
+    const dia = (a.dia || '') > (b.dia || '') ? a.dia : b.dia, dd = (x) => (x.dia === dia ? x.danoDia || 0 : 0);
+    r.chefe = Object.assign({}, b, { vida: Math.min(a.vida, b.vida), vencido: b.vencido || a.vencido, item: b.item || a.item, dia, danoDia: Math.max(dd(a), dd(b)) });
+  }
   // Chefões diferentes na mesma semana (cada aparelho sorteou um): fica o que já foi derrotado ou o mais ferido
   else if (a && b && a.sem === b.sem) r.chefe = a.vencido && !b.vencido ? a : b.vencido && !a.vencido ? b : a.vida / a.max < b.vida / b.max ? a : b;
   else if (a && b) r.chefe = a.sem > b.sem ? a : b;

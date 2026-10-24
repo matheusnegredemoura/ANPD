@@ -38,6 +38,7 @@ async function executar(a, alvo) {
     }
     case 'enfrentar-chefe': {
       const c = chefeDaSemana();
+      if (c.vencido || recuou(c)) { avisar('♛', nomeChefe(c.bloco), c.vencido ? 'Derrotado nesta semana.' : 'Recuou: hoje ele não aguenta mais golpes. Volta amanhã com ' + c.vida + ' de vida.'); break; }
       if (sessao) fecharSessao(false);
       iniciarSessao({ modo: 'treino', n: BATALHA_N, blocos: [c.bloco], filtro: 'mistas', titulo: 'Batalha · ' + nomeChefe(c.bloco), chave: 'chefe:' + c.sem });
       break;

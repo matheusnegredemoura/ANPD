@@ -2,7 +2,7 @@
 // O herói é você: o nível vem do XP, os atributos são o seu domínio real em cada disciplina, e o equipamento sai do
 // saque. Toda semana um chefão encarna o bloco em que você está mais fraco. Acertar item desse bloco causa dano
 // (mais em item difícil, em dobro no crítico); na batalha, cada erro custa um coração e três acertos seguidos
-// devolvem um. Os itens do saque são os princípios e conceitos da LGPD, com o texto da lei como descrição.
+// devolvem um. A vida dele aguenta cinco dias de estudo: passado um quinto dela num dia, ele recua até o dia seguinte. Os itens do saque são os princípios e conceitos da LGPD, com o texto da lei como descrição.
 // Nada disso tira XP, e missão não feita não acumula para o dia seguinte.
 const MISSOES = [
   { id: 'q30', txt: () => 'Responder ' + metaDia() + ' itens', xp: 30, meta: () => metaDia(), val: (d) => d.r || 0 },
@@ -15,7 +15,7 @@ const MISSOES = [
   { id: 'virada', txt: 'Acertar 5 itens que você tinha errado em outro dia', xp: 50, meta: 5, val: (d) => d.vr || 0, so: () => Object.values(S.itens).filter((r) => r[0] === 0 && r[3] > 0 && r[4] < HOJE()).length >= 5 },
   { id: 'pesq', txt: 'Investigar um tema da lista Para pesquisar', xp: 30, meta: 1, val: () => Object.values(S.pesquisa).filter((p) => p.s && p.f === hojeISO()).length },
   { id: 'pend', txt: 'Recuperar uma sessão do atraso', xp: 60, meta: 1, val: (d) => d.pd || 0, so: () => pendencias().some((x) => x.sessao) },
-  { id: 'chefe5', txt: 'Acertar 5 golpes no chefão', xp: 40, meta: 5, val: (d) => (chefeDaSemana().vencido ? 5 : d.cg || 0), so: () => !chefeDaSemana().vencido },
+  { id: 'chefe5', txt: 'Acertar 5 golpes no chefão', xp: 40, meta: 5, val: (d) => (chefeDaSemana().vencido || recuou(chefeDaSemana()) ? 5 : d.cg || 0), so: () => !chefeDaSemana().vencido },
 ];
 const MI = new Map(MISSOES.map((m) => [m.id, m]));
 // Metas das missões pelo ritmo pessoal (sem ritmo, os valores de sempre: 30, 60, 20, 5 artigos e 1 hora)
@@ -23,7 +23,9 @@ function metaNovas() { const r = ritmo(); return r && r.ni ? limitar(Math.round(
 function metaLei() { const r = ritmo(); return r && r.a ? limitar(r.a, 5, 12) : 5; }
 function metaMin60() { const r = ritmo(); return r && r.min ? limitar(Math.round(r.min / 15) * 15, 60, 180) : 60; }
 const valM = (v) => (typeof v === 'function' ? v() : v);
-const BAU_XP = 50, CHEFE_VIDA = 300, CHEFE_XP = 150, CORACOES = 5, BATALHA_N = 15;
+// Chefão: com 300 de vida, o uso real mostrou o chefão no chão em dois ou três dias (de 13 a 22 golpes). Com 1.500 e o
+// teto de um quinto por dia (cerca de uma batalha), ele cai no quinto dia de estudo da semana, no mais cedo.
+const BAU_XP = 50, CHEFE_VIDA = 1500, CHEFE_DIAS = 5, CHEFE_XP = 500, CORACOES = 5, BATALHA_N = 15;
 const CHEFES = { lgpd: 'O Vazador de Dados', regulacao: 'O Regulador Capturado', direito: 'O Burocrata Sem Motivação', linguas: 'A Esfinge dos Conectivos', seginfo: 'O Ransomware', gestao: 'O Risco Sem Dono', eca: 'O Algoritmo Viciante', economia: 'O Monopolista', comparado: 'O Exportador Sem Adequação', contabil: 'O Rombo nas Contas' };
 // Brasão de cada chefão: um escudo com o símbolo da disciplina
 const SIMBOLOS = {
@@ -41,24 +43,48 @@ const SIMBOLOS = {
 function brasao(disc) { return '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="escudo" d="M12 2.5 19.5 5v6.2c0 4.6-3.2 8.3-7.5 10.3-4.3-2-7.5-5.7-7.5-10.3V5z"/>' + (SIMBOLOS[disc] || SIMBOLOS.lgpd) + '</svg>'; }
 function coracao(cheio, cls) { return '<svg class="cor' + (cheio ? ' cheio' : '') + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>'; }
 
-// Saque: quatro raridades e três encaixes. Arma aumenta o dano, armadura dá corações extras na batalha e amuleto dá
+// Saque: quatro raridades e três encaixes, com três itens em cada par (36 no total). Arma aumenta o dano, armadura dá corações extras na batalha e amuleto dá
 // chance de crítico. A descrição é o texto da lei.
 const RARIDADES = { comum: { nome: 'Comum', ordem: 0 }, raro: { nome: 'Raro', ordem: 1 }, epico: { nome: 'Épico', ordem: 2 }, lendario: { nome: 'Lendário', ordem: 3 } };
 const ENCAIXES = { arma: 'Arma', armadura: 'Armadura', amuleto: 'Amuleto' };
 const EFEITO = { arma: { comum: 10, raro: 20, epico: 35, lendario: 50 }, armadura: { comum: 1, raro: 1, epico: 2, lendario: 3 }, amuleto: { comum: 5, raro: 10, epico: 15, lendario: 25 } };
 const ITENS_RPG = [
   { id: 'necessidade', slot: 'arma', rar: 'comum', nome: 'Lâmina da Necessidade', lore: 'limitação do tratamento ao mínimo necessário para a realização de suas finalidades', ref: 'LGPD, art. 6º, III' },
+  { id: 'correcao', slot: 'arma', rar: 'comum', nome: 'Adaga da Correção', lore: 'correção de dados incompletos, inexatos ou desatualizados', ref: 'LGPD, art. 18, III' },
+  { id: 'confirmacao', slot: 'arma', rar: 'comum', nome: 'Punhal da Confirmação', lore: 'confirmação da existência de tratamento', ref: 'LGPD, art. 18, I' },
   { id: 'adequacao', slot: 'arma', rar: 'raro', nome: 'Lança da Adequação', lore: 'compatibilidade do tratamento com as finalidades informadas ao titular, de acordo com o contexto do tratamento', ref: 'LGPD, art. 6º, II' },
+  { id: 'advertencia', slot: 'arma', rar: 'raro', nome: 'Machado da Advertência', lore: 'advertência, com indicação de prazo para adoção de medidas corretivas', ref: 'LGPD, art. 52, I' },
+  { id: 'eliminacao', slot: 'arma', rar: 'raro', nome: 'Foice da Eliminação', lore: 'eliminação dos dados pessoais a que se refere a infração', ref: 'LGPD, art. 52, VI' },
   { id: 'finalidade', slot: 'arma', rar: 'epico', nome: 'Espada da Finalidade', lore: 'realização do tratamento para propósitos legítimos, específicos, explícitos e informados ao titular', ref: 'LGPD, art. 6º, I' },
+  { id: 'bloqueio', slot: 'arma', rar: 'epico', nome: 'Alabarda do Bloqueio', lore: 'bloqueio dos dados pessoais a que se refere a infração até a sua regularização', ref: 'LGPD, art. 52, V' },
+  { id: 'revisao', slot: 'arma', rar: 'epico', nome: 'Arco da Revisão', lore: 'revisão de decisões tomadas unicamente com base em tratamento automatizado de dados pessoais que afetem seus interesses', ref: 'LGPD, art. 20' },
   { id: 'sancao', slot: 'arma', rar: 'lendario', nome: 'Martelo da Autoridade Nacional', lore: 'A aplicação das sanções previstas nesta Lei compete exclusivamente à ANPD', ref: 'LGPD, art. 55-K' },
+  { id: 'multa', slot: 'arma', rar: 'lendario', nome: 'Clava da Multa Simples', lore: 'multa simples, de até 2% (dois por cento) do faturamento da pessoa jurídica de direito privado, grupo ou conglomerado no Brasil', ref: 'LGPD, art. 52, II' },
+  { id: 'proibicao', slot: 'arma', rar: 'lendario', nome: 'Gládio da Proibição', lore: 'proibição parcial ou total do exercício de atividades relacionadas a tratamento de dados', ref: 'LGPD, art. 52, XII' },
   { id: 'pseudonimizacao', slot: 'armadura', rar: 'comum', nome: 'Capa da Pseudonimização', lore: 'um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo, senão pelo uso de informação adicional mantida separadamente pelo controlador', ref: 'LGPD, art. 13, § 4º' },
+  { id: 'anonimizacao', slot: 'armadura', rar: 'comum', nome: 'Manto da Anonimização', lore: 'dado relativo a titular que não possa ser identificado, considerando a utilização de meios técnicos razoáveis e disponíveis na ocasião de seu tratamento', ref: 'LGPD, art. 5º, III' },
+  { id: 'registro', slot: 'armadura', rar: 'comum', nome: 'Gibão do Registro', lore: 'manter registro das operações de tratamento de dados pessoais que realizarem', ref: 'LGPD, art. 37' },
   { id: 'prevencao', slot: 'armadura', rar: 'raro', nome: 'Cota da Prevenção', lore: 'adoção de medidas para prevenir a ocorrência de danos em virtude do tratamento de dados pessoais', ref: 'LGPD, art. 6º, VIII' },
+  { id: 'qualidade', slot: 'armadura', rar: 'raro', nome: 'Elmo da Qualidade', lore: 'garantia, aos titulares, de exatidão, clareza, relevância e atualização dos dados', ref: 'LGPD, art. 6º, V' },
+  { id: 'dever-continuo', slot: 'armadura', rar: 'raro', nome: 'Grevas do Dever Contínuo', lore: 'garantir a segurança da informação prevista nesta Lei em relação aos dados pessoais, mesmo após o seu término', ref: 'LGPD, art. 47' },
   { id: 'seguranca', slot: 'armadura', rar: 'epico', nome: 'Couraça da Segurança', lore: 'medidas técnicas e administrativas aptas a proteger os dados pessoais de acessos não autorizados', ref: 'LGPD, art. 6º, VII' },
+  { id: 'boas-praticas', slot: 'armadura', rar: 'epico', nome: 'Brigantina das Boas Práticas', lore: 'regras de boas práticas e de governança que estabeleçam as condições de organização, o regime de funcionamento, os procedimentos', ref: 'LGPD, art. 50' },
+  { id: 'melhor-interesse', slot: 'armadura', rar: 'epico', nome: 'Escudo do Melhor Interesse', lore: 'O tratamento de dados pessoais de crianças e de adolescentes deverá ser realizado em seu melhor interesse', ref: 'LGPD, art. 14' },
   { id: 'concepcao', slot: 'armadura', rar: 'lendario', nome: 'Égide da Concepção', lore: 'desde a fase de concepção do produto ou do serviço até a sua execução', ref: 'LGPD, art. 46, § 2º' },
+  { id: 'sistemas', slot: 'armadura', rar: 'lendario', nome: 'Bastião dos Sistemas', lore: 'Os sistemas utilizados para o tratamento de dados pessoais devem ser estruturados de forma a atender aos requisitos de segurança', ref: 'LGPD, art. 49' },
+  { id: 'inviolabilidade', slot: 'armadura', rar: 'lendario', nome: 'Armadura da Inviolabilidade', lore: 'a inviolabilidade da intimidade, da honra e da imagem', ref: 'LGPD, art. 2º, IV' },
   { id: 'livre-acesso', slot: 'amuleto', rar: 'comum', nome: 'Talismã do Livre Acesso', lore: 'consulta facilitada e gratuita sobre a forma e a duração do tratamento', ref: 'LGPD, art. 6º, IV' },
+  { id: 'acesso-facilitado', slot: 'amuleto', rar: 'comum', nome: 'Chave do Acesso Facilitado', lore: 'O titular tem direito ao acesso facilitado às informações sobre o tratamento de seus dados', ref: 'LGPD, art. 9º' },
+  { id: 'consentimento', slot: 'amuleto', rar: 'comum', nome: 'Anel do Consentimento', lore: 'manifestação livre, informada e inequívoca pela qual o titular concorda com o tratamento de seus dados pessoais para uma finalidade determinada', ref: 'LGPD, art. 5º, XII' },
   { id: 'transparencia', slot: 'amuleto', rar: 'raro', nome: 'Lente da Transparência', lore: 'informações claras, precisas e facilmente acessíveis sobre a realização do tratamento', ref: 'LGPD, art. 6º, VI' },
+  { id: 'portabilidade', slot: 'amuleto', rar: 'raro', nome: 'Bússola da Portabilidade', lore: 'portabilidade dos dados a outro fornecedor de serviço ou produto, mediante requisição expressa', ref: 'LGPD, art. 18, V' },
+  { id: 'encarregado', slot: 'amuleto', rar: 'raro', nome: 'Sinete do Encarregado', lore: 'canal de comunicação entre o controlador, os titulares dos dados e a Agência Nacional de Proteção de Dados (ANPD)', ref: 'LGPD, art. 5º, VIII' },
   { id: 'nao-discriminacao', slot: 'amuleto', rar: 'epico', nome: 'Selo da Não Discriminação', lore: 'impossibilidade de realização do tratamento para fins discriminatórios ilícitos ou abusivos', ref: 'LGPD, art. 6º, IX' },
+  { id: 'relatorio-impacto', slot: 'amuleto', rar: 'epico', nome: 'Orbe do Relatório de Impacto', lore: 'descrição dos processos de tratamento de dados pessoais que podem gerar riscos às liberdades civis e aos direitos fundamentais', ref: 'LGPD, art. 5º, XVII' },
+  { id: 'incidente', slot: 'amuleto', rar: 'epico', nome: 'Sino do Incidente', lore: 'comunicar à autoridade nacional e ao titular a ocorrência de incidente de segurança que possa acarretar risco ou dano relevante aos titulares', ref: 'LGPD, art. 48' },
   { id: 'prestacao-contas', slot: 'amuleto', rar: 'lendario', nome: 'Coroa da Prestação de Contas', lore: 'demonstração, pelo agente, da adoção de medidas eficazes e capazes de comprovar a observância e o cumprimento das normas', ref: 'LGPD, art. 6º, X' },
+  { id: 'autodeterminacao', slot: 'amuleto', rar: 'lendario', nome: 'Estrela da Autodeterminação', lore: 'a autodeterminação informativa', ref: 'LGPD, art. 2º, II' },
+  { id: 'zelo', slot: 'amuleto', rar: 'lendario', nome: 'Olho da Autoridade Nacional', lore: 'zelar pela proteção dos dados pessoais, nos termos da legislação', ref: 'LGPD, art. 55-J, I' },
 ];
 const IR = new Map(ITENS_RPG.map((x) => [x.id, x]));
 const XP_REPETIDO = { comum: 20, raro: 40, epico: 80, lendario: 150 };
@@ -153,11 +179,16 @@ function discChefe(bloco) { const b = BI.get(bloco); return (b && b.disciplina) 
 function nomeChefe(bloco) { return CHEFES[discChefe(bloco)] || 'O Chefão'; }
 // Chefão da semana (de segunda a domingo): o bloco mais fraco entre os já praticados (5 ou mais itens respondidos),
 // sem repetir o da semana anterior; quem ainda não praticou nada enfrenta o bloco mais fraco da prioridade 1.
-// Chefão salvo antes da escala de 300 de vida (15 golpes) é convertido na mesma proporção.
+// Chefão ainda vivo de uma escala anterior (15 golpes, 300 de vida) é convertido na mesma proporção.
 function normalizarChefe(c) {
-  if (c && !c.max) { c.vida = Math.round((c.vida / 15) * CHEFE_VIDA); c.max = CHEFE_VIDA; }
+  if (c && !c.vencido && (c.max || 15) < CHEFE_VIDA) { c.vida = Math.round((c.vida / (c.max || 15)) * CHEFE_VIDA); c.max = CHEFE_VIDA; }
+  else if (c && !c.max) c.max = CHEFE_VIDA;
   return c;
 }
+// Teto do dia: o golpe que passa dele conta inteiro, e o chefão recua até amanhã
+function danoHoje(c) { return c.dia === hojeISO() ? c.danoDia || 0 : 0; }
+function tetoDia(c) { return Math.ceil(c.max / CHEFE_DIAS); }
+function recuou(c) { return !c.vencido && danoHoje(c) >= tetoDia(c); }
 function chefeDaSemana() {
   const r = rpg(), sem = semanaAtual();
   if (!r.chefe || r.chefe.sem !== sem) {
@@ -181,18 +212,20 @@ function danoDe(q) {
 }
 function golpeChefe(q) {
   const c = chefeDaSemana();
-  if (c.vencido || q.b !== c.bloco) return;
+  if (c.vencido || q.b !== c.bloco || recuou(c)) return;
   const { dano, crit } = danoDe(q);
   c.vida = Math.max(0, c.vida - dano);
+  if (c.dia !== hojeISO()) { c.dia = hojeISO(); c.danoDia = 0; }
+  c.danoDia += dano;
   const d = diaLog();
   d.cg = (d.cg || 0) + 1;
-  golpeRecente = { dano, crit, vida: c.vida, max: c.max, vencido: !c.vida };
+  golpeRecente = { dano, crit, vida: c.vida, max: c.max, vencido: !c.vida, recuou: recuou(c) };
   if (c.vida) return;
   c.vencido = hojeISO();
   ganharXP(CHEFE_XP);
   rpg().trofeus = rpg().trofeus || [];
   rpg().trofeus.unshift({ sem: c.sem, bloco: c.bloco, data: hojeISO() });
-  const s = saque({ raro: 50, epico: 40, lendario: 10 });
+  const s = saque({ raro: 20, epico: 50, lendario: 30 });
   c.item = s.it.id;
   golpeRecente.item = s;
   avisarSaque('Saque do chefão', s);
@@ -204,11 +237,12 @@ function hpBarra(vida, max, cls) { return '<div class="hp' + (cls ? ' ' + cls : 
 function renderArena(q) {
   if (!sessao || sessao.modo === 'simulado' || UI.foco) return '';
   const c = chefeDaSemana(), g = sessao.revelado || sessao.flash ? sessao.golpe : null, bat = sessao.batalha;
-  if (!bat && (c.vencido || !q || q.b !== c.bloco) && !g) return '';
+  if (!bat && (c.vencido || recuou(c) || !q || q.b !== c.bloco) && !g) return '';
   const disc = discChefe(c.bloco);
   let h = '<div class="arena' + (bat ? '' : ' faixa') + '"><div class="arena-inimigo' + (g ? ' atingido' : '') + (c.vencido ? ' caido' : '') + '"><span class="brasao">' + brasao(disc) + '</span>' +
     '<div class="arena-info"><b>' + esc(nomeChefe(c.bloco)) + '</b>' + hpBarra(c.vencido ? 0 : c.vida, c.max) + '<span class="mono hp-num">HP ' + (c.vencido ? 0 : c.vida) + '/' + c.max + '</span></div>' +
-    (g ? '<span class="dano' + (g.crit ? ' crit' : '') + '">' + (g.crit ? '<small>CRÍTICO</small>' : '') + '−' + g.dano + '</span>' : '') + '</div>';
+    (g ? '<span class="dano' + (g.crit ? ' crit' : '') + '">' + (g.crit ? '<small>CRÍTICO</small>' : '') + '−' + g.dano + '</span>' : '') + '</div>' +
+    (g && g.recuou ? '<p class="pequeno recuo-txt">O chefão recuou: hoje ele não aguenta mais golpes. Volta amanhã com ' + g.vida + ' de vida.</p>' : '');
   if (bat) {
     const perdeu = sessao.revelado && sessao.perdeuCoracao, curou = sessao.revelado && sessao.curou;
     h += '<div class="arena-heroi' + (perdeu ? ' ferido' : '') + '"><span class="mono">Nv ' + nivelDe(S.perfil.xp).n + '</span><span class="coracoes" aria-label="' + sessao.coracoes + ' de ' + sessao.coracoesMax + ' corações">' +
@@ -227,6 +261,7 @@ function efeitoBatalha(ok) {
   if (sessao.golpe) { sessao.danoTotal = (sessao.danoTotal || 0) + sessao.golpe.dano; if (sessao.golpe.crit) sessao.criticos = (sessao.criticos || 0) + 1; }
   if (!sessao.coracoes) sessao.desfecho = 'derrota';
   else if (sessao.golpe && sessao.golpe.vencido) { sessao.desfecho = 'vitoria'; }
+  else if (sessao.golpe && sessao.golpe.recuou) { sessao.desfecho = 'recuo'; }
 }
 // Encerra a batalha antes do fim da fila: o resultado considera só os itens respondidos
 function encerrarBatalha() {
@@ -235,8 +270,8 @@ function encerrarBatalha() {
 }
 function cartaoBatalha() {
   if (!sessao.batalha) return '';
-  const c = chefeDaSemana(), fim = sessao.desfecho || (c.vencido ? 'vitoria' : 'recuo');
-  const titulo = { vitoria: 'Vitória', derrota: 'Derrota', recuo: 'O chefão resiste' }[fim];
+  const c = chefeDaSemana(), fim = sessao.desfecho || (c.vencido ? 'vitoria' : recuou(c) ? 'recuo' : 'resiste');
+  const titulo = { vitoria: 'Vitória', derrota: 'Derrota', recuo: 'O chefão recuou', resiste: 'O chefão resiste' }[fim];
   const s = fim === 'vitoria' && sessao.golpeFinal && sessao.golpeFinal.item;
   return '<div class="cartao batalha-fim ' + fim + '"><div class="bf-cab"><span class="brasao">' + brasao(discChefe(c.bloco)) + '</span><div><span class="rotulo">' + esc(nomeChefe(c.bloco)) + '</span><h2>' + titulo + '</h2></div></div>' +
     hpBarra(c.vencido ? 0 : c.vida, c.max) +
@@ -244,7 +279,8 @@ function cartaoBatalha() {
     '<div class="placar"><div><b>' + (sessao.danoTotal || 0) + '</b><span>dano</span></div><div><b>' + (sessao.criticos || 0) + '</b><span>críticos</span></div><div><b>' + sessao.comboMax + '</b><span>maior série</span></div><div><b>' + (c.vencido ? 0 : c.vida) + '</b><span>HP restante</span></div></div>' +
     (s ? cartaoItem(s.it, s.repetido ? 'Repetido: virou +' + XP_REPETIDO[s.it.rar] + ' XP' : 'Novo no inventário') : '') +
     (fim === 'derrota' ? '<p class="pequeno mudo">Sem corações, a batalha acabou. O dano causado fica: o chefão continua com ' + c.vida + ' de vida até domingo.</p>' : '') +
-    (fim !== 'vitoria' && !c.vencido ? '<div class="linha-btns"><button class="btn primario" data-acao="enfrentar-chefe">Batalhar de novo</button></div>' : '') + '</div>';
+    (fim === 'recuo' ? '<p class="pequeno mudo">Ele aguenta no máximo ' + tetoDia(c) + ' de dano por dia e hoje já levou ' + danoHoje(c) + '. Volta amanhã com ' + c.vida + ' de vida; derrubá-lo pede estudo em cinco dias da semana.</p>' : '') +
+    (fim !== 'vitoria' && !c.vencido && !recuou(c) ? '<div class="linha-btns"><button class="btn primario" data-acao="enfrentar-chefe">Batalhar de novo</button></div>' : '') + '</div>';
 }
 function cartaoItem(it, nota) {
   return '<div class="item-rpg r-' + it.rar + '"><div class="ir-cab"><b>' + esc(it.nome) + '</b><span class="mono pequeno">' + RARIDADES[it.rar].nome + ' · ' + ENCAIXES[it.slot] + '</span></div>' +
@@ -267,12 +303,12 @@ function cartaoJornada() {
   const heroi = '<button class="heroi-rpg" data-acao="mais" data-sub="personagem"><span class="insignia">' + nv.n + '</span><span class="h-info"><b>' + esc(nv.nome) + '</b>' + barra((S.perfil.xp - nv.base) / (nv.prox - nv.base), 'ouro') +
     '<span class="mono pequeno">' + fmtNum(S.perfil.xp) + ' / ' + fmtNum(nv.prox) + ' XP · ' + coracoesMax() + ' ♥ · +' + bonusDano() + '% dano · ' + chanceCritico() + '% crítico</span></span><span class="slots">' + slots + '</span></button>';
   const chefe = '<div class="chefe' + (c.vencido ? ' vencido' : '') + '"><span class="brasao">' + brasao(discChefe(c.bloco)) + '</span><div class="chefe-info"><div class="chefe-cab"><b>' + esc(nomeChefe(c.bloco)) + '</b><span class="mono pequeno">' + (c.vencido ? 'derrotado' : 'HP ' + c.vida + '/' + c.max) + '</span></div>' +
-    '<span class="pequeno mudo">' + esc(nomeBloco(c.bloco)) + '</span>' + hpBarra(c.vencido ? 0 : c.vida, c.max) + '</div>' +
-    (c.vencido ? '' : '<button class="btn pequeno primario" data-acao="enfrentar-chefe">' + esc(rotuloPausa('chefe:' + c.sem, 'Batalhar')) + '</button>') + '</div>';
+    '<span class="pequeno mudo">' + esc(nomeBloco(c.bloco)) + (recuou(c) ? ' · recuou, volta amanhã' : !c.vencido ? ' · aguenta ' + tetoDia(c) + ' de dano por dia' : '') + '</span>' + hpBarra(c.vencido ? 0 : c.vida, c.max) + '</div>' +
+    (c.vencido || recuou(c) ? '' : '<button class="btn pequeno primario" data-acao="enfrentar-chefe">' + esc(rotuloPausa('chefe:' + c.sem, 'Batalhar')) + '</button>') + '</div>';
   const bau = mh.bau && mh.item && IR.get(mh.item) ? '<p class="pequeno">Baú aberto: <b class="r-txt-' + IR.get(mh.item).rar + '">' + esc(IR.get(mh.item).nome) + '</b></p>' : '<p class="pequeno mudo">Três missões abrem o baú do dia, com um item.</p>';
   // Recolhida por padrão (a tela Hoje começa pelo roteiro): o resumo mostra nível, missões e a vida do chefão
   return '<div class="cartao jornada"><details data-det="jornada"' + (UI.det.jornada ? ' open' : '') + '><summary class="jornada-resumo"><b>Jornada</b><span class="mono pequeno mudo">nível ' + nv.n + ' · ' + feitas + '/' + mh.ids.length + ' missões · ' +
-    (c.vencido ? 'chefão vencido' : 'chefão ' + Math.round((c.vida / c.max) * 100) + '% de vida') + '</span></summary>' +
+    (c.vencido ? 'chefão vencido' : 'chefão ' + Math.round((c.vida / c.max) * 100) + '% de vida' + (recuou(c) ? ', volta amanhã' : '')) + '</span></summary>' +
     heroi + chefe + '<div class="missoes">' + missoes + '</div>' + bau + '</details></div>';
 }
 // Ficha do personagem (Mais → Personagem): atributos medidos pelo domínio real, equipamento e inventário

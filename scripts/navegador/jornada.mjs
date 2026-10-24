@@ -5,6 +5,7 @@
 // - as três missões do dia são cumpridas pelo que já foi feito no dia, e o baú abre com o XP somado e um item;
 // - na batalha contra o chefão, acerto causa dano e erro custa um coração; sem corações, derrota (o dano fica);
 // - o golpe final derruba o chefão, registra o troféu e dá um item, que vai para o inventário e é equipado;
+// - passado o teto do dia (um quinto da vida), o chefão recua: a batalha acaba e o botão some até amanhã;
 // - o cartão do dia não herda o estilo do herói; dia de várias matérias só dá baixa com cada uma estudada, e a
 //   recuperação traz o que falta; batalha retomada mantém os corações;
 // - a sequência de dias não zera com uma folga por semana (de segunda a sábado), e domingo não quebra.
@@ -87,14 +88,14 @@ async function responder(p, certo) {
 await passo('na batalha, acerto causa dano no chefão e erro custa um coração', async () => {
   const { ctx, p } = await abrir(() => ({}), () => ({}));
   const vida0 = (await p.textContent('.chefe .chefe-cab .mono')).trim();
-  if (vida0 !== 'HP 300/300') throw new Error('vida inicial: ' + vida0);
+  if (vida0 !== 'HP 1500/1500') throw new Error('vida inicial: ' + vida0);
   await abrirJornada(p);
   await p.click('[data-acao="enfrentar-chefe"]');
   await p.waitForSelector('.arena');
   await responder(p, true);
   const dano = (await p.textContent('.arena .dano')).trim();
   const c = (await salvo(p)).perfil.rpg.chefe;
-  if (!(c.vida < 300) || !/−\d+/.test(dano)) throw new Error('dano: ' + dano + ' · vida ' + c.vida);
+  if (!(c.vida < 1500) || !/−\d+/.test(dano)) throw new Error('dano: ' + dano + ' · vida ' + c.vida);
   await p.click('[data-acao="proximo"]');
   await responder(p, false);
   const cheios = await p.locator('.arena .cor.cheio').count(), total = await p.locator('.arena .cor').count();
@@ -116,7 +117,7 @@ await passo('golpe final derruba o chefão e dá um item, que é equipado', asyn
   const { ctx, p } = await abrir((h) => {
     const d = new Date(h + 'T12:00:00'), seg = new Date(d - ((d.getDay() + 6) % 7) * 864e5);
     const sem = seg.getFullYear() + '-' + String(seg.getMonth() + 1).padStart(2, '0') + '-' + String(seg.getDate()).padStart(2, '0');
-    return { rpg: { chefe: { sem, bloco: 'lgpd-5-11', vida: 5, max: 300 } } };
+    return { rpg: { chefe: { sem, bloco: 'lgpd-5-11', vida: 5, max: 1500 } } };
   }, () => ({}));
   await abrirJornada(p);
   await p.click('[data-acao="enfrentar-chefe"]');
@@ -133,6 +134,28 @@ await passo('golpe final derruba o chefão e dá um item, que é equipado', asyn
   if (inv.length !== 1 || !Object.values(r.eq || {}).includes(inv[0])) throw new Error('item não foi para o inventário e o equipamento: ' + JSON.stringify(r));
   const conq = (await salvo(p)).perfil.conq;
   if (!conq.chefe1) throw new Error('vitória não deu Primeiro chefão: ' + Object.keys(conq).join(','));
+  await ctx.close();
+});
+
+await passo('passado o teto do dia, o chefão recua até amanhã', async () => {
+  // Teto de 300 (1.500 / 5): com 295 de dano hoje, qualquer acerto passa dele
+  const { ctx, p } = await abrir((h) => {
+    const d = new Date(h + 'T12:00:00'), seg = new Date(d - ((d.getDay() + 6) % 7) * 864e5);
+    const sem = seg.getFullYear() + '-' + String(seg.getMonth() + 1).padStart(2, '0') + '-' + String(seg.getDate()).padStart(2, '0');
+    return { rpg: { chefe: { sem, bloco: 'lgpd-5-11', vida: 905, max: 1500, dia: h, danoDia: 295 } } };
+  }, () => ({}));
+  await abrirJornada(p);
+  await p.click('[data-acao="enfrentar-chefe"]');
+  await p.waitForSelector('.arena');
+  await responder(p, true);
+  if (!(await p.locator('.arena .recuo-txt').count())) throw new Error('golpe que passou do teto sem o aviso de recuo');
+  await p.click('[data-acao="proximo"]');
+  await p.waitForSelector('.batalha-fim');
+  const fim = await p.textContent('.batalha-fim h2');
+  if (fim !== 'O chefão recuou') throw new Error('fim da batalha: ' + fim);
+  if (await p.locator('.batalha-fim [data-acao="enfrentar-chefe"]').count()) throw new Error('botão de batalhar de novo depois do recuo');
+  const c = (await salvo(p)).perfil.rpg.chefe;
+  if (!(c.vida < 905) || c.vencido || !(c.danoDia > 295)) throw new Error('estado do chefão: ' + JSON.stringify(c));
   await ctx.close();
 });
 
