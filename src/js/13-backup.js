@@ -61,6 +61,54 @@ function renderTudo() {
   if (disc && disc.offsetParent) crescerDisc(disc);
   if (sessao) renderSessao();
 }
+// Monitor: os blocos de cada tela vão para colunas montadas aqui (alvenaria). Cada bloco entra na coluna mais baixa no
+// momento do desenho e fica nela até o próximo: abrir um <details> só empurra os de baixo, sem trocar ninguém de coluna
+// (o que as colunas de jornal faziam), e um bloco longo, como o roteiro do dia, não deixa vazio embaixo dos curtos (o
+// que a grade fazia, porque a linha da grade tem a altura do bloco mais alto). Cabeçalho, voltar, menu e a linha de
+// sincronização ocupam a largura toda. Toda tela é redesenhada por inteiro (innerHTML), e o observador remonta.
+const TELA_LARGA = window.matchMedia('(min-width:1200px)');
+const COLUNA_MIN = { hoje: 460, questoes: 460, cards: 460, mais: 540, lei: 540 };
+const largaToda = (c) => c.matches('.secao-cab,.voltar,.menu-mais,.sync');
+function alvenaria(v) {
+  const el = document.getElementById('vista-' + v);
+  if (!el || el.hidden) return;
+  const n = TELA_LARGA.matches && !el.matches('.com-folha,.com-artigo') ? Math.max(1, Math.floor((el.clientWidth + 24) / (COLUNA_MIN[v] + 24))) : 1;
+  const montada = el.querySelector(':scope > .colunas'), soltos = [...el.children].some((c) => !c.matches('.colunas') && !largaToda(c));
+  // Nada a refazer (cada troca de filhos chama o observador de novo; sem esta saída, ele não pararia)
+  if (montada ? !soltos && Number(montada.dataset.n) === n : !soltos || n === 1) return;
+  // De volta à ordem do desenho
+  const blocos = [];
+  for (const c of [...el.children]) blocos.push(...(c.matches('.colunas') ? [...c.querySelectorAll(':scope > .coluna > *')].sort((a, b) => a.dataset.alv - b.dataset.alv) : [c]));
+  if (n === 1) { if (montada) el.replaceChildren(...blocos); return; }
+  const filhos = [], grupos = new Map();
+  let g = null;
+  blocos.forEach((c, i) => {
+    if (largaToda(c)) { g = null; filhos.push(c); return; }
+    c.dataset.alv = i;
+    if (!g) {
+      g = document.createElement('div');
+      g.className = 'colunas'; g.dataset.n = n; g.style.setProperty('--ncol', n);
+      for (let k = 0; k < n; k++) g.appendChild(Object.assign(document.createElement('div'), { className: 'coluna' }));
+      filhos.push(g); grupos.set(g, []);
+    }
+    grupos.get(g).push(c);
+  });
+  el.replaceChildren(...filhos);
+  for (const [grupo, lista] of grupos) {
+    const cols = [...grupo.children];
+    if (!emOrdem(v)) { for (const c of lista) cols.reduce((a, b) => (b.offsetHeight < a.offsetHeight ? b : a)).appendChild(c); continue; }
+    // Na lei e no glossário, a ordem (dos capítulos, alfabética) vale mais que o encaixe: as colunas se enchem em sequência (de cima para baixo e
+    // da esquerda para a direita), com alturas parecidas; cada bloco vai para a coluna em que cai o meio dele
+    cols[0].append(...lista);
+    const alt = lista.map((c) => c.offsetHeight + 18), tot = alt.reduce((a, b) => a + b, 0) || 1;
+    let acc = 0;
+    lista.forEach((c, i) => { cols[Math.min(n - 1, Math.floor(((acc + alt[i] / 2) / tot) * n))].appendChild(c); acc += alt[i]; });
+  }
+}
+const emOrdem = (v) => v === 'lei' || (v === 'mais' && UI.mais === 'glossario');
+for (const v of VISTAS) { const el = document.getElementById('vista-' + v); if (el) new MutationObserver(() => alvenaria(v)).observe(el, { childList: true }); }
+let alvenariaTimer = null;
+window.addEventListener('resize', () => { clearTimeout(alvenariaTimer); alvenariaTimer = setTimeout(() => alvenaria(UI.vista), 150); });
 // Página do subtema já na parte pedida: na lei, abre o primeiro artigo ainda não lido; na aula do dia, dá baixa no passo
 function abrirSubtemaEm(id, parte) {
   if (!SUBTEMAS.get(id)) return;

@@ -19,9 +19,21 @@ await passo('Hoje: trilho lateral e cartões em colunas', async () => {
   const abas = await caixa('#abas');
   conferir('abas em trilho vertical à esquerda', abas.x === 0 && abas.height > 900 && abas.width < 140, JSON.stringify(abas));
   const xs = new Set();
-  for (const el of await p.locator('#vista-hoje > .cartao').all()) { const b = await el.boundingBox(); if (b) xs.add(Math.round(b.x)); }
+  for (const el of await p.locator('#vista-hoje .coluna > .cartao').all()) { const b = await el.boundingBox(); if (b) xs.add(Math.round(b.x)); }
   conferir('pelo menos 3 colunas de cartões', xs.size >= 3, [...xs].join(', '));
   conferir('sem rolagem lateral', await semRolagem());
+  // O roteiro é o cartão mais longo: na grade, a linha dele empurrava os cartões seguintes para baixo do fim dele,
+  // deixando vazio sob os curtos. Nas colunas, cada bloco começa logo abaixo do anterior da mesma coluna
+  const vaos = await p.evaluate(() => [...document.querySelectorAll('#vista-hoje .coluna')].flatMap((c) => {
+    const bs = [...c.children].map((b) => b.getBoundingClientRect());
+    return bs.slice(1).map((b, i) => Math.round(b.top - bs[i].bottom));
+  }));
+  conferir('nenhum vazio entre blocos da mesma coluna', vaos.length > 0 && vaos.every((v) => v <= 24), vaos.join(', '));
+  // Abrir um detalhe dentro de um cartão não troca nenhum bloco de coluna
+  const posicoes = () => p.evaluate(() => [...document.querySelectorAll('#vista-hoje .coluna > *')].map((b) => Math.round(b.getBoundingClientRect().left)).join(','));
+  const antes = await posicoes();
+  await p.locator('#vista-hoje details > summary').first().click();
+  conferir('abrir um detalhe não troca cartões de coluna', (await posicoes()) === antes);
 });
 
 await passo('sessão: item à esquerda, gabarito à direita', async () => {
