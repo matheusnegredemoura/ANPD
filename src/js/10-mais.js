@@ -9,7 +9,6 @@ function renderMais() {
   else if (sub === 'metodo') el.innerHTML = voltarMais() + renderMetodo();
   else if (sub === 'edital') el.innerHTML = voltarMais() + renderEditalANPD();
   else if (sub === 'raiox') el.innerHTML = voltarMais() + renderRaioXANPD();
-  else if (sub === 'erros') el.innerHTML = voltarMais() + renderCadernoErros();
   else if (sub === 'cebraspe') el.innerHTML = voltarMais() + renderCebraspe();
   else if (sub === 'discursiva') el.innerHTML = (UI.discTema ? '' : voltarMais()) + renderDiscursiva() + (UI.discTema ? '' : htmlEsqueletos());
   else if (sub === 'contestacoes') el.innerHTML = voltarMais() + renderContestacoes();
@@ -24,7 +23,7 @@ function renderMais() {
       item('metodo', '1·2', 'Método do Mentor (6 Degraus)', 'Ciclo semanal, degraus de foco, métricas semanais e checklist') +
       item('edital', '≡', 'Edital Projetado e Verticalizado', '10 disciplinas, 38 tópicos com prioridades A/B/C e treino direto') +
       item('raiox', '◎', 'Raio-X do Concurso ANPD', 'Diagnóstico da carreira, banca Cebraspe e sinergia com TCU') +
-      item('erros', '✗', 'Caderno de Erros (4 causas)', (() => { const n = Object.keys(cadState().erros).length; return n ? pl(n, 'erro classificado', 'erros classificados') : 'Classifique cada erro e escreva a regra de 1 linha'; })()) +
+      '<button data-acao="imprimir-folha-vespera"><span class="ic">✗</span><span class="tx"><b>Folha de véspera</b><span class="s">Os itens que você errou e ainda não acertou depois, por disciplina, para reler antes da prova</span></span><span class="mudo">›</span></button>' +
       item('cebraspe', 'C/E', 'Como o Cebraspe cobra', 'A prova, o padrão por disciplina, itens reais e discursiva') +
       item('discursiva', '✎', 'Treino de discursiva', TEMAS_DISC.length + ' temas com quesitos no padrão Cebraspe, contador de linhas e nota estimada') +
       item('personagem', '♛', 'Personagem', 'Nível, atributos, equipamento, inventário e chefões derrotados') +
@@ -271,7 +270,7 @@ function metricasSemanaMentor() {
   const venc = listaVencida().length;
   const cardsV = cardsVencidos().length;
   const cad = cadState();
-  const errosPendentes = Object.values(cad.erros || {}).filter((x) => !x.causa || x.causa === 'sem').length;
+  const errosPendentes = Q.filter((q) => { const x = rec(q.id); return x && x[3] > 0 && !(x[0] > 0) && !SEM_REPETICAO.has(q.id); }).length;
   const degrauAtual = cad.degrau || 1;
   const md = metricasDegrau(degrauAtual);
 
@@ -316,9 +315,6 @@ function cartaoTaticoMentorando(forcar = false) {
   } else if (ms.md.totalRespostas >= 40 && ms.md.pronto && ms.degrauAtual < 6) {
     prescricao = '<b>Meta de Degrau Atingida:</b> Parabéns! Você atingiu domínio no <b>' + ms.degrauAtual + 'º Degrau</b> (' + Math.round(ms.md.dom * 100) + '% domínio, nota líquida ' + (ms.md.liq >= 0 ? '+' : '') + ms.md.liq.toFixed(2).replace('.', ',') + '). O mentor recomenda promover seu degrau ativo para o próximo nível!';
     acaoSugerida = '<button class="btn pequeno primario" data-acao="anpd-set-degrau" data-deg="' + (ms.degrauAtual + 1) + '">Avançar para o ' + (ms.degrauAtual + 1) + 'º Degrau</button>';
-  } else if (ms.errosPendentes > 0) {
-    prescricao = '<b>Blindagem de Lacunas:</b> Você possui <b>' + pl(ms.errosPendentes, 'erro não classificado', 'erros não classificados') + '</b> no Caderno de Erros. Classifique a causa (Conceito, Pegadinha, Leitura ou Chute) e registre sua regra de 1 linha.';
-    acaoSugerida = '<button class="btn pequeno primario" data-acao="mais" data-sub="erros">Classificar erros (' + ms.errosPendentes + ')</button>';
   } else if (ms.total > 15 && ms.liq < 0.6) {
     prescricao = '<b>Calibragem Cebraspe:</b> Sua nota líquida da semana está em ' + liqPct + ' (meta: ≥ +60%). Lembre-se: no Cebraspe, 1 erro anula 1 acerto. Deixe em branco itens com termos absolutos suspeitos (“sempre”, “incondicionalmente”, “indelegável”) se não tiver 100% de certeza.';
     acaoSugerida = '<button class="btn pequeno" data-acao="mais" data-sub="cebraspe">Ver armadilhas Cebraspe</button>';
@@ -391,7 +387,7 @@ function cartaoFaseANPD() {
   } else if (f === 'f2') {
     html += '<p class="pequeno mudo">Fase de tração e fechamento de lacunas: <b>25 horas por semana</b> organizadas no ciclo rotativo com foco na subida dos <b>6 Degraus de Prioridade</b>. Só avance para o próximo degrau quando atingir a nota líquida de saída (≥ +0,60).</p>';
   } else {
-    html += '<p class="pequeno mudo">Pós-edital anunciado ou publicado: <b>35 a 40 horas semanais</b> com foco em velocidade de resolução de itens Cebraspe (450+ questões/semana), simulados de 120 itens todo sábado e treino intensivo das 4 causas de erro do Caderno de Erros.</p>';
+    html += '<p class="pequeno mudo">Pós-edital anunciado ou publicado: <b>35 a 40 horas semanais</b> com foco em velocidade de resolução de itens Cebraspe (450+ questões/semana), simulados de 120 itens todo sábado e baterias dos itens que você errou.</p>';
   }
   html += '</div>';
   return html;
@@ -478,7 +474,7 @@ function renderMetodo() {
       let dicaAuto = '';
       if (i === 0) dicaAuto = ms.revisaoTotal === 0 ? '<span class="selo ok pequeno" style="margin-left:6px">✓ Zerado hoje</span>' : '<span class="selo p2 pequeno" style="margin-left:6px">' + ms.revisaoTotal + ' pendentes</span>';
       else if (i === 1) dicaAuto = '<span class="selo mono pequeno" style="margin-left:6px">' + ms.r + '/200 itens · ' + (ms.total > 0 ? (ms.liq >= 0 ? '+' : '') + Math.round(ms.liq * 100) + '% líq' : '0%') + '</span>';
-      else if (i === 3) dicaAuto = ms.errosPendentes === 0 ? '<span class="selo ok pequeno" style="margin-left:6px">✓ 100% classificados</span>' : '<span class="selo p2 pequeno" style="margin-left:6px">' + ms.errosPendentes + ' sem classificar</span>';
+      else if (i === 3) dicaAuto = ms.errosPendentes === 0 ? '<span class="selo ok pequeno" style="margin-left:6px">✓ Todos recuperados</span>' : '<span class="selo p2 pequeno" style="margin-left:6px">' + ms.errosPendentes + ' por recuperar</span>';
       else if (i === 5) dicaAuto = ms.discSem ? '<span class="selo ok pequeno" style="margin-left:6px">✓ Feito na semana</span>' : '<span class="selo mono pequeno" style="margin-left:6px">Pendente para sábado</span>';
       return '<label class="pesq-linha' + (chk[i] ? ' feito' : '') + '"><input type="checkbox" data-acao="anpd-check-sem" data-i="' + i + '"' + (chk[i] ? ' checked' : '') + '><div class="tx"><b>' + esc(item.texto || item) + '</b> ' + dicaAuto + '</div></label>';
     }).join('') +

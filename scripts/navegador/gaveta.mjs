@@ -1,5 +1,5 @@
-// Gaveta de erros na lei seca: o artigo aberto mostra os itens dele que a pessoa já errou, com gabarito, comentário e a
-// regra do Caderno de Erros; os ainda não recuperados vêm primeiro. Artigo sem erro não tem gaveta.
+// Gaveta de erros na lei seca: o artigo aberto mostra os itens dele que a pessoa já errou, com gabarito e comentário;
+// os ainda não recuperados vêm primeiro. Artigo sem erro não tem gaveta.
 import { APP, abrirNavegador, diaDeEstudo, placar, vigiarErros } from './comum.mjs';
 import { montarDados } from '../build.mjs';
 
@@ -18,8 +18,7 @@ await ctx.addInitScript((ids) => {
   const itens = {};
   ids.forEach((id, i) => { itens[id] = [i % 2 ? 0 : 2, hoje + 3, i % 2 ? 0 : 1, 1, hoje - 1, 0, 0]; });
   const iso = new Date(hoje * 86400000).toISOString().slice(0, 10);
-  const perfil = { xp: 0, meta: 30, novosCards: 5, intercaladas: 20, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: iso,
-    cad: { erros: { [ids[1]]: { causa: 'nao-sabia', nota: 'Regra de teste da gaveta', data: iso } } } };
+  const perfil = { xp: 0, meta: 30, novosCards: 5, intercaladas: 20, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: iso };
   localStorage.setItem('painel-anpd-v3', JSON.stringify({ perfil, itens, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: {} }));
 }, ids);
 const p = await ctx.newPage();

@@ -232,24 +232,13 @@ function renderAjustes() {
     '<div class="cartao"><h2>Recomeçar do zero</h2><p class="pequeno mudo">Apaga XP, respostas, cards, sequência, simulados, discursivas e lista de pesquisa.</p><div id="zona-zerar"><button class="btn" data-acao="zerar">Zerar progresso</button></div></div>';
 }
 
-/* ================= Caderno de erros ================= */
+/* ================= Fase, degrau e checklist do mentor ================= */
 function cadState() {
   const c = (S.perfil.cad ||= {});
-  c.erros ||= {};
   c.checkSem ||= {};
   if (!c.degrau) c.degrau = 1;
   if (!c.fase) c.fase = 'f2';
   return c;
-}
-function caixaCadernoErro(q) {
-  const r = rec(q.id);
-  const errouSessao = sessao && sessao.resp && sessao.resp[q.id] && sessao.resp[q.id] !== q.g && sessao.resp[q.id] !== BRANCO;
-  if (!errouSessao && (!r || !r[3])) return '';
-  const ce = cadState().erros[q.id] || {};
-  return '<div class="cad-box" id="ce-box-' + esc(q.id) + '"><span class="rotulo">Caderno de Erros · Qual foi a causa?</span>' +
-    '<div class="chips" style="margin:6px 0">' + CAUSAS_ERRO.map(([k, rot]) => '<button class="chip" data-acao="set-causa-erro" data-q="' + esc(q.id) + '" data-causa="' + k + '" aria-pressed="' + (ce.causa === k) + '">' + esc(rot) + '</button>').join('') + '</div>' +
-    '<div style="display:flex;gap:6px;margin-top:6px"><input class="busca" id="ce-nota-' + esc(q.id) + '" style="font-size:.82rem" placeholder="Regra de 1 linha para não errar de novo (ex.: prazo é 3 dias úteis, não 72h)" value="' + esc(ce.nota || '') + '">' +
-    '<button class="btn pequeno" data-acao="salvar-nota-erro" data-q="' + esc(q.id) + '">Salvar regra</button></div></div>';
 }
 // Autoverificação antes de corrigir a discursiva: o que a banca cobra na forma de uma manifestação técnica (nota técnica
 // ou parecer). Só marca para a própria pessoa conferir; não entra na nota.
@@ -261,75 +250,6 @@ const CHECK_DISC = '<details class="check-disc"><summary>Antes de corrigir: conf
   'Fechei com uma conclusão que responde à pergunta do comando, sem tema novo.',
   'Fiquei dentro do limite de linhas e sem marcas de identificação.',
 ].map((x) => '<li><label><input type="checkbox"> ' + x + '</label></li>').join('') + '</ul></details>';
-const CAUSAS_ERRO = [
-  ['nao-sabia', 'Não sabia o ponto', 'Voltar à lei seca só naquele dispositivo e revisar os cards do artigo.'],
-  ['leu-errado', 'Li errado o comando', 'Sublinhar as palavras de comando (exceto, somente, vedado, pode, deve) antes de julgar o item.'],
-  ['pegadinha', 'Caí em pegadinha conhecida', 'Anotar o par de termos que a banca trocou (ex.: 3 dias úteis × 72 horas; 2% × 4%; controlador × encarregado).'],
-  ['chute', 'Chutei sem convicção', 'No Cebraspe, chute duvidoso dá prejuízo esperado negativo. Deixe em branco se a chance for < 50%.'],
-];
-function causaDe(k) { return CAUSAS_ERRO.find((c) => c[0] === k); }
-// Causa do erro marcada na hora, na própria correção do item; vai para o Caderno de Erros e para o placar de causas
-function renderCausaAgora(q) {
-  const atual = (cadState().erros[q.id] || {}).causa;
-  return '<div class="causa-agora" role="group" aria-label="Por que errou"><span class="pequeno">Por que errou?</span><div class="chips">' +
-    CAUSAS_ERRO.map(([k, rot]) => '<button class="chip" data-acao="causa-agora" data-causa="' + k + '" aria-pressed="' + (atual === k) + '">' + esc(rot) + '</button>').join('') + '</div>' +
-    (atual ? '<p class="pequeno mudo">' + esc(causaDe(atual)[2]) + '</p>' : '') +
-    // Não sabia o ponto: o caminho para o artigo fica ali mesmo, no lugar do erro
-    (atual === 'nao-sabia' && q.art && ARTI.get(chave(q.l, q.art)) ? '<div class="linha-btns">' + botaoArt(chave(q.l, q.art), q.id, 'Abrir o artigo agora') + '</div>' : '') + '</div>';
-}
-function errosDoBanco() {
-  return Q.filter((q) => { const r = rec(q.id); return (r && r[3] > 0) || (cadState().erros[q.id] && cadState().erros[q.id].causa); });
-}
-function renderCadernoErros() {
-  const ce = cadState().erros;
-  const filtro = UI.filtroCausa || 'todas';
-  const erradas = errosDoBanco();
-  const cont = { 'nao-sabia': 0, 'leu-errado': 0, 'pegadinha': 0, 'chute': 0, 'sem': 0 };
-  for (const q of erradas) {
-    const c = (ce[q.id] && ce[q.id].causa) || 'sem';
-    cont[c] = (cont[c] || 0) + 1;
-  }
-  const filtradas = erradas.filter((q) => {
-    const c = (ce[q.id] && ce[q.id].causa) || 'sem';
-    return filtro === 'todas' || c === filtro;
-  });
-  let html = '<div class="prosa" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">' +
-    '<div style="flex:1;min-width:260px"><h2>Caderno de Erros · Diagnóstico por Causa</h2>' +
-    '<p>O Cebraspe pune a repetição do mesmo erro. Classifique cada item que você errou em uma das quatro causas do método e escreva a regra de 1 linha para não cair de novo.</p></div>' +
-    '<button class="btn pequeno primario" data-acao="imprimir-folha-vespera" style="align-self:flex-start;margin-top:4px">Folha de véspera</button>' +
-    '</div>';
-  html += '<div class="cad-grid">' +
-    CAUSAS_ERRO.map(([k, rot, rem]) => '<div class="cad-kpi"><b>' + (cont[k] || 0) + ' · ' + esc(rot) + '</b><span>' + esc(rem) + '</span>' +
-      (cont[k] ? '<div class="linha-btns" style="margin-top:6px"><button class="btn pequeno primario" data-acao="treinar-causa-erro" data-causa="' + k + '">Treinar (' + cont[k] + ')</button></div>' : '') +
-      '</div>').join('') +
-    '<div class="cad-kpi"><b>' + (cont.sem || 0) + ' · Sem classificar</b><span>Erros do histórico que ainda não receberam causa.</span>' +
-    (cont.sem ? '<div class="linha-btns" style="margin-top:6px"><button class="btn pequeno primario" data-acao="treinar-causa-erro" data-causa="sem">Classificar (' + cont.sem + ')</button></div>' : '') +
-    '</div></div>';
-
-  html += '<div class="cartao"><div class="secao-cab"><h2>Questões registradas (' + filtradas.length + ')</h2>' +
-    '<div class="chips">' + [['todas', 'Todas (' + erradas.length + ')']].concat(CAUSAS_ERRO.map(([k, r]) => [k, r + ' (' + (cont[k] || 0) + ')'])).concat([['sem', 'Sem causa (' + (cont.sem || 0) + ')']]).map(([v, t]) => '<button class="chip" data-acao="set-filtro-causa" data-causa="' + v + '" aria-pressed="' + (filtro === v) + '">' + t + '</button>').join('') +
-    '</div></div>';
-
-  if (!filtradas.length) html += '<p class="mudo pequeno">Nenhuma questão encontrada com esse filtro.</p>';
-  else {
-    html += '<div class="lista-erros">' + filtradas.slice(0, 50).map((q) => {
-      const e = ce[q.id] || {};
-      const r = rec(q.id);
-      return '<div class="cartao" style="margin-bottom:8px"><div class="secao-cab"><span class="selo ' + (q.g === 'C' ? 'ok' : 'p1') + '">' + q.g + '</span>' +
-        '<span class="mono pequeno">' + esc(nomeBloco(q.b)) + ' · ' + esc(q.r || '') + '</span>' +
-        (r ? '<span class="pequeno mudo">' + r[2] + 'C / ' + r[3] + 'E</span>' : '') + '</div>' +
-        '<p style="margin:6px 0">' + esc(q.e) + '</p>' +
-        (q.c ? '<p class="pequeno mudo">' + esc(q.c) + '</p>' : '') +
-        '<div class="chips" style="margin:6px 0">' + CAUSAS_ERRO.map(([k, rot]) => '<button class="chip" data-acao="set-causa-erro" data-q="' + esc(q.id) + '" data-causa="' + k + '" aria-pressed="' + (e.causa === k) + '">' + esc(rot) + '</button>').join('') + '</div>' +
-        '<div style="display:flex;gap:6px;margin-top:6px"><input class="busca" id="ce-nota-' + esc(q.id) + '" style="font-size:.82rem" placeholder="Regra de 1 linha para não errar de novo" value="' + esc(e.nota || '') + '">' +
-        '<button class="btn pequeno" data-acao="salvar-nota-erro" data-q="' + esc(q.id) + '">Salvar regra</button>' +
-        (e.causa ? '<button class="btn pequeno" data-acao="limpar-causa-erro" data-q="' + esc(q.id) + '">Limpar</button>' : '') + '</div>' +
-        '</div>';
-    }).join('') + (filtradas.length > 50 ? '<p class="pequeno mudo">Mostrando as primeiras 50 de ' + filtradas.length + ' questões.</p>' : '') + '</div>';
-  }
-  html += '</div>';
-  return html;
-}
 
 function htmlEsqueletos() {
   const ests = (D.discursivas && D.discursivas.estruturas) || [];
@@ -342,7 +262,7 @@ function htmlEsqueletos() {
 function sincronizarDoTCU() {
   const origem = lerLS('painel-tcu-v1');
   if (!origem || (!origem.itens && !origem.perfil)) { avisar('!', 'Painel TCU não encontrado neste navegador', 'Abra o Painel TCU neste mesmo navegador ao menos uma vez.'); return; }
-  let nItens = 0, nCards = 0, nLidos = 0, nErros = 0;
+  let nItens = 0, nCards = 0, nLidos = 0;
   const num = (x) => Number(x) || 0;
   for (const [id, r] of Object.entries(origem.itens || {})) {
     if (!QI.has(id) || !Array.isArray(r)) continue;
@@ -358,16 +278,7 @@ function sincronizarDoTCU() {
   for (const [k, dt] of Object.entries((origem.perfil && origem.perfil.lidos) || {})) {
     if (ARTI.has(k) && (!S.perfil.lidos[k] || dt < S.perfil.lidos[k])) { S.perfil.lidos[k] = dt; nLidos++; }
   }
-  if (origem.perfil && origem.perfil.tcu && origem.perfil.tcu.erros) {
-    const ceLocal = (cadState().erros ||= {});
-    for (const [qid, obj] of Object.entries(origem.perfil.tcu.erros)) {
-      if (QI.has(qid) && (!ceLocal[qid] || (!ceLocal[qid].nota && obj.nota))) {
-        ceLocal[qid] = Object.assign({}, obj);
-        nErros++;
-      }
-    }
-  }
   Store.salvarTudo(); renderTudo();
-  avisar('⇄', 'Tronco comum trazido do Painel TCU', pl(nItens, 'questão', 'questões') + ', ' + pl(nCards, 'card', 'cards') + (nErros ? ', ' + pl(nErros, 'anotação de erro', 'anotações de erro') : '') + ' e ' + pl(nLidos, 'artigo lido', 'artigos lidos') + ' aproveitados.');
+  avisar('⇄', 'Tronco comum trazido do Painel TCU', pl(nItens, 'questão', 'questões') + ', ' + pl(nCards, 'card', 'cards') + ' e ' + pl(nLidos, 'artigo lido', 'artigos lidos') + ' aproveitados.');
 }
 

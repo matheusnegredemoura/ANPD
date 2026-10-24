@@ -242,14 +242,13 @@ function primeiraLinha(a) { const ls = a.texto.split('\n'); return (/^Article \d
 function diagnosticoArtigo(k) {
   const qs = POR_ART.get(k) || [];
   let c = 0, e = 0, nResp = 0, pendentes = 0, erradasIds = [];
-  const ce = (cadState() && cadState().erros) || {};
   for (const q of qs) {
     const r = rec(q.id);
     if (r && (r[2] + r[3] > 0)) {
       nResp++;
       c += r[2];
       e += r[3];
-      if (r[0] === 0 || r[3] > r[2] || ce[q.id]) {
+      if (r[0] === 0 || r[3] > r[2]) {
         pendentes++;
         erradasIds.push(q.id);
       }
@@ -398,19 +397,18 @@ function buscarLei(termo, aprox) {
   return (aprox ? '<p class="pequeno mudo">Nada exato para “' + esc(termo) + '”; mostrando palavras da mesma família.</p>' : '') + (total > res.length ? '<p class="pequeno mudo">' + total + ' resultados; mostrando os 60 primeiros (norma aberta primeiro).</p>' : '') + res.join('');
 }
 // Gaveta do artigo na lei seca: os itens deste artigo que a pessoa já errou, os ainda não recuperados primeiro, com o
-// gabarito, o comentário e a regra que ela escreveu no Caderno de Erros
+// gabarito e o comentário
 function gavetaErrosArt(qs) {
-  const notas = cadState().erros || {};
   const errados = qs.filter((q) => { const r = rec(q.id); return r && r[3] > 0; })
     .sort((x, y) => (rec(x.id)[0] > 0) - (rec(y.id)[0] > 0) || rec(y.id)[3] - rec(x.id)[3]);
   if (!errados.length) return '';
   const pend = errados.filter((q) => !(rec(q.id)[0] > 0)).length;
   return '<details class="erros-art"><summary>Seus erros neste artigo (' + errados.length + (pend ? ', ' + pend + ' sem recuperar' : '') + ')</summary>' +
     errados.slice(0, 8).map((q) => {
-      const r = rec(q.id), nota = notas[q.id] && notas[q.id].nota;
+      const r = rec(q.id);
       return '<div class="erro-art' + (r[0] > 0 ? ' virou' : '') + '"><p class="pequeno mudo">' + esc(q.id) + ' · ' + pl(r[3], 'erro', 'erros') + (r[0] > 0 ? ' · já recuperado' : '') + '</p><p>' + esc(q.e) + '</p>' +
-        '<p class="pequeno"><b>Gabarito: ' + esc(nomeGab(q)) + '.</b> ' + marcarTermos(q.c, 3) + '</p>' + (nota ? '<p class="pequeno"><b>Sua regra:</b> ' + esc(nota) + '</p>' : '') + '</div>';
-    }).join('') + (errados.length > 8 ? '<p class="pequeno mudo">Mais ' + (errados.length - 8) + ' no Caderno de Erros.</p>' : '') + '</details>';
+        '<p class="pequeno"><b>Gabarito: ' + esc(nomeGab(q)) + '.</b> ' + marcarTermos(q.c, 3) + '</p>' + '</div>';
+    }).join('') + (errados.length > 8 ? '<p class="pequeno mudo">Mais ' + (errados.length - 8) + ' em Questões › Só as que já errei.</p>' : '') + '</details>';
 }
 // Ouvir o artigo: a voz do aparelho lê o texto vigente, sem as notas de redação; cada trecho lido conta como uso, para
 // o relógio da leitura não parar enquanto a pessoa escuta. Sai do artigo, a voz para.

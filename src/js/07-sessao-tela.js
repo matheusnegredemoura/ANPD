@@ -193,7 +193,6 @@ function renderItem(q) {
     const r = sessao.resp[id], ok = r === q.g, br = r === BRANCO, gab = q.al ? 'a letra ' + q.g : q.g === 'C' ? 'CERTO' : 'ERRADO';
     html += '<div class="veredito ' + (br ? 'defesa' : ok ? 'ok' : 'no') + '"><span>' + (br ? 'Em branco: defesa, sem perder coração. O gabarito é ' + gab + '.' : ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + gab + '.') + '</span>' +
       (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP' + (br ? '' : sessao.virada === 'plena' ? ' <small>virada</small>' : caiuEmProva(q) && sessao.modo !== 'relampago' ? ' <small>crítico</small>' : '') + '</span>' : '<span class="pequeno">' + (SEM_REPETICAO.has(id) ? 'Este texto não volta: vêm outros' : 'Foi para a lista curta') + '</span>') + '</div>';
-    if (!ok && !br && sessao.modo !== 'simulado') html += renderCausaAgora(q);
     html += extrasResposta(q);
     html += renderExplicacao(q);
     html += '<button class="btn primario largo" data-acao="proximo">' + (sessao.i < sessao.ids.length - 1 ? 'Próximo item' : 'Ver resultado') + '</button><p class="atalhos">Enter = próximo</p>';
@@ -211,7 +210,6 @@ function renderExplicacao(q) {
   if (q.v === 0) html += '<p class="aviso-conferir">Texto oficial ainda não anexado ao app: confira esta referência na fonte antes de confiar nela.</p>';
   if (q.tm && SUBTEMAS.get(q.tm)) html += '<p class="pequeno"><button class="linkish" data-acao="aula-folha" data-st="' + esc(q.tm) + '">Rever a aula: ' + esc(SUBTEMAS.get(q.tm).nome) + '</button></p>';
   html += blocoPesquisar(q.e + ' ' + q.c, q.p, 'questão ' + q.id);
-  html += caixaCadernoErro(q);
   const ct = CONTEST.find((x) => x.q === q.id);
   html += '<div class="contestar"><button class="linkish pequeno" data-acao="contestar" data-q="' + esc(q.id) + '">' + (ct ? 'Contestação enviada (' + esc(STATUS_CONTEST[ct.status] || ct.status) + ') · ver' : 'Contestar este item') + '</button></div>';
   return html + '</div>';
@@ -385,11 +383,9 @@ function renderResultado() {
   } else if (sessao.st && sessao.tipoSubtema === 'pratica') {
     proximoAcaoBtn = '<button class="btn primario" data-acao="subtema" data-st="' + esc(sessao.st) + '">Voltar ao Subtema ›</button>';
   }
-  const btnErros = e > 0 ? '<button class="btn" data-acao="mais" data-sub="erros">Caderno de Erros (' + e + ')</button>' : '';
   html += '<div class="linha-btns">' +
     (proximoAcaoBtn || '<button class="btn primario" data-acao="fechar-sessao">Concluir</button>') +
     (idsParaRefazer().length ? '<button class="btn" data-acao="refazer-erros">Refazer ' + pl(idsParaRefazer().length, 'erro ou branco', 'erros e brancos') + '</button>' : '') +
-    btnErros +
     (proximoAcaoBtn ? '<button class="btn" data-acao="fechar-sessao">Concluir</button>' : '') +
     '</div>';
   return html;

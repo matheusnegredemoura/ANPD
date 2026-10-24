@@ -1,5 +1,5 @@
-// Correção do item no treino: relógio do item no topo, palavras de polaridade grifadas só depois da resposta, causa do
-// erro marcada na hora (vai para o Caderno de Erros) e, no fim, o tempo médio por item. Na discursiva, a lista de
+// Correção do item no treino: relógio do item no topo, palavras de polaridade grifadas só depois da resposta, a
+// correção sem formulário de causa do erro (errando ou acertando) e, no fim, o tempo médio por item. Na discursiva, a lista de
 // autoverificação aparece antes de corrigir.
 import { APP, abrirNavegador, diaDeEstudo, placar, vigiarErros } from './comum.mjs';
 import { montarDados } from '../build.mjs';
@@ -28,7 +28,7 @@ await p.goto(APP);
 await p.waitForTimeout(600);
 const atual = async () => (await p.textContent('.item .item-num')).trim();
 
-await passo('relógio do item, grifo de polaridade depois da resposta e causa do erro', async () => {
+await passo('relógio do item, grifo de polaridade depois da resposta e correção sem formulário', async () => {
   await p.locator('[data-acao="retomar-pausa"]').first().click();
   await p.waitForSelector('#sessao:not([hidden])');
   conferir('relógio do item no topo', (await p.locator('#t-item').count()) === 1);
@@ -37,19 +37,16 @@ await passo('relógio do item, grifo de polaridade depois da resposta e causa do
   conferir('o relógio anda', /0:0[1-9]/.test(await p.textContent('#t-item')), await p.textContent('#t-item'));
   const id = await atual();
   await p.click('.bolha.' + (gab.get(id) === 'C' ? 'e' : 'c'));
-  await p.waitForSelector('.causa-agora');
+  await p.waitForSelector('.veredito.no');
   conferir('grifo de polaridade depois da resposta', (await p.locator('.enunciado .g-alerta').count()) >= 1);
-  await p.click('.causa-agora [data-causa="leu-errado"]');
-  const cad = await p.evaluate(() => JSON.parse(localStorage.getItem('painel-anpd-v3')).perfil.cad);
-  conferir('causa gravada no Caderno de Erros', cad && cad.erros && cad.erros[Object.keys(cad.erros)[0]].causa === 'leu-errado', JSON.stringify(cad));
-  conferir('chip marcado', (await p.locator('.causa-agora [data-causa="leu-errado"]').getAttribute('aria-pressed')) === 'true');
-  await p.click('.causa-agora [data-causa="nao-sabia"]');
-  conferir('não sabia: botão para o artigo ali mesmo', /Abrir o artigo agora/.test(await p.textContent('.causa-agora')));
+  const semCausa = async () => !(await p.locator('.cad-box, .causa-agora, [data-acao$="causa-erro"], [data-acao="causa-agora"]').count());
+  conferir('erro sem formulário de causa', await semCausa());
   for (let k = 0; k < 2; k++) {
     await p.click('[data-acao="proximo"]');
     const i2 = await atual();
     await p.click('.bolha.' + gab.get(i2).toLowerCase());
-    conferir('acerto não pede causa', !(await p.locator('.causa-agora').count()));
+    await p.waitForSelector('.veredito.ok');
+    conferir('acerto sem formulário de causa', await semCausa());
   }
   await p.click('[data-acao="proximo"]');
   await p.waitForSelector('.ritmo-sessao');

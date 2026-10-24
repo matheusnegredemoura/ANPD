@@ -126,12 +126,12 @@ function mesclarDoc(n, nuvem, local, localNovo) {
   p.rpg = mesclarRPG(velho.rpg, novo.rpg);
   return p;
 }
-// Caderno de erros: a anotação mais recente de cada questão e as metas da semana marcadas em qualquer aparelho
+// Fase, degrau e metas da semana marcadas em qualquer aparelho
 function mesclarCad(velho, novo) {
   if (!velho && !novo) return undefined;
   velho = velho || {}; novo = novo || {};
   const r = Object.assign({}, velho, novo);
-  r.erros = mesclarMapa(velho.erros, novo.erros, (a, b) => ((a.data || '') > (b.data || '') ? a : b));
+  delete r.erros;
   r.checkSem = mesclarMapa(velho.checkSem, novo.checkSem, (a, b) => Object.assign({}, a, b));
   return r;
 }

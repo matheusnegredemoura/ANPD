@@ -68,32 +68,6 @@ async function executar(a, alvo) {
       break;
     }
     case 'ed-prio': UI.edPrio = alvo.dataset.v; renderMais(); break;
-    case 'set-filtro-causa': UI.filtroCausa = alvo.dataset.causa; renderMais(); break;
-    case 'set-causa-erro': {
-      const qid = alvo.dataset.q, e = (cadState().erros[qid] ||= {});
-      e.causa = alvo.dataset.causa; e.data = hojeISO();
-      const inp = document.getElementById('ce-nota-' + qid); if (inp && inp.value.trim()) e.nota = inp.value.trim();
-      Store.salvar('perfil'); renderMais(); break;
-    }
-    case 'salvar-nota-erro': {
-      const qid = alvo.dataset.q, e = (cadState().erros[qid] ||= {});
-      const inp = document.getElementById('ce-nota-' + qid);
-      if (inp) { e.nota = inp.value.trim(); e.data = hojeISO(); Store.salvar('perfil'); avisar('✓', 'Regra salva no Caderno de Erros'); renderMais(); }
-      break;
-    }
-    case 'limpar-causa-erro': {
-      const qid = alvo.dataset.q; delete cadState().erros[qid]; Store.salvar('perfil'); renderMais(); break;
-    }
-    case 'treinar-causa-erro': {
-      const causa = alvo.dataset.causa;
-      const ids = errosDoBanco().filter((q) => {
-        const c = (cadState().erros[q.id] && cadState().erros[q.id].causa) || 'sem';
-        return causa === 'sem' ? c === 'sem' : c === causa;
-      }).map((q) => q.id);
-      if (!ids.length) { avisar('!', 'Nenhuma questão encontrada'); break; }
-      iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Treino · Erros (' + (causaDe(causa) ? causaDe(causa)[1] : 'Sem causa') + ')' });
-      break;
-    }
     case 'preset': {
       const p = alvo.dataset.preset, comQ = BLOCOS.filter((b) => (POR_BLOCO.get(b.id) || []).length);
       UI.blocos = p === 'p1' ? P1.slice() : p === 'lgpd' ? comQ.filter((b) => b.disciplina === 'lgpd').map((b) => b.id) : p === 'tudo' ? comQ.map((b) => b.id) : [];
@@ -119,13 +93,6 @@ async function executar(a, alvo) {
     case 'revelar': proximo(); break;
     case 'avaliar': avaliar(Number(alvo.dataset.n)); break;
     case 'pesq-todos': UI.pesqTodos = true; renderMais(); break;
-    case 'causa-agora': {
-      const q = sessao && QI.get(sessao.ids[sessao.i]);
-      if (!q || !causaDe(alvo.dataset.causa)) break;
-      const e = (cadState().erros[q.id] ||= {});
-      e.causa = alvo.dataset.causa; e.data = hojeISO();
-      Store.salvar('perfil'); renderSessao(); break;
-    }
     case 'proximo': proximo(); break;
     case 'som': UI.som = !UI.som; salvarUI(); tocar('acerto'); renderSessao(); break;
     case 'foco': UI.foco = !UI.foco; salvarUI(); renderSessao(); break;
@@ -559,25 +526,23 @@ document.addEventListener('scroll', marcarUso, { passive: true, capture: true })
 setInterval(() => contarTempo(false), TIQUE_S * 1000);
 setInterval(atualizarCronometro, 1000);
 
-// Folha de véspera: os erros anotados, por disciplina, com a regra pessoal de cada um, para reler antes da prova
+// Folha de véspera: os itens errados que ainda não foram acertados depois, por disciplina, com gabarito e comentário,
+// para reler antes da prova. Interpretação de texto fica de fora: o texto não volta na prova.
 function abrirFolhaVespera() {
-  const erradas = errosDoBanco();
-  if (!erradas.length) { avisar('!', 'Nenhum erro registrado', 'Você ainda não registrou erros para gerar a folha.'); return; }
-  const ce = cadState().erros;
+  const erradas = Q.filter((q) => { const r = rec(q.id); return r && r[3] > 0 && !(r[0] > 0) && !SEM_REPETICAO.has(q.id); });
+  if (!erradas.length) { avisar('!', 'Nenhum erro por recuperar', 'Cada item que você errou já foi acertado depois.'); return; }
   const porDisc = {};
   for (const q of erradas) (porDisc[(BI.get(q.b) || {}).disciplina || 'outros'] ||= []).push(q);
-  let html = '<div class="folha-impressao"><p class="pequeno mudo">Revisão final · ' + pl(erradas.length, 'questão anotada', 'questões anotadas') + '</p>';
+  let html = '<div class="folha-impressao"><p class="pequeno mudo">Revisão final · ' + pl(erradas.length, 'item errado ainda não recuperado', 'itens errados ainda não recuperados') + '</p>';
   for (const [disc, qs] of Object.entries(porDisc)) {
     html += '<h2>' + esc((DI.get(disc) || { nome: disc }).nome) + ' (' + qs.length + ')</h2>';
     for (const q of qs) {
-      const e = ce[q.id] || {}, causa = causaDe(e.causa);
-      html += '<div class="folha-item"><div class="folha-meta">' + esc(nomeBloco(q.b)) + ' · ' + esc(q.r || '') + ' · Gabarito: <b>' + esc(nomeGab(q)) + '</b>' + (causa ? ' · ' + esc(causa[1]) : '') + '</div>' +
+      html += '<div class="folha-item"><div class="folha-meta">' + esc(nomeBloco(q.b)) + ' · ' + esc(q.r || '') + ' · Gabarito: <b>' + esc(nomeGab(q)) + '</b> · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</div>' +
         '<p class="folha-enunciado">' + esc(q.e) + '</p>' +
-        (e.nota ? '<div class="folha-regra"><b>Regra pessoal:</b> ' + esc(e.nota) + '</div>' : '') +
         (q.c ? '<p class="pequeno mudo"><em>' + esc(q.c) + '</em></p>' : '') + '</div>';
     }
   }
-  abrirFolha(cabFolha('Caderno de erros', 'Folha de véspera') + html + '</div>', 'Folha de véspera');
+  abrirFolha(cabFolha('Seus erros', 'Folha de véspera') + html + '</div>', 'Folha de véspera');
 }
 
 /* ================= Início ================= */

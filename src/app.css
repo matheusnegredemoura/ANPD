@@ -793,11 +793,10 @@ details.det-lista[open]>summary{margin-bottom:10px}
 /* Esqueletos de peça e parecer na discursiva */
 .esq pre{white-space:pre-wrap;font-family:var(--f-mono);font-size:.8rem;background:var(--bg);padding:10px;border-radius:8px;border:1px solid var(--line)}
 
-/* Caderno de erros, método do mentor, régua do simulado, folha da discursiva, termômetro da lei e folha de véspera */
-.cad-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:10px 0}
-.cad-kpi,.corte-kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
-:is(.cad-kpi,.corte-kpi) b{display:block;font-size:1.05rem}
-:is(.cad-kpi,.corte-kpi) span{font-size:.8rem;color:var(--ink-2)}
+/* Método do mentor, régua do simulado, folha da discursiva, termômetro da lei e folha de véspera */
+.corte-kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.corte-kpi b{display:block;font-size:1.05rem}
+.corte-kpi span{font-size:.8rem;color:var(--ink-2)}
 .anpd-banner-fase{border-left:4px solid var(--accent)}
 .anpd-degrau{border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px;background:var(--surface)}
 .anpd-degrau.ativo{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
@@ -805,7 +804,6 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .anpd-topico-linha{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
 .anpd-tag-hist{display:inline-block;padding:1px 6px;border-radius:4px;font-size:.72rem;background:var(--surface-2);color:var(--ink-2);font-family:var(--f-mono);border:1px solid var(--line)}
 .anpd-tag-hist.novo{background:var(--gold-bg);color:var(--gold);border-color:var(--gold)}
-.cad-box{margin-top:12px;padding:10px 12px;border-radius:8px;background:var(--bg);border:1px dashed var(--line)}
 .anpd-sim-banner{background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;margin-bottom:14px}
 .corte-badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:6px;font-size:.78rem;font-weight:700;font-family:var(--f-mono)}
 .corte-badge.aprovado{background:var(--certo-bg);color:var(--certo)}
@@ -843,7 +841,6 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .folha-item{border-bottom:1px dashed var(--line);padding:10px 0;margin-bottom:10px}
 .folha-meta{font-size:.82rem;font-weight:700;color:var(--ink-2);margin-bottom:4px}
 .folha-enunciado{margin:4px 0;font-size:.92rem;line-height:1.5;color:var(--ink)}
-.folha-regra{margin:6px 0;font-size:.85rem;color:var(--accent);background:var(--surface-2);padding:6px 10px;border-radius:6px;border-left:3px solid var(--accent);font-family:var(--f-corpo)}
 
 /* Com o teclado do celular aberto (classe posta pela área visível), o que é fixo embaixo sai do caminho do texto */
 body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}
@@ -873,8 +870,6 @@ body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}
 .t-item.lento{color:var(--errado);background:var(--errado-bg)}
 .ritmo-sessao{margin:8px 0}
 /* Causa do erro marcada na correção do item */
-.causa-agora{margin-top:10px;display:flex;flex-direction:column;gap:6px}
-.causa-agora p{margin:0}
 /* Autoverificação antes de corrigir a discursiva */
 .check-disc{margin:10px 0;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
 .check-disc summary{cursor:pointer;font-weight:700}

@@ -90,7 +90,7 @@ function roteiroHoje() {
   const passos = [];
   // O núcleo cabe no dia útil do plano (1 h): revisão, questões do tema, lei, aula (em dia de matéria nova), cards de
   // número e intercaladas (onde entram português e inglês). Dia de plano mais longo (fim de semana) acrescenta a
-  // fixação e a discursiva; dia com discursiva no plano traz a discursiva. A causa dos erros é pedida na hora do erro.
+  // fixação e a discursiva; dia com discursiva no plano traz a discursiva.
   const longo = !!dia && (metaMin(dia.data) || 0) > 60;
 
   // Revisão espaçada (~10 min): questões vencidas, manutenção e cards de número vencidos
