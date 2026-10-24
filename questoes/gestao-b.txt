@@ -8,9 +8,9 @@ bloco: gestao-publica
 gab: C
 ref: doutrina Avaliação de desempenho na gestão pública
 armadilha: conceito
-dif: 1
-enunciado: Na avaliação de desempenho da gestão pública, eficiência relaciona os produtos obtidos aos recursos empregados, eficácia mede o alcance das metas planejadas e efetividade avalia o impacto da ação sobre o problema que a motivou.
-comentario: São as três dimensões clássicas, também usadas pelo TCU nas auditorias operacionais, que acrescentam a economicidade (minimizar o custo dos recursos sem comprometer a qualidade).
+dif: 3
+enunciado: Situação hipotética: um programa de inclusão digital capacitou mais pessoas do que previa a meta, ao custo planejado, mas pesquisa posterior mostrou que os golpes contra os capacitados não diminuíram. Assertiva: o programa foi eficaz, mas não se mostrou efetivo.
+comentario: Certo. Eficácia é alcançar as metas (capacitou mais que o previsto); efetividade é produzir o impacto desejado na realidade (reduzir golpes), o que não ocorreu. Eficiência compara produtos e recursos. O TCU usa essas dimensões, com a economicidade, nas auditorias operacionais.
 
 === gp-02
 gab: E
@@ -32,25 +32,25 @@ comentario: No setor público, costuma-se pôr a sociedade ou o cidadão no topo
 gab: E
 ref: doutrina Planejamento estratégico (análise SWOT)
 armadilha: conceito
-dif: 1
-enunciado: Na análise SWOT de uma agência reguladora, a aprovação de lei que amplia suas competências é uma força, por estar sob controle da organização.
-comentario: Errado. Mudança legislativa é fator do ambiente externo: é oportunidade (ou ameaça), não força. Forças e fraquezas são internas, como quadro técnico qualificado ou sistemas defasados.
+dif: 3
+enunciado: Situação hipotética: na análise SWOT de uma agência reguladora, a equipe classificou como força a aprovação, pelo Congresso, de lei que amplia as competências da agência. Assertiva: a classificação está correta, pois a nova lei beneficia a organização.
+comentario: Errado. Mudança legislativa é fator do ambiente externo, fora do controle da organização: é oportunidade (ou ameaça), não força. Forças e fraquezas são internas, como quadro técnico qualificado ou sistemas defasados. Beneficiar a organização não torna o fator interno.
 
 === gp-05
 gab: C
 ref: doutrina Planejamento estratégico (missão e visão)
 armadilha: conceito
-dif: 1
-enunciado: No planejamento estratégico, a missão expressa a razão de ser da organização, enquanto a visão descreve a situação futura que ela pretende alcançar em determinado horizonte.
-comentario: A missão é estável e responde “para que existimos”; a visão é datada e responde “aonde queremos chegar”. Valores orientam a conduta no caminho.
+dif: 3
+enunciado: Situação hipotética: o planejamento estratégico de uma agência registra “ser referência internacional em proteção de dados até 2030”. Assertiva: o enunciado expressa a visão da organização, e não sua missão.
+comentario: Certo. A visão é datada e responde aonde a organização quer chegar (referência até 2030); a missão é estável e responde para que ela existe (por exemplo, zelar pela proteção dos dados pessoais). Valores orientam a conduta no caminho.
 
 === gp-06
 gab: E
 ref: doutrina Ciclo PDCA
 armadilha: conceito
-dif: 1
-enunciado: No ciclo PDCA, a etapa de verificação (check) consiste em padronizar as práticas que deram certo e corrigir as que falharam.
-comentario: Errado. Na verificação, comparam-se os resultados com as metas. Padronizar o que deu certo e corrigir desvios é a etapa de ação (act), que reinicia o ciclo.
+dif: 3
+enunciado: Situação hipotética: depois de implantar um novo fluxo de atendimento, a equipe comparou os prazos obtidos com as metas e, em seguida, padronizou o que funcionou e corrigiu os desvios. Assertiva: a padronização pertence à etapa de verificação (check) do PDCA.
+comentario: Errado. Comparar os resultados com as metas é a verificação (check). Padronizar o que deu certo e corrigir os desvios é a etapa de ação (act), que fecha o ciclo e reinicia o planejamento.
 
 === gp-07
 bloco: riscos
@@ -164,9 +164,9 @@ comentario: O mapeamento identifica a lacuna entre as competências necessárias
 gab: E
 ref: doutrina Modelos de administração pública
 armadilha: comparacao
-dif: 1
-enunciado: A administração pública gerencial caracteriza-se pelo controle rígido dos procedimentos, enquanto a burocrática enfatiza o controle de resultados e a flexibilidade do gestor.
-comentario: Errado. É o inverso: o modelo burocrático enfatiza o controle a priori dos procedimentos; o gerencial enfatiza resultados, controle a posteriori e autonomia do gestor. No Brasil, o Plano Diretor da Reforma do Aparelho do Estado (1995) é o marco do modelo gerencial.
+dif: 3
+enunciado: Situação hipotética: um órgão passou a pactuar metas de desempenho com suas unidades, a avaliá-las pelos resultados entregues ao cidadão e a reduzir controles prévios sobre os procedimentos. Assertiva: a mudança aproxima o órgão do modelo burocrático de administração pública.
+comentario: Errado. Metas, controle de resultados a posteriori e mais autonomia do gestor caracterizam o modelo gerencial. O burocrático enfatiza o controle a priori dos procedimentos. No Brasil, o Plano Diretor da Reforma do Aparelho do Estado (1995) foi o marco do modelo gerencial.
 
 === gp-21
 gab: C
@@ -217,9 +217,9 @@ bloco: dados-bi
 gab: E
 ref: doutrina OLAP
 armadilha: conceito
-dif: 1
-enunciado: Em análise OLAP, a operação de drill down agrega os dados em nível mais resumido, como passar de vendas mensais para vendas anuais.
-comentario: Errado. Drill down detalha (do ano para o mês). Agregar em nível mais resumido é roll up (ou drill up). Slice e dice filtram e recortam o cubo.
+dif: 3
+enunciado: Situação hipotética: um painel de reclamações mostra totais por ano, e o analista passa a ver os mesmos dados por mês e depois por dia. Assertiva: a operação OLAP realizada é o roll up.
+comentario: Errado. Detalhar (do ano para o mês, do mês para o dia) é o drill down. Roll up (ou drill up) faz o caminho inverso, agregando em nível mais resumido. Slice e dice filtram e recortam o cubo.
 
 === gp-27
 bloco: dados-bi

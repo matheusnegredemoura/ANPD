@@ -130,7 +130,9 @@ Ao escrever:
    enunciado presente na norma (o `npm test` confere).
 5. Dificuldade: 1 = paráfrase direta ou troca simples (número, sujeito, conceito) em item curto; 2 = caso simples ou
    erro camuflado; 3 = caso em que um detalhe decide, dois dispositivos combinados ou falso distrator. Situação
-   hipotética nunca é 1. Em cada nível, certos e errados perto de metade cada.
+   hipotética nunca é 1. Em cada nível, certos e errados perto de metade cada. Em cada disciplina com 100 itens
+   autorais ou mais, os fáceis (1) ficam em no máximo 35% e os difíceis (3) em pelo menos 12% (nos itens reais de
+   línguas, a banca tem 13% e 14%); o `npm test` confere. Item de inferência, de reescrita ou de gramática não é 1.
 6. Palavra absoluta só onde a banca a usa: no errado, perto de 10% dos itens; no certo, como falso distrator.
    `node scripts/reescrita/medir.mjs` compara esses sinais do banco com os itens reais.
 7. O tamanho não entrega o gabarito: o errado também é longo (parte verdadeira do mesmo artigo e um único erro, ou

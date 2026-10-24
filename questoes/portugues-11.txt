@@ -1,0 +1,198 @@
+bloco: portugues
+// Textos originais escritos para o banco, oitava leva (decisões automatizadas no serviço público, comunicação de
+// vazamentos, sandboxes regulatórios), mais itens difíceis sobre os textos da sétima leva (PT10A a PT10C). Foco no
+// nível 3: inferência que não extrapola, valor do "se", oração adjetiva explicativa e restritiva, referência a
+// distância e reescrita com mudança sutil.
+
+apoio_PT11A: Algoritmos já decidem, em muitos órgãos públicos, quem recebe um benefício, qual declaração será auditada e que pedido vai para o topo da fila. A promessa é de rapidez e de imparcialidade: a máquina não se cansa, não tem parentes nem favoritos. Mas imparcialidade aparente não é o mesmo que justiça. Um sistema treinado com decisões antigas tende a repetir os vieses que elas continham, agora com a autoridade de um número.
+O problema se agrava quando ninguém consegue explicar por que o sistema chegou a determinado resultado. O cidadão que tem um pedido negado precisa saber o motivo para contestá-lo; sem isso, o direito de defesa vira formalidade. Não por acaso, a legislação de proteção de dados assegura a revisão de decisões tomadas unicamente com base em tratamento automatizado.
+Nada disso recomenda abandonar a automação, que libera servidores para os casos complexos. Recomenda, isto sim, que cada sistema tenha um responsável identificado, que seus critérios possam ser auditados e que o erro, quando ocorrer, seja corrigido antes de se multiplicar por milhares de casos.
+apoio_PT11B: Quando uma empresa sofre um vazamento de dados, a primeira reação costuma ser a de minimizar o ocorrido: fala-se em “incidente pontual”, garante-se que nenhuma senha foi exposta e promete-se uma investigação. Essa estratégia de comunicação pode proteger a imagem da companhia por alguns dias, mas raramente protege os clientes, que continuam sem saber o que fazer.
+Os titulares precisam de informações concretas: que dados vazaram, que riscos isso cria e que medidas devem adotar, como trocar senhas ou ficar atentos a tentativas de golpe. É justamente por isso que a regulação exige que a comunicação seja feita em prazo razoável e em linguagem clara, e não apenas que exista.
+Há, porém, um efeito menos lembrado da transparência. Empresas que comunicam com franqueza os seus incidentes tendem a ser mais cobradas no curto prazo, mas também a investir mais em segurança no longo prazo, porque a exposição pública transforma o problema técnico em prioridade da diretoria.
+apoio_PT11C: Regular uma tecnologia que ainda está mudando é como desenhar o mapa de um rio em plena cheia. Se a regra chega cedo demais, congela soluções que talvez nem venham a prevalecer; se chega tarde, encontra práticas já consolidadas e interesses difíceis de contrariar. Os ambientes regulatórios experimentais, conhecidos como sandboxes, surgiram como tentativa de escapar desse dilema.
+Neles, empresas testam produtos inovadores por prazo determinado, sob regras flexibilizadas e com acompanhamento próximo do regulador. Em troca, aceitam compartilhar dados sobre os riscos que surgirem e se comprometem a adotar salvaguardas para os usuários. O regulador, por sua vez, aprende com a prática antes de escrever a norma definitiva.
+O modelo tem limites. Se as empresas admitidas forem sempre as mesmas, o sandbox pode virar um clube de privilegiados; se a flexibilização se estender demais, a exceção acaba se tornando regra sem nunca ter sido discutida publicamente.
+
+=== pt11-01
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT11A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: Segundo o texto, a automação de decisões públicas garante imparcialidade, porque a máquina não se cansa nem tem parentes ou favoritos.
+comentario: Errado. O texto apresenta a imparcialidade como promessa (“A promessa é de rapidez e de imparcialidade”) e logo a relativiza: “imparcialidade aparente não é o mesmo que justiça”, porque um sistema treinado com decisões antigas repete os vieses delas. O item transforma promessa em garantia.
+
+=== pt11-02
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT11A
+armadilha: interpretacao
+dif: 3
+enunciado: No primeiro parágrafo, a expressão “agora com a autoridade de um número” sugere que os vieses reproduzidos pelo sistema passam a parecer mais legítimos por resultarem de um cálculo.
+comentario: Certo. Os vieses já existiam nas decisões antigas; o que muda é a aparência: vindo de um sistema, o resultado ganha a autoridade que se costuma atribuir a números, como se fosse neutro. É essa aparência que o texto critica.
+
+=== pt11-03
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT11A
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, a expressão “sem isso” retoma a necessidade de o cidadão saber o motivo da negativa de seu pedido.
+comentario: Certo. O período anterior diz que o cidadão “precisa saber o motivo para contestá-lo”; “sem isso” é sem saber esse motivo, caso em que o direito de defesa “vira formalidade”.
+
+=== pt11-04
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT11A
+armadilha: interpretacao
+dif: 3
+enunciado: No último parágrafo, a expressão “isto sim” introduz uma ressalva que contradiz a defesa da automação feita no período anterior.
+comentario: Errado. “Isto sim” reforça, por contraste, o que o texto recomenda: não abandonar a automação (período anterior), mas exigir responsável identificado, critérios auditáveis e correção rápida dos erros. As duas ideias se somam; não há contradição.
+
+=== pt11-05
+gab: E
+tema: pt-colocacao
+ref: texto
+apoio: @PT11A
+armadilha: interpretacao
+dif: 3
+enunciado: A substituição de “O problema se agrava” por O problema agrava-se, no início do segundo parágrafo, prejudicaria a correção gramatical do texto, pois a próclise é obrigatória nesse caso.
+comentario: Errado. Não há palavra atrativa antes do verbo (o sujeito “O problema” não atrai o pronome), de modo que a próclise e a ênclise são ambas corretas: “O problema se agrava” e “O problema agrava-se”. A próclise seria obrigatória com advérbio, pronome relativo ou palavra negativa antes do verbo.
+
+=== pt11-06
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT11A
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do texto que a legislação de proteção de dados proíbe as decisões tomadas unicamente com base em tratamento automatizado.
+comentario: Errado. O texto diz que a legislação “assegura a revisão” dessas decisões, e não que as proíbe; e o último parágrafo defende manter a automação. É também o que diz a LGPD (art. 20): o titular pode pedir revisão.
+
+=== pt11-07
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT11B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: Para o autor, a estratégia de minimizar o vazamento não produz nenhum efeito favorável à empresa.
+comentario: Errado. O texto admite um efeito favorável, ainda que curto: a estratégia “pode proteger a imagem da companhia por alguns dias”. O que ela raramente faz é proteger os clientes. Ler “nenhum” onde o texto diz “raramente” e “por alguns dias” é a armadilha.
+
+=== pt11-08
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT11B
+armadilha: interpretacao
+dif: 3
+enunciado: No primeiro período, o pronome “se” tem a mesma classificação em “fala-se em ‘incidente pontual’” e em “promete-se uma investigação”.
+comentario: Errado. Em “fala-se em”, o verbo pede preposição (falar em algo), e o “se” é índice de indeterminação do sujeito. Em “promete-se uma investigação”, o verbo é transitivo direto, e o “se” é partícula apassivadora: “uma investigação” é o sujeito paciente (uma investigação é prometida).
+
+=== pt11-09
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT11B
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, os dois-pontos introduzem a especificação das “informações concretas” de que os titulares precisam.
+comentario: Certo. Depois dos dois-pontos vêm as três informações (que dados vazaram, que riscos isso cria e que medidas adotar), com exemplos das medidas. É o uso dos dois-pontos para enumerar ou especificar o que foi anunciado.
+
+=== pt11-10
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT11B
+armadilha: causalidade
+dif: 3
+enunciado: Segundo o último parágrafo, empresas que comunicam com franqueza os seus incidentes investem mais em segurança porque são menos cobradas pelo público.
+comentario: Errado. O texto diz o contrário quanto à cobrança: essas empresas “tendem a ser mais cobradas no curto prazo”. O motivo do investimento é outro: a exposição pública “transforma o problema técnico em prioridade da diretoria”. O item cria uma causa falsa.
+
+=== pt11-11
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT11B
+armadilha: interpretacao
+dif: 3
+enunciado: A supressão da vírgula empregada logo após “clientes”, no primeiro parágrafo, alteraria o sentido do texto, pois a oração “que continuam sem saber o que fazer” passaria a restringir o grupo de clientes a que o autor se refere.
+comentario: Certo. Com a vírgula, a oração adjetiva é explicativa: todos os clientes continuam sem saber o que fazer. Sem ela, vira restritiva: a estratégia deixaria de proteger só os clientes que continuam sem saber o que fazer, como se houvesse outros. A vírgula muda o alcance da afirmação.
+
+=== pt11-12
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT11B
+armadilha: extrapolacao
+dif: 2
+enunciado: No segundo parágrafo, a expressão “e não apenas que exista” indica que a regulação dispensa a comunicação quando o vazamento é pequeno.
+comentario: Errado. A expressão diz que a regulação exige mais do que a mera existência da comunicação: exige prazo razoável e linguagem clara. O texto não fala em dispensa para vazamentos pequenos; o item acrescenta o que não está lá.
+
+=== pt11-13
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT11C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 3
+enunciado: A comparação feita no primeiro período indica que, para o autor, regular tecnologias em mudança é tarefa impossível.
+comentario: Errado. Desenhar o mapa de um rio em cheia é tarefa difícil e instável, não impossível; e o próprio texto apresenta os sandboxes como tentativa de escapar do dilema. A comparação marca a dificuldade de acertar o momento da regra.
+
+=== pt11-14
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT11C
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo período do primeiro parágrafo, o ponto e vírgula separa as orações que expressam os riscos opostos de regular cedo demais e de regular tarde demais.
+comentario: Certo. Antes do ponto e vírgula está o risco de regular cedo (congelar soluções que talvez não prevaleçam); depois, o de regular tarde (enfrentar práticas consolidadas e interesses difíceis de contrariar). O ponto e vírgula separa orações coordenadas de estrutura paralela.
+
+=== pt11-15
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT11C
+armadilha: interpretacao
+dif: 3
+enunciado: No segundo parágrafo, a expressão “por sua vez” introduz o que cabe ao regulador em contraponto ao que cabe às empresas, e poderia ser substituída por de sua parte, sem prejuízo do sentido.
+comentario: Certo. Depois de dizer o que as empresas fazem e aceitam, o texto passa ao regulador: “por sua vez” marca essa passagem de um participante ao outro, e “de sua parte” tem o mesmo valor. A troca mantém a correção e o sentido.
+
+=== pt11-16
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT11C
+armadilha: interpretacao
+dif: 3
+enunciado: No último parágrafo, o autor afirma que os sandboxes se tornaram, na prática, clubes de empresas privilegiadas.
+comentario: Errado. A afirmação é condicional: “Se as empresas admitidas forem sempre as mesmas, o sandbox pode virar um clube de privilegiados”. O texto aponta um risco do modelo, não um fato consumado. Transformar hipótese em constatação é armadilha clássica de interpretação.
+
+=== pt11-17
+gab: C
+tema: pt-verbos
+ref: texto
+apoio: @PT11C
+armadilha: interpretacao
+dif: 2
+enunciado: Em “congela soluções que talvez nem venham a prevalecer”, o emprego do subjuntivo em “venham” está associado à ideia de dúvida expressa por “talvez”.
+comentario: Certo. O advérbio de dúvida “talvez” anteposto ao verbo pede o subjuntivo (“talvez venham”); com o indicativo (“vêm”), a frase ficaria em desacordo com a norma. O modo verbal acompanha a incerteza sobre quais soluções prevalecerão.
+
+=== pt11-18
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT11C
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, o sujeito das formas verbais “aceitam” e “se comprometem” é “os usuários”, termo que aparece no fim do mesmo período.
+comentario: Errado. Quem aceita compartilhar dados e se compromete a adotar salvaguardas são as empresas, sujeito do período anterior (“empresas testam produtos inovadores”), retomado de forma elíptica. Os usuários são os beneficiários das salvaguardas.

@@ -19,7 +19,7 @@ ref: texto
 apoio: @PT7A
 comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
 armadilha: interpretacao
-dif: 1
+dif: 2
 enunciado: Depreende-se do primeiro parágrafo que a digitalização dos prontuários pode evitar a repetição de procedimentos médicos.
 comentario: Certo. O profissional pode consultar exames anteriores e “evitar a repetição de procedimentos”.
 
@@ -52,7 +52,7 @@ ref: texto
 apoio: @PT7A
 comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
 armadilha: conceito
-dif: 1
+dif: 2
 enunciado: No segundo parágrafo, a conjunção “contudo” poderia ser substituída por portanto, sem prejuízo do sentido do texto.
 comentario: Errado. “Contudo” é adversativa: o parágrafo ressalva os ganhos do anterior. “Portanto” é conclusiva e mudaria o sentido.
 
@@ -85,7 +85,7 @@ ref: texto
 apoio: @PT7A
 comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
 armadilha: conceito
-dif: 1
+dif: 2
 enunciado: Seriam mantidos a correção gramatical e o sentido do texto caso o trecho “não causa apenas prejuízo financeiro” fosse reescrito da seguinte forma: não causa somente prejuízo financeiro.
 comentario: Certo. Em “não causa apenas prejuízo financeiro”, “apenas” e “somente” são advérbios de exclusão equivalentes; a troca mantém o sentido (o dano vai além do financeiro) e a correção.
 
@@ -228,7 +228,7 @@ ref: texto
 apoio: @PT7B
 comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
 armadilha: sujeito
-dif: 1
+dif: 2
 enunciado: No segundo parágrafo, a forma verbal “dispõem” poderia ser flexionada no singular, dispõe, sem prejuízo da correção gramatical do texto.
 comentario: Errado. O sujeito é “Grandes empresas”, no plural, e o verbo deve concordar com ele.
 
@@ -272,7 +272,7 @@ ref: texto
 apoio: @PT7B
 comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
 armadilha: interpretacao
-dif: 1
+dif: 2
 enunciado: Infere-se do último período que responder às contribuições recebidas é irrelevante para a participação em consultas futuras.
 comentario: Errado. Sugestões que desaparecem sem resposta ensinam que não vale a pena participar: responder é condição para a participação continuar.
 
@@ -327,7 +327,7 @@ ref: texto
 apoio: @PT7C
 comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
 armadilha: conceito
-dif: 1
+dif: 2
 enunciado: No segundo parágrafo, o ponto e vírgula empregado após “espontaneamente” poderia ser substituído por ponto final, com o devido ajuste de maiúscula, sem prejuízo da correção gramatical.
 comentario: Certo. O ponto e vírgula separa orações já completas; o ponto final faria o mesmo, com pausa maior.
 
@@ -404,6 +404,96 @@ ref: texto
 apoio: @PT7C
 comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
 armadilha: conceito
-dif: 1
+dif: 2
 enunciado: Seria mantida a correção gramatical do texto caso o trecho “precisam aprender a reconhecer conteúdos enganosos” fosse reescrito como precisam aprender à reconhecer conteúdos enganosos.
 comentario: Errado. Antes de verbo no infinitivo não há crase, porque verbo não admite artigo: “aprender a reconhecer” tem só a preposição exigida por “aprender”. “À reconhecer” fica incorreto.
+
+=== pt7-51
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT7A
+armadilha: extrapolacao
+dif: 3
+enunciado: Segundo o texto, a lei brasileira proíbe o compartilhamento de dados de saúde com o objetivo de obter vantagem econômica.
+comentario: Errado. O texto diz que esse compartilhamento “sofre restrições”, e não que é proibido; proibição, no texto, só para as operadoras usarem os dados para selecionar riscos na contratação. Na LGPD, é o art. 11, §§ 4º e 5º.
+
+=== pt7-52
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT7A
+armadilha: interpretacao
+dif: 3
+enunciado: No segundo parágrafo, a expressão “nesse caso” refere-se ao vazamento de informações sobre saúde, mencionadas no período anterior.
+comentario: Certo. O período anterior trata das informações de saúde, “entre as mais sensíveis que uma pessoa pode ter”; “Um vazamento, nesse caso” é o vazamento desses dados, que pode levar a discriminação no trabalho, no crédito ou no seguro.
+
+=== pt7-53
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT7A
+armadilha: interpretacao
+dif: 3
+enunciado: Para o autor, os benefícios da digitalização dos prontuários dependem da velocidade com que a modernização é implantada.
+comentario: Errado. O texto diz que os benefícios “dependem de um cuidado que nem sempre acompanha a pressa da modernização”. A pressa aparece como ameaça ao cuidado, e não como condição dos benefícios.
+
+=== pt7-54
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT7B
+armadilha: interpretacao
+dif: 3
+enunciado: Infere-se do primeiro parágrafo que, para o autor, a consulta pública é também um reconhecimento dos limites do conhecimento de quem redige a norma.
+comentario: Certo. O texto diz que, ao abrir a consulta, a agência está “reconhecendo que os servidores que redigiram o texto, por mais competentes que sejam, não conhecem todas as consequências que a regra poderá produzir”.
+
+=== pt7-55
+gab: E
+tema: pt-pontuacao
+ref: texto
+apoio: @PT7B
+armadilha: interpretacao
+dif: 3
+enunciado: No primeiro parágrafo, os travessões isolam uma enumeração que restringe o sentido de “Quem vive o problema no dia a dia” a três grupos, excluídos os demais.
+comentario: Errado. Os travessões isolam exemplos de quem vive o problema (o consumidor, a pequena empresa, o pesquisador), funcionando como aposto explicativo. A enumeração ilustra, não fecha a lista.
+
+=== pt7-56
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT7B
+armadilha: interpretacao
+dif: 3
+enunciado: No segundo parágrafo, a locução “ao passo que” estabelece contraste entre os recursos das grandes empresas e a dificuldade de cidadãos e entidades menores para participar da consulta.
+comentario: Certo. “Ao passo que” tem valor de oposição (enquanto): de um lado, equipes inteiras para elaborar contribuições; de outro, quem raramente consegue acompanhar os prazos. Daí o risco de a consulta amplificar quem já é ouvido.
+
+=== pt7-57
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT7C
+armadilha: interpretacao
+dif: 3
+enunciado: Segundo o texto, a educação digital deve substituir a proibição do celular nas escolas.
+comentario: Errado. O texto diz que a educação digital “não concorre com a restrição ao celular: complementa-a”. As duas medidas somam-se; nenhuma substitui a outra.
+
+=== pt7-58
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT7C
+armadilha: interpretacao
+dif: 3
+enunciado: No último parágrafo, o autor sustenta que a responsabilidade pela proteção das crianças no ambiente digital não cabe apenas às famílias e às escolas, mas também às empresas.
+comentario: Certo. O texto diz que a educação digital “não transfere às famílias e às escolas uma responsabilidade que também é das empresas”, cujos produtos devem ser seguros desde a concepção.
+
+=== pt7-59
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT7C
+armadilha: interpretacao
+dif: 3
+enunciado: No segundo parágrafo, a comparação com o ensino da leitura e da aritmética reforça a ideia de que as habilidades digitais não surgem espontaneamente e precisam ser ensinadas.
+comentario: Certo. O texto diz que essas habilidades “devem ser ensinadas, como se ensinam a leitura e a aritmética”: assim como ninguém aprende a ler sozinho, ninguém aprende sozinho a reconhecer conteúdo enganoso.

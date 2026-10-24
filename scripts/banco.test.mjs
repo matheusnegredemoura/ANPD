@@ -185,3 +185,15 @@ test('itens do RPG: três por raridade e encaixe, com o texto literal da LGPD', 
   const fora = itens.filter((x) => !/^LGPD, art\./.test(x.ref) || !lgpd.includes(x.lore)).map((x) => x.id);
   assert.deepEqual(fora, [], 'lore fora do texto da LGPD');
 });
+
+test('dificuldade por disciplina: no máximo 35% fáceis e pelo menos 12% difíceis', () => {
+  const d = montarDados(), B = new Map(d.blocos.map((b) => [b.id, b])), por = {};
+  for (const q of d.questoes) if (!q.o && !q.al) (por[(B.get(q.b) || {}).disciplina] ||= []).push(q);
+  const fora = [];
+  for (const [disc, qs] of Object.entries(por)) {
+    if (qs.length < 100) continue;
+    const p = (n) => qs.filter((q) => (q.d || 2) === n).length / qs.length;
+    if (p(1) > 0.35 || p(3) < 0.12) fora.push(disc + ' ' + Math.round(p(1) * 100) + '/' + Math.round(p(3) * 100));
+  }
+  assert.deepEqual(fora, []);
+});

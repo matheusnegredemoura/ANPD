@@ -41,9 +41,9 @@ comentario: Certo. Metadados são dados sobre dados: técnicos (tipo, tamanho), 
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: Dados mestres são os registros das transações do dia a dia, como cada pedido, pagamento ou requerimento recebido.
-comentario: Errado. Esses são dados transacionais. Dados mestres descrevem as entidades centrais do negócio, compartilhadas por vários sistemas, como cidadãos, empresas, servidores e unidades.
+dif: 3
+enunciado: Situação hipotética: numa agência, a tabela com o cadastro das empresas reguladas (CNPJ, razão social, setor) é usada por vários sistemas, e outra tabela registra cada multa aplicada, com data e valor. Assertiva: a tabela das multas contém os dados mestres, e a das empresas, os dados transacionais.
+comentario: Errado. O item inverte as duas tabelas. Dados mestres descrevem as entidades centrais do negócio, estáveis e compartilhadas por vários sistemas (o cadastro das empresas reguladas); dados transacionais registram os eventos do dia a dia (cada multa aplicada, com data e valor).
 
 === dd-06
 gab: C
@@ -65,25 +65,25 @@ comentario: Certo. Unicidade é a ausência de duplicidade. O caso também afeta
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: A validade, como dimensão da qualidade de dados, refere-se à correspondência entre o dado registrado e a realidade que ele representa.
-comentario: Errado. Correspondência com a realidade é a acurácia (exatidão). Validade é a conformidade com formato, tipo e regras de domínio: uma data de 31 de fevereiro é inválida; um endereço antigo pode ser válido e inexato.
+dif: 3
+enunciado: Situação hipotética: no cadastro de titulares, o campo data de nascimento só aceita datas reais no formato DD/MM/AAAA, e todos os registros obedecem ao formato; ainda assim, uma pessoa nascida em 1980 aparece como nascida em 1908. Assertiva: o problema é de validade do dado.
+comentario: Errado. A data obedece ao formato e é uma data possível: o dado é válido. O problema é de acurácia (exatidão), a correspondência entre o registro e a realidade. Validade é a conformidade com formato, tipo e regras de domínio; uma data de 31 de fevereiro seria inválida.
 
 === dd-10
 gab: C
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: No processo ETL, os dados são extraídos das fontes, transformados e então carregados no repositório analítico; na variante ELT, a carga precede a transformação, feita no próprio destino.
-comentario: Certo. O ELT é comum em data lakes e na nuvem, onde o destino tem capacidade de processamento para transformar sob demanda.
+dif: 3
+enunciado: Situação hipotética: a equipe carrega os dados brutos no repositório em nuvem e só depois os transforma, usando o poder de processamento do próprio repositório. Assertiva: a abordagem adotada é a ELT, e não a ETL.
+comentario: Certo. No ETL, os dados são extraídos, transformados e então carregados; no ELT, a carga vem antes da transformação, feita no destino. O ELT é comum em data lakes e na nuvem, onde o repositório tem capacidade de processamento para transformar sob demanda.
 
 === dd-11
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: No esquema estrela da modelagem dimensional, a tabela fato armazena os atributos descritivos, e as tabelas de dimensão armazenam as métricas numéricas.
-comentario: Errado. É o inverso: a tabela fato guarda as métricas (quantidades, valores) e as chaves das dimensões; as dimensões guardam os atributos descritivos (tempo, órgão, região).
+dif: 3
+enunciado: Situação hipotética: num modelo estrela sobre fiscalizações, uma tabela guarda, para cada fiscalização, o valor da multa e o número de titulares afetados, além das chaves que apontam para as tabelas de empresa, data e setor. Assertiva: a tabela descrita é uma tabela de dimensão.
+comentario: Errado. É a tabela fato: guarda as métricas (valor da multa, titulares afetados) e as chaves das dimensões. As tabelas de empresa, data e setor são as dimensões, com os atributos descritivos usados para filtrar e agrupar.
 
 === dd-12
 gab: C
@@ -97,9 +97,9 @@ comentario: Certo. Ganha-se em redundância menor; perde-se em simplicidade e em
 gab: C
 ref: doutrina
 armadilha: comparacao
-dif: 1
-enunciado: Sistemas OLTP são otimizados para grande volume de transações curtas de inserção e atualização, enquanto sistemas OLAP privilegiam consultas analíticas sobre grandes volumes de dados históricos.
-comentario: Certo. Por isso o data warehouse é alimentado a partir dos sistemas transacionais, sem disputar recursos com eles.
+dif: 3
+enunciado: Situação hipotética: o sistema que registra, a cada minuto, centenas de protocolos de reclamação precisa de respostas rápidas a inserções curtas; já o painel gerencial roda consultas pesadas sobre anos de histórico. Assertiva: o primeiro é típico de OLTP, e o segundo, de OLAP.
+comentario: Certo. OLTP é otimizado para muitas transações curtas de inserção e atualização; OLAP, para consultas analíticas complexas sobre grandes volumes históricos. Por isso o data warehouse é alimentado a partir dos sistemas transacionais, sem disputar recursos com eles.
 
 === dd-14
 gab: C
@@ -215,17 +215,17 @@ comentario: Certo: art. 12. Se a reidentificação for possível com meios próp
 gab: E
 ref: doutrina
 armadilha: comparacao
-dif: 1
-enunciado: Data warehouse e data lake exigem, ambos, que o esquema dos dados seja definido antes da carga (schema on write).
-comentario: Errado. O data warehouse trabalha com esquema definido na escrita; o data lake guarda os dados brutos e aplica o esquema na leitura (schema on read), conforme a análise.
+dif: 3
+enunciado: Situação hipotética: a equipe de dados guarda os registros brutos de vários sistemas, sem definir estrutura prévia, para decidir depois, conforme cada análise, como interpretá-los. Assertiva: o repositório adotado é típico de data warehouse, que exige esquema definido antes da carga.
+comentario: Errado. Guardar dados brutos e aplicar o esquema só na leitura (schema on read) é a lógica do data lake. O data warehouse trabalha com esquema definido na escrita (schema on write): os dados entram já tratados e estruturados.
 
 === dd-28
 gab: E
 ref: doutrina OLAP
 armadilha: conceito
-dif: 1
-enunciado: Na análise OLAP, a operação dice consiste em girar o cubo para trocar a posição das dimensões na visualização dos dados.
-comentario: Errado. Girar o cubo é o pivot (ou rotação). O dice seleciona um subcubo, restringindo valores em duas ou mais dimensões, como vendas de dois produtos em três estados num mesmo semestre.
+dif: 3
+enunciado: Situação hipotética: num cubo de incidentes, o analista restringe a consulta, ao mesmo tempo, a dois setores econômicos e ao último trimestre. Assertiva: a operação OLAP realizada é o pivot.
+comentario: Errado. Restringir valores em duas ou mais dimensões, obtendo um subcubo, é o dice. Pivot (rotação) é girar o cubo para trocar a posição das dimensões na visualização; slice fixa um valor em uma única dimensão.
 
 === dd-29
 gab: E
