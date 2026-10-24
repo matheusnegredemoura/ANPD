@@ -1,0 +1,130 @@
+bloco: seginfo
+// Segurança da informação, lote S2: malware e ataques, IDS e IPS, need-to-know, backup incremental e diferencial,
+// pseudonimização, privacidade por padrão, controles físicos e tratamento de riscos. Itens de doutrina com
+// comentários próprios.
+
+=== sx2-01
+gab: C
+tema: sg-ameacas
+ref: doutrina malware
+armadilha: conceito
+dif: 1
+enunciado: Ransomware é código malicioso que cifra os dados da vítima e exige pagamento para liberá-los.
+comentario: Certo. Variantes recentes também copiam os dados antes de cifrá-los e ameaçam publicá-los (dupla extorsão), o que torna o ataque um incidente com dados pessoais.
+
+=== sx2-02
+gab: E
+tema: sg-ameacas
+ref: doutrina engenharia social
+armadilha: conceito
+dif: 2
+enunciado: Spear phishing é ataque de phishing em massa, enviado indiscriminadamente a milhares de destinatários.
+comentario: Errado. Spear phishing é direcionado a pessoa ou grupo específico, com mensagem personalizada a partir de informações sobre a vítima. O envio em massa é o phishing comum.
+
+=== sx2-03
+gab: C
+tema: sg-ameacas
+ref: doutrina ataques
+armadilha: conceito
+dif: 2
+enunciado: No ataque de negação de serviço distribuído (DDoS), muitas máquinas, em geral uma botnet, sobrecarregam o alvo para torná-lo indisponível.
+comentario: Certo. O DDoS ataca a disponibilidade. A mitigação envolve filtragem de tráfego, redundância e serviços especializados.
+
+=== sx2-04
+gab: E
+tema: sg-ameacas
+ref: doutrina malware
+armadilha: comparacao
+dif: 2
+enunciado: O worm depende de que o usuário execute o arquivo hospedeiro para se propagar, ao contrário do vírus, que se espalha sozinho pela rede.
+comentario: Errado. É o inverso: o vírus precisa de hospedeiro e de execução; o worm se replica e se propaga de forma autônoma, explorando falhas na rede.
+
+=== sx2-05
+gab: C
+tema: sg-ameacas
+ref: doutrina ataques
+armadilha: conceito
+dif: 2
+enunciado: No ataque man-in-the-middle, o atacante se interpõe na comunicação entre duas partes e pode ler ou alterar as mensagens.
+comentario: Certo. Criptografia de ponta a ponta e autenticação mútua (como TLS com certificados válidos) reduzem esse risco.
+
+=== sx2-06
+gab: E
+tema: sg-ameacas
+ref: doutrina controles de rede
+armadilha: comparacao
+dif: 3
+enunciado: O sistema de prevenção de intrusão (IPS) apenas registra alertas, sem capacidade de bloquear o tráfego malicioso.
+comentario: Errado. Quem apenas detecta e alerta é o IDS. O IPS atua em linha e pode bloquear o tráfego malicioso.
+
+=== sx2-07
+gab: C
+tema: sg-principios
+ref: doutrina controle de acesso
+armadilha: conceito
+dif: 2
+enunciado: O princípio da necessidade de conhecer (need-to-know) restringe o acesso à informação a quem precisa dela para suas funções.
+comentario: Certo. Combina com o menor privilégio: cada pessoa recebe só o acesso que o trabalho exige.
+
+=== sx2-08
+gab: E
+tema: sg-principios
+ref: doutrina backup
+armadilha: comparacao
+dif: 2
+enunciado: O backup incremental copia, a cada execução, todos os dados alterados desde o último backup completo.
+comentario: Errado. Isso é o backup diferencial. O incremental copia só o que mudou desde o último backup de qualquer tipo, completo ou incremental.
+
+=== sx2-09
+gab: C
+tema: sg-principios
+ref: doutrina backup
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a organização faz backup completo aos domingos e incrementais nos demais dias, e o servidor falha na sexta-feira. Assertiva: para restaurar, são necessários o backup completo de domingo e todos os incrementais de segunda a quinta, na ordem.
+comentario: Certo. Cada incremental guarda só a mudança desde o anterior; falta de qualquer um quebra a cadeia. No diferencial, bastariam o completo e o último diferencial.
+
+=== sx2-10
+gab: C
+tema: sg-privacidade
+ref: doutrina pseudonimização
+armadilha: conceito
+dif: 2
+enunciado: A pseudonimização substitui identificadores diretos por códigos, mas o dado continua pessoal, porque pode ser reassociado com informação adicional.
+comentario: Certo. LGPD, art. 13, § 4º: a informação adicional fica separada, em ambiente controlado. A pseudonimização reduz o risco, mas não tira o dado da LGPD.
+
+=== sx2-11
+gab: E
+tema: sg-privacidade
+ref: doutrina privacidade por padrão
+armadilha: conceito
+dif: 2
+enunciado: A privacidade por padrão (by default) exige que o usuário ative manualmente as configurações mais protetivas.
+comentario: Errado. Por padrão, as configurações já vêm no nível mais protetivo, e o usuário decide se quer reduzir a proteção. O ECA Digital adota a mesma lógica para crianças e adolescentes.
+
+=== sx2-12
+gab: C
+tema: sg-iso
+ref: doutrina ISO/IEC 27002
+armadilha: rol
+dif: 2
+enunciado: O controle de acesso físico às instalações está entre os controles da ISO/IEC 27002:2022, no tema de controles físicos.
+comentario: Certo. Os quatro temas da norma são controles organizacionais, de pessoas, físicos e tecnológicos.
+
+=== sx2-13
+gab: E
+tema: sg-riscos
+ref: doutrina tratamento de riscos
+armadilha: conceito
+dif: 3
+enunciado: Aceitar um risco significa eliminá-lo por meio de controles, até que seu nível chegue a zero.
+comentario: Errado. Aceitar (ou reter) é decidir conscientemente conviver com o risco, por estar dentro do apetite da organização. Eliminar ou reduzir são outras opções de tratamento.
+
+=== sx2-14
+gab: C
+tema: sg-riscos
+ref: doutrina tratamento de riscos
+armadilha: conceito
+dif: 2
+enunciado: Transferir o risco, por seguro ou contrato, não elimina a responsabilidade da organização perante terceiros, como os titulares de dados.
+comentario: Certo. O seguro cobre perdas financeiras, mas a responsabilidade pelo tratamento perante titulares e ANPD continua com o agente de tratamento.

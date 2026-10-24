@@ -1,0 +1,144 @@
+bloco: gdpr
+// Direito comparado, Convenção 108+ do Conselho da Europa (lote C1): finalidade, âmbito, definições, legitimidade,
+// categorias especiais, notificação de violação, transparência, direitos, avaliação de impacto, exceções e sanções.
+// Conferidas com fontes/conv108.txt (versão portuguesa do Conselho da Europa).
+
+=== cx1-01
+gab: C
+tema: cp-gdpr
+ref: conv108 1
+trecho: independentemente da sua nacionalidade ou residência
+armadilha: conceito
+dif: 2
+enunciado: A Convenção 108+ protege todas as pessoas no tratamento de seus dados pessoais, independentemente da nacionalidade ou da residência.
+comentario: Certo. Art. 1º. A proteção não depende de vínculo com o Estado que trata os dados, como também ocorre na LGPD (art. 3º).
+
+=== cx1-02
+gab: E
+tema: cp-gdpr
+ref: conv108 3
+trecho: A presente Convenção não se aplica ao tratamento de dados efetuado por uma pessoa no exercício de atividades exclusivamente pessoais ou domésticas
+armadilha: excecao
+dif: 2
+enunciado: A Convenção 108+ aplica-se também ao tratamento feito por pessoa em atividades exclusivamente pessoais ou domésticas.
+comentario: Errado. O art. 3º, n.º 2, exclui esse tratamento, como faz a LGPD com a pessoa natural para fins particulares e não econômicos (art. 4º, I).
+
+=== cx1-03
+gab: C
+tema: cp-gdpr
+ref: conv108 3
+trecho: ao tratamento de dados sob a sua jurisdição nos setores público e privado
+armadilha: conceito
+dif: 1
+enunciado: A Convenção 108+ aplica-se ao tratamento de dados nos setores público e privado sob a jurisdição de cada Parte.
+comentario: Certo. Art. 3º, n.º 1. A convenção não se limita ao Estado nem às empresas.
+
+=== cx1-04
+gab: E
+tema: cp-gdpr
+ref: conv108 2
+trecho: Caso não seja utilizado o tratamento automatizado
+armadilha: extrapolacao
+dif: 3
+enunciado: Para a Convenção 108+, só há tratamento de dados quando a operação é automatizada.
+comentario: Errado. O art. 2º, c, alcança também o tratamento não automatizado, feito sobre conjunto estruturado de dados acessíveis ou recuperáveis por critérios específicos.
+
+=== cx1-05
+gab: C
+tema: cp-gdpr
+ref: conv108 5
+trecho: com base no consentimento livre, específico, informado e inequívoco do titular dos dados ou em qualquer outro fundamento legítimo previsto na legislação
+armadilha: conceito
+dif: 2
+enunciado: Na Convenção 108+, o tratamento pode basear-se no consentimento livre, específico, informado e inequívoco ou em outro fundamento legítimo previsto em lei.
+comentario: Certo. Art. 5º, n.º 2. Como na LGPD, o consentimento é uma das bases, e não a única.
+
+=== cx1-06
+gab: C
+tema: cp-gdpr
+ref: conv108 5
+trecho: o tratamento posterior para fins de arquivo de interesse público, para fins de investigação científica ou histórica ou para fins estatísticos é, sob reserva de salvaguardas apropriadas, compatível
+armadilha: excecao
+dif: 3
+enunciado: Na Convenção 108+, o tratamento posterior para arquivo de interesse público, pesquisa científica ou histórica ou estatística é compatível com a finalidade original, sob reserva de salvaguardas apropriadas.
+comentario: Certo. Art. 5º, n.º 4, b. É exceção à vedação de tratamento incompatível com a finalidade de coleta.
+
+=== cx1-07
+gab: E
+tema: cp-gdpr
+ref: conv108 6
+trecho: dados pessoais relativos a infrações, processos penais e condenações
+armadilha: rol
+dif: 2
+enunciado: Dados relativos a infrações e condenações penais não integram as categorias especiais de dados da Convenção 108+.
+comentario: Errado. O art. 6º inclui expressamente esses dados entre as categorias especiais, ao lado de dados genéticos, biométricos, de saúde e de origem racial. Na LGPD, eles não estão no rol do art. 5º, II.
+
+=== cx1-08
+gab: C
+tema: cp-gdpr
+ref: conv108 7
+trecho: notifique, sem demora, pelo menos a autoridade de controlo competente
+armadilha: conceito
+dif: 2
+enunciado: A Convenção 108+ exige que o responsável notifique, sem demora, ao menos a autoridade de controlo das violações de dados que possam interferir gravemente com os direitos dos titulares.
+comentario: Certo. Art. 7º, n.º 2. A LGPD tem regra semelhante no art. 48, regulamentada pela Resolução CD/ANPD 15/2024.
+
+=== cx1-09
+gab: E
+tema: cp-gdpr
+ref: conv108 8
+trecho: O n.º 1 não se aplicará se o titular dos dados já dispuser da informação pertinente
+armadilha: excecao
+dif: 2
+enunciado: Na Convenção 108+, o dever de informar o titular subsiste mesmo quando ele já dispõe da informação pertinente.
+comentario: Errado. O art. 8º, n.º 2, afasta o dever nessa hipótese. O n.º 3 dispensa também a informação quando os dados não foram coletados do titular e o tratamento está previsto em lei ou informar seria impossível ou desproporcional.
+
+=== cx1-10
+gab: C
+tema: cp-gdpr
+ref: conv108 9
+trecho: não ser objeto de uma decisão que as afete significativamente, com base exclusivamente num tratamento automatizado
+armadilha: conceito
+dif: 3
+enunciado: A Convenção 108+ garante o direito de não ser objeto de decisão que afete significativamente a pessoa, baseada só em tratamento automatizado, sem que seus pontos de vista sejam considerados.
+comentario: Certo. Art. 9º, n.º 1, a. A regra cede quando lei autoriza a decisão e prevê salvaguardas adequadas (n.º 2).
+
+=== cx1-11
+gab: E
+tema: cp-gdpr
+ref: conv108 9
+trecho: independentemente da sua nacionalidade ou da sua residência, da assistência de uma autoridade de controlo
+armadilha: sujeito
+dif: 2
+enunciado: A assistência da autoridade de controlo prevista na Convenção 108+ beneficia só nacionais ou residentes da Parte.
+comentario: Errado. O art. 9º, n.º 1, g, garante a assistência independentemente da nacionalidade ou da residência.
+
+=== cx1-12
+gab: C
+tema: cp-gdpr
+ref: conv108 10
+trecho: avaliarão o impacto provável do tratamento de dados previsto nos direitos e liberdades fundamentais dos titulares dos dados antes do início desse tratamento
+armadilha: conceito
+dif: 2
+enunciado: Na Convenção 108+, o responsável deve avaliar o impacto provável do tratamento sobre os direitos dos titulares antes de iniciá-lo e concebê-lo para minimizar riscos.
+comentario: Certo. Art. 10, n.º 2, que combina avaliação de impacto e privacidade desde a concepção.
+
+=== cx1-13
+gab: E
+tema: cp-gdpr
+ref: conv108 11
+trecho: respeitar a essência dos direitos e liberdades fundamentais e constituir uma medida necessária e proporcionada
+armadilha: absoluto
+dif: 3
+enunciado: A Convenção 108+ permite exceções a todos os seus princípios básicos sempre que o Estado invoca a segurança nacional.
+comentario: Errado. O art. 11, n.º 1, só admite exceção a dispositivos específicos (arts. 5º, n.º 4, 7º, n.º 2, 8º, n.º 1, e 9º), prevista em lei, que respeite a essência dos direitos e seja necessária e proporcionada numa sociedade democrática.
+
+=== cx1-14
+gab: C
+tema: cp-gdpr
+ref: conv108 12
+trecho: sanções e vias de recurso judiciais e extrajudiciais apropriadas
+armadilha: conceito
+dif: 1
+enunciado: Cada Parte da Convenção 108+ compromete-se a estabelecer sanções e vias de recurso judiciais e extrajudiciais para as violações da Convenção.
+comentario: Certo. Art. 12. A convenção deixa a cada Parte a escolha das sanções, sem fixar valores de multa como o GDPR.
