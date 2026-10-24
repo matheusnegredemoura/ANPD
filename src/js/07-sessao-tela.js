@@ -193,6 +193,7 @@ function renderItem(q) {
     const r = sessao.resp[id], ok = r === q.g, br = r === BRANCO, gab = q.al ? 'a letra ' + q.g : q.g === 'C' ? 'CERTO' : 'ERRADO';
     html += '<div class="veredito ' + (br ? 'defesa' : ok ? 'ok' : 'no') + '"><span>' + (br ? 'Em branco: defesa, sem perder coração. O gabarito é ' + gab + '.' : ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + gab + '.') + '</span>' +
       (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP' + (br ? '' : sessao.virada === 'plena' ? ' <small>virada</small>' : caiuEmProva(q) && sessao.modo !== 'relampago' ? ' <small>crítico</small>' : '') + '</span>' : '<span class="pequeno">' + (SEM_REPETICAO.has(id) ? 'Este texto não volta: vêm outros' : 'Foi para a lista curta') + '</span>') + '</div>';
+    if (sessao.cansaco) html += avisoCansaco(sessao.cansaco);
     html += extrasResposta(q);
     html += renderExplicacao(q);
     html += '<button class="btn primario largo" data-acao="proximo">' + (sessao.i < sessao.ids.length - 1 ? 'Próximo item' : 'Ver resultado') + '</button><p class="atalhos">Enter = próximo</p>';

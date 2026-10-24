@@ -115,6 +115,8 @@ p{margin:0}
 .secao-cab h2{font-size:1.2rem}
 
 .cartao{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.cartao.cansaco{border-left:4px solid var(--gold);margin:12px 0;gap:6px}
+.cartao.cansaco p{margin:0}
 .cartao.destaque{border-color:var(--accent);box-shadow:var(--sombra)}
 
 .btn{appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 16px;font-weight:700;font-size:.92rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;text-decoration:none;color:var(--ink)}

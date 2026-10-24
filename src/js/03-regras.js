@@ -311,12 +311,60 @@ function registrar(q, resp, duvida) {
   if (estavaNaLista && r[0] >= 3) S.perfil.saidos = (S.perfil.saidos || 0) + 1;
   const d = diaLog();
   if (resp === BRANCO) d.b = (d.b || 0) + 1; else { d.r++; if (ok) d.c++; else d.e++; }
+  // Sequência do dia para o avaliador de cansaço: k/l = acerto/erro em item que você já sabia (nível 3 ou mais, ou
+  // acertado mais cedo no mesmo dia); c/e = acerto/erro nos demais
+  if (resp !== BRANCO) {
+    const sabia = antes >= 3 || (antes >= 1 && jaRespondidoHoje);
+    d.sq = ((d.sq || '') + (sabia ? (ok ? 'k' : 'l') : ok ? 'c' : 'e')).slice(-30);
+  }
   if (antes < 0 && resp !== BRANCO) d.ni = (d.ni || 0) + 1;
   if (ok) golpeChefe(q);
   if (eraManutencao) { d.m = (d.m || 0) + 1; if (ok && !duvida) d.mc = (d.mc || 0) + 1; }
   if (pontual) { d.mp = (d.mp || 0) + 1; if (ok && !duvida) d.mpc = (d.mpc || 0) + 1; }
   if (ok === false) sugerirPesquisaDoErro(q);
   return ok;
+}
+// Avaliador de cansaço. Depois de CANSACO_MIN itens no dia, olha os 20 últimos: há cansaço quando você erra o que já
+// sabia (3 lapsos ou mais, numa taxa bem acima da sua taxa de esquecimento na revisão) ou quando o acerto cai 15 pontos
+// abaixo do seu habitual com algum lapso, ou 25 pontos sem lapso. O aviso não se repete antes de mais 25 itens.
+const CANSACO_MIN = 40;
+function habito() {
+  const desde = isoDeNum(HOJE() - 14), h = hojeISO();
+  let c = 0, r = 0, m = 0, mc = 0;
+  for (const [iso, d] of Object.entries(S.perfil.dias || {})) {
+    if (iso < desde || iso >= h) continue;
+    if ((d.r || 0) >= 10) { c += d.c || 0; r += d.r; }
+    m += d.m || 0; mc += d.mc || 0;
+  }
+  return { acerto: r >= 100 ? c / r : 0.75, retencao: m >= 20 ? mc / m : 0.85 };
+}
+function avaliarCansaco() {
+  const d = diaLog(), u = (d.sq || '').slice(-20);
+  if ((d.r || 0) < CANSACO_MIN || u.length < 20) return null;
+  const ult = (d.cz || []).slice(-1)[0];
+  if (ult && d.r - ult < 25) return null;
+  const n = (ch) => u.split(ch).length - 1;
+  const lapsos = n('l'), sabidos = lapsos + n('k'), acerto = (n('c') + n('k')) / 20, h = habito(), queda = h.acerto - acerto;
+  const muitosLapsos = lapsos >= 3 && lapsos / sabidos >= Math.max(0.3, 2 * (1 - h.retencao));
+  if (!(muitosLapsos || (queda >= 0.15 && lapsos >= 1) || queda >= 0.25)) return null;
+  d.cz = (d.cz || []).concat(d.r);
+  return { n: d.r, lapsos, sabidos, acerto, base: h.acerto };
+}
+// Ponto de cansaço pessoal: a mediana do item em que o primeiro aviso do dia apareceu, nos últimos 30 dias (com 3 ou
+// mais dias de aviso)
+function pontoCansaco() {
+  const desde = isoDeNum(HOJE() - 30);
+  const xs = Object.entries(S.perfil.dias || {}).filter(([iso, d]) => iso >= desde && d.cz && d.cz.length).map(([, d]) => d.cz[0]).sort((a, b) => a - b);
+  return xs.length >= 3 ? xs[Math.floor((xs.length - 1) / 2)] : null;
+}
+function avisoCansaco(cz) {
+  const pc = pontoCansaco(), partes = [];
+  if (cz.lapsos) partes.push(pl(cz.lapsos, 'erro', 'erros') + ' em itens que você já sabia (de ' + cz.sabidos + ' desse tipo)');
+  partes.push('acerto de ' + Math.round(cz.acerto * 100) + '%, contra ' + Math.round(cz.base * 100) + '% no seu habitual');
+  return '<div class="cartao cansaco" role="status"><b>Sinal de cansaço</b><p>Você já respondeu ' + cz.n + ' itens hoje. Nos últimos 20: ' + partes.join('; ') + '.' +
+    (pc ? ' Nos seus dias recentes, o cansaço aparece perto do item ' + pc + '.' : '') + '</p>' +
+    '<p class="pequeno">Daqui em diante cada item rende menos, e o erro de distração entra na revisão como se fosse falta de estudo. Uma pausa de 15 minutos (levantar, beber água, olhar longe da tela) ou parar por hoje rende mais que seguir.</p>' +
+    '<div class="linha-btns"><button class="btn" data-acao="sair-sessao">Parar e guardar a sessão</button></div></div>';
 }
 function ganharXP(x) {
   if (!x) return;

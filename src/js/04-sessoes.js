@@ -266,6 +266,7 @@ function responder(resp) {
   const ant = rec(id), virada = ant && ant[0] === 0 && ant[3] > 0 ? (ant[4] < HOJE() ? 'plena' : 'mesmo-dia') : null;
   const ok = registrar(q, resp, !!sessao.duv[id]);
   sessao.golpe = golpeRecente;
+  sessao.cansaco = sessao.modo === 'relampago' ? null : avaliarCansaco();
   sessao.resp[id] = resp;
   let x = 0;
   if (ok) {
@@ -460,8 +461,11 @@ function cartaoGanhos() {
   const nv = nivelDe(S.perfil.xp);
   if (nv.n > r.nivel) linhas.push('<p class="ganho-linha"><span aria-hidden="true">▲</span> Nível ' + nv.n + ': ' + esc(nv.nome) + '.</p>');
   const hoje = S.perfil.dias[hojeISO()] || {};
-  // Depois de um dia muito longo, o recado é parar: o cansaço pesa nos acertos e amanhã a revisão rende mais
-  const longo = (hoje.r || 0) >= 150 ? '<p class="pequeno mudo">Hoje já são ' + hoje.r + ' itens. Depois de tanto tempo, o cansaço começa a pesar nos acertos; parar aqui e voltar amanhã costuma render mais do que esticar.</p>' : '';
+  // O recado de parar vem do avaliador de cansaço (os erros no que você já sabia); sem aviso, um dia muito longo ainda
+  // merece o lembrete
+  const pc = pontoCansaco();
+  const longo = hoje.cz && hoje.cz.length ? '<p class="pequeno mudo">Hoje o avaliador viu sinais de cansaço a partir do item ' + hoje.cz[0] + (pc ? '; nos seus dias recentes, eles aparecem perto do item ' + pc : '') + '. Parar aqui e voltar amanhã costuma render mais do que esticar.</p>'
+    : (hoje.r || 0) >= 150 ? '<p class="pequeno mudo">Hoje já são ' + hoje.r + ' itens. Depois de tanto tempo, o cansaço começa a pesar nos acertos; parar aqui e voltar amanhã costuma render mais do que esticar.</p>' : '';
   if (!linhas.length) return longo ? '<div class="cartao">' + longo + '</div>' : '';
   return '<div class="cartao ganhos"><h2>O que esta sessão rendeu</h2>' + linhas.join('') + longo + '</div>';
 }
