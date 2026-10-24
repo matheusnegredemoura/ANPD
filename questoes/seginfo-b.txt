@@ -81,7 +81,7 @@ ref: doutrina zero trust
 armadilha: conceito
 dif: 2
 enunciado: O modelo de confiança zero parte da premissa de que nenhum usuário ou dispositivo deve ser considerado confiável apenas por estar dentro do perímetro da rede corporativa.
-comentario: Lema: nunca confie, sempre verifique. Referência: NIST SP 800-207.
+comentario: Certo. O modelo de confiança zero (zero trust, NIST SP 800-207) não presume confiança por localização na rede: cada acesso é autenticado, autorizado e verificado continuamente. O lema é nunca confiar, sempre verificar; o perímetro deixa de ser a fronteira da confiança.
 
 === si2-11
 gab: E
@@ -97,7 +97,7 @@ ref: doutrina ameaças
 armadilha: conceito
 dif: 2
 enunciado: A injeção de SQL explora entradas não validadas para executar comandos no banco de dados, e o uso de consultas parametrizadas é medida eficaz de prevenção.
-comentario: Vulnerabilidade presente há anos no OWASP Top 10 (categoria Injection).
+comentario: Certo. A injeção de SQL insere comandos em entradas não validadas que a aplicação concatena na consulta ao banco. Consultas parametrizadas separam código de dados e neutralizam o ataque. A categoria Injection aparece há anos no OWASP Top 10.
 
 === si2-13
 gab: E

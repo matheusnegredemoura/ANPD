@@ -39,7 +39,7 @@ ref: doutrina hash
 armadilha: conceito
 dif: 1
 enunciado: Funções de resumo criptográfico (hash) produzem saída de tamanho fixo e são projetadas para ser unidirecionais, sendo úteis para verificar a integridade de dados.
-comentario: Exemplo: SHA-256. Qualquer alteração no dado muda o resumo.
+comentario: Certo. A função de resumo (hash) gera saída de tamanho fixo e é projetada para ser unidirecional e resistente a colisões; qualquer alteração no dado muda o resumo, o que a torna útil para verificar integridade. Não é criptografia reversível: não há chave para desfazer o hash. Exemplo: SHA-256.
 
 === si-06
 gab: E
@@ -113,7 +113,7 @@ ref: doutrina controle de acesso
 armadilha: conceito
 dif: 1
 enunciado: Pelo princípio do menor privilégio, cada usuário deve receber apenas as permissões estritamente necessárias para executar suas funções.
-comentario: É o espelho técnico do princípio da necessidade da LGPD (art. 6º, III).
+comentario: Certo. O menor privilégio dá a cada usuário só as permissões estritamente necessárias à função, o que reduz o dano de erro, abuso ou conta comprometida. É o espelho técnico do princípio da necessidade da LGPD (art. 6º, III) e base do controle de acesso por necessidade de conhecer.
 
 === si-15
 gab: E
