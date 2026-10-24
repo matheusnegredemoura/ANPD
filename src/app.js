@@ -1072,8 +1072,10 @@ function cardsVencidos(blocos) {
 }
 function cardsNovos(blocos) {
   const set = blocos && blocos.length ? new Set(blocos) : null;
-  return CARDS.filter((c) => (!set || set.has(c.nota.b)) && cardNovo(c.id));
+  // Prazos, números e quóruns entram antes: é o dado arbitrário que o card fixa melhor; conceito se treina com questão
+  return CARDS.filter((c) => (!set || set.has(c.nota.b)) && cardNovo(c.id)).sort((a, b) => (b.nota.nu || 0) - (a.nota.nu || 0));
 }
+const REV_MAX = 60;
 function novosRestantesHoje() { return Math.max(0, (S.perfil.novosCards || 20) - (diaLog().n || 0)); }
 
 /* ================= Pesquisa e glossário ================= */
@@ -1348,8 +1350,9 @@ function iniciarSessao(cfg) {
   if (MODOS_PAUSA.has(cfg.modo) && !cfg.novo && (cfg.chave || cfg.dia) && retomarPausa(cfg.chave || cfg.dia)) return;
   let itens;
   if (cfg.modo === 'cards') {
-    const venc = cardsVencidos(cfg.blocos).slice(0, cfg.maxRev || 200);
-    const novos = cfg.soRevisao ? [] : cardsNovos(cfg.blocos).slice(0, Math.min(novosRestantesHoje(), cfg.novos == null ? 20 : cfg.novos));
+    // Teto de revisões por sessão para a fila não engolir o tempo das questões; com a fila cheia, não entram novos
+    const todosVenc = cardsVencidos(cfg.blocos), venc = todosVenc.slice(0, cfg.maxRev || REV_MAX);
+    const novos = cfg.soRevisao || todosVenc.length >= REV_MAX ? [] : cardsNovos(cfg.blocos).slice(0, Math.min(novosRestantesHoje(), cfg.novos == null ? 20 : cfg.novos));
     const ids = embaralhar(venc.map((c) => c.id)).concat(novos.map((c) => c.id));
     if (!ids.length) {
       avisar('C', 'Nada para revisar agora', novosRestantesHoje() ? 'Escolha outros baralhos de cards.' : 'Limite de cards novos de hoje atingido. Ajuste em Mais → Ajustes.');
@@ -4440,7 +4443,7 @@ function renderAjustes() {
     '<div class="cartao destaque"><h2>Sincronizar com o Painel TCU</h2><p class="pequeno">Traz as respostas, cards e artigos lidos do tronco comum (Constitucional, Administrativo, LAI, Línguas, Gestão, Economia e Contabilidade) feitos no Painel TCU neste navegador. Fica o registro mais recente de cada item; nada é apagado.</p><div class="linha-btns"><button class="btn primario" data-acao="sync-tcu">⇄ Trazer progresso do Painel TCU</button></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha fica salva na sua conta, como as demais preferências.</p></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' + metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div></div>' +
-    '<div class="campo"><span class="rot">Cards novos por dia</span><div class="chips">' + novos.map((m) => '<button class="chip" data-acao="novos-cards" data-n="' + m + '" aria-pressed="' + ((S.perfil.novosCards || 20) === m) + '">' + m + '</button>').join('') + '</div><p class="pequeno mudo">Cada card novo volta várias vezes nos dias seguintes. 20 por dia é o equilíbrio para quem tem 1h45 de estudo.</p></div></div>' +
+    '<div class="campo"><span class="rot">Cards novos por dia</span><div class="chips">' + novos.map((m) => '<button class="chip" data-acao="novos-cards" data-n="' + m + '" aria-pressed="' + ((S.perfil.novosCards || 20) === m) + '">' + m + '</button>').join('') + '</div><p class="pequeno mudo">Cada card novo volta várias vezes nos dias seguintes. Entram primeiro os de prazo, número e quórum; com mais de 60 revisões vencidas, os novos esperam a fila baixar.</p></div></div>' +
     '<div class="cartao"><h2>Backup do progresso</h2><p class="pequeno">Salve um arquivo com todo o seu progresso. Se a gravação na conta falhar, ou se você trocar de aparelho, é só restaurar.</p>' +
     '<div class="linha-btns"><button class="btn primario" data-acao="backup-baixar">Baixar backup (.json)</button><button class="btn" data-acao="backup-mostrar">Copiar como texto</button></div>' +
     '<div class="campo"><label for="arquivo-backup">Restaurar de um arquivo</label><input id="arquivo-backup" type="file" accept=".json,application/json" data-acao="backup-arquivo"></div>' +

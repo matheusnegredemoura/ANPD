@@ -254,7 +254,9 @@ export function montarDados() {
   }
   const cloze = notas.map((n) => {
     const r = parseRef(n.ref);
-    return { id: n.id, b: n.bloco, l: r.lei, art: r.lei === 'doutrina' ? undefined : r.art, r: rotuloRef(n.ref), t: n.texto, dc: n.dica || undefined };
+    // nu: a nota esconde dado arbitrário (prazo, número, quórum), o que card memoriza melhor que questão; entra primeiro
+    const nu = lacunas(n.texto).some((l) => RE_DADO.test(l.t)) ? 1 : undefined;
+    return { id: n.id, b: n.bloco, l: r.lei, art: r.lei === 'doutrina' ? undefined : r.art, r: rotuloRef(n.ref), t: n.texto, dc: n.dica || undefined, nu };
   });
   // Frequência de cada termo do glossário nas questões: termos raros são sinalizados primeiro
   const textos = lista.map((q) => (q.e + ' ' + q.c).toLowerCase());
@@ -335,6 +337,8 @@ export function empacotar(d) {
   const cloze = d.cloze.map((c) => tabelar({ ...c }, ['r', 'b', 'l']));
   return { ...d, lei, questoes, cloze, tab };
 }
+
+const RE_DADO = /\d|%|\b(uma?|dois|duas|tr[eê]s|quatro|cinco|seis|sete|oito|nove|dez|onze|doze|quinze|vinte|trinta|quarenta|sessenta|noventa|cem|cento|mil|milh\w*|bilh\w*|metade|ter[cç]o|dobro|dias?|horas?|meses|m[eê]s|anos?|semestr\w*|anual|mensal|qu[oó]rum|maioria|unanimidade|percent\w*)\b/i;
 
 function build() {
   const dados = montarDados();
