@@ -4,13 +4,13 @@
 bloco: lgpd-5-11
 
 === ab-01
-gab: E
+gab: C
 ref: lgpd 9
 trecho: o titular será informado com destaque sobre esse fato e sobre os meios pelos quais poderá exercer os direitos do titular elencados no art. 18 desta Lei
 armadilha: excecao
 dif: 2
-enunciado: Quando o tratamento de dados pessoais for condição para o fornecimento de produto ou serviço, o controlador fica dispensado de informar ao titular os meios de exercer os direitos do art. 18 da LGPD, já que o tratamento é inevitável.
-comentario: Errado. Nesse caso o titular deve ser informado com destaque sobre esse fato e sobre os meios de exercer seus direitos (art. 9º, § 3º). Ser condição do serviço aumenta, não reduz, o dever de transparência.
+enunciado: Quando o tratamento de dados pessoais for condição para o fornecimento de produto ou serviço, o controlador não fica dispensado de informar o titular, devendo destacar esse fato e os meios pelos quais ele pode exercer seus direitos.
+comentario: Art. 9º, § 3º, da LGPD. Ser condição do serviço reforça o dever de transparência: o titular é informado com destaque sobre o fato e sobre os meios de exercer os direitos do art. 18.
 
 === ab-02
 gab: E
@@ -58,13 +58,13 @@ enunciado: A garantia da prevenção à fraude nos processos de identificação 
 comentario: Errado. A alínea g do art. 11, II, ressalva expressamente a prevalência de direitos e liberdades fundamentais do titular que exijam a proteção dos dados, e resguarda os direitos do art. 9º.
 
 === ab-07
-gab: E
+gab: C
 ref: lgpd 11
 trecho: tutela da saúde, exclusivamente, em procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária
 armadilha: sujeito
 dif: 2
-enunciado: A tutela da saúde autoriza o tratamento de dados sensíveis sem consentimento por qualquer pessoa que atue em benefício da saúde do titular, como o empregador que organiza programa de bem-estar.
-comentario: Errado. A hipótese vale exclusivamente para procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária (art. 11, II, f).
+enunciado: A tutela da saúde não autoriza o tratamento de dados sensíveis sem consentimento por qualquer pessoa que atue em benefício da saúde do titular, e sim em procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária.
+comentario: Art. 11, II, “f”, da LGPD. Um empregador que organiza programa de bem-estar, por exemplo, não se enquadra na hipótese.
 
 === ab-08
 gab: E
@@ -95,34 +95,34 @@ enunciado: A LGPD não se aplica aos dados provenientes do exterior em trânsito
 comentario: Errado. O trânsito só afasta a LGPD se não houver comunicação ou uso compartilhado com agente situado no território nacional (Resolução 19/2024, art. 8º, § 1º, I).
 
 === ab-13
-gab: E
+gab: C
 bloco: res-19-2024
 ref: res19 8
 trecho: a situação específica e excepcional de não aplicação da Lei nº 13.709, de 14 de agosto de 2018, esteja expressamente prevista na decisão de adequação
 armadilha: rol
 dif: 3
-enunciado: Situação hipotética: dados de clientes europeus, tratados por empresa brasileira, retornaram ao país de proveniência ao fim do contrato. Assertiva: basta esse retorno exclusivo ao país de origem para que se afaste a aplicação da LGPD a essa operação.
-comentario: Errado. O retorno só afasta a LGPD se, cumulativamente, o país de proveniência tiver adequação reconhecida pela ANPD, sua legislação se aplicar à operação e a não aplicação estiver prevista expressamente na decisão de adequação (art. 8º, § 1º, II, a a c).
+enunciado: Situação hipotética: dados de clientes europeus, tratados por empresa brasileira, retornaram ao país de proveniência ao fim do contrato. Assertiva: não basta esse retorno exclusivo ao país de origem para afastar a LGPD, pois se exige, entre outros requisitos, previsão expressa na decisão de adequação.
+comentario: Art. 8º, § 1º, II, da Resolução CD/ANPD 19/2024. O retorno só afasta a LGPD se, cumulativamente, o país de proveniência tiver adequação reconhecida pela ANPD, sua legislação se aplicar à operação e a não aplicação estiver expressamente prevista na decisão de adequação (alíneas a a c).
 
 === ab-14
-gab: E
+gab: C
 bloco: res-19-2024
 ref: res19 8
 trecho: não afasta a necessidade de observância de outras leis ou regulamentos, especialmente os que dispõem sobre inviolabilidade e sigilo das comunicações
 armadilha: extrapolacao
 dif: 2
-enunciado: Afastada a LGPD nas hipóteses de trânsito ou de retorno dos dados, dispensa-se também a observância das normas sobre sigilo das comunicações e acesso a dados por autoridades públicas.
-comentario: Errado. A não aplicação da LGPD não afasta outras leis, especialmente sobre inviolabilidade e sigilo das comunicações, requisitos de segurança e acesso a dados por autoridades públicas (art. 8º, § 3º).
+enunciado: Nas hipóteses de trânsito ou retorno de dados em que a LGPD não se aplica, não se dispensa a observância de outras normas, como as de sigilo das comunicações.
+comentario: Art. 8º, § 3º, da Resolução CD/ANPD 19/2024. A não aplicação da LGPD não afasta outras leis, especialmente sobre inviolabilidade e sigilo das comunicações, requisitos técnicos e de segurança e acesso a dados por autoridades públicas.
 
 === ab-15
-gab: E
+gab: C
 bloco: res-19-2024
 ref: res19 11
 trecho: a existência e o efetivo funcionamento de um órgão regulador independente
 armadilha: conceito
 dif: 2
-enunciado: Na avaliação de adequação de país estrangeiro, a existência de órgão regulador independente é irrelevante, bastando que o país tenha lei de proteção de dados.
-comentario: Errado. Entre as garantias institucionais consideradas está a existência e o efetivo funcionamento de órgão regulador independente com competência para assegurar o cumprimento das normas (art. 11, § 3º).
+enunciado: Na avaliação de adequação de país estrangeiro, não basta que o país tenha lei de proteção de dados, pois se consideram também garantias institucionais, como a existência e o efetivo funcionamento de órgão regulador independente.
+comentario: Art. 11, § 3º, da Resolução CD/ANPD 19/2024: entre as garantias institucionais relevantes está o órgão regulador independente com competência para assegurar o cumprimento das normas e garantir os direitos dos titulares.
 
 === ab-16
 gab: E
@@ -255,14 +255,14 @@ enunciado: Requerida cautelarmente a guarda dos registros de conexão por prazo 
 comentario: Errado. O prazo é de sessenta dias (art. 13, § 3º). Sem o pedido no prazo, ou se ele for indeferido, o requerimento cautelar perde a eficácia (§ 4º).
 
 === ab-29
-gab: E
+gab: C
 bloco: marco-civil
 ref: mci 13
 trecho: Em qualquer hipótese, a disponibilização ao requerente dos registros de que trata este artigo deverá ser precedida de autorização judicial
 armadilha: excecao
 dif: 2
-enunciado: Situação hipotética: a autoridade policial requereu cautelarmente ao provedor de conexão a guarda dos registros de um investigado por prazo superior a um ano. Assertiva: feito o requerimento, o provedor deve entregar os registros de imediato à autoridade, dispensada autorização judicial.
-comentario: Errado. A autoridade pode pedir a guarda, não o acesso: a disponibilização depende sempre de autorização judicial (art. 13, § 5º), e o provedor mantém sigilo sobre o requerimento (§ 4º).
+enunciado: Situação hipotética: a autoridade policial requereu cautelarmente ao provedor de conexão a guarda dos registros de um investigado por prazo superior a um ano. Assertiva: o requerimento não dispensa autorização judicial para que os registros sejam disponibilizados à autoridade.
+comentario: Art. 13, §§ 2º e 5º, do Marco Civil da Internet. A autoridade pode pedir a guarda por prazo maior, mas a disponibilização dos registros depende sempre de autorização judicial.
 
 === ab-30
 gab: E

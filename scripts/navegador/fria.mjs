@@ -34,10 +34,15 @@ await passo('artigo lido hoje abre normal; lido em outro dia abre em leitura fri
   await abrirPrimeiro();
   conferir('lido hoje: sem leitura fria', !(await p.locator('.cartao.fria').count()));
   const k = await p.evaluate(() => { const l = JSON.parse(localStorage.getItem('painel-anpd-v3')).perfil.lidos; return Object.keys(l).find((x) => l[x] === Object.values(l).sort().pop()); });
-  // O app grava o estado ao sair da página (pagehide); sem bloquear essa gravação, o reload desfaria a data trocada aqui
-  await p.evaluate((k) => { const s = JSON.parse(localStorage.getItem('painel-anpd-v3')); s.perfil.lidos[k] = '2026-01-02'; localStorage.setItem('painel-anpd-v3', JSON.stringify(s)); Storage.prototype.setItem = () => {}; }, k);
+  // A data trocada vai num script que roda na recarga, antes do app: gravada nesta página logo antes do reload, às vezes
+  // não chegava à página nova (1 em ~10 rodadas em paralelo), que abria o artigo como lido hoje. A gravação que o app
+  // faz ao sair (pagehide) fica bloqueada, para não competir com a troca
+  await ctx.addInitScript((k) => {
+    const s = JSON.parse(localStorage.getItem('painel-anpd-v3') || 'null');
+    if (s && s.perfil) { s.perfil.lidos = Object.assign({}, s.perfil.lidos, { [k]: '2026-01-02' }); localStorage.setItem('painel-anpd-v3', JSON.stringify(s)); }
+  }, k);
+  await p.evaluate(() => { Storage.prototype.setItem = () => {}; });
   await p.reload();
-  // Com a bateria em paralelo o app demora mais a abrir: espera a barra de abas antes de navegar
   await p.waitForSelector('.aba');
   await p.waitForTimeout(600);
   // O mesmo artigo (o ranking pode mudar de ordem depois da leitura)

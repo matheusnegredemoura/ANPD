@@ -155,3 +155,18 @@ test('tamanho do item e situação hipotética não entregam o gabarito', () => 
   grupos.push(certos(qs.filter((q) => /^Situação hipotética/.test(q.enunciado))));
   assert.ok(grupos.every((p) => p >= 38 && p <= 62), '% de certos por quarto de tamanho e nos casos: ' + grupos.join(' / '));
 });
+
+// Nem palavra solta: "dispensa" chegou a marcar 81% de itens errados (na banca, 63%), e quem treina aqui aprenderia
+// a chutar pela palavra. Com 40 itens ou mais, cada sinal fica entre 30% e 70% de errados, como nos itens reais
+test('palavras-sinal não entregam o gabarito', () => {
+  const qs = validar({ silencioso: true }).questoes.filter((q) => q.origem !== 'real' && !q.alt.length && /^[CE]$/.test(q.gab) && !/^(pt|en)/.test(q.id));
+  const SINAIS = { dispensa: /dispens/i, qualquer: /\bqualquer\b/i, 'ainda que': /ainda que/i, basta: /\bbasta/i, 'todo(s)/toda(s)': /\btod[oa]s?\b/i,
+    independe: /independ/i, 'desde que': /desde que/i, exclusivo: /exclusiv/i, vedado: /\bvedad[oa]s?\b/i, 'somente/apenas/só': /\b(somente|apenas)\b|\bsó\b/i,
+    integral: /integral/i, imediato: /imediat/i, 'salvo/exceto': /\b(salvo|exceto)\b/i, deve: /\bdev(e|em|erá|erão)\b/i, pode: /\bpod(e|em|erá|erão)\b/i, 'não': /\bnão\b/i };
+  const fora = [];
+  for (const [nome, re] of Object.entries(SINAIS)) {
+    const a = qs.filter((q) => re.test(q.enunciado)), e = Math.round(100 * a.filter((q) => q.gab === 'E').length / (a.length || 1));
+    if (a.length >= 40 && (e < 30 || e > 70)) fora.push(nome + ' ' + e + '% errados em ' + a.length);
+  }
+  assert.deepEqual(fora, [], 'palavras que entregam o gabarito: ' + fora.join('; '));
+});

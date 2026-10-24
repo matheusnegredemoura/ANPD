@@ -136,6 +136,9 @@ Ao escrever:
 7. O tamanho não entrega o gabarito: o errado também é longo (parte verdadeira do mesmo artigo e um único erro, ou
    caso), e a situação hipotética é certa ou errada perto de metade cada. O `npm test` falha se, em algum quarto do
    banco por tamanho ou nos casos, os certos saírem da faixa de 38% a 62%.
+8. Nenhuma palavra entrega o gabarito. "Dispensa", "qualquer", "ainda que" e "basta" também aparecem no certo ("não
+   dispensa", "não basta", "ainda que demonstrado"), e "deve" também no errado. O `npm test` falha se uma palavra-sinal
+   com 40 itens ou mais passar de 70% (ou ficar abaixo de 30%) de errados; `medir.mjs` mostra a comparação com a banca.
 
 Ao explicar (tutor):
 1. Núcleo conceitual exigido.
