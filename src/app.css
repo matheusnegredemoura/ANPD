@@ -838,24 +838,11 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .ranking-vuln-item.amar{border-left:4px solid var(--gold)}
 .ranking-vuln-item.verd{border-left:4px solid var(--certo)}
 .folha-impressao{padding:10px 0;color:var(--ink)}
-.folha-cabecalho{border-bottom:2px solid var(--accent);padding-bottom:10px;margin-bottom:15px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
-.folha-cabecalho h1{font-family:var(--f-titulo);font-size:1.4rem;color:var(--accent);margin:0}
 .folha-impressao h2{font-family:var(--f-titulo);font-size:1.1rem;color:var(--ink);margin:16px 0 8px;border-bottom:1px solid var(--line);padding-bottom:4px}
 .folha-item{border-bottom:1px dashed var(--line);padding:10px 0;margin-bottom:10px}
 .folha-meta{font-size:.82rem;font-weight:700;color:var(--ink-2);margin-bottom:4px}
 .folha-enunciado{margin:4px 0;font-size:.92rem;line-height:1.5;color:var(--ink)}
 .folha-regra{margin:6px 0;font-size:.85rem;color:var(--accent);background:var(--surface-2);padding:6px 10px;border-radius:6px;border-left:3px solid var(--accent);font-family:var(--f-corpo)}
-@media print{
-  body{background:#fff!important;color:#000!important}
-  .topo,.abas,.linha-btns,.icone-btn,.chips,button,.seletor-bloco,.secao-cab>button,.secao-cab>.icone-btn{display:none!important}
-  .folha-impressao{padding:0!important}
-  .folha-painel{max-height:none!important;overflow:visible!important;box-shadow:none!important;border:none!important;padding:0!important;background:transparent!important}
-  #folha{position:static!important;background:none!important;display:block!important;overflow:visible!important}
-  .folha-item{page-break-inside:avoid;border-bottom:1px solid #ccc!important}
-  .folha-regra{background:#eee!important;color:#000!important;border-left:3px solid #333!important}
-  .folha-cabecalho h1{color:#000!important}
-  .app{max-width:100%!important;padding:0!important}
-}
 
 /* Com o teclado do celular aberto (classe posta pela área visível), o que é fixo embaixo sai do caminho do texto */
 body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}

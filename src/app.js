@@ -97,8 +97,6 @@ const INTERVALOS = [0, 1, 3, 7, 16, 35];
 const MANUTENCAO_DIA = 10;
 // Leitura do dia: acima deste número de artigos, o app escolhe os que você errou, os ainda não lidos e os mais cobrados
 const LEITURA_MAX = 25;
-// Lista curta vencida acima deste número torna o dia pesado: a sessão de questões novas encolhe
-const REVISOES_DIA_PESADO = 40;
 // Intercalação: matérias básicas, treinadas todo dia, e blocos já estudados no cronograma, misturados na mesma sessão
 const BLOCOS_BASICOS = ['portugues', 'ingles', 'constitucional', 'administrativo', 'lai', 'etica-improbidade', 'lei-9784'];
 const MIN_DIA_ATIVO = 10;
@@ -744,6 +742,7 @@ function ritmo() {
   const v = dias.length < 5 ? null : {
     r: mediana(dias.map((d) => d.r || 0)), ni: mediana(dias.map((d) => d.ni || 0)),
     a: mediana(dias.map((d) => (d.a || []).length)), min: Math.round(mediana(dias.map((d) => segundosEstudo(d) / 60))),
+    s: mediana(dias.map((d) => (d.r && d.t && d.t.q ? d.t.q / d.r : 0))),
   };
   ritmoCache = { chave, v };
   return v;
@@ -752,6 +751,8 @@ const limitar = (x, min, max) => Math.min(max, Math.max(min, x));
 // Meta diária de itens: automática (90% da mediana do ritmo, de 10 em 10, entre 20 e 200) ou a fixa escolhida em Ajustes
 function metaAuto() { const r = ritmo(); return r && r.r ? limitar(Math.round((r.r * 0.9) / 10) * 10, 20, 200) : null; }
 function metaDia() { return (!S.perfil.metaFixa && metaAuto()) || S.perfil.meta || 30; }
+// Questões do tema (Passo 2 do roteiro, ~15 min): quantas cabem em 15 min no tempo por item medido, de 5 em 5, entre 8 e 20
+function nPreTeste() { const r = ritmo(); return r && r.s ? limitar(Math.round(900 / r.s / 5) * 5, 8, 20) : 8; }
 // Artigos de leitura por dia: a mediana dos dias com leitura, entre 6 e 12 (6 sem ritmo)
 function metaArtigos() { const r = ritmo(); return r && r.a ? limitar(r.a, 6, 12) : 6; }
 function fmtDur(seg) { const m = Math.floor((seg || 0) / 60); return m < 60 ? m + ' min' : Math.floor(m / 60) + 'h' + String(m % 60).padStart(2, '0'); }
@@ -1892,8 +1893,9 @@ function roteiroHoje() {
       esc(rotuloPausa(dia.data, (qTemaFeita ? 'Outra rodada' : 'Resolver questões') + ' · ' + nDia + ' itens')) + '</button>';
   } else {
     qTemaFeita = !!S.perfil.feitos['r:' + hojeISO()];
-    qTemaTxt = 'Sem sessão programada hoje: 8 questões para medir o nível nos blocos centrais.';
-    qTemaBtns = '<button class="btn pequeno primario" data-acao="treino-rapido" data-n="8">Treino rápido (8 itens)</button>';
+    const n = nPreTeste();
+    qTemaTxt = 'Sem sessão programada hoje: ' + n + ' questões para medir o nível nos blocos centrais.';
+    qTemaBtns = '<button class="btn pequeno primario" data-acao="treino-rapido" data-n="' + n + '" data-pre="1">Treino rápido (' + n + ' itens)</button>';
   }
   passos.push({
     titulo: '2. Questões do tema (~15 min)',
@@ -2532,10 +2534,10 @@ function idsDoSubtemaNoDia(st, blocos, n) {
   if (ids.length < n) for (const q of selecionar(poolDe(blocos).filter((q) => !usados.has(q.id) && !q.al), n - ids.length, 'mistas')) ids.push(q.id);
   return ids;
 }
-// Em dia pesado (lista curta vencida acima de REVISOES_DIA_PESADO), a sessão de questões do dia encolhe, até o mínimo de 10
+// Sessão de questões do dia: simulado e revisão com até 30 itens; no treino, o pré-teste que cabe nos 15 min do Passo 2
 function nItensDoDia(dia) {
   if (dia.modo !== 'treino') return Math.min(dia.n, 30);
-  return 8; // 8 itens para caber exatamente nos 15 min do Passo 2 da rotina de 1h30
+  return nPreTeste();
 }
 
 /* ================= Questões (montar sessão) ================= */
@@ -4815,7 +4817,7 @@ async function executar(a, alvo) {
     case 'equipar': { const it = IR.get(alvo.dataset.item); if (it && rpg().inv[it.id]) { rpg().eq[it.slot] = it.id; Store.salvar('perfil'); renderMais(); } break; }
     case 'iniciar-revisao': iniciarSessao({ modo: 'revisao', n: 30, chave: 'rev' }); break;
     case 'intercaladas': if (retomarPausa('i:' + hojeISO())) break; iniciarSessao({ modo: 'treino', intercalado: true, n: nIntercaladas(), titulo: 'Questões intercaladas', dia: 'i:' + hojeISO() }); break;
-    case 'treino-rapido': iniciarSessao({ modo: 'treino', n: Number(alvo.dataset.n) || 20, blocos: [], filtro: 'mistas', chave: 'rapido', dia: alvo.dataset.n === '8' ? 'r:' + hojeISO() : undefined }); break;
+    case 'treino-rapido': iniciarSessao({ modo: 'treino', n: Number(alvo.dataset.n) || 20, blocos: [], filtro: 'mistas', chave: 'rapido', dia: alvo.dataset.pre ? 'r:' + hojeISO() : undefined }); break;
     case 'abrir-modo': UI.modo = alvo.dataset.modo; if (UI.modo === 'simulado') UI.prova = 'prova'; ir('questoes'); break;
     case 'relampago': iniciarSessao({ modo: 'relampago', blocos: (alvo.dataset.blocos || '').split(',').filter(Boolean) }); break;
     case 'set-modo': UI.modo = alvo.dataset.modo; salvarUI(); renderQuestoes(); break;
