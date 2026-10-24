@@ -1582,8 +1582,9 @@ function defender(q, id) {
   renderSessao();
 }
 function avaliar(nota) {
-  if (!sessao || sessao.modo !== 'cards' || !sessao.revelado) return;
+  if (!sessao || sessao.modo !== 'cards' || !sessao.revelado || (sessao.digOk === false && nota >= 3)) return;
   const id = sessao.ids[sessao.i];
+  sessao.dig = ''; sessao.digOk = null;
   avaliarCard(id, nota);
   sessao.notas[nota]++;
   const x = nota === 1 ? 1 : 3;
@@ -1599,7 +1600,16 @@ function avaliar(nota) {
 }
 function proximo() {
   if (!sessao) return;
-  if (sessao.modo === 'cards') { if (!sessao.revelado) { sessao.revelado = true; renderSessao(); } return; }
+  if (sessao.modo === 'cards') {
+    if (!sessao.revelado) {
+      const c = CI.get(sessao.ids[sessao.i]), campo = document.getElementById('card-digitar');
+      sessao.dig = campo ? campo.value.trim() : '';
+      sessao.digOk = c ? confereDigitado(sessao.dig, lacunaDoCard(c.nota, c.n)) : null;
+      sessao.revelado = true;
+      renderSessao();
+    }
+    return;
+  }
   if (sessao.modo === 'simulado') { if (sessao.i < sessao.ids.length - 1) { sessao.i++; renderSessao(); } return; }
   if (!sessao.revelado) return;
   sessao.revelado = false;
@@ -2869,16 +2879,53 @@ function textoCard(nota, n, revelado) {
   });
   return html + esc(nota.t.slice(pos));
 }
+// Card de número, prazo ou quórum: a lacuna pode ser digitada antes de ver a resposta. Se o digitado não confere, Bom e
+// Fácil ficam bloqueados (a nota não pode ser mais generosa que a resposta). Confere pelos números (algarismos ou por
+// extenso: "30", "trinta", "cento e vinte") e pelas unidades digitadas (dias, meses, úteis…), que precisam estar na
+// lacuna; sem número na lacuna, pelas palavras.
+const NUM_PAL = { um: 1, uma: 1, dois: 2, duas: 2, tres: 3, quatro: 4, cinco: 5, seis: 6, sete: 7, oito: 8, nove: 9, dez: 10, onze: 11, doze: 12, treze: 13, quatorze: 14, catorze: 14, quinze: 15, dezesseis: 16, dezessete: 17, dezoito: 18, dezenove: 19, vinte: 20, trinta: 30, quarenta: 40, cinquenta: 50, sessenta: 60, setenta: 70, oitenta: 80, noventa: 90, cem: 100, cento: 100, duzentos: 200, trezentos: 300, quatrocentos: 400, quinhentos: 500, mil: 1000 };
+const RE_DADO_CARD = /\d|\b(dois|duas|tr[eê]s|quatro|cinco|seis|sete|oito|nove|dez|onze|doze|treze|quatorze|catorze|quinze|dezesseis|dezessete|dezoito|dezenove|vinte|trinta|quarenta|cinquenta|sessenta|setenta|oitenta|noventa|cem|cento|duzentos|trezentos|quinhentos|mil|metade|dobro|triplo|ter[cç]os?)\b/i;
+function numerosDe(t) {
+  const out = new Set(), w = semAcento(t).replace(/(\d)\.(\d{3})/g, '$1$2').match(/\d+(?:,\d+)?|[a-z]+/g) || [];
+  let acc = null;
+  const fecha = () => { if (acc != null) { out.add(acc); acc = null; } };
+  for (const x of w) {
+    if (/^\d/.test(x)) { fecha(); out.add(Number(x.replace(',', '.'))); }
+    else if (x === 'e' && acc != null) continue;
+    else if (x in NUM_PAL) acc = NUM_PAL[x] === 1000 ? (acc || 1) * 1000 : (acc || 0) + NUM_PAL[x];
+    else fecha();
+  }
+  fecha();
+  return out;
+}
+function unidadesDe(t) {
+  const u = new Set(), x = semAcento(t);
+  [[/\bhoras?\b/, 'h'], [/\bdias?\b/, 'd'], [/\bsemanas?\b/, 's'], [/\bmes(es)?\b/, 'm'], [/\banos?\b/, 'a'], [/\buteis\b|\butil\b/, 'u'], [/\bcorridos?\b/, 'c']].forEach(([re, k]) => { if (re.test(x)) u.add(k); });
+  return u;
+}
+function confereDigitado(dig, lac) {
+  if (!String(dig || '').trim()) return null;
+  const nl = numerosDe(lac), nd = numerosDe(dig), ul = unidadesDe(lac);
+  if ([...unidadesDe(dig)].some((u) => !ul.has(u))) return false;
+  if (nl.size) return nd.size > 0 && [...nd].every((x) => nl.has(x));
+  const pal = (t) => semAcento(t).match(/[a-z]{3,}/g) || [];
+  const pl2 = new Set(pal(lac)), pd = pal(dig);
+  return pd.length > 0 && pd.every((x) => pl2.has(x)) && pd.length * 2 >= pl2.size;
+}
+function lacunaDoCard(nota, n) { let auto = 0, achou = ''; nota.t.replace(RE_LACUNA, (m, num, t) => { if ((num ? Number(num) : ++auto) === n) achou = t; return m; }); return achou; }
 function renderCardSessao(card) {
   const nota = card.nota;
   const r = S.cards[card.id];
   let html = '<article class="item"><div class="item-cab"><span class="selo mono">' + esc(nomeBloco(nota.b)) + '</span><span class="item-num">' + (r ? 'revisão · intervalo ' + fmtIntervalo(r[1]) : 'novo') + '</span></div>';
   html += '<p class="mono pequeno mudo">' + esc(nota.r) + '</p>';
   html += '<p class="card-cloze">' + textoCard(nota, card.n, sessao.revelado) + '</p>';
+  const lac = lacunaDoCard(nota, card.n), dado = lac.length <= 60 && RE_DADO_CARD.test(lac);
   if (!sessao.revelado) {
-    html += '<button class="btn primario largo" data-acao="revelar">Mostrar resposta</button><p class="atalhos">Espaço ou Enter = mostrar</p>';
+    if (dado) html += '<input id="card-digitar" class="card-digitar" type="text" autocomplete="off" enterkeyhint="done" aria-label="Sua resposta para a lacuna" placeholder="Digite o número ou prazo antes de ver">';
+    html += '<button class="btn primario largo" data-acao="revelar">Mostrar resposta</button><p class="atalhos">' + (dado ? 'Enter no campo = mostrar · ' : '') + 'Espaço ou Enter = mostrar</p>';
   } else {
-    html += '<div class="notas-card">' + [[1, 'Errei'], [2, 'Difícil'], [3, 'Bom'], [4, 'Fácil']].map(([n, t]) => '<button class="n' + n + '" data-acao="avaliar" data-n="' + n + '">' + t + '<small>' + (n === 1 ? 'agora' : fmtIntervalo(calcularCard(card.id, n)[1])) + '</small></button>').join('') + '</div>';
+    if (sessao.digOk != null) html += '<p class="digitado ' + (sessao.digOk ? 'ok' : 'no') + '">Você digitou <b>' + esc(sessao.dig) + '</b>: ' + (sessao.digOk ? 'confere.' : 'não confere. Bom e Fácil ficam bloqueados neste card.') + '</p>';
+    html += '<div class="notas-card">' + [[1, 'Errei'], [2, 'Difícil'], [3, 'Bom'], [4, 'Fácil']].map(([n, t]) => '<button class="n' + n + '" data-acao="avaliar" data-n="' + n + '"' + (sessao.digOk === false && n >= 3 ? ' disabled' : '') + '>' + t + '<small>' + (n === 1 ? 'agora' : fmtIntervalo(calcularCard(card.id, n)[1])) + '</small></button>').join('') + '</div>';
     html += '<p class="atalhos">Teclado: 1 Errei · 2 Difícil · 3 Bom · 4 Fácil</p>';
     const kn = nota.art ? chave(nota.l || 'lgpd', nota.art) : null;
     if (kn && ARTI.get(kn)) html += '<div>' + botaoArt(kn) + '</div>';
@@ -3640,6 +3687,10 @@ function ouvirArtigo(k) {
   const b = document.querySelector('[data-acao="ouvir-art"]');
   if (b) b.textContent = rotuloFala(k);
 }
+// Leitura fria: o artigo já lido em outro dia abre sem grifos, sem português claro e sem o glossário, para a pessoa
+// achar sozinha prazos, verbos e exceções, como vai ler na prova; um toque traz tudo de volta para conferir.
+const FRIA_VISTA = new Set();
+function leituraFria(k) { const d = (S.perfil.lidos || {})[k]; return !!d && d < hojeISO() && !FRIA_VISTA.has(k); }
 function renderArtigo(k) {
   if (falando && falando !== k) pararFala();
   const a = ARTI.get(k);
@@ -3669,8 +3720,10 @@ function renderArtigo(k) {
       avisoVuln = '<div class="aviso-vulnerabilidade verd"><div><b>Artigo Dominado:</b> ' + dArt.taxa + '% de acerto consolidado nas questões resolvidas (' + dArt.c + 'C / ' + dArt.e + 'E).</div></div>';
     }
   }
-  html += '<div class="cartao"><span class="rotulo">' + esc([L.curto].concat(a.estrutura).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +
+  const fria = leituraFria(k);
+  html += '<div class="cartao' + (fria ? ' fria' : '') + '"><span class="rotulo">' + esc([L.curto].concat(a.estrutura).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +
     avisoVuln + gavetaErrosArt(qs) +
+    (fria ? '<div class="fria-aviso"><span>Leitura fria: você já leu este artigo. Leia sem grifos e ache sozinho prazos, verbos e exceções.</span><button class="btn pequeno" data-acao="conferir-fria" data-art="' + esc(k) + '">Conferir com grifos</button></div>' : '') +
     htmlClaro(a) + legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div>' + caixaJuridiques(a) + '<div class="linha-btns">';
   if (qs.length) html += '<button class="btn primario" data-acao="treinar-art" data-art="' + esc(k) + '">Questões deste artigo (' + qs.length + ')</button>';
   if (cs.length) html += '<button class="btn" data-acao="cards-art" data-art="' + esc(k) + '">Cards deste artigo (' + cs.length + ')</button>';
@@ -5084,6 +5137,7 @@ async function executar(a, alvo) {
     case 'abrir-art': abrirArtigo(alvo.dataset.art, null); break;
     case 'nav-art': if (alvo.dataset.art) abrirArtigo(alvo.dataset.art); break;
     case 'ouvir-art': ouvirArtigo(alvo.dataset.art); break;
+    case 'conferir-fria': FRIA_VISTA.add(alvo.dataset.art); renderLei(); break;
     case 'voltar-lei': pararFala(); if (UI.artSel && ARTI.get(UI.artSel)) UI.lei = ARTI.get(UI.artSel).lei; UI.artSel = null; UI.leiFila = null; renderLei(); window.scrollTo(0, 0); break;
     case 'ler-dia': { const ctx = contextoHoje(); const arts = artigosDoDia(ctx.tipo === 'dia' ? ctx.dia : null); if (arts.length) abrirArtigo(arts[0], arts); break; }
     case 'ler-tudo': if (artsDe(UI.lei).length) abrirArtigo(artsDe(UI.lei)[0].k, null); break;
@@ -5400,6 +5454,7 @@ document.addEventListener('input', (ev) => {
 document.addEventListener('keydown', (ev) => {
   if (ev.key === 'Escape' && !document.getElementById('folha').hidden) { fecharFolha(); return; }
   if (!sessao || sessao.fim || sessao.confirmar) return;
+  if (ev.target && ev.target.id === 'card-digitar' && ev.key === 'Enter') { ev.preventDefault(); proximo(); return; }
   if (ev.target && /INPUT|TEXTAREA|SELECT/.test(ev.target.tagName) && ev.target.type !== 'checkbox') return;
   if (!document.getElementById('folha').hidden) return;
   const k = ev.key.toLowerCase();

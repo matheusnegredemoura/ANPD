@@ -1,5 +1,6 @@
 // Masmorra da semana: com só o bloco dos arts. 17 a 22 da LGPD praticado, ele é o do chefão e a masmorra tem um andar
-// por artigo. O primeiro andar tem um erro pendente; descer e acertar os itens dele limpa o andar e dá o XP do andar.
+// por artigo; os andares sem erro já contam como limpos. O primeiro andar tem um erro pendente e é o próximo a descer;
+// acertar os itens dele limpa o andar e dá o XP do andar.
 import { APP, abrirNavegador, diaDeEstudo, placar, vigiarErros } from './comum.mjs';
 import { montarDados } from '../build.mjs';
 
@@ -32,8 +33,8 @@ await p.waitForTimeout(600);
 
 await passo('a Jornada mostra a masmorra com o primeiro andar por limpar', async () => {
   const t = (await p.textContent('.masmorra')).replace(/\s+/g, ' ');
-  if (!/Masmorra da semana/.test(t) || !/0\/\d+ andares/.test(t)) throw new Error('masmorra: ' + t);
-  conferir('primeiro andar com o erro pendente', /1 erro pendente/.test(t), t.slice(0, 160));
+  if (!/Masmorra da semana/.test(t) || !/\d+\/\d+ andares/.test(t)) throw new Error('masmorra: ' + t);
+  conferir('o próximo andar é o do erro pendente', new RegExp('Próximo andar: Art\\. ' + primeiro + '\\D[^·]*· 1 erro pendente').test(t), t.slice(0, 160));
 });
 
 await passo('descer e acertar os itens do andar limpa o andar', async () => {
