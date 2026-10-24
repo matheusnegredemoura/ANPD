@@ -83,20 +83,24 @@ function caixaJuridiques(a) {
 // trilhas vêm escritos e conferidos (dados/claro.json); nos outros, o Claude traduz na hora, a pedido, com o aviso de
 // conferir no texto. A tradução gerada fica guardada só nesta abertura. Na caixa de remissão, só a escrita.
 const CLARO = D.claro || {};
-const CLARO_IA = new Map();
+// Explicações geradas ficam no navegador: o mesmo artigo não volta a gastar o uso da conta. Guarda o tamanho do texto
+// explicado para descartar a explicação se o artigo mudar numa versão nova do painel.
+const CLARO_IA = new Map(Object.entries(lerLS('painel-anpd-claro-ia') || {}));
+function claroIA(a) { const v = CLARO_IA.get(a.k); return v && v[0] === textoVigente(a).length ? v[1] : null; }
 function htmlClaro(a, enxuto) {
   if (!artigoVivo(a.k)) return '';
   if (CLARO[a.k]) return '<div class="claro"><span class="rotulo">Em português claro</span><p>' + grifarProsa(CLARO[a.k]) + '</p></div>';
   if (enxuto) return '';
-  if (CLARO_IA.has(a.k)) return '<div class="claro ia"><span class="rotulo">Em português claro · gerado pelo Claude, confira no texto</span><p>' + esc(CLARO_IA.get(a.k)) + '</p></div>';
+  const ia = claroIA(a);
+  if (ia) return '<div class="claro ia"><span class="rotulo">Em português claro · gerado pelo Claude, confira no texto</span><p>' + esc(ia) + '</p></div>';
   return iaPronta() ? '<div class="claro vazio"><button class="btn pequeno" data-acao="claro-ia" data-art="' + esc(a.k) + '">Explicar este artigo em português claro (Claude)</button></div>' : '';
 }
 function pedidoClaro(a) {
-  return 'Explique em português claro, para quem estuda para concurso e nunca leu lei, o que diz o dispositivo abaixo (' + LEIS[a.lei].curto + ', ' + rotuloArt(a.k) + '). Regras: ' +
+  return 'Explique em português claro, para quem estuda para concurso e nunca leu lei, o que diz o dispositivo abaixo. Regras: ' +
     '1) diga o que ele manda, proíbe ou permite, para quem, quando e com que exceções, seguindo a ordem do texto; ' +
     '2) não acrescente nada que o texto não diga, não cite jurisprudência nem doutrina e, se algo depender de outro artigo, diga só que depende; ' +
     '3) explique cada termo técnico com palavras do dia a dia na própria frase; ' +
-    '4) texto corrido, de 3 a 6 frases, sem markdown, títulos ou listas.\n\nTexto:\n' + textoVigente(a);
+    '4) texto corrido, de 3 a 6 frases, sem markdown, títulos ou listas.\n\n' + LEIS[a.lei].curto + ', ' + rotuloArt(a.k) + ':\n' + textoVigente(a);
 }
 async function traduzirIA(alvo) {
   const k = alvo.dataset.art, a = ARTI.get(k), caixa = alvo.closest('.claro');
@@ -106,9 +110,11 @@ async function traduzirIA(alvo) {
   const p = caixa.querySelector('p');
   try {
     const r = await IA(pedidoClaro(a), { onText: ({ text }) => { p.textContent = text; } });
-    CLARO_IA.set(k, r.text.trim() + (r.truncated ? ' […]' : ''));
+    const texto = r.text.trim() + (r.truncated ? ' […]' : '');
+    CLARO_IA.set(k, [textoVigente(a).length, texto]);
+    if (!r.truncated) { const salvo = lerLS('painel-anpd-claro-ia') || {}; salvo[k] = CLARO_IA.get(k); gravarLS('painel-anpd-claro-ia', salvo); }
     caixa.classList.add('ia');
-    caixa.innerHTML = '<span class="rotulo">Em português claro · gerado pelo Claude, confira no texto</span><p>' + esc(CLARO_IA.get(k)) + '</p>';
+    caixa.innerHTML = '<span class="rotulo">Em português claro · gerado pelo Claude, confira no texto</span><p>' + esc(texto) + '</p>';
   } catch (e) {
     caixa.classList.add('vazio');
     caixa.innerHTML = '<button class="btn pequeno" data-acao="claro-ia" data-art="' + esc(k) + '">Explicar este artigo em português claro (Claude)</button>';

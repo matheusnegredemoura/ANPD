@@ -35,14 +35,15 @@ const PERGUNTAS_GUIA = [
 function glossDe(t) { return GLOSS.find((g) => g.t === t) || GLOSS.find((g) => g.re.test(t)) || null; }
 function regrasInv(inv) {
   const g = glossDe(inv.t);
+  // O que é fixo vem primeiro e o tema por último, para o começo do pedido ser igual de um tema para outro
   return 'Você é tutor de quem estuda para o concurso de Especialista em Regulação de Proteção de Dados da ANPD (banca Cebraspe, itens certo ou errado). ' +
-    'O estudante está investigando o tema “' + inv.t + '”' + (inv.o ? ' (veio de: ' + inv.o + ')' : '') + '. ' +
-    (g ? 'Definição curta que o painel dele traz, possivelmente incompleta: ' + g.d + ' ' : '') +
-    'Ele respondeu a estas perguntas-guia: ' + PERGUNTAS_GUIA.join(' ') + '\n\n' +
+    'O estudante respondeu sobre um tema a estas perguntas-guia: ' + PERGUNTAS_GUIA.join(' ') + '\n\n' +
     'Regras da sua resposta: português do Brasil; texto corrido e curto, até 170 palavras, sem títulos; primeiro diga o que está certo, depois corrija o que está errado ou impreciso e diga o que faltou; ' +
     'quando depender de norma brasileira (LGPD, resoluções da ANPD, outras leis), cite o artigo, e se não tiver certeza do número diga que é preciso conferir na lei em vez de inventar; ' +
     'aponte como o Cebraspe montaria um item errado sobre o tema: a palavra, o conectivo, o sujeito ou o prazo que decide o item e o mecanismo (conceitos vizinhos trocados, palavra absoluta onde há exceção, falsa relação de causa, regra geral aplicada à exceção, sujeito ou competência trocados, erro só no fim do período); ' +
-    'não entregue tudo de uma vez: termine com UMA pergunta curta que leve o estudante ao próximo passo. A conversa vem a seguir.';
+    'não entregue tudo de uma vez: termine com UMA pergunta curta que leve o estudante ao próximo passo.\n\n' +
+    'Tema: “' + inv.t + '”' + (inv.o ? ' (veio de: ' + inv.o + ')' : '') + '.' +
+    (g ? ' Definição curta que o painel dele traz, possivelmente incompleta: ' + g.d : '') + ' A conversa vem a seguir.';
 }
 function conversaInv() {
   const inv = UI.inv;
@@ -82,9 +83,9 @@ async function conferirInv() {
   inv.rascunho = '';
   inv.ctl = new AbortController();
   folhaInvestigar(inv.t, inv.o);
-  // O Claude não guarda nada entre chamadas: vão as regras e as últimas trocas, começando por uma fala do estudante
-  const turnos = inv.turnos.slice(0, -1).slice(-9);
-  if (turnos[0].role !== 'user') turnos.shift();
+  // O Claude não guarda nada entre chamadas: vão as regras, a primeira explicação do estudante e as últimas trocas
+  const hist = inv.turnos.slice(0, -1);
+  const turnos = hist.length > 7 ? [hist[0]].concat(hist.slice(-6)) : hist;
   const resposta = inv.turnos[inv.turnos.length - 1];
   try {
     const r = await IA([{ role: 'user', content: regrasInv(inv) }].concat(turnos), {
@@ -116,13 +117,13 @@ async function copiarInv() {
 // Correção da discursiva: o Claude lê o texto com os quesitos, o padrão de resposta e a escala de conceitos e sugere o
 // conceito de cada quesito e os erros de português. A pessoa revê e decide antes de salvar.
 function pedidoDiscIA(t, texto) {
-  return 'Corrija esta resposta discursiva como a banca Cebraspe corrige, com rigor e sem generosidade. O conceito máximo de cada quesito exige explicar, não só citar; o que passar de ' + t.linhas + ' linhas não conta.\n\n' +
+  return 'Corrija a resposta discursiva abaixo como a banca Cebraspe corrige, com rigor e sem generosidade. O conceito máximo de cada quesito exige explicar, não só citar. ' +
+    'Conte também os erros de português (grafia, acentuação, pontuação, concordância, regência, crase), como o Cebraspe desconta. ' +
+    'Responda só com JSON neste formato: {"quesitos":[{"conceito":2,"porque":"uma ou duas frases: o que garantiu o conceito e o que faltou"}],"erros":3,"exemplos":["trecho errado → forma correta"],"geral":"duas frases com o que mais rende melhorar"}; exemplos tem no máximo 5.\n\n' +
     'Tema: ' + t.titulo + '\nComando: ' + t.comando + '\n' + t.aspectos.map((a, i) => (i + 1) + ') ' + a).join('\n') + '\n\n' +
     t.quesitos.map((q, i) => 'Quesito ' + (i + 1) + ' — ' + q.titulo + ' (0 a ' + q.max + ')\nPadrão de resposta:\n' + q.esperado.map((e) => '- ' + e).join('\n') + '\nConceitos:\n' + q.conceitos.map((c, k) => k + ' = ' + c).join('\n')).join('\n\n') +
-    '\n\nConte também os erros de português (grafia, acentuação, pontuação, concordância, regência, crase), como o Cebraspe desconta.\n\n' +
-    'Texto do candidato:\n"""\n' + texto.slice(0, 6000) + '\n"""\n\n' +
-    'Responda só com JSON neste formato: {"quesitos":[{"conceito":2,"porque":"uma ou duas frases: o que garantiu o conceito e o que faltou"}],"erros":3,"exemplos":["trecho errado → forma correta"],"geral":"duas frases com o que mais rende melhorar"}. ' +
-    'O array quesitos tem exatamente ' + t.quesitos.length + ' objetos, na ordem dos quesitos; exemplos tem no máximo 5.';
+    '\n\nO array quesitos tem exatamente ' + t.quesitos.length + ' objetos, na ordem dos quesitos. O que passar de ' + t.linhas + ' linhas não conta.\n\n' +
+    'Texto do candidato:\n"""\n' + texto.slice(0, 6000) + '\n"""';
 }
 async function corrigirDiscIA() {
   const t = TEMAS_DISC.find((x) => x.id === UI.discTema);

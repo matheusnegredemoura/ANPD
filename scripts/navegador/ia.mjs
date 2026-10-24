@@ -109,7 +109,7 @@ await passo('Artigo sem tradução escrita: o Claude explica em português claro
   const txt = (await p.textContent('#vista-lei .claro.ia')) || '';
   if (!/confira no texto[^]*Está certo que o titular/.test(txt)) throw new Error('caixa: ' + txt.slice(0, 120));
   const pedido = await p.evaluate((n) => String(window.__pedidos[n]), n);
-  conferir('o pedido leva o texto do artigo e as regras', /português claro/.test(pedido) && new RegExp('Texto:\\nArt\\. ' + NUM_SEM + '\\b').test(pedido), pedido.slice(0, 160));
+  conferir('o pedido leva o texto do artigo e as regras', /português claro/.test(pedido) && new RegExp(':\\nArt\\. ' + NUM_SEM + '\\b').test(pedido), pedido.slice(0, 160));
   // num artigo com tradução escrita, não há botão do Claude
   await p.click('#vista-lei [data-acao="voltar-lei"]');
   await p.selectOption('#vista-lei select[data-acao="sel-lei"]', 'lgpd');
