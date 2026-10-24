@@ -156,8 +156,9 @@ const REAIS = Q.filter((q) => q.o && /cebraspe|cespe/i.test(q.pv || ''));
 const TEMAS_DISC = (D.discursivas && D.discursivas.temas) || [];
 const CARACTERES_LINHA = 70;
 
-// 40 níveis com degraus crescentes: os primeiros saem no primeiro dia; no ritmo de 500 a 1.000 XP por dia de estudo,
-// Diretor(a)-Presidente chega perto da prova. Depois dele, cada mandato pede MANDATO_XP.
+// 40 níveis com degraus crescentes: os primeiros saem no primeiro dia. Num ritmo de 10 mil XP por semana,
+// Diretor(a)-Presidente chega uns dois meses antes da prova; depois dele, cada mandato pede MANDATO_XP (cerca de uma
+// semana), e as conquistas de XP e ritmo seguem até 250 mil.
 const NIVEIS = [
   [0, 'Titular de dados'], [150, 'Curioso(a) do art. 18'], [300, 'Leitor(a) de lei seca'], [500, 'Suboperador(a)'],
   [700, 'Operador(a)'], [950, 'Controlador(a)'], [1200, 'Controlador(a) conjunto(a)'], [1500, 'Encarregado(a)'],
@@ -176,7 +177,7 @@ const NIVEIS = [
 const MANDATO_XP = 10000;
 
 // Conquistas em cinco grupos (g); cada id fica gravado com a data em perfil.conq
-const GRUPOS_CONQ = [['q', 'Questões'], ['c', 'Constância'], ['l', 'Lei, cards e revisão'], ['p', 'Domínio e prova'], ['j', 'Jornada']];
+const GRUPOS_CONQ = [['q', 'Questões'], ['c', 'Constância'], ['x', 'XP e ritmo'], ['l', 'Lei, cards e revisão'], ['p', 'Domínio e prova'], ['j', 'Jornada']];
 const CONQ = [
   { g: 'q', id: 'primeira', ic: '1', nome: 'Primeira marcação', desc: 'Respondeu o primeiro item.' },
   { g: 'q', id: 'r100', ic: '100', nome: 'Cem itens', desc: 'Respondeu 100 itens.' },
@@ -184,11 +185,14 @@ const CONQ = [
   { g: 'q', id: 'r1000', ic: '1k', nome: 'Mil itens', desc: 'Respondeu 1.000 itens.' },
   { g: 'q', id: 'r2500', ic: '2,5k', nome: 'Dois mil e quinhentos', desc: 'Respondeu 2.500 itens.' },
   { g: 'q', id: 'r5000', ic: '5k', nome: 'Cinco mil', desc: 'Respondeu 5.000 itens.' },
+  { g: 'q', id: 'r10000', ic: '10k', nome: 'Dez mil', desc: 'Respondeu 10.000 itens.' },
+  { g: 'q', id: 'r20000', ic: '20k', nome: 'Vinte mil', desc: 'Respondeu 20.000 itens.' },
   { g: 'q', id: 'metade', ic: '½', nome: 'Meio banco', desc: 'Respondeu metade dos itens diferentes do banco.' },
   { g: 'q', id: 'combo10', ic: '10', nome: 'Dez seguidas', desc: 'Acertou 10 itens em sequência.' },
   { g: 'q', id: 'combo25', ic: '25', nome: 'Gabarito limpo', desc: 'Acertou 25 itens em sequência.' },
   { g: 'q', id: 'combo50', ic: '50', nome: 'Cinquenta seguidas', desc: 'Acertou 50 itens em sequência.' },
   { g: 'q', id: 'maratona', ic: '»', nome: 'Maratona', desc: 'Respondeu 100 itens no mesmo dia.' },
+  { g: 'q', id: 'maratona200', ic: '»»', nome: 'Ultramaratona', desc: 'Respondeu 200 itens no mesmo dia.' },
   { g: 'q', id: 'certeiro', ic: '90%', nome: 'Dia certeiro', desc: '90% de acerto em 30 ou mais itens no mesmo dia.' },
   { g: 'q', id: 'reais50', ic: 'CB', nome: 'Cara a cara com a banca', desc: 'Respondeu 50 itens reais de prova.' },
   { g: 'q', id: 'reais300', ic: 'CB+', nome: 'Veterano(a) de prova', desc: 'Respondeu 300 itens reais de prova.' },
@@ -200,6 +204,7 @@ const CONQ = [
   { g: 'c', id: 'meta', ic: 'M', nome: 'Meta batida', desc: 'Cumpriu a meta diária de itens.' },
   { g: 'c', id: 'meta10', ic: 'M10', nome: 'Meta é rotina', desc: 'Cumpriu a meta diária em 10 dias.' },
   { g: 'c', id: 'meta50', ic: 'M50', nome: 'Meta inabalável', desc: 'Cumpriu a meta diária em 50 dias.' },
+  { g: 'c', id: 'meta100', ic: 'M100', nome: 'Meta de aço', desc: 'Cumpriu a meta diária em 100 dias.' },
   { g: 'c', id: 'seq7', ic: '7d', nome: 'Semana firme', desc: '7 dias seguidos de estudo (domingo e uma folga por semana não quebram).' },
   { g: 'c', id: 'seq14', ic: '14d', nome: 'Quinzena firme', desc: '14 dias seguidos de estudo.' },
   { g: 'c', id: 'seq30', ic: '30d', nome: 'Mês sem falhar', desc: '30 dias seguidos de estudo.' },
@@ -211,11 +216,26 @@ const CONQ = [
   { g: 'c', id: 'hora1', ic: '1h', nome: 'Uma hora de foco', desc: 'Estudou 1 hora no mesmo dia (relógio do app).' },
   { g: 'c', id: 'hora3', ic: '3h', nome: 'Três horas', desc: 'Estudou 3 horas no mesmo dia.' },
   { g: 'c', id: 'horas100', ic: '100h', nome: 'Cem horas', desc: 'Somou 100 horas de estudo no app.' },
+  { g: 'c', id: 'horas250', ic: '250h', nome: 'Duzentas e cinquenta horas', desc: 'Somou 250 horas de estudo no app.' },
   { g: 'c', id: 'coruja', ic: '23h', nome: 'Coruja', desc: 'Estudou depois das 23h.' },
   { g: 'c', id: 'madrugador', ic: '6h', nome: 'Madrugador(a)', desc: 'Respondeu um item entre 4h e 7h.' },
   { g: 'c', id: 'roteiro', ic: '5/5', nome: 'Roteiro completo', desc: 'Fechou todos os passos do roteiro de um dia.' },
   { g: 'c', id: 'roteiro7', ic: '7×', nome: 'Semana de roteiros', desc: 'Fechou o roteiro completo em 7 dias.' },
   { g: 'c', id: 'recuperacao', ic: '↺', nome: 'Nada fica para trás', desc: 'Terminou uma sessão de recuperação do atraso do plano.' },
+  { g: 'x', id: 'dia3k', ic: '3k', nome: 'Dia cheio', desc: 'Fez 3.000 XP num dia.' },
+  { g: 'x', id: 'dia5k', ic: '5k', nome: 'Dia histórico', desc: 'Fez 5.000 XP num dia.' },
+  { g: 'x', id: 'sem5k', ic: 'S5k', nome: 'Semana produtiva', desc: 'Fez 5.000 XP numa semana (de segunda a domingo).' },
+  { g: 'x', id: 'sem10k', ic: 'S10k', nome: 'Semana de ouro', desc: 'Fez 10.000 XP numa semana.' },
+  { g: 'x', id: 'sem15k', ic: 'S15k', nome: 'Semana épica', desc: 'Fez 15.000 XP numa semana.' },
+  { g: 'x', id: 'sem20k', ic: 'S20k', nome: 'Semana lendária', desc: 'Fez 20.000 XP numa semana.' },
+  { g: 'x', id: 'semanas4', ic: '4×', nome: 'Ritmo de cruzeiro', desc: '4 semanas seguidas com 5.000 XP ou mais.' },
+  { g: 'x', id: 'semanas12', ic: '12×', nome: 'Ritmo de prova', desc: '12 semanas seguidas com 5.000 XP ou mais.' },
+  { g: 'x', id: 'xp25k', ic: '25k', nome: '25 mil XP', desc: 'Somou 25.000 XP.' },
+  { g: 'x', id: 'xp50k', ic: '50k', nome: '50 mil XP', desc: 'Somou 50.000 XP.' },
+  { g: 'x', id: 'xp100k', ic: '100k', nome: '100 mil XP', desc: 'Somou 100.000 XP.' },
+  { g: 'x', id: 'xp150k', ic: '150k', nome: '150 mil XP', desc: 'Somou 150.000 XP.' },
+  { g: 'x', id: 'xp200k', ic: '200k', nome: '200 mil XP', desc: 'Somou 200.000 XP.' },
+  { g: 'x', id: 'xp250k', ic: '250k', nome: '250 mil XP', desc: 'Somou 250.000 XP: o ritmo de 10 mil por semana mantido até a prova.' },
   { g: 'l', id: 'lei20', ic: '§', nome: 'Lei seca', desc: 'Abriu 20 artigos no leitor da lei seca.' },
   { g: 'l', id: 'lei100', ic: '§100', nome: 'Cem artigos', desc: 'Abriu 100 artigos no leitor da lei seca.' },
   { g: 'l', id: 'lei500', ic: '§500', nome: 'Biblioteca de normas', desc: 'Abriu 500 artigos no leitor da lei seca.' },
@@ -259,6 +279,8 @@ const CONQ = [
   { g: 'j', id: 'nivel10', ic: 'N10', nome: 'Nível 10', desc: 'Chegou ao nível 10: ' + NIVEIS[9][1] + '.' },
   { g: 'j', id: 'nivel20', ic: 'N20', nome: 'Nível 20', desc: 'Chegou ao nível 20: ' + NIVEIS[19][1] + '.' },
   { g: 'j', id: 'nivel30', ic: 'N30', nome: 'Nível 30', desc: 'Chegou ao nível 30: ' + NIVEIS[29][1] + '.' },
+  { g: 'j', id: 'nivel40', ic: 'N40', nome: 'Nível 40', desc: 'Chegou ao nível 40: ' + NIVEIS[39][1] + '.' },
+  { g: 'j', id: 'mandato5', ic: 'DP5', nome: 'Quinto mandato', desc: 'Chegou ao quinto mandato de ' + NIVEIS[39][1] + '.' },
 ];
 
 /* ================= Utilitários ================= */
@@ -709,6 +731,29 @@ function atividadeAtual() {
   return 'o';
 }
 function segundosEstudo(d) { const t = (d && d.t) || {}; return ATIV.reduce((s, [k]) => s + (Number(t[k]) || 0), 0); }
+// Ritmo pessoal: medianas dos dias de estudo das duas últimas semanas, sem contar hoje (itens respondidos, itens inéditos,
+// artigos lidos e minutos de estudo; cada mediana só conta os dias em que aquilo aconteceu). Com menos de 5 dias de estudo
+// não há ritmo e valem os valores fixos. A meta automática e as missões do dia partem dele, então sobem com a pessoa.
+let ritmoCache = null;
+function ritmo() {
+  const h = hojeISO(), chave = h + '|' + Object.keys(S.perfil.dias || {}).length;
+  if (ritmoCache && ritmoCache.chave === chave) return ritmoCache.v;
+  const mediana = (xs) => { const o = xs.filter((x) => x > 0).sort((a, b) => a - b); return o.length ? o[Math.floor((o.length - 1) / 2)] : 0; };
+  const desde = isoDeNum(HOJE() - 14);
+  const dias = Object.entries(S.perfil.dias || {}).filter(([iso]) => iso >= desde && iso < h && ativo(iso)).map(([, d]) => d);
+  const v = dias.length < 5 ? null : {
+    r: mediana(dias.map((d) => d.r || 0)), ni: mediana(dias.map((d) => d.ni || 0)),
+    a: mediana(dias.map((d) => (d.a || []).length)), min: Math.round(mediana(dias.map((d) => segundosEstudo(d) / 60))),
+  };
+  ritmoCache = { chave, v };
+  return v;
+}
+const limitar = (x, min, max) => Math.min(max, Math.max(min, x));
+// Meta diária de itens: automática (90% da mediana do ritmo, de 10 em 10, entre 20 e 200) ou a fixa escolhida em Ajustes
+function metaAuto() { const r = ritmo(); return r && r.r ? limitar(Math.round((r.r * 0.9) / 10) * 10, 20, 200) : null; }
+function metaDia() { return (!S.perfil.metaFixa && metaAuto()) || S.perfil.meta || 30; }
+// Artigos de leitura por dia: a mediana dos dias com leitura, entre 6 e 12 (6 sem ritmo)
+function metaArtigos() { const r = ritmo(); return r && r.a ? limitar(r.a, 6, 12) : 6; }
 function fmtDur(seg) { const m = Math.floor((seg || 0) / 60); return m < 60 ? m + ' min' : Math.floor(m / 60) + 'h' + String(m % 60).padStart(2, '0'); }
 // Duração prevista no plano para o dia ("1h45", "3h"); dia livre ou fora do plano não tem meta de tempo
 function metaMin(iso) { const dia = DIAS.find((x) => x.data === iso); const m = dia && /^(\d+)h(\d+)?$/.exec(dia.duracao || ''); return m ? Number(m[1]) * 60 + Number(m[2] || 0) : null; }
@@ -928,7 +973,7 @@ function ganharXP(x) {
 }
 function verificarMeta() {
   const d = diaLog();
-  if (!d.metaOk && d.r >= S.perfil.meta) { d.metaOk = 1; ganharXP(50); avisar('M', 'Meta do dia cumprida', '+50 XP de bônus'); conquistar('meta'); }
+  if (!d.metaOk && d.r >= metaDia()) { d.metaOk = 1; ganharXP(50); avisar('M', 'Meta do dia cumprida', '+50 XP de bônus'); conquistar('meta'); }
   verificarRPG();
 }
 function conquistar(id) {
@@ -942,7 +987,7 @@ function verificarConquistas(ctx) {
   const tem = (id) => !!S.perfil.conq[id];
   const se = (cond, id) => { if (cond) conquistar(id); };
   const t = totais();
-  se(t.r >= 1, 'primeira'); se(t.r >= 100, 'r100'); se(t.r >= 500, 'r500'); se(t.r >= 1000, 'r1000'); se(t.r >= 2500, 'r2500'); se(t.r >= 5000, 'r5000');
+  se(t.r >= 1, 'primeira'); se(t.r >= 100, 'r100'); se(t.r >= 500, 'r500'); se(t.r >= 1000, 'r1000'); se(t.r >= 2500, 'r2500'); se(t.r >= 5000, 'r5000'); se(t.r >= 10000, 'r10000'); se(t.r >= 20000, 'r20000');
   se(t.k >= 50, 'cards50'); se(t.k >= 300, 'cards300'); se(t.k >= 1000, 'cards1000');
   const combo = S.perfil.recordes.combo || 0;
   se(combo >= 10, 'combo10'); se(combo >= 25, 'combo25'); se(combo >= 50, 'combo50');
@@ -953,7 +998,12 @@ function verificarConquistas(ctx) {
   se(seq >= 7, 'seq7'); se(seq >= 14, 'seq14'); se(seq >= 30, 'seq30'); se(seq >= 60, 'seq60'); se(seq >= 100, 'seq100');
   // Dias: estudo, meta, recordes do dia, manutenção, roteiro, recuperação e tempo
   let ativos = 0, metas = 0, manut = 0, roteiros = 0, seg = 0;
+  const xpSem = {};
   for (const [iso, d] of Object.entries(S.perfil.dias)) {
+    const sem = isoDeNum(diaNum(iso) - ((diaSemana(iso) + 6) % 7));
+    xpSem[sem] = (xpSem[sem] || 0) + (d.xp || 0);
+    se(d.xp >= 3000, 'dia3k'); se(d.xp >= 5000, 'dia5k');
+    if (d.r >= 200) conquistar('maratona200');
     if (ativo(iso)) ativos++;
     if (d.metaOk) metas++;
     manut += d.m || 0;
@@ -968,8 +1018,17 @@ function verificarConquistas(ctx) {
     if (!tem('fds') && diaSemana(iso) === 0 && ativo(iso) && ativo(isoDeNum(diaNum(iso) - 1))) conquistar('fds');
   }
   se(ativos >= 30, 'dias30'); se(ativos >= 100, 'dias100');
-  se(metas >= 10, 'meta10'); se(metas >= 50, 'meta50');
-  se(manut >= 50, 'memoria50'); se(roteiros >= 7, 'roteiro7'); se(seg >= 100 * 3600, 'horas100');
+  se(metas >= 10, 'meta10'); se(metas >= 50, 'meta50'); se(metas >= 100, 'meta100');
+  se(manut >= 50, 'memoria50'); se(roteiros >= 7, 'roteiro7'); se(seg >= 100 * 3600, 'horas100'); se(seg >= 250 * 3600, 'horas250');
+  // XP por semana (de segunda a domingo) e a maior série de semanas seguidas com 5.000 XP ou mais
+  const melhorSem = Math.max(0, ...Object.values(xpSem));
+  se(melhorSem >= 5000, 'sem5k'); se(melhorSem >= 10000, 'sem10k'); se(melhorSem >= 15000, 'sem15k'); se(melhorSem >= 20000, 'sem20k');
+  let serie = 0, melhorSerie = 0;
+  const sems = Object.keys(xpSem).sort();
+  if (sems.length) for (let n = diaNum(sems[0]); n <= HOJE(); n += 7) { serie = (xpSem[isoDeNum(n)] || 0) >= 5000 ? serie + 1 : 0; melhorSerie = Math.max(melhorSerie, serie); }
+  se(melhorSerie >= 4, 'semanas4'); se(melhorSerie >= 12, 'semanas12');
+  const xp = S.perfil.xp || 0;
+  se(xp >= 25000, 'xp25k'); se(xp >= 50000, 'xp50k'); se(xp >= 100000, 'xp100k'); se(xp >= 150000, 'xp150k'); se(xp >= 200000, 'xp200k'); se(xp >= 250000, 'xp250k');
   se(S.simulados.length >= 1, 'sim1'); se(S.simulados.length >= 5, 'sim5');
   se(S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.7), 'sim70');
   se(S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.8), 'sim80');
@@ -1026,7 +1085,7 @@ function verificarConquistas(ctx) {
   se(Object.keys(ENCAIXES).every((sl) => equipado(sl)), 'equipado');
   se(ITENS_RPG.every((it) => r.inv[it.id]), 'colecao');
   const nv = nivelDe(S.perfil.xp).n;
-  se(nv >= 10, 'nivel10'); se(nv >= 20, 'nivel20'); se(nv >= 30, 'nivel30');
+  se(nv >= 10, 'nivel10'); se(nv >= 20, 'nivel20'); se(nv >= 30, 'nivel30'); se(nv >= 40, 'nivel40'); se(nv >= 44, 'mandato5');
   if (ctx.respondeu) {
     const h = new Date().getHours();
     se(h >= 23, 'coruja'); se(h >= 4 && h < 7, 'madrugador');
@@ -1851,7 +1910,7 @@ function roteiroHoje() {
     botoes: botaoRecuperar() });
 
   // Passo 3: Lei Seca com Grifos (~15 min)
-  const metaLeitura = arts.length ? Math.min(arts.length, 6) : 0;
+  const metaLeitura = arts.length ? Math.min(arts.length, metaArtigos()) : 0;
   const leiFeita = arts.length ? lidosHoje >= metaLeitura : (d.a || []).length >= 3;
   passos.push({
     titulo: '3. Lei seca com grifos (~15 min)',
@@ -2096,14 +2155,14 @@ function cartaoPendencias() {
 // devolvem um. Os itens do saque são os princípios e conceitos da LGPD, com o texto da lei como descrição.
 // Nada disso tira XP, e missão não feita não acumula para o dia seguinte.
 const MISSOES = [
-  { id: 'q30', txt: 'Responder 30 itens', xp: 30, meta: 30, val: (d) => d.r || 0 },
-  { id: 'q60', txt: 'Responder 60 itens', xp: 60, meta: 60, val: (d) => d.r || 0 },
-  { id: 'novas', txt: 'Responder 20 itens inéditos', xp: 40, meta: 20, val: (d) => d.ni || 0 },
+  { id: 'q30', txt: () => 'Responder ' + metaDia() + ' itens', xp: 30, meta: () => metaDia(), val: (d) => d.r || 0 },
+  { id: 'q60', txt: () => 'Responder ' + metaMais() + ' itens', xp: 60, meta: () => metaMais(), val: (d) => d.r || 0 },
+  { id: 'novas', txt: () => 'Responder ' + metaNovas() + ' itens inéditos', xp: 40, meta: () => metaNovas(), val: (d) => d.ni || 0 },
   { id: 'acerto', txt: 'Acertar 80% de pelo menos 20 itens', xp: 40, meta: 1, val: (d) => ((d.r || 0) >= 20 && d.c / d.r >= 0.8 ? 1 : 0), fr: (d) => Math.min(1, (d.r || 0) / 20) },
   { id: 'combo', txt: 'Acertar 10 seguidos', xp: 30, meta: 10, val: (d) => d.cmb || 0 },
-  { id: 'lei5', txt: 'Ler 5 artigos da lei seca', xp: 30, meta: 5, val: (d) => (d.a || []).length },
+  { id: 'lei5', txt: () => 'Ler ' + metaLei() + ' artigos da lei seca', xp: 30, meta: () => metaLei(), val: (d) => (d.a || []).length },
   { id: 'cards20', txt: 'Revisar 20 cards', xp: 30, meta: 20, val: (d) => d.k || 0 },
-  { id: 'tempo60', txt: 'Estudar 1 hora', xp: 40, meta: 60, val: (d) => Math.floor(segundosEstudo(d) / 60) },
+  { id: 'tempo60', txt: () => 'Estudar ' + fmtDur(metaMin60() * 60), xp: 40, meta: () => metaMin60(), val: (d) => Math.floor(segundosEstudo(d) / 60) },
   { id: 'virada', txt: 'Acertar 5 itens que você tinha errado em outro dia', xp: 50, meta: 5, val: (d) => d.vr || 0, so: () => Object.values(S.itens).filter((r) => r[0] === 0 && r[3] > 0 && r[4] < HOJE()).length >= 5 },
   { id: 'pesq', txt: 'Investigar um tema da lista Para pesquisar', xp: 30, meta: 1, val: () => Object.values(S.pesquisa).filter((p) => p.s && p.f === hojeISO()).length },
   { id: 'pend', txt: 'Recuperar uma sessão do atraso', xp: 60, meta: 1, val: (d) => d.pd || 0, so: () => pendencias().some((x) => x.sessao) },
@@ -2111,6 +2170,12 @@ const MISSOES = [
   { id: 'chefe5', txt: 'Acertar 5 golpes no chefão', xp: 40, meta: 5, val: (d) => (chefeDaSemana().vencido ? 5 : d.cg || 0), so: () => !chefeDaSemana().vencido },
 ];
 const MI = new Map(MISSOES.map((m) => [m.id, m]));
+// Metas das missões pelo ritmo pessoal (sem ritmo, os valores de sempre: 30, 60, 20, 5 artigos e 1 hora)
+function metaMais() { return ritmo() ? Math.round((metaDia() * 1.5) / 10) * 10 : 60; }
+function metaNovas() { const r = ritmo(); return r && r.ni ? limitar(Math.round(r.ni / 10) * 10, 20, 80) : 20; }
+function metaLei() { const r = ritmo(); return r && r.a ? limitar(r.a, 5, 12) : 5; }
+function metaMin60() { const r = ritmo(); return r && r.min ? limitar(Math.round(r.min / 15) * 15, 60, 180) : 60; }
+const valM = (v) => (typeof v === 'function' ? v() : v);
 const BAU_XP = 50, CHEFE_VIDA = 300, CHEFE_XP = 150, CORACOES = 5, BATALHA_N = 15;
 const CHEFES = { lgpd: 'O Vazador de Dados', regulacao: 'O Regulador Capturado', direito: 'O Burocrata Sem Motivação', linguas: 'A Esfinge dos Conectivos', seginfo: 'O Ransomware', gestao: 'O Risco Sem Dono', eca: 'O Algoritmo Viciante', economia: 'O Monopolista', comparado: 'O Exportador Sem Adequação', contabil: 'O Rombo nas Contas' };
 // Brasão de cada chefão: um escudo com o símbolo da disciplina
@@ -2207,10 +2272,10 @@ function verificarRPG() {
   let mudou = false;
   for (const id of mh.ids) {
     const x = MI.get(id);
-    if (!x || mh.ok[id] || x.val(d) < x.meta) continue;
+    if (!x || mh.ok[id] || x.val(d) < valM(x.meta)) continue;
     mh.ok[id] = 1; mudou = true;
     ganharXP(x.xp);
-    avisar('★', 'Missão cumprida', x.txt + ' · +' + x.xp + ' XP');
+    avisar('★', 'Missão cumprida', valM(x.txt) + ' · +' + x.xp + ' XP');
     tocar('combo');
   }
   if (!mh.bau && mh.ids.length && mh.ids.every((id) => mh.ok[id])) {
@@ -2335,9 +2400,9 @@ function cartaoJornada() {
   const missoes = mh.ids.map((id) => {
     const x = MI.get(id);
     if (!x) return '';
-    const v = x.val(d), ok = !!mh.ok[id], f = ok ? 1 : x.fr ? x.fr(d) : Math.min(1, v / x.meta);
-    return '<div class="missao' + (ok ? ' ok' : '') + '"><span class="m-ic" aria-hidden="true">' + (ok ? '✓' : '★') + '</span><div class="m-txt"><b>' + esc(x.txt) + '</b>' + barra(f, 'ouro') + (!ok && x.acao ? x.acao() : '') + '</div>' +
-      '<span class="mono pequeno">' + (ok ? '+' + x.xp + ' XP' : x.fr ? (d.r || 0) + '/20' : Math.min(v, x.meta) + '/' + x.meta) + '</span></div>';
+    const v = x.val(d), ok = !!mh.ok[id], meta = valM(x.meta), f = ok ? 1 : x.fr ? x.fr(d) : Math.min(1, v / meta);
+    return '<div class="missao' + (ok ? ' ok' : '') + '"><span class="m-ic" aria-hidden="true">' + (ok ? '✓' : '★') + '</span><div class="m-txt"><b>' + esc(valM(x.txt)) + '</b>' + barra(f, 'ouro') + (!ok && x.acao ? x.acao() : '') + '</div>' +
+      '<span class="mono pequeno">' + (ok ? '+' + x.xp + ' XP' : x.fr ? (d.r || 0) + '/20' : Math.min(v, meta) + '/' + meta) + '</span></div>';
   }).join('');
   const eq = Object.keys(ENCAIXES).map(equipado).filter(Boolean);
   const slots = eq.length ? eq.map((it) => '<span class="slot r-' + it.rar + '" title="' + esc(it.nome + ' · ' + efeitoTxt(it)) + '">' + esc(it.nome) + '</span>').join('') : '<span class="pequeno mudo">Sem equipamento</span>';
@@ -2388,7 +2453,7 @@ function renderHoje() {
   const prox = rt.passos.find((p) => !p.feito);
   let topo = '<div class="cartao destaque"><div class="heroi">' +
     '<div><div class="dia">' + esc(fmtData(h, { weekday: 'long' })) + '</div><div class="data">' + esc(fmtData(h, { day: '2-digit', month: 'long', year: 'numeric' })) +
-    (ctx.tipo === 'dia' ? ' · ' + esc(ctx.dia.duracao) : '') + '</div></div>' + anel(d.r, S.perfil.meta) +
+    (ctx.tipo === 'dia' ? ' · ' + esc(ctx.dia.duracao) : '') + '</div></div>' + anel(d.r, metaDia()) +
     '<p class="atividade">' + (ctx.tipo === 'dia' ? esc(ctx.dia.atividade) : ctx.tipo === 'folga' ? '<span class="mudo">Dia livre por padrão. Próxima sessão, ' + esc(fmtData(ctx.prox.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + ':</span> ' + esc(ctx.prox.atividade) : 'Cronograma concluído: recomece pelos blocos mais fracos e pelo conteúdo do edital.') + '</p>' +
     // O que fazer agora fica na primeira tela: o primeiro passo do roteiro ainda não feito, com o botão dele
     (prox ? '<div class="proximo"><span class="rotulo">Próximo passo · ' + (rt.passos.indexOf(prox) + 1) + ' de ' + rt.passos.length + '</span><b>' + esc(prox.titulo) + '</b><div class="linha-btns">' + prox.botoes + '</div></div>'
@@ -4462,14 +4527,17 @@ function renderRaioX(cb, chip) {
   return html + '</div>';
 }
 function renderAjustes() {
-  const metas = [20, 30, 40, 60, 90], novos = [5, 10, 15, 20, 30];
+  const metas = [30, 60, 90, 120, 150], novos = [5, 10, 15, 20, 30], auto = metaAuto();
   const dg = Store.diag;
   const linha = (rot, val, ok) => '<tr><td>' + rot + '</td><td class="' + (ok === true ? 'ok' : ok === false ? 'no' : '') + '">' + esc(val) + '</td></tr>';
   const st = (v) => (v === 'ok' ? true : v === '—' ? null : false);
   return '<div class="secao-cab"><h2>Ajustes</h2></div>' +
     '<div class="cartao destaque"><h2>Sincronizar com o Painel TCU</h2><p class="pequeno">Traz as respostas, cards e artigos lidos do tronco comum (Constitucional, Administrativo, LAI, Línguas, Gestão, Economia e Contabilidade) feitos no Painel TCU neste navegador. Fica o registro mais recente de cada item; nada é apagado.</p><div class="linha-btns"><button class="btn primario" data-acao="sync-tcu">⇄ Trazer progresso do Painel TCU</button></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha fica salva na sua conta, como as demais preferências.</p></div></div>' +
-    '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' + metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div></div>' +
+    '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' +
+      '<button class="chip" data-acao="meta" data-meta="auto" aria-pressed="' + !S.perfil.metaFixa + '">Pelo meu ritmo' + (auto ? ' · ' + auto : '') + '</button>' +
+      metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (!!S.perfil.metaFixa && S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div>' +
+      '<p class="pequeno mudo">Pelo meu ritmo: 90% da mediana de itens por dia de estudo nas duas últimas semanas, recalculada a cada dia' + (auto ? '' : ' (começa depois de 5 dias de estudo; até lá vale ' + metaDia() + ')') + '. As missões do dia e a leitura do roteiro também seguem o seu ritmo.</p></div>' +
     '<div class="campo"><span class="rot">Cards novos por dia</span><div class="chips">' + novos.map((m) => '<button class="chip" data-acao="novos-cards" data-n="' + m + '" aria-pressed="' + ((S.perfil.novosCards || 20) === m) + '">' + m + '</button>').join('') + '</div><p class="pequeno mudo">Cada card novo volta várias vezes nos dias seguintes. Entram primeiro os de prazo, número e quórum; com mais de 60 revisões vencidas, os novos esperam a fila baixar.</p></div></div>' +
     '<div class="cartao"><h2>Backup do progresso</h2><p class="pequeno">Salve um arquivo com todo o seu progresso. Se a gravação na conta falhar, ou se você trocar de aparelho, é só restaurar.</p>' +
     '<div class="linha-btns"><button class="btn primario" data-acao="backup-baixar">Baixar backup (.json)</button><button class="btn" data-acao="backup-mostrar">Copiar como texto</button></div>' +
@@ -5012,7 +5080,7 @@ async function executar(a, alvo) {
     case 'status': { const b = alvo.dataset.bloco; S.perfil.status[b] = STATUS_CICLO[S.perfil.status[b] || 'nao']; Store.salvar('perfil'); renderMais(); break; }
     case 'tema': UI.tema = alvo.dataset.tema; salvarUI(); aplicarTema(); renderTudo(); break;
     case 'tema-alternar': UI.tema = temaEscuroAtivo() ? 'claro' : 'escuro'; salvarUI(); aplicarTema(); renderTudo(); break;
-    case 'meta': S.perfil.meta = Number(alvo.dataset.meta); Store.salvar('perfil'); renderTudo(); break;
+    case 'meta': if (alvo.dataset.meta === 'auto') S.perfil.metaFixa = 0; else { S.perfil.meta = Number(alvo.dataset.meta); S.perfil.metaFixa = 1; } Store.salvar('perfil'); renderTudo(); break;
     case 'novos-cards': S.perfil.novosCards = Number(alvo.dataset.n); Store.salvar('perfil'); renderTudo(); break;
     case 'backup-baixar': {
       const r = await salvarArquivo('painel-anpd-backup-' + hojeISO() + '.json', backupTexto());
@@ -5068,7 +5136,7 @@ async function executar(a, alvo) {
       break;
     case 'zerar': document.getElementById('zona-zerar').innerHTML = '<p><b>Tem certeza?</b> Não dá para desfazer. Baixe um backup antes.</p><div class="linha-btns"><button class="btn primario" data-acao="confirmar-zerar">Apagar tudo</button><button class="btn" data-acao="mais" data-sub="ajustes">Cancelar</button></div>'; break;
     case 'confirmar-zerar':
-      S.perfil = Object.assign(perfilPadrao(), { status: S.perfil.status, meta: S.perfil.meta, novosCards: S.perfil.novosCards, intercaladas: S.perfil.intercaladas, ui: S.perfil.ui, ep: Date.now() });
+      S.perfil = Object.assign(perfilPadrao(), { status: S.perfil.status, meta: S.perfil.meta, metaFixa: S.perfil.metaFixa, novosCards: S.perfil.novosCards, intercaladas: S.perfil.intercaladas, ui: S.perfil.ui, ep: Date.now() });
       S.itens = {}; S.cards = {}; S.simulados = []; S.pesquisa = {}; S.disc = {};
       Store.salvarTudo(); renderTudo(); avisar('0', 'Progresso zerado', 'Status dos blocos, metas e preferências foram mantidos.');
       break;

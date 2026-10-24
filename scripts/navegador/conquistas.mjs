@@ -79,23 +79,24 @@ await passo('um item respondido destrava o que os números permitem', async () =
     'relampago15', 'relampago25', 'seq7', 'seq14', 'seq30', 'maratona', 'certeiro', 'hora1', 'hora3', 'horas100', 'fds', 'dias30', 'meta10',
     'memoria50', 'roteiro7', 'recuperacao', 'sim1', 'sim5', 'sim70', 'sim80', 'prova120', 'lei20', 'lei100', 'lista25', 'lista100', 'lista300',
     'explicar5', 'calibrado', 'reais50', 'reais300', 'me20', 'casca', 'disc1', 'disc5', 'discnota', 'bau1', 'bau7', 'bau30', 'chefe1', 'chefe5',
-    'chefe10', 'lendario', 'equipado', 'colecao', 'nivel10', 'nivel20', 'nivel30'];
+    'chefe10', 'lendario', 'equipado', 'colecao', 'nivel10', 'nivel20', 'nivel30', 'xp25k'];
   const faltam = esperadas.filter((id) => !conq[id]);
   if (faltam.length) throw new Error('não destravadas: ' + faltam.join(', '));
-  const indevidas = ['seq60', 'seq100', 'dias100', 'meta50', 'lei500', 'leitodas', 'perfeita', 'lince', 'trilha'].filter((id) => conq[id]);
+  const indevidas = ['seq60', 'seq100', 'dias100', 'meta50', 'meta100', 'lei500', 'leitodas', 'perfeita', 'lince', 'trilha', 'r10000',
+    'maratona200', 'horas250', 'dia3k', 'sem5k', 'semanas4', 'xp50k', 'nivel40'].filter((id) => conq[id]);
   if (indevidas.length) throw new Error('destravadas sem os números: ' + indevidas.join(', '));
 });
 
-await passo('Progresso mostra as conquistas em cinco grupos', async () => {
+await passo('Progresso mostra as conquistas em seis grupos', async () => {
   await p.click('[data-acao="proximo"]');
   await sairDaSessao(p);
   await p.waitForSelector('#sessao', { state: 'hidden' });
   await p.click('.aba[data-vista="mais"]');
   await p.click('#vista-mais [data-acao="mais"][data-sub="progresso"]');
   const grupos = p.locator('details[data-det^="cq-"]');
-  if ((await grupos.count()) !== 5) throw new Error('grupos: ' + (await grupos.count()));
+  if ((await grupos.count()) !== 6) throw new Error('grupos: ' + (await grupos.count()));
   const cab = await p.textContent('.secao:has(details[data-det^="cq-"]) .secao-cab');
-  if (!/de 81/.test(cab)) throw new Error('cabeçalho: ' + cab.trim());
+  if (!/de 102/.test(cab)) throw new Error('cabeçalho: ' + cab.trim());
   await grupos.first().locator('summary').click();
   if ((await grupos.first().locator('.conquista').count()) < 10) throw new Error('grupo de questões vazio');
   if ((await p.locator('.secao:has(details[data-det^="cq-"]) > .conquistas .conquista').count()) !== 4) throw new Error('recentes: esperado 4');
