@@ -1337,7 +1337,7 @@ if (!UI.camadas) UI.camadas = { cai: true, num: true, alerta: true, verbo: true,
 let sessao = null;
 // Preferências que acompanham a conta (vão no documento do perfil), para não se perderem quando o navegador
 // ou o app do Claude limpam o armazenamento local. A aba aberta (vista) fica só neste aparelho.
-const CAMPOS_UI = ['modo', 'n', 'filtro', 'filtroBanca', 'prova', 'blocos', 'blocosCards', 'camadas', 'lei', 'tema', 'som', 'cadFiltro', 'aulaFiltroDisc', 'aulaBusca'];
+const CAMPOS_UI = ['modo', 'n', 'filtro', 'filtroBanca', 'prova', 'blocos', 'blocosCards', 'camadas', 'lei', 'tema', 'som', 'cadFiltro', 'aulaFiltroDisc', 'aulaBusca', 'foco'];
 function prefsUI() { const o = {}; for (const k of CAMPOS_UI) if (UI[k] !== undefined) o[k] = UI[k]; return o; }
 function salvarUI() {
   const p = prefsUI();
@@ -1702,6 +1702,41 @@ function podarPerfil() {
   for (const [iso, d] of Object.entries(S.perfil.dias || {})) if (iso < limite && d.a && d.a.length) d.a = [];
 }
 function ativo(iso) { const d = S.perfil.dias[iso]; return !!d && (d.r + (d.k || 0) / 2) >= MIN_DIA_ATIVO; }
+// Ritmo pessoal: medianas dos dias de estudo das duas últimas semanas, sem contar hoje (itens respondidos, itens inéditos,
+// artigos lidos e minutos de estudo; cada mediana só conta os dias em que aquilo aconteceu). Com menos de 5 dias de estudo
+// não há ritmo e valem os valores fixos.
+let ritmoCache = null;
+function ritmo() {
+  const h = hojeISO(), chave = h + '|' + Object.keys(S.perfil.dias || {}).length;
+  if (ritmoCache && ritmoCache.chave === chave) return ritmoCache.v;
+  const mediana = (xs) => { const o = xs.filter((x) => x > 0).sort((a, b) => a - b); return o.length ? o[Math.floor((o.length - 1) / 2)] : 0; };
+  const desde = isoDeNum(HOJE() - 14);
+  const dias = Object.entries(S.perfil.dias || {}).filter(([iso]) => iso >= desde && iso < h && ativo(iso)).map(([, d]) => d);
+  const v = dias.length < 5 ? null : {
+    r: mediana(dias.map((d) => d.r || 0)), ni: mediana(dias.map((d) => d.ni || 0)),
+    a: mediana(dias.map((d) => (d.a || []).length)), min: Math.round(mediana(dias.map((d) => segundosEstudo(d) / 60))),
+  };
+  ritmoCache = { chave, v };
+  return v;
+}
+const limitar = (x, min, max) => Math.min(max, Math.max(min, x));
+// Plano: itens inéditos do banco divididos pelos dias até a prova, de 10 em 10 para cima. É o que o edital exige,
+// e não cai quando o ritmo cai; o ritmo (90% da mediana) e a meta escolhida em Ajustes só servem de piso
+function diasAteProva() { const p = D.cronograma && D.cronograma.prova; return p ? diaNum(p) - HOJE() : 0; }
+function metaPlano() {
+  const dias = diasAteProva();
+  if (dias <= 0) return null;
+  const ineditos = Q.filter((q) => !S.itens[q.id]).length;
+  return ineditos ? limitar(Math.ceil(ineditos / dias / 10) * 10, 10, 200) : null;
+}
+function metaAuto() { const r = ritmo(); return r && r.r ? limitar(Math.round((r.r * 0.9) / 10) * 10, 20, 200) : null; }
+function metaDia() { return Math.min(200, Math.max(S.perfil.meta || 30, metaPlano() || 0, metaAuto() || 0)); }
+function metaNovas() { const r = ritmo(); return Math.max(metaPlano() || 0, r && r.ni ? limitar(Math.round(r.ni / 10) * 10, 20, 80) : 20); }
+function metaMais() { return Math.round((metaDia() * 1.5) / 10) * 10; }
+function metaLei() { const r = ritmo(); return r && r.a ? limitar(r.a, 5, 12) : 5; }
+function metaArtigos() { const r = ritmo(); return r && r.a ? limitar(r.a, 6, 12) : 6; }
+function metaMin60() { const r = ritmo(); return r && r.min ? limitar(Math.round(r.min / 15) * 15, 60, 180) : 60; }
+function fmtMin(m) { return m < 60 ? m + ' min' : Math.floor(m / 60) + 'h' + (m % 60 ? String(m % 60).padStart(2, '0') : ''); }
 
 /* ================= Tempo de estudo ================= */
 // O relógio do dia conta o tempo com o app aberto, visível e em uso. Sem toque, tecla ou rolagem por OCIOSO_S
@@ -1944,7 +1979,7 @@ function ganharXP(x) {
 }
 function verificarMeta() {
   const d = diaLog();
-  if (!d.metaOk && d.r >= S.perfil.meta) { d.metaOk = 1; ganharXP(50); avisar('M', 'Meta do dia cumprida', '+50 XP de bônus'); conquistar('meta'); }
+  if (!d.metaOk && d.r >= metaDia()) { d.metaOk = 1; ganharXP(50); avisar('M', 'Meta do dia cumprida', '+50 XP de bônus'); conquistar('meta'); }
   verificarRPG();
 }
 function conquistar(id) {
@@ -2418,6 +2453,7 @@ function abrirSessao() {
   relogioTimer = setInterval(tique, 1000);
   renderSessao();
   el.scrollTop = 0;
+  sincronizarHistorico();
 }
 function fecharSessao(guardar = true) {
   if (guardar) guardarSessaoAberta();
@@ -2429,7 +2465,24 @@ function fecharSessao(guardar = true) {
   document.body.style.overflow = '';
   Store.descarregar();
   renderTudo();
+  sincronizarHistorico();
 }
+// Voltar do celular fecha a camada aberta (folha, depois sessão) em vez de sair do painel; a sessão fica guardada
+let camadaNoHistorico = false;
+function camadaAberta() { return !document.getElementById('folha').hidden || !document.getElementById('sessao').hidden; }
+function sincronizarHistorico() {
+  try {
+    if (camadaAberta() && !camadaNoHistorico) { history.pushState({ camada: 1 }, ''); camadaNoHistorico = true; }
+    else if (!camadaAberta() && camadaNoHistorico) { camadaNoHistorico = false; history.back(); }
+  } catch (e) { /* histórico indisponível: fecha só pelo botão */ }
+}
+window.addEventListener('popstate', () => {
+  if (!camadaNoHistorico) return;
+  camadaNoHistorico = false;
+  if (!document.getElementById('folha').hidden) fecharFolha();
+  else if (!document.getElementById('sessao').hidden) fecharSessao();
+  sincronizarHistorico();
+});
 function decorrido() { return (Date.now() - sessao.ini) / 1000; }
 function tique() {
   if (!sessao || sessao.fim) return;
@@ -2829,7 +2882,7 @@ function roteiroHoje() {
     botoes: botaoRecuperar() });
 
   // Passo 3: Lei Seca com Grifos (~15 min)
-  const metaLeitura = arts.length ? Math.min(arts.length, 6) : 0;
+  const metaLeitura = arts.length ? Math.min(arts.length, metaArtigos()) : 0;
   const leiFeita = arts.length ? lidosHoje >= metaLeitura : (d.a || []).length >= 3;
   passos.push({
     titulo: '3. Lei seca com grifos (~15 min)',
@@ -3071,14 +3124,14 @@ function cartaoPendencias() {
 // devolvem um. Os itens do saque são os princípios e conceitos da LGPD, com o texto da lei como descrição.
 // Nada disso tira XP, e missão não feita não acumula para o dia seguinte.
 const MISSOES = [
-  { id: 'q30', txt: 'Responder 30 itens', xp: 30, meta: 30, val: (d) => d.r || 0 },
-  { id: 'q60', txt: 'Responder 60 itens', xp: 60, meta: 60, val: (d) => d.r || 0 },
-  { id: 'novas', txt: 'Responder 20 itens inéditos', xp: 40, meta: 20, val: (d) => d.ni || 0 },
+  { id: 'q30', txt: () => 'Responder ' + metaDia() + ' itens', xp: 30, meta: () => metaDia(), val: (d) => d.r || 0 },
+  { id: 'q60', txt: () => 'Responder ' + metaMais() + ' itens', xp: 60, meta: () => metaMais(), val: (d) => d.r || 0 },
+  { id: 'novas', txt: () => 'Responder ' + metaNovas() + ' itens inéditos', xp: 40, meta: () => metaNovas(), val: (d) => d.ni || 0 },
   { id: 'acerto', txt: 'Acertar 80% de pelo menos 20 itens', xp: 40, meta: 1, val: (d) => ((d.r || 0) >= 20 && d.c / d.r >= 0.8 ? 1 : 0), fr: (d) => Math.min(1, (d.r || 0) / 20) },
   { id: 'combo', txt: 'Acertar 10 seguidos', xp: 30, meta: 10, val: (d) => d.cmb || 0 },
-  { id: 'lei5', txt: 'Ler 5 artigos da lei seca', xp: 30, meta: 5, val: (d) => (d.a || []).length },
+  { id: 'lei5', txt: () => 'Ler ' + metaLei() + ' artigos da lei seca', xp: 30, meta: () => metaLei(), val: (d) => (d.a || []).length },
   { id: 'cards20', txt: 'Revisar 20 cards', xp: 30, meta: 20, val: (d) => d.k || 0 },
-  { id: 'tempo60', txt: 'Estudar 1 hora', xp: 40, meta: 60, val: (d) => Math.floor(segundosEstudo(d) / 60) },
+  { id: 'tempo60', txt: () => 'Estudar ' + fmtMin(metaMin60()), xp: 40, meta: () => metaMin60(), val: (d) => Math.floor(segundosEstudo(d) / 60) },
   { id: 'virada', txt: 'Acertar 5 itens que você tinha errado em outro dia', xp: 50, meta: 5, val: (d) => d.vr || 0, so: () => Object.values(S.itens).filter((r) => r[0] === 0 && r[3] > 0 && r[4] < HOJE()).length >= 5 },
   { id: 'pesq', txt: 'Investigar um tema da lista Para pesquisar', xp: 30, meta: 1, val: () => Object.values(S.pesquisa).filter((p) => p.s && p.f === hojeISO()).length },
   { id: 'pend', txt: 'Recuperar uma sessão do atraso', xp: 60, meta: 1, val: (d) => d.pd || 0, so: () => pendencias().some((x) => x.sessao) },
@@ -3086,6 +3139,7 @@ const MISSOES = [
   { id: 'chefe5', txt: 'Acertar 5 golpes no chefão', xp: 40, meta: 5, val: (d) => (chefeDaSemana().vencido ? 5 : d.cg || 0), so: () => !chefeDaSemana().vencido },
 ];
 const MI = new Map(MISSOES.map((m) => [m.id, m]));
+function valM(v) { return typeof v === 'function' ? v() : v; }
 const BAU_XP = 50, CHEFE_VIDA = 300, CHEFE_XP = 150, CORACOES = 5, BATALHA_N = 15;
 const CHEFES = {
   controle: 'O Gestor Revel em Alcance',
@@ -3193,10 +3247,10 @@ function verificarRPG() {
   let mudou = false;
   for (const id of mh.ids) {
     const x = MI.get(id);
-    if (!x || mh.ok[id] || x.val(d) < x.meta) continue;
+    if (!x || mh.ok[id] || x.val(d) < valM(x.meta)) continue;
     mh.ok[id] = 1; mudou = true;
     ganharXP(x.xp);
-    avisar('★', 'Missão cumprida', x.txt + ' · +' + x.xp + ' XP');
+    avisar('★', 'Missão cumprida', valM(x.txt) + ' · +' + x.xp + ' XP');
     tocar('combo');
   }
   if (!mh.bau && mh.ids.length && mh.ids.every((id) => mh.ok[id])) {
@@ -3265,7 +3319,7 @@ function golpeChefe(q) {
 // corações valem; fora dela, a faixa aparece só quando o item é do bloco do chefão.
 function hpBarra(vida, max, cls) { return '<div class="hp' + (cls ? ' ' + cls : '') + '" role="img" aria-label="Vida ' + vida + ' de ' + max + '"><i style="width:' + Math.round((vida / max) * 100) + '%"></i></div>'; }
 function renderArena(q) {
-  if (!sessao || sessao.modo === 'simulado') return '';
+  if (!sessao || sessao.modo === 'simulado' || UI.foco) return '';
   const c = chefeDaSemana(), g = sessao.revelado || sessao.flash ? sessao.golpe : null, bat = sessao.batalha;
   if (!bat && (c.vencido || !q || q.b !== c.bloco) && !g) return '';
   const disc = discChefe(c.bloco);
@@ -3320,9 +3374,9 @@ function cartaoJornada() {
   const missoes = mh.ids.map((id) => {
     const x = MI.get(id);
     if (!x) return '';
-    const v = x.val(d), ok = !!mh.ok[id], f = ok ? 1 : x.fr ? x.fr(d) : Math.min(1, v / x.meta);
-    return '<div class="missao' + (ok ? ' ok' : '') + '"><span class="m-ic" aria-hidden="true">' + (ok ? '✓' : '★') + '</span><div class="m-txt"><b>' + esc(x.txt) + '</b>' + barra(f, 'ouro') + (!ok && x.acao ? x.acao() : '') + '</div>' +
-      '<span class="mono pequeno">' + (ok ? '+' + x.xp + ' XP' : x.fr ? (d.r || 0) + '/20' : Math.min(v, x.meta) + '/' + x.meta) + '</span></div>';
+    const v = x.val(d), ok = !!mh.ok[id], meta = valM(x.meta), f = ok ? 1 : x.fr ? x.fr(d) : Math.min(1, v / meta);
+    return '<div class="missao' + (ok ? ' ok' : '') + '"><span class="m-ic" aria-hidden="true">' + (ok ? '✓' : '★') + '</span><div class="m-txt"><b>' + esc(valM(x.txt)) + '</b>' + barra(f, 'ouro') + (!ok && x.acao ? x.acao() : '') + '</div>' +
+      '<span class="mono pequeno">' + (ok ? '+' + x.xp + ' XP' : x.fr ? (d.r || 0) + '/20' : Math.min(v, meta) + '/' + meta) + '</span></div>';
   }).join('');
   const eq = Object.keys(ENCAIXES).map(equipado).filter(Boolean);
   const slots = eq.length ? eq.map((it) => '<span class="slot r-' + it.rar + '" title="' + esc(it.nome + ' · ' + efeitoTxt(it)) + '">' + esc(it.nome) + '</span>').join('') : '<span class="pequeno mudo">Sem equipamento</span>';
@@ -3877,7 +3931,7 @@ function renderHoje() {
   const prox = rt.passos.find((p) => !p.feito);
   let topo = '<div class="cartao destaque"><div class="heroi">' +
     '<div><div class="dia">' + esc(fmtData(h, { weekday: 'long' })) + '</div><div class="data">' + esc(fmtData(h, { day: '2-digit', month: 'long', year: 'numeric' })) +
-    (ctx.tipo === 'dia' ? ' · ' + esc(ctx.dia.duracao) : '') + '</div></div>' + anel(d.r, S.perfil.meta) +
+    (ctx.tipo === 'dia' ? ' · ' + esc(ctx.dia.duracao) : '') + '</div></div>' + anel(d.r, metaDia()) +
     '<p class="atividade">' + (ctx.tipo === 'dia' ? esc(ctx.dia.atividade) : ctx.tipo === 'folga' ? '<span class="mudo">Dia livre por padrão. Próxima sessão, ' + esc(fmtData(ctx.prox.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + ':</span> ' + esc(ctx.prox.atividade) : 'Cronograma concluído: recomece pelos blocos mais fracos e pelo conteúdo do edital.') + '</p>' +
     // O que fazer agora fica na primeira tela: o primeiro passo do roteiro ainda não feito, com o botão dele
     (prox ? '<div class="proximo"><span class="rotulo">Próximo passo · ' + (rt.passos.indexOf(prox) + 1) + ' de ' + rt.passos.length + '</span><b>' + esc(prox.titulo) + '</b><div class="linha-btns">' + prox.botoes + '</div></div>'
@@ -4071,7 +4125,8 @@ function renderSessao() {
   const relogio = sessao.limite ? fmtTempo(sessao.limite - decorrido()) : fmtTempo(decorrido());
   let html = '<div class="sessao-corpo"><div class="sessao-topo"><button class="icone-btn" data-acao="sair-sessao" aria-label="Sair da sessão"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>' +
     '<div class="tit"><b>' + esc(sessao.titulo) + '</b><span>' + (total ? (sessao.modo === 'cards' ? 'Card ' : 'Item ') + ((sessao.feitasAntes || 0) + sessao.i + 1) + ' de ' + (sessao.totalOrig || total) : 'Item ' + (sessao.i + 1)) + (sessao.xp ? ' · +' + sessao.xp + ' XP' : '') + '</span></div>' +
-    (sessao.modo !== 'simulado' && sessao.modo !== 'cards' && sessao.combo >= 2 ? '<span class="combo' + (sessao.revelado || sessao.flash ? ' pulso' : '') + '">combo ×' + sessao.combo + '</span>' : '') +
+    (!UI.foco && sessao.modo !== 'simulado' && sessao.modo !== 'cards' && sessao.combo >= 2 ? '<span class="combo' + (sessao.revelado || sessao.flash ? ' pulso' : '') + '">combo ×' + sessao.combo + '</span>' : '') +
+    '<button class="icone-btn" data-acao="foco" aria-pressed="' + !!UI.foco + '" aria-label="' + (UI.foco ? 'Mostrar a arena' : 'Modo foco: esconder a arena e o combo') + '" title="' + (UI.foco ? 'Modo foco ligado' : 'Modo foco desligado') + '"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></button>' +
     '<button class="icone-btn som" data-acao="som" aria-pressed="' + !!UI.som + '" aria-label="' + (UI.som ? 'Desligar o som' : 'Ligar o som') + '" title="' + (UI.som ? 'Som ligado' : 'Som desligado') + '">' + iconeSom(!!UI.som) + '</button>' +
     '<span class="relogio" id="relogio">' + relogio + '</span></div>';
   if (sessao.confirmar) html += renderConfirmacao();
@@ -4315,8 +4370,9 @@ function abrirFolha(html, rotulo) {
   f.scrollTop = 0;
   const b = f.querySelector('[data-acao="fechar-folha"]');
   if (b) b.focus();
+  sincronizarHistorico();
 }
-function fecharFolha() { const f = document.getElementById('folha'); f.hidden = true; f.innerHTML = ''; UI.folhaAula = null; }
+function fecharFolha() { const f = document.getElementById('folha'); f.hidden = true; f.innerHTML = ''; UI.folhaAula = null; sincronizarHistorico(); }
 function cabFolha(rotulo, titulo) { return '<div class="folha-cab"><div><span class="rotulo">' + esc(rotulo) + '</span><h2>' + esc(titulo) + '</h2></div><button class="btn pequeno" data-acao="fechar-folha">Fechar</button></div>'; }
 function folhaItem(id, resp) {
   const q = QI.get(id);
@@ -5526,7 +5582,10 @@ function renderCadernoErros() {
     const c = (ce[q.id] && ce[q.id].causa) || 'sem';
     return filtroCausa === 'todas' || c === filtroCausa;
   });
-  let html = '<div class="prosa"><h2>Caderno de Erros · As 4 Causas do Método</h2><p>Questão errada sem revisão vira o mesmo erro na prova. Classifique cada erro em uma das quatro causas do método e escreva uma regra de 1 linha para não repetir.</p></div>';
+  let html = '<div class="prosa" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">' +
+    '<div style="flex:1;min-width:260px"><h2>Caderno de Erros · As 4 Causas do Método</h2><p>Questão errada sem revisão vira o mesmo erro na prova. Classifique cada erro em uma das quatro causas do método e escreva uma regra de 1 linha para não repetir.</p></div>' +
+    '<button class="btn pequeno primario" data-acao="imprimir-folha-vespera" style="align-self:flex-start;margin-top:4px">Folha de véspera</button>' +
+    '</div>';
   html += '<div class="tcu-grid-2">' +
     CAUSAS_ERRO.map(([k, rot, acao]) => '<div class="tcu-kpi"><b>' + (contCausa[k] || 0) + ' · ' + esc(rot) + '</b><span>' + esc(acao) + '</span>' +
       (contCausa[k] ? '<div class="linha-btns" style="margin-top:6px"><button class="btn pequeno primario" data-acao="treinar-causa-erro" data-causa="' + k + '">Treinar (' + contCausa[k] + ')</button></div>' : '') +
@@ -5974,7 +6033,9 @@ function renderAjustes() {
     renderAutodiagnosticoTCU() +
     '<div class="cartao destaque"><h2>Sincronizar com o Painel ANPD</h2><p class="pequeno">Traz as respostas, cards e artigos lidos do tronco comum (Constitucional, Administrativo, LAI, Línguas, Gestão, Economia e Contabilidade) feitos no Painel ANPD neste navegador. Fica o registro mais recente de cada item; nada é apagado.</p><div class="linha-btns"><button class="btn primario" data-acao="sync-anpd">⇄ Trazer progresso do Painel ANPD</button></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha fica salva na sua conta, como as demais preferências.</p></div></div>' +
-    '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' + metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div></div>' +
+    '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' + metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div>' +
+      '<p class="pequeno mudo">Meta de hoje: <b>' + metaDia() + ' itens</b>, o maior entre o plano (' + (metaPlano() ? metaPlano() + ' por dia para ver os inéditos até ' + esc(D.cronograma.prova.split('-').reverse().join('/')) : 'sem data de prova') +
+      '), o seu ritmo (' + (metaAuto() ? metaAuto() : 'com menos de 5 dias de estudo, ainda não medido') + ') e a escolha acima, que vale como piso.</p></div>' +
     '<div class="campo"><span class="rot">Cards novos por dia</span><div class="chips">' + novos.map((m) => '<button class="chip" data-acao="novos-cards" data-n="' + m + '" aria-pressed="' + ((S.perfil.novosCards || 20) === m) + '">' + m + '</button>').join('') + '</div><p class="pequeno mudo">Cada card novo volta várias vezes nos dias seguintes. 20 por dia é o equilíbrio para quem tem 1h45 de estudo.</p></div></div>' +
     '<div class="cartao"><h2>Backup do progresso</h2><p class="pequeno">Salve um arquivo com todo o seu progresso. Se a gravação na conta falhar, ou se você trocar de aparelho, é só restaurar.</p>' +
     '<div class="linha-btns"><button class="btn primario" data-acao="backup-baixar">Baixar backup (.json)</button><button class="btn" data-acao="backup-mostrar">Copiar como texto</button></div>' +
@@ -6319,6 +6380,7 @@ async function executar(a, alvo) {
       break;
     }
     case 'imprimir-folha-vespera': abrirFolhaVespera(); break;
+    case 'foco': UI.foco = !UI.foco; salvarUI(); renderSessao(); break;
     case 'responder': responder(alvo.dataset.r); break;
     case 'revelar': proximo(); break;
     case 'avaliar': avaliar(Number(alvo.dataset.n)); break;
