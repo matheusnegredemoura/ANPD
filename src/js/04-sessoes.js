@@ -138,8 +138,10 @@ function iniciarSessao(cfg) {
   let itens;
   if (cfg.modo === 'cards') {
     // Teto de revisões por sessão para a fila não engolir o tempo das questões; com a fila cheia, não entram novos
-    const todosVenc = cardsVencidos(cfg.blocos), venc = todosVenc.slice(0, cfg.maxRev || REV_MAX);
-    const novos = cfg.soRevisao || todosVenc.length >= REV_MAX ? [] : cardsNovos(cfg.blocos).slice(0, Math.min(novosRestantesHoje(), cfg.novos == null ? 20 : cfg.novos));
+    // soNumero: só os cards de prazo, quórum, percentual e valor (os do roteiro)
+    const so = (l) => (cfg.soNumero ? l.filter((c) => c.nota.nu) : l);
+    const todosVenc = so(cardsVencidos(cfg.blocos)), venc = todosVenc.slice(0, cfg.maxRev || REV_MAX);
+    const novos = cfg.soRevisao || todosVenc.length >= REV_MAX ? [] : so(cardsNovos(cfg.blocos)).slice(0, Math.min(novosRestantesHoje(), cfg.novos == null ? 20 : cfg.novos));
     const ids = embaralhar(venc.map((c) => c.id)).concat(novos.map((c) => c.id));
     if (!ids.length) {
       avisar('C', 'Nada para revisar agora', novosRestantesHoje() ? 'Escolha outros baralhos de cards.' : 'Limite de cards novos de hoje atingido. Ajuste em Mais → Ajustes.');

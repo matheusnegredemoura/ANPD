@@ -310,11 +310,20 @@ async function executar(a, alvo) {
     }
     case 'cards-iniciar': iniciarSessao({ modo: 'cards', blocos: UI.blocosCards, novos: novosRestantesHoje() }); break;
     case 'cards-so-revisao': iniciarSessao({ modo: 'cards', blocos: UI.blocosCards, soRevisao: true }); break;
-    case 'cards-revisao': iniciarSessao({ modo: 'cards', soRevisao: true, titulo: 'Cards vencidos' }); break;
+    case 'dia-curto': {
+      const ctx = contextoHoje(), bs = blocosDoDia(ctx.tipo === 'dia' ? ctx.dia : null);
+      const rev = listaVencida().concat(manutencaoHoje()).slice(0, 10), usados = new Set(rev.map((q) => q.id));
+      const pool = (bs.length ? bs : P1).flatMap((b) => POR_BLOCO.get(b) || []).filter((q) => !usados.has(q.id) && !q.al);
+      const ids = rev.concat(selecionar(pool, 10, 'novas')).map((q) => q.id);
+      iniciarSessao({ modo: 'treino', ids, dia: 'curto:' + hojeISO(), titulo: 'Dia curto' });
+      break;
+    }
+    case 'cards-revisao': iniciarSessao({ modo: 'cards', soRevisao: true, soNumero: !!alvo.dataset.num, titulo: 'Cards vencidos' }); break;
+    // Cards do roteiro: 5 de número e prazo, dos blocos do dia quando eles têm; senão, de qualquer bloco
     case 'cards-dia': {
       const ctx = contextoHoje();
-      const bs = blocosDoDia(ctx.tipo === 'dia' ? ctx.dia : null).filter((b) => (CARDS_POR_BLOCO.get(b) || []).length);
-      iniciarSessao({ modo: 'cards', blocos: bs, novos: novosRestantesHoje(), titulo: 'Cards do dia' });
+      const bs = blocosDoDia(ctx.tipo === 'dia' ? ctx.dia : null).filter((b) => (CARDS_POR_BLOCO.get(b) || []).some((c) => c.nota.nu));
+      iniciarSessao({ modo: 'cards', blocos: bs.length ? bs : null, soNumero: true, novos: Math.min(5, novosRestantesHoje()), titulo: 'Cards de número e prazo' });
       break;
     }
     case 'fase': UI.faseAberta = UI.faseAberta === alvo.dataset.fase ? '' : alvo.dataset.fase; renderMais(); break;

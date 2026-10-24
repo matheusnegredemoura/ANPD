@@ -329,9 +329,14 @@ function renderHoje() {
       : '<div class="proximo feito"><b>Roteiro de hoje completo.</b><span class="pequeno mudo">Se sobrar tempo, veja o Atraso do plano e a Jornada, mais abaixo.</span></div>') + '</div></div>';
   const aguard = ctx.tipo === 'dia' ? (ctx.dia.blocos || []).filter((b) => BI.get(b) && BI.get(b).aguardando && !(POR_BLOCO.get(b) || []).length) : [];
   if (aguard.length) topo += '<p class="nota-aguardando">' + esc(aguard.map(nomeBloco).join('; ')) + ': ainda sem questões. A sessão usa os blocos ligados ao tema. Cole o texto na conversa com o Claude para ganhar questões próprias.</p>';
-  let roteiro = '<div class="cartao"><div class="secao-cab"><h2>Roteiro de hoje</h2><span class="mono pequeno mudo">' + feitos + ' de ' + rt.passos.length + '</span></div><div class="roteiro">';
+  // Dia curto: num dia apertado, 20 min (revisão vencida e 10 itens do tema) para o dia não zerar
+  const curtoFeito = !!S.perfil.feitos['curto:' + h], diaHoje = S.perfil.dias[h] || {};
+  const curto = feitos === rt.passos.length ? ''
+    : curtoFeito ? '<p class="dia-curto pequeno"><b>Dia curto feito:</b> o dia contou. Se sobrar tempo, siga o roteiro; o que ficar para trás vai para o Atraso do plano.</p>'
+    : (diaHoje.r || 0) < 20 ? '<p class="dia-curto pequeno">Sem tempo hoje? <button class="linkish" data-acao="dia-curto">Dia curto (até 20 min)</button>: até 10 revisões vencidas e 10 itens do tema, para o dia não zerar.</p>' : '';
+  let roteiro = '<div class="cartao"><div class="secao-cab"><h2>Roteiro de hoje</h2><span class="mono pequeno mudo">' + feitos + ' de ' + rt.passos.length + '</span></div>' + curto + '<div class="roteiro">';
   rt.passos.forEach((p, i) => {
-    roteiro += '<div class="passo' + (p.feito ? ' feito' : '') + '"><div class="marca-passo">' + (p.feito ? '✓' : i + 1) + '</div><div class="corpo-passo"><b>' + esc(p.titulo) + '</b>' + (p.feito || !p.texto ? '' : '<p>' + esc(p.texto) + '</p>') + '<div class="linha-btns">' + p.botoes + (p.extra || '') + '</div></div></div>';
+    roteiro += '<div class="passo' + (p.feito ? ' feito' : '') + '"><div class="marca-passo">' + (p.feito ? '✓' : (/^(\d+)\./.exec(p.titulo) || [, '•'])[1]) + '</div><div class="corpo-passo"><b>' + esc(p.titulo) + '</b>' + (p.feito || !p.texto ? '' : '<p>' + esc(p.texto) + '</p>') + '<div class="linha-btns">' + p.botoes + (p.extra || '') + '</div></div></div>';
   });
   roteiro += '</div><p class="pequeno mudo">' + (stDoDia(rt.dia) ? 'Matéria nova: revisão do que venceu, pré-teste, lei, aula e questões do mesmo tema, nessa ordem; depois as intercaladas e as lacunas.' : 'A ordem é o método: revisão primeiro, depois questão, depois a lei onde você errou, depois a memorização com lacunas.') + ' <button class="linkish" data-acao="mais" data-sub="metodo">Entenda o método</button></p></div>';
   const modos = '<div class="secao"><div class="secao-cab"><h2>Modos de jogo</h2></div><div class="grade-modos">' +

@@ -610,20 +610,52 @@ function blocosEstudados() {
   const h = hojeISO();
   return [...new Set(DIAS.filter((d) => d.data < h).flatMap((d) => d.blocos || []))].filter((b) => !BLOCOS_BASICOS.includes(b) && (POR_BLOCO.get(b) || []).length);
 }
-// Metade das matérias básicas, metade dos blocos já estudados, tudo misturado
+// Acerto e prática recente (itens respondidos nos últimos 14 dias) por disciplina
+function estatDisciplinas() {
+  const desde = HOJE() - 14, out = {};
+  for (const [id, r] of Object.entries(S.itens)) {
+    const q = QI.get(id), d = q && (BI.get(q.b) || {}).disciplina;
+    if (!d || r[0] < 0) continue;
+    const x = (out[d] ||= { c: 0, e: 0, rec: 0 });
+    x.c += r[2] || 0; x.e += r[3] || 0;
+    if (r[4] >= desde) x.rec++;
+  }
+  return out;
+}
+// Disciplina de reforço: a de pior acerto abaixo de 80%, com peso de pelo menos 5% da prova e 30 respostas
+function disciplinaReforco(est) {
+  let pior = null;
+  for (const [d, x] of Object.entries(est || estatDisciplinas())) {
+    const n = x.c + x.e;
+    if (d === 'linguas' || n < 30 || (PONTOS_DISC[d] || 0) / PONTOS_PROVA < 0.05) continue;
+    const ac = x.c / n;
+    if (ac < 0.8 && (!pior || ac < pior.ac)) pior = { d, ac, n };
+  }
+  return pior;
+}
+// Intercaladas: português e inglês no peso da prova (17,5% dela, e quase só entram aqui): 40% da sessão enquanto a sua
+// prática recente de línguas estiver abaixo desse peso, 20% depois. Três em cada dez itens reforçam a disciplina de
+// pior acerto (nos blocos já estudados dela, ou em todos, se nenhum foi). O resto mistura básicos e blocos estudados.
+const INTERCALADAS_N = 10;
 function selecionarIntercaladas(n) {
-  const estudados = new Set(blocosEstudados());
-  const basicas = new Set(BLOCOS_BASICOS);
-  const poolB = Q.filter((q) => basicas.has(q.b));
-  const poolE = Q.filter((q) => estudados.has(q.b));
-  const a = selecionar(poolB, poolE.length ? Math.ceil(n / 2) : n, 'mistas');
-  const usados = new Set(a.map((q) => q.id));
-  const b = poolE.length ? selecionar(poolE.filter((q) => !usados.has(q.id)), n - a.length, 'mistas') : [];
-  return embaralhar(a.concat(b));
+  const est = estatDisciplinas(), totRec = Object.values(est).reduce((a, x) => a + x.rec, 0);
+  const pesoL = (PONTOS_DISC.linguas || 0) / PONTOS_PROVA, partL = totRec ? ((est.linguas || {}).rec || 0) / totRec : 0;
+  const nL = pesoL ? Math.round(n * (partL < pesoL ? 0.4 : 0.2)) : 0;
+  const escolhidos = [], usados = new Set();
+  const pega = (pool, k) => { if (k > 0) selecionar(pool.filter((q) => !usados.has(q.id)), k, 'mistas').forEach((q) => { usados.add(q.id); escolhidos.push(q); }); };
+  pega(POR_BLOCO.get('portugues') || [], Math.ceil(nL / 2));
+  pega(POR_BLOCO.get('ingles') || [], nL - Math.ceil(nL / 2));
+  const estudados = blocosEstudados(), rf = disciplinaReforco(est);
+  if (rf) {
+    const daDisc = (b) => (BI.get(b) || {}).disciplina === rf.d;
+    const bs = estudados.concat(BLOCOS_BASICOS).filter(daDisc);
+    pega((bs.length ? bs : BLOCOS.map((b) => b.id).filter(daDisc)).flatMap((b) => POR_BLOCO.get(b) || []), Math.round(n * 0.3));
+  }
+  const resto = n - escolhidos.length, basicas = BLOCOS_BASICOS.filter((b) => b !== 'portugues' && b !== 'ingles');
+  const poolE = estudados.flatMap((b) => POR_BLOCO.get(b) || []);
+  pega(basicas.flatMap((b) => POR_BLOCO.get(b) || []), poolE.length ? Math.ceil(resto / 2) : resto);
+  pega(poolE, n - escolhidos.length);
+  return embaralhar(escolhidos);
 }
-// Tamanho das intercaladas: o escolhido em Ajustes, menor em dia pesado (até o mínimo de 10)
-// Em dia de 1h45 do plano, as intercaladas ficam em no máximo 20, para o dia caber no tempo
-function nIntercaladas() {
-  return 6; // 6 itens rápidos para caber nos 10 min do Passo 7 da rotina de 1h30
-}
+function nIntercaladas() { return INTERCALADAS_N; }
 

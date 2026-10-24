@@ -76,33 +76,36 @@ function roteiroHoje() {
   const blocos = blocosDoDia(dia);
   const venc = listaVencida().length;
   const manut = manutencaoHoje().length;
-  const cardsV = cardsVencidos().length;
+  const cardsV = cardsVencidos().filter((c) => c.nota.nu).length;
   const leitura = leituraDoDia(dia);
   const arts = leitura.arts;
   const lidosHoje = (d.a || []).filter((a) => arts.includes(a)).length;
   const cardsBlocos = blocos.filter((b) => (CARDS_POR_BLOCO.get(b) || []).length);
-  const novosDisp = cardsNovos(cardsBlocos.length ? cardsBlocos : null).length;
-  const pesqHoje = Object.values(S.pesquisa).filter((p) => p.s && p.f === hojeISO()).length;
+  const novosDisp = cardsNovos(cardsBlocos.length ? cardsBlocos : null).filter((c) => c.nota.nu).length || cardsNovos().filter((c) => c.nota.nu).length;
   const stPlano = dia && dia.modo === 'treino' ? stDoDia(dia) : null;
   const stH = stPlano || subtemaDoDia();
   const dd = discDeHoje();
   const chaveInt = 'i:' + hojeISO();
 
   const passos = [];
+  // O núcleo cabe no dia útil do plano (1 h): revisão, questões do tema, lei, aula (em dia de matéria nova), cards de
+  // número e intercaladas (onde entram português e inglês). Dia de plano mais longo (fim de semana) acrescenta a
+  // fixação e a discursiva; dia com discursiva no plano traz a discursiva. A causa dos erros é pedida na hora do erro.
+  const longo = !!dia && (metaMin(dia.data) || 0) > 60;
 
-  // Passo 1: Revisão Espaçada (~10 min)
+  // Revisão espaçada (~10 min): questões vencidas, manutenção e cards de número vencidos
   const revFeita = venc === 0 && manut === 0 && cardsV === 0;
   passos.push({
-    titulo: '1. Revisão espaçada (~10 min)',
+    titulo: 'Revisão espaçada (~10 min)',
     feito: revFeita,
     texto: (venc || manut || cardsV)
-      ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'item de manutenção', 'itens de manutenção') : '', cardsV ? pl(cardsV, 'card vencido', 'cards vencidos') : ''].filter(Boolean).join(' e ') + ' prontos para ativar a memória de curto prazo.'
+      ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'item de manutenção', 'itens de manutenção') : '', cardsV ? pl(cardsV, 'card de número vencido', 'cards de número vencidos') : ''].filter(Boolean).join(', ') + '.'
       : 'Memória em dia! Nenhum item pendente de revisão para agora.',
     botoes: (venc + manut ? '<button class="btn pequeno primario" data-acao="iniciar-revisao">Revisar questões (' + (venc + manut) + ')</button>' : '') +
-            (cardsV ? '<button class="btn pequeno' + (venc + manut ? '' : ' primario') + '" data-acao="cards-revisao">Revisar cards (' + cardsV + ')</button>' : '')
+            (cardsV ? '<button class="btn pequeno' + (venc + manut ? '' : ' primario') + '" data-acao="cards-revisao" data-num="1">Revisar cards (' + cardsV + ')</button>' : '')
   });
 
-  // Passo 2: Questões do Tema / Pré-teste (~15 min)
+  // Questões do tema / pré-teste (~15 min)
   let qTemaFeita = false;
   let qTemaBtns = '';
   let qTemaTxt = '';
@@ -121,7 +124,7 @@ function roteiroHoje() {
     qTemaBtns = '<button class="btn pequeno primario" data-acao="treino-rapido" data-n="' + n + '" data-pre="1">Treino rápido (' + n + ' itens)</button>';
   }
   passos.push({
-    titulo: '2. Questões do tema (~15 min)',
+    titulo: 'Questões do tema (~15 min)',
     feito: qTemaFeita,
     texto: qTemaTxt,
     botoes: qTemaBtns,
@@ -130,15 +133,15 @@ function roteiroHoje() {
 
   // Dias perdidos do plano: a recuperação entra logo depois das questões do dia
   const rec = proximaRecuperacao(), atrasados = blocosAtrasados();
-  if (rec) passos.push({ titulo: 'Recuperar o atraso', feito: !!S.perfil.feitos['rec:' + hojeISO()],
+  if (rec) passos.push({ titulo: 'Recuperar o atraso', semNumero: true, feito: !!S.perfil.feitos['rec:' + hojeISO()],
     texto: rec.falta.map((f) => nomeBloco(f.b)).join(', ') + (atrasados.length > rec.falta.length ? ' (depois, mais ' + pl(atrasados.length - rec.falta.length, 'matéria', 'matérias') + ')' : '') + '.',
     botoes: botaoRecuperar() });
 
-  // Passo 3: Lei Seca com Grifos (~15 min)
+  // Lei seca com grifos (~15 min)
   const metaLeitura = arts.length ? Math.min(arts.length, metaArtigos()) : 0;
   const leiFeita = arts.length ? lidosHoje >= metaLeitura : (d.a || []).length >= 3;
   passos.push({
-    titulo: '3. Lei seca com grifos (~15 min)',
+    titulo: 'Lei seca com grifos (~' + (longo ? 15 : 10) + ' min)',
     feito: leiFeita,
     texto: arts.length
       ? 'Leitura atenta dos ' + metaLeitura + ' artigos prioritários com grifos de prazos, verbos e exceções (' + lidosHoje + ' de ' + metaLeitura + ' lidos hoje).'
@@ -149,23 +152,21 @@ function roteiroHoje() {
       : '<button class="btn pequeno" data-acao="ir" data-vista="lei">Abrir legislação</button>'
   });
 
-  // Passo 4: Aula da Trilha & Jurisprudência (~15 min)
+  // Aula da trilha (~10 min): no dia de matéria nova do plano e nos dias longos
   const aulaFeita = !!S.perfil.feitos['aula:' + hojeISO()] || (dia && !!S.perfil.feitos['aula:' + dia.data]);
-  passos.push({
-    titulo: '4. Aula da trilha & jurisprudência (~15 min)',
+  if (stPlano || (longo && stH)) passos.push({
+    titulo: 'Aula da trilha & jurisprudência (~10 min)',
     feito: aulaFeita,
-    texto: stH
-      ? esc(nomeTrilha(stH.trilha) || 'Trilha do zero') + ': ' + esc(stH.nome) + '. Mapa mental, exemplos e as armadilhas da banca.'
-      : 'Sem subtema para hoje: abra uma aula das Trilhas do zero.',
+    texto: esc(nomeTrilha(stH.trilha) || 'Trilha do zero') + ': ' + esc(stH.nome) + '. Mapa mental, exemplos e as armadilhas da banca.',
     botoes: stPlano ? '<button class="btn pequeno' + (leiFeita && !aulaFeita ? ' primario' : '') + '" data-acao="st-aula" data-st="' + esc(stPlano.id) + '">Abrir a aula</button>'
-      : stH ? '<button class="btn pequeno' + (leiFeita && !aulaFeita ? ' primario' : '') + '" data-acao="aula-folha" data-st="' + esc(stH.id) + '" data-marca="1">Abrir aula da trilha</button>' : '<button class="btn pequeno" data-acao="mais" data-sub="trilha">Trilhas do zero</button>'
+      : '<button class="btn pequeno' + (leiFeita && !aulaFeita ? ' primario' : '') + '" data-acao="aula-folha" data-st="' + esc(stH.id) + '" data-marca="1">Abrir aula da trilha</button>'
   });
 
-  // Passo 5: Fixação Prática (~10 min)
+  // Fixação prática (~5 min): nos dias longos (no dia útil, as questões do tema já fixam a matéria)
   const chT = 't:' + hojeISO();
   const fixFeita = !!S.perfil.feitos[chT];
-  passos.push({
-    titulo: '5. Fixação prática (~10 min)',
+  if (longo) passos.push({
+    titulo: 'Fixação prática (~5 min)',
     feito: fixFeita,
     texto: '5 itens práticos para aplicar os artigos lidos e consolidar os pontos exigidos pela banca.',
     botoes: stH
@@ -173,31 +174,31 @@ function roteiroHoje() {
       : '<button class="btn pequeno" data-acao="treino-rapido" data-n="5">Treino curto (5 itens)</button>'
   });
 
-  // Passo 6: Cards Cloze de Memorização (~10 min)
+  // Cards de número e prazo (~5 min): o dado arbitrário que o card fixa melhor; os demais cards ficam na aba Cards
   const metaNovos = Math.min(novosDisp + (d.n || 0), 5);
   const cardsFeitos = (d.n || 0) >= metaNovos && cardsV === 0;
   passos.push({
-    titulo: '6. Cards cloze de memorização (~10 min)',
+    titulo: 'Cards de número e prazo (~5 min)',
     feito: cardsFeitos,
-    texto: 'Fixação ativa de 5 lacunas cruciais: prazos, alíquotas de dosimetria, sanções e competências (' + (d.n || 0) + '/5 concluídos).',
-    botoes: '<button class="btn pequeno' + (fixFeita && !cardsFeitos ? ' primario' : '') + '" data-acao="cards-dia">Estudar 5 cards</button>'
+    texto: 'Lacunas de prazos, quóruns, percentuais e valores: você digita o número antes de ver (' + Math.min(d.n || 0, 5) + '/' + metaNovos + ' novos hoje).',
+    botoes: '<button class="btn pequeno' + (qTemaFeita && leiFeita && !cardsFeitos ? ' primario' : '') + '" data-acao="cards-dia">Estudar ' + Math.max(1, metaNovos - Math.min(d.n || 0, metaNovos)) + ' cards</button>'
   });
 
-  // Passo 7: Treino Intercalado (~10 min)
-  const intFeita = !!S.perfil.feitos[chaveInt];
+  // Treino intercalado (~10 min): todo dia, com português e inglês no peso da prova
+  const intFeita = !!S.perfil.feitos[chaveInt], rf = disciplinaReforco();
   passos.push({
-    titulo: '7. Treino intercalado (~10 min)',
+    titulo: 'Treino intercalado (~10 min)',
     feito: intFeita,
-    texto: '6 itens rápidos alternando matérias básicas (Português, Inglês, Constitucional e Administrativo).',
-    botoes: '<button class="btn pequeno' + (cardsFeitos && !intFeita ? ' primario' : '') + '" data-acao="intercaladas">' + esc(rotuloPausa(chaveInt, 'Treinar 6 itens intercalados')) + '</button>',
+    texto: nIntercaladas() + ' itens: português e inglês no peso da prova' + (rf ? ', reforço em ' + DI.get(rf.d).nome + ' (' + Math.round(rf.ac * 100) + '% de acerto, a mais baixa entre as matérias pesadas)' : '') + ' e as matérias já estudadas.',
+    botoes: '<button class="btn pequeno' + (cardsFeitos && !intFeita ? ' primario' : '') + '" data-acao="intercaladas">' + esc(rotuloPausa(chaveInt, 'Treinar itens intercalados')) + '</button>',
     extra: botaoRecomecar(chaveInt)
   });
 
-  // Passo 8: Discursiva Focal ou Espelho (~10 min)
+  // Discursiva: no dia que o plano marca (e nos dias longos, um esboço ou o espelho)
   const discOk = (dd ? discFeita(dd) : false) || (d.t && (d.t.d || 0) >= 300) || !!S.perfil.feitos['disc:' + hojeISO()];
   const tDisc = dd ? temaDisc(dd) : TEMAS_DISC[0], atrDisc = dd ? pendencias().filter((x) => x.disc).length : 0;
-  passos.push({
-    titulo: dd ? '8. Discursiva do dia (~10 min)' : '8. Discursiva ou espelho (~10 min)',
+  if (dd || longo) passos.push({
+    titulo: dd ? 'Discursiva do dia (~10 min)' : 'Discursiva ou espelho (~10 min)',
     feito: discOk,
     texto: dd
       ? 'Tema do dia: ' + esc(tDisc ? tDisc.titulo : 'Tema do edital') + '. Esboce os quesitos ou analise o espelho Cebraspe.' + (atrDisc ? ' Há ' + pl(atrDisc, 'discursiva atrasada', 'discursivas atrasadas') + ': cada uma salva dá baixa primeiro na de hoje e depois na mais antiga.' : '')
@@ -205,19 +206,8 @@ function roteiroHoje() {
     botoes: '<button class="btn pequeno' + (intFeita && !discOk ? ' primario' : '') + '" data-acao="disc-dia" data-t="' + esc((tDisc && tDisc.id) || 'sancoes') + '">Escrever / Ver espelho</button>'
   });
 
-  // Passo 9: Caderno de Erros e Pesquisa (~5 min)
-  const errosCad = Object.values(cadState().erros || {}).filter((e) => e.data === hojeISO()).length;
-  const erroFeito = pesqHoje > 0 || errosCad > 0 || d.e === 0;
-  passos.push({
-    titulo: '9. Caderno de erros e pesquisa (~5 min)',
-    feito: erroFeito,
-    texto: d.e > 0
-      ? 'Catalogar a causa dos erros de hoje (' + d.e + ' ' + pl(d.e, 'erro', 'erros') + ') para blindar a véspera.'
-      : 'Pesquisar 1 termo do glossário regulatório ou revisar suas regras pessoais.',
-    botoes: '<button class="btn pequeno' + (!erroFeito && d.e > 0 ? ' primario' : '') + '" data-acao="mais" data-sub="erros">Caderno de erros' + (d.e ? ' (' + d.e + ')' : '') + '</button>' +
-            '<button class="btn pequeno" data-acao="mais" data-sub="pesquisar">Pesquisar termo</button>'
-  });
-
+  let n = 0;
+  for (const p of passos) if (!p.semNumero) p.titulo = ++n + '. ' + p.titulo;
   return { dia, passos };
 }
 

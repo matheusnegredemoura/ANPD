@@ -58,6 +58,10 @@ Os pesos, a divisão dos itens entre as disciplinas e a cadência do plano são 
 4. Disciplina fora do edital fica com 0 itens em Ajustes (o simulado de prova completa deixa de sorteá-la) e dos dias do plano; tópico fora do edital sai do banco, como saíram os de telecomunicações. Blocos que entrarem com menos de 40 itens ganham itens antes de ir para o plano.
 5. `npm run validar`, `npm test` e `npm run test:navegador` (o `pesos.mjs` confere a nota ponderada).
 
+## Regra até o edital
+
+Nenhuma mecânica de jogo nova (modo, minijogo, moeda, ranking, conquista de volume) até sair o edital. O que entra é conteúdo (itens, aulas, cards, textos de norma) e ajuste guiado pelos dados de uso: tempo real, acerto por disciplina, causas de erro, passos do roteiro que não fecham. Os dados mostraram falta de conteúdo e de constância, não de técnica.
+
 ## Auditoria do banco
 
 - Amostras sorteadas de itens autorais conferidos um a um na norma, na tese ou no texto de apoio: 100 de LGPD e regulação e 100 das demais disciplinas (direito, línguas, ECA Digital, segurança, gestão, economia, comparado e contabilidade). Nenhum gabarito errado nos 200; pela regra de três, a taxa de erro do banco autoral fica abaixo de 1,5% com 95% de confiança. Um comentário impreciso foi corrigido (gc-41).

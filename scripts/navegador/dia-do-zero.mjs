@@ -23,10 +23,10 @@ await p.waitForTimeout(600);
 
 const titulos = async () => (await p.locator('.roteiro .passo b').allTextContents()).map((t) => t.trim());
 
-await passo('o roteiro de ' + dia.data + ' traz questões, lei, aula e prática do mesmo subtema, nessa ordem', async () => {
+await passo('o roteiro de ' + dia.data + ' traz questões, lei e aula do mesmo subtema, nessa ordem', async () => {
   const t = await titulos();
   const i = (re) => t.findIndex((x) => re.test(x));
-  const ordem = [i(/^2\. Questões do tema/), i(/^3\. Lei seca/), i(/^4\. Aula/), i(/^5\. Fixação/)];
+  const ordem = [i(/^2\. Questões do tema/), i(/^3\. Lei seca/), i(/^4\. Aula/)];
   if (ordem.some((x) => x < 0) || ordem.some((x, k) => k && x <= ordem[k - 1])) throw new Error(t.join(' | '));
   if (t.some((x) => /^Lei seca grifada$/.test(x))) throw new Error('lei seca repetida no roteiro');
 });
