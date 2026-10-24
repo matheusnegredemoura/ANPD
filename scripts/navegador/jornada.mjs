@@ -58,7 +58,7 @@ await passo('dias anteriores aparecem em "Atraso do plano" e podem ser dispensad
 });
 
 await passo('missões cumpridas pelo que já foi feito no dia abrem o baú', async () => {
-  const { ctx, p } = await abrir((h) => ({ dias: { [h]: { r: 70, c: 63, e: 7, b: 0, xp: 0, k: 25, n: 0, a: ['lgpd:5', 'lgpd:6', 'lgpd:7', 'lgpd:8', 'lgpd:9'], ni: 25, cmb: 12, pd: 1, rl: 1, cg: 5, t: { q: 4000 } } } }),
+  const { ctx, p } = await abrir((h) => ({ dias: { [h]: { r: 70, c: 63, e: 7, b: 0, xp: 0, k: 25, n: 0, a: ['lgpd:5', 'lgpd:6', 'lgpd:7', 'lgpd:8', 'lgpd:9'], ni: 25, cmb: 12, pd: 1, rl: 1, cg: 5, rt: 1, t: { q: 4000 } } } }),
     (h) => ({ 'tema teste': { t: 'Tema teste', o: 'teste', s: 1, d: h, f: h } }));
   const ok = await p.locator('.cartao.jornada .missao.ok').count();
   if (ok !== 3) throw new Error(ok + ' missões cumpridas (esperado 3)');
@@ -132,7 +132,7 @@ await passo('golpe final derruba o chefão e dá um item, que é equipado', asyn
   const inv = Object.keys(r.inv || {});
   if (inv.length !== 1 || !Object.values(r.eq || {}).includes(inv[0])) throw new Error('item não foi para o inventário e o equipamento: ' + JSON.stringify(r));
   const conq = (await salvo(p)).perfil.conq;
-  if (!conq.perfeita || !conq.chefe1) throw new Error('vitória sem erro não deu Vitória perfeita e Primeiro chefão: ' + Object.keys(conq).join(','));
+  if (!conq.chefe1) throw new Error('vitória não deu Primeiro chefão: ' + Object.keys(conq).join(','));
   await ctx.close();
 });
 

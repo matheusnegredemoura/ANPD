@@ -210,34 +210,20 @@ const NIVEIS = [
 const MANDATO_XP = 10000;
 
 // Conquistas em cinco grupos (g); cada id fica gravado com a data em perfil.conq
-const GRUPOS_CONQ = [['q', 'Questões'], ['c', 'Constância'], ['x', 'XP e ritmo'], ['l', 'Lei, cards e revisão'], ['p', 'Domínio e prova'], ['j', 'Jornada']];
+const GRUPOS_CONQ = [['q', 'Questões'], ['c', 'Constância'], ['l', 'Lei, cards e revisão'], ['p', 'Domínio e prova'], ['j', 'Jornada']];
 const CONQ = [
   { g: 'q', id: 'primeira', ic: '1', nome: 'Primeira marcação', desc: 'Respondeu o primeiro item.' },
   { g: 'q', id: 'r100', ic: '100', nome: 'Cem itens', desc: 'Respondeu 100 itens.' },
   { g: 'q', id: 'r500', ic: '500', nome: 'Quinhentos', desc: 'Respondeu 500 itens.' },
   { g: 'q', id: 'r1000', ic: '1k', nome: 'Mil itens', desc: 'Respondeu 1.000 itens.' },
-  { g: 'q', id: 'r2500', ic: '2,5k', nome: 'Dois mil e quinhentos', desc: 'Respondeu 2.500 itens.' },
-  { g: 'q', id: 'r5000', ic: '5k', nome: 'Cinco mil', desc: 'Respondeu 5.000 itens.' },
-  { g: 'q', id: 'r10000', ic: '10k', nome: 'Dez mil', desc: 'Respondeu 10.000 itens.' },
-  { g: 'q', id: 'r20000', ic: '20k', nome: 'Vinte mil', desc: 'Respondeu 20.000 itens.' },
   { g: 'q', id: 'metade', ic: '½', nome: 'Meio banco', desc: 'Respondeu metade dos itens diferentes do banco.' },
-  { g: 'q', id: 'combo10', ic: '10', nome: 'Dez seguidas', desc: 'Acertou 10 itens em sequência.' },
-  { g: 'q', id: 'combo25', ic: '25', nome: 'Gabarito limpo', desc: 'Acertou 25 itens em sequência.' },
-  { g: 'q', id: 'combo50', ic: '50', nome: 'Cinquenta seguidas', desc: 'Acertou 50 itens em sequência.' },
-  { g: 'q', id: 'maratona', ic: '»', nome: 'Maratona', desc: 'Respondeu 100 itens no mesmo dia.' },
-  { g: 'q', id: 'maratona200', ic: '»»', nome: 'Ultramaratona', desc: 'Respondeu 200 itens no mesmo dia.' },
   { g: 'q', id: 'certeiro', ic: '90%', nome: 'Dia certeiro', desc: '90% de acerto em 30 ou mais itens no mesmo dia.' },
   { g: 'q', id: 'reais50', ic: 'CB', nome: 'Cara a cara com a banca', desc: 'Respondeu 50 itens reais de prova.' },
   { g: 'q', id: 'reais300', ic: 'CB+', nome: 'Veterano(a) de prova', desc: 'Respondeu 300 itens reais de prova.' },
   { g: 'q', id: 'casca', ic: 'D3', nome: 'Casca grossa', desc: 'Dominou 50 itens de dificuldade alta.' },
-  { g: 'q', id: 'me20', ic: 'A–E', nome: 'Cinco alternativas', desc: 'Respondeu 20 itens de múltipla escolha.' },
   { g: 'q', id: 'calibrado', ic: '?', nome: 'Bem calibrado', desc: 'Marcou dúvida em 20 itens. Agora você sabe quando chutar.' },
-  { g: 'q', id: 'relampago15', ic: 'R', nome: 'Relâmpago', desc: 'Nota líquida de 15 ou mais no modo relâmpago.' },
-  { g: 'q', id: 'relampago25', ic: 'R+', nome: 'Trovão', desc: 'Nota líquida de 25 ou mais no modo relâmpago.' },
   { g: 'c', id: 'meta', ic: 'M', nome: 'Meta batida', desc: 'Cumpriu a meta diária de itens.' },
   { g: 'c', id: 'meta10', ic: 'M10', nome: 'Meta é rotina', desc: 'Cumpriu a meta diária em 10 dias.' },
-  { g: 'c', id: 'meta50', ic: 'M50', nome: 'Meta inabalável', desc: 'Cumpriu a meta diária em 50 dias.' },
-  { g: 'c', id: 'meta100', ic: 'M100', nome: 'Meta de aço', desc: 'Cumpriu a meta diária em 100 dias.' },
   { g: 'c', id: 'seq7', ic: '7d', nome: 'Semana firme', desc: '7 dias seguidos de estudo (domingo e uma folga por semana não quebram).' },
   { g: 'c', id: 'seq14', ic: '14d', nome: 'Quinzena firme', desc: '14 dias seguidos de estudo.' },
   { g: 'c', id: 'seq30', ic: '30d', nome: 'Mês sem falhar', desc: '30 dias seguidos de estudo.' },
@@ -249,36 +235,19 @@ const CONQ = [
   { g: 'c', id: 'hora1', ic: '1h', nome: 'Uma hora de foco', desc: 'Estudou 1 hora no mesmo dia (relógio do app).' },
   { g: 'c', id: 'hora3', ic: '3h', nome: 'Três horas', desc: 'Estudou 3 horas no mesmo dia.' },
   { g: 'c', id: 'horas100', ic: '100h', nome: 'Cem horas', desc: 'Somou 100 horas de estudo no app.' },
-  { g: 'c', id: 'horas250', ic: '250h', nome: 'Duzentas e cinquenta horas', desc: 'Somou 250 horas de estudo no app.' },
-  { g: 'c', id: 'coruja', ic: '23h', nome: 'Coruja', desc: 'Estudou depois das 23h.' },
-  { g: 'c', id: 'madrugador', ic: '6h', nome: 'Madrugador(a)', desc: 'Respondeu um item entre 4h e 7h.' },
   { g: 'c', id: 'roteiro', ic: '5/5', nome: 'Roteiro completo', desc: 'Fechou todos os passos do roteiro de um dia.' },
   { g: 'c', id: 'roteiro7', ic: '7×', nome: 'Semana de roteiros', desc: 'Fechou o roteiro completo em 7 dias.' },
   { g: 'c', id: 'recuperacao', ic: '↺', nome: 'Nada fica para trás', desc: 'Terminou uma sessão de recuperação do atraso do plano.' },
-  { g: 'x', id: 'dia3k', ic: '3k', nome: 'Dia cheio', desc: 'Fez 3.000 XP num dia.' },
-  { g: 'x', id: 'dia5k', ic: '5k', nome: 'Dia histórico', desc: 'Fez 5.000 XP num dia.' },
-  { g: 'x', id: 'sem5k', ic: 'S5k', nome: 'Semana produtiva', desc: 'Fez 5.000 XP numa semana (de segunda a domingo).' },
-  { g: 'x', id: 'sem10k', ic: 'S10k', nome: 'Semana de ouro', desc: 'Fez 10.000 XP numa semana.' },
-  { g: 'x', id: 'sem15k', ic: 'S15k', nome: 'Semana épica', desc: 'Fez 15.000 XP numa semana.' },
-  { g: 'x', id: 'sem20k', ic: 'S20k', nome: 'Semana lendária', desc: 'Fez 20.000 XP numa semana.' },
-  { g: 'x', id: 'semanas4', ic: '4×', nome: 'Ritmo de cruzeiro', desc: '4 semanas seguidas com 5.000 XP ou mais.' },
-  { g: 'x', id: 'semanas12', ic: '12×', nome: 'Ritmo de prova', desc: '12 semanas seguidas com 5.000 XP ou mais.' },
-  { g: 'x', id: 'xp25k', ic: '25k', nome: '25 mil XP', desc: 'Somou 25.000 XP.' },
-  { g: 'x', id: 'xp50k', ic: '50k', nome: '50 mil XP', desc: 'Somou 50.000 XP.' },
-  { g: 'x', id: 'xp100k', ic: '100k', nome: '100 mil XP', desc: 'Somou 100.000 XP.' },
-  { g: 'x', id: 'xp150k', ic: '150k', nome: '150 mil XP', desc: 'Somou 150.000 XP.' },
-  { g: 'x', id: 'xp200k', ic: '200k', nome: '200 mil XP', desc: 'Somou 200.000 XP.' },
-  { g: 'x', id: 'xp250k', ic: '250k', nome: '250 mil XP', desc: 'Somou 250.000 XP: o ritmo de 10 mil por semana mantido até a prova.' },
+  { g: 'c', id: 'semanas4', ic: '4×', nome: 'Ritmo de cruzeiro', desc: '4 semanas seguidas com 5.000 XP ou mais.' },
+  { g: 'c', id: 'semanas12', ic: '12×', nome: 'Ritmo de prova', desc: '12 semanas seguidas com 5.000 XP ou mais.' },
   { g: 'l', id: 'lei20', ic: '§', nome: 'Lei seca', desc: 'Abriu 20 artigos no leitor da lei seca.' },
   { g: 'l', id: 'lei100', ic: '§100', nome: 'Cem artigos', desc: 'Abriu 100 artigos no leitor da lei seca.' },
   { g: 'l', id: 'lei500', ic: '§500', nome: 'Biblioteca de normas', desc: 'Abriu 500 artigos no leitor da lei seca.' },
   { g: 'l', id: 'leitodas', ic: '§§', nome: 'Lei inteira', desc: 'Abriu todos os artigos da LGPD no leitor.' },
   { g: 'l', id: 'cards50', ic: 'C', nome: 'Cinquenta lacunas', desc: 'Revisou 50 cards cloze.' },
   { g: 'l', id: 'cards300', ic: 'C3', nome: 'Lei na ponta da língua', desc: 'Revisou 300 cards cloze.' },
-  { g: 'l', id: 'cards1000', ic: 'C1k', nome: 'Mil lacunas', desc: 'Revisou 1.000 cards cloze.' },
   { g: 'l', id: 'lista25', ic: 'LC', nome: 'Lista curta', desc: 'Tirou 25 itens da lista de erros.' },
   { g: 'l', id: 'lista100', ic: 'LC+', nome: 'Erro que não volta', desc: 'Tirou 100 itens da lista de erros.' },
-  { g: 'l', id: 'lista300', ic: 'LC3', nome: 'Lista enxuta', desc: 'Tirou 300 itens da lista de erros.' },
   { g: 'l', id: 'memoria50', ic: '↻', nome: 'Memória de longo prazo', desc: 'Confirmou 50 acertos antigos que voltaram para manutenção.' },
   { g: 'l', id: 'pesq10', ic: '?!', nome: 'Curiosidade', desc: 'Marcou 10 temas como pesquisados e entendidos.' },
   { g: 'l', id: 'pesq30', ic: '?!+', nome: 'Investigador(a)', desc: 'Marcou 30 temas como pesquisados e entendidos.' },
@@ -305,19 +274,9 @@ const CONQ = [
   { g: 'j', id: 'chefe1', ic: 'Ch', nome: 'Primeiro chefão', desc: 'Derrotou um chefão da semana.' },
   { g: 'j', id: 'chefe5', ic: 'Ch5', nome: 'Caçador(a) de chefões', desc: 'Derrotou 5 chefões.' },
   { g: 'j', id: 'chefe10', ic: 'Ch10', nome: 'Dez troféus', desc: 'Derrotou 10 chefões.' },
-  { g: 'j', id: 'andar10', ic: '▼10', nome: 'Explorador(a) de masmorras', desc: 'Limpou 10 andares da masmorra da semana.' },
-  { g: 'j', id: 'masmorra', ic: '▼▼', nome: 'Masmorra limpa', desc: 'Limpou todos os andares de uma masmorra da semana.' },
-  { g: 'j', id: 'peg10', ic: 'P!', nome: 'Faro de banca', desc: 'Acertou o tipo de 10 pegadinhas no Caça-Pegadinha.' },
-  { g: 'j', id: 'peg100', ic: 'P!!', nome: 'Caçador(a) de pegadinhas', desc: 'Acertou o tipo de 100 pegadinhas no Caça-Pegadinha.' },
-  { g: 'j', id: 'perfeita', ic: '♥', nome: 'Vitória perfeita', desc: 'Derrotou o chefão numa batalha sem perder nenhum coração.' },
-  { g: 'j', id: 'lendario', ic: '★', nome: 'Item lendário', desc: 'Conseguiu um item lendário.' },
-  { g: 'j', id: 'equipado', ic: 'EQ', nome: 'Equipado(a)', desc: 'Arma, armadura e amuleto equipados ao mesmo tempo.' },
-  { g: 'j', id: 'colecao', ic: '12', nome: 'Arsenal completo', desc: 'Reuniu todos os itens do inventário.' },
   { g: 'j', id: 'nivel10', ic: 'N10', nome: 'Nível 10', desc: 'Chegou ao nível 10: ' + NIVEIS[9][1] + '.' },
   { g: 'j', id: 'nivel20', ic: 'N20', nome: 'Nível 20', desc: 'Chegou ao nível 20: ' + NIVEIS[19][1] + '.' },
   { g: 'j', id: 'nivel30', ic: 'N30', nome: 'Nível 30', desc: 'Chegou ao nível 30: ' + NIVEIS[29][1] + '.' },
-  { g: 'j', id: 'nivel40', ic: 'N40', nome: 'Nível 40', desc: 'Chegou ao nível 40: ' + NIVEIS[39][1] + '.' },
-  { g: 'j', id: 'mandato5', ic: 'DP5', nome: 'Quinto mandato', desc: 'Chegou ao quinto mandato de ' + NIVEIS[39][1] + '.' },
 ];
 
 /* ================= Utilitários ================= */
@@ -1010,7 +969,7 @@ function registrar(q, resp, duvida) {
   const d = diaLog();
   if (resp === BRANCO) d.b = (d.b || 0) + 1; else { d.r++; if (ok) d.c++; else d.e++; }
   if (antes < 0 && resp !== BRANCO) d.ni = (d.ni || 0) + 1;
-  if (ok) { golpeChefe(q); verificarAndar(q); }
+  if (ok) golpeChefe(q);
   if (eraManutencao) { d.m = (d.m || 0) + 1; if (ok && !duvida) d.mc = (d.mc || 0) + 1; }
   if (pontual) { d.mp = (d.mp || 0) + 1; if (ok && !duvida) d.mpc = (d.mpc || 0) + 1; }
   if (ok === false) sugerirPesquisaDoErro(q);
@@ -1040,12 +999,8 @@ function verificarConquistas(ctx) {
   const tem = (id) => !!S.perfil.conq[id];
   const se = (cond, id) => { if (cond) conquistar(id); };
   const t = totais();
-  se(t.r >= 1, 'primeira'); se(t.r >= 100, 'r100'); se(t.r >= 500, 'r500'); se(t.r >= 1000, 'r1000'); se(t.r >= 2500, 'r2500'); se(t.r >= 5000, 'r5000'); se(t.r >= 10000, 'r10000'); se(t.r >= 20000, 'r20000');
-  se(t.k >= 50, 'cards50'); se(t.k >= 300, 'cards300'); se(t.k >= 1000, 'cards1000');
-  const combo = S.perfil.recordes.combo || 0;
-  se(combo >= 10, 'combo10'); se(combo >= 25, 'combo25'); se(combo >= 50, 'combo50');
-  const relampago = S.perfil.recordes.relampago || 0;
-  se(relampago >= 15, 'relampago15'); se(relampago >= 25, 'relampago25');
+  se(t.r >= 1, 'primeira'); se(t.r >= 100, 'r100'); se(t.r >= 500, 'r500'); se(t.r >= 1000, 'r1000');
+  se(t.k >= 50, 'cards50'); se(t.k >= 300, 'cards300');
   const seq = sequencia();
   if (seq > (S.perfil.melhorSeq || 0)) S.perfil.melhorSeq = seq;
   se(seq >= 7, 'seq7'); se(seq >= 14, 'seq14'); se(seq >= 30, 'seq30'); se(seq >= 60, 'seq60'); se(seq >= 100, 'seq100');
@@ -1055,14 +1010,11 @@ function verificarConquistas(ctx) {
   for (const [iso, d] of Object.entries(S.perfil.dias)) {
     const sem = isoDeNum(diaNum(iso) - ((diaSemana(iso) + 6) % 7));
     xpSem[sem] = (xpSem[sem] || 0) + (d.xp || 0);
-    se(d.xp >= 3000, 'dia3k'); se(d.xp >= 5000, 'dia5k');
-    if (d.r >= 200) conquistar('maratona200');
     if (ativo(iso)) ativos++;
     if (d.metaOk) metas++;
     manut += d.m || 0;
     if (d.rt) roteiros++;
     if (d.pd) conquistar('recuperacao');
-    if (d.r >= 100) conquistar('maratona');
     if (d.r >= 30 && d.c / d.r >= 0.9) conquistar('certeiro');
     const s = segundosEstudo(d);
     seg += s;
@@ -1071,17 +1023,13 @@ function verificarConquistas(ctx) {
     if (!tem('fds') && diaSemana(iso) === 0 && ativo(iso) && ativo(isoDeNum(diaNum(iso) - 1))) conquistar('fds');
   }
   se(ativos >= 30, 'dias30'); se(ativos >= 100, 'dias100');
-  se(metas >= 10, 'meta10'); se(metas >= 50, 'meta50'); se(metas >= 100, 'meta100');
-  se(manut >= 50, 'memoria50'); se(roteiros >= 7, 'roteiro7'); se(seg >= 100 * 3600, 'horas100'); se(seg >= 250 * 3600, 'horas250');
+  se(metas >= 10, 'meta10');
+  se(manut >= 50, 'memoria50'); se(roteiros >= 7, 'roteiro7'); se(seg >= 100 * 3600, 'horas100');
   // XP por semana (de segunda a domingo) e a maior série de semanas seguidas com 5.000 XP ou mais
-  const melhorSem = Math.max(0, ...Object.values(xpSem));
-  se(melhorSem >= 5000, 'sem5k'); se(melhorSem >= 10000, 'sem10k'); se(melhorSem >= 15000, 'sem15k'); se(melhorSem >= 20000, 'sem20k');
   let serie = 0, melhorSerie = 0;
   const sems = Object.keys(xpSem).sort();
   if (sems.length) for (let n = diaNum(sems[0]); n <= HOJE(); n += 7) { serie = (xpSem[isoDeNum(n)] || 0) >= 5000 ? serie + 1 : 0; melhorSerie = Math.max(melhorSerie, serie); }
   se(melhorSerie >= 4, 'semanas4'); se(melhorSerie >= 12, 'semanas12');
-  const xp = S.perfil.xp || 0;
-  se(xp >= 25000, 'xp25k'); se(xp >= 50000, 'xp50k'); se(xp >= 100000, 'xp100k'); se(xp >= 150000, 'xp150k'); se(xp >= 200000, 'xp200k'); se(xp >= 250000, 'xp250k');
   se(S.simulados.length >= 1, 'sim1'); se(S.simulados.length >= 5, 'sim5');
   se(S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.7), 'sim70');
   se(S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.8), 'sim80');
@@ -1090,7 +1038,7 @@ function verificarConquistas(ctx) {
   se(lidos >= 20, 'lei20'); se(lidos >= 100, 'lei100'); se(lidos >= 500, 'lei500');
   if (!tem('leitodas') && ARTS.length && ARTS.every((a) => (S.perfil.lidos || {})[a.k])) conquistar('leitodas');
   const saidos = S.perfil.saidos || 0;
-  se(saidos >= 25, 'lista25'); se(saidos >= 100, 'lista100'); se(saidos >= 300, 'lista300');
+  se(saidos >= 25, 'lista25'); se(saidos >= 100, 'lista100');
   const pesq = Object.values(S.pesquisa).filter((p) => p.s).length;
   se(pesq >= 10, 'pesq10'); se(pesq >= 30, 'pesq30');
   se((S.perfil.recordes.ex || 0) >= 5, 'explicar5');
@@ -1107,7 +1055,7 @@ function verificarConquistas(ctx) {
     if (q.d === 3 && r[0] >= 3) dificeis++;
   }
   se(duv >= 20, 'calibrado'); se(vistos >= Math.ceil(Q.length / 2), 'metade');
-  se(reais >= 50, 'reais50'); se(reais >= 300, 'reais300'); se(me >= 20, 'me20'); se(dificeis >= 50, 'casca');
+  se(reais >= 50, 'reais50'); se(reais >= 300, 'reais300'); se(dificeis >= 50, 'casca');
   if (!tem('blocos20')) {
     const fortes = BLOCOS.filter((b) => (dominioBloco(b.id) || 0) >= 0.8).length;
     se(fortes >= 1, 'bloco80'); se(fortes >= 5, 'blocos5'); se(fortes >= 20, 'blocos20');
@@ -1133,15 +1081,9 @@ function verificarConquistas(ctx) {
   const baus = Math.max(r.baus || 0, Object.values(r.m || {}).filter((x) => x && x.bau).length);
   se(baus >= 1, 'bau1'); se(baus >= 7, 'bau7'); se(baus >= 30, 'bau30');
   const trofeus = (r.trofeus || []).length;
-  const peg = (r.peg || [0])[0];
-  se(peg >= 10, 'peg10'); se(peg >= 100, 'peg100');
-  se((r.andares || 0) >= 10, 'andar10'); se((r.masmorras || 0) >= 1, 'masmorra');
   se(trofeus >= 1, 'chefe1'); se(trofeus >= 5, 'chefe5'); se(trofeus >= 10, 'chefe10');
-  se(ITENS_RPG.some((it) => it.rar === 'lendario' && r.inv[it.id]), 'lendario');
-  se(Object.keys(ENCAIXES).every((sl) => equipado(sl)), 'equipado');
-  se(ITENS_RPG.every((it) => r.inv[it.id]), 'colecao');
   const nv = nivelDe(S.perfil.xp).n;
-  se(nv >= 10, 'nivel10'); se(nv >= 20, 'nivel20'); se(nv >= 30, 'nivel30'); se(nv >= 40, 'nivel40'); se(nv >= 44, 'mandato5');
+  se(nv >= 10, 'nivel10'); se(nv >= 20, 'nivel20'); se(nv >= 30, 'nivel30');
   if (ctx.respondeu) {
     const h = new Date().getHours();
     se(h >= 23, 'coruja'); se(h >= 4 && h < 7, 'madrugador');
@@ -1807,39 +1749,6 @@ function cartaoGanhos() {
 }
 // Linha extra na tela da resposta: o artigo já cobrado em prova real (o acerto nele é crítico: XP e dano em dobro
 // no chefão, 50% a mais de XP fora dele)
-// Caça-Pegadinha: ao acertar um item errado de certo/errado, a pessoa aponta o tipo da pegadinha. Só entram os itens
-// em que o build confirmou o tipo pelo texto (q.pg: o primeiro código é o certo, os outros são tipos que o item não
-// tem). Acertar o tipo dá um golpe certeiro de PEG_XP; errar não tira nada e mostra qual era.
-const PEG = {
-  n: ['Número ou prazo', 'trocou prazo, quantidade, quórum ou percentual'],
-  a: ['Palavra absoluta', 'generalizou com sempre, nunca, somente ou qualquer onde a lei admite outra hipótese'],
-  e: ['Exceção ou condição', 'apagou, inventou ou inverteu uma ressalva, condição ou requisito'],
-  r: ['Rol trocado', 'pôs na lista o que a lei não lista, ou tirou o que ela lista'],
-  s: ['Sujeito trocado', 'deu a competência, o dever ou o direito a outra pessoa ou órgão'],
-};
-const PEG_XP = 8;
-function cacaAtiva(q) { return !!(q.pg && sessao && sessao.modo !== 'simulado' && sessao.modo !== 'relampago' && !UI.foco && sessao.resp[q.id] === 'E'); }
-function renderCaca(q) {
-  if (!cacaAtiva(q)) return '';
-  const st = (sessao.peg || {})[q.id], [nome, desc] = PEG[q.pg[0]];
-  if (st) return '<div class="caca ' + (st === 'ok' ? 'ok' : 'no') + '" role="status"><p>' + (st === 'ok' ? '<b>Golpe certeiro: +' + PEG_XP + ' XP.</b> ' : 'Você apontou ' + esc(PEG[st][0].toLowerCase()) + '. ') + 'Era <b>' + esc(nome.toLowerCase()) + '</b>: ' + esc(desc) + '.</p></div>';
-  const ops = q.pg.split('').sort((x, y) => hashTxt(q.id + x) - hashTxt(q.id + y));
-  return '<div class="caca" role="group" aria-labelledby="caca-t"><p id="caca-t"><b>Caça-Pegadinha</b> · onde estava a pegadinha?</p><div class="chips">' +
-    ops.map((c) => '<button class="chip" data-acao="pegadinha" data-t="' + c + '">' + esc(PEG[c][0]) + '</button>').join('') + '</div></div>';
-}
-function cacarPegadinha(t) {
-  const q = sessao && QI.get(sessao.ids[sessao.i]);
-  if (!q || !cacaAtiva(q) || !PEG[t] || (sessao.peg || {})[q.id]) return;
-  const ok = t === q.pg[0], r = rpg();
-  (sessao.peg ||= {})[q.id] = ok ? 'ok' : t;
-  r.peg = r.peg || [0, 0];
-  r.peg[1]++;
-  if (ok) { r.peg[0]++; diaLog().pg = (diaLog().pg || 0) + 1; sessao.xp += PEG_XP; ganharXP(PEG_XP); tocar('combo'); }
-  verificarConquistas();
-  verificarRPG();
-  Store.salvar('perfil');
-  renderSessao();
-}
 function extrasResposta(q) {
   const n = caiuEmProva(q);
   return n ? '<p class="extra-resp quente"><span aria-hidden="true">★</span> Já caiu em prova: ' + pl(n, 'item real', 'itens reais') + ' deste artigo no banco.</p>' : '';
@@ -2313,23 +2222,19 @@ function cartaoPendencias() {
 // Nada disso tira XP, e missão não feita não acumula para o dia seguinte.
 const MISSOES = [
   { id: 'q30', txt: () => 'Responder ' + metaDia() + ' itens', xp: 30, meta: () => metaDia(), val: (d) => d.r || 0 },
-  { id: 'q60', txt: () => 'Responder ' + metaMais() + ' itens', xp: 60, meta: () => metaMais(), val: (d) => d.r || 0 },
   { id: 'novas', txt: () => 'Responder ' + metaNovas() + ' itens inéditos', xp: 40, meta: () => metaNovas(), val: (d) => d.ni || 0 },
   { id: 'acerto', txt: 'Acertar 80% de pelo menos 20 itens', xp: 40, meta: 1, val: (d) => ((d.r || 0) >= 20 && d.c / d.r >= 0.8 ? 1 : 0), fr: (d) => Math.min(1, (d.r || 0) / 20) },
-  { id: 'peg3', txt: 'Acertar o tipo de 3 pegadinhas no Caça-Pegadinha', xp: 30, meta: 3, val: (d) => d.pg || 0 },
-  { id: 'combo', txt: 'Acertar 10 seguidos', xp: 30, meta: 10, val: (d) => d.cmb || 0 },
+  { id: 'roteiro', txt: 'Fechar o roteiro de hoje', xp: 60, meta: 1, val: (d) => d.rt || 0, so: () => !!roteiroHoje() },
+  { id: 'arterro', txt: 'Ler o artigo de um item que você errou', xp: 40, meta: 1, val: (d) => { const e = artigosDeErros(); return (d.a || []).filter((k) => e.has(k)).length; }, so: () => artigosDeErros().size > 0 },
   { id: 'lei5', txt: () => 'Ler ' + metaLei() + ' artigos da lei seca', xp: 30, meta: () => metaLei(), val: (d) => (d.a || []).length },
-  { id: 'cards20', txt: 'Revisar 20 cards', xp: 30, meta: 20, val: (d) => d.k || 0 },
   { id: 'tempo60', txt: () => 'Estudar ' + fmtDur(metaMin60() * 60), xp: 40, meta: () => metaMin60(), val: (d) => Math.floor(segundosEstudo(d) / 60) },
   { id: 'virada', txt: 'Acertar 5 itens que você tinha errado em outro dia', xp: 50, meta: 5, val: (d) => d.vr || 0, so: () => Object.values(S.itens).filter((r) => r[0] === 0 && r[3] > 0 && r[4] < HOJE()).length >= 5 },
   { id: 'pesq', txt: 'Investigar um tema da lista Para pesquisar', xp: 30, meta: 1, val: () => Object.values(S.pesquisa).filter((p) => p.s && p.f === hojeISO()).length },
   { id: 'pend', txt: 'Recuperar uma sessão do atraso', xp: 60, meta: 1, val: (d) => d.pd || 0, so: () => pendencias().some((x) => x.sessao) },
-  { id: 'rel', txt: 'Jogar uma rodada do Relâmpago', xp: 30, meta: 1, val: (d) => d.rl || 0, acao: () => '<button class="linkish pequeno" data-acao="relampago" data-blocos="' + P1.join(',') + '">Jogar</button>' },
   { id: 'chefe5', txt: 'Acertar 5 golpes no chefão', xp: 40, meta: 5, val: (d) => (chefeDaSemana().vencido ? 5 : d.cg || 0), so: () => !chefeDaSemana().vencido },
 ];
 const MI = new Map(MISSOES.map((m) => [m.id, m]));
 // Metas das missões pelo ritmo pessoal (sem ritmo, os valores de sempre: 30, 60, 20, 5 artigos e 1 hora)
-function metaMais() { return ritmo() ? Math.round((metaDia() * 1.5) / 10) * 10 : 60; }
 function metaNovas() { const r = ritmo(); return r && r.ni ? limitar(Math.round(r.ni / 10) * 10, 20, 80) : 20; }
 function metaLei() { const r = ritmo(); return r && r.a ? limitar(r.a, 5, 12) : 5; }
 function metaMin60() { const r = ritmo(); return r && r.min ? limitar(Math.round(r.min / 15) * 15, 60, 180) : 60; }
@@ -2409,6 +2314,16 @@ function avisarSaque(origem, s) {
 function hashTxt(t) { let h = 2166136261; for (const c of t) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
 // As missões do dia são sorteadas uma vez (pela data) e ficam guardadas; a de pendência entra sempre que houver
 // sessão para encaixar, e nunca saem duas de "responder N itens" no mesmo dia
+// Artigos dos itens cuja última resposta foi erro: ler um deles é o passo que mais rende quando o erro foi "não sabia"
+function artigosDeErros() {
+  const set = new Set();
+  for (const [id, r] of Object.entries(S.itens)) {
+    if (r[0] !== 0 || !(r[3] > 0)) continue;
+    const q = QI.get(id);
+    if (q && q.art && LEIS[q.l]) set.add(chave(q.l, q.art));
+  }
+  return set;
+}
 function missoesHoje() {
   const h = hojeISO(), r = rpg(), m = (r.m ||= {});
   if (!m[h]) {
@@ -2416,13 +2331,14 @@ function missoesHoje() {
     const ids = pool.some((x) => x.id === 'pend') ? ['pend'] : [];
     for (const x of pool.filter((y) => y.id !== 'pend').sort((a, b) => hashTxt(h + a.id) - hashTxt(h + b.id))) {
       if (ids.length >= 3) break;
-      if (x.id.startsWith('q') && /^q\d/.test(x.id) && ids.some((i) => /^q\d/.test(i))) continue;
       ids.push(x.id);
     }
     m[h] = { ids, ok: {} };
     const limite = isoDeNum(HOJE() - 14);
     for (const k of Object.keys(m)) if (k < limite) delete m[k];
   }
+  // Missão de um dia guardado que deixou de existir sai da lista (senão o baú do dia nunca abriria)
+  m[h].ids = m[h].ids.filter((id) => MI.has(id));
   return m[h];
 }
 function verificarRPG() {
@@ -2471,59 +2387,6 @@ function chefeDaSemana() {
   }
   normalizarChefe(r.chefe);
   return r.chefe;
-}
-// Masmorra da semana: cada artigo de um bloco de lei é um andar, na ordem da lei. O bloco é o do chefão quando ele tem
-// pelo menos 3 andares; senão, o bloco de lei mais fraco entre os praticados. O andar fica limpo quando nenhum item dele
-// está com erro pendente e pelo menos ANDAR_MIN (ou todos, se forem menos) estão certos no último registro. Limpar um
-// andar respondendo um item dele dá ANDAR_XP, uma vez por semana; andar que já estava limpo aparece limpo.
-const ANDAR_MIN = 5, ANDAR_XP = 20;
-let posArt = null;
-function andaresDe(bloco) {
-  if (!posArt) posArt = new Map([...ARTI.keys()].map((k, i) => [k, i]));
-  const porArt = agrupar((POR_BLOCO.get(bloco) || []).filter((q) => q.art && LEIS[q.l]), (q) => chave(q.l, q.art));
-  return [...porArt.entries()].filter(([k]) => ARTI.has(k)).sort((a, b) => posArt.get(a[0]) - posArt.get(b[0])).map(([k, qs]) => {
-    let ok = 0, pend = 0;
-    for (const q of qs) { const r = rec(q.id); if (!r) continue; if (r[0] > 0) ok++; else if (r[0] === 0 && r[3] > 0) pend++; }
-    const meta = Math.min(ANDAR_MIN, qs.length);
-    return { k, ok, pend, meta, limpo: !pend && ok >= meta };
-  });
-}
-function masmorra() {
-  const r = rpg(), c = chefeDaSemana();
-  if (!r.masm || r.masm.sem !== c.sem) {
-    let bloco = andaresDe(c.bloco).length >= 3 ? c.bloco : null;
-    if (!bloco) {
-      const cand = BLOCOS.map((b) => ({ id: b.id, n: andaresDe(b.id).length, dom: dominioBloco(b.id) || 0, resp: (POR_BLOCO.get(b.id) || []).filter((q) => { const x = rec(q.id); return x && x[0] >= 0; }).length }))
-        .filter((x) => x.n >= 3);
-      const praticados = cand.filter((x) => x.resp >= 5);
-      const alvo = (praticados.length ? praticados : cand.filter((x) => P1.includes(x.id))).sort((a, b) => a.dom - b.dom)[0] || cand[0];
-      bloco = alvo ? alvo.id : null;
-    }
-    r.masm = { sem: c.sem, bloco, ok: [] };
-  }
-  if (!r.masm.bloco) return null;
-  const andares = andaresDe(r.masm.bloco);
-  return { bloco: r.masm.bloco, andares, limpos: andares.filter((a) => a.limpo).length, prox: andares.find((a) => !a.limpo) };
-}
-function verificarAndar(q) {
-  const m = masmorra();
-  if (!m || q.b !== m.bloco || !q.art) return;
-  const k = chave(q.l, q.art), a = m.andares.find((x) => x.k === k), r = rpg();
-  if (!a || !a.limpo || r.masm.ok.includes(k)) return;
-  r.masm.ok.push(k);
-  r.andares = (r.andares || 0) + 1;
-  ganharXP(ANDAR_XP);
-  avisar('▼', 'Andar limpo: ' + rotuloArt(k), m.limpos === m.andares.length ? 'Masmorra inteira limpa! +' + ANDAR_XP + ' XP' : 'Faltam ' + (m.andares.length - m.limpos) + ' andares · +' + ANDAR_XP + ' XP');
-  if (m.limpos === m.andares.length) r.masmorras = (r.masmorras || 0) + 1;
-}
-function cartaoMasmorra() {
-  const m = masmorra();
-  if (!m) return '';
-  const tot = m.andares.length, p = m.prox;
-  return '<div class="masmorra"><div class="masm-cab"><b>Masmorra da semana</b><span class="mono pequeno">' + m.limpos + '/' + tot + ' andares</span></div>' +
-    '<span class="pequeno mudo">' + esc(nomeBloco(m.bloco)) + '</span>' + barra(m.limpos / tot, 'ouro') +
-    (p ? '<p class="pequeno">Próximo andar: <b>' + esc(rotuloArt(p.k)) + '</b> · ' + (p.pend ? pl(p.pend, 'erro pendente', 'erros pendentes') : p.ok + '/' + p.meta + ' acertos') +
-      ' <button class="linkish pequeno" data-acao="treinar-art" data-art="' + esc(p.k) + '">Descer</button></p>' : '<p class="pequeno">Masmorra limpa nesta semana.</p>') + '</div>';
 }
 // Dano de um acerto: 10, 15 ou 20 pela dificuldade do item, mais o bônus da arma. É crítico (dano em dobro) quando o
 // artigo do item já caiu em prova real ou, ao acaso, pela chance do amuleto.
@@ -2579,7 +2442,7 @@ function efeitoBatalha(ok) {
   else if (sessao.combo && sessao.combo % 3 === 0 && sessao.coracoes < sessao.coracoesMax) { sessao.coracoes++; sessao.curou = true; }
   if (sessao.golpe) { sessao.danoTotal = (sessao.danoTotal || 0) + sessao.golpe.dano; if (sessao.golpe.crit) sessao.criticos = (sessao.criticos || 0) + 1; }
   if (!sessao.coracoes) sessao.desfecho = 'derrota';
-  else if (sessao.golpe && sessao.golpe.vencido) { sessao.desfecho = 'vitoria'; if (!sessao.perdas) conquistar('perfeita'); }
+  else if (sessao.golpe && sessao.golpe.vencido) { sessao.desfecho = 'vitoria'; }
 }
 // Encerra a batalha antes do fim da fila: o resultado considera só os itens respondidos
 function encerrarBatalha() {
@@ -2626,7 +2489,7 @@ function cartaoJornada() {
   // Recolhida por padrão (a tela Hoje começa pelo roteiro): o resumo mostra nível, missões e a vida do chefão
   return '<div class="cartao jornada"><details data-det="jornada"' + (UI.det.jornada ? ' open' : '') + '><summary class="jornada-resumo"><b>Jornada</b><span class="mono pequeno mudo">nível ' + nv.n + ' · ' + feitas + '/' + mh.ids.length + ' missões · ' +
     (c.vencido ? 'chefão vencido' : 'chefão ' + Math.round((c.vida / c.max) * 100) + '% de vida') + '</span></summary>' +
-    heroi + chefe + cartaoMasmorra() + '<div class="missoes">' + missoes + '</div>' + bau + '</details></div>';
+    heroi + chefe + '<div class="missoes">' + missoes + '</div>' + bau + '</details></div>';
 }
 // Ficha do personagem (Mais → Personagem): atributos medidos pelo domínio real, equipamento e inventário
 function dominioDisciplina(disc) {
@@ -2951,16 +2814,15 @@ function renderItem(q) {
     const r = sessao.resp[id], ok = r === q.g, br = r === BRANCO, gab = q.al ? 'a letra ' + q.g : q.g === 'C' ? 'CERTO' : 'ERRADO';
     html += '<div class="veredito ' + (br ? 'defesa' : ok ? 'ok' : 'no') + '"><span>' + (br ? 'Em branco: defesa, sem perder coração. O gabarito é ' + gab + '.' : ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + gab + '.') + '</span>' +
       (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP' + (br ? '' : sessao.virada === 'plena' ? ' <small>virada</small>' : caiuEmProva(q) && sessao.modo !== 'relampago' ? ' <small>crítico</small>' : '') + '</span>' : '<span class="pequeno">' + (SEM_REPETICAO.has(id) ? 'Este texto não volta: vêm outros' : 'Foi para a lista curta') + '</span>') + '</div>';
-    html += renderCaca(q);
     if (!ok && !br && sessao.modo !== 'simulado') html += renderCausaAgora(q);
     html += extrasResposta(q);
-    html += renderExplicacao(q, cacaAtiva(q) && !(sessao.peg || {})[q.id]);
+    html += renderExplicacao(q);
     html += '<button class="btn primario largo" data-acao="proximo">' + (sessao.i < sessao.ids.length - 1 ? 'Próximo item' : 'Ver resultado') + '</button><p class="atalhos">Enter = próximo</p>';
   }
   return html + '</article>';
 }
-function renderExplicacao(q, semArmadilha) {
-  let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + (semArmadilha ? '' : ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a)) + '</span>';
+function renderExplicacao(q) {
+  let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</span>';
   if (q.o || (q.ad && q.pv)) html += '<p class="pequeno mudo">' + esc(q.pv) + '</p>';
   html += '<p>' + marcarTermos(q.c, 3) + '</p>';
   if (q.t && q.t.length) {
@@ -3376,11 +3238,13 @@ function folhaTermo(i) {
 }
 
 /* ================= Lei seca ================= */
+// Ler rende XP (antes só responder rendia): o artigo do dia vale pouco menos que um acerto; o de um item errado, o dobro
+const XP_LER = 6, XP_LER_ERRO = 12;
 function marcarLido(art) {
   if (!S.perfil.lidos) S.perfil.lidos = {};
   const d = diaLog();
   if (!Array.isArray(d.a) || !Object.isExtensible(d.a)) d.a = Array.from(d.a || []);
-  if (!d.a.includes(art)) d.a.push(art);
+  if (!d.a.includes(art)) { d.a.push(art); ganharXP(artigosDeErros().has(art) ? XP_LER_ERRO : XP_LER); }
   if (!S.perfil.lidos[art]) S.perfil.lidos[art] = hojeISO();
   verificarConquistas();
   verificarRPG();
@@ -5280,7 +5144,6 @@ async function executar(a, alvo) {
     case 'responder': responder(alvo.dataset.r); break;
     case 'revelar': proximo(); break;
     case 'avaliar': avaliar(Number(alvo.dataset.n)); break;
-    case 'pegadinha': cacarPegadinha(alvo.dataset.t); break;
     case 'pesq-todos': UI.pesqTodos = true; renderMais(); break;
     case 'causa-agora': {
       const q = sessao && QI.get(sessao.ids[sessao.i]);

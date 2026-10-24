@@ -49,19 +49,6 @@ await passo('missões do dia acompanham o ritmo', async () => {
   if (r && !/^Responder (100|150) itens$/.test(r)) throw new Error('missão de itens fora do ritmo: ' + r);
 });
 
-await passo('um item respondido destrava as conquistas de XP e ritmo que os números permitem', async () => {
-  await p.click('.aba[data-vista="questoes"]');
-  await p.click('[data-acao="comecar"]');
-  await p.waitForSelector('#sessao:not([hidden])');
-  await responder(p);
-  await p.waitForTimeout(500);
-  const conq = await p.evaluate(() => JSON.parse(localStorage.getItem('painel-anpd-v3')).perfil.conq);
-  const faltam = ['sem5k', 'dia3k', 'maratona200'].filter((id) => !conq[id]);
-  if (faltam.length) throw new Error('não destravadas: ' + faltam.join(', '));
-  const indevidas = ['sem15k', 'dia5k', 'semanas4', 'xp25k'].filter((id) => conq[id]);
-  if (indevidas.length) throw new Error('destravadas sem os números: ' + indevidas.join(', '));
-});
-
 conferir('sem erro de página', !erros.length, erros.join(' | '));
 await browser.close();
 fim(erros);

@@ -75,28 +75,26 @@ await passo('um item respondido destrava o que os números permitem', async () =
   await p.waitForSelector('.veredito');
   console.log('      resposta registrada em ' + (Date.now() - t0) + ' ms');
   const conq = await p.evaluate(() => JSON.parse(localStorage.getItem('painel-anpd-v3')).perfil.conq);
-  const esperadas = ['primeira', 'r100', 'r500', 'r1000', 'r2500', 'r5000', 'cards50', 'cards300', 'cards1000', 'combo10', 'combo25', 'combo50',
-    'relampago15', 'relampago25', 'seq7', 'seq14', 'seq30', 'maratona', 'certeiro', 'hora1', 'hora3', 'horas100', 'fds', 'dias30', 'meta10',
-    'memoria50', 'roteiro7', 'recuperacao', 'sim1', 'sim5', 'sim70', 'sim80', 'prova120', 'lei20', 'lei100', 'lista25', 'lista100', 'lista300',
-    'explicar5', 'calibrado', 'reais50', 'reais300', 'me20', 'casca', 'disc1', 'disc5', 'discnota', 'bau1', 'bau7', 'bau30', 'chefe1', 'chefe5',
-    'chefe10', 'lendario', 'equipado', 'colecao', 'nivel10', 'nivel20', 'nivel30', 'xp25k'];
+  const esperadas = ['primeira', 'r100', 'r500', 'r1000', 'cards50', 'cards300', 'seq7', 'seq14', 'seq30', 'certeiro', 'hora1', 'hora3',
+    'horas100', 'fds', 'dias30', 'meta10', 'memoria50', 'roteiro7', 'recuperacao', 'sim1', 'sim5', 'sim70', 'sim80',
+    'prova120', 'lei20', 'lei100', 'lista25', 'lista100', 'explicar5', 'calibrado', 'reais50', 'reais300', 'casca', 'disc1',
+    'disc5', 'discnota', 'bau1', 'bau7', 'bau30', 'chefe1', 'chefe5', 'chefe10', 'nivel10', 'nivel20', 'nivel30'];
   const faltam = esperadas.filter((id) => !conq[id]);
   if (faltam.length) throw new Error('não destravadas: ' + faltam.join(', '));
-  const indevidas = ['seq60', 'seq100', 'dias100', 'meta50', 'meta100', 'lei500', 'leitodas', 'perfeita', 'lince', 'trilha', 'r10000',
-    'maratona200', 'horas250', 'dia3k', 'sem5k', 'semanas4', 'xp50k', 'nivel40'].filter((id) => conq[id]);
+  const indevidas = ['seq60', 'seq100', 'dias100', 'lei500', 'leitodas', 'lince', 'trilha', 'semanas4'].filter((id) => conq[id]);
   if (indevidas.length) throw new Error('destravadas sem os números: ' + indevidas.join(', '));
 });
 
-await passo('Progresso mostra as conquistas em seis grupos', async () => {
+await passo('Progresso mostra as conquistas em cinco grupos', async () => {
   await p.click('[data-acao="proximo"]');
   await sairDaSessao(p);
   await p.waitForSelector('#sessao', { state: 'hidden' });
   await p.click('.aba[data-vista="mais"]');
   await p.click('#vista-mais [data-acao="mais"][data-sub="progresso"]');
   const grupos = p.locator('details[data-det^="cq-"]');
-  if ((await grupos.count()) !== 6) throw new Error('grupos: ' + (await grupos.count()));
+  if ((await grupos.count()) !== 5) throw new Error('grupos: ' + (await grupos.count()));
   const cab = await p.textContent('.secao:has(details[data-det^="cq-"]) .secao-cab');
-  if (!/de 106/.test(cab)) throw new Error('cabeçalho: ' + cab.trim());
+  if (!/de 65/.test(cab)) throw new Error('cabeçalho: ' + cab.trim());
   await grupos.first().locator('summary').click();
   if ((await grupos.first().locator('.conquista').count()) < 10) throw new Error('grupo de questões vazio');
   if ((await p.locator('.secao:has(details[data-det^="cq-"]) > .conquistas .conquista').count()) !== 4) throw new Error('recentes: esperado 4');

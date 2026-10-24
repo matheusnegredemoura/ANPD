@@ -99,7 +99,6 @@ function compactar(questoes, leisAnexadas) {
   const apoios = [];
   const lista = questoes.map((q) => {
     const r = parseRef(q.ref);
-    const pg = pegadinha(q);
     // Índice do texto de apoio; ausente quando o item não tem texto
     let ap;
     if (q.apoio) {
@@ -125,36 +124,11 @@ function compactar(questoes, leisAnexadas) {
       ad: q.origem === 'adaptada' ? 1 : undefined,
       pv: q.prova || undefined,
       cm: q.comando || undefined,
-      pg,
       tm: q.tema || undefined,
       v: leisAnexadas.has(r.lei) || FONTES_SEM_CONFERIR.has(r.lei) ? undefined : 0,
     };
   });
   return { lista, apoios };
-}
-
-// Caça-Pegadinha: itens errados de certo/errado cujo tipo de armadilha o próprio texto confirma (número e palavra
-// absoluta no enunciado; exceção, rol e sujeito no comentário). O primeiro código é o tipo certo; os outros são tipos
-// cujo teste falha neste item, também por palavras do enunciado (um prazo com "desde que" não recebe "exceção" como
-// alternativa errada), para nenhuma alternativa errada ser defensável. Palavra absoluta e exceção esquecida
-// descrevem muitas vezes a mesma troca ("sempre" apaga a exceção): uma nunca entra como alternativa errada da outra.
-const TIPOS_PEG = {
-  n: ['numero', 'e', /\d|\b(um|uma|dois|duas|três|quatro|cinco|seis|sete|oito|nove|dez|quinze|vinte|trinta|sessenta|noventa|cem|metade|dobro|triplo|terço|quarto|prazo|dias?|anos?|meses|horas?)\b/i],
-  a: ['absoluto', 'e', /\b(sempre|nunca|jamais|somente|só|apenas|exclusiv\w*|qualquer|tod[oa]s?|absolut\w*|nenhum\w*|independentemente|obrigatori\w*|necessariamente|vedad\w*|proibid\w*|em hipótese alguma|unicamente|integralmente|automaticamente)\b/i],
-  e: ['excecao', 'c', /ressalv|exce|salvo|desde que|condi|suprim|omit|sem a |requisito/i, /desde que|salvo|exceto|exceç|ressalv|ainda que|mesmo que|independentemente|sem prejuízo|condiç/i],
-  r: ['rol', 'c', /\brol\b|incis|lista|hipótes|taxativ|exemplificativ|enumera/i, /\bentre (os|as)\b|\brol\b|incisos|hipóteses|lista/i],
-  s: ['sujeito', 'c', /compet|cabe |caber|é d[oa] |atribui|quem |não [ao] |e não |respons/i, /compet|\bcabe (a|ao|à)\b|incumbe|atribui/i],
-};
-const PAR_PEG = { a: 'e', e: 'a' };
-function pegadinha(q) {
-  if (q.gab !== 'E' || q.alt.length) return undefined;
-  const testa = (k) => TIPOS_PEG[k][2].test(TIPOS_PEG[k][1] === 'e' ? q.enunciado : q.comentario || '');
-  const cabe = (k) => testa(k) || (TIPOS_PEG[k][3] && TIPOS_PEG[k][3].test(q.enunciado));
-  const certo = Object.keys(TIPOS_PEG).find((k) => TIPOS_PEG[k][0] === q.armadilha);
-  if (!certo || !testa(certo)) return undefined;
-  const hash = (t) => [...t].reduce((h, c) => Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0, 2166136261);
-  const outros = Object.keys(TIPOS_PEG).filter((k) => k !== certo && k !== PAR_PEG[certo] && !cabe(k)).sort((x, y) => hash(q.id + x) - hash(q.id + y)).slice(0, 3);
-  return outros.length >= 2 ? certo + outros.join('') : undefined;
 }
 
 export function montarDados() {
