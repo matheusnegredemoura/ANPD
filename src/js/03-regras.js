@@ -544,7 +544,7 @@ function poolDe(blocos, banca) {
 }
 // O banco autoral é mais fácil que a banca (na dificuldade 2, 81% de acerto contra 65% nos itens reais do Cebraspe,
 // nos dados de outubro/2026). Quem já acerta 80% ou mais dos autorais na primeira resposta (com pelo menos 100 deles)
-// recebe primeiro os difíceis; abaixo disso, a ordem é sorteada.
+// recebe primeiro os que mais erra (ordemDesafio); abaixo disso, a ordem é sorteada.
 let desafioCache = null;
 function desafioAutoral() {
   const chave = hojeISO() + '|' + Object.keys(S.itens).length;
@@ -553,6 +553,24 @@ function desafioAutoral() {
   for (const [id, r] of Object.entries(S.itens)) { const q = QI.get(id); if (q && !q.o && r[7] != null) { c += r[7]; n++; } }
   desafioCache = { chave, v: n >= 100 && c / n >= 0.8 };
   return desafioCache.v;
+}
+// Ordem do desafio: primeiro os tipos de armadilha em que a pessoa mais erra na primeira resposta, contados à parte nos
+// certos e nos errados (suavizados pela média do gabarito quando o tipo tem poucas respostas), intercalando certo e
+// errado para o desafio não virar uma fila de itens errados. O rótulo de dificuldade só desempata: nos dados de
+// outubro/2026 ele não previa os erros nos autorais (AUC 0,48, contra 0,54 da taxa por armadilha, fora da amostra).
+function ordemDesafio(lista) {
+  const g = {}, a = {}, ce = (q) => !q.al && (q.g === 'C' || q.g === 'E');
+  for (const [id, r] of Object.entries(S.itens)) {
+    const q = QI.get(id);
+    if (!q || q.o || r[7] == null || !ce(q)) continue;
+    const x = (g[q.g] ||= [0, 0]), y = (a[q.g + '|' + q.a] ||= [0, 0]);
+    x[0] += 1 - r[7]; x[1]++; y[0] += 1 - r[7]; y[1]++;
+  }
+  const taxa = (q) => { const x = g[q.g] || [0, 0], y = a[q.g + '|' + q.a] || [0, 0]; return (y[0] + 5 * (x[1] ? x[0] / x[1] : 0.2)) / (y[1] + 5); };
+  const fila = (gab) => lista.filter((q) => ce(q) && q.g === gab).map((q) => [taxa(q), q]).sort((p, s) => s[0] - p[0] || (s[1].d || 2) - (p[1].d || 2)).map((p) => p[1]);
+  const c = fila('C'), e = fila('E'), out = [];
+  while (c.length || e.length) { if (c.length) out.push(c.shift()); if (e.length) out.push(e.shift()); }
+  return out.concat(lista.filter((q) => !ce(q)));
 }
 function selecionar(pool, n, filtro) {
   const hoje = HOJE();
@@ -570,8 +588,8 @@ function selecionar(pool, n, filtro) {
   // Inéditas com pelo menos REAIS_TREINO de itens reais (ou a proporção natural do bloco, se for maior), intercalados
   {
     const reaisN = embaralhar(novas.filter((q) => q.o)), bancoN = embaralhar(novas.filter((q) => !q.o));
-    // Desafio: com 80% ou mais de acerto na primeira resposta dos autorais, os mais difíceis vêm primeiro
-    if (desafioAutoral()) bancoN.sort((a, b) => (b.d || 2) - (a.d || 2));
+    // Desafio: com 80% ou mais de acerto na primeira resposta dos autorais, os mais difíceis para a pessoa vêm primeiro
+    if (desafioAutoral()) bancoN.splice(0, bancoN.length, ...ordemDesafio(bancoN));
     const alvo = Math.max(REAIS_TREINO, reaisN.length / (novas.length || 1));
     novas.length = 0;
     for (let i = 0; reaisN.length || bancoN.length; i++) {
