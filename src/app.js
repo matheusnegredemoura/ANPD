@@ -127,23 +127,47 @@ const P1 = ['lgpd-17-22', 'lgpd-52-54', 'lgpd-55', 'lgpd-33-36', 'lgpd-5-11'];
 // o específico do especialista deve concentrar-se na LGPD e nas normas da ANPD. Contabilidade e finanças públicas
 // (orçamento, Lei 4.320, LRF e contabilidade geral) ficam com 2, peso BAIXO no guia.
 // Cada item vale 1 ponto, básico ou específico, como no edital da Anatel 2024 (item 8.11.2): é a hipótese do plano até sair o edital.
-// Se o edital da ANPD der peso maior aos específicos, basta mudar PESO_ESPECIFICA.
 // Regulação aparece nas duas partes: Lei 13.848 e Lei 9.784 na básica, teoria da regulação na específica.
-const PESO_BASICA = 1, PESO_ESPECIFICA = 1;
-const PROVA_BASICA = { linguas: 21, direito: 19, regulacao: 10 };
-const PROVA_ESPECIFICA = { regulacao: 4, lgpd: 36, eca: 8, seginfo: 8, gestao: 6, contabil: 2, comparado: 3, economia: 3 };
+// Quando o edital sair, a pessoa troca itens, pesos, régua de corte e data da prova em Mais → Ajustes → Edital e prova
+// (perfil.edital); o padrão é esta projeção. aplicarEdital refaz as tabelas derivadas a cada desenho da tela.
+const PADRAO_EDITAL = {
+  basica: { linguas: 21, direito: 19, regulacao: 10 },
+  especifica: { regulacao: 4, lgpd: 36, eca: 8, seginfo: 8, gestao: 6, contabil: 2, comparado: 3, economia: 3 },
+  pesoB: 1, pesoE: 1,
+  // Régua do edital da Anatel 2024: líquida mínima na básica, na específica e no conjunto
+  cortes: { p1: 10, p2: 21, total: 36 },
+};
 const REG_NA_BASICA = new Set(['lei-13848', 'lei-9784']);
-const ITENS_PROVA = {};
-for (const parte of [PROVA_BASICA, PROVA_ESPECIFICA]) for (const [d, k] of Object.entries(parte)) ITENS_PROVA[d] = (ITENS_PROVA[d] || 0) + k;
-const TOTAL_PROVA = Object.values(ITENS_PROVA).reduce((a, b) => a + b, 0);
-const PONTOS_DISC = {};
-for (const [d, k] of Object.entries(PROVA_BASICA)) PONTOS_DISC[d] = (PONTOS_DISC[d] || 0) + k * PESO_BASICA;
-for (const [d, k] of Object.entries(PROVA_ESPECIFICA)) PONTOS_DISC[d] = (PONTOS_DISC[d] || 0) + k * PESO_ESPECIFICA;
-const PONTOS_PROVA = Object.values(PONTOS_DISC).reduce((a, b) => a + b, 0);
+const PROVA_BASICA = {}, PROVA_ESPECIFICA = {}, ITENS_PROVA = {}, PONTOS_DISC = {}, CORTES = {};
+let PESO_BASICA = 1, PESO_ESPECIFICA = 1, TOTAL_PROVA = 0, PONTOS_PROVA = 0;
+function aplicarEdital(ed) {
+  ed = ed || {};
+  const troca = (alvo, novo) => { for (const k of Object.keys(alvo)) delete alvo[k]; Object.assign(alvo, novo); };
+  troca(PROVA_BASICA, ed.basica || PADRAO_EDITAL.basica);
+  troca(PROVA_ESPECIFICA, ed.especifica || PADRAO_EDITAL.especifica);
+  troca(CORTES, Object.assign({}, PADRAO_EDITAL.cortes, ed.cortes || {}));
+  PESO_BASICA = Number(ed.pesoB) > 0 ? Number(ed.pesoB) : PADRAO_EDITAL.pesoB;
+  PESO_ESPECIFICA = Number(ed.pesoE) > 0 ? Number(ed.pesoE) : PADRAO_EDITAL.pesoE;
+  troca(ITENS_PROVA, {});
+  for (const parte of [PROVA_BASICA, PROVA_ESPECIFICA]) for (const [d, k] of Object.entries(parte)) ITENS_PROVA[d] = (ITENS_PROVA[d] || 0) + k;
+  TOTAL_PROVA = Object.values(ITENS_PROVA).reduce((a, b) => a + b, 0);
+  troca(PONTOS_DISC, {});
+  for (const [d, k] of Object.entries(PROVA_BASICA)) PONTOS_DISC[d] = (PONTOS_DISC[d] || 0) + k * PESO_BASICA;
+  for (const [d, k] of Object.entries(PROVA_ESPECIFICA)) PONTOS_DISC[d] = (PONTOS_DISC[d] || 0) + k * PESO_ESPECIFICA;
+  PONTOS_PROVA = Object.values(PONTOS_DISC).reduce((a, b) => a + b, 0);
+}
+aplicarEdital();
+// Data da prova: a do edital, quando a pessoa a informa em Ajustes; antes disso, a estimativa do cronograma
+function dataProva() { return (S.perfil.edital && S.perfil.edital.prova) || D.cronograma.prova; }
+// Simulado da prova inteira: 1,75 min por item (os 120 da Anatel 2024 em 3h30)
+function minutosProva() { return Math.round(TOTAL_PROVA * 1.75); }
+function duracaoProva() { const m = minutosProva(); return Math.floor(m / 60) + 'h' + String(m % 60).padStart(2, '0'); }
 // Parte da prova em que o item cairia: 'b' (básica) ou 'e' (específica)
+function somaItens(parte) { return Object.values(parte).reduce((a, b) => a + b, 0); }
 function parteProva(q) {
   const d = (BI.get(q.b) || {}).disciplina;
-  return d === 'linguas' || d === 'direito' || (d === 'regulacao' && REG_NA_BASICA.has(q.b)) ? 'b' : 'e';
+  if (PROVA_BASICA[d] > 0 && PROVA_ESPECIFICA[d] > 0) return REG_NA_BASICA.has(q.b) ? 'b' : 'e';
+  return PROVA_BASICA[d] > 0 ? 'b' : 'e';
 }
 function pesoItem(q) { return parteProva(q) === 'b' ? PESO_BASICA : PESO_ESPECIFICA; }
 // Fatias da prova (parte + disciplina) para n itens, pelo método do maior resto (a soma dá exatamente n)
@@ -762,6 +786,13 @@ function ritmo() {
   ritmoCache = { chave, v };
   return v;
 }
+// Horas de estudo por semana: a média das duas últimas semanas inteiras (null com menos de 5 dias de estudo nelas)
+function horasSemana() {
+  const desde = isoDeNum(HOJE() - 14), h = hojeISO();
+  const dias = Object.entries(S.perfil.dias || {}).filter(([iso]) => iso >= desde && iso < h);
+  if (dias.filter(([iso]) => ativo(iso)).length < 5) return null;
+  return dias.reduce((a, [, d]) => a + segundosEstudo(d), 0) / 2 / 3600;
+}
 const limitar = (x, min, max) => Math.min(max, Math.max(min, x));
 // Meta diária de itens: automática (90% da mediana do ritmo, de 10 em 10, entre 20 e 200) ou a fixa escolhida em Ajustes
 function metaAuto() { const r = ritmo(); return r && r.r ? limitar(Math.round((r.r * 0.9) / 10) * 10, 20, 200) : null; }
@@ -940,7 +971,13 @@ function fatorPessoa() {
 }
 function intervalo(r) {
   const base = INTERVALOS[r[0]];
-  return r[0] < 2 ? base : Math.max(1, Math.round(base * fatorItem(r) * fatorPessoa()));
+  return tetoProva(r[0] < 2 ? base : Math.max(1, Math.round(base * fatorItem(r) * fatorPessoa())));
+}
+// Perto da prova, nenhuma revisão fica marcada para depois dela: o prazo para dois dias antes (o último fim de semana
+// de revisão); com a prova a dois dias ou menos, ou já passada, o intervalo segue normal
+function tetoProva(ivl) {
+  const falta = diaNum(dataProva()) - HOJE() - 2;
+  return falta >= 1 ? Math.min(ivl, falta) : ivl;
 }
 function registrar(q, resp, duvida) {
   golpeRecente = null;
@@ -1048,7 +1085,7 @@ function verificarConquistas(ctx) {
   se(S.simulados.length >= 1, 'sim1'); se(S.simulados.length >= 5, 'sim5');
   se(S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.7), 'sim70');
   se(S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.8), 'sim80');
-  se(S.simulados.some((s) => s.n >= 120), 'prova120');
+  se(S.simulados.some((s) => s.n >= Math.min(120, TOTAL_PROVA)), 'prova120');
   const lidos = Object.keys(S.perfil.lidos || {}).length;
   se(lidos >= 20, 'lei20'); se(lidos >= 100, 'lei100'); se(lidos >= 500, 'lei500');
   if (!tem('leitodas') && ARTS.length && ARTS.every((a) => (S.perfil.lidos || {})[a.k])) conquistar('leitodas');
@@ -1132,8 +1169,9 @@ function calcularCard(id, nota) {
     else if (nota === 3) { ivl = ivl < 1 ? 1 : Math.max(ivl + 1, Math.round((ivl * ease) / 100)); reps++; }
     else { ease += 15; ivl = ivl < 1 ? 3 : Math.max(ivl + 2, Math.round(((ivl * ease) / 100) * 1.3)); reps++; }
   }
-  // "Errei" (intervalo 0) volta no fim da própria sessão e, depois, amanhã
-  return [HOJE() + Math.max(1, ivl), ivl, ease, reps, lapses, HOJE()];
+  // "Errei" (intervalo 0) volta no fim da própria sessão e, depois, amanhã. O intervalo guardado segue crescendo;
+  // só o vencimento para antes da prova
+  return [HOJE() + tetoProva(Math.max(1, ivl)), ivl, ease, reps, lapses, HOJE()];
 }
 function avaliarCard(id, nota) {
   const novo = cardNovo(id);
@@ -1315,7 +1353,7 @@ const ORDEM_Q = new Map(Q.map((q, i) => [q.id, i]));
 function emBlocosDeTexto(itens, puxar, soBlocos) {
   const usados = new Set(itens.map((q) => q.id));
   const irmaos = (ap, k) => {
-    const extra = (POR_APOIO.get(ap) || []).filter((x) => !usados.has(x.id) && !rec(x.id) && (!soBlocos || soBlocos.has(x.b))).slice(0, Math.max(0, k));
+    const extra = (POR_APOIO.get(ap) || []).filter((x) => !usados.has(x.id) && !rec(x.id) && !RESERVA_MEDIDA.has(x.id) && (!soBlocos || soBlocos.has(x.b))).slice(0, Math.max(0, k));
     extra.forEach((x) => usados.add(x.id));
     return extra;
   };
@@ -1340,10 +1378,11 @@ function emBlocosDeTexto(itens, puxar, soBlocos) {
       blocos.set(ap, doCaderno(g));
       total += g.length;
     }
-    // Itens sem texto preenchem o resto, revisões primeiro
-    const semTexto = itens.filter((q) => q.ap == null);
+    // Itens sem texto preenchem o resto: revisões primeiro, depois os reais inéditos (a cota de reais do treino não se perde
+    // quando os textos ocupam vagas), depois os do banco
+    const semTexto = itens.filter((q) => q.ap == null), vistosST = semTexto.filter((q) => rec(q.id)), novosST = semTexto.filter((q) => !rec(q.id));
     const vagas = Math.max(0, itens.length - total);
-    const ficam = new Set(semTexto.filter((q) => rec(q.id)).concat(semTexto.filter((q) => !rec(q.id))).slice(0, Math.max(vagas, semTexto.filter((q) => rec(q.id)).length)).map((q) => q.id));
+    const ficam = new Set(vistosST.concat(novosST.filter((q) => q.o), novosST.filter((q) => !q.o)).slice(0, Math.max(vagas, vistosST.length)).map((q) => q.id));
     itens = itens.filter((q) => (q.ap == null ? ficam.has(q.id) : blocos.has(q.ap)));
   }
   const feitos = new Set();
@@ -2654,12 +2693,12 @@ function renderHoje() {
     '<button class="modo" data-acao="mais" data-sub="discursiva"><b>Discursiva</b><span>Limite de linhas e correção por quesitos.</span><span class="num">' + pl(TEMAS_DISC.length, 'tema', 'temas') + '</span></button>' +
     '<button class="modo" data-acao="abrir-modo" data-modo="treino"><b>Treino livre</b><span>Escolha os blocos; gabarito comentado a cada item.</span><span class="num">' + Q.length + ' questões</span></button></div></div>';
   // Duas contagens: o prazo legal do edital e a prova estimada (domingo cerca de três meses depois)
-  const cr = D.cronograma, faltaEd = diaNum(cr.edital) - HOJE(), faltaPr = diaNum(cr.prova) - HOJE();
+  const cr = D.cronograma, faltaEd = diaNum(cr.edital) - HOJE(), prova = dataProva(), oficial = !!(S.perfil.edital && S.perfil.edital.prova), faltaPr = diaNum(prova) - HOJE();
   const dataCurta = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit', year: 'numeric' });
   const contagem = (n, txt) => '<div class="contagem">' + (n > 0 ? '<span class="grande">' + n + '</span>' : '') + '<span>' + txt + '</span></div>';
   const edital = '<div class="cartao">' +
     contagem(faltaEd, faltaEd > 0 ? 'dias até ' + dataCurta(cr.edital) + ', prazo legal máximo para o edital.' : faltaEd === 0 ? 'Hoje vence o prazo legal máximo para o edital (' + dataCurta(cr.edital) + ').' : 'O prazo legal do edital (' + dataCurta(cr.edital) + ') passou: acompanhe as notícias.') +
-    contagem(faltaPr, faltaPr > 0 ? 'dias até a prova provável, domingo ' + dataCurta(cr.prova) + ' (três meses depois do edital; troque pela data oficial quando sair).' : faltaPr === 0 ? 'Hoje é o dia provável da prova. Boa prova!' : 'A data estimada da prova (' + dataCurta(cr.prova) + ') passou.') + '</div>';
+    contagem(faltaPr, faltaPr > 0 ? (oficial ? 'dias até a prova, ' + dataCurta(prova) + '.' : 'dias até a prova provável, domingo ' + dataCurta(prova) + ' (três meses depois do edital; troque pela data oficial em Ajustes → Edital e prova).') : faltaPr === 0 ? 'Hoje é o dia da prova. Boa prova!' : 'A data ' + (oficial ? '' : 'estimada ') + 'da prova (' + dataCurta(prova) + ') passou.') + '</div>';
   // Sessões guardadas que não têm botão próprio no roteiro (o dia, as intercaladas e a trilha de hoje já mostram Continuar)
   const fora = new Set(['i:' + h]);
   if (ctx.tipo === 'dia') fora.add(ctx.dia.data);
@@ -2739,9 +2778,9 @@ function renderQuestoes() {
     }[modo]) + '</p></div>';
   if (modo === 'simulado') {
     html += '<div class="cartao destaque anpd-sim-banner">' +
-      '<div class="secao-cab"><h2>Simulado no formato projetado da ANPD</h2><span class="selo mono">120 itens · 3h30</span></div>' +
-      '<p class="pequeno"><b>50 itens de conhecimentos básicos (P1)</b> e <b>70 de específicos (P2)</b>, como na Anatel 2024. No fim, a régua de eliminação daquele edital (nota mínima de 10 na P1, 21 na P2 e 36 no conjunto). O edital da ANPD ainda não saiu: estrutura e cortes são projeção.</p>' +
-      '<div class="linha-btns"><button class="btn primario" data-acao="simulado-oficial-120">Começar (120 itens · 3h30)</button></div>' +
+      '<div class="secao-cab"><h2>Simulado no formato ' + (S.perfil.edital ? 'do edital' : 'projetado da ANPD') + '</h2><span class="selo mono">' + TOTAL_PROVA + ' itens · ' + duracaoProva() + '</span></div>' +
+      '<p class="pequeno"><b>' + somaItens(PROVA_BASICA) + ' itens de conhecimentos básicos (P1)</b> e <b>' + somaItens(PROVA_ESPECIFICA) + ' de específicos (P2)</b>' + (S.perfil.edital ? ', como no edital informado em Ajustes' : ', como na Anatel 2024') + '. No fim, a régua de eliminação (nota mínima de ' + CORTES.p1 + ' na P1, ' + CORTES.p2 + ' na P2 e ' + CORTES.total + ' no conjunto).' + (S.perfil.edital ? '' : ' O edital da ANPD ainda não saiu: estrutura e cortes são projeção; troque em Ajustes → Edital e prova quando sair.') + '</p>' +
+      '<div class="linha-btns"><button class="btn primario" data-acao="simulado-oficial-120">Começar (' + TOTAL_PROVA + ' itens · ' + duracaoProva() + ')</button></div>' +
       '</div>' +
       '<div class="cartao">' +
       '<div class="secao-cab"><h2>Provas recentes do Cebraspe</h2><span class="selo mono">Gabarito oficial</span></div>' +
@@ -3052,8 +3091,8 @@ function renderResultado() {
   html += cartaoBatalha();
   html += '<div class="cartao destaque"><span class="rotulo">Nota líquida Cebraspe (certas − erradas)</span><div class="nota-final"><span class="grande">' + liq + '</span><span class="mudo">de ' + n + ' possíveis · ' + (n ? Math.round((liq / n) * 100) : 0) + '%</span></div>' +
     '<div class="placar"><div class="C"><b>' + c + '</b><span>certas</span></div><div class="E"><b>' + e + '</b><span>erradas</span></div><div><b>' + b + '</b><span>em branco</span></div><div class="L"><b>+' + sessao.xp + '</b><span>XP</span></div></div>';
-  // Régua de eliminação do edital da Anatel 2024 (Cebraspe), usada como projeção: só faz sentido na prova de 120 itens
-  if (sessao.modo === 'simulado' && sessao.prova && ids.length >= 120) {
+  // Régua de eliminação (a do edital informado ou, como projeção, a da Anatel 2024): só faz sentido na prova inteira
+  if (sessao.modo === 'simulado' && sessao.prova && ids.length >= TOTAL_PROVA) {
     let c1 = 0, e1 = 0, b1 = 0, c2 = 0, e2 = 0, b2 = 0;
     ids.forEach((id) => {
       const q = QI.get(id), r = sessao.resp[id] || BRANCO, isBasica = parteProva(q) === 'b';
@@ -3061,16 +3100,16 @@ function renderResultado() {
       else { if (r === BRANCO) b2++; else if (r === q.g) c2++; else e2++; }
     });
     const liq1 = c1 - e1, liq2 = c2 - e2, liqTot = liq1 + liq2;
-    const okP1 = liq1 >= 10, okP2 = liq2 >= 21, okTot = liqTot >= 36;
+    const okP1 = liq1 >= CORTES.p1, okP2 = liq2 >= CORTES.p2, okTot = liqTot >= CORTES.total;
     const aprovado = okP1 && okP2 && okTot;
     const faixaCorte = !aprovado ? 'Eliminado pela régua de nota mínima' : (liqTot >= 72 ? 'Nota alta (60% ou mais da prova)' : liqTot >= 54 ? 'Nota intermediária (45% a 59%)' : 'Nota baixa (menos de 45%)');
     const badgeCls = !aprovado ? 'eliminado' : (liqTot >= 72 ? 'aprovado' : 'alerta');
     html += '<div class="cartao" style="border-left:4px solid var(--accent);margin-top:10px">' +
-      '<div class="secao-cab"><h2>Régua de eliminação (Anatel 2024, como projeção)</h2><span class="corte-badge ' + badgeCls + '">' + (aprovado ? 'HABILITADO' : 'ELIMINADO') + '</span></div>' +
+      '<div class="secao-cab"><h2>Régua de eliminação (' + (S.perfil.edital && S.perfil.edital.cortes ? 'do edital' : 'Anatel 2024, como projeção') + ')</h2><span class="corte-badge ' + badgeCls + '">' + (aprovado ? 'HABILITADO' : 'ELIMINADO') + '</span></div>' +
       '<div class="corte-grid">' +
-        '<div class="corte-kpi"><b>P1 · Básicos (50 itens)</b><span>Líquida: <b>' + liq1 + '</b> pts (' + c1 + 'C / ' + e1 + 'E / ' + b1 + 'B)</span><span class="corte-badge ' + (okP1 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP1 ? 'Mínimo atingido (≥ 10)' : 'Abaixo do mínimo (< 10)') + '</span></div>' +
-        '<div class="corte-kpi"><b>P2 · Específicos (70 itens)</b><span>Líquida: <b>' + liq2 + '</b> pts (' + c2 + 'C / ' + e2 + 'E / ' + b2 + 'B)</span><span class="corte-badge ' + (okP2 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP2 ? 'Mínimo atingido (≥ 21)' : 'Abaixo do mínimo (< 21)') + '</span></div>' +
-        '<div class="corte-kpi"><b>Conjunto Objetivas (P1+P2)</b><span>Líquida: <b>' + liqTot + '</b> pts</span><span class="corte-badge ' + (okTot ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okTot ? 'Habilitado para Discursiva (≥ 36)' : 'Eliminado do concurso (< 36)') + '</span></div>' +
+        '<div class="corte-kpi"><b>P1 · Básicos (' + ids.filter((x) => parteProva(QI.get(x)) === 'b').length + ' itens)</b><span>Líquida: <b>' + liq1 + '</b> pts (' + c1 + 'C / ' + e1 + 'E / ' + b1 + 'B)</span><span class="corte-badge ' + (okP1 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP1 ? 'Mínimo atingido (≥ ' + CORTES.p1 + ')' : 'Abaixo do mínimo (< 10)') + '</span></div>' +
+        '<div class="corte-kpi"><b>P2 · Específicos (' + ids.filter((x) => parteProva(QI.get(x)) !== 'b').length + ' itens)</b><span>Líquida: <b>' + liq2 + '</b> pts (' + c2 + 'C / ' + e2 + 'E / ' + b2 + 'B)</span><span class="corte-badge ' + (okP2 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP2 ? 'Mínimo atingido (≥ ' + CORTES.p2 + ')' : 'Abaixo do mínimo (< 21)') + '</span></div>' +
+        '<div class="corte-kpi"><b>Conjunto Objetivas (P1+P2)</b><span>Líquida: <b>' + liqTot + '</b> pts</span><span class="corte-badge ' + (okTot ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okTot ? 'Habilitado para Discursiva (≥ ' + CORTES.total + ')' : 'Eliminado do concurso (< 36)') + '</span></div>' +
       '</div>' +
       '<p class="pequeno"><b>Faixa:</b> <span class="corte-badge ' + badgeCls + '">' + faixaCorte + '</span> <span class="mudo">Nenhuma nota de corte da ANPD existe ainda; as faixas são só referência.</span></p>' +
       '</div>';
@@ -3841,7 +3880,7 @@ function renderMais() {
     const item = (s, ic, t, d) => '<button data-acao="mais" data-sub="' + s + '"><span class="ic">' + ic + '</span><span class="tx"><b>' + t + '</b><span class="s">' + d + '</span></span><span class="mudo">›</span></button>';
     el.innerHTML = '<div class="secao-cab"><h2>Mais</h2></div><div class="menu-mais">' +
       item('trilha', '§', 'Trilhas do zero', TRILHAS.length + ' matérias por subtema, para quem começa: pré-teste, aula, prática e domínio') +
-      item('metodo', '1·2', 'Método do Mentor (6 Degraus)', 'Ciclo 25h, degraus de foco, métricas semanais e checklist') +
+      item('metodo', '1·2', 'Método do Mentor (6 Degraus)', 'Ciclo semanal, degraus de foco, métricas semanais e checklist') +
       item('edital', '≡', 'Edital Projetado e Verticalizado', '10 disciplinas, 38 tópicos com prioridades A/B/C e treino direto') +
       item('raiox', '◎', 'Raio-X do Concurso ANPD', 'Diagnóstico da carreira, banca Cebraspe e sinergia com TCU') +
       item('erros', '✗', 'Caderno de Erros (4 causas)', (() => { const n = Object.keys(cadState().erros).length; return n ? pl(n, 'erro classificado', 'erros classificados') : 'Classifique cada erro e escreva a regra de 1 linha'; })()) +
@@ -3849,7 +3888,7 @@ function renderMais() {
       item('discursiva', '✎', 'Treino de discursiva', TEMAS_DISC.length + ' temas com quesitos no padrão Cebraspe, contador de linhas e nota estimada') +
       item('personagem', '♛', 'Personagem', 'Nível, atributos, equipamento, inventário e chefões derrotados') +
       item('progresso', '▥', 'Progresso', 'Domínio por bloco, constância, onde você cai, conquistas') +
-      item('plano', '▦', 'Plano e cronograma', 'Seis fases até a prova provável (' + fmtData(D.cronograma.prova, { day: '2-digit', month: '2-digit', year: 'numeric' }) + '), status dos blocos, textos que faltam') +
+      item('plano', '▦', 'Plano e cronograma', 'Seis fases até a prova (' + fmtData(dataProva(), { day: '2-digit', month: '2-digit', year: 'numeric' }) + '), status dos blocos, textos que faltam') +
       item('pesquisar', '?', 'Para pesquisar', pend ? pl(pend, 'tema pendente', 'temas pendentes') + ' na sua lista' : 'Temas e termos para entender melhor') +
       item('glossario', 'Aa', 'Glossário', GLOSS.length + ' termos com definição e busca sugerida') +
       item('contestacoes', '!', 'Minhas contestações', CONTEST.length ? pl(CONTEST.length, 'contestação', 'contestações') + ', ' + CONTEST.filter((c) => c.status === 'aberta' || c.status === 'pendente').length + ' em aberto' : 'Itens que você apontou como errados e a resposta') +
@@ -4022,7 +4061,7 @@ function renderPlano() {
     }
     html += '</div>';
   }
-  html += '</div><div class="cartao"><h2>Peso por disciplina</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>Na nota</th><th>Prioridade</th></tr></thead><tbody>' + DISC.slice().sort((a, b) => (PONTOS_DISC[b.id] || 0) - (PONTOS_DISC[a.id] || 0)).map((d) => '<tr><td>' + esc(d.nome) + '</td><td class="num">' + (PONTOS_DISC[d.id] ? (Math.round((PONTOS_DISC[d.id] / PONTOS_PROVA) * 1000) / 10).toLocaleString('pt-BR') + '%' : '—') + '</td><td style="text-align:right"><span class="selo' + (d.peso === 'MÁXIMO' ? ' p1' : d.peso === 'ALTO' ? ' p2' : '') + '">' + esc(d.peso) + '</span></td></tr>').join('') + '</tbody></table></div><p class="pequeno mudo">Na nota: quanto a disciplina vale numa prova de ' + PONTOS_PROVA + ' pontos, em que cada item básico vale 1 e cada específico vale 2 (estimativa até sair o edital). Prioridade: ordem de estudo do guia do cargo. Português e inglês entram um pouco todo dia, nas questões intercaladas.</p></div>';
+  html += '</div><div class="cartao"><h2>Peso por disciplina</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>Na nota</th><th>Prioridade</th></tr></thead><tbody>' + DISC.slice().sort((a, b) => (PONTOS_DISC[b.id] || 0) - (PONTOS_DISC[a.id] || 0)).map((d) => '<tr><td>' + esc(d.nome) + '</td><td class="num">' + (PONTOS_DISC[d.id] ? (Math.round((PONTOS_DISC[d.id] / PONTOS_PROVA) * 1000) / 10).toLocaleString('pt-BR') + '%' : '—') + '</td><td style="text-align:right"><span class="selo' + (d.peso === 'MÁXIMO' ? ' p1' : d.peso === 'ALTO' ? ' p2' : '') + '">' + esc(d.peso) + '</span></td></tr>').join('') + '</tbody></table></div><p class="pequeno mudo">Na nota: quanto a disciplina vale numa prova de ' + PONTOS_PROVA + ' pontos, em que cada item básico vale ' + PESO_BASICA + ' e cada específico vale ' + PESO_ESPECIFICA + (S.perfil.edital ? ' (edital informado em Ajustes).' : ' (projeção da Anatel 2024 até sair o edital).') + ' Prioridade: ordem de estudo do guia do cargo. Português e inglês entram um pouco todo dia, nas questões intercaladas.</p></div>';
   html += '<div class="cartao"><div class="secao-cab"><h2>Status dos blocos</h2><span class="mudo pequeno">Toque no status para mudar</span></div><div class="tabela-env"><table class="tabela"><thead><tr><th>Bloco</th><th>Domínio</th><th>Status</th></tr></thead><tbody>';
   BLOCOS.slice().sort((a, b) => a.prioridade - b.prioridade).forEach((b) => {
     const st = S.perfil.status[b.id] || 'nao', dmn = dominioBloco(b.id);
@@ -4251,12 +4290,14 @@ function renderMetodo() {
         '</div></div>';
     }).join('') + '</div>';
 
-  html += '<div class="cartao"><div class="secao-cab"><h2>3. Ciclo Semanal de 25 Horas (Fase 2)</h2><span class="selo mono">Soma = 25h</span></div>' +
-    '<p class="pequeno mudo">Se a sua semana tiver mais ou menos horas, ajuste proporcionalmente mantendo as proporções do núcleo ANPD. Nenhuma disciplina fica abandonada.</p>' +
+  // O ciclo do mentor é de 25 h; aqui ele vai para as horas que a pessoa de fato estudou por semana, nas mesmas proporções
+  const hs = horasSemana(), H = hs ? Math.max(1, Math.round(hs * 2) / 2) : 25;
+  html += '<div class="cartao"><div class="secao-cab"><h2>3. Ciclo semanal (Fase 2)</h2><span class="selo mono">Soma = ' + fmtDur(H * 3600) + '</span></div>' +
+    '<p class="pequeno mudo">' + (hs ? 'Nas suas horas reais: ' + fmtDur(hs * 3600) + ' por semana na média das duas últimas semanas (o cronômetro do dia). As proporções são as do ciclo de 25 h do mentor; nenhuma disciplina fica abandonada.' : 'Ciclo de referência de 25 h. Depois de 5 dias de estudo nas duas últimas semanas, as horas passam a seguir o seu tempo real, nas mesmas proporções. Nenhuma disciplina fica abandonada.') + '</p>' +
     '<div class="tabela-env"><table class="tabela"><thead><tr><th>Bloco do ciclo</th><th>Horas</th><th>%</th><th>Ação rápida</th></tr></thead><tbody>' +
     mt.ciclo25h.map((c) => {
       const pct = Math.round((c.horas / 25) * 100);
-      return '<tr><td><b>' + esc(c.materia) + '</b></td><td class="mono">' + String(c.horas).replace('.', ',') + 'h</td><td class="mono">' + pct + '%</td><td>' +
+      return '<tr><td><b>' + esc(c.materia) + '</b></td><td class="mono">' + fmtDur(Math.round((c.horas / 25) * H * 4) / 4 * 3600) + '</td><td class="mono">' + pct + '%</td><td>' +
         '<button class="btn pequeno" data-acao="treinar-bloco" data-bloco="' + esc(c.bloco) + '">Treinar</button></td></tr>';
     }).join('') +
     '</tbody></table></div></div>';
@@ -4817,6 +4858,44 @@ function renderRaioX(cb, chip) {
   }
   return html + '</div>';
 }
+// Edital e prova: quando o edital sair, a pessoa troca a projeção (Anatel 2024) pelos números oficiais
+function cartaoEdital() {
+  const ed = S.perfil.edital || {}, n = (v) => (v == null ? '' : esc(String(v)));
+  const campo = (id, rot, v, extra) => '<label class="ed-campo"><span>' + rot + '</span><input id="' + id + '" type="number" min="0" step="' + (extra || 1) + '" inputmode="decimal" value="' + n(v) + '"></label>';
+  const linhas = DISC.map((d) => '<tr><td>' + esc(d.nome) + '</td><td><input class="ed-n" data-parte="b" data-d="' + d.id + '" type="number" min="0" step="1" inputmode="numeric" value="' + (PROVA_BASICA[d.id] || '') + '" aria-label="' + esc(d.nome) + ', básica"></td><td><input class="ed-n" data-parte="e" data-d="' + d.id + '" type="number" min="0" step="1" inputmode="numeric" value="' + (PROVA_ESPECIFICA[d.id] || '') + '" aria-label="' + esc(d.nome) + ', específica"></td></tr>').join('');
+  return '<div class="cartao" id="cartao-edital"><h2>Edital e prova</h2>' +
+    '<p class="pequeno">' + (S.perfil.edital ? 'Valendo os números que você informou. O simulado da prova inteira, a régua de corte, a prontidão e a contagem até a prova seguem estes números.' : 'Valendo a projeção (estrutura da Anatel 2024 e prova provável em ' + fmtData(D.cronograma.prova, { day: '2-digit', month: '2-digit', year: 'numeric' }) + '). Quando o edital da ANPD sair, troque aqui: o simulado, a régua de corte, a prontidão e a contagem passam a seguir o edital.') + '</p>' +
+    '<div class="ed-grade"><label class="ed-campo"><span>Data da prova</span><input id="ed-prova" type="date" value="' + n(ed.prova || '') + '"></label>' +
+    campo('ed-pesob', 'Peso do item básico', PESO_BASICA, '0.5') + campo('ed-pesoe', 'Peso do item específico', PESO_ESPECIFICA, '0.5') +
+    campo('ed-c1', 'Corte na básica (P1)', CORTES.p1) + campo('ed-c2', 'Corte na específica (P2)', CORTES.p2) + campo('ed-ct', 'Corte no conjunto', CORTES.total) + '</div>' +
+    '<div class="tabela-env"><table class="tabela ed-tabela"><thead><tr><th>Disciplina</th><th>Itens na básica</th><th>Itens na específica</th></tr></thead><tbody>' + linhas + '</tbody></table></div>' +
+    '<p class="pequeno mudo">Cortes em nota líquida (certas menos erradas, já com os pesos). Cada disciplina fica numa parte só; só a Regulação pode ir às duas (Lei 13.848 e Lei 9.784 na básica, o resto na específica). O cronograma não é refeito sozinho: se a data mudar muito, peça um plano novo.</p>' +
+    '<p class="pequeno" id="ed-msg" role="status"></p>' +
+    '<div class="linha-btns"><button class="btn primario" data-acao="edital-salvar">Salvar edital</button>' + (S.perfil.edital ? '<button class="btn" data-acao="edital-padrao">Voltar à projeção</button>' : '') + '</div></div>';
+}
+// Lê o cartão: devolve o edital ou uma mensagem do que está errado
+function lerEdital() {
+  const v = (id) => document.getElementById(id).value.trim();
+  const num = (id) => (v(id) === '' ? NaN : Number(v(id)));
+  const basica = {}, especifica = {};
+  for (const el of document.querySelectorAll('#cartao-edital .ed-n')) {
+    const k = el.value.trim() === '' ? 0 : Number(el.value);
+    if (!Number.isInteger(k) || k < 0) return { erro: 'Itens por disciplina: use números inteiros (0 ou mais).' };
+    if (k) (el.dataset.parte === 'b' ? basica : especifica)[el.dataset.d] = k;
+  }
+  const dupla = Object.keys(basica).find((d) => especifica[d] && d !== 'regulacao');
+  if (dupla) return { erro: DI.get(dupla).nome + ' está nas duas partes. Ponha cada disciplina numa parte só (só a Regulação se divide).' };
+  if (!Object.keys(basica).length || !Object.keys(especifica).length) return { erro: 'Ponha itens nas duas partes da prova.' };
+  const pesoB = num('ed-pesob'), pesoE = num('ed-pesoe');
+  if (!(pesoB > 0) || !(pesoE > 0)) return { erro: 'Os pesos precisam ser maiores que zero.' };
+  const cortes = { p1: num('ed-c1'), p2: num('ed-c2'), total: num('ed-ct') };
+  if (Object.values(cortes).some((c) => !(c >= 0))) return { erro: 'Os cortes precisam ser números (0 ou mais).' };
+  const prova = v('ed-prova');
+  if (prova && !/^\d{4}-\d{2}-\d{2}$/.test(prova)) return { erro: 'Data da prova inválida.' };
+  const ed = { basica, especifica, pesoB, pesoE, cortes };
+  if (prova) ed.prova = prova;
+  return { ed };
+}
 function renderAjustes() {
   const metas = [30, 60, 90, 120, 150], novos = [5, 10, 15, 20, 30], auto = metaAuto();
   const dg = Store.diag;
@@ -4830,6 +4909,7 @@ function renderAjustes() {
       metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (!!S.perfil.metaFixa && S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div>' +
       '<p class="pequeno mudo">Pelo meu ritmo: 90% da mediana de itens por dia de estudo nas duas últimas semanas, recalculada a cada dia' + (auto ? '' : ' (começa depois de 5 dias de estudo; até lá vale ' + metaDia() + ')') + '. As missões do dia e a leitura do roteiro também seguem o seu ritmo.</p></div>' +
     '<div class="campo"><span class="rot">Cards novos por dia</span><div class="chips">' + novos.map((m) => '<button class="chip" data-acao="novos-cards" data-n="' + m + '" aria-pressed="' + ((S.perfil.novosCards || 20) === m) + '">' + m + '</button>').join('') + '</div><p class="pequeno mudo">Cada card novo volta várias vezes nos dias seguintes. Entram primeiro os de prazo, número e quórum; com mais de 60 revisões vencidas, os novos esperam a fila baixar.</p></div></div>' +
+    cartaoEdital() +
     '<div class="cartao"><h2>Backup do progresso</h2><p class="pequeno">Salve um arquivo com todo o seu progresso. Se a gravação na conta falhar, ou se você trocar de aparelho, é só restaurar.</p>' +
     '<div class="linha-btns"><button class="btn primario" data-acao="backup-baixar">Baixar backup (.json)</button><button class="btn" data-acao="backup-mostrar">Copiar como texto</button></div>' +
     '<div class="campo"><label for="arquivo-backup">Restaurar de um arquivo</label><input id="arquivo-backup" type="file" accept=".json,application/json" data-acao="backup-arquivo"></div>' +
@@ -5042,6 +5122,7 @@ function ir(v, rolar = 0) {
   window.scrollTo(0, rolar);
 }
 function renderTudo() {
+  aplicarEdital(S.perfil.edital);
   document.documentElement.classList.toggle('lei-teste', !!UI.camadas.teste);
   UI.artInline = null;
   renderTopo();
@@ -5182,7 +5263,7 @@ async function executar(a, alvo) {
     }
     case 'comecar': comecarConfigurado(); break;
     case 'simulado-semana': iniciarSessao({ modo: 'simulado', n: SIM_SEMANA_N, prova: true, minutos: Math.round(SIM_SEMANA_N * RITMO_PROVA_S / 60), titulo: 'Simulado da semana', chave: 'sim:' + semanaAtual() }); break;
-    case 'simulado-oficial-120': iniciarSessao({ modo: 'simulado', n: 120, prova: true, minutos: 210, titulo: 'Simulado · formato projetado (120 itens)' }); break;
+    case 'simulado-oficial-120': iniciarSessao({ modo: 'simulado', n: TOTAL_PROVA, prova: true, minutos: minutosProva(), titulo: 'Simulado · prova inteira (' + TOTAL_PROVA + ' itens)' }); break;
     case 'simulado-anvisa-2024': {
       const ids = Q.filter((q) => q.id.startsWith('anvisa-2024-cebraspe-')).map((q) => q.id);
       if (!ids.length) { avisar('!', 'Caderno vazio', 'Nenhum item da ANVISA 2024 encontrado.'); break; }
@@ -5405,6 +5486,15 @@ async function executar(a, alvo) {
     case 'tema-alternar': UI.tema = temaEscuroAtivo() ? 'claro' : 'escuro'; salvarUI(); aplicarTema(); renderTudo(); break;
     case 'meta': if (alvo.dataset.meta === 'auto') S.perfil.metaFixa = 0; else { S.perfil.meta = Number(alvo.dataset.meta); S.perfil.metaFixa = 1; } Store.salvar('perfil'); renderTudo(); break;
     case 'novos-cards': S.perfil.novosCards = Number(alvo.dataset.n); Store.salvar('perfil'); renderTudo(); break;
+    case 'edital-salvar': {
+      const r = lerEdital();
+      if (r.erro) { document.getElementById('ed-msg').textContent = r.erro; break; }
+      S.perfil.edital = r.ed; Store.salvar('perfil'); renderTudo();
+      document.getElementById('ed-msg').textContent = 'Edital salvo: prova de ' + TOTAL_PROVA + ' itens e ' + PONTOS_PROVA + ' pontos' + (r.ed.prova ? ', em ' + fmtData(r.ed.prova, { day: '2-digit', month: '2-digit', year: 'numeric' }) : '') + '.';
+      break;
+    }
+    // null, não delete: a junção de perfis (mesclarDoc) traria de volta o edital do outro aparelho
+    case 'edital-padrao': S.perfil.edital = null; Store.salvar('perfil'); renderTudo(); document.getElementById('ed-msg').textContent = 'De volta à projeção da Anatel 2024.'; break;
     case 'backup-baixar': {
       const r = await salvarArquivo('painel-anpd-backup-' + hojeISO() + '.json', backupTexto());
       if (r === true) marcarBackup();
