@@ -1,4 +1,5 @@
-// Duas abas do painel abertas: o que uma grava no navegador não é apagado quando a outra grava depois
+// Duas abas do painel abertas: o que uma grava no navegador não é apagado quando a outra grava depois. E, dentro
+// do painel, cada aba da barra guarda a posição da página.
 import { APP, abrirNavegador, diaDeEstudo, placar, vigiarErros } from './comum.mjs';
 
 const b = await abrirNavegador();
@@ -18,6 +19,23 @@ await passo('a aba A junta o que a aba B gravou', async () => {
   await a.locator('.bolha.c').first().click();
   await a.waitForTimeout(800);
   conferir('item da aba B continua gravado', await a.evaluate(() => !!JSON.parse(localStorage.getItem('painel-anpd-v3')).itens['teste-aba-b']));
+});
+
+await passo('voltar à lei seca pela barra de abas devolve ao ponto da leitura', async () => {
+  const p = await abrir();
+  await p.click('.aba[data-vista="lei"]');
+  await p.waitForTimeout(300);
+  await p.evaluate(() => window.scrollTo(0, 1500));
+  await p.waitForTimeout(200);
+  const antes = await p.evaluate(() => window.scrollY);
+  if (antes < 1000) throw new Error('a lei seca não rolou: ' + antes);
+  await p.click('.aba[data-vista="questoes"]');
+  await p.waitForTimeout(200);
+  conferir('outra aba abre no topo', (await p.evaluate(() => window.scrollY)) === 0);
+  await p.click('.aba[data-vista="lei"]');
+  await p.waitForTimeout(200);
+  const depois = await p.evaluate(() => window.scrollY);
+  conferir('lei seca volta à mesma altura', Math.abs(depois - antes) < 5, antes + ' → ' + depois);
 });
 
 await b.close();

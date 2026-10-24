@@ -4653,12 +4653,14 @@ function restaurar(texto) {
 
 /* ================= Navegação ================= */
 const VISTAS = ['hoje', 'questoes', 'cards', 'lei', 'mais'];
-function ir(v) {
+// Posição da página em cada aba: voltar pela barra de abas devolve a pessoa ao ponto em que estava (no meio da lei seca, por exemplo)
+const ROLAGEM = {};
+function ir(v, rolar = 0) {
   if (!VISTAS.includes(v)) v = 'hoje';
   UI.vista = v;
   salvarUI();
   renderTudo();
-  window.scrollTo(0, 0);
+  window.scrollTo(0, rolar);
 }
 function renderTudo() {
   document.documentElement.classList.toggle('lei-teste', !!UI.camadas.teste);
@@ -4714,6 +4716,11 @@ async function executar(a, alvo) {
     case 'ir':
       // A aba Mais sempre abre o menu do Mais, não a última página aberta lá dentro
       if (alvo.classList.contains('aba') && alvo.dataset.vista === 'mais') { UI.mais = 'menu'; UI.subtema = null; if (UI.vista === 'mais') { renderMais(); window.scrollTo(0, 0); break; } }
+      if (alvo.classList.contains('aba') && alvo.dataset.vista !== UI.vista) {
+        ROLAGEM[UI.vista] = window.scrollY;
+        ir(alvo.dataset.vista, alvo.dataset.vista === 'mais' ? 0 : ROLAGEM[alvo.dataset.vista] || 0);
+        break;
+      }
       ir(alvo.dataset.vista); break;
     case 'mais': if (sessao) fecharSessao(true); fecharFolha(); UI.mais = alvo.dataset.sub || 'menu'; if (UI.vista !== 'mais') ir('mais'); else { renderMais(); window.scrollTo(0, 0); } break;
     case 'iniciar-dia': iniciarDia(alvo.dataset.dia); break;
