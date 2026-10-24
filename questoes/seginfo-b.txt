@@ -65,7 +65,7 @@ ref: doutrina backup
 armadilha: caso
 dif: 3
 enunciado: Situação hipotética: faz-se backup completo no domingo e, nos demais dias, copiam-se apenas os arquivos alterados desde o backup anterior, qualquer que seja seu tipo. Assertiva: o esquema descreve backup diferencial.
-comentario: Isso é o backup completo. O incremental copia o que mudou desde o último backup de qualquer tipo; o diferencial, o que mudou desde o último completo.
+comentario: Errado. Copiar, nos demais dias, só o que mudou desde o backup anterior (de qualquer tipo) é o backup incremental. O diferencial copia tudo o que mudou desde o último backup completo, e por isso cresce a cada dia até o próximo completo.
 
 === si2-09
 gab: C
