@@ -1,0 +1,1133 @@
+--- Painel TCU.html (antes)
++++ Painel TCU.html (depois)
+@@ -43,7 +43,6 @@
+ <title>Painel TCU — Auditor Federal de Controle Externo (AUFC)</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+ <style>
+ /* Layout: coluna única de leitura (máx. 760px) com cabeçalho fixo no topo e barra de abas no rodapé,
+    como um app de celular; sessões de questões abrem por cima, em tela cheia, no formato de folha de respostas. */
+@@ -359,10 +358,10 @@
+ @media (min-width:820px){.folha{align-items:center}.folha-painel{border-radius:16px;max-height:84vh}}
+ 
+ /* Progresso */
+-.estat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+-.estat>div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 8px;text-align:center}
+-.estat b{display:block;font-family:var(--f-mono);font-size:1.3rem;font-variant-numeric:tabular-nums}
+-.estat span{font-size:.74rem;color:var(--ink-2)}
++.estat,.contadores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
++:is(.estat,.contadores)>div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 8px;text-align:center}
++:is(.estat,.contadores) b{display:block;font-family:var(--f-mono);font-size:1.3rem;font-variant-numeric:tabular-nums}
++:is(.estat,.contadores) span{font-size:.74rem;color:var(--ink-2)}
+ .dominio{display:flex;flex-direction:column;gap:10px}
+ .dom-linha{display:grid;grid-template-columns:minmax(0,1fr) 44px;gap:4px 10px;align-items:center;font-size:.86rem}
+ .dom-linha .nome{grid-column:1 / -1;min-width:0}
+@@ -457,10 +456,7 @@
+ .notas-card .n2{border-color:var(--gold);color:var(--gold)}
+ .notas-card .n3{border-color:var(--certo);color:var(--certo)}
+ .notas-card .n4{border-color:var(--accent);color:var(--accent)}
+-.contadores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+-.contadores>div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 8px;text-align:center}
+-.contadores b{display:block;font-family:var(--f-mono);font-size:1.4rem;font-variant-numeric:tabular-nums}
+-.contadores span{font-size:.74rem;color:var(--ink-2)}
++.contadores b{font-size:1.4rem}
+ .contadores .rev b{color:var(--certo)}
+ .contadores .nov b{color:var(--accent)}
+ 
+@@ -553,6 +549,10 @@
+ .disc-res{display:flex;flex-direction:column;gap:4px;padding:12px;border-radius:10px;background:var(--accent-2);color:var(--ink)}
+ .disc-res span{font-size:.85rem;color:var(--ink-2)}
+ #disc-ne{width:6rem}
++.ed-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(10rem,1fr));gap:10px;margin:10px 0}
++.ed-campo{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--ink-2);min-width:0}
++.ed-campo input{width:100%;min-width:0}
++.ed-tabela input{width:4.5rem}
+ 
+ /* Dispositivo vetado: só para manter a numeração, sem grifo */
+ .texto-lei .vetado{color:var(--ink-3);font-size:.86em}
+@@ -845,9 +845,9 @@
+ 
+ /* Caderno de erros, método do mentor, régua do simulado, folha da discursiva, termômetro da lei e folha de véspera */
+ .cad-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:10px 0}
+-.cad-kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+-.cad-kpi b{display:block;font-size:1.05rem}
+-.cad-kpi span{font-size:.8rem;color:var(--ink-2)}
++.cad-kpi,.corte-kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
++:is(.cad-kpi,.corte-kpi) b{display:block;font-size:1.05rem}
++:is(.cad-kpi,.corte-kpi) span{font-size:.8rem;color:var(--ink-2)}
+ .anpd-banner-fase{border-left:4px solid var(--accent)}
+ .anpd-degrau{border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px;background:var(--surface)}
+ .anpd-degrau.ativo{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+@@ -862,9 +862,9 @@
+ .corte-badge.alerta{background:var(--gold-bg);color:var(--gold)}
+ .corte-badge.eliminado{background:var(--errado-bg);color:var(--errado)}
+ .corte-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:12px 0}
+-.corte-kpi{background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+-.corte-kpi b{display:block;font-size:1.05rem;margin-bottom:2px;color:var(--ink)}
+-.corte-kpi span{font-size:.8rem;color:var(--ink-2);display:block}
++.corte-kpi{background:var(--surface-2)}
++.corte-kpi b{margin-bottom:2px;color:var(--ink)}
++.corte-kpi span{display:block}
+ .regua-discursiva{display:flex;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden;margin-bottom:8px}
+ .linhas-numeradas{width:34px;background:var(--surface-2);color:var(--ink-3);font-family:var(--f-mono);font-size:.82rem;line-height:24px;text-align:right;padding:8px 6px 8px 0;user-select:none;border-right:1px solid var(--line);flex-shrink:0}
+ .linhas-numeradas span{display:block;height:24px}
+@@ -908,6 +908,50 @@
+   .folha-cabecalho h1{color:#000!important}
+   .app{max-width:100%!important;padding:0!important}
+ }
++/* Caça-Pegadinha: depois de acertar um item errado, apontar o tipo da pegadinha */
++.caca{margin-top:10px;padding:10px 12px;border-radius:10px;border-left:3px solid var(--gold);background:var(--surface-2)}
++.caca p{margin:0 0 8px}
++.caca.ok,.caca.no{padding-block:8px}
++.caca.ok p,.caca.no p{margin:0}
++.caca.ok{border-left-color:var(--certo);background:var(--certo-bg)}
++.caca.no{border-left-color:var(--ink-3)}
++/* Gaveta de erros do artigo na lei seca */
++.erros-art{margin:10px 0;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--surface-2)}
++.erros-art summary{cursor:pointer;font-weight:700;color:var(--errado)}
++.erro-art{border-top:1px dashed var(--line);padding-top:8px;margin-top:8px}
++.erro-art p{margin:4px 0}
++.erro-art.virou{opacity:.8}
++/* Masmorra da semana na Jornada */
++.masmorra{margin:10px 0;padding:10px 12px;border-radius:10px;background:var(--surface-2);display:flex;flex-direction:column;gap:4px}
++.masm-cab{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
++.masmorra p{margin:4px 0 0}
++/* Card de número ou prazo: lacuna digitada antes de ver a resposta */
++.card-digitar{width:100%;margin:4px 0 10px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font:inherit}
++.digitado{margin:6px 0 10px;padding:8px 12px;border-radius:8px}
++.digitado.ok{background:var(--certo-bg);color:var(--certo)}
++.digitado.no{background:var(--errado-bg);color:var(--errado)}
++.notas-card button:disabled{opacity:.4;cursor:not-allowed}
++/* Leitura fria: artigo já lido em outro dia, sem grifos nem andaimes até a pessoa pedir para conferir */
++.fria .texto-lei :is(.g-cai,.g-erro,.g-num,.g-alerta,.g-verbo){background:none;box-shadow:none;color:inherit;font-weight:inherit;font-style:inherit;text-decoration:none}
++.fria :is(.claro,.camadas,.juridiques){display:none}
++.fria-aviso{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:10px 0;padding:8px 12px;border-radius:8px;border:1px dashed var(--line);font-size:.9rem;color:var(--ink-2)}
++.fria-aviso span{flex:1 1 200px;min-width:0}
++/* Tempo no item: discreto; passa a aviso acima do ritmo de prova */
++.t-item{font-size:.8rem;color:var(--ink-3);padding:2px 6px;border-radius:6px}
++.t-item.lento{color:var(--errado);background:var(--errado-bg)}
++.ritmo-sessao{margin:8px 0}
++/* Causa do erro marcada na correção do item */
++.causa-agora{margin-top:10px;display:flex;flex-direction:column;gap:6px}
++.causa-agora p{margin:0}
++/* Autoverificação antes de corrigir a discursiva */
++.check-disc{margin:10px 0;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
++.check-disc summary{cursor:pointer;font-weight:700}
++.check-disc ul{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:6px}
++.check-disc label{display:flex;gap:8px;align-items:flex-start}
++/* Tela Hoje enxuta: prontidão no topo e Jornada recolhida num resumo */
++.pront-topo{margin:8px 0 0;font-size:.92rem}
++.jornada-resumo{cursor:pointer;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;list-style-position:inside}
++.jornada details[open]>.jornada-resumo{margin-bottom:10px}
+ 
+ </style>
+ </head>
+@@ -955,14 +999,20 @@
+ (async function () {
+ 'use strict';
+ 
++// Fontes do Google pelo script, sem bloquear: como <link> no topo, o navegador só rodaria o painel depois de baixar o
++// CSS delas (no celular com rede lenta, a abertura esperava a rede). Até chegarem, vale a fonte de reserva.
++{ const f = document.createElement('link'); f.rel = 'stylesheet'; f.href = 'https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap'; document.head.appendChild(f); }
++
+ /* ================= Dados embutidos ================= */
+ // O pacote vai em gzip e base64: o arquivo cai de ~11,8 MB para ~4,2 MB
+ async function lerDados() {
+   const el = document.getElementById('dados');
+   const b64 = el.textContent.trim();
+   el.remove();
+-  const bin = atob(b64), u = new Uint8Array(bin.length);
+-  for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
++  // Decodificação nativa onde houver (mais rápida); senão, atob byte a byte
++  let u;
++  if (typeof Uint8Array.fromBase64 === 'function') u = Uint8Array.fromBase64(b64);
++  else { const bin = atob(b64); u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); }
+   return new Response(new Blob([u]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+ }
+ if (typeof DecompressionStream !== 'function') {
+@@ -1082,21 +1132,45 @@
+ const CHAVE_UI = 'painel-tcu-ui';
+ const CHAVE_ANPD = 'painel-anpd-v3';
+ const P1 = ['ce-cf', 'ce-lotcu', 'ce-ritcu', 'ce-normas-recentes', 'aud-conceitos', 'aud-normas', 'aud-planejamento', 'aud-achados-relatorio', 'orcamento', 'afo-execucao', 'afo-lrf-arcabouco', 'contabilidade', 'casp-patrimonio-dcasp', 'adm-licitacoes-14133', 'dados-sql', 'dados-ml-python', 'est-desc-prob', 'est-inf-amostra'];
+-// Estrutura projetada da prova do TCU (molde Cebraspe 2025: 200 itens = 100 Conhecimentos Básicos + 100 Específicos)
+-const PESO_BASICA = 1, PESO_ESPECIFICA = 2;
+-const PROVA_BASICA = { linguas: 20, controle: 22, auditoria: 18, constitucional: 14, administrativo: 16, 'adm-publica': 10 };
+-const PROVA_ESPECIFICA = { afo: 18, contabilidade: 18, dados: 18, estatistica: 16, anticorrupcao: 16, economia: 14 };
+-const DISC_BASICA = new Set(Object.keys(PROVA_BASICA));
+-const ITENS_PROVA = {};
+-for (const parte of [PROVA_BASICA, PROVA_ESPECIFICA]) for (const [d, k] of Object.entries(parte)) ITENS_PROVA[d] = (ITENS_PROVA[d] || 0) + k;
+-const TOTAL_PROVA = Object.values(ITENS_PROVA).reduce((a, b) => a + b, 0);
+-const PONTOS_DISC = {};
+-for (const [d, k] of Object.entries(PROVA_BASICA)) PONTOS_DISC[d] = (PONTOS_DISC[d] || 0) + k * PESO_BASICA;
+-for (const [d, k] of Object.entries(PROVA_ESPECIFICA)) PONTOS_DISC[d] = (PONTOS_DISC[d] || 0) + k * PESO_ESPECIFICA;
+-const PONTOS_PROVA = Object.values(PONTOS_DISC).reduce((a, b) => a + b, 0);
++// Estrutura projetada da prova do TCU (molde Cebraspe 2025: 200 itens = 100 Conhecimentos Básicos + 100 Específicos).
++// Quando o edital sair, a pessoa troca itens, pesos, régua de corte e data da prova em Mais → Ajustes → Edital e prova
++// (perfil.edital); o padrão é esta projeção. aplicarEdital refaz as tabelas derivadas a cada desenho da tela.
++const PADRAO_EDITAL = {
++  basica: { linguas: 20, controle: 22, auditoria: 18, constitucional: 14, administrativo: 16, 'adm-publica': 10 },
++  especifica: { afo: 18, contabilidade: 18, dados: 18, estatistica: 16, anticorrupcao: 16, economia: 14 },
++  pesoB: 1, pesoE: 2,
++  // Régua projetada para o TCU e as carreiras de controle: líquida mínima na básica, na específica e no conjunto
++  cortes: { p1: 20, p2: 30, total: 60 },
++};
++const PROVA_BASICA = {}, PROVA_ESPECIFICA = {}, ITENS_PROVA = {}, PONTOS_DISC = {}, CORTES = {};
++let PESO_BASICA = 1, PESO_ESPECIFICA = 2, TOTAL_PROVA = 0, PONTOS_PROVA = 0;
++function aplicarEdital(ed) {
++  ed = ed || {};
++  const troca = (alvo, novo) => { for (const k of Object.keys(alvo)) delete alvo[k]; Object.assign(alvo, novo); };
++  troca(PROVA_BASICA, ed.basica || PADRAO_EDITAL.basica);
++  troca(PROVA_ESPECIFICA, ed.especifica || PADRAO_EDITAL.especifica);
++  troca(CORTES, Object.assign({}, PADRAO_EDITAL.cortes, ed.cortes || {}));
++  PESO_BASICA = Number(ed.pesoB) > 0 ? Number(ed.pesoB) : PADRAO_EDITAL.pesoB;
++  PESO_ESPECIFICA = Number(ed.pesoE) > 0 ? Number(ed.pesoE) : PADRAO_EDITAL.pesoE;
++  troca(ITENS_PROVA, {});
++  for (const parte of [PROVA_BASICA, PROVA_ESPECIFICA]) for (const [d, k] of Object.entries(parte)) ITENS_PROVA[d] = (ITENS_PROVA[d] || 0) + k;
++  TOTAL_PROVA = Object.values(ITENS_PROVA).reduce((a, b) => a + b, 0);
++  troca(PONTOS_DISC, {});
++  for (const [d, k] of Object.entries(PROVA_BASICA)) PONTOS_DISC[d] = (PONTOS_DISC[d] || 0) + k * PESO_BASICA;
++  for (const [d, k] of Object.entries(PROVA_ESPECIFICA)) PONTOS_DISC[d] = (PONTOS_DISC[d] || 0) + k * PESO_ESPECIFICA;
++  PONTOS_PROVA = Object.values(PONTOS_DISC).reduce((a, b) => a + b, 0);
++}
++aplicarEdital();
++// Data da prova: a do edital, quando a pessoa a informa em Ajustes; antes disso, a estimativa do cronograma
++function dataProva() { return (S.perfil.edital && S.perfil.edital.prova) || D.cronograma.prova; }
++// Simulado da prova inteira: 1,5 min por item (os 200 itens da projeção em 5 h)
++function minutosProva() { return Math.round(TOTAL_PROVA * 1.5); }
++function duracaoProva() { const m = minutosProva(); return Math.floor(m / 60) + 'h' + String(m % 60).padStart(2, '0'); }
++function somaItens(parte) { return Object.values(parte).reduce((a, b) => a + b, 0); }
++// Parte da prova em que o item cairia: 'b' (básica) ou 'e' (específica)
+ function parteProva(q) {
+   const d = (BI.get(q.b) || {}).disciplina;
+-  return DISC_BASICA.has(d) ? 'b' : 'e';
++  return PROVA_BASICA[d] > 0 ? 'b' : 'e';
+ }
+ function pesoItem(q) { return parteProva(q) === 'b' ? PESO_BASICA : PESO_ESPECIFICA; }
+ // Fatias da prova (parte + disciplina) para n itens, pelo método do maior resto (a soma dá exatamente n)
+@@ -1109,6 +1183,11 @@
+ }
+ // Itens reais do Cebraspe, a banca projetada: os de outras bancas treinam, mas não medem a prontidão
+ const REAIS = Q.filter((q) => q.o && /cebraspe|cespe/i.test(q.pv || ''));
++// Reserva de medida: ~40% dos itens reais (sorteio fixo pelo id) ficam fora do treino e só aparecem em simulado, para
++// que perto da prova ainda haja itens reais intocados para medir a prontidão em condição de prova. Os outros entram no
++// treino com cota mínima (REAIS_TREINO) entre os itens novos, porque o banco é mais fácil que a prova.
++const RESERVA_MEDIDA = new Set(REAIS.filter((q) => hashTxt('reserva:' + q.id) % 10 < 4).map((q) => q.id));
++const REAIS_TREINO = 0.25;
+ // Discursiva: temas com quesitos; a linha manuscrita da folha de texto definitivo é estimada em 70 caracteres
+ const TEMAS_DISC = (D.discursivas && D.discursivas.temas) || [];
+ const CARACTERES_LINHA = 70;
+@@ -1209,6 +1288,10 @@
+   { g: 'j', id: 'chefe1', ic: 'Ch', nome: 'Primeiro chefão', desc: 'Derrotou um chefão da semana.' },
+   { g: 'j', id: 'chefe5', ic: 'Ch5', nome: 'Caçador(a) de chefões', desc: 'Derrotou 5 chefões.' },
+   { g: 'j', id: 'chefe10', ic: 'Ch10', nome: 'Dez troféus', desc: 'Derrotou 10 chefões.' },
++  { g: 'j', id: 'andar10', ic: '▼10', nome: 'Explorador(a) de masmorras', desc: 'Limpou 10 andares da masmorra da semana.' },
++  { g: 'j', id: 'masmorra', ic: '▼▼', nome: 'Masmorra limpa', desc: 'Limpou todos os andares de uma masmorra da semana.' },
++  { g: 'j', id: 'peg10', ic: 'P!', nome: 'Faro de banca', desc: 'Acertou o tipo de 10 pegadinhas no Caça-Pegadinha.' },
++  { g: 'j', id: 'peg100', ic: 'P!!', nome: 'Caçador(a) de pegadinhas', desc: 'Acertou o tipo de 100 pegadinhas no Caça-Pegadinha.' },
+   { g: 'j', id: 'perfeita', ic: '♥', nome: 'Vitória perfeita', desc: 'Derrotou o chefão numa batalha sem perder nenhum coração.' },
+   { g: 'j', id: 'lendario', ic: '★', nome: 'Item lendário', desc: 'Conseguiu um item lendário.' },
+   { g: 'j', id: 'equipado', ic: 'EQ', nome: 'Equipado(a)', desc: 'Arma, armadura e amuleto equipados ao mesmo tempo.' },
+@@ -1729,10 +1812,17 @@
+   ritmoCache = { chave, v };
+   return v;
+ }
++// Horas de estudo por semana: a média das duas últimas semanas inteiras (null com menos de 5 dias de estudo nelas)
++function horasSemana() {
++  const desde = isoDeNum(HOJE() - 14), h = hojeISO();
++  const dias = Object.entries(S.perfil.dias || {}).filter(([iso]) => iso >= desde && iso < h);
++  if (dias.filter(([iso]) => ativo(iso)).length < 5) return null;
++  return dias.reduce((a, [, d]) => a + segundosEstudo(d), 0) / 2 / 3600;
++}
+ const limitar = (x, min, max) => Math.min(max, Math.max(min, x));
+ // Plano: itens inéditos do banco divididos pelos dias até a prova, de 10 em 10 para cima. É o que o edital exige,
+ // e não cai quando o ritmo cai; o ritmo (90% da mediana) e a meta escolhida em Ajustes só servem de piso
+-function diasAteProva() { const p = D.cronograma && D.cronograma.prova; return p ? diaNum(p) - HOJE() : 0; }
++function diasAteProva() { const p = dataProva(); return p ? diaNum(p) - HOJE() : 0; }
+ function metaPlano() {
+   const dias = diasAteProva();
+   if (dias <= 0) return null;
+@@ -1940,7 +2030,13 @@
+ }
+ function intervalo(r) {
+   const base = INTERVALOS[r[0]];
+-  return r[0] < 2 ? base : Math.max(1, Math.round(base * fatorItem(r) * fatorPessoa()));
++  return tetoProva(r[0] < 2 ? base : Math.max(1, Math.round(base * fatorItem(r) * fatorPessoa())));
++}
++// Perto da prova, nenhuma revisão fica marcada para depois dela: o prazo para dois dias antes (o último fim de semana
++// de revisão); com a prova a dois dias ou menos, ou já passada, o intervalo segue normal
++function tetoProva(ivl) {
++  const falta = diaNum(dataProva()) - HOJE() - 2;
++  return falta >= 1 ? Math.min(ivl, falta) : ivl;
+ }
+ function registrar(q, resp, duvida) {
+   golpeRecente = null;
+@@ -1973,7 +2069,7 @@
+   const d = diaLog();
+   if (resp === BRANCO) d.b = (d.b || 0) + 1; else { d.r++; if (ok) d.c++; else d.e++; }
+   if (antes < 0 && resp !== BRANCO) d.ni = (d.ni || 0) + 1;
+-  if (ok) golpeChefe(q);
++  if (ok) { golpeChefe(q); verificarAndar(q); }
+   if (eraManutencao) { d.m = (d.m || 0) + 1; if (ok && !duvida) d.mc = (d.mc || 0) + 1; }
+   if (pontual) { d.mp = (d.mp || 0) + 1; if (ok && !duvida) d.mpc = (d.mpc || 0) + 1; }
+   if (ok === false) sugerirPesquisaDoErro(q);
+@@ -2034,7 +2130,7 @@
+   se(S.simulados.length >= 1, 'sim1'); se(S.simulados.length >= 5, 'sim5');
+   se(S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.7), 'sim70');
+   se(S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.8), 'sim80');
+-  se(S.simulados.some((s) => s.n >= 120), 'prova120');
++  se(S.simulados.some((s) => s.n >= Math.min(120, TOTAL_PROVA)), 'prova120');
+   const lidos = Object.keys(S.perfil.lidos || {}).length;
+   se(lidos >= 20, 'lei20'); se(lidos >= 100, 'lei100'); se(lidos >= 500, 'lei500');
+   if (!tem('leitodas') && ARTS.length && ARTS.every((a) => (S.perfil.lidos || {})[a.k])) conquistar('leitodas');
+@@ -2082,6 +2178,9 @@
+   const baus = Math.max(r.baus || 0, Object.values(r.m || {}).filter((x) => x && x.bau).length);
+   se(baus >= 1, 'bau1'); se(baus >= 7, 'bau7'); se(baus >= 30, 'bau30');
+   const trofeus = (r.trofeus || []).length;
++  const peg = (r.peg || [0])[0];
++  se(peg >= 10, 'peg10'); se(peg >= 100, 'peg100');
++  se((r.andares || 0) >= 10, 'andar10'); se((r.masmorras || 0) >= 1, 'masmorra');
+   se(trofeus >= 1, 'chefe1'); se(trofeus >= 5, 'chefe5'); se(trofeus >= 10, 'chefe10');
+   se(ITENS_RPG.some((it) => it.rar === 'lendario' && r.inv[it.id]), 'lendario');
+   se(Object.keys(ENCAIXES).every((sl) => equipado(sl)), 'equipado');
+@@ -2115,8 +2214,9 @@
+     else if (nota === 3) { ivl = ivl < 1 ? 1 : Math.max(ivl + 1, Math.round((ivl * ease) / 100)); reps++; }
+     else { ease += 15; ivl = ivl < 1 ? 3 : Math.max(ivl + 2, Math.round(((ivl * ease) / 100) * 1.3)); reps++; }
+   }
+-  // "Errei" (intervalo 0) volta no fim da própria sessão e, depois, amanhã
+-  return [HOJE() + Math.max(1, ivl), ivl, ease, reps, lapses, HOJE()];
++  // "Errei" (intervalo 0) volta no fim da própria sessão e, depois, amanhã. O intervalo guardado segue crescendo;
++  // só o vencimento para antes da prova
++  return [HOJE() + tetoProva(Math.max(1, ivl)), ivl, ease, reps, lapses, HOJE()];
+ }
+ function avaliarCard(id, nota) {
+   const novo = cardNovo(id);
+@@ -2148,6 +2248,10 @@
+   achados.sort((a, b) => a.g.f - b.g.f);
+   return limite ? achados.slice(0, limite) : achados;
+ }
++// Palavras de polaridade (restringem, generalizam ou excepcionam) grifadas no enunciado depois da resposta: é onde o
++// Cebraspe costuma mexer. Antes da resposta, nada é grifado, para o grifo não virar pista. Só toca o texto fora das tags.
++const RE_POLARIDADE = /\b(exclusivamente|somente|apenas|unicamente|sempre|nunca|jamais|qualquer|tod[oa]s?|nenhum[a]?|salvo|exceto|desde que|ainda que|mesmo que|independentemente|vedad[oa]s?|obrigatoriamente|necessariamente|em hipótese alguma|privativ[oa]s?|exclusiv[oa]s?|automaticamente|integralmente)\b/gi;
++function marcarPolaridade(html) { return html.split(/(<[^>]+>)/).map((x) => (x.startsWith('<') ? x : x.replace(RE_POLARIDADE, '<span class="g-alerta">$&</span>'))).join(''); }
+ function marcarTermos(texto, max) {
+   // Envolve a primeira ocorrência de até `max` termos do glossário num botão; o resto é escapado.
+   const achados = termosDe(texto, null, 0.2);
+@@ -2201,14 +2305,24 @@
+   const venc = [], novas = [], lista = [], domV = [], resto = [];
+   for (const q of pool) {
+     const r = rec(q.id);
+-    if (!r || r[0] < 0) novas.push(q);
++    if (!r || r[0] < 0) { if (!RESERVA_MEDIDA.has(q.id)) novas.push(q); }
+     else if (SEM_REPETICAO.has(q.id)) resto.push(q);
+     else if (r[0] < 3 && r[1] <= hoje) venc.push(q);
+     else if (r[0] < 3) lista.push(q);
+     else if (r[1] <= hoje) domV.push(q);
+     else resto.push(q);
+   }
+-  embaralhar(venc); embaralhar(novas); embaralhar(lista);
++  embaralhar(venc); embaralhar(lista);
++  // Inéditas com pelo menos REAIS_TREINO de itens reais (ou a proporção natural do bloco, se for maior), intercalados
++  {
++    const reaisN = embaralhar(novas.filter((q) => q.o)), bancoN = embaralhar(novas.filter((q) => !q.o));
++    const alvo = Math.max(REAIS_TREINO, reaisN.length / (novas.length || 1));
++    novas.length = 0;
++    for (let i = 0; reaisN.length || bancoN.length; i++) {
++      const vezReal = Math.floor((i + 1) * alvo) > Math.floor(i * alvo);
++      novas.push((vezReal && reaisN.length) || !bancoN.length ? reaisN.shift() : bancoN.shift());
++    }
++  }
+   domV.sort((a, b) => rec(a.id)[1] - rec(b.id)[1]);
+   resto.sort((a, b) => rec(a.id)[1] - rec(b.id)[1]);
+   // Itens dominados que venceram: até um quarto da sessão, antes das inéditas (revisão espaçada intercalada)
+@@ -2282,7 +2396,7 @@
+ function emBlocosDeTexto(itens, puxar, soBlocos) {
+   const usados = new Set(itens.map((q) => q.id));
+   const irmaos = (ap, k) => {
+-    const extra = (POR_APOIO.get(ap) || []).filter((x) => !usados.has(x.id) && !rec(x.id) && (!soBlocos || soBlocos.has(x.b))).slice(0, Math.max(0, k));
++    const extra = (POR_APOIO.get(ap) || []).filter((x) => !usados.has(x.id) && !rec(x.id) && !RESERVA_MEDIDA.has(x.id) && (!soBlocos || soBlocos.has(x.b))).slice(0, Math.max(0, k));
+     extra.forEach((x) => usados.add(x.id));
+     return extra;
+   };
+@@ -2307,10 +2421,11 @@
+       blocos.set(ap, doCaderno(g));
+       total += g.length;
+     }
+-    // Itens sem texto preenchem o resto, revisões primeiro
+-    const semTexto = itens.filter((q) => q.ap == null);
++    // Itens sem texto preenchem o resto: revisões primeiro, depois os reais inéditos (a cota de reais do treino não se perde
++    // quando os textos ocupam vagas), depois os do banco
++    const semTexto = itens.filter((q) => q.ap == null), vistosST = semTexto.filter((q) => rec(q.id)), novosST = semTexto.filter((q) => !rec(q.id));
+     const vagas = Math.max(0, itens.length - total);
+-    const ficam = new Set(semTexto.filter((q) => rec(q.id)).concat(semTexto.filter((q) => !rec(q.id))).slice(0, Math.max(vagas, semTexto.filter((q) => rec(q.id)).length)).map((q) => q.id));
++    const ficam = new Set(vistosST.concat(novosST.filter((q) => q.o), novosST.filter((q) => !q.o)).slice(0, Math.max(vagas, vistosST.length)).map((q) => q.id));
+     itens = itens.filter((q) => (q.ap == null ? ficam.has(q.id) : blocos.has(q.ap)));
+   }
+   const feitos = new Set();
+@@ -2494,6 +2609,17 @@
+   sincronizarHistorico();
+ });
+ function decorrido() { return (Date.now() - sessao.ini) / 1000; }
++// Tempo no item (treino, revisão e batalha): conta do item aparecer até a resposta. Passa a avisar acima do ritmo de
++// prova: RITMO_PROVA_S no certo/errado (os 200 itens da projeção Cebraspe em 5 h) e o dobro na múltipla escolha (os 100
++// itens da FGV em 5 h); hipótese até o edital. O relâmpago e o simulado têm relógio próprio.
++const RITMO_PROVA_S = 90;
++function ritmoItem(q) { return q && q.al ? RITMO_PROVA_S * 2 : RITMO_PROVA_S; }
++function comTempoItem() { return sessao && !['simulado', 'relampago', 'cards'].includes(sessao.modo); }
++function segItem() { const id = sessao.ids[sessao.i], t = (sessao.tempos || {})[id]; return t != null ? t : Math.round((Date.now() - (sessao.itemIni || Date.now())) / 1000); }
++function htmlTempoItem() {
++  const s = segItem(), lim = ritmoItem(QI.get(sessao.ids[sessao.i]));
++  return '<span class="t-item mono' + (s > lim ? ' lento' : '') + '" id="t-item" title="Tempo neste item; ritmo de prova: até ' + fmtTempo(lim) + '">' + fmtTempo(s) + '</span>';
++}
+ function tique() {
+   if (!sessao || sessao.fim) return;
+   const el = document.getElementById('relogio');
+@@ -2502,6 +2628,8 @@
+     if (resta <= 0) { finalizar(); return; }
+     if (el) { el.textContent = fmtTempo(resta); el.classList.toggle('urgente', resta <= 15 || (sessao.modo === 'simulado' && resta <= 300)); }
+   } else if (el) el.textContent = fmtTempo(decorrido());
++  const ti = document.getElementById('t-item');
++  if (ti && comTempoItem() && !sessao.revelado) { const s = segItem(); ti.textContent = fmtTempo(s); ti.classList.toggle('lento', s > ritmoItem(QI.get(sessao.ids[sessao.i]))); }
+ }
+ function responder(resp) {
+   if (!sessao || sessao.fim || sessao.modo === 'cards') return;
+@@ -2516,6 +2644,7 @@
+     return;
+   }
+   if (sessao.revelado || sessao.flash || resp === BRANCO) return;
++  if (comTempoItem() && sessao.itemIni) (sessao.tempos ||= {})[id] = Math.round((Date.now() - sessao.itemIni) / 1000);
+   // Virada: acertar um item cuja última resposta foi erro. É onde o aprendizado aparece: se o erro foi em outro dia,
+   // o XP dobra; no mesmo dia (logo depois de ler o comentário), ganha só um pouco a mais
+   const ant = rec(id), virada = ant && ant[0] === 0 && ant[3] > 0 ? (ant[4] < HOJE() ? 'plena' : 'mesmo-dia') : null;
+@@ -2556,8 +2685,9 @@
+   renderSessao();
+ }
+ function avaliar(nota) {
+-  if (!sessao || sessao.modo !== 'cards' || !sessao.revelado) return;
++  if (!sessao || sessao.modo !== 'cards' || !sessao.revelado || (sessao.digOk === false && nota >= 3)) return;
+   const id = sessao.ids[sessao.i];
++  sessao.dig = ''; sessao.digOk = null;
+   avaliarCard(id, nota);
+   sessao.notas[nota]++;
+   const x = nota === 1 ? 1 : 3;
+@@ -2573,7 +2703,16 @@
+ }
+ function proximo() {
+   if (!sessao) return;
+-  if (sessao.modo === 'cards') { if (!sessao.revelado) { sessao.revelado = true; renderSessao(); } return; }
++  if (sessao.modo === 'cards') {
++    if (!sessao.revelado) {
++      const c = CI.get(sessao.ids[sessao.i]), campo = document.getElementById('card-digitar');
++      sessao.dig = campo ? campo.value.trim() : '';
++      sessao.digOk = c ? confereDigitado(sessao.dig, lacunaDoCard(c.nota, c.n)) : null;
++      sessao.revelado = true;
++      renderSessao();
++    }
++    return;
++  }
+   if (sessao.modo === 'simulado') { if (sessao.i < sessao.ids.length - 1) { sessao.i++; renderSessao(); } return; }
+   if (!sessao.revelado) return;
+   sessao.revelado = false;
+@@ -2694,6 +2833,39 @@
+ }
+ // Linha extra na tela da resposta: o artigo já cobrado em prova real (o acerto nele é crítico: XP e dano em dobro
+ // no chefão, 50% a mais de XP fora dele)
++// Caça-Pegadinha: ao acertar um item errado de certo/errado, a pessoa aponta o tipo da pegadinha. Só entram os itens
++// em que o build confirmou o tipo pelo texto (q.pg: o primeiro código é o certo, os outros são tipos que o item não
++// tem). Acertar o tipo dá um golpe certeiro de PEG_XP; errar não tira nada e mostra qual era.
++const PEG = {
++  n: ['Número ou prazo', 'trocou prazo, quantidade, quórum ou percentual'],
++  a: ['Palavra absoluta', 'generalizou com sempre, nunca, somente ou qualquer onde a lei admite outra hipótese'],
++  e: ['Exceção ou condição', 'apagou, inventou ou inverteu uma ressalva, condição ou requisito'],
++  r: ['Rol trocado', 'pôs na lista o que a lei não lista, ou tirou o que ela lista'],
++  s: ['Sujeito trocado', 'deu a competência, o dever ou o direito a outra pessoa ou órgão'],
++};
++const PEG_XP = 8;
++function cacaAtiva(q) { return !!(q.pg && sessao && sessao.modo !== 'simulado' && sessao.modo !== 'relampago' && !UI.foco && sessao.resp[q.id] === 'E'); }
++function renderCaca(q) {
++  if (!cacaAtiva(q)) return '';
++  const st = (sessao.peg || {})[q.id], [nome, desc] = PEG[q.pg[0]];
++  if (st) return '<div class="caca ' + (st === 'ok' ? 'ok' : 'no') + '" role="status"><p>' + (st === 'ok' ? '<b>Golpe certeiro: +' + PEG_XP + ' XP.</b> ' : 'Você apontou ' + esc(PEG[st][0].toLowerCase()) + '. ') + 'Era <b>' + esc(nome.toLowerCase()) + '</b>: ' + esc(desc) + '.</p></div>';
++  const ops = q.pg.split('').sort((x, y) => hashTxt(q.id + x) - hashTxt(q.id + y));
++  return '<div class="caca" role="group" aria-labelledby="caca-t"><p id="caca-t"><b>Caça-Pegadinha</b> · onde estava a pegadinha?</p><div class="chips">' +
++    ops.map((c) => '<button class="chip" data-acao="pegadinha" data-t="' + c + '">' + esc(PEG[c][0]) + '</button>').join('') + '</div></div>';
++}
++function cacarPegadinha(t) {
++  const q = sessao && QI.get(sessao.ids[sessao.i]);
++  if (!q || !cacaAtiva(q) || !PEG[t] || (sessao.peg || {})[q.id]) return;
++  const ok = t === q.pg[0], r = rpg();
++  (sessao.peg ||= {})[q.id] = ok ? 'ok' : t;
++  r.peg = r.peg || [0, 0];
++  r.peg[1]++;
++  if (ok) { r.peg[0]++; diaLog().pg = (diaLog().pg || 0) + 1; sessao.xp += PEG_XP; ganharXP(PEG_XP); tocar('combo'); }
++  verificarConquistas();
++  verificarRPG();
++  Store.salvar('perfil');
++  renderSessao();
++}
+ function extrasResposta(q) {
+   const n = caiuEmProva(q);
+   return n ? '<p class="extra-resp quente"><span aria-hidden="true">★</span> Já caiu em prova: ' + pl(n, 'item real', 'itens reais') + ' deste artigo no banco.</p>' : '';
+@@ -3013,6 +3185,34 @@
+ // Cada correção salva dá baixa em um dia: o de hoje primeiro, depois o atrasado mais antigo, depois o próximo da semana
+ // (adiantar vale). Vale qualquer tema; o do dia vem sugerido. A baixa fica em S.perfil.feitos['disc:' + data].
+ const DIAS_DISC = DIAS.filter((d) => d.disc);
++// Cota da semana (segunda a domingo): uma discursiva completa, escrita e corrigida pelos quesitos, e um simulado de 30
++// itens ou mais com tempo. Ficam à vista abaixo do roteiro até serem cumpridas e não entram na contagem do roteiro do
++// dia (que fecha completo sem elas). O simulado do plano na semana também cumpre a cota.
++const SIM_SEMANA_N = 30;
++function cotaSemana() {
++  const sem = semanaAtual(), fim = isoDeNum(diaNum(sem) + 6);
++  const discOk = Object.values(S.disc).some((st) => (st.tentativas || []).some((x) => x.d >= sem));
++  const simOk = S.simulados.some((x) => x.data >= sem && x.n >= SIM_SEMANA_N);
++  const tent = (id) => ((S.disc[id] || {}).tentativas || []).length;
++  // Entre os menos treinados, primeiro os temas com espelho oficial da banca: são a única régua externa de severidade
++  const oficial = (t) => (/^oficial-/.test(t.id) ? 0 : 1);
++  const tema = TEMAS_DISC.slice().sort((a, b) => tent(a.id) - tent(b.id) || oficial(a) - oficial(b))[0];
++  const simPlano = DIAS.find((x) => x.modo === 'simulado' && x.data >= hojeISO() && x.data <= fim);
++  const chaveSim = 'sim:' + sem;
++  return [
++    { titulo: 'Discursiva da semana', feito: discOk,
++      texto: discOk ? 'Feita nesta semana.' : (tema ? 'Texto inteiro, no limite de linhas e no tempo, corrigido pelos quesitos. Sugestão: ' + tema.titulo + (tent(tema.id) ? '' : ' (tema ainda não treinado)') + '.' : ''),
++      botoes: discOk || !tema ? '' : '<button class="btn pequeno" data-acao="disc-dia" data-t="' + esc(tema.id) + '">Escrever</button>' },
++    { titulo: 'Simulado da semana (' + SIM_SEMANA_N + ' itens)', feito: simOk,
++      texto: simOk ? 'Feito nesta semana.' : 'Com tempo e sem gabarito até entregar: treina ritmo, resistência e a decisão de chutar.' + (simPlano ? ' O simulado do plano de ' + fmtData(simPlano.data, { weekday: 'long' }) + ' também cumpre a cota.' : ''),
++      botoes: simOk ? '' : '<button class="btn pequeno" data-acao="simulado-semana">' + esc(rotuloPausa(chaveSim, 'Fazer o simulado')) + '</button>' },
++  ];
++}
++function cartaoSemana() {
++  const c = cotaSemana(), feitas = c.filter((x) => x.feito).length;
++  return '<div class="cartao semana"><div class="secao-cab"><h2>Esta semana</h2><span class="mono pequeno mudo">' + feitas + ' de ' + c.length + '</span></div><div class="roteiro">' +
++    c.map((p) => '<div class="passo' + (p.feito ? ' feito' : '') + '"><div class="marca-passo">' + (p.feito ? '✓' : '◦') + '</div><div class="corpo-passo"><b>' + esc(p.titulo) + '</b><p>' + esc(p.texto) + '</p>' + (p.botoes ? '<div class="linha-btns">' + p.botoes + '</div>' : '') + '</div></div>').join('') + '</div></div>';
++}
+ function discFeita(dia) { return !!S.perfil.feitos['disc:' + dia.data]; }
+ function discDeHoje() { const h = hojeISO(); return DIAS_DISC.find((d) => d.data === h) || null; }
+ function temaDisc(dia) { return TEMAS_DISC.find((t) => t.id === dia.disc) || null; }
+@@ -3138,6 +3338,7 @@
+   { id: 'q60', txt: () => 'Responder ' + metaMais() + ' itens', xp: 60, meta: () => metaMais(), val: (d) => d.r || 0 },
+   { id: 'novas', txt: () => 'Responder ' + metaNovas() + ' itens inéditos', xp: 40, meta: () => metaNovas(), val: (d) => d.ni || 0 },
+   { id: 'acerto', txt: 'Acertar 80% de pelo menos 20 itens', xp: 40, meta: 1, val: (d) => ((d.r || 0) >= 20 && d.c / d.r >= 0.8 ? 1 : 0), fr: (d) => Math.min(1, (d.r || 0) / 20) },
++  { id: 'peg3', txt: 'Acertar o tipo de 3 pegadinhas no Caça-Pegadinha', xp: 30, meta: 3, val: (d) => d.pg || 0 },
+   { id: 'combo', txt: 'Acertar 10 seguidos', xp: 30, meta: 10, val: (d) => d.cmb || 0 },
+   { id: 'lei5', txt: () => 'Ler ' + metaLei() + ' artigos da lei seca', xp: 30, meta: () => metaLei(), val: (d) => (d.a || []).length },
+   { id: 'cards20', txt: 'Revisar 20 cards', xp: 30, meta: 20, val: (d) => d.k || 0 },
+@@ -3299,6 +3500,59 @@
+   normalizarChefe(r.chefe);
+   return r.chefe;
+ }
++// Masmorra da semana: cada artigo de um bloco de lei é um andar, na ordem da lei. O bloco é o do chefão quando ele tem
++// pelo menos 3 andares; senão, o bloco de lei mais fraco entre os praticados. O andar fica limpo quando nenhum item dele
++// está com erro pendente e pelo menos ANDAR_MIN (ou todos, se forem menos) estão certos no último registro. Limpar um
++// andar respondendo um item dele dá ANDAR_XP, uma vez por semana; andar que já estava limpo aparece limpo.
++const ANDAR_MIN = 5, ANDAR_XP = 20;
++let posArt = null;
++function andaresDe(bloco) {
++  if (!posArt) posArt = new Map([...ARTI.keys()].map((k, i) => [k, i]));
++  const porArt = agrupar((POR_BLOCO.get(bloco) || []).filter((q) => q.art && LEIS[q.l]), (q) => chave(q.l, q.art));
++  return [...porArt.entries()].filter(([k]) => ARTI.has(k)).sort((a, b) => posArt.get(a[0]) - posArt.get(b[0])).map(([k, qs]) => {
++    let ok = 0, pend = 0;
++    for (const q of qs) { const r = rec(q.id); if (!r) continue; if (r[0] > 0) ok++; else if (r[0] === 0 && r[3] > 0) pend++; }
++    const meta = Math.min(ANDAR_MIN, qs.length);
++    return { k, ok, pend, meta, limpo: !pend && ok >= meta };
++  });
++}
++function masmorra() {
++  const r = rpg(), c = chefeDaSemana();
++  if (!r.masm || r.masm.sem !== c.sem) {
++    let bloco = andaresDe(c.bloco).length >= 3 ? c.bloco : null;
++    if (!bloco) {
++      const cand = BLOCOS.map((b) => ({ id: b.id, n: andaresDe(b.id).length, dom: dominioBloco(b.id) || 0, resp: (POR_BLOCO.get(b.id) || []).filter((q) => { const x = rec(q.id); return x && x[0] >= 0; }).length }))
++        .filter((x) => x.n >= 3);
++      const praticados = cand.filter((x) => x.resp >= 5);
++      const alvo = (praticados.length ? praticados : cand.filter((x) => P1.includes(x.id))).sort((a, b) => a.dom - b.dom)[0] || cand[0];
++      bloco = alvo ? alvo.id : null;
++    }
++    r.masm = { sem: c.sem, bloco, ok: [] };
++  }
++  if (!r.masm.bloco) return null;
++  const andares = andaresDe(r.masm.bloco);
++  return { bloco: r.masm.bloco, andares, limpos: andares.filter((a) => a.limpo).length, prox: andares.find((a) => !a.limpo) };
++}
++function verificarAndar(q) {
++  const m = masmorra();
++  if (!m || q.b !== m.bloco || !q.art) return;
++  const k = chave(q.l, q.art), a = m.andares.find((x) => x.k === k), r = rpg();
++  if (!a || !a.limpo || r.masm.ok.includes(k)) return;
++  r.masm.ok.push(k);
++  r.andares = (r.andares || 0) + 1;
++  ganharXP(ANDAR_XP);
++  avisar('▼', 'Andar limpo: ' + rotuloArt(k), m.limpos === m.andares.length ? 'Masmorra inteira limpa! +' + ANDAR_XP + ' XP' : 'Faltam ' + (m.andares.length - m.limpos) + ' andares · +' + ANDAR_XP + ' XP');
++  if (m.limpos === m.andares.length) r.masmorras = (r.masmorras || 0) + 1;
++}
++function cartaoMasmorra() {
++  const m = masmorra();
++  if (!m) return '';
++  const tot = m.andares.length, p = m.prox;
++  return '<div class="masmorra"><div class="masm-cab"><b>Masmorra da semana</b><span class="mono pequeno">' + m.limpos + '/' + tot + ' andares</span></div>' +
++    '<span class="pequeno mudo">' + esc(nomeBloco(m.bloco)) + '</span>' + barra(m.limpos / tot, 'ouro') +
++    (p ? '<p class="pequeno">Próximo andar: <b>' + esc(rotuloArt(p.k)) + '</b> · ' + (p.pend ? pl(p.pend, 'erro pendente', 'erros pendentes') : p.ok + '/' + p.meta + ' acertos') +
++      ' <button class="linkish pequeno" data-acao="treinar-art" data-art="' + esc(p.k) + '">Descer</button></p>' : '<p class="pequeno">Masmorra limpa nesta semana.</p>') + '</div>';
++}
+ // Dano de um acerto: 10, 15 ou 20 pela dificuldade do item, mais o bônus da arma. É crítico (dano em dobro) quando o
+ // artigo do item já caiu em prova real ou, ao acaso, pela chance do amuleto.
+ function danoDe(q) {
+@@ -3396,8 +3650,10 @@
+     '<span class="pequeno mudo">' + esc(nomeBloco(c.bloco)) + '</span>' + hpBarra(c.vencido ? 0 : c.vida, c.max) + '</div>' +
+     (c.vencido ? '' : '<button class="btn pequeno primario" data-acao="enfrentar-chefe">' + esc(rotuloPausa('chefe:' + c.sem, 'Batalhar')) + '</button>') + '</div>';
+   const bau = mh.bau && mh.item && IR.get(mh.item) ? '<p class="pequeno">Baú aberto: <b class="r-txt-' + IR.get(mh.item).rar + '">' + esc(IR.get(mh.item).nome) + '</b></p>' : '<p class="pequeno mudo">Três missões abrem o baú do dia, com um item.</p>';
+-  return '<div class="cartao jornada"><div class="secao-cab"><h2>Jornada</h2><span class="mono pequeno mudo">' + feitas + '/' + mh.ids.length + ' missões</span></div>' +
+-    heroi + chefe + '<div class="missoes">' + missoes + '</div>' + bau + '</div>';
++  // Recolhida por padrão (a tela Hoje começa pelo roteiro): o resumo mostra nível, missões e a vida do chefão
++  return '<div class="cartao jornada"><details data-det="jornada"' + (UI.det.jornada ? ' open' : '') + '><summary class="jornada-resumo"><b>Jornada</b><span class="mono pequeno mudo">nível ' + nv.n + ' · ' + feitas + '/' + mh.ids.length + ' missões · ' +
++    (c.vencido ? 'chefão vencido' : 'chefão ' + Math.round((c.vida / c.max) * 100) + '% de vida') + '</span></summary>' +
++    heroi + chefe + cartaoMasmorra() + '<div class="missoes">' + missoes + '</div>' + bau + '</details></div>';
+ }
+ // Ficha do personagem (Mais → Personagem): atributos medidos pelo domínio real, equipamento e inventário
+ function dominioDisciplina(disc) {
+@@ -3609,6 +3865,26 @@
+   ['pegadinha', 'Caí em pegadinha conhecida', 'Anotar o par de termos que a banca trocou (ex.: 60 dias × 90 dias; sustar ato × sustar contrato).'],
+   ['chute', 'Chutei sem base', 'No Cebraspe (2p − 1), sem eliminar 2 alternativas ou ter >50% de confiança, deixar em branco.'],
+ ];
++function causaDe(k) { return CAUSAS_ERRO.find((c) => c[0] === k); }
++// Causa do erro marcada na hora, na própria correção do item; vai para o Caderno de Erros e para o placar de causas
++function renderCausaAgora(q) {
++  const atual = (cadState().erros[q.id] || {}).causa;
++  return '<div class="causa-agora" role="group" aria-label="Por que errou"><span class="pequeno">Por que errou?</span><div class="chips">' +
++    CAUSAS_ERRO.map(([k, rot]) => '<button class="chip" data-acao="causa-agora" data-causa="' + k + '" aria-pressed="' + (atual === k) + '">' + esc(rot) + '</button>').join('') + '</div>' +
++    (atual ? '<p class="pequeno mudo">' + esc(causaDe(atual)[2]) + '</p>' : '') +
++    // Não sabia o ponto: o caminho para o artigo fica ali mesmo, no lugar do erro
++    (atual === 'nao-sabia' && q.art && ARTI.get(chave(q.l, q.art)) ? '<div class="linha-btns">' + botaoArt(chave(q.l, q.art), q.id, 'Abrir o artigo agora') + '</div>' : '') + '</div>';
++}
++// Autoverificação antes de corrigir a discursiva: o que a banca cobra numa peça técnica do controle externo (relatório
++// de auditoria, instrução de processo ou parecer). Só marca para a própria pessoa conferir; não entra na nota.
++const CHECK_DISC = '<details class="check-disc"><summary>Antes de corrigir: confira o texto</summary><ul>' + [
++  'Respondi a todos os aspectos do comando, na ordem pedida.',
++  'Cada afirmação jurídica tem o fundamento (CF, Lei 8.443/1992, Regimento Interno do TCU, Lei 14.133/2021, súmula ou acórdão).',
++  'Nos achados, ficaram claros a situação encontrada, o critério, a evidência, a causa e o efeito.',
++  'A proposta de encaminhamento cabe na competência do TCU (determinação, recomendação, audiência, citação, multa) e identifica o responsável.',
++  'Fechei com uma conclusão que responde à pergunta do comando, sem tema novo.',
++  'Fiquei dentro do limite de linhas e sem marcas de identificação.',
++].map((x) => '<li><label><input type="checkbox"> ' + x + '</label></li>').join('') + '</ul></details>';
+ function tcuState() {
+   const t = (S.perfil.tcu ||= {});
+   if (!t.fase) t.fase = 'f1';
+@@ -3944,19 +4220,28 @@
+   return html + '</div>';
+ }
+ 
++// Prontidão no topo da tela Hoje, acima de qualquer XP: é o número que diz se a prova está perto
++function linhaProntidao() {
++  const pr = prontidao(), n = pr.real.n;
++  const txt = pr.nota != null && pr.cobre >= 0.5
++    ? 'Prontidão: <b>' + Math.round(pr.nota) + '</b> de ' + PONTOS_PROVA + ' pontos líquidos' + (pr.faixa ? ' (provavelmente entre ' + pr.faixa[0] + ' e ' + pr.faixa[1] + ')' : '') + ' · itens reais: ' + pct(pr.real.c, n || 1) + '% em ' + n +
++      (pr.semReais + pr.semDados ? ' · ' + pl(pr.semReais + pr.semDados, 'disciplina ainda sem medida própria', 'disciplinas ainda sem medida própria') : '')
++    : 'Prontidão: ' + (n ? pct(pr.real.c, n) + '% nos ' + pl(n, 'item real respondido', 'itens reais respondidos') + '; ' : '') + 'a estimativa fica confiável perto de 100 itens reais (o simulado da semana ajuda)';
++  return '<p class="pront-topo">' + txt + ' <button class="linkish pequeno" data-acao="mais" data-sub="progresso">detalhes</button></p>';
++}
+ function renderHoje() {
+   const ctx = contextoHoje();
+   const d = diaLog();
+   const h = hojeISO();
+   const rt = roteiroHoje();
+   const feitos = rt.passos.filter((p) => p.feito).length;
+-  const prox = rt.passos.find((p) => !p.feito);
++  const prox = rt.passos.find((p) => !p.feito) || cotaSemana().find((p) => !p.feito);
+   let topo = '<div class="cartao destaque"><div class="heroi">' +
+     '<div><div class="dia">' + esc(fmtData(h, { weekday: 'long' })) + '</div><div class="data">' + esc(fmtData(h, { day: '2-digit', month: 'long', year: 'numeric' })) +
+-    (ctx.tipo === 'dia' ? ' · ' + esc(ctx.dia.duracao) : '') + '</div></div>' + anel(d.r, metaDia()) +
++    (ctx.tipo === 'dia' ? ' · ' + esc(ctx.dia.duracao) : '') + '</div></div>' + anel(d.r, metaDia()) + linhaProntidao() +
+     '<p class="atividade">' + (ctx.tipo === 'dia' ? esc(ctx.dia.atividade) : ctx.tipo === 'folga' ? '<span class="mudo">Dia livre por padrão. Próxima sessão, ' + esc(fmtData(ctx.prox.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + ':</span> ' + esc(ctx.prox.atividade) : 'Cronograma concluído: recomece pelos blocos mais fracos e pelo conteúdo do edital.') + '</p>' +
+     // O que fazer agora fica na primeira tela: o primeiro passo do roteiro ainda não feito, com o botão dele
+-    (prox ? '<div class="proximo"><span class="rotulo">Próximo passo · ' + (rt.passos.indexOf(prox) + 1) + ' de ' + rt.passos.length + '</span><b>' + esc(prox.titulo) + '</b><div class="linha-btns">' + prox.botoes + '</div></div>'
++    (prox ? '<div class="proximo"><span class="rotulo">' + (rt.passos.includes(prox) ? 'Próximo passo · ' + (rt.passos.indexOf(prox) + 1) + ' de ' + rt.passos.length : 'Roteiro de hoje feito · falta na semana') + '</span><b>' + esc(prox.titulo) + '</b><div class="linha-btns">' + prox.botoes + '</div></div>'
+       : '<div class="proximo feito"><b>Roteiro de hoje completo.</b><span class="pequeno mudo">Se sobrar tempo, veja o Atraso do plano e a Jornada, mais abaixo.</span></div>') + '</div></div>';
+   const aguard = ctx.tipo === 'dia' ? (ctx.dia.blocos || []).filter((b) => BI.get(b) && BI.get(b).aguardando && !(POR_BLOCO.get(b) || []).length) : [];
+   if (aguard.length) topo += '<p class="nota-aguardando">' + esc(aguard.map(nomeBloco).join('; ')) + ': ainda sem questões. A sessão usa os blocos ligados ao tema. Cole o texto na conversa com o Claude para ganhar questões próprias.</p>';
+@@ -3972,12 +4257,12 @@
+     '<button class="modo" data-acao="mais" data-sub="discursiva"><b>Discursiva</b><span>Limite de linhas e correção por quesitos.</span><span class="num">' + pl(TEMAS_DISC.length, 'tema', 'temas') + '</span></button>' +
+     '<button class="modo" data-acao="abrir-modo" data-modo="treino"><b>Treino livre</b><span>Escolha os blocos; gabarito comentado a cada item.</span><span class="num">' + Q.length + ' questões</span></button></div></div>';
+   // Duas contagens: o prazo legal do edital e a prova estimada (domingo cerca de três meses depois)
+-  const cr = D.cronograma, faltaEd = diaNum(cr.edital) - HOJE(), faltaPr = diaNum(cr.prova) - HOJE();
++  const cr = D.cronograma, faltaEd = diaNum(cr.edital) - HOJE(), prova = dataProva(), oficial = !!(S.perfil.edital && S.perfil.edital.prova), faltaPr = diaNum(prova) - HOJE();
+   const dataCurta = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit', year: 'numeric' });
+   const contagem = (n, txt) => '<div class="contagem">' + (n > 0 ? '<span class="grande">' + n + '</span>' : '') + '<span>' + txt + '</span></div>';
+   const edital = '<div class="cartao">' +
+     contagem(faltaEd, faltaEd > 0 ? 'dias até ' + dataCurta(cr.edital) + ', janela estimada para o edital do TCU (PLOA 2027).' : faltaEd === 0 ? 'Hoje abre a janela estimada para o edital do TCU (' + dataCurta(cr.edital) + ').' : 'A janela inicial estimada do edital (' + dataCurta(cr.edital) + ') chegou: monitore a comissão e o contrato com a banca no DOU.') +
+-    contagem(faltaPr, faltaPr > 0 ? 'dias até a prova estimada, domingo ' + dataCurta(cr.prova) + ' (~4 meses após o edital, padrão histórico do TCU).' : faltaPr === 0 ? 'Hoje é o dia estimado da prova do TCU. Excelente prova!' : 'A data estimada da prova (' + dataCurta(cr.prova) + ') passou.') + '</div>';
++    contagem(faltaPr, faltaPr > 0 ? (oficial ? 'dias até a prova, ' + dataCurta(prova) + '.' : 'dias até a prova estimada, domingo ' + dataCurta(prova) + ' (~4 meses após o edital, padrão histórico do TCU; troque pela data oficial em Ajustes → Edital e prova).') : faltaPr === 0 ? 'Hoje é o dia ' + (oficial ? '' : 'estimado ') + 'da prova do TCU. Excelente prova!' : 'A data ' + (oficial ? '' : 'estimada ') + 'da prova (' + dataCurta(prova) + ') passou.') + '</div>';
+   // Sessões guardadas que não têm botão próprio no roteiro (o dia, as intercaladas e a trilha de hoje já mostram Continuar)
+   const fora = new Set(['i:' + h]);
+   if (ctx.tipo === 'dia') fora.add(ctx.dia.data);
+@@ -3986,7 +4271,7 @@
+   if (stH) fora.add('t:' + stH.id + ':' + (diaSt || estadoSubtema(stH.id).novos ? 'pre' : 'pratica'));
+   verificarRPG();
+   const local = cartaoSoNoAparelho(), localTopo = local && backupAtrasado();
+-  document.getElementById('vista-hoje').innerHTML = topo + cartaoFaseTCU() + (localTopo ? local : '') + cartaoPausas(fora) + roteiro + cartaoTempo() + cartaoTaticoMentorando() + cartaoPendencias() + cartaoJornada() + modos + edital + (localTopo ? '' : local) + '<p class="sync" id="sync"></p>';
++  document.getElementById('vista-hoje').innerHTML = topo + cartaoFaseTCU() + (localTopo ? local : '') + cartaoPausas(fora) + roteiro + cartaoSemana() + cartaoPendencias() + cartaoJornada() + cartaoTempo() + cartaoTaticoMentorando() + modos + edital + (localTopo ? '' : local) + '<p class="sync" id="sync"></p>';
+   atualizarRodapeSync();
+ }
+ // Quando a conta não está disponível, o aviso não fica escondido no rodapé: sobe para o topo se o último backup tiver
+@@ -4059,9 +4344,9 @@
+   if (modo === 'simulado') {
+     html += '<div class="cartao destaque tcu-sim-banner">' +
+       '<div class="secao-cab"><h2>Simulados Oficiais TCU · Cebraspe e FGV</h2><span class="selo mono">Modelos Oficiais de Prova</span></div>' +
+-      '<p class="pequeno">Escolha o modelo oficial de treino sob condições reais de prova: <b>Cebraspe 200 itens</b> (P1 Básicos + P2 Específicos, fórmula líquida) ou <b>FGV 100 itens</b> (caderno oficial AUFC com múltipla escolha A–E e acertos ponderados).</p>' +
++      '<p class="pequeno">Escolha o modelo oficial de treino sob condições reais de prova: <b>' + (S.perfil.edital ? 'Edital informado, ' : 'Cebraspe ') + TOTAL_PROVA + ' itens</b> (P1: ' + somaItens(PROVA_BASICA) + ' básicos + P2: ' + somaItens(PROVA_ESPECIFICA) + ' específicos, fórmula líquida; a estrutura muda em Ajustes → Edital e prova) ou <b>FGV 100 itens</b> (caderno oficial AUFC com múltipla escolha A–E e acertos ponderados).</p>' +
+       '<div class="linha-btns" style="display:flex;flex-wrap:wrap;gap:8px">' +
+-      '<button class="btn primario" data-acao="simulado-oficial-200">▶ Simulado Geral Cebraspe (200 Itens · 5h · AUFC)</button>' +
++      '<button class="btn primario" data-acao="simulado-oficial-200">▶ Simulado Geral ' + (S.perfil.edital ? 'do edital' : 'Cebraspe') + ' (' + TOTAL_PROVA + ' Itens · ' + duracaoProva() + ' · AUFC)</button>' +
+       '<button class="btn" data-acao="simulado-oficial-fgv-100">▶ Simulado Oficial FGV AUFC (100 Itens A–E · 5h)</button>' +
+       '</div></div>';
+     html += '<div class="campo"><span class="rot">Composição</span><div class="chips">' +
+@@ -4144,13 +4429,14 @@
+   if (!sessao) return;
+   if (sessao.fim) { el.innerHTML = '<div class="sessao-corpo">' + (sessao.modo === 'cards' ? renderResultadoCards() : renderResultado()) + '</div>'; return; }
+   const total = sessao.modo === 'relampago' ? null : sessao.ids.length;
++  if (comTempoItem() && sessao.itemDe !== sessao.ids[sessao.i]) { sessao.itemDe = sessao.ids[sessao.i]; sessao.itemIni = Date.now(); }
+   const relogio = sessao.limite ? fmtTempo(sessao.limite - decorrido()) : fmtTempo(decorrido());
+   let html = '<div class="sessao-corpo"><div class="sessao-topo"><button class="icone-btn" data-acao="sair-sessao" aria-label="Sair da sessão"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>' +
+     '<div class="tit"><b>' + esc(sessao.titulo) + '</b><span>' + (total ? (sessao.modo === 'cards' ? 'Card ' : 'Item ') + ((sessao.feitasAntes || 0) + sessao.i + 1) + ' de ' + (sessao.totalOrig || total) : 'Item ' + (sessao.i + 1)) + (sessao.xp ? ' · +' + sessao.xp + ' XP' : '') + '</span></div>' +
+     (!UI.foco && sessao.modo !== 'simulado' && sessao.modo !== 'cards' && sessao.combo >= 2 ? '<span class="combo' + (sessao.revelado || sessao.flash ? ' pulso' : '') + '">combo ×' + sessao.combo + '</span>' : '') +
+     '<button class="icone-btn" data-acao="foco" aria-pressed="' + !!UI.foco + '" aria-label="' + (UI.foco ? 'Mostrar a arena' : 'Modo foco: esconder a arena e o combo') + '" title="' + (UI.foco ? 'Modo foco ligado' : 'Modo foco desligado') + '"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></button>' +
+     '<button class="icone-btn som" data-acao="som" aria-pressed="' + !!UI.som + '" aria-label="' + (UI.som ? 'Desligar o som' : 'Ligar o som') + '" title="' + (UI.som ? 'Som ligado' : 'Som desligado') + '">' + iconeSom(!!UI.som) + '</button>' +
+-    '<span class="relogio" id="relogio">' + relogio + '</span></div>';
++    (comTempoItem() ? htmlTempoItem() : '') + '<span class="relogio" id="relogio">' + relogio + '</span></div>';
+   if (sessao.confirmar) html += renderConfirmacao();
+   if (sessao.modo === 'cards') html += barra(sessao.i / sessao.ids.length) + renderCardSessao(CI.get(sessao.ids[sessao.i]));
+   else { html += renderArena(QI.get(sessao.ids[sessao.i])); if (total) html += renderTira(); html += renderItem(QI.get(sessao.ids[sessao.i])); }
+@@ -4201,7 +4487,7 @@
+   let html = '<article class="item"><div class="item-cab"><span class="selo mono">' + esc(nomeBloco(q.b)) + '</span>' + seloReal(q) + '<span class="item-num">' + esc(q.id) + '</span></div>';
+   html += renderApoio(q, sessao.i === 0 || sim || !sessao.ids.slice(0, sessao.i).some((x) => QI.get(x).ap === q.ap));
+   html += renderComando(q);
+-  html += '<p class="enunciado">' + (sessao.revelado ? marcarTermos(q.e, 3) : esc(q.e)) + '</p>';
++  html += '<p class="enunciado">' + (sessao.revelado ? marcarPolaridade(marcarTermos(q.e, 3)) : esc(q.e)) + '</p>';
+   html += renderAlternativas(q, marcada, sessao.revelado || !!sessao.flash);
+   if (sessao.flash) {
+     html += '<div class="veredito ' + sessao.flash + '"><span>' + (sessao.flash === 'ok' ? 'Certo' : 'Errado: gabarito ' + nomeGab(q).toUpperCase()) + '</span>' + (sessao.ultimoGanho ? '<span class="ganho">+' + sessao.ultimoGanho + ' XP</span>' : '') + '</div>';
+@@ -4222,14 +4508,16 @@
+     const r = sessao.resp[id], ok = r === q.g;
+     html += '<div class="veredito ' + (ok ? 'ok' : 'no') + '"><span>' + (ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + (q.al ? 'a letra ' + q.g : q.g === 'C' ? 'CERTO' : 'ERRADO') + '.') + '</span>' +
+       (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP' + (sessao.virada === 'plena' ? ' <small>virada</small>' : caiuEmProva(q) && sessao.modo !== 'relampago' ? ' <small>crítico</small>' : '') + '</span>' : '<span class="pequeno">' + (SEM_REPETICAO.has(id) ? 'Este texto não volta: vêm outros' : 'Foi para a lista curta') + '</span>') + '</div>';
++    html += renderCaca(q);
++    if (!ok && r !== BRANCO && sessao.modo !== 'simulado') html += renderCausaAgora(q);
+     html += extrasResposta(q);
+-    html += renderExplicacao(q);
++    html += renderExplicacao(q, cacaAtiva(q) && !(sessao.peg || {})[q.id]);
+     html += '<button class="btn primario largo" data-acao="proximo">' + (sessao.i < sessao.ids.length - 1 ? 'Próximo item' : 'Ver resultado') + '</button><p class="atalhos">Enter = próximo</p>';
+   }
+   return html + '</article>';
+ }
+-function renderExplicacao(q) {
+-  let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</span>';
++function renderExplicacao(q, semArmadilha) {
++  let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + (semArmadilha ? '' : ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a)) + '</span>';
+   if (q.o || (q.ad && q.pv)) html += '<p class="pequeno mudo">' + esc(q.pv) + '</p>';
+   html += '<p>' + marcarTermos(q.c, 3) + '</p>';
+   if (q.t && q.t.length) {
+@@ -4266,16 +4554,53 @@
+   });
+   return html + esc(nota.t.slice(pos));
+ }
++// Card de número, prazo ou quórum: a lacuna pode ser digitada antes de ver a resposta. Se o digitado não confere, Bom e
++// Fácil ficam bloqueados (a nota não pode ser mais generosa que a resposta). Confere pelos números (algarismos ou por
++// extenso: "30", "trinta", "cento e vinte") e pelas unidades digitadas (dias, meses, úteis…), que precisam estar na
++// lacuna; sem número na lacuna, pelas palavras.
++const NUM_PAL = { um: 1, uma: 1, dois: 2, duas: 2, tres: 3, quatro: 4, cinco: 5, seis: 6, sete: 7, oito: 8, nove: 9, dez: 10, onze: 11, doze: 12, treze: 13, quatorze: 14, catorze: 14, quinze: 15, dezesseis: 16, dezessete: 17, dezoito: 18, dezenove: 19, vinte: 20, trinta: 30, quarenta: 40, cinquenta: 50, sessenta: 60, setenta: 70, oitenta: 80, noventa: 90, cem: 100, cento: 100, duzentos: 200, trezentos: 300, quatrocentos: 400, quinhentos: 500, mil: 1000 };
++const RE_DADO_CARD = /\d|\b(dois|duas|tr[eê]s|quatro|cinco|seis|sete|oito|nove|dez|onze|doze|treze|quatorze|catorze|quinze|dezesseis|dezessete|dezoito|dezenove|vinte|trinta|quarenta|cinquenta|sessenta|setenta|oitenta|noventa|cem|cento|duzentos|trezentos|quinhentos|mil|metade|dobro|triplo|ter[cç]os?)\b/i;
++function numerosDe(t) {
++  const out = new Set(), w = semAcento(t).replace(/(\d)\.(\d{3})/g, '$1$2').match(/\d+(?:,\d+)?|[a-z]+/g) || [];
++  let acc = null;
++  const fecha = () => { if (acc != null) { out.add(acc); acc = null; } };
++  for (const x of w) {
++    if (/^\d/.test(x)) { fecha(); out.add(Number(x.replace(',', '.'))); }
++    else if (x === 'e' && acc != null) continue;
++    else if (x in NUM_PAL) acc = NUM_PAL[x] === 1000 ? (acc || 1) * 1000 : (acc || 0) + NUM_PAL[x];
++    else fecha();
++  }
++  fecha();
++  return out;
++}
++function unidadesDe(t) {
++  const u = new Set(), x = semAcento(t);
++  [[/\bhoras?\b/, 'h'], [/\bdias?\b/, 'd'], [/\bsemanas?\b/, 's'], [/\bmes(es)?\b/, 'm'], [/\banos?\b/, 'a'], [/\buteis\b|\butil\b/, 'u'], [/\bcorridos?\b/, 'c']].forEach(([re, k]) => { if (re.test(x)) u.add(k); });
++  return u;
++}
++function confereDigitado(dig, lac) {
++  if (!String(dig || '').trim()) return null;
++  const nl = numerosDe(lac), nd = numerosDe(dig), ul = unidadesDe(lac);
++  if ([...unidadesDe(dig)].some((u) => !ul.has(u))) return false;
++  if (nl.size) return nd.size > 0 && [...nd].every((x) => nl.has(x));
++  const pal = (t) => semAcento(t).match(/[a-z]{3,}/g) || [];
++  const pl2 = new Set(pal(lac)), pd = pal(dig);
++  return pd.length > 0 && pd.every((x) => pl2.has(x)) && pd.length * 2 >= pl2.size;
++}
++function lacunaDoCard(nota, n) { let auto = 0, achou = ''; nota.t.replace(RE_LACUNA, (m, num, t) => { if ((num ? Number(num) : ++auto) === n) achou = t; return m; }); return achou; }
+ function renderCardSessao(card) {
+   const nota = card.nota;
+   const r = S.cards[card.id];
+   let html = '<article class="item"><div class="item-cab"><span class="selo mono">' + esc(nomeBloco(nota.b)) + '</span><span class="item-num">' + (r ? 'revisão · intervalo ' + fmtIntervalo(r[1]) : 'novo') + '</span></div>';
+   html += '<p class="mono pequeno mudo">' + esc(nota.r) + '</p>';
+   html += '<p class="card-cloze">' + textoCard(nota, card.n, sessao.revelado) + '</p>';
++  const lac = lacunaDoCard(nota, card.n), dado = lac.length <= 60 && RE_DADO_CARD.test(lac);
+   if (!sessao.revelado) {
+-    html += '<button class="btn primario largo" data-acao="revelar">Mostrar resposta</button><p class="atalhos">Espaço ou Enter = mostrar</p>';
++    if (dado) html += '<input id="card-digitar" class="card-digitar" type="text" autocomplete="off" enterkeyhint="done" aria-label="Sua resposta para a lacuna" placeholder="Digite o número ou prazo antes de ver">';
++    html += '<button class="btn primario largo" data-acao="revelar">Mostrar resposta</button><p class="atalhos">' + (dado ? 'Enter no campo = mostrar · ' : '') + 'Espaço ou Enter = mostrar</p>';
+   } else {
+-    html += '<div class="notas-card">' + [[1, 'Errei'], [2, 'Difícil'], [3, 'Bom'], [4, 'Fácil']].map(([n, t]) => '<button class="n' + n + '" data-acao="avaliar" data-n="' + n + '">' + t + '<small>' + (n === 1 ? 'agora' : fmtIntervalo(calcularCard(card.id, n)[1])) + '</small></button>').join('') + '</div>';
++    if (sessao.digOk != null) html += '<p class="digitado ' + (sessao.digOk ? 'ok' : 'no') + '">Você digitou <b>' + esc(sessao.dig) + '</b>: ' + (sessao.digOk ? 'confere.' : 'não confere. Bom e Fácil ficam bloqueados neste card.') + '</p>';
++    html += '<div class="notas-card">' + [[1, 'Errei'], [2, 'Difícil'], [3, 'Bom'], [4, 'Fácil']].map(([n, t]) => '<button class="n' + n + '" data-acao="avaliar" data-n="' + n + '"' + (sessao.digOk === false && n >= 3 ? ' disabled' : '') + '>' + t + '<small>' + (n === 1 ? 'agora' : fmtIntervalo(calcularCard(card.id, n)[1])) + '</small></button>').join('') + '</div>';
+     html += '<p class="atalhos">Teclado: 1 Errei · 2 Difícil · 3 Bom · 4 Fácil</p>';
+     const kn = nota.art ? chave(nota.l || 'lgpd', nota.art) : null;
+     if (kn && ARTI.get(kn)) html += '<div>' + botaoArt(kn) + '</div>';
+@@ -4316,27 +4641,33 @@
+   });
+   const liq = c - (e - eMc), n = ids.length;
+   let html = '<div class="sessao-topo"><div class="tit"><b>' + esc(sessao.titulo) + '</b><span>Resultado · ' + fmtTempo(sessao.dur) + '</span></div><button class="btn" data-acao="fechar-sessao">Concluir</button></div>';
++  const tempos = Object.entries(sessao.tempos || {});
++  if (tempos.length >= 3) {
++    const lentos = tempos.filter(([id, x]) => x > ritmoItem(QI.get(id))).length, media = Math.round(tempos.reduce((a, [, x]) => a + x, 0) / tempos.length);
++    html += '<p class="pequeno ritmo-sessao">Tempo por item: média de ' + fmtTempo(media) + (lentos ? '; ' + pl(lentos, 'item passou', 'itens passaram') + ' do ritmo de prova (' + fmtTempo(RITMO_PROVA_S) + ' no certo/errado, ' + fmtTempo(RITMO_PROVA_S * 2) + ' na múltipla escolha).' : '; todos dentro do ritmo de prova.') + '</p>';
++  }
+   html += cartaoBatalha();
+   html += '<div class="cartao destaque"><span class="rotulo">Nota líquida Cebraspe (certas − erradas)</span><div class="nota-final"><span class="grande">' + liq + '</span><span class="mudo">de ' + n + ' possíveis · ' + (n ? Math.round((liq / n) * 100) : 0) + '%</span></div>' +
+     '<div class="placar"><div class="C"><b>' + c + '</b><span>certas</span></div><div class="E"><b>' + e + '</b><span>erradas</span></div><div><b>' + b + '</b><span>em branco</span></div><div class="L"><b>+' + sessao.xp + '</b><span>XP</span></div></div>';
+-  // Régua de eliminação do edital (Padrão Cebraspe TCU / Controle)
+-  if (sessao.modo === 'simulado' && (sessao.prova || ids.length >= 100)) {
+-    let c1 = 0, e1 = 0, b1 = 0, c2 = 0, e2 = 0, b2 = 0;
++  // Régua de eliminação (a do edital informado ou, como projeção, a do padrão Cebraspe para o TCU e o controle):
++  // só faz sentido na prova inteira
++  if (sessao.modo === 'simulado' && sessao.prova && ids.length >= TOTAL_PROVA) {
++    let c1 = 0, e1 = 0, b1 = 0, c2 = 0, e2 = 0, b2 = 0, m1 = 0, m2 = 0;
+     ids.forEach((id) => {
+       const q = QI.get(id), r = sessao.resp[id] || BRANCO, isBasica = parteProva(q) === 'b';
+-      if (isBasica) { if (r === BRANCO) b1++; else if (r === q.g) c1++; else e1++; }
+-      else { if (r === BRANCO) b2++; else if (r === q.g) c2++; else e2++; }
++      if (isBasica) { if (r === BRANCO) b1++; else if (r === q.g) c1++; else { e1++; if (q.al) m1++; } }
++      else { if (r === BRANCO) b2++; else if (r === q.g) c2++; else { e2++; if (q.al) m2++; } }
+     });
+-    const liq1 = c1 - e1, liq2 = c2 - e2, liqTot = liq1 + liq2;
+-    const is200 = ids.length >= 180;
+-    const minP1 = is200 ? 20 : 10, minP2 = is200 ? 30 : 21, minTot = is200 ? 60 : 36;
++    // Erro de múltipla escolha não desconta (m1, m2), como no placar acima
++    const liq1 = c1 - (e1 - m1), liq2 = c2 - (e2 - m2), liqTot = liq1 + liq2;
++    const minP1 = CORTES.p1, minP2 = CORTES.p2, minTot = CORTES.total;
+     const okP1 = liq1 >= minP1, okP2 = liq2 >= minP2, okTot = liqTot >= minTot;
+     const aprovado = okP1 && okP2 && okTot;
+-    const notaCorteRef = is200 ? 120 : 72, notaInterRef = is200 ? 90 : 54;
++    const notaCorteRef = Math.round(ids.length * 0.6), notaInterRef = Math.round(ids.length * 0.45);
+     const faixaCorte = !aprovado ? 'Eliminado pela régua de nota mínima' : (liqTot >= notaCorteRef ? 'Nota alta (≥ 60% da prova)' : liqTot >= notaInterRef ? 'Nota intermediária (45% a 59%)' : 'Nota baixa (< 45%)');
+     const badgeCls = !aprovado ? 'eliminado' : (liqTot >= notaCorteRef ? 'aprovado' : 'alerta');
+     html += '<div class="cartao" style="border-left:4px solid var(--accent);margin-top:10px">' +
+-      '<div class="secao-cab"><h2>Régua de eliminação do edital (Padrão Cebraspe TCU / Controle)</h2><span class="corte-badge ' + badgeCls + '">' + (aprovado ? 'HABILITADO' : 'ELIMINADO') + '</span></div>' +
++      '<div class="secao-cab"><h2>Régua de eliminação (' + (S.perfil.edital ? 'do edital' : 'projeção: padrão Cebraspe TCU / Controle') + ')</h2><span class="corte-badge ' + badgeCls + '">' + (aprovado ? 'HABILITADO' : 'ELIMINADO') + '</span></div>' +
+       '<div class="corte-grid">' +
+         '<div class="corte-kpi"><b>P1 · Conhecimentos Básicos (' + (c1+e1+b1) + ' itens)</b><span>Líquida: <b>' + liq1 + '</b> pts (' + c1 + 'C / ' + e1 + 'E / ' + b1 + 'B)</span><span class="corte-badge ' + (okP1 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP1 ? 'Mínimo atingido (≥ ' + minP1 + ')' : 'Abaixo do mínimo (< ' + minP1 + ')') + '</span></div>' +
+         '<div class="corte-kpi"><b>P2 · Conhecimentos Específicos (' + (c2+e2+b2) + ' itens)</b><span>Líquida: <b>' + liq2 + '</b> pts (' + c2 + 'C / ' + e2 + 'E / ' + b2 + 'B)</span><span class="corte-badge ' + (okP2 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP2 ? 'Mínimo atingido (≥ ' + minP2 + ')' : 'Abaixo do mínimo (< ' + minP2 + ')') + '</span></div>' +
+@@ -4948,7 +5279,56 @@
+   if (!res.length) return '<p class="vazio-msg">Nada encontrado para “' + esc(termo) + '”.</p>';
+   return (total > res.length ? '<p class="pequeno mudo">' + total + ' resultados; mostrando os 60 primeiros (norma aberta primeiro).</p>' : '') + res.join('');
+ }
++// Gaveta do artigo na lei seca: os itens deste artigo que a pessoa já errou, os ainda não recuperados primeiro, com o
++// gabarito, o comentário e a regra que ela escreveu no Caderno de Erros
++function gavetaErrosArt(qs) {
++  const notas = cadState().erros || {};
++  const errados = qs.filter((q) => { const r = rec(q.id); return r && r[3] > 0; })
++    .sort((x, y) => (rec(x.id)[0] > 0) - (rec(y.id)[0] > 0) || rec(y.id)[3] - rec(x.id)[3]);
++  if (!errados.length) return '';
++  const pend = errados.filter((q) => !(rec(q.id)[0] > 0)).length;
++  return '<details class="erros-art"><summary>Seus erros neste artigo (' + errados.length + (pend ? ', ' + pend + ' sem recuperar' : '') + ')</summary>' +
++    errados.slice(0, 8).map((q) => {
++      const r = rec(q.id), nota = notas[q.id] && notas[q.id].nota;
++      return '<div class="erro-art' + (r[0] > 0 ? ' virou' : '') + '"><p class="pequeno mudo">' + esc(q.id) + ' · ' + pl(r[3], 'erro', 'erros') + (r[0] > 0 ? ' · já recuperado' : '') + '</p><p>' + esc(q.e) + '</p>' +
++        '<p class="pequeno"><b>Gabarito: ' + esc(nomeGab(q)) + '.</b> ' + marcarTermos(q.c, 3) + '</p>' + (nota ? '<p class="pequeno"><b>Sua regra:</b> ' + esc(nota) + '</p>' : '') + '</div>';
++    }).join('') + (errados.length > 8 ? '<p class="pequeno mudo">Mais ' + (errados.length - 8) + ' no Caderno de Erros.</p>' : '') + '</details>';
++}
++// Ouvir o artigo: a voz do aparelho lê o texto vigente, sem as notas de redação; cada trecho lido conta como uso, para
++// o relógio da leitura não parar enquanto a pessoa escuta. Sai do artigo, a voz para.
++let falando = null;
++const PODE_FALAR = typeof window !== 'undefined' && 'speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined';
++function textoParaFala(a) {
++  return (a.rotulo + '. ' + textoVigente(a))
++    .replace(/\((Redação dada|Incluíd[oa]|Acrescid[oa]|Renumerad[oa]|Vide|Vigência|Regulamento)[^)]*\)/gi, '')
++    .replace(/§§/g, 'parágrafos').replace(/§/g, 'parágrafo').replace(/\bArt\./g, 'Artigo').replace(/\bnº/g, 'número').replace(/\s+/g, ' ').trim();
++}
++function pararFala() { if (falando && PODE_FALAR) speechSynthesis.cancel(); falando = null; }
++function rotuloFala(k) { return falando === k ? 'Parar a leitura em voz' : 'Ouvir o artigo'; }
++function ouvirArtigo(k) {
++  const a = ARTI.get(k);
++  if (!a || !PODE_FALAR) return;
++  if (falando === k) { pararFala(); } else {
++    speechSynthesis.cancel();
++    const u = new SpeechSynthesisUtterance(textoParaFala(a));
++    u.lang = 'pt-BR';
++    const voz = speechSynthesis.getVoices().find((v) => /^pt[-_]BR/i.test(v.lang)) || speechSynthesis.getVoices().find((v) => /^pt/i.test(v.lang));
++    if (voz) u.voice = voz;
++    u.onboundary = marcarUso;
++    u.onend = u.onerror = () => { if (falando === k) { falando = null; const b = document.querySelector('[data-acao="ouvir-art"]'); if (b) b.textContent = rotuloFala(k); } };
++    falando = k;
++    speechSynthesis.speak(u);
++    marcarUso();
++  }
++  const b = document.querySelector('[data-acao="ouvir-art"]');
++  if (b) b.textContent = rotuloFala(k);
++}
++// Leitura fria: o artigo já lido em outro dia abre sem grifos, sem português claro e sem o glossário, para a pessoa
++// achar sozinha prazos, verbos e exceções, como vai ler na prova; um toque traz tudo de volta para conferir.
++const FRIA_VISTA = new Set();
++function leituraFria(k) { const d = (S.perfil.lidos || {})[k]; return !!d && d < hojeISO() && !FRIA_VISTA.has(k); }
+ function renderArtigo(k) {
++  if (falando && falando !== k) pararFala();
+   const a = ARTI.get(k);
+   const L = LEIS[a.lei];
+   const fila = UI.leiFila && UI.leiFila.includes(k) ? UI.leiFila : null;
+@@ -4976,11 +5356,14 @@
+       avisoVuln = '<div class="aviso-vulnerabilidade verd"><div><b>Artigo Dominado:</b> ' + dArt.taxa + '% de acerto consolidado nas questões resolvidas (' + dArt.c + 'C / ' + dArt.e + 'E).</div></div>';
+     }
+   }
+-  html += '<div class="cartao"><span class="rotulo">' + esc([L.curto].concat(a.estrutura || []).filter(Boolean).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +
+-    avisoVuln +
++  const fria = leituraFria(k);
++  html += '<div class="cartao' + (fria ? ' fria' : '') + '"><span class="rotulo">' + esc([L.curto].concat(a.estrutura || []).filter(Boolean).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +
++    avisoVuln + gavetaErrosArt(qs) +
++    (fria ? '<div class="fria-aviso"><span>Leitura fria: você já leu este artigo. Leia sem grifos e ache sozinho prazos, verbos e exceções.</span><button class="btn pequeno" data-acao="conferir-fria" data-art="' + esc(k) + '">Conferir com grifos</button></div>' : '') +
+     htmlClaro(a) + legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div>' + caixaJuridiques(a) + '<div class="linha-btns">';
+   if (qs.length) html += '<button class="btn primario" data-acao="treinar-art" data-art="' + esc(k) + '">Questões deste artigo (' + qs.length + ')</button>';
+   if (cs.length) html += '<button class="btn" data-acao="cards-art" data-art="' + esc(k) + '">Cards deste artigo (' + cs.length + ')</button>';
++  if (PODE_FALAR) html += '<button class="btn" data-acao="ouvir-art" data-art="' + esc(k) + '">' + rotuloFala(k) + '</button>';
+   html += '</div>';
+   if (!qs.length && !cs.length) html += '<p class="mudo pequeno">Nenhuma questão ou card do banco cita este artigo diretamente.</p>';
+   const termos = termosDe(a.texto, 5, 0.5);
+@@ -5013,7 +5396,7 @@
+     el.innerHTML = '<div class="secao-cab"><h2>Mais · Painel TCU</h2></div><div class="menu-mais">' +
+       item('raiox', 'RX', 'Raio-X — Auditor do TCU (AUFC)', 'Situação em out/2026, remuneração (R$ 27,6 mil a R$ 58,6 mil), histórico 2009–2025, FGV × Cebraspe e perfil dos aprovados') +
+       item('edital', '27', 'Edital Projetado 2027 (17 matérias · 111 tópicos)', 'Prioridades A, B e C, histórico 15/21/Ed25, pesos projetados e treino direto por tópico') +
+-      item('metodo', '25h', 'Método do Mentor, 6 Degraus e Ciclo de 25h', 'As 6 métricas semanais, os 6 degraus de foco, ciclo de 25h, materiais por disciplina, reta final 16 semanas e checklist') +
++      item('metodo', '25h', 'Método do Mentor, 6 Degraus e Ciclo Semanal', 'As 6 métricas semanais, os 6 degraus de foco, ciclo semanal nas suas horas, materiais por disciplina, reta final 16 semanas e checklist') +
+       item('discursiva', '✎', 'Discursiva e Peça Técnica TCU', 'Banco de Estruturas (Relatório de Auditoria, Instrução de TCE e Parecer FGV) + ' + TEMAS_DISC.length + ' temas com quesitos') +
+       item('erros', '✗', 'Caderno de Erros (4 Causas)', nErrosCad ? pl(nErrosCad, 'erro classificado', 'erros classificados') + ' por causa e regra de 1 linha' : 'Classifique seus erros nas 4 causas do método e treine onde mais cai') +
+       item('trilha', '§', 'Trilhas do zero', TRILHAS.length + ' trilhas (Controle Externo, Auditoria, AFO/CASP, Estatística/MatFin, Dados/IA e Tronco Comum)') +
+@@ -5064,7 +5447,14 @@
+     if (p != null) { soma += PONTOS_DISC[d] * (2 * p - 1); peso += PONTOS_DISC[d]; }
+     return { d, x, p, fonte };
+   });
+-  return { real, banco, fator, linhas, nota: peso ? (soma / peso) * PONTOS_PROVA : null, cobre: peso / PONTOS_PROVA };
++  // Faixa de 95%: a incerteza do acerto nos itens reais (p ± 1,96·√(p(1−p)/n)) vale para a nota inteira, e cada ponto
++  // percentual de acerto vira 2 pontos líquidos (2p − 1). Aproximação conservadora: as disciplinas medidas pelo banco
++  // herdam a incerteza dos reais pela correção.
++  const nota = peso ? (soma / peso) * PONTOS_PROVA : null;
++  const pr = real.n ? real.c / real.n : null, meia = pr != null ? 2 * 1.96 * Math.sqrt((pr * (1 - pr)) / real.n) * PONTOS_PROVA : null;
++  const faixa = nota != null && meia != null ? [Math.max(-PONTOS_PROVA, Math.round(nota - meia)), Math.min(PONTOS_PROVA, Math.round(nota + meia))] : null;
++  const semReais = linhas.filter((l) => l.p != null && l.fonte !== 'reais').length, semDados = linhas.filter((l) => l.p == null).length;
++  return { real, banco, fator, linhas, nota, faixa, semReais, semDados, cobre: peso / PONTOS_PROVA };
+ }
+ function cartaoProntidao() {
+   const pr = prontidao(), { real, banco } = pr;
+@@ -5075,7 +5465,7 @@
+     '<div class="dom-linha"><span class="nome">Itens reais de prova · ' + pl(real.n, 'primeira resposta', 'primeiras respostas') + '</span>' + barra(real.n ? real.c / real.n : 0) + '<span class="val">' + taxa(real) + '</span></div>' +
+     '<div class="dom-linha"><span class="nome">Itens escritos para o banco · ' + pl(banco.n, 'primeira resposta', 'primeiras respostas') + '</span>' + barra(banco.n ? banco.c / banco.n : 0) + '<span class="val">' + taxa(banco) + '</span></div></div>';
+   if (pr.nota != null && pr.cobre >= 0.5) {
+-    html += '<div class="nota-final"><span class="grande">' + Math.round(pr.nota) + '</span><span class="mudo">de ' + PONTOS_PROVA + ' pontos líquidos, se marcasse a prova inteira hoje' + (pr.cobre < 0.99 ? ' (estimativa sobre ' + Math.round(pr.cobre * 100) + '% da nota; o resto ainda não tem respostas)' : '') + '</span></div>';
++    html += '<div class="nota-final"><span class="grande">' + Math.round(pr.nota) + '</span><span class="mudo">de ' + PONTOS_PROVA + ' pontos líquidos, se marcasse a prova inteira hoje' + (pr.faixa ? '; com 95% de confiança, entre ' + pr.faixa[0] + ' e ' + pr.faixa[1] + ' (a faixa estreita conforme você responde itens reais)' : '') + (pr.cobre < 0.99 ? ' (estimativa sobre ' + Math.round(pr.cobre * 100) + '% da nota; o resto ainda não tem respostas)' : '') + (pr.semReais ? '. ' + pl(pr.semReais, 'disciplina é estimada', 'disciplinas são estimadas') + ' pelo banco, por ter menos de 10 itens reais respondidos' : '') + '</span></div>';
+   }
+   let leitura;
+   if (real.n < 30) leitura = 'Com ' + pl(real.n, 'item real respondido', 'itens reais respondidos') + ', ainda não dá para comparar. A medida fica confiável perto de 100 itens reais: faltam ' + Math.max(0, 100 - real.n) + '. Até lá, a estimativa usa os itens do banco, que tendem a ser mais fáceis que os da banca.';
+@@ -5187,7 +5577,7 @@
+     }
+     html += '</div>';
+   }
+-  html += '</div><div class="cartao"><h2>Peso por disciplina</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>Na nota</th><th>Prioridade</th></tr></thead><tbody>' + DISC.slice().sort((a, b) => (PONTOS_DISC[b.id] || 0) - (PONTOS_DISC[a.id] || 0)).map((d) => '<tr><td>' + esc(d.nome) + '</td><td class="num">' + (PONTOS_DISC[d.id] ? (Math.round((PONTOS_DISC[d.id] / PONTOS_PROVA) * 1000) / 10).toLocaleString('pt-BR') + '%' : '—') + '</td><td style="text-align:right"><span class="selo' + (d.peso === 'MÁXIMO' ? ' p1' : d.peso === 'ALTO' ? ' p2' : '') + '">' + esc(d.peso) + '</span></td></tr>').join('') + '</tbody></table></div><p class="pequeno mudo">Na nota: quanto a disciplina vale numa prova de ' + PONTOS_PROVA + ' pontos, em que cada item básico vale 1 e cada específico vale 2 (estimativa até sair o edital). Prioridade: ordem de estudo do guia do cargo. Português e inglês entram um pouco todo dia, nas questões intercaladas.</p></div>';
++  html += '</div><div class="cartao"><h2>Peso por disciplina</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>Na nota</th><th>Prioridade</th></tr></thead><tbody>' + DISC.slice().sort((a, b) => (PONTOS_DISC[b.id] || 0) - (PONTOS_DISC[a.id] || 0)).map((d) => '<tr><td>' + esc(d.nome) + '</td><td class="num">' + (PONTOS_DISC[d.id] ? (Math.round((PONTOS_DISC[d.id] / PONTOS_PROVA) * 1000) / 10).toLocaleString('pt-BR') + '%' : '—') + '</td><td style="text-align:right"><span class="selo' + (d.peso === 'MÁXIMO' ? ' p1' : d.peso === 'ALTO' ? ' p2' : '') + '">' + esc(d.peso) + '</span></td></tr>').join('') + '</tbody></table></div><p class="pequeno mudo">Na nota: quanto a disciplina vale numa prova de ' + PONTOS_PROVA + ' pontos, em que cada item básico vale ' + PESO_BASICA + ' e cada específico vale ' + PESO_ESPECIFICA + (S.perfil.edital ? ' (edital informado em Ajustes).' : ' (projeção do molde Cebraspe 2025 até sair o edital).') + ' Prioridade: ordem de estudo do guia do cargo. Português e inglês entram um pouco todo dia, nas questões intercaladas.</p></div>';
+   html += '<div class="cartao"><div class="secao-cab"><h2>Status dos blocos</h2><span class="mudo pequeno">Toque no status para mudar</span></div><div class="tabela-env"><table class="tabela"><thead><tr><th>Bloco</th><th>Domínio</th><th>Status</th></tr></thead><tbody>';
+   BLOCOS.slice().sort((a, b) => a.prioridade - b.prioridade).forEach((b) => {
+     const st = S.perfil.status[b.id] || 'nao', dmn = dominioBloco(b.id);
+@@ -5200,7 +5590,10 @@
+ function renderPesquisar() {
+   const itens = Object.entries(S.pesquisa).map(([k, v]) => Object.assign({ k }, v));
+   const pend = itens.filter((x) => !x.s), feitos = itens.filter((x) => x.s);
+-  const vis = (UI.filtroPesq === 'feitos' ? feitos : pend).sort((a, b) => (a.d < b.d ? 1 : -1));
++  // Pendentes: só os 10 mais recentes de saída (a lista crescia mais rápido que dava para investigar); o resto, a um toque
++  const todos = (UI.filtroPesq === 'feitos' ? feitos : pend).sort((a, b) => (a.d < b.d ? 1 : -1));
++  const PESQ_VISIVEIS = 10, corta = UI.filtroPesq !== 'feitos' && !UI.pesqTodos && todos.length > PESQ_VISIVEIS;
++  const vis = corta ? todos.slice(0, PESQ_VISIVEIS) : todos;
+   let html = '<div class="secao-cab"><h2>Para pesquisar</h2><span class="mudo pequeno">' + pend.length + ' pendentes · ' + feitos.length + ' entendidos</span></div>' +
+     '<p class="mudo pequeno">Quando você erra, os termos da questão entram aqui sozinhos. Em Investigar, o painel faz as perguntas, você escreve a resposta e o Claude confere, corrige pela norma e devolve uma pergunta para ir mais fundo. Depois marque como entendido (+5 XP).</p>' +
+     '<div class="chips"><button class="chip" data-acao="filtro-pesq" data-f="pendentes" aria-pressed="' + (UI.filtroPesq !== 'feitos') + '">Pendentes</button><button class="chip" data-acao="filtro-pesq" data-f="feitos" aria-pressed="' + (UI.filtroPesq === 'feitos') + '">Entendidos</button></div>';
+@@ -5208,7 +5601,8 @@
+     const g = GLOSS.find((t) => t.t === x.t);
+     return '<div class="pesq-linha' + (x.s ? ' feito' : '') + '"><input type="checkbox" data-acao="pesq-feito" data-k="' + esc(x.k) + '"' + (x.s ? ' checked' : '') + ' aria-label="Marcar como entendido"><div class="tx"><b>' + esc(x.t) + '</b><small>' + esc(x.o || '') + ' · ' + esc(fmtData(x.d, { day: '2-digit', month: '2-digit' })) + '</small>' +
+       (g ? '<button class="linkish pequeno" data-acao="termo" data-t="' + g.i + '">Ver definição</button>' : '') + '</div><button class="btn pequeno" data-acao="investigar" data-t="' + esc(x.t) + '" data-o="' + esc(x.o || '') + '">Investigar</button></div>';
+-  }).join('') : '<p class="vazio-msg">' + (UI.filtroPesq === 'feitos' ? 'Nada marcado como entendido ainda.' : 'Lista vazia. Os temas sugeridos abaixo e os termos das questões erradas aparecem aqui.') + '</p>') + '</div>';
++  }).join('') : '<p class="vazio-msg">' + (UI.filtroPesq === 'feitos' ? 'Nada marcado como entendido ainda.' : 'Lista vazia. Os temas sugeridos abaixo e os termos das questões erradas aparecem aqui.') + '</p>') + '</div>' +
++    (corta ? '<button class="linkish pequeno" data-acao="pesq-todos">Mostrar os outros ' + (todos.length - PESQ_VISIVEIS) + ' pendentes</button>' : '');
+   const ctx = contextoHoje();
+   const doDia = new Set(blocosDoDia(ctx.tipo === 'dia' ? ctx.dia : ctx.tipo === 'folga' ? ctx.prox : null));
+   html += '<div class="secao"><div class="secao-cab"><h2>Sugestões por bloco</h2></div><p class="mudo pequeno">Temas que costumam confundir em cada bloco. Os blocos do dia vêm abertos.</p>';
+@@ -5548,12 +5942,14 @@
+         '</div></div>';
+     }).join('') + '</div>';
+ 
+-  html += '<div class="cartao"><div class="secao-cab"><h2>3. Ciclo Semanal de 25 Horas (Fase 2)</h2><span class="selo mono">Soma = 25h</span></div>' +
+-    '<p class="pequeno mudo">Se a semana tiver menos horas, reduza proporcionalmente mantendo os percentuais — nenhuma matéria desaparece na sexta-feira.</p>' +
++  // O ciclo do mentor é de 25 h; aqui ele vai para as horas que a pessoa de fato estudou por semana, nas mesmas proporções
++  const hs = horasSemana(), H = hs ? Math.max(1, Math.round(hs * 2) / 2) : 25;
++  html += '<div class="cartao"><div class="secao-cab"><h2>3. Ciclo semanal (Fase 2)</h2><span class="selo mono">Soma = ' + fmtDur(H * 3600) + '</span></div>' +
++    '<p class="pequeno mudo">' + (hs ? 'Nas suas horas reais: ' + fmtDur(hs * 3600) + ' por semana na média das duas últimas semanas (o cronômetro do dia). As proporções são as do ciclo de 25 h do mentor; nenhuma matéria desaparece na sexta-feira.' : 'Ciclo de referência de 25 h. Depois de 5 dias de estudo nas duas últimas semanas, as horas passam a seguir o seu tempo real, nas mesmas proporções. Nenhuma matéria desaparece na sexta-feira.') + '</p>' +
+     '<div class="tabela-env"><table class="tabela"><thead><tr><th>Bloco do ciclo</th><th>Horas</th><th>%</th><th>Ação rápida</th></tr></thead><tbody>' +
+     mt.ciclo25h.map((c) => {
+       const pct = Math.round((c.horas / 25) * 100);
+-      return '<tr><td><b>' + esc(c.materia) + '</b></td><td class="mono">' + String(c.horas).replace('.', ',') + 'h</td><td class="mono">' + pct + '%</td><td>' +
++      return '<tr><td><b>' + esc(c.materia) + '</b></td><td class="mono">' + fmtDur(Math.round((c.horas / 25) * H * 4) / 4 * 3600) + '</td><td class="mono">' + pct + '%</td><td>' +
+         '<button class="btn pequeno" data-acao="treinar-bloco" data-bloco="' + esc(c.bloco) + '">Treinar</button></td></tr>';
+     }).join('') +
+     '</tbody></table></div></div>';
+@@ -5960,6 +6356,7 @@
+     '</div>';
+   if (!corrigindo) {
+     const ests = (D.discursivas && D.discursivas.estruturas) || [];
++    html += CHECK_DISC;
+     html += '<div class="linha-btns" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px">' +
+       '<button class="btn primario" data-acao="disc-corrigir">Terminei: corrigir pelos quesitos</button>' +
+       (ests.length ? '<button class="btn" data-acao="disc-inserir-esq" data-est="est-relatorio">Inserir esqueleto Relatório</button><button class="btn" data-acao="disc-inserir-esq" data-est="est-instrucao">Inserir esqueleto TCE</button><button class="btn" data-acao="disc-inserir-esq" data-est="est-parecer-fgv">Inserir esqueleto Parecer</button>' : '') +
+@@ -6044,6 +6441,44 @@
+   }
+   return html + '</div>';
+ }
++// Edital e prova: quando o edital sair, a pessoa troca a projeção (molde Cebraspe 2025) pelos números oficiais
++function cartaoEdital() {
++  const ed = S.perfil.edital || {}, n = (v) => (v == null ? '' : esc(String(v)));
++  const campo = (id, rot, v, extra) => '<label class="ed-campo"><span>' + rot + '</span><input id="' + id + '" type="number" min="0" step="' + (extra || 1) + '" inputmode="decimal" value="' + n(v) + '"></label>';
++  const linhas = DISC.map((d) => '<tr><td>' + esc(d.nome) + '</td><td><input class="ed-n" data-parte="b" data-d="' + d.id + '" type="number" min="0" step="1" inputmode="numeric" value="' + (PROVA_BASICA[d.id] || '') + '" aria-label="' + esc(d.nome) + ', básica"></td><td><input class="ed-n" data-parte="e" data-d="' + d.id + '" type="number" min="0" step="1" inputmode="numeric" value="' + (PROVA_ESPECIFICA[d.id] || '') + '" aria-label="' + esc(d.nome) + ', específica"></td></tr>').join('');
++  return '<div class="cartao" id="cartao-edital"><h2>Edital e prova</h2>' +
++    '<p class="pequeno">' + (S.perfil.edital ? 'Valendo os números que você informou. O simulado da prova inteira, a régua de corte, a prontidão e a contagem até a prova seguem estes números.' : 'Valendo a projeção (molde Cebraspe 2025: 100 itens básicos de peso 1 e 100 específicos de peso 2, e prova estimada em ' + fmtData(D.cronograma.prova, { day: '2-digit', month: '2-digit', year: 'numeric' }) + '). Quando o edital do TCU sair, troque aqui: o simulado, a régua de corte, a prontidão, a meta pelo plano e a contagem passam a seguir o edital.') + '</p>' +
++    '<div class="ed-grade"><label class="ed-campo"><span>Data da prova</span><input id="ed-prova" type="date" value="' + n(ed.prova || '') + '"></label>' +
++    campo('ed-pesob', 'Peso do item básico', PESO_BASICA, '0.5') + campo('ed-pesoe', 'Peso do item específico', PESO_ESPECIFICA, '0.5') +
++    campo('ed-c1', 'Corte na básica (P1)', CORTES.p1) + campo('ed-c2', 'Corte na específica (P2)', CORTES.p2) + campo('ed-ct', 'Corte no conjunto', CORTES.total) + '</div>' +
++    '<div class="tabela-env"><table class="tabela ed-tabela"><thead><tr><th>Disciplina</th><th>Itens na básica</th><th>Itens na específica</th></tr></thead><tbody>' + linhas + '</tbody></table></div>' +
++    '<p class="pequeno mudo">Cortes em nota líquida, contados em itens (certas menos erradas; erro de múltipla escolha não desconta), sem os pesos. Cada disciplina fica numa parte só. O cronograma não é refeito sozinho: se a data mudar muito, peça um plano novo.</p>' +
++    '<p class="pequeno" id="ed-msg" role="status"></p>' +
++    '<div class="linha-btns"><button class="btn primario" data-acao="edital-salvar">Salvar edital</button>' + (S.perfil.edital ? '<button class="btn" data-acao="edital-padrao">Voltar à projeção</button>' : '') + '</div></div>';
++}
++// Lê o cartão: devolve o edital ou uma mensagem do que está errado
++function lerEdital() {
++  const v = (id) => document.getElementById(id).value.trim();
++  const num = (id) => (v(id) === '' ? NaN : Number(v(id)));
++  const basica = {}, especifica = {};
++  for (const el of document.querySelectorAll('#cartao-edital .ed-n')) {
++    const k = el.value.trim() === '' ? 0 : Number(el.value);
++    if (!Number.isInteger(k) || k < 0) return { erro: 'Itens por disciplina: use números inteiros (0 ou mais).' };
++    if (k) (el.dataset.parte === 'b' ? basica : especifica)[el.dataset.d] = k;
++  }
++  const dupla = Object.keys(basica).find((d) => especifica[d]);
++  if (dupla) return { erro: DI.get(dupla).nome + ' está nas duas partes. Ponha cada disciplina numa parte só.' };
++  if (!Object.keys(basica).length || !Object.keys(especifica).length) return { erro: 'Ponha itens nas duas partes da prova.' };
++  const pesoB = num('ed-pesob'), pesoE = num('ed-pesoe');
++  if (!(pesoB > 0) || !(pesoE > 0)) return { erro: 'Os pesos precisam ser maiores que zero.' };
++  const cortes = { p1: num('ed-c1'), p2: num('ed-c2'), total: num('ed-ct') };
++  if (Object.values(cortes).some((c) => !(c >= 0))) return { erro: 'Os cortes precisam ser números (0 ou mais).' };
++  const prova = v('ed-prova');
++  if (prova && !/^\d{4}-\d{2}-\d{2}$/.test(prova)) return { erro: 'Data da prova inválida.' };
++  const ed = { basica, especifica, pesoB, pesoE, cortes };
++  if (prova) ed.prova = prova;
++  return { ed };
++}
+ function renderAjustes() {
+   const metas = [20, 30, 40, 60, 90], novos = [5, 10, 15, 20, 30];
+   const dg = Store.diag;
+@@ -6057,9 +6492,10 @@
+     (N_QUARENTENA ? '<div class="cartao"><h2>Itens em quarentena</h2><p class="pequeno">' + fmtNum(N_QUARENTENA) + ' questões da raspagem do Gran estão fora do banco: vieram com o gabarito preenchido por padrão (A ou CERTO), e a conferência achou gabaritos errados. Voltam quando forem reimportadas com o gabarito oficial; o que você já respondeu nelas fica guardado.</p></div>' : '') +
+     '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha fica salva na sua conta, como as demais preferências.</p></div></div>' +
+     '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' + metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div>' +
+-      '<p class="pequeno mudo">Meta de hoje: <b>' + metaDia() + ' itens</b>, o maior entre o plano (' + (metaPlano() ? metaPlano() + ' por dia para ver os inéditos até ' + esc(D.cronograma.prova.split('-').reverse().join('/')) : 'sem data de prova') +
++      '<p class="pequeno mudo">Meta de hoje: <b>' + metaDia() + ' itens</b>, o maior entre o plano (' + (metaPlano() ? metaPlano() + ' por dia para ver os inéditos até ' + esc(dataProva().split('-').reverse().join('/')) : 'sem data de prova') +
+       '), o seu ritmo (' + (metaAuto() ? metaAuto() : 'com menos de 5 dias de estudo, ainda não medido') + ') e a escolha acima, que vale como piso.</p></div>' +
+     '<div class="campo"><span class="rot">Cards novos por dia</span><div class="chips">' + novos.map((m) => '<button class="chip" data-acao="novos-cards" data-n="' + m + '" aria-pressed="' + ((S.perfil.novosCards || 20) === m) + '">' + m + '</button>').join('') + '</div><p class="pequeno mudo">Cada card novo volta várias vezes nos dias seguintes. 20 por dia é o equilíbrio para quem tem 1h45 de estudo.</p></div></div>' +
++    cartaoEdital() +
+     '<div class="cartao"><h2>Backup do progresso</h2><p class="pequeno">Salve um arquivo com todo o seu progresso. Se a gravação na conta falhar, ou se você trocar de aparelho, é só restaurar.</p>' +
+     '<div class="linha-btns"><button class="btn primario" data-acao="backup-baixar">Baixar backup (.json)</button><button class="btn" data-acao="backup-mostrar">Copiar como texto</button></div>' +
+     '<div class="campo"><label for="arquivo-backup">Restaurar de um arquivo</label><input id="arquivo-backup" type="file" accept=".json,application/json" data-acao="backup-arquivo"></div>' +
+@@ -6136,6 +6572,7 @@
+ const VISTAS = ['hoje', 'questoes', 'cards', 'lei', 'mais'];
+ function ir(v) {
+   if (!VISTAS.includes(v)) v = 'hoje';
++  if (v !== 'lei') pararFala();
+   UI.vista = v;
+   salvarUI();
+   renderTudo();
+@@ -6153,6 +6590,7 @@
+   }
+ }
+ function renderTudo() {
++  aplicarEdital(S.perfil.edital);
+   UI.artInline = null;
+   try { renderTopo(); } catch (e) { registrarErro('renderTopo', e); }
+   VISTAS.forEach((v) => { const el = document.getElementById('vista-' + v); if (el) el.hidden = v !== UI.vista; });
+@@ -6348,7 +6786,7 @@
+       salvarUI(); renderQuestoes(); break;
+     }
+     case 'comecar': comecarConfigurado(); break;
+-    case 'simulado-oficial-120': iniciarSessao({ modo: 'simulado', n: 120, prova: true, minutos: 210, titulo: 'Simulado · formato projetado (120 itens)' }); break;
++    case 'simulado-semana': iniciarSessao({ modo: 'simulado', n: SIM_SEMANA_N, prova: true, minutos: Math.round(SIM_SEMANA_N * RITMO_PROVA_S / 60), titulo: 'Simulado da semana', chave: 'sim:' + semanaAtual() }); break;
+     case 'simulado-anvisa-2024': {
+       const ids = Q.filter((q) => q.id.startsWith('anvisa-2024-cebraspe-')).map((q) => q.id);
+       if (!ids.length) { avisar('!', 'Caderno vazio', 'Nenhum item da ANVISA 2024 encontrado.'); break; }
+@@ -6366,6 +6804,15 @@
+     case 'responder': responder(alvo.dataset.r); break;
+     case 'revelar': proximo(); break;
+     case 'avaliar': avaliar(Number(alvo.dataset.n)); break;
++    case 'pegadinha': cacarPegadinha(alvo.dataset.t); break;
++    case 'pesq-todos': UI.pesqTodos = true; renderMais(); break;
++    case 'causa-agora': {
++      const q = sessao && QI.get(sessao.ids[sessao.i]);
++      if (!q || !causaDe(alvo.dataset.causa)) break;
++      const e = (cadState().erros[q.id] ||= {});
++      e.causa = alvo.dataset.causa; e.data = hojeISO();
++      Store.salvar('perfil'); renderSessao(); break;
++    }
+     case 'proximo': proximo(); break;
+     case 'som': UI.som = !UI.som; salvarUI(); tocar('acerto'); renderSessao(); break;
+     case 'anterior': if (sessao && sessao.i > 0) { sessao.i--; renderSessao(); } break;
+@@ -6416,7 +6863,9 @@
+     case 'filtro-pesq': UI.filtroPesq = alvo.dataset.f; renderMais(); break;
+     case 'abrir-art': abrirArtigo(alvo.dataset.art, null); break;
+     case 'nav-art': if (alvo.dataset.art) abrirArtigo(alvo.dataset.art); break;
+-    case 'voltar-lei': if (UI.artSel && ARTI.get(UI.artSel)) UI.lei = ARTI.get(UI.artSel).lei; UI.artSel = null; UI.leiFila = null; renderLei(); window.scrollTo(0, 0); break;
++    case 'ouvir-art': ouvirArtigo(alvo.dataset.art); break;
++    case 'conferir-fria': FRIA_VISTA.add(alvo.dataset.art); renderLei(); break;
++    case 'voltar-lei': pararFala(); if (UI.artSel && ARTI.get(UI.artSel)) UI.lei = ARTI.get(UI.artSel).lei; UI.artSel = null; UI.leiFila = null; renderLei(); window.scrollTo(0, 0); break;
+     case 'ler-dia': { const ctx = contextoHoje(); const arts = artigosDoDia(ctx.tipo === 'dia' ? ctx.dia : null); if (arts.length) abrirArtigo(arts[0], arts); break; }
+     case 'ler-tudo': if (artsDe(UI.lei).length) abrirArtigo(artsDe(UI.lei)[0].k, null); break;
+     case 'fim-fila': UI.leiFila = null; UI.artSel = null; avisar('§', 'Leitura do dia concluída', 'Agora os cards cloze desses artigos.'); ir('hoje'); break;
+@@ -6558,6 +7007,15 @@
+     case 'tema-alternar': UI.tema = temaEscuroAtivo() ? 'claro' : 'escuro'; salvarUI(); aplicarTema(); renderTudo(); break;
+     case 'meta': S.perfil.meta = Number(alvo.dataset.meta); Store.salvar('perfil'); renderTudo(); break;
+     case 'novos-cards': S.perfil.novosCards = Number(alvo.dataset.n); Store.salvar('perfil'); renderTudo(); break;
++    case 'edital-salvar': {
++      const r = lerEdital();
++      if (r.erro) { document.getElementById('ed-msg').textContent = r.erro; break; }
++      S.perfil.edital = r.ed; Store.salvar('perfil'); renderTudo();
++      document.getElementById('ed-msg').textContent = 'Edital salvo: prova de ' + TOTAL_PROVA + ' itens e ' + PONTOS_PROVA + ' pontos' + (r.ed.prova ? ', em ' + fmtData(r.ed.prova, { day: '2-digit', month: '2-digit', year: 'numeric' }) : '') + '.';
++      break;
++    }
++    // null, não delete: a junção de perfis (mesclarDoc) traria de volta o edital do outro aparelho
++    case 'edital-padrao': S.perfil.edital = null; Store.salvar('perfil'); renderTudo(); document.getElementById('ed-msg').textContent = 'De volta à projeção (molde Cebraspe 2025).'; break;
+     case 'backup-baixar': {
+       const r = await salvarArquivo('painel-tcu-backup-' + hojeISO() + '.json', backupTexto());
+       if (r === true) marcarBackup();
+@@ -6617,7 +7075,7 @@
+       Store.salvarTudo(); renderTudo(); avisar('0', 'Progresso zerado', 'Status dos blocos, metas e preferências foram mantidos.');
+       break;
+         case 'copiar-erros': if (await copiarTexto(JSON.stringify(ERROS, null, 1))) avisar('✓', 'Erros copiados', 'Cole na conversa com o Claude.'); break;
+-    case 'simulado-oficial-200': case 'simulado-oficial-120': iniciarSessao({ modo: 'simulado', n: 200, prova: true, minutos: 300, titulo: 'Simulado Geral TCU · 200 Itens (AUFC)' }); break;
++    case 'simulado-oficial-200': case 'simulado-oficial-120': iniciarSessao({ modo: 'simulado', n: TOTAL_PROVA, prova: true, minutos: minutosProva(), titulo: 'Simulado Geral TCU · ' + TOTAL_PROVA + ' Itens (AUFC)' }); break;
+     case 'simulado-oficial-fgv-100': {
+       const ids = Q.filter((q) => q.id.startsWith('tcu-aufc-2022-')).map((q) => q.id);
+       if (ids.length) {
+@@ -6765,6 +7223,7 @@
+ document.addEventListener('keydown', (ev) => {
+   if (ev.key === 'Escape' && !document.getElementById('folha').hidden) { fecharFolha(); return; }
+   if (!sessao || sessao.fim || sessao.confirmar) return;
++  if (ev.target && ev.target.id === 'card-digitar' && ev.key === 'Enter') { ev.preventDefault(); proximo(); return; }
+   if (ev.target && /INPUT|TEXTAREA|SELECT/.test(ev.target.tagName) && ev.target.type !== 'checkbox') return;
+   if (!document.getElementById('folha').hidden) return;
+   const k = ev.key.toLowerCase();
