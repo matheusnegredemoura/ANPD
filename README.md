@@ -16,6 +16,9 @@ python3 scripts/corrigir_tcu.py "saida/Painel TCU.html"                         
 python3 scripts/portar_do_anpd_v2.py "saida/Painel TCU.html"                    # recursos do ANPD de 24/10/2026
 python3 scripts/copiar_pegadinhas_do_anpd.py "Painel ANPD.html" "saida/Painel TCU.html"
 python3 scripts/quarentena_por_item.py "saida/Painel TCU.html"                  # item do Gran volta ao ser conferido
+python3 scripts/limpar_codigo_morto.py "saida/Painel TCU.html"                  # código morto e tokens quebrados
+python3 scripts/tela_larga.py "saida/Painel TCU.html"                           # layout para monitor e ultrawide
+python3 scripts/acessibilidade.py "saida/Painel TCU.html"                       # idioma, contraste, papéis ARIA
 python3 scripts/aplicar_gabaritos.py relatorios/gabaritos-conferidos.csv "saida/Painel TCU.html"   # se já houver conferidos
 ```
 

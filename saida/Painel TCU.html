@@ -1,43 +1,42 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+<!doctype html><html lang="pt-BR"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
 /* === Estilos exclusivos do Painel TCU (Raio-X, Edital 2027, Método, Ciclo 25h, Caderno de Erros, Estruturas) === */
 .tcu-banner-fase { border-left: 4px solid var(--accent); }
 .tcu-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; margin: 10px 0; }
 .tcu-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 10px 0; }
 .tcu-kpi { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
 .tcu-kpi b { display: block; font-size: 1.08rem; color: var(--ink); }
-.tcu-kpi span { font-size: 0.8rem; color: var(--muted); }
-.tcu-degrau { border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin-bottom: 10px; background: var(--card); }
+.tcu-kpi span { font-size: 0.8rem; color: var(--ink-2); }
+.tcu-degrau { border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin-bottom: 10px; background: var(--surface); }
 .tcu-degrau.ativo { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .tcu-degrau.ok { border-left: 4px solid var(--certo); }
 .tcu-topico-linha { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); }
 .tcu-topico-linha:last-child { border-bottom: 0; }
-.tcu-freq { display: inline-flex; gap: 2px; font-family: var(--mono); font-size: 0.75rem; color: var(--accent); }
-.tcu-tag-hist { display: inline-block; font-size: 0.7rem; font-family: var(--mono); padding: 1px 6px; border-radius: 4px; background: var(--bg); border: 1px solid var(--line); margin-right: 4px; }
+.tcu-tag-hist { display: inline-block; font-size: 0.7rem; font-family: var(--f-mono); padding: 1px 6px; border-radius: 4px; background: var(--bg); border: 1px solid var(--line); margin-right: 4px; }
 .tcu-tag-hist.novo { background: var(--mark); border-color: var(--accent); font-weight: 600; }
 .tcu-causa-box { margin-top: 12px; padding: 10px 12px; border-radius: 8px; background: var(--bg); border: 1px dashed var(--line); }
-.tcu-esqueleto { white-space: pre-wrap; font-family: var(--mono); font-size: 0.82rem; background: var(--bg); padding: 12px; border-radius: 8px; border: 1px solid var(--line); line-height: 1.5; margin: 8px 0; }
-.tcu-cadernos-box { margin-bottom: 16px; border-left: 4px solid var(--accent); background: var(--card); border-radius: 10px; padding: 14px; border: 1px solid var(--line); }
+.tcu-esqueleto { white-space: pre-wrap; font-family: var(--f-mono); font-size: 0.82rem; background: var(--bg); padding: 12px; border-radius: 8px; border: 1px solid var(--line); line-height: 1.5; margin: 8px 0; }
+.tcu-cadernos-box { margin-bottom: 16px; border-left: 4px solid var(--accent); background: var(--surface); border-radius: 10px; padding: 14px; border: 1px solid var(--line); }
 .tcu-cadernos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; margin-top: 10px; }
 .tcu-caderno-card { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; transition: border-color .15s ease; }
 .tcu-caderno-card:hover { border-color: var(--accent); }
 .tcu-caderno-card b { font-size: 0.95rem; color: var(--ink); line-height: 1.3; }
-.tcu-caderno-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: var(--muted); font-family: var(--mono); }
-.tcu-caderno-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.4; margin: 0; }
+.tcu-caderno-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: var(--ink-2); font-family: var(--f-mono); }
+.tcu-caderno-desc { font-size: 0.8rem; color: var(--ink-2); line-height: 1.4; margin: 0; }
 .tcu-caderno-btns { display: flex; gap: 6px; margin-top: 4px; }
 .tcu-caderno-btns .btn { flex: 1; padding: 6px 8px; font-size: 0.78rem; text-align: center; }
 .tcu-topico-aulas { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px; }
-.tcu-pdf-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 0.74rem; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px; color: var(--muted); line-height: 1.3; }
+.tcu-pdf-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 0.74rem; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px; color: var(--ink-2); line-height: 1.3; }
 .tcu-pdf-badge b { color: var(--ink); }
 .tcu-pdf-badge:hover { border-color: var(--accent); }
 .tcu-aulas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 10px; margin-top: 12px; }
 .tcu-aula-card { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; transition: border-color .15s ease; }
 .tcu-aula-card:hover { border-color: var(--accent); }
 .tcu-aula-topo { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.tcu-aula-disc { font-size: 0.72rem; font-family: var(--mono); color: var(--accent); text-transform: uppercase; font-weight: 600; }
-.tcu-aula-pag { font-size: 0.72rem; font-family: var(--mono); color: var(--muted); }
+.tcu-aula-disc { font-size: 0.72rem; font-family: var(--f-mono); color: var(--accent); text-transform: uppercase; font-weight: 600; }
+.tcu-aula-pag { font-size: 0.72rem; font-family: var(--f-mono); color: var(--ink-2); }
 .tcu-aula-card b { font-size: 0.92rem; color: var(--ink); line-height: 1.35; }
-.tcu-aula-prof { font-size: 0.8rem; color: var(--muted); }
-.tcu-aula-path { font-size: 0.73rem; font-family: var(--mono); color: var(--muted); background: var(--card); padding: 4px 6px; border-radius: 4px; border: 1px solid var(--line); word-break: break-all; margin-top: 4px; }
+.tcu-aula-prof { font-size: 0.8rem; color: var(--ink-2); }
+.tcu-aula-path { font-size: 0.73rem; font-family: var(--f-mono); color: var(--ink-2); background: var(--surface); padding: 4px 6px; border-radius: 4px; border: 1px solid var(--line); word-break: break-all; margin-top: 4px; }
 
 </style>
 <title>Painel TCU — Auditor Federal de Controle Externo (AUFC)</title>
@@ -52,7 +51,7 @@
   --surface-2:#e1e8e4;
   --ink:#13211d;
   --ink-2:#4b5f57;
-  --ink-3:#6f8179;
+  --ink-3:#5a6b63;
   --line:#c6d1cb;
   --accent:#0c6b66;
   --accent-2:#d6ebe7;
@@ -110,7 +109,7 @@
   color-scheme:dark;
 }
 :root[data-tema="claro"]{
-  --bg:#edf1ee; --surface:#ffffff; --surface-2:#e1e8e4; --ink:#13211d; --ink-2:#4b5f57; --ink-3:#6f8179; --line:#c6d1cb; --accent:#0c6b66; --accent-2:#d6ebe7; --accent-ink:#ffffff; --gold:#94600a; --gold-bg:#f4e6c7; --certo:#1f7445; --certo-bg:#dcefe3; --errado:#ad3726; --errado-bg:#f7dfda; --mark:#fbe3a6; --calor-0:#dfe7e3; --calor-1:#a9d6cd; --calor-2:#5fb3a6; --calor-3:#1f8a80; --calor-4:#0b5a55; --sombra:0 1px 2px rgba(19,33,29,.06),0 6px 20px rgba(19,33,29,.06);
+  --bg:#edf1ee; --surface:#ffffff; --surface-2:#e1e8e4; --ink:#13211d; --ink-2:#4b5f57; --ink-3:#5a6b63; --line:#c6d1cb; --accent:#0c6b66; --accent-2:#d6ebe7; --accent-ink:#ffffff; --gold:#94600a; --gold-bg:#f4e6c7; --certo:#1f7445; --certo-bg:#dcefe3; --errado:#ad3726; --errado-bg:#f7dfda; --mark:#fbe3a6; --calor-0:#dfe7e3; --calor-1:#a9d6cd; --calor-2:#5fb3a6; --calor-3:#1f8a80; --calor-4:#0b5a55; --sombra:0 1px 2px rgba(19,33,29,.06),0 6px 20px rgba(19,33,29,.06);
   --at-q:#2a78d6; --at-c:#eb6834; --at-l:#1baf7a; --at-d:#eda100;
   color-scheme:light;
 }
@@ -841,22 +840,11 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .art-inline.remissao .texto-lei{font-size:.95rem}
 
 /* Esqueletos de peça e parecer na discursiva */
-.esq pre{white-space:pre-wrap;font-family:var(--f-mono);font-size:.8rem;background:var(--bg);padding:10px;border-radius:8px;border:1px solid var(--line)}
 
 /* Caderno de erros, método do mentor, régua do simulado, folha da discursiva, termômetro da lei e folha de véspera */
-.cad-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:10px 0}
-.cad-kpi,.corte-kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
-:is(.cad-kpi,.corte-kpi) b{display:block;font-size:1.05rem}
-:is(.cad-kpi,.corte-kpi) span{font-size:.8rem;color:var(--ink-2)}
-.anpd-banner-fase{border-left:4px solid var(--accent)}
-.anpd-degrau{border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px;background:var(--surface)}
-.anpd-degrau.ativo{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
-.anpd-degrau.ok{border-left:4px solid var(--certo)}
-.anpd-topico-linha{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
-.anpd-tag-hist{display:inline-block;padding:1px 6px;border-radius:4px;font-size:.72rem;background:var(--surface-2);color:var(--ink-2);font-family:var(--f-mono);border:1px solid var(--line)}
-.anpd-tag-hist.novo{background:var(--gold-bg);color:var(--gold);border-color:var(--gold)}
-.cad-box{margin-top:12px;padding:10px 12px;border-radius:8px;background:var(--bg);border:1px dashed var(--line)}
-.anpd-sim-banner{background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;margin-bottom:14px}
+.corte-kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.corte-kpi b{display:block;font-size:1.05rem}
+.corte-kpi span{font-size:.8rem;color:var(--ink-2)}
 .corte-badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:6px;font-size:.78rem;font-weight:700;font-family:var(--f-mono)}
 .corte-badge.aprovado{background:var(--certo-bg);color:var(--certo)}
 .corte-badge.alerta{background:var(--gold-bg);color:var(--gold)}
@@ -870,13 +858,6 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .linhas-numeradas span{display:block;height:24px}
 .disc-area-30{flex:1;border:0;outline:none;padding:8px 12px;font-family:var(--f-corpo);font-size:.95rem;line-height:24px;resize:vertical;min-height:720px;background:transparent;color:var(--ink)}
 .termometro-card{background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;margin-bottom:14px}
-.termo-barra-container{background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:6px;margin:10px 0}
-.termo-barra{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--bg)}
-.termo-seg{height:100%;transition:width .3s}
-.termo-seg.verm{background:var(--errado)}
-.termo-seg.amar{background:var(--gold)}
-.termo-seg.verd{background:var(--certo)}
-.termo-seg.neut{background:var(--line)}
 .art-btn.termo-verm{border-left:4px solid var(--errado);box-shadow:inset 2px 0 0 var(--errado)}
 .art-btn.termo-amar{border-left:4px solid var(--gold);box-shadow:inset 2px 0 0 var(--gold)}
 .art-btn.termo-verd{border-left:4px solid var(--certo);box-shadow:inset 2px 0 0 var(--certo)}
@@ -884,11 +865,6 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .aviso-vulnerabilidade.verm{background:var(--errado-bg);border-left:4px solid var(--errado)}
 .aviso-vulnerabilidade.amar{background:var(--gold-bg);border-left:4px solid var(--gold)}
 .aviso-vulnerabilidade.verd{background:var(--certo-bg);border-left:4px solid var(--certo)}
-.ranking-vuln{display:flex;flex-direction:column;gap:8px;margin-top:10px}
-.ranking-vuln-item{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left}
-.ranking-vuln-item.verm{border-left:4px solid var(--errado)}
-.ranking-vuln-item.amar{border-left:4px solid var(--gold)}
-.ranking-vuln-item.verd{border-left:4px solid var(--certo)}
 .folha-impressao{padding:10px 0;color:var(--ink)}
 .folha-cabecalho{border-bottom:2px solid var(--accent);padding-bottom:10px;margin-bottom:15px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
 .folha-cabecalho h1{font-family:var(--f-titulo);font-size:1.4rem;color:var(--accent);margin:0}
@@ -899,7 +875,7 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .folha-regra{margin:6px 0;font-size:.85rem;color:var(--accent);background:var(--surface-2);padding:6px 10px;border-radius:6px;border-left:3px solid var(--accent);font-family:var(--f-corpo)}
 @media print{
   body{background:#fff!important;color:#000!important}
-  .topo,.abas,.linha-btns,.icone-btn,.chips,button,.seletor-bloco,.secao-cab>button,.secao-cab>.icone-btn{display:none!important}
+  .topo,.abas,.linha-btns,.icone-btn,.chips,button,.secao-cab>button,.secao-cab>.icone-btn{display:none!important}
   .folha-impressao{padding:0!important}
   .folha-painel{max-height:none!important;overflow:visible!important;box-shadow:none!important;border:none!important;padding:0!important;background:transparent!important}
   #folha{position:static!important;background:none!important;display:block!important;overflow:visible!important}
@@ -940,9 +916,6 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .t-item{font-size:.8rem;color:var(--ink-3);padding:2px 6px;border-radius:6px}
 .t-item.lento{color:var(--errado);background:var(--errado-bg)}
 .ritmo-sessao{margin:8px 0}
-/* Causa do erro marcada na correção do item */
-.causa-agora{margin-top:10px;display:flex;flex-direction:column;gap:6px}
-.causa-agora p{margin:0}
 /* Autoverificação antes de corrigir a discursiva */
 .check-disc{margin:10px 0;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
 .check-disc summary{cursor:pointer;font-weight:700}
@@ -952,6 +925,63 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .pront-topo{margin:8px 0 0;font-size:.92rem}
 .jornada-resumo{cursor:pointer;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;list-style-position:inside}
 .jornada details[open]>.jornada-resumo{margin-bottom:10px}
+
+/* Tela larga (monitor e ultrawide, a partir de 1200 px): abas num trilho à esquerda, telas de cartões em colunas,
+   sessão com texto-base | questão | correção e artigo da lei ao lado das notas. Abaixo de 1200 px os contêineres
+   novos não existem para o layout (display:contents) e tudo fica como no celular. */
+.item-t,.item-q,.item-r,.art-lado,.art-texto,.art-lado2{display:contents}
+@media (min-width:1200px){
+  :root{--trilho:96px;--col:620px}
+  .app{max-width:none;margin:0;padding:0 32px 32px calc(var(--trilho) + 32px)}
+  .topo{margin-inline:-32px;padding-inline:32px}
+  .abas{top:0;right:auto;width:var(--trilho);flex-direction:column;justify-content:flex-start;gap:6px;padding:18px 10px;border-top:0;border-right:1px solid var(--line)}
+  .abas>.aba{flex:0 0 auto;max-width:none;padding:10px 4px}
+  .avisos{bottom:24px}
+  .cronometro{bottom:16px}
+  /* Telas de cartões: colunas de leitura (de cima para baixo, depois a coluna seguinte) */
+  :is(#vista-hoje,#vista-cards,#vista-mais),#vista-lei:not(:has(.art-texto)){display:block;columns:3 var(--col);column-gap:20px}
+  :is(#vista-hoje,#vista-cards,#vista-mais,#vista-lei)>*{break-inside:avoid;margin-bottom:20px}
+  :is(#vista-cards,#vista-mais,#vista-lei)>:is(.secao-cab,.voltar,.prosa,.menu-mais,.secao:first-child){column-span:all}
+  #vista-lei>:is(.secao-titulo,.capitulo){margin-bottom:10px}
+  #vista-lei>.secao-titulo{break-after:avoid}
+  /* Listas de blocos (Cards e Questões): os grupos de disciplina se repartem em colunas */
+  #vista-cards>.secao:has(>.grupo-blocos){column-span:all}
+  .secao:has(>.grupo-blocos){display:block;columns:3 420px;column-gap:20px}
+  .secao:has(>.grupo-blocos)>.secao-cab{column-span:all;margin-bottom:10px}
+  .grupo-blocos{break-inside:avoid;margin-bottom:16px}
+  /* Questões: os cadernos oficiais numa coluna à esquerda; a montagem da sessão, na ordem, à direita */
+  #vista-questoes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);grid-template-rows:repeat(9,min-content) 1fr;column-gap:28px;align-items:start}
+  #vista-questoes>*{grid-column:2;margin-bottom:16px}
+  #vista-questoes>.tcu-cadernos-box{grid-column:1;grid-row:1 / -1}
+  #vista-questoes .secao:has(>.grupo-blocos){columns:2 420px}
+  .comecar-fixo{bottom:16px}
+  .menu-mais{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr))}
+  /* Artigo da lei seca: texto numa coluna de leitura; português claro, avisos e notas ao lado */
+  #vista-lei:has(.art-texto){max-width:1640px}
+  #vista-lei>.cartao:has(>.art-texto){display:grid;grid-template-columns:minmax(0,78ch) minmax(320px,1fr);grid-template-rows:auto auto min-content 1fr;column-gap:36px;row-gap:12px;align-items:start}
+  #vista-lei>.cartao:has(>.art-texto)>:is(.rotulo,h2){grid-column:1 / -1}
+  .art-texto,.art-lado,.art-lado2{display:flex;flex-direction:column;gap:12px;min-width:0}
+  .art-texto{grid-column:1;grid-row:3 / span 2}
+  .art-lado{grid-column:2;grid-row:3}
+  .art-lado2{grid-column:2;grid-row:4}
+  /* Sessão: questão | correção; com texto-base, ele fica numa coluna própria e acompanha a rolagem */
+  .sessao-corpo{max-width:min(100%,1720px);padding-inline:32px}
+  .sessao .item{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 32px;align-items:start}
+  .sessao .item>.item-cab{grid-column:1 / -1}
+  .item-t,.item-q,.item-r{display:flex;flex-direction:column;gap:14px;min-width:0}
+  .item-q{grid-column:1;grid-row:2}
+  .item-r{grid-column:2;grid-row:2}
+  .sessao .item:has(>.item-t){grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+  .sessao .item>.item-t{grid-column:1;grid-row:2 / span 2;position:sticky;top:12px;max-height:calc(100dvh - 140px);overflow-y:auto;padding-right:8px}
+  .sessao .item:has(>.item-t)>.item-q{grid-column:2;grid-row:2}
+  .sessao .item:has(>.item-t)>.item-r{grid-column:2;grid-row:3}
+  .folha-painel{max-width:1100px}
+}
+@media (min-width:1900px){
+  .sessao-corpo:has(.item-t){max-width:min(100%,2440px)}
+  .sessao .item:has(>.item-t){grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr)}
+  .sessao .item:has(>.item-t)>.item-r{grid-column:3;grid-row:2}
+}
 
 </style>
 </head>
@@ -1118,8 +1148,6 @@ const INTERVALOS = [0, 1, 3, 7, 16, 35];
 const MANUTENCAO_DIA = 10;
 // Leitura do dia: acima deste número de artigos, o app escolhe os que você errou, os ainda não lidos e os mais cobrados
 const LEITURA_MAX = 25;
-// Lista curta vencida acima deste número torna o dia pesado: a sessão de questões novas encolhe
-const REVISOES_DIA_PESADO = 40;
 // Intercalação: matérias básicas, treinadas todo dia, e blocos já estudados no cronograma, misturados na mesma sessão
 const BLOCOS_BASICOS = ['portugues', 'ingles', 'raciocinio-analitico', 'ce-cf', 'ce-lotcu', 'cf-leg-adm', 'constitucional', 'administrativo', 'adm-licitacoes-14133'];
 const MIN_DIA_ATIVO = 10;
@@ -2925,7 +2953,7 @@ function renderTopo() {
   const nv = nivelDe(S.perfil.xp);
   const seq = sequencia();
   document.getElementById('topo').innerHTML =
-    '<div class="marca"><b>Painel TCU</b><span>Auditor Federal de Controle Externo (AUFC) · Nível ' + nv.n + '</span></div>' +
+    '<div class="marca"><b role="heading" aria-level="1">Painel TCU</b><span>Auditor Federal de Controle Externo (AUFC) · Nível ' + nv.n + '</span></div>' +
     '<div class="status"><span class="pilula fogo' + (seq ? '' : ' apagado') + '" title="Dias seguidos de estudo (domingo e uma folga por semana não quebram)">' + iconeFogo() + seq + '</span>' +
     '<span class="pilula xp" title="Pontos de experiência">' + fmtNum(S.perfil.xp) + ' XP</span>' +
     '<button class="icone-btn" data-acao="tema-alternar" aria-label="' + (temaEscuroAtivo() ? 'Usar tema claro' : 'Usar modo noturno') + '" title="' + (temaEscuroAtivo() ? 'Tema claro' : 'Modo noturno') + '">' + (temaEscuroAtivo() ? iconeSol() : iconeLua()) + '</button>' +
@@ -3869,16 +3897,6 @@ const CAUSAS_ERRO = [
   ['pegadinha', 'Caí em pegadinha conhecida', 'Anotar o par de termos que a banca trocou (ex.: 60 dias × 90 dias; sustar ato × sustar contrato).'],
   ['chute', 'Chutei sem base', 'No Cebraspe (2p − 1), sem eliminar 2 alternativas ou ter >50% de confiança, deixar em branco.'],
 ];
-function causaDe(k) { return CAUSAS_ERRO.find((c) => c[0] === k); }
-// Causa do erro marcada na hora, na própria correção do item; vai para o Caderno de Erros e para o placar de causas
-function renderCausaAgora(q) {
-  const atual = (cadState().erros[q.id] || {}).causa;
-  return '<div class="causa-agora" role="group" aria-label="Por que errou"><span class="pequeno">Por que errou?</span><div class="chips">' +
-    CAUSAS_ERRO.map(([k, rot]) => '<button class="chip" data-acao="causa-agora" data-causa="' + k + '" aria-pressed="' + (atual === k) + '">' + esc(rot) + '</button>').join('') + '</div>' +
-    (atual ? '<p class="pequeno mudo">' + esc(causaDe(atual)[2]) + '</p>' : '') +
-    // Não sabia o ponto: o caminho para o artigo fica ali mesmo, no lugar do erro
-    (atual === 'nao-sabia' && q.art && ARTI.get(chave(q.l, q.art)) ? '<div class="linha-btns">' + botaoArt(chave(q.l, q.art), q.id, 'Abrir o artigo agora') + '</div>' : '') + '</div>';
-}
 // Autoverificação antes de corrigir a discursiva: o que a banca cobra numa peça técnica do controle externo (relatório
 // de auditoria, instrução de processo ou parecer). Só marca para a própria pessoa conferir; não entra na nota.
 const CHECK_DISC = '<details class="check-disc"><summary>Antes de corrigir: confira o texto</summary><ul>' + [
@@ -4321,7 +4339,7 @@ function idsDoSubtemaNoDia(st, blocos, n) {
   if (ids.length < n) for (const q of selecionar(poolDe(blocos).filter((q) => !usados.has(q.id) && !q.al), n - ids.length, 'mistas')) ids.push(q.id);
   return ids;
 }
-// Em dia pesado (lista curta vencida acima de REVISOES_DIA_PESADO), a sessão de questões do dia encolhe, até o mínimo de 10
+// Itens da sessão do dia: no treino, os 8 do Passo 2 da rotina; nos outros modos, até 30
 function nItensDoDia(dia) {
   if (dia.modo !== 'treino') return Math.min(dia.n, 30);
   return 8; // 8 itens para caber exatamente nos 15 min do Passo 2 da rotina de 1h30
@@ -4448,7 +4466,7 @@ function renderSessao() {
 }
 function renderTira() {
   const atual = sessao.ids[sessao.i];
-  return '<div class="tira" aria-label="Folha de respostas">' + sessao.ids.map((id, k) => {
+  return '<div class="tira" role="group" aria-label="Folha de respostas">' + sessao.ids.map((id, k) => {
     const r = sessao.resp[id];
     let cls = '';
     if (sessao.modo === 'simulado') cls = r ? (r === BRANCO ? 'B' : 'R') : '';
@@ -4458,6 +4476,8 @@ function renderTira() {
     return sessao.modo === 'simulado' ? '<button data-acao="ir-item" data-i="' + k + '" aria-label="Ir para o item ' + (k + 1) + '">' + i + '</button>' : i;
   }).join('') + '</div>';
 }
+// Na tela larga o texto-base fica sempre aberto: há espaço para ele ao lado da questão
+function telaLarga() { return matchMedia('(min-width:1200px)').matches; }
 function renderApoio(q, aberto) {
   if (q.ap == null) return '';
   return '<details class="apoio-det"' + (aberto ? ' open' : '') + '><summary>Texto de apoio</summary><div class="apoio">' + D.apoios[q.ap].split('\n').map((p) => '<p>' + esc(p) + '</p>').join('') + '</div></details>';
@@ -4489,12 +4509,14 @@ function renderComando(q) { return q.cm ? '<p class="comando">' + esc(q.cm) + '<
 function renderItem(q) {
   const id = q.id, sim = sessao.modo === 'simulado', marcada = sessao.resp[id];
   let html = '<article class="item"><div class="item-cab"><span class="selo mono">' + esc(nomeBloco(q.b)) + '</span>' + seloReal(q) + '<span class="item-num">' + esc(q.id) + '</span></div>';
-  html += renderApoio(q, sessao.i === 0 || sim || !sessao.ids.slice(0, sessao.i).some((x) => QI.get(x).ap === q.ap));
-  html += renderComando(q);
+  const ap = renderApoio(q, telaLarga() || sessao.i === 0 || sim || !sessao.ids.slice(0, sessao.i).some((x) => QI.get(x).ap === q.ap));
+  if (ap) html += '<div class="item-t">' + ap + '</div>';
+  // A questão fica em .item-q; o veredito e a correção, em .item-r (o fecho do último contêiner vai no return)
+  html += '<div class="item-q">' + renderComando(q);
   html += '<p class="enunciado">' + (sessao.revelado ? marcarPolaridade(marcarTermos(q.e, 3)) : esc(q.e)) + '</p>';
   html += renderAlternativas(q, marcada, sessao.revelado || !!sessao.flash);
   if (sessao.flash) {
-    html += '<div class="veredito ' + sessao.flash + '"><span>' + (sessao.flash === 'ok' ? 'Certo' : 'Errado: gabarito ' + nomeGab(q).toUpperCase()) + '</span>' + (sessao.ultimoGanho ? '<span class="ganho">+' + sessao.ultimoGanho + ' XP</span>' : '') + '</div>';
+    html += '</div><div class="item-r"><div class="veredito ' + sessao.flash + '"><span>' + (sessao.flash === 'ok' ? 'Certo' : 'Errado: gabarito ' + nomeGab(q).toUpperCase()) + '</span>' + (sessao.ultimoGanho ? '<span class="ganho">+' + sessao.ultimoGanho + ' XP</span>' : '') + '</div>';
   } else if (!sessao.revelado) {
     if (sessao.modo !== 'relampago') html += '<label class="duvida"><input type="checkbox" data-acao="duvida"' + (sessao.duv[id] ? ' checked' : '') + '> Estou em dúvida (mede quando vale chutar)</label>';
     const branco = sim ? '<button class="bolha b' + (marcada === BRANCO ? ' marcada' : '') + '" data-acao="responder" data-r="' + BRANCO + '">Em branco</button>' : '';
@@ -4510,15 +4532,14 @@ function renderItem(q) {
     if (sim) html += '<div class="linha-btns"><button class="btn" data-acao="anterior"' + (sessao.i ? '' : ' disabled') + '>Anterior</button><button class="btn" data-acao="proximo"' + (sessao.i < sessao.ids.length - 1 ? '' : ' disabled') + '>Próximo</button><button class="btn primario" data-acao="entregar">Entregar (' + Object.keys(sessao.resp).length + '/' + sessao.ids.length + ')</button></div>';
   } else {
     const r = sessao.resp[id], ok = r === q.g;
-    html += '<div class="veredito ' + (ok ? 'ok' : 'no') + '"><span>' + (ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + (q.al ? 'a letra ' + q.g : q.g === 'C' ? 'CERTO' : 'ERRADO') + '.') + '</span>' +
+    html += '</div><div class="item-r"><div class="veredito ' + (ok ? 'ok' : 'no') + '"><span>' + (ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + (q.al ? 'a letra ' + q.g : q.g === 'C' ? 'CERTO' : 'ERRADO') + '.') + '</span>' +
       (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP' + (sessao.virada === 'plena' ? ' <small>virada</small>' : caiuEmProva(q) && sessao.modo !== 'relampago' ? ' <small>crítico</small>' : '') + '</span>' : '<span class="pequeno">' + (SEM_REPETICAO.has(id) ? 'Este texto não volta: vêm outros' : 'Foi para a lista curta') + '</span>') + '</div>';
     html += renderCaca(q);
-    if (!ok && r !== BRANCO && sessao.modo !== 'simulado') html += renderCausaAgora(q);
     html += extrasResposta(q);
     html += renderExplicacao(q, cacaAtiva(q) && !(sessao.peg || {})[q.id]);
     html += '<button class="btn primario largo" data-acao="proximo">' + (sessao.i < sessao.ids.length - 1 ? 'Próximo item' : 'Ver resultado') + '</button><p class="atalhos">Enter = próximo</p>';
   }
-  return html + '</article>';
+  return html + '</div></article>';
 }
 function renderExplicacao(q, semArmadilha) {
   let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + (semArmadilha ? '' : ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a)) + '</span>';
@@ -4531,7 +4552,6 @@ function renderExplicacao(q, semArmadilha) {
   if (q.v === 0) html += '<p class="aviso-conferir">Texto oficial ainda não anexado ao app: confira esta referência na fonte antes de confiar nela.</p>';
   if (q.tm && SUBTEMAS.get(q.tm)) html += '<p class="pequeno"><button class="linkish" data-acao="aula-folha" data-st="' + esc(q.tm) + '">Rever a aula: ' + esc(SUBTEMAS.get(q.tm).nome) + '</button></p>';
   html += blocoPesquisar(q.e + ' ' + q.c, q.p, 'questão ' + q.id);
-  html += caixaCadernoErro(q);
   html += caixaCadernoErro(q);
   const ct = CONTEST.find((x) => x.q === q.id);
   html += '<div class="contestar"><button class="linkish pequeno" data-acao="contestar" data-q="' + esc(q.id) + '">' + (ct ? 'Contestação enviada (' + esc(STATUS_CONTEST[ct.status] || ct.status) + ') · ver' : 'Contestar este item') + '</button></div>';
@@ -5362,9 +5382,10 @@ function renderArtigo(k) {
   }
   const fria = leituraFria(k);
   html += '<div class="cartao' + (fria ? ' fria' : '') + '"><span class="rotulo">' + esc([L.curto].concat(a.estrutura || []).filter(Boolean).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +
-    avisoVuln + gavetaErrosArt(qs) +
+    '<div class="art-lado">' + avisoVuln + gavetaErrosArt(qs) +
     (fria ? '<div class="fria-aviso"><span>Leitura fria: você já leu este artigo. Leia sem grifos e ache sozinho prazos, verbos e exceções.</span><button class="btn pequeno" data-acao="conferir-fria" data-art="' + esc(k) + '">Conferir com grifos</button></div>' : '') +
-    htmlClaro(a) + legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div>' + caixaJuridiques(a) + '<div class="linha-btns">';
+    htmlClaro(a) + '</div><div class="art-texto">' + legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div></div>' +
+    '<div class="art-lado2">' + caixaJuridiques(a) + '<div class="linha-btns">';
   if (qs.length) html += '<button class="btn primario" data-acao="treinar-art" data-art="' + esc(k) + '">Questões deste artigo (' + qs.length + ')</button>';
   if (cs.length) html += '<button class="btn" data-acao="cards-art" data-art="' + esc(k) + '">Cards deste artigo (' + cs.length + ')</button>';
   if (PODE_FALAR) html += '<button class="btn" data-acao="ouvir-art" data-art="' + esc(k) + '">' + rotuloFala(k) + '</button>';
@@ -5372,7 +5393,7 @@ function renderArtigo(k) {
   if (!qs.length && !cs.length) html += '<p class="mudo pequeno">Nenhuma questão ou card do banco cita este artigo diretamente.</p>';
   const termos = termosDe(a.texto, 5, 0.5);
   if (termos.length) html += '<div class="pesquisar-box"><span class="rotulo">Termos deste artigo para entender</span><div class="chips">' + termos.map((t) => '<button class="chip termo-chip" data-acao="termo" data-t="' + t.g.i + '">' + esc(t.g.t) + '</button>').join('') + '</div></div>';
-  return html + '</div>';
+  return html + '</div></div>';
 }
 
 /* ================= Mais ================= */
@@ -5684,7 +5705,7 @@ function cartaoTaticoMentorando(forcar = false) {
   const ms = metricasSemanaMentor();
   const deg = (D.mentor && D.mentor.metodo && D.mentor.metodo.degrausFoco && D.mentor.metodo.degrausFoco.find((x) => x.ordem === ms.degrauAtual)) || { bloco: 'Controle Externo (CF + LOTCU)', ordem: 1 };
   const liqPct = ms.total > 0 ? (ms.liq >= 0 ? '+' : '') + Math.round(ms.liq * 100) + '%' : '—';
-  const liqCor = ms.total === 0 ? 'var(--mudo)' : ms.liq >= 0.6 ? 'var(--certo)' : ms.liq >= 0.4 ? 'var(--accent)' : 'var(--errado)';
+  const liqCor = ms.total === 0 ? 'var(--ink-3)' : ms.liq >= 0.6 ? 'var(--certo)' : ms.liq >= 0.4 ? 'var(--accent)' : 'var(--errado)';
   const pctQ = Math.min(100, Math.round((ms.r / ms.metaQuestoes) * 100));
 
   let prescricao = '';
@@ -5713,25 +5734,25 @@ function cartaoTaticoMentorando(forcar = false) {
     '<span class="mono pequeno mudo">' + esc(fmtData(ms.semIni, { day: '2-digit', month: '2-digit' })) + ' a ' + esc(fmtData(hojeISO(), { day: '2-digit', month: '2-digit' })) + '</span>' +
     '</div><button class="linkish pequeno" data-acao="mais" data-sub="metodo">Método 6 Degraus ›</button></div>' +
     '<div class="estat" style="grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:10px 0 12px">' +
-    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--raio)">' +
+    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--r)">' +
       '<b class="mono" style="font-size:1.15rem">' + ms.r + ' <span class="pequeno mudo" style="font-size:.75rem">/ ' + ms.metaQuestoes + '</span></b>' +
       '<span style="font-size:.76rem">itens na semana</span>' +
       '<div class="barra" style="height:4px;margin-top:6px"><i style="width:' + pctQ + '%"></i></div>' +
     '</div>' +
-    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--raio)">' +
+    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--r)">' +
       '<b class="mono" style="font-size:1.15rem;color:' + liqCor + '">' + liqPct + '</b>' +
       '<span style="font-size:.76rem">líquido Cebraspe (meta ≥ +60%)</span>' +
     '</div>' +
-    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--raio)">' +
+    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--r)">' +
       '<b class="mono" style="font-size:1.15rem">' + ms.degrauAtual + 'º <span class="pequeno mudo" style="font-size:.75rem">/ 6</span></b>' +
       '<span style="font-size:.76rem">degrau ativo (' + Math.round(ms.md.dom * 100) + '% dom)</span>' +
     '</div>' +
-    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--raio)">' +
+    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--r)">' +
       '<b class="mono" style="font-size:1.15rem;' + (ms.revisaoTotal ? 'color:var(--errado)' : 'color:var(--certo)') + '">' + (ms.revisaoTotal ? ms.revisaoTotal : '✓ 0') + '</b>' +
       '<span style="font-size:.76rem">' + (ms.revisaoTotal ? 'revisões pendentes' : 'revisão em dia') + '</span>' +
     '</div>' +
     '</div>' +
-    '<div style="background:var(--surface);padding:10px 12px;border-radius:var(--raio);font-size:.86rem;border-left:3px solid var(--accent)">' +
+    '<div style="background:var(--surface);padding:10px 12px;border-radius:var(--r);font-size:.86rem;border-left:3px solid var(--accent)">' +
     '<p style="margin:0 0 6px 0;line-height:1.45">' + prescricao + '</p>' +
     '<div class="linha-btns" style="margin-top:4px">' + acaoSugerida +
     '<button class="btn pequeno" data-acao="tcu-treino-rapido" data-deg="' + ms.degrauAtual + '">Treinar 20 itens do ' + ms.degrauAtual + 'º Degrau</button>' +
@@ -6239,7 +6260,7 @@ function renderTrilhas() {
       '<p class="pequeno mudo">' + esc(t.resumo) + '</p><ol class="lista-st">' +
       t.subtemas.map((st, i) => {
         const e = est[i];
-        return '<li><button data-acao="subtema" data-st="' + esc(st.id) + '"><span class="txt"><b>' + esc(st.nome) + '</b>' + (st.faixa ? ' <span class="chip-faixa" style="font-size:0.75rem;padding:2px 6px;border-radius:4px;background:rgba(99,102,241,0.12);color:var(--primaria,#6366f1);font-weight:600;margin-left:6px">' + esc(st.faixa) + '</span>' : '') + '<span class="pequeno mudo">' + pl(e.n, 'questão', 'questões') + (e.resp ? ' · respondidas ' + e.resp + ' · acerto atual ' + Math.round(e.acerto * 100) + '%' : '') + '</span></span>' + chipEstado(e) + '</button></li>';
+        return '<li><button data-acao="subtema" data-st="' + esc(st.id) + '"><span class="txt"><b>' + esc(st.nome) + '</b>' + (st.faixa ? ' <span class="chip-faixa" style="font-size:0.75rem;padding:2px 6px;border-radius:4px;background:rgba(99,102,241,0.12);color:var(--accent);font-weight:600;margin-left:6px">' + esc(st.faixa) + '</span>' : '') + '<span class="pequeno mudo">' + pl(e.n, 'questão', 'questões') + (e.resp ? ' · respondidas ' + e.resp + ' · acerto atual ' + Math.round(e.acerto * 100) + '%' : '') + '</span></span>' + chipEstado(e) + '</button></li>';
       }).join('') + '</ol></div>';
   }
   return html;
@@ -6258,7 +6279,7 @@ function renderSubtema(id) {
   const pos = t.subtemas.findIndex((x) => x.id === id);
   const prox = t.subtemas[pos + 1];
   let html = '<button class="btn pequeno voltar" data-acao="subtema" data-st="">← Trilhas</button>' +
-    '<div class="cartao destaque">' + (st.titulo || st.capitulo || st.faixa ? '<div class="subtema-meta-topo" style="margin-bottom:8px;font-size:0.8rem;color:var(--mudo,#888);display:flex;flex-wrap:wrap;align-items:center;gap:6px">' + (st.titulo ? '<span style="font-weight:700;color:var(--primaria,#6366f1)">' + esc(st.titulo) + '</span>' : '') + (st.capitulo ? '<span>· ' + esc(st.capitulo) + '</span>' : '') + (st.secao ? '<span>· ' + esc(st.secao) + '</span>' : '') + (st.faixa ? '<span style="font-weight:600;background:rgba(99,102,241,0.12);color:var(--primaria,#6366f1);padding:2px 6px;border-radius:4px">(' + esc(st.faixa) + ')</span>' : '') + '</div>' : '') + '<span class="rotulo">Subtema ' + (pos + 1) + ' de ' + t.subtemas.length + '</span><h2 class="titulo-st">' + esc(st.nome) + '</h2><p>' + esc(st.resumo) + '</p>' + htmlSimples(st) +
+    '<div class="cartao destaque">' + (st.titulo || st.capitulo || st.faixa ? '<div class="subtema-meta-topo" style="margin-bottom:8px;font-size:0.8rem;color:var(--ink-3);display:flex;flex-wrap:wrap;align-items:center;gap:6px">' + (st.titulo ? '<span style="font-weight:700;color:var(--accent)">' + esc(st.titulo) + '</span>' : '') + (st.capitulo ? '<span>· ' + esc(st.capitulo) + '</span>' : '') + (st.secao ? '<span>· ' + esc(st.secao) + '</span>' : '') + (st.faixa ? '<span style="font-weight:600;background:rgba(99,102,241,0.12);color:var(--accent);padding:2px 6px;border-radius:4px">(' + esc(st.faixa) + ')</span>' : '') + '</div>' : '') + '<span class="rotulo">Subtema ' + (pos + 1) + ' de ' + t.subtemas.length + '</span><h2 class="titulo-st">' + esc(st.nome) + '</h2><p>' + esc(st.resumo) + '</p>' + htmlSimples(st) +
     '<div class="linha-st">' + chipEstado(e) + '<span class="pequeno mudo">' + pl(e.n, 'questão', 'questões') + ' · ' + e.resp + ' respondidas · ' + (e.resp ? 'acerto atual ' + Math.round(e.acerto * 100) + '%' : 'nenhuma respondida') + ' · domínio pede ' + e.minimo + ' respondidas com 80% de acerto</span></div>' +
     '<div class="linha-btns">' + passosDoSubtema(st, e).map((x, i, a) => '<button class="btn' + (x.primario ? ' primario' : '') + '" ' + x.attrs + '>' + (a.length > 1 ? (i + 1) + '. ' : '') + x.rot + '</button>').join('') +
     (e.erros ? '<button class="btn" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="erros">Refazer erros · ' + e.erros + '</button>' : '') +
@@ -6678,9 +6699,7 @@ async function executar(a, alvo) {
     case 'set-filtro': UI.filtro = alvo.dataset.filtro; salvarUI(); renderQuestoes(); break;
     case 'set-banca': UI.filtroBanca = alvo.dataset.banca; salvarUI(); renderQuestoes(); break;
     case 'tcu-set-fase': tcuState().fase = alvo.dataset.fase; Store.salvar('perfil'); renderTudo(); break;
-    case 'anpd-set-degrau':
     case 'tcu-set-degrau': tcuState().degrau = Number(alvo.dataset.deg); Store.salvar('perfil'); renderTudo(); break;
-    case 'anpd-treino-rapido':
     case 'tcu-treino-rapido': {
       let bls = (alvo.dataset.blocos || '').split(',').filter(Boolean);
       let tit = alvo.dataset.tit || 'Treino TCU';
@@ -6732,11 +6751,7 @@ async function executar(a, alvo) {
       avisar('✓', 'Regra de 1 linha salva', ce.nota || 'Nota atualizada.');
       break;
     }
-    case 'limpar-causa-erro': {
-      const qid = alvo.dataset.q; delete tcuState().erros[qid]; Store.salvar('perfil'); renderMais(); break;
-    }
-    case 'filtro-causa-erro':
-    case 'set-filtro-causa': UI.filtroCausa = alvo.dataset.causa; renderMais(); break;
+    case 'filtro-causa-erro': UI.filtroCausa = alvo.dataset.causa; renderMais(); break;
     case 'treinar-causa-erro': {
       const c = alvo.dataset.causa, ce = tcuState().erros || {};
       const ids = Q.filter((q) => {
@@ -6791,18 +6806,6 @@ async function executar(a, alvo) {
     }
     case 'comecar': comecarConfigurado(); break;
     case 'simulado-semana': iniciarSessao({ modo: 'simulado', n: SIM_SEMANA_N, prova: true, minutos: Math.round(SIM_SEMANA_N * RITMO_PROVA_S / 60), titulo: 'Simulado da semana', chave: 'sim:' + semanaAtual() }); break;
-    case 'simulado-anvisa-2024': {
-      const ids = Q.filter((q) => q.id.startsWith('anvisa-2024-cebraspe-')).map((q) => q.id);
-      if (!ids.length) { avisar('!', 'Caderno vazio', 'Nenhum item da ANVISA 2024 encontrado.'); break; }
-      iniciarSessao({ modo: 'simulado', ids, minutos: Math.round(ids.length * 1.75), titulo: 'ANVISA 2024 · Cebraspe · ' + ids.length + ' itens' });
-      break;
-    }
-    case 'simulado-tcu-2026': {
-      const ids = Q.filter((q) => q.id.startsWith('tcu-aufc-2026-')).map((q) => q.id);
-      if (!ids.length) { avisar('!', 'Caderno vazio', 'Nenhum item do TCU 2026 encontrado.'); break; }
-      iniciarSessao({ modo: 'simulado', ids, minutos: Math.round(ids.length * 1.75), titulo: 'TCU 2026 · AUFC · Cebraspe · ' + ids.length + ' itens' });
-      break;
-    }
     case 'imprimir-folha-vespera': abrirFolhaVespera(); break;
     case 'foco': UI.foco = !UI.foco; salvarUI(); renderSessao(); break;
     case 'responder': responder(alvo.dataset.r); break;
@@ -6810,13 +6813,6 @@ async function executar(a, alvo) {
     case 'avaliar': avaliar(Number(alvo.dataset.n)); break;
     case 'pegadinha': cacarPegadinha(alvo.dataset.t); break;
     case 'pesq-todos': UI.pesqTodos = true; renderMais(); break;
-    case 'causa-agora': {
-      const q = sessao && QI.get(sessao.ids[sessao.i]);
-      if (!q || !causaDe(alvo.dataset.causa)) break;
-      const e = (cadState().erros[q.id] ||= {});
-      e.causa = alvo.dataset.causa; e.data = hojeISO();
-      Store.salvar('perfil'); renderSessao(); break;
-    }
     case 'proximo': proximo(); break;
     case 'som': UI.som = !UI.som; salvarUI(); tocar('acerto'); renderSessao(); break;
     case 'anterior': if (sessao && sessao.i > 0) { sessao.i--; renderSessao(); } break;
@@ -7079,7 +7075,7 @@ async function executar(a, alvo) {
       Store.salvarTudo(); renderTudo(); avisar('0', 'Progresso zerado', 'Status dos blocos, metas e preferências foram mantidos.');
       break;
         case 'copiar-erros': if (await copiarTexto(JSON.stringify(ERROS, null, 1))) avisar('✓', 'Erros copiados', 'Cole na conversa com o Claude.'); break;
-    case 'simulado-oficial-200': case 'simulado-oficial-120': iniciarSessao({ modo: 'simulado', n: TOTAL_PROVA, prova: true, minutos: minutosProva(), titulo: 'Simulado Geral TCU · ' + TOTAL_PROVA + ' Itens (AUFC)' }); break;
+    case 'simulado-oficial-200': iniciarSessao({ modo: 'simulado', n: TOTAL_PROVA, prova: true, minutos: minutosProva(), titulo: 'Simulado Geral TCU · ' + TOTAL_PROVA + ' Itens (AUFC)' }); break;
     case 'simulado-oficial-fgv-100': {
       const ids = Q.filter((q) => q.id.startsWith('tcu-aufc-2022-')).map((q) => q.id);
       if (ids.length) {
@@ -7089,7 +7085,7 @@ async function executar(a, alvo) {
       }
       break;
     }
-    case 'sync-tcu': case 'sync-anpd': sincronizarTroncoANPD(); break;
+    case 'sync-anpd': sincronizarTroncoANPD(); break;
     case 'backup-sync-anpd': if (backupPendente) { sincronizarTroncoANPD(backupPendente); backupPendente = null; } break;
     case 'criar-snapshot-manual': {
       const pacote = { perfil: S.perfil, itens: S.itens, cards: S.cards, simulados: S.simulados, pesquisa: S.pesquisa, disc: S.disc, t: Store.tLocal };
