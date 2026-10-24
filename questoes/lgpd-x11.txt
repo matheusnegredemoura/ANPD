@@ -1,0 +1,223 @@
+// LGPD, lote X11: casos integrados e parágrafos pouco cobrados (alcance territorial, exceções do art. 4º, legítimo
+// interesse, dados sensíveis inferidos, perfil comportamental, pesquisa em saúde, crianças, decisão automatizada,
+// ressarcimento). Conferidas com fontes/lgpd.txt.
+
+=== lx11-01
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-alcance
+ref: lgpd 3
+trecho: Consideram-se coletados no território nacional os dados pessoais cujo titular nele se encontre no momento da coleta
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: turista estrangeiro, em visita ao Brasil, cadastra-se em aplicativo de transporte de empresa sediada no exterior, que guarda os dados fora do país. Assertiva: a LGPD se aplica, porque os dados foram coletados no território nacional.
+comentario: Certo. Art. 3º, III e § 1º: consideram-se coletados no Brasil os dados de quem aqui se encontra no momento da coleta, qualquer que seja a nacionalidade do titular ou a sede da empresa.
+
+=== lx11-02
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 4
+trecho: provenientes de fora do território nacional e que não sejam objeto de comunicação, uso compartilhado de dados com agentes de tratamento brasileiros
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: dados de cidadãos europeus, coletados na Europa, passam por servidor no Brasil sem comunicação nem compartilhamento com agentes brasileiros e voltam ao país de origem, que tem proteção adequada. Assertiva: a LGPD se aplica integralmente, porque a operação ocorreu no território nacional.
+comentario: Errado. É a exceção do art. 4º, IV, que o art. 3º, § 2º, ressalva da regra territorial: dados vindos de fora, sem comunicação ou compartilhamento com agentes brasileiros nem transferência a terceiro país, quando o país de origem tem proteção adequada.
+
+=== lx11-03
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-alcance
+ref: lgpd 4
+trecho: salvo por aquela que possua capital integralmente constituído pelo poder público
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: empresa privada contratada por secretaria de segurança pública trata dados para investigação criminal, sob tutela do órgão. Assertiva: a atuação é possível, com informe específico à ANPD, mas a empresa não pode tratar a totalidade do banco de dados, salvo se tiver capital integralmente público.
+comentario: Certo. Art. 4º, §§ 2º e 4º. O tratamento para segurança pública e investigação será regido por lei específica (§ 1º), e a ANPD pode pedir relatórios de impacto (§ 3º).
+
+=== lx11-04
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 4
+trecho: acadêmicos, aplicando-se a esta hipótese os arts. 7º e 11 desta Lei
+armadilha: excecao
+dif: 2
+enunciado: O tratamento de dados para fins exclusivamente acadêmicos fica totalmente fora da LGPD, sem aplicação de nenhum de seus dispositivos.
+comentario: Errado. O art. 4º, II, b, afasta a LGPD dos fins acadêmicos, mas manda aplicar os arts. 7º e 11, isto é, as bases legais. Nos fins jornalísticos e artísticos (alínea a), não há essa ressalva.
+
+=== lx11-05
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 10
+trecho: somente os dados pessoais estritamente necessários para a finalidade pretendida poderão ser tratados
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: livraria usa o histórico de compras dos clientes para lhes enviar recomendações de livros, com base no legítimo interesse. Assertiva: só os dados estritamente necessários podem ser tratados, a livraria deve garantir transparência e a ANPD pode pedir o relatório de impacto.
+comentario: Certo. Art. 10, §§ 1º a 3º. O legítimo interesse exige finalidade legítima em situação concreta e respeito às legítimas expectativas do titular (caput, II).
+
+=== lx11-06
+bloco: lgpd-5-11
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: O tratamento de dados pessoais sensíveis somente poderá ocorrer nas seguintes hipóteses
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: hospital usa diagnósticos de pacientes para campanhas de marketing de seus serviços, invocando legítimo interesse. Assertiva: a base legal é adequada, porque a campanha apoia atividade do controlador.
+comentario: Errado. Diagnóstico é dado sensível, e o rol do art. 11 não inclui o legítimo interesse. O apoio às atividades do controlador (art. 10, I) só serve a dados não sensíveis.
+
+=== lx11-07
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 12
+trecho: aqueles utilizados para formação do perfil comportamental de determinada pessoa natural, se identificada
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: plataforma remove nomes e CPFs da base, mas mantém perfis de comportamento de navegação ligados a pessoas identificadas, que recebem publicidade dirigida. Assertiva: esses dados podem ser considerados pessoais para a LGPD.
+comentario: Certo. Art. 12, § 2º. Retirar o nome não basta: se o perfil se liga a pessoa identificada, a LGPD continua valendo.
+
+=== lx11-08
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 13
+trecho: não permitida, em circunstância alguma, a transferência dos dados a terceiro
+armadilha: excecao
+dif: 3
+enunciado: Órgão de pesquisa que acessa bases de dados para estudos em saúde pública pode repassar os dados a universidade parceira se os mantiver pseudonimizados.
+comentario: Errado. O art. 13, § 2º, torna o órgão de pesquisa responsável pela segurança e não permite, em circunstância alguma, a transferência dos dados a terceiro. A pseudonimização não afasta a vedação.
+
+=== lx11-09
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-sensiveis
+ref: lgpd 14
+trecho: quando a coleta for necessária para contatar os pais ou o responsável legal, utilizados uma única vez e sem armazenamento
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: aplicativo educacional coleta o e-mail de uma criança só para contatar os pais e pedir o consentimento, usa-o uma única vez e não o armazena. Assertiva: essa coleta dispensa o consentimento prévio dos pais.
+comentario: Certo. Art. 14, § 3º. Os dados assim coletados nunca podem ser repassados a terceiro sem o consentimento do § 1º.
+
+=== lx11-10
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-sensiveis
+ref: lgpd 14
+trecho: não deverão condicionar a participação dos titulares
+armadilha: conceito
+dif: 2
+enunciado: Jogo on-line para crianças pode condicionar a participação ao fornecimento de dados pessoais além dos estritamente necessários, se os pais consentirem.
+comentario: Errado. O art. 14, § 4º, proíbe condicionar a participação em jogos, aplicações ou outras atividades ao fornecimento de informações além das estritamente necessárias. O consentimento dos pais não afasta a proibição.
+
+=== lx11-11
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-sensiveis
+ref: lgpd 14
+trecho: realizar todos os esforços razoáveis para verificar que o consentimento a que se refere o § 1º deste artigo foi dado pelo responsável
+armadilha: conceito
+dif: 2
+enunciado: O controlador deve fazer esforços razoáveis para verificar se o consentimento para tratar dados de criança foi dado pelo responsável, consideradas as tecnologias disponíveis.
+comentario: Certo. Art. 14, § 5º. O ECA Digital (Lei 15.211/2025) reforçou a verificação de idade em serviços digitais.
+
+=== lx11-12
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 20
+trecho: a autoridade nacional poderá realizar auditoria para verificação de aspectos discriminatórios
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: banco nega crédito por decisão automatizada e se recusa a explicar os critérios, alegando segredo comercial. Assertiva: a ANPD pode realizar auditoria para verificar aspectos discriminatórios no tratamento automatizado.
+comentario: Certo. Art. 20, § 2º. O titular tem ainda direito à revisão da decisão automatizada (caput).
+
+=== lx11-13
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 20
+trecho: observados os segredos comercial e industrial
+armadilha: excecao
+dif: 2
+enunciado: Diante de decisão automatizada, o controlador deve revelar ao titular o algoritmo por inteiro, inclusive o que estiver protegido por segredo comercial.
+comentario: Errado. O art. 20, § 1º, exige informações claras e adequadas sobre critérios e procedimentos, observados os segredos comercial e industrial. A salvaguarda é a auditoria da ANPD (§ 2º).
+
+=== lx11-14
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 42
+trecho: poderá inverter o ônus da prova a favor do titular dos dados quando, a seu juízo, for verossímil a alegação
+armadilha: conceito
+dif: 2
+enunciado: No processo civil, o juiz pode inverter o ônus da prova a favor do titular quando a alegação for verossímil, quando houver hipossuficiência ou quando a prova for excessivamente onerosa para ele.
+comentario: Certo. Art. 42, § 2º. A regra se inspira no Código de Defesa do Consumidor (art. 6º, VIII).
+
+=== lx11-15
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 42
+trecho: Aquele que reparar o dano ao titular tem direito de regresso contra os demais responsáveis
+armadilha: conceito
+dif: 2
+enunciado: O agente que repara o dano ao titular não tem direito de regresso contra os demais responsáveis, por responder sozinho.
+comentario: Errado. O art. 42, § 4º, garante direito de regresso contra os demais responsáveis, na medida da participação de cada um no evento danoso.
+
+=== lx11-16
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 42
+trecho: podem ser exercidas coletivamente em juízo
+armadilha: conceito
+dif: 2
+enunciado: As ações de reparação por danos coletivos decorrentes de tratamento de dados podem ser exercidas coletivamente em juízo.
+comentario: Certo. Art. 42, § 3º, observada a legislação pertinente, como a Lei da Ação Civil Pública e o Código de Defesa do Consumidor.
+
+=== lx11-17
+bloco: lgpd-5-11
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: qualquer tratamento de dados pessoais que revele dados pessoais sensíveis e que possa causar dano ao titular
+armadilha: extrapolacao
+dif: 3
+enunciado: As regras sobre dados sensíveis aplicam-se só aos dados listados como sensíveis, e não aos tratamentos que inferem dados sensíveis a partir de dados comuns.
+comentario: Errado. O art. 11, § 1º, estende as regras a qualquer tratamento que revele dados sensíveis e possa causar dano ao titular. Inferir religião ou saúde a partir de compras, por exemplo, atrai o regime do art. 11.
+
+=== lx11-18
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 12
+trecho: poderá dispor sobre padrões e técnicas utilizados em processos de anonimização e realizar verificações acerca de sua segurança
+armadilha: conceito
+dif: 2
+enunciado: A ANPD pode dispor sobre padrões e técnicas de anonimização e verificar sua segurança, ouvido o Conselho Nacional de Proteção de Dados.
+comentario: Certo. Art. 12, § 3º. A ANPD publicou estudo técnico sobre anonimização e pseudonimização.
+
+=== lx11-19
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 12
+trecho: tais como custo e tempo necessários para reverter o processo de anonimização
+armadilha: rol
+dif: 2
+enunciado: Para saber se a anonimização pode ser revertida com esforços razoáveis, verifica-se só se o controlador tem meios próprios para isso, sem considerar custo e tempo.
+comentario: Errado. O art. 12, § 1º, manda considerar fatores objetivos, como o custo e o tempo para reverter a anonimização, as tecnologias disponíveis e a utilização exclusiva de meios próprios.
+
+=== lx11-20
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-alcance
+ref: lgpd 2
+trecho: a autodeterminação informativa
+armadilha: rol
+dif: 1
+enunciado: A autodeterminação informativa e a livre concorrência estão entre os fundamentos da disciplina da proteção de dados na LGPD.
+comentario: Certo. Art. 2º, II e VI. Fundamentos (art. 2º) não se confundem com princípios (art. 6º).

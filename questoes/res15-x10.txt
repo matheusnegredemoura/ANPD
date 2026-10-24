@@ -1,0 +1,144 @@
+bloco: res-15-2024
+// Resolução CD/ANPD nº 15/2024 (comunicação de incidente de segurança), lote X10: quem comunica, sigilo, informações
+// adicionais, auditoria, início do processo, análise agregada, medidas preventivas, canal, estatísticas e sanção.
+// Conferidas com fontes/res15.txt.
+
+=== lx10-01
+gab: C
+tema: an-incidentes-app
+ref: res15 4
+trecho: O controlador deverá comunicar à ANPD e ao titular a ocorrência de incidente de segurança
+armadilha: conceito
+dif: 1
+enunciado: Cabe ao controlador comunicar à ANPD e ao titular o incidente de segurança que possa acarretar risco ou dano relevante aos titulares.
+comentario: Certo. Art. 4º da Resolução CD/ANPD 15/2024, que regulamenta o art. 48 da LGPD. O prazo é de três dias úteis contados do conhecimento de que o incidente afetou dados pessoais (art. 6º, caput e § 1º), ressalvado prazo previsto em legislação específica.
+
+=== lx10-02
+gab: E
+tema: an-incidentes-app
+ref: res15 4
+trecho: O controlador deverá comunicar à ANPD e ao titular
+armadilha: sujeito
+dif: 2
+enunciado: A comunicação de incidente de segurança à ANPD é dever do operador cujos sistemas foram atacados, e não do controlador.
+comentario: Errado. O dever de comunicar à ANPD e aos titulares é do controlador (art. 4º da Resolução CD/ANPD 15/2024 e art. 48 da LGPD). O operador deve avisar o controlador, mas não substitui a comunicação.
+
+=== lx10-03
+gab: C
+tema: an-incidentes-app
+ref: res15 7
+trecho: solicitar à ANPD, de maneira fundamentada, o sigilo de informações protegidas por lei
+armadilha: conceito
+dif: 2
+enunciado: Na comunicação de incidente, o controlador pode pedir à ANPD, de forma fundamentada, sigilo sobre informações protegidas por lei, como as que revelariam segredo comercial ou industrial.
+comentario: Certo. Art. 7º da Resolução CD/ANPD 15/2024. Cabe ao controlador indicar quais informações devem ter acesso restrito.
+
+=== lx10-04
+gab: E
+tema: an-incidentes-app
+ref: res15 8
+trecho: inclusive o registro das operações de tratamento dos dados pessoais afetados pelo incidente, o relatório de impacto
+armadilha: rol
+dif: 2
+enunciado: Recebida a comunicação do incidente, a ANPD não pode exigir do controlador o relatório de impacto nem o registro das operações de tratamento.
+comentario: Errado. O art. 8º da Resolução CD/ANPD 15/2024 permite à ANPD solicitar, a qualquer tempo, informações adicionais, inclusive o registro das operações, o relatório de impacto e o relatório de tratamento do incidente.
+
+=== lx10-05
+gab: C
+tema: an-incidentes-app
+ref: res15 12
+trecho: realizar auditorias ou inspeções junto aos agentes de tratamento, ou determinar a sua realização
+armadilha: conceito
+dif: 2
+enunciado: No processo de comunicação de incidente, a ANPD pode, a qualquer momento, realizar auditorias ou inspeções nos agentes de tratamento ou determinar que sejam feitas.
+comentario: Certo. Art. 12 da Resolução CD/ANPD 15/2024, para coletar informações complementares ou validar as recebidas.
+
+=== lx10-06
+gab: E
+tema: an-incidentes-app
+ref: res15 13
+trecho: de ofício, no caso de procedimento de apuração de incidente de segurança
+armadilha: rol
+dif: 3
+enunciado: O processo de comunicação de incidente de segurança só se inicia com a comunicação formalizada pelo controlador.
+comentario: Errado. Pelo art. 13 da Resolução CD/ANPD 15/2024, ele também se inicia de ofício, no procedimento de apuração de incidente que a ANPD conheceu por outros meios.
+
+=== lx10-07
+gab: C
+tema: an-incidentes-app
+ref: res15 14
+trecho: poderão ser analisados de forma agregada
+armadilha: conceito
+dif: 3
+enunciado: Os processos de comunicação de incidente podem ser analisados de forma agregada, com providências padronizadas, conforme o planejamento da fiscalização e os critérios de priorização da ANPD.
+comentario: Certo. Art. 14 da Resolução CD/ANPD 15/2024, com remissão ao Relatório de Ciclo de Monitoramento da Resolução CD/ANPD 1/2021.
+
+=== lx10-08
+gab: C
+tema: an-incidentes-app
+ref: res15 15
+trecho: com ou sem a sua prévia manifestação, a adoção imediata de medidas preventivas
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: durante a apuração de incidente, a ANPD verifica que dados bancários vazados continuam expostos em site público. Assertiva: ela pode determinar ao controlador, mesmo sem ouvi-lo antes, medidas preventivas imediatas para evitar dano grave aos titulares.
+comentario: Certo. Art. 15 da Resolução CD/ANPD 15/2024. A ANPD pode ainda fixar multa diária para assegurar o cumprimento (parágrafo único).
+
+=== lx10-09
+gab: E
+tema: an-incidentes-app
+ref: res15 15
+trecho: A ANPD poderá fixar multa diária para assegurar o cumprimento da determinação
+armadilha: conceito
+dif: 2
+enunciado: Para assegurar o cumprimento de medida preventiva determinada no processo de incidente, a ANPD está impedida de fixar multa diária.
+comentario: Errado. O art. 15, parágrafo único, da Resolução CD/ANPD 15/2024 permite a multa diária, na forma do regulamento de dosimetria.
+
+=== lx10-10
+gab: C
+tema: an-incidentes-app
+ref: res15 17
+trecho: a ANPD determinará ao controlador o envio da comunicação à Autoridade e aos titulares
+armadilha: caso
+dif: 2
+enunciado: Constatado incidente que não foi comunicado, a ANPD determina ao controlador que faça a comunicação e pode instaurar processo sancionador pelo descumprimento do dever.
+comentario: Certo. Art. 17, caput e § 1º, da Resolução CD/ANPD 15/2024. Feita a comunicação, segue-se o procedimento regular de comunicação de incidente (§ 2º).
+
+=== lx10-11
+gab: E
+tema: an-incidentes-app
+ref: res15 18
+trecho: será recebida, exclusivamente, por meio de canal específico
+armadilha: conceito
+dif: 2
+enunciado: A comunicação de incidente pode ser enviada à ANPD por qualquer meio, inclusive mensagem direta a servidor da autoridade.
+comentario: Errado. Pelo art. 18, parágrafo único, da Resolução CD/ANPD 15/2024, a comunicação é recebida exclusivamente pelo canal específico indicado no sítio eletrônico da ANPD.
+
+=== lx10-12
+gab: C
+tema: an-incidentes-app
+ref: res15 20
+trecho: informações estatísticas agregadas relativas aos incidentes de segurança
+armadilha: conceito
+dif: 1
+enunciado: Como medida de transparência ativa, a ANPD pode divulgar em seu sítio eletrônico estatísticas agregadas sobre incidentes de segurança.
+comentario: Certo. Art. 20 da Resolução CD/ANPD 15/2024. A divulgação é agregada, sem expor informações específicas de cada agente.
+
+=== lx10-13
+gab: E
+tema: an-incidentes-app
+ref: res15 22
+trecho: não constituem sanções ao agente regulado, sendo equiparadas às medidas decorrentes da atividade preventiva
+armadilha: conceito
+dif: 2
+enunciado: As providências determinadas pela ANPD no processo de comunicação de incidente constituem sanções ao agente de tratamento.
+comentario: Errado. Pelo art. 22 da Resolução CD/ANPD 15/2024, elas não são sanções: equiparam-se às medidas da atividade preventiva da Resolução CD/ANPD 1/2021.
+
+=== lx10-14
+gab: C
+tema: an-incidentes-app
+ref: res15 21
+trecho: caso o controlador não adote as medidas para reverter ou mitigar os efeitos do incidente de segurança no prazo
+armadilha: conceito
+dif: 2
+enunciado: A ANPD pode instaurar processo sancionador se o controlador não adota, no prazo e nas condições fixados, as medidas para reverter ou mitigar os efeitos do incidente.
+comentario: Certo. Art. 21 da Resolução CD/ANPD 15/2024. É a passagem da atuação preventiva para a repressiva.
