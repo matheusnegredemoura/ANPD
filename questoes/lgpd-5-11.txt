@@ -5,7 +5,7 @@ bloco: lgpd-5-11
 gab: E
 ref: lgpd 5, I
 trecho: dado pessoal: informação relacionada a pessoa natural identificada ou identificável
-armadilha: caso
+armadilha: conceito
 dif: 2
 enunciado: Situação hipotética: uma loja guarda registros de compra associados apenas ao número do celular dos clientes, sem o nome deles. Assertiva: esses registros não são dados pessoais, porque a LGPD protege a informação relacionada a pessoa natural identificada pelo nome.
 comentario: Errado. Dado pessoal é a informação relacionada a pessoa natural identificada ou identificável (art. 5º, I). O número do celular permite identificar o cliente com meios razoáveis, mesmo sem nome no registro.
@@ -96,7 +96,7 @@ comentario: Art. 5º, XII. Os três adjetivos (livre, informada, inequívoca) e 
 gab: E
 ref: lgpd 8
 trecho: deverá ser fornecido por escrito ou por outro meio que demonstre a manifestação de vontade do titular
-armadilha: caso
+armadilha: extrapolacao
 dif: 2
 enunciado: Situação hipotética: em aplicativo, o titular consentiu com o tratamento de seus dados marcando caixa de seleção que não vinha pré-marcada. Assertiva: o consentimento é nulo, porque a LGPD exige que ele seja fornecido por escrito.
 comentario: O art. 8º admite consentimento por escrito “ou por outro meio que demonstre a manifestação de vontade do titular”, como um clique em caixa de seleção não pré-marcada.
@@ -159,7 +159,7 @@ comentario: Errado no fecho. A limitação do tratamento ao mínimo necessário 
 gab: E
 ref: lgpd 6, IV
 trecho: livre acesso: garantia, aos titulares, de consulta facilitada e gratuita sobre a forma e a duração do tratamento, bem como sobre a integralidade de seus dados pessoais
-armadilha: caso
+armadilha: comparacao
 dif: 2
 enunciado: Situação hipotética: um titular pediu, sem pagar nada, informações sobre por quanto tempo e de que forma seus dados seriam tratados por uma empresa. Assertiva: o pedido concretiza o princípio da transparência, que garante consulta facilitada e gratuita sobre a forma e a duração do tratamento e sobre a integralidade dos dados.
 comentario: Errado. A consulta facilitada e gratuita sobre a forma e a duração do tratamento e sobre a integralidade dos dados é o princípio do livre acesso (art. 6º, IV). A transparência (VI) garante informações claras, precisas e facilmente acessíveis sobre o tratamento e os agentes.
@@ -205,7 +205,7 @@ comentario: Caput do art. 6º. A boa-fé aparece no caput, fora da lista numerad
 gab: E
 ref: lgpd 6, IX
 trecho: não discriminação: impossibilidade de realização do tratamento para fins discriminatórios ilícitos ou abusivos
-armadilha: caso
+armadilha: extrapolacao
 dif: 3
 enunciado: Situação hipotética: uma seguradora usa a idade do titular, quando a legislação do setor o permite, para calcular o preço de seguro de vida. Assertiva: a prática viola o princípio da não discriminação, que proíbe qualquer tratamento de dados que diferencie titulares entre si.
 comentario: O inciso IX do art. 6º veda fins discriminatórios ilícitos ou abusivos. Diferenciações lícitas (por exemplo, preço de seguro conforme idade, quando permitido) não são alcançadas.
@@ -268,7 +268,7 @@ comentario: Art. 7º, § 6º. Sem consentimento, continuam valendo os princípio
 gab: E
 ref: lgpd 7, V
 trecho: quando necessário para a execução de contrato ou de procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados
-armadilha: caso
+armadilha: sujeito
 dif: 3
 enunciado: Situação hipotética: antes de fechar contrato de financiamento, um banco consultou dados do interessado por iniciativa própria, sem que este o tivesse pedido. Assertiva: a consulta se apoia na base legal dos procedimentos preliminares relacionados a contrato, que a LGPD admite a pedido do controlador.
 comentario: O art. 7º, V, exige que os procedimentos preliminares sejam a pedido do titular.
@@ -322,7 +322,7 @@ comentario: Art. 8º, § 5º. A revogação produz efeitos para frente.
 gab: E
 ref: lgpd 8, § 5º
 trecho: ratificados os tratamentos realizados sob amparo do consentimento anteriormente manifestado
-armadilha: caso
+armadilha: conceito
 dif: 2
 enunciado: Situação hipotética: após revogar o consentimento, um titular exigiu que a empresa fosse punida pelos tratamentos feitos antes da revogação. Assertiva: a revogação do consentimento produz efeitos retroativos, tornando ilícitos os tratamentos realizados com base nele.
 comentario: O § 5º do art. 8º ratifica os tratamentos anteriores. A revogação não retroage.
@@ -331,7 +331,7 @@ comentario: O § 5º do art. 8º ratifica os tratamentos anteriores. A revogaç�
 gab: E
 ref: lgpd 8, § 1º
 trecho: Caso o consentimento seja fornecido por escrito, esse deverá constar de cláusula destacada das demais cláusulas contratuais
-armadilha: caso
+armadilha: conceito
 dif: 2
 enunciado: Situação hipotética: em contrato de adesão, a autorização para uso de dados dos clientes aparecia no meio das demais cláusulas, sem nenhum destaque. Assertiva: o consentimento assim obtido atende à LGPD, pois a forma escrita dispensa o destaque da cláusula.
 comentario: Errado. Se o consentimento for fornecido por escrito, deve constar de cláusula destacada das demais cláusulas contratuais (art. 8º, § 1º). Cláusula escondida no meio do contrato não vale.
@@ -340,7 +340,7 @@ comentario: Errado. Se o consentimento for fornecido por escrito, deve constar d
 gab: E
 ref: lgpd 9, § 1º
 trecho: esse será considerado nulo caso as informações fornecidas ao titular tenham conteúdo enganoso ou abusivo ou não tenham sido apresentadas previamente com transparência, de forma clara e inequívoca
-armadilha: caso
+armadilha: extrapolacao
 dif: 3
 enunciado: Situação hipotética: um aplicativo só exibiu ao titular a finalidade do tratamento depois de ele já ter clicado em “aceito”. Assertiva: o consentimento é válido, pois a informação prévia sobre a finalidade só é exigida para dados pessoais sensíveis.
 comentario: Errado. Quando o consentimento é requerido, ele é nulo se as informações tiverem conteúdo enganoso ou abusivo ou não tiverem sido apresentadas previamente com transparência, de forma clara e inequívoca (art. 9º, § 1º). A regra vale para qualquer dado pessoal.
@@ -349,7 +349,7 @@ comentario: Errado. Quando o consentimento é requerido, ele é nulo se as infor
 gab: E
 ref: lgpd 9, § 3º
 trecho: Quando o tratamento de dados pessoais for condição para o fornecimento de produto ou de serviço ou para o exercício de direito, o titular será informado com destaque sobre esse fato
-armadilha: caso
+armadilha: excecao
 dif: 3
 enunciado: Situação hipotética: um aplicativo de transporte só presta o serviço a quem permite o tratamento de dados de localização e informa isso com destaque, explicando como o titular pode exercer seus direitos. Assertiva: a prática é vedada, pois a LGPD proíbe condicionar o fornecimento de serviço ao tratamento de dados pessoais.
 comentario: O § 3º do art. 9º admite que o tratamento seja condição para o fornecimento, desde que o titular seja informado com destaque sobre isso e sobre como exercer seus direitos.
@@ -368,7 +368,7 @@ comentario: Incisos III e VII do art. 9º. A lista é exemplificativa (“entre 
 gab: E
 ref: lgpd 10, § 1º
 trecho: somente os dados pessoais estritamente necessários para a finalidade pretendida poderão ser tratados
-armadilha: caso
+armadilha: extrapolacao
 dif: 3
 enunciado: Situação hipotética: um varejista, com base em legítimo interesse, pretende coletar, para campanha de fidelidade, dados que não são necessários a esse fim, mas poderiam ser úteis no futuro. Assertiva: a coleta é compatível com a LGPD, pois o legítimo interesse admite tratar dados que possam ser úteis a finalidades futuras do controlador.
 comentario: Errado. Quando o tratamento se basear no legítimo interesse, só os dados pessoais estritamente necessários para a finalidade pretendida podem ser tratados (art. 10, § 1º). É o princípio da necessidade aplicado com mais rigor.
@@ -431,7 +431,7 @@ comentario: Art. 11, I. Repare que o consentimento para dado sensível precisa s
 gab: E
 ref: lgpd 11, II, g
 trecho: garantia da prevenção à fraude e à segurança do titular, nos processos de identificação e autenticação de cadastro em sistemas eletrônicos
-armadilha: caso
+armadilha: absoluto
 dif: 3
 enunciado: Situação hipotética: um banco usa a biometria facial do cliente para autenticar o acesso ao aplicativo e evitar fraudes, sem colher consentimento para esse fim. Assertiva: o tratamento é ilegítimo, pois o tratamento de dados biométricos depende, em qualquer caso, de consentimento específico e destacado do titular.
 comentario: Errado. Sem consentimento, o dado sensível pode ser tratado quando indispensável à garantia da prevenção à fraude e à segurança do titular nos processos de identificação e autenticação de cadastro em sistemas eletrônicos, resguardados os direitos do art. 9º (art. 11, II, g).

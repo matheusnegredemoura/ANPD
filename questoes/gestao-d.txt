@@ -31,10 +31,10 @@ comentario: Certo. Primários (finalísticos) entregam valor diretamente ao clie
 === gd-04
 gab: E
 ref: doutrina
-armadilha: caso
+armadilha: comparacao
 dif: 2
 enunciado: Situação hipotética: em hospital público, a gestão da folha de pagamento dá apoio às áreas assistenciais. Assertiva: trata-se de processo finalístico, pois entrega valor diretamente ao paciente.
-comentario: Errado. Essa descrição é de processo primário (finalístico). Os de suporte, como gestão de pessoas, contratações e tecnologia, servem a outros processos e só indiretamente ao cliente final.
+comentario: Errado. A folha de pagamento é processo de suporte: serve a outros processos e só indiretamente ao paciente, como gestão de pessoas, contratações e tecnologia. Processo finalístico (ou primário) é o que entrega valor diretamente ao cliente final, como o atendimento assistencial.
 
 === gd-05
 gab: C
@@ -47,7 +47,7 @@ comentario: Certo. Piscina (pool) representa um participante, como uma organiza�
 === gd-06
 gab: E
 ref: doutrina
-armadilha: caso
+armadilha: comparacao
 dif: 3
 enunciado: Situação hipotética: em diagrama BPMN, um pedido segue para aprovação automática ou para análise manual, conforme o valor, nunca para ambas. Assertiva: o elemento adequado para essa decisão é o gateway paralelo.
 comentario: Errado. O exclusivo (XOR, losango com X ou vazio) segue apenas um caminho, conforme a condição. Ativar todos os caminhos ao mesmo tempo é próprio do gateway paralelo (AND, losango com +); o inclusivo (OR, losango com círculo) ativa um ou mais.
@@ -199,7 +199,7 @@ comentario: Errado. Alto poder e alto interesse: gerenciar de perto. Alto poder 
 === gd-25
 gab: E
 ref: doutrina
-armadilha: caso
+armadilha: conceito
 dif: 2
 enunciado: Situação hipotética: no projeto de novo portal de serviços, o gerente considerou partes interessadas apenas a equipe e o patrocinador, deixando de fora os usuários do portal. Assertiva: o entendimento está correto.
 comentario: Errado. Parte interessada é qualquer pessoa, grupo ou organização que afete, seja afetada ou se perceba afetada pelo projeto: usuários, órgãos de controle, fornecedores, sociedade.
@@ -319,7 +319,7 @@ comentario: Certo. São os quatro valores do manifesto de 2001, acompanhados de 
 === gd-40
 gab: E
 ref: doutrina
-armadilha: caso
+armadilha: extrapolacao
 dif: 2
 enunciado: Situação hipotética: equipe ágil abandonou toda documentação e todo planejamento, invocando o Manifesto Ágil. Assertiva: a conduta segue o manifesto, que dispensa esses elementos.
 comentario: Errado. O manifesto diz que, embora haja valor nos itens da direita (documentação, plano, contratos, processos), valoriza mais os da esquerda. Planeja-se e documenta-se, na medida do necessário.
@@ -343,7 +343,7 @@ comentario: Certo. O próprio PMBOK recomenda adaptar (tailoring) a abordagem ao
 === gd-43
 gab: E
 ref: doutrina
-armadilha: caso
+armadilha: conceito
 dif: 3
 enunciado: Situação hipotética: durante a execução do projeto, atividade fora do caminho crítico atrasou além de sua folga. Assertiva: o caminho crítico permanece o mesmo, pois, uma vez definido no planejamento, não se altera.
 comentario: Errado. Atrasos ou antecipações em atividades fora do caminho crítico podem consumir a folga e criar um novo caminho crítico; por isso ele é recalculado durante o controle do cronograma.

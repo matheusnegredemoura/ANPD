@@ -19,7 +19,7 @@ comentario: Certo: art. 47. O dever alcança, por exemplo, o técnico terceiriza
 gab: E
 ref: lgpd 47
 trecho: mesmo após o seu término
-armadilha: caso
+armadilha: conceito
 dif: 2
 enunciado: Situação hipotética: após encerrar o tratamento, uma empresa conservou dados para cumprir obrigação legal e deixou de protegê-los. Assertiva: a conduta é lícita, pois o dever de garantir a segurança dos dados termina com o fim do tratamento.
 comentario: Errado. O art. 47 estende o dever para depois do término, enquanto houver dados guardados, por exemplo nas hipóteses de conservação do art. 16.
@@ -28,7 +28,7 @@ comentario: Errado. O art. 47 estende o dever para depois do término, enquanto 
 gab: E
 ref: lgpd 48
 trecho: que possa acarretar risco ou dano relevante aos titulares
-armadilha: caso
+armadilha: extrapolacao
 dif: 3
 enunciado: Situação hipotética: incidente de segurança com dados pessoais, sem possibilidade de risco ou dano relevante aos titulares, ocorreu em empresa. Assertiva: ainda assim, ele deve ser comunicado à ANPD e aos titulares.
 comentario: Errado. Comunica-se o incidente que possa acarretar risco ou dano relevante (art. 48). Os demais devem ser registrados pelo controlador, que mantém o registro de incidentes previsto na Resolução 15/2024.
@@ -55,7 +55,7 @@ comentario: Certo: art. 48, § 2º. É providência para salvaguardar os titular
 gab: E
 ref: lgpd 48
 trecho: No juízo de gravidade do incidente, será avaliada eventual comprovação de que foram adotadas medidas técnicas adequadas que tornem os dados pessoais afetados ininteligíveis
-armadilha: caso
+armadilha: conceito
 dif: 2
 enunciado: Situação hipotética: uma empresa sofreu incidente com dados pessoais que estavam criptografados. Assertiva: a criptografia dispensa, por si só, a comunicação do incidente à ANPD, independentemente da avaliação de gravidade.
 comentario: Errado. Medidas que tornem os dados ininteligíveis a terceiros são avaliadas no juízo de gravidade (art. 48, § 3º); não há dispensa automática. Se a chave também vazou, por exemplo, a proteção não existe.
@@ -207,7 +207,7 @@ ref: lgpd 48
 trecho: a indicação das medidas técnicas e de segurança utilizadas para a proteção dos dados
 apoio: @ESCOLA
 comando: Considerando essa situação hipotética, a LGPD e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
-armadilha: caso
+armadilha: conceito
 dif: 2
 enunciado: Como a falha foi corrigida no mesmo dia, a comunicação à ANPD fica dispensada, bastando registrar o incidente internamente.
 comentario: Errado. A correção rápida é medida de mitigação e deve constar da comunicação (art. 48, § 1º, VI), mas os dados já foram copiados e estão circulando: o risco aos titulares permanece.

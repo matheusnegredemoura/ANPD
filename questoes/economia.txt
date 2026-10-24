@@ -52,10 +52,10 @@ comentario: Por isso a mediana é preferida para variáveis assimétricas, como 
 === eco-07
 gab: E
 ref: doutrina testes de hipótese
-armadilha: caso
+armadilha: comparacao
 dif: 2
 enunciado: Situação hipotética: teste estatístico deixou de rejeitar hipótese nula falsa. Assertiva: ocorreu erro do tipo I.
-comentario: Isso é o erro do tipo II. O erro do tipo I é rejeitar a hipótese nula verdadeira, e sua probabilidade máxima é o nível de significância.
+comentario: Errado. Deixar de rejeitar a hipótese nula falsa é o erro do tipo II. O erro do tipo I é rejeitar a hipótese nula verdadeira, e sua probabilidade máxima é o nível de significância.
 
 === eco-08
 gab: C
@@ -68,7 +68,7 @@ comentario: Valor-p pequeno indica que o resultado seria improvável se a hipót
 === eco-09
 gab: E
 ref: doutrina correlação
-armadilha: caso
+armadilha: causalidade
 dif: 2
 enunciado: Situação hipotética: municípios com mais hospitais registram mais mortes. Assertiva: a correlação demonstra que os hospitais causam as mortes.
 comentario: Correlação não implica causalidade: pode haver variável omitida, causalidade reversa ou coincidência.

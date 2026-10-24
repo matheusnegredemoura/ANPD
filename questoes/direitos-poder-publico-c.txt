@@ -27,7 +27,7 @@ comentario: Art. 19, II, da LGPD. Em formato simplificado, a resposta é imediat
 gab: E
 ref: lgpd 19
 trecho: Quando o tratamento tiver origem no consentimento do titular ou em contrato, o titular poderá solicitar cópia eletrônica integral de seus dados pessoais
-armadilha: caso
+armadilha: fecho
 dif: 3
 enunciado: Situação hipotética: cliente de academia, cujo contrato fundamenta o tratamento de seus dados, pede cópia eletrônica integral deles. Assertiva: o pedido tem amparo legal, mas a cópia pode ser fornecida em formato fechado, que impeça a utilização posterior dos dados.
 comentario: Errado. Quando o tratamento tiver origem no consentimento ou em contrato, o titular pode pedir cópia eletrônica integral de seus dados, em formato que permita sua utilização subsequente, inclusive em outras operações de tratamento (art. 19, § 3º), observados os segredos comercial e industrial.
@@ -63,7 +63,7 @@ comentario: Errado. A portabilidade exige requisição expressa, segue a regulam
 gab: E
 ref: lgpd 16
 trecho: cumprimento de obrigação legal ou regulatória pelo controlador
-armadilha: caso
+armadilha: excecao
 dif: 3
 enunciado: Situação hipotética: titular revogou o consentimento e pediu a eliminação de seus dados, alguns dos quais o controlador precisa conservar para cumprir obrigação legal. Assertiva: o controlador deve eliminar também esses dados.
 comentario: Errado. A eliminação dos dados tratados com consentimento ressalva as hipóteses do art. 16 (art. 18, VI): cumprimento de obrigação legal ou regulatória, estudo por órgão de pesquisa, transferência a terceiro conforme a lei e uso exclusivo do controlador com dados anonimizados.
@@ -72,7 +72,7 @@ comentario: Errado. A eliminação dos dados tratados com consentimento ressalva
 gab: E
 ref: lgpd 18
 trecho: O titular pode opor-se a tratamento realizado com fundamento em uma das hipóteses de dispensa de consentimento, em caso de descumprimento ao disposto nesta Lei
-armadilha: caso
+armadilha: conceito
 dif: 3
 enunciado: Situação hipotética: uma empresa trata dados de clientes com base na execução de contrato, mas passou a usá-los também para fins não informados, em desacordo com a LGPD. Assertiva: o titular não pode se opor a esse tratamento, pois o direito de oposição pressupõe tratamento fundado no consentimento.
 comentario: Errado. O titular pode opor-se a tratamento realizado com fundamento em uma das hipóteses de dispensa de consentimento, em caso de descumprimento da LGPD (art. 18, § 2º). No GDPR, o direito de oposição ao legítimo interesse é mais amplo.
@@ -171,7 +171,7 @@ comentario: Errado. O direito alcança as entidades públicas e privadas com as 
 gab: E
 ref: lgpd 18
 trecho: O responsável deverá informar, de maneira imediata, aos agentes de tratamento com os quais tenha realizado uso compartilhado de dados a correção, a eliminação, a anonimização ou o bloqueio dos dados
-armadilha: caso
+armadilha: conceito
 dif: 3
 enunciado: Situação hipotética: a pedido de um cliente, uma rede varejista bloqueou dados dele que havia compartilhado com duas empresas parceiras. Assertiva: a rede não precisa comunicar o bloqueio às parceiras, pois cada agente responde pelos dados que mantém, sem dever de comunicar os demais.
 comentario: Errado. O responsável deve informar, de maneira imediata, aos agentes com os quais tenha compartilhado os dados a correção, a eliminação, a anonimização ou o bloqueio, para que repitam o procedimento, salvo comunicação comprovadamente impossível ou de esforço desproporcional (art. 18, § 6º).
@@ -241,7 +241,7 @@ gab: E
 bloco: lgpd-23-32
 ref: lgpd 27
 trecho: será informado à autoridade nacional e dependerá de consentimento do titular, exceto
-armadilha: caso
+armadilha: excecao
 dif: 3
 enunciado: Situação hipotética: autarquia pretende compartilhar dados pessoais com empresa privada contratada para executar política pública prevista em lei. Assertiva: o compartilhamento depende de consentimento do titular.
 comentario: Errado. O art. 27 exige consentimento, mas com exceções: hipóteses de dispensa de consentimento da LGPD, uso compartilhado com publicidade nos termos do art. 23, I, e as exceções do art. 26, § 1º. Em qualquer caso, a ANPD deve ser informada.
@@ -261,7 +261,7 @@ gab: E
 bloco: lgpd-23-32
 ref: lgpd 31
 trecho: a autoridade nacional poderá enviar informe com medidas cabíveis para fazer cessar a violação
-armadilha: caso
+armadilha: excecao
 dif: 3
 enunciado: Situação hipotética: a ANPD constatou que uma autarquia estadual tratou dados em desacordo com a LGPD. Assertiva: a Agência deve aplicar-lhe multa simples, proporcional ao orçamento da entidade, sem prejuízo do envio de informe com medidas para cessar a violação.
 comentario: Errado. O art. 31 prevê o envio de informe com medidas cabíveis para cessar a violação, e as multas não se aplicam a órgãos e entidades públicos (art. 52, § 3º). Cabem advertência, publicização, bloqueio, eliminação, suspensões e proibição.
@@ -295,7 +295,7 @@ ref: lgpd 26
 trecho: É vedado ao Poder Público transferir a entidades privadas dados pessoais constantes de bases de dados a que tenha acesso
 apoio: @PREF
 comando: Considerando essa situação hipotética e o regime da LGPD para o Poder Público, julgue os itens a seguir.
-armadilha: caso
+armadilha: excecao
 dif: 2
 enunciado: Como os dados se referem a programa público, a prefeitura pode entregá-los à fundação privada para a pesquisa de mercado, desde que a fundação se comprometa a mantê-los em sigilo.
 comentario: Errado. Pesquisa de mercado não se enquadra em nenhuma exceção do art. 26, § 1º, e é finalidade incompatível com a da coleta (art. 6º, I). Sigilo prometido não supre a falta de base.
@@ -319,7 +319,7 @@ ref: lgpd 52
 trecho: O disposto nos incisos I, IV, V, VI, X, XI e XII do caput deste artigo poderá ser aplicado às entidades e aos órgãos públicos
 apoio: @PREF
 comando: Considerando essa situação hipotética e o regime da LGPD para o Poder Público, julgue os itens a seguir.
-armadilha: caso
+armadilha: excecao
 dif: 2
 enunciado: Se a prefeitura repassar os dados à fundação, a ANPD poderá aplicar-lhe multa simples de até 2% de sua receita corrente.
 comentario: Errado. Multas simples e diárias não se aplicam a órgãos e entidades públicos (art. 52, § 3º). A prefeitura sujeita-se a advertência, publicização, bloqueio, eliminação, suspensões e proibição, sem prejuízo da responsabilização dos agentes pela Lei 8.112, pela Lei de Improbidade e pela LAI.

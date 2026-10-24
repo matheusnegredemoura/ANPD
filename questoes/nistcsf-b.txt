@@ -152,7 +152,7 @@ comentario: Errado. A declaração está na função detectar: incidentes são d
 gab: E
 ref: nistcsf RS.AN
 trecho: Analysis is performed to establish what has taken place during an incident and the root cause of the incident
-armadilha: caso
+armadilha: comparacao
 dif: 2
 enunciado: Situação hipotética: contido um incidente, a equipe investigou o que ocorreu e por que a falha foi possível. Assertiva: essa atividade corresponde à função recuperar, que busca estabelecer o ocorrido e sua causa raiz após a contenção.
 comentario: Errado. Investigar o ocorrido e a causa raiz é a análise de incidentes (RS.AN-03) da função responder. A função recuperar trata da restauração dos ativos e das operações afetados pelo incidente.
@@ -161,7 +161,7 @@ comentario: Errado. Investigar o ocorrido e a causa raiz é a análise de incide
 gab: E
 ref: nistcsf RS.MI
 trecho: Incidents are eradicated
-armadilha: caso
+armadilha: comparacao
 dif: 2
 enunciado: Situação hipotética: depois de conter o incidente, a equipe removeu o malware dos sistemas comprometidos. Assertiva: no NIST CSF 2.0, essa erradicação pertence à função recuperar.
 comentario: Errado. Contenção e erradicação são resultados da mitigação de incidentes (RS.MI-01 e 02), na função responder. Recuperar é restaurar sistemas e serviços.

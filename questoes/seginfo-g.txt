@@ -15,7 +15,7 @@ comentario: Certo. Com a consulta parametrizada (prepared statement), o banco re
 === si7-02
 gab: E
 ref: doutrina segurança de aplicações
-armadilha: caso
+armadilha: conceito
 dif: 2
 enunciado: Situação hipotética: para evitar injeção de SQL, a equipe passou a cifrar o banco de dados em repouso. Assertiva: a medida impede esse tipo de ataque.
 comentario: Errado. A injeção chega pela própria aplicação, que tem acesso legítimo aos dados já decifrados. A cifração em repouso protege contra o roubo de discos e arquivos, não contra consultas maliciosas feitas pela aplicação.
@@ -143,15 +143,15 @@ comentario: Certo. A varredura é automatizada e frequente; o teste de intrusão
 === si7-19
 gab: E
 ref: doutrina gestão de vulnerabilidades
-armadilha: caso
+armadilha: comparacao
 dif: 2
 enunciado: Situação hipotética: em teste de intrusão, a empresa contratada recebeu documentação completa, código-fonte e credenciais do ambiente. Assertiva: trata-se de teste de caixa-preta.
-comentario: Errado. Isso descreve o teste de caixa-branca. Na caixa-preta, o testador parte sem conhecimento interno, como um atacante externo; na caixa-cinza, recebe informação parcial.
+comentario: Errado. Com documentação, código-fonte e credenciais, o teste é de caixa-branca. Na caixa-preta, o testador parte sem conhecimento interno, como um atacante externo; na caixa-cinza, recebe informação parcial.
 
 === si7-20
 gab: E
 ref: doutrina segurança de redes
-armadilha: caso
+armadilha: extrapolacao
 dif: 2
 enunciado: Situação hipotética: usuário passou a navegar por VPN comercial. Assertiva: a VPN lhe garante anonimato completo, inclusive perante o provedor do serviço.
 comentario: Errado. A VPN cria túnel cifrado entre o dispositivo e o servidor da VPN e protege o tráfego na rede local e no provedor de acesso. O provedor da VPN, porém, vê o tráfego que sai do túnel e pode registrá-lo.

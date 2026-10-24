@@ -14,10 +14,10 @@ comentario: Errado no fecho. Também deixa de valer a exclusão quando, com esfo
 gab: E
 ref: lgpd 12
 trecho: salvo quando o processo de anonimização ao qual foram submetidos for revertido
-armadilha: caso
+armadilha: excecao
 dif: 3
 enunciado: Situação hipotética: uma empresa anonimizou sua base de clientes, mas o processo pode ser revertido com esforços razoáveis. Assertiva: ainda assim, os dados não são considerados pessoais, pois a anonimização, uma vez realizada, retira-os definitivamente do alcance da LGPD.
-comentario: O art. 12 ressalva a reversão efetiva e a reversibilidade com esforços razoáveis. “Nunca” torna o item errado.
+comentario: Errado. O art. 12 da LGPD ressalva dois casos: a anonimização revertida com meios próprios e a que pode ser revertida com esforços razoáveis. No caso, a reversão é possível com esforço razoável, então os dados continuam pessoais: a anonimização não os retira em definitivo do alcance da lei.
 
 === lgpd-12-03
 gab: C
@@ -144,7 +144,7 @@ comentario: O inciso IV do art. 16 exige uso exclusivo do controlador, veda o ac
 gab: E
 ref: lgpd 16
 trecho: Os dados pessoais serão eliminados após o término de seu tratamento, no âmbito e nos limites técnicos das atividades, autorizada a conservação
-armadilha: caso
+armadilha: absoluto
 dif: 2
 enunciado: Situação hipotética: encerrado o tratamento, uma empresa conservou dados de clientes para cumprir obrigação legal de guarda fiscal. Assertiva: a conservação é ilícita, pois a LGPD exige a eliminação imediata dos dados ao término do tratamento, sem exceção.
 comentario: O art. 16 manda eliminar, mas autoriza a conservação em quatro finalidades. O artigo também fala em “no âmbito e nos limites técnicos das atividades”.

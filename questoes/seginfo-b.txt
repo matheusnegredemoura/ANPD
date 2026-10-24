@@ -20,7 +20,7 @@ comentario: Em trânsito × em repouso é distinção básica para avaliar medid
 === si2-03
 gab: E
 ref: doutrina pseudonimização
-armadilha: caso
+armadilha: comparacao
 dif: 3
 enunciado: Situação hipotética: empresa substituiu nomes por códigos e manteve em separado a tabela que permite reidentificar os titulares. Assertiva: os dados passaram a ser anonimizados e ficam fora do alcance da LGPD.
 comentario: A pseudonimização mantém informação adicional que permite a reassociação, guardada pelo controlador (LGPD, art. 13, § 4º). O dado continua pessoal. No GDPR é igual (considerando 26).
@@ -62,7 +62,7 @@ comentario: Variações: spear phishing (alvo específico), whaling (altos execu
 === si2-08
 gab: E
 ref: doutrina backup
-armadilha: caso
+armadilha: comparacao
 dif: 3
 enunciado: Situação hipotética: faz-se backup completo no domingo e, nos demais dias, copiam-se apenas os arquivos alterados desde o backup anterior, qualquer que seja seu tipo. Assertiva: o esquema descreve backup diferencial.
 comentario: Errado. Copiar, nos demais dias, só o que mudou desde o backup anterior (de qualquer tipo) é o backup incremental. O diferencial copia tudo o que mudou desde o último backup completo, e por isso cresce a cada dia até o próximo completo.

@@ -102,7 +102,7 @@ ref: nistcsf PR.DS
 trecho: PR.DS-01: The confidentiality, integrity, and availability of data-at-rest are protected
 trecho: PR.DS-02: The confidentiality, integrity, and availability of data-in-transit are protected
 trecho: PR.DS-10: The confidentiality, integrity, and availability of data-in-use are protected
-armadilha: caso
+armadilha: rol
 dif: 3
 enunciado: Situação hipotética: órgão cifra os dados armazenados e os que trafegam em rede, mas não protege os dados enquanto estão em processamento. Assertiva: o NIST CSF 2.0 limita a segurança de dados da função proteger aos dados armazenados e em trânsito, sem tratar dos dados em uso.
 comentario: Errado. A categoria segurança de dados (PR.DS) da função proteger abrange a confidencialidade, a integridade e a disponibilidade dos dados em repouso (PR.DS-01), em trânsito (PR.DS-02) e em uso (PR.DS-10).
@@ -112,7 +112,7 @@ gab: E
 ref: nistcsf S2
 trecho: RESPOND supports the ability to contain the effects of cybersecurity incidents.
 trecho: DETECT enables the timely discovery and analysis of anomalies, indicators of compromise, and other potentially adverse events
-armadilha: caso
+armadilha: comparacao
 dif: 2
 enunciado: Situação hipotética: depois de identificar ataque de ransomware, a equipe isolou os servidores afetados para conter a propagação. Assertiva: no NIST CSF 2.0, essa contenção é resultado típico da função detectar.
 comentario: Conter os efeitos é da função responder. Detectar cuida da descoberta e da análise oportunas de anomalias, indicadores de comprometimento e outros eventos potencialmente adversos (Seção 2).
@@ -139,7 +139,7 @@ comentario: GV.OC-03 abrange requisitos legais, regulatórios e contratuais, inc
 gab: E
 ref: nistcsf S1
 trecho: The CSF’s taxonomy and referenced standards, guidelines, and practices are not country-specific
-armadilha: caso
+armadilha: conceito
 dif: 2
 enunciado: Situação hipotética: autarquia brasileira cogita usar o NIST CSF 2.0. Assertiva: o framework não lhe serve, pois sua taxonomia e suas referências são específicas dos Estados Unidos.
 comentario: A Seção 1 afirma que a taxonomia e as referências do CSF não são específicas de um país e que versões anteriores foram usadas por governos e organizações dentro e fora dos Estados Unidos.
