@@ -848,3 +848,10 @@ details.det-lista[open]>summary{margin-bottom:10px}
 body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}
 /* Lei seca no modo Testar: prazos e deve × pode viram tarjas que o toque revela */
 .lei-teste .texto-lei :is(.g-num,.g-verbo):not(.revelado){color:transparent;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line);border-radius:3px;text-decoration:none;cursor:pointer}
+/* Caça-Pegadinha: depois de acertar um item errado, apontar o tipo da pegadinha */
+.caca{margin-top:10px;padding:10px 12px;border-radius:10px;border-left:3px solid var(--gold);background:var(--surface-2)}
+.caca p{margin:0 0 8px}
+.caca.ok,.caca.no{padding-block:8px}
+.caca.ok p,.caca.no p{margin:0}
+.caca.ok{border-left-color:var(--certo);background:var(--certo-bg)}
+.caca.no{border-left-color:var(--ink-3)}

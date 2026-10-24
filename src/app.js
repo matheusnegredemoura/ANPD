@@ -270,6 +270,8 @@ const CONQ = [
   { g: 'j', id: 'chefe1', ic: 'Ch', nome: 'Primeiro chefão', desc: 'Derrotou um chefão da semana.' },
   { g: 'j', id: 'chefe5', ic: 'Ch5', nome: 'Caçador(a) de chefões', desc: 'Derrotou 5 chefões.' },
   { g: 'j', id: 'chefe10', ic: 'Ch10', nome: 'Dez troféus', desc: 'Derrotou 10 chefões.' },
+  { g: 'j', id: 'peg10', ic: 'P!', nome: 'Faro de banca', desc: 'Acertou o tipo de 10 pegadinhas no Caça-Pegadinha.' },
+  { g: 'j', id: 'peg100', ic: 'P!!', nome: 'Caçador(a) de pegadinhas', desc: 'Acertou o tipo de 100 pegadinhas no Caça-Pegadinha.' },
   { g: 'j', id: 'perfeita', ic: '♥', nome: 'Vitória perfeita', desc: 'Derrotou o chefão numa batalha sem perder nenhum coração.' },
   { g: 'j', id: 'lendario', ic: '★', nome: 'Item lendário', desc: 'Conseguiu um item lendário.' },
   { g: 'j', id: 'equipado', ic: 'EQ', nome: 'Equipado(a)', desc: 'Arma, armadura e amuleto equipados ao mesmo tempo.' },
@@ -1081,6 +1083,8 @@ function verificarConquistas(ctx) {
   const baus = Math.max(r.baus || 0, Object.values(r.m || {}).filter((x) => x && x.bau).length);
   se(baus >= 1, 'bau1'); se(baus >= 7, 'bau7'); se(baus >= 30, 'bau30');
   const trofeus = (r.trofeus || []).length;
+  const peg = (r.peg || [0])[0];
+  se(peg >= 10, 'peg10'); se(peg >= 100, 'peg100');
   se(trofeus >= 1, 'chefe1'); se(trofeus >= 5, 'chefe5'); se(trofeus >= 10, 'chefe10');
   se(ITENS_RPG.some((it) => it.rar === 'lendario' && r.inv[it.id]), 'lendario');
   se(Object.keys(ENCAIXES).every((sl) => equipado(sl)), 'equipado');
@@ -1713,6 +1717,39 @@ function cartaoGanhos() {
 }
 // Linha extra na tela da resposta: o artigo já cobrado em prova real (o acerto nele é crítico: XP e dano em dobro
 // no chefão, 50% a mais de XP fora dele)
+// Caça-Pegadinha: ao acertar um item errado de certo/errado, a pessoa aponta o tipo da pegadinha. Só entram os itens
+// em que o build confirmou o tipo pelo texto (q.pg: o primeiro código é o certo, os outros são tipos que o item não
+// tem). Acertar o tipo dá um golpe certeiro de PEG_XP; errar não tira nada e mostra qual era.
+const PEG = {
+  n: ['Número ou prazo', 'trocou prazo, quantidade, quórum ou percentual'],
+  a: ['Palavra absoluta', 'generalizou com sempre, nunca, somente ou qualquer onde a lei admite outra hipótese'],
+  e: ['Exceção ou condição', 'apagou, inventou ou inverteu uma ressalva, condição ou requisito'],
+  r: ['Rol trocado', 'pôs na lista o que a lei não lista, ou tirou o que ela lista'],
+  s: ['Sujeito trocado', 'deu a competência, o dever ou o direito a outra pessoa ou órgão'],
+};
+const PEG_XP = 8;
+function cacaAtiva(q) { return !!(q.pg && sessao && sessao.modo !== 'simulado' && sessao.modo !== 'relampago' && !UI.foco && sessao.resp[q.id] === 'E'); }
+function renderCaca(q) {
+  if (!cacaAtiva(q)) return '';
+  const st = (sessao.peg || {})[q.id], [nome, desc] = PEG[q.pg[0]];
+  if (st) return '<div class="caca ' + (st === 'ok' ? 'ok' : 'no') + '" role="status"><p>' + (st === 'ok' ? '<b>Golpe certeiro: +' + PEG_XP + ' XP.</b> ' : 'Você apontou ' + esc(PEG[st][0].toLowerCase()) + '. ') + 'Era <b>' + esc(nome.toLowerCase()) + '</b>: ' + esc(desc) + '.</p></div>';
+  const ops = q.pg.split('').sort((x, y) => hashTxt(q.id + x) - hashTxt(q.id + y));
+  return '<div class="caca" role="group" aria-labelledby="caca-t"><p id="caca-t"><b>Caça-Pegadinha</b> · onde estava a pegadinha?</p><div class="chips">' +
+    ops.map((c) => '<button class="chip" data-acao="pegadinha" data-t="' + c + '">' + esc(PEG[c][0]) + '</button>').join('') + '</div></div>';
+}
+function cacarPegadinha(t) {
+  const q = sessao && QI.get(sessao.ids[sessao.i]);
+  if (!q || !cacaAtiva(q) || !PEG[t] || (sessao.peg || {})[q.id]) return;
+  const ok = t === q.pg[0], r = rpg();
+  (sessao.peg ||= {})[q.id] = ok ? 'ok' : t;
+  r.peg = r.peg || [0, 0];
+  r.peg[1]++;
+  if (ok) { r.peg[0]++; diaLog().pg = (diaLog().pg || 0) + 1; sessao.xp += PEG_XP; ganharXP(PEG_XP); tocar('combo'); }
+  verificarConquistas();
+  verificarRPG();
+  Store.salvar('perfil');
+  renderSessao();
+}
 function extrasResposta(q) {
   const n = caiuEmProva(q);
   return n ? '<p class="extra-resp quente"><span aria-hidden="true">★</span> Já caiu em prova: ' + pl(n, 'item real', 'itens reais') + ' deste artigo no banco.</p>' : '';
@@ -2161,6 +2198,7 @@ const MISSOES = [
   { id: 'q60', txt: () => 'Responder ' + metaMais() + ' itens', xp: 60, meta: () => metaMais(), val: (d) => d.r || 0 },
   { id: 'novas', txt: () => 'Responder ' + metaNovas() + ' itens inéditos', xp: 40, meta: () => metaNovas(), val: (d) => d.ni || 0 },
   { id: 'acerto', txt: 'Acertar 80% de pelo menos 20 itens', xp: 40, meta: 1, val: (d) => ((d.r || 0) >= 20 && d.c / d.r >= 0.8 ? 1 : 0), fr: (d) => Math.min(1, (d.r || 0) / 20) },
+  { id: 'peg3', txt: 'Acertar o tipo de 3 pegadinhas no Caça-Pegadinha', xp: 30, meta: 3, val: (d) => d.pg || 0 },
   { id: 'combo', txt: 'Acertar 10 seguidos', xp: 30, meta: 10, val: (d) => d.cmb || 0 },
   { id: 'lei5', txt: () => 'Ler ' + metaLei() + ' artigos da lei seca', xp: 30, meta: () => metaLei(), val: (d) => (d.a || []).length },
   { id: 'cards20', txt: 'Revisar 20 cards', xp: 30, meta: 20, val: (d) => d.k || 0 },
@@ -2731,14 +2769,15 @@ function renderItem(q) {
     const r = sessao.resp[id], ok = r === q.g, br = r === BRANCO, gab = q.al ? 'a letra ' + q.g : q.g === 'C' ? 'CERTO' : 'ERRADO';
     html += '<div class="veredito ' + (br ? 'defesa' : ok ? 'ok' : 'no') + '"><span>' + (br ? 'Em branco: defesa, sem perder coração. O gabarito é ' + gab + '.' : ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + gab + '.') + '</span>' +
       (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP' + (br ? '' : sessao.virada === 'plena' ? ' <small>virada</small>' : caiuEmProva(q) && sessao.modo !== 'relampago' ? ' <small>crítico</small>' : '') + '</span>' : '<span class="pequeno">' + (SEM_REPETICAO.has(id) ? 'Este texto não volta: vêm outros' : 'Foi para a lista curta') + '</span>') + '</div>';
+    html += renderCaca(q);
     html += extrasResposta(q);
-    html += renderExplicacao(q);
+    html += renderExplicacao(q, cacaAtiva(q) && !(sessao.peg || {})[q.id]);
     html += '<button class="btn primario largo" data-acao="proximo">' + (sessao.i < sessao.ids.length - 1 ? 'Próximo item' : 'Ver resultado') + '</button><p class="atalhos">Enter = próximo</p>';
   }
   return html + '</article>';
 }
-function renderExplicacao(q) {
-  let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</span>';
+function renderExplicacao(q, semArmadilha) {
+  let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + (semArmadilha ? '' : ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a)) + '</span>';
   if (q.o || (q.ad && q.pv)) html += '<p class="pequeno mudo">' + esc(q.pv) + '</p>';
   html += '<p>' + marcarTermos(q.c, 3) + '</p>';
   if (q.t && q.t.length) {
@@ -4889,6 +4928,7 @@ async function executar(a, alvo) {
     case 'responder': responder(alvo.dataset.r); break;
     case 'revelar': proximo(); break;
     case 'avaliar': avaliar(Number(alvo.dataset.n)); break;
+    case 'pegadinha': cacarPegadinha(alvo.dataset.t); break;
     case 'proximo': proximo(); break;
     case 'som': UI.som = !UI.som; salvarUI(); tocar('acerto'); renderSessao(); break;
     case 'foco': UI.foco = !UI.foco; salvarUI(); renderSessao(); break;
