@@ -40,13 +40,13 @@ enunciado: Na consulta pública de agência reguladora federal, o relatório de 
 comentario: Errado no marco inicial. As críticas e sugestões são divulgadas em até dez dias úteis após o término do prazo da consulta pública (art. 9º, § 4º, da Lei 13.848/2019).
 
 === bd-05
-gab: E
+gab: C
 ref: lei13848 9, § 2º
 trecho: terá duração mínima de 45 (quarenta e cinco) dias
 armadilha: numero
 dif: 3
-enunciado: Salvo urgência devidamente motivada, a consulta pública das agências reguladoras dura no mínimo sessenta dias, prazo que nem legislação específica nem tratado internacional podem alterar.
-comentario: Errado, duas vezes. O mínimo é de 45 dias (art. 9º, § 2º), e o próprio dispositivo ressalva prazo diferente exigido em legislação específica, acordo ou tratado internacional.
+enunciado: Salvo urgência devidamente motivada, a consulta pública das agências reguladoras dura no mínimo quarenta e cinco dias, ressalvado prazo diferente previsto em legislação específica, acordo ou tratado internacional.
+comentario: Art. 9º, § 2º, da Lei 13.848/2019.
 
 === bd-06
 gab: E
@@ -105,14 +105,14 @@ enunciado: Desde que o ato de delegação seja publicado e especifique a duraç�
 comentario: Errado. A edição de atos normativos é indelegável (art. 13, I), ao lado da decisão de recursos administrativos e das matérias de competência exclusiva. Publicação e especificação de limites (art. 14) são requisitos da delegação permitida, e não autorizam a vedada.
 
 === bd-12
-gab: C
+gab: E
 bloco: lei-9784
 ref: lei9784 15
 trecho: a avocação temporária de competência atribuída a órgão hierarquicamente inferior
-armadilha: conceito
+armadilha: extrapolacao
 dif: 3
-enunciado: A autoridade superior que chama para si, por tempo limitado, competência atribuída a órgão hierarquicamente inferior pratica avocação, medida que a lei admite só em caráter excepcional e por motivos relevantes devidamente justificados.
-comentario: Certo: art. 15. A avocação é o movimento inverso da delegação: a competência sobe, e não desce, e só temporariamente.
+enunciado: A autoridade superior que chama para si, por tempo limitado, competência atribuída a órgão hierarquicamente inferior pratica avocação, medida que a lei admite por simples conveniência da autoridade superior.
+comentario: Errado no fecho. A avocação temporária é permitida em caráter excepcional e por motivos relevantes devidamente justificados (art. 15 da Lei 9.784/1999).
 
 === bd-13
 gab: E
@@ -155,14 +155,14 @@ enunciado: Os dados que o próprio titular tornou manifestamente públicos podem
 comentario: Errado. O art. 7º, § 4º, dispensa só o consentimento, resguardados os direitos do titular e os princípios da lei. O uso posterior para nova finalidade exige propósito legítimo e específico e a preservação dos direitos do titular (§ 7º).
 
 === bd-17
-gab: C
+gab: E
 bloco: lgpd-5-11
 ref: lgpd 7, § 7º
 trecho: desde que observados os propósitos legítimos e específicos para o novo tratamento
-armadilha: caso
+armadilha: extrapolacao
 dif: 3
-enunciado: Situação hipotética: uma empresa coletou dados de acesso público e pretende reutilizá-los em projeto com finalidade diferente da original. Assertiva: o novo uso é possível, desde que haja propósito legítimo e específico e sejam preservados os direitos do titular e os princípios da LGPD.
-comentario: Certo: art. 7º, § 7º (incluído pela Lei 13.853/2019). Também pesam a finalidade, a boa-fé e o interesse público que justificaram a disponibilização dos dados (§ 3º).
+enunciado: Situação hipotética: uma empresa coletou dados de acesso público e pretende reutilizá-los em projeto com finalidade diferente da original. Assertiva: o novo uso é possível, desde que a empresa obtenha novo consentimento dos titulares.
+comentario: Errado. O art. 7º, § 7º, da LGPD admite o tratamento posterior de dados de acesso público para novas finalidades, observados propósitos legítimos e específicos e preservados os direitos do titular e os princípios da lei, sem exigir novo consentimento.
 
 === bd-18
 gab: E
@@ -285,11 +285,11 @@ enunciado: As sanções da LGPD pressupõem procedimento administrativo com ampl
 comentario: Errado no fecho. A reincidência é critério expresso de dosimetria (art. 52, § 1º, V, da LGPD), ao lado da boa-fé (inciso II), entre outros.
 
 === bd-30
-gab: E
+gab: C
 bloco: lgpd-52-54
 ref: lgpd 52, II
 trecho: limitada, no total, a R$ 50.000.000,00 (cinquenta milhões de reais) por infração
 armadilha: numero
 dif: 3
-enunciado: A multa simples da LGPD chega a 2% do faturamento mundial do grupo econômico no último exercício, sem teto absoluto, para que a sanção acompanhe o porte das grandes plataformas.
-comentario: Errado. A base é o faturamento da pessoa jurídica, grupo ou conglomerado no Brasil, excluídos os tributos, e a multa é limitada a R$ 50 milhões por infração (art. 52, II). O teto fixo é diferença conhecida em relação ao GDPR, que usa percentual do faturamento mundial.
+enunciado: A multa simples da LGPD chega a 2% do faturamento da pessoa jurídica, do grupo ou do conglomerado no Brasil no último exercício, excluídos os tributos, limitada a cinquenta milhões de reais por infração.
+comentario: Art. 52, II, da LGPD. O teto é por infração, e a base é o faturamento no Brasil, não o mundial.
