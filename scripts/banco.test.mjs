@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { validar } from './validar.mjs';
 import { montarDados, rotuloRef } from './build.mjs';
+import { jsDoApp } from './lib/fonte.mjs';
 
 test('banco de questões sem erros e com trechos conferidos', () => {
   const { erros, questoes } = validar({ silencioso: true });
@@ -63,12 +64,11 @@ test('cards cloze têm ao menos uma lacuna', () => {
 
 test('pacote compactado volta igual ao original no app', async () => {
   const { empacotar } = await import('./build.mjs');
-  const { readFileSync } = await import('node:fs');
   const d = montarDados();
   const pacote = JSON.parse(JSON.stringify(empacotar(d)));
   assert.ok(JSON.stringify(pacote).length < JSON.stringify(d).length);
   // O mesmo trecho que o app roda logo depois de ler os dados
-  const js = readFileSync(new URL('../src/app.js', import.meta.url), 'utf8');
+  const js = jsDoApp(new URL('..', import.meta.url).pathname);
   const ini = js.indexOf('// O pacote chega enxuto'), fim = js.indexOf('const Q = D.questoes;');
   assert.ok(ini > 0 && fim > ini);
   new Function('D', js.slice(ini, fim))(pacote);
@@ -125,4 +125,14 @@ test('notas de redação, inclusão e revogação nas normas sempre fechadas com
     if (/(?:^|[\s)–-])Revogad[oa]\)/.test(l) && !/\(Revogad[oa]\)/.test(l)) abertas.push(id + ':' + a.id + ' ' + l.slice(0, 60));
   }
   assert.deepEqual(abertas, []);
+});
+
+test('itens certos: todo número do enunciado está na norma citada (ou foi conferido à mão)', async () => {
+  const { auditarNumeros } = await import('./auditar-numeros.mjs');
+  const v = validar({ silencioso: true });
+  assert.deepEqual(auditarNumeros(v).map((s) => s.id + ' ' + s.faltam.join(',')), []);
+  // e a auditoria pega um prazo trocado
+  const q = v.questoes.find((x) => x.id === 'air-08');
+  const falso = { ...q, id: 'teste', enunciado: q.enunciado.replace('45 dias', '30 dias') };
+  assert.equal(auditarNumeros({ questoes: [falso], leis: v.leis }).length, 1);
 });

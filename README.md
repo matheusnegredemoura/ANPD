@@ -52,10 +52,10 @@ A página Mais → Método explica o porquê de cada passo e a estratégia de ch
 
 Os pesos, a divisão dos itens entre as disciplinas e a cadência do plano são hipóteses montadas sobre as provas da Anatel e da ANAC de 2024. O plano espera o edital até 22/12/2026. Antes dele, as áreas pequenas não ganham mais itens. Quando ele sair, recalibre nesta ordem:
 
-1. `src/app.js`: `PESO_BASICA` e `PESO_ESPECIFICA` (hoje 1 e 2; se todo item valer 1, como na Anatel 2024, basta `PESO_ESPECIFICA = 1`), `PROVA_BASICA` e `PROVA_ESPECIFICA` (itens por disciplina em cada parte) e `REG_NA_BASICA` (blocos de regulação que caem na parte básica).
+1. No app, em Mais → Ajustes → Edital e prova: data da prova, itens por disciplina em cada parte, pesos e cortes (ficam no perfil; o padrão `PADRAO_EDITAL` está em `src/js/01-dados.js`). Os blocos de regulação que caem na parte básica estão em `REG_NA_BASICA`, no mesmo arquivo.
 2. `dados/cronograma.json`: a data da prova, a parte de cada disciplina nos dias do plano e os dias com `disc` (o teste do banco exige uma discursiva por semana e duas nas seis últimas semanas).
 3. `dados/cebraspe.json` (a regra de pontuação) e `dados/discursivas.json` (linhas, pontos e fator de desconto de português).
-4. Disciplina fora do edital sai de `PROVA_BASICA` e `PROVA_ESPECIFICA` (o simulado de prova completa deixa de sorteá-la) e dos dias do plano; tópico fora do edital sai do banco, como saíram os de telecomunicações. Blocos que entrarem com menos de 40 itens ganham itens antes de ir para o plano.
+4. Disciplina fora do edital fica com 0 itens em Ajustes (o simulado de prova completa deixa de sorteá-la) e dos dias do plano; tópico fora do edital sai do banco, como saíram os de telecomunicações. Blocos que entrarem com menos de 40 itens ganham itens antes de ir para o plano.
 5. `npm run validar`, `npm test` e `npm run test:navegador` (o `pesos.mjs` confere a nota ponderada).
 
 ## Estrutura
@@ -71,7 +71,7 @@ dados/claro.json        artigos das trilhas em português claro (chave lei:artig
 dados/cronograma.json   cronograma diário até a prova provável (151 dias)
 dados/cebraspe.json     página Como o Cebraspe cobra (cada item citado precisa existir no banco)
 dados/discursivas.json  temas de discursiva com quesitos (cada quesito precisa de um conceito por nota)
-src/                    app.html, app.css e app.js
+src/                    app.html, app.css e js/ (o código do app, um arquivo por parte; o build junta na ordem do nome)
 scripts/                validador, build e testes
 dist/                   app gerado pelo build, fora do git (index.html completo; artifact.html para publicar)
 ```

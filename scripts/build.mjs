@@ -9,6 +9,7 @@ import { ARMADILHAS, parseRef } from './lib/questoes.mjs';
 import { GRUPOS_LEIS, LEIS } from './lib/leis.mjs';
 import { validar } from './validar.mjs';
 import { lacunas } from './lib/cloze.mjs';
+import { jsDoApp } from './lib/fonte.mjs';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ler = (...p) => readFileSync(join(RAIZ, ...p), 'utf8');
@@ -298,7 +299,7 @@ export function regexTermo(padroes) {
   return new RegExp('(?<![\\p{L}\\d])(?:' + padroes.map(esc).join('|') + ')(?![\\p{L}\\d])', 'iu');
 }
 
-// O pacote vai enxuto e o app o reconstitui ao abrir (app.js, logo depois de ler D): textos que se repetem nas questões
+// O pacote vai enxuto e o app o reconstitui ao abrir (src/js/01-dados.js, logo depois de ler D): textos que se repetem nas questões
 // e nos cards (rótulo da referência, bloco, norma, prova, armadilha, tema e comando) viram índice numa tabela, o trecho
 // da lei vira [início, tamanho] dentro do texto do artigo, a estrutura do artigo só vai quando muda em relação ao
 // anterior, o rótulo "Art. N" fica implícito e campos vazios são omitidos
@@ -343,7 +344,7 @@ const RE_DADO = /\d|%|\b(uma?|dois|duas|tr[eê]s|quatro|cinco|seis|sete|oito|nov
 function build() {
   const dados = montarDados();
   const css = ler('src', 'app.css');
-  const js = ler('src', 'app.js');
+  const js = jsDoApp(RAIZ);
   const corpo = ler('src', 'app.html');
   const pagina = corpo
     .replace('/*__CSS__*/', () => css)

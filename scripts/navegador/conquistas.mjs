@@ -1,11 +1,11 @@
 // Conquistas e níveis: um perfil já avançado (35 dias de estudo, simulados, discursivas, chefões, baús, inventário
 // completo, itens reais e difíceis dominados) responde um item e destrava, de uma vez, o que os números permitem e
 // nada além disso. Confere também o nível 30 (Especialista em Regulação) e a lista agrupada em Progresso.
-import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { APP, abrirNavegador, diaDeEstudo, placar, responder, sairDaSessao, vigiarErros } from './comum.mjs';
 import { montarDados } from '../build.mjs';
+import { jsDoApp } from '../lib/fonte.mjs';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const browser = await abrirNavegador();
@@ -13,7 +13,7 @@ const { conferir, passo, fim } = placar();
 const erros = [];
 
 const d = montarDados();
-const js = readFileSync(join(RAIZ, 'src', 'app.js'), 'utf8');
+const js = jsDoApp(RAIZ);
 const itensRpg = [...js.matchAll(/\{ id: '([a-z-]+)', slot: '([a-z]+)', rar: '([a-z]+)'/g)].map(([, id, slot, rar]) => ({ id, slot, rar }));
 const ids = {
   reais: d.questoes.filter((q) => q.o && !q.al).slice(0, 300).map((q) => q.id),
