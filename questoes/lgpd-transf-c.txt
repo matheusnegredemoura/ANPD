@@ -79,9 +79,9 @@ comentario: Errado. O art. 34, VI, manda considerar também “outras circunstâ
 gab: C
 ref: lgpd 34
 trecho: a adoção de medidas de segurança previstas em regulamento
-armadilha: literal
-dif: 1
-enunciado: Na avaliação do nível de proteção de dados de país estrangeiro ou de organismo internacional, a autoridade nacional considera a adoção de medidas de segurança previstas em regulamento.
+armadilha: rol
+dif: 2
+enunciado: Além das normas vigentes no destino e da natureza dos dados, a autoridade nacional, ao avaliar o nível de proteção de país estrangeiro, considera se ali se adotam medidas de segurança previstas em regulamento.
 comentario: Certo: art. 34, IV. Também pesam as normas do destino, a natureza dos dados, a observância dos princípios e direitos e as garantias judiciais e institucionais.
 
 === tx-10
@@ -97,18 +97,18 @@ comentario: Errado. A natureza dos dados é critério expresso (art. 34, II). Al
 gab: C
 ref: lgpd 35
 trecho: que permanecerão sob sua fiscalização nos termos definidos em regulamento
-armadilha: literal
-dif: 2
-enunciado: A autoridade nacional pode designar organismos de certificação para verificar cláusulas contratuais específicas, normas corporativas globais, selos, certificados e códigos de conduta, os quais permanecem sob sua fiscalização.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD designou organismo de certificação para verificar normas corporativas globais de grupos empresariais. Assertiva: o organismo continua sob a fiscalização da ANPD, que pode rever seus atos e anulá-los se estiverem em desconformidade com a LGPD.
 comentario: Certo: art. 35, § 3º. A designação não é delegação sem controle: os atos desses organismos podem ser revistos ou anulados pela autoridade (§ 4º).
 
 === tx-12
 gab: C
 ref: lgpd 35
 trecho: poderão ser revistos pela autoridade nacional e, caso em desconformidade com esta Lei, submetidos a revisão ou anulados
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: Os atos realizados por organismo de certificação designado pela autoridade nacional podem ser revistos por ela e, se em desconformidade com a LGPD, submetidos a revisão ou anulados.
+enunciado: A designação de organismos de certificação pela autoridade nacional não equivale a delegação sem controle, pois os atos desses organismos podem ser revistos por ela e, se contrários à LGPD, submetidos a revisão ou anulados.
 comentario: Certo: art. 35, § 4º. É o contrapeso à possibilidade de designar organismos de certificação (§ 3º).
 
 === tx-13
@@ -173,9 +173,9 @@ gab: C
 bloco: res-19-2024
 ref: res19 22
 trecho: relações diplomáticas, comércio internacional e cooperação internacional
-armadilha: literal
-dif: 2
-enunciado: Na análise de cláusulas contratuais específicas, a ANPD considera os riscos e os benefícios da aprovação, inclusive os impactos sobre o fluxo internacional de dados, as relações diplomáticas, o comércio internacional e a cooperação internacional do Brasil.
+armadilha: conceito
+dif: 3
+enunciado: Ao decidir sobre cláusulas contratuais específicas, a ANPD não se restringe ao exame jurídico: pondera também riscos e benefícios da aprovação, inclusive os efeitos sobre o fluxo internacional de dados, as relações diplomáticas, o comércio e a cooperação internacional do Brasil.
 comentario: Certo: art. 22, § 1º, II. O inciso I manda verificar se as cláusulas asseguram nível de proteção equivalente ao das cláusulas-padrão nacionais.
 
 === tx-20
@@ -183,9 +183,9 @@ gab: C
 bloco: res-19-2024
 ref: res19 23
 trecho: adotar, sempre que possível, a redação das cláusulas-padrão contratuais
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: Nas cláusulas submetidas à aprovação da ANPD, o controlador deve adotar, sempre que possível, a redação das cláusulas-padrão contratuais e indicar as cláusulas específicas adotadas, com a respectiva justificativa.
+enunciado: Nas cláusulas submetidas à aprovação da ANPD, a cláusula específica é a exceção: o controlador deve, sempre que possível, usar a redação das cláusulas-padrão e justificar as específicas que adotar.
 comentario: Certo: art. 23, I e II. A cláusula específica é a exceção justificada, não o ponto de partida.
 
 === tx-21
@@ -193,9 +193,9 @@ gab: C
 bloco: res-19-2024
 ref: res19 24
 trecho: As cláusulas contratuais específicas deverão ser submetidas à aprovação da ANPD
-armadilha: literal
-dif: 1
-enunciado: As cláusulas contratuais específicas para determinada transferência internacional deverão ser submetidas à aprovação da ANPD.
+armadilha: comparacao
+dif: 2
+enunciado: Diferentemente das cláusulas-padrão, já aprovadas pela ANPD, as cláusulas contratuais específicas de determinada transferência internacional só podem ser usadas depois de submetidas à aprovação da Agência.
 comentario: Certo: art. 24, que remete ao processo do Capítulo VIII. As cláusulas-padrão, ao contrário, já são aprovadas pela ANPD e dispensam nova aprovação para cada uso.
 
 === tx-22
@@ -213,9 +213,9 @@ gab: C
 bloco: res-19-2024
 ref: res19 27
 trecho: incluindo canal de fácil acesso e o direito de peticionar contra o controlador perante a ANPD
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: As normas corporativas globais devem indicar os direitos dos titulares e os meios para o seu exercício, incluindo canal de fácil acesso e o direito de peticionar contra o controlador perante a ANPD depois de reclamação não solucionada no prazo.
+enunciado: Situação hipotética: um grupo multinacional apresentou normas corporativas globais que não indicavam aos titulares nenhum canal de fácil acesso para exercer seus direitos. Assertiva: as normas não atendem ao regulamento, que exige esse canal e a menção ao direito de peticionar contra o controlador perante a ANPD.
 comentario: Certo: art. 27, VI. As solicitações devem ser respondidas no prazo da LGPD e da regulamentação específica (§ 2º).
 
 === tx-24
@@ -243,9 +243,9 @@ gab: C
 bloco: res-19-2024
 ref: res19 32
 trecho: documento redigido em linguagem simples sobre a realização da transferência internacional de dados
-armadilha: literal
-dif: 2
-enunciado: O controlador que transfere dados com base em cláusulas contratuais específicas ou normas corporativas globais deve publicar em sua página na internet documento em linguagem simples sobre a realização da transferência internacional.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um titular pediu a empresa que transfere dados com base em normas corporativas globais a íntegra dessas normas. Assertiva: a empresa deve entregá-la, além de manter em sua página na internet documento em linguagem simples sobre a transferência.
 comentario: Certo: art. 32, parágrafo único. Além disso, deve entregar a íntegra das cláusulas ou das normas ao titular que a solicitar (caput).
 
 === tx-27
@@ -273,7 +273,7 @@ gab: C
 bloco: res-19-2024
 ref: res19 30
 trecho: após a manifestação da Procuradoria Federal Especializada
-armadilha: literal
+armadilha: sujeito
 dif: 2
-enunciado: Após a manifestação da área técnica e da Procuradoria Federal Especializada, o requerimento de aprovação de cláusulas contratuais específicas é objeto de deliberação do Conselho Diretor da ANPD.
+enunciado: No processo de aprovação de cláusulas contratuais específicas, a decisão final cabe ao Conselho Diretor da ANPD, que delibera depois da manifestação da área técnica e da Procuradoria Federal Especializada.
 comentario: Certo: art. 30, I e II. Na análise, a ANPD pode pedir documentos e informações suplementares ou fazer diligências (§ 1º), como prevê também o art. 35, § 2º, da LGPD.

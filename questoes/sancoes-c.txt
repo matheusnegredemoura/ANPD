@@ -12,9 +12,9 @@ apoio_DOSE2: Uma empresa com faturamento de R$ 30 milhões no último exercício
 gab: C
 ref: res4 2
 trecho: reincidência específica: repetição de infração pelo mesmo infrator ao mesmo dispositivo legal ou regulamentar, no período de 5 (cinco) anos, contado do trânsito em julgado do processo administrativo sancionador
-armadilha: conceito
-dif: 2
-enunciado: Reincidência específica é a repetição de infração, pelo mesmo infrator, ao mesmo dispositivo legal ou regulamentar, no período de 5 anos contado do trânsito em julgado do processo sancionador até a data da nova infração.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: infrator punido em processo sancionador da ANPD, com decisão transitada em julgado no ano anterior, voltou a violar o mesmo dispositivo da LGPD. Assertiva: configura-se reincidência específica, pois a nova infração ocorreu dentro de cinco anos do trânsito em julgado.
 comentario: Certo: Resolução 4/2023, art. 2º, VIII. A genérica (inciso IX) usa o mesmo prazo, mas para infração a qualquer dispositivo.
 
 === sc-02
@@ -30,9 +30,9 @@ comentario: Errado. O termo inicial é o trânsito em julgado do processo sancio
 gab: C
 ref: res4 2
 trecho: infração permanente: conduta infrativa que se prolonga no tempo, mediante ação ou omissão do infrator referente ao mesmo dispositivo normativo
-armadilha: conceito
-dif: 1
-enunciado: Infração permanente é a conduta infrativa que se prolonga no tempo, por ação ou omissão do infrator, referente ao mesmo dispositivo normativo.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: há meses, um controlador mantém, sem interrupção, a omissão de indicar encarregado. Assertiva: a conduta é exemplo de infração permanente, que se prolonga no tempo por ação ou omissão referente ao mesmo dispositivo normativo.
 comentario: Certo: art. 2º, III. Infração permanente não cessada até a decisão é uma das hipóteses de multa diária (art. 16, § 3º, III).
 
 === sc-04
@@ -66,9 +66,9 @@ comentario: Errado. Ao Poder Público aplicam-se a advertência e as sanções d
 gab: C
 ref: res4 5
 trecho: O não cumprimento da sanção aplicada ou a ausência de regularização da conduta, no prazo estipulado, ensejará a progressão da atuação da ANPD para a aplicação de sanções mais graves
-armadilha: literal
-dif: 1
-enunciado: O descumprimento da sanção aplicada ou a falta de regularização da conduta no prazo estipulado leva a ANPD a progredir para sanções mais graves.
+armadilha: conceito
+dif: 2
+enunciado: Se o infrator não cumprir a sanção aplicada nem regularizar a conduta no prazo fixado, a ANPD não fica limitada à sanção original: pode progredir para a aplicação de sanções mais graves.
 comentario: Certo: art. 5º, § 2º. É a lógica gradativa da regulação responsiva: as sanções são aplicadas de forma gradativa, isolada ou cumulativa (caput).
 
 === sc-08
@@ -102,18 +102,18 @@ comentario: Errado. Dados de crianças, adolescentes ou idosos agravam a classif
 gab: C
 ref: res4 9
 trecho: a infração for leve ou média e não caracterizar reincidência específica
-armadilha: literal
-dif: 2
-enunciado: A ANPD pode aplicar advertência quando a infração for leve ou média e não houver reincidência específica, ou quando houver necessidade de impor medidas corretivas.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD apurou infração leve de controlador sem histórico de reincidência específica. Assertiva: cabe a sanção de advertência, que também seria possível se a infração fosse média ou se fosse necessário impor medidas corretivas.
 comentario: Certo: art. 9º. Já a multa simples cabe quando a infração for grave, quando medidas preventivas ou corretivas forem descumpridas ou quando outra sanção não for adequada (art. 10).
 
 === sc-12
 gab: C
 ref: res4 11
 trecho: Será considerada a soma dos faturamentos obtidos em todos os ramos de atividade empresarial afetados
-armadilha: literal
+armadilha: caso
 dif: 3
-enunciado: Para calcular o valor-base da multa, soma-se o faturamento de todos os ramos de atividade afetados quando a infração ocorre em mais de um ramo ou quando os dados são usados por processos de outros ramos da empresa ou do grupo.
+enunciado: Situação hipotética: uma infração cometida por empresa de varejo afetou tanto a venda on-line quanto o setor de crédito do mesmo grupo. Assertiva: para calcular o valor-base da multa, a ANPD soma os faturamentos de todos os ramos de atividade afetados.
 comentario: Certo: art. 11, § 2º. A regra geral é o faturamento do ramo em que ocorreu a infração (caput, II).
 
 === sc-13
@@ -129,9 +129,9 @@ comentario: Errado. A base é o faturamento do infrator no último exercício, e
 gab: C
 ref: res4 12
 trecho: 10% (dez por cento) para cada caso de reincidência específica, até o limite de 40% (quarenta por cento)
-armadilha: numero
-dif: 2
-enunciado: Cada reincidência específica acresce 10% ao valor da multa simples, até o limite de 40%.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: no cálculo de multa simples, a ANPD identificou reincidências específicas que, a 10% cada uma, somariam mais de 40%. Assertiva: o agravante por reincidência específica ficará limitado a 40%.
 comentario: Certo: art. 12, I. Reincidência genérica: 5% cada, até 20%; medida de orientação ou preventiva descumprida: 20% cada, até 80%; medida corretiva descumprida: 30% cada, até 90%.
 
 === sc-15
@@ -185,7 +185,7 @@ ref: res4 16
 trecho: até o limite total de R$ 50.000.000,00 (cinquenta milhões de reais) por infração
 armadilha: numero
 dif: 2
-enunciado: Por ter função coercitiva, a multa diária não tem limite total, acumulando-se até o cumprimento da obrigação.
+enunciado: Diferentemente da multa simples, a multa diária, por ter função coercitiva, não se sujeita a limite total por infração, acumulando-se enquanto a obrigação não for cumprida.
 comentario: Errado. A multa diária acumula até o cumprimento, mas tem limite total de R$ 50 milhões por infração (art. 16, § 1º).
 
 === sc-21
@@ -210,27 +210,27 @@ comentario: Certo: art. 17, § 3º. O prazo de pagamento é de 20 dias úteis da
 gab: E
 ref: res4 19
 trecho: O pagamento realizado após a intimação da decisão de aplicação da sanção não prejudica o direito de interposição de recurso administrativo
-armadilha: extrapolacao
+armadilha: caso
 dif: 2
-enunciado: Pagar a multa depois de intimado da decisão implica renúncia tácita ao direito de recorrer.
+enunciado: Situação hipotética: intimado da decisão que lhe aplicou multa, um controlador pagou o valor e, em seguida, apresentou recurso. Assertiva: o recurso não deve ser conhecido, porque o pagamento após a intimação implica renúncia tácita ao direito de recorrer.
 comentario: Errado. O pagamento não prejudica o recurso (art. 19), e, provido o recurso, o valor é restituído com correção (parágrafo único). O desconto de 25% exige renúncia expressa ao recurso e pagamento no prazo (art. 18).
 
 === sc-24
 gab: C
 ref: res4 20
 trecho: Os ônus relacionados à publicização da infração serão suportados exclusivamente pelo infrator
-armadilha: literal
-dif: 1
-enunciado: A sanção de publicização consiste na divulgação da infração pelo próprio infrator, que arca exclusivamente com os custos, conforme teor, meio, duração e prazo definidos pela ANPD.
+armadilha: sujeito
+dif: 2
+enunciado: Na sanção de publicização, quem divulga a infração é o próprio infrator, e não a ANPD, à qual cabe definir o teor, o meio, a duração e o prazo da divulgação, cujos custos recaem exclusivamente sobre o infrator.
 comentario: Certo: art. 20, §§ 1º a 3º. É aplicada considerando a relevância e o interesse público da matéria (caput).
 
 === sc-26
 gab: C
 ref: res4 22
 trecho: comunicar imediatamente o bloqueio dos dados aos agentes de tratamento com os quais tenha realizado uso compartilhado de dados, para que repitam idêntico procedimento
-armadilha: literal
+armadilha: rol
 dif: 2
-enunciado: Intimado da sanção de bloqueio, o infrator deve comunicar imediatamente o bloqueio aos agentes com quem compartilhou os dados, para que repitam o procedimento, salvo impossibilidade ou esforço desproporcional comprovados.
+enunciado: Pelo regulamento de dosimetria, o infrator sancionado com bloqueio deve comunicar a medida, de imediato, aos agentes com quem compartilhou os dados, e o desbloqueio depende de ele comprovar a regularização.
 comentario: Certo: art. 22, § 2º. A mesma regra vale para a eliminação (art. 23, § 2º). O desbloqueio depende de o infrator comprovar a regularização (art. 22, § 3º).
 
 === sc-28
@@ -246,18 +246,18 @@ comentario: Errado. Também cabe quando houver tratamento com fins ilícitos ou 
 gab: C
 ref: res4 27
 trecho: não poderá ser baseada em valores jurídicos abstratos e deverá ser motivada e fundamentada
-armadilha: literal
+armadilha: caso
 dif: 3
-enunciado: A ANPD pode afastar a metodologia de dosimetria ou substituir a sanção quando constatar desproporcionalidade, em decisão motivada que não se baseie em valores jurídicos abstratos.
+enunciado: Situação hipotética: ao aplicar a metodologia de dosimetria, a ANPD chegou a multa manifestamente desproporcional à infração. Assertiva: a Agência pode afastar a metodologia ou substituir a sanção, em decisão motivada e fundamentada que não se baseie em valores jurídicos abstratos.
 comentario: Certo: art. 27 e parágrafo único, em linha com a LINDB (art. 20), que exige considerar as consequências práticas da decisão.
 
 === sc-30
 gab: C
 ref: res4 28
 trecho: aplicam-se também aos processos administrativos em curso quando de sua entrada em vigor
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: As disposições do regulamento de dosimetria aplicam-se também aos processos administrativos em curso quando de sua entrada em vigor.
+enunciado: O regulamento de dosimetria da ANPD, por disciplinar procedimento e cálculo de sanções, alcançou também os processos administrativos que já estavam em curso quando entrou em vigor.
 comentario: Certo: art. 28. A regra trata de procedimento e dosimetria; não cria infração nova para fatos passados.
 
 === sc-31

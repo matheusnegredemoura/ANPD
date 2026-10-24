@@ -62,9 +62,9 @@ gab: C
 ref: lgpd 38, parágrafo único
 bloco: lgpd-37-45
 trecho: o relatório deverá conter, no mínimo, a descrição dos tipos de dados coletados, a metodologia utilizada para a coleta e para a garantia da segurança das informações e a análise do controlador com relação a medidas, salvaguardas e mecanismos de mitigação de risco adotados
-armadilha: rol
-dif: 2
-enunciado: O relatório de impacto à proteção de dados pessoais deverá conter, no mínimo, a descrição dos tipos de dados coletados, a metodologia utilizada para a coleta e para a garantia da segurança das informações e a análise do controlador sobre medidas, salvaguardas e mecanismos de mitigação de risco adotados.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um relatório de impacto à proteção de dados pessoais descreveu os tipos de dados coletados e a metodologia de coleta, mas nada disse sobre as salvaguardas e os mecanismos de mitigação de risco adotados. Assertiva: o relatório não atende ao conteúdo mínimo exigido pela LGPD.
 comentario: Conteúdo mínimo do RIPD, art. 38, parágrafo único. A definição do relatório está no art. 5º, XVII.
 pesquisar: Relatório de impacto à proteção de dados (RIPD): modelo da ANPD
 
@@ -103,9 +103,9 @@ gab: C
 ref: lgpd 41, § 2º, III
 bloco: lgpd-37-45
 trecho: orientar os funcionários e os contratados da entidade a respeito das práticas a serem tomadas em relação à proteção de dados pessoais
-armadilha: rol
-dif: 1
-enunciado: Entre as atividades do encarregado está orientar os funcionários e os contratados da entidade a respeito das práticas a serem tomadas em relação à proteção de dados pessoais.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: o encarregado de uma rede de lojas promoveu treinamento dos empregados e dos terceirizados sobre práticas de proteção de dados. Assertiva: a iniciativa corresponde a atividade que a LGPD atribui ao encarregado.
 comentario: Art. 41, § 2º, III. As quatro atividades: reclamações dos titulares; comunicações da autoridade; orientação interna; demais atribuições do controlador ou de normas complementares.
 pesquisar: Resolução CD/ANPD 18/2024 (atuação do encarregado)
 
@@ -114,9 +114,9 @@ gab: C
 ref: lgpd 41, § 3º
 bloco: lgpd-37-45
 trecho: inclusive hipóteses de dispensa da necessidade de sua indicação, conforme a natureza e o porte da entidade ou o volume de operações de tratamento de dados
-armadilha: excecao
-dif: 2
-enunciado: A autoridade nacional poderá estabelecer hipóteses de dispensa da indicação de encarregado, conforme a natureza e o porte da entidade ou o volume de operações de tratamento de dados.
+armadilha: conceito
+dif: 3
+enunciado: A LGPD não impõe a indicação de encarregado de modo absoluto, pois admite que a autoridade nacional preveja dispensa conforme a natureza ou o porte da entidade ou o volume das operações, o que a ANPD fez para os agentes de pequeno porte.
 comentario: Art. 41, § 3º. O regulamento de agentes de pequeno porte (Resolução CD/ANPD nº 2/2022, art. 11) dispensou esses agentes de indicar encarregado; a resolução cita como fundamento o art. 55-J, XVIII (art. 1º), e a dispensa se encaixa na previsão do art. 41, § 3º.
 pesquisar: Agentes de tratamento de pequeno porte e encarregado
 
@@ -135,9 +135,9 @@ gab: C
 ref: lgpd 42, § 2º
 bloco: lgpd-37-45
 trecho: quando, a seu juízo, for verossímil a alegação, houver hipossuficiência para fins de produção de prova ou quando a produção de prova pelo titular resultar-lhe excessivamente onerosa
-armadilha: literal
-dif: 2
-enunciado: No processo civil, o juiz poderá inverter o ônus da prova a favor do titular dos dados quando, a seu juízo, for verossímil a alegação, houver hipossuficiência para fins de produção de prova ou quando a produção de prova pelo titular resultar-lhe excessivamente onerosa.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: em ação de indenização contra uma operadora de telefonia por vazamento, o titular teria enorme dificuldade de provar como seus dados foram expostos. Assertiva: o juiz pode inverter o ônus da prova em favor do titular, por ser a produção da prova excessivamente onerosa para ele.
 comentario: Art. 42, § 2º. A inversão é faculdade do juiz (“poderá”), e as três situações são alternativas.
 
 === lgpd2-42-03
@@ -175,8 +175,8 @@ gab: C
 ref: lgpd 45
 bloco: lgpd-37-45
 trecho: As hipóteses de violação do direito do titular no âmbito das relações de consumo permanecem sujeitas às regras de responsabilidade previstas na legislação pertinente.
-armadilha: literal
-dif: 1
-enunciado: As hipóteses de violação do direito do titular no âmbito das relações de consumo permanecem sujeitas às regras de responsabilidade previstas na legislação pertinente.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um consumidor teve dados violados por loja virtual e ajuizou ação de indenização. Assertiva: por se tratar de relação de consumo, a responsabilidade da loja segue as regras da legislação pertinente às relações de consumo.
 comentario: Art. 45. Na prática, remete ao Código de Defesa do Consumidor, com responsabilidade objetiva do fornecedor.
 pesquisar: Responsabilidade civil na LGPD: subjetiva ou objetiva?

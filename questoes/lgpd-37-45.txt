@@ -5,9 +5,9 @@ bloco: lgpd-37-45
 gab: C
 ref: lgpd 37
 trecho: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem, especialmente quando baseado no legítimo interesse
-armadilha: literal
-dif: 1
-enunciado: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem, especialmente quando baseado no legítimo interesse.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um operador que trata dados por conta de uma rede de academias deixou de manter registro das operações, alegando que esse dever é só do controlador. Assertiva: a alegação não procede, pois a LGPD impõe o registro das operações também ao operador.
 comentario: Art. 37. O registro das operações (inventário de dados) é a primeira coisa que uma auditoria pede.
 
 === lgpd-37-02
@@ -23,9 +23,9 @@ comentario: O art. 37 impõe o registro ao controlador e ao operador.
 gab: C
 ref: lgpd 38
 trecho: A autoridade nacional poderá determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais, inclusive de dados sensíveis
-armadilha: literal
-dif: 1
-enunciado: A autoridade nacional pode determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais, inclusive de dados sensíveis, referente a suas operações de tratamento.
+armadilha: conceito
+dif: 2
+enunciado: A autoridade nacional pode exigir do controlador relatório de impacto à proteção de dados pessoais também quanto às operações que envolvam dados sensíveis, observados os segredos comercial e industrial.
 comentario: Caput do art. 38. Observados os segredos comercial e industrial e nos termos de regulamento.
 
 === lgpd-38-02
@@ -41,36 +41,36 @@ comentario: O conteúdo mínimo do parágrafo único do art. 38 é: tipos de dad
 gab: C
 ref: lgpd 39
 trecho: O operador deverá realizar o tratamento segundo as instruções fornecidas pelo controlador, que verificará a observância das próprias instruções e das normas sobre a matéria
-armadilha: literal
-dif: 1
-enunciado: O operador deve realizar o tratamento segundo as instruções fornecidas pelo controlador, que verificará a observância das próprias instruções e das normas sobre a matéria.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um operador de folha de pagamento passou a usar os dados dos empregados de um cliente para oferecer crédito consignado, contrariando as instruções recebidas. Assertiva: o operador descumpriu o dever de tratar os dados segundo as instruções do controlador, ao qual cabe verificar a observância dessas instruções.
 comentario: Art. 39. Se o operador descumpre instruções lícitas, passa a responder solidariamente como se fosse controlador (art. 42, § 1º, I).
 
 === lgpd-40-01
 gab: C
 ref: lgpd 40
 trecho: A autoridade nacional poderá dispor sobre padrões de interoperabilidade para fins de portabilidade, livre acesso aos dados e segurança, assim como sobre o tempo de guarda dos registros
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: A autoridade nacional pode dispor sobre padrões de interoperabilidade para fins de portabilidade, livre acesso aos dados e segurança, bem como sobre o tempo de guarda dos registros.
+enunciado: A LGPD permite à autoridade nacional disciplinar padrões de interoperabilidade voltados à portabilidade, ao livre acesso e à segurança, e também o tempo de guarda dos registros.
 comentario: Art. 40, tendo em vista especialmente a necessidade e a transparência.
 
 === lgpd-41-01
 gab: C
 ref: lgpd 41, § 1º
 trecho: A identidade e as informações de contato do encarregado deverão ser divulgadas publicamente, de forma clara e objetiva, preferencialmente no sítio eletrônico do controlador
-armadilha: literal
-dif: 1
-enunciado: A identidade e as informações de contato do encarregado devem ser divulgadas publicamente, de forma clara e objetiva, preferencialmente no sítio eletrônico do controlador.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma loja virtual informa o nome e o e-mail de seu encarregado apenas a quem os solicita por escrito. Assertiva: a prática não atende à LGPD, que exige a divulgação pública, clara e objetiva, da identidade e do contato do encarregado, preferencialmente no sítio eletrônico do controlador.
 comentario: Art. 41, § 1º. A Resolução CD/ANPD nº 18/2024 detalha a atuação do encarregado.
 
 === lgpd-41-02
 gab: E
 ref: lgpd 41, § 1º
 trecho: deverão ser divulgadas publicamente
-armadilha: extrapolacao
-dif: 1
-enunciado: A identidade do encarregado deve ser informada exclusivamente à autoridade nacional, preservando-se o sigilo perante os titulares.
+armadilha: causalidade
+dif: 2
+enunciado: Para preservar o encarregado de pressões externas, a LGPD determina que sua identidade seja informada exclusivamente à autoridade nacional, mantendo-se sigilo perante os titulares.
 comentario: O § 1º do art. 41 manda divulgar publicamente a identidade e o contato do encarregado. Ele é o canal de comunicação com os titulares.
 
 === lgpd-41-03
@@ -80,43 +80,43 @@ trecho: aceitar reclamações e comunicações dos titulares, prestar esclarecim
 trecho: orientar os funcionários e os contratados da entidade a respeito das práticas a serem tomadas em relação à proteção de dados pessoais
 armadilha: rol
 dif: 2
-enunciado: Entre as atividades do encarregado estão aceitar reclamações e comunicações dos titulares, prestar esclarecimentos e adotar providências, e orientar os funcionários e os contratados da entidade sobre as práticas de proteção de dados.
+enunciado: Receber reclamações e comunicações dos titulares, prestar-lhes esclarecimentos e orientar empregados e contratados sobre as práticas de proteção de dados são atividades do encarregado.
 comentario: Incisos I e III do art. 41, § 2º. Os outros dois: receber comunicações da ANPD e adotar providências; e executar demais atribuições do controlador ou de normas complementares.
 
 === lgpd-41-04
 gab: E
 ref: lgpd 41, § 3º
 trecho: inclusive hipóteses de dispensa da necessidade de sua indicação, conforme a natureza e o porte da entidade ou o volume de operações de tratamento de dados
-armadilha: extrapolacao
-dif: 2
-enunciado: A LGPD veda que a autoridade nacional dispense qualquer controlador da indicação de encarregado.
+armadilha: causalidade
+dif: 3
+enunciado: Por ser o encarregado peça essencial do sistema da LGPD, a lei proíbe a autoridade nacional de dispensar qualquer controlador de indicá-lo, ainda que se trate de entidade de pequeno porte.
 comentario: O § 3º do art. 41 autoriza a ANPD a prever hipóteses de dispensa, conforme natureza e porte da entidade ou volume de operações. A Resolução CD/ANPD nº 2/2022 usa essa autorização para agentes de pequeno porte.
 
 === lgpd-41-05
 gab: E
 ref: lgpd 41, § 2º, II
 trecho: receber comunicações da autoridade nacional e adotar providências
-armadilha: sujeito
-dif: 2
-enunciado: Compete ao encarregado aplicar sanções disciplinares aos empregados do controlador que violarem a política de privacidade.
+armadilha: fecho
+dif: 3
+enunciado: Entre as atividades do encarregado, a LGPD inclui receber comunicações da autoridade nacional e adotar providências, bem como aplicar sanções disciplinares aos empregados que violarem a política de privacidade.
 comentario: As atividades do encarregado (art. 41, § 2º) são de comunicação, orientação e providências. Poder disciplinar é do empregador, não está na lista.
 
 === lgpd-42-01
 gab: C
 ref: lgpd 42
 trecho: causar a outrem dano patrimonial, moral, individual ou coletivo, em violação à legislação de proteção de dados pessoais, é obrigado a repará-lo
-armadilha: literal
-dif: 1
-enunciado: O controlador ou o operador que, em razão do exercício de atividade de tratamento de dados pessoais, causar a outrem dano patrimonial, moral, individual ou coletivo, em violação à legislação de proteção de dados, é obrigado a repará-lo.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um vazamento de dados de clientes de um banco, causado por falha de segurança, gerou danos morais a grupo de consumidores. Assertiva: a LGPD obriga o agente responsável a reparar também o dano coletivo, e não apenas o dano individual.
 comentario: Caput do art. 42. Alcança dano patrimonial e moral, individual e coletivo.
 
 === lgpd-42-02
 gab: C
 ref: lgpd 42, § 1º, I
 trecho: o operador responde solidariamente pelos danos causados pelo tratamento quando descumprir as obrigações da legislação de proteção de dados ou quando não tiver seguido as instruções lícitas do controlador, hipótese em que o operador equipara-se ao controlador
-armadilha: excecao
-dif: 2
-enunciado: O operador responde solidariamente pelos danos causados pelo tratamento quando descumprir as obrigações da legislação de proteção de dados ou não seguir as instruções lícitas do controlador, hipótese em que se equipara ao controlador.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um operador ignorou instrução lícita do controlador sobre criptografia, e a falha causou dano a titulares. Assertiva: o operador responde solidariamente pelos danos, equiparando-se ao controlador.
 comentario: Art. 42, § 1º, I. Ressalvadas as excludentes do art. 43.
 
 === lgpd-42-03
@@ -132,9 +132,9 @@ comentario: A solidariedade do operador depende de descumprimento da lei ou das 
 gab: C
 ref: lgpd 42, § 1º, II
 trecho: os controladores que estiverem diretamente envolvidos no tratamento do qual decorreram danos ao titular dos dados respondem solidariamente
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: Os controladores diretamente envolvidos no tratamento do qual decorreram danos ao titular respondem solidariamente, salvo as excludentes previstas na LGPD.
+enunciado: Situação hipotética: empresas que decidem em conjunto sobre um programa de fidelidade causaram dano a titulares nesse tratamento. Assertiva: os controladores diretamente envolvidos respondem solidariamente, ressalvadas as excludentes da LGPD.
 comentario: Art. 42, § 1º, II. Caso típico: controladoria conjunta.
 
 === lgpd-42-05
@@ -150,9 +150,9 @@ comentario: O § 2º do art. 42 diz que o juiz “poderá” inverter, a seu ju�
 gab: C
 ref: lgpd 42, § 4º
 trecho: Aquele que reparar o dano ao titular tem direito de regresso contra os demais responsáveis, na medida de sua participação no evento danoso
-armadilha: literal
-dif: 2
-enunciado: Aquele que reparar o dano ao titular tem direito de regresso contra os demais responsáveis, na medida de sua participação no evento danoso.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: condenado a indenizar sozinho o titular por dano causado em tratamento do qual também participou o operador, o controlador pagou a indenização integral. Assertiva: ele pode cobrar do operador a parte que lhe cabe, na medida da participação deste no evento danoso.
 comentario: Art. 42, § 4º. A solidariedade protege o titular; entre os responsáveis, o prejuízo se divide pela participação de cada um.
 
 === lgpd-43-01
@@ -178,9 +178,9 @@ comentario: O art. 43 traz três excludentes, e caso fortuito ou força maior n�
 gab: E
 ref: lgpd 43, III
 trecho: que o dano é decorrente de culpa exclusiva do titular dos dados ou de terceiro
-armadilha: conceito
-dif: 2
-enunciado: A culpa concorrente do titular dos dados exclui a responsabilidade do agente de tratamento pelo dano.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: o titular contribuiu para o vazamento de seus dados ao divulgar a própria senha, mas a falha de segurança do controlador também foi decisiva para o dano. Assertiva: a culpa do titular exclui a responsabilidade do controlador.
 comentario: O inciso III do art. 43 exige culpa exclusiva do titular ou de terceiro. Culpa concorrente pode, no máximo, reduzir a indenização pelas regras gerais, mas não exclui a responsabilidade.
 
 === lgpd-44-01
@@ -188,9 +188,9 @@ gab: C
 ref: lgpd 44
 trecho: quando não fornecer a segurança que o titular dele pode esperar, consideradas as circunstâncias relevantes
 trecho: as técnicas de tratamento de dados pessoais disponíveis à época em que foi realizado
-armadilha: literal
-dif: 2
-enunciado: O tratamento de dados pessoais é irregular quando não fornece a segurança que o titular dele pode esperar, consideradas circunstâncias como o modo de realização, os riscos razoavelmente esperados e as técnicas disponíveis à época.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: tratamento de dados feito há anos foi questionado por não usar técnica de segurança que só surgiu depois. Assertiva: a regularidade do tratamento deve ser avaliada com base nas técnicas disponíveis à época em que foi realizado.
 comentario: Art. 44. O critério das técnicas disponíveis à época evita que se julgue um tratamento antigo com a tecnologia de hoje.
 
 === lgpd-44-02

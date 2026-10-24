@@ -19,9 +19,9 @@ comentario: Certo: art. 47. O dever alcança, por exemplo, o técnico terceiriza
 gab: E
 ref: lgpd 47
 trecho: mesmo após o seu término
-armadilha: extrapolacao
-dif: 1
-enunciado: A obrigação de garantir a segurança dos dados pessoais encerra-se com o término do tratamento.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: após encerrar o tratamento, uma empresa conservou dados para cumprir obrigação legal e deixou de protegê-los. Assertiva: a conduta é lícita, pois o dever de garantir a segurança dos dados termina com o fim do tratamento.
 comentario: Errado. O art. 47 estende o dever para depois do término, enquanto houver dados guardados, por exemplo nas hipóteses de conservação do art. 16.
 
 === sg-04
@@ -55,9 +55,9 @@ comentario: Certo: art. 48, § 2º. É providência para salvaguardar os titular
 gab: E
 ref: lgpd 48
 trecho: No juízo de gravidade do incidente, será avaliada eventual comprovação de que foram adotadas medidas técnicas adequadas que tornem os dados pessoais afetados ininteligíveis
-armadilha: extrapolacao
+armadilha: caso
 dif: 2
-enunciado: A criptografia dos dados afetados dispensa, por si só, a comunicação do incidente à ANPD.
+enunciado: Situação hipotética: uma empresa sofreu incidente com dados pessoais que estavam criptografados. Assertiva: a criptografia dispensa, por si só, a comunicação do incidente à ANPD, independentemente da avaliação de gravidade.
 comentario: Errado. Medidas que tornem os dados ininteligíveis a terceiros são avaliadas no juízo de gravidade (art. 48, § 3º); não há dispensa automática. Se a chave também vazou, por exemplo, a proteção não existe.
 
 === sg-09
@@ -74,9 +74,9 @@ gab: C
 bloco: lgpd-1-4-14
 ref: lgpd 14
 trecho: deverá ser realizado com o consentimento específico e em destaque dado por pelo menos um dos pais ou pelo responsável legal
-armadilha: literal
-dif: 1
-enunciado: Quando fundado em consentimento, o tratamento de dados pessoais de crianças exige consentimento específico e em destaque dado por pelo menos um dos pais ou pelo responsável legal.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: para tratar dados de uma criança com base em consentimento, uma escola de idiomas obteve autorização específica e destacada apenas da mãe. Assertiva: o consentimento de um só dos pais basta para a LGPD.
 comentario: Certo: art. 14, § 1º. Pelo Enunciado CD/ANPD 1/2023, outras hipóteses legais também podem amparar o tratamento, desde que prevaleça o melhor interesse.
 
 === sg-14
@@ -84,9 +84,9 @@ gab: E
 bloco: lgpd-1-4-14
 ref: lgpd 14
 trecho: por pelo menos um dos pais ou pelo responsável legal
-armadilha: numero
-dif: 1
-enunciado: O consentimento para tratamento de dados de criança deve ser dado por ambos os pais, em conjunto.
+armadilha: fecho
+dif: 2
+enunciado: Quando o tratamento de dados de criança se apoiar em consentimento, a LGPD exige que este seja específico e em destaque e que seja dado por ambos os pais, em conjunto.
 comentario: Errado. Basta um dos pais ou o responsável legal (art. 14, § 1º).
 
 === sg-15

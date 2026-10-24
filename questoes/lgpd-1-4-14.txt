@@ -5,9 +5,9 @@ bloco: lgpd-1-4-14
 gab: C
 ref: lgpd 1
 trecho: Esta Lei dispõe sobre o tratamento de dados pessoais, inclusive nos meios digitais, por pessoa natural ou por pessoa jurídica de direito público ou privado
-armadilha: literal
-dif: 1
-enunciado: A LGPD dispõe sobre o tratamento de dados pessoais, inclusive nos meios digitais, por pessoa natural ou por pessoa jurídica de direito público ou privado.
+armadilha: conceito
+dif: 2
+enunciado: A LGPD não se limita ao ambiente digital nem às empresas: alcança também o tratamento de dados pessoais feito em meios físicos e por pessoas naturais e pessoas jurídicas de direito público.
 comentario: Caput do art. 1º. O objetivo é proteger os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural.
 
 === lgpd-1-02
@@ -23,9 +23,9 @@ comentario: “Inclusive nos meios digitais” significa que os meios físicos t
 gab: C
 ref: lgpd 1, parágrafo único
 trecho: As normas gerais contidas nesta Lei são de interesse nacional e devem ser observadas pela União, Estados, Distrito Federal e Municípios
-armadilha: literal
-dif: 1
-enunciado: As normas gerais da LGPD são de interesse nacional e devem ser observadas pela União, pelos Estados, pelo Distrito Federal e pelos Municípios.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um município editou lei que afasta, no âmbito local, normas gerais da LGPD. Assertiva: a lei municipal não pode afastar essas normas, que são de interesse nacional e devem ser observadas por todos os entes federativos.
 comentario: Parágrafo único do art. 1º, incluído pela Lei nº 13.853/2019. Desde a EC nº 115/2022, legislar sobre proteção de dados é competência privativa da União (CF, art. 22, XXX).
 
 === lgpd-2-01
@@ -33,9 +33,9 @@ gab: C
 ref: lgpd 2
 trecho: a autodeterminação informativa
 trecho: a livre iniciativa, a livre concorrência e a defesa do consumidor
-armadilha: rol
-dif: 1
-enunciado: A autodeterminação informativa, a livre iniciativa, a livre concorrência e a defesa do consumidor estão entre os fundamentos da disciplina da proteção de dados pessoais.
+armadilha: comparacao
+dif: 3
+enunciado: Ao lado da autodeterminação informativa, a LGPD inclui entre os fundamentos da proteção de dados pessoais a livre iniciativa, a livre concorrência e a defesa do consumidor, que não figuram no rol de princípios do art. 6º.
 comentario: Incisos II e VI do art. 2º. Não confunda fundamentos (art. 2º) com princípios (art. 6º).
 
 === lgpd-2-02
@@ -70,27 +70,27 @@ comentario: Art. 3º, II: a lei vale independentemente do país da sede e de ond
 gab: E
 ref: lgpd 3, § 1º
 trecho: Consideram-se coletados no território nacional os dados pessoais cujo titular nele se encontre no momento da coleta
-armadilha: conceito
-dif: 2
-enunciado: Consideram-se coletados no território nacional os dados pessoais de titular de nacionalidade brasileira, independentemente do local em que ele se encontre no momento da coleta.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: brasileiro que se encontrava em Lisboa teve dados coletados por aplicativo de empresa portuguesa sem atuação no Brasil. Assertiva: esses dados consideram-se coletados no território nacional, em razão da nacionalidade do titular.
 comentario: O § 1º do art. 3º usa critério de localização no momento da coleta, não de nacionalidade.
 
 === lgpd-4-01
 gab: C
 ref: lgpd 4, I
 trecho: realizado por pessoa natural para fins exclusivamente particulares e não econômicos
-armadilha: excecao
-dif: 1
-enunciado: A LGPD não se aplica ao tratamento de dados pessoais realizado por pessoa natural para fins exclusivamente particulares e não econômicos.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma pessoa guarda no celular contatos e fotos de amigos para uso estritamente pessoal, sem nenhuma finalidade econômica. Assertiva: esse tratamento está fora do alcance da LGPD.
 comentario: Art. 4º, I. As duas condições são cumulativas: exclusivamente particulares e não econômicos.
 
 === lgpd-4-02
 gab: E
 ref: lgpd 4, II, b
 trecho: acadêmicos, aplicando-se a esta hipótese os arts. 7º e 11 desta Lei
-armadilha: excecao
-dif: 2
-enunciado: Ao tratamento de dados realizado para fins exclusivamente acadêmicos não se aplica nenhum dispositivo da LGPD.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma universidade trata dados pessoais para fins exclusivamente acadêmicos. Assertiva: nesse caso, nenhum dispositivo da LGPD se aplica, nem mesmo as bases legais dos arts. 7º e 11, como ocorre com o tratamento para fins exclusivamente jornalísticos.
 comentario: Para fins acadêmicos, a lei ressalva a aplicação dos arts. 7º e 11 (bases legais). Só a exceção jornalística e artística (alínea “a”) não tem essa ressalva.
 
 === lgpd-4-03
@@ -133,9 +133,9 @@ comentario: Art. 4º, IV. É o caso do dado que apenas transita pelo Brasil, por
 gab: C
 ref: lgpd 14
 trecho: O tratamento de dados pessoais de crianças e de adolescentes deverá ser realizado em seu melhor interesse
-armadilha: literal
-dif: 1
-enunciado: O tratamento de dados pessoais de crianças e de adolescentes deve ser realizado em seu melhor interesse.
+armadilha: conceito
+dif: 2
+enunciado: A LGPD adota o melhor interesse como parâmetro de todo tratamento de dados pessoais de crianças e de adolescentes, e não apenas daquele baseado no consentimento dos pais.
 comentario: Caput do art. 14. O ECA Digital (Lei nº 15.211/2025) trouxe regras próprias para o ambiente digital; elas entram no banco quando você trouxer o texto.
 
 === lgpd-14-02
@@ -178,18 +178,18 @@ comentario: O § 4º do art. 14 proíbe esse condicionamento, sem exceção por 
 gab: C
 ref: lgpd 14, § 5º
 trecho: O controlador deve realizar todos os esforços razoáveis para verificar que o consentimento a que se refere o § 1º deste artigo foi dado pelo responsável pela criança, consideradas as tecnologias disponíveis
-armadilha: literal
-dif: 2
-enunciado: O controlador deve realizar todos os esforços razoáveis para verificar que o consentimento foi dado pelo responsável pela criança, consideradas as tecnologias disponíveis.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um aplicativo infantil aceitava como consentimento parental qualquer clique na tela, sem mecanismo para conferir se quem consentia era o responsável, embora houvesse tecnologias viáveis para isso. Assertiva: a prática descumpre o dever do controlador de empregar todos os esforços razoáveis para verificar que o consentimento foi dado pelo responsável.
 comentario: Art. 14, § 5º. Base da verificação de idade e de responsável, tema central do ECA Digital.
 
 === lgpd-14-07
 gab: C
 ref: lgpd 14, § 2º
 trecho: os controladores deverão manter pública a informação sobre os tipos de dados coletados, a forma de sua utilização e os procedimentos para o exercício dos direitos a que se refere o art. 18 desta Lei
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: No tratamento de dados de crianças, os controladores devem manter pública a informação sobre os tipos de dados coletados, a forma de sua utilização e os procedimentos para o exercício dos direitos do titular.
+enunciado: Situação hipotética: um aplicativo para crianças não divulga quais dados coleta nem como os titulares podem exercer seus direitos. Assertiva: a omissão contraria a LGPD, que obriga o controlador a manter públicas essas informações, além da forma de utilização dos dados.
 comentario: Art. 14, § 2º. O § 6º completa: informação simples, clara e acessível, adequada ao entendimento da criança.
 
 === lgpd-61-01
@@ -205,9 +205,9 @@ comentario: O art. 61 permite notificar e intimar a empresa estrangeira na pesso
 gab: C
 ref: lgpd 64
 trecho: Os direitos e princípios expressos nesta Lei não excluem outros previstos no ordenamento jurídico pátrio relacionados à matéria ou nos tratados internacionais em que a República Federativa do Brasil seja parte
-armadilha: literal
-dif: 1
-enunciado: Os direitos e princípios da LGPD não excluem outros previstos no ordenamento jurídico brasileiro ou em tratados internacionais de que o Brasil seja parte.
+armadilha: conceito
+dif: 2
+enunciado: A LGPD não esgota a proteção de dados pessoais: os direitos e princípios nela expressos convivem com outros previstos no ordenamento brasileiro e em tratados de que o Brasil seja parte.
 comentario: Art. 64. É uma cláusula de abertura, parecida com o art. 5º, § 2º, da Constituição.
 
 === lgpd-65-03
@@ -223,7 +223,7 @@ comentario: Art. 65, II. Resumo das três vigências: ANPD e CNPD em 28/12/2018;
 gab: C
 ref: lgpd 63
 trecho: A autoridade nacional estabelecerá normas sobre a adequação progressiva de bancos de dados constituídos até a data de entrada em vigor desta Lei
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: A autoridade nacional estabelecerá normas sobre a adequação progressiva dos bancos de dados constituídos até a entrada em vigor da LGPD, consideradas a complexidade das operações e a natureza dos dados.
+enunciado: Para os bancos de dados que já existiam quando a LGPD entrou em vigor, a lei previu adequação progressiva, segundo normas da autoridade nacional que levem em conta a complexidade das operações e a natureza dos dados.
 comentario: Art. 63. Regra de transição para os bancos de dados que já existiam antes da lei.

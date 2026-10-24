@@ -11,18 +11,18 @@ apoio_NUVEM2: Uma rede de clínicas com sede em São Paulo contratou empresa sed
 gab: C
 ref: res19 2
 trecho: independentemente do país onde estejam localizados os dados pessoais objeto da transferência, inclusive após o término do tratamento e nas hipóteses de transferências posteriores
-armadilha: literal
-dif: 2
-enunciado: Entre as diretrizes do regulamento de transferência internacional da ANPD está a garantia de nível de proteção equivalente ao da legislação nacional, independentemente do país onde estejam os dados, inclusive após o término do tratamento e nas transferências posteriores.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: importador estrangeiro repassou a terceiro, em outro país, dados recebidos do Brasil. Assertiva: o regulamento de transferência internacional busca garantir a esses dados nível de proteção equivalente ao da legislação brasileira também nessa transferência posterior.
 comentario: Certo: Resolução 19/2024, art. 2º, I. A proteção acompanha o dado: vale no destino, depois do fim do tratamento e se o importador repassar os dados a terceiro (transferência posterior).
 
 === ti-02
 gab: C
 ref: res19 2
 trecho: promoção do livre fluxo transfronteiriço de dados com confiança
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: O regulamento de transferência internacional da ANPD tem entre suas diretrizes a promoção do livre fluxo transfronteiriço de dados com confiança, com observância aos direitos dos titulares.
+enunciado: O regulamento de transferência internacional da ANPD procura conciliar a promoção do livre fluxo transfronteiriço de dados com confiança e a observância dos direitos dos titulares.
 comentario: Certo: art. 2º, III. O regulamento busca equilíbrio: procedimentos simples e interoperáveis (inciso II), sem perder as garantias aos titulares.
 
 === ti-03
@@ -38,9 +38,9 @@ comentario: Errado. Importador é o agente localizado em país estrangeiro, ou q
 gab: C
 ref: res19 3
 trecho: transferência: operação de tratamento por meio da qual um agente de tratamento transmite, compartilha ou disponibiliza acesso a dados pessoais a outro agente de tratamento
-armadilha: conceito
-dif: 2
-enunciado: No regulamento da ANPD, transferência é a operação pela qual um agente de tratamento transmite, compartilha ou disponibiliza acesso a dados pessoais a outro agente de tratamento.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa brasileira deu a equipe sediada no exterior acesso remoto a base de dados mantida no Brasil, sem enviar cópia dos arquivos. Assertiva: a disponibilização de acesso pode caracterizar transferência para o regulamento da ANPD.
 comentario: Certo: art. 3º, III. Disponibilizar acesso remoto também é transferência; por isso permitir que equipe estrangeira consulte uma base no Brasil pode caracterizar transferência internacional.
 
 === ti-05
@@ -83,9 +83,9 @@ comentario: Errado. A exceção do retorno exige, cumulativamente, que o país d
 gab: C
 ref: res19 9
 trecho: A transferência internacional de dados deverá se limitar ao mínimo necessário para o alcance de suas finalidades
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: A transferência internacional de dados deve limitar-se ao mínimo necessário para o alcance de suas finalidades, abrangendo apenas dados pertinentes, proporcionais e não excessivos.
+enunciado: Situação hipotética: para viabilizar suporte técnico no exterior, uma empresa enviou ao fornecedor toda a sua base de clientes, embora bastassem os dados de contato. Assertiva: a transferência contraria o regulamento, que a limita ao mínimo necessário para suas finalidades.
 comentario: Certo: art. 9º, parágrafo único. É o princípio da necessidade (LGPD, art. 6º, III) aplicado à transferência.
 
 === ti-10
@@ -102,17 +102,17 @@ gab: C
 ref: res19 10
 trecho: A ANPD poderá reconhecer, mediante decisão de adequação, a equivalência do nível de proteção de dados pessoais de país estrangeiro ou de organismo internacional com a legislação nacional
 armadilha: conceito
-dif: 1
-enunciado: A decisão de adequação da ANPD reconhece a equivalência do nível de proteção de dados de país estrangeiro ou de organismo internacional com a legislação nacional.
+dif: 2
+enunciado: Pela decisão de adequação, a ANPD reconhece que país estrangeiro ou organismo internacional assegura nível de proteção de dados equivalente ao da legislação brasileira.
 comentario: Certo: art. 10. A primeira decisão de adequação da ANPD foi a da União Europeia (Resolução 32/2026).
 
 === ti-12
 gab: C
 ref: res19 11
 trecho: a existência e o efetivo funcionamento de um órgão regulador independente
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: Na avaliação das garantias judiciais e institucionais do país estrangeiro, a ANPD considera, entre outros fatores, a existência e o efetivo funcionamento de órgão regulador independente de proteção de dados.
+enunciado: Leis de proteção de dados no papel não bastam para a adequação de país estrangeiro: a ANPD considera também se há órgão regulador independente em efetivo funcionamento.
 comentario: Certo: art. 11, § 3º. Não basta a lei no papel: é preciso autoridade independente que a faça cumprir.
 
 === ti-13
@@ -146,9 +146,9 @@ comentario: Errado. A validade da transferência com base nas cláusulas-padrão
 gab: C
 ref: res19 16
 trecho: não poderão excluir, modificar ou contrariar, direta ou indiretamente, o disposto nas cláusulas-padrão contratuais
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: As demais disposições do contrato que incorpora as cláusulas-padrão, ou de contratos coligados, não podem excluir, modificar ou contrariar, direta ou indiretamente, o disposto nessas cláusulas.
+enunciado: Ao incorporar as cláusulas-padrão da ANPD a seu contrato, as partes podem acrescentar outras disposições, desde que estas não excluam, modifiquem nem contrariem, direta ou indiretamente, as cláusulas-padrão.
 comentario: Certo: art. 16, § 2º. As partes podem acrescentar disposições, mas sem esvaziar as garantias das cláusulas-padrão.
 
 === ti-17
@@ -173,9 +173,9 @@ comentario: Certo: art. 17, § 2º. O documento pode estar em página própria o
 gab: C
 ref: res19 18
 trecho: A ANPD poderá reconhecer a equivalência de cláusulas-padrão contratuais de outros países ou de organismos internacionais com as cláusulas previstas no Anexo II
-armadilha: conceito
+armadilha: caso
 dif: 2
-enunciado: A ANPD pode reconhecer a equivalência de cláusulas-padrão contratuais de outros países ou de organismos internacionais com as suas, e as cláusulas reconhecidas passam a ser mecanismo válido de transferência.
+enunciado: Situação hipotética: a ANPD reconheceu como equivalentes às suas as cláusulas-padrão de outro país. Assertiva: a partir de então, essas cláusulas estrangeiras passam a ser mecanismo válido de transferência internacional, observadas as condicionantes fixadas.
 comentario: Certo: arts. 18 e 20. O requerimento traz as cláusulas traduzidas, a legislação e os guias da autoridade estrangeira e análise comparativa (art. 18, § 4º).
 
 === ti-20
@@ -191,9 +191,9 @@ comentario: Errado. São excepcionais: só se aprovam quando a transferência n�
 gab: C
 ref: res19 21
 trecho: deverão prever a aplicação da legislação nacional de proteção de dados pessoais à transferência internacional de dados e a sua submissão à fiscalização da ANPD
-armadilha: literal
-dif: 2
-enunciado: As cláusulas contratuais específicas devem prever a aplicação da legislação nacional de proteção de dados à transferência e sua submissão à fiscalização da ANPD.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um controlador submeteu à ANPD cláusulas específicas que elegem a lei estrangeira como única aplicável e afastam a fiscalização da Agência. Assertiva: as cláusulas não podem ser aprovadas, pois devem prever a aplicação da legislação brasileira e a submissão à fiscalização da ANPD.
 comentario: Certo: art. 21, § 2º. E devem adotar, sempre que possível, a redação das cláusulas-padrão, indicando e justificando as específicas (art. 23).
 
 === ti-22

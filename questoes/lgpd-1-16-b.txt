@@ -7,8 +7,8 @@ ref: lgpd 2, III
 bloco: lgpd-1-4-14
 trecho: a liberdade de expressão, de informação, de comunicação e de opinião
 armadilha: rol
-dif: 1
-enunciado: A liberdade de expressão, de informação, de comunicação e de opinião é um dos fundamentos da disciplina da proteção de dados pessoais.
+dif: 2
+enunciado: A LGPD inclui entre os fundamentos da disciplina da proteção de dados as liberdades de expressão, de informação, de comunicação e de opinião, ao lado do respeito à privacidade e da autodeterminação informativa.
 comentario: Art. 2º, III. Os sete fundamentos: privacidade; autodeterminação informativa; liberdades de expressão e informação; intimidade, honra e imagem; desenvolvimento e inovação; livre iniciativa, concorrência e consumidor; direitos humanos, personalidade, dignidade e cidadania.
 
 === lgpd2-2-02
@@ -47,9 +47,9 @@ gab: C
 ref: lgpd 4, II
 bloco: lgpd-1-4-14
 trecho: a) jornalístico e artísticos
-armadilha: rol
-dif: 1
-enunciado: A LGPD não se aplica ao tratamento de dados pessoais realizado para fins exclusivamente jornalísticos e artísticos.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um jornal trata dados pessoais exclusivamente para produzir reportagem investigativa. Assertiva: esse tratamento está fora do alcance da LGPD.
 comentario: Art. 4º, II, a. Atenção ao “exclusivamente”: se houver também finalidade comercial, a exclusão deixa de valer.
 
 === lgpd2-4-02
@@ -188,9 +188,9 @@ gab: C
 ref: lgpd 15, I
 bloco: lgpd-12-16
 trecho: verificação de que a finalidade foi alcançada ou de que os dados deixaram de ser necessários ou pertinentes ao alcance da finalidade específica almejada
-armadilha: rol
+armadilha: caso
 dif: 2
-enunciado: O término do tratamento ocorre quando se verifica que a finalidade foi alcançada ou que os dados deixaram de ser necessários ou pertinentes ao alcance da finalidade específica almejada.
+enunciado: Situação hipotética: uma loja coletou dados para entregar uma compra e, concluída a entrega, os dados deixaram de ser necessários a essa finalidade. Assertiva: nesse momento, ocorre o término do tratamento previsto na LGPD.
 comentario: Art. 15, I. As quatro hipóteses de término: finalidade alcançada ou dados desnecessários; fim do período; comunicação do titular; determinação da autoridade por violação à lei.
 
 === lgpd2-16-01
@@ -208,9 +208,9 @@ gab: E
 ref: lgpd 16, III
 bloco: lgpd-12-16
 trecho: transferência a terceiro, desde que respeitados os requisitos de tratamento de dados dispostos nesta Lei
-armadilha: absoluto
+armadilha: caso
 dif: 2
-enunciado: Encerrado o tratamento, é vedada a conservação dos dados para transferência a terceiro em qualquer hipótese.
+enunciado: Situação hipotética: encerrado o tratamento, um controlador conservou dados para transferi-los a terceiro, observando todos os requisitos de tratamento da LGPD. Assertiva: a conservação é ilícita, porque a lei veda, em qualquer hipótese, conservar dados para transferência a terceiro.
 comentario: O art. 16, III, autoriza a conservação para transferência a terceiro, desde que respeitados os requisitos de tratamento da LGPD.
 
 === lgpd2-60-01
@@ -218,9 +218,9 @@ gab: C
 ref: lgpd 60
 bloco: lgpd-1-4-14
 trecho: exclusão definitiva dos dados pessoais que tiver fornecido a determinada aplicação de internet, a seu requerimento, ao término da relação entre as partes, ressalvadas as hipóteses de guarda obrigatória de registros
-armadilha: literal
-dif: 3
-enunciado: A LGPD alterou o Marco Civil da Internet para assegurar ao usuário a exclusão definitiva, a seu requerimento e ao término da relação entre as partes, dos dados pessoais fornecidos a aplicação de internet, ressalvadas as hipóteses de guarda obrigatória de registros.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: ao encerrar sua conta em rede social, o usuário pediu a exclusão definitiva dos dados que havia fornecido. Assertiva: o pedido tem amparo no Marco Civil da Internet, na redação dada pela LGPD, ressalvadas as hipóteses de guarda obrigatória de registros.
 comentario: Art. 60 da LGPD, que deu nova redação ao art. 7º, X, do Marco Civil (Lei nº 12.965/2014). A guarda obrigatória de registros está nos arts. 13 e 15 do Marco Civil.
 pesquisar: Guarda de registros de conexão e de acesso no Marco Civil da Internet
 
@@ -229,9 +229,9 @@ gab: C
 ref: lgpd 62
 bloco: lgpd-1-4-14
 trecho: A autoridade nacional e o Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (Inep), no âmbito de suas competências, editarão regulamentos específicos
-armadilha: literal
-dif: 3
-enunciado: A autoridade nacional e o Inep, no âmbito de suas competências, editarão regulamentos específicos para o acesso a dados tratados pela União relativos à avaliação da educação, incluídos os referentes ao Sinaes.
+armadilha: sujeito
+dif: 2
+enunciado: Os regulamentos específicos para o acesso a dados tratados pela União sobre a avaliação da educação, inclusive os do Sinaes, são editados pela autoridade nacional e pelo Inep, cada um no âmbito de suas competências.
 comentario: Art. 62. Dispositivo pouco lido, que menciona a LDB e a Lei do Sinaes (Lei nº 10.861/2004).
 
 === lgpd2-65-01
