@@ -106,8 +106,8 @@ await passo('treino de um artigo na lei seca: o mesmo botão continua', async ()
   await a.click('.aba[data-vista="lei"]');
   await a.click('[data-acao="ranking"]');
   await a.locator('.ranking button').first().click();
-  await a.waitForSelector('[data-acao="treinar-art"]');
-  await a.locator('[data-acao="treinar-art"]').first().click();
+  await a.waitForSelector('#vista-lei [data-acao="treinar-art"]');
+  await a.locator('#vista-lei [data-acao="treinar-art"]').first().click();
   await a.waitForSelector('#sessao:not([hidden])');
   const total = Number(/de (\d+)/.exec(await cab(a))[1]);
   if (total < 3) return;
@@ -118,7 +118,7 @@ await passo('treino de um artigo na lei seca: o mesmo botão continua', async ()
   }
   await sair(a);
   await a.click('.aba[data-vista="lei"]');
-  await a.locator('[data-acao="treinar-art"]').first().click();
+  await a.locator('#vista-lei [data-acao="treinar-art"]').first().click();
   await a.waitForSelector('#sessao:not([hidden])');
   const c = await cab(a);
   if (!/^Item 3 de/.test(c)) throw new Error('recomeçou: ' + c);

@@ -1156,6 +1156,10 @@ function termosDe(texto, limite, maxFreq) {
   achados.sort((a, b) => a.g.f - b.g.f);
   return limite ? achados.slice(0, limite) : achados;
 }
+// Palavras de polaridade (restringem, generalizam ou excepcionam) grifadas no enunciado depois da resposta: é onde o
+// Cebraspe costuma mexer. Antes da resposta, nada é grifado, para o grifo não virar pista. Só toca o texto fora das tags.
+const RE_POLARIDADE = /\b(exclusivamente|somente|apenas|unicamente|sempre|nunca|jamais|qualquer|tod[oa]s?|nenhum[a]?|salvo|exceto|desde que|ainda que|mesmo que|independentemente|vedad[oa]s?|obrigatoriamente|necessariamente|em hipótese alguma|privativ[oa]s?|exclusiv[oa]s?|automaticamente|integralmente)\b/gi;
+function marcarPolaridade(html) { return html.split(/(<[^>]+>)/).map((x) => (x.startsWith('<') ? x : x.replace(RE_POLARIDADE, '<span class="g-alerta">$&</span>'))).join(''); }
 function marcarTermos(texto, max) {
   // Envolve a primeira ocorrência de até `max` termos do glossário num botão; o resto é escapado.
   const achados = termosDe(texto, null, 0.2);
@@ -1503,6 +1507,16 @@ window.addEventListener('popstate', () => {
   sincronizarHistorico();
 });
 function decorrido() { return (Date.now() - sessao.ini) / 1000; }
+// Tempo no item (treino, revisão e batalha): conta do item aparecer até a resposta. Passa a avisar acima do ritmo de
+// prova, RITMO_PROVA_S por item (120 itens objetivos em cerca de 3 h, sobrando tempo para a discursiva; hipótese até o
+// edital). O relâmpago e o simulado têm relógio próprio.
+const RITMO_PROVA_S = 90;
+function comTempoItem() { return sessao && !['simulado', 'relampago', 'cards'].includes(sessao.modo); }
+function segItem() { const id = sessao.ids[sessao.i], t = (sessao.tempos || {})[id]; return t != null ? t : Math.round((Date.now() - (sessao.itemIni || Date.now())) / 1000); }
+function htmlTempoItem() {
+  const s = segItem();
+  return '<span class="t-item mono' + (s > RITMO_PROVA_S ? ' lento' : '') + '" id="t-item" title="Tempo neste item; ritmo de prova: até ' + fmtTempo(RITMO_PROVA_S) + '">' + fmtTempo(s) + '</span>';
+}
 function tique() {
   if (!sessao || sessao.fim) return;
   const el = document.getElementById('relogio');
@@ -1511,6 +1525,8 @@ function tique() {
     if (resta <= 0) { finalizar(); return; }
     if (el) { el.textContent = fmtTempo(resta); el.classList.toggle('urgente', resta <= 15 || (sessao.modo === 'simulado' && resta <= 300)); }
   } else if (el) el.textContent = fmtTempo(decorrido());
+  const ti = document.getElementById('t-item');
+  if (ti && comTempoItem() && !sessao.revelado) { const s = segItem(); ti.textContent = fmtTempo(s); ti.classList.toggle('lento', s > RITMO_PROVA_S); }
 }
 function responder(resp) {
   if (!sessao || sessao.fim || sessao.modo === 'cards') return;
@@ -1525,6 +1541,7 @@ function responder(resp) {
     return;
   }
   if (sessao.revelado || sessao.flash) return;
+  if (comTempoItem() && sessao.itemIni) (sessao.tempos ||= {})[id] = Math.round((Date.now() - sessao.itemIni) / 1000);
   if (resp === BRANCO) { defender(q, id); return; }
   // Virada: acertar um item cuja última resposta foi erro. É onde o aprendizado aparece: se o erro foi em outro dia,
   // o XP dobra; no mesmo dia (logo depois de ler o comentário), ganha só um pouco a mais
@@ -2753,13 +2770,14 @@ function renderSessao() {
   if (!sessao) return;
   if (sessao.fim) { el.innerHTML = '<div class="sessao-corpo">' + (sessao.modo === 'cards' ? renderResultadoCards() : renderResultado()) + '</div>'; return; }
   const total = sessao.modo === 'relampago' ? null : sessao.ids.length;
+  if (comTempoItem() && sessao.itemDe !== sessao.ids[sessao.i]) { sessao.itemDe = sessao.ids[sessao.i]; sessao.itemIni = Date.now(); }
   const relogio = sessao.limite ? fmtTempo(sessao.limite - decorrido()) : fmtTempo(decorrido());
   let html = '<div class="sessao-corpo"><div class="sessao-topo"><button class="icone-btn" data-acao="sair-sessao" aria-label="Sair da sessão"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>' +
     '<div class="tit"><b>' + esc(sessao.titulo) + '</b><span>' + (total ? (sessao.modo === 'cards' ? 'Card ' : 'Item ') + ((sessao.feitasAntes || 0) + sessao.i + 1) + ' de ' + (sessao.totalOrig || total) : 'Item ' + (sessao.i + 1)) + (sessao.xp ? ' · +' + sessao.xp + ' XP' : '') + '</span></div>' +
     (!UI.foco && sessao.modo !== 'simulado' && sessao.modo !== 'cards' && sessao.combo >= 2 ? '<span class="combo' + (sessao.revelado || sessao.flash ? ' pulso' : '') + '">combo ×' + sessao.combo + '</span>' : '') +
     '<button class="icone-btn" data-acao="foco" aria-pressed="' + !!UI.foco + '" aria-label="' + (UI.foco ? 'Mostrar a arena' : 'Modo foco: esconder a arena e o combo') + '" title="' + (UI.foco ? 'Modo foco ligado' : 'Modo foco desligado') + '"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></button>' +
     '<button class="icone-btn som" data-acao="som" aria-pressed="' + !!UI.som + '" aria-label="' + (UI.som ? 'Desligar o som' : 'Ligar o som') + '" title="' + (UI.som ? 'Som ligado' : 'Som desligado') + '">' + iconeSom(!!UI.som) + '</button>' +
-    '<span class="relogio" id="relogio">' + relogio + '</span></div>';
+    (comTempoItem() ? htmlTempoItem() : '') + '<span class="relogio" id="relogio">' + relogio + '</span></div>';
   if (sessao.confirmar) html += renderConfirmacao();
   if (sessao.modo === 'cards') html += barra(sessao.i / sessao.ids.length) + renderCardSessao(CI.get(sessao.ids[sessao.i]));
   else { html += renderArena(QI.get(sessao.ids[sessao.i])); if (total) html += renderTira(); html += renderItem(QI.get(sessao.ids[sessao.i])); }
@@ -2815,7 +2833,7 @@ function renderItem(q) {
   let html = '<article class="item"><div class="item-cab"><span class="selo mono">' + esc(nomeBloco(q.b)) + '</span>' + seloReal(q) + '<span class="item-num">' + esc(q.id) + '</span></div>';
   html += renderApoio(q, sessao.i === 0 || sim || !sessao.ids.slice(0, sessao.i).some((x) => QI.get(x).ap === q.ap));
   html += renderComando(q);
-  html += '<p class="enunciado">' + (sessao.revelado ? marcarTermos(q.e, 3) : esc(q.e)) + '</p>';
+  html += '<p class="enunciado">' + (sessao.revelado ? marcarPolaridade(marcarTermos(q.e, 3)) : esc(q.e)) + '</p>';
   html += renderAlternativas(q, marcada, sessao.revelado || !!sessao.flash);
   if (sessao.flash) {
     html += '<div class="veredito ' + sessao.flash + '"><span>' + (sessao.flash === 'ok' ? 'Certo' : 'Errado: gabarito ' + nomeGab(q).toUpperCase()) + '</span>' + (sessao.ultimoGanho ? '<span class="ganho">+' + sessao.ultimoGanho + ' XP</span>' : '') + '</div>';
@@ -2836,6 +2854,7 @@ function renderItem(q) {
     html += '<div class="veredito ' + (br ? 'defesa' : ok ? 'ok' : 'no') + '"><span>' + (br ? 'Em branco: defesa, sem perder coração. O gabarito é ' + gab + '.' : ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + gab + '.') + '</span>' +
       (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP' + (br ? '' : sessao.virada === 'plena' ? ' <small>virada</small>' : caiuEmProva(q) && sessao.modo !== 'relampago' ? ' <small>crítico</small>' : '') + '</span>' : '<span class="pequeno">' + (SEM_REPETICAO.has(id) ? 'Este texto não volta: vêm outros' : 'Foi para a lista curta') + '</span>') + '</div>';
     html += renderCaca(q);
+    if (!ok && !br && sessao.modo !== 'simulado') html += renderCausaAgora(q);
     html += extrasResposta(q);
     html += renderExplicacao(q, cacaAtiva(q) && !(sessao.peg || {})[q.id]);
     html += '<button class="btn primario largo" data-acao="proximo">' + (sessao.i < sessao.ids.length - 1 ? 'Próximo item' : 'Ver resultado') + '</button><p class="atalhos">Enter = próximo</p>';
@@ -2966,6 +2985,11 @@ function renderResultado() {
   });
   const liq = c - (e - eMc), n = ids.length;
   let html = '<div class="sessao-topo"><div class="tit"><b>' + esc(sessao.titulo) + '</b><span>Resultado · ' + fmtTempo(sessao.dur) + '</span></div><button class="btn" data-acao="fechar-sessao">Concluir</button></div>';
+  const tempos = Object.values(sessao.tempos || {});
+  if (tempos.length >= 3) {
+    const lentos = tempos.filter((x) => x > RITMO_PROVA_S).length, media = Math.round(tempos.reduce((a, b) => a + b, 0) / tempos.length);
+    html += '<p class="pequeno ritmo-sessao">Tempo por item: média de ' + fmtTempo(media) + (lentos ? '; ' + pl(lentos, 'item passou', 'itens passaram') + ' de ' + fmtTempo(RITMO_PROVA_S) + ', o ritmo de prova.' : '; todos dentro do ritmo de prova (' + fmtTempo(RITMO_PROVA_S) + ').') + '</p>';
+  }
   html += cartaoBatalha();
   html += '<div class="cartao destaque"><span class="rotulo">Nota líquida Cebraspe (certas − erradas)</span><div class="nota-final"><span class="grande">' + liq + '</span><span class="mudo">de ' + n + ' possíveis · ' + (n ? Math.round((liq / n) * 100) : 0) + '%</span></div>' +
     '<div class="placar"><div class="C"><b>' + c + '</b><span>certas</span></div><div class="E"><b>' + e + '</b><span>erradas</span></div><div><b>' + b + '</b><span>em branco</span></div><div class="L"><b>+' + sessao.xp + '</b><span>XP</span></div></div>';
@@ -4641,6 +4665,7 @@ function renderDiscursiva() {
       '<textarea id="disc-texto" class="disc-area-30" rows="' + t.linhas + '" style="min-height:' + (t.linhas * 24 + 16) + 'px" spellcheck="false"' + (corrigindo ? ' readonly' : '') + ' placeholder="Escreva aqui o seu texto discursivo, parágrafo por parágrafo, contemplando todos os aspectos do comando...">' + esc(st.rascunho) + '</textarea>' +
     '</div>';
   if (!corrigindo) {
+    html += CHECK_DISC;
     html += '<div class="linha-btns" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px">' +
       '<button class="btn primario" data-acao="disc-corrigir">Terminei: corrigir pelos quesitos</button>' +
       '<button class="btn" data-acao="disc-salvar-rascunho" title="Salva imediatamente o rascunho no navegador">Salvar rascunho</button>' +
@@ -4775,6 +4800,16 @@ function caixaCadernoErro(q) {
     '<div style="display:flex;gap:6px;margin-top:6px"><input class="busca" id="ce-nota-' + esc(q.id) + '" style="font-size:.82rem" placeholder="Regra de 1 linha para não errar de novo (ex.: prazo é 3 dias úteis, não 72h)" value="' + esc(ce.nota || '') + '">' +
     '<button class="btn pequeno" data-acao="salvar-nota-erro" data-q="' + esc(q.id) + '">Salvar regra</button></div></div>';
 }
+// Autoverificação antes de corrigir a discursiva: o que a banca cobra na forma de uma manifestação técnica (nota técnica
+// ou parecer). Só marca para a própria pessoa conferir; não entra na nota.
+const CHECK_DISC = '<details class="check-disc"><summary>Antes de corrigir: confira o texto</summary><ul>' + [
+  'Respondi a todos os aspectos do comando, na ordem pedida.',
+  'Cada afirmação jurídica tem o dispositivo (artigo, inciso, resolução).',
+  'Enquadrei os agentes (controlador, operador, encarregado) e a hipótese legal (art. 7º ou, para dado sensível, art. 11).',
+  'Disse quem decide e com base em quê: ANPD, Conselho Diretor, Coordenação-Geral de Fiscalização, com a norma que dá a competência.',
+  'Fechei com uma conclusão que responde à pergunta do comando, sem tema novo.',
+  'Fiquei dentro do limite de linhas e sem marcas de identificação.',
+].map((x) => '<li><label><input type="checkbox"> ' + x + '</label></li>').join('') + '</ul></details>';
 const CAUSAS_ERRO = [
   ['nao-sabia', 'Não sabia o ponto', 'Voltar à lei seca só naquele dispositivo e revisar os cards do artigo.'],
   ['leu-errado', 'Li errado o comando', 'Sublinhar as palavras de comando (exceto, somente, vedado, pode, deve) antes de julgar o item.'],
@@ -4782,6 +4817,13 @@ const CAUSAS_ERRO = [
   ['chute', 'Chutei sem convicção', 'No Cebraspe, chute duvidoso dá prejuízo esperado negativo. Deixe em branco se a chance for < 50%.'],
 ];
 function causaDe(k) { return CAUSAS_ERRO.find((c) => c[0] === k); }
+// Causa do erro marcada na hora, na própria correção do item; vai para o Caderno de Erros e para o placar de causas
+function renderCausaAgora(q) {
+  const atual = (cadState().erros[q.id] || {}).causa;
+  return '<div class="causa-agora" role="group" aria-label="Por que errou"><span class="pequeno">Por que errou?</span><div class="chips">' +
+    CAUSAS_ERRO.map(([k, rot]) => '<button class="chip" data-acao="causa-agora" data-causa="' + k + '" aria-pressed="' + (atual === k) + '">' + esc(rot) + '</button>').join('') + '</div>' +
+    (atual ? '<p class="pequeno mudo">' + esc(causaDe(atual)[2]) + '</p>' : '') + '</div>';
+}
 function errosDoBanco() {
   return Q.filter((q) => { const r = rec(q.id); return (r && r[3] > 0) || (cadState().erros[q.id] && cadState().erros[q.id].causa); });
 }
@@ -5085,6 +5127,13 @@ async function executar(a, alvo) {
     case 'revelar': proximo(); break;
     case 'avaliar': avaliar(Number(alvo.dataset.n)); break;
     case 'pegadinha': cacarPegadinha(alvo.dataset.t); break;
+    case 'causa-agora': {
+      const q = sessao && QI.get(sessao.ids[sessao.i]);
+      if (!q || !causaDe(alvo.dataset.causa)) break;
+      const e = (cadState().erros[q.id] ||= {});
+      e.causa = alvo.dataset.causa; e.data = hojeISO();
+      Store.salvar('perfil'); renderSessao(); break;
+    }
     case 'proximo': proximo(); break;
     case 'som': UI.som = !UI.som; salvarUI(); tocar('acerto'); renderSessao(); break;
     case 'foco': UI.foco = !UI.foco; salvarUI(); renderSessao(); break;
