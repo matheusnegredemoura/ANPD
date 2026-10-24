@@ -120,28 +120,6 @@ apoio: @ANV24A
 enunciado: One of the challenges in manufacturing lab-grown chicken meat is its short shelf life and the specific nature of the cells that can be used in the process.
 comentario: Errado. The text says the opposite: stored cells can be used for at least ten years and can come from several sources (biopsies, feathers, eggs). It mentions no short shelf life nor a restriction on the cells.
 
-=== anvisa-2024-cebraspe-018
-bloco: dados-bi
-gab: E
-origem: real
-prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (TI, Governança e Regulação)
-ref: doutrina Políticas públicas, gestão estratégica, projetos e processos
-armadilha: conceito
-dif: 2
-enunciado: Uma vez que o serviço da ANVISA que permite emitir o certificado internacional de vacinação está disponível na Web, tal como apresentado na figura precedente, é correto concluir que o site da ANVISA está hospedado na nuvem através de um serviço de PaaS (platform as a service).
-comentario: Errado. Um serviço estar disponível na web não revela se o site está em nuvem, muito menos o modelo (IaaS, PaaS ou SaaS): ele pode estar em servidores próprios do órgão.
-
-=== anvisa-2024-cebraspe-019
-bloco: seginfo
-gab: E
-origem: real
-prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (TI, Governança e Regulação)
-ref: doutrina Políticas públicas, gestão estratégica, projetos e processos
-armadilha: conceito
-dif: 2
-enunciado: Ao se observar a barra de endereços da figura, percebe-se que o site da ANVISA faz uso do protocolo HTTPS, logo, os serviços oferecidos por esse site são protegidos de pragas virtuais, uma vez que, nesse protocolo, é realizada varredura contra malwares em toda a comunicação entre usuário e provedor.
-comentario: Errado. O HTTPS cifra a comunicação e autentica o servidor (TLS), mas não faz varredura de malware: um site com cadeado pode distribuir arquivos maliciosos.
-
 === anvisa-2024-cebraspe-020
 bloco: ia
 gab: C
