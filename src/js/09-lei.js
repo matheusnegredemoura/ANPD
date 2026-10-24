@@ -271,6 +271,7 @@ function renderLei() {
   const el = document.getElementById('vista-lei');
   if (!Object.keys(LEIS).length) { el.innerHTML = '<p class="vazio-msg">Nenhum texto legal anexado ainda.</p>'; return; }
   if (!LEIS[UI.lei]) UI.lei = LEIS.lgpd ? 'lgpd' : Object.keys(LEIS)[0];
+  el.classList.toggle('com-artigo', !!(UI.artSel && ARTI.get(UI.artSel)));
   if (UI.artSel && ARTI.get(UI.artSel)) { el.innerHTML = renderArtigo(UI.artSel); return; }
   UI.artSel = null;
   const L = LEIS[UI.lei];
@@ -468,10 +469,11 @@ function renderArtigo(k) {
     }
   }
   const fria = leituraFria(k);
-  html += '<div class="cartao' + (fria ? ' fria' : '') + '"><span class="rotulo">' + esc([L.curto].concat(a.estrutura).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +
+  // Em tela larga, o texto da lei fica à esquerda e o português claro, os avisos e os erros, ao lado (art-lado)
+  html += '<div class="cartao art-cartao' + (fria ? ' fria' : '') + '"><span class="rotulo">' + esc([L.curto].concat(a.estrutura).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2><div class="art-lado">' +
     avisoVuln + gavetaErrosArt(qs) +
     (fria ? '<div class="fria-aviso"><span>Leitura fria: você já leu este artigo. Leia sem grifos e ache sozinho prazos, verbos e exceções.</span><button class="btn pequeno" data-acao="conferir-fria" data-art="' + esc(k) + '">Conferir com grifos</button></div>' : '') +
-    htmlClaro(a) + legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div>' + caixaJuridiques(a) + '<div class="linha-btns">';
+    htmlClaro(a) + '</div><div class="art-texto">' + legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div>' + caixaJuridiques(a) + '<div class="linha-btns">';
   if (qs.length) html += '<button class="btn primario" data-acao="treinar-art" data-art="' + esc(k) + '">Questões deste artigo (' + qs.length + ')</button>';
   if (cs.length) html += '<button class="btn" data-acao="cards-art" data-art="' + esc(k) + '">Cards deste artigo (' + cs.length + ')</button>';
   if (PODE_FALAR) html += '<button class="btn" data-acao="ouvir-art" data-art="' + esc(k) + '">' + rotuloFala(k) + '</button>';
@@ -479,6 +481,6 @@ function renderArtigo(k) {
   if (!qs.length && !cs.length) html += '<p class="mudo pequeno">Nenhuma questão ou card do banco cita este artigo diretamente.</p>';
   const termos = termosDe(a.texto, 5, 0.5);
   if (termos.length) html += '<div class="pesquisar-box"><span class="rotulo">Termos deste artigo para entender</span><div class="chips">' + termos.map((t) => '<button class="chip termo-chip" data-acao="termo" data-t="' + t.g.i + '">' + esc(t.g.t) + '</button>').join('') + '</div></div>';
-  return html + '</div>';
+  return html + '</div></div>';
 }
 

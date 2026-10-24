@@ -542,6 +542,18 @@ function poolDe(blocos, banca) {
   const filtrada = f ? base.filter(f) : base;
   return filtrada.length ? filtrada : base;
 }
+// O banco autoral é mais fácil que a banca (na dificuldade 2, 81% de acerto contra 65% nos itens reais do Cebraspe,
+// nos dados de outubro/2026). Quem já acerta 80% ou mais dos autorais na primeira resposta (com pelo menos 100 deles)
+// recebe primeiro os difíceis; abaixo disso, a ordem é sorteada.
+let desafioCache = null;
+function desafioAutoral() {
+  const chave = hojeISO() + '|' + Object.keys(S.itens).length;
+  if (desafioCache && desafioCache.chave === chave) return desafioCache.v;
+  let c = 0, n = 0;
+  for (const [id, r] of Object.entries(S.itens)) { const q = QI.get(id); if (q && !q.o && r[7] != null) { c += r[7]; n++; } }
+  desafioCache = { chave, v: n >= 100 && c / n >= 0.8 };
+  return desafioCache.v;
+}
 function selecionar(pool, n, filtro) {
   const hoje = HOJE();
   const venc = [], novas = [], lista = [], domV = [], resto = [];
@@ -558,6 +570,8 @@ function selecionar(pool, n, filtro) {
   // Inéditas com pelo menos REAIS_TREINO de itens reais (ou a proporção natural do bloco, se for maior), intercalados
   {
     const reaisN = embaralhar(novas.filter((q) => q.o)), bancoN = embaralhar(novas.filter((q) => !q.o));
+    // Desafio: com 80% ou mais de acerto na primeira resposta dos autorais, os mais difíceis vêm primeiro
+    if (desafioAutoral()) bancoN.sort((a, b) => (b.d || 2) - (a.d || 2));
     const alvo = Math.max(REAIS_TREINO, reaisN.length / (novas.length || 1));
     novas.length = 0;
     for (let i = 0; reaisN.length || bancoN.length; i++) {
@@ -643,8 +657,17 @@ function selecionarIntercaladas(n) {
   const nL = pesoL ? Math.round(n * (partL < pesoL ? 0.4 : 0.2)) : 0;
   const escolhidos = [], usados = new Set();
   const pega = (pool, k) => { if (k > 0) selecionar(pool.filter((q) => !usados.has(q.id)), k, 'mistas').forEach((q) => { usados.add(q.id); escolhidos.push(q); }); };
-  pega(POR_BLOCO.get('portugues') || [], Math.ceil(nL / 2));
-  pega(POR_BLOCO.get('ingles') || [], nL - Math.ceil(nL / 2));
+  // Línguas em pares do mesmo texto: ler um texto para responder dois itens, como no caderno
+  const doTexto = (bloco, k) => {
+    if (k <= 0) return;
+    const q = selecionar((POR_BLOCO.get(bloco) || []).filter((x) => !usados.has(x.id)), 1, 'mistas')[0];
+    if (!q) return;
+    const irmaos = q.ap == null ? [] : (POR_APOIO.get(q.ap) || []).filter((x) => x.id !== q.id && !usados.has(x.id) && !RESERVA_MEDIDA.has(x.id) && !x.al).sort((a, b) => !!rec(a.id) - !!rec(b.id));
+    [q].concat(irmaos).slice(0, k).forEach((x) => { usados.add(x.id); escolhidos.push(x); });
+    if (escolhidos.filter((x) => x.b === bloco).length < k) pega(POR_BLOCO.get(bloco) || [], k - escolhidos.filter((x) => x.b === bloco).length);
+  };
+  doTexto('portugues', Math.ceil(nL / 2));
+  doTexto('ingles', nL - Math.ceil(nL / 2));
   const estudados = blocosEstudados(), rf = disciplinaReforco(est);
   if (rf) {
     const daDisc = (b) => (BI.get(b) || {}).disciplina === rf.d;

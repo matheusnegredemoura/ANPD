@@ -88,7 +88,8 @@ await passo('item com fonte não anexada mostra o aviso', async () => {
   await p.click('[data-acao="preset"][data-preset="nada"]');
   await p.check('input[data-acao="toggle-bloco"][data-bloco="lei-9784"]');
   await p.click('[data-acao="comecar"]');
-  await p.click('.bolha.c');
+  await p.waitForSelector('#sessao:not([hidden]) .item-num');
+  await responder(p);
   await p.waitForSelector('.veredito');
   await sairDaSessao(p);
   await p.click('[data-acao="preset"][data-preset="nada"]').catch(() => {});

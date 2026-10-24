@@ -167,11 +167,14 @@ function ordemProva(q) { const m = /(?:item|questão) (\d+)/.exec(q.pv || ''); r
 function renderComando(q) { return q.cm ? '<p class="comando">' + esc(q.cm) + '</p>' : ''; }
 function renderItem(q) {
   const id = q.id, sim = sessao.modo === 'simulado', marcada = sessao.resp[id];
-  let html = '<article class="item"><div class="item-cab"><span class="selo mono">' + esc(nomeBloco(q.b)) + '</span>' + seloReal(q) + '<span class="item-num">' + esc(q.id) + '</span></div>';
+  let html = '<div class="item-cab"><span class="selo mono">' + esc(nomeBloco(q.b)) + '</span>' + seloReal(q) + '<span class="item-num">' + esc(q.id) + '</span></div>';
   html += renderApoio(q, sessao.i === 0 || sim || !sessao.ids.slice(0, sessao.i).some((x) => QI.get(x).ap === q.ap));
   html += renderComando(q);
   html += '<p class="enunciado">' + (sessao.revelado ? marcarPolaridade(marcarTermos(q.e, 3)) : esc(q.e)) + '</p>';
   html += renderAlternativas(q, marcada, sessao.revelado || !!sessao.flash);
+  // Depois da resposta, em tela larga, o item fica à esquerda e o gabarito comentado à direita
+  const esq = html, dupla = !sessao.flash && sessao.revelado;
+  html = '';
   if (sessao.flash) {
     html += '<div class="veredito ' + sessao.flash + '"><span>' + (sessao.flash === 'ok' ? 'Certo' : 'Errado: gabarito ' + nomeGab(q).toUpperCase()) + '</span>' + (sessao.ultimoGanho ? '<span class="ganho">+' + sessao.ultimoGanho + ' XP</span>' : '') + '</div>';
   } else if (!sessao.revelado) {
@@ -195,7 +198,7 @@ function renderItem(q) {
     html += renderExplicacao(q);
     html += '<button class="btn primario largo" data-acao="proximo">' + (sessao.i < sessao.ids.length - 1 ? 'Próximo item' : 'Ver resultado') + '</button><p class="atalhos">Enter = próximo</p>';
   }
-  return html + '</article>';
+  return dupla ? '<article class="item dupla"><div class="item-esq">' + esq + '</div><div class="item-dir">' + html + '</div></article>' : '<article class="item">' + esq + html + '</article>';
 }
 function renderExplicacao(q) {
   let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</span>';

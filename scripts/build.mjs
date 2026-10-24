@@ -96,6 +96,19 @@ export function rotuloRef(ref) {
 
 const FONTES_SEM_CONFERIR = new Set(['doutrina', 'texto']);
 
+// Fração dos trigramas do enunciado que aparecem no trecho citado. Item autoral que copia 60% ou mais da lei é fácil
+// (88% de acerto na primeira resposta, contra 65% nos itens reais de dificuldade 2): a dificuldade dele vai para 1.
+const semAcento = (t) => (t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(Boolean);
+export function copiaDoTrecho(enunciado, trechos) {
+  const e = semAcento(enunciado), t = semAcento((trechos || []).join(' '));
+  if (e.length < 6 || t.length < 3) return 0;
+  const tri = new Set();
+  for (let i = 0; i + 2 < t.length; i++) tri.add(t[i] + ' ' + t[i + 1] + ' ' + t[i + 2]);
+  let n = 0;
+  for (let i = 0; i + 2 < e.length; i++) if (tri.has(e[i] + ' ' + e[i + 1] + ' ' + e[i + 2])) n++;
+  return n / (e.length - 2);
+}
+
 function compactar(questoes, leisAnexadas) {
   const apoios = [];
   const lista = questoes.map((q) => {
@@ -115,7 +128,7 @@ function compactar(questoes, leisAnexadas) {
       r: rotuloRef(q.ref),
       t: q.trecho,
       a: q.armadilha || 'literal',
-      d: Number(q.dif || 2),
+      d: q.origem !== 'real' && copiaDoTrecho(q.enunciado, q.trecho) >= 0.6 ? 1 : Number(q.dif || 2),
       e: q.enunciado,
       al: q.alt.length ? q.alt.map((x) => x.replace(/^[A-E]\s*\|\s*/, '')) : undefined,
       c: q.comentario,

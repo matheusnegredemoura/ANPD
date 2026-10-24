@@ -885,3 +885,36 @@ body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}
 .jornada-resumo{cursor:pointer;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;list-style-position:inside}
 .jornada details[open]>.jornada-resumo{margin-bottom:10px}
 .dia-curto{margin:0 0 10px;padding:8px 10px;border-radius:8px;background:var(--accent-2)}
+
+/* Item depois da resposta: no celular, os dois lados seguem empilhados como antes */
+.item-esq,.item-dir{display:contents}
+
+/* Tela larga (monitor, ultrawide): abas numa coluna à esquerda, cartões em colunas, sessão com o item à esquerda e o
+   gabarito comentado à direita. A altura útil de uma ultrawide é curta, então a barra de baixo vira trilho lateral. */
+@media (min-width:1200px){
+  :root{--trilho:96px;--abas-h:0px}
+  .app{max-width:none;margin:0;padding-left:calc(var(--trilho) + 32px);padding-right:32px;padding-bottom:32px}
+  .topo{margin-inline:-32px;padding-inline:32px}
+  .abas{top:0;bottom:0;right:auto;width:var(--trilho);flex-direction:column;justify-content:center;gap:6px;border-top:0;border-right:1px solid var(--line);padding:16px 8px}
+  .abas>.aba{flex:0 0 auto;max-width:none;width:100%;padding:12px 4px;font-size:.78rem}
+  #vista-hoje,#vista-questoes,#vista-cards,#vista-mais,#vista-lei{display:block;column-width:460px;column-gap:24px}
+  #vista-mais,#vista-lei{column-width:540px}
+  .vista>*{break-inside:avoid;margin:0 0 18px}
+  .vista>.secao-cab,.vista>.voltar,.vista>.menu-mais{column-span:all}
+  .menu-mais{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:10px}
+  .sessao-corpo{max-width:1600px;padding-inline:32px}
+  .sessao-corpo>.item:not(.dupla){width:100%;max-width:960px;align-self:center}
+  .item.dupla{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+  .item.dupla>.item-esq,.item.dupla>.item-dir{display:flex;flex-direction:column;gap:14px;min-width:0}
+  .item.dupla>.item-dir{position:sticky;top:12px}
+  .folha-painel{max-width:1100px}
+}
+.art-lado,.art-texto{display:contents}
+@media (min-width:1200px){
+  #vista-lei.com-artigo{display:flex;flex-direction:column;gap:18px;max-width:1500px}
+  #vista-lei.com-artigo>*{margin:0}
+  .art-cartao{display:grid;grid-template-columns:minmax(0,80ch) minmax(320px,1fr);column-gap:36px;align-items:start}
+  .art-cartao>.rotulo,.art-cartao>h2{grid-column:1 / -1}
+  .art-cartao>.art-texto{grid-column:1;grid-row:3;display:flex;flex-direction:column;gap:12px;min-width:0}
+  .art-cartao>.art-lado{grid-column:2;grid-row:3;display:flex;flex-direction:column;gap:12px;min-width:0;position:sticky;top:12px}
+}

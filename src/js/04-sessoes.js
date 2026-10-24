@@ -160,7 +160,7 @@ function iniciarSessao(cfg) {
   else if (cfg.modo === 'relampago') itens = embaralhar(poolDe(cfg.blocos).filter((q) => !q.al));
   else itens = selecionar(poolDe(cfg.blocos, cfg.banca), cfg.n || 20, cfg.filtro || 'mistas');
   if (!itens.length) { avisar('!', 'Sem itens', 'Nenhuma questão disponível com esse filtro.'); return; }
-  if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && !cfg.prova && cfg.modo !== 'revisao', cfg.blocos && cfg.blocos.length && !cfg.prova && !cfg.intercalado ? new Set(cfg.blocos) : null);
+  if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && !cfg.prova && !cfg.intercalado && cfg.modo !== 'revisao', cfg.blocos && cfg.blocos.length && !cfg.prova && !cfg.intercalado ? new Set(cfg.blocos) : null);
   sessao = novaSessao(cfg, itens.map((q) => q.id));
   abrirSessao();
 }

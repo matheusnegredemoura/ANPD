@@ -184,7 +184,7 @@ const REAIS = Q.filter((q) => q.o && /cebraspe|cespe/i.test(q.pv || ''));
 // que perto da prova ainda haja itens reais intocados para medir a prontidão em condição de prova. Os outros entram no
 // treino com cota mínima (REAIS_TREINO) entre os itens novos, porque o banco é mais fácil que a prova.
 const RESERVA_MEDIDA = new Set(REAIS.filter((q) => hashTxt('reserva:' + q.id) % 10 < 4).map((q) => q.id));
-const REAIS_TREINO = 0.25;
+const REAIS_TREINO = 1 / 3;
 // Discursiva: temas com quesitos; a linha manuscrita da folha de texto definitivo é estimada em 70 caracteres
 const TEMAS_DISC = (D.discursivas && D.discursivas.temas) || [];
 const CARACTERES_LINHA = 70;
