@@ -2593,6 +2593,7 @@ function renderSessao() {
   if (sessao.modo === 'cards') html += barra(sessao.i / sessao.ids.length) + renderCardSessao(CI.get(sessao.ids[sessao.i]));
   else { html += renderArena(QI.get(sessao.ids[sessao.i])); if (total) html += renderTira(); html += renderItem(QI.get(sessao.ids[sessao.i])); }
   el.innerHTML = html + '</div>';
+  centrarTira();
 }
 function renderTira() {
   const atual = sessao.ids[sessao.i];
@@ -2605,6 +2606,11 @@ function renderTira() {
     const i = '<i class="' + cls.trim() + '"></i>';
     return sessao.modo === 'simulado' ? '<button data-acao="ir-item" data-i="' + k + '" aria-label="Item ' + (k + 1) + ': ' + (r ? (r === BRANCO ? 'em branco' : 'marcado') : 'sem resposta') + '"' + (id === atual ? ' aria-current="step"' : '') + '>' + i + '</button>' : i;
   }).join('') + '</div>';
+}
+// A folha de respostas é uma fita de uma linha: mantém a bolinha do item atual no meio
+function centrarTira() {
+  const t = document.querySelector('#sessao .tira'), at = t && t.querySelector('.atual');
+  if (at) t.scrollLeft = at.getBoundingClientRect().left - t.getBoundingClientRect().left + t.scrollLeft - t.clientWidth / 2;
 }
 function renderApoio(q, aberto) {
   if (q.ap == null) return '';
@@ -2863,6 +2869,9 @@ function abrirArtInline(alvo) {
     UI.artInline = aberta ? aberta.dataset.art : null;
     return;
   }
+  // Artigo já aberto mais acima na mesma cadeia de remissões: em vez de abrir de novo dentro dele mesmo, leva até lá
+  const ancestral = box.parentElement && box.parentElement.closest('.art-inline[data-art="' + k + '"]');
+  if (ancestral) { ancestral.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
   const lista = box.dataset.lista ? box.dataset.lista.split(',') : null;
   box.innerHTML = htmlArtInline(k, alvo.dataset.q || box.dataset.q, lista, alvo.dataset.box, box.classList.contains('remissao'));
   if (alvo.dataset.q) box.dataset.q = alvo.dataset.q;
@@ -5113,6 +5122,34 @@ document.addEventListener('change', (ev) => {
 // Sair da caixa de texto da discursiva grava o rascunho na hora, sem esperar a pausa da digitação
 document.addEventListener('focusout', (ev) => { if (ev.target && ev.target.id === 'disc-texto') guardarRascunhoDisc(); });
 document.addEventListener('focusin', (ev) => { if (ev.target && ev.target.id === 'disc-texto') crescerDisc(ev.target); });
+// Outra aba do painel gravou no navegador: junta o que ela tem com o que está aqui (como no Juntar do backup), para
+// nenhuma apagar o progresso da outra; não grava de volta aqui, a próxima gravação normal já leva a junção
+window.addEventListener('storage', (ev) => {
+  if (ev.key !== CHAVE_LOCAL || !ev.newValue || !Store.localLido) return;
+  let d;
+  try { d = JSON.parse(ev.newValue); } catch (e) { return; }
+  if (!d || !d.perfil) return;
+  const ep = S.perfil.ep;
+  S.perfil = Object.assign(perfilPadrao(), mesclarDoc('perfil', d.perfil, S.perfil, true));
+  if (ep) S.perfil.ep = ep; else delete S.perfil.ep;
+  podarPerfil();
+  S.itens = mesclarDoc('itens', { q: d.itens || {} }, { q: S.itens }).q;
+  S.cards = mesclarDoc('cards', { c: d.cards || {} }, { c: S.cards }).c;
+  S.simulados = mesclarDoc('simulados', { lista: d.simulados || [] }, { lista: S.simulados }, true).lista;
+  S.pesquisa = mesclarDoc('pesquisa', { p: d.pesquisa || {} }, { p: S.pesquisa }, true).p;
+  S.disc = mesclarDoc('discursivas', { d: d.disc || {} }, { d: S.disc }, true).d;
+  if (!sessao) renderTudo();
+});
+// Teclado do celular aberto de verdade (a área visível encolhe): o que é fixo embaixo sai do caminho. Pelo foco não dá:
+// no Android, fechar o teclado com o Voltar mantém o campo focado
+if (window.visualViewport) {
+  let alturaMax = window.visualViewport.height;
+  window.visualViewport.addEventListener('resize', () => {
+    const h = window.visualViewport.height;
+    if (h > alturaMax) alturaMax = h;
+    document.body.classList.toggle('kb-aberto', h < alturaMax * 0.75);
+  });
+}
 // Partes recolhidas (<details data-det>) continuam abertas ou fechadas quando a tela é redesenhada
 document.addEventListener('toggle', (ev) => { const d = ev.target; if (d && d.dataset && d.dataset.det) UI.det[d.dataset.det] = d.open; }, true);
 document.addEventListener('input', (ev) => {

@@ -30,6 +30,8 @@
   --f-corpo:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',sans-serif;
   --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
   --r:12px;
+  --r-comum:#5f716a;--r-raro:#2563c4;--r-epico:#7c3aad;--r-lend:#9a5f06;--hp:#c9372a;--hp-trilho:#f2dcd8;--arena-bg:#18221f;--arena-ink:#eef3f1;--arena-mudo:#a3b5ae;--arena-line:#2f3e39;--arena-trilho:#3d2a26;--arena-ouro:#f2c46b;--arena-hp:#ff7a68;
+  --ramo-1:#2a78d6;--ramo-2:#eb6834;--ramo-3:#1baf7a;--ramo-4:#eda100;--ramo-5:#e87ba4;--ramo-6:#7a6bd6;
   --abas-h:64px;
   color-scheme:light;
 }
@@ -41,6 +43,8 @@
     --calor-0:#1c2925; --calor-1:#1f5f55; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
     --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
     --at-q:#3987e5; --at-c:#d95926; --at-l:#199e70; --at-d:#c98500;
+    --r-comum:#a2b5ad;--r-raro:#7eaaf3;--r-epico:#c495f2;--r-lend:#e9b24c;--hp:#ef6b5a;--hp-trilho:#3d2a26;--arena-bg:#0b100f;--arena-line:#26332f;
+    --ramo-1:#3987e5;--ramo-2:#d95926;--ramo-3:#199e70;--ramo-4:#c98500;--ramo-5:#d55181;--ramo-6:#9085e9;
     color-scheme:dark;
   }
 }
@@ -52,12 +56,16 @@
   --calor-0:#1c2925; --calor-1:#1f5f55; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
   --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
   --at-q:#3987e5; --at-c:#d95926; --at-l:#199e70; --at-d:#c98500;
+  --r-comum:#a2b5ad;--r-raro:#7eaaf3;--r-epico:#c495f2;--r-lend:#e9b24c;--hp:#ef6b5a;--hp-trilho:#3d2a26;--arena-bg:#0b100f;--arena-line:#26332f;
+  --ramo-1:#3987e5;--ramo-2:#d95926;--ramo-3:#199e70;--ramo-4:#c98500;--ramo-5:#d55181;--ramo-6:#9085e9;
   color-scheme:dark;
 }
 :root[data-tema="claro"]{
   --bg:#edf1ee; --surface:#ffffff; --surface-2:#e1e8e4; --ink:#13211d; --ink-2:#4b5f57; --ink-3:#566860; --line:#c6d1cb; --accent:#0c6b66; --accent-2:#d6ebe7; --accent-ink:#ffffff; --gold:#855508; --gold-bg:#f4e6c7; --certo:#1f7445; --certo-bg:#dcefe3; --errado:#ad3726; --errado-bg:#f7dfda; --mark:#fbe3a6; --calor-0:#dfe7e3; --calor-1:#a9d6cd; --calor-2:#5fb3a6; --calor-3:#1f8a80; --calor-4:#0b5a55; --sombra:0 1px 2px rgba(19,33,29,.06),0 6px 20px rgba(19,33,29,.06);
   --at-q:#2a78d6; --at-c:#eb6834; --at-l:#1baf7a; --at-d:#eda100;
   color-scheme:light;
+  --r-comum:#5f716a;--r-raro:#2563c4;--r-epico:#7c3aad;--r-lend:#9a5f06;--hp:#c9372a;--hp-trilho:#f2dcd8;--arena-bg:#18221f;--arena-line:#2f3e39;
+  --ramo-1:#2a78d6;--ramo-2:#eb6834;--ramo-3:#1baf7a;--ramo-4:#eda100;--ramo-5:#e87ba4;--ramo-6:#7a6bd6;
 }
 
 
@@ -184,14 +192,17 @@ p{margin:0}
 @keyframes pulso{50%{transform:scale(1.15)}}
 
 /* Folha de respostas: tira de bolhas */
-.tira{display:flex;flex-wrap:wrap;gap:4px}
+/* Fita de uma linha, com rolagem lateral; a bolinha atual fica no meio (centrarTira) */
+.tira{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:2px 0}
+.tira::-webkit-scrollbar{display:none}
+.tira>*{flex-shrink:0}
 .tira i{width:14px;height:10px;border-radius:50%;border:1.5px solid var(--line);display:block}
 .tira i.atual{border-color:var(--accent);border-width:2px}
 .tira i.C{background:var(--certo);border-color:var(--certo)}
 .tira i.E{background:var(--errado);border-color:var(--errado)}
 .tira i.B{background:var(--ink-3);border-color:var(--ink-3)}
 .tira i.R{background:var(--accent);border-color:var(--accent)}
-.tira button{appearance:none;border:0;padding:0;background:none;cursor:pointer}
+.tira button{appearance:none;border:0;padding:7px 2px;background:none;cursor:pointer}
 
 .item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:14px}
 .item-cab{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
@@ -561,7 +572,7 @@ button.dom-linha{appearance:none;border:0;background:none;width:100%;padding:0;t
 /* Para encaixar: pendências de dias anteriores, em tom neutro (sem vermelho de atraso) */
 .pend{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;padding:10px 0;border-top:1px solid var(--line)}
 .pend-txt{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 220px}
-.pend-txt>span:first-of-type{color:var(--ink-2);font-size:.9rem}
+.pend-txt>span:first-of-type{color:var(--ink-2);font-size:.9rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .pend .linha-btns{align-items:center}
 
 /* Jornada: missões do dia, baú e chefão da semana */
@@ -590,9 +601,7 @@ details.det-tempo>summary,details.det-lista>summary{cursor:pointer;font-size:.88
 details.det-lista>summary b{color:var(--ink);font-weight:600}
 details.det-lista[open]>summary{margin-bottom:10px}
 /* Atividade de dia anterior em Para encaixar: no máximo duas linhas */
-.pend-txt>span:first-of-type{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 /* Atalhos de teclado só fazem sentido com teclado */
-@media (hover:none) and (pointer:coarse){.atalhos{display:none}}
 .grade-modos>.modo:last-child:nth-child(odd){grid-column:1 / -1}
 /* O botão de começar acompanha a lista de blocos, para não exigir rolar até o fim */
 .comecar-fixo{position:sticky;bottom:calc(var(--abas-h) + 12px + env(safe-area-inset-bottom,0px));z-index:5;box-shadow:var(--sombra)}
@@ -611,10 +620,6 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .extra-resp>span{color:var(--gold);font-weight:700}
 .icone-btn.som[aria-pressed="true"]{color:var(--accent)}
 /* RPG: raridades, arena de batalha, herói, saque e ficha do personagem */
-:root{--r-comum:#5f716a;--r-raro:#2563c4;--r-epico:#7c3aad;--r-lend:#9a5f06;--hp:#c9372a;--hp-trilho:#f2dcd8;--arena-bg:#18221f;--arena-ink:#eef3f1;--arena-mudo:#a3b5ae;--arena-line:#2f3e39;--arena-trilho:#3d2a26;--arena-ouro:#f2c46b;--arena-hp:#ff7a68}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--r-comum:#a2b5ad;--r-raro:#7eaaf3;--r-epico:#c495f2;--r-lend:#e9b24c;--hp:#ef6b5a;--hp-trilho:#3d2a26;--arena-bg:#0b100f;--arena-line:#26332f}}
-:root[data-theme="dark"],:root[data-tema="escuro"]{--r-comum:#a2b5ad;--r-raro:#7eaaf3;--r-epico:#c495f2;--r-lend:#e9b24c;--hp:#ef6b5a;--hp-trilho:#3d2a26;--arena-bg:#0b100f;--arena-line:#26332f}
-:root[data-tema="claro"]{--r-comum:#5f716a;--r-raro:#2563c4;--r-epico:#7c3aad;--r-lend:#9a5f06;--hp:#c9372a;--hp-trilho:#f2dcd8;--arena-bg:#18221f;--arena-line:#2f3e39}
 .r-comum{--rar:var(--r-comum)}.r-raro{--rar:var(--r-raro)}.r-epico{--rar:var(--r-epico)}.r-lendario{--rar:var(--r-lend)}
 .r-txt-comum{color:var(--r-comum)}.r-txt-raro{color:var(--r-raro)}.r-txt-epico{color:var(--r-epico)}.r-txt-lendario{color:var(--r-lend)}
 .brasao{display:inline-grid;place-items:center;color:var(--hp)}
@@ -701,10 +706,6 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .pendencias details.det-lista .pend{margin-top:10px}
 .chip-atraso.mais{background:transparent;color:var(--ink-2)}
 /* Aula estruturada: ideia central, mapa mental em árvore (um tom por ramo, sempre com o nome do ramo escrito) e partes numeradas */
-:root{--ramo-1:#2a78d6;--ramo-2:#eb6834;--ramo-3:#1baf7a;--ramo-4:#eda100;--ramo-5:#e87ba4;--ramo-6:#7a6bd6}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ramo-1:#3987e5;--ramo-2:#d95926;--ramo-3:#199e70;--ramo-4:#c98500;--ramo-5:#d55181;--ramo-6:#9085e9}}
-:root[data-theme="dark"],:root[data-tema="escuro"]{--ramo-1:#3987e5;--ramo-2:#d95926;--ramo-3:#199e70;--ramo-4:#c98500;--ramo-5:#d55181;--ramo-6:#9085e9}
-:root[data-tema="claro"]{--ramo-1:#2a78d6;--ramo-2:#eb6834;--ramo-3:#1baf7a;--ramo-4:#eda100;--ramo-5:#e87ba4;--ramo-6:#7a6bd6}
 .ramo-1{--rc:var(--ramo-1)}.ramo-2{--rc:var(--ramo-2)}.ramo-3{--rc:var(--ramo-3)}.ramo-4{--rc:var(--ramo-4)}.ramo-5{--rc:var(--ramo-5)}.ramo-6{--rc:var(--ramo-6)}
 .licao .ideia{border-left:4px solid var(--accent);background:var(--accent-2);border-radius:0 10px 10px 0;padding:10px 14px;margin:4px 0 18px}
 .licao .ideia p{margin:4px 0 0;font-size:1.04rem;line-height:1.55}
@@ -720,7 +721,9 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .ramo-t{display:inline-flex;align-items:center;gap:8px;font-weight:700;line-height:1.5}
 .ramo-t::before{content:'';width:12px;height:12px;border-radius:50%;background:var(--rc);flex:none}
 .folhas{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.folhas li{font-size:.86rem;line-height:1.35;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--rc) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--rc) 45%,var(--surface));color:var(--ink);max-width:100%}
+.folhas li{font-size:.86rem;line-height:1.35;padding:4px 10px;border-radius:999px;background:var(--surface-2);border:1px solid var(--rc);background:color-mix(in srgb,var(--rc) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--rc) 45%,var(--surface));color:var(--ink);max-width:100%}
+:root[data-theme="dark"] .folhas li,:root[data-tema="escuro"] .folhas li{background:color-mix(in srgb,var(--rc) 22%,var(--surface));border-color:color-mix(in srgb,var(--rc) 62%,var(--surface))}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]):not([data-tema="claro"]) .folhas li{background:color-mix(in srgb,var(--rc) 22%,var(--surface));border-color:color-mix(in srgb,var(--rc) 62%,var(--surface))}}
 .parte{margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
 .parte h3{display:flex;gap:10px;align-items:flex-start;margin:0 0 10px;font-family:var(--f-titulo);font-size:1.18rem;line-height:1.3;text-wrap:balance}
 .parte-n{flex:none;width:26px;height:26px;margin-top:1px;border-radius:50%;display:inline-grid;place-items:center;background:var(--accent-2);color:var(--accent);font-family:var(--f-mono);font-size:.8rem;font-weight:600}
@@ -784,6 +787,7 @@ details.det-lista[open]>summary{margin-bottom:10px}
 /* Artigo citado dentro do texto da lei: abre logo abaixo da linha, recuado, como uma nota */
 .art-inline.remissao{margin:2px 0 10px 10px;padding:10px 12px;border-left:3px solid var(--accent);border-radius:0 10px 10px 0}
 .art-inline.remissao .texto-lei{font-size:.95rem}
+.art-inline.remissao .art-inline.remissao{margin-left:0;border-left-style:dashed}
 
 /* Esqueletos de peça e parecer na discursiva */
 .esq pre{white-space:pre-wrap;font-family:var(--f-mono);font-size:.8rem;background:var(--bg);padding:10px;border-radius:8px;border:1px solid var(--line)}
@@ -853,7 +857,7 @@ details.det-lista[open]>summary{margin-bottom:10px}
   .app{max-width:100%!important;padding:0!important}
 }
 
-/* Com o teclado do celular aberto, o que é fixo embaixo sai do caminho do texto */
-@media (hover:none){body:has(textarea:focus,input:not([type=checkbox]):not([type=radio]):not([type=file]):focus) :is(.abas,.cronometro,.comecar-fixo){display:none}}
+/* Com o teclado do celular aberto (classe posta pela área visível), o que é fixo embaixo sai do caminho do texto */
+body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}
 /* Lei seca no modo Testar: prazos e deve × pode viram tarjas que o toque revela */
 .lei-teste .texto-lei :is(.g-num,.g-verbo):not(.revelado){color:transparent;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line);border-radius:3px;text-decoration:none;cursor:pointer}
