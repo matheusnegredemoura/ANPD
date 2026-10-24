@@ -35,7 +35,11 @@ await passo('artigo lido hoje abre normal; lido em outro dia abre em leitura fri
   conferir('lido hoje: sem leitura fria', !(await p.locator('.cartao.fria').count()));
   const k = await p.evaluate(() => { const l = JSON.parse(localStorage.getItem('painel-anpd-v3')).perfil.lidos; return Object.keys(l).find((x) => l[x] === Object.values(l).sort().pop()); });
   // O app grava o estado ao sair da página (pagehide); sem bloquear essa gravação, o reload desfaria a data trocada aqui
-  await p.evaluate((k) => { const s = JSON.parse(localStorage.getItem('painel-anpd-v3')); s.perfil.lidos[k] = '2026-01-02'; localStorage.setItem('painel-anpd-v3', JSON.stringify(s)); Storage.prototype.setItem = () => {}; }, k);
+  const guardado = await p.evaluate((k) => { const s = JSON.parse(localStorage.getItem('painel-anpd-v3')); s.perfil.lidos[k] = '2026-01-02'; localStorage.setItem('painel-anpd-v3', JSON.stringify(s)); Storage.prototype.setItem = () => {}; return Object.fromEntries(Object.entries(localStorage)); }, k);
+  // No file://, quando um script de início mexe no armazenamento (a semente mexe), o Chromium às vezes abre o documento
+  // seguinte com o localStorage e o sessionStorage vazios; a semente rodaria de novo e o artigo abriria como lido hoje.
+  // O estado guardado volta por um script de início, sem depender do armazenamento sobreviver ao reload
+  await ctx.addInitScript((g) => { for (const [c, v] of Object.entries(g)) localStorage.setItem(c, v); }, guardado);
   await p.reload();
   // Com a bateria em paralelo o app demora mais a abrir: espera a barra de abas antes de navegar
   await p.waitForSelector('.aba');
