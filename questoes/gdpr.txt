@@ -31,14 +31,14 @@ enunciado: O GDPR prevê, entre os fundamentos de licitude do tratamento, o cons
 comentario: A proteção do crédito (LGPD, art. 7º, X) é criação brasileira, sem correspondente direto no art. 6º do GDPR.
 
 === gdpr-04
-gab: C
+gab: E
 ref: gdpr 33
 trecho: the controller shall without undue delay and, where feasible, not later than 72 hours after having become aware of it, notify the personal data breach to the supervisory authority
 trecho: unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons
 armadilha: numero
 dif: 1
-enunciado: No GDPR, o controlador deve notificar a violação de dados pessoais à autoridade de controle sem demora injustificada e, sempre que possível, até 72 horas após ter tomado conhecimento dela, salvo se a violação não for suscetível de resultar em risco.
-comentario: Art. 33, 1, do GDPR. Na LGPD, o art. 48 fala em “prazo razoável, conforme definido pela autoridade nacional”, e a ANPD fixou o prazo em regulamento próprio.
+enunciado: No GDPR, o controlador deve notificar a violação de dados pessoais à autoridade de controle sem demora injustificada e, sempre que possível, até 72 horas após a ocorrência da violação, salvo se ela não for suscetível de resultar em risco.
+comentario: Errado no marco inicial. As 72 horas contam de quando o responsável teve conhecimento da violação (art. 33, 1), e não da ocorrência.
 
 === gdpr-05
 gab: E
@@ -129,13 +129,13 @@ enunciado: O GDPR proíbe, sem exceções, que o titular seja submetido a decis�
 comentario: O art. 22, 2, admite exceções: necessidade para contrato, autorização por lei da União ou do Estado-membro e consentimento explícito. Na LGPD, o art. 20 garante a revisão, sem proibir a decisão automatizada.
 
 === gdpr-14
-gab: C
+gab: E
 ref: gdpr 35
 trecho: is likely to result in a high risk to the rights and freedoms of natural persons, the controller shall, prior to the processing, carry out an assessment of the impact of the envisaged processing operations on the protection of personal data
-armadilha: comparacao
+armadilha: fecho
 dif: 2
-enunciado: O GDPR exige avaliação de impacto sobre a proteção de dados quando o tratamento for suscetível de implicar elevado risco para os direitos e liberdades das pessoas, figura próxima ao relatório de impacto da LGPD.
-comentario: GDPR, art. 35. Na LGPD, o relatório de impacto é exigível pela ANPD (arts. 10, § 3º, 32 e 38) e definido no art. 5º, XVII.
+enunciado: O GDPR exige avaliação de impacto sobre a proteção de dados quando o tratamento for suscetível de implicar elevado risco para os direitos e liberdades das pessoas, a ser feita depois de iniciado o tratamento.
+comentario: Errado no momento. A avaliação é feita antes do tratamento (“prior to the processing”, art. 35, 1). É figura próxima ao relatório de impacto da LGPD.
 
 === gdpr-15
 gab: C

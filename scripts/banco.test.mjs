@@ -162,7 +162,8 @@ test('palavras-sinal não entregam o gabarito', () => {
   const qs = validar({ silencioso: true }).questoes.filter((q) => q.origem !== 'real' && !q.alt.length && /^[CE]$/.test(q.gab) && !/^(pt|en)/.test(q.id));
   const SINAIS = { dispensa: /dispens/i, qualquer: /\bqualquer\b/i, 'ainda que': /ainda que/i, basta: /\bbasta/i, 'todo(s)/toda(s)': /\btod[oa]s?\b/i,
     independe: /independ/i, 'desde que': /desde que/i, exclusivo: /exclusiv/i, vedado: /\bvedad[oa]s?\b/i, 'somente/apenas/só': /\b(somente|apenas)\b|\bsó\b/i,
-    integral: /integral/i, imediato: /imediat/i, 'salvo/exceto': /\b(salvo|exceto)\b/i, deve: /\bdev(e|em|erá|erão)\b/i, pode: /\bpod(e|em|erá|erão)\b/i, 'não': /\bnão\b/i };
+    integral: /integral/i, imediato: /imediat/i, 'salvo/exceto': /\b(salvo|exceto)\b/i, deve: /\bdev(e|em|erá|erão)\b/i, pode: /\bpod(e|em|erá|erão)\b/i, 'não': /\bnão\b/i,
+    diretamente: /diretamente/i, 'for (quando for, se for)': /\bfor\b/i, 'além': /\balém\b/i, conforme: /\bconforme\b/i };
   const fora = [];
   for (const [nome, re] of Object.entries(SINAIS)) {
     const a = qs.filter((q) => re.test(q.enunciado)), e = Math.round(100 * a.filter((q) => q.gab === 'E').length / (a.length || 1));
