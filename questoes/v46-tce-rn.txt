@@ -404,15 +404,16 @@ enunciado: Autarquia é pessoa jurídica de direito público criada por lei e in
 comentario: Certo. Autarquia é pessoa jurídica de direito público, criada por lei específica, integrante da administração indireta (CF, art. 37, XIX; Decreto-Lei 200/1967, art. 5º, I).
 
 === tce-rn-2026-035
-bloco: portugues
+bloco: administrativo
 gab: E
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Língua portuguesa
 armadilha: extrapolacao
 dif: 2
+apoio: @RN26C
 enunciado: Licença é considerada ato administrativo discricionário que reconhece o direito do particular ao exercício de determinada atividade.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. Licença é ato vinculado: preenchidos os requisitos legais, a administração deve concedê-la, reconhecendo direito do particular. Discricionária é a autorização.
 
 === tce-rn-2026-051
 bloco: dados-bi
@@ -422,8 +423,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: Bancos de dados NoSQL são pr ojetados para garantir, por padrão, consistência forte ( strong consistency), priorizando a integridade imediata dos dados em ambientes distribuídos.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+enunciado: Bancos de dados NoSQL são projetados para garantir, por padrão, consistência forte ( strong consistency), priorizando a integridade imediata dos dados em ambientes distribuídos.
+comentario: Errado. Muitos bancos NoSQL priorizam disponibilidade e tolerância a partições e trabalham com consistência eventual (modelo BASE); consistência forte por padrão não é característica geral deles.
 
 === tce-rn-2026-052
 bloco: dados-bi
@@ -434,7 +435,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: Dados estruturados são organizados segundo um esquema rígido previamente definido, enquanto dados não estruturados não possuem modelo predefinido, sendo tipicamente armazenados em formatos como textos livres, imagens e vídeos.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. Dados estruturados seguem esquema fixo (tabelas, colunas e tipos); não estruturados, como textos livres, imagens e vídeos, não têm modelo predefinido.
 
 === tce-rn-2026-053
 bloco: dados-bi
@@ -445,7 +446,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: Em arquiteturas de Big Data , dados não estruturados não podem ser indexados ou consultados diretamente, sendo obrigatória sua transformação em dados estruturados antes de qualquer análise.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. Dados não estruturados podem ser indexados e consultados diretamente, por exemplo com índices de texto completo, motores de busca e leitura com esquema na hora da consulta (schema-on-read).
 
 === tce-rn-2026-054
 bloco: dados-bi
@@ -456,7 +457,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: Em sistemas NoSQL orientados a documentos, como MongoDB, os dados são armazenados em estruturas flexíveis que permitem variação de esquema entre registros de uma mesma coleção.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. Em bancos de documentos como o MongoDB, cada documento de uma coleção pode ter campos diferentes: o esquema é flexível.
 
 === tce-rn-2026-055
 bloco: dados-bi
@@ -466,8 +467,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: A ingestão de dados em streaming não é adequada para cenários que exigem alta confiabilidade, pois não permite mecanismos de tolerância a falh as ou reprocessamento de eventos.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+enunciado: A ingestão de dados em streaming não é adequada para cenários que exigem alta confiabilidade, pois não permite mecanismos de tolerância a falhas ou reprocessamento de eventos.
+comentario: Errado. Plataformas de streaming como o Kafka oferecem durabilidade, replicação e releitura de eventos (reprocessamento por offset), justamente para cenários que exigem confiabilidade.
 
 === tce-rn-2026-056
 bloco: dados-bi
@@ -477,8 +478,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: Sistemas de armazenamento distribuído, como data lakes , permitem o armazenamento de dados em seu formato bruto, favorecendo abordagens ELT em detrimento de ETL. Acerca da integridade referencial, da linguagem de manipulação de dados (DML) e da otimização de performance em larga escala, julgue os itens subsequentes.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: Sistemas de armazenamento distribuído, como data lakes , permitem o armazenamento de dados em seu formato bruto, favorecendo abordagens ELT em detrimento de ETL.
+comentario: Certo. O data lake guarda dados no formato bruto e aplica o esquema na leitura; por isso favorece o ELT (carregar e depois transformar) em vez do ETL.
 
 === tce-rn-2026-057
 bloco: dados-bi
@@ -489,7 +490,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: A instrução UPDATE pode ser utilizada em conjunto com subconsultas correlacionadas para modificar dados com base em valores provenientes de outras tabelas, respeitando as restrições de integridade definidas no banco de dados.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. O UPDATE pode usar subconsulta correlacionada para buscar valores em outras tabelas, e o SGBD continua aplicando as restrições de integridade.
 
 === tce-rn-2026-058
 bloco: dados-bi
@@ -500,7 +501,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: A utilização de índices compostos garante melhoria uniforme de desempenho para qualquer consulta que envolva pelo menos uma das colunas indexadas, independentemente da ordem dos atributos no índice.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. O índice composto ajuda sobretudo as consultas que usam o prefixo à esquerda das suas colunas; a ordem dos atributos importa, e uma consulta só pela última coluna pode não aproveitá-lo.
 
 === tce-rn-2026-059
 bloco: dados-bi
@@ -511,7 +512,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: O particionamento de tabelas elimina a necessidade de índices secundários, pois a divisão física dos dados já garante acesso eficiente em qualquer tipo de consulta.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. O particionamento ajuda quando a consulta filtra pela chave de partição; nas demais, os índices secundários continuam necessários.
 
 === tce-rn-2026-060
 bloco: dados-bi
@@ -521,8 +522,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: Em ambientes de alta concorrência, a definição de restrições de chave estrangeira garante qu e operações de inserção e de atualização ocorram com menor custo computacional, pois o SGBD utiliza essas restrições para simplificar as verificações de consistência.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+enunciado: Em ambientes de alta concorrência, a definição de restrições de chave estrangeira garante que operações de inserção e de atualização ocorram com menor custo computacional, pois o SGBD utiliza essas restrições para simplificar as verificações de consistência.
+comentario: Errado. A chave estrangeira obriga o SGBD a conferir a tabela referenciada em cada inserção e atualização: aumenta o custo dessas operações, em troca da integridade.
 
 === tce-rn-2026-061
 bloco: dados-bi
@@ -532,8 +533,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: A integridade referencial gara nte que valores de chave estrangeira em uma tabela correspondam a valores válidos de chave primária em outra tab ela, evitando a existência de registros órfãos.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: A integridade referencial garante que valores de chave estrangeira em uma tabela correspondam a valores válidos de chave primária em outra tabela, evitando a existência de registros órfãos.
+comentario: Certo. Pela integridade referencial, toda chave estrangeira aponta para chave primária existente, e não sobram registros órfãos.
 
 === tce-rn-2026-062
 bloco: dados-bi
@@ -543,8 +544,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: A execução de comandos DML, como UPDATE e DELETE, sem cláusula WHERE pode resultar em operações em massa que afetam toda a tabela, podendo comprometer a integridade lógica dos dados. No que diz respeito a projetos e processos de software, julgue os itens a seguir.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: A execução de comandos DML, como UPDATE e DELETE, sem cláusula WHERE pode resultar em operações em massa que afetam toda a tabela, podendo comprometer a integridade lógica dos dados.
+comentario: Certo. Sem WHERE, UPDATE e DELETE atingem todas as linhas da tabela, o que pode destruir dados por engano.
 
 === tce-rn-2026-063
 bloco: dados-bi
@@ -555,7 +556,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: No catálogo GoF, o padrão de criação Singleton garante que haja somente uma instância para cada classe, com um único ponto de acesso a ela.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. O Singleton, padrão de criação do catálogo GoF, assegura que a classe tenha uma única instância e oferece um ponto global de acesso a ela.
 
 === tce-rn-2026-064
 bloco: dados-bi
@@ -566,7 +567,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: Enquanto o foco do processo incremental é aprimorar o que já foi entregue, o objetivo do processo iterativo é entregar nova funcionalidade.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. O item inverte os conceitos: o incremental entrega novas funcionalidades a cada incremento; o iterativo refina e melhora o que já existe a cada ciclo.
 
 === tce-rn-2026-065
 bloco: dados-bi
@@ -577,21 +578,21 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: A primeira etapa de um projeto de software consiste na definição do time que irá trabalhar no desenvolvimento técnico.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado, segundo o gabarito oficial. O projeto começa pela concepção: entender o problema, os objetivos e o escopo. A formação da equipe técnica decorre disso, não vem antes.
 
 === tce-rn-2026-066
-bloco: dados-bi
+bloco: gestao-publica
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: Na fase de levantamento de requisitos de um projeto, as motivações informais da organização devem ser consideradas pelo gerente do projeto. No que se refere a práticas ágeis e a licitação e gerenciamento de requisitos de desenvolvimento, julgue os próximos itens.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: Na fase de levantamento de requisitos de um projeto, as motivações informais da organização devem ser consideradas pelo gerente do projeto.
+comentario: Certo. Motivações informais (interesses, expectativas e restrições não escritas) afetam requisitos e aceitação; o gerente deve levantá-las junto com as formais.
 
 === tce-rn-2026-067
-bloco: dados-bi
+bloco: gestao-publica
 gab: E
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
@@ -599,10 +600,10 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: Um dos objetivos do método Kanban é colocar a maior quantidade possível de itens em andamento, aumentando a capacidade de entrega do time de desenvolvimento.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. O Kanban limita o trabalho em andamento (WIP) para melhorar o fluxo; acumular itens em andamento atrasa as entregas.
 
 === tce-rn-2026-068
-bloco: dados-bi
+bloco: gestao-publica
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
@@ -610,10 +611,10 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: A metodologia Scrum determina que a duração de uma sprint é inalterável, mesmo que todos os itens previstos ainda não estejam finalizados.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. A sprint tem duração fixa, de até um mês; não se estende para terminar itens, que voltam ao backlog do produto.
 
 === tce-rn-2026-069
-bloco: dados-bi
+bloco: gestao-publica
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
@@ -621,7 +622,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: De acordo com o conceito INVEST, as histórias de usuário devem ser independentes, negociáveis, pequenas e testáveis.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. INVEST: independent, negotiable, valuable, estimable, small e testable. O item cita só quatro das seis qualidades, mas o que diz está correto: item incompleto não é item errado.
 
 === tce-rn-2026-070
 bloco: dados-bi
@@ -631,8 +632,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: Na estrutura de um storytelling, o clímax e o desfecho ocorrem no mesmo momento, ao final da narrativa. A respeito de testes e métricas de software e de DevOps, julgue os itens subsequentes.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+enunciado: Na estrutura de um storytelling, o clímax e o desfecho ocorrem no mesmo momento, ao final da narrativa.
+comentario: Errado. Na estrutura narrativa, o clímax é o ponto de maior tensão e vem antes do desfecho, que resolve a história.
 
 === tce-rn-2026-072
 bloco: dados-bi
@@ -643,7 +644,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: Throughput e Velocity são duas métricas de software que identificam a quantidade absoluta de itens entregues em determinado período de tempo.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. Throughput conta itens concluídos por período; velocity mede o esforço entregue por sprint em unidades relativas (por exemplo, story points), não a quantidade absoluta de itens.
 
 === tce-rn-2026-073
 bloco: dados-bi
@@ -654,7 +655,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: O processo de deployment blue/green utiliza dois ambientes de produção com as mesmas configurações, o que permite um método de implantação de baixo risco.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. No blue/green há dois ambientes de produção iguais; a nova versão sobe no ocioso e o tráfego é virado de uma vez, com volta rápida se algo falhar.
 
 === tce-rn-2026-074
 bloco: dados-bi
@@ -664,8 +665,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: Sob o mesmo namespace, diversos contêineres Docker podem ser executados e interagir entre si, com compartilhamento local de dados. Julgue os itens a seguir, a respeito de bancos de dados relacionais, modelagem dimensional e análise de dados.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: Sob o mesmo namespace, diversos contêineres Docker podem ser executados e interagir entre si, com compartilhamento local de dados.
+comentario: Certo, segundo o gabarito oficial. Contêineres que compartilham namespaces (por exemplo, o de rede, como nos pods) podem se comunicar como processos locais e compartilhar dados por volumes.
 
 === tce-rn-2026-075
 bloco: dados-bi
@@ -676,7 +677,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: Em um data warehouse , o armazenamento orientado à transação não necessita de múltiplas operações de entrada e saída para carregar dados no banco de dados.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. O data warehouse não é orientado a transações (isso é OLTP): é orientado a assunto e feito para consulta analítica, e sua carga (ETL, em lote) envolve muitas operações de leitura e escrita.
 
 === tce-rn-2026-076
 bloco: dados-bi
@@ -686,8 +687,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: É chamado de esquema estrela o conjunto formado por uma tabela de fatos, várias tabelas de dimensão e chaves estrangeiras que relacionam dados da tabela de fatos aos dados das tabelas de dimensão. CEBRASPE – TCE/RN – Edital: 2025 Acerca de técnicas para pré-processamento de dados, CRISP-DM, análise de grupamen to, detecção de anomalias e regras de associação, julgue os próximos itens.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: É chamado de esquema estrela o conjunto formado por uma tabela de fatos, várias tabelas de dimensão e chaves estrangeiras que relacionam dados da tabela de fatos aos dados das tabelas de dimensão.
+comentario: Certo. No esquema estrela, uma tabela de fatos central se liga por chaves estrangeiras a várias tabelas de dimensão, desenhando a estrela.
 
 === tce-rn-2026-077
 bloco: dados-bi
@@ -698,7 +699,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: No contexto de regras de associação, o conceito de confiança refere-se à expectativa de que um dado, grupo ou banco de dados atue da maneira esperada em dada situação.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. Em regras de associação, a confiança de X → Y é a proporção das transações com X que também têm Y, isto é, a probabilidade condicional P(Y|X); nada tem a ver com o comportamento esperado de um banco de dados.
 
 === tce-rn-2026-078
 bloco: dados-bi
@@ -708,8 +709,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: O k-means é um algoritmo iterativo de agrupamento baseado em centroides, isto é, ele divi de um conjunto de dados em grupos semelhantes com base na distância entre seus centroides.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: O k-means é um algoritmo iterativo de agrupamento baseado em centroides, isto é, ele divide um conjunto de dados em grupos semelhantes com base na distância entre seus centroides.
+comentario: Certo. O k-means escolhe k centroides, atribui cada ponto ao centroide mais próximo, recalcula os centroides e repete até estabilizar.
 
 === tce-rn-2026-079
 bloco: dados-bi
@@ -720,7 +721,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: Em mineração de dados, dado ruidoso é aquele cujo valor está fora do domínio do atributo.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. Ruído é erro aleatório ou variação na medida de um atributo. Valor fora do domínio do atributo é dado inválido ou inconsistente, outro tipo de problema de qualidade.
 
 === tce-rn-2026-080
 bloco: dados-bi
@@ -731,7 +732,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: Na metodologia CRISP-DM, a preparação dos dados serve para limpá-los, tratando valores ausentes, outliers e inconsistências.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. No CRISP-DM, a fase de preparação seleciona, limpa e transforma os dados, tratando ausentes, outliers e inconsistências antes da modelagem.
 
 === tce-rn-2026-081
 bloco: dados-bi
@@ -741,8 +742,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: Uma anomalia é um valor discrepante, ou seja, um valor que se localiza significativamente distante dos valores considerados normais. No que se refere à classificação da mineração de dados, à mineração de texto, à modelagem preditiva e à visualização e análise exploratória de dados, julgue os itens subsecutivos.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: Uma anomalia é um valor discrepante, ou seja, um valor que se localiza significativamente distante dos valores considerados normais.
+comentario: Certo. Anomalia (outlier) é o valor que se afasta muito do padrão do restante dos dados.
 
 === tce-rn-2026-082
 bloco: dados-bi
@@ -753,7 +754,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: Histograma é uma representação da distribuição dos dados de certa base, conforme um ou mais atributos desses dados, por meio de um gráfico de barras.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. O histograma mostra a distribuição de frequência de um atributo em barras, cada uma correspondendo a uma faixa de valores.
 
 === tce-rn-2026-083
 bloco: dados-bi
@@ -764,7 +765,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: Enquanto um falso positivo é um erro do tipo 2, um falso negativo é um erro do tipo 1.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. Está invertido: falso positivo é erro do tipo I (rejeitar hipótese nula verdadeira); falso negativo é erro do tipo II.
 
 === tce-rn-2026-084
 bloco: dados-bi
@@ -774,8 +775,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: Em um processo de mineração de texto, a tokenização é o processo de dividir textos lo ngos em palavras individuais, removendo-se espaços e pontuação, para fins de identificação da frequência de termos ou da estrutura de uma frase em um grande volume de documentos.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: Em um processo de mineração de texto, a tokenização é o processo de dividir textos longos em palavras individuais, removendo-se espaços e pontuação, para fins de identificação da frequência de termos ou da estrutura de uma frase em um grande volume de documentos.
+comentario: Certo. Tokenizar é quebrar o texto em unidades (tokens), em geral palavras, descartando espaços e pontuação, para contar termos e analisar a estrutura.
 
 === tce-rn-2026-085
 bloco: dados-bi
@@ -785,19 +786,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: Modelos de regressão linear são métodos estocásticos para modelagem da relação entre variáveis aleatórias e uma função polinomial. Julgue os itens que se seguem, a respeito de ferramentas de apoio à análise de dados.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
-
-=== tce-rn-2026-086
-bloco: dados-bi
-gab: E
-origem: real
-prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
-ref: doutrina Dados, qualidade de dados, BI e governança de dados
-armadilha: extrapolacao
-dif: 2
-enunciado: Considere o seguinte código em Python. A execução desse código resultará no erro a seguir. NameError: name 'T' is not defined
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+enunciado: Modelos de regressão linear são métodos estocásticos para modelagem da relação entre variáveis aleatórias e uma função polinomial.
+comentario: Errado. A regressão linear modela a relação linear entre uma variável dependente e uma ou mais independentes; não é definida como relação entre variáveis aleatórias e uma função polinomial.
 
 === tce-rn-2026-087
 bloco: dados-bi
@@ -808,7 +798,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: O PROC SQL integra o software Base SAS e pode ser usado com qualquer conjunto de dados SAS.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. O PROC SQL faz parte do Base SAS e permite consultar e manipular qualquer conjunto de dados SAS com sintaxe SQL.
 
 === tce-rn-2026-089
 bloco: dados-bi
@@ -818,11 +808,11 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: Em tabelas dinâmicas de planilhas eletrônicas, a área de valores corresponde à área em que se devem colocar os campos em que se pretende efetuar cálculos como soma, contagem de valores, média aritmética, entre outros. Com relação ao aprendizado de máquina, à IA generativa e às redes neurais e deep learning, julgue os próximos itens.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: Em tabelas dinâmicas de planilhas eletrônicas, a área de valores corresponde à área em que se devem colocar os campos em que se pretende efetuar cálculos como soma, contagem de valores, média aritmética, entre outros.
+comentario: Certo. Na tabela dinâmica, a área de valores recebe os campos que serão resumidos por soma, contagem, média e outras funções.
 
 === tce-rn-2026-090
-bloco: dados-bi
+bloco: ia
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
@@ -830,7 +820,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: Modelos de IA generativa, como os baseados em arquiteturas transformer, são capazes de produzir novos dados a partir de padrões aprendidos durante o treinamento.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. Modelos generativos, como os baseados em transformers, aprendem padrões dos dados de treino e geram conteúdo novo (texto, imagem, código) a partir deles.
 
 === tce-rn-2026-091
 bloco: ia
@@ -841,7 +831,7 @@ ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: Em modelos de deep learning, o overfitting ocorre quando o modelo possui baixa capacidade de representação, sendo raro em redes neurais profundas com muitos parâmetros.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. Overfitting acontece quando o modelo tem capacidade demais para os dados e decora o treino; é risco típico de redes profundas com muitos parâmetros. Baixa capacidade causa underfitting.
 
 === tce-rn-2026-092
 bloco: ia
@@ -851,8 +841,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: conceito
 dif: 2
-enunciado: Redes neurais profundas difere nciam-se das redes neurais rasas principalmente pela presença de múltiplas camadas ocultas, permitindo maior capacidade de representação.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: Redes neurais profundas diferenciam-se das redes neurais rasas principalmente pela presença de múltiplas camadas ocultas, permitindo maior capacidade de representação.
+comentario: Certo. Rede profunda é a que tem várias camadas ocultas, o que permite aprender representações mais complexas que a rede rasa.
 
 === tce-rn-2026-093
 bloco: ia
@@ -862,8 +852,8 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: Em algoritmos de aprendizado de máquina, a validação cruzada ( cross-validation) é utilizada para aumentar o conjunto de treinamento ao duplicar os dados disponíveis, elevando assim a capacidade de generalização do modelo. Julgue os próximos itens, relativos às MLOps, à interpretabilidade de modelos e ao viés algorítmico.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+enunciado: Em algoritmos de aprendizado de máquina, a validação cruzada ( cross-validation) é utilizada para aumentar o conjunto de treinamento ao duplicar os dados disponíveis, elevando assim a capacidade de generalização do modelo.
+comentario: Errado. A validação cruzada divide os dados em partes (folds) e alterna treino e teste para estimar a capacidade de generalização; não duplica dados nem aumenta o conjunto de treino.
 
 === tce-rn-2026-094
 bloco: ia
@@ -874,7 +864,7 @@ ref: doutrina Inteligência artificial e proteção de dados
 armadilha: conceito
 dif: 2
 enunciado: Em pipelines de MLOps, a automação de testes, de monitoramento e de re-treinamento contínuo contribui para a confiabilidade e para a escalabilidade dos sistemas de ML.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. MLOps automatiza testes, implantação, monitoramento e retreino dos modelos, o que dá confiabilidade e escala aos sistemas de ML.
 
 === tce-rn-2026-095
 bloco: ia
@@ -885,7 +875,7 @@ ref: doutrina Inteligência artificial e proteção de dados
 armadilha: conceito
 dif: 2
 enunciado: A mitigação de viés em modelos de IA pode envolver técnicas como balanceamento de dados, regularização e avaliação de métricas de equidade.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. Mitigar viés pode envolver balancear os dados, ajustar o treino (por exemplo, com regularização ou restrições) e medir o modelo com métricas de equidade.
 
 === tce-rn-2026-096
 bloco: ia
@@ -895,11 +885,11 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: Modelos altamente interpretáveis, como árvores de decisão simples, tendem a apresen tar menor transparência em comparação a modelos complexos, como redes neurais profundas. Julgue os itens subsequentes, relativos a padrões arquiteturais e padrões de projeto.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+enunciado: Modelos altamente interpretáveis, como árvores de decisão simples, tendem a apresentar menor transparência em comparação a modelos complexos, como redes neurais profundas.
+comentario: Errado. Está invertido: modelos simples, como árvores de decisão rasas, são mais transparentes; redes profundas são caixas-pretas, de explicação difícil.
 
 === tce-rn-2026-097
-bloco: ia
+bloco: dados-bi
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
@@ -907,10 +897,10 @@ ref: doutrina Inteligência artificial e proteção de dados
 armadilha: conceito
 dif: 2
 enunciado: Diferentemente das arquiteturas tradicionais de N camadas, a arquitetura de microsserviços se baseia na descentralização da gestão de dados, em que cada serviço deve, idealmente, possuir sua própria base de dados, de forma a garantir a independência de implantação e o baixo acoplamento.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. Nos microsserviços, cada serviço idealmente tem seu próprio banco, o que descentraliza a gestão de dados e garante implantação independente e baixo acoplamento.
 
 === tce-rn-2026-098
-bloco: ia
+bloco: dados-bi
 gab: E
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
@@ -918,10 +908,10 @@ ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: A adoção de uma estratégia de camadas fechadas (closed layers ) permite que a camada de apresentação acesse diretamente os serviços da camada de dados quando houver necessidade de otimização de performance , desde que a camada de negócio permaneça inalterada.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. Com camadas fechadas, cada camada só fala com a imediatamente inferior: a apresentação não pode pular a camada de negócio. Permitir o atalho é próprio das camadas abertas.
 
 === tce-rn-2026-099
-bloco: ia
+bloco: dados-bi
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
@@ -929,21 +919,21 @@ ref: doutrina Inteligência artificial e proteção de dados
 armadilha: conceito
 dif: 2
 enunciado: No padrão arquitetural MVC (model-view-controller), o componente controller atua como um intermediário que interpreta as entradas enviadas pelo usuário e coordena as atualizações necessárias no model, de forma a permitir que a lógica de negócio e o estado dos dados permaneçam independentes da interface de apresentação.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. No MVC, o controller recebe a entrada do usuário e aciona o model, mantendo a lógica e os dados separados da view.
 
 === tce-rn-2026-100
-bloco: ia
+bloco: dados-bi
 gab: E
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: No padrão de projeto abstract factory , a inclusão de uma nova categoria de objeto em uma família de produtos já existente prescinde da alteração da interface da fábrica abstrata e de suas subclasses concretas. 1 import numpy as np
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+enunciado: No padrão de projeto abstract factory , a inclusão de uma nova categoria de objeto em uma família de produtos já existente prescinde da alteração da interface da fábrica abstrata e de suas subclasses concretas.
+comentario: Errado. Incluir um novo tipo de produto na família exige mudar a interface da fábrica abstrata e todas as fábricas concretas; essa é justamente a desvantagem conhecida do padrão.
 
 === tce-rn-2026-101
-bloco: ia
+bloco: dados-bi
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
@@ -951,10 +941,10 @@ ref: doutrina Inteligência artificial e proteção de dados
 armadilha: conceito
 dif: 2
 enunciado: No que se refere ao desenvolvimento de soluções mobile baseadas em padrões W3C, a arquitetura de uma PWA ( progressive web app ) utiliza service workers para atuar como um proxy de rede programável de forma a permitir que o usuário mobile acesse funcionalidades críticas da aplicação mesmo em cenários de latência elevada ou ausência de conectividade.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. Na PWA, o service worker intercepta as requisições como um proxy programável e serve conteúdo em cache, mantendo funções críticas com rede lenta ou sem conexão.
 
 === tce-rn-2026-102
-bloco: ia
+bloco: dados-bi
 gab: E
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
@@ -962,32 +952,32 @@ ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: O framework gRPC adota o formato JSON como padrão nativo de serialização de dados, o que assegura a interoperabilidade direta com navegadores web.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. O gRPC usa por padrão Protocol Buffers, formato binário sobre HTTP/2; navegadores precisam de adaptação (gRPC-Web) para falar com ele.
 
 === tce-rn-2026-103
-bloco: ia
+bloco: dados-bi
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: conceito
 dif: 2
-enunciado: Nas arquiteturas cloud native, o isolamento provido pelo uso de containers permite que falhas em serviços individuais sejam mitigadas pela substituição automática das instâncias comprometidas. Julgue os itens seguintes, relativos a COBIT 2019, ISO 31000, COSO e ITIL v4.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: Nas arquiteturas cloud native, o isolamento provido pelo uso de containers permite que falhas em serviços individuais sejam mitigadas pela substituição automática das instâncias comprometidas.
+comentario: Certo. Com contêineres isolados e orquestração, a instância que falha é substituída automaticamente, sem derrubar os outros serviços.
 
 === tce-rn-2026-104
-bloco: ia
+bloco: riscos
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: conceito
 dif: 2
-enunciado: A ISO 31000:2018 promove uma compreensão compartilhada dos riscos, e suas diretrizes ajudam a incorporar o gerenciamento de riscos na governança, estratégia, planejamento, proc essos de relatórios, políticas, valores e cultura de uma organização.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: A ISO 31000:2018 promove uma compreensão compartilhada dos riscos, e suas diretrizes ajudam a incorporar o gerenciamento de riscos na governança, estratégia, planejamento, processos de relatórios, políticas, valores e cultura de uma organização.
+comentario: Certo. É o que diz a ISO 31000:2018: suas diretrizes ajudam a integrar a gestão de riscos à governança, à estratégia, ao planejamento, aos processos, às políticas, aos valores e à cultura.
 
 === tce-rn-2026-105
-bloco: ia
+bloco: riscos
 gab: E
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
@@ -995,21 +985,21 @@ ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: O COBIT 2019 contribui para que as organizações atinjam seus objetivos de negócios por meio de uma gestão de TI eficaz, entretanto, como não inclui estruturas de auditoria com vistas ao controle de governança de TI, faz-se necessária a utilização da COSO no que diz respeito a aspectos concernentes à auditoria.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. O COBIT 2019 já cobre monitoramento e asseguração (domínio MEA: monitorar, avaliar e analisar, com práticas de auditoria e garantia); não depende do COSO para isso.
 
 === tce-rn-2026-106
-bloco: lai
+bloco: seginfo
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Lei de Acesso à Informação e Decreto 7.724/2012
 armadilha: conceito
 dif: 2
-enunciado: A prática de gerenciamento de continuidade de serviço do ITIL v4 fornece estrutura para a construção de resiliência organizacional com a capacidade de produzir uma resposta em caso de desastre, visando garantir que a disponibilidade e o desempenho de um serviço sejam mantidos em níveis suficientes após um evento sú bito não planejado que cause danos ou perdas graves. Julgue os próximos itens, referentes a SCRUM, PMBOK 7.ª edição e planejamento estratégico de TI.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: A prática de gerenciamento de continuidade de serviço do ITIL v4 fornece estrutura para a construção de resiliência organizacional com a capacidade de produzir uma resposta em caso de desastre, visando garantir que a disponibilidade e o desempenho de um serviço sejam mantidos em níveis suficientes após um evento súbito não planejado que cause danos ou perdas graves.
+comentario: Certo. No ITIL 4, a prática de gestão de continuidade de serviço garante que disponibilidade e desempenho fiquem em níveis suficientes em caso de desastre, dando resiliência à organização.
 
 === tce-rn-2026-107
-bloco: lai
+bloco: gestao-publica
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
@@ -1017,65 +1007,68 @@ ref: doutrina Lei de Acesso à Informação e Decreto 7.724/2012
 armadilha: conceito
 dif: 2
 enunciado: Um KPI (key performance indicator ) é um valor mensurável que se relaciona com metas, objetivos e estratégias específicas que ajudam a avaliar o desempenho de tarefas em uma organização.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. KPI é indicador mensurável ligado a metas, objetivos e estratégia, usado para avaliar desempenho.
 
 === tce-rn-2026-109
-bloco: lai
+bloco: gestao-publica
 gab: E
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Lei de Acesso à Informação e Decreto 7.724/2012
 armadilha: extrapolacao
 dif: 2
-enunciado: Conforme o di sposto no PMBOK 7.ª edição, o domínio de desempenho da entrega trata das atividades e funções associadas a riscos, que incluem aspectos afetos à incerteza e suas implicações, sendo a capacidade de antecipar ameaças e de compreender as consequências dos problemas um dos objetivos esperados da execução desse domínio.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+enunciado: Conforme o disposto no PMBOK 7.ª edição, o domínio de desempenho da entrega trata das atividades e funções associadas a riscos, que incluem aspectos afetos à incerteza e suas implicações, sendo a capacidade de antecipar ameaças e de compreender as consequências dos problemas um dos objetivos esperados da execução desse domínio.
+comentario: Errado. No PMBOK 7, riscos e incerteza são tratados no domínio de desempenho da incerteza. O domínio da entrega cuida de entregar escopo e qualidade que gerem o valor esperado.
 
 === tce-rn-2026-110
-bloco: lai
+bloco: gestao-publica
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Lei de Acesso à Informação e Decreto 7.724/2012
 armadilha: conceito
 dif: 2
-enunciado: Considere que as fases que compõem o processo de elaboração de certo plano diretor de TIC (PDTIC) sejam preparação, diagnóstico e plan ejamento. Considere, ainda, que se pretenda realizar a análise dos ambientes interno e externo da TIC por meio do método SWOT. Nesse caso, a atividade pretendida deve ser executada na fase de diagnóstico e, para o ambiente interno, podem ser analisados a qualidade dos processos e serviços providos e o nível de satisfação dos usuários com os serviços prestados. Julgue os itens a seguir, que se referem à cibersegurança e continuidade de negócios, ao di sposto na Lei Geral de Proteção de Dados Pessoais (LGPD), e à governança de dados por meio da metodologia do DAMA-DMBoK.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+enunciado: Considere que as fases que compõem o processo de elaboração de certo plano diretor de TIC (PDTIC) sejam preparação, diagnóstico e planejamento. Considere, ainda, que se pretenda realizar a análise dos ambientes interno e externo da TIC por meio do método SWOT. Nesse caso, a atividade pretendida deve ser executada na fase de diagnóstico e, para o ambiente interno, podem ser analisados a qualidade dos processos e serviços providos e o nível de satisfação dos usuários com os serviços prestados.
+comentario: Certo. No PDTIC (guia do SISP), a análise SWOT dos ambientes interno e externo de TIC é feita no diagnóstico; no interno entram a qualidade dos serviços e a satisfação dos usuários.
 
 === tce-rn-2026-036
-bloco: lei-9784
+bloco: administrativo
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Lei nº 9.784/1999 — processo administrativo
 armadilha: conceito
 dif: 2
-enunciado: Cargo em comissão é cargo público de livre nomeação e exoneração, destinado a funç ões de direção, chefia ou assessoramento, sem exigência de concurso público.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+apoio: @RN26C
+enunciado: Cargo em comissão é cargo público de livre nomeação e exoneração, destinado a funções de direção, chefia ou assessoramento, sem exigência de concurso público.
+comentario: Certo. O cargo em comissão é de livre nomeação e exoneração e se destina só a direção, chefia e assessoramento, sem concurso (CF, art. 37, II e V).
 
 === tce-rn-2026-037
-bloco: lei-9784
+bloco: administrativo
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Lei nº 9.784/1999 — processo administrativo
 armadilha: conceito
 dif: 2
+apoio: @RN26C
 enunciado: O motivo, que expõe a situação de fato ou de direito que serve de fundamento para a atuação administrativa, é requisito indispensável do ato administrativo.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+comentario: Certo. O motivo (a situação de fato e de direito que leva ao ato) é um dos requisitos do ato administrativo, ao lado de competência, finalidade, forma e objeto; na negativa de Caio, faltou até sua exposição.
 
 === tce-rn-2026-038
-bloco: lei-9784
+bloco: administrativo
 gab: C
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Lei nº 9.784/1999 — processo administrativo
 armadilha: conceito
 dif: 2
-enunciado: A possibilidade de recurso ao chefe de Caio decorre do poder administrativo hierárquico, já que se trata de uma relação revisional inerente à subordinação administrativa entre agentes públicos. Julgue os itens a seguir, de acordo com a Lei de Responsabilidade Fiscal (LRF).
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado CERTO.
+apoio: @RN26C
+enunciado: A possibilidade de recurso ao chefe de Caio decorre do poder administrativo hierárquico, já que se trata de uma relação revisional inerente à subordinação administrativa entre agentes públicos.
+comentario: Certo. O recurso ao chefe de Caio é recurso hierárquico: decorre do poder hierárquico, que permite ao superior rever os atos do subordinado.
 
 === tce-rn-2026-039
-bloco: lei-9784
+bloco: orcamento
 gab: E
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
@@ -1083,15 +1076,15 @@ ref: doutrina Lei nº 9.784/1999 — processo administrativo
 armadilha: conceito
 dif: 2
 enunciado: Suponha que um estado da Federação tenha empenhado, em 29 de dezembro do exercício de 2025, uma despesa de pessoal no valor de R$ 10 milhões, mas a tenha pagado apenas em 15 de janeiro do exercício de 2026, tendo utilizado, para parte de seu pagamento, uma transferência extraordinária, no valor de R$ 5 milhões, recebida em 31 de dezembro do exercício de 2025. Nesse caso, evidencia-se que, por ter empenhado a despesa em dezembro, o estado violou a LRF, pois, embora a receita extraordinária que financiou a despesa tenha sido recebida no mesmo exercício, esta somente foi paga no exercício seguinte.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+comentario: Errado. Empenhar em dezembro e pagar em janeiro (restos a pagar) não viola a LRF por si só. A vedação do art. 42 alcança só obrigações contraídas nos dois últimos quadrimestres do mandato sem disponibilidade de caixa; dezembro de 2025 não está nesse período (o mandato estadual termina em 2026), e o recurso entrou no próprio exercício.
 
 === tce-rn-2026-040
-bloco: lei-9784
+bloco: orcamento
 gab: E
 origem: real
 prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Lei nº 9.784/1999 — processo administrativo
 armadilha: conceito
 dif: 2
-enunciado: Caso um estado apresente receita corrente líquida de R$ 70 milhões no exercício de 2026, o limite de despesa de pessoal para o mesmo exercício será de R$ 35 milhões. Considerando as disposições da Lei n.º 4.320/1964, julgue os itens subsequentes, referentes à classificação da despesa pública, à execução orçamentária e a mecanismos de alteração e descentralização orçamentária.
-comentario: Gabarito oficial definitivo da banca Cebraspe (Aplicação: 12/04/2026): item considerado ERRADO.
+enunciado: Caso um estado apresente receita corrente líquida de R$ 70 milhões no exercício de 2026, o limite de despesa de pessoal para o mesmo exercício será de R$ 35 milhões.
+comentario: Errado. Para os estados, o limite da despesa total com pessoal é 60% da receita corrente líquida (LRF, art. 19, II): R$ 42 milhões. Os 50% são o limite da União.
