@@ -307,7 +307,7 @@ export function montarDados() {
   };
 }
 
-export function regexTermo(padroes) {
+function regexTermo(padroes) {
   const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return new RegExp('(?<![\\p{L}\\d])(?:' + padroes.map(esc).join('|') + ')(?![\\p{L}\\d])', 'iu');
 }

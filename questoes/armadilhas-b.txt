@@ -91,7 +91,7 @@ ref: res19 8
 trecho: trânsito de dados pessoais, sem a ocorrência de comunicação ou uso compartilhado de dados com agente de tratamento situado em território nacional
 armadilha: excecao
 dif: 2
-enunciado: A LGPD não se aplica aos dados provenientes do exterior que apenas transitam pelo território nacional, ainda que haja comunicação desses dados com agente de tratamento situado no Brasil.
+enunciado: A LGPD não se aplica aos dados provenientes do exterior em trânsito pelo território nacional, mesmo quando há comunicação desses dados com agente de tratamento situado no Brasil.
 comentario: Errado. O trânsito só afasta a LGPD se não houver comunicação ou uso compartilhado com agente situado no território nacional (Resolução 19/2024, art. 8º, § 1º, I).
 
 === ab-13
@@ -131,7 +131,7 @@ ref: res19 12
 trecho: A ANPD priorizará a avaliação do nível de proteção de dados de países estrangeiros ou organismos internacionais que garantam tratamento recíproco ao Brasil
 armadilha: conceito
 dif: 2
-enunciado: Na avaliação de adequação, a ANPD prioriza os países com maior volume de comércio com o Brasil, independentemente de reciprocidade.
+enunciado: Na avaliação de adequação, a ANPD prioriza os países com maior volume de comércio com o Brasil, sem considerar a reciprocidade.
 comentario: Errado. A prioridade é para quem garanta tratamento recíproco ao Brasil e cujo reconhecimento amplie o livre fluxo de dados (art. 12, parágrafo único). O comércio internacional entra como impacto a considerar (inciso II), não como critério de prioridade.
 
 === ab-17
@@ -179,9 +179,9 @@ gab: E
 bloco: res-15-2024
 ref: res15 7
 trecho: Cabe ao controlador solicitar à ANPD, de maneira fundamentada, o sigilo de informações protegidas por lei
-armadilha: sujeito
-dif: 2
-enunciado: Na comunicação de incidente, cabe à ANPD identificar de ofício as informações protegidas por segredo comercial ou industrial, independentemente de pedido do controlador.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: ao comunicar incidente à ANPD, o controlador não pediu sigilo das informações protegidas por segredo comercial. Assertiva: cabe à ANPD identificá-las de ofício e protegê-las.
 comentario: Errado. Cabe ao controlador pedir, de forma fundamentada, o sigilo das informações protegidas por lei, indicando quais devem ter acesso restrito (Resolução 15/2024, art. 7º).
 
 === ab-22

@@ -128,7 +128,11 @@ Ao escrever:
 3. Certo: paráfrase ou caso (seção 4); nada de copiar o trecho.
 4. Toda afirmação normativa conferida no texto anexado em `fontes/`; `trecho` literal do artigo citado; número do
    enunciado presente na norma (o `npm test` confere).
-5. Dificuldade 3 para itens com caso, dois dispositivos combinados ou falso distrator.
+5. Dificuldade: 1 = paráfrase direta ou troca simples (número, sujeito, conceito) em item curto; 2 = caso simples ou
+   erro camuflado; 3 = caso em que um detalhe decide, dois dispositivos combinados ou falso distrator. Situação
+   hipotética nunca é 1. Em cada nível, certos e errados perto de metade cada.
+6. Palavra absoluta só onde a banca a usa: no errado, perto de 10% dos itens; no certo, como falso distrator.
+   `node scripts/reescrita/medir.mjs` compara esses sinais do banco com os itens reais.
 
 Ao explicar (tutor):
 1. Núcleo conceitual exigido.

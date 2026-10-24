@@ -41,7 +41,7 @@ comentario: Certo. Metadados são dados sobre dados: técnicos (tipo, tamanho), 
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: Dados mestres são os registros das transações do dia a dia, como cada pedido, pagamento ou requerimento recebido.
 comentario: Errado. Esses são dados transacionais. Dados mestres descrevem as entidades centrais do negócio, compartilhadas por vários sistemas, como cidadãos, empresas, servidores e unidades.
 
@@ -129,7 +129,7 @@ comentario: Certo. A ideia é evitar manter duas cópias dos dados, uma bruta e 
 gab: E
 ref: doutrina
 armadilha: caso
-dif: 1
+dif: 2
 enunciado: Situação hipotética: prefeitura publicou na internet, em formato aberto, planilha com a execução orçamentária do município, sem dados pessoais. Assertiva: não se trata de dados abertos, pois estes são, necessariamente, dados pessoais publicados com autorização dos titulares.
 comentario: Errado. Dados abertos são dados públicos disponibilizados para livre uso, em formato aberto e legível por máquina. Dados pessoais, em regra, não são abertos, e sua divulgação exige base legal, além do respeito à LAI e à LGPD.
 
@@ -182,7 +182,7 @@ comentario: Certo. Exemplo: classificar denúncias como procedentes ou não a pa
 gab: E
 ref: doutrina
 armadilha: caso
-dif: 1
+dif: 2
 enunciado: Situação hipotética: estudo mostrou forte correlação entre a venda de sorvetes e os afogamentos nas praias. Assertiva: a correlação demonstra que o consumo de sorvete causa afogamentos.
 comentario: Errado. Correlação não implica causalidade: pode haver terceira variável influenciando ambas, causalidade reversa ou coincidência. Causalidade exige desenho de pesquisa adequado, como experimentos.
 
@@ -215,7 +215,7 @@ comentario: Certo: art. 12. Se a reidentificação for possível com meios próp
 gab: E
 ref: doutrina
 armadilha: comparacao
-dif: 2
+dif: 1
 enunciado: Data warehouse e data lake exigem, ambos, que o esquema dos dados seja definido antes da carga (schema on write).
 comentario: Errado. O data warehouse trabalha com esquema definido na escrita; o data lake guarda os dados brutos e aplica o esquema na leitura (schema on read), conforme a análise.
 

@@ -11,7 +11,7 @@ const EXTENSO = { um: 1, uma: 1, dois: 2, duas: 2, 'três': 3, tres: 3, quatro: 
   one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, twelve: 12, fifteen: 15, twenty: 20, thirty: 30,
   forty: 40, fifty: 50, sixty: 60, seventy: 70, ninety: 90, hundred: 100 };
 // Itens certos já conferidos à mão na norma (conta da dosimetria, número do caso hipotético, texto em inglês etc.)
-export const CONFERIDOS = {
+const CONFERIDOS = {
   'd12880-15': 'idades do caso; art. 25, § 4º manda a alternativa mais protetiva',
   'pa3-36': 'datas do exemplo; art. 66, § 3º, prazo em meses de data a data',
   'icd-19': 'número de clientes do caso; art. 5º não exige larga escala',

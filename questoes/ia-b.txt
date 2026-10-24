@@ -67,7 +67,7 @@ gab: E
 ref: lgpd 13
 trecho: senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: Pseudonimizar os dados usados no treinamento de um modelo os torna anonimizados e, portanto, fora do alcance da LGPD.
 comentario: Errado. Pseudonimização mantém a possibilidade de reidentificação pela informação adicional guardada pelo controlador (art. 13, § 4º): o dado segue pessoal. É boa medida de segurança, não saída da lei.
 
@@ -82,9 +82,9 @@ comentario: Certo. O Regulamento (UE) 2024/1689 entrou em vigor em agosto de 202
 === ia-10
 gab: E
 ref: doutrina
-armadilha: absoluto
+armadilha: conceito
 dif: 2
-enunciado: O regulamento europeu de inteligência artificial proíbe todos os sistemas de pontuação de crédito e todos os usos de reconhecimento biométrico.
+enunciado: No regulamento europeu de inteligência artificial, sistemas de avaliação de crédito de pessoas naturais são práticas proibidas, por apresentarem risco inaceitável.
 comentario: Errado. Avaliação de crédito de pessoas naturais é, em regra, alto risco, com requisitos, e não prática proibida. Os usos biométricos são proibidos apenas em hipóteses específicas, como a identificação biométrica remota em tempo real em espaços públicos para fins policiais, salvo exceções.
 
 === ia-11
@@ -162,9 +162,9 @@ comentario: Certo: art. 5º, II. O tratamento exige hipótese do art. 11; o leg�
 gab: E
 ref: lgpd 7
 trecho: O tratamento de dados pessoais cujo acesso é público deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização
-armadilha: absoluto
+armadilha: causalidade
 dif: 2
-enunciado: A raspagem de dados pessoais publicados na internet para treinar modelos de IA é sempre lícita, porque os dados já estão publicamente disponíveis.
+enunciado: A raspagem de dados pessoais publicados na internet para treinar modelos de IA é lícita, porque os dados já estão publicamente disponíveis.
 comentario: Errado. Dado de acesso público continua pessoal: o tratamento deve considerar a finalidade, a boa-fé e o interesse público da disponibilização (art. 7º, § 3º), e novas finalidades exigem propósito legítimo e específico (§ 7º).
 
 === ia-20

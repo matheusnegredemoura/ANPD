@@ -17,7 +17,7 @@ import { join } from 'node:path';
 
 const RE_LACUNA = /\{\{(?:c(\d+)::)?([^}]+?)\}\}/g;
 
-export function hash(s) {
+function hash(s) {
   let h = 0x811c9dc5;
   for (let i = 0; i < s.length; i++) {
     h ^= s.charCodeAt(i);

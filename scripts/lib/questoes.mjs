@@ -37,7 +37,7 @@ export const ARMADILHAS = {
 
 const CAMPOS_MULTIPLOS = new Set(['trecho', 'pesquisar', 'alt']);
 
-export function lerArquivoQuestoes(caminho) {
+function lerArquivoQuestoes(caminho) {
   const bruto = readFileSync(caminho, 'utf8');
   const blocos = bruto.split(/^===\s*/m);
   const cabecalho = {};

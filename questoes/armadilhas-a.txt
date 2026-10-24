@@ -44,9 +44,9 @@ comentario: Errado. Ela incide a partir do primeiro dia útil de atraso, após a
 gab: E
 ref: res4 16
 trecho: praticar obstrução à atividade de fiscalização, desde que a aplicação da multa diária seja necessária para desobstrui-la
-armadilha: excecao
-dif: 2
-enunciado: A multa diária pode ser aplicada sempre que houver obstrução à atividade de fiscalização, ainda que seja desnecessária para desobstruí-la.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: houve obstrução à fiscalização, mas ela já foi superada sem necessidade de nova medida. Assertiva: ainda assim, cabe aplicar multa diária, que decorre da obstrução.
 comentario: Errado. Na obstrução, a multa diária exige necessidade: cabe “desde que [...] seja necessária para desobstrui-la” (art. 16, § 3º, II).
 
 === ae-06
@@ -81,7 +81,7 @@ gab: E
 ref: res4 25
 trecho: a ANPD deverá considerar o interesse público, o impacto aos direitos dos titulares de dados pessoais e a classificação da infração
 armadilha: rol
-dif: 2
+dif: 1
 enunciado: Para fixar o prazo da suspensão do exercício da atividade de tratamento, a ANPD considera exclusivamente a classificação da infração.
 comentario: Errado. Considera também o interesse público e o impacto aos direitos dos titulares (art. 25, § 2º). O prazo máximo é de seis meses, prorrogável por igual período (§ 1º).
 
@@ -89,9 +89,9 @@ comentario: Errado. Considera também o interesse público e o impacto aos direi
 gab: E
 ref: res4 5
 trecho: As sanções serão aplicadas de forma gradativa, isolada ou cumulativamente
-armadilha: absoluto
-dif: 1
-enunciado: As sanções do regulamento de dosimetria da ANPD são aplicadas sempre de forma isolada, vedada a cumulação de sanções pela mesma infração.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: pela mesma infração, a ANPD aplicou multa simples e publicização da infração. Assertiva: a cumulação é vedada pelo regulamento de dosimetria, que impõe a aplicação isolada das sanções.
 comentario: Errado. A aplicação é gradativa, isolada ou cumulativa, conforme as peculiaridades do caso (art. 5º), como já prevê o art. 52, § 1º, da LGPD.
 
 === ae-11
@@ -147,9 +147,9 @@ gab: E
 bloco: res-2-2022
 ref: res2 7
 trecho: qualquer outro que assegure os direitos previstos na LGPD e o acesso facilitado às informações pelos titulares
-armadilha: absoluto
-dif: 1
-enunciado: Os agentes de tratamento de pequeno porte devem disponibilizar as informações sobre o tratamento e atender às requisições dos titulares exclusivamente por meio eletrônico.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: agente de tratamento de pequeno porte atende às requisições dos titulares por telefone e por carta, sem canal eletrônico. Assertiva: a prática desatende a Resolução CD/ANPD nº 2/2022, que exige o meio eletrônico para esse atendimento.
 comentario: Errado. O meio pode ser eletrônico, impresso ou qualquer outro que assegure os direitos e o acesso facilitado às informações (art. 7º).
 
 === ae-17
@@ -247,9 +247,9 @@ gab: E
 bloco: res-18-2024
 ref: res18 20
 trecho: O encarregado deverá declarar ao agente de tratamento qualquer situação que possa configurar conflito de interesse
-armadilha: sujeito
-dif: 2
-enunciado: Identificar situações de conflito de interesse do encarregado cabe exclusivamente ao agente de tratamento, sem dever correspondente do próprio encarregado.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: encarregado percebeu que acumular certa função poderia gerar conflito de interesse, mas nada comunicou, por entender que identificar o conflito cabe ao agente de tratamento. Assertiva: o entendimento está correto.
 comentario: Errado. O encarregado deve declarar ao agente qualquer situação que possa configurar conflito de interesse, respondendo pela veracidade (art. 20). O agente, por sua vez, deve evitar que o conflito ocorra (art. 21).
 
 === ae-27
@@ -258,7 +258,7 @@ bloco: res-18-2024
 ref: res18 21
 trecho: implementar medidas para afastar o risco de conflito de interesse
 armadilha: rol
-dif: 2
+dif: 1
 enunciado: Constatada a possibilidade de conflito de interesse, a única providência admitida pelo regulamento é a substituição do encarregado.
 comentario: Errado. Conforme o caso, o agente pode não indicar a pessoa, implementar medidas para afastar o risco ou substituir o encarregado (art. 21, parágrafo único, I a III).
 
@@ -363,7 +363,7 @@ gab: E
 bloco: regulacao-teoria
 ref: doutrina informação assimétrica
 armadilha: comparacao
-dif: 2
+dif: 1
 enunciado: Risco moral é a informação oculta sobre as características de uma das partes, existente antes da celebração do contrato.
 comentario: Errado. Isso é seleção adversa. Risco moral é ação oculta depois do contrato: segurado que relaxa nos cuidados, gestor que se esforça menos.
 
@@ -372,8 +372,8 @@ gab: E
 bloco: regulacao-teoria
 ref: doutrina análise de impacto regulatório
 armadilha: comparacao
-dif: 2
-enunciado: A análise de custo-benefício dispensa a monetização dos benefícios e compara apenas os custos das alternativas para atingir um objetivo fixo.
+dif: 1
+enunciado: A análise de custo-benefício dispensa a monetização dos benefícios e compara os custos das alternativas para atingir um objetivo fixo.
 comentario: Errado. Essa é a análise de custo-efetividade. A de custo-benefício monetiza custos e benefícios e escolhe a alternativa de maior benefício líquido.
 
 === ae-40
@@ -400,7 +400,7 @@ gab: E
 bloco: regulacao-teoria
 ref: doutrina interesse público
 armadilha: comparacao
-dif: 2
+dif: 1
 enunciado: A teoria do interesse público explica a regulação como resultado da pressão de grupos organizados da indústria regulada.
 comentario: Errado. Essa é a teoria econômica da regulação (Stigler). A do interesse público vê a regulação como resposta a falhas de mercado em favor do bem-estar social.
 
@@ -418,9 +418,9 @@ gab: E
 bloco: lgpd-46-51
 ref: lgpd 49
 trecho: Os sistemas utilizados para o tratamento de dados pessoais devem ser estruturados de forma a atender aos requisitos de segurança
-armadilha: extrapolacao
+armadilha: caso
 dif: 2
-enunciado: O dever de estruturar os sistemas de tratamento de dados para atender aos requisitos de segurança e aos princípios da LGPD alcança apenas os sistemas desenvolvidos depois da entrada em vigor da lei.
+enunciado: Situação hipotética: controlador mantém sistema implantado antes da LGPD, sem adequá-lo aos requisitos de segurança. Assertiva: o sistema não precisa ser adequado, pois o dever de estruturação alcança os sistemas desenvolvidos depois da lei.
 comentario: Errado. O art. 49 não faz essa distinção: os sistemas utilizados para o tratamento devem ser estruturados para atender aos requisitos de segurança, às boas práticas e aos princípios. A ressalva temporal é invenção do item.
 
 === ae-45
@@ -568,9 +568,9 @@ gab: E
 bloco: eca-digital
 ref: lei15211 34
 trecho: a autoridade competente deverá observar as assimetrias regulatórias e adotar abordagem responsiva
-armadilha: conceito
-dif: 2
-enunciado: Na fiscalização do ECA Digital, a autoridade deve dispensar tratamento idêntico a todos os serviços, sem distinção de natureza, risco ou modelo de negócio.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a autoridade passou a exigir de pequeno serviço de baixo risco as mesmas medidas impostas a grande rede social. Assertiva: o tratamento uniforme é exigido pelo ECA Digital, que veda distinção por natureza, risco ou modelo de negócio.
 comentario: Errado. Deve observar as assimetrias regulatórias e adotar abordagem responsiva, com tratamento diferenciado e proporcional a serviços de natureza, risco e modelo de negócio distintos (art. 34, § 2º).
 
 === ae-60
@@ -580,7 +580,7 @@ ref: lei15211 34
 trecho: A regulamentação não poderá, em nenhuma hipótese, autorizar ou resultar na implantação de mecanismos de vigilância massiva, genérica ou indiscriminada
 armadilha: excecao
 dif: 2
-enunciado: A regulamentação do ECA Digital pode autorizar mecanismos de vigilância massiva, desde que destinados exclusivamente à proteção de crianças e adolescentes.
+enunciado: A regulamentação do ECA Digital pode autorizar mecanismos de vigilância massiva, desde que voltados à proteção de crianças e adolescentes.
 comentario: Errado. A regulamentação não pode, em nenhuma hipótese, autorizar ou resultar em vigilância massiva, genérica ou indiscriminada (art. 34, § 1º).
 
 === ae-61

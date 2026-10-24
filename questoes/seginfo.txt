@@ -5,7 +5,7 @@ bloco: seginfo
 gab: C
 ref: doutrina CID
 armadilha: caso
-dif: 1
+dif: 2
 enunciado: Situação hipotética: ataque deixou sistema público fora do ar por horas, sem vazamento nem alteração de dados. Assertiva: foi atingida a disponibilidade, um dos pilares clássicos da segurança da informação, ao lado da confidencialidade e da integridade.
 comentario: A tríade CID. Autenticidade e não repúdio costumam ser acrescentados. O princípio da segurança da LGPD (art. 6º, VII) protege contra acesso não autorizado (confidencialidade), alteração (integridade) e perda ou destruição (disponibilidade).
 
@@ -14,7 +14,7 @@ gab: E
 ref: doutrina CID
 armadilha: conceito
 dif: 1
-enunciado: A integridade, na segurança da informação, consiste em garantir que a informação esteja acessível aos usuários autorizados sempre que necessário.
+enunciado: Na segurança da informação, a integridade consiste em garantir que a informação esteja acessível aos usuários autorizados quando necessário.
 comentario: Essa é a disponibilidade. Integridade é a garantia de que a informação não foi alterada de forma indevida.
 
 === si-03
@@ -119,7 +119,7 @@ comentario: É o espelho técnico do princípio da necessidade da LGPD (art. 6º
 gab: E
 ref: doutrina autenticação
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: Exigir do usuário uma senha e um PIN numérico caracteriza autenticação de dois fatores, por envolver dois segredos distintos.
 comentario: Senha e PIN são do mesmo fator: algo que você sabe. Dois fatores exigem categorias diferentes: algo que você sabe, algo que você tem (token, celular) ou algo que você é (biometria).
 
@@ -143,7 +143,7 @@ comentario: É a defesa básica contra ransomware e desastres. Cópias imutávei
 gab: E
 ref: doutrina engenharia social
 armadilha: caso
-dif: 1
+dif: 2
 enunciado: Situação hipotética: criminoso telefonou para servidor fingindo ser do suporte técnico e obteve sua senha. Assertiva: o ataque explorou principalmente vulnerabilidade técnica de software.
 comentario: Engenharia social explora o fator humano (confiança, urgência, medo). Phishing é o exemplo mais comum.
 

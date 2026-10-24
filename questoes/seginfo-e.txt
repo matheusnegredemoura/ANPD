@@ -96,7 +96,7 @@ comentario: Certo. Tática é o porquê; técnica, o como; procedimento, a forma
 gab: E
 ref: doutrina MITRE ATT&CK
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: O MITRE ATT&CK é norma de certificação que fixa requisitos mínimos de controles de segurança para as organizações.
 comentario: Errado. É base de conhecimento pública sobre táticas e técnicas observadas em ataques reais. Serve para modelar ameaças, avaliar a cobertura das detecções e planejar defesas, mas não certifica ninguém.
 
@@ -192,7 +192,7 @@ comentario: Certo: controles 7.14 (descarte ou reutilização segura de equipame
 gab: E
 ref: doutrina Gestão de chaves
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: Em um sistema criptográfico, a segurança depende principalmente do sigilo do algoritmo utilizado, e não da proteção das chaves.
 comentario: Errado. Pelo princípio de Kerckhoffs, o sistema deve continuar seguro ainda que tudo, menos a chave, seja público. Por isso se usam algoritmos abertos e testados, como AES e RSA, e se cuida da gestão de chaves: geração, guarda, rotação e revogação.
 
