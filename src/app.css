@@ -855,3 +855,9 @@ body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}
 .caca.ok p,.caca.no p{margin:0}
 .caca.ok{border-left-color:var(--certo);background:var(--certo-bg)}
 .caca.no{border-left-color:var(--ink-3)}
+/* Gaveta de erros do artigo na lei seca */
+.erros-art{margin:10px 0;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--surface-2)}
+.erros-art summary{cursor:pointer;font-weight:700;color:var(--errado)}
+.erro-art{border-top:1px dashed var(--line);padding-top:8px;margin-top:8px}
+.erro-art p{margin:4px 0}
+.erro-art.virou{opacity:.8}

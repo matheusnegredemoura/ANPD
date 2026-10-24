@@ -3540,6 +3540,21 @@ function buscarLei(termo, aprox) {
   if (!res.length) return !aprox && palavras.some((p) => p.length > 5) ? buscarLei(termo, true) : '<p class="vazio-msg">Nada encontrado para “' + esc(termo) + '”.</p>';
   return (aprox ? '<p class="pequeno mudo">Nada exato para “' + esc(termo) + '”; mostrando palavras da mesma família.</p>' : '') + (total > res.length ? '<p class="pequeno mudo">' + total + ' resultados; mostrando os 60 primeiros (norma aberta primeiro).</p>' : '') + res.join('');
 }
+// Gaveta do artigo na lei seca: os itens deste artigo que a pessoa já errou, os ainda não recuperados primeiro, com o
+// gabarito, o comentário e a regra que ela escreveu no Caderno de Erros
+function gavetaErrosArt(qs) {
+  const notas = cadState().erros || {};
+  const errados = qs.filter((q) => { const r = rec(q.id); return r && r[3] > 0; })
+    .sort((x, y) => (rec(x.id)[0] > 0) - (rec(y.id)[0] > 0) || rec(y.id)[3] - rec(x.id)[3]);
+  if (!errados.length) return '';
+  const pend = errados.filter((q) => !(rec(q.id)[0] > 0)).length;
+  return '<details class="erros-art"><summary>Seus erros neste artigo (' + errados.length + (pend ? ', ' + pend + ' sem recuperar' : '') + ')</summary>' +
+    errados.slice(0, 8).map((q) => {
+      const r = rec(q.id), nota = notas[q.id] && notas[q.id].nota;
+      return '<div class="erro-art' + (r[0] > 0 ? ' virou' : '') + '"><p class="pequeno mudo">' + esc(q.id) + ' · ' + pl(r[3], 'erro', 'erros') + (r[0] > 0 ? ' · já recuperado' : '') + '</p><p>' + esc(q.e) + '</p>' +
+        '<p class="pequeno"><b>Gabarito: ' + esc(nomeGab(q)) + '.</b> ' + marcarTermos(q.c, 3) + '</p>' + (nota ? '<p class="pequeno"><b>Sua regra:</b> ' + esc(nota) + '</p>' : '') + '</div>';
+    }).join('') + (errados.length > 8 ? '<p class="pequeno mudo">Mais ' + (errados.length - 8) + ' no Caderno de Erros.</p>' : '') + '</details>';
+}
 function renderArtigo(k) {
   const a = ARTI.get(k);
   const L = LEIS[a.lei];
@@ -3569,7 +3584,7 @@ function renderArtigo(k) {
     }
   }
   html += '<div class="cartao"><span class="rotulo">' + esc([L.curto].concat(a.estrutura).join(' · ')) + '</span><h2>' + esc(rotuloArt(k)) + (est ? ' <span class="estrelas" title="Importância no banco">' + '★'.repeat(est) + '</span>' : '') + '</h2>' +
-    avisoVuln +
+    avisoVuln + gavetaErrosArt(qs) +
     htmlClaro(a) + legendaCamadas() + '<div class="texto-lei">' + textoLei(a) + '</div>' + caixaJuridiques(a) + '<div class="linha-btns">';
   if (qs.length) html += '<button class="btn primario" data-acao="treinar-art" data-art="' + esc(k) + '">Questões deste artigo (' + qs.length + ')</button>';
   if (cs.length) html += '<button class="btn" data-acao="cards-art" data-art="' + esc(k) + '">Cards deste artigo (' + cs.length + ')</button>';
