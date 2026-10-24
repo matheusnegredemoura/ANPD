@@ -34,14 +34,12 @@ await passo('artigo lido hoje abre normal; lido em outro dia abre em leitura fri
   await abrirPrimeiro();
   conferir('lido hoje: sem leitura fria', !(await p.locator('.cartao.fria').count()));
   const k = await p.evaluate(() => { const l = JSON.parse(localStorage.getItem('painel-anpd-v3')).perfil.lidos; return Object.keys(l).find((x) => l[x] === Object.values(l).sort().pop()); });
-  // A data trocada vai num script que roda na recarga, antes do app: gravada nesta página logo antes do reload, às vezes
-  // não chegava à página nova (1 em ~10 rodadas em paralelo), que abria o artigo como lido hoje. A gravação que o app
-  // faz ao sair (pagehide) fica bloqueada, para não competir com a troca
-  await ctx.addInitScript((k) => {
-    const s = JSON.parse(localStorage.getItem('painel-anpd-v3') || 'null');
-    if (s && s.perfil) { s.perfil.lidos = Object.assign({}, s.perfil.lidos, { [k]: '2026-01-02' }); localStorage.setItem('painel-anpd-v3', JSON.stringify(s)); }
-  }, k);
-  await p.evaluate(() => { Storage.prototype.setItem = () => {}; });
+  // O app grava o estado ao sair da página (pagehide); sem bloquear essa gravação, o reload desfaria a data trocada aqui
+  const guardado = await p.evaluate((k) => { const s = JSON.parse(localStorage.getItem('painel-anpd-v3')); s.perfil.lidos[k] = '2026-01-02'; localStorage.setItem('painel-anpd-v3', JSON.stringify(s)); Storage.prototype.setItem = () => {}; return Object.fromEntries(Object.entries(localStorage)); }, k);
+  // No file://, quando um script de início mexe no armazenamento (a semente mexe), o Chromium às vezes abre o documento
+  // seguinte com o localStorage e o sessionStorage vazios; a semente rodaria de novo e o artigo abriria como lido hoje.
+  // O estado guardado volta por um script de início, sem depender do armazenamento sobreviver ao reload
+  await ctx.addInitScript((g) => { for (const [c, v] of Object.entries(g)) localStorage.setItem(c, v); }, guardado);
   await p.reload();
   await p.waitForSelector('.aba');
   await p.waitForTimeout(600);
