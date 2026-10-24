@@ -114,11 +114,14 @@ function abrirSubtemaEm(id, parte) {
   if (!SUBTEMAS.get(id)) return;
   fecharFolha();
   UI.subtema = id;
+  UI.stUltimo = id;
+  salvarUI();
   UI.mais = 'trilha';
   if (UI.vista !== 'mais') ir('mais'); else renderMais();
   const el = document.getElementById(parte + '-' + id);
   if (el) el.scrollIntoView({ block: 'start' });
   if (parte === 'aula') {
+    marcarEstudado(id);
     const dia = DIAS.find((d) => d.data === hojeISO());
     if (dia && dia.st === id && !S.perfil.feitos['aula:' + dia.data]) { S.perfil.feitos['aula:' + dia.data] = 1; Store.salvar('perfil'); }
     return;

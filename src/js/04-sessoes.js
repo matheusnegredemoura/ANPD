@@ -358,6 +358,8 @@ function finalizar() {
   sessao.fim = true;
   sessao.dur = decorrido();
   clearInterval(relogioTimer);
+  // A prática do subtema conta como tema estudado (o pré-teste, feito antes da aula, não)
+  if (sessao.st && sessao.tipoSubtema !== 'pre') marcarEstudado(sessao.st);
   if (sessao.modo === 'simulado') {
     // pt: nota ponderada (cada item no seu peso); nr/cr: itens reais de prova respondidos e acertados
     let c = 0, e = 0, b = 0, xp = 0, eMc = 0, ni = 0, nc = 0, pt = 0, ptMax = 0, nr = 0, cr = 0;

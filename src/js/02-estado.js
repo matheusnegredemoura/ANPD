@@ -12,7 +12,8 @@ if (!UI.camadas) UI.camadas = { cai: true, num: true, alerta: true, verbo: true,
 let sessao = null;
 // Preferências que acompanham a conta (vão no documento do perfil), para não se perderem quando o navegador
 // ou o app do Claude limpam o armazenamento local. A aba aberta (vista) fica só neste aparelho.
-const CAMPOS_UI = ['modo', 'n', 'filtro', 'prova', 'blocos', 'blocosCards', 'camadas', 'lei', 'tema', 'som', 'foco'];
+// stUltimo: o último subtema aberto, para a página de trilhas oferecer a volta a ele depois de sair do app
+const CAMPOS_UI = ['modo', 'n', 'filtro', 'prova', 'blocos', 'blocosCards', 'camadas', 'lei', 'tema', 'som', 'foco', 'stUltimo'];
 function prefsUI() { const o = {}; for (const k of CAMPOS_UI) if (UI[k] !== undefined) o[k] = UI[k]; return o; }
 function salvarUI() {
   const p = prefsUI();
@@ -123,6 +124,7 @@ function mesclarDoc(n, nuvem, local, localNovo) {
   p.feitos = Object.assign({}, velho.feitos, novo.feitos);
   p.cad = mesclarCad(velho.cad, novo.cad);
   p.lidos = mesclarMapa(nuvem.lidos, local.lidos, (a, b) => (b < a ? b : a));
+  p.trilha = mesclarMapa(nuvem.trilha, local.trilha, (a, b) => (b < a ? b : a));
   p.recordes = mesclarMapa(nuvem.recordes, local.recordes, (a, b) => Math.max(num(a), num(b)));
   p.criado = [nuvem.criado, local.criado].filter(Boolean).sort()[0] || hojeISO();
   if (!p.ui && velho.ui) p.ui = velho.ui;

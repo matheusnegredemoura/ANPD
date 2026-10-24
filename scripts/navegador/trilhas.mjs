@@ -1,5 +1,7 @@
 // Trilhas do zero: a aula do dia segue a matéria principal do plano (ECA Digital em 09/11/2026), a trilha de ECA
-// Digital aparece com seus subtemas e a aula, e o pré-teste do subtema abre.
+// Digital aparece com seus subtemas e a aula, e o pré-teste do subtema abre. Passar de tema fica registrado: depois de
+// abrir a aula do subtema 1 e seguir para o 2, quem sai do app e volta encontra "Onde você parou" no 2, e a lista
+// mostra o 1 como estudado e o botão Continuar no 2.
 import { readFileSync } from 'node:fs';
 import { APP, abrirNavegador, foto, placar, vigiarErros } from './comum.mjs';
 
@@ -51,6 +53,46 @@ await p.locator('#vista-mais [data-acao="trilha-sessao"][data-tipo="pre"]').firs
 await p.waitForSelector('#sessao:not([hidden])', { timeout: 5000 }).catch(() => {});
 conferir('o pré-teste do subtema abre', await p.locator('#sessao:not([hidden])').count() === 1);
 await lgpd.ctx.close();
+
+{
+  const trilhas = JSON.parse(readFileSync(new URL('../../dados/trilhas.json', import.meta.url), 'utf8')).trilhas;
+  const [st1, st2] = trilhas.find((t) => t.id === 'regulacao').subtemas;
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const p = await ctx.newPage();
+  vigiarErros(p, erros);
+  await p.goto(APP);
+  await p.waitForTimeout(500);
+  const abrirTrilhas = async () => {
+    await p.click('.aba[data-vista="mais"]');
+    await p.click('[data-acao="mais"][data-sub="menu"]').catch(() => {});
+    await p.click('.menu-mais [data-sub="trilha"]');
+    await p.waitForTimeout(200);
+  };
+  await abrirTrilhas();
+  await p.click('[data-acao="subtema"][data-st="' + st1.id + '"]');
+  await p.click('[data-acao="st-aula"][data-st="' + st1.id + '"]');
+  await p.click('[data-acao="subtema"][data-de="' + st1.id + '"]');
+  await p.waitForTimeout(200);
+  const salvo = await p.evaluate(() => JSON.parse(localStorage.getItem('painel-anpd-v3')).perfil.trilha || {});
+  conferir('abrir a aula e seguir para o próximo registra o subtema como estudado', !!salvo[st1.id], JSON.stringify(salvo));
+  await p.reload();
+  await p.waitForTimeout(500);
+  await abrirTrilhas();
+  const onde = await p.locator('.retomar-st').getAttribute('data-st').catch(() => null);
+  conferir('ao voltar ao app, as trilhas oferecem retomar o subtema em que a pessoa estava', onde === st2.id, String(onde));
+  if (onde) {
+    await p.click('.retomar-st');
+    await p.waitForTimeout(200);
+    conferir('Retomar abre esse subtema', ((await p.textContent('.titulo-st')) || '').trim() === st2.nome);
+    await p.click('.voltar[data-acao="subtema"]');
+    await p.waitForTimeout(200);
+  }
+  const cont = await p.locator('#tr-regulacao .continuar-st').getAttribute('data-st').catch(() => null);
+  conferir('a lista mostra Continuar no subtema seguinte ao estudado', cont === st2.id, String(cont));
+  const chip = ((await p.locator('#tr-regulacao [data-st="' + st1.id + '"] .selo').textContent().catch(() => '')) || '').trim();
+  conferir('o subtema estudado aparece como aula feita', chip === 'aula feita', chip);
+  await ctx.close();
+}
 
 await browser.close();
 fim(erros);

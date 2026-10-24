@@ -243,8 +243,11 @@ async function executar(a, alvo) {
       break;
     }
     case 'contestar': folhaContestar(alvo.dataset.q); break;
-    case 'subtema': fecharFolha(); UI.subtema = alvo.dataset.st || null; UI.mais = 'trilha'; if (UI.vista !== 'mais') ir('mais'); else renderMais(); window.scrollTo(0, 0); break;
+    case 'subtema':
+      if (alvo.dataset.de) marcarEstudado(alvo.dataset.de);
+      fecharFolha(); UI.subtema = alvo.dataset.st || null; if (UI.subtema) UI.stUltimo = UI.subtema; UI.mais = 'trilha'; salvarUI(); if (UI.vista !== 'mais') ir('mais'); else renderMais(); window.scrollTo(0, 0); break;
     case 'aula-folha':
+      marcarEstudado(alvo.dataset.st);
       if (alvo.dataset.marca && !S.perfil.feitos['aula:' + hojeISO()]) { S.perfil.feitos['aula:' + hojeISO()] = 1; Store.salvar('perfil'); }
       folhaAula(alvo.dataset.st); break;
     case 'st-lei': case 'st-aula': abrirSubtemaEm(alvo.dataset.st, a === 'st-lei' ? 'lei' : 'aula'); break;

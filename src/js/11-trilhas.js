@@ -13,13 +13,31 @@ function estadoSubtema(id) {
   const n = qs.length, minimo = Math.min(n, Math.max(10, Math.min(25, Math.ceil(n * 0.7))));
   const acerto = resp.length ? certos / resp.length : 0;
   const status = !n ? 'vazio' : !resp.length ? 'novo' : resp.length >= minimo && acerto >= 0.8 ? 'dominado' : 'curso';
-  return { n, resp: resp.length, certos, acerto, minimo, status, novos: qs.filter((q) => !rec(q.id)).length, erros: resp.length - certos };
+  return { n, resp: resp.length, certos, acerto, minimo, status, novos: qs.filter((q) => !rec(q.id)).length, erros: resp.length - certos, visto: vistoEm(id) };
+}
+// Data em que o subtema foi estudado: a marcada na trilha ou, para o que veio antes desse registro, a do dia do plano
+// com esse subtema em que a aula foi dada como feita
+function vistoEm(id) {
+  const t = (S.perfil.trilha || {})[id];
+  if (t) return t;
+  const d = DIAS.find((x) => x.st === id && S.perfil.feitos['aula:' + x.data]);
+  return d ? d.data : null;
+}
+// Passar de tema fica registrado: abrir a aula, terminar uma sessão do subtema ou seguir para o próximo marca o subtema
+// como estudado (com a data), e a trilha continua dali, mesmo antes do domínio, que segue medido pelas questões
+function marcarEstudado(id) {
+  if (!SUBTEMAS.get(id) || vistoEm(id)) return;
+  S.perfil.trilha ||= {};
+  S.perfil.trilha[id] = hojeISO();
+  Store.salvar('perfil');
 }
 const ROTULO_ST = { vazio: 'sem itens ainda', novo: 'não começado', curso: 'em curso', dominado: 'dominado' };
+// Próximo da trilha: o primeiro ainda não estudado nem dominado; com todos estudados, o primeiro ainda não dominado
 function proximoSubtema(trilhaId) {
   const t = TRILHAS.find((x) => x.id === trilhaId);
   if (!t) return null;
-  return t.subtemas.find((st) => { const e = estadoSubtema(st.id); return e.n && e.status !== 'dominado'; }) || null;
+  const est = t.subtemas.map((st) => [st, estadoSubtema(st.id)]).filter(([, e]) => e.n && e.status !== 'dominado');
+  return (est.find(([, e]) => !e.visto) || est[0] || [null])[0];
 }
 // Blocos de cada trilha e de cada subtema: os das questões que entram nele
 const BLOCOS_ST = new Map([...SUBTEMAS.keys()].map((id) => [id, new Set((POR_TEMA.get(id) || []).map((q) => q.b))]));
@@ -50,6 +68,7 @@ function idsSubtema(id, tipo, n) {
   return ordem.slice(0, n).map((q) => q.id);
 }
 function chipEstado(e) {
+  if (e.visto && e.status !== 'dominado') return '<span class="selo st-visto">aula feita</span>';
   return '<span class="selo st-' + e.status + '">' + esc(ROTULO_ST[e.status]) + '</span>';
 }
 // Aula estruturada (dados/trilhas.json, campo licao): ideia central, mapa mental e partes com tabela, lista, passos e caixas
@@ -130,12 +149,19 @@ function renderTrilhas() {
   if (UI.subtema && SUBTEMAS.get(UI.subtema)) return renderSubtema(UI.subtema);
   let html = '<div class="secao-cab"><h2>Trilhas do zero</h2></div>' +
     '<p class="mudo">Para quem está começando a matéria. Em cada subtema: faça o pré-teste, mesmo sem saber (errar antes de estudar faz a explicação grudar mais), leia os artigos da lei com as palavras difíceis explicadas, depois a aula, que explica o que você leu, e pratique até dominar.</p>';
+  const ult = UI.stUltimo && SUBTEMAS.get(UI.stUltimo);
+  if (ult) {
+    const t = TRILHAS.find((x) => x.id === ult.trilha), i = t.subtemas.findIndex((x) => x.id === ult.id);
+    html += '<div class="cartao destaque retomar"><span class="rotulo">Onde você parou</span><b>' + esc(t.nome) + ' · ' + (i + 1) + '. ' + esc(ult.nome) + '</b><div class="linha-btns"><button class="btn primario retomar-st" data-acao="subtema" data-st="' + esc(ult.id) + '">Retomar</button></div></div>';
+  }
   if (TRILHAS.length > 2) html += '<div class="chips cb-nav">' + TRILHAS.map((t) => '<button class="chip" data-acao="rolar" data-alvo="tr-' + esc(t.id) + '">' + esc(t.nome.replace(/ do zero$/, '')) + '</button>').join('') + '</div>';
   for (const t of TRILHAS) {
     const est = t.subtemas.map((st) => estadoSubtema(st.id));
-    const dom = est.filter((e) => e.status === 'dominado').length;
-    html += '<div class="cartao trilha" id="tr-' + esc(t.id) + '"><div class="secao-cab"><h2>' + esc(t.nome) + '</h2><span class="mudo pequeno">' + dom + ' de ' + t.subtemas.length + ' dominados</span></div>' +
-      '<p class="pequeno mudo">' + esc(t.resumo) + '</p><ol class="lista-st">' +
+    const dom = est.filter((e) => e.status === 'dominado').length, vistos = est.filter((e) => e.visto || e.status === 'dominado').length;
+    const prox = proximoSubtema(t.id), iProx = prox ? t.subtemas.findIndex((x) => x.id === prox.id) : -1;
+    html += '<div class="cartao trilha" id="tr-' + esc(t.id) + '"><div class="secao-cab"><h2>' + esc(t.nome) + '</h2><span class="mudo pequeno">' + vistos + ' de ' + t.subtemas.length + ' estudados · ' + dom + ' dominados</span></div>' +
+      '<p class="pequeno mudo">' + esc(t.resumo) + '</p>' +
+      (prox && vistos ? '<div class="linha-btns"><button class="btn pequeno primario continuar-st" data-acao="subtema" data-st="' + esc(prox.id) + '">Continuar: ' + (iProx + 1) + '. ' + esc(prox.nome) + '</button></div>' : '') + '<ol class="lista-st">' +
       t.subtemas.map((st, i) => {
         const e = est[i];
         return '<li><button data-acao="subtema" data-st="' + esc(st.id) + '"><span class="txt"><b>' + esc(st.nome) + '</b><span class="pequeno mudo">' + pl(e.n, 'questão', 'questões') + (e.resp ? ' · respondidas ' + e.resp + ' · acerto atual ' + Math.round(e.acerto * 100) + '%' : '') + '</span></span>' + chipEstado(e) + '</button></li>';
@@ -158,7 +184,7 @@ function renderSubtema(id) {
   const prox = t.subtemas[pos + 1];
   let html = '<button class="btn pequeno voltar" data-acao="subtema" data-st="">← Trilhas</button>' +
     '<div class="cartao destaque"><span class="rotulo">Subtema ' + (pos + 1) + ' de ' + t.subtemas.length + '</span><h2 class="titulo-st">' + esc(st.nome) + '</h2><p>' + esc(st.resumo) + '</p>' + htmlSimples(st) +
-    '<div class="linha-st">' + chipEstado(e) + '<span class="pequeno mudo">' + pl(e.n, 'questão', 'questões') + ' · ' + e.resp + ' respondidas · ' + (e.resp ? 'acerto atual ' + Math.round(e.acerto * 100) + '%' : 'nenhuma respondida') + ' · domínio pede ' + e.minimo + ' respondidas com 80% de acerto</span></div>' +
+    '<div class="linha-st">' + chipEstado(e) + '<span class="pequeno mudo">' + (e.visto ? 'estudado em ' + esc(fmtData(e.visto, { day: '2-digit', month: '2-digit' })) + ' · ' : '') + pl(e.n, 'questão', 'questões') + ' · ' + e.resp + ' respondidas · ' + (e.resp ? 'acerto atual ' + Math.round(e.acerto * 100) + '%' : 'nenhuma respondida') + ' · domínio pede ' + e.minimo + ' respondidas com 80% de acerto</span></div>' +
     '<div class="linha-btns">' + passosDoSubtema(st, e).map((x, i, a) => '<button class="btn' + (x.primario ? ' primario' : '') + '" ' + x.attrs + '>' + (a.length > 1 ? (i + 1) + '. ' : '') + x.rot + '</button>').join('') +
     (e.erros ? '<button class="btn" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="erros">Refazer erros · ' + e.erros + '</button>' : '') +
     '</div></div>';
@@ -177,7 +203,7 @@ function renderSubtema(id) {
   html += '<div class="cartao"><h2>Como o Cebraspe tenta te derrubar</h2><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul></div>';
   const reais = (POR_TEMA.get(id) || []).filter((q) => q.o).length;
   if (reais) html += '<p class="pequeno mudo">' + pl(reais, 'item real', 'itens reais') + ' do Cebraspe neste subtema, misturados aos demais.</p>';
-  if (prox) html += '<div class="linha-btns"><button class="btn" data-acao="subtema" data-st="' + esc(prox.id) + '">Próximo: ' + esc(prox.nome) + ' ›</button></div>';
+  if (prox) html += '<div class="linha-btns"><button class="btn" data-acao="subtema" data-st="' + esc(prox.id) + '" data-de="' + esc(id) + '">Próximo: ' + esc(prox.nome) + ' ›</button></div>';
   return html;
 }
 
