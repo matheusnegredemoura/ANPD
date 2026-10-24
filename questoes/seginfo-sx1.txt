@@ -1,0 +1,244 @@
+bloco: seginfo
+// Segurança da informação, lote S1: NIST CSF 2.0 (governança, cadeia de suprimentos, ativos, melhoria, dados,
+// monitoramento, resposta e recuperação), conferido em fontes/nistcsf.txt, e itens de doutrina sobre ISO 31000 e
+// ISO/IEC 27001 e 27002, com comentários próprios.
+
+=== sx1-01
+gab: C
+tema: sg-nist
+ref: nistcsf GV.SC
+trecho: Suppliers are known and prioritized by criticality
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, a gestão de riscos de cibersegurança da cadeia de suprimentos (GV.SC) inclui conhecer os fornecedores e priorizá-los por criticidade.
+comentario: Certo. GV.SC-04. A cadeia de suprimentos entrou na função Governar na versão 2.0, porque boa parte dos incidentes vem de terceiros.
+
+=== sx1-02
+gab: E
+tema: sg-nist
+ref: nistcsf GV.SC
+trecho: integrated into contracts and other types of agreements with suppliers
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, os requisitos de cibersegurança para fornecedores ficam fora dos contratos, por serem matéria de gestão interna.
+comentario: Errado. GV.SC-05 prevê que os requisitos para tratar riscos na cadeia de suprimentos sejam estabelecidos, priorizados e integrados aos contratos e acordos com fornecedores e terceiros.
+
+=== sx1-03
+gab: C
+tema: sg-nist
+ref: nistcsf GV.RR
+trecho: Organizational leadership is responsible and accountable for cybersecurity risk
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, a liderança da organização é responsável pelo risco de cibersegurança e deve fomentar cultura consciente do risco, ética e de melhoria contínua.
+comentario: Certo. GV.RR-01. A responsabilidade pelo risco não fica só com a área de tecnologia: começa na alta liderança.
+
+=== sx1-04
+gab: E
+tema: sg-nist
+ref: nistcsf GV.RR
+trecho: Cybersecurity is included in human resources practices
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, as práticas de recursos humanos ficam fora da cibersegurança, que é atribuição exclusiva da área de tecnologia.
+comentario: Errado. GV.RR-04 inclui a cibersegurança nas práticas de recursos humanos, como admissão, treinamento e desligamento.
+
+=== sx1-05
+gab: C
+tema: sg-nist
+ref: nistcsf GV.OV
+trecho: are used to inform, improve, and adjust the risk management strategy
+armadilha: conceito
+dif: 3
+enunciado: Na categoria supervisão (GV.OV) do NIST CSF 2.0, os resultados da gestão de riscos de cibersegurança servem para ajustar a própria estratégia de gestão de riscos.
+comentario: Certo. GV.OV-01 a 03: resultados e desempenho são revistos para informar e ajustar a estratégia.
+
+=== sx1-06
+gab: C
+tema: sg-nist
+ref: nistcsf ID.AM
+trecho: Inventories of hardware managed by the organization are maintained
+armadilha: conceito
+dif: 1
+enunciado: Manter inventários de hardware e de software geridos pela organização é resultado previsto na categoria gestão de ativos (ID.AM) do NIST CSF 2.0.
+comentario: Certo. ID.AM-01 e 02. Sem saber o que existe, a organização não consegue proteger.
+
+=== sx1-07
+gab: E
+tema: sg-nist
+ref: nistcsf ID.AM
+trecho: Assets (e.g., data, hardware, software, systems, facilities, services, people)
+armadilha: rol
+dif: 2
+enunciado: Na categoria gestão de ativos do NIST CSF 2.0, pessoas e instalações ficam fora do conceito de ativo, restrito a hardware e software.
+comentario: Errado. A categoria ID.AM cita como ativos dados, hardware, software, sistemas, instalações, serviços e pessoas.
+
+=== sx1-08
+gab: C
+tema: sg-nist
+ref: nistcsf ID.IM
+trecho: including those done in coordination with suppliers and relevant third parties
+armadilha: conceito
+dif: 3
+enunciado: No NIST CSF 2.0, melhorias podem ser identificadas a partir de testes e exercícios de segurança, inclusive os feitos em coordenação com fornecedores e terceiros.
+comentario: Certo. ID.IM-02. A categoria melhoria (ID.IM) é novidade da versão 2.0 e reúne aprendizados de avaliações, testes e operação.
+
+=== sx1-09
+gab: E
+tema: sg-nist
+ref: nistcsf PR.DS
+trecho: The confidentiality, integrity, and availability of data-in-transit are protected
+armadilha: rol
+dif: 2
+enunciado: No NIST CSF 2.0, a categoria segurança de dados (PR.DS) protege só os dados armazenados, deixando de fora os dados em trânsito e em uso.
+comentario: Errado. PR.DS-01, 02 e 10 protegem a confidencialidade, a integridade e a disponibilidade dos dados em repouso, em trânsito e em uso.
+
+=== sx1-10
+gab: C
+tema: sg-nist
+ref: nistcsf PR.DS
+trecho: Backups of data are created, protected, maintained, and tested
+armadilha: conceito
+dif: 2
+enunciado: Criar, proteger, manter e testar cópias de segurança é resultado previsto na categoria segurança de dados do NIST CSF 2.0.
+comentario: Certo. PR.DS-11. Backup que nunca foi testado pode falhar justamente na hora da recuperação.
+
+=== sx1-11
+gab: E
+tema: sg-nist
+ref: nistcsf DE.CM
+trecho: The physical environment is monitored to find potentially adverse events
+armadilha: rol
+dif: 2
+enunciado: O monitoramento contínuo (DE.CM) do NIST CSF 2.0 limita-se às redes e não alcança o ambiente físico nem as atividades de prestadores externos.
+comentario: Errado. DE.CM-02 e 06 incluem o monitoramento do ambiente físico e das atividades e serviços de prestadores externos, além de redes, pessoal e sistemas.
+
+=== sx1-12
+gab: C
+tema: sg-nist
+ref: nistcsf RS.MA
+trecho: Incident reports are triaged and validated
+armadilha: conceito
+dif: 2
+enunciado: Na gestão de incidentes (RS.MA) do NIST CSF 2.0, os relatos de incidentes são triados e validados, e os incidentes são categorizados e priorizados.
+comentario: Certo. RS.MA-02 e 03. A categoria também prevê escalonamento e critérios para iniciar a recuperação.
+
+=== sx1-13
+gab: C
+tema: sg-nist
+ref: nistcsf RC.RP
+trecho: The integrity of backups and other restoration assets is verified before using them for restoration
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: depois de ataque de ransomware, a equipe vai restaurar os sistemas a partir de backups. Assertiva: pelo NIST CSF 2.0, a integridade dos backups deve ser verificada antes de usá-los na restauração.
+comentario: Certo. RC.RP-03. Restaurar a partir de cópia já comprometida reinstalaria o problema que se quer resolver.
+
+=== sx1-14
+gab: E
+tema: sg-nist
+ref: nistcsf RC.CO
+trecho: Public updates on incident recovery are shared using approved methods and messaging
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, a comunicação sobre a recuperação de incidentes restringe-se às equipes internas, sendo vedadas atualizações públicas.
+comentario: Errado. RC.CO-04 prevê atualizações públicas sobre a recuperação, por métodos e mensagens aprovados, e RC.CO-03 manda comunicar o andamento a partes internas e externas.
+
+=== sx1-15
+gab: E
+tema: sg-nist
+ref: nistcsf RS.MA
+trecho: The incident response plan is executed in coordination with relevant third parties once an incident is declared
+armadilha: conceito
+dif: 3
+enunciado: No NIST CSF 2.0, o plano de resposta a incidentes é executado sem coordenação com terceiros, para preservar o sigilo da investigação.
+comentario: Errado. RS.MA-01 prevê a execução do plano em coordenação com os terceiros relevantes, uma vez declarado o incidente.
+
+=== sx1-16
+gab: C
+tema: sg-riscos
+ref: doutrina ISO 31000
+armadilha: conceito
+dif: 2
+enunciado: Na ISO 31000:2018, o processo de avaliação de riscos compreende a identificação, a análise e a avaliação dos riscos.
+comentario: Certo. A avaliação de riscos (risk assessment) tem essas três etapas; depois vem o tratamento.
+
+=== sx1-17
+gab: E
+tema: sg-riscos
+ref: doutrina ISO 31000
+armadilha: conceito
+dif: 2
+enunciado: Na ISO 31000:2018, o tratamento de riscos antecede a identificação dos riscos, para que os controles existentes orientem a análise.
+comentario: Errado. O tratamento vem depois da avaliação de riscos (identificação, análise e avaliação), quando já se sabe quais riscos precisam de resposta.
+
+=== sx1-18
+gab: C
+tema: sg-riscos
+ref: doutrina ISO 31000
+armadilha: conceito
+dif: 3
+enunciado: Na ISO 31000:2018, comunicação e consulta, monitoramento e análise crítica e registro e relato acompanham todo o processo de gestão de riscos, e não só uma etapa.
+comentario: Certo. No desenho do processo, essas atividades envolvem o ciclo inteiro: contexto, avaliação e tratamento.
+
+=== sx1-19
+gab: E
+tema: sg-riscos
+ref: doutrina ISO 31000
+armadilha: conceito
+dif: 2
+enunciado: Para a ISO 31000:2018, risco é sempre um evento negativo, sem possibilidade de efeitos positivos.
+comentario: Errado. A norma define risco como o efeito da incerteza nos objetivos, e esse efeito pode ser positivo, negativo ou ambos.
+
+=== sx1-20
+gab: C
+tema: sg-riscos
+ref: doutrina ISO 31000
+armadilha: rol
+dif: 2
+enunciado: Entre os princípios da ISO 31000:2018 estão a gestão de riscos integrada, estruturada e abrangente, personalizada e inclusiva.
+comentario: Certo. Os demais princípios são dinâmica, melhor informação disponível, fatores humanos e culturais e melhoria contínua.
+
+=== sx1-21
+gab: E
+tema: sg-riscos
+ref: doutrina ISO 31000
+armadilha: conceito
+dif: 3
+enunciado: Na ISO 31000:2018, a gestão de riscos é atividade isolada, separada da governança e das demais atividades da organização.
+comentario: Errado. O primeiro princípio é a gestão integrada a todas as atividades organizacionais, e a estrutura da norma liga a gestão de riscos à governança e à liderança.
+
+=== sx1-22
+gab: C
+tema: sg-iso
+ref: doutrina ISO/IEC 27002
+armadilha: numero
+dif: 2
+enunciado: A ISO/IEC 27002:2022 organiza seus 93 controles em quatro temas: organizacionais, de pessoas, físicos e tecnológicos.
+comentario: Certo. A versão de 2022 reduziu os 114 controles da versão anterior para 93, agrupados nesses quatro temas.
+
+=== sx1-23
+gab: E
+tema: sg-iso
+ref: doutrina ISO/IEC 27001
+armadilha: comparacao
+dif: 2
+enunciado: A ISO/IEC 27001 traz diretrizes não certificáveis, enquanto a ISO/IEC 27002 estabelece os requisitos para a certificação do sistema de gestão.
+comentario: Errado. É o inverso: a 27001 fixa os requisitos do sistema de gestão de segurança da informação (certificável); a 27002 traz diretrizes para implementar os controles.
+
+=== sx1-24
+gab: C
+tema: sg-iso
+ref: doutrina ISO/IEC 27001
+armadilha: conceito
+dif: 2
+enunciado: Na ISO/IEC 27001, a declaração de aplicabilidade registra os controles necessários, a justificativa para incluí-los ou excluí-los e se estão implementados.
+comentario: Certo. A declaração de aplicabilidade decorre do tratamento de riscos e liga cada controle do Anexo A à decisão da organização.
+
+=== sx1-25
+gab: E
+tema: sg-iso
+ref: doutrina ISO/IEC 27001
+armadilha: absoluto
+dif: 3
+enunciado: Na ISO/IEC 27001, a organização deve implementar todos os controles do Anexo A, sem possibilidade de exclusão justificada.
+comentario: Errado. A organização seleciona os controles necessários a partir do tratamento de riscos e pode excluir os que não se aplicam, justificando na declaração de aplicabilidade.
