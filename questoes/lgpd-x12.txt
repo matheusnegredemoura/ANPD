@@ -1,0 +1,179 @@
+// LGPD, lote X12: conceitos (art. 5º), bases da vida e da saúde (art. 7º, VII e VIII), direitos de informação e
+// petição (art. 18) e hipóteses específicas de transferência internacional (art. 33, III a VII). Conferidas com
+// fontes/lgpd.txt.
+
+=== lx12-01
+bloco: lgpd-5-11
+gab: C
+tema: pd-conceitos
+ref: lgpd 5
+trecho: considerando a utilização de meios técnicos razoáveis e disponíveis na ocasião de seu tratamento
+armadilha: conceito
+dif: 2
+enunciado: O conceito de dado anonimizado leva em conta os meios técnicos razoáveis e disponíveis no momento do tratamento, e não toda técnica imaginável de reidentificação.
+comentario: Certo. Art. 5º, III. O art. 12 completa: o dado volta a ser pessoal se a anonimização for revertida ou puder sê-lo com esforços razoáveis.
+
+=== lx12-02
+bloco: lgpd-5-11
+gab: E
+tema: pd-conceitos
+ref: lgpd 5
+trecho: titular: pessoa natural a quem se referem os dados pessoais
+armadilha: sujeito
+dif: 2
+enunciado: Pela LGPD, pessoa jurídica pode ser titular de dados pessoais.
+comentario: Errado. Titular é a pessoa natural a quem se referem os dados (art. 5º, V). Dados de empresas, como CNPJ e faturamento, não são dados pessoais.
+
+=== lx12-03
+bloco: lgpd-5-11
+gab: C
+tema: pd-conceitos
+ref: lgpd 5
+trecho: agentes de tratamento: o controlador e o operador
+armadilha: conceito
+dif: 2
+enunciado: O encarregado não figura entre os agentes de tratamento definidos na LGPD, que são o controlador e o operador.
+comentario: Certo. Art. 5º, IX. O encarregado é o canal de comunicação entre controlador, titulares e ANPD (art. 5º, VIII), e não agente de tratamento.
+
+=== lx12-04
+bloco: lgpd-5-11
+gab: E
+tema: pd-conceitos
+ref: lgpd 5
+trecho: arquivamento, armazenamento, eliminação, avaliação ou controle da informação
+armadilha: rol
+dif: 2
+enunciado: Para a LGPD, o mero armazenamento de dados, sem uso ativo, não constitui tratamento.
+comentario: Errado. O conceito de tratamento (art. 5º, X) inclui expressamente arquivamento, armazenamento e eliminação, entre outras operações.
+
+=== lx12-05
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: para a proteção da vida ou da incolumidade física do titular ou de terceiro
+armadilha: rol
+dif: 1
+enunciado: A proteção da vida ou da incolumidade física do titular ou de terceiro é base legal para o tratamento de dados pessoais.
+comentario: Certo. Art. 7º, VII. Para dados sensíveis, a mesma hipótese aparece no art. 11, II, e.
+
+=== lx12-06
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: exclusivamente, em procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária
+armadilha: sujeito
+dif: 3
+enunciado: A tutela da saúde, como base legal, pode ser invocada por qualquer empresa que venda produtos de saúde, mesmo fora de procedimento conduzido por profissionais ou serviços de saúde.
+comentario: Errado. O art. 7º, VIII, limita a base à tutela da saúde exclusivamente em procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária.
+
+=== lx12-07
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18
+trecho: informação das entidades públicas e privadas com as quais o controlador realizou uso compartilhado de dados
+armadilha: rol
+dif: 2
+enunciado: O titular tem direito de obter do controlador informação sobre as entidades públicas e privadas com as quais seus dados foram compartilhados.
+comentario: Certo. Art. 18, VII. O direito reforça a transparência (art. 6º, VI) e permite ao titular seguir o caminho dos dados.
+
+=== lx12-08
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 18
+trecho: informação sobre a possibilidade de não fornecer consentimento e sobre as consequências da negativa
+armadilha: rol
+dif: 2
+enunciado: O titular não tem direito de ser informado sobre as consequências de negar o consentimento.
+comentario: Errado. O art. 18, VIII, garante informação sobre a possibilidade de não consentir e sobre as consequências da negativa.
+
+=== lx12-09
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18
+trecho: tem o direito de peticionar em relação aos seus dados contra o controlador perante a autoridade nacional
+armadilha: conceito
+dif: 2
+enunciado: O titular pode peticionar contra o controlador perante a ANPD em relação aos seus dados.
+comentario: Certo. Art. 18, § 1º. A ANPD aprecia essas petições depois de comprovada reclamação ao controlador não resolvida no prazo regulamentar (art. 55-J, V).
+
+=== lx12-10
+bloco: lgpd-33-36
+gab: C
+tema: pd-transferencia
+ref: lgpd 33
+trecho: necessária para a cooperação jurídica internacional entre órgãos públicos de inteligência, de investigação e de persecução
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: polícia brasileira envia dados a congênere estrangeira, em cooperação jurídica internacional para investigação, conforme tratado. Assertiva: a transferência encontra hipótese no art. 33 da LGPD.
+comentario: Certo. Art. 33, III, de acordo com os instrumentos de direito internacional, como os tratados de cooperação.
+
+=== lx12-11
+bloco: lgpd-33-36
+gab: E
+tema: pd-transferencia
+ref: lgpd 33
+trecho: necessária para a proteção da vida ou da incolumidade física do titular ou de terceiro
+armadilha: excecao
+dif: 2
+enunciado: A LGPD não admite transferência internacional de dados para proteger a vida do titular sem que ele dê consentimento específico.
+comentario: Errado. A proteção da vida ou da incolumidade física do titular ou de terceiro é hipótese autônoma de transferência (art. 33, IV), sem depender de consentimento.
+
+=== lx12-12
+bloco: lgpd-33-36
+gab: C
+tema: pd-transferencia
+ref: lgpd 33
+trecho: quando a autoridade nacional autorizar a transferência
+armadilha: rol
+dif: 2
+enunciado: A autorização da ANPD é uma das hipóteses de transferência internacional de dados previstas no art. 33 da LGPD.
+comentario: Certo. Art. 33, V. Ao lado dela estão a adequação, as garantias contratuais e corporativas e as hipóteses específicas dos incisos III a IX.
+
+=== lx12-13
+bloco: lgpd-33-36
+gab: E
+tema: pd-transferencia
+ref: lgpd 33
+trecho: sendo dada publicidade nos termos do inciso I do caput do art. 23 desta Lei
+armadilha: excecao
+dif: 3
+enunciado: Na transferência internacional necessária à execução de política pública, o órgão pode manter a operação em sigilo, sem a publicidade prevista no art. 23, I, da LGPD.
+comentario: Errado. O art. 33, VII, admite a transferência para executar política pública ou atribuição legal do serviço público, sendo dada publicidade nos termos do art. 23, I.
+
+=== lx12-14
+bloco: lgpd-33-36
+gab: C
+tema: pd-transferencia
+ref: lgpd 33
+trecho: quando a transferência resultar em compromisso assumido em acordo de cooperação internacional
+armadilha: rol
+dif: 2
+enunciado: A transferência internacional que resulte de compromisso assumido em acordo de cooperação internacional é admitida pela LGPD.
+comentario: Certo. Art. 33, VI. É hipótese própria de transferência, ao lado da adequação, das garantias contratuais e da autorização da ANPD.
+
+=== lx12-15
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 18
+trecho: revogação do consentimento, nos termos do § 5º do art. 8º desta Lei
+armadilha: rol
+dif: 2
+enunciado: A revogação do consentimento não está entre os direitos do titular listados no art. 18 da LGPD.
+comentario: Errado. O art. 18, IX, inclui a revogação do consentimento, com remissão ao art. 8º, § 5º.
+
+=== lx12-16
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 12
+trecho: quando, com esforços razoáveis, puder ser revertido
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: base anonimizada pode ser revertida por terceiros, com esforço razoável, cruzando-a com outra base pública. Assertiva: os dados dessa base podem voltar a ser considerados pessoais.
+comentario: Certo. Art. 12, caput: o dado anonimizado deixa de ser assim considerado quando a anonimização puder ser revertida com esforços razoáveis. É o risco do ataque de ligação.
