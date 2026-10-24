@@ -113,21 +113,6 @@ function htmlPalavras(st) {
   const ps = palavrasDoSubtema(st);
   return ps.length ? '<details class="palavras" open><summary>Antes de ler: ' + pl(ps.length, 'palavra que aparece aqui', 'palavras que aparecem aqui') + '</summary><dl>' + ps.map((g) => '<dt>' + esc(g.t) + '</dt><dd>' + esc(g.d) + '</dd>').join('') + '</dl></details>' : '';
 }
-// Para quem nunca leu lei: como se lê um artigo (aberto até 15 artigos lidos)
-function htmlComoLer() {
-  const novato = Object.keys(S.perfil.lidos || {}).length < 15;
-  return '<details class="como-ler"' + (novato ? ' open' : '') + '><summary>Primeira vez lendo lei? Como ler um artigo</summary><ul class="lista-chave">' +
-    '<li><b>Art.</b> é a unidade da lei. O texto logo depois do número é o <b>caput</b>: a regra principal.</li>' +
-    '<li><b>§</b> (parágrafo) completa o caput ou abre uma exceção; quando é um só, vem como “Parágrafo único”.</li>' +
-    '<li><b>Incisos</b> (I, II, III…) são os itens de uma lista; <b>alíneas</b> (a, b, c…) dividem um inciso.</li>' +
-    '<li><span class="g-alerta">salvo</span>, <span class="g-alerta">exceto</span>, <span class="g-alerta">desde que</span> e <span class="g-alerta">somente</span> mudam a regra: é ali que a banca mexe.</li>' +
-    '<li><span class="g-verbo">deve</span> obriga; <span class="g-verbo">pode</span> permite. Trocar um pelo outro é a pegadinha mais comum.</li>' +
-    '<li>Prazos e números (<span class="g-num">15 (quinze) dias</span>) importam com a unidade: dias, dias úteis, meses.</li>' +
-    '<li>“(Redação dada pela Lei…)” avisa que o texto mudou; “(VETADO)” e “(Revogado)” não valem, e o texto revogado nem aparece.</li>' +
-    '<li>Quando o artigo cita outro da mesma lei (“nas hipóteses do <span class="ref-art">art. 16</span> desta Lei”), toque na citação: o artigo citado abre logo abaixo.</li>' +
-    '<li>Antes do texto de cada artigo vem o mesmo artigo em português claro: leia primeiro, depois a letra da lei, que é o que a banca cobra. Embaixo, os termos técnicos dele (“de ofício”, “ônus da prova”…) explicados.</li>' +
-    '<li>Leia o artigo inteiro antes de concluir: a exceção costuma estar no parágrafo seguinte.</li></ul></details>';
-}
 // O subtema contado como se conta a alguém que nunca leu a lei: vem antes da lei seca e da aula
 function htmlSimples(st) {
   return st.simples ? '<div class="simples"><span class="rotulo">Em palavras simples</span><p>' + grifarProsa(st.simples) + '</p></div>' : '';
@@ -181,7 +166,7 @@ function renderSubtema(id) {
   if (arts.length) {
     const caixa = 'art-st-' + id.replace(/[^\w-]/g, '');
     html += '<div class="cartao" id="lei-' + esc(id) + '"><h2>Lei seca deste subtema</h2><p class="pequeno mudo">Leia antes da aula, um artigo por vez: o texto abre aqui embaixo, com os grifos. Não precisa entender tudo agora; a aula explica o que ficar difícil.</p>' +
-      htmlPalavras(st) + htmlComoLer() + '<div class="chips">' +
+      htmlPalavras(st) + '<div class="chips">' +
       arts.map((k) => '<button class="chip" data-acao="art-inline" data-art="' + esc(k) + '" data-box="' + caixa + '" aria-expanded="false" aria-controls="' + caixa + '">' + esc(nomeArt(k)) + '</button>').join('') + '</div>' +
       '<div class="art-inline" id="' + caixa + '" data-lista="' + esc(arts.join(',')) + '" hidden></div></div>';
   }

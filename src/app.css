@@ -760,12 +760,11 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .legenda-fixa{line-height:1.8}
 .chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 /* Antes da lei: palavras do subtema e como ler um artigo */
-.palavras,.como-ler{background:var(--surface-2);border-radius:10px;padding:10px 12px}
-.palavras summary,.como-ler summary{cursor:pointer;font-weight:700;font-size:.92rem}
+.palavras{background:var(--surface-2);border-radius:10px;padding:10px 12px}
+.palavras summary{cursor:pointer;font-weight:700;font-size:.92rem}
 .palavras dl{margin:8px 0 0;display:grid;gap:2px 0}
 .palavras dt{font-weight:700;margin-top:6px}
 .palavras dd{margin:0;color:var(--ink-2);font-size:.92rem;line-height:1.5}
-.como-ler ul{margin-top:8px}
 /* Citação de artigo dentro da aula: abre o texto na caixa da parte */
 .ref-art{appearance:none;border:0;background:none;padding:0;font:inherit;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .ref-art[aria-expanded="true"]{background:var(--mark);border-radius:3px}

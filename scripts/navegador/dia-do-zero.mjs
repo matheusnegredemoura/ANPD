@@ -31,14 +31,13 @@ await passo('o roteiro de ' + dia.data + ' traz questões, lei e aula do mesmo s
   if (t.some((x) => /^Lei seca grifada$/.test(x))) throw new Error('lei seca repetida no roteiro');
 });
 
-await passo('"Ler os artigos" abre o art. 6º na página do subtema, com as palavras e o guia de leitura', async () => {
+await passo('"Ler os artigos" abre o art. 6º na página do subtema, com as palavras do subtema', async () => {
   await p.locator('.roteiro [data-acao="st-lei"]').first().tap();
   await p.waitForTimeout(300);
   if (!(await p.locator('#vista-mais').isVisible())) throw new Error('não abriu a página do subtema');
   const cab = (await p.locator('#vista-mais .art-inline:not([hidden]) .art-inline-cab b').first().textContent()) || '';
   if (!/Art\. 6/.test(cab)) throw new Error('artigo aberto: ' + cab);
   if (!(await p.locator('#lei-pd-principios details.palavras dt').count())) throw new Error('sem as palavras do subtema');
-  if (!(await p.locator('#lei-pd-principios details.como-ler[open]').count())) throw new Error('sem o guia de leitura aberto');
   const simples = (await p.locator('#vista-mais .cartao.destaque .simples').textContent()) || '';
   if (!/Em palavras simples[^]*boa-fé/.test(simples)) throw new Error('sem o subtema em palavras simples: ' + simples.slice(0, 80));
 });
