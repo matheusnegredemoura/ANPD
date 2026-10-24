@@ -4292,6 +4292,7 @@ function guardarRascunhoDisc() {
   clearTimeout(timerDisc);
   Store.salvar('discursivas');
 }
+function crescerDisc(area) { area.style.height = 'auto'; area.style.height = area.scrollHeight + 'px'; }
 function estadoDisc(id) { return (S.disc[id] ||= { rascunho: '', tentativas: [] }); }
 function contadorDisc(t) {
   const txt = estadoDisc(t.id).rascunho, l = linhasEstimadas(txt), palavras = (txt.match(/\S+/g) || []).length;
@@ -4343,7 +4344,6 @@ function renderDiscursiva() {
     '<p>' + esc(t.comando) + '</p><ol class="lista-cb">' + t.aspectos.map((a) => '<li>' + esc(a) + '</li>').join('') + '</ol></div>' +
     '<div class="secao-cab" style="margin-top:10px"><label class="rotulo" for="disc-texto">Folha de resposta (' + t.linhas + ' linhas)</label><span class="mudo pequeno mono" id="disc-cont">' + contadorDisc(t) + '</span></div>' +
     '<div class="regua-discursiva">' +
-      '<div class="linhas-numeradas" id="disc-regua">' + Array.from({ length: t.linhas }, (_, i) => '<span>' + (i + 1) + '</span>').join('') + '</div>' +
       '<textarea id="disc-texto" class="disc-area-30" rows="' + t.linhas + '" style="min-height:' + (t.linhas * 24 + 16) + 'px" spellcheck="false"' + (corrigindo ? ' readonly' : '') + ' placeholder="Escreva aqui o seu texto discursivo, parágrafo por parágrafo, contemplando todos os aspectos do comando...">' + esc(st.rascunho) + '</textarea>' +
     '</div>';
   if (!corrigindo) {
@@ -4633,6 +4633,8 @@ function renderTudo() {
   VISTAS.forEach((v) => { document.getElementById('vista-' + v).hidden = v !== UI.vista; });
   document.querySelectorAll('.aba').forEach((b) => { if (b.dataset.vista === UI.vista) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
   ({ hoje: renderHoje, questoes: renderQuestoes, cards: renderCards, lei: renderLei, mais: renderMais })[UI.vista]();
+  const disc = document.getElementById('disc-texto');
+  if (disc && disc.offsetParent) crescerDisc(disc);
   if (sessao) renderSessao();
 }
 // Página do subtema já na parte pedida: na lei, abre o primeiro artigo ainda não lido; na aula do dia, dá baixa no passo
@@ -5080,6 +5082,7 @@ document.addEventListener('change', (ev) => {
 });
 // Sair da caixa de texto da discursiva grava o rascunho na hora, sem esperar a pausa da digitação
 document.addEventListener('focusout', (ev) => { if (ev.target && ev.target.id === 'disc-texto') guardarRascunhoDisc(); });
+document.addEventListener('focusin', (ev) => { if (ev.target && ev.target.id === 'disc-texto') crescerDisc(ev.target); });
 // Partes recolhidas (<details data-det>) continuam abertas ou fechadas quando a tela é redesenhada
 document.addEventListener('toggle', (ev) => { const d = ev.target; if (d && d.dataset && d.dataset.det) UI.det[d.dataset.det] = d.open; }, true);
 document.addEventListener('input', (ev) => {
@@ -5090,6 +5093,7 @@ document.addEventListener('input', (ev) => {
     if (!t) return;
     if (id === 'disc-ne') { UI.discNE = ev.target.value; const el = document.getElementById('disc-res'); if (el) el.innerHTML = resultadoDisc(t); return; }
     estadoDisc(t.id).rascunho = ev.target.value;
+    crescerDisc(ev.target);
     const c = document.getElementById('disc-cont');
     if (c) c.innerHTML = contadorDisc(t);
     // Rascunho salvo um segundo depois da última tecla

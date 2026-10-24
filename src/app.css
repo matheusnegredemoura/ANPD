@@ -11,7 +11,7 @@
   --accent:#0c6b66;
   --accent-2:#d6ebe7;
   --accent-ink:#ffffff;
-  --gold:#94600a;
+  --gold:#855508;
   --gold-bg:#f4e6c7;
   --certo:#1f7445;
   --certo-bg:#dcefe3;
@@ -38,7 +38,7 @@
     --bg:#0e1513; --surface:#151f1c; --surface-2:#1c2925; --ink:#e3ebe7; --ink-2:#a2b5ad; --ink-3:#7f938b;
     --line:#2a3a35; --accent:#52cfbe; --accent-2:#163a35; --accent-ink:#04201c; --gold:#e6b04b; --gold-bg:#3a2c10;
     --certo:#72cf98; --certo-bg:#14321f; --errado:#f08a77; --errado-bg:#3d1d17; --mark:#5a4512;
-    --calor-0:#1c2925; --calor-1:#1d4a43; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
+    --calor-0:#1c2925; --calor-1:#1f5f55; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
     --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
     --at-q:#3987e5; --at-c:#d95926; --at-l:#199e70; --at-d:#c98500;
     color-scheme:dark;
@@ -48,7 +48,7 @@
   --bg:#0e1513; --surface:#151f1c; --surface-2:#1c2925; --ink:#e3ebe7; --ink-2:#a2b5ad; --ink-3:#7f938b;
   --line:#2a3a35; --accent:#52cfbe; --accent-2:#163a35; --accent-ink:#04201c; --gold:#e6b04b; --gold-bg:#3a2c10;
   --certo:#72cf98; --certo-bg:#14321f; --errado:#f08a77; --errado-bg:#3d1d17; --mark:#5a4512;
-  --calor-0:#1c2925; --calor-1:#1d4a43; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
+  --calor-0:#1c2925; --calor-1:#1f5f55; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
   --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
     --at-q:#3987e5; --at-c:#d95926; --at-l:#199e70; --at-d:#c98500;
   color-scheme:dark;
@@ -58,13 +58,13 @@
   --bg:#0e1513; --surface:#151f1c; --surface-2:#1c2925; --ink:#e3ebe7; --ink-2:#a2b5ad; --ink-3:#7f938b;
   --line:#2a3a35; --accent:#52cfbe; --accent-2:#163a35; --accent-ink:#04201c; --gold:#e6b04b; --gold-bg:#3a2c10;
   --certo:#72cf98; --certo-bg:#14321f; --errado:#f08a77; --errado-bg:#3d1d17; --mark:#5a4512;
-  --calor-0:#1c2925; --calor-1:#1d4a43; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
+  --calor-0:#1c2925; --calor-1:#1f5f55; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
   --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
     --at-q:#3987e5; --at-c:#d95926; --at-l:#199e70; --at-d:#c98500;
   color-scheme:dark;
 }
 :root[data-tema="claro"]{
-  --bg:#edf1ee; --surface:#ffffff; --surface-2:#e1e8e4; --ink:#13211d; --ink-2:#4b5f57; --ink-3:#566860; --line:#c6d1cb; --accent:#0c6b66; --accent-2:#d6ebe7; --accent-ink:#ffffff; --gold:#94600a; --gold-bg:#f4e6c7; --certo:#1f7445; --certo-bg:#dcefe3; --errado:#ad3726; --errado-bg:#f7dfda; --mark:#fbe3a6; --calor-0:#dfe7e3; --calor-1:#a9d6cd; --calor-2:#5fb3a6; --calor-3:#1f8a80; --calor-4:#0b5a55; --sombra:0 1px 2px rgba(19,33,29,.06),0 6px 20px rgba(19,33,29,.06);
+  --bg:#edf1ee; --surface:#ffffff; --surface-2:#e1e8e4; --ink:#13211d; --ink-2:#4b5f57; --ink-3:#566860; --line:#c6d1cb; --accent:#0c6b66; --accent-2:#d6ebe7; --accent-ink:#ffffff; --gold:#855508; --gold-bg:#f4e6c7; --certo:#1f7445; --certo-bg:#dcefe3; --errado:#ad3726; --errado-bg:#f7dfda; --mark:#fbe3a6; --calor-0:#dfe7e3; --calor-1:#a9d6cd; --calor-2:#5fb3a6; --calor-3:#1f8a80; --calor-4:#0b5a55; --sombra:0 1px 2px rgba(19,33,29,.06),0 6px 20px rgba(19,33,29,.06);
   --at-q:#2a78d6; --at-c:#eb6834; --at-l:#1baf7a; --at-d:#eda100;
   color-scheme:light;
 }
@@ -819,9 +819,8 @@ details.det-lista[open]>summary{margin-bottom:10px}
 .corte-kpi b{display:block;font-size:1.05rem;margin-bottom:2px;color:var(--ink)}
 .corte-kpi span{font-size:.8rem;color:var(--ink-2);display:block}
 .regua-discursiva{display:flex;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden;margin-bottom:8px}
-.linhas-numeradas{width:34px;background:var(--surface-2);color:var(--ink-3);font-family:var(--f-mono);font-size:.82rem;line-height:24px;text-align:right;padding:8px 6px 8px 0;user-select:none;border-right:1px solid var(--line);flex-shrink:0}
-.linhas-numeradas span{display:block;height:24px}
-.disc-area-30{flex:1;border:0;outline:none;padding:8px 12px;font-family:var(--f-corpo);font-size:.95rem;line-height:24px;resize:vertical;min-height:720px;background:transparent;color:var(--ink)}
+/* Pauta de 24px que acompanha o texto (a caixa cresce com ele e não rola por dentro); a contagem que vale é a de linhas da folha da banca */
+.disc-area-30{flex:1;border:0;outline:none;padding:8px 12px;font-family:var(--f-corpo);font-size:.95rem;line-height:24px;resize:none;overflow:hidden;min-height:720px;color:var(--ink);background:repeating-linear-gradient(transparent 0 23px,var(--line) 23px 24px) 0 8px/100% 24px local}
 .termometro-card{background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;margin-bottom:14px}
 .termo-barra-container{background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:6px;margin:10px 0}
 .termo-barra{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--bg)}
