@@ -1,10 +1,26 @@
 {
   "fonte": "Concurso Anatel 2024 (Edital nº 1 – Anatel, de 19 de janeiro de 2024; aplicação em 15/09/2024), cargo 6, Especialista em Regulação, especialidade Geral: cadernos de Conhecimentos Básicos e Específicos, gabaritos definitivos e padrão definitivo da discursiva. Depois entraram no banco itens reais, com gabarito definitivo, de outras cinco provas do Cebraspe (ANAC 2024, TRF 6ª Região 2025, Polícia Federal 2025, ANSA 2026 e Instituto Rio Branco 2026), só dos assuntos que podem cair na ANPD. Por último, 201 itens avulsos de LGPD, LAI e regulação, de mais de 40 provas do Cebraspe de 2021 a 2026 (ANM, ANTT, Anatel, TELEBRAS, Câmara dos Deputados, TCU, FUNPRESP, DATAPREV e outras): vieram sem gabarito, que foi conferido no texto da lei, e o item diz isso. A estrutura e a pontuação descritas aqui seguem o edital da Anatel 2024. Por fim, entrou a única prova já aplicada pela própria ANPD, o processo seletivo de temporários de 2025 (banca IADES, múltipla escolha): 54 questões com gabarito definitivo e 86 itens certo/errado escritos a partir delas.",
   "estrutura": [
-    { "prova": "P1 · Objetiva · Conhecimentos básicos", "itens": "50 itens", "corte": "mínimo de 10 pontos" },
-    { "prova": "P2 · Objetiva · Conhecimentos específicos", "itens": "70 itens", "corte": "mínimo de 21 pontos" },
-    { "prova": "P1 + P2", "itens": "120 itens", "corte": "mínimo de 36 pontos no conjunto" },
-    { "prova": "P3 · Discursiva", "itens": "2 questões (30 pontos)", "corte": "mínimo de 15 pontos" }
+    {
+      "prova": "P1 · Objetiva · Conhecimentos básicos",
+      "itens": "50 itens",
+      "corte": "mínimo de 10 pontos"
+    },
+    {
+      "prova": "P2 · Objetiva · Conhecimentos específicos",
+      "itens": "70 itens",
+      "corte": "mínimo de 21 pontos"
+    },
+    {
+      "prova": "P1 + P2",
+      "itens": "120 itens",
+      "corte": "mínimo de 36 pontos no conjunto"
+    },
+    {
+      "prova": "P3 · Discursiva",
+      "itens": "2 questões (30 pontos)",
+      "corte": "mínimo de 15 pontos"
+    }
   ],
   "regras": [
     "Cada item vale 1 ponto se a marcação concordar com o gabarito definitivo, menos 1 ponto se discordar, e zero em branco ou com marcação dupla (edital, subitem 8.11.2).",
@@ -30,7 +46,12 @@
       ],
       "inferencia": "Sem prova da ANPD, a aposta é que a LGPD e as resoluções da ANPD façam o papel que a LGT e as resoluções da Anatel fizeram: o maior bloco jurídico da prova específica, cobrado na letra.",
       "treino": "Lei seca grifada e cards cloze para a palavra exata; depois, questões por artigo. Sempre que errar, abra o artigo inteiro.",
-      "exemplos": ["rv-l121", "rv-l113", "rv-l117", "rv-l129"]
+      "exemplos": [
+        "rv-l121",
+        "rv-l113",
+        "rv-l117",
+        "rv-l129"
+      ]
     },
     {
       "id": "regulacao",
@@ -44,7 +65,12 @@
         "Lei 9.784 no ponto que interessa ao processo sancionador: sanções pecuniárias ou de fazer e não fazer (art. 68), motivação per relationem admitida (art. 50, § 1º), convalidação (art. 55) e aplicação ao Legislativo e ao Judiciário em função administrativa (art. 1º, § 1º)."
       ],
       "treino": "Lei 13.848 e Lei 9.784 na lei seca, com cloze. Para a teoria, treine o bloco de teoria da regulação e anote cada par trocado (ex ante × ex post, custo do serviço × preço-teto).",
-      "exemplos": ["an24-29", "an24-120", "an24-94", "an24-25"]
+      "exemplos": [
+        "an24-29",
+        "an24-120",
+        "an24-94",
+        "an24-25"
+      ]
     },
     {
       "id": "eca",
@@ -56,7 +82,13 @@
       ],
       "inferencia": "A ANPD é a autoridade do ECA Digital. A aposta é que a Lei 15.211/2025 e o Decreto 12.880/2026 caiam na letra, como a LGT caiu para a Anatel: deveres dos fornecedores, prazos, sujeitos e sanções.",
       "treino": "ECA Digital e decretos na lei seca, com cloze; questões do bloco ECA Digital; Marco Civil para os deveres de guarda de registros.",
-      "exemplos": ["an24-79", "an24-85", "an24-81", "tcu26-164", "tcu26-170"]
+      "exemplos": [
+        "an24-79",
+        "an24-85",
+        "an24-81",
+        "tcu26-164",
+        "tcu26-170"
+      ]
     },
     {
       "id": "seginfo",
@@ -67,7 +99,13 @@
         "No TCU 2026 (Auditoria de TI), os errados de segurança vieram de palavra absoluta (“suficiente para eliminar”, item 142; “elimina a necessidade” do IPS, item 144) ou de pares trocados: tática × técnica no MITRE ATT&CK (145), identity provider do SAML × authorization server do OAuth (138). Privacidade por padrão que “legitima” coleta ampliada veio errada (139)."
       ],
       "treino": "Decretos 11.856/2023, 12.572/2025 e 10.748/2021, a IN GSI 1/2020 e o NIST CSF 2.0 na lei seca, com cloze; questões do bloco de segurança da informação. Para as normas ISO 27001 e 27002, use as provas de TI recomendadas abaixo.",
-      "exemplos": ["an24-97", "an24-96", "an24-98", "tcu26-139", "tcu26-145"]
+      "exemplos": [
+        "an24-97",
+        "an24-96",
+        "an24-98",
+        "tcu26-139",
+        "tcu26-145"
+      ]
     },
     {
       "id": "direito",
@@ -81,7 +119,12 @@
         "Sujeito e alcance: a LAI vale para todos os entes e Poderes, para estatais controladas direta ou indiretamente e, no que couber, para entidades privadas sem fins lucrativos com recursos públicos (TELEBRAS, TCE AC, EMBRAPA, TJ PA)."
       ],
       "treino": "Constituição (direitos fundamentais, administração pública, ordem econômica e social), LAI e Lei 9.784 na lei seca, com cloze; questões dos blocos de direito.",
-      "exemplos": ["an24-45", "an24-47", "an24-36", "an24-42"]
+      "exemplos": [
+        "an24-45",
+        "an24-47",
+        "an24-36",
+        "an24-42"
+      ]
     },
     {
       "id": "comparado",
@@ -99,7 +142,11 @@
         "Estatística, quando cai, vem como conta: a banca dá os dados e o item afirma um valor. Treina-se fazendo a conta, não lendo teoria."
       ],
       "treino": "Bloco de economia e estatística. Para estatística, as provas do Bacen 2024 e do TCU 2025 são a melhor fonte.",
-      "exemplos": ["an24-87", "an24-88", "an24-94"]
+      "exemplos": [
+        "an24-87",
+        "an24-88",
+        "an24-94"
+      ]
     },
     {
       "id": "gestao",
@@ -110,7 +157,12 @@
         "Dados: dimensão de qualidade trocada, com consistência descrita como precisão (item 105); BI × analytics (item 107); tipos de banco de dados (item 103)."
       ],
       "treino": "Bloco de gestão pública e bloco de dados e BI. Monte um quadro de pares que a banca troca (agenda política × institucional, eficácia × eficiência × efetividade, ex ante × ex post).",
-      "exemplos": ["an24-61", "an24-72", "an24-57", "an24-105"]
+      "exemplos": [
+        "an24-61",
+        "an24-72",
+        "an24-57",
+        "an24-105"
+      ]
     },
     {
       "id": "linguas",
@@ -122,7 +174,12 @@
         "Inglês é só leitura: sinônimo no contexto (itens 16 e 20) e o que o texto afirma (17, 18 e 21 a 23). Não houve item de gramática solta."
       ],
       "treino": "Treine os 22 itens reais com comentário e, depois, as provas recentes recomendadas abaixo. Português e inglês só se treinam com texto e item da própria banca.",
-      "exemplos": ["an24-11", "an24-07", "an24-20", "an24-22"]
+      "exemplos": [
+        "an24-11",
+        "an24-07",
+        "an24-20",
+        "an24-22"
+      ]
     },
     {
       "id": "contabil",
@@ -135,7 +192,12 @@
       ],
       "inferencia": "Peso baixo até o edital dizer o contrário: 2 itens na estimativa do simulado, junto com orçamento público. O guia do cargo lista a matéria como BAIXO.",
       "treino": "Uma passada leve: itens reais de contabilidade geral e os da Lei 4.320 e da LRF, que estão na lei seca. Sem aprofundar cálculo de custos.",
-      "exemplos": ["ctb-10", "ctb-06", "ctb-26", "ctb-30"]
+      "exemplos": [
+        "ctb-10",
+        "ctb-06",
+        "ctb-26",
+        "ctb-30"
+      ]
     }
   ],
   "discursiva": {
@@ -170,52 +232,192 @@
     {
       "titulo": "A prova da própria ANPD (processo seletivo de 2025, IADES)",
       "texto": "É a única prova já aplicada pela Autoridade, para temporários e em múltipla escolha, mas mostra o recorte que ela escolhe cobrar. Nos conhecimentos específicos do cargo gerencial foram 29 questões válidas: LGPD e suas interfaces com o Marco Civil, a LAI e o CDC (6), Lei 13.460/2017 (4), segurança da informação (4), inteligência artificial (3), gestão de riscos (3), teoria da regulação (2), estatística (2) e gestão pública (5: competências, inovação, LDO, indicadores e PMBOK). Esse peso de gestão é do cargo gerencial: para Especialista em Regulação, o simulado do painel usa 8 itens de gestão em 120. Nenhuma questão de resolução da ANPD, processo sancionador ou dosimetria. Nos cargos técnicos, a LGPD veio em casos longos e integrados: aplicação territorial com anonimização falha, pesquisa genética com dado sensível e transferência internacional, plataforma educacional com IA e dados de crianças. Para o concurso: a Lei 13.460, a IA e a gestão de riscos ganharam blocos próprios, e a LGPD dos arts. 5º a 11 subiu para prioridade 1. As resoluções continuam prioridade 1, porque o Cebraspe costuma cobrar o regulamento do próprio órgão (na Anatel 2024 foram nove itens de resoluções da agência).",
-      "exemplos": ["pss-100-24", "pss-100-26", "pss-300-42", "pss-300-44", "pss-100-36", "pss-400-11"]
+      "exemplos": [
+        "pss-100-24",
+        "pss-100-26",
+        "pss-300-42",
+        "pss-300-44",
+        "pss-100-36",
+        "pss-400-11"
+      ]
     },
     {
       "titulo": "Definição vizinha trocada",
       "texto": "A banca copia a definição de um instituto e dá a ela o nome do vizinho: controlador × operador × encarregado, anonimização × eliminação, finalidade × adequação, integridade × autenticidade × primariedade (LAI), RESPOND × RECOVER (NIST). Treine as definições em pares.",
-      "exemplos": ["rv-l44", "rv-l33", "rv-l62", "rv-a04", "rv-r33"]
+      "exemplos": [
+        "rv-l44",
+        "rv-l33",
+        "rv-l62",
+        "rv-a04",
+        "rv-r33"
+      ]
     },
     {
       "titulo": "Exceção que vira regra",
       "texto": "A exceção da lei aparece como regra ou some: segurança pública e jornalismo “sob a LGPD”, dado anonimizado “sempre pessoal”, sigilo como regra na LAI. Sempre que a lei disser salvo, exceto ou ressalvado, há item ali.",
-      "exemplos": ["rv-l02", "rv-l04", "rv-l21", "rv-a17"]
+      "exemplos": [
+        "rv-l02",
+        "rv-l04",
+        "rv-l21",
+        "rv-a17"
+      ]
     },
     {
       "titulo": "Palavra absoluta",
       "texto": "Sempre, apenas, somente, qualquer, sem exceções, em nenhuma circunstância: na amostra, quase todos os itens com essas palavras foram errados. Cuidado com o contrário: quando a própria lei usa “somente” (art. 7º da LGPD), o item que a reproduz está certo.",
-      "exemplos": ["rv-l26", "rv-l53", "rv-a26", "rv-a54", "trf6-59"]
+      "exemplos": [
+        "rv-l26",
+        "rv-l53",
+        "rv-a26",
+        "rv-a54",
+        "trf6-59"
+      ]
     },
     {
       "titulo": "Número trocado ou inventado",
       "texto": "Prazo que não existe (retenção de cinco anos, sigilo de dez anos, seis meses para responder), periodicidade de um plano colada em outro (quadrienal × anual) ou interstício dobrado. Quando a lei não fixa número, o item que fixa está errado.",
-      "exemplos": ["rv-l75", "rv-a28", "rv-r11", "rv-r18", "rv-l94"]
+      "exemplos": [
+        "rv-l75",
+        "rv-a28",
+        "rv-r11",
+        "rv-r18",
+        "rv-l94"
+      ]
     },
     {
       "titulo": "Verbo e destinatário",
       "texto": "Poderá virou deverá (pareceres “devem” ser requisitados), a faculdade do juiz virou regra automática (inversão do ônus da prova) e o destinatário mudou (informar ao encarregado no lugar da autoridade nacional). Leia o verbo e o complemento antes do resto.",
-      "exemplos": ["rv-r04", "rv-l86", "rv-l72", "rv-l71"]
+      "exemplos": [
+        "rv-r04",
+        "rv-l86",
+        "rv-l72",
+        "rv-l71"
+      ]
     },
     {
       "titulo": "Premissa certa, conclusão errada",
       "texto": "O item começa com uma verdade e tira dela uma consequência que a lei não autoriza: normas de interesse nacional, “logo” a LGPD alcança a segurança pública; sociedade de economia mista, “logo” fora da LAI. Julgue a conclusão, não a premissa.",
-      "exemplos": ["rv-l02", "rv-a11", "rv-r14", "rv-r13"]
+      "exemplos": [
+        "rv-l02",
+        "rv-a11",
+        "rv-r14",
+        "rv-r13"
+      ]
     },
     {
       "titulo": "Item incompleto não é item errado",
       "texto": "Dos 201 avulsos, 92 eram certos, quase todos cópia da lei com cortes que não mudam o sentido (incisos omitidos, sinônimos como conformidade por compatibilidade). Só marque errado quando o corte ou a troca alterar o sentido.",
-      "exemplos": ["rv-l11", "rv-l63", "rv-a18", "rv-r02"]
+      "exemplos": [
+        "rv-l11",
+        "rv-l63",
+        "rv-a18",
+        "rv-r02"
+      ]
     },
     {
       "titulo": "Lei nova cobrada rápido",
       "texto": "A Câmara 2026 já cobrou a ANPD como Agência (Lei 15.352/2026); a ANTT 2024 cobrou a redação anterior. A Lei 14.129/2021 mudou a gratuidade da LAI e caiu em 2024. Na ANPD, espere a Lei 15.352, o ECA Digital e os decretos de 2026.",
-      "exemplos": ["rv-l100", "rv-l99", "rv-a25"]
+      "exemplos": [
+        "rv-l100",
+        "rv-l99",
+        "rv-a25"
+      ]
     },
     {
       "titulo": "Caso curto que só testa o artigo",
       "texto": "A situação hipotética é roupagem: dados na Holanda tratados em Brasília (art. 3º, I), demissão e pedido de exclusão (art. 16, I), contrato que dispensaria o direito de acesso (art. 7º, § 6º). Identifique o artigo e o caso se resolve sozinho.",
-      "exemplos": ["rv-l09", "rv-l74", "rv-l79", "rv-r29"]
+      "exemplos": [
+        "rv-l09",
+        "rv-l74",
+        "rv-l79",
+        "rv-r29"
+      ]
     }
-  ]
+  ],
+  "construcao": {
+    "intro": "A banca raramente erra de forma grosseira. O item errado costuma ser quase todo verdadeiro, com uma única peça trocada; o item certo costuma vir disfarçado, em paráfrase ou aplicado a um caso, para não ser reconhecido de memória. Saber o mecanismo ajuda a achar a peça.",
+    "errado": [
+      {
+        "nome": "Inversão de conceitos vizinhos",
+        "como": "Troca as definições de dois conceitos da mesma família.",
+        "exemplo": "Controlador × operador; anonimização × pseudonimização; desconcentração × descentralização; seleção adversa × risco moral.",
+        "arm": "conceito"
+      },
+      {
+        "nome": "Palavra absoluta ou restrição indevida",
+        "como": "Põe sempre, somente, exclusivamente ou em qualquer hipótese onde a norma admite exceção, ou restringe o que ela deixa amplo. Atenção: quando a própria norma é absoluta, o item com sempre está certo.",
+        "exemplo": "O rol de dados sensíveis é taxativo (certo) × o legítimo interesse vale em qualquer hipótese (errado).",
+        "arm": "absoluto"
+      },
+      {
+        "nome": "Falsa relação de causa",
+        "como": "Junta duas afirmações verdadeiras com um porque, por isso ou já que que não existe, ou inverte causa e efeito.",
+        "exemplo": "A notificação interrompe a prescrição (verdade) porque o prazo só corre depois da ciência do acusado (falso).",
+        "arm": "causalidade"
+      },
+      {
+        "nome": "Regra geral aplicada à exceção",
+        "como": "Descreve um caso com um detalhe que atrai a exceção e conclui pela regra geral, ou o contrário.",
+        "exemplo": "Coleta de dado de criança sem consentimento para contatar os pais, usada uma só vez e sem armazenamento: é a exceção do art. 14, § 3º.",
+        "arm": "excecao"
+      },
+      {
+        "nome": "Sujeito, competência ou instância trocados",
+        "como": "A ação está certa, mas quem a pratica mudou.",
+        "exemplo": "Atribuir ao Conselho Diretor o que é do ministro supervisor; ao controlador o que é dever também do operador.",
+        "arm": "sujeito"
+      },
+      {
+        "nome": "Erro no fim do período",
+        "como": "O começo reproduz a lei com exatidão e gera concordância; a oração final traz o erro.",
+        "exemplo": "A ação punitiva prescreve em cinco anos (certo), prazo que alcança também as infrações funcionais (errado: art. 5º da Lei 9.873).",
+        "arm": "fecho"
+      }
+    ],
+    "certo": [
+      {
+        "nome": "Paráfrase",
+        "como": "Reescreve o dispositivo em outra voz verbal, com sinônimos técnicos e outra ordem, sem mudar o sentido. Quem só decorou a letra da lei estranha e marca errado."
+      },
+      {
+        "nome": "Aplicação a caso",
+        "como": "Apresenta um fato e afirma a consequência, sem citar a regra do meio. Exige saber a regra para ligar o fato à conclusão."
+      },
+      {
+        "nome": "Falso distrator",
+        "como": "Usa somente, exclusivamente ou sempre onde a restrição é real na norma, para derrubar quem marca errado por reflexo diante de palavra absoluta."
+      }
+    ],
+    "lexico": [
+      [
+        "Prescindir de",
+        "dispensar, não precisar de (o oposto de imprescindível)"
+      ],
+      [
+        "Conquanto, posto que",
+        "embora, ainda que (concessão)"
+      ],
+      [
+        "Porquanto, dado que, já que",
+        "porque, visto que (causa)"
+      ],
+      [
+        "Deverá × poderá",
+        "dever (ato vinculado) × faculdade (ato discricionário)"
+      ],
+      [
+        "Defeso",
+        "proibido, vedado (não confundir com deferido, concedido)"
+      ],
+      [
+        "Ratificar × retificar",
+        "confirmar × corrigir"
+      ],
+      [
+        "Ao encontro de × de encontro a",
+        "a favor de × contra, em choque com"
+      ]
+    ],
+    "chute": "Com uma errada anulando uma certa, marcar só compensa quando a sua chance de acerto passa de 50%: o valor esperado de marcar é 2p − 1. Abaixo disso, deixar em branco vale mais. Em quanto você acerta quando marca dúvida, a Calibragem do chute (em Progresso) mostra com os seus dados."
+  }
 }

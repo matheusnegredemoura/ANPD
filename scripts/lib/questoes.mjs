@@ -31,6 +31,8 @@ export const ARMADILHAS = {
   caso: 'Caso concreto',
   comparacao: 'Comparação entre regimes',
   interpretacao: 'Interpretação de texto',
+  causalidade: 'Falsa relação de causa (duas verdades ligadas por um porquê errado)',
+  fecho: 'Erro no fim do período (o começo está certo)',
 };
 
 const CAMPOS_MULTIPLOS = new Set(['trecho', 'pesquisar', 'alt']);

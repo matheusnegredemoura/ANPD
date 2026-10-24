@@ -175,6 +175,12 @@ export const LEIS = {
     curto: 'Lei 13.874',
     url: 'https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13874.htm',
   },
+  lei9873: {
+    arquivo: 'lei9873.txt',
+    nome: 'Lei nº 9.873/1999 — Prescrição da ação punitiva federal',
+    curto: 'Lei 9.873',
+    url: 'https://www.planalto.gov.br/ccivil_03/leis/l9873.htm',
+  },
   lc182: {
     arquivo: 'lc182.txt',
     nome: 'Lei Complementar nº 182/2021 — Marco Legal das Startups',
@@ -395,7 +401,7 @@ export const LEIS = {
 export const GRUPOS_LEIS = [
   ['LGPD e normas da ANPD', ['lgpd', 'lei15352', 'estrutura', 'dec12881', 'regimento', 'guias', 'res1', 'res2', 'res4', 'res4ap', 'res15', 'res18', 'res19r', 'res19', 'res19c', 'res30', 'res31', 'res32', 'enun1']],
   ['ECA Digital, internet e plataformas', ['lei15211', 'dec12880', 'dec12622', 'eca', 'mci', 'dec8771', 'dec12976', 'lei14852']],
-  ['Regulação, agências e carreira', ['lei13848', 'lei9986', 'lei10871', 'dec10411', 'lei13874', 'lc182']],
+  ['Regulação, agências e carreira', ['lei13848', 'lei9986', 'lei10871', 'dec10411', 'lei13874', 'lc182', 'lei9873']],
   ['Governança e gestão pública', ['dec9203', 'inmpcgu1', 'dec10046']],
   ['Finanças públicas e contabilidade', ['lei4320', 'lc101']],
   ['Constituição', ['cf88']],

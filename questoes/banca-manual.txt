@@ -1,0 +1,285 @@
+bloco: res-1-2021
+// Itens escritos pelo manual de construção do Cebraspe (docs/padrao-cebraspe.md), nas partes do adendo do TCU que valem
+// para a ANPD: prescrição da ação punitiva (Lei 9.873/1999, que alcança a Autoridade como autarquia federal no exercício
+// do poder de polícia), independência de instâncias, microeconomia da regulação e decisão automatizada. Cada item
+// errado usa um único mecanismo de falsificação; os certos são paráfrase ou aplicação a caso. Trechos conferidos em
+// fontes/lei9873.txt, lei8112.txt e lgpd.txt; os de doutrina, na literatura de regulação econômica.
+
+=== bm-01
+gab: C
+ref: lei9873 1
+trecho: no caso de infração permanente ou continuada, do dia em que tiver cessado
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: em 2026, a ANPD tomou conhecimento de tratamento irregular de dados que uma empresa manteve de 2018 até março de 2022, quando o interrompeu. Assertiva: a pretensão punitiva da Autoridade ainda não prescreveu, porque, na infração permanente, o prazo de cinco anos conta do dia em que ela cessou.
+comentario: Certo: art. 1º da Lei 9.873/1999. O prazo de cinco anos conta da prática do ato ou, na infração permanente ou continuada, do dia em que cessou; aqui, de março de 2022, o que leva o fim do prazo a março de 2027, salvo interrupção (art. 2º).
+
+=== bm-02
+gab: E
+ref: lei9873 5
+trecho: O disposto nesta Lei não se aplica às infrações de natureza funcional e aos processos e procedimentos de natureza tributária.
+armadilha: fecho
+dif: 3
+enunciado: A ação punitiva da administração federal no exercício do poder de polícia prescreve em cinco anos contados da prática do ato, prazo que alcança também as infrações funcionais de servidores e os processos de natureza tributária.
+comentario: Errado no fecho. O começo reproduz o art. 1º da Lei 9.873/1999, mas o art. 5º exclui expressamente as infrações de natureza funcional (que seguem a Lei 8.112) e os processos e procedimentos tributários (que seguem o CTN).
+
+=== bm-03
+gab: C
+ref: lei9873 1, § 1º
+trecho: Incide a prescrição no procedimento administrativo paralisado por mais de três anos, pendente de julgamento ou despacho
+armadilha: conceito
+dif: 3
+enunciado: Se o processo sancionador ficar parado por mais de três anos à espera de julgamento ou despacho, ocorre a prescrição intercorrente, e os autos são arquivados de ofício ou a pedido do interessado, sem prejuízo de apurar a responsabilidade funcional de quem deu causa à paralisação.
+comentario: Certo: art. 1º, § 1º, da Lei 9.873/1999. São dois prazos diferentes: cinco anos para a ação punitiva (caput) e três anos de paralisação do procedimento (§ 1º).
+
+=== bm-04
+gab: E
+ref: lei9873 2, I
+trecho: pela notificação ou citação do indiciado ou acusado, inclusive por meio de edital
+armadilha: causalidade
+dif: 3
+enunciado: A notificação do acusado interrompe a prescrição da ação punitiva porque o prazo prescricional só começa a correr depois que ele toma ciência formal da apuração.
+comentario: Errado na relação de causa. É verdade que a notificação ou citação interrompe a prescrição (art. 2º, I), mas o prazo não começa com a ciência do acusado: conta da prática do ato ou, na infração permanente ou continuada, do dia em que cessou (art. 1º). Interromper só faz sentido para um prazo que já corria.
+
+=== bm-05
+gab: C
+ref: lei9873 2
+trecho: por qualquer ato inequívoco, que importe apuração do fato
+trecho: pela decisão condenatória recorrível
+armadilha: rol
+dif: 3
+enunciado: Interrompem a prescrição da ação punitiva federal, entre outros marcos, qualquer ato inequívoco de apuração do fato e a decisão condenatória ainda sujeita a recurso.
+comentario: Certo: art. 2º, II e III, da Lei 9.873/1999. Também interrompem a notificação ou citação do acusado (I) e o ato inequívoco de tentativa de solução conciliatória no âmbito da administração federal (IV).
+
+=== bm-06
+gab: E
+ref: lei9873 1, § 2º
+trecho: Quando o fato objeto da ação punitiva da Administração também constituir crime, a prescrição reger-se-á pelo prazo previsto na lei penal.
+armadilha: excecao
+dif: 3
+enunciado: Ainda que a infração administrativa também constitua crime, a prescrição da ação punitiva da administração permanece de cinco anos, já que as esferas penal e administrativa são independentes.
+comentario: Errado. Quando o fato também é crime, a prescrição da ação punitiva administrativa segue o prazo da lei penal (art. 1º, § 2º, da Lei 9.873/1999). A independência das instâncias não afasta essa regra de prazo.
+
+=== bm-07
+gab: E
+ref: lei9873 1-A
+trecho: prescreve em 5 (cinco) anos a ação de execução da administração pública federal relativa a crédito decorrente da aplicação de multa
+armadilha: extrapolacao
+dif: 3
+enunciado: Constituído definitivamente o crédito da multa aplicada pela ANPD, a execução pode ser proposta a qualquer tempo, porque o prazo de cinco anos da Lei 9.873/1999 alcança apenas a apuração da infração.
+comentario: Errado. O art. 1º-A (incluído pela Lei 11.941/2009) fixa também cinco anos para a ação de execução da multa, contados da constituição definitiva do crédito, com causas próprias de interrupção (art. 2º-A).
+
+=== bm-08
+gab: C
+ref: lei9873 2, IV
+trecho: por qualquer ato inequívoco que importe em manifestação expressa de tentativa de solução conciliatória no âmbito interno da administração pública federal
+armadilha: comparacao
+dif: 3
+enunciado: Ato inequívoco que manifeste tentativa de solução conciliatória no âmbito interno da administração federal interrompe tanto a prescrição da ação punitiva quanto a da ação de execução da multa.
+comentario: Certo: art. 2º, IV, para a ação punitiva, e art. 2º-A, V, para a ação executória (ambos incluídos pela Lei 11.941/2009).
+
+=== bm-09
+gab: E
+bloco: administrativo
+ref: lei8112 126
+trecho: A responsabilidade administrativa do servidor será afastada no caso de absolvição criminal que negue a existência do fato ou sua autoria.
+armadilha: extrapolacao
+dif: 3
+enunciado: Absolvido na esfera criminal por insuficiência de provas, o servidor tem afastada a responsabilidade administrativa pelo mesmo fato, em respeito à unidade da jurisdição.
+comentario: Errado. A absolvição criminal só repercute na esfera administrativa quando nega a existência do fato ou a autoria (art. 126 da Lei 8.112/1990). Absolvição por falta de provas mantém a independência das instâncias, e o processo disciplinar pode concluir pela punição.
+
+=== bm-10
+gab: E
+bloco: lgpd-17-22
+ref: lgpd 20, § 1º
+trecho: informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: um banco usa modelo de pontuação de crédito com acurácia muito alta nos testes. Assertiva: nessa situação, o desempenho comprovado do modelo dispensa o banco de informar ao titular, quando solicitado, os critérios e procedimentos da decisão automatizada.
+comentario: Errado. O dever do art. 20, § 1º, não depende da qualidade estatística do modelo: o controlador deve informar critérios e procedimentos, observados os segredos comercial e industrial. Se recusar com base nesses segredos, a ANPD pode auditar aspectos discriminatórios do tratamento (§ 2º). Acurácia alta não afasta viés.
+
+=== bm-11
+gab: E
+bloco: economia
+ref: doutrina Fronteiras de eficiência (DEA e SFA)
+armadilha: comparacao
+dif: 3
+enunciado: Na estimação da fronteira de eficiência usada para calcular o fator X, a análise envoltória de dados (DEA) separa o ruído estatístico da ineficiência, ao passo que a fronteira estocástica (SFA) dispensa a escolha prévia de forma funcional.
+comentario: Errado por troca de atributos. A DEA é não paramétrica (programação linear) e dispensa forma funcional, mas trata todo desvio da fronteira como ineficiência. A SFA é paramétrica (econométrica): exige forma funcional e, em troca, separa o erro aleatório da ineficiência técnica.
+
+=== bm-12
+gab: C
+bloco: economia
+ref: doutrina Índice de Malmquist
+armadilha: conceito
+dif: 3
+enunciado: O índice de Malmquist decompõe a variação da produtividade em dois efeitos: a aproximação da empresa em relação à fronteira de eficiência e o deslocamento da própria fronteira, que capta o progresso tecnológico do setor.
+comentario: Certo. Os dois componentes costumam ser chamados de emparelhamento (catch-up) e deslocamento da fronteira (frontier shift). Na regulação por incentivos, o fator X pode embutir os dois.
+
+=== bm-13
+gab: C
+bloco: regulacao-teoria
+ref: doutrina Ativos específicos e oportunismo (hold-up)
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma concessionária fez investimentos vultosos em rede de transmissão, de pouco valor fora daquele uso. Assertiva: nessa situação, cresce o risco de oportunismo regulatório depois do contrato, que garantias de indenização dos bens reversíveis não amortizados ajudam a mitigar.
+comentario: Certo. Ativos específicos e custos afundados criam o problema do sequestro (hold-up): depois do investimento, o regulador poderia reduzir tarifas abaixo do que remunera o capital. Indenização de bens reversíveis não amortizados (Lei 8.987/1995, art. 36) e compromissos críveis reduzem esse risco.
+
+=== bm-14
+gab: E
+bloco: economia
+ref: doutrina Custo de capital (CAPM)
+armadilha: causalidade
+dif: 3
+enunciado: No CAPM usado para estimar o custo de capital próprio de empresa regulada, o beta mede o risco diversificável do negócio, razão pela qual um beta maior reduz o retorno exigido pelo investidor.
+comentario: Errado duas vezes. O beta mede o risco sistemático, que não se elimina com diversificação, e o retorno exigido cresce com ele: Re = Rf + β × (Rm − Rf), somado, no Brasil, a um prêmio de risco-país.
+
+=== bm-15
+gab: C
+bloco: economia
+ref: doutrina Custo de capital (WACC)
+armadilha: conceito
+dif: 3
+enunciado: O custo médio ponderado de capital combina o custo do capital próprio e o do capital de terceiros, ponderados pela participação de cada fonte na estrutura de capital, e é usado para fixar a remuneração da base de ativos regulatória.
+comentario: Certo. O custo da dívida entra, em regra, líquido do benefício fiscal dos juros. Taxa de remuneração mal calibrada distorce investimento: alta demais, estimula o excesso de capital (efeito Averch-Johnson); baixa demais, afasta o investidor.
+
+=== bm-16
+gab: E
+bloco: regulacao-teoria
+ref: doutrina regulação tarifária
+armadilha: fecho
+dif: 3
+enunciado: Na regulação por custo do serviço, a remuneração garantida sobre a base de ativos transfere o risco ao consumidor e, se a taxa permitida superar o custo de capital, induz a empresa ao subinvestimento em capital físico.
+comentario: Errado no fecho. O começo está certo: com retorno garantido, o risco recai sobre o consumidor. Mas o efeito Averch-Johnson é o superinvestimento em capital, porque cada real a mais na base de ativos rende acima do custo do capital. O subinvestimento é risco típico do preço-teto.
+
+=== bm-17
+gab: C
+bloco: regulacao-teoria
+ref: doutrina regulação tarifária
+armadilha: comparacao
+dif: 3
+enunciado: No regime de preço-teto, a empresa retém os ganhos de eficiência obtidos acima do fator X entre duas revisões tarifárias, o que eleva o incentivo a reduzir custos, mas pode estimular a queda de qualidade se não houver componente que a penalize.
+comentario: Certo. O reajuste segue um índice de inflação menos o fator X (por exemplo, IPCA − X, conforme o contrato), e a qualidade costuma entrar como componente próprio (fator Q). No custo do serviço, o incentivo a reduzir custos é baixo, porque qualquer custo é repassado à tarifa.
+
+=== bm-18
+gab: E
+bloco: economia
+ref: doutrina Mercados de dois lados
+armadilha: conceito
+dif: 3
+enunciado: Em plataforma digital de dois lados, cobrar preço zero de um dos lados, custeado pelo outro, configura por si só preço predatório, porque o serviço é vendido abaixo do custo marginal.
+comentario: Errado. Em mercados de dois lados, as externalidades cruzadas de rede fazem do preço zero (ou abaixo do custo) para um lado uma forma de equilibrar a plataforma, não um indício automático de predação. A análise antitruste olha a plataforma como um todo e a intenção e capacidade de eliminar concorrentes.
+
+=== bm-19
+gab: C
+bloco: economia
+ref: doutrina Preços de Ramsey
+armadilha: conceito
+dif: 3
+enunciado: Pela regra de Ramsey-Boiteux, para cobrir os custos fixos de um monopólio natural sem subsídio, a margem de preço sobre o custo marginal deve ser maior nos serviços de demanda menos elástica.
+comentario: Certo. É a regra da elasticidade inversa: o desvio do custo marginal pesa mais onde a quantidade reage menos ao preço, o que minimiza a perda de bem-estar. Preço igual ao custo marginal (first-best) daria prejuízo, porque no monopólio natural o custo médio fica acima do marginal.
+
+=== bm-20
+gab: E
+bloco: regulacao-teoria
+ref: doutrina interesse público
+armadilha: conceito
+dif: 3
+enunciado: Na teoria econômica da regulação de George Stigler, a regulação é concebida e operada primordialmente em benefício dos consumidores, e a captura pelas empresas reguladas aparece apenas como desvio ocasional.
+comentario: Errado. Para Stigler, a regulação é adquirida pela indústria e desenhada e operada principalmente em seu benefício, por exemplo para criar barreiras à entrada. A visão de regulação a favor do consumidor é a da teoria do interesse público, que Stigler criticava.
+
+=== bm-21
+gab: E
+bloco: regulacao-teoria
+ref: doutrina Assimetria de informação
+armadilha: comparacao
+dif: 3
+enunciado: Na regulação com assimetria de informação, o risco moral corresponde ao desconhecimento, antes do contrato, do tipo de custo da firma, enquanto a seleção adversa decorre do esforço oculto da firma depois da contratação.
+comentario: Errado por inversão. A seleção adversa é informação oculta antes do contrato (o regulador não sabe se a firma é de custo alto ou baixo); o risco moral é ação oculta depois dele (redução de esforço, subinvestimento em manutenção).
+
+=== bm-22
+gab: C
+bloco: regulacao-teoria
+ref: doutrina Assimetria de informação
+armadilha: conceito
+dif: 3
+enunciado: Um cardápio de contratos regulatórios pode levar as firmas a revelarem seu tipo: as de custo baixo tendem a escolher contratos de alto poder de incentivo, como o preço-teto, e as de custo alto, contratos próximos do custo do serviço.
+comentario: Certo. É a autosseleção dos contratos de menu (Laffont e Tirole): cada tipo escolhe o contrato que mais lhe convém, e a escolha revela a informação que o regulador não tinha.
+
+=== bm-23
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 14, § 5º
+trecho: O controlador deve realizar todos os esforços razoáveis para verificar que o consentimento
+armadilha: causalidade
+dif: 3
+enunciado: O controlador deve empregar esforços razoáveis para verificar se o consentimento foi dado pelo responsável pela criança, já que o consentimento é a única hipótese legal que autoriza o tratamento de dados de crianças.
+comentario: Errado na causa. O dever de verificação existe (art. 14, § 5º), mas o consentimento não é a única base: a própria lei admite coleta sem ele para contatar os pais ou proteger a criança (§ 3º), e o Enunciado CD/ANPD 1/2023 afirma que dados de crianças e adolescentes podem ser tratados com base nas hipóteses dos arts. 7º ou 11, desde que prevaleça o melhor interesse.
+
+=== bm-24
+gab: E
+bloco: lgpd-33-36
+ref: lgpd 33, I
+trecho: para países ou organismos internacionais que proporcionem grau de proteção de dados pessoais adequado ao previsto nesta Lei
+armadilha: causalidade
+dif: 3
+enunciado: A transferência internacional para país reconhecido como de proteção adequada dispensa o consentimento do titular porque a decisão de adequação equivale a um consentimento presumido de todos os titulares.
+comentario: Errado na causa. A transferência para país com proteção adequada de fato não depende de consentimento (art. 33, I), mas porque a adequação é hipótese autônoma da lei, e não consentimento presumido. O consentimento é outra hipótese, que exige ser específico e em destaque (art. 33, VIII).
+
+=== bm-25
+gab: E
+ref: lei13848 23, § 2º
+trecho: É vedado ao ouvidor ter participação, direta ou indireta, em empresa sob regulação da respectiva agência reguladora.
+armadilha: causalidade
+dif: 3
+enunciado: É vedado ao ouvidor da agência reguladora ter participação, direta ou indireta, em empresa sob regulação da agência, porque ele é hierarquicamente subordinado à diretoria colegiada.
+comentario: Errado na causa. A vedação existe (art. 23, § 2º, da Lei 13.848/2019), mas o fundamento é evitar conflito de interesses, e o ouvidor atua sem subordinação hierárquica (art. 22, caput).
+
+=== bm-26
+gab: E
+bloco: lei-9784
+ref: lei9784 65
+trecho: a pedido ou de ofício
+armadilha: causalidade
+dif: 3
+enunciado: Da revisão de processo administrativo de que resultou sanção não pode resultar agravamento da penalidade, porque a revisão só pode ser instaurada a pedido do próprio sancionado.
+comentario: Errado na causa. A vedação de agravamento existe (art. 65, parágrafo único), mas a revisão cabe a pedido ou de ofício, a qualquer tempo, quando surgirem fatos novos ou circunstâncias relevantes (art. 65, caput). A proibição de agravar não decorre de quem pede a revisão.
+
+=== bm-27
+gab: E
+bloco: lgpd-17-22
+ref: lgpd 18, § 5º
+trecho: será atendido sem custos para o titular
+armadilha: fecho
+dif: 3
+enunciado: O titular pode opor-se a tratamento realizado com base em hipótese que dispensa o consentimento quando houver descumprimento da LGPD, devendo arcar com os custos do requerimento apresentado ao agente de tratamento.
+comentario: Errado no fecho. O começo reproduz o art. 18, § 2º; mas o requerimento do titular é atendido sem custos para ele (art. 18, § 5º).
+
+=== bm-28
+gab: E
+bloco: lgpd-52-54
+ref: lgpd 52, § 1º
+trecho: a boa-fé do infrator
+armadilha: fecho
+dif: 3
+enunciado: As sanções da LGPD são aplicadas após procedimento que assegure ampla defesa, de forma gradativa, isolada ou cumulativa, conforme as peculiaridades do caso, sem que a boa-fé do infrator figure entre os critérios de dosimetria.
+comentario: Errado no fecho. A boa-fé do infrator é critério expresso de dosimetria (art. 52, § 1º, II), ao lado da gravidade, da vantagem auferida, da reincidência e da cooperação, entre outros.
+
+=== bm-29
+gab: E
+ref: lei13848 22, § 6º
+trecho: bem como divulgá-los no sítio da agência na internet
+armadilha: fecho
+dif: 3
+enunciado: Transcorrido o prazo para manifestação do colegiado, o ouvidor encaminha seu relatório ao ministério supervisor, à Câmara dos Deputados, ao Senado Federal e ao TCU, sendo vedada a divulgação do documento no sítio da agência.
+comentario: Errado no fecho. O art. 22, § 6º, da Lei 13.848/2019 manda encaminhar o relatório, com a manifestação do colegiado se houver, e também divulgá-los no sítio da agência na internet.
+
+=== bm-30
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 26, § 2º
+trecho: Os contratos e convênios de que trata o § 1º deste artigo deverão ser comunicados à autoridade nacional.
+armadilha: fecho
+dif: 3
+enunciado: O Poder Público não pode transferir a entidades privadas dados pessoais de suas bases, salvo em hipóteses como previsão legal ou respaldo em contratos e convênios, instrumentos que dispensam comunicação à ANPD.
+comentario: Errado no fecho. A regra e a exceção estão certas (art. 26, § 1º, IV), mas os contratos e convênios que respaldam a transferência devem ser comunicados à ANPD (§ 2º).

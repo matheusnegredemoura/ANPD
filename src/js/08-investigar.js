@@ -41,7 +41,7 @@ function regrasInv(inv) {
     'Ele respondeu a estas perguntas-guia: ' + PERGUNTAS_GUIA.join(' ') + '\n\n' +
     'Regras da sua resposta: português do Brasil; texto corrido e curto, até 170 palavras, sem títulos; primeiro diga o que está certo, depois corrija o que está errado ou impreciso e diga o que faltou; ' +
     'quando depender de norma brasileira (LGPD, resoluções da ANPD, outras leis), cite o artigo, e se não tiver certeza do número diga que é preciso conferir na lei em vez de inventar; ' +
-    'aponte a armadilha típica do Cebraspe sobre o tema quando houver (palavra trocada, exceção omitida, sujeito trocado); ' +
+    'aponte como o Cebraspe montaria um item errado sobre o tema: a palavra, o conectivo, o sujeito ou o prazo que decide o item e o mecanismo (conceitos vizinhos trocados, palavra absoluta onde há exceção, falsa relação de causa, regra geral aplicada à exceção, sujeito ou competência trocados, erro só no fim do período); ' +
     'não entregue tudo de uma vez: termine com UMA pergunta curta que leve o estudante ao próximo passo. A conversa vem a seguir.';
 }
 function conversaInv() {

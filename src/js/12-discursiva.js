@@ -94,6 +94,17 @@ let timerDisc = null;
 // Itens reais de uma disciplina: os que estão em blocos dela
 function reaisDaDisc(id) { return REAIS.filter((q) => (BI.get(q.b) || {}).disciplina === id); }
 function numItem(q) { const m = /(item|questão) (\d+)/.exec(q.pv || ''); return m ? (m[1] === 'item' ? 'Item ' : 'Questão ') + m[2] : ((q.pv || '').split(' · ')[1] || q.id); }
+// Como a banca constrói o item: mecanismos do item errado (cada um ligado à armadilha do banco, com treino), disfarces do
+// item certo, léxico que inverte o sentido e a conta do chute
+function cartaoConstrucao(c) {
+  const n = (k) => Q.filter((q) => q.a === k && !q.al).length;
+  return '<div class="cartao cb-disc" id="cb-construcao"><h2>Como a banca constrói o item</h2><p>' + esc(c.intro) + '</p>' +
+    '<h3>Como o item errado é feito</h3>' + c.errado.map((m) => '<div class="gloss-item"><b>' + esc(m.nome) + '</b><p class="pequeno">' + esc(m.como) + '</p><p class="pequeno mudo">' + esc(m.exemplo) + '</p>' +
+      (n(m.arm) >= 5 ? '<div class="linha-btns"><button class="btn pequeno" data-acao="treinar-arm" data-a="' + esc(m.arm) + '">Treinar (' + n(m.arm) + ' itens)</button></div>' : '') + '</div>').join('') +
+    '<h3>Como o item certo se disfarça</h3><ul class="lista-cb">' + c.certo.map((m) => '<li><b>' + esc(m.nome) + '.</b> ' + esc(m.como) + '</li>').join('') + '</ul>' +
+    '<h3>Palavras que invertem o sentido</h3><div class="tabela-env"><table class="tabela"><tbody>' + c.lexico.map(([t, s]) => '<tr><td><b>' + esc(t) + '</b></td><td>' + esc(s) + '</td></tr>').join('') + '</tbody></table></div>' +
+    '<p class="pequeno">' + esc(c.chute) + '</p></div>';
+}
 function renderCebraspe() {
   const cb = D.cebraspe;
   if (!cb) return '<p class="mudo">Dados da banca indisponíveis nesta versão.</p>';
@@ -101,11 +112,12 @@ function renderCebraspe() {
   const nC = REAIS.filter((q) => !q.al && q.g === 'C').length, nMc = REAIS.filter((q) => q.al).length;
   const chip = (id) => { const q = QI.get(id); return q ? '<button class="chip item-real" data-acao="revisar-item" data-q="' + esc(id) + '" title="' + esc(q.pv || '') + '">' + esc(numItem(q)) + ' · ' + nomeGab(q) + '</button>' : ''; };
   let html = '<div class="prosa"><h2>Como o Cebraspe cobra</h2><p>' + esc(cb.fonte) + '</p></div>';
-  html += '<div class="chips cb-nav">' + cb.disciplinas.map((d) => { const x = DISC.find((y) => y.id === d.id); return x ? '<button class="chip" data-acao="rolar" data-alvo="cb-' + esc(d.id) + '">' + esc(x.nome) + '</button>' : ''; }).join('') + '<button class="chip" data-acao="rolar" data-alvo="cb-raiox">O que a banca repete</button><button class="chip" data-acao="rolar" data-alvo="cb-discursiva">Discursiva</button><button class="chip" data-acao="rolar" data-alvo="cb-provas">Provas para mandar</button></div>';
+  html += '<div class="chips cb-nav">' + cb.disciplinas.map((d) => { const x = DISC.find((y) => y.id === d.id); return x ? '<button class="chip" data-acao="rolar" data-alvo="cb-' + esc(d.id) + '">' + esc(x.nome) + '</button>' : ''; }).join('') + '<button class="chip" data-acao="rolar" data-alvo="cb-construcao">Como o item é feito</button><button class="chip" data-acao="rolar" data-alvo="cb-raiox">O que a banca repete</button><button class="chip" data-acao="rolar" data-alvo="cb-discursiva">Discursiva</button><button class="chip" data-acao="rolar" data-alvo="cb-provas">Provas para mandar</button></div>';
   html += '<div class="cartao"><h2>A prova e a pontuação</h2><div class="tabela-env"><table class="tabela cb-tabela"><thead><tr><th>Prova</th><th>Tamanho</th><th>Corte</th></tr></thead><tbody>' +
     cb.estrutura.map((e) => '<tr><td>' + esc(e.prova) + '</td><td>' + esc(e.itens) + '</td><td>' + esc(e.corte) + '</td></tr>').join('') + '</tbody></table></div>' +
     '<ul class="lista-cb">' + cb.regras.map(li).join('') + '</ul>' +
     '<p class="pequeno mudo">No banco: ' + pl(REAIS.length, 'item real', 'itens reais') + ': ' + nC + ' com gabarito certo, ' + (REAIS.length - nC - nMc) + ' com gabarito errado' + (nMc ? ' e ' + nMc + ' de múltipla escolha' : '') + '.</p></div>';
+  if (cb.construcao) html += cartaoConstrucao(cb.construcao);
   html += renderRaioX(cb, chip);
   for (const d of cb.disciplinas) {
     const x = DISC.find((y) => y.id === d.id);
