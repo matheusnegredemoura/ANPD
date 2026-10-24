@@ -239,6 +239,7 @@ button.alt{cursor:pointer;transition:border-color .15s}
 .veredito{border-radius:10px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700}
 .veredito.ok{background:var(--certo-bg);color:var(--certo)}
 .veredito.no{background:var(--errado-bg);color:var(--errado)}
+.veredito.defesa{background:var(--accent-2);color:var(--ink)}
 .veredito .ganho{font-family:var(--f-mono);font-size:.9rem;color:var(--gold)}
 .ganho-voa{animation:voa .9s ease forwards}
 @keyframes voa{0%{opacity:0;transform:translateY(6px)}30%{opacity:1;transform:translateY(0)}100%{opacity:1}}

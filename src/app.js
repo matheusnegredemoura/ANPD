@@ -1301,7 +1301,7 @@ function atualizarPausa() {
     pausas[k] = Object.assign({ modo: sessao.modo, titulo: sessao.titulo, dia: sessao.dia, data: hojeISO(), ts: Date.now() }, sim
       ? { ids: sessao.ids, resp: sessao.resp, duv: sessao.duv, i: sessao.i, gasto: Math.round(decorrido()), limite: sessao.limite, total: sessao.ids.length, prova: sessao.prova || undefined }
       : { ids: faltam, feitas: (sessao.feitasAntes || 0) + sessao.ids.length - faltam.length, total: sessao.totalOrig || sessao.ids.length },
-      sessao.batalha ? { cor: sessao.coracoes, dano: sessao.danoTotal || 0, crit: sessao.criticos || 0, cmb: sessao.comboMax, per: sessao.perdas || 0 } : {});
+      sessao.batalha ? { cor: sessao.coracoes, dano: sessao.danoTotal || 0, crit: sessao.criticos || 0, cmb: sessao.comboMax, per: sessao.perdas || 0, def: sessao.defesas || 0 } : {});
   }
   const manter = new Set(Object.entries(pausas).filter(([, v]) => v && v.data && HOJE() - diaNum(v.data) <= PAUSA_DIAS)
     .sort((a, b) => (b[1].ts || 0) - (a[1].ts || 0)).slice(0, PAUSA_MAX).map(([x]) => x));
@@ -1329,7 +1329,7 @@ function retomarPausa(k) {
     sessao.feitasAntes = p.feitas || 0;
     sessao.totalOrig = p.total || p.ids.length;
     // Batalha retomada continua com os corações e o placar de quando você saiu
-    if (sessao.batalha && p.cor != null) { sessao.coracoes = Math.max(1, Math.min(p.cor, sessao.coracoesMax)); sessao.danoTotal = p.dano || 0; sessao.criticos = p.crit || 0; sessao.comboMax = p.cmb || 0; sessao.perdas = p.per || 0; }
+    if (sessao.batalha && p.cor != null) { sessao.coracoes = Math.max(1, Math.min(p.cor, sessao.coracoesMax)); sessao.danoTotal = p.dano || 0; sessao.criticos = p.crit || 0; sessao.comboMax = p.cmb || 0; sessao.perdas = p.per || 0; sessao.defesas = p.def || 0; }
   }
   abrirSessao();
   return true;
@@ -1457,7 +1457,8 @@ function responder(resp) {
     renderSessao();
     return;
   }
-  if (sessao.revelado || sessao.flash || resp === BRANCO) return;
+  if (sessao.revelado || sessao.flash) return;
+  if (resp === BRANCO) { defender(q, id); return; }
   // Virada: acertar um item cuja última resposta foi erro. É onde o aprendizado aparece: se o erro foi em outro dia,
   // o XP dobra; no mesmo dia (logo depois de ler o comentário), ganha só um pouco a mais
   const ant = rec(id), virada = ant && ant[0] === 0 && ant[3] > 0 ? (ant[4] < HOJE() ? 'plena' : 'mesmo-dia') : null;
@@ -1494,6 +1495,22 @@ function responder(resp) {
     }, ok ? 380 : 900);
     return;
   }
+  sessao.revelado = true;
+  renderSessao();
+}
+// Em branco no treino é defesa, como na prova (1 errada anula 1 certa): não perde coração nem quebra o combo,
+// ganha pouco XP, o item volta na revisão e o comentário abre para aprender
+function defender(q, id) {
+  registrar(q, BRANCO, !!sessao.duv[id]);
+  sessao.golpe = null;
+  sessao.virada = null;
+  sessao.resp[id] = BRANCO;
+  sessao.defesas = (sessao.defesas || 0) + 1;
+  sessao.xp += 2;
+  ganharXP(2);
+  sessao.ultimoGanho = 2;
+  atualizarPausa();
+  Store.salvar('perfil', 'itens');
   sessao.revelado = true;
   renderSessao();
 }
@@ -2300,6 +2317,7 @@ function cartaoBatalha() {
   const s = fim === 'vitoria' && sessao.golpeFinal && sessao.golpeFinal.item;
   return '<div class="cartao batalha-fim ' + fim + '"><div class="bf-cab"><span class="brasao">' + brasao(discChefe(c.bloco)) + '</span><div><span class="rotulo">' + esc(nomeChefe(c.bloco)) + '</span><h2>' + titulo + '</h2></div></div>' +
     hpBarra(c.vencido ? 0 : c.vida, c.max) +
+    (sessao.defesas ? '<p class="pequeno">' + pl(sessao.defesas, 'defesa', 'defesas') + ': em branco quando faltou certeza, sem perder coração. Na prova, é ponto que não se perde.</p>' : '') +
     '<div class="placar"><div><b>' + (sessao.danoTotal || 0) + '</b><span>dano</span></div><div><b>' + (sessao.criticos || 0) + '</b><span>críticos</span></div><div><b>' + sessao.comboMax + '</b><span>maior série</span></div><div><b>' + (c.vencido ? 0 : c.vida) + '</b><span>HP restante</span></div></div>' +
     (s ? cartaoItem(s.it, s.repetido ? 'Repetido: virou +' + XP_REPETIDO[s.it.rar] + ' XP' : 'Novo no inventário') : '') +
     (fim === 'derrota' ? '<p class="pequeno mudo">Sem corações, a batalha acabou. O dano causado fica: o chefão continua com ' + c.vida + ' de vida até domingo.</p>' : '') +
@@ -2626,20 +2644,20 @@ function renderItem(q) {
     html += '<div class="veredito ' + sessao.flash + '"><span>' + (sessao.flash === 'ok' ? 'Certo' : 'Errado: gabarito ' + nomeGab(q).toUpperCase()) + '</span>' + (sessao.ultimoGanho ? '<span class="ganho">+' + sessao.ultimoGanho + ' XP</span>' : '') + '</div>';
   } else if (!sessao.revelado) {
     if (sessao.modo !== 'relampago') html += '<label class="duvida"><input type="checkbox" data-acao="duvida"' + (sessao.duv[id] ? ' checked' : '') + '> Estou em dúvida (mede quando vale chutar)</label>';
-    const branco = sim ? '<button class="bolha b' + (marcada === BRANCO ? ' marcada' : '') + '" data-acao="responder" data-r="' + BRANCO + '">Em branco</button>' : '';
+    const branco = sim || sessao.modo !== 'relampago' ? '<button class="bolha b' + (marcada === BRANCO ? ' marcada' : '') + '" data-acao="responder" data-r="' + BRANCO + '"' + (sim ? '' : ' title="Defesa: não perde coração nem combo; o item volta na revisão"') + '>Em branco</button>' : '';
     if (q.al) {
       if (branco) html += '<div class="respostas">' + branco + '</div>';
       html += '<p class="atalhos">Teclado: A a ' + LETRAS[q.al.length - 1] + ' marcam a alternativa' + (sim ? ' · ← → navegam' : '') + '</p>';
     } else {
       html += '<div class="respostas"><button class="bolha c' + (marcada === 'C' ? ' marcada' : '') + '" data-acao="responder" data-r="C"><span class="oval"><span>C</span></span>CERTO</button>' +
         '<button class="bolha e' + (marcada === 'E' ? ' marcada' : '') + '" data-acao="responder" data-r="E"><span class="oval"><span>E</span></span>ERRADO</button>' + branco + '</div>';
-      html += '<p class="atalhos">Teclado: C = certo · E = errado' + (sim ? ' · B = em branco · ← → navegam' : '') + ' · D = dúvida</p>';
+      html += '<p class="atalhos">Teclado: C = certo · E = errado' + (sim ? ' · B = em branco · ← → navegam' : branco ? ' · B = em branco (defesa)' : '') + ' · D = dúvida</p>';
     }
     if (sim) html += '<div class="linha-btns"><button class="btn" data-acao="anterior"' + (sessao.i ? '' : ' disabled') + '>Anterior</button><button class="btn" data-acao="proximo"' + (sessao.i < sessao.ids.length - 1 ? '' : ' disabled') + '>Próximo</button><button class="btn primario" data-acao="entregar">Entregar (' + Object.keys(sessao.resp).length + '/' + sessao.ids.length + ')</button></div>';
   } else {
-    const r = sessao.resp[id], ok = r === q.g;
-    html += '<div class="veredito ' + (ok ? 'ok' : 'no') + '"><span>' + (ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + (q.al ? 'a letra ' + q.g : q.g === 'C' ? 'CERTO' : 'ERRADO') + '.') + '</span>' +
-      (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP' + (sessao.virada === 'plena' ? ' <small>virada</small>' : caiuEmProva(q) && sessao.modo !== 'relampago' ? ' <small>crítico</small>' : '') + '</span>' : '<span class="pequeno">' + (SEM_REPETICAO.has(id) ? 'Este texto não volta: vêm outros' : 'Foi para a lista curta') + '</span>') + '</div>';
+    const r = sessao.resp[id], ok = r === q.g, br = r === BRANCO, gab = q.al ? 'a letra ' + q.g : q.g === 'C' ? 'CERTO' : 'ERRADO';
+    html += '<div class="veredito ' + (br ? 'defesa' : ok ? 'ok' : 'no') + '"><span>' + (br ? 'Em branco: defesa, sem perder coração. O gabarito é ' + gab + '.' : ok ? 'Você marcou ' + nomeResp(q, r) + ' e acertou.' : 'Você marcou ' + nomeResp(q, r) + '. O gabarito é ' + gab + '.') + '</span>' +
+      (sessao.ultimoGanho ? '<span class="ganho ganho-voa">+' + sessao.ultimoGanho + ' XP' + (br ? '' : sessao.virada === 'plena' ? ' <small>virada</small>' : caiuEmProva(q) && sessao.modo !== 'relampago' ? ' <small>crítico</small>' : '') + '</span>' : '<span class="pequeno">' + (SEM_REPETICAO.has(id) ? 'Este texto não volta: vêm outros' : 'Foi para a lista curta') + '</span>') + '</div>';
     html += extrasResposta(q);
     html += renderExplicacao(q);
     html += '<button class="btn primario largo" data-acao="proximo">' + (sessao.i < sessao.ids.length - 1 ? 'Próximo item' : 'Ver resultado') + '</button><p class="atalhos">Enter = próximo</p>';
@@ -2815,7 +2833,7 @@ function cabFolha(rotulo, titulo) { return '<div class="folha-cab"><div><span cl
 function folhaItem(id, resp) {
   const q = QI.get(id);
   let html = cabFolha(nomeBloco(q.b), q.id) + renderApoio(q, false) + renderComando(q) + '<p class="enunciado">' + marcarTermos(q.e, 3) + '</p>' + renderAlternativas(q, resp, true);
-  if (resp) html += '<div class="veredito ' + (resp !== BRANCO && resp === q.g ? 'ok' : 'no') + '"><span>' + (resp === BRANCO ? 'Em branco.' : 'Você marcou ' + nomeResp(q, resp) + '.') + ' Gabarito: ' + nomeGab(q).toUpperCase() + '.</span></div>';
+  if (resp) html += '<div class="veredito ' + (resp === BRANCO ? 'defesa' : resp === q.g ? 'ok' : 'no') + '"><span>' + (resp === BRANCO ? (sessao.modo === 'simulado' ? 'Em branco.' : 'Em branco: defesa, sem perder coração.') : 'Você marcou ' + nomeResp(q, resp) + '.') + ' Gabarito: ' + nomeGab(q).toUpperCase() + '.</span></div>';
   abrirFolha(html + renderExplicacao(q), 'Item ' + q.id);
 }
 // Artigo aberto na própria tela, logo abaixo do botão: sem folha por cima e sem trocar de aba, para funcionar igual em
@@ -5143,7 +5161,7 @@ document.addEventListener('keydown', (ev) => {
   }
   if (k === 'c') responder('C');
   else if (k === 'e') responder('E');
-  else if (k === 'b' && sessao.modo === 'simulado') responder(BRANCO);
+  else if (k === 'b' && sessao.modo !== 'relampago') responder(BRANCO);
   else if (k === 'd' && sessao.modo !== 'relampago') { const id = sessao.ids[sessao.i]; sessao.duv[id] = !sessao.duv[id]; renderSessao(); }
   else if (sessao.modo === 'simulado' && k === 'arrowright') proximo();
   else if (sessao.modo === 'simulado' && k === 'arrowleft' && sessao.i > 0) { sessao.i--; renderSessao(); }
