@@ -4,9 +4,9 @@ bloco: seginfo
 === si2-01
 gab: E
 ref: doutrina criptografia
-armadilha: conceito
-dif: 1
-enunciado: Na criptografia simétrica, cada participante possui um par de chaves, uma pública e outra privada, matematicamente relacionadas.
+armadilha: comparacao
+dif: 2
+enunciado: Na criptografia simétrica, cada participante tem um par de chaves, pública e privada, matematicamente relacionadas, o que dispensa o compartilhamento prévio de segredo.
 comentario: Isso descreve a criptografia assimétrica. Na simétrica, a mesma chave secreta cifra e decifra (exemplo: AES). Exemplo de assimétrica: RSA.
 
 === si2-02
@@ -20,9 +20,9 @@ comentario: Em trânsito × em repouso é distinção básica para avaliar medid
 === si2-03
 gab: E
 ref: doutrina pseudonimização
-armadilha: conceito
-dif: 2
-enunciado: Dados pseudonimizados equiparam-se a dados anonimizados e, por isso, ficam fora do alcance da LGPD.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: empresa substituiu nomes por códigos e manteve em separado a tabela que permite reidentificar os titulares. Assertiva: os dados passaram a ser anonimizados e ficam fora do alcance da LGPD.
 comentario: A pseudonimização mantém informação adicional que permite a reassociação, guardada pelo controlador (LGPD, art. 13, § 4º). O dado continua pessoal. No GDPR é igual (considerando 26).
 
 === si2-04
@@ -62,9 +62,9 @@ comentario: Variações: spear phishing (alvo específico), whaling (altos execu
 === si2-08
 gab: E
 ref: doutrina backup
-armadilha: conceito
-dif: 2
-enunciado: O backup incremental copia todos os dados a cada execução, independentemente de terem sido alterados.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: faz-se backup completo no domingo e, nos demais dias, copiam-se apenas os arquivos alterados desde o backup anterior, qualquer que seja seu tipo. Assertiva: o esquema descreve backup diferencial.
 comentario: Isso é o backup completo. O incremental copia o que mudou desde o último backup de qualquer tipo; o diferencial, o que mudou desde o último completo.
 
 === si2-09

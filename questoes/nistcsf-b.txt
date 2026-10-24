@@ -80,9 +80,9 @@ comentario: Errado. As melhorias são identificadas em todas as funções do CSF
 gab: C
 ref: nistcsf PR.AA
 trecho: incorporate the principles of least privilege and separation of duties
-armadilha: literal
-dif: 1
-enunciado: No NIST CSF 2.0, as permissões e autorizações de acesso são definidas em política, gerenciadas, aplicadas e revistas, incorporando os princípios do menor privilégio e da segregação de funções.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em órgão público, o mesmo servidor cadastra fornecedores e autoriza seus pagamentos, com acesso irrestrito ao sistema. Assertiva: o arranjo contraria os princípios do menor privilégio e da segregação de funções, que o NIST CSF 2.0 manda incorporar às permissões de acesso.
 comentario: Certo: PR.AA-05, na categoria gestão de identidade, autenticação e controle de acesso, da função proteger.
 
 === nist2-10
@@ -107,9 +107,9 @@ comentario: Certo: PR.PS-04. Gerar o log é proteção; monitorá-lo para achar 
 gab: C
 ref: nistcsf PR.PS
 trecho: Secure software development practices are integrated, and their performance is monitored throughout the software development life cycle
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: O NIST CSF 2.0 prevê que práticas de desenvolvimento seguro de software sejam integradas e tenham seu desempenho monitorado ao longo de todo o ciclo de vida do desenvolvimento.
+enunciado: Situação hipotética: a equipe de desenvolvimento só faz testes de segurança depois que o sistema entra em produção. Assertiva: o NIST CSF 2.0 prevê práticas de desenvolvimento seguro integradas e monitoradas ao longo de todo o ciclo de vida do software.
 comentario: Certo: PR.PS-06. É a segurança desde a concepção aplicada ao software, que conversa com o art. 46, § 2º, da LGPD.
 
 === nist2-13
@@ -152,18 +152,18 @@ comentario: Errado. A declaração está na função detectar: incidentes são d
 gab: C
 ref: nistcsf RS.AN
 trecho: Analysis is performed to establish what has taken place during an incident and the root cause of the incident
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: Na análise de incidentes do NIST CSF 2.0, busca-se estabelecer o que ocorreu durante o incidente e qual foi sua causa raiz.
+enunciado: Situação hipotética: contido um incidente, a equipe investigou o que ocorreu e por que a falha foi possível. Assertiva: essa atividade corresponde à análise de incidentes da função responder, que busca estabelecer o ocorrido e sua causa raiz.
 comentario: Certo: RS.AN-03. Sem causa raiz, o mesmo incidente volta.
 
 === nist2-18
 gab: E
 ref: nistcsf RS.MI
 trecho: Incidents are eradicated
-armadilha: comparacao
+armadilha: caso
 dif: 2
-enunciado: No NIST CSF 2.0, a erradicação do incidente pertence à função recuperar.
+enunciado: Situação hipotética: depois de conter o incidente, a equipe removeu o malware dos sistemas comprometidos. Assertiva: no NIST CSF 2.0, essa erradicação pertence à função recuperar.
 comentario: Errado. Contenção e erradicação são resultados da mitigação de incidentes (RS.MI-01 e 02), na função responder. Recuperar é restaurar sistemas e serviços.
 
 === nist2-19

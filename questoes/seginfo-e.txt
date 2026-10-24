@@ -47,9 +47,9 @@ comentario: Certo. São as opções da ISO/IEC 27005, alinhada à ISO 31000. Com
 === si5-06
 gab: E
 ref: doutrina Gestão de riscos de segurança da informação
-armadilha: conceito
+armadilha: caso
 dif: 2
-enunciado: Risco residual é o risco que a organização identifica antes de aplicar qualquer controle.
+enunciado: Situação hipotética: organização avaliou um risco antes de adotar qualquer controle e chegou a nível alto. Assertiva: esse nível corresponde ao risco residual.
 comentario: Errado. Esse é o risco inerente. O residual é o que sobra depois do tratamento, e a ISO/IEC 27001 exige que os responsáveis pelos riscos aprovem o plano de tratamento e aceitem esse risco residual.
 
 === si5-07
@@ -63,9 +63,9 @@ comentario: Certo. As duas técnicas podem ser combinadas: cifrar a mensagem e d
 === si5-08
 gab: E
 ref: doutrina Controle de acesso
-armadilha: comparacao
+armadilha: caso
 dif: 2
-enunciado: No controle de acesso obrigatório (MAC), o proprietário do recurso decide livremente a quem conceder acesso.
+enunciado: Situação hipotética: em certo sistema, o dono de cada arquivo decide livremente com quem compartilhá-lo. Assertiva: o modelo é de controle de acesso obrigatório (MAC).
 comentario: Errado. Isso é o controle discricionário (DAC). No obrigatório, o sistema impõe a política com base em rótulos de classificação e credenciais, e o usuário não pode alterá-la. No baseado em papéis (RBAC), as permissões seguem a função.
 
 === si5-09

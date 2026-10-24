@@ -11,9 +11,9 @@ gab: C
 ref: dec12572 1
 trecho: com a finalidade de assegurar a disponibilidade, a integridade, a confidencialidade e a autenticidade da informação no País
 comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
-armadilha: rol
+armadilha: conceito
 dif: 1
-enunciado: A Política Nacional de Segurança da Informação tem a finalidade de assegurar a disponibilidade, a integridade, a confidencialidade e a autenticidade da informação no País.
+enunciado: Disponibilidade, integridade, confidencialidade e autenticidade da informação são o que a Política Nacional de Segurança da Informação busca assegurar no País.
 comentario: Art. 1º do Decreto 12.572/2025, que substituiu o Decreto 9.637/2018 como PNSI. As quatro propriedades (DICA) também aparecem na LAI e na Resolução 15/2024 da ANPD.
 
 === si3-02
@@ -61,9 +61,9 @@ gab: C
 ref: dec12572 10, VIII
 trecho: coordenar as atividades desenvolvidas pelo gestor de segurança da informação, pelo encarregado pelo tratamento de dados pessoais, pelo gestor de segurança e credenciamento e pelo titular da unidade de tecnologia da informação
 comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
-armadilha: literal
+armadilha: caso
 dif: 3
-enunciado: Compete aos órgãos e entidades federais coordenar as atividades do gestor de segurança da informação, do encarregado pelo tratamento de dados pessoais, do gestor de segurança e credenciamento e do titular da unidade de tecnologia da informação.
+enunciado: Situação hipotética: em órgão federal, o gestor de segurança da informação, o encarregado pelo tratamento de dados e o titular da unidade de tecnologia da informação atuam sem nenhuma articulação. Assertiva: cabe ao próprio órgão coordenar as atividades desses agentes, nos termos do Decreto nº 12.572/2025.
 comentario: Art. 10, VIII. A PNSI integra expressamente o encarregado da LGPD à estrutura de segurança da informação do órgão.
 
 === si3-08
@@ -111,9 +111,9 @@ gab: C
 ref: ingsi1 9
 trecho: É obrigatório a todos os órgãos e as entidades da administração pública federal possuir uma Política de Segurança da Informação, implementada a partir da formalização e aprovação por parte da autoridade máxima da instituição
 comando: Com base na Instrução Normativa GSI/PR n.º 1/2020, que dispõe sobre a estrutura de gestão da segurança da informação na administração pública federal, julgue os itens a seguir.
-armadilha: literal
+armadilha: caso
 dif: 1
-enunciado: É obrigatório a todos os órgãos e entidades da administração pública federal possuir política de segurança da informação, aprovada pela autoridade máxima da instituição.
+enunciado: Situação hipotética: autarquia federal ainda não tem política de segurança da informação por considerá-la facultativa. Assertiva: o entendimento é equivocado, pois a política é obrigatória para todos os órgãos e entidades da administração pública federal.
 comentario: Art. 9º. A autoridade máxima também responde por garantir os recursos para executá-la (parágrafo único).
 
 === si3-13
@@ -205,9 +205,9 @@ comentario: Senha (conhecimento), token ou celular (posse) e biometria (inerênc
 gab: E
 ref: doutrina autenticação multifator
 comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
-armadilha: conceito
-dif: 2
-enunciado: O uso de duas senhas distintas, solicitadas em sequência, configura autenticação de dois fatores.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: sistema exige do usuário uma senha e, em seguida, um PIN de seis dígitos que ele memorizou. Assertiva: o mecanismo é autenticação de dois fatores.
 comentario: Ambas são “algo que você sabe”: um único fator. Multifator exige categorias diferentes (conhecimento, posse, inerência).
 
 === si3-23
@@ -259,9 +259,9 @@ comentario: RPO responde “até que momento preciso recuperar os dados” (defi
 gab: E
 ref: doutrina engenharia social
 comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
-armadilha: conceito
+armadilha: caso
 dif: 1
-enunciado: O phishing é ataque exclusivamente técnico, que explora falhas de software sem depender de ação da vítima.
+enunciado: Situação hipotética: servidor recebeu e-mail falso com link para página que imitava o sistema do órgão e digitou ali sua senha. Assertiva: o phishing, como nesse caso, é ataque puramente técnico, que independe de ação da vítima.
 comentario: Phishing é engenharia social: induz a vítima a clicar, informar credenciais ou instalar algo. Por isso a conscientização de pessoas é controle essencial (PNSI, art. 4º, VII).
 
 === si3-29

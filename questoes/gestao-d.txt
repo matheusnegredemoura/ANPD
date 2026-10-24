@@ -31,9 +31,9 @@ comentario: Certo. Primários (finalísticos) entregam valor diretamente ao clie
 === gd-04
 gab: E
 ref: doutrina
-armadilha: conceito
-dif: 1
-enunciado: Processos de suporte entregam valor diretamente ao cliente externo e expressam a razão de existir da organização.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em hospital público, a gestão da folha de pagamento dá apoio às áreas assistenciais. Assertiva: trata-se de processo finalístico, pois entrega valor diretamente ao paciente.
 comentario: Errado. Essa descrição é de processo primário (finalístico). Os de suporte, como gestão de pessoas, contratações e tecnologia, servem a outros processos e só indiretamente ao cliente final.
 
 === gd-05
@@ -47,9 +47,9 @@ comentario: Certo. Piscina (pool) representa um participante, como uma organiza�
 === gd-06
 gab: E
 ref: doutrina
-armadilha: conceito
-dif: 2
-enunciado: Em BPMN, o gateway exclusivo ativa simultaneamente todos os caminhos de saída.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: em diagrama BPMN, um pedido segue para aprovação automática ou para análise manual, conforme o valor, nunca para ambas. Assertiva: o elemento adequado para essa decisão é o gateway paralelo.
 comentario: Errado. O exclusivo (XOR, losango com X ou vazio) segue apenas um caminho, conforme a condição. Ativar todos os caminhos ao mesmo tempo é próprio do gateway paralelo (AND, losango com +); o inclusivo (OR, losango com círculo) ativa um ou mais.
 
 === gd-07
@@ -95,9 +95,9 @@ comentario: Errado. O Seis Sigma busca reduzir a variabilidade e os defeitos, co
 === gd-12
 gab: C
 ref: doutrina
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: O ciclo DMAIC, usado no Seis Sigma, compreende as etapas de definir, medir, analisar, melhorar e controlar.
+enunciado: No ciclo DMAIC do Seis Sigma, a etapa de controlar vem depois da de melhorar e busca sustentar os ganhos obtidos.
 comentario: Certo. A etapa de controle garante que o ganho se mantenha, com padronização e monitoramento, o que aproxima o DMAIC do A (agir) do PDCA.
 
 === gd-13
@@ -143,17 +143,17 @@ comentario: Certo. A avaliação vem depois, em etapa separada. Julgar cedo inib
 === gd-18
 gab: C
 ref: doutrina
-armadilha: rol
-dif: 2
-enunciado: O programa 5S compreende os sensos de utilização, ordenação, limpeza, padronização (ou saúde) e autodisciplina.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: repartição descartou materiais inúteis, organizou os arquivos e passou a limpar o ambiente com regularidade, mas não definiu padrões nem cultivou disciplina. Assertiva: do programa 5S, foram aplicados os sensos de utilização, ordenação e limpeza, faltando os de padronização e autodisciplina.
 comentario: Certo. Em japonês: seiri, seiton, seiso, seiketsu e shitsuke. É prática de base da qualidade e da gestão visual do ambiente de trabalho.
 
 === gd-19
 gab: C
 ref: doutrina
-armadilha: conceito
+armadilha: caso
 dif: 1
-enunciado: Projeto é um esforço temporário empreendido para criar um produto, serviço ou resultado único.
+enunciado: Situação hipotética: órgão montou equipe para implantar, em prazo definido, novo sistema de protocolo. Assertiva: a iniciativa é um projeto, por ser esforço temporário para criar resultado único.
 comentario: Certo. Temporário quer dizer início e fim definidos, não curta duração; único, que o resultado tem algo de novo. A rotina repetitiva é operação.
 
 === gd-20
@@ -199,9 +199,9 @@ comentario: Certo. Alto poder e baixo interesse: manter satisfeitas; baixo poder
 === gd-25
 gab: E
 ref: doutrina
-armadilha: extrapolacao
+armadilha: caso
 dif: 1
-enunciado: No gerenciamento de projetos, as partes interessadas restringem-se aos membros da equipe do projeto e ao patrocinador.
+enunciado: Situação hipotética: no projeto de novo portal de serviços, o gerente considerou partes interessadas apenas a equipe e o patrocinador, deixando de fora os usuários do portal. Assertiva: o entendimento está correto.
 comentario: Errado. Parte interessada é qualquer pessoa, grupo ou organização que afete, seja afetada ou se perceba afetada pelo projeto: usuários, órgãos de controle, fornecedores, sociedade.
 
 === gd-26
@@ -311,17 +311,17 @@ comentario: Errado. O Kanban é baseado em fluxo contínuo, sem iterações obri
 === gd-39
 gab: C
 ref: doutrina
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: O Manifesto Ágil valoriza indivíduos e interações mais que processos e ferramentas, software em funcionamento mais que documentação abrangente, colaboração com o cliente mais que negociação de contratos e responder a mudanças mais que seguir um plano.
+enunciado: O Manifesto Ágil reconhece valor em processos, documentação, contratos e planos, mas valoriza mais indivíduos e interações, software em funcionamento, colaboração com o cliente e resposta a mudanças.
 comentario: Certo. São os quatro valores do manifesto de 2001, acompanhados de doze princípios.
 
 === gd-40
 gab: E
 ref: doutrina
-armadilha: extrapolacao
+armadilha: caso
 dif: 1
-enunciado: O Manifesto Ágil dispensa a documentação e o planejamento nos projetos.
+enunciado: Situação hipotética: equipe ágil abandonou toda documentação e todo planejamento, invocando o Manifesto Ágil. Assertiva: a conduta segue o manifesto, que dispensa esses elementos.
 comentario: Errado. O manifesto diz que, embora haja valor nos itens da direita (documentação, plano, contratos, processos), valoriza mais os da esquerda. Planeja-se e documenta-se, na medida do necessário.
 
 === gd-41
@@ -343,9 +343,9 @@ comentario: Certo. O próprio PMBOK recomenda adaptar (tailoring) a abordagem ao
 === gd-43
 gab: E
 ref: doutrina
-armadilha: absoluto
-dif: 2
-enunciado: O caminho crítico, uma vez definido no planejamento, não se altera durante a execução do projeto.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: durante a execução do projeto, atividade fora do caminho crítico atrasou além de sua folga. Assertiva: o caminho crítico permanece o mesmo, pois, uma vez definido no planejamento, não se altera.
 comentario: Errado. Atrasos ou antecipações em atividades fora do caminho crítico podem consumir a folga e criar um novo caminho crítico; por isso ele é recalculado durante o controle do cronograma.
 
 === gd-44

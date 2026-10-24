@@ -15,9 +15,9 @@ comentario: Certo. Com a consulta parametrizada (prepared statement), o banco re
 === si7-02
 gab: E
 ref: doutrina segurança de aplicações
-armadilha: conceito
+armadilha: caso
 dif: 2
-enunciado: A criptografia do banco de dados em repouso impede ataques de injeção de SQL.
+enunciado: Situação hipotética: para evitar injeção de SQL, a equipe passou a cifrar o banco de dados em repouso. Assertiva: a medida impede esse tipo de ataque.
 comentario: Errado. A injeção chega pela própria aplicação, que tem acesso legítimo aos dados já decifrados. A cifração em repouso protege contra o roubo de discos e arquivos, não contra consultas maliciosas feitas pela aplicação.
 
 === si7-03
@@ -47,9 +47,9 @@ comentario: Certo. Cada parte combina seu segredo com o valor público da outra 
 === si7-06
 gab: E
 ref: doutrina criptografia
-armadilha: conceito
-dif: 2
-enunciado: O Diffie-Hellman é algoritmo de cifração simétrica empregado para cifrar grandes volumes de dados.
+armadilha: causalidade
+dif: 3
+enunciado: O Diffie-Hellman permite que duas partes estabeleçam chave secreta comum por canal inseguro e, por isso, é empregado diretamente para cifrar grandes volumes de dados.
 comentario: Errado. É protocolo de acordo de chaves, de criptografia de chave pública. A chave que ele estabelece é que costuma alimentar uma cifra simétrica, como o AES, para cifrar os dados.
 
 === si7-07
@@ -111,9 +111,9 @@ comentario: Errado. É o contrário: o vírus se propaga inserindo cópias de si
 === si7-15
 gab: C
 ref: doutrina malware
-armadilha: conceito
+armadilha: caso
 dif: 1
-enunciado: O keylogger é um tipo de spyware capaz de capturar e armazenar as teclas digitadas pelo usuário.
+enunciado: Situação hipotética: programa instalado sem conhecimento do usuário registra tudo o que ele digita e envia a terceiros. Assertiva: trata-se de keylogger, tipo de spyware.
 comentario: Certo. A Cartilha do CERT.br classifica o keylogger, o screenlogger e o adware entre os tipos de spyware. Teclados virtuais e autenticação multifator reduzem o estrago das senhas capturadas.
 
 === si7-16
@@ -143,17 +143,17 @@ comentario: Certo. A varredura é automatizada e frequente; o teste de intrusão
 === si7-19
 gab: E
 ref: doutrina gestão de vulnerabilidades
-armadilha: conceito
+armadilha: caso
 dif: 2
-enunciado: No teste de intrusão de caixa-preta, o testador recebe documentação completa, código-fonte e credenciais do ambiente avaliado.
+enunciado: Situação hipotética: em teste de intrusão, a empresa contratada recebeu documentação completa, código-fonte e credenciais do ambiente. Assertiva: trata-se de teste de caixa-preta.
 comentario: Errado. Isso descreve o teste de caixa-branca. Na caixa-preta, o testador parte sem conhecimento interno, como um atacante externo; na caixa-cinza, recebe informação parcial.
 
 === si7-20
 gab: E
 ref: doutrina segurança de redes
-armadilha: extrapolacao
+armadilha: caso
 dif: 2
-enunciado: O uso de VPN garante ao usuário anonimato completo, inclusive perante o provedor do serviço de VPN.
+enunciado: Situação hipotética: usuário passou a navegar por VPN comercial. Assertiva: a VPN lhe garante anonimato completo, inclusive perante o provedor do serviço.
 comentario: Errado. A VPN cria túnel cifrado entre o dispositivo e o servidor da VPN e protege o tráfego na rede local e no provedor de acesso. O provedor da VPN, porém, vê o tráfego que sai do túnel e pode registrá-lo.
 
 === si7-21

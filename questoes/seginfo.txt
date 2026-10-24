@@ -4,9 +4,9 @@ bloco: seginfo
 === si-01
 gab: C
 ref: doutrina CID
-armadilha: conceito
+armadilha: caso
 dif: 1
-enunciado: Confidencialidade, integridade e disponibilidade são os três pilares clássicos da segurança da informação.
+enunciado: Situação hipotética: ataque deixou sistema público fora do ar por horas, sem vazamento nem alteração de dados. Assertiva: foi atingida a disponibilidade, um dos pilares clássicos da segurança da informação, ao lado da confidencialidade e da integridade.
 comentario: A tríade CID. Autenticidade e não repúdio costumam ser acrescentados. O princípio da segurança da LGPD (art. 6º, VII) protege contra acesso não autorizado (confidencialidade), alteração (integridade) e perda ou destruição (disponibilidade).
 
 === si-02
@@ -142,9 +142,9 @@ comentario: É a defesa básica contra ransomware e desastres. Cópias imutávei
 === si-18
 gab: E
 ref: doutrina engenharia social
-armadilha: conceito
+armadilha: caso
 dif: 1
-enunciado: A engenharia social explora principalmente vulnerabilidades técnicas de software, como falhas de atualização em sistemas operacionais.
+enunciado: Situação hipotética: criminoso telefonou para servidor fingindo ser do suporte técnico e obteve sua senha. Assertiva: o ataque explorou principalmente vulnerabilidade técnica de software.
 comentario: Engenharia social explora o fator humano (confiança, urgência, medo). Phishing é o exemplo mais comum.
 
 === si-19

@@ -33,9 +33,9 @@ comentario: O Core é uma taxonomia de resultados, não um checklist. As ações
 gab: C
 ref: nistcsf S2
 trecho: GOVERN is in the center of the wheel because it informs how an organization will implement the other five Functions.
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: Na representação em roda das funções do NIST CSF 2.0, a função governar ocupa o centro porque orienta como a organização implementará as outras cinco funções.
+enunciado: Na roda de funções do NIST CSF 2.0, governar fica ao centro porque orienta a forma como as demais funções serão implementadas.
 comentario: Seção 2, Figura 2. A governança inclui contexto organizacional, estratégia de gestão de riscos, papéis e responsabilidades, política, supervisão e gestão de riscos da cadeia de suprimentos.
 
 === nist-05
@@ -52,9 +52,9 @@ gab: C
 ref: nistcsf S1
 trecho: The CSF is designed to be used by organizations of all sizes and sectors, including industry, government, academia, and nonprofit organizations
 trecho: may be adopted voluntarily and through governmental policies and mandates
-armadilha: literal
-dif: 1
-enunciado: O NIST CSF 2.0 foi concebido para organizações de todos os portes e setores, inclusive governo, e pode ser adotado voluntariamente ou por meio de políticas e determinações governamentais.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: município brasileiro pretende adotar o NIST CSF 2.0 por decisão própria, sem que norma alguma o obrigue. Assertiva: o framework admite essa adoção voluntária e se destina a organizações de todos os portes e setores, inclusive governo.
 comentario: Seção 1 do CSF 2.0. A versão 1.1 tinha foco declarado em infraestruturas críticas; a 2.0 se apresenta como referência para qualquer organização.
 
 === nist-07
@@ -102,9 +102,9 @@ ref: nistcsf PR.DS
 trecho: PR.DS-01: The confidentiality, integrity, and availability of data-at-rest are protected
 trecho: PR.DS-02: The confidentiality, integrity, and availability of data-in-transit are protected
 trecho: PR.DS-10: The confidentiality, integrity, and availability of data-in-use are protected
-armadilha: literal
-dif: 2
-enunciado: No NIST CSF 2.0, a proteção da confidencialidade, da integridade e da disponibilidade dos dados em repouso, em trânsito e em uso consta da categoria segurança de dados (PR.DS), da função proteger.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: órgão cifra os dados armazenados e os que trafegam em rede, mas não protege os dados enquanto estão em processamento. Assertiva: o NIST CSF 2.0 prevê também a proteção dos dados em uso, na categoria segurança de dados da função proteger.
 comentario: Apêndice A, categoria PR.DS. Repare na numeração com lacunas (01, 02, 10, 11): segundo o próprio Apêndice A, as lacunas indicam subcategorias da versão 1.1 que foram realocadas.
 
 === nist-12
@@ -112,9 +112,9 @@ gab: E
 ref: nistcsf S2
 trecho: RESPOND supports the ability to contain the effects of cybersecurity incidents.
 trecho: DETECT enables the timely discovery and analysis of anomalies, indicators of compromise, and other potentially adverse events
-armadilha: sujeito
+armadilha: caso
 dif: 2
-enunciado: No NIST CSF 2.0, conter os efeitos dos incidentes de cibersegurança é resultado típico da função detectar.
+enunciado: Situação hipotética: depois de identificar ataque de ransomware, a equipe isolou os servidores afetados para conter a propagação. Assertiva: no NIST CSF 2.0, essa contenção é resultado típico da função detectar.
 comentario: Conter os efeitos é da função responder. Detectar cuida da descoberta e da análise oportunas de anomalias, indicadores de comprometimento e outros eventos potencialmente adversos (Seção 2).
 
 === nist-13
@@ -139,9 +139,9 @@ comentario: GV.OC-03 abrange requisitos legais, regulatórios e contratuais, inc
 gab: E
 ref: nistcsf S1
 trecho: The CSF’s taxonomy and referenced standards, guidelines, and practices are not country-specific
-armadilha: extrapolacao
-dif: 1
-enunciado: Por ter sido elaborado pelo NIST, o CSF 2.0 aplica-se somente a organizações sediadas nos Estados Unidos.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: autarquia brasileira cogita usar o NIST CSF 2.0. Assertiva: o framework não lhe serve, pois sua taxonomia e suas referências são específicas dos Estados Unidos.
 comentario: A Seção 1 afirma que a taxonomia e as referências do CSF não são específicas de um país e que versões anteriores foram usadas por governos e organizações dentro e fora dos Estados Unidos.
 
 === nist-16
@@ -149,7 +149,7 @@ gab: C
 ref: nistcsf RS.MA
 trecho: RS.MA-02: Incident reports are triaged and validated
 trecho: RS.MA-03: Incidents are categorized and prioritized
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: Na categoria gestão de incidentes (RS.MA) da função responder, o NIST CSF 2.0 prevê a triagem e a validação dos relatos de incidentes, bem como a categorização e a priorização dos incidentes.
+enunciado: Situação hipotética: centro de resposta recebe dezenas de alertas e precisa decidir quais tratar primeiro. Assertiva: no NIST CSF 2.0, triar e validar os relatos e categorizar e priorizar os incidentes integram a gestão de incidentes da função responder.
 comentario: Apêndice A, RS.MA-02 e RS.MA-03. Compare com a Resolução CD/ANPD nº 15/2024, que trata da comunicação de incidentes à ANPD.

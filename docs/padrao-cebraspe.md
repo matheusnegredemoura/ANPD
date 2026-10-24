@@ -48,7 +48,8 @@ Não criar erro caricato (absurdo que se percebe sem saber a matéria).
 ## 4. Como o item certo é disfarçado
 
 1. **Paráfrase**: outra voz verbal, sinônimos técnicos, outra ordem, mesmo sentido. Proibida a cópia literal: o build
-   rebaixa para dificuldade 1 o item autoral que copia 60% ou mais do trecho citado (`copiaDoTrecho`).
+   rebaixa para dificuldade 1 o item autoral que copia 60% ou mais do trecho citado (`copiaDoTrecho`), e o `npm test`
+   reprova o banco se algum item autoral passar desse limite.
 2. **Aplicação a caso**: fato A e consequência C, sem citar a regra B que os liga.
 3. **Falso distrator**: palavra absoluta onde a restrição é real (o rol do art. 11 da LGPD é taxativo; a recondução do
    ouvidor é vedada no mandato regular).

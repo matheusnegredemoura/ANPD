@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { validar } from './validar.mjs';
-import { montarDados, rotuloRef } from './build.mjs';
+import { montarDados, rotuloRef, copiaDoTrecho } from './build.mjs';
 import { jsDoApp } from './lib/fonte.mjs';
 
 test('banco de questões sem erros e com trechos conferidos', () => {
@@ -135,4 +135,11 @@ test('itens certos: todo número do enunciado está na norma citada (ou foi conf
   const q = v.questoes.find((x) => x.id === 'air-08');
   const falso = { ...q, id: 'teste', enunciado: q.enunciado.replace('45 dias', '30 dias') };
   assert.equal(auditarNumeros({ questoes: [falso], leis: v.leis }).length, 1);
+});
+
+test('item autoral não copia 60% ou mais do trecho da norma (padrão Cebraspe)', () => {
+  const copiados = validar({ silencioso: true }).questoes
+    .filter((q) => q.origem !== 'real' && q.trecho && q.trecho.length && copiaDoTrecho(q.enunciado, q.trecho) >= 0.6)
+    .map((q) => q.id);
+  assert.deepEqual(copiados, [], 'reescreva em paráfrase ou situação hipotética (docs/padrao-cebraspe.md)');
 });

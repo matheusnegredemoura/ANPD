@@ -9,9 +9,9 @@ bloco: seginfo
 tema: sg-privacidade
 ref: lgpd 46, § 2º
 trecho: deverão ser observadas desde a fase de concepção do produto ou do serviço até a sua execução
-armadilha: literal
+armadilha: caso
 dif: 1
-enunciado: Pela LGPD, as medidas de segurança, técnicas e administrativas, devem ser observadas desde a fase de concepção do produto ou do serviço até a sua execução.
+enunciado: Situação hipotética: empresa passou a planejar as medidas de segurança de novo aplicativo já na fase de concepção. Assertiva: a prática atende à LGPD, que exige as medidas desde a concepção até a execução.
 comentario: Certo: art. 46, § 2º. É a forma como a LGPD incorpora a ideia de privacidade e segurança desde a concepção.
 
 === pv-02
@@ -20,9 +20,9 @@ bloco: seginfo
 tema: sg-privacidade
 ref: lgpd 46, § 2º
 trecho: deverão ser observadas desde a fase de concepção do produto ou do serviço até a sua execução
-armadilha: literal
-dif: 1
-enunciado: Pela LGPD, as medidas de segurança devem ser observadas a partir do lançamento do produto ou do serviço, já que, na fase de concepção, ainda não há tratamento de dados pessoais.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: empresa deixou para definir as medidas de segurança só depois do lançamento do produto, alegando que na concepção não há tratamento de dados. Assertiva: a conduta é compatível com a LGPD.
 comentario: Errado. O art. 46, § 2º, manda observar as medidas desde a fase de concepção do produto ou do serviço até a sua execução. Esperar o lançamento é justamente o que a privacidade desde a concepção quer evitar.
 
 === pv-03
@@ -42,9 +42,9 @@ bloco: seginfo
 tema: sg-privacidade
 ref: lgpd 13, § 4º
 trecho: a pseudonimização é o tratamento por meio do qual um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo
-armadilha: literal
-dif: 2
-enunciado: A LGPD define pseudonimização como o tratamento por meio do qual um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo, senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: hospital substituiu os nomes dos pacientes por códigos e guardou em separado, em ambiente seguro, a tabela que liga cada código ao paciente. Assertiva: trata-se de pseudonimização, e não de anonimização.
 comentario: Certo: art. 13, § 4º. Como a chave para reidentificar existe, o dado pseudonimizado continua pessoal para quem a guarda.
 
 === pv-05
@@ -53,9 +53,9 @@ bloco: seginfo
 tema: sg-privacidade
 ref: gdpr 25
 trecho: That obligation applies to the amount of personal data collected, the extent of their processing, the period of their storage and their accessibility
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: No GDPR, a proteção de dados por defeito exige medidas para que, por padrão, só sejam tratados os dados pessoais necessários para cada finalidade específica, obrigação que alcança a quantidade de dados coletados, a extensão do tratamento, o prazo de conservação e a acessibilidade.
+enunciado: Situação hipotética: aplicativo coleta, por padrão, apenas os dados necessários para cada finalidade e restringe quem pode acessá-los. Assertiva: o desenho reflete a proteção de dados por defeito do GDPR, que alcança a quantidade de dados recolhidos, a extensão do tratamento, o prazo de conservação e a acessibilidade.
 comentario: Certo: art. 25, 2, do GDPR. A configuração padrão deve ser a mais restrita nas quatro dimensões: quantidade, extensão do tratamento, prazo de conservação e acessibilidade.
 
 === pv-06
@@ -64,9 +64,9 @@ bloco: seginfo
 tema: sg-privacidade
 ref: gdpr 25
 trecho: both at the time of the determination of the means for processing and at the time of the processing itself
-armadilha: literal
-dif: 2
-enunciado: No GDPR, a proteção de dados desde a concepção é dever do momento em que os dados começam a ser tratados e não alcança a fase em que o responsável define os meios do tratamento.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: responsável pelo tratamento só adotou medidas de proteção desde a concepção quando os dados começaram a ser tratados, e não ao definir os meios do tratamento. Assertiva: a conduta atende ao GDPR, cujo dever começa com o início do tratamento.
 comentario: Errado. O art. 25, 1, exige as medidas tanto no momento da definição dos meios do tratamento quanto no do próprio tratamento.
 
 === pv-07
@@ -75,9 +75,9 @@ bloco: seginfo
 tema: sg-privacidade
 ref: gdpr 25
 trecho: such as pseudonymisation, which are designed to implement data-protection principles, such as data minimisation
-armadilha: literal
-dif: 3
-enunciado: O GDPR cita a pseudonimização como exemplo de medida técnica e organizativa destinada a aplicar de forma eficaz princípios de proteção de dados, como a minimização dos dados.
+armadilha: conceito
+dif: 2
+enunciado: No GDPR, a pseudonimização aparece como exemplo de medida técnica e organizativa destinada a aplicar princípios de proteção de dados, como a minimização.
 comentario: Certo: art. 25, 1. A pseudonimização é o exemplo de medida e a minimização é o exemplo de princípio que a medida ajuda a cumprir.
 
 === pv-08
@@ -127,9 +127,9 @@ bloco: seginfo
 tema: sg-privacidade
 ref: lgpd 49
 trecho: Os sistemas utilizados para o tratamento de dados pessoais devem ser estruturados de forma a atender aos requisitos de segurança
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: Pela LGPD, estruturar os sistemas usados no tratamento de dados pessoais para atender aos requisitos de segurança e aos padrões de boas práticas é recomendação, sem caráter obrigatório.
+enunciado: Situação hipotética: controlador estruturou seus sistemas sem atender aos requisitos de segurança, alegando que a LGPD apenas recomenda essa estruturação. Assertiva: a alegação procede.
 comentario: Errado. O art. 49 diz que os sistemas devem ser estruturados para atender aos requisitos de segurança, aos padrões de boas práticas e de governança e aos princípios gerais da lei. É dever, não recomendação.
 
 === pv-13
@@ -147,9 +147,9 @@ gab: E
 bloco: gestao-publica
 tema: ec-avaliacao
 ref: doutrina Avaliação de impacto
-armadilha: conceito
-dif: 1
-enunciado: Na avaliação de impacto, o contrafactual corresponde ao resultado observado nos beneficiários depois da intervenção.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: para avaliar programa de capacitação, analista comparou a renda dos participantes antes e depois do curso e chamou de contrafactual a renda observada depois. Assertiva: o uso do termo está correto.
 comentario: Errado. O contrafactual é o que teria acontecido com os beneficiários sem a intervenção. Como não se observa, é estimado por um grupo de comparação. O impacto é a diferença entre o resultado observado e o contrafactual.
 
 === av-02
@@ -167,9 +167,9 @@ gab: E
 bloco: gestao-publica
 tema: ec-avaliacao
 ref: doutrina Avaliação de impacto
-armadilha: conceito
-dif: 2
-enunciado: Viés de seleção ocorre quando o avaliador escolhe indicadores de resultado que favorecem a política avaliada.
+armadilha: causalidade
+dif: 3
+enunciado: Situação hipotética: em programa voluntário, os participantes mais motivados se inscreveram, e a avaliação os comparou aos não inscritos. Assertiva: o risco de viés de seleção decorre da escolha, pelo avaliador, de indicadores que favorecem a política.
 comentario: Errado. Viés de seleção é a diferença sistemática entre participantes e não participantes que já existia antes da política, como mais motivação ou escolaridade. Ela contamina a comparação entre os grupos.
 
 === av-04
@@ -217,9 +217,9 @@ gab: E
 bloco: economia
 tema: ec-avaliacao
 ref: doutrina Análise custo-efetividade
-armadilha: conceito
-dif: 1
-enunciado: A análise custo-efetividade exige que todos os benefícios da política sejam convertidos em valores monetários.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: avaliação de programa de saúde comparou o custo por ano de vida ganho entre alternativas, sem converter os resultados em dinheiro. Assertiva: não se trata de análise custo-efetividade, que exige monetizar todos os benefícios.
 comentario: Errado. Quem monetiza tudo é a análise custo-benefício. A custo-efetividade mede o custo por unidade de resultado em unidade física (vidas salvas, alunos alfabetizados) e serve para comparar alternativas com o mesmo objetivo.
 
 === av-09
@@ -237,9 +237,9 @@ gab: E
 bloco: gestao-publica
 tema: ec-avaliacao
 ref: doutrina Avaliação de desempenho
-armadilha: conceito
-dif: 1
-enunciado: Efetividade mede a relação entre os recursos empregados e os produtos entregues pela política.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: programa entregou todos os produtos previstos com o menor custo possível. Assertiva: a constatação demonstra a efetividade do programa.
 comentario: Errado. Recursos versus produtos é eficiência. Eficácia é o alcance das metas, e efetividade é o impacto, a mudança real na vida do público ou no problema que motivou a política.
 
 === av-11

@@ -71,9 +71,9 @@ gab: C
 origem: adaptada
 prova: Adaptado de Cebraspe · Finep 2024 · Analista, Tecnologia da Informação · item I
 ref: doutrina ABNT NBR ISO/IEC 27001:2022, 6.1.2
-armadilha: literal
-dif: 1
-enunciado: Pela ISO/IEC 27001:2022, a organização deve estabelecer e manter critérios de risco de segurança da informação que incluam critérios de aceitação de risco.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: na avaliação de riscos de seu SGSI, organização não definiu a partir de que nível um risco pode ser aceito. Assertiva: a omissão contraria a ISO/IEC 27001:2022, que exige critérios de risco que incluam os de aceitação.
 comentario: Certo: 6.1.2, a. Os critérios de aceitação dizem quais riscos podem ser aceitos sem tratamento imediato; sem eles, a avaliação de riscos não teria régua para decidir.
 
 === iso-08
@@ -101,9 +101,9 @@ gab: C
 origem: adaptada
 prova: Adaptado de Cebraspe · MPE-RO 2023 · Analista de Redes e Comunicação de Dados · alternativa C
 ref: doutrina ABNT NBR ISO/IEC 27001:2022, 5.1
-armadilha: literal
-dif: 1
-enunciado: Comunicar a importância de uma gestão eficaz da segurança da informação e da conformidade com os requisitos do SGSI é um dos meios pelos quais a alta direção demonstra liderança e comprometimento, segundo a ISO/IEC 27001.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a diretoria de uma autarquia divulga internamente por que a gestão eficaz da segurança da informação e a conformidade com os requisitos do SGSI são importantes. Assertiva: para a ISO/IEC 27001:2022, essa comunicação é uma das formas de a alta direção demonstrar liderança e comprometimento.
 comentario: Certo: é um dos meios listados na cláusula 5.1, ao lado de assegurar recursos, integrar o SGSI aos processos e promover a melhoria contínua.
 
 === iso-11
@@ -121,9 +121,9 @@ gab: C
 origem: adaptada
 prova: Adaptado de FGV · TJ-RR 2024 · Analista Judiciário, Infraestrutura de TI
 ref: doutrina ABNT NBR ISO/IEC 27001:2022, introdução
-armadilha: literal
+armadilha: caso
 dif: 1
-enunciado: Os requisitos da ABNT NBR ISO/IEC 27001:2022 são genéricos e se destinam a ser aplicáveis a todas as organizações, independentemente de tipo, tamanho ou natureza.
+enunciado: Situação hipotética: pequena empresa de tecnologia quer implantar SGSI conforme a ISO/IEC 27001:2022. Assertiva: o porte não é obstáculo, pois os requisitos da norma são genéricos e aplicáveis a qualquer organização.
 comentario: Certo. A generalidade amplia o alcance da norma sem comprometer a eficácia: cada organização ajusta o SGSI ao seu contexto.
 
 === iso-13
@@ -137,9 +137,9 @@ comentario: Errado. A exclusão de qualquer requisito das seções 4 a 10 não �
 === iso-14
 gab: C
 ref: doutrina ABNT NBR ISO/IEC 27001:2022, 6.1.3
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: A declaração de aplicabilidade da ISO/IEC 27001 contém os controles necessários, a indicação de estarem implementados ou não e a justificativa para excluir controles do Anexo A.
+enunciado: Situação hipotética: na declaração de aplicabilidade de seu SGSI, organização excluiu controles do Anexo A sem justificar. Assertiva: a declaração está incompleta, pois deve justificar as exclusões, além de indicar os controles necessários e se estão implementados.
 comentario: Certo: 6.1.3, d. É o documento que liga o tratamento de riscos à lista do Anexo A e mostra ao auditor o que foi escolhido e por quê.
 
 === iso-15
@@ -185,9 +185,9 @@ comentario: Errado. A adoção do SGSI é decisão estratégica da organização
 === iso-20
 gab: C
 ref: doutrina ABNT NBR ISO/IEC 27001:2022, introdução
-armadilha: literal
+armadilha: conceito
 dif: 1
-enunciado: Segundo a ISO/IEC 27001, o sistema de gestão da segurança da informação preserva a confidencialidade, a integridade e a disponibilidade da informação pela aplicação de um processo de gestão de riscos.
+enunciado: Para a ISO/IEC 27001, o SGSI preserva a confidencialidade, a integridade e a disponibilidade da informação por meio de um processo de gestão de riscos.
 comentario: Certo: introdução da norma. O SGSI dá às partes interessadas confiança de que os riscos são adequadamente gerenciados.
 
 === iso-21
@@ -201,17 +201,17 @@ comentario: Errado. Genéricos são os requisitos; o SGSI é moldado pelas neces
 === iso-22
 gab: C
 ref: doutrina ABNT NBR ISO/IEC 27001:2022, introdução
-armadilha: literal
+armadilha: caso
 dif: 1
-enunciado: A ISO/IEC 27001 prevê que a segurança da informação seja considerada no projeto de processos, sistemas de informação e controles.
+enunciado: Situação hipotética: órgão só passou a pensar em segurança depois de colocar novo sistema em produção. Assertiva: a prática se afasta da ISO/IEC 27001, que prevê considerar a segurança da informação já no projeto de processos, sistemas e controles.
 comentario: Certo. A segurança pensada desde o desenho, e não como complemento posterior, é a mesma ideia da privacidade desde a concepção (LGPD, art. 46, § 2º).
 
 === iso-23
 gab: E
 ref: doutrina ABNT NBR ISO/IEC 27001:2022, introdução
-armadilha: absoluto
-dif: 1
-enunciado: A ISO/IEC 27001 aplica-se somente a empresas privadas de grande porte, porque exige certificação.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: autarquia federal pretende adotar a ISO/IEC 27001 sem buscar certificação. Assertiva: a norma não se aplica ao caso, pois é voltada a empresas privadas de grande porte que buscam certificação.
 comentario: Errado. Os requisitos valem para qualquer organização, pública ou privada, de qualquer porte, e a certificação é voluntária: a organização pode seguir a norma sem se certificar.
 
 === iso-24
