@@ -82,6 +82,16 @@ function prontidao() {
   const semReais = linhas.filter((l) => l.p != null && l.fonte !== 'reais').length, semDados = linhas.filter((l) => l.p == null).length;
   return { real, banco, fator, linhas, nota, faixa, semReais, semDados, cobre: peso / PONTOS_PROVA };
 }
+// Mistura praticada nos últimos 14 dias × peso de cada disciplina na prova: as intercaladas cobrem o que falta
+function cartaoMistura() {
+  const m = misturaPraticada();
+  if (m.tot < 20) return '';
+  const linhas = m.linhas.slice().sort((a, b) => b.peso - a.peso);
+  return '<div class="cartao"><div class="secao-cab"><h2>Mistura do estudo</h2><span class="mudo pequeno">' + pl(m.tot, 'item', 'itens') + ' nos últimos 14 dias</span></div>' +
+    '<div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>Na prova</th><th>Praticado</th><th>Diferença</th></tr></thead><tbody>' +
+    linhas.map((l) => { const dif = Math.round((l.parte - l.peso) * 100); return '<tr><td>' + esc((DI.get(l.d) || { nome: l.d }).nome) + '</td><td class="num">' + Math.round(l.peso * 100) + '%</td><td class="num">' + Math.round(l.parte * 100) + '%</td><td class="num' + (dif <= -3 ? ' falta' : '') + '">' + (dif > 0 ? '+' : '') + dif + '</td></tr>'; }).join('') +
+    '</tbody></table></div><p class="pequeno mudo">Os dias do plano são de uma matéria só; o treino intercalado do roteiro reparte os itens pelo que falta a cada disciplina para chegar ao peso dela na prova.</p></div>';
+}
 function cartaoProntidao() {
   const pr = prontidao(), { real, banco } = pr;
   const livres = REAIS.filter((q) => !q.al && inedito(q)).length;
@@ -118,7 +128,7 @@ function renderProgresso() {
   // Nível e XP ficam na Jornada (Hoje) e na ficha do personagem
   let html = '<div class="estat"><div><b>' + fmtNum(t.r) + '</b><span>itens respondidos</span></div><div><b>' + pct(t.c, t.r) + '%</b><span>de acerto</span></div><div><b>' + fmtNum(t.c - t.e) + '</b><span>nota líquida acumulada</span></div>' +
     '<div><b>' + fmtNum(t.k) + '</b><span>cards revisados</span></div><div><b>' + seq + '</b><span>dias seguidos</span></div><div><b>' + (S.perfil.melhorSeq || 0) + '</b><span>melhor sequência</span></div></div>';
-  html += cartaoProntidao();
+  html += cartaoProntidao() + cartaoMistura();
   html += cartaoTempoHistorico();
   html += '<div class="cartao"><div class="secao-cab"><h2>Constância</h2><span class="mudo pequeno">Últimas 16 semanas</span></div>' + mapaCalor() + '</div>';
   // Os blocos já praticados vêm do mais fraco ao mais forte; os outros ficam recolhidos. Tocar num bloco abre um treino dele.

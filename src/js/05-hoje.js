@@ -184,12 +184,13 @@ function roteiroHoje() {
     botoes: '<button class="btn pequeno' + (qTemaFeita && leiFeita && !cardsFeitos ? ' primario' : '') + '" data-acao="cards-dia">Estudar ' + Math.max(1, metaNovos - Math.min(d.n || 0, metaNovos)) + ' cards</button>'
   });
 
-  // Treino intercalado (~10 min): todo dia, com português e inglês no peso da prova
-  const intFeita = !!S.perfil.feitos[chaveInt], rf = disciplinaReforco();
+  // Treino intercalado: todo dia, com o que falta para a prática chegar ao peso de cada matéria na prova
+  const intFeita = !!S.perfil.feitos[chaveInt], nInt = nIntercaladas(), ci = cotasIntercaladas(nInt, estatDisciplinas()), rf = ci.rf;
+  const maiores = Object.entries(ci.cotas).filter(([, k]) => k > 0).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([d, k]) => (d === 'linguas' ? 'português e inglês' : DI.get(d).nome) + ' (' + k + ')');
   passos.push({
-    titulo: 'Treino intercalado (~10 min)',
+    titulo: 'Treino intercalado (~' + Math.round(nInt) + ' min)',
     feito: intFeita,
-    texto: nIntercaladas() + ' itens: português e inglês no peso da prova' + (rf ? ', reforço em ' + DI.get(rf.d).nome + ' (' + Math.round(rf.ac * 100) + '% de acerto, a mais baixa entre as matérias pesadas)' : '') + ' e as matérias já estudadas.',
+    texto: nInt + ' itens para a sua prática chegar ao peso de cada matéria na prova' + (maiores.length ? ': ' + maiores.join(', ') : '') + (rf ? '; reforço em ' + DI.get(rf.d).nome + ' (' + Math.round(rf.ac * 100) + '% de acerto, a mais baixa entre as matérias pesadas)' : '') + '.',
     botoes: '<button class="btn pequeno' + (cardsFeitos && !intFeita ? ' primario' : '') + '" data-acao="intercaladas">' + esc(rotuloPausa(chaveInt, 'Treinar itens intercalados')) + '</button>',
     extra: botaoRecomecar(chaveInt)
   });

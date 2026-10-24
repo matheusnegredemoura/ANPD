@@ -356,6 +356,7 @@ button.alt{cursor:pointer;transition:border-color .15s}
 .tabela th,.tabela td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}
 .tabela th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
 .tabela td.num{font-family:var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+.tabela td.num.falta{color:var(--gold);font-weight:600}
 .tabela-env{overflow-x:auto}
 
 /* Plano */

@@ -713,14 +713,41 @@ function disciplinaReforco(est) {
   }
   return pior;
 }
-// Intercaladas: português e inglês no peso da prova (17,5% dela, e quase só entram aqui): 40% da sessão enquanto a sua
-// prática recente de línguas estiver abaixo desse peso, 20% depois. Três em cada dez itens reforçam a disciplina de
-// pior acerto (nos blocos já estudados dela, ou em todos, se nenhum foi). O resto mistura básicos e blocos estudados.
+// Intercaladas: completam a mistura. Os dias do plano são de uma matéria só, e o treino livre tende a repetir a que
+// se estuda no momento: o uso real mostrou 62% das respostas em LGPD (30% da prova) e 6% em línguas (17,5%). Por isso,
+// duas em cada dez vão para a disciplina de pior acerto (reforço) e o resto se reparte pelo que falta a cada disciplina
+// para a prática dos últimos 14 dias chegar ao peso dela na prova, com português e inglês em pares do mesmo texto. Sem
+// histórico (menos de 50 itens nos 14 dias), línguas, que quase só entram aqui, ficam com 40% e o resto vai pelo peso.
+// O tamanho acompanha o ritmo: um quinto dos itens de um dia típico, entre 10 e 30.
 const INTERCALADAS_N = 10;
+function nIntercaladas() { const r = ritmo(); return r && r.r ? limitar(Math.round(r.r / 25) * 5, INTERCALADAS_N, 30) : INTERCALADAS_N; }
+// Parte de cada disciplina na prática dos últimos 14 dias e o que falta para o peso dela na prova (em fração)
+function misturaPraticada(est) {
+  est = est || estatDisciplinas();
+  const tot = Object.values(est).reduce((a, x) => a + x.rec, 0);
+  return { tot, linhas: Object.keys(PONTOS_DISC).map((d) => { const peso = PONTOS_DISC[d] / PONTOS_PROVA, parte = tot ? ((est[d] || {}).rec || 0) / tot : 0; return { d, peso, parte, falta: Math.max(0, peso - parte) }; }) };
+}
+// Reparte n itens na proporção dos pesos, pelo maior resto
+function repartir(n, pesos) {
+  const soma = pesos.reduce((a, [, w]) => a + w, 0);
+  if (!soma || n <= 0) return {};
+  const base = pesos.map(([k, w]) => { const x = (n * w) / soma; return [k, Math.floor(x), x - Math.floor(x)]; });
+  let falta = n - base.reduce((a, b) => a + b[1], 0);
+  base.slice().sort((a, b) => b[2] - a[2]).forEach((b) => { if (falta > 0) { b[1]++; falta--; } });
+  return Object.fromEntries(base.map(([k, q]) => [k, q]));
+}
+function cotasIntercaladas(n, est) {
+  const rf = disciplinaReforco(est), nRf = rf ? Math.round(n * 0.2) : 0, m = misturaPraticada(est);
+  let cotas;
+  if (m.tot >= 50) cotas = repartir(n - nRf, m.linhas.map((l) => [l.d, l.falta]));
+  else {
+    const nL = PONTOS_DISC.linguas ? Math.round((n - nRf) * 0.4) : 0;
+    cotas = Object.assign(repartir(n - nRf - nL, m.linhas.filter((l) => l.d !== 'linguas').map((l) => [l.d, l.peso])), { linguas: nL });
+  }
+  return { rf, nRf, cotas };
+}
 function selecionarIntercaladas(n) {
-  const est = estatDisciplinas(), totRec = Object.values(est).reduce((a, x) => a + x.rec, 0);
-  const pesoL = (PONTOS_DISC.linguas || 0) / PONTOS_PROVA, partL = totRec ? ((est.linguas || {}).rec || 0) / totRec : 0;
-  const nL = pesoL ? Math.round(n * (partL < pesoL ? 0.4 : 0.2)) : 0;
+  const est = estatDisciplinas(), { rf, nRf, cotas } = cotasIntercaladas(n, est), nL = cotas.linguas || 0;
   const escolhidos = [], usados = new Set();
   const pega = (pool, k) => { if (k > 0) selecionar(pool.filter((q) => !usados.has(q.id)), k, 'mistas').forEach((q) => { usados.add(q.id); escolhidos.push(q); }); };
   // Línguas em pares do mesmo texto: ler um texto para responder dois itens, como no caderno
@@ -734,17 +761,15 @@ function selecionarIntercaladas(n) {
   };
   doTexto('portugues', Math.ceil(nL / 2));
   doTexto('ingles', nL - Math.ceil(nL / 2));
-  const estudados = blocosEstudados(), rf = disciplinaReforco(est);
-  if (rf) {
-    const daDisc = (b) => (BI.get(b) || {}).disciplina === rf.d;
-    const bs = estudados.concat(BLOCOS_BASICOS).filter(daDisc);
-    pega((bs.length ? bs : BLOCOS.map((b) => b.id).filter(daDisc)).flatMap((b) => POR_BLOCO.get(b) || []), Math.round(n * 0.3));
-  }
+  // Cada disciplina tira dos blocos já estudados e dos básicos dela; sem nenhum, de todos os seus blocos
+  const estudados = blocosEstudados();
+  const daDisc = (d) => { const de = (b) => (BI.get(b) || {}).disciplina === d, bs = estudados.concat(BLOCOS_BASICOS).filter(de); return (bs.length ? bs : BLOCOS.map((b) => b.id).filter(de)).flatMap((b) => POR_BLOCO.get(b) || []); };
+  if (rf) pega(daDisc(rf.d), nRf);
+  for (const [d, k] of Object.entries(cotas)) if (d !== 'linguas') pega(daDisc(d), k);
   const resto = n - escolhidos.length, basicas = BLOCOS_BASICOS.filter((b) => b !== 'portugues' && b !== 'ingles');
   const poolE = estudados.flatMap((b) => POR_BLOCO.get(b) || []);
   pega(basicas.flatMap((b) => POR_BLOCO.get(b) || []), poolE.length ? Math.ceil(resto / 2) : resto);
   pega(poolE, n - escolhidos.length);
   return embaralhar(escolhidos);
 }
-function nIntercaladas() { return INTERCALADAS_N; }
 
