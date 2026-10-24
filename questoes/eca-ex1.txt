@@ -1,0 +1,244 @@
+bloco: eca-digital
+// ECA Digital (Lei nº 15.211/2025), lote E1: artigos com até dois itens (alcance, fundamentos, verificação de idade,
+// lojas e sistemas, cadeia solidária, monitoramento, loot boxes, jogos, monetização, redes sociais, perfis, remoção,
+// contestação, relatórios, denúncia abusiva, vigilância massiva, embalagens e representante). Conferidas com fontes/lei15211.txt.
+
+=== ex1-01
+gab: C
+tema: ed-alcance
+ref: lei15211 3
+trecho: devem garantir a proteção prioritária desses usuários, ter como parâmetro o seu melhor interesse
+armadilha: conceito
+dif: 2
+enunciado: Produtos e serviços de tecnologia direcionados a crianças e adolescentes ou de acesso provável por eles devem garantir proteção prioritária, tendo como parâmetro o melhor interesse desses usuários.
+comentario: Certo. Art. 3º da Lei 15.211/2025 (ECA Digital), com nível elevado de privacidade, proteção de dados e segurança, nos termos do ECA e da LGPD.
+
+=== ex1-02
+gab: E
+tema: ed-alcance
+ref: lei15211 3
+trecho: direcionados a crianças e a adolescentes ou de acesso provável por eles
+armadilha: extrapolacao
+dif: 2
+enunciado: O ECA Digital alcança só os produtos dirigidos especificamente a crianças, e não os de acesso provável por elas.
+comentario: Errado. A Lei 15.211/2025 usa sempre a fórmula “direcionados a crianças e a adolescentes ou de acesso provável por eles” (art. 3º), o que alcança redes e jogos de uso geral que crianças tendem a usar.
+
+=== ex1-03
+gab: C
+tema: ed-alcance
+ref: lei15211 4
+trecho: a proteção contra a exploração comercial
+armadilha: rol
+dif: 1
+enunciado: A proteção contra a exploração comercial é fundamento do uso de produtos e serviços de tecnologia por crianças e adolescentes no ECA Digital.
+comentario: Certo. Art. 4º, VI, da Lei 15.211/2025. O rol inclui também proteção integral, prevalência absoluta de seus interesses e condição peculiar de pessoa em desenvolvimento.
+
+=== ex1-04
+gab: E
+tema: ed-alcance
+ref: lei15211 4
+trecho: o respeito à autonomia e ao desenvolvimento progressivo do indivíduo
+armadilha: rol
+dif: 2
+enunciado: O respeito à autonomia e ao desenvolvimento progressivo do indivíduo não está entre os fundamentos do ECA Digital, porque prevalece a proteção integral.
+comentario: Errado. O art. 4º, V, da Lei 15.211/2025 inclui expressamente o respeito à autonomia e ao desenvolvimento progressivo, ao lado da proteção integral (inciso I).
+
+=== ex1-05
+gab: C
+tema: ed-idade
+ref: lei15211 9
+trecho: mecanismos confiáveis de verificação de idade a cada acesso do usuário
+armadilha: conceito
+dif: 2
+enunciado: Para impedir o acesso de crianças e adolescentes a conteúdo impróprio para menores de dezoito anos, o ECA Digital exige verificação de idade confiável a cada acesso, vedada a autodeclaração.
+comentario: Certo. Art. 9º, § 1º, da Lei 15.211/2025. Material pornográfico é exemplo de conteúdo impróprio (§ 2º).
+
+=== ex1-06
+gab: E
+tema: ed-idade
+ref: lei15211 9
+trecho: vedada a autodeclaração
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: site de conteúdo pornográfico exibe caixa em que o usuário declara ter mais de dezoito anos. Assertiva: a medida atende ao ECA Digital.
+comentario: Errado. O art. 9º, § 1º, da Lei 15.211/2025 veda a autodeclaração e exige mecanismo confiável de verificação de idade a cada acesso.
+
+=== ex1-07
+gab: C
+tema: ed-idade
+ref: lei15211 11
+trecho: poderá atuar como regulador, certificador ou promotor de soluções técnicas de verificação de idade
+armadilha: conceito
+dif: 3
+enunciado: O poder público pode atuar como regulador, certificador ou promotor de soluções de verificação de idade, assegurada a participação social por consulta pública e outros mecanismos.
+comentario: Certo. Art. 11 e parágrafo único da Lei 15.211/2025, observados a legalidade, a privacidade e os direitos fundamentais.
+
+=== ex1-08
+gab: E
+tema: ed-idade
+ref: lei15211 12
+trecho: Os provedores de lojas de aplicações de internet e de sistemas operacionais de terminais deverão
+armadilha: sujeito
+dif: 2
+enunciado: As lojas de aplicativos e os sistemas operacionais ficam fora das obrigações do ECA Digital, que recaem só sobre os aplicativos.
+comentario: Errado. O art. 12 da Lei 15.211/2025 obriga lojas e sistemas operacionais a aferir idade ou faixa etária, permitir supervisão parental e repassar o sinal de idade aos aplicativos por interface de programação.
+
+=== ex1-09
+gab: C
+tema: ed-idade
+ref: lei15211 14
+trecho: Independentemente das medidas adotadas pelos sistemas operacionais e pelas lojas de aplicações
+armadilha: conceito
+dif: 3
+enunciado: Os fornecedores de aplicativos devem ter mecanismos próprios para impedir o acesso indevido de crianças e adolescentes, independentemente das medidas adotadas pelas lojas e pelos sistemas operacionais.
+comentario: Certo. Art. 14, parágrafo único, da Lei 15.211/2025. O sinal de idade recebido da loja ajuda, mas não exime o aplicativo.
+
+=== ex1-10
+gab: E
+tema: ed-idade
+ref: lei15211 15
+trecho: não exime os demais agentes da cadeia digital das suas responsabilidades legais
+armadilha: conceito
+dif: 3
+enunciado: Cumpridas pela loja de aplicativos as obrigações de verificação de idade, os demais agentes da cadeia digital ficam isentos de responsabilidade.
+comentario: Errado. Pelo art. 15 da Lei 15.211/2025, o cumprimento das obrigações não exime os demais agentes, e todos garantem de forma solidária a proteção integral.
+
+=== ex1-11
+gab: C
+tema: ed-supervisao
+ref: lei15211 19
+trecho: mecanismos que informem as crianças e os adolescentes, em linguagem apropriada, acerca da realização do monitoramento
+armadilha: conceito
+dif: 2
+enunciado: Produtos de monitoramento infantil devem informar as crianças e os adolescentes, em linguagem apropriada, de que estão sendo monitorados.
+comentario: Certo. Art. 19, § 1º, da Lei 15.211/2025. Esses produtos devem também garantir a inviolabilidade das imagens e sons captados (caput).
+
+=== ex1-12
+gab: E
+tema: ed-supervisao
+ref: lei15211 20
+trecho: São vedadas as caixas de recompensa (loot boxes)
+armadilha: conceito
+dif: 1
+enunciado: O ECA Digital permite caixas de recompensa (loot boxes) em jogos para crianças e adolescentes se houver autorização dos pais.
+comentario: Errado. O art. 20 da Lei 15.211/2025 veda as caixas de recompensa em jogos direcionados a crianças e adolescentes ou de acesso provável por eles, sem ressalva para autorização dos pais.
+
+=== ex1-13
+gab: C
+tema: ed-supervisao
+ref: lei15211 21
+trecho: deverão observar integralmente as salvaguardas previstas no art. 16 da Lei nº 14.852
+armadilha: conceito
+dif: 2
+enunciado: Jogos para crianças e adolescentes com interação entre usuários por texto, áudio ou vídeo devem observar as salvaguardas do marco legal dos jogos eletrônicos, como moderação de conteúdo e atuação parental.
+comentario: Certo. Art. 21 da Lei 15.211/2025, com remissão ao art. 16 da Lei 14.852/2024 (marco legal dos jogos eletrônicos).
+
+=== ex1-14
+gab: E
+tema: ed-supervisao
+ref: lei15211 23
+trecho: São vedados aos provedores de aplicações de internet a monetização e o impulsionamento de conteúdos que retratem crianças e adolescentes de forma erotizada
+armadilha: conceito
+dif: 2
+enunciado: A monetização de conteúdo que retrate criança de forma erotizada é permitida quando o perfil é administrado pelos pais.
+comentario: Errado. O art. 23 da Lei 15.211/2025 veda a monetização e o impulsionamento desses conteúdos, sem exceção para perfis administrados pelos pais.
+
+=== ex1-15
+gab: C
+tema: ed-idade
+ref: lei15211 25
+trecho: definidas de forma concreta e documentada e com base no seu melhor interesse
+armadilha: conceito
+dif: 2
+enunciado: Os provedores de redes sociais devem prever regras específicas, concretas e documentadas, para o tratamento de dados de crianças e adolescentes, com base no melhor interesse deles.
+comentario: Certo. Art. 25 da Lei 15.211/2025. O art. 26 completa a regra vedando perfis comportamentais para publicidade dirigida a esse público.
+
+=== ex1-16
+gab: E
+tema: ed-idade
+ref: lei15211 26
+trecho: inclusive daqueles obtidos nos processos de verificação de idade
+armadilha: conceito
+dif: 3
+enunciado: Os dados obtidos na verificação de idade podem ser usados para criar perfis comportamentais de adolescentes para publicidade direcionada.
+comentario: Errado. O art. 26 da Lei 15.211/2025 veda a criação de perfis comportamentais de crianças e adolescentes para publicidade, inclusive a partir dos dados da verificação de idade e de dados grupais e coletivos.
+
+=== ex1-17
+gab: C
+tema: ed-fiscalizacao
+ref: lei15211 27
+trecho: deverão remover e comunicar os conteúdos de aparente exploração, de abuso sexual, de sequestro e de aliciamento
+armadilha: conceito
+dif: 2
+enunciado: Os fornecedores disponíveis no Brasil devem remover e comunicar às autoridades os conteúdos de aparente exploração, abuso sexual, sequestro e aliciamento de crianças detectados em seus serviços.
+comentario: Certo. Art. 27 da Lei 15.211/2025, na forma de regulamento. O Decreto 12.880/2026 autorizou a criação do Centro Nacional de Triagem de Notificações, no âmbito da Polícia Federal, para receber esses relatórios.
+
+=== ex1-18
+gab: E
+tema: ed-fiscalizacao
+ref: lei15211 28
+trecho: deverão, quando for o caso, oficiar às autoridades competentes para instauração de investigação
+armadilha: conceito
+dif: 2
+enunciado: Notificado de violação aos direitos de criança em seu serviço, o fornecedor fica impedido de comunicar o fato às autoridades, para preservar a privacidade dos usuários.
+comentario: Errado. Pelo art. 28, parágrafo único, da Lei 15.211/2025, o fornecedor deve, quando for o caso, oficiar às autoridades para instauração de investigação.
+
+=== ex1-19
+gab: C
+tema: ed-fiscalizacao
+ref: lei15211 30
+trecho: informando se a identificação do conteúdo removido decorreu de análise humana ou automatizada
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: plataforma retira vídeo após notificação sobre violação de direitos de criança. Assertiva: o usuário que publicou deve ser notificado, saber o motivo e se a identificação foi humana ou automatizada e poder recorrer.
+comentario: Certo. Art. 30 da Lei 15.211/2025, que garante também fácil acesso ao recurso e prazos definidos.
+
+=== ex1-20
+gab: E
+tema: ed-fiscalizacao
+ref: lei15211 31
+trecho: deverão elaborar relatórios semestrais, em língua portuguesa
+armadilha: numero
+dif: 2
+enunciado: Os provedores com mais de um milhão de usuários crianças e adolescentes no Brasil devem publicar relatórios anuais, em português, sobre denúncias e moderação.
+comentario: Errado. O art. 31 da Lei 15.211/2025 exige relatórios semestrais, em português, publicados no sítio do provedor.
+
+=== ex1-21
+gab: C
+tema: ed-fiscalizacao
+ref: lei15211 32
+trecho: com o objetivo de coibir sua utilização indevida para fins de censura, perseguição ou outras práticas ilícitas
+armadilha: conceito
+dif: 2
+enunciado: Os provedores devem adotar mecanismos para identificar o uso abusivo dos canais de denúncia, para coibir censura e perseguição.
+comentario: Certo. Art. 32 da Lei 15.211/2025. A proteção da criança não pode virar instrumento de censura.
+
+=== ex1-22
+gab: E
+tema: ed-fiscalizacao
+ref: lei15211 37
+trecho: não poderá, em nenhuma hipótese, impor, autorizar ou resultar na implantação de mecanismos de vigilância massiva
+armadilha: absoluto
+dif: 3
+enunciado: A regulamentação do ECA Digital pode autorizar vigilância massiva e indiscriminada dos usuários quando necessária à proteção de crianças.
+comentario: Errado. O art. 37, parágrafo único, da Lei 15.211/2025 proíbe, em qualquer hipótese, que a regulamentação imponha, autorize ou resulte em vigilância massiva, genérica ou indiscriminada.
+
+=== ex1-23
+gab: C
+tema: ed-fiscalizacao
+ref: lei15211 38
+trecho: deverão conter adesivo, em língua portuguesa
+armadilha: conceito
+dif: 1
+enunciado: As embalagens de equipamentos eletrônicos com acesso à internet vendidos no Brasil devem ter adesivo em português alertando os pais sobre a proteção de crianças contra conteúdo impróprio.
+comentario: Certo. Art. 38 da Lei 15.211/2025, para aparelhos fabricados no Brasil ou importados.
+
+=== ex1-24
+gab: C
+tema: ed-fiscalizacao
+ref: lei15211 40
+trecho: deverão manter representante legal no País com poderes para receber citações, intimações ou notificações
+armadilha: conceito
+dif: 2
+enunciado: Os fornecedores alcançados pelo ECA Digital devem manter representante legal no Brasil com poderes para receber citações e responder perante autoridades.
+comentario: Certo. Art. 40 da Lei 15.211/2025. O representante assume, em nome da empresa estrangeira, suas responsabilidades perante a administração.
