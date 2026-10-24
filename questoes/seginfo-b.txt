@@ -5,7 +5,7 @@ bloco: seginfo
 gab: E
 ref: doutrina criptografia
 armadilha: comparacao
-dif: 2
+dif: 1
 enunciado: Na criptografia simétrica, cada participante tem um par de chaves, pública e privada, matematicamente relacionadas, o que dispensa o compartilhamento prévio de segredo.
 comentario: Isso descreve a criptografia assimétrica. Na simétrica, a mesma chave secreta cifra e decifra (exemplo: AES). Exemplo de assimétrica: RSA.
 
@@ -87,7 +87,7 @@ comentario: Lema: nunca confie, sempre verifique. Referência: NIST SP 800-207.
 gab: E
 ref: doutrina redes
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: O firewall de filtragem de pacotes sem estado inspeciona o conteúdo das mensagens da camada de aplicação para bloquear comandos maliciosos.
 comentario: O filtro de pacotes atua nas camadas de rede e transporte (endereços, portas, protocolos). Inspeção de conteúdo de aplicação é feita por firewalls de aplicação (WAF) ou de próxima geração.
 
@@ -127,7 +127,7 @@ comentario: DLP ajuda a prevenir incidentes de vazamento, ligando-se ao princíp
 gab: E
 ref: doutrina ameaças
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: Ataque de negação de serviço distribuído (DDoS) tem como objetivo principal a exfiltração de dados pessoais armazenados no servidor atacado.
 comentario: O DDoS ataca a disponibilidade, sobrecarregando o serviço. Pode servir de distração para outros ataques, mas seu objetivo direto não é a exfiltração.
 

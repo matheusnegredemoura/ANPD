@@ -19,18 +19,18 @@ gab: E
 ref: lgpd 19
 trecho: fornecida no prazo de até 15 (quinze) dias
 armadilha: numero
-dif: 1
-enunciado: A declaração clara e completa sobre o tratamento dos dados do titular deve ser fornecida em até 30 dias, contados do requerimento.
+dif: 2
+enunciado: O titular pode requisitar a confirmação de existência de tratamento ou o acesso a seus dados, e a declaração clara e completa sobre esse tratamento deve ser fornecida em até 30 dias, contados do requerimento.
 comentario: Errado. O prazo é de até 15 dias (art. 19, II). A ANPD pode fixar prazos diferenciados para setores específicos (§ 4º).
 
 === dt-03
-gab: C
+gab: E
 ref: lgpd 19
 trecho: Quando o tratamento tiver origem no consentimento do titular ou em contrato, o titular poderá solicitar cópia eletrônica integral de seus dados pessoais
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: cliente de academia, cujo contrato fundamenta o tratamento de seus dados, pede cópia eletrônica integral deles. Assertiva: o pedido tem amparo legal, e a cópia deve vir em formato que permita a utilização posterior dos dados, observados os segredos comercial e industrial.
-comentario: Certo: art. 19, § 3º, observados os segredos comercial e industrial e a regulamentação da ANPD.
+enunciado: Situação hipotética: cliente de academia, cujo contrato fundamenta o tratamento de seus dados, pede cópia eletrônica integral deles. Assertiva: o pedido tem amparo legal, mas a cópia pode ser fornecida em formato fechado, que impeça a utilização posterior dos dados.
+comentario: Errado. Quando o tratamento tiver origem no consentimento ou em contrato, o titular pode pedir cópia eletrônica integral de seus dados, em formato que permita sua utilização subsequente, inclusive em outras operações de tratamento (art. 19, § 3º), observados os segredos comercial e industrial.
 
 === dt-04
 gab: E
@@ -56,7 +56,7 @@ ref: lgpd 18
 trecho: portabilidade dos dados a outro fornecedor de serviço ou produto, mediante requisição expressa, de acordo com a regulamentação da autoridade nacional, observados os segredos comercial e industrial
 armadilha: extrapolacao
 dif: 2
-enunciado: A portabilidade é direito automático do titular, que independe de requisição e abrange inclusive os segredos comerciais e industriais do controlador.
+enunciado: A portabilidade dos dados a outro fornecedor de serviço ou produto é direito do titular, exercido mediante requisição expressa e conforme a regulamentação da ANPD, e abrange inclusive os segredos comerciais e industriais do controlador.
 comentario: Errado. A portabilidade exige requisição expressa, segue a regulamentação da ANPD e observa os segredos comercial e industrial (art. 18, V).
 
 === dt-07
@@ -69,13 +69,13 @@ enunciado: Situação hipotética: titular revogou o consentimento e pediu a eli
 comentario: Errado. A eliminação dos dados tratados com consentimento ressalva as hipóteses do art. 16 (art. 18, VI): cumprimento de obrigação legal ou regulatória, estudo por órgão de pesquisa, transferência a terceiro conforme a lei e uso exclusivo do controlador com dados anonimizados.
 
 === dt-08
-gab: C
+gab: E
 ref: lgpd 18
 trecho: O titular pode opor-se a tratamento realizado com fundamento em uma das hipóteses de dispensa de consentimento, em caso de descumprimento ao disposto nesta Lei
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: uma empresa trata dados de clientes com base na execução de contrato, mas passou a usá-los também para fins não informados, em desacordo com a LGPD. Assertiva: o titular pode se opor a esse tratamento, ainda que a base legal invocada dispense o consentimento.
-comentario: Certo: art. 18, § 2º. A oposição na LGPD depende de descumprimento da lei; no GDPR, o direito de oposição ao legítimo interesse é mais amplo.
+enunciado: Situação hipotética: uma empresa trata dados de clientes com base na execução de contrato, mas passou a usá-los também para fins não informados, em desacordo com a LGPD. Assertiva: o titular não pode se opor a esse tratamento, pois o direito de oposição pressupõe tratamento fundado no consentimento.
+comentario: Errado. O titular pode opor-se a tratamento realizado com fundamento em uma das hipóteses de dispensa de consentimento, em caso de descumprimento da LGPD (art. 18, § 2º). No GDPR, o direito de oposição ao legítimo interesse é mais amplo.
 
 === dt-09
 gab: E
@@ -163,18 +163,18 @@ gab: E
 ref: lgpd 18
 trecho: informação das entidades públicas e privadas com as quais o controlador realizou uso compartilhado de dados
 armadilha: rol
-dif: 1
-enunciado: O titular tem direito de saber com quais entidades privadas o controlador compartilhou seus dados, mas não com quais entidades públicas.
+dif: 2
+enunciado: Entre os direitos do titular estão a confirmação da existência de tratamento e o acesso aos dados, e ele pode saber com quais entidades privadas o controlador compartilhou seus dados, mas não com quais entidades públicas.
 comentario: Errado. O direito alcança as entidades públicas e privadas com as quais houve uso compartilhado (art. 18, VII).
 
 === dt-19
-gab: C
+gab: E
 ref: lgpd 18
 trecho: O responsável deverá informar, de maneira imediata, aos agentes de tratamento com os quais tenha realizado uso compartilhado de dados a correção, a eliminação, a anonimização ou o bloqueio dos dados
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: a pedido de um cliente, uma rede varejista bloqueou dados dele que havia compartilhado com duas empresas parceiras. Assertiva: a rede deve comunicar de imediato o bloqueio às parceiras, para que repitam o procedimento, salvo se essa comunicação for comprovadamente impossível ou exigir esforço desproporcional.
-comentario: Certo: art. 18, § 6º. Sem isso, a correção feita num lugar não chega às cópias.
+enunciado: Situação hipotética: a pedido de um cliente, uma rede varejista bloqueou dados dele que havia compartilhado com duas empresas parceiras. Assertiva: a rede não precisa comunicar o bloqueio às parceiras, pois cada agente responde pelos dados que mantém, sem dever de comunicar os demais.
+comentario: Errado. O responsável deve informar, de maneira imediata, aos agentes com os quais tenha compartilhado os dados a correção, a eliminação, a anonimização ou o bloqueio, para que repitam o procedimento, salvo comunicação comprovadamente impossível ou de esforço desproporcional (art. 18, § 6º).
 
 === pp-02
 gab: E
@@ -182,8 +182,8 @@ bloco: lgpd-23-32
 ref: lgpd 23
 trecho: seja indicado um encarregado quando realizarem operações de tratamento de dados pessoais
 armadilha: sujeito
-dif: 1
-enunciado: A LGPD dispensa os órgãos públicos de indicar encarregado pelo tratamento de dados pessoais, exigência restrita aos controladores privados.
+dif: 2
+enunciado: O tratamento de dados pelo Poder Público deve atender à sua finalidade pública, na persecução do interesse público, e a LGPD dispensa os órgãos públicos de indicar encarregado, exigência restrita aos controladores privados.
 comentario: Errado. O art. 23, III, exige que o Poder Público indique encarregado quando realizar operações de tratamento.
 
 === pp-03
@@ -203,7 +203,7 @@ ref: lgpd 23
 trecho: terão o mesmo tratamento dispensado às pessoas jurídicas referidas no caput deste artigo
 armadilha: sujeito
 dif: 2
-enunciado: Os serviços notariais e de registro, por serem exercidos em caráter privado, submetem-se às regras da LGPD aplicáveis aos agentes privados.
+enunciado: Situação hipotética: cartório de registro de imóveis, exercido em caráter privado por delegação do Poder Público, trata dados pessoais dos usuários. Assertiva: por isso, ele se submete às regras da LGPD aplicáveis aos agentes privados, e não às do Poder Público.
 comentario: Errado. Embora exercidos em caráter privado, por delegação, recebem o mesmo tratamento das pessoas jurídicas de direito público (art. 23, § 4º) e devem fornecer acesso eletrônico aos dados à administração (§ 5º).
 
 === pp-05
@@ -223,7 +223,7 @@ ref: lgpd 26
 trecho: É vedado ao Poder Público transferir a entidades privadas dados pessoais constantes de bases de dados a que tenha acesso, exceto
 armadilha: excecao
 dif: 2
-enunciado: É livre a transferência de dados pessoais de bases públicas a entidades privadas, desde que para executar políticas públicas.
+enunciado: O uso compartilhado de dados pessoais pelo Poder Público deve atender a finalidades específicas de execução de políticas públicas, e é livre a transferência de dados de bases públicas a entidades privadas, desde que para executar políticas públicas.
 comentario: Errado. A regra é a vedação (art. 26, § 1º), com exceções: execução descentralizada de atividade pública, dados acessíveis publicamente, previsão legal ou contrato e convênio, e prevenção de fraudes ou proteção do titular.
 
 === pp-08

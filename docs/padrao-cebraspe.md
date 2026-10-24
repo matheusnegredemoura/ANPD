@@ -133,6 +133,9 @@ Ao escrever:
    hipotética nunca é 1. Em cada nível, certos e errados perto de metade cada.
 6. Palavra absoluta só onde a banca a usa: no errado, perto de 10% dos itens; no certo, como falso distrator.
    `node scripts/reescrita/medir.mjs` compara esses sinais do banco com os itens reais.
+7. O tamanho não entrega o gabarito: o errado também é longo (parte verdadeira do mesmo artigo e um único erro, ou
+   caso), e a situação hipotética é certa ou errada perto de metade cada. O `npm test` falha se, em algum quarto do
+   banco por tamanho ou nos casos, os certos saírem da faixa de 38% a 62%.
 
 Ao explicar (tutor):
 1. Núcleo conceitual exigido.

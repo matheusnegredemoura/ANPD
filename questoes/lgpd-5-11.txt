@@ -2,13 +2,13 @@ bloco: lgpd-5-11
 // Conceitos, princípios, bases legais, consentimento, legítimo interesse e dados sensíveis (arts. 5º a 11).
 
 === lgpd-5-01
-gab: C
+gab: E
 ref: lgpd 5, I
 trecho: dado pessoal: informação relacionada a pessoa natural identificada ou identificável
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: uma loja guarda registros de compra associados apenas ao número do celular dos clientes, sem o nome deles. Assertiva: esses registros podem ser dados pessoais, porque a LGPD protege a informação relacionada a pessoa natural não só identificada, mas também identificável.
-comentario: Art. 5º, I. O “identificável” amplia muito o conceito: basta que a pessoa possa ser identificada com meios razoáveis, mesmo sem nome no registro.
+enunciado: Situação hipotética: uma loja guarda registros de compra associados apenas ao número do celular dos clientes, sem o nome deles. Assertiva: esses registros não são dados pessoais, porque a LGPD protege a informação relacionada a pessoa natural identificada pelo nome.
+comentario: Errado. Dado pessoal é a informação relacionada a pessoa natural identificada ou identificável (art. 5º, I). O número do celular permite identificar o cliente com meios razoáveis, mesmo sem nome no registro.
 
 === lgpd-5-02
 gab: E
@@ -61,7 +61,7 @@ ref: lgpd 5, III
 trecho: dado anonimizado: dado relativo a titular que não possa ser identificado, considerando a utilização de meios técnicos razoáveis e disponíveis na ocasião de seu tratamento
 armadilha: absoluto
 dif: 2
-enunciado: Dado anonimizado é aquele cujo titular não possa ser identificado por nenhum meio técnico existente, ainda que de custo desproporcional.
+enunciado: Para a LGPD, dado anonimizado é aquele relativo a titular que não possa ser identificado por nenhum meio técnico existente, ainda que de custo desproporcional, e anonimização é o processo pelo qual o dado perde a possibilidade de associação a um indivíduo.
 comentario: O art. 5º, III, adota padrão de razoabilidade: meios técnicos razoáveis e disponíveis na ocasião do tratamento. Não se exige anonimização impossível de reverter por qualquer meio.
 
 === lgpd-5-09
@@ -151,25 +151,25 @@ gab: E
 ref: lgpd 6, II
 trecho: adequação: compatibilidade do tratamento com as finalidades informadas ao titular, de acordo com o contexto do tratamento
 armadilha: conceito
-dif: 1
-enunciado: O princípio da adequação consiste na limitação do tratamento ao mínimo necessário para a realização de suas finalidades.
+dif: 2
+enunciado: As atividades de tratamento devem observar a boa-fé e princípios como finalidade e adequação, e este último consiste na limitação do tratamento ao mínimo necessário para a realização de suas finalidades.
 comentario: Essa é a necessidade (inciso III). Adequação é a compatibilidade do tratamento com as finalidades informadas, de acordo com o contexto (inciso II).
 
 === lgpd-6-03
-gab: C
+gab: E
 ref: lgpd 6, IV
 trecho: livre acesso: garantia, aos titulares, de consulta facilitada e gratuita sobre a forma e a duração do tratamento, bem como sobre a integralidade de seus dados pessoais
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: um titular pediu, sem pagar nada, informações sobre por quanto tempo e de que forma seus dados seriam tratados por uma empresa. Assertiva: o pedido concretiza o princípio do livre acesso, que garante consulta facilitada e gratuita sobre a forma e a duração do tratamento e sobre a integralidade dos dados.
-comentario: Art. 6º, IV. O art. 9º detalha as informações que concretizam esse princípio.
+enunciado: Situação hipotética: um titular pediu, sem pagar nada, informações sobre por quanto tempo e de que forma seus dados seriam tratados por uma empresa. Assertiva: o pedido concretiza o princípio da transparência, que garante consulta facilitada e gratuita sobre a forma e a duração do tratamento e sobre a integralidade dos dados.
+comentario: Errado. A consulta facilitada e gratuita sobre a forma e a duração do tratamento e sobre a integralidade dos dados é o princípio do livre acesso (art. 6º, IV). A transparência (VI) garante informações claras, precisas e facilmente acessíveis sobre o tratamento e os agentes.
 
 === lgpd-6-04
 gab: E
 ref: lgpd 6, V
 trecho: qualidade dos dados: garantia, aos titulares, de exatidão, clareza, relevância e atualização dos dados
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: O princípio da transparência garante aos titulares a exatidão, a clareza, a relevância e a atualização dos dados, de acordo com a necessidade.
 comentario: Exatidão, clareza, relevância e atualização são da qualidade dos dados (inciso V). Transparência (inciso VI) trata de informações claras, precisas e acessíveis sobre o tratamento e os agentes.
 
@@ -288,7 +288,7 @@ ref: lgpd 7, III
 trecho: pela administração pública, para o tratamento e uso compartilhado de dados necessários à execução de políticas públicas previstas em leis e regulamentos ou respaldadas em contratos, convênios ou instrumentos congêneres
 armadilha: excecao
 dif: 2
-enunciado: O tratamento de dados pela administração pública para a execução de políticas públicas previstas em lei depende de consentimento do titular.
+enunciado: Situação hipotética: ministério trata dados de beneficiários de programa social previsto em lei para executar a política pública correspondente. Assertiva: esse tratamento depende de consentimento dos beneficiários, colhido no cadastramento.
 comentario: Execução de políticas públicas é base legal própria (art. 7º, III), independente de consentimento.
 
 === lgpd-8-01
@@ -306,7 +306,7 @@ ref: lgpd 8, § 4º
 trecho: as autorizações genéricas para o tratamento de dados pessoais serão nulas
 armadilha: conceito
 dif: 3
-enunciado: Segundo a LGPD, as autorizações genéricas para o tratamento de dados pessoais são anuláveis, podendo ser convalidadas por manifestação posterior do titular.
+enunciado: O consentimento deve referir-se a finalidades determinadas, e, segundo a LGPD, as autorizações genéricas para o tratamento de dados pessoais são anuláveis, podendo ser convalidadas por manifestação posterior do titular.
 comentario: O § 4º do art. 8º diz que as autorizações genéricas “serão nulas”. Nulidade e anulabilidade são regimes distintos; a palavra decide o item.
 
 === lgpd-8-03
@@ -328,22 +328,22 @@ enunciado: Situação hipotética: após revogar o consentimento, um titular exi
 comentario: O § 5º do art. 8º ratifica os tratamentos anteriores. A revogação não retroage.
 
 === lgpd-8-05
-gab: C
+gab: E
 ref: lgpd 8, § 1º
 trecho: Caso o consentimento seja fornecido por escrito, esse deverá constar de cláusula destacada das demais cláusulas contratuais
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: em contrato de adesão, a autorização para uso de dados dos clientes aparecia no meio das demais cláusulas, sem nenhum destaque. Assertiva: o consentimento assim obtido por escrito não atende à LGPD, que exige cláusula destacada das demais.
-comentario: Art. 8º, § 1º. O destaque serve para o titular perceber que está consentindo; cláusula escondida no meio do contrato não vale.
+enunciado: Situação hipotética: em contrato de adesão, a autorização para uso de dados dos clientes aparecia no meio das demais cláusulas, sem nenhum destaque. Assertiva: o consentimento assim obtido atende à LGPD, pois a forma escrita dispensa o destaque da cláusula.
+comentario: Errado. Se o consentimento for fornecido por escrito, deve constar de cláusula destacada das demais cláusulas contratuais (art. 8º, § 1º). Cláusula escondida no meio do contrato não vale.
 
 === lgpd-9-01
-gab: C
+gab: E
 ref: lgpd 9, § 1º
 trecho: esse será considerado nulo caso as informações fornecidas ao titular tenham conteúdo enganoso ou abusivo ou não tenham sido apresentadas previamente com transparência, de forma clara e inequívoca
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: um aplicativo só exibiu ao titular a finalidade do tratamento depois de ele já ter clicado em “aceito”. Assertiva: o consentimento é nulo, pois as informações não foram apresentadas previamente com transparência, de forma clara e inequívoca.
-comentario: Art. 9º, § 1º. A nulidade decorre de informação enganosa, abusiva ou não apresentada previamente; o § 2º trata da mudança de finalidade incompatível.
+enunciado: Situação hipotética: um aplicativo só exibiu ao titular a finalidade do tratamento depois de ele já ter clicado em “aceito”. Assertiva: o consentimento é válido, pois a informação prévia sobre a finalidade só é exigida para dados pessoais sensíveis.
+comentario: Errado. Quando o consentimento é requerido, ele é nulo se as informações tiverem conteúdo enganoso ou abusivo ou não tiverem sido apresentadas previamente com transparência, de forma clara e inequívoca (art. 9º, § 1º). A regra vale para qualquer dado pessoal.
 
 === lgpd-9-02
 gab: E
@@ -365,13 +365,13 @@ enunciado: Entre as informações que devem ser disponibilizadas ao titular de f
 comentario: Incisos III e VII do art. 9º. A lista é exemplificativa (“entre outras características previstas em regulamentação”).
 
 === lgpd-10-01
-gab: C
+gab: E
 ref: lgpd 10, § 1º
 trecho: somente os dados pessoais estritamente necessários para a finalidade pretendida poderão ser tratados
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: um varejista, com base em legítimo interesse, pretende coletar, para campanha de fidelidade, dados que não são necessários a esse fim, mas poderiam ser úteis no futuro. Assertiva: a coleta desses dados excedentes é incompatível com a LGPD, que, nessa base legal, limita o tratamento aos dados estritamente necessários à finalidade pretendida.
-comentario: Art. 10, § 1º. É o princípio da necessidade aplicado com mais rigor ao legítimo interesse: “estritamente necessários”.
+enunciado: Situação hipotética: um varejista, com base em legítimo interesse, pretende coletar, para campanha de fidelidade, dados que não são necessários a esse fim, mas poderiam ser úteis no futuro. Assertiva: a coleta é compatível com a LGPD, pois o legítimo interesse admite tratar dados que possam ser úteis a finalidades futuras do controlador.
+comentario: Errado. Quando o tratamento se basear no legítimo interesse, só os dados pessoais estritamente necessários para a finalidade pretendida podem ser tratados (art. 10, § 1º). É o princípio da necessidade aplicado com mais rigor.
 
 === lgpd-10-02
 gab: E
@@ -379,7 +379,7 @@ ref: lgpd 10, § 2º
 trecho: O controlador deverá adotar medidas para garantir a transparência do tratamento de dados baseado em seu legítimo interesse
 armadilha: extrapolacao
 dif: 2
-enunciado: O tratamento fundado no legítimo interesse do controlador dispensa medidas específicas de transparência, por não depender da vontade do titular.
+enunciado: O legítimo interesse do controlador pode fundamentar o tratamento para finalidades legítimas, consideradas a partir de situações concretas, como o apoio às atividades do controlador, e esse tratamento dispensa medidas específicas de transparência, por não depender da vontade do titular.
 comentario: O § 2º do art. 10 exige medidas de transparência no tratamento baseado em legítimo interesse.
 
 === lgpd-10-03
@@ -406,7 +406,7 @@ ref: lgpd 11
 trecho: O tratamento de dados pessoais sensíveis somente poderá ocorrer nas seguintes hipóteses
 armadilha: rol
 dif: 2
-enunciado: O legítimo interesse do controlador autoriza o tratamento de dados pessoais sensíveis sem consentimento, desde que não prevaleçam direitos fundamentais do titular.
+enunciado: Os dados pessoais sensíveis podem ser tratados sem consentimento do titular em hipóteses como o cumprimento de obrigação legal e a tutela da saúde, e também com base no legítimo interesse do controlador, desde que não prevaleçam direitos fundamentais do titular.
 comentario: O legítimo interesse não está entre as hipóteses do art. 11 para dados sensíveis.
 
 === lgpd-11-02
@@ -428,13 +428,13 @@ enunciado: Situação hipotética: para usar aplicativo de dieta, um titular con
 comentario: Art. 11, I. Repare que o consentimento para dado sensível precisa ser específico e destacado, além dos atributos gerais do art. 5º, XII.
 
 === lgpd-11-04
-gab: C
+gab: E
 ref: lgpd 11, II, g
 trecho: garantia da prevenção à fraude e à segurança do titular, nos processos de identificação e autenticação de cadastro em sistemas eletrônicos
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: um banco usa a biometria facial do cliente para autenticar o acesso ao aplicativo e evitar fraudes, sem colher consentimento para esse fim. Assertiva: o tratamento pode ser legítimo, desde que indispensável à prevenção de fraude e à segurança do titular no processo de autenticação, resguardados os direitos do art. 9º da LGPD.
-comentario: Art. 11, II, “g”. É a base usada, por exemplo, para biometria facial em login de aplicativo bancário, resguardados os direitos do art. 9º.
+enunciado: Situação hipotética: um banco usa a biometria facial do cliente para autenticar o acesso ao aplicativo e evitar fraudes, sem colher consentimento para esse fim. Assertiva: o tratamento é ilegítimo, pois o tratamento de dados biométricos depende, em qualquer caso, de consentimento específico e destacado do titular.
+comentario: Errado. Sem consentimento, o dado sensível pode ser tratado quando indispensável à garantia da prevenção à fraude e à segurança do titular nos processos de identificação e autenticação de cadastro em sistemas eletrônicos, resguardados os direitos do art. 9º (art. 11, II, g).
 
 === lgpd-11-05
 gab: E

@@ -55,7 +55,7 @@ ref: nistcsf ID.RA
 trecho: Processes for receiving, analyzing, and responding to vulnerability disclosures are established
 armadilha: extrapolacao
 dif: 2
-enunciado: O NIST CSF 2.0 não trata do recebimento de comunicações de vulnerabilidades feitas por terceiros, assunto deixado a cada organização.
+enunciado: A categoria avaliação de riscos (ID.RA) do NIST CSF 2.0 trata da identificação de vulnerabilidades em ativos, mas não do recebimento de comunicações de vulnerabilidades feitas por terceiros, assunto deixado a cada organização.
 comentario: Errado. A avaliação de riscos (ID.RA-08) prevê processos para receber, analisar e responder a divulgações de vulnerabilidades, como as feitas por pesquisadores de segurança.
 
 === nist2-07
@@ -73,7 +73,7 @@ ref: nistcsf ID.IM
 trecho: Improvements to organizational cybersecurity risk management processes, procedures and activities are identified across all CSF Functions
 armadilha: extrapolacao
 dif: 3
-enunciado: No NIST CSF 2.0, a categoria melhoria (ID.IM) limita-se aos processos da função identificar, sem alcançar as demais funções.
+enunciado: Na função identificar do NIST CSF 2.0, a categoria melhoria (ID.IM) busca identificar aprimoramentos a partir de avaliações, testes e exercícios, mas limita-se aos processos dessa função, sem alcançar as demais.
 comentario: Errado. As melhorias são identificadas em todas as funções do CSF, a partir de avaliações, testes e exercícios e da execução das atividades (ID.IM-01 a 03).
 
 === nist2-09
@@ -90,8 +90,8 @@ gab: E
 ref: nistcsf PR.AT
 trecho: Personnel are provided with awareness and training so that they possess the knowledge and skills to perform general tasks with cybersecurity risks in mind
 armadilha: sujeito
-dif: 1
-enunciado: O NIST CSF 2.0 prevê conscientização e treinamento em cibersegurança apenas para os profissionais da área técnica de segurança.
+dif: 2
+enunciado: Na função proteger do NIST CSF 2.0, a categoria conscientização e treinamento (PR.AT) prevê capacitação em cibersegurança, mas a destina aos profissionais da área técnica de segurança, sem alcançar o pessoal em geral.
 comentario: Errado. A conscientização alcança todo o pessoal (PR.AT-01); quem exerce funções especializadas recebe treinamento específico (PR.AT-02).
 
 === nist2-11
@@ -145,17 +145,17 @@ ref: nistcsf DE.AE
 trecho: Incidents are declared when adverse events meet the defined incident criteria
 armadilha: comparacao
 dif: 3
-enunciado: No NIST CSF 2.0, a declaração de incidente ocorre na função responder, depois da contenção do evento adverso.
+enunciado: No NIST CSF 2.0, a função detectar inclui a análise de eventos adversos para caracterizar possíveis ataques e comprometimentos, mas a declaração de incidente ocorre na função responder, depois da contenção do evento adverso.
 comentario: Errado. A declaração está na função detectar: incidentes são declarados quando os eventos adversos atendem aos critérios definidos (DE.AE-08). A contenção vem depois, na função responder (RS.MI-01).
 
 === nist2-17
-gab: C
+gab: E
 ref: nistcsf RS.AN
 trecho: Analysis is performed to establish what has taken place during an incident and the root cause of the incident
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: contido um incidente, a equipe investigou o que ocorreu e por que a falha foi possível. Assertiva: essa atividade corresponde à análise de incidentes da função responder, que busca estabelecer o ocorrido e sua causa raiz.
-comentario: Certo: RS.AN-03. Sem causa raiz, o mesmo incidente volta.
+enunciado: Situação hipotética: contido um incidente, a equipe investigou o que ocorreu e por que a falha foi possível. Assertiva: essa atividade corresponde à função recuperar, que busca estabelecer o ocorrido e sua causa raiz após a contenção.
+comentario: Errado. Investigar o ocorrido e a causa raiz é a análise de incidentes (RS.AN-03) da função responder. A função recuperar trata da restauração dos ativos e das operações afetados pelo incidente.
 
 === nist2-18
 gab: E
@@ -180,8 +180,8 @@ gab: E
 ref: nistcsf RC.CO
 trecho: Public updates on incident recovery are shared using approved methods and messaging
 armadilha: conceito
-dif: 1
-enunciado: No NIST CSF 2.0, atualizações públicas sobre a recuperação de incidentes são vedadas, para não prejudicar a investigação.
+dif: 2
+enunciado: Na função recuperar do NIST CSF 2.0, a comunicação sobre a recuperação de incidentes é coordenada com as partes internas e externas, mas atualizações públicas sobre essa recuperação são vedadas, para não prejudicar a investigação.
 comentario: Errado. Atualizações públicas são compartilhadas por métodos e mensagens aprovados (RC.CO-04). Comunicação controlada não é silêncio.
 
 === nist2-21

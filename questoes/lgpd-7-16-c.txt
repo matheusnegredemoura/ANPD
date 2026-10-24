@@ -9,7 +9,7 @@ ref: lgpd 7, § 3º
 trecho: deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização
 armadilha: extrapolacao
 dif: 2
-enunciado: Dados pessoais de acesso público podem ser tratados livremente, para qualquer finalidade, justamente por estarem disponíveis ao público.
+enunciado: A LGPD alcança também os dados de acesso público e os tornados manifestamente públicos pelo titular, mas esses dados podem ser tratados livremente, para qualquer finalidade, justamente por estarem disponíveis ao público.
 comentario: Errado. O tratamento deve considerar a finalidade, a boa-fé e o interesse público que justificaram a disponibilização (art. 7º, § 3º). Acesso público não é carta branca.
 
 === bc-02
@@ -35,18 +35,18 @@ gab: E
 ref: lgpd 7, § 7º
 trecho: poderá ser realizado para novas finalidades, desde que observados os propósitos legítimos e específicos
 armadilha: conceito
-dif: 1
-enunciado: É vedado o tratamento posterior, para novas finalidades, de dados de acesso público ou tornados manifestamente públicos pelo titular.
+dif: 2
+enunciado: É dispensada a exigência do consentimento para os dados tornados manifestamente públicos pelo titular, resguardados seus direitos, mas é vedado o tratamento posterior, para novas finalidades, desses dados ou dos de acesso público.
 comentario: Errado. O tratamento posterior para novas finalidades é possível, desde que observados propósitos legítimos e específicos e preservados os direitos do titular, os fundamentos e os princípios da LGPD (art. 7º, § 7º).
 
 === bc-05
-gab: C
+gab: E
 ref: lgpd 7, § 5º
 trecho: deverá obter consentimento específico do titular para esse fim
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: uma academia obteve o consentimento dos alunos para enviar-lhes ofertas de seus próprios planos e pretende repassar a lista a uma rede de suplementos, para que esta envie publicidade própria. Assertiva: para esse compartilhamento, a academia precisa de consentimento específico dos alunos, salvo se houver hipótese de dispensa do consentimento.
-comentario: Certo. O controlador que obteve consentimento e precisa comunicar ou compartilhar dados com outros controladores deve obter consentimento específico para esse fim, ressalvadas as hipóteses de dispensa (art. 7º, § 5º).
+enunciado: Situação hipotética: uma academia obteve o consentimento dos alunos para enviar-lhes ofertas de seus próprios planos e pretende repassar a lista a uma rede de suplementos, para que esta envie publicidade própria. Assertiva: o compartilhamento está coberto pelo consentimento já obtido, pois os alunos autorizaram o uso de seus dados para ofertas comerciais.
+comentario: Errado. O controlador que obteve o consentimento e precisar comunicar ou compartilhar dados com outros controladores deve obter consentimento específico do titular para esse fim, ressalvadas as hipóteses de dispensa (art. 7º, § 5º).
 
 === bc-06
 gab: C
@@ -72,7 +72,7 @@ ref: lgpd 8, § 6º
 trecho: o controlador deverá informar ao titular, com destaque de forma específica do teor das alterações
 armadilha: conceito
 dif: 2
-enunciado: Alterada a identificação do controlador, basta atualizar a política de privacidade no sítio eletrônico, sem necessidade de informar o titular com destaque.
+enunciado: Situação hipotética: empresa que coleta dados com base no consentimento foi incorporada por outra, que passou a ser a controladora. Assertiva: basta atualizar a política de privacidade no sítio eletrônico, sem necessidade de informar os titulares com destaque.
 comentario: Errado. A mudança na identificação do controlador (art. 9º, III) é uma das alterações que exigem informar o titular, com destaque específico do teor (art. 8º, § 6º).
 
 === bc-09
@@ -126,7 +126,7 @@ ref: lgpd 9
 trecho: entre outras características previstas em regulamentação para o atendimento do princípio do livre acesso
 armadilha: rol
 dif: 2
-enunciado: O rol de informações sobre o tratamento que devem ser disponibilizadas ao titular no art. 9º da LGPD é taxativo.
+enunciado: O titular tem direito ao acesso facilitado às informações sobre o tratamento, como a finalidade específica e a forma e a duração do tratamento, e o rol dessas informações no art. 9º da LGPD é taxativo.
 comentario: Errado. O caput diz “entre outras características previstas em regulamentação”: o rol é exemplificativo e pode ser ampliado para atender ao princípio do livre acesso.
 
 === bc-15
@@ -181,7 +181,7 @@ ref: lgpd 12, § 1º
 trecho: fatores objetivos, tais como custo e tempo necessários para reverter o processo de anonimização
 armadilha: conceito
 dif: 2
-enunciado: Para avaliar se a anonimização pode ser revertida com esforços razoáveis, consideram-se apenas fatores subjetivos, como a intenção declarada do controlador.
+enunciado: Os dados anonimizados não são considerados dados pessoais, salvo quando a anonimização puder ser revertida com esforços razoáveis, e, para avaliar essa reversibilidade, considera-se a intenção declarada do controlador, e não fatores como custo e tempo.
 comentario: Errado. Consideram-se fatores objetivos, como custo e tempo para reverter o processo, conforme as tecnologias disponíveis, e o uso exclusivo de meios próprios (art. 12, § 1º).
 
 === bc-21
@@ -201,7 +201,7 @@ ref: lgpd 13
 trecho: que incluam, sempre que possível, a anonimização ou pseudonimização dos dados
 armadilha: absoluto
 dif: 2
-enunciado: Nos estudos em saúde pública, a anonimização ou a pseudonimização dos dados pelo órgão de pesquisa é obrigatória em qualquer caso.
+enunciado: Na realização de estudos em saúde pública, os órgãos de pesquisa podem ter acesso a bases de dados pessoais, mantidas em ambiente controlado e seguro, e a anonimização ou a pseudonimização desses dados é obrigatória em qualquer caso.
 comentario: Errado. As práticas de segurança devem incluir anonimização ou pseudonimização “sempre que possível” (art. 13, caput). O que é absoluto é a vedação de revelar dados pessoais na divulgação dos resultados (§ 1º) e de transferi-los a terceiro (§ 2º).
 
 === bc-23
@@ -231,5 +231,5 @@ ref: lgpd 16
 trecho: garantida, sempre que possível, a anonimização dos dados pessoais
 armadilha: absoluto
 dif: 2
-enunciado: A conservação de dados pessoais para estudo por órgão de pesquisa, após o término do tratamento, exige a anonimização em qualquer hipótese.
+enunciado: Após o término do tratamento, os dados pessoais devem ser eliminados, autorizada a conservação para finalidades como o cumprimento de obrigação legal, e a conservação para estudo por órgão de pesquisa exige a anonimização em qualquer hipótese.
 comentario: Errado. A anonimização é garantida “sempre que possível” (art. 16, II). Exigência sem exceção há no inciso IV: uso exclusivo do controlador só com dados anonimizados.

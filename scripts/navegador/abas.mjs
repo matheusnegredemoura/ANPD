@@ -16,7 +16,8 @@ await passo('a aba A junta o que a aba B gravou', async () => {
   await a.click('.aba[data-vista="questoes"]');
   await a.click('[data-acao="comecar"]');
   await a.waitForSelector('#sessao:not([hidden])');
-  await a.locator('.bolha.c').first().click();
+  // O primeiro item pode ser de certo/errado ou de múltipla escolha: vale qualquer resposta que não seja em branco
+  await a.locator('#sessao [data-acao="responder"]:not(.b)').first().click();
   await a.waitForTimeout(800);
   conferir('item da aba B continua gravado', await a.evaluate(() => !!JSON.parse(localStorage.getItem('painel-anpd-v3')).itens['teste-aba-b']));
 });

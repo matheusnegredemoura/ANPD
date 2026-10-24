@@ -65,7 +65,7 @@ comentario: Certo. Unicidade é a ausência de duplicidade. O caso também afeta
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: A validade, como dimensão da qualidade de dados, refere-se à correspondência entre o dado registrado e a realidade que ele representa.
 comentario: Errado. Correspondência com a realidade é a acurácia (exatidão). Validade é a conformidade com formato, tipo e regras de domínio: uma data de 31 de fevereiro é inválida; um endereço antigo pode ser válido e inexato.
 
@@ -81,7 +81,7 @@ comentario: Certo. O ELT é comum em data lakes e na nuvem, onde o destino tem c
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: No esquema estrela da modelagem dimensional, a tabela fato armazena os atributos descritivos, e as tabelas de dimensão armazenam as métricas numéricas.
 comentario: Errado. É o inverso: a tabela fato guarda as métricas (quantidades, valores) e as chaves das dimensões; as dimensões guardam os atributos descritivos (tempo, órgão, região).
 
@@ -156,7 +156,7 @@ ref: dec10046 4, I
 trecho: compartilhamento amplo, quando se tratar de dados públicos que não estão sujeitos a nenhuma restrição de acesso
 armadilha: conceito
 dif: 2
-enunciado: No compartilhamento amplo previsto no Decreto nº 10.046/2019, enquadram-se os dados protegidos por sigilo, cujo acesso depende de autorização do gestor da base.
+enunciado: O Decreto n.º 10.046/2019 categoriza o compartilhamento de dados em três níveis, de acordo com sua confidencialidade, amplo, restrito e específico, e no amplo se enquadram os dados protegidos por sigilo, cujo acesso depende de autorização do gestor da base.
 comentario: Errado. O amplo é para dados públicos, sem restrição de acesso. Dados protegidos por sigilo entram no compartilhamento restrito ou no específico.
 
 === dd-21
@@ -223,7 +223,7 @@ comentario: Errado. O data warehouse trabalha com esquema definido na escrita; o
 gab: E
 ref: doutrina OLAP
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: Na análise OLAP, a operação dice consiste em girar o cubo para trocar a posição das dimensões na visualização dos dados.
 comentario: Errado. Girar o cubo é o pivot (ou rotação). O dice seleciona um subcubo, restringindo valores em duas ou mais dimensões, como vendas de dois produtos em três estados num mesmo semestre.
 

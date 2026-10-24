@@ -38,8 +38,8 @@ bloco: orcamento
 ref: cf88 166, § 2º
 trecho: As emendas serão apresentadas na Comissão mista, que sobre elas emitirá parecer
 armadilha: extrapolacao
-dif: 1
-enunciado: As emendas ao projeto de lei orçamentária são apresentadas diretamente no Plenário de cada Casa, dispensado o parecer da comissão mista.
+dif: 2
+enunciado: Os projetos de lei relativos ao plano plurianual, às diretrizes orçamentárias e ao orçamento anual são apreciados pelas duas Casas do Congresso, e as emendas a eles são apresentadas diretamente no Plenário de cada Casa, dispensado o parecer da comissão mista.
 comentario: Errado. As emendas são apresentadas na comissão mista, que emite parecer, e depois apreciadas pelo Plenário das duas Casas (art. 166, § 2º).
 
 === orc-05
@@ -158,8 +158,8 @@ bloco: etica-improbidade
 ref: lei8429 1, § 1º
 trecho: as condutas dolosas tipificadas nos arts. 9º, 10 e 11 desta Lei
 armadilha: revogado
-dif: 1
-enunciado: Depois da Lei nº 14.230/2021, o ato de improbidade que causa lesão ao erário continua podendo ser punido na modalidade culposa.
+dif: 2
+enunciado: Depois da Lei n.º 14.230/2021, que reformou a Lei de Improbidade Administrativa, o ato que importa enriquecimento ilícito exige dolo, mas o ato que causa lesão ao erário continua podendo ser punido na modalidade culposa.
 comentario: Errado. A reforma exigiu dolo em todos os tipos: são atos de improbidade as condutas dolosas dos arts. 9º, 10 e 11 (art. 1º, § 1º). A modalidade culposa do art. 10 deixou de existir.
 
 === eti-02
@@ -349,7 +349,7 @@ ref: res32 4, § 2º
 trecho: alterações na legislação de proteção de dados pessoais posteriores à emissão da presente decisão de adequação
 armadilha: extrapolacao
 dif: 2
-enunciado: Na reavaliação da decisão de adequação da União Europeia, a ANPD só pode considerar fatos anteriores à edição da Resolução CD/ANPD nº 32/2026.
+enunciado: A decisão de adequação da ANPD sobre a União Europeia será reavaliada no prazo de quatro anos, e, nessa reavaliação, a ANPD pode considerar apenas fatos anteriores à edição da Resolução CD/ANPD n.º 32/2026.
 comentario: Errado. A reavaliação considera, entre outros aspectos, as alterações na legislação europeia posteriores à decisão (art. 4º, § 2º): é justamente para isso que ela existe.
 
 === r32c-08
@@ -363,14 +363,14 @@ enunciado: Uma polícia estadual que compartilha dados com a Europol para invest
 comentario: Errado. A decisão não se aplica a transferências para fins exclusivos de segurança pública ou de investigação e repressão de infrações penais (art. 2º), que nem estão sob a LGPD (art. 4º, III).
 
 === r32c-09
-gab: C
+gab: E
 bloco: res-32-2026
 ref: lgpd 34
 trecho: a existência de garantias judiciais e institucionais para o respeito aos direitos de proteção de dados pessoais
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: ao avaliar o nível de proteção de um país, a ANPD verificou se ali os titulares podem recorrer a tribunais e a instituições para fazer valer seus direitos. Assertiva: esse exame corresponde a fator expressamente previsto na LGPD.
-comentario: Certo: art. 34, V. Os outros fatores são as normas do destino, a natureza dos dados, os princípios e direitos, as medidas de segurança e outras circunstâncias da transferência.
+enunciado: Situação hipotética: ao avaliar o nível de proteção de um país, a ANPD verificou se ali os titulares podem recorrer a tribunais e a instituições para fazer valer seus direitos. Assertiva: esse exame não corresponde a fator previsto na LGPD, que se limita às normas do país de destino e à natureza dos dados.
+comentario: Errado. A existência de garantias judiciais e institucionais para o respeito aos direitos de proteção de dados é fator expresso do art. 34, V. Os outros são as normas do destino, a natureza dos dados, os princípios e direitos, as medidas de segurança e outras circunstâncias da transferência.
 
 === r32c-10
 gab: E

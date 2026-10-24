@@ -46,7 +46,7 @@ ref: gdpr 12
 trecho: within one month of receipt of the request. That period may be extended by two further months where necessary
 armadilha: numero
 dif: 2
-enunciado: No GDPR, o responsável deve informar ao titular as medidas tomadas sobre seu pedido em até quinze dias, prazo improrrogável.
+enunciado: No GDPR, o responsável pelo tratamento deve informar ao titular, sem demora injustificada, as medidas tomadas sobre pedido de exercício de direitos, em prazo de até quinze dias, improrrogável ainda que os pedidos sejam numerosos e complexos.
 comentario: Errado. O prazo é de um mês do recebimento do pedido, prorrogável por mais dois meses quando necessário, considerando complexidade e número de pedidos, com aviso ao titular dentro do primeiro mês (art. 12, 3). Quinze dias é o prazo da LGPD para a declaração completa de acesso (art. 19, II).
 
 === gd3-06
@@ -129,7 +129,7 @@ ref: gdpr 28
 trecho: The processor shall not engage another processor without prior specific or general written authorisation of the controller.
 armadilha: extrapolacao
 dif: 2
-enunciado: No GDPR, o subcontratante pode contratar livremente outro subcontratante, bastando comunicar o fato ao responsável depois da contratação.
+enunciado: Situação hipotética: empresa subcontratante de serviços em nuvem contratou outra empresa para parte do tratamento e comunicou o fato ao responsável depois da contratação. Assertiva: no GDPR, a conduta é regular, pois o subcontratante pode contratar livremente outro subcontratante, bastando a comunicação posterior.
 comentario: Errado. A subcontratação exige autorização escrita prévia, específica ou geral, do responsável; na autorização geral, o subcontratante informa as mudanças pretendidas para permitir oposição (art. 28, 2).
 
 === gd3-15
@@ -148,7 +148,7 @@ ref: gdpr 33
 trecho: The processor shall notify the controller without undue delay after becoming aware of a personal data breach.
 armadilha: sujeito
 dif: 2
-enunciado: No GDPR, o subcontratante que toma conhecimento de violação de dados deve notificá-la diretamente à autoridade de controle em até 72 horas.
+enunciado: No GDPR, o responsável notifica a violação de dados à autoridade de controle em até 72 horas, quando possível, e o subcontratante que toma conhecimento da violação deve igualmente notificá-la diretamente à autoridade, no mesmo prazo.
 comentario: Errado. O subcontratante notifica o responsável sem demora injustificada (art. 33, 2). Quem notifica a autoridade é o responsável, se possível em até 72 horas (art. 33, 1). Lógica parecida à da Resolução CD/ANPD nº 15/2024, em que a comunicação à ANPD cabe ao controlador.
 
 === gd3-17
@@ -222,5 +222,5 @@ ref: gdpr 82
 trecho: A processor shall be liable for the damage caused by processing only where it has not complied with obligations of this Regulation specifically directed to processors or where it has acted outside or contrary to lawful instructions of the controller.
 armadilha: sujeito
 dif: 2
-enunciado: No GDPR, o subcontratante responde pelos danos causados por qualquer tratamento de que participe, nas mesmas condições do responsável pelo tratamento.
+enunciado: Situação hipotética: subcontratante tratou dados conforme as instruções lícitas do responsável e cumpriu as obrigações que o GDPR lhe dirige, mas o titular sofreu dano. Assertiva: o subcontratante responde por esse dano nas mesmas condições do responsável pelo tratamento.
 comentario: Errado. O subcontratante só responde se descumpriu obrigações dirigidas especificamente a subcontratantes ou agiu fora ou contra as instruções lícitas do responsável (art. 82, 2). Compare com o art. 42, § 1º, I, da LGPD.

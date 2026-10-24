@@ -38,13 +38,13 @@ enunciado: O relatório de impacto à proteção de dados pessoais deve conter, 
 comentario: O conteúdo mínimo do parágrafo único do art. 38 é: tipos de dados coletados, metodologia de coleta e de segurança, e análise do controlador sobre medidas, salvaguardas e mitigação de risco. Lista nominal de titulares não entra.
 
 === lgpd-39-01
-gab: C
+gab: E
 ref: lgpd 39
 trecho: O operador deverá realizar o tratamento segundo as instruções fornecidas pelo controlador, que verificará a observância das próprias instruções e das normas sobre a matéria
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: um operador de folha de pagamento passou a usar os dados dos empregados de um cliente para oferecer crédito consignado, contrariando as instruções recebidas. Assertiva: o operador descumpriu o dever de tratar os dados segundo as instruções do controlador, ao qual cabe verificar a observância dessas instruções.
-comentario: Art. 39. Se o operador descumpre instruções lícitas, passa a responder solidariamente como se fosse controlador (art. 42, § 1º, I).
+enunciado: Situação hipotética: um operador de folha de pagamento passou a usar os dados dos empregados de um cliente para oferecer crédito consignado, contrariando as instruções recebidas. Assertiva: o operador agiu dentro de suas atribuições, pois, recebidos os dados, pode tratá-los para finalidades próprias compatíveis com o negócio.
+comentario: Errado. O operador deve realizar o tratamento segundo as instruções fornecidas pelo controlador, que verificará a observância das próprias instruções e das normas (art. 39). Se descumpre instruções lícitas, responde solidariamente, equiparado ao controlador (art. 42, § 1º, I).
 
 === lgpd-40-01
 gab: C
@@ -102,13 +102,13 @@ enunciado: Entre as atividades do encarregado, a LGPD inclui receber comunicaç�
 comentario: As atividades do encarregado (art. 41, § 2º) são de comunicação, orientação e providências. Poder disciplinar é do empregador, não está na lista.
 
 === lgpd-42-01
-gab: C
+gab: E
 ref: lgpd 42
 trecho: causar a outrem dano patrimonial, moral, individual ou coletivo, em violação à legislação de proteção de dados pessoais, é obrigado a repará-lo
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: um vazamento de dados de clientes de um banco, causado por falha de segurança, gerou danos morais a grupo de consumidores. Assertiva: a LGPD obriga o agente responsável a reparar também o dano coletivo, e não apenas o dano individual.
-comentario: Caput do art. 42. Alcança dano patrimonial e moral, individual e coletivo.
+enunciado: Situação hipotética: um vazamento de dados de clientes de um banco, causado por falha de segurança, gerou danos morais a grupo de consumidores. Assertiva: a LGPD obriga o agente responsável a reparar o dano individual, mas não o dano coletivo, que depende de lei específica.
+comentario: Errado. O controlador ou o operador que causar dano patrimonial, moral, individual ou coletivo, em violação à legislação de proteção de dados, é obrigado a repará-lo (art. 42, caput).
 
 === lgpd-42-02
 gab: C
@@ -142,7 +142,7 @@ gab: E
 ref: lgpd 42, § 2º
 trecho: O juiz, no processo civil, poderá inverter o ônus da prova a favor do titular dos dados quando, a seu juízo, for verossímil a alegação, houver hipossuficiência para fins de produção de prova ou quando a produção de prova pelo titular resultar-lhe excessivamente onerosa
 armadilha: absoluto
-dif: 2
+dif: 1
 enunciado: Nas ações de reparação de danos fundadas na LGPD, a inversão do ônus da prova em favor do titular é automática e obrigatória.
 comentario: O § 2º do art. 42 diz que o juiz “poderá” inverter, a seu juízo, quando houver verossimilhança, hipossuficiência ou prova excessivamente onerosa. É faculdade judicial, não regra automática.
 
@@ -184,14 +184,14 @@ enunciado: Situação hipotética: o titular contribuiu para o vazamento de seus
 comentario: O inciso III do art. 43 exige culpa exclusiva do titular ou de terceiro. Culpa concorrente pode, no máximo, reduzir a indenização pelas regras gerais, mas não exclui a responsabilidade.
 
 === lgpd-44-01
-gab: C
+gab: E
 ref: lgpd 44
 trecho: quando não fornecer a segurança que o titular dele pode esperar, consideradas as circunstâncias relevantes
 trecho: as técnicas de tratamento de dados pessoais disponíveis à época em que foi realizado
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: tratamento de dados feito há anos foi questionado por não usar técnica de segurança que só surgiu depois. Assertiva: a regularidade do tratamento deve ser avaliada com base nas técnicas disponíveis à época em que foi realizado.
-comentario: Art. 44. O critério das técnicas disponíveis à época evita que se julgue um tratamento antigo com a tecnologia de hoje.
+enunciado: Situação hipotética: tratamento de dados feito há anos foi questionado por não usar técnica de segurança que só surgiu depois. Assertiva: a regularidade do tratamento deve ser avaliada com base nas técnicas disponíveis hoje, pois a segurança exigida acompanha a evolução tecnológica.
+comentario: Errado. Entre as circunstâncias que definem se o tratamento é irregular estão as técnicas de tratamento de dados pessoais disponíveis à época em que foi realizado (art. 44, III). O critério evita julgar um tratamento antigo com a tecnologia de hoje.
 
 === lgpd-44-02
 gab: E

@@ -134,7 +134,7 @@ ref: lei13460 1
 trecho: A aplicação desta Lei não afasta a necessidade de cumprimento do disposto
 armadilha: comparacao
 dif: 2
-enunciado: Por ser norma especial, a Lei nº 13.460/2017 afasta a aplicação do Código de Defesa do Consumidor aos serviços públicos.
+enunciado: A Lei n.º 13.460/2017 estabelece normas básicas para participação, proteção e defesa dos direitos do usuário dos serviços públicos e, por ser norma especial, afasta a aplicação do Código de Defesa do Consumidor a esses serviços.
 comentario: Errado. O art. 1º, § 2º, diz o contrário: a lei não afasta as normas regulamentadoras específicas nem o CDC quando houver relação de consumo. O mesmo raciocínio vale para a LGPD, que manda aplicar a legislação do consumidor às violações em relações de consumo (art. 45).
 
 === pce-12
@@ -162,7 +162,7 @@ enunciado: É vedado exigir do usuário nova prova sobre fato já comprovado em 
 comentario: Errado. O art. 5º, XV, não traz essa ressalva: a vedação alcança fato já comprovado em documentação válida apresentada.
 
 === pce-14
-gab: C
+gab: E
 origem: adaptada
 prova: Adaptado de IADES · ANPD PSS 2025 · cargo 300 · questão 36
 bloco: lei-13460
@@ -170,8 +170,8 @@ ref: lei13460 5
 trecho: utilização de linguagem simples e compreensível, evitando o uso de siglas, jargões e estrangeirismos
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: o atendimento de certo órgão usa siglas e termos técnicos em inglês em todas as comunicações com o público. Assertiva: a prática contraria diretriz da Lei nº 13.460/2017, que manda usar linguagem simples e compreensível.
-comentario: Certo: art. 5º, XIV. A questão do PSS que pedia linguagem técnica e siglas para dar precisão estava errada por isso.
+enunciado: Situação hipotética: o atendimento de certo órgão usa siglas e termos técnicos em inglês em todas as comunicações com o público. Assertiva: a prática atende à Lei n.º 13.460/2017, que manda usar linguagem técnica e siglas para dar precisão às comunicações com o usuário.
+comentario: Errado. O art. 5º, XIV, da Lei 13.460/2017 manda utilizar linguagem simples e compreensível, evitando o uso de siglas, jargões e estrangeirismos. A questão do PSS que pedia linguagem técnica e siglas estava errada por isso.
 
 === pce-15
 gab: C
@@ -202,8 +202,8 @@ prova: Adaptado de IADES · ANPD PSS 2025 · cargo 100 · questão 28
 ref: lgpd 7
 trecho: para o cumprimento de obrigação legal ou regulatória pelo controlador
 armadilha: extrapolacao
-dif: 1
-enunciado: O tratamento de dados pessoais fundado no cumprimento de obrigação legal ou regulatória depende de autorização prévia da ANPD.
+dif: 2
+enunciado: Situação hipotética: empresa precisa enviar à Receita Federal dados de seus empregados para cumprir obrigação legal. Assertiva: esse tratamento depende de autorização prévia da ANPD, por não se fundar no consentimento dos titulares.
 comentario: Errado. Nenhuma hipótese do art. 7º depende de autorização prévia da ANPD. A autorização da Autoridade aparece em outro ponto: é uma das hipóteses de transferência internacional (art. 33, V).
 
 === pce-18
@@ -360,7 +360,7 @@ enunciado: Situação hipotética: um banco reviu, por meio de novo processament
 comentario: Errado. O art. 20 garante a revisão, mas não exige que ela seja humana: o § 3º, que previa revisão por pessoa natural, foi vetado na Lei 13.853/2019. A questão do PSS que falava em revisão humana sempre que possível refletia boa prática, não o texto da lei.
 
 === pce-31
-gab: C
+gab: E
 origem: adaptada
 prova: Adaptado de IADES · ANPD PSS 2025 · cargo 100 · questão 37
 bloco: lgpd-17-22
@@ -368,8 +368,8 @@ ref: lgpd 20
 trecho: informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada, observados os segredos comercial e industrial
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: cliente que teve crédito negado por sistema automatizado pediu à financeira explicação sobre os critérios usados. Assertiva: a financeira deve fornecer informações claras e adequadas sobre os critérios e procedimentos da decisão, podendo resguardar seus segredos comercial e industrial.
-comentario: Certo: art. 20, § 1º. É aqui que a explicabilidade de modelos complexos, como redes neurais profundas, vira desafio jurídico.
+enunciado: Situação hipotética: cliente que teve crédito negado por sistema automatizado pediu à financeira explicação sobre os critérios usados. Assertiva: a financeira deve fornecer as informações, ainda que isso exponha seus segredos comercial e industrial, que cedem ao direito de explicação.
+comentario: Errado. O controlador deve fornecer informações claras e adequadas sobre os critérios e procedimentos da decisão automatizada, observados os segredos comercial e industrial (art. 20, § 1º). Se recusar invocando segredo, a ANPD pode fazer auditoria para verificar aspectos discriminatórios (§ 2º).
 
 === pce-32
 gab: C
@@ -427,8 +427,8 @@ bloco: lgpd-17-22
 ref: lgpd 18
 trecho: a qualquer momento e mediante requisição
 armadilha: extrapolacao
-dif: 1
-enunciado: O titular só pode exercer o direito de acesso aos seus dados pessoais se demonstrar prejuízo concreto decorrente do tratamento.
+dif: 2
+enunciado: Situação hipotética: cliente pediu a uma loja virtual acesso aos dados pessoais que ela mantém sobre ele, sem relatar problema com o tratamento. Assertiva: o pedido pode ser recusado, pois o titular precisa demonstrar prejuízo concreto para exercer o direito de acesso.
 comentario: Errado. O art. 18 garante os direitos a qualquer momento, mediante requisição, sem exigir prova de prejuízo; o acesso é facilitado e gratuito (art. 9º e art. 18, § 5º).
 
 === pce-38
@@ -489,7 +489,7 @@ ref: mci 14
 trecho: é vedado guardar os registros de acesso a aplicações de internet
 armadilha: excecao
 dif: 2
-enunciado: Na provisão de conexão, é facultado ao provedor guardar os registros de acesso a aplicações de internet, desde que informe o usuário.
+enunciado: Na provisão de conexão à internet, cabe ao administrador de sistema autônomo manter os registros de conexão, sob sigilo, por um ano, e é facultado ao provedor guardar os registros de acesso a aplicações de internet, desde que informe o usuário.
 comentario: Errado. O art. 14 veda ao provedor de conexão, onerosa ou gratuita, guardar registros de acesso a aplicações de internet.
 
 === pce-43
@@ -573,7 +573,7 @@ ref: lei9784 49-A
 trecho: relacionados ao poder sancionador
 armadilha: excecao
 dif: 2
-enunciado: A decisão coordenada pode ser adotada no processo administrativo sancionador conduzido por agência reguladora, desde que justificada pela relevância da matéria.
+enunciado: A decisão coordenada, instância de natureza interinstitucional ou intersetorial que atua de forma compartilhada, pode ser adotada no processo administrativo sancionador conduzido por agência reguladora, desde que justificada pela relevância da matéria.
 comentario: Errado. O art. 49-A, § 6º, exclui da decisão coordenada os processos de licitação, os relacionados ao poder sancionador e aqueles em que estejam envolvidas autoridades de Poderes distintos.
 
 === pce-50
@@ -631,7 +631,7 @@ prova: Adaptado de IADES · ANPD PSS 2025 · cargo 100 · questão 21
 bloco: seginfo
 ref: doutrina
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: Diante de servidor comprometido, a primeira providência recomendada na resposta a incidentes é desligá-lo imediatamente, pois isso preserva as evidências para a perícia.
 comentario: Errado. Desligar a máquina apaga a memória volátil (processos, conexões, chaves em uso), que é evidência. A contenção costuma isolar o equipamento da rede, mantendo-o ligado até a coleta.
 
@@ -664,7 +664,7 @@ prova: Adaptado de IADES · ANPD PSS 2025 · cargo 100 · questão 22
 bloco: seginfo
 ref: doutrina
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: A criptografia simétrica com chave previamente compartilhada entre duas partes assegura o não repúdio, pois apenas elas conhecem a chave.
 comentario: Errado. Justamente porque as duas partes conhecem a mesma chave, qualquer uma poderia ter produzido a mensagem; não há como provar a autoria perante terceiros.
 
@@ -796,7 +796,7 @@ prova: Adaptado de IADES · ANPD PSS 2025 · cargo 100 · questão 40
 bloco: riscos
 ref: doutrina
 armadilha: sujeito
-dif: 2
+dif: 1
 enunciado: No modelo das três linhas, cabe à auditoria interna, como segunda linha, monitorar a aderência da organização às políticas e normas estabelecidas.
 comentario: Errado. A auditoria interna é a terceira linha e faz avaliação independente. Monitorar conformidade e apoiar a gestão de riscos é papel da segunda linha (funções de riscos e compliance); a primeira é a gestão que executa.
 
@@ -884,7 +884,7 @@ prova: Adaptado de IADES · ANPD PSS 2025 · cargo 200 · questão 43
 bloco: gestao-publica
 ref: doutrina
 armadilha: extrapolacao
-dif: 2
+dif: 1
 enunciado: Para que um problema ingresse na agenda política, é necessário que ele afete grupo com poder de influenciar os agentes políticos.
 comentario: Errado. O requisito é o problema ser percebido como relevante e de interesse coletivo, digno de ação pública. A pressão de grupos ajuda, mas não é condição necessária.
 
@@ -966,7 +966,7 @@ ref: cf88 109
 trecho: as causas em que a União, entidade autárquica ou empresa pública federal forem interessadas na condição de autoras, rés, assistentes ou oponentes
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: autarquia federal foi ré em ação de indenização. Assertiva: em regra, a causa é julgada pela justiça estadual.
+enunciado: Situação hipotética: cidadão ajuizou ação de indenização contra autarquia federal, alegando dano causado por servidor dela no exercício da função; o caso não envolve falência, acidente de trabalho nem matéria eleitoral ou trabalhista. Assertiva: a causa é julgada pela justiça estadual.
 comentario: Errado. A competência é dos juízes federais (CF, art. 109, I), ressalvadas falência, acidentes de trabalho e causas das justiças eleitoral e do trabalho. Vale para a ANPD, autarquia de natureza especial.
 
 === pce-85

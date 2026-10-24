@@ -17,7 +17,7 @@ comentario: Certo. O modelo memoriza em vez de generalizar. Validação com dado
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: O sobreajuste ocorre quando o modelo, por ser excessivamente simples, ajusta-se mal tanto aos dados de treino quanto a dados novos.
 comentario: Errado. Modelo simples demais, que falha até nos dados de treinamento, sofre de subajuste (underfitting). Sobreajuste é o excesso de ajuste aos dados de treinamento.
 
@@ -67,8 +67,8 @@ gab: E
 ref: lgpd 13
 trecho: senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro
 armadilha: conceito
-dif: 1
-enunciado: Pseudonimizar os dados usados no treinamento de um modelo os torna anonimizados e, portanto, fora do alcance da LGPD.
+dif: 2
+enunciado: Situação hipotética: empresa substituiu nomes e CPFs da base de treinamento de seu modelo por códigos, mantendo em ambiente seguro e separado a tabela que permite reverter a substituição. Assertiva: os dados passaram a ser anonimizados e estão fora do alcance da LGPD.
 comentario: Errado. Pseudonimização mantém a possibilidade de reidentificação pela informação adicional guardada pelo controlador (art. 13, § 4º): o dado segue pessoal. É boa medida de segurança, não saída da lei.
 
 === ia-09
@@ -83,7 +83,7 @@ comentario: Certo. O Regulamento (UE) 2024/1689 entrou em vigor em agosto de 202
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: No regulamento europeu de inteligência artificial, sistemas de avaliação de crédito de pessoas naturais são práticas proibidas, por apresentarem risco inaceitável.
 comentario: Errado. Avaliação de crédito de pessoas naturais é, em regra, alto risco, com requisitos, e não prática proibida. Os usos biométricos são proibidos apenas em hipóteses específicas, como a identificação biométrica remota em tempo real em espaços públicos para fins policiais, salvo exceções.
 
@@ -109,7 +109,7 @@ comentario: Certo: art. 12. Dados sintéticos gerados a partir de bases reais po
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: Em classificação com classes muito desbalanceadas, como detecção de fraudes raras, a acurácia é métrica suficiente para avaliar o modelo.
 comentario: Errado. Se 99% dos casos são legítimos, um modelo que diz sempre legítimo tem 99% de acurácia e não detecta nada. Usam-se precisão, revocação (recall) e F1.
 
@@ -127,24 +127,24 @@ ref: lgpd 11
 trecho: realização de estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais sensíveis
 armadilha: extrapolacao
 dif: 2
-enunciado: O treinamento de modelo de IA com dados de saúde dispensa hipótese legal de tratamento quando a finalidade declarada é de pesquisa.
+enunciado: Situação hipotética: empresa de tecnologia, que não é órgão de pesquisa, quer treinar modelo de inteligência artificial com prontuários médicos de pacientes, declarando finalidade de pesquisa. Assertiva: por se tratar de pesquisa, o tratamento dispensa hipótese legal.
 comentario: Errado. Dado de saúde é sensível e exige hipótese do art. 11, como consentimento específico ou estudo por órgão de pesquisa, com anonimização sempre que possível (inciso II, c). Declarar finalidade de pesquisa não basta.
 
 === ia-16
-gab: C
+gab: E
 bloco: lgpd-37-45
 ref: lgpd 38
 trecho: A autoridade nacional poderá determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: uma empresa usa sistema de inteligência artificial que decide, com base em dados pessoais, quem será entrevistado em processo seletivo. Assertiva: a ANPD pode determinar que o controlador elabore relatório de impacto à proteção de dados pessoais sobre esse tratamento.
-comentario: Certo: art. 38. Sistemas de IA que tratam dados sensíveis ou tomam decisões relevantes são candidatos naturais ao relatório.
+enunciado: Situação hipotética: uma empresa usa sistema de inteligência artificial que decide, com base em dados pessoais, quem será entrevistado em processo seletivo. Assertiva: a ANPD não pode exigir relatório de impacto, pois essa determinação só cabe quando o tratamento se fundar no legítimo interesse.
+comentario: Errado. A ANPD pode determinar ao controlador que elabore relatório de impacto à proteção de dados, inclusive de dados sensíveis, referente a suas operações de tratamento (art. 38). O legítimo interesse é uma das hipóteses em que a autoridade pode solicitá-lo (art. 10, § 3º), não a única.
 
 === ia-17
 gab: E
 ref: doutrina
 armadilha: extrapolacao
-dif: 2
+dif: 1
 enunciado: Por não tratar de inteligência artificial em capítulo próprio, a LGPD não alcança o tratamento de dados pessoais realizado por sistemas de IA.
 comentario: Errado. A LGPD é tecnologicamente neutra. O ponto mais ligado à IA é o art. 20 (decisões automatizadas), somado aos princípios, às bases legais e ao relatório de impacto.
 
@@ -164,7 +164,7 @@ ref: lgpd 7
 trecho: O tratamento de dados pessoais cujo acesso é público deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização
 armadilha: causalidade
 dif: 2
-enunciado: A raspagem de dados pessoais publicados na internet para treinar modelos de IA é lícita, porque os dados já estão publicamente disponíveis.
+enunciado: Situação hipotética: startup coletou automaticamente perfis públicos de redes sociais, com nomes e fotos, para treinar modelo de inteligência artificial, sem avaliar a finalidade da publicação. Assertiva: a raspagem é lícita, porque os dados já estão publicamente disponíveis.
 comentario: Errado. Dado de acesso público continua pessoal: o tratamento deve considerar a finalidade, a boa-fé e o interesse público da disponibilização (art. 7º, § 3º), e novas finalidades exigem propósito legítimo e específico (§ 7º).
 
 === ia-20

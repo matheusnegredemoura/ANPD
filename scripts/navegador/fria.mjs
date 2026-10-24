@@ -20,6 +20,7 @@ const p = await ctx.newPage();
 p.setDefaultTimeout(8000);
 vigiarErros(p, erros);
 await p.goto(APP);
+await p.waitForSelector('.aba');
 await p.waitForTimeout(600);
 
 const abrirPrimeiro = async () => {
@@ -36,6 +37,8 @@ await passo('artigo lido hoje abre normal; lido em outro dia abre em leitura fri
   // O app grava o estado ao sair da página (pagehide); sem bloquear essa gravação, o reload desfaria a data trocada aqui
   await p.evaluate((k) => { const s = JSON.parse(localStorage.getItem('painel-anpd-v3')); s.perfil.lidos[k] = '2026-01-02'; localStorage.setItem('painel-anpd-v3', JSON.stringify(s)); Storage.prototype.setItem = () => {}; }, k);
   await p.reload();
+  // Com a bateria em paralelo o app demora mais a abrir: espera a barra de abas antes de navegar
+  await p.waitForSelector('.aba');
   await p.waitForTimeout(600);
   // O mesmo artigo (o ranking pode mudar de ordem depois da leitura)
   await p.click('.aba[data-vista="lei"]');

@@ -15,8 +15,8 @@ gab: E
 ref: lgpd 52, II
 trecho: limitada, no total, a R$ 50.000.000,00 (cinquenta milhões de reais) por infração
 armadilha: numero
-dif: 1
-enunciado: A multa simples aplicada pela ANPD é limitada a R$ 50 milhões por ano-calendário, somadas todas as infrações cometidas pelo mesmo agente.
+dif: 2
+enunciado: A multa simples aplicada pela ANPD pode chegar a 2% do faturamento no Brasil no último exercício, excluídos os tributos, e é limitada a R$ 50 milhões por ano-calendário, somadas todas as infrações cometidas pelo mesmo agente.
 comentario: O teto de R$ 50 milhões é por infração, não por ano nem por agente. Vários processos podem gerar várias multas, cada uma com seu teto.
 
 === lgpd-52-03
@@ -25,8 +25,8 @@ ref: lgpd 52, II
 trecho: do faturamento da pessoa jurídica de direito privado, grupo ou conglomerado no Brasil no seu último exercício, excluídos os tributos
 armadilha: comparacao
 dif: 2
-enunciado: A multa simples da LGPD pode alcançar até 2% do faturamento mundial do grupo econômico no último exercício, incluídos os tributos.
-comentario: Dois erros: a base é o faturamento no Brasil (não o mundial) e os tributos são excluídos. Faturamento mundial é a base do GDPR europeu (até 4%), uma comparação que costuma aparecer em prova.
+enunciado: Entre as sanções da LGPD está a multa simples, que pode alcançar até 2% do faturamento mundial do grupo econômico no último exercício, excluídos os tributos, limitada a R$ 50 milhões por infração.
+comentario: Errado. A base é o faturamento da pessoa jurídica, grupo ou conglomerado no Brasil, e não o mundial, no último exercício, excluídos os tributos, limitada a R$ 50 milhões por infração (art. 52, II).
 
 === lgpd-52-04
 gab: C
@@ -52,7 +52,7 @@ ref: lgpd 52, IV
 trecho: publicização da infração após devidamente apurada e confirmada a sua ocorrência
 armadilha: excecao
 dif: 2
-enunciado: A publicização da infração pode ser determinada pela ANPD de forma cautelar, antes da confirmação de sua ocorrência, para proteger os titulares.
+enunciado: Situação hipotética: durante a apuração de grave incidente de segurança, ainda sem confirmação da infração, a ANPD avaliou divulgar o caso para alertar os titulares. Assertiva: a sanção de publicização da infração pode ser aplicada nesse momento, de forma cautelar.
 comentario: O inciso IV do art. 52 só admite a publicização “após devidamente apurada e confirmada a sua ocorrência”.
 
 === lgpd-52-07
@@ -132,8 +132,8 @@ gab: E
 ref: lgpd 52, § 1º
 trecho: de forma gradativa, isolada ou cumulativa
 armadilha: extrapolacao
-dif: 1
-enunciado: Em respeito à proporcionalidade, as sanções da LGPD devem ser aplicadas de forma isolada, vedada sua cumulação no mesmo processo.
+dif: 2
+enunciado: Situação hipotética: no mesmo processo sancionador, a ANPD aplicou a um controlador advertência com medidas corretivas e publicização da infração. Assertiva: em respeito à proporcionalidade, as sanções da LGPD devem ser aplicadas de forma isolada, vedada essa cumulação.
 comentario: O § 1º do art. 52 admite expressamente a aplicação cumulativa das sanções.
 
 === lgpd-52-16
@@ -188,17 +188,17 @@ ref: lgpd 52, § 7º
 trecho: poderão ser objeto de conciliação direta entre controlador e titular e, caso não haja acordo, o controlador estará sujeito à aplicação das penalidades
 armadilha: extrapolacao
 dif: 2
-enunciado: Vazamentos individuais de dados devem ser obrigatoriamente submetidos à ANPD, vedada a conciliação direta entre controlador e titular.
+enunciado: Situação hipotética: em vazamento individual, dados de um único cliente foram expostos, e o controlador propôs ao titular um acordo de reparação. Assertiva: a conciliação direta é vedada, e o caso deve ser obrigatoriamente submetido à ANPD.
 comentario: O § 7º do art. 52 admite justamente a conciliação direta entre controlador e titular nesses casos.
 
 === lgpd-52-22
-gab: C
+gab: E
 ref: lgpd 52, § 2º
 trecho: O disposto neste artigo não substitui a aplicação de sanções administrativas, civis ou penais definidas na Lei nº 8.078, de 11 de setembro de 1990, e em legislação específica
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: depois de a ANPD multar uma operadora de telefonia por infração à LGPD, o Procon aplicou-lhe sanção com base no Código de Defesa do Consumidor. Assertiva: a sanção da LGPD não impede, por si só, a aplicação das sanções previstas no CDC.
-comentario: § 2º do art. 52. Por isso um Procon pode aplicar sanção com base no CDC, embora as sanções da própria LGPD sejam exclusivas da ANPD (art. 55-K).
+enunciado: Situação hipotética: depois de a ANPD multar uma operadora de telefonia por infração à LGPD, o Procon aplicou-lhe sanção com base no Código de Defesa do Consumidor. Assertiva: a sanção da LGPD impede a aplicação das sanções do CDC, pois a competência sancionatória sobre proteção de dados é exclusiva da ANPD.
+comentario: Errado. O art. 52 não substitui a aplicação de sanções administrativas, civis ou penais definidas no CDC e em legislação específica (art. 52, § 2º). As sanções da própria LGPD é que são exclusivas da ANPD (art. 55-K).
 
 === lgpd-52-23
 gab: C
@@ -210,13 +210,13 @@ enunciado: Situação hipotética: ao calcular multa simples, a ANPD não dispun
 comentario: § 4º do art. 52. A regra é considerar o ramo da infração; o faturamento total entra quando esse valor falta, vem incompleto ou não é demonstrado de forma inequívoca e idônea.
 
 === lgpd-52-24
-gab: C
+gab: E
 ref: lgpd 52, § 6º, II
 trecho: em caso de controladores submetidos a outros órgãos e entidades com competências sancionatórias, ouvidos esses órgãos
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: a ANPD pretende proibir parcialmente o exercício de atividades de tratamento de dados por um banco, sujeito à fiscalização do Banco Central. Assertiva: antes de aplicar a sanção, a ANPD deve ouvir o Banco Central.
-comentario: § 6º, II, do art. 52. Exemplo: um banco, submetido ao Banco Central. A oitiva vale para as sanções dos incisos X, XI e XII.
+enunciado: Situação hipotética: a ANPD pretende proibir parcialmente o exercício de atividades de tratamento de dados por um banco, sujeito à fiscalização do Banco Central. Assertiva: a ANPD pode aplicar a sanção diretamente, pois a LGPD não prevê a oitiva de outros órgãos antes da proibição de atividades.
+comentario: Errado. As sanções dos incisos X, XI e XII do art. 52, aplicadas a controladores submetidos a outros órgãos com competências sancionatórias, exigem a oitiva desses órgãos (art. 52, § 6º, II), além de já ter sido imposta antes outra sanção ao caso (inciso I).
 
 === lgpd-53-01
 gab: E

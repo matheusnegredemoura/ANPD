@@ -16,7 +16,7 @@ comentario: Certo. É saída obrigatória do tratamento de riscos (requisito 6.1
 gab: E
 ref: doutrina ISO/IEC 27001
 armadilha: absoluto
-dif: 2
+dif: 1
 enunciado: A ISO/IEC 27001 obriga a organização a implementar todos os controles de seu Anexo A, sem possibilidade de exclusão.
 comentario: Errado. Os controles são escolhidos a partir da avaliação de riscos. O Anexo A serve de lista de referência para conferir se nada necessário ficou de fora, e as exclusões são justificadas na declaração de aplicabilidade.
 
@@ -32,7 +32,7 @@ comentario: Certo. Em 2022 os controles foram reagrupados em quatro temas: organ
 gab: E
 ref: doutrina ISO/IEC 27001
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: A auditoria interna e a análise crítica pela direção são práticas recomendadas pela ISO/IEC 27001, mas facultativas para quem busca a certificação.
 comentario: Errado. As duas são requisitos da avaliação de desempenho (9.2 e 9.3). As não conformidades encontradas exigem ação corretiva (10.2): é assim que o sistema de gestão melhora continuamente.
 
@@ -144,7 +144,7 @@ comentario: Certo: controle 8.8 da ISO/IEC 27002:2022. Muitos incidentes graves 
 gab: E
 ref: doutrina Códigos maliciosos
 armadilha: comparacao
-dif: 2
+dif: 1
 enunciado: O rootkit é código malicioso cuja principal característica é exibir mensagem de resgate ao usuário, informando que seus arquivos foram cifrados.
 comentario: Errado. O rootkit esconde a presença do invasor e de outros códigos maliciosos, em geral alterando componentes do sistema operacional. A mensagem de resgate é marca do ransomware.
 
@@ -160,7 +160,7 @@ comentario: Certo. Cada máquina infectada é um bot (ou zumbi) e recebe ordens 
 gab: E
 ref: doutrina Engenharia social
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: O spear phishing caracteriza-se pelo envio massivo e indiscriminado de mensagens genéricas, sem personalização, ao maior número possível de destinatários.
 comentario: Errado. O spear phishing é direcionado: usa informações sobre a vítima ou sua organização para parecer legítimo. Quando o alvo é dirigente de alto escalão, fala-se em whaling. O envio em massa é o phishing comum.
 
@@ -256,6 +256,6 @@ comentario: Certo. O sandbox regulatório é ambiente experimental em que o regu
 gab: E
 ref: doutrina Autenticação biométrica
 armadilha: absoluto
-dif: 2
+dif: 1
 enunciado: A autenticação biométrica é imune a falsificação e dispensa outros fatores, pois as características físicas de cada pessoa são únicas.
 comentario: Errado. A biometria pode ser fraudada com moldes, fotos ou gravações, e, se vazar, não pode ser trocada como uma senha. Para a LGPD, o dado biométrico é dado pessoal sensível (art. 5º, II).

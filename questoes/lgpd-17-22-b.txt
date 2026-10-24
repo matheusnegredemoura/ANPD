@@ -11,13 +11,13 @@ enunciado: O art. 17 da LGPD assegura à pessoa natural a titularidade de seus d
 comentario: O art. 17 menciona liberdade, intimidade e privacidade. Igualdade e propriedade não constam desse dispositivo; a troca de um item do trio é a pegadinha.
 
 === lgpd2-18-01
-gab: C
+gab: E
 ref: lgpd 18, caput
 trecho: a qualquer momento e mediante requisição
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: uma empresa informou ao titular que ele só poderia pedir acesso a seus dados anualmente. Assertiva: a restrição contraria a LGPD, que permite exercer os direitos do art. 18 perante o controlador a qualquer momento, mediante requisição.
-comentario: O caput do art. 18 diz “a qualquer momento e mediante requisição”. Itens que inventam periodicidade (uma vez por ano, a cada seis meses) estão errados.
+enunciado: Situação hipotética: uma empresa informou ao titular que ele só poderia pedir acesso a seus dados anualmente. Assertiva: a restrição é admitida pela LGPD, que permite ao controlador fixar a periodicidade dos pedidos de acesso.
+comentario: Errado. O art. 18, caput, garante o exercício dos direitos a qualquer momento e mediante requisição. Itens que inventam periodicidade (uma vez por ano, a cada seis meses) estão errados.
 
 === lgpd2-18-02
 gab: E
@@ -45,7 +45,7 @@ ref: lgpd 18, § 3º
 trecho: mediante requerimento expresso do titular ou de representante legalmente constituído, a agente de tratamento
 armadilha: sujeito
 dif: 2
-enunciado: Os direitos do titular são exercidos mediante requerimento expresso dirigido exclusivamente à autoridade nacional, que o encaminha ao controlador responsável.
+enunciado: Os direitos do titular podem ser exercidos por ele ou por representante legalmente constituído, e o requerimento, atendido sem custos para o titular, é dirigido exclusivamente à autoridade nacional, que o encaminha ao controlador responsável.
 comentario: O § 3º manda dirigir o requerimento “a agente de tratamento”. A petição à ANPD contra o controlador (§ 1º) é outro instrumento, que não substitui o requerimento ao agente.
 
 === lgpd2-18-05
@@ -113,30 +113,30 @@ comentario: O art. 20 alcança decisões tomadas “unicamente” com base em tr
 pesquisar: Decisão automatizada e revisão humana (LGPD × GDPR art. 22)
 
 === lgpd2-20-02
-gab: C
+gab: E
 ref: lgpd 20, caput
 trecho: incluídas as decisões destinadas a definir o seu perfil pessoal, profissional, de consumo e de crédito
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: um banco negou crédito a um cliente por meio de sistema de pontuação totalmente automatizado. Assertiva: o cliente pode solicitar a revisão dessa decisão, pois o direito alcança decisões destinadas a definir o perfil de crédito do titular.
-comentario: Art. 20, caput: perfil pessoal, profissional, de consumo e de crédito, além dos aspectos da personalidade.
+enunciado: Situação hipotética: um banco negou crédito a um cliente por meio de sistema de pontuação totalmente automatizado. Assertiva: o cliente não pode solicitar a revisão, pois o direito alcança decisões sobre perfil pessoal e profissional, mas não sobre perfil de crédito.
+comentario: Errado. O art. 20, caput, garante a revisão de decisões tomadas unicamente com base em tratamento automatizado que afetem os interesses do titular, incluídas as destinadas a definir seu perfil pessoal, profissional, de consumo e de crédito ou aspectos de sua personalidade.
 pesquisar: Credit scoring e LGPD
 
 === lgpd2-21-01
-gab: C
+gab: E
 ref: lgpd 21
 trecho: Os dados pessoais referentes ao exercício regular de direitos pelo titular não podem ser utilizados em seu prejuízo.
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: uma operadora de plano de saúde recusou-se a renovar o contrato de um cliente porque ele havia pedido, meses antes, a correção de seus dados cadastrais. Assertiva: a recusa contraria a LGPD, que proíbe usar em prejuízo do titular os dados referentes ao exercício regular de seus direitos.
-comentario: Art. 21, literal. Aparece em prova como situação hipotética, por exemplo o uso de reclamação ou ação judicial do titular para negar-lhe serviço.
+enunciado: Situação hipotética: uma operadora de plano de saúde recusou-se a renovar o contrato de um cliente porque ele havia pedido, meses antes, a correção de seus dados cadastrais. Assertiva: a recusa é lícita, pois a LGPD protege o exercício dos direitos do titular, mas não impede que essa informação seja considerada em decisões contratuais.
+comentario: Errado. Os dados pessoais referentes ao exercício regular de direitos pelo titular não podem ser utilizados em seu prejuízo (art. 21). Aparece em prova como situação hipotética, por exemplo o uso de reclamação ou ação judicial do titular para negar-lhe serviço.
 
 === lgpd2-22-01
-gab: C
+gab: E
 ref: lgpd 22
 trecho: poderá ser exercida em juízo, individual ou coletivamente
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: diante de vazamento que atingiu milhares de clientes de um banco, uma associação de defesa do consumidor ajuizou ação coletiva. Assertiva: a LGPD admite que a defesa dos direitos dos titulares seja exercida em juízo coletivamente, na forma da legislação sobre tutela coletiva.
-comentario: Art. 22. A tutela coletiva segue a legislação pertinente, como a Lei da Ação Civil Pública e o Código de Defesa do Consumidor.
+enunciado: Situação hipotética: diante de vazamento que atingiu milhares de clientes de um banco, uma associação de defesa do consumidor ajuizou ação coletiva. Assertiva: a LGPD restringe a defesa dos direitos dos titulares à tutela individual, vedada a ação coletiva.
+comentario: Errado. A defesa dos interesses e dos direitos dos titulares pode ser exercida em juízo, individual ou coletivamente, na forma da legislação sobre tutela individual e coletiva (art. 22), como a Lei da Ação Civil Pública e o CDC.
 pesquisar: Ação civil pública por vazamento de dados

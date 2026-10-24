@@ -25,8 +25,8 @@ gab: E
 ref: nistcsf S2
 trecho: These outcomes are not a checklist of actions to perform; specific actions taken to achieve an outcome will vary by organization and use case
 armadilha: conceito
-dif: 1
-enunciado: O Core do NIST CSF 2.0 é uma lista de verificação de ações obrigatórias, idênticas para qualquer organização que o adote.
+dif: 2
+enunciado: O Core do NIST CSF 2.0 organiza resultados em funções, categorias e subcategorias e funciona como lista de verificação de ações obrigatórias, idênticas para qualquer organização que o adote.
 comentario: O Core é uma taxonomia de resultados, não um checklist. As ações para alcançar cada resultado variam conforme a organização e o caso de uso (Seção 2).
 
 === nist-04
@@ -44,7 +44,7 @@ ref: nistcsf S1
 trecho: It does not prescribe outcomes nor how they may be achieved.
 armadilha: extrapolacao
 dif: 2
-enunciado: O NIST CSF 2.0 prescreve os resultados de cibersegurança que cada organização deve atingir e define os controles obrigatórios para alcançá-los.
+enunciado: O NIST CSF 2.0 oferece uma taxonomia de resultados de cibersegurança de alto nível, utilizável por organizações de qualquer porte, e prescreve os resultados que cada organização deve atingir, com os controles obrigatórios para alcançá-los.
 comentario: Seção 1: o documento descreve resultados desejáveis, sem prescrever os resultados nem a forma de alcançá-los. Práticas e controles aparecem nos recursos online complementares (referências informativas, exemplos de implementação, guias de início rápido).
 
 === nist-06
@@ -73,8 +73,8 @@ ref: nistcsf S3
 trecho: A Current Profile specifies the Core outcomes that an organization is currently achieving
 trecho: A Target Profile specifies the desired outcomes that an organization has selected and prioritized
 armadilha: conceito
-dif: 1
-enunciado: No NIST CSF 2.0, o perfil-alvo (Target Profile) descreve os resultados do Core que a organização já alcança atualmente.
+dif: 2
+enunciado: No NIST CSF 2.0, os perfis organizacionais descrevem a postura de cibersegurança da organização em termos dos resultados do Core, e o perfil-alvo descreve os resultados que a organização já alcança atualmente.
 comentario: Quem descreve o que a organização já alcança é o perfil atual (Current Profile). O perfil-alvo traz os resultados desejados, escolhidos e priorizados. A análise de lacunas entre os dois gera o plano de ação (Seção 3.1).
 
 === nist-09
@@ -92,20 +92,20 @@ gab: E
 ref: nistcsf S2
 trecho: GOVERN addresses an understanding of organizational context; the establishment of cybersecurity strategy and cybersecurity supply chain risk management
 armadilha: sujeito
-dif: 1
-enunciado: No NIST CSF 2.0, a gestão de riscos de cibersegurança da cadeia de suprimentos integra a função identificar.
+dif: 2
+enunciado: O NIST CSF 2.0 organiza seu Core em seis funções, entre elas governar e identificar, e a gestão de riscos de cibersegurança da cadeia de suprimentos integra a função identificar, ao lado da gestão de ativos.
 comentario: Está na função governar, categoria GV.SC (Seção 2 e Apêndice A). Na função identificar ficam gestão de ativos (ID.AM), avaliação de riscos (ID.RA) e melhoria (ID.IM).
 
 === nist-11
-gab: C
+gab: E
 ref: nistcsf PR.DS
 trecho: PR.DS-01: The confidentiality, integrity, and availability of data-at-rest are protected
 trecho: PR.DS-02: The confidentiality, integrity, and availability of data-in-transit are protected
 trecho: PR.DS-10: The confidentiality, integrity, and availability of data-in-use are protected
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: órgão cifra os dados armazenados e os que trafegam em rede, mas não protege os dados enquanto estão em processamento. Assertiva: o NIST CSF 2.0 prevê também a proteção dos dados em uso, na categoria segurança de dados da função proteger.
-comentario: Apêndice A, categoria PR.DS. Repare na numeração com lacunas (01, 02, 10, 11): segundo o próprio Apêndice A, as lacunas indicam subcategorias da versão 1.1 que foram realocadas.
+enunciado: Situação hipotética: órgão cifra os dados armazenados e os que trafegam em rede, mas não protege os dados enquanto estão em processamento. Assertiva: o NIST CSF 2.0 limita a segurança de dados da função proteger aos dados armazenados e em trânsito, sem tratar dos dados em uso.
+comentario: Errado. A categoria segurança de dados (PR.DS) da função proteger abrange a confidencialidade, a integridade e a disponibilidade dos dados em repouso (PR.DS-01), em trânsito (PR.DS-02) e em uso (PR.DS-10).
 
 === nist-12
 gab: E
@@ -132,7 +132,7 @@ ref: nistcsf GV.OC
 trecho: GV.OC-03: Legal, regulatory, and contractual requirements regarding cybersecurity — including privacy and civil liberties obligations — are understood and managed
 armadilha: excecao
 dif: 2
-enunciado: A subcategoria GV.OC-03 do NIST CSF 2.0 trata apenas dos requisitos contratuais de cibersegurança, deixando de fora as obrigações de privacidade.
+enunciado: A categoria contexto organizacional (GV.OC) do NIST CSF 2.0 trata da missão e das expectativas das partes interessadas, e sua subcategoria GV.OC-03 cuida dos requisitos contratuais de cibersegurança, deixando de fora as obrigações de privacidade.
 comentario: GV.OC-03 abrange requisitos legais, regulatórios e contratuais, inclusive obrigações de privacidade e de liberdades civis. Para um órgão brasileiro, é aqui que entra o cumprimento da LGPD dentro do CSF.
 
 === nist-15

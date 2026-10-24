@@ -20,7 +20,7 @@ ref: gdpr 10
 trecho: Processing of personal data relating to criminal convictions and offences or related security measures based on Article 6(1)
 armadilha: comparacao
 dif: 2
-enunciado: No GDPR, os dados relativos a condenações penais e infrações integram as categorias especiais de dados pessoais do art. 9º.
+enunciado: O GDPR proíbe, em regra, o tratamento das categorias especiais de dados do art. 9.º, como os que revelem a origem racial ou étnica e as opiniões políticas, e os dados relativos a condenações penais e infrações integram essas categorias.
 comentario: Errado. Têm regime próprio, no art. 10. As categorias especiais do art. 9º são origem racial ou étnica, opiniões políticas, convicções religiosas ou filosóficas, filiação sindical, dados genéticos, biométricos para identificação, de saúde e de vida ou orientação sexual.
 
 === gd4-03
@@ -47,7 +47,7 @@ ref: gdpr 12
 trecho: in any event within one month of receipt of the request
 armadilha: comparacao
 dif: 2
-enunciado: No GDPR, o responsável pelo tratamento deve responder ao pedido de acesso do titular em até quinze dias, prazo improrrogável.
+enunciado: Situação hipotética: titular apresentou pedido de acesso a uma empresa europeia sujeita ao GDPR, que alegou complexidade para estender o prazo de resposta. Assertiva: o pedido deve ser respondido em até quinze dias, prazo improrrogável.
 comentario: Errado. O prazo é de um mês, prorrogável por mais dois (art. 12, n.º 3). Quinze dias é o prazo da declaração completa da LGPD (art. 19, II).
 
 === gd4-06
@@ -64,7 +64,7 @@ gab: E
 ref: gdpr 12
 trecho: The controller shall bear the burden of demonstrating the manifestly unfounded or excessive character of the request
 armadilha: sujeito
-dif: 2
+dif: 1
 enunciado: No GDPR, cabe ao titular demonstrar que seu pedido não é manifestamente infundado nem excessivo, para que o responsável seja obrigado a atendê-lo.
 comentario: Errado. O ônus é do responsável pelo tratamento (art. 12, n.º 5, parte final). A regra é o atendimento gratuito.
 
@@ -101,7 +101,7 @@ ref: gdpr 16
 trecho: the data subject shall have the right to have incomplete personal data completed, including by means of providing a supplementary statement
 armadilha: rol
 dif: 2
-enunciado: O direito de retificação do GDPR limita-se à correção de dados inexatos e não alcança a complementação de dados incompletos.
+enunciado: O GDPR assegura ao titular o direito de obter do responsável, sem demora injustificada, a retificação dos dados inexatos, mas esse direito não alcança a complementação de dados incompletos, nem por meio de declaração adicional.
 comentario: Errado. O art. 16 garante também completar dados incompletos, inclusive por declaração adicional. Na LGPD, o art. 18, III, fala em correção de dados incompletos, inexatos ou desatualizados.
 
 === gd4-12
@@ -146,7 +146,7 @@ ref: gdpr 29
 trecho: shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law
 armadilha: extrapolacao
 dif: 2
-enunciado: No GDPR, o subcontratante pode tratar os dados para finalidades próprias, desde que compatíveis com as instruções recebidas do responsável pelo tratamento.
+enunciado: No GDPR, o subcontratante deve oferecer garantias suficientes de que adotará medidas técnicas e organizativas adequadas e pode tratar os dados para finalidades próprias, desde que compatíveis com as instruções recebidas do responsável pelo tratamento.
 comentario: Errado. Quem age sob a autoridade do responsável ou do subcontratante só trata os dados segundo as instruções do responsável, salvo exigência legal (art. 29). O subcontratante que define finalidades próprias passa a ser responsável quanto a esse tratamento (art. 28, n.º 10). Na LGPD, o operador segue as instruções do controlador (art. 39).
 
 === gd4-17
@@ -164,7 +164,7 @@ ref: gdpr 40
 trecho: Associations and other bodies representing categories of controllers or processors may prepare codes of conduct
 armadilha: sujeito
 dif: 2
-enunciado: No RGPD, os códigos de conduta são elaborados pelas autoridades de controle, cabendo aos responsáveis pelo tratamento aderir a eles.
+enunciado: No RGPD, os códigos de conduta destinam-se a contribuir para a correta aplicação do regulamento, considerando as características dos diferentes setores, e são elaborados pelas autoridades de controle, cabendo aos responsáveis pelo tratamento aderir a eles.
 comentario: Errado. Associações e outros organismos representativos de responsáveis ou subcontratantes elaboram os códigos, que a autoridade de controle aprova (art. 40, n.ºs 2 e 5). Na LGPD, controladores e operadores podem formular regras de boas práticas, individualmente ou por associações (art. 50).
 
 === gd4-19
@@ -181,8 +181,8 @@ gab: E
 ref: gdpr 52
 trecho: shall neither seek nor take instructions from anybody
 armadilha: conceito
-dif: 1
-enunciado: No GDPR, as autoridades de controle podem receber instruções do governo do respectivo Estado-membro em matéria de política de proteção de dados.
+dif: 2
+enunciado: No GDPR, cada Estado-membro estabelece uma ou mais autoridades de controle independentes, responsáveis pela fiscalização da aplicação do regulamento, e essas autoridades podem receber instruções do respectivo governo em matéria de política de proteção de dados.
 comentario: Errado. Atuam com total independência; seus membros não pedem nem recebem instruções de ninguém (art. 52, n.ºs 1 e 2), e o Estado deve garantir-lhes recursos e pessoal próprios (n.ºs 4 e 5).
 
 === gd4-21
@@ -209,7 +209,7 @@ ref: gdpr 65
 trecho: by a two-thirds majority of the members of the Board
 armadilha: numero
 dif: 3
-enunciado: As decisões vinculativas do Comitê Europeu de Proteção de Dados na resolução de litígios entre autoridades de controle são adotadas por unanimidade.
+enunciado: Para resolver litígios entre autoridades de controle, o Comitê Europeu de Proteção de Dados adota decisões vinculativas no âmbito do mecanismo de controle da coerência, e essas decisões são tomadas por unanimidade de seus membros.
 comentario: Errado. Exige-se maioria de dois terços em um mês, prorrogável por mais um (art. 65, n.º 2); não alcançada, decide-se por maioria simples em duas semanas, com voto de desempate do presidente (n.º 3).
 
 === gd4-24
@@ -254,7 +254,7 @@ ref: gdpr 85
 trecho: Member States shall provide for exemptions or derogations
 armadilha: absoluto
 dif: 2
-enunciado: O GDPR não admite isenções para o tratamento com finalidades jornalísticas, ao qual seus princípios e regras se aplicam integralmente.
+enunciado: O GDPR reconhece o direito à liberdade de expressão e de informação, que deve ser conciliado com a proteção de dados, mas não admite isenções para o tratamento com finalidades jornalísticas, ao qual suas regras se aplicam integralmente.
 comentario: Errado. Os Estados-membros conciliam por lei a proteção de dados com a liberdade de expressão e preveem isenções ou derrogações para fins jornalísticos, acadêmicos, artísticos ou literários (art. 85). A LGPD foi mais direta: não se aplica ao tratamento para fins exclusivamente jornalísticos e artísticos (art. 4º, II, a).
 
 === gd4-29
@@ -271,6 +271,6 @@ gab: E
 ref: gdpr 88
 trecho: Member States may, by law or by collective agreements, provide for more specific rules
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: O GDPR proíbe os Estados-membros de criar regras específicas sobre o tratamento de dados pessoais dos empregados no contexto das relações de trabalho.
 comentario: Errado. Os Estados-membros podem, por lei ou convenção coletiva, prever regras mais específicas (art. 88, n.º 1), com medidas que protejam a dignidade, a transparência e o monitoramento no local de trabalho (n.º 2).

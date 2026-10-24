@@ -19,7 +19,7 @@ ref: res4 9
 trecho: II - houver necessidade de imposição de medidas corretivas
 armadilha: excecao
 dif: 3
-enunciado: Caracterizada reincidência específica em infração leve, a ANPD fica impedida de aplicar advertência, ainda que haja necessidade de impor medidas corretivas.
+enunciado: Situação hipotética: agente de tratamento cometeu infração leve com reincidência específica, e a ANPD verificou a necessidade de impor medidas corretivas. Assertiva: em razão da reincidência, a ANPD fica impedida de aplicar advertência.
 comentario: Errado. As hipóteses do art. 9º são alternativas (“ou”): além da infração leve ou média sem reincidência específica (I), a advertência cabe quando houver necessidade de impor medidas corretivas (II).
 
 === ae-03
@@ -73,7 +73,7 @@ ref: res4 23
 trecho: exceto nos casos em que esta comunicação seja comprovadamente impossível ou implique esforço desproporcional
 armadilha: excecao
 dif: 2
-enunciado: Intimado da sanção de eliminação de dados, o infrator deve comunicá-la a todos os agentes com quem compartilhou os dados, sem exceção.
+enunciado: Situação hipotética: infrator intimado da sanção de eliminação de dados os compartilhara, anos antes, com centenas de parceiros, alguns já extintos, o que torna a comunicação comprovadamente impossível em parte. Assertiva: ele deve comunicar a sanção a todos esses agentes, sem exceção.
 comentario: Errado. A comunicação é dispensada quando comprovadamente impossível ou de esforço desproporcional, hipóteses avaliadas pela ANPD (art. 23, § 2º). A mesma ressalva vale para o bloqueio (art. 22).
 
 === ae-09
@@ -81,8 +81,8 @@ gab: E
 ref: res4 25
 trecho: a ANPD deverá considerar o interesse público, o impacto aos direitos dos titulares de dados pessoais e a classificação da infração
 armadilha: rol
-dif: 1
-enunciado: Para fixar o prazo da suspensão do exercício da atividade de tratamento, a ANPD considera exclusivamente a classificação da infração.
+dif: 2
+enunciado: A suspensão do exercício da atividade de tratamento é sanção prevista na LGPD, e, para fixar seu prazo, a ANPD considera exclusivamente a classificação da infração, sem avaliar o impacto aos direitos dos titulares.
 comentario: Errado. Considera também o interesse público e o impacto aos direitos dos titulares (art. 25, § 2º). O prazo máximo é de seis meses, prorrogável por igual período (§ 1º).
 
 === ae-10
@@ -100,7 +100,7 @@ ref: res4 5
 trecho: A aplicação de sanção não exclui a possibilidade de adoção de outras medidas administrativas pela ANPD
 armadilha: extrapolacao
 dif: 2
-enunciado: Aplicada a sanção, a ANPD fica impedida de adotar outras medidas administrativas para levar o infrator à conformidade com a LGPD.
+enunciado: Situação hipotética: a ANPD aplicou multa simples a uma empresa e, depois, verificou que a irregularidade persistia. Assertiva: aplicada a sanção, a ANPD fica impedida de adotar outras medidas administrativas para levar o infrator à conformidade.
 comentario: Errado. A sanção não exclui outras medidas previstas na LGPD, na Resolução 1/2021 e nas demais normas (art. 5º, § 1º). E, sem regularização no prazo, a atuação progride para sanções mais graves (§ 2º).
 
 === ae-12
@@ -109,7 +109,7 @@ ref: res4 6
 trecho: serão realizadas conforme o disposto no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador
 armadilha: sujeito
 dif: 2
-enunciado: A intimação da sanção e a contagem dos prazos do regulamento de dosimetria seguem as regras do Código de Processo Civil.
+enunciado: O regulamento de dosimetria da ANPD disciplina a aplicação das sanções da LGPD, e a intimação da sanção e a contagem de seus prazos seguem as regras do Código de Processo Civil.
 comentario: Errado. Seguem o regulamento de fiscalização e do processo sancionador, a Resolução CD/ANPD nº 1/2021 (art. 6º).
 
 === ae-13
@@ -209,7 +209,7 @@ ref: res18 5
 trecho: faz presumir sua competência sobre toda a estrutura organizacional subordinada ao órgão, exceto em caso de ressalva expressa no ato de indicação
 armadilha: excecao
 dif: 3
-enunciado: O encarregado próprio indicado por órgão público despersonalizado atua apenas no órgão que o indicou, e nunca nas unidades a ele subordinadas.
+enunciado: O órgão público despersonalizado pode indicar encarregado próprio, e o encarregado assim indicado atua apenas no órgão que o indicou, sem alcançar as unidades a ele subordinadas, ainda que o ato de indicação não faça ressalva.
 comentario: Errado. A indicação faz presumir a competência sobre toda a estrutura subordinada, salvo ressalva expressa no ato de indicação (art. 5º, § 3º).
 
 === ae-23
@@ -228,8 +228,8 @@ bloco: res-18-2024
 ref: res18 9
 trecho: O agente de tratamento que não possuir sítio eletrônico poderá realizar a divulgação da identidade e das informações de contato do encarregado por quaisquer outros meios de comunicação disponíveis
 armadilha: excecao
-dif: 1
-enunciado: O agente de tratamento que não possui sítio eletrônico fica dispensado de divulgar a identidade e o contato do encarregado.
+dif: 2
+enunciado: Situação hipotética: pequena oficina mecânica, controladora de dados sem sítio eletrônico, indicou encarregado. Assertiva: por não ter sítio eletrônico, ela está dispensada de divulgar a identidade e o contato do encarregado.
 comentario: Errado. A divulgação continua devida, por outros meios disponíveis, especialmente os usados para contato com os titulares (art. 9º, § 3º).
 
 === ae-25
@@ -239,7 +239,7 @@ ref: res18 15
 trecho: indicar expressamente o representante do agente de tratamento perante a ANPD para fins de atuação em processos administrativos, quando esta função não for exercida pelo próprio encarregado
 armadilha: extrapolacao
 dif: 3
-enunciado: Recebida comunicação da ANPD, o encarregado deve, obrigatoriamente, representar o agente de tratamento nos processos administrativos dela decorrentes.
+enunciado: Entre as atividades do encarregado está receber comunicações da ANPD e adotar providências, e, recebida essa comunicação, ele deve, obrigatoriamente, representar o agente de tratamento nos processos administrativos dela decorrentes.
 comentario: Errado. A representação pode caber a outra pessoa: entre as providências do encarregado está indicar expressamente o representante, quando a função não for exercida por ele (art. 15, parágrafo único, III).
 
 === ae-26
@@ -258,8 +258,8 @@ bloco: res-18-2024
 ref: res18 21
 trecho: implementar medidas para afastar o risco de conflito de interesse
 armadilha: rol
-dif: 1
-enunciado: Constatada a possibilidade de conflito de interesse, a única providência admitida pelo regulamento é a substituição do encarregado.
+dif: 2
+enunciado: Situação hipotética: agente de tratamento verificou que o encarregado indicado também chefia a área de marketing, com risco de conflito de interesse. Assertiva: a única providência admitida pelo regulamento é a substituição do encarregado.
 comentario: Errado. Conforme o caso, o agente pode não indicar a pessoa, implementar medidas para afastar o risco ou substituir o encarregado (art. 21, parágrafo único, I a III).
 
 === ae-28
@@ -269,7 +269,7 @@ ref: res18 19
 trecho: poderá ensejar a aplicação de sanção ao agente de tratamento nos termos do art. 52
 armadilha: extrapolacao
 dif: 2
-enunciado: O conflito de interesse do encarregado é questão interna do agente de tratamento e não pode ensejar a aplicação de sanção pela ANPD.
+enunciado: O encarregado pode acumular funções e atuar para mais de um agente de tratamento, desde que sem conflito de interesse, mas esse conflito é questão interna do agente e não pode ensejar sanção pela ANPD.
 comentario: Errado. A existência de conflito é verificada no caso concreto e pode ensejar sanção ao agente de tratamento, nos termos do art. 52 da LGPD (art. 19, § 2º).
 
 === ae-29
@@ -289,7 +289,7 @@ ref: lei13460 5
 trecho: eliminação de formalidades e de exigências cujo custo econômico ou social seja superior ao risco envolvido
 armadilha: conceito
 dif: 2
-enunciado: Formalidades cujo custo econômico ou social supere o risco envolvido devem ser mantidas pelos prestadores de serviço público, em nome da segurança jurídica.
+enunciado: Entre as diretrizes que os agentes públicos e prestadores de serviço público devem observar estão a presunção de boa-fé do usuário e a manutenção das formalidades cujo custo econômico ou social supere o risco envolvido, em nome da segurança jurídica.
 comentario: Errado. A diretriz é eliminá-las (art. 5º, XI). É a mesma lógica da Lei de Liberdade Econômica, que veda aumentar custos de transação sem demonstrar benefícios.
 
 === ae-31
@@ -308,8 +308,8 @@ bloco: lei-13460
 ref: lei13460 12
 trecho: V - ciência ao usuário
 armadilha: rol
-dif: 1
-enunciado: A efetiva resolução da manifestação do usuário encerra-se com a decisão administrativa final, dispensada a ciência ao usuário.
+dif: 2
+enunciado: Na Lei n.º 13.460/2017, a efetiva resolução da manifestação do usuário compreende a recepção, a emissão de comprovante de recebimento, a análise e a decisão administrativa final, encerrando-se nesta, dispensada a ciência ao usuário.
 comentario: Errado. A efetiva resolução compreende recepção, comprovante de recebimento, análise, decisão administrativa final e ciência ao usuário (art. 12, parágrafo único, I a V).
 
 === ae-33
@@ -318,8 +318,8 @@ bloco: lei-13460
 ref: lei13460 5
 trecho: vedada a exigência de reconhecimento de firma, salvo em caso de dúvida de autenticidade
 armadilha: excecao
-dif: 1
-enunciado: O agente público pode exigir reconhecimento de firma em qualquer documento apresentado pelo usuário, como medida ordinária de segurança.
+dif: 2
+enunciado: Situação hipotética: cidadão apresentou ao órgão, junto do documento original, cópia de procuração cuja assinatura não suscitava dúvida de autenticidade. Assertiva: o agente público pode exigir o reconhecimento de firma do documento, como medida ordinária de segurança.
 comentario: Errado. O próprio agente autentica os documentos à vista dos originais; o reconhecimento de firma é vedado, salvo dúvida de autenticidade (art. 5º, IX).
 
 === ae-34
@@ -336,7 +336,7 @@ gab: E
 bloco: regulacao-teoria
 ref: doutrina regulação tarifária
 armadilha: comparacao
-dif: 2
+dif: 1
 enunciado: O efeito Averch-Johnson é característico da regulação por preço-teto, em que a firma tende a investir em capital abaixo do nível eficiente.
 comentario: Errado. O efeito é típico da regulação por taxa de retorno e consiste em sobreinvestimento: se a taxa permitida supera o custo de capital, ampliar a base remunerada aumenta o lucro.
 
@@ -382,8 +382,8 @@ bloco: regulacao-teoria
 ref: dec10411 2
 trecho: verificação dos efeitos decorrentes da edição de ato normativo
 armadilha: conceito
-dif: 1
-enunciado: A avaliação de resultado regulatório (ARR) é feita antes da edição do ato normativo, em substituição à análise de impacto regulatório.
+dif: 2
+enunciado: A análise de impacto regulatório é procedimento de avaliação prévia à edição de atos normativos de interesse geral, e a avaliação de resultado regulatório também é feita antes da edição do ato, para estimar seus efeitos.
 comentario: Errado. A ARR é posterior: verifica os efeitos do ato já editado, o alcance dos objetivos e os demais impactos (Decreto 10.411/2020, art. 2º, III). A AIR é a prévia (inciso I); uma não substitui a outra.
 
 === ae-41
@@ -440,7 +440,7 @@ ref: lgpd 46
 trecho: o estado atual da tecnologia
 armadilha: rol
 dif: 2
-enunciado: Ao dispor sobre padrões técnicos mínimos de segurança, a ANPD deve desconsiderar o estado atual da tecnologia, para dar estabilidade às regras.
+enunciado: Os agentes de tratamento devem adotar medidas de segurança aptas a proteger os dados pessoais, e, ao dispor sobre padrões técnicos mínimos, a ANPD deve desconsiderar o estado atual da tecnologia, para dar estabilidade às regras.
 comentario: Errado. A ANPD considera a natureza das informações, as características do tratamento, o estado atual da tecnologia (em especial para dados sensíveis) e os princípios do art. 6º (art. 46, § 1º).
 
 === ae-47
@@ -480,7 +480,7 @@ ref: lei15211 17
 trecho: observado que isso não será pré-requisito para a utilização desses mecanismos ou para a disponibilização de produtos ou serviços ao público
 armadilha: extrapolacao
 dif: 2
-enunciado: A submissão dos mecanismos de supervisão parental à apreciação da autoridade autônoma é pré-requisito para disponibilizar o produto ao público.
+enunciado: Os fornecedores podem submeter os mecanismos de supervisão parental previstos no ECA Digital à apreciação da autoridade nacional autônoma, e essa submissão é pré-requisito para disponibilizar o produto ou serviço ao público.
 comentario: Errado. A submissão é facultativa (“poderão submeter”) e não é pré-requisito para usar os mecanismos nem para oferecer o produto (art. 17, § 3º).
 
 === ae-51
@@ -500,7 +500,7 @@ ref: lei15211 19
 trecho: Os produtos ou serviços deverão conter mecanismos que informem as crianças e os adolescentes, em linguagem apropriada, acerca da realização do monitoramento
 armadilha: conceito
 dif: 2
-enunciado: Para preservar a eficácia da supervisão, os produtos de monitoramento infantil devem operar sem que a criança saiba que está sendo monitorada.
+enunciado: Situação hipotética: empresa lançou aplicativo para que pais acompanhem a localização dos filhos, sem aviso às crianças monitoradas, para preservar a eficácia da supervisão. Assertiva: segundo o ECA Digital, o produto está regular, pois o monitoramento deve ocorrer sem que a criança saiba.
 comentario: Errado. Devem informar a criança e o adolescente, em linguagem apropriada, sobre o monitoramento (art. 19, § 1º), orientados pelo melhor interesse e pelo desenvolvimento de suas capacidades (§ 2º).
 
 === ae-53
@@ -560,7 +560,7 @@ ref: lei15211 29
 trecho: Não estarão sujeitos ao procedimento de retirada de que trata o caput deste artigo os conteúdos jornalísticos e os submetidos a controle editorial
 armadilha: excecao
 dif: 2
-enunciado: O procedimento de retirada por notificação, previsto no ECA Digital, alcança também os conteúdos jornalísticos e os submetidos a controle editorial.
+enunciado: Situação hipotética: portal de notícias com controle editorial publicou reportagem sobre violência escolar, e um leitor notificou o provedor pedindo a retirada do conteúdo. Assertiva: o procedimento de retirada por notificação do ECA Digital alcança essa reportagem.
 comentario: Errado. Esses conteúdos ficam fora do procedimento de retirada (art. 29, § 4º).
 
 === ae-59
@@ -580,7 +580,7 @@ ref: lei15211 34
 trecho: A regulamentação não poderá, em nenhuma hipótese, autorizar ou resultar na implantação de mecanismos de vigilância massiva, genérica ou indiscriminada
 armadilha: excecao
 dif: 2
-enunciado: A regulamentação do ECA Digital pode autorizar mecanismos de vigilância massiva, desde que voltados à proteção de crianças e adolescentes.
+enunciado: O ECA Digital remete à regulamentação a definição de vários de seus procedimentos, e essa regulamentação pode autorizar mecanismos de vigilância massiva, genérica ou indiscriminada, desde que voltados à proteção de crianças e adolescentes.
 comentario: Errado. A regulamentação não pode, em nenhuma hipótese, autorizar ou resultar em vigilância massiva, genérica ou indiscriminada (art. 34, § 1º).
 
 === ae-61
@@ -590,5 +590,5 @@ ref: lei15211 28
 trecho: os fornecedores deverão, quando for o caso, oficiar às autoridades competentes para instauração de investigação
 armadilha: sujeito
 dif: 2
-enunciado: Notificados de violação a direitos de crianças e adolescentes em seus serviços, os fornecedores devem instaurar investigação própria, dispensada a comunicação a autoridades.
+enunciado: Situação hipotética: plataforma foi notificada de que perfis compartilhavam imagens de abuso de crianças em seus serviços. Assertiva: pelo ECA Digital, a plataforma deve instaurar investigação própria, dispensada a comunicação do fato às autoridades competentes.
 comentario: Errado. Quando for o caso, devem oficiar às autoridades competentes para que instaurem a investigação (art. 28, parágrafo único). O fornecedor não investiga no lugar do Estado.

@@ -143,3 +143,15 @@ test('item autoral não copia 60% ou mais do trecho da norma (padrão Cebraspe)'
     .map((q) => q.id);
   assert.deepEqual(copiados, [], 'reescreva em paráfrase ou situação hipotética (docs/padrao-cebraspe.md)');
 });
+
+// O tamanho não pode entregar o gabarito: em cada quarto do banco autoral (do item mais curto ao mais longo) e nas
+// situações hipotéticas, os certos ficam entre 38% e 62%, como nos itens reais da banca
+test('tamanho do item e situação hipotética não entregam o gabarito', () => {
+  const qs = validar({ silencioso: true }).questoes.filter((q) => q.origem !== 'real' && !q.alt.length && /^[CE]$/.test(q.gab) && !/^(pt|en)/.test(q.id));
+  const tam = (q) => q.enunciado.split(/\s+/).length;
+  const ord = qs.slice().sort((a, b) => tam(a) - tam(b)), n = ord.length;
+  const certos = (a) => Math.round(100 * a.filter((q) => q.gab === 'C').length / a.length);
+  const grupos = [0, 1, 2, 3].map((i) => certos(ord.slice(Math.floor(i * n / 4), Math.floor((i + 1) * n / 4))));
+  grupos.push(certos(qs.filter((q) => /^Situação hipotética/.test(q.enunciado))));
+  assert.ok(grupos.every((p) => p >= 38 && p <= 62), '% de certos por quarto de tamanho e nos casos: ' + grupos.join(' / '));
+});

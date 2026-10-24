@@ -18,7 +18,7 @@ ref: lgpd 52
 trecho: faturamento da pessoa jurídica de direito privado, grupo ou conglomerado no Brasil no seu último exercício, excluídos os tributos
 armadilha: numero
 dif: 2
-enunciado: A multa simples prevista na LGPD pode alcançar até 2% do faturamento mundial do grupo econômico do infrator, incluídos os tributos.
+enunciado: A multa simples prevista na LGPD pode alcançar até 2% do faturamento da pessoa jurídica, grupo ou conglomerado no Brasil no último exercício, incluídos os tributos, limitada a R$ 50 milhões por infração.
 comentario: Errado. São até 2% do faturamento no Brasil, no último exercício, excluídos os tributos, limitada a R$ 50 milhões por infração (art. 52, II). O RGPD, este sim, usa o faturamento mundial (art. 83).
 
 === sx-03
@@ -85,21 +85,21 @@ enunciado: Por ser dever legal, a adoção de política de boas práticas e gove
 comentario: Errado. É critério expresso (art. 52, § 1º, IX), ao lado da adoção reiterada de mecanismos internos para minimizar o dano (inciso VIII). O art. 50 trata as boas práticas como faculdade, não como dever.
 
 === sx-10
-gab: C
+gab: E
 ref: lgpd 52
 trecho: a proporcionalidade entre a gravidade da falta e a intensidade da sanção
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: a ANPD aplicou multa elevada por falha formal de pouca gravidade, sem relação com a dimensão da falta. Assertiva: a sanção afronta critério expresso da LGPD, que manda considerar a proporcionalidade entre a gravidade da falta e a intensidade da sanção.
-comentario: Certo: art. 52, § 1º, XI, o último critério da lista, que serve de fecho a todos os demais.
+enunciado: Situação hipotética: a ANPD aplicou multa elevada por falha formal de pouca gravidade, sem relação com a dimensão da falta. Assertiva: a sanção é válida, pois a proporcionalidade não figura entre os critérios expressos da LGPD para a aplicação das sanções.
+comentario: Errado. A proporcionalidade entre a gravidade da falta e a intensidade da sanção é critério expresso (art. 52, § 1º, XI), o último da lista, que serve de fecho aos demais.
 
 === sx-11
 gab: E
 ref: lgpd 52
 trecho: após procedimento administrativo que possibilite a oportunidade da ampla defesa
 armadilha: conceito
-dif: 1
-enunciado: Quando a infração à LGPD for flagrante, a autoridade nacional pode aplicar a sanção sumariamente, dispensado o procedimento administrativo.
+dif: 2
+enunciado: Situação hipotética: a ANPD constatou, em fiscalização, infração flagrante à LGPD, com provas documentais robustas. Assertiva: nesse caso, a autoridade pode aplicar a sanção sumariamente, dispensado o procedimento administrativo, para evitar a continuidade da infração.
 comentario: Errado. As sanções são aplicadas após procedimento administrativo que possibilite a ampla defesa (art. 52, § 1º). Na ANPD, esse procedimento está na Resolução CD/ANPD nº 1/2021.
 
 === sx-12
@@ -116,8 +116,8 @@ gab: E
 ref: lgpd 52
 trecho: será destinado ao Fundo de Defesa de Direitos Difusos
 armadilha: sujeito
-dif: 1
-enunciado: O produto da arrecadação das multas aplicadas pela ANPD é destinado ao orçamento próprio da agência, para custear suas atividades de fiscalização.
+dif: 2
+enunciado: A ANPD pode aplicar sanções como advertência, multa simples e multa diária, e o produto da arrecadação dessas multas é destinado ao orçamento próprio da agência, para custear suas atividades de fiscalização.
 comentario: Errado. Vai para o Fundo de Defesa de Direitos Difusos, da Lei da Ação Civil Pública (art. 52, § 5º), estejam as multas inscritas ou não em dívida ativa.
 
 === sx-15
@@ -144,7 +144,7 @@ ref: lgpd 54
 trecho: deve observar a gravidade da falta e a extensão do dano ou prejuízo causado e ser fundamentado pela autoridade nacional
 armadilha: conceito
 dif: 2
-enunciado: O valor da multa diária por infração à LGPD é fixado em tabela legal, o que dispensa fundamentação específica da autoridade nacional.
+enunciado: A LGPD prevê multa diária para compelir o infrator a cessar a infração, e o valor dessa multa é fixado em tabela legal, o que dispensa fundamentação específica da autoridade nacional.
 comentario: Errado. O valor deve observar a gravidade da falta e a extensão do dano ou prejuízo e ser fundamentado pela autoridade nacional (art. 54, caput).
 
 === sx-18
@@ -181,7 +181,7 @@ bloco: res-4-2023
 ref: res4 24
 trecho: A regularização da atividade de tratamento deverá ser comprovada pelo infrator
 armadilha: sujeito
-dif: 2
+dif: 1
 enunciado: Para o restabelecimento do funcionamento do banco de dados parcialmente suspenso, cabe à ANPD verificar de ofício a regularização da atividade de tratamento.
 comentario: Errado. A regularização deve ser comprovada pelo infrator (art. 24, § 4º).
 
@@ -221,8 +221,8 @@ bloco: res-4-2023
 ref: res4 13
 trecho: Cabe ao infrator o ônus de comprovar perante a ANPD o cumprimento dos requisitos previstos neste artigo
 armadilha: sujeito
-dif: 1
-enunciado: Na dosimetria da multa, cabe à ANPD comprovar de ofício a presença das circunstâncias atenuantes em favor do infrator.
+dif: 2
+enunciado: Na dosimetria da multa, circunstâncias como a cessação da infração e a adoção de política de boas práticas atenuam o valor, e cabe à ANPD comprovar de ofício a presença dessas atenuantes em favor do infrator.
 comentario: Errado. O ônus de comprovar os requisitos das atenuantes é do infrator (art. 13, § 3º).
 
 === sx-26

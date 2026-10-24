@@ -11,13 +11,13 @@ enunciado: A transferência internacional de dados pessoais somente é permitida
 comentario: O caput do art. 33 usa “somente”, o que torna o rol fechado. Fora dos nove incisos, a transferência é ilícita, mesmo com acordo entre as partes.
 
 === lgpd-33-02
-gab: C
+gab: E
 ref: lgpd 33, I
 trecho: para países ou organismos internacionais que proporcionem grau de proteção de dados pessoais adequado ao previsto nesta Lei
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: uma empresa brasileira enviou dados de clientes a parceiro sediado em país da União Europeia, sem adotar cláusulas contratuais específicas. Assertiva: a transferência pode ser lícita com base no reconhecimento, pela ANPD, de que a União Europeia oferece grau de proteção adequado ao previsto na LGPD.
-comentario: Inciso I do art. 33: a chamada decisão de adequação. A Resolução CD/ANPD nº 32/2026 reconheceu a adequação da União Europeia.
+enunciado: Situação hipotética: uma empresa brasileira enviou dados de clientes a parceiro sediado em país da União Europeia, sem adotar cláusulas contratuais específicas. Assertiva: a transferência é ilícita, pois o reconhecimento de grau de proteção adequado não basta e exige, em qualquer caso, cláusulas contratuais específicas.
+comentario: Errado. A transferência internacional é permitida para países ou organismos que proporcionem grau de proteção adequado ao previsto na LGPD (art. 33, I), a decisão de adequação, sem necessidade de cláusulas. A Resolução CD/ANPD 32/2026 reconheceu a adequação da União Europeia.
 
 === lgpd-33-03
 gab: E
@@ -100,17 +100,17 @@ ref: lgpd 33, VII
 trecho: quando a transferência for necessária para a execução de política pública ou atribuição legal do serviço público, sendo dada publicidade nos termos do inciso I do caput do art. 23 desta Lei
 armadilha: excecao
 dif: 2
-enunciado: A transferência internacional necessária para a execução de política pública dispensa qualquer publicidade, por se tratar de atividade estatal.
+enunciado: Situação hipotética: ministério transferiu dados pessoais a organismo internacional porque a transferência era necessária para executar política pública. Assertiva: por se tratar de atividade estatal, a transferência dispensa qualquer publicidade.
 comentario: O inciso VII do art. 33 exige que se dê publicidade, nos termos do art. 23, I (informação clara e atualizada, preferencialmente em sítio eletrônico).
 
 === lgpd-33-12
-gab: C
+gab: E
 ref: lgpd 33, VI
 trecho: quando a transferência resultar em compromisso assumido em acordo de cooperação internacional
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: em cumprimento de compromisso assumido pelo Brasil em acordo de cooperação internacional, órgão federal enviou dados pessoais a organismo estrangeiro. Assertiva: essa circunstância é, por si, hipótese legal que autoriza a transferência internacional, distinta da cooperação jurídica entre órgãos de inteligência, investigação e persecução.
-comentario: Inciso VI do art. 33. Não confunda com o inciso III, que trata de cooperação jurídica entre órgãos de inteligência, investigação e persecução.
+enunciado: Situação hipotética: em cumprimento de compromisso assumido pelo Brasil em acordo de cooperação internacional, órgão federal enviou dados pessoais a organismo estrangeiro. Assertiva: essa circunstância não autoriza, por si, a transferência, que depende de cláusulas-padrão contratuais aprovadas pela ANPD.
+comentario: Errado. A transferência é permitida quando resultar em compromisso assumido em acordo de cooperação internacional (art. 33, VI), hipótese autônoma. Não confunda com o inciso III, que trata de cooperação jurídica entre órgãos de inteligência, investigação e persecução.
 
 === lgpd-33-13
 gab: C
@@ -145,8 +145,8 @@ gab: E
 ref: lgpd 34
 trecho: será avaliado pela autoridade nacional
 armadilha: sujeito
-dif: 1
-enunciado: A avaliação do nível de proteção de dados de país estrangeiro compete ao Ministério das Relações Exteriores, ouvida a ANPD.
+dif: 2
+enunciado: Para avaliar o nível de proteção de dados de país estrangeiro, consideram-se, entre outros fatores, as normas gerais e setoriais da legislação em vigor no país de destino, e essa avaliação compete ao Ministério das Relações Exteriores, ouvida a ANPD.
 comentario: O art. 34 atribui a avaliação à autoridade nacional, sem participação obrigatória do Itamaraty.
 
 === lgpd-35-01
@@ -165,7 +165,7 @@ ref: lgpd 35, § 3º
 trecho: A autoridade nacional poderá designar organismos de certificação para a realização do previsto no caput deste artigo
 armadilha: extrapolacao
 dif: 2
-enunciado: É vedado à ANPD designar organismos de certificação para verificar cláusulas e normas corporativas globais, atividade que lhe é privativa.
+enunciado: A ANPD define o conteúdo das cláusulas-padrão contratuais e verifica as normas corporativas globais, e é vedado a ela designar organismos de certificação para essa verificação, atividade que lhe é privativa.
 comentario: O § 3º do art. 35 permite que a ANPD designe organismos de certificação, que ficam sob sua fiscalização.
 
 === lgpd-35-03
@@ -174,7 +174,7 @@ ref: lgpd 35, § 4º
 trecho: Os atos realizados por organismo de certificação poderão ser revistos pela autoridade nacional e, caso em desconformidade com esta Lei, submetidos a revisão ou anulados
 armadilha: extrapolacao
 dif: 2
-enunciado: Os atos praticados por organismo de certificação designado pela ANPD são definitivos e não podem ser revistos pela agência.
+enunciado: A ANPD pode designar organismos de certificação para verificar cláusulas contratuais e normas corporativas globais, e os atos praticados por esses organismos são definitivos, não podendo ser revistos pela autoridade.
 comentario: O § 4º do art. 35 permite à ANPD rever esses atos e, se desconformes, submetê-los a revisão ou anulá-los.
 
 === lgpd-35-04
@@ -187,13 +187,13 @@ enunciado: Ao examinar cláusulas contratuais ou normas corporativas globais sub
 comentario: § 2º do art. 35. Repare no “quando necessário”: diligência e informação suplementar são faculdades da ANPD, não etapas obrigatórias.
 
 === lgpd-35-05
-gab: C
+gab: E
 ref: lgpd 35, § 5º
 trecho: serão também analisadas de acordo com as medidas técnicas e organizacionais adotadas pelo operador
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: para obter aprovação de normas corporativas globais, um grupo empresarial apresentou garantias de observância dos princípios e dos direitos do titular. Assertiva: na análise dessas garantias, a ANPD também considera as medidas técnicas e organizacionais adotadas pelo operador.
-comentario: § 5º do art. 35, que remete aos §§ 1º e 2º do art. 46 (padrões técnicos de segurança e privacidade desde a concepção).
+enunciado: Situação hipotética: para obter aprovação de normas corporativas globais, um grupo empresarial apresentou garantias de observância dos princípios e dos direitos do titular. Assertiva: na análise dessas garantias, a ANPD considera os princípios e os direitos do titular, mas não as medidas técnicas e organizacionais adotadas pelo operador.
+comentario: Errado. Na análise das garantias, a autoridade nacional considera também as medidas técnicas e organizacionais adotadas pelo operador, de acordo com os §§ 1º e 2º do art. 46 (art. 35, § 5º).
 
 === lgpd-36-01
 gab: E
@@ -201,14 +201,14 @@ ref: lgpd 36
 trecho: deverão ser comunicadas à autoridade nacional
 armadilha: extrapolacao
 dif: 2
-enunciado: As alterações nas garantias apresentadas para a transferência internacional dispensam comunicação à autoridade nacional, desde que mantido nível de proteção equivalente.
+enunciado: Situação hipotética: empresa alterou as cláusulas contratuais específicas que a ANPD havia verificado para uma transferência internacional, mantendo nível de proteção equivalente. Assertiva: a alteração dispensa comunicação à autoridade nacional.
 comentario: O art. 36 manda comunicar à autoridade nacional as alterações nas garantias do art. 33, II, sem exceção.
 
 === lgpd-5-xv-01
-gab: C
+gab: E
 ref: lgpd 5, XV
 trecho: transferência internacional de dados: transferência de dados pessoais para país estrangeiro ou organismo internacional do qual o país seja membro
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: uma empresa brasileira enviou dados de clientes a organismo internacional de que o Brasil é membro. Assertiva: a operação é transferência internacional de dados para a LGPD, conceito que também abrange o envio a país estrangeiro.
-comentario: Art. 5º, XV. A Resolução CD/ANPD nº 19/2024 distingue transferência internacional de coleta internacional; a segunda não é transferência.
+enunciado: Situação hipotética: uma empresa brasileira enviou dados de clientes a organismo internacional de que o Brasil é membro. Assertiva: a operação não é transferência internacional, conceito que a LGPD reserva ao envio de dados a país estrangeiro.
+comentario: Errado. Transferência internacional de dados é a transferência de dados pessoais para país estrangeiro ou organismo internacional do qual o país seja membro (art. 5º, XV). A Resolução CD/ANPD 19/2024 distingue transferência internacional de coleta internacional.

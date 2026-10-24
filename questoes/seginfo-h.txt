@@ -32,7 +32,7 @@ comentario: Certo. Épsilon é o orçamento de privacidade. Épsilon pequeno sig
 gab: E
 ref: doutrina Privacidade diferencial
 armadilha: comparacao
-dif: 2
+dif: 1
 enunciado: Na privacidade diferencial, quanto maior o parâmetro épsilon, maior a proteção da privacidade, ao custo de menor utilidade dos dados.
 comentario: Errado: é o inverso. Épsilon maior permite resultados mais próximos dos reais, com mais utilidade e menos proteção.
 
@@ -56,7 +56,7 @@ comentario: Certo. Os dados brutos não saem da origem: o que circula é o apren
 gab: E
 ref: doutrina Aprendizado federado
 armadilha: absoluto
-dif: 2
+dif: 1
 enunciado: Por não centralizar os dados brutos, o aprendizado federado elimina qualquer risco de inferência de dados pessoais a partir das atualizações do modelo.
 comentario: Errado. As atualizações podem vazar informação (ataques de inferência de pertencimento e de inversão do modelo). Por isso costuma ser combinado com privacidade diferencial ou agregação segura.
 
@@ -105,7 +105,7 @@ comentario: Certo. Spoofing, Tampering, Repudiation, Information disclosure, Den
 gab: E
 ref: doutrina Modelagem de ameaças
 armadilha: conceito
-dif: 2
+dif: 1
 enunciado: No modelo STRIDE, a ameaça de repúdio, em que alguém nega ter praticado uma ação, é mitigada sobretudo pela cifragem dos dados armazenados.
 comentario: Errado. Contra o repúdio valem registros de auditoria protegidos e assinatura digital, que provam quem fez o quê. A cifragem protege a confidencialidade, que corresponde à divulgação de informação.
 

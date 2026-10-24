@@ -40,13 +40,13 @@ enunciado: Se a comunicação do incidente de segurança não tiver sido imediat
 comentario: Art. 48, § 1º, V. O conteúdo mínimo tem seis itens: dados afetados, titulares envolvidos, medidas de proteção, riscos, motivos da demora e medidas de reversão ou mitigação.
 
 === lgpd2-48-03
-gab: C
+gab: E
 ref: lgpd 48, § 3º
 trecho: será avaliada eventual comprovação de que foram adotadas medidas técnicas adequadas que tornem os dados pessoais afetados ininteligíveis
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: houve furto de notebook com banco de dados de clientes, mas o disco estava integralmente criptografado com chave guardada em outro local. Assertiva: a comprovação dessa medida técnica será considerada pela autoridade nacional no juízo de gravidade do incidente.
-comentario: Art. 48, § 3º: medidas que tornem os dados ininteligíveis para terceiros não autorizados entram no juízo de gravidade. A lei não diz que a criptografia dispensa automaticamente a comunicação.
+enunciado: Situação hipotética: houve furto de notebook com banco de dados de clientes, mas o disco estava integralmente criptografado com chave guardada em outro local. Assertiva: a criptografia dispensa, por si só, a comunicação do incidente à autoridade nacional e aos titulares.
+comentario: Errado. As medidas técnicas que tornem os dados ininteligíveis para terceiros não autorizados entram no juízo de gravidade do incidente (art. 48, § 3º), mas a lei não diz que dispensam automaticamente a comunicação.
 pesquisar: Criptografia e incidentes de segurança
 
 === lgpd2-50-01
@@ -73,7 +73,7 @@ ref: lgpd 50, § 2º, I, h
 trecho: seja atualizado constantemente com base em informações obtidas a partir de monitoramento contínuo e avaliações periódicas
 armadilha: numero
 dif: 2
-enunciado: O programa de governança em privacidade deve, no mínimo, ser atualizado a cada dois anos, com base em auditoria externa independente.
+enunciado: O programa de governança em privacidade deve contar com planos de resposta a incidentes e remediação e ser atualizado, no mínimo, a cada dois anos, com base em auditoria externa independente.
 comentario: A alínea h fala em atualização constante, com base em monitoramento contínuo e avaliações periódicas. Não há prazo bienal nem exigência de auditoria externa.
 
 === lgpd2-50-04
@@ -86,10 +86,10 @@ enunciado: Um programa de governança em privacidade que busque criar relação 
 comentario: Art. 50, § 2º, I, e. São oito alíneas (a a h); vale lembrar das palavras-chave de cada uma.
 
 === lgpd2-51-01
-gab: C
+gab: E
 ref: lgpd 51
 trecho: A autoridade nacional estimulará a adoção de padrões técnicos que facilitem o controle pelos titulares dos seus dados pessoais.
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: a ANPD lançou programa para incentivar empresas a adotar formatos padronizados que permitam aos titulares gerenciar seus próprios dados. Assertiva: a iniciativa se ajusta ao papel que a LGPD lhe atribui, de estimular, e não de impor, padrões técnicos que facilitem o controle dos dados pelos titulares.
-comentario: Art. 51, literal. O verbo é “estimulará”: itens que trocam por “imporá” ou “exigirá” ficam errados.
+enunciado: Situação hipotética: a ANPD lançou programa para incentivar empresas a adotar formatos padronizados que permitam aos titulares gerenciar seus próprios dados. Assertiva: a iniciativa fica aquém do papel que a LGPD lhe atribui, de impor aos agentes padrões técnicos que facilitem o controle dos dados pelos titulares.
+comentario: Errado. A autoridade nacional estimulará a adoção de padrões técnicos que facilitem o controle pelos titulares dos seus dados pessoais (art. 51). O verbo é estimular: itens que trocam por impor ou exigir ficam errados.

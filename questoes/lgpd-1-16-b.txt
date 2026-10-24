@@ -18,7 +18,7 @@ bloco: lgpd-1-4-14
 trecho: os direitos humanos, o livre desenvolvimento da personalidade, a dignidade e o exercício da cidadania pelas pessoas naturais
 armadilha: sujeito
 dif: 2
-enunciado: O exercício da cidadania pelas pessoas naturais e jurídicas figura entre os fundamentos da disciplina da proteção de dados pessoais.
+enunciado: A disciplina da proteção de dados pessoais tem como fundamentos, entre outros, os direitos humanos, o livre desenvolvimento da personalidade e a dignidade, e o exercício da cidadania pelas pessoas naturais e jurídicas.
 comentario: O art. 2º, VII, fala em exercício da cidadania “pelas pessoas naturais”. A LGPD protege dados de pessoa natural; a inclusão de pessoas jurídicas torna o item errado.
 
 === lgpd2-3-01
@@ -106,7 +106,7 @@ ref: lgpd 6, I
 trecho: sem possibilidade de tratamento posterior de forma incompatível com essas finalidades
 armadilha: absoluto
 dif: 2
-enunciado: Pelo princípio da finalidade, é vedado qualquer tratamento posterior dos dados pessoais, ainda que compatível com as finalidades informadas ao titular.
+enunciado: Situação hipotética: loja virtual que coletou dados para entregar compras passou a usá-los também para emitir as notas fiscais dessas compras, finalidade compatível com a informada. Assertiva: pelo princípio da finalidade, esse tratamento posterior é vedado.
 comentario: O princípio da finalidade veda o tratamento posterior “de forma incompatível” com as finalidades. Tratamento posterior compatível é admitido; veja também o art. 7º, § 7º.
 
 === lgpd2-6-05
@@ -124,7 +124,7 @@ ref: lgpd 7, VI
 trecho: para o exercício regular de direitos em processo judicial, administrativo ou arbitral
 armadilha: rol
 dif: 2
-enunciado: O exercício regular de direitos autoriza o tratamento de dados pessoais apenas em processo judicial, excluídos os processos administrativos e arbitrais.
+enunciado: Situação hipotética: empresa usou dados de ex-empregado para se defender em procedimento arbitral movido por ele. Assertiva: o exercício regular de direitos não fundamenta esse tratamento, porque essa base legal alcança apenas o processo judicial.
 comentario: Art. 7º, VI: processo judicial, administrativo ou arbitral, este nos termos da Lei de Arbitragem.
 
 === lgpd2-7-02
@@ -175,13 +175,13 @@ enunciado: O consentimento para o tratamento de dados sensíveis segue a mesma f
 comentario: Para dados sensíveis, o art. 11, I, exige consentimento “de forma específica e destacada, para finalidades específicas”, requisito a mais em relação à definição geral do art. 5º, XII.
 
 === lgpd2-11-03
-gab: C
+gab: E
 ref: lgpd 11, § 3º
 trecho: poderá ser objeto de vedação ou de regulamentação por parte da autoridade nacional, ouvidos os órgãos setoriais do Poder Público
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: duas empresas pretendem compartilhar entre si dados biométricos de clientes com o objetivo de obter vantagem econômica. Assertiva: esse compartilhamento pode ser vedado ou regulamentado pela autoridade nacional, ouvidos os órgãos setoriais do Poder Público.
-comentario: Art. 11, § 3º. Para dados de saúde, a própria lei já veda esse compartilhamento, com exceções (§ 4º).
+enunciado: Situação hipotética: duas empresas pretendem compartilhar entre si dados biométricos de clientes com o objetivo de obter vantagem econômica. Assertiva: esse compartilhamento é livre, pois a LGPD não confere à autoridade nacional poder para vedar ou regulamentar a comunicação de dados sensíveis com objetivo econômico.
+comentario: Errado. A comunicação ou o uso compartilhado de dados sensíveis entre controladores com objetivo de obter vantagem econômica pode ser vedado ou regulamentado pela autoridade nacional, ouvidos os órgãos setoriais (art. 11, § 3º). Para dados de saúde, a própria lei já veda esse compartilhamento, com exceções (§ 4º).
 
 === lgpd2-15-01
 gab: C
@@ -214,14 +214,14 @@ enunciado: Situação hipotética: encerrado o tratamento, um controlador conser
 comentario: O art. 16, III, autoriza a conservação para transferência a terceiro, desde que respeitados os requisitos de tratamento da LGPD.
 
 === lgpd2-60-01
-gab: C
+gab: E
 ref: lgpd 60
 bloco: lgpd-1-4-14
 trecho: exclusão definitiva dos dados pessoais que tiver fornecido a determinada aplicação de internet, a seu requerimento, ao término da relação entre as partes, ressalvadas as hipóteses de guarda obrigatória de registros
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: ao encerrar sua conta em rede social, o usuário pediu a exclusão definitiva dos dados que havia fornecido. Assertiva: o pedido tem amparo no Marco Civil da Internet, na redação dada pela LGPD, ressalvadas as hipóteses de guarda obrigatória de registros.
-comentario: Art. 60 da LGPD, que deu nova redação ao art. 7º, X, do Marco Civil (Lei nº 12.965/2014). A guarda obrigatória de registros está nos arts. 13 e 15 do Marco Civil.
+enunciado: Situação hipotética: ao encerrar sua conta em rede social, o usuário pediu a exclusão definitiva dos dados que havia fornecido. Assertiva: o pedido não tem amparo legal, pois o Marco Civil condiciona a exclusão dos dados a ordem judicial.
+comentario: Errado. O art. 7º, X, do Marco Civil, na redação dada pelo art. 60 da LGPD, assegura a exclusão definitiva dos dados pessoais fornecidos a determinada aplicação, a requerimento do usuário, ao término da relação, ressalvadas as hipóteses de guarda obrigatória de registros (arts. 13 e 15).
 pesquisar: Guarda de registros de conexão e de acesso no Marco Civil da Internet
 
 === lgpd2-62-01

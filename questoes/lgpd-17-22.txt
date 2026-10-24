@@ -65,13 +65,13 @@ enunciado: Situação hipotética: uma empresa trata dados de clientes com base 
 comentario: O direito de oposição do § 2º do art. 18 é condicionado: cabe “em caso de descumprimento ao disposto nesta Lei”. Sem descumprimento, a base legal que dispensa o consentimento continua válida.
 
 === lgpd-18-06
-gab: C
+gab: E
 ref: lgpd 18, § 4º, I
 trecho: comunicar que não é agente de tratamento dos dados e indicar, sempre que possível, o agente
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: uma loja recebeu pedido de eliminação de dados que, na verdade, eram tratados por outra empresa do mesmo grupo. Assertiva: a loja pode responder ao titular que não é agente de tratamento daqueles dados, indicando, sempre que possível, quem o é.
-comentario: É uma das duas respostas possíveis do § 4º do art. 18. A outra (inciso II) é indicar as razões de fato ou de direito que impedem a adoção imediata da providência.
+enunciado: Situação hipotética: uma loja recebeu pedido de eliminação de dados que, na verdade, eram tratados por outra empresa do mesmo grupo. Assertiva: a loja deve eliminar os dados ou encaminhar o pedido à outra empresa, vedado responder que não é agente de tratamento.
+comentario: Errado. Se não for agente de tratamento dos dados, o controlador pode comunicar ao titular essa condição e indicar, sempre que possível, o agente (art. 18, § 4º, I). A outra resposta possível é indicar as razões que impedem a adoção imediata da providência (inciso II).
 
 === lgpd-18-07
 gab: E
@@ -97,7 +97,7 @@ ref: lgpd 18, VI
 trecho: eliminação dos dados pessoais tratados com o consentimento do titular, exceto nas hipóteses previstas no art. 16 desta Lei
 armadilha: absoluto
 dif: 2
-enunciado: O direito do titular à eliminação dos dados pessoais tratados com seu consentimento é absoluto, não comportando exceções.
+enunciado: Situação hipotética: titular pediu a uma empresa a eliminação dos dados tratados com seu consentimento, mas a empresa precisa conservá-los para cumprir obrigação legal. Assertiva: o direito à eliminação é absoluto, e os dados devem ser eliminados.
 comentario: O inciso VI do art. 18 ressalva as hipóteses do art. 16, que autorizam a conservação, por exemplo, para cumprimento de obrigação legal ou regulatória e para estudo por órgão de pesquisa.
 
 === lgpd-18-10
@@ -177,8 +177,8 @@ gab: E
 ref: lgpd 19, § 2º
 trecho: As informações e os dados poderão ser fornecidos, a critério do titular
 armadilha: sujeito
-dif: 1
-enunciado: Cabe ao controlador escolher se as informações e os dados solicitados pelo titular serão fornecidos por meio eletrônico ou sob forma impressa.
+dif: 2
+enunciado: Os dados pessoais devem ser armazenados em formato que favoreça o exercício do direito de acesso, e cabe ao controlador escolher se as informações solicitadas pelo titular serão fornecidas por meio eletrônico ou sob forma impressa.
 comentario: O § 2º do art. 19 dá a escolha ao titular (“a critério do titular”), não ao controlador.
 
 === lgpd-19-05
@@ -232,7 +232,7 @@ ref: lgpd 20, § 1º
 trecho: O controlador deverá fornecer, sempre que solicitadas, informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada
 armadilha: sujeito
 dif: 2
-enunciado: O controlador somente está obrigado a informar os critérios e os procedimentos utilizados em decisão automatizada quando houver determinação da autoridade nacional.
+enunciado: O titular pode solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado que afetem seus interesses, e o controlador está obrigado a informar os critérios dessa decisão quando houver determinação da autoridade nacional, e não antes.
 comentario: O § 1º do art. 20 obriga o controlador a fornecer essas informações “sempre que solicitadas”, o que inclui a solicitação do próprio titular, sem depender de ordem da ANPD.
 
 === lgpd-21-01

@@ -3,14 +3,14 @@ bloco: gdpr
 // Trechos conferidos na versão portuguesa oficial (fontes/conv108.txt), que usa a grafia de Portugal (controlo, subcontratante, Comité).
 
 === c108-01
-gab: C
+gab: E
 ref: conv108 3
 trecho: ao tratamento de dados sob a sua jurisdição nos setores público e privado
 trecho: A presente Convenção não se aplica ao tratamento de dados efetuado por uma pessoa no exercício de atividades exclusivamente pessoais ou domésticas.
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: pessoa mantém, para uso estritamente doméstico, agenda com contatos de amigos e familiares. Assertiva: esse tratamento fica fora do âmbito da Convenção 108+, que alcança os setores público e privado sob a jurisdição das Partes.
-comentario: Art. 3.º da Convenção. A LGPD tem exclusão parecida: não se aplica ao tratamento realizado por pessoa natural para fins exclusivamente particulares e não econômicos (art. 4º, I).
+enunciado: Situação hipotética: pessoa mantém, para uso estritamente doméstico, agenda com contatos de amigos e familiares. Assertiva: esse tratamento está sujeito à Convenção 108+, que alcança qualquer tratamento de dados nos setores público e privado sob a jurisdição das Partes.
+comentario: Errado. A Convenção 108+ alcança os tratamentos nos setores público e privado, mas não se aplica ao tratamento efetuado por pessoa singular no exercício de atividades exclusivamente pessoais ou domésticas (art. 3.º, n.º 2). A LGPD tem exclusão parecida (art. 4º, I).
 pesquisar: Convenção 108+ do Conselho da Europa e o Protocolo STCE 223
 
 === c108-02
@@ -18,8 +18,8 @@ gab: E
 ref: conv108 5
 trecho: com base no consentimento livre, específico, informado e inequívoco do titular dos dados ou em qualquer outro fundamento legítimo previsto na legislação
 armadilha: absoluto
-dif: 1
-enunciado: Segundo a Convenção 108+, o tratamento de dados pessoais só pode fundamentar-se no consentimento livre, específico, informado e inequívoco do titular.
+dif: 2
+enunciado: Segundo a Convenção 108+, o tratamento de dados deve ser proporcional à finalidade legítima prosseguida e refletir um justo equilíbrio entre os interesses em causa, e tem como único fundamento admitido o consentimento livre, específico, informado e inequívoco do titular.
 comentario: O art. 5.º, n.º 2, admite o consentimento ou qualquer outro fundamento legítimo previsto na legislação. O “só” transforma uma das bases em base única, como faria um item sobre a LGPD que esquecesse os demais incisos do art. 7º.
 
 === c108-03
@@ -94,14 +94,14 @@ enunciado: Na Convenção 108+, a transferência de dados para destinatário sob
 comentario: O nível de proteção apropriado pode vir da legislação do Estado de destino ou de garantias normalizadas ad hoc ou aprovadas (art. 14.º, n.º 3), e cada Parte pode ainda admitir transferências por consentimento explícito e outras hipóteses do n.º 4. A Convenção não cria decisão de adequação do Comité; decisão de adequação é figura do GDPR, adotada pela Comissão Europeia (art. 45).
 
 === c108-10
-gab: C
+gab: E
 ref: conv108 15
 trecho: As autoridades de controlo agirão com grande independência e imparcialidade no desempenho das suas funções e no exercício dos seus poderes e, ao fazê-lo, não solicitarão nem aceitarão instruções.
 trecho: As decisões das autoridades de controlo podem ser objeto de recurso judicial.
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: autoridade de controlo de Parte da Convenção 108+ recebeu instruções do governo sobre caso concreto e decidiu contra empresa, que pretende recorrer ao Judiciário. Assertiva: a autoridade não deveria aceitar instruções, e sua decisão pode ser objeto de recurso judicial.
-comentario: Art. 15.º, n.os 5 e 9. A independência da autoridade é um dos pontos avaliados nas decisões de adequação; na LGPD, a ANPD é autarquia de natureza especial dotada de autonomia funcional, técnica, decisória, administrativa e financeira (art. 55-A, com a redação da Lei nº 15.352/2026).
+enunciado: Situação hipotética: autoridade de controlo de Parte da Convenção 108+ recebeu instruções do governo sobre caso concreto e decidiu contra empresa, que pretende recorrer ao Judiciário. Assertiva: a autoridade não deveria aceitar instruções, mas sua decisão é definitiva e não pode ser objeto de recurso judicial.
+comentario: Errado. A autoridade de controlo atua com total independência e não pede nem aceita instruções (art. 15.º, n.º 5), mas suas decisões podem ser objeto de recurso judicial (art. 15.º, n.º 9). A independência é um dos pontos avaliados nas decisões de adequação.
 pesquisar: Independência das autoridades de proteção de dados
 
 === c108-11
@@ -130,8 +130,8 @@ gab: E
 ref: conv108 29
 trecho: As disposições da presente Convenção não podem ser objeto de qualquer reserva.
 armadilha: excecao
-dif: 1
-enunciado: A Convenção 108+ admite reservas às suas disposições, desde que formuladas no momento da ratificação ou da adesão.
+dif: 2
+enunciado: A Convenção 108+ pode receber a adesão de Estados que não são membros do Conselho da Europa, mediante convite, e admite reservas às suas disposições, desde que formuladas no momento da ratificação ou da adesão.
 comentario: O art. 29.º veda qualquer reserva. Reserva é a declaração pela qual o Estado exclui ou modifica o efeito de uma cláusula do tratado em relação a si.
 pesquisar: Reservas a tratados internacionais
 
@@ -140,8 +140,8 @@ gab: E
 ref: conv108 30
 trecho: A denúncia produzirá efeitos no primeiro dia do mês seguinte ao termo de um período de seis meses após a data de receção da notificação pelo Secretário-Geral.
 armadilha: numero
-dif: 1
-enunciado: A denúncia da Convenção 108+ produz efeitos na data de receção da notificação pelo Secretário-Geral do Conselho da Europa.
+dif: 2
+enunciado: Qualquer Parte pode, a todo o tempo, denunciar a Convenção 108+ mediante notificação dirigida ao Secretário-Geral do Conselho da Europa, e a denúncia produz efeitos na própria data em que o Secretário-Geral recebe essa notificação.
 comentario: Art. 30.º, n.º 2: os efeitos começam no primeiro dia do mês seguinte ao termo de seis meses contados da receção da notificação.
 
 === c108-15
@@ -150,6 +150,6 @@ ref: conv108 22
 trecho: Cada Parte nomeará um representante no comité e um representante adjunto.
 trecho: Qualquer Estado-Membro do Conselho da Europa que não seja Parte na Convenção terá o direito de ser representado no comité por um observador.
 armadilha: sujeito
-dif: 1
-enunciado: O Comité da Convenção 108+ é composto por representantes dos Estados-membros da União Europeia, sem lugar para observadores.
+dif: 2
+enunciado: Cada Parte nomeia um representante e um representante adjunto no Comitê da Convenção 108+, e a presença de observadores de Estados-membros do Conselho da Europa que não sejam Partes na Convenção é vedada nesse comitê.
 comentario: Cada Parte nomeia um representante e um adjunto (art. 22.º, n.º 2), e Estado-Membro do Conselho da Europa que não seja Parte pode ter observador; o próprio Comité pode convidar outros observadores por maioria de dois terços (n.º 3). A Convenção é do Conselho da Europa, não da União Europeia, cujo órgão equivalente no GDPR é o Comitê Europeu para a Proteção de Dados.

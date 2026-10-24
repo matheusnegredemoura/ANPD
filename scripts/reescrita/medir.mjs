@@ -1,5 +1,6 @@
 // Compara os itens C/E escritos para o banco com os itens reais da banca (sem línguas) nos sinais que entregam o
-// gabarito: palavra absoluta no item errado, “pode” no item certo, tamanho, casos e certo/errado por dificuldade.
+// gabarito: palavra absoluta no item errado, “pode” no item certo, tamanho, casos, certo/errado por quarto de tamanho
+// e por dificuldade.
 import { validar } from '../validar.mjs';
 import { copiaDoTrecho } from '../build.mjs';
 
@@ -17,6 +18,9 @@ for (const nome of ['autor', 'real']) {
   if (nome === 'autor') {
     r.copia60 = pc(a.filter((q) => q.trecho.length), (q) => copiaDoTrecho(q.enunciado, q.trecho) >= 0.6);
     for (const d of [1, 2, 3]) r['certosDif' + d] = pc(a.filter((q) => +(q.dif || 2) === d), (q) => q.gab === 'C');
+    r.certosNoCaso = pc(a.filter((q) => /^Situação hipotética/.test(q.enunciado)), (q) => q.gab === 'C');
   }
+  const ord = a.slice().sort((x, y) => x.enunciado.split(/\s+/).length - y.enunciado.split(/\s+/).length);
+  r.certosPorQuarto = [0, 1, 2, 3].map((i) => pc(ord.slice(Math.floor(i * ord.length / 4), Math.floor((i + 1) * ord.length / 4)), (q) => q.gab === 'C')).join('/');
   console.log(nome, JSON.stringify(r));
 }

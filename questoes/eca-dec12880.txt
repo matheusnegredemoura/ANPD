@@ -23,14 +23,14 @@ comentario: Os conceitos estão trocados. Aferição é o gênero (verificar, es
 pesquisar: Aferição × verificação × estimativa de idade (age assurance, age verification, age estimation)
 
 === d12880-03
-gab: C
+gab: E
 ref: dec12880 2
 trecho: sinal de idade - informação ou credencial indicativa que atesta a idade ou a faixa etária de um usuário aos fornecedores
 trecho: sem revelar dados pessoais adicionais
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: o sistema operacional informa ao aplicativo apenas a faixa etária do usuário, sem transmitir nome, data de nascimento ou documento. Assertiva: essa informação corresponde ao que o Decreto nº 12.880/2026 define como sinal de idade.
-comentario: Art. 2º, VI. O art. 25, § 1º, reforça: o sinal se limita ao estritamente necessário para confirmar a idade mínima, vedado enviar data de nascimento exata, identidade civil ou dados de perfilamento.
+enunciado: Situação hipotética: o sistema operacional informa ao aplicativo apenas a faixa etária do usuário, sem transmitir nome, data de nascimento ou documento. Assertiva: essa informação não corresponde ao sinal de idade do Decreto n.º 12.880/2026, que exige a transmissão da data de nascimento exata do usuário.
+comentario: Errado. O sinal de idade (art. 2º, VI) se limita ao estritamente necessário para confirmar a idade mínima, e o art. 25, § 1º, veda enviar data de nascimento exata, identidade civil ou dados de perfilamento. Informar a faixa etária é exatamente o que o decreto prevê.
 
 === d12880-04
 gab: E
@@ -69,7 +69,7 @@ trecho: ser transparentes na interação de crianças e adolescentes quanto a se
 trecho: A ANPD regulamentará e fiscalizará o disposto neste artigo.
 armadilha: extrapolacao
 dif: 2
-enunciado: O Decreto nº 12.880/2026 proíbe que crianças e adolescentes interajam com modelos de linguagem e agentes conversacionais de inteligência artificial.
+enunciado: Situação hipotética: plataforma oferece a usuários de doze anos um agente conversacional de inteligência artificial, que informa ser um sistema automatizado. Assertiva: o Decreto n.º 12.880/2026 proíbe que crianças e adolescentes interajam com esse tipo de sistema.
 comentario: Art. 11: o decreto não proíbe; exige que esses sistemas sejam transparentes sobre seu caráter sintético e automatizado, previnam a manipulação comportamental, avaliem o risco algorítmico e tenham salvaguardas ao desenvolvimento, sob regulamentação e fiscalização da ANPD.
 
 === d12880-08

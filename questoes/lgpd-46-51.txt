@@ -2,13 +2,13 @@ bloco: lgpd-46-51
 // Segurança, sigilo, incidentes, boas práticas e governança (arts. 46 a 51).
 
 === lgpd-46-01
-gab: C
+gab: E
 ref: lgpd 46
 trecho: Os agentes de tratamento devem adotar medidas de segurança, técnicas e administrativas aptas a proteger os dados pessoais de acessos não autorizados e de situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou qualquer forma de tratamento inadequado ou ilícito
 armadilha: caso
 dif: 3
-enunciado: Situação hipotética: um operador que presta serviço de folha de pagamento não adotou nenhuma medida para impedir acessos não autorizados aos dados dos empregados de seus clientes. Assertiva: o operador descumpriu dever de segurança que a LGPD impõe aos agentes de tratamento, e não apenas ao controlador.
-comentario: Caput do art. 46. O dever é dos agentes de tratamento, ou seja, controlador e operador.
+enunciado: Situação hipotética: um operador que presta serviço de folha de pagamento não adotou nenhuma medida para impedir acessos não autorizados aos dados dos empregados de seus clientes. Assertiva: o operador não descumpriu dever legal, pois a LGPD impõe ao controlador, e não ao operador, a adoção de medidas de segurança.
+comentario: Errado. Os agentes de tratamento, controlador e operador, devem adotar medidas de segurança, técnicas e administrativas aptas a proteger os dados de acessos não autorizados (art. 46, caput).
 
 === lgpd-46-02
 gab: C
@@ -42,8 +42,8 @@ gab: E
 ref: lgpd 47
 trecho: obriga-se a garantir a segurança da informação prevista nesta Lei em relação aos dados pessoais, mesmo após o seu término
 armadilha: extrapolacao
-dif: 1
-enunciado: O dever de garantir a segurança da informação em relação aos dados pessoais cessa com o término do tratamento.
+dif: 2
+enunciado: Os agentes de tratamento ou qualquer pessoa que intervenha em uma das fases do tratamento devem garantir a segurança da informação em relação aos dados pessoais, mas esse dever cessa com o término do tratamento.
 comentario: O art. 47 estende o dever “mesmo após o seu término” e alcança qualquer pessoa que intervenha em uma das fases do tratamento.
 
 === lgpd-47-02
@@ -56,13 +56,13 @@ enunciado: Situação hipotética: técnico terceirizado, que não é controlado
 comentario: Art. 47. Alcança, por exemplo, um técnico terceirizado que faz manutenção em servidor com dados pessoais.
 
 === lgpd-48-01
-gab: C
+gab: E
 ref: lgpd 48
 trecho: O controlador deverá comunicar à autoridade nacional e ao titular a ocorrência de incidente de segurança que possa acarretar risco ou dano relevante aos titulares
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: um hospital sofreu vazamento de dados de pacientes capaz de causar dano relevante, e o operador que o detectou avisou o hospital. Assertiva: cabe ao hospital, na condição de controlador, comunicar o incidente à autoridade nacional e aos titulares.
-comentario: Caput do art. 48. O dever é do controlador e a comunicação vai para dois destinatários: a ANPD e o titular.
+enunciado: Situação hipotética: um hospital sofreu vazamento de dados de pacientes capaz de causar dano relevante, e o operador que o detectou avisou o hospital. Assertiva: cabe ao operador que detectou o incidente comunicá-lo à autoridade nacional e aos titulares, por ter maior conhecimento técnico do ocorrido.
+comentario: Errado. O controlador deve comunicar à autoridade nacional e ao titular a ocorrência de incidente que possa acarretar risco ou dano relevante (art. 48, caput). O operador informa o controlador.
 
 === lgpd-48-02
 gab: E
@@ -70,7 +70,7 @@ ref: lgpd 48
 trecho: incidente de segurança que possa acarretar risco ou dano relevante aos titulares
 armadilha: absoluto
 dif: 2
-enunciado: O controlador deve comunicar à autoridade nacional todo e qualquer incidente de segurança, independentemente do risco que ele represente aos titulares.
+enunciado: Situação hipotética: empregado de empresa enviou por engano a colega de outro setor uma planilha com nomes de clientes, sem risco ou dano relevante aos titulares. Assertiva: o controlador deve comunicar o incidente à autoridade nacional, independentemente do risco.
 comentario: A LGPD exige a comunicação do incidente que possa acarretar risco ou dano relevante. O que fazer com os incidentes sem esse potencial (registro interno, por exemplo) é matéria da Resolução CD/ANPD nº 15/2024, que entra no banco quando você trouxer o texto.
 
 === lgpd-48-03
@@ -78,7 +78,7 @@ gab: E
 ref: lgpd 48
 trecho: deverá comunicar à autoridade nacional e ao titular
 armadilha: sujeito
-dif: 2
+dif: 1
 enunciado: Ocorrido incidente de segurança relevante, o controlador comunica o fato apenas à ANPD, que decide se os titulares devem ou não ser informados.
 comentario: O caput do art. 48 manda o controlador comunicar à ANPD e ao titular. A ANPD pode ainda determinar ampla divulgação (§ 2º, I).
 
@@ -87,7 +87,7 @@ gab: E
 ref: lgpd 48, § 1º
 trecho: A comunicação será feita em prazo razoável, conforme definido pela autoridade nacional
 armadilha: numero
-dif: 2
+dif: 1
 enunciado: A LGPD fixa o prazo de 72 horas para a comunicação de incidente de segurança à autoridade nacional, contado da ciência do fato.
 comentario: A lei fala em “prazo razoável, conforme definido pela autoridade nacional”. O prazo de 72 horas é do GDPR (art. 33). Na ANPD, o prazo foi fixado na Resolução CD/ANPD nº 15/2024 (três dias úteis, a conferir quando você trouxer o texto).
 
@@ -144,7 +144,7 @@ ref: lgpd 50
 trecho: poderão formular regras de boas práticas e de governança
 armadilha: conceito
 dif: 2
-enunciado: A formulação de regras de boas práticas e de governança é obrigatória para todos os controladores, sob pena de multa.
+enunciado: As regras de boas práticas e de governança estabelecem condições de organização, procedimentos e normas de segurança, e sua formulação é obrigatória para todos os controladores, sob pena de multa.
 comentario: O art. 50 usa “poderão”. Adotar política de boas práticas conta a favor na dosimetria (art. 52, § 1º, IX), mas não é obrigação.
 
 === lgpd-50-03
@@ -163,7 +163,7 @@ ref: lgpd 50, § 2º, I, b
 trecho: seja aplicável a todo o conjunto de dados pessoais que estejam sob seu controle, independentemente do modo como se realizou sua coleta
 armadilha: extrapolacao
 dif: 2
-enunciado: O programa de governança em privacidade pode limitar-se aos dados coletados após sua implantação, preservando-se as bases de dados antigas.
+enunciado: Situação hipotética: empresa implantou programa de governança em privacidade aplicável aos dados coletados a partir da implantação, sem alcançar suas bases antigas. Assertiva: o programa atende à LGPD, que admite preservar as bases de dados anteriores.
 comentario: A alínea “b” exige que o programa alcance todo o conjunto de dados sob controle do controlador, independentemente de como foram coletados.
 
 === lgpd-50-05
@@ -172,7 +172,7 @@ ref: lgpd 50, § 2º, II
 trecho: a pedido da autoridade nacional ou de outra entidade responsável por promover o cumprimento de boas práticas ou códigos de conduta
 armadilha: sujeito
 dif: 3
-enunciado: O controlador só pode ser instado a demonstrar a efetividade de seu programa de governança em privacidade mediante decisão judicial.
+enunciado: O controlador que adota programa de governança em privacidade deve estar apto a demonstrar sua efetividade quando apropriado, mas essa demonstração depende de decisão judicial que a determine.
 comentario: O inciso II do § 2º do art. 50 prevê a demonstração quando apropriado e, em especial, a pedido da ANPD ou de entidade que promova boas práticas ou códigos de conduta.
 
 === lgpd-50-06

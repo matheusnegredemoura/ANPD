@@ -3,14 +3,14 @@ bloco: constitucional
 // Itens escritos para o banco no padrão Cebraspe. Trechos conferidos em fontes/cf88.txt.
 
 === dc-exe-01
-gab: C
+gab: E
 tema: const-executivo
 ref: cf88 76
 trecho: O Poder Executivo é exercido pelo Presidente da República, auxiliado pelos Ministros de Estado.
 armadilha: caso
 dif: 2
-enunciado: Situação hipotética: afirmou-se que o Poder Executivo federal é exercido conjuntamente pelo Presidente da República e por um Conselho de Ministros. Assertiva: a afirmação está incorreta, pois os Ministros de Estado apenas auxiliam o Presidente da República.
-comentario: Art. 76. É o presidencialismo: o Presidente é chefe de Estado e de governo, e os ministros são seus auxiliares, de livre nomeação e exoneração (art. 84, I).
+enunciado: Situação hipotética: afirmou-se que o Poder Executivo federal é exercido conjuntamente pelo Presidente da República e por um Conselho de Ministros. Assertiva: a afirmação está correta, pois a Constituição adota o modelo em que o Executivo é exercido pelo Presidente da República com o Conselho de Ministros.
+comentario: Errado. O Poder Executivo é exercido pelo Presidente da República, auxiliado pelos Ministros de Estado (art. 76). É o presidencialismo: o Presidente é chefe de Estado e de governo, e os ministros são seus auxiliares, de livre nomeação e exoneração (art. 84, I).
 
 === dc-exe-02
 gab: E
@@ -18,7 +18,7 @@ tema: const-executivo
 ref: cf88 77, § 2º
 trecho: Será considerado eleito Presidente o candidato que, registrado por partido político, obtiver a maioria absoluta de votos, não computados os em branco e os nulos.
 armadilha: numero
-dif: 2
+dif: 1
 enunciado: É considerado eleito Presidente da República, no primeiro turno, o candidato que obtiver a maioria simples dos votos, computados os votos em branco.
 comentario: Exige-se maioria absoluta dos votos, sem contar brancos e nulos (art. 77, § 2º). Não alcançada, há segundo turno entre os dois mais votados, em até vinte dias da proclamação do resultado (§ 3º).
 
@@ -79,7 +79,7 @@ ref: cf88 81
 trecho: Vagando os cargos de Presidente e Vice-Presidente da República, far-se-á eleição noventa dias depois de aberta a última vaga.
 armadilha: extrapolacao
 dif: 2
-enunciado: Na hipótese de dupla vacância dos cargos de Presidente e Vice-Presidente da República, os novos eleitos iniciam novo mandato de quatro anos.
+enunciado: Vagando os cargos de presidente e vice-presidente da República nos dois primeiros anos do mandato, faz-se eleição noventa dias depois de aberta a última vaga, e os novos eleitos iniciam novo mandato de quatro anos.
 comentario: Em qualquer caso, os eleitos deverão completar o período de seus antecessores (art. 81, § 2º): é o chamado mandato-tampão.
 
 === dc-exe-09
@@ -119,7 +119,7 @@ ref: cf88 84, VI
 trecho: extinção de funções ou cargos públicos, quando vagos
 armadilha: excecao
 dif: 2
-enunciado: O Presidente da República pode, mediante decreto, extinguir cargos públicos ocupados, desde que não haja aumento de despesa.
+enunciado: Compete privativamente ao presidente da República dispor, mediante decreto, sobre a organização e o funcionamento da administração federal, quando não implicar aumento de despesa nem criação ou extinção de órgãos, e extinguir, também por decreto, cargos públicos ocupados.
 comentario: O decreto autônomo só extingue funções ou cargos públicos quando vagos (art. 84, VI, “b”). Cargo ocupado só se extingue por lei.
 
 === dc-exe-13
@@ -180,7 +180,7 @@ ref: cf88 86
 trecho: Admitida a acusação contra o Presidente da República, por dois terços da Câmara dos Deputados
 armadilha: numero
 dif: 2
-enunciado: A admissão da acusação contra o Presidente da República depende do voto da maioria absoluta dos membros da Câmara dos Deputados.
+enunciado: Nos crimes de responsabilidade, o presidente da República é julgado pelo Senado Federal, e nas infrações penais comuns, pelo STF, mas a admissão da acusação, em ambos os casos, depende do voto da maioria absoluta dos membros da Câmara dos Deputados.
 comentario: São necessários dois terços da Câmara (art. 86, caput), tanto para crime comum quanto para crime de responsabilidade. A condenação no Senado também exige dois terços (art. 52, parágrafo único).
 
 === dc-exe-19
@@ -201,7 +201,7 @@ ref: cf88 86, § 3º
 trecho: Enquanto não sobrevier sentença condenatória, nas infrações comuns, o Presidente da República não estará sujeito a prisão.
 armadilha: excecao
 dif: 2
-enunciado: O Presidente da República pode ser preso em flagrante por crime inafiançável, ainda que não haja sentença condenatória.
+enunciado: Situação hipotética: durante o mandato, o presidente da República foi surpreendido em flagrante de crime comum inafiançável, sem que houvesse sentença condenatória contra ele. Assertiva: ele pode ser preso em flagrante, pois a imunidade à prisão não alcança os crimes inafiançáveis.
 comentario: Enquanto não houver sentença condenatória nas infrações comuns, o Presidente não está sujeito a prisão (art. 86, § 3º), nem mesmo em flagrante. A imunidade dos parlamentares é diferente: eles podem ser presos em flagrante de crime inafiançável (art. 53, § 2º).
 
 === dc-exe-21
@@ -220,8 +220,8 @@ tema: const-executivo
 ref: cf88 87
 trecho: Os Ministros de Estado serão escolhidos dentre brasileiros maiores de vinte e um anos e no exercício dos direitos políticos.
 armadilha: numero
-dif: 1
-enunciado: Os Ministros de Estado são escolhidos entre brasileiros natos maiores de trinta e cinco anos e no exercício dos direitos políticos.
+dif: 2
+enunciado: Compete aos ministros de Estado, entre outras atribuições, referendar os atos e decretos assinados pelo presidente da República, e eles são escolhidos entre brasileiros maiores de trinta e cinco anos e no exercício dos direitos políticos.
 comentario: Basta ser brasileiro (nato ou naturalizado) maior de vinte e um anos, no exercício dos direitos políticos (art. 87). Só o Ministro da Defesa precisa ser nato (art. 12, § 3º, VII).
 
 === dc-exe-23
@@ -240,8 +240,8 @@ tema: const-executivo
 ref: cf88 88
 trecho: A lei disporá sobre a criação e extinção de Ministérios e órgãos da administração pública.
 armadilha: sujeito
-dif: 1
-enunciado: A criação de Ministérios pode ser feita por decreto do Presidente da República, desde que não implique aumento de despesa.
+dif: 2
+enunciado: O presidente da República pode, mediante decreto, dispor sobre a organização e o funcionamento da administração federal e, desde que não haja aumento de despesa, também criar ministérios por esse mesmo instrumento, dispensada a edição de lei.
 comentario: Criação e extinção de Ministérios e órgãos exigem lei (art. 88). O decreto autônomo só reorganiza o que já existe, sem criar nem extinguir órgãos (art. 84, VI, “a”). Medida provisória, que tem força de lei, já foi usada para reestruturar ministérios.
 
 === dc-exe-25
