@@ -9,6 +9,8 @@
 //   recuperação traz o que falta; batalha retomada mantém os corações;
 // - a sequência de dias não zera com uma folga por semana (de segunda a sábado), e domingo não quebra.
 import { APP, abrirNavegador, placar, vigiarErros } from './comum.mjs';
+// A Jornada começa recolhida na tela Hoje: abre o resumo antes de clicar dentro dela
+const abrirJornada = async (p) => { if (!(await p.locator('details[data-det="jornada"][open]').count())) await p.click('.jornada-resumo'); };
 import { lerTodas } from '../lib/questoes.mjs';
 import { fileURLToPath } from 'node:url';
 
@@ -86,6 +88,7 @@ await passo('na batalha, acerto causa dano no chefão e erro custa um coração'
   const { ctx, p } = await abrir(() => ({}), () => ({}));
   const vida0 = (await p.textContent('.chefe .chefe-cab .mono')).trim();
   if (vida0 !== 'HP 300/300') throw new Error('vida inicial: ' + vida0);
+  await abrirJornada(p);
   await p.click('[data-acao="enfrentar-chefe"]');
   await p.waitForSelector('.arena');
   await responder(p, true);
@@ -115,6 +118,7 @@ await passo('golpe final derruba o chefão e dá um item, que é equipado', asyn
     const sem = seg.getFullYear() + '-' + String(seg.getMonth() + 1).padStart(2, '0') + '-' + String(seg.getDate()).padStart(2, '0');
     return { rpg: { chefe: { sem, bloco: 'lgpd-5-11', vida: 5, max: 300 } } };
   }, () => ({}));
+  await abrirJornada(p);
   await p.click('[data-acao="enfrentar-chefe"]');
   await p.waitForSelector('.arena');
   await responder(p, true);
@@ -234,6 +238,7 @@ await passo('dia com várias matérias só dá baixa quando cada uma é estudada
 
 await passo('batalha retomada continua com os corações de quando você saiu', async () => {
   const { ctx, p } = await abrir(() => ({}), () => ({}));
+  await abrirJornada(p);
   await p.click('[data-acao="enfrentar-chefe"]');
   await p.waitForSelector('.arena');
   await responder(p, false);
@@ -241,6 +246,7 @@ await passo('batalha retomada continua com os corações de quando você saiu', 
   await p.click('[data-acao="sair-sessao"]');
   await p.click('[data-acao="confirmar-saida"]');
   await p.waitForTimeout(300);
+  await abrirJornada(p);
   await p.click('.cartao.jornada [data-acao="enfrentar-chefe"]');
   await p.waitForSelector('.arena');
   const cheios = await p.locator('.arena .cor.cheio').count(), total = await p.locator('.arena .cor').count();

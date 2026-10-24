@@ -38,6 +38,7 @@ await passo('a Jornada mostra a masmorra com o primeiro andar por limpar', async
 });
 
 await passo('descer e acertar os itens do andar limpa o andar', async () => {
+  await p.click('.jornada-resumo');
   await p.click('.masmorra [data-acao="treinar-art"]');
   await p.waitForSelector('#sessao:not([hidden])');
   for (let k = 0; k < 200; k++) {

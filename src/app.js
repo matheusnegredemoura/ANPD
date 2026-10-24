@@ -2109,6 +2109,32 @@ function leituraAtrasadaDoDia(dia, lidos) {
 // Cada correção salva dá baixa em um dia: o de hoje primeiro, depois o atrasado mais antigo, depois o próximo da semana
 // (adiantar vale). Vale qualquer tema; o do dia vem sugerido. A baixa fica em S.perfil.feitos['disc:' + data].
 const DIAS_DISC = DIAS.filter((d) => d.disc);
+// Cota da semana (segunda a domingo): uma discursiva completa, escrita e corrigida pelos quesitos, e um simulado de 30
+// itens ou mais com tempo. Ficam à vista abaixo do roteiro até serem cumpridas e não entram na contagem do roteiro do
+// dia (que fecha completo sem elas). O simulado do plano na semana também cumpre a cota.
+const SIM_SEMANA_N = 30;
+function cotaSemana() {
+  const sem = semanaAtual(), fim = isoDeNum(diaNum(sem) + 6);
+  const discOk = Object.values(S.disc).some((st) => (st.tentativas || []).some((x) => x.d >= sem));
+  const simOk = S.simulados.some((x) => x.data >= sem && x.n >= SIM_SEMANA_N);
+  const tent = (id) => ((S.disc[id] || {}).tentativas || []).length;
+  const tema = TEMAS_DISC.slice().sort((a, b) => tent(a.id) - tent(b.id))[0];
+  const simPlano = DIAS.find((x) => x.modo === 'simulado' && x.data >= hojeISO() && x.data <= fim);
+  const chaveSim = 'sim:' + sem;
+  return [
+    { titulo: 'Discursiva da semana', feito: discOk,
+      texto: discOk ? 'Feita nesta semana.' : (tema ? 'Texto inteiro, no limite de linhas e no tempo, corrigido pelos quesitos. Sugestão: ' + tema.titulo + (tent(tema.id) ? '' : ' (tema ainda não treinado)') + '.' : ''),
+      botoes: discOk || !tema ? '' : '<button class="btn pequeno" data-acao="disc-dia" data-t="' + esc(tema.id) + '">Escrever</button>' },
+    { titulo: 'Simulado da semana (' + SIM_SEMANA_N + ' itens)', feito: simOk,
+      texto: simOk ? 'Feito nesta semana.' : 'Com tempo e sem gabarito até entregar: treina ritmo, resistência e a decisão de chutar.' + (simPlano ? ' O simulado do plano de ' + fmtData(simPlano.data, { weekday: 'long' }) + ' também cumpre a cota.' : ''),
+      botoes: simOk ? '' : '<button class="btn pequeno" data-acao="simulado-semana">' + esc(rotuloPausa(chaveSim, 'Fazer o simulado')) + '</button>' },
+  ];
+}
+function cartaoSemana() {
+  const c = cotaSemana(), feitas = c.filter((x) => x.feito).length;
+  return '<div class="cartao semana"><div class="secao-cab"><h2>Esta semana</h2><span class="mono pequeno mudo">' + feitas + ' de ' + c.length + '</span></div><div class="roteiro">' +
+    c.map((p) => '<div class="passo' + (p.feito ? ' feito' : '') + '"><div class="marca-passo">' + (p.feito ? '✓' : '◦') + '</div><div class="corpo-passo"><b>' + esc(p.titulo) + '</b><p>' + esc(p.texto) + '</p>' + (p.botoes ? '<div class="linha-btns">' + p.botoes + '</div>' : '') + '</div></div>').join('') + '</div></div>';
+}
 function discFeita(dia) { return !!S.perfil.feitos['disc:' + dia.data]; }
 function discDeHoje() { const h = hojeISO(); return DIAS_DISC.find((d) => d.data === h) || null; }
 function temaDisc(dia) { return TEMAS_DISC.find((t) => t.id === dia.disc) || null; }
@@ -2541,8 +2567,10 @@ function cartaoJornada() {
     '<span class="pequeno mudo">' + esc(nomeBloco(c.bloco)) + '</span>' + hpBarra(c.vencido ? 0 : c.vida, c.max) + '</div>' +
     (c.vencido ? '' : '<button class="btn pequeno primario" data-acao="enfrentar-chefe">' + esc(rotuloPausa('chefe:' + c.sem, 'Batalhar')) + '</button>') + '</div>';
   const bau = mh.bau && mh.item && IR.get(mh.item) ? '<p class="pequeno">Baú aberto: <b class="r-txt-' + IR.get(mh.item).rar + '">' + esc(IR.get(mh.item).nome) + '</b></p>' : '<p class="pequeno mudo">Três missões abrem o baú do dia, com um item.</p>';
-  return '<div class="cartao jornada"><div class="secao-cab"><h2>Jornada</h2><span class="mono pequeno mudo">' + feitas + '/' + mh.ids.length + ' missões</span></div>' +
-    heroi + chefe + cartaoMasmorra() + '<div class="missoes">' + missoes + '</div>' + bau + '</div>';
+  // Recolhida por padrão (a tela Hoje começa pelo roteiro): o resumo mostra nível, missões e a vida do chefão
+  return '<div class="cartao jornada"><details data-det="jornada"' + (UI.det.jornada ? ' open' : '') + '><summary class="jornada-resumo"><b>Jornada</b><span class="mono pequeno mudo">nível ' + nv.n + ' · ' + feitas + '/' + mh.ids.length + ' missões · ' +
+    (c.vencido ? 'chefão vencido' : 'chefão ' + Math.round((c.vida / c.max) * 100) + '% de vida') + '</span></summary>' +
+    heroi + chefe + cartaoMasmorra() + '<div class="missoes">' + missoes + '</div>' + bau + '</details></div>';
 }
 // Ficha do personagem (Mais → Personagem): atributos medidos pelo domínio real, equipamento e inventário
 function dominioDisciplina(disc) {
@@ -2573,19 +2601,27 @@ function cartaoTrofeus() {
     (t.length ? '<div class="trofeus">' + t.slice(0, 30).map((x) => '<div class="trofeu"><span aria-hidden="true">♛</span><div><b>' + esc(nomeChefe(x.bloco)) + '</b><span class="pequeno">' + esc(nomeBloco(x.bloco)) + '</span><span class="pequeno mudo">semana de ' + esc(fmtData(x.sem, { day: '2-digit', month: '2-digit' })) + ' · derrotado em ' + esc(fmtData(x.data, { day: '2-digit', month: '2-digit' })) + '</span></div></div>').join('') + '</div>'
       : '<p class="pequeno mudo">Nenhum ainda. O chefão da semana está no painel, no card Jornada.</p>') + '</div>';
 }
+// Prontidão no topo da tela Hoje, acima de qualquer XP: é o número que diz se a prova está perto
+function linhaProntidao() {
+  const pr = prontidao(), n = pr.real.n;
+  const txt = pr.nota != null && pr.cobre >= 0.5
+    ? 'Prontidão: <b>' + Math.round(pr.nota) + '</b> de ' + PONTOS_PROVA + ' pontos líquidos estimados · itens reais: ' + pct(pr.real.c, n || 1) + '% em ' + n
+    : 'Prontidão: ' + (n ? pct(pr.real.c, n) + '% nos ' + pl(n, 'item real respondido', 'itens reais respondidos') + '; ' : '') + 'a estimativa fica confiável perto de 100 itens reais (o simulado da semana ajuda)';
+  return '<p class="pront-topo">' + txt + ' <button class="linkish pequeno" data-acao="mais" data-sub="progresso">detalhes</button></p>';
+}
 function renderHoje() {
   const ctx = contextoHoje();
   const d = diaLog();
   const h = hojeISO();
   const rt = roteiroHoje();
   const feitos = rt.passos.filter((p) => p.feito).length;
-  const prox = rt.passos.find((p) => !p.feito);
+  const prox = rt.passos.find((p) => !p.feito) || cotaSemana().find((p) => !p.feito);
   let topo = '<div class="cartao destaque"><div class="heroi">' +
     '<div><div class="dia">' + esc(fmtData(h, { weekday: 'long' })) + '</div><div class="data">' + esc(fmtData(h, { day: '2-digit', month: 'long', year: 'numeric' })) +
-    (ctx.tipo === 'dia' ? ' · ' + esc(ctx.dia.duracao) : '') + '</div></div>' + anel(d.r, metaDia()) +
+    (ctx.tipo === 'dia' ? ' · ' + esc(ctx.dia.duracao) : '') + '</div></div>' + anel(d.r, metaDia()) + linhaProntidao() +
     '<p class="atividade">' + (ctx.tipo === 'dia' ? esc(ctx.dia.atividade) : ctx.tipo === 'folga' ? '<span class="mudo">Dia livre por padrão. Próxima sessão, ' + esc(fmtData(ctx.prox.data, { weekday: 'short', day: '2-digit', month: '2-digit' })) + ':</span> ' + esc(ctx.prox.atividade) : 'Cronograma concluído: recomece pelos blocos mais fracos e pelo conteúdo do edital.') + '</p>' +
     // O que fazer agora fica na primeira tela: o primeiro passo do roteiro ainda não feito, com o botão dele
-    (prox ? '<div class="proximo"><span class="rotulo">Próximo passo · ' + (rt.passos.indexOf(prox) + 1) + ' de ' + rt.passos.length + '</span><b>' + esc(prox.titulo) + '</b><div class="linha-btns">' + prox.botoes + '</div></div>'
+    (prox ? '<div class="proximo"><span class="rotulo">' + (rt.passos.includes(prox) ? 'Próximo passo · ' + (rt.passos.indexOf(prox) + 1) + ' de ' + rt.passos.length : 'Roteiro de hoje feito · falta na semana') + '</span><b>' + esc(prox.titulo) + '</b><div class="linha-btns">' + prox.botoes + '</div></div>'
       : '<div class="proximo feito"><b>Roteiro de hoje completo.</b><span class="pequeno mudo">Se sobrar tempo, veja o Atraso do plano e a Jornada, mais abaixo.</span></div>') + '</div></div>';
   const aguard = ctx.tipo === 'dia' ? (ctx.dia.blocos || []).filter((b) => BI.get(b) && BI.get(b).aguardando && !(POR_BLOCO.get(b) || []).length) : [];
   if (aguard.length) topo += '<p class="nota-aguardando">' + esc(aguard.map(nomeBloco).join('; ')) + ': ainda sem questões. A sessão usa os blocos ligados ao tema. Cole o texto na conversa com o Claude para ganhar questões próprias.</p>';
@@ -2597,7 +2633,6 @@ function renderHoje() {
   const modos = '<div class="secao"><div class="secao-cab"><h2>Modos de jogo</h2></div><div class="grade-modos">' +
     '<button class="modo" data-acao="abrir-modo" data-modo="simulado"><b>Simulado Cebraspe</b><span>Uma errada anula uma certa. Prova inteira ou só os seus blocos.</span><span class="num">' + pl(S.simulados.length, 'simulado feito', 'simulados feitos') + '</span></button>' +
     '<button class="modo" data-acao="relampago" data-blocos="' + P1.join(',') + '"><b>Relâmpago 90 s</b><span>Prioridade 1 contra o relógio.</span><span class="num">Recorde: ' + (S.perfil.recordes.relampago || 0) + '</span></button>' +
-    '<button class="modo" data-acao="ir" data-vista="cards"><b>Cards cloze</b><span>A letra da lei com lacunas e revisão espaçada.</span><span class="num">' + CARDS.length + ' cards</span></button>' +
     '<button class="modo" data-acao="mais" data-sub="discursiva"><b>Discursiva</b><span>Limite de linhas e correção por quesitos.</span><span class="num">' + pl(TEMAS_DISC.length, 'tema', 'temas') + '</span></button>' +
     '<button class="modo" data-acao="abrir-modo" data-modo="treino"><b>Treino livre</b><span>Escolha os blocos; gabarito comentado a cada item.</span><span class="num">' + Q.length + ' questões</span></button></div></div>';
   // Duas contagens: o prazo legal do edital e a prova estimada (domingo cerca de três meses depois)
@@ -2615,7 +2650,7 @@ function renderHoje() {
   if (stH) fora.add('t:' + stH.id + ':' + (diaSt || estadoSubtema(stH.id).novos ? 'pre' : 'pratica'));
   verificarRPG();
   const local = cartaoSoNoAparelho(), localTopo = local && backupAtrasado();
-  document.getElementById('vista-hoje').innerHTML = topo + (localTopo ? local : '') + cartaoPausas(fora) + roteiro + cartaoTempo() + cartaoTaticoMentorando() + cartaoPendencias() + cartaoJornada() + modos + edital + (localTopo ? '' : local) + '<p class="sync" id="sync"></p>';
+  document.getElementById('vista-hoje').innerHTML = topo + (localTopo ? local : '') + cartaoPausas(fora) + roteiro + cartaoSemana() + cartaoPendencias() + cartaoJornada() + cartaoTempo() + cartaoTaticoMentorando() + modos + edital + (localTopo ? '' : local) + '<p class="sync" id="sync"></p>';
   atualizarRodapeSync();
 }
 // Quando a conta não está disponível, o aviso não fica escondido no rodapé: sobe para o topo se o último backup tiver
@@ -3975,7 +4010,10 @@ function renderPlano() {
 function renderPesquisar() {
   const itens = Object.entries(S.pesquisa).map(([k, v]) => Object.assign({ k }, v));
   const pend = itens.filter((x) => !x.s), feitos = itens.filter((x) => x.s);
-  const vis = (UI.filtroPesq === 'feitos' ? feitos : pend).sort((a, b) => (a.d < b.d ? 1 : -1));
+  // Pendentes: só os 10 mais recentes de saída (a lista crescia mais rápido que dava para investigar); o resto, a um toque
+  const todos = (UI.filtroPesq === 'feitos' ? feitos : pend).sort((a, b) => (a.d < b.d ? 1 : -1));
+  const PESQ_VISIVEIS = 10, corta = UI.filtroPesq !== 'feitos' && !UI.pesqTodos && todos.length > PESQ_VISIVEIS;
+  const vis = corta ? todos.slice(0, PESQ_VISIVEIS) : todos;
   let html = '<div class="secao-cab"><h2>Para pesquisar</h2><span class="mudo pequeno">' + pend.length + ' pendentes · ' + feitos.length + ' entendidos</span></div>' +
     '<p class="mudo pequeno">Quando você erra, os termos da questão entram aqui sozinhos. Em Investigar, o painel faz as perguntas, você escreve a resposta e o Claude confere, corrige pela norma e devolve uma pergunta para ir mais fundo. Depois marque como entendido (+5 XP).</p>' +
     '<div class="chips"><button class="chip" data-acao="filtro-pesq" data-f="pendentes" aria-pressed="' + (UI.filtroPesq !== 'feitos') + '">Pendentes</button><button class="chip" data-acao="filtro-pesq" data-f="feitos" aria-pressed="' + (UI.filtroPesq === 'feitos') + '">Entendidos</button></div>';
@@ -3983,7 +4021,8 @@ function renderPesquisar() {
     const g = GLOSS.find((t) => t.t === x.t);
     return '<div class="pesq-linha' + (x.s ? ' feito' : '') + '"><input type="checkbox" data-acao="pesq-feito" data-k="' + esc(x.k) + '"' + (x.s ? ' checked' : '') + ' aria-label="Marcar como entendido"><div class="tx"><b>' + esc(x.t) + '</b><small>' + esc(x.o || '') + ' · ' + esc(fmtData(x.d, { day: '2-digit', month: '2-digit' })) + '</small>' +
       (g ? '<button class="linkish pequeno" data-acao="termo" data-t="' + g.i + '">Ver definição</button>' : '') + '</div><button class="btn pequeno" data-acao="investigar" data-t="' + esc(x.t) + '" data-o="' + esc(x.o || '') + '">Investigar</button></div>';
-  }).join('') : '<p class="vazio-msg">' + (UI.filtroPesq === 'feitos' ? 'Nada marcado como entendido ainda.' : 'Lista vazia. Os temas sugeridos abaixo e os termos das questões erradas aparecem aqui.') + '</p>') + '</div>';
+  }).join('') : '<p class="vazio-msg">' + (UI.filtroPesq === 'feitos' ? 'Nada marcado como entendido ainda.' : 'Lista vazia. Os temas sugeridos abaixo e os termos das questões erradas aparecem aqui.') + '</p>') + '</div>' +
+    (corta ? '<button class="linkish pequeno" data-acao="pesq-todos">Mostrar os outros ' + (todos.length - PESQ_VISIVEIS) + ' pendentes</button>' : '');
   const ctx = contextoHoje();
   const doDia = new Set(blocosDoDia(ctx.tipo === 'dia' ? ctx.dia : ctx.tipo === 'folga' ? ctx.prox : null));
   html += '<div class="secao"><div class="secao-cab"><h2>Sugestões por bloco</h2></div><p class="mudo pequeno">Temas que costumam confundir em cada bloco. Os blocos do dia vêm abertos.</p>';
@@ -5115,6 +5154,7 @@ async function executar(a, alvo) {
       salvarUI(); renderQuestoes(); break;
     }
     case 'comecar': comecarConfigurado(); break;
+    case 'simulado-semana': iniciarSessao({ modo: 'simulado', n: SIM_SEMANA_N, prova: true, minutos: Math.round(SIM_SEMANA_N * RITMO_PROVA_S / 60), titulo: 'Simulado da semana', chave: 'sim:' + semanaAtual() }); break;
     case 'simulado-oficial-120': iniciarSessao({ modo: 'simulado', n: 120, prova: true, minutos: 210, titulo: 'Simulado · formato projetado (120 itens)' }); break;
     case 'simulado-anvisa-2024': {
       const ids = Q.filter((q) => q.id.startsWith('anvisa-2024-cebraspe-')).map((q) => q.id);
@@ -5133,6 +5173,7 @@ async function executar(a, alvo) {
     case 'revelar': proximo(); break;
     case 'avaliar': avaliar(Number(alvo.dataset.n)); break;
     case 'pegadinha': cacarPegadinha(alvo.dataset.t); break;
+    case 'pesq-todos': UI.pesqTodos = true; renderMais(); break;
     case 'causa-agora': {
       const q = sessao && QI.get(sessao.ids[sessao.i]);
       if (!q || !causaDe(alvo.dataset.causa)) break;

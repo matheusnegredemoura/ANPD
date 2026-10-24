@@ -885,3 +885,7 @@ body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}
 .check-disc summary{cursor:pointer;font-weight:700}
 .check-disc ul{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:6px}
 .check-disc label{display:flex;gap:8px;align-items:flex-start}
+/* Tela Hoje enxuta: prontidão no topo e Jornada recolhida num resumo */
+.pront-topo{margin:8px 0 0;font-size:.92rem}
+.jornada-resumo{cursor:pointer;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;list-style-position:inside}
+.jornada details[open]>.jornada-resumo{margin-bottom:10px}
