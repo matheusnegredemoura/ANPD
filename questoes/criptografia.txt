@@ -1,0 +1,75 @@
+bloco: seginfo
+// Criptografia: simétrica, assimétrica, híbrida, hash, assinatura e certificado digital. Itens de doutrina com
+// comentários próprios.
+
+=== sc9-01
+gab: C
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: Na criptografia simétrica, a mesma chave cifra e decifra a mensagem, o que exige um canal seguro para distribuí-la entre as partes.
+comentario: Certo. É o ponto fraco do método simétrico (como o AES): rápido, mas dependente da troca segura da chave.
+
+=== sc9-02
+gab: E
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: Na criptografia assimétrica, a mensagem cifrada com a chave pública do destinatário é decifrada com essa mesma chave pública.
+comentario: Errado. O que se cifra com a chave pública do destinatário só se decifra com a chave privada correspondente, que só ele tem. Isso garante a confidencialidade.
+
+=== sc9-03
+gab: C
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 2
+enunciado: Na assinatura digital, o remetente usa a própria chave privada, e qualquer pessoa verifica a assinatura com a chave pública dele, o que assegura autenticidade, integridade e não repúdio.
+comentario: Certo. Assina-se, em regra, o resumo (hash) do documento; qualquer alteração posterior invalida a verificação.
+
+=== sc9-04
+gab: E
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: A função hash é reversível: conhecendo o algoritmo, é possível reconstruir a mensagem original a partir do resumo.
+comentario: Errado. A função hash criptográfica é de mão única: do resumo não se volta à mensagem. Por isso serve para verificar integridade e guardar senhas (com sal), não para cifrar dados que precisam ser lidos depois.
+
+=== sc9-05
+gab: C
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 2
+enunciado: Uma função hash criptográfica deve ser resistente a colisões, isto é, deve ser computacionalmente inviável encontrar duas entradas diferentes com o mesmo resumo.
+comentario: Certo. Funções em que colisões se tornaram viáveis, como MD5 e SHA-1, deixaram de ser recomendadas para assinatura e integridade.
+
+=== sc9-06
+gab: E
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 2
+enunciado: A assinatura digital garante a confidencialidade do documento assinado.
+comentario: Errado. A assinatura digital garante autenticidade, integridade e não repúdio, mas o documento continua legível. Para sigilo, é preciso cifrá-lo, por exemplo com a chave pública do destinatário.
+
+=== sc9-07
+gab: C
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: para trocar grande volume de dados com segurança, um sistema usa criptografia assimétrica para combinar uma chave de sessão e criptografia simétrica para cifrar os dados. Assertiva: o arranjo une a facilidade de distribuição de chaves do método assimétrico ao desempenho do simétrico.
+comentario: Certo. É a criptografia híbrida, usada por protocolos como o TLS: o método assimétrico, lento, protege só a chave; o simétrico, rápido, cifra o conteúdo.
+
+=== sc9-08
+gab: E
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 3
+enunciado: O certificado digital emitido na ICP-Brasil contém a chave privada do titular, assinada pela autoridade certificadora.
+comentario: Errado. O certificado vincula a identidade do titular à sua chave pública e é assinado pela autoridade certificadora. A chave privada fica só com o titular e nunca integra o certificado.

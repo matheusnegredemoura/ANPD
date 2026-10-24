@@ -91,6 +91,7 @@ ref: nistcsf PR.AT
 trecho: Personnel are provided with awareness and training so that they possess the knowledge and skills to perform general tasks with cybersecurity risks in mind
 armadilha: sujeito
 dif: 2
+tema: sg-nist
 enunciado: Na função proteger do NIST CSF 2.0, a categoria conscientização e treinamento (PR.AT) prevê capacitação em cibersegurança, mas a destina aos profissionais da área técnica de segurança, sem alcançar o pessoal em geral.
 comentario: Errado. A conscientização alcança todo o pessoal (PR.AT-01); quem exerce funções especializadas recebe treinamento específico (PR.AT-02).
 
@@ -100,6 +101,7 @@ ref: nistcsf PR.PS
 trecho: Log records are generated and made available for continuous monitoring
 armadilha: comparacao
 dif: 3
+tema: sg-nist
 enunciado: No NIST CSF 2.0, a geração de registros de log e sua disponibilização para monitoramento contínuo constam da categoria segurança de plataformas, da função proteger.
 comentario: Certo: PR.PS-04. Gerar o log é proteção; monitorá-lo para achar eventos adversos é detecção (DE.CM). A divisão cai bem em item de função trocada.
 
@@ -109,6 +111,7 @@ ref: nistcsf PR.PS
 trecho: Secure software development practices are integrated, and their performance is monitored throughout the software development life cycle
 armadilha: caso
 dif: 2
+tema: sg-nist
 enunciado: Situação hipotética: a equipe de desenvolvimento só faz testes de segurança depois que o sistema entra em produção. Assertiva: o NIST CSF 2.0 prevê práticas de desenvolvimento seguro integradas e monitoradas ao longo de todo o ciclo de vida do software.
 comentario: Certo: PR.PS-06. É a segurança desde a concepção aplicada ao software, que conversa com o art. 46, § 2º, da LGPD.
 
@@ -118,6 +121,7 @@ ref: nistcsf PR.IR
 trecho: Technology Infrastructure Resilience (PR.IR)
 armadilha: comparacao
 dif: 3
+tema: sg-nist
 enunciado: No NIST CSF 2.0, a resiliência da infraestrutura tecnológica, que inclui manter capacidade adequada para assegurar a disponibilidade, é categoria da função recuperar.
 comentario: Errado. É categoria da função proteger (PR.IR): resiliência se constrói antes do incidente. A função recuperar trata da execução do plano de recuperação (RC.RP) e da comunicação (RC.CO).
 

@@ -54,6 +54,7 @@ gab: C
 ref: doutrina ISO 27001
 armadilha: conceito
 dif: 2
+tema: sg-iso
 enunciado: A norma ABNT NBR ISO/IEC 27001 especifica requisitos para estabelecer, implementar, manter e melhorar continuamente um sistema de gestão da segurança da informação, e a ISO/IEC 27701 a estende para a gestão da privacidade.
 comentario: A 27001 é a norma certificável de requisitos. A 27002 é o guia de controles. A 27701 acrescenta o sistema de gestão da privacidade da informação.
 
@@ -104,6 +105,7 @@ gab: C
 ref: doutrina k-anonimato
 armadilha: conceito
 dif: 3
+tema: sg-privacidade
 enunciado: Uma base de dados atende ao k-anonimato quando cada registro é indistinguível de pelo menos k − 1 outros registros em relação aos atributos quase identificadores.
 comentario: Quase identificadores são atributos que, combinados, identificam alguém (CEP, data de nascimento, sexo). O k-anonimato não protege contra todos os ataques, por isso surgiram variantes como l-diversidade.
 
@@ -112,6 +114,7 @@ gab: C
 ref: doutrina controle de acesso
 armadilha: conceito
 dif: 1
+tema: sg-principios
 enunciado: Pelo princípio do menor privilégio, cada usuário deve receber apenas as permissões estritamente necessárias para executar suas funções.
 comentario: Certo. O menor privilégio dá a cada usuário só as permissões estritamente necessárias à função, o que reduz o dano de erro, abuso ou conta comprometida. É o espelho técnico do princípio da necessidade da LGPD (art. 6º, III) e base do controle de acesso por necessidade de conhecer.
 
@@ -120,6 +123,7 @@ gab: E
 ref: doutrina autenticação
 armadilha: conceito
 dif: 1
+tema: sg-principios
 enunciado: Exigir do usuário uma senha e um PIN numérico caracteriza autenticação de dois fatores, por envolver dois segredos distintos.
 comentario: Senha e PIN são do mesmo fator: algo que você sabe. Dois fatores exigem categorias diferentes: algo que você sabe, algo que você tem (token, celular) ou algo que você é (biometria).
 
@@ -128,6 +132,7 @@ gab: C
 ref: doutrina resposta a incidentes
 armadilha: rol
 dif: 2
+tema: sg-nist
 enunciado: No ciclo clássico de resposta a incidentes descrito pelo NIST (SP 800-61, revisão 2), as fases são preparação; detecção e análise; contenção, erradicação e recuperação; e atividades pós-incidente.
 comentario: A revisão 3 (2025) reorganizou o guia em torno das funções do NIST Cybersecurity Framework 2.0, mas o ciclo da revisão 2 continua sendo o mais cobrado.
 
@@ -136,6 +141,7 @@ gab: C
 ref: doutrina backup
 armadilha: numero
 dif: 1
+tema: sg-principios
 enunciado: A regra 3-2-1 de cópias de segurança recomenda manter três cópias dos dados, em dois tipos de mídia diferentes, com uma cópia fora do local principal.
 comentario: É a defesa básica contra ransomware e desastres. Cópias imutáveis ou desconectadas da rede reforçam a proteção.
 
@@ -144,6 +150,7 @@ gab: E
 ref: doutrina engenharia social
 armadilha: conceito
 dif: 2
+tema: sg-ameacas
 enunciado: Situação hipotética: criminoso telefonou para servidor fingindo ser do suporte técnico e obteve sua senha. Assertiva: o ataque explorou principalmente vulnerabilidade técnica de software.
 comentario: Engenharia social explora o fator humano (confiança, urgência, medo). Phishing é o exemplo mais comum.
 

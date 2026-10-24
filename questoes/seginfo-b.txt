@@ -30,6 +30,7 @@ gab: C
 ref: doutrina privacidade diferencial
 armadilha: conceito
 dif: 3
+tema: sg-privacidade
 enunciado: A privacidade diferencial adiciona ruído calibrado aos resultados de consultas ou análises, de modo a limitar o que se pode inferir sobre a presença ou os dados de um indivíduo específico na base.
 comentario: Técnica usada, por exemplo, pelo Censo dos EUA de 2020. O parâmetro épsilon controla o equilíbrio entre privacidade e utilidade.
 pesquisar: Privacidade diferencial e o parâmetro épsilon
@@ -39,6 +40,7 @@ gab: E
 ref: doutrina anonimização
 armadilha: conceito
 dif: 3
+tema: sg-privacidade
 enunciado: Uma base que atende ao k-anonimato está protegida contra o ataque de homogeneidade, ainda que todos os registros de um mesmo grupo compartilhem o mesmo valor sensível.
 comentario: Se todos os k registros do grupo têm o mesmo diagnóstico, o atacante descobre o dado sensível sem saber qual é o registro. A l-diversidade e a t-proximidade surgiram para tratar essa falha.
 
@@ -64,6 +66,7 @@ gab: E
 ref: doutrina backup
 armadilha: comparacao
 dif: 3
+tema: sg-principios
 enunciado: Situação hipotética: faz-se backup completo no domingo e, nos demais dias, copiam-se apenas os arquivos alterados desde o backup anterior, qualquer que seja seu tipo. Assertiva: o esquema descreve backup diferencial.
 comentario: Errado. Copiar, nos demais dias, só o que mudou desde o backup anterior (de qualquer tipo) é o backup incremental. O diferencial copia tudo o que mudou desde o último backup completo, e por isso cresce a cada dia até o próximo completo.
 
@@ -72,6 +75,7 @@ gab: C
 ref: doutrina backup
 armadilha: conceito
 dif: 2
+tema: sg-principios
 enunciado: Para restaurar um ambiente a partir de backups diferenciais, bastam o último backup completo e o último backup diferencial.
 comentario: O diferencial acumula as mudanças desde o último completo. No incremental, é preciso o completo e todos os incrementais posteriores, em ordem.
 
@@ -80,6 +84,7 @@ gab: C
 ref: doutrina zero trust
 armadilha: conceito
 dif: 2
+tema: sg-principios
 enunciado: O modelo de confiança zero parte da premissa de que nenhum usuário ou dispositivo deve ser considerado confiável apenas por estar dentro do perímetro da rede corporativa.
 comentario: Certo. O modelo de confiança zero (zero trust, NIST SP 800-207) não presume confiança por localização na rede: cada acesso é autenticado, autorizado e verificado continuamente. O lema é nunca confiar, sempre verificar; o perímetro deixa de ser a fronteira da confiança.
 
@@ -88,6 +93,7 @@ gab: E
 ref: doutrina redes
 armadilha: conceito
 dif: 1
+tema: sg-ameacas
 enunciado: O firewall de filtragem de pacotes sem estado inspeciona o conteúdo das mensagens da camada de aplicação para bloquear comandos maliciosos.
 comentario: O filtro de pacotes atua nas camadas de rede e transporte (endereços, portas, protocolos). Inspeção de conteúdo de aplicação é feita por firewalls de aplicação (WAF) ou de próxima geração.
 
@@ -96,6 +102,7 @@ gab: C
 ref: doutrina ameaças
 armadilha: conceito
 dif: 2
+tema: sg-ameacas
 enunciado: A injeção de SQL explora entradas não validadas para executar comandos no banco de dados, e o uso de consultas parametrizadas é medida eficaz de prevenção.
 comentario: Certo. A injeção de SQL insere comandos em entradas não validadas que a aplicação concatena na consulta ao banco. Consultas parametrizadas separam código de dados e neutralizam o ataque. A categoria Injection aparece há anos no OWASP Top 10.
 
@@ -120,6 +127,7 @@ gab: C
 ref: doutrina DLP
 armadilha: conceito
 dif: 2
+tema: sg-ameacas
 enunciado: Ferramentas de prevenção de perda de dados (DLP) monitoram e podem bloquear a saída não autorizada de informações sensíveis por e-mail, nuvem ou dispositivos removíveis.
 comentario: DLP ajuda a prevenir incidentes de vazamento, ligando-se ao princípio da prevenção (LGPD, art. 6º, VIII).
 

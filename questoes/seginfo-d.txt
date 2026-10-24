@@ -80,6 +80,7 @@ gab: C
 ref: doutrina Ameaça, vulnerabilidade e risco
 armadilha: conceito
 dif: 2
+tema: sg-ameacas
 enunciado: Vulnerabilidade é a fraqueza de um ativo ou controle que pode ser explorada por uma ameaça, e o risco combina a probabilidade de exploração e o impacto que ela causaria.
 comentario: Ameaça é a causa potencial de um incidente (um atacante, uma falha de energia). Sem ameaça que a explore, a vulnerabilidade não gera risco relevante; sem vulnerabilidade, a ameaça não se concretiza.
 
@@ -88,6 +89,7 @@ gab: E
 ref: doutrina Sistemas de detecção e prevenção de intrusão
 armadilha: comparacao
 dif: 2
+tema: sg-ameacas
 enunciado: O sistema de detecção de intrusão (IDS) atua em linha no tráfego e bloqueia automaticamente os pacotes maliciosos, ao passo que o sistema de prevenção de intrusão (IPS) apenas gera alertas.
 comentario: Errado. É o contrário: o IDS monitora e alerta; o IPS fica em linha e pode bloquear. Ambos podem detectar por assinatura (padrões conhecidos) ou por anomalia (desvio do comportamento normal).
 
@@ -96,6 +98,7 @@ gab: C
 ref: doutrina Arquitetura de redes (DMZ)
 armadilha: conceito
 dif: 2
+tema: sg-ameacas
 enunciado: A zona desmilitarizada (DMZ) é segmento de rede que hospeda serviços expostos à internet, como servidores web, separado da rede interna, de modo que o comprometimento desses serviços não dê acesso direto aos sistemas internos.
 comentario: É aplicação de segmentação e defesa em profundidade. Serviços acessados de fora ficam na DMZ; bases com dados pessoais ficam na rede interna, com acesso controlado.
 
@@ -104,6 +107,7 @@ gab: E
 ref: doutrina Honeypot
 armadilha: conceito
 dif: 1
+tema: sg-ameacas
 enunciado: O honeypot é sistema de produção crítico, protegido por múltiplas camadas, que armazena as informações mais sensíveis da organização.
 comentario: Errado. Honeypot é sistema-isca, propositalmente atrativo e monitorado, usado para atrair atacantes, estudar suas técnicas e desviar ataques dos sistemas reais.
 
@@ -120,6 +124,7 @@ gab: C
 ref: doutrina Continuidade de negócios (RTO e RPO)
 armadilha: comparacao
 dif: 2
+tema: sg-principios
 enunciado: O objetivo de tempo de recuperação (RTO) é o tempo máximo tolerável para restabelecer um serviço após uma interrupção, enquanto o objetivo de ponto de recuperação (RPO) se refere à perda máxima tolerável de dados, medida em tempo.
 comentario: RPO de uma hora exige cópias pelo menos a cada hora; RTO de quatro horas exige capacidade de restaurar o serviço nesse prazo. Os dois orientam o plano de continuidade e de recuperação de desastres.
 
@@ -128,6 +133,7 @@ gab: E
 ref: doutrina Gestão de vulnerabilidades
 armadilha: conceito
 dif: 2
+tema: sg-ameacas
 enunciado: Vulnerabilidade de dia zero é aquela para a qual o fabricante já publicou correção há mais de um dia, mas o usuário ainda não a aplicou.
 comentario: Errado. Dia zero é a vulnerabilidade ainda desconhecida do fabricante ou sem correção disponível, explorável antes que exista defesa específica. A falha com correção publicada e não aplicada é problema de gestão de atualizações.
 
@@ -144,6 +150,7 @@ gab: E
 ref: doutrina Tecnologias de reforço de privacidade
 armadilha: conceito
 dif: 3
+tema: sg-privacidade
 enunciado: No aprendizado federado, os dados brutos de todos os participantes são reunidos em servidor central, onde o modelo é treinado de uma só vez.
 comentario: Errado. No aprendizado federado, o modelo vai até os dados: cada participante treina localmente e envia só atualizações do modelo, que são agregadas. Reduz a centralização de dados pessoais, embora as atualizações possam vazar informação se não houver proteção adicional.
 
@@ -152,6 +159,7 @@ gab: C
 ref: doutrina Mascaramento de dados
 armadilha: caso
 dif: 2
+tema: sg-privacidade
 enunciado: Exibir ao atendente apenas os três últimos dígitos do CPF do cliente, ocultando os demais, é exemplo de mascaramento de dados que aplica o princípio da necessidade.
 comentario: O mascaramento limita a exposição conforme a função de quem acessa. A LGPD limita o tratamento ao mínimo necessário para as finalidades (art. 6º, III).
 
@@ -160,6 +168,7 @@ gab: E
 ref: doutrina Computação em nuvem (responsabilidade compartilhada)
 armadilha: interpretacao
 dif: 2
+tema: sg-iso
 enunciado: Ao contratar serviço de nuvem, o órgão transfere ao provedor toda a responsabilidade pela segurança dos dados pessoais armazenados, inclusive pela gestão de acessos de seus próprios usuários.
 comentario: Errado. Vale o modelo de responsabilidade compartilhada: o provedor protege a infraestrutura; o cliente continua responsável por configurações, contas, permissões e dados, em grau que varia entre IaaS, PaaS e SaaS. Na LGPD, o órgão controlador responde pelo tratamento e o provedor atua como operador.
 
@@ -168,6 +177,7 @@ gab: C
 ref: doutrina Computação em nuvem (modelos de serviço)
 armadilha: comparacao
 dif: 2
+tema: sg-iso
 enunciado: No modelo de infraestrutura como serviço (IaaS), o cliente gerencia sistemas operacionais e aplicações sobre recursos virtualizados do provedor, enquanto no software como serviço (SaaS) usa aplicação pronta, gerida pelo provedor.
 comentario: Quanto mais próximo do SaaS, mais responsabilidades ficam com o provedor; a gestão de usuários e dos dados, porém, continua com o cliente em todos os modelos.
 
@@ -184,6 +194,7 @@ gab: C
 ref: doutrina Registros de eventos (logs)
 armadilha: conceito
 dif: 2
+tema: sg-principios
 enunciado: Registros de eventos (logs) devem ser protegidos contra alteração e acesso indevido, pois servem à detecção de incidentes, à investigação e à demonstração de conformidade, e podem conter dados pessoais.
 comentario: Logs são prova e também dados pessoais (quem acessou o quê e quando). Sincronização de relógios, retenção definida e acesso restrito são boas práticas. A Resolução CD/ANPD nº 15/2024 exige manter o registro dos incidentes, inclusive dos não comunicados, pelo prazo mínimo de cinco anos (art. 10).
 

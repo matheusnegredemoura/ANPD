@@ -41,6 +41,7 @@ gab: C
 ref: doutrina Gestão de riscos de segurança da informação
 armadilha: rol
 dif: 2
+tema: sg-riscos
 enunciado: Na gestão de riscos de segurança da informação, as opções clássicas de tratamento incluem modificar o risco com controles, retê-lo conscientemente, evitá-lo, abandonando a atividade que o origina, e compartilhá-lo, por exemplo por seguro ou contratação de terceiros.
 comentario: Certo. São as opções da ISO/IEC 27005, alinhada à ISO 31000. Compartilhar o risco divide a conta, não o dever: quem contrata um operador continua sendo controlador para a LGPD.
 
@@ -49,6 +50,7 @@ gab: E
 ref: doutrina Gestão de riscos de segurança da informação
 armadilha: comparacao
 dif: 2
+tema: sg-riscos
 enunciado: Situação hipotética: organização avaliou um risco antes de adotar qualquer controle e chegou a nível alto. Assertiva: esse nível corresponde ao risco residual.
 comentario: Errado. O risco avaliado antes de qualquer controle é o risco inerente. O residual é o que sobra depois do tratamento, e a ISO/IEC 27001 exige que os responsáveis pelos riscos aprovem o plano de tratamento e aceitem esse risco residual.
 
@@ -73,6 +75,7 @@ gab: C
 ref: doutrina Controle de acesso
 armadilha: conceito
 dif: 1
+tema: sg-principios
 enunciado: No controle de acesso, a autenticação confirma quem o usuário é, a autorização determina a que recursos ele tem acesso e o registro de atividades permite reconstituir o que ele fez.
 comentario: Certo. É a sequência AAA (autenticação, autorização e registro, em inglês accounting). Sem o registro, não há como apurar um incidente nem demonstrar a conformidade.
 
@@ -81,6 +84,7 @@ gab: E
 ref: doutrina Controle de acesso
 armadilha: conceito
 dif: 1
+tema: sg-principios
 enunciado: Identificação e autenticação são sinônimos, de modo que informar o nome de usuário já comprova a identidade de quem acessa o sistema.
 comentario: Errado. Identificar é declarar quem se é (o nome de usuário); autenticar é comprovar essa declaração, com algo que se sabe, se tem ou se é.
 
@@ -89,6 +93,7 @@ gab: C
 ref: doutrina MITRE ATT&CK
 armadilha: comparacao
 dif: 3
+tema: sg-ameacas
 enunciado: Na matriz MITRE ATT&CK, as táticas representam o objetivo do adversário em cada etapa, como obter acesso inicial ou exfiltrar dados, e as técnicas descrevem como ele alcança esse objetivo.
 comentario: Certo. Tática é o porquê; técnica, o como; procedimento, a forma concreta com que um grupo aplica a técnica. O Cebraspe trocou tática e técnica no TCU 2026 (item 145).
 
@@ -97,6 +102,7 @@ gab: E
 ref: doutrina MITRE ATT&CK
 armadilha: conceito
 dif: 1
+tema: sg-ameacas
 enunciado: O MITRE ATT&CK é norma de certificação que fixa requisitos mínimos de controles de segurança para as organizações.
 comentario: Errado. É base de conhecimento pública sobre táticas e técnicas observadas em ataques reais. Serve para modelar ameaças, avaliar a cobertura das detecções e planejar defesas, mas não certifica ninguém.
 
@@ -105,6 +111,7 @@ gab: C
 ref: doutrina Identidade federada
 armadilha: conceito
 dif: 3
+tema: sg-principios
 enunciado: No acesso único federado com SAML, o provedor de identidade autentica o usuário e emite asserções nas quais o provedor de serviço confia para conceder o acesso.
 comentario: Certo. O usuário se autentica uma vez no provedor de identidade (IdP), e cada provedor de serviço (SP) aceita a asserção assinada, sem receber a senha.
 
@@ -113,6 +120,7 @@ gab: E
 ref: doutrina Identidade federada
 armadilha: conceito
 dif: 3
+tema: sg-principios
 enunciado: O OAuth 2.0 é protocolo de autenticação, e o token de acesso emitido pelo servidor de autorização serve para provar à aplicação cliente a identidade do usuário.
 comentario: Errado. O OAuth 2.0 é estrutura de autorização delegada: o token de acesso permite ao cliente acessar recursos em nome do titular, sem conhecer a senha dele. A autenticação fica com o OpenID Connect, camada de identidade sobre o OAuth 2.0 que acrescenta o token de identidade.
 
@@ -121,6 +129,7 @@ gab: C
 ref: doutrina Identidade federada
 armadilha: sujeito
 dif: 3
+tema: sg-principios
 enunciado: No OAuth 2.0, o servidor de autorização emite tokens de acesso ao cliente depois do consentimento do proprietário do recurso, e o servidor de recursos aceita esses tokens para liberar os dados protegidos.
 comentario: Certo. Os quatro papéis são proprietário do recurso, cliente, servidor de autorização e servidor de recursos. O TCU 2026 (item 138) trocou o provedor de identidade do SAML pelo servidor de autorização do OAuth.
 
@@ -129,6 +138,7 @@ gab: E
 ref: doutrina Testes de segurança
 armadilha: comparacao
 dif: 2
+tema: sg-ameacas
 enunciado: O teste de intrusão e a varredura automatizada de vulnerabilidades são a mesma atividade, pois ambos se limitam a listar falhas conhecidas, sem tentar explorá-las.
 comentario: Errado. A varredura lista vulnerabilidades conhecidas de forma automatizada. O teste de intrusão, autorizado e com escopo definido, tenta explorá-las para demonstrar o impacto real, combinando ferramentas e trabalho manual.
 
@@ -169,6 +179,7 @@ gab: C
 ref: doutrina Continuidade de negócios
 armadilha: conceito
 dif: 2
+tema: sg-riscos
 enunciado: A análise de impacto nos negócios identifica as atividades críticas e estima os efeitos de sua interrupção ao longo do tempo, subsidiando a definição de objetivos como o tempo de recuperação.
 comentario: Certo. É etapa da gestão de continuidade (ISO 22301). A avaliação de riscos diz o que pode parar; a análise de impacto diz quanto custa parar, e dela saem o RTO, o RPO e a ordem de recuperação.
 
@@ -177,6 +188,7 @@ gab: E
 ref: doutrina Continuidade de negócios
 armadilha: extrapolacao
 dif: 2
+tema: sg-riscos
 enunciado: O plano de continuidade de negócios torna dispensável o plano de resposta a incidentes, pois ambos tratam exclusivamente de falhas técnicas de tecnologia da informação.
 comentario: Errado. A continuidade mantém ou retoma as atividades críticas diante de qualquer interrupção, inclusive desastres, falta de pessoal e falha de fornecedores. A resposta a incidentes cuida de detectar, conter, erradicar e recuperar um incidente específico. Os planos se complementam.
 
@@ -185,6 +197,7 @@ gab: C
 ref: doutrina ISO/IEC 27002
 armadilha: conceito
 dif: 2
+tema: sg-iso
 enunciado: Excluir arquivos ou formatar rapidamente uma mídia pode não eliminar os dados, que continuam recuperáveis; por isso, o descarte seguro exige sobrescrita, apagamento criptográfico ou destruição física, conforme a mídia.
 comentario: Certo: controles 7.14 (descarte ou reutilização segura de equipamentos) e 8.10 (exclusão de informações) da ISO/IEC 27002:2022. Na LGPD, os dados são eliminados após o término do tratamento, nos limites técnicos das atividades, ressalvadas as hipóteses de conservação (art. 16).
 
@@ -193,6 +206,7 @@ gab: E
 ref: doutrina Gestão de chaves
 armadilha: conceito
 dif: 1
+tema: sg-cripto
 enunciado: Em um sistema criptográfico, a segurança depende principalmente do sigilo do algoritmo utilizado, e não da proteção das chaves.
 comentario: Errado. Pelo princípio de Kerckhoffs, o sistema deve continuar seguro ainda que tudo, menos a chave, seja público. Por isso se usam algoritmos abertos e testados, como AES e RSA, e se cuida da gestão de chaves: geração, guarda, rotação e revogação.
 
@@ -225,6 +239,7 @@ gab: E
 ref: doutrina Classificação da informação
 armadilha: sujeito
 dif: 2
+tema: sg-iso
 enunciado: Na classificação da informação, o rótulo de cada documento deve ser definido pela área de tecnologia da informação, por ser ela quem armazena os dados.
 comentario: Errado. Quem classifica é o proprietário da informação, conforme seu valor, sua sensibilidade e os requisitos legais (ISO/IEC 27002:2022, 5.12). A área de tecnologia é custodiante: aplica os controles que a classificação exige.
 
@@ -241,6 +256,7 @@ gab: E
 ref: doutrina ISO/IEC 27002
 armadilha: conceito
 dif: 2
+tema: sg-principios
 enunciado: A sincronização dos relógios dos sistemas com fonte de tempo confiável é irrelevante para a investigação de incidentes, já que cada registro de evento guarda o próprio horário.
 comentario: Errado. Sem relógios sincronizados (controle 8.17 da ISO/IEC 27002:2022), não se correlacionam eventos de sistemas diferentes nem se prova a sequência dos fatos. Registro com horário errado vale pouco como evidência.
 
@@ -249,6 +265,7 @@ gab: C
 ref: doutrina Sandbox
 armadilha: comparacao
 dif: 2
+tema: sg-ameacas
 enunciado: Em segurança da informação, sandbox é ambiente isolado para executar e analisar código suspeito sem expor o sistema principal, sentido que não se confunde com o do sandbox regulatório da LC nº 182/2021.
 comentario: Certo. O sandbox regulatório é ambiente experimental em que o regulador afasta temporariamente normas para testar modelos de negócio inovadores (LC 182/2021, art. 2º, II, e art. 11). A palavra é a mesma; a matéria, outra.
 
@@ -257,5 +274,6 @@ gab: E
 ref: doutrina Autenticação biométrica
 armadilha: absoluto
 dif: 1
+tema: sg-principios
 enunciado: A autenticação biométrica é imune a falsificação e dispensa outros fatores, pois as características físicas de cada pessoa são únicas.
 comentario: Errado. A biometria pode ser fraudada com moldes, fotos ou gravações, e, se vazar, não pode ser trocada como uma senha. Para a LGPD, o dado biométrico é dado pessoal sensível (art. 5º, II).

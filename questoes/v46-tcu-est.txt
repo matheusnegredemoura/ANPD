@@ -14,6 +14,7 @@ prova: FGV · TCU 2021 · Estatística
 ref: doutrina Economia da regulação e estatística
 armadilha: caso
 dif: 2
+tema: ec-estatistica
 enunciado: Ao auditar os preços unitários de um insumo hospitalar adquirido por diversos órgãos federais, um auditor obteve o primeiro quartil $Q_1 = \text{R\$ } 40{,}00$, a mediana $Q_2 = \text{R\$ } 50{,}00$ e o terceiro quartil $Q_3 = \text{R\$ } 60{,}00$. Utilizando o critério clássico do boxplot de Tukey ($Q_3 + 1{,}5 \times \text{AIQ}$), a partir de qual valor estritamente superior uma compra será classificada como outlier superior (potencial sobrepreço)?
 comentario: Letra A. A Amplitude Interquartílica é $\text{AIQ} = Q_3 - Q_1 = 60 - 40 = 20$. Pelo critério de Tukey para boxplot, o limite superior adjacente é $Q_3 + 1{,}5 \times \text{AIQ} = 60 + 1{,}5 \times 20 = 60 + 30 = \text{R\$ } 90{,}00$ (e o limite inferior é $Q_1 - 1{,}5 \times \text{AIQ} = 40 - 30 = \text{R\$ } 10{,}00$). Qualquer valor acima de R$ 90,00 é classificado como outlier superior.
 
@@ -25,6 +26,7 @@ prova: Cebraspe · TCU 2015 (adaptada) · Estatística
 ref: doutrina Economia da regulação e estatística
 armadilha: caso
 dif: 3
+tema: ec-estatistica
 enunciado: Considere que, historicamente, 5% dos processos licitatórios de determinada carteira possuam irregularidade grave. Um sistema automatizado de triagem (trilha de auditoria) sinaliza alerta em 90% dos processos que de fato têm irregularidade grave (sensibilidade = 0,90), mas também gera falso alerta em 10% dos processos regulares (taxa de falso positivo = 0,10). Nesse cenário, dado que um processo foi sinalizado pelo sistema, a probabilidade a posteriori de que ele realmente possua irregularidade grave é inferior a 35%.
 comentario: Certo. Pelo Teorema de Bayes: $P(\text{Irreg} \mid \text{Alerta}) = \frac{0{,}05 \times 0{,}90}{0{,}05 \times 0{,}90 + 0{,}95 \times 0{,}10} = \frac{0{,}045}{0{,}045 + 0{,}095} = \frac{0{,}045}{0{,}140} = \frac{9}{28} \approx 32{,}14\%$, valor que é de fato inferior a 35%.
 
@@ -41,6 +43,7 @@ prova: FGV · TCU 2021 · Estatística
 ref: doutrina Economia da regulação e estatística
 armadilha: caso
 dif: 2
+tema: ec-estatistica
 enunciado: Em uma amostra aleatória simples de $n = 100$ notas fiscais extraída de uma população muito grande, a média amostral do valor glosado foi $\bar{x} = \text{R\$ } 500{,}00$ e o desvio-padrão amostral foi $s = \text{R\$ } 200{,}00$. Adotando a aproximação normal com $z_{0{,}975} = 1{,}96$, o intervalo de 95% de confiança para a média populacional $\mu$ é:
 comentario: Letra C. O erro-padrão da média é $\text{EP}(\bar{x}) = \frac{s}{\sqrt{n}} = \frac{200}{\sqrt{100}} = \frac{200}{10} = 20$. A margem de erro para 95% de confiança é $E = 1{,}96 \times 20 = 39{,}20$. Portanto, $\text{IC}_{95\%}(\mu) = 500 \pm 39{,}20 = [\text{R\$ } 460{,}80 \; ; \; \text{R\$ } 539{,}20]$.
 
@@ -79,6 +82,7 @@ prova: FGV · TCU 2021 · Estatística
 ref: doutrina Economia da regulação e estatística
 armadilha: caso
 dif: 2
+tema: ec-estatistica
 enunciado: Em um lote grande de notas de empenho, a probabilidade de uma nota escolhida ao acaso conter erro formal é constante e igual a $p = 0{,}20$. Selecionando-se uma amostra aleatória de $n = 4$ notas com reposição (distribuição Binomial), a probabilidade de que EXATAMENTE uma nota da amostra contenha erro formal é:
 comentario: Letra D. Pela distribuição Binomial $X \sim \text{Bin}(n=4, p=0{,}2)$: $P(X = 1) = \binom{4}{1} \cdot (0{,}2)^1 \cdot (0{,}8)^3 = 4 \times 0{,}2 \times 0{,}512 = 0{,}8 \times 0{,}512 = 0{,}4096 = 40{,}96\%$.
 
@@ -117,6 +121,7 @@ prova: FGV · TCU 2021 (molde Estatística)
 ref: doutrina Economia da regulação e estatística
 armadilha: caso
 dif: 2
+tema: ec-estatistica
 enunciado: Em um modelo de regressão linear simples $Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i$ ajustado por Mínimos Quadrados Ordinários (MQO) para estimar o custo de manutenção de rodovias ($Y$) em função da extensão em km ($X$), obteve-se correlação linear de Pearson $r = 0{,}80$, soma total dos quadrados $\text{SQT} = 500$ e inclinação estimada $\hat{\beta}_1 > 0$. Nessas condições, a Soma dos Quadrados da Regressão (SQR, variação explicada) e a Soma dos Quadrados dos Resíduos (SQE, variação não explicada) são, respectivamente:
 comentario: Letra B. Na regressão linear simples com intercepto ajustada por MQO, o coeficiente de determinação é $R^2 = r^2 = (0{,}80)^2 = 0{,}64$ ($64\%$). Como $R^2 = \frac{\text{SQR}}{\text{SQT}}$, temos $\text{SQR} = 0{,}64 \times 500 = 320$, e a soma dos quadrados dos resíduos é $\text{SQE} = \text{SQT} - \text{SQR} = 500 - 320 = 180$.
 

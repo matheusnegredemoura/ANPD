@@ -49,6 +49,7 @@ gab: C
 ref: doutrina Concorrência
 armadilha: conceito
 dif: 2
+tema: ec-estruturas
 enunciado: No teste do monopolista hipotético, o mercado relevante é o menor conjunto de produtos e de área geográfica no qual um monopolista hipotético conseguiria impor, com lucro, um aumento de preço pequeno, mas significativo e não transitório.
 comentario: Certo. É o teste SSNIP (small but significant and non-transitory increase in price), em geral de 5% a 10%. Se os consumidores migrarem para outros produtos e o aumento não compensar, o mercado é ampliado até incluí-los.
 
@@ -57,6 +58,7 @@ gab: E
 ref: doutrina Concorrência
 armadilha: extrapolacao
 dif: 3
+tema: ec-estruturas
 enunciado: Em mercados de preço zero, como o de redes sociais financiadas por publicidade, o teste do monopolista hipotético aplica-se sem adaptação, bastando medir a reação dos usuários a um aumento de preço.
 comentario: Errado. Não há preço a aumentar do lado do usuário. A literatura propõe adaptações, como medir a reação a uma piora pequena e não transitória de qualidade, que pode incluir menos privacidade ou mais publicidade.
 
@@ -65,6 +67,7 @@ gab: C
 ref: doutrina Plataformas digitais
 armadilha: conceito
 dif: 1
+tema: ec-estruturas
 enunciado: Há autopreferência (self-preferencing) quando uma plataforma que também vende produtos próprios os favorece em relação aos de concorrentes que dependem dela, por exemplo no ranqueamento dos resultados de busca.
 comentario: Certo. O problema é o duplo papel: a plataforma é, ao mesmo tempo, o mercado e um dos competidores nele. Normas como o DMA europeu proíbem a prática para as grandes plataformas.
 
@@ -81,6 +84,7 @@ gab: C
 ref: doutrina Assimetria de informação
 armadilha: conceito
 dif: 2
+tema: rg-por-que
 enunciado: Bens de credibilidade são aqueles cuja qualidade o consumidor não consegue avaliar nem depois de consumi-los, como certos serviços médicos ou o nível real de proteção de dados de um aplicativo, o que justifica certificações e regulação de informação.
 comentario: Certo. Há três tipos: bens de busca (qualidade observável antes da compra), de experiência (observável depois) e de credibilidade (nunca observável pelo consumidor). Nos últimos, o mercado sozinho não premia a qualidade.
 
@@ -89,6 +93,7 @@ gab: E
 ref: doutrina Leilões
 armadilha: conceito
 dif: 3
+tema: ec-estruturas
 enunciado: A maldição do vencedor, nos leilões de valor comum, consiste em o vencedor pagar menos do que o valor real do bem, porque os demais participantes superestimam esse valor.
 comentario: Errado. É o contrário: quem vence tende a ser quem mais superestimou o valor, e por isso paga mais do que o bem vale. Licitantes racionais reduzem os lances para compensar esse efeito.
 
@@ -105,6 +110,7 @@ gab: E
 ref: doutrina Análise custo-benefício
 armadilha: conceito
 dif: 2
+tema: ec-avaliacao
 enunciado: Situação hipotética: para comparar alternativas de política, analista atribuiu pesos a critérios como custo, impacto ambiental e aceitação social, sem converter tudo em dinheiro. Assertiva: o método não é análise multicritério, que exige monetizar os impactos.
 comentario: Errado. A análise multicritério é usada justamente quando monetizar é difícil: atribui pesos e notas a critérios diversos, inclusive qualitativos. Converter tudo em dinheiro é próprio da análise custo-benefício.
 
@@ -121,6 +127,7 @@ gab: C
 ref: doutrina Probabilidade
 armadilha: conceito
 dif: 3
+tema: ec-estatistica
 enunciado: Um sistema detecta 99% das transações fraudulentas e acusa, por engano, 1% das legítimas. Se 1 em cada 1.000 transações é fraudulenta, a maior parte das transações sinalizadas pelo sistema é legítima.
 comentario: Certo. Em 100 mil transações, 100 são fraudes, e o sistema acusa 99. Das 99.900 legítimas, acusa 999. Das 1.098 sinalizadas, só 99 (cerca de 9%) são fraude. É o teorema de Bayes: com evento raro, o falso positivo domina.
 
@@ -129,6 +136,7 @@ gab: E
 ref: doutrina Probabilidade
 armadilha: numero
 dif: 3
+tema: ec-estatistica
 enunciado: Um sistema detecta 99% das transações fraudulentas e acusa, por engano, 1% das legítimas. Se 1 em cada 1.000 transações é fraudulenta, a probabilidade de uma transação sinalizada ser de fato fraudulenta é de 99%.
 comentario: Errado. É de cerca de 9%: 99 fraudes verdadeiras entre 1.098 sinalizações, em cada 100 mil transações. Confundir P(sinal | fraude) com P(fraude | sinal) é a falácia da taxa-base.
 
@@ -169,6 +177,7 @@ gab: C
 ref: doutrina Econometria
 armadilha: conceito
 dif: 3
+tema: ec-estatistica
 enunciado: Uma variável instrumental válida deve ser correlacionada com a variável explicativa endógena e afetar o resultado apenas por meio dela.
 comentario: Certo. São as condições de relevância e de exclusão. A segunda não pode ser testada diretamente e depende de argumento sobre o caso.
 
@@ -177,6 +186,7 @@ gab: E
 ref: doutrina Probabilidade
 armadilha: numero
 dif: 1
+tema: ec-estatistica
 enunciado: Em uma distribuição binomial com 10 tentativas e probabilidade de sucesso igual a 0,2 em cada uma, o número esperado de sucessos é 5.
 comentario: Errado. A esperança da binomial é n × p = 10 × 0,2 = 2. A variância é n × p × (1 − p) = 1,6.
 

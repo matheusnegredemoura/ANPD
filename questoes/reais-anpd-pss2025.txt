@@ -15,6 +15,7 @@ bloco: seginfo
 ref: doutrina
 armadilha: conceito
 dif: 2
+tema: sg-ameacas
 enunciado: Considere que certo analista de segurança da informação tenha detectado uma atividade anômala em determinado servidor de banco de dados crítico, caracterizada por múltiplos acessos falhos seguidos por uma extração de dados bem-sucedida para um endereço IP externo não reconhecido. Nesse contexto, assinale a alternativa que corresponde ao próximo passo mais adequado e imediato a ser dado, segundo as melhores práticas de gestão e resposta a incidentes, como as descritas pelo NIST SP 800-61.
 alt: A | Iniciar imediatamente a fase de erradicação, desligando o servidor comprometido para prevenir danos adicionais.
 alt: B | Priorizar a fase de recuperação, restaurando o último backup do banco de dados para garantir a continuidade do negócio.
@@ -31,6 +32,7 @@ bloco: seginfo
 ref: doutrina
 armadilha: conceito
 dif: 2
+tema: sg-cripto
 enunciado: Uma organização precisa garantir a autenticidade, a integridade e o não repúdio de contratos digitais enviados a seus parceiros comerciais. A confidencialidade do conteúdo do contrato durante o trânsito não é a principal preocupação, mas a validação da origem e a garantia de que o documento não foi alterado são imperativas. O mecanismo criptográfico que atende de forma mais completa a esses três requisitos simultaneamente consiste em
 alt: A | aplicar uma assinatura digital no documento, que consiste em gerar um hash do documento e cifrar esse hash com a chave privada do remetente.
 alt: B | gerar um hash do documento utilizando o algoritmo SHA-256 e anexá-lo ao documento sem qualquer proteção adicional.
@@ -47,6 +49,7 @@ bloco: seginfo
 ref: doutrina
 armadilha: conceito
 dif: 1
+tema: sg-ameacas
 enunciado: Considere que uma empresa do setor financeiro, com vistas a reforçar a segurança de seus sistemas e cumprir regulações de proteção de dados, tenha implementado um conjunto de medidas. A principal delas consistiu em estabelecer uma política de controle de acesso que define, com base no princípio do menor privilégio, as permissões de acesso dos funcionários a dados sensíveis, exigindo aprovação formal do gestor da área e do gestor da informação para qualquer concessão de acesso. Com base na situação descrita, é correto afirmar que o tipo de controle de segurança da informação utilizado é o
 alt: A | técnico, pois envolve a configuração direta de permissões em sistemas operacionais e bancos de dados.
 alt: B | físico, pois se aplica ao acesso dos funcionários às instalações onde os dados são processados.
@@ -65,6 +68,7 @@ trecho: presunção de boa-fé do usuário
 trecho: autenticação de documentos pelo próprio agente público, à vista dos originais apresentados pelo usuário, vedada a exigência de reconhecimento de firma, salvo em caso de dúvida de autenticidade
 armadilha: literal
 dif: 2
+tema: adm-servicos
 enunciado: No que tange à proteção do usuário do serviço público, conforme as diretrizes e os direitos básicos estabelecidos na Lei nº 13.460/2017, assinale a alternativa correta.
 alt: A | O quadro geral dos serviços públicos deve ser publicado a cada dois anos, e o princípio da continuidade do serviço impede que seja desligado, mesmo em caso de inadimplemento do usuário.
 alt: B | Entre as diretrizes a serem observadas, estão a presunção de boa-fé do usuário e a autenticação de documentos pelo próprio agente público à vista dos originais, sendo vedada, em regra, a exigência de reconhecimento de firma.
@@ -82,6 +86,7 @@ ref: lei13460 2
 trecho: atividade administrativa ou de prestação direta ou indireta de bens ou serviços à população, exercida por órgão ou entidade da administração pública
 armadilha: conceito
 dif: 1
+tema: adm-servicos
 enunciado: A atividade administrativa ou de prestação direta ou indireta de bens ou serviços à população, exercida por órgão ou entidade da administração pública é denominada
 alt: A | serviço público.
 alt: B | manifestação pública.
@@ -101,6 +106,7 @@ trecho: comunicação prévia da suspensão da prestação de serviço
 trecho: É vedada a suspensão da prestação de serviço em virtude de inadimplemento por parte do usuário que se inicie na sexta-feira, no sábado ou no domingo, bem como em feriado ou no dia anterior a feriado
 armadilha: literal
 dif: 2
+tema: adm-servicos
 enunciado: Considerando os direitos básicos do usuário de serviços públicos, conforme estabelecido pela Lei nº 13.460/2017, assinale a alternativa que descreve corretamente um conjunto de direitos e vedações garantidos ao cidadão.
 alt: A | O usuário tem direito à obtenção de informações precisas a respeito dos serviços, como horário de funcionamento e taxas, mas não tem direito de acesso a informações acerca da tramitação dos próprios processos administrativos.
 alt: B | O usuário tem direito à proteção das próprias informações pessoais e a participar da avaliação dos serviços, e a prestação de um serviço pode ser suspensa por inadimplência a qualquer dia da semana, desde que haja comunicação prévia.
@@ -120,6 +126,7 @@ trecho: previsão do prazo máximo para a prestação do serviço
 trecho: locais e formas para o usuário apresentar eventual manifestação sobre a prestação do serviço
 armadilha: rol
 dif: 2
+tema: adm-servicos
 enunciado: De acordo com a Lei de Proteção do Usuário do Serviço Público (Lei nº 13.460/2017), a Carta de Serviços ao Usuário
 alt: A | deve listar os serviços oferecidos e os locais de atendimento, mas não precisa informar a respeito de prazos máximos para a prestação do serviço, pois esses são definidos internamente.
 alt: B | deve focar nos compromissos de qualidade, como prioridades de atendimento e tempo de espera, e considerar a divulgação dos requisitos e documentos necessários para acessar o serviço uma medida opcional.
@@ -170,6 +177,7 @@ bloco: seginfo
 ref: doutrina
 armadilha: absoluto
 dif: 1
+tema: sg-privacidade
 enunciado: A segurança da informação é um dos pilares da proteção de dados pessoais, abordada por frameworks internacionais e boas práticas que influenciam diretamente a conformidade de organizações públicas e privadas. Com base nas diretrizes de segurança da informação, assinale a alternativa correta.
 alt: A | O modelo conhecido como a tríade CIA estabelece os princípios da confidencialidade, da integridade e da disponibilidade como fundamentos essenciais para a proteção da informação.
 alt: B | A confidencialidade da informação é garantida exclusivamente por medidas físicas de controle de acesso, como trancas e barreiras estruturais.
@@ -223,6 +231,7 @@ trecho: terão seu acesso restrito, independentemente de classificação de sigi
 trecho: à proteção do interesse público e geral preponderante
 armadilha: absoluto
 dif: 2
+tema: adm-lai
 enunciado: No tratamento de pedidos de acesso à informação com base na Lei nº 12.527/2011 (LAI), é necessário compatibilizar os princípios da Administração Pública com os direitos fundamentais dos indivíduos. Quanto ao tratamento de dados pessoais nessa relação, assinale a alternativa correta.
 alt: A | A proteção de dados pessoais garante sigilo absoluto, independentemente do interesse público ou da função pública do titular.
 alt: B | O simples fato de a informação constar em banco de dados de órgão público torna obrigatória sua divulgação, inclusive se contiver dados sensíveis.
@@ -421,6 +430,7 @@ trecho: A lei de diretrizes orçamentárias compreenderá as metas e prioridades
 trecho: disporá sobre as alterações na legislação tributária e estabelecerá a política de aplicação das agências financeiras oficiais de fomento
 armadilha: rol
 dif: 2
+tema: gp-orcamento
 enunciado: Conforme previsto na Constituição Federal, a Lei de Diretrizes Orçamentárias (LDO) é um dos instrumentos integrantes do sistema de planejamento orçamentário da Administração Pública. Ela serve de elo entre o Plano Plurianual (PPA) e a Lei Orçamentária Anual (LOA), orientando a elaboração do orçamento para o exercício financeiro seguinte. De acordo com a legislação vigente, assinale a alternativa que indica corretamente os elementos que devem necessariamente compor a LDO.
 alt: A | Os programas de governo com estimativas de impacto fiscal em médio prazo, a projeção da dívida consolidada líquida e o detalhamento das transferências constitucionais obrigatórias aos entes subnacionais.
 alt: B | As prioridades de investimento de longo prazo, as diretrizes de aplicação de recursos vinculados, as metas de renúncia fiscal e o cronograma de liberação de recursos para emendas parlamentares.
@@ -550,6 +560,7 @@ bloco: economia
 ref: doutrina
 armadilha: conceito
 dif: 2
+tema: ec-estatistica
 enunciado: Uma determinada economia local apresenta baixa renda, com desvio padrão menor que a média (desvio padrão < média). Após a implementação de uma política pública, observou-se que houve um aumento de 15% na renda média da população, porém, agora, com desvio padrão maior que a média (desvio padrão > média). Após a implementação da política pública, é correto afirmar:
 alt: A | O coeficiente de variação é menor que 1 (CV < 1).
 alt: B | Há menor desigualdade relativa.
@@ -566,6 +577,7 @@ bloco: economia
 ref: doutrina
 armadilha: numero
 dif: 2
+tema: ec-estatistica
 enunciado: A partir de uma amostra n = 64 com média x̄ = 48, o intervalo de confiança de 95% [42,12; 53,88] foi construído para a média populacional. Considerando que Z0,025 = 1,96, o erro-padrão e a margem de erro são, respectivamente,
 alt: A | 3; 4,76.
 alt: B | 2,5; 4,76.
@@ -646,6 +658,7 @@ bloco: seginfo
 ref: doutrina
 armadilha: conceito
 dif: 1
+tema: sg-principios
 enunciado: Em um ambiente de gestão administrativa informatizado, pretende-se restringir o acesso a determinados módulos do sistema conforme o cargo do servidor. Assinale a alternativa que indica a abordagem mais adequada para implementar essa medida de controle de acesso.
 alt: A | Permitir que cada servidor defina individualmente quais módulos deseja acessar, conforme a necessidade.
 alt: B | Configurar o sistema para acesso irrestrito e monitorar os acessos via logs para posterior auditoria.
@@ -662,6 +675,7 @@ bloco: seginfo
 ref: doutrina
 armadilha: absoluto
 dif: 1
+tema: sg-principios
 enunciado: Com relação à segurança da informação, assinale a alternativa tecnicamente correta.
 alt: A | Criptografia assimétrica utiliza uma única chave para criptografar e descriptografar.
 alt: B | Controle de acesso RBAC permite que usuários escolham livremente seus privilégios.
@@ -730,6 +744,7 @@ trecho: As pessoas jurídicas de direito público e as de direito privado presta
 trecho: somente por lei específica poderá ser criada autarquia
 armadilha: conceito
 dif: 1
+tema: adm-organizacao
 enunciado: A organização da administração pública é a forma por meio da qual o Estado é estruturado. A respeito desse assunto, especialmente em relação às autarquias, assinale a alternativa correta.
 alt: A | As autarquias não possuem patrimônio próprio, pois integram a pessoa jurídica do ente instituidor.
 alt: B | O foro competente para julgamento das demandas que envolvem autarquias federais é, em regra, a Justiça Estadual.
@@ -746,6 +761,7 @@ bloco: administrativo
 ref: doutrina
 armadilha: conceito
 dif: 1
+tema: adm-principios
 enunciado: A Constituição Federal de 1988, no caput do art. 37, estabelece os princípios da Administração Pública. Assinale a alternativa que corresponde a um dos princípios implícitos na Constituição, reconhecidos pela doutrina e pela jurisprudência.
 alt: A | Legalidade
 alt: B | Indisponibilidade do interesse público
@@ -763,6 +779,7 @@ ref: lei9784 49-E
 trecho: Cada órgão ou entidade participante é responsável pela elaboração de documento específico sobre o tema atinente à respectiva competência, a fim de subsidiar os trabalhos e integrar o processo da decisão coordenada
 armadilha: literal
 dif: 2
+tema: adm-processo
 enunciado: No âmbito da Administração Pública federal, as decisões administrativas que exijam a participação de três ou mais setores, órgãos ou entidades poderão ser tomadas mediante decisão coordenada. No que tange à decisão coordenada prevista na Lei nº 9.784/1999 (com as alterações da Lei nº 14.210/2021), assinale a alternativa correta.
 alt: A | A decisão coordenada pode ser utilizada em processos de licitação, desde que seja justificada pela relevância da matéria.
 alt: B | Os registros das orientações e das diretrizes relativos ao objeto da convocação não são de conteúdo obrigatório da ata da decisão coordenada.
@@ -865,6 +882,7 @@ bloco: seginfo
 ref: doutrina
 armadilha: conceito
 dif: 1
+tema: sg-principios
 enunciado: Uma organização pública busca aprimorar sua política de segurança da informação, implementando medidas que não dependem apenas de tecnologia, mas também de processos e da conscientização de seus colaboradores. Assinale a alternativa que apresenta uma medida de segurança de natureza predominantemente administrativa.
 alt: A | Instalação de um firewall de nova geração na borda da rede para filtrar o tráfego de internet.
 alt: B | Utilização de criptografia de ponta a ponta nas comunicações por e-mail institucional.
@@ -881,6 +899,7 @@ bloco: seginfo
 ref: doutrina
 armadilha: conceito
 dif: 1
+tema: sg-principios
 enunciado: O princípio do menor privilégio é um conceito fundamental em segurança da informação, que visa a limitar os danos em caso de comprometimento de uma conta de usuário ou sistema. A aplicação correta desse princípio consiste em
 alt: A | conceder a todos os usuários acesso de administrador para que possam resolver seus próprios problemas técnicos.
 alt: B | atribuir permissões de acesso com base no cargo do funcionário, dando-lhe acesso a todos os dados do seu setor.
@@ -897,6 +916,7 @@ bloco: seginfo
 ref: doutrina
 armadilha: conceito
 dif: 1
+tema: sg-principios
 enunciado: Para fortalecer a segurança no processo de login em sistemas críticos, certa organização decidiu implementar um mecanismo que exige do usuário mais do que apenas a senha. O usuário deve fornecer uma segunda forma de comprovação de sua identidade, como um código gerado por um aplicativo em seu smartphone. Nesse contexto, assinale a alternativa que corresponde à medida de segurança descrita.
 alt: A | Implementação de um sistema de logon único (Single Sign-On)
 alt: B | Adoção da autenticação de múltiplos fatores (MFA)

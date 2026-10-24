@@ -1,0 +1,157 @@
+// Guias orientativos da ANPD, parte 3: encarregado, Poder Público, pequeno porte, fiscalização responsiva, cookies e
+// raspagem para IA. Como em guias-anpd-2.txt, cada item afirma só o que a LGPD ou a resolução da ANPD sustenta, e o
+// comentário cita o dispositivo (fontes/res18.txt, res2.txt, res1.txt e lgpd.txt).
+
+=== ga3-01
+bloco: lgpd-37-45
+gab: C
+tema: an-guias-orientativos
+ref: guias 2
+trecho: o encarregado pode ser pessoa natural (integrante do quadro ou externa) ou pessoa jurídica (prestadora de serviços)
+armadilha: rol
+dif: 1
+enunciado: Segundo a regulamentação da ANPD, o encarregado pode ser pessoa natural, do quadro do agente de tratamento ou externa a ele, ou pessoa jurídica.
+comentario: Certo. Resolução CD/ANPD 18/2024, art. 12. O agente deve divulgar a identidade e o contato do encarregado em local de fácil acesso (LGPD, art. 41, § 1º).
+
+=== ga3-02
+bloco: lgpd-37-45
+gab: E
+tema: an-guias-orientativos
+ref: guias 2
+trecho: Não se exige inscrição em conselho profissional nem certificação específica para atuar como encarregado
+armadilha: conceito
+dif: 1
+enunciado: Para atuar como encarregado, exige-se inscrição em conselho profissional e certificação específica em proteção de dados.
+comentario: Errado. Pelo art. 14 da Resolução CD/ANPD 18/2024, a atividade não pressupõe inscrição em entidade, certificação ou formação profissional específica. O que se exige é capacidade de se comunicar com titulares e com a ANPD com clareza, em português (art. 13).
+
+=== ga3-03
+bloco: lgpd-37-45
+gab: C
+tema: an-guias-orientativos
+ref: guias 2
+trecho: Configura conflito de interesses o acúmulo da função de encarregado com cargos de chefia que determinem finalidades e meios essenciais do tratamento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: empresa designou como encarregado o diretor de marketing, que decide as finalidades das campanhas feitas com dados dos clientes. Assertiva: a situação pode configurar conflito de interesse.
+comentario: Certo. O art. 19, § 1º, II, da Resolução CD/ANPD 18/2024 aponta o conflito quando se acumula a função de encarregado com outras que envolvam decisões estratégicas sobre o tratamento. Constatado o risco, o agente deve afastar o encarregado da função, implementar medidas para afastar o conflito ou designar outra pessoa (art. 21, parágrafo único).
+
+=== ga3-04
+bloco: lgpd-37-45
+gab: E
+tema: an-guias-orientativos
+ref: guias 2
+trecho: A responsabilidade final pela conformidade perante a ANPD e os titulares é sempre do agente de tratamento, e não do encarregado
+armadilha: sujeito
+dif: 2
+enunciado: Designado o encarregado, a responsabilidade perante a ANPD pela conformidade do tratamento passa a ser dele, e não do controlador.
+comentario: Errado. O art. 17 da Resolução CD/ANPD 18/2024 diz que as atividades do encarregado não lhe conferem responsabilidade, perante a ANPD, pela conformidade do tratamento feito pelo controlador. Quem responde é o agente de tratamento.
+
+=== ga3-05
+bloco: lgpd-23-32
+gab: C
+tema: an-guias-orientativos
+ref: guias 4
+trecho: exclusivamente para prevenção de fraudes e irregularidades ou proteção da segurança e integridade do titular, vedado o tratamento para outras finalidades
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: órgão público transfere a uma empresa privada dados de sua base exclusivamente para prevenir fraudes contra os titulares, vedado outro uso. Assertiva: a transferência está entre as exceções à regra que proíbe o Poder Público de transferir dados a entidades privadas.
+comentario: Certo. LGPD, art. 26, § 1º, V. As outras exceções são a execução descentralizada de atividade pública (I), os dados acessíveis publicamente (III) e a previsão legal ou o respaldo em contratos, convênios ou instrumentos congêneres (IV).
+
+=== ga3-06
+bloco: lgpd-23-32
+gab: E
+tema: an-guias-orientativos
+ref: guias 4
+trecho: deve ser informado à ANPD e dependerá de consentimento do titular
+armadilha: excecao
+dif: 3
+enunciado: A comunicação de dados pessoais de órgão público a pessoa jurídica de direito privado dispensa a informação à ANPD quando o titular consentiu com a operação.
+comentario: Errado. Pelo art. 27 da LGPD, a comunicação ou o uso compartilhado de dados de pessoa jurídica de direito público a pessoa de direito privado é informado à ANPD e depende de consentimento do titular. As exceções do artigo afastam o consentimento, não o dever de informar a autoridade.
+
+=== ga3-07
+bloco: lgpd-23-32
+gab: C
+tema: an-guias-orientativos
+ref: guias 3
+trecho: O consentimento (art. 7º, I) é residual no setor público devido à assimetria de poder entre Estado e cidadão
+armadilha: conceito
+dif: 2
+enunciado: Para a ANPD, o consentimento tem papel residual no tratamento de dados pelo Poder Público, por causa da assimetria entre Estado e cidadão; as bases típicas são o cumprimento de obrigação legal e a execução de políticas públicas.
+comentario: Certo. LGPD, art. 7º, II e III, e art. 23. O consentimento pressupõe manifestação livre (art. 5º, XII), difícil de garantir quando o cidadão depende do serviço estatal.
+
+=== ga3-08
+bloco: res-2-2022
+gab: C
+tema: an-guias-orientativos
+ref: guias 7
+trecho: NÃO afasta o dever de adotar medidas de segurança técnicas e administrativas aptas a proteger os dados
+armadilha: conceito
+dif: 1
+enunciado: O tratamento diferenciado dado aos agentes de pequeno porte não os dispensa de adotar medidas de segurança técnicas e administrativas para proteger os dados pessoais.
+comentario: Certo. Resolução CD/ANPD 2/2022, art. 12: devem adotar medidas essenciais e necessárias, com base em requisitos mínimos de segurança da informação e no nível de risco. O dever geral é o do art. 46 da LGPD.
+
+=== ga3-09
+bloco: res-2-2022
+gab: E
+tema: an-guias-orientativos
+ref: guias 7
+trecho: sem tratamento de alto risco
+armadilha: excecao
+dif: 2
+enunciado: Startup que realiza tratamento de dados de alto risco para os titulares continua a usufruir do tratamento diferenciado previsto para os agentes de pequeno porte.
+comentario: Errado. Pelo art. 3º, I, da Resolução CD/ANPD 2/2022, não se beneficia do tratamento diferenciado quem realiza tratamento de alto risco, ressalvada a faculdade de organizar-se em entidades de representação (art. 8º).
+
+=== ga3-10
+bloco: res-1-2021
+gab: C
+tema: an-guias-orientativos
+ref: guias 10
+trecho: monitoramento (acompanhamento contínuo, mapa de temas prioritários e relatório de ciclo); (ii) orientação
+armadilha: conceito
+dif: 2
+enunciado: Na fiscalização da ANPD, as atividades de monitoramento, orientação e prevenção convivem com a atividade repressiva, que pode ser iniciada quando necessária.
+comentario: Certo. Resolução CD/ANPD 1/2021, art. 15. É o desenho da regulação responsiva: a atuação escala do diálogo para a coerção conforme a conduta do agente.
+
+=== ga3-11
+bloco: res-1-2021
+gab: E
+tema: an-guias-orientativos
+ref: guias 10
+trecho: (iv) repressão (processo administrativo sancionador, da advertência à proibição do exercício da atividade)
+armadilha: conceito
+dif: 2
+enunciado: Na regulação responsiva adotada pela ANPD, o processo administrativo sancionador é o primeiro instrumento aplicado diante de qualquer irregularidade.
+comentario: Errado. Pela Resolução CD/ANPD 1/2021 (art. 15), a atuação começa preferencialmente por monitoramento, orientação e prevenção, e a atividade repressiva fica no topo da pirâmide. A ANPD pode iniciá-la de imediato quando o caso exigir, mas ela não é a regra de partida.
+
+=== ga3-12
+bloco: lgpd-5-11
+gab: C
+tema: an-guias-orientativos
+ref: guias 6
+trecho: Cookies que permitem identificar direta ou indiretamente uma pessoa natural ou singularizar seu dispositivo
+armadilha: conceito
+dif: 1
+enunciado: Para a ANPD, cookies que permitem identificar o titular, direta ou indiretamente, ou singularizar seu dispositivo são dados pessoais sujeitos à LGPD.
+comentario: Certo. Dado pessoal é a informação relacionada a pessoa natural identificada ou identificável (LGPD, art. 5º, I). Identificadores online entram nesse conceito.
+
+=== ga3-13
+bloco: lgpd-5-11
+gab: E
+tema: an-guias-orientativos
+ref: guias 6
+trecho: caixas de seleção pré-marcadas (opt-in tácito) para cookies não essenciais
+armadilha: conceito
+dif: 2
+enunciado: Caixas pré-marcadas de aceitação de cookies publicitários bastam para obter consentimento válido se o usuário puder desmarcá-las depois.
+comentario: Errado. O consentimento é manifestação livre, informada e inequívoca (LGPD, art. 5º, XII). Para a ANPD, caixas pré-marcadas para cookies não necessários são prática irregular, porque não há ato positivo do titular.
+
+=== ga3-14
+bloco: ia
+gab: E
+tema: an-guias-orientativos
+ref: guias 9
+trecho: O fato de dados pessoais estarem publicamente acessíveis na internet NÃO dispensa a observância da LGPD
+armadilha: conceito
+dif: 2
+enunciado: Dados pessoais publicamente acessíveis na internet podem ser coletados por raspagem para treinar modelos de inteligência artificial sem observância da LGPD, justamente por serem públicos.
+comentario: Errado. Dados de acesso público continuam protegidos: o tratamento considera a finalidade, a boa-fé e o interesse público que justificaram a disponibilização (LGPD, art. 7º, § 3º), e o novo uso exige finalidade legítima e específica e respeito aos direitos do titular (§ 7º).

@@ -9,6 +9,7 @@ gab: C
 ref: doutrina Anonimização
 armadilha: conceito
 dif: 2
+tema: sg-privacidade
 enunciado: Uma base atende ao k-anonimato quando cada combinação de quase-identificadores, como idade, CEP e sexo, é compartilhada por pelo menos k registros, de modo que nenhum titular se distingue de outros k − 1.
 comentario: Certo. Quase-identificadores não identificam sozinhos, mas combinados podem identificar. O k-anonimato se obtém com generalização (faixas em vez de valores exatos) e supressão.
 
@@ -17,6 +18,7 @@ gab: E
 ref: doutrina Anonimização
 armadilha: extrapolacao
 dif: 3
+tema: sg-privacidade
 enunciado: O k-anonimato impede, por si só, a descoberta do atributo sensível de um titular, mesmo quando todos os registros do grupo a que ele pertence têm o mesmo valor desse atributo.
 comentario: Errado. É o ataque de homogeneidade: se os k registros do grupo têm o mesmo diagnóstico, saber que alguém está no grupo revela o diagnóstico. A l-diversidade exige valores variados do atributo sensível em cada grupo.
 
@@ -25,6 +27,7 @@ gab: C
 ref: doutrina Privacidade diferencial
 armadilha: conceito
 dif: 3
+tema: sg-privacidade
 enunciado: Na privacidade diferencial, acrescenta-se ruído calibrado aos resultados das consultas, de modo que a presença ou a ausência de um único indivíduo na base altere pouco o resultado; quanto menor o parâmetro épsilon, maior a proteção.
 comentario: Certo. Épsilon é o orçamento de privacidade. Épsilon pequeno significa mais ruído, mais proteção e menos precisão estatística.
 
@@ -33,6 +36,7 @@ gab: E
 ref: doutrina Privacidade diferencial
 armadilha: comparacao
 dif: 1
+tema: sg-privacidade
 enunciado: Na privacidade diferencial, quanto maior o parâmetro épsilon, maior a proteção da privacidade, ao custo de menor utilidade dos dados.
 comentario: Errado: é o inverso. Épsilon maior permite resultados mais próximos dos reais, com mais utilidade e menos proteção.
 
@@ -41,6 +45,7 @@ gab: E
 ref: doutrina Privacidade diferencial
 armadilha: absoluto
 dif: 3
+tema: sg-privacidade
 enunciado: A privacidade diferencial garante que nenhuma informação sobre indivíduos possa ser inferida, qualquer que seja o número de consultas respondidas sobre a mesma base.
 comentario: Errado. Cada consulta consome parte do orçamento de privacidade, e as perdas se somam. Muitas consultas sobre a mesma base podem anular o ruído, e por isso o orçamento total precisa ser controlado.
 
@@ -49,6 +54,7 @@ gab: C
 ref: doutrina Aprendizado federado
 armadilha: conceito
 dif: 2
+tema: sg-privacidade
 enunciado: No aprendizado federado, o modelo é treinado nos dispositivos ou servidores em que os dados estão, e só os parâmetros ou as atualizações do modelo são enviados ao servidor central.
 comentario: Certo. Os dados brutos não saem da origem: o que circula é o aprendizado. É útil quando dados de hospitais ou de celulares não podem ser centralizados.
 
@@ -65,6 +71,7 @@ gab: C
 ref: doutrina Dados sintéticos
 armadilha: conceito
 dif: 2
+tema: sg-privacidade
 enunciado: Dados sintéticos são gerados artificialmente para reproduzir propriedades estatísticas de uma base real e, se o gerador memorizar registros reais, podem acabar expondo dados pessoais.
 comentario: Certo. A utilidade vem da semelhança com a base real, e o risco também. É preciso testar se registros sintéticos não reproduzem pessoas reais, sobretudo as de perfil raro.
 
@@ -73,6 +80,7 @@ gab: C
 ref: doutrina Tokenização
 armadilha: conceito
 dif: 2
+tema: sg-privacidade
 enunciado: Na tokenização, o dado sensível, como o número de um cartão de pagamento, é substituído por valor sem relação matemática com o original, e a correspondência fica guardada num cofre de tokens.
 comentario: Certo. Diferentemente da criptografia, não há chave que transforme o token no dado: só a consulta ao cofre. Quem controla o cofre consegue reverter, e por isso o dado continua pessoal para esse controlador.
 
@@ -98,6 +106,7 @@ gab: C
 ref: doutrina Modelagem de ameaças
 armadilha: conceito
 dif: 2
+tema: sg-ameacas
 enunciado: No modelo STRIDE de modelagem de ameaças, as categorias são falsificação de identidade, adulteração, repúdio, divulgação de informação, negação de serviço e elevação de privilégio.
 comentario: Certo. Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege. Cada categoria viola uma propriedade: autenticação, integridade, não repúdio, confidencialidade, disponibilidade e autorização.
 
@@ -122,6 +131,7 @@ gab: E
 ref: doutrina Segurança de aplicações
 armadilha: comparacao
 dif: 1
+tema: sg-ameacas
 enunciado: O cross-site scripting (XSS) consiste em injetar comandos no banco de dados por meio de campos de formulário não validados.
 comentario: Errado. Isso é injeção de SQL. No XSS, o atacante injeta script que será executado no navegador de outros usuários. As defesas são a validação da entrada e a codificação da saída.
 
@@ -138,6 +148,7 @@ gab: E
 ref: doutrina Gestão de vulnerabilidades
 armadilha: absoluto
 dif: 2
+tema: sg-ameacas
 enunciado: Na gestão de vulnerabilidades, a pontuação base do CVSS basta para definir a prioridade de correção, independentemente do contexto do ativo e de haver exploração ativa da falha.
 comentario: Errado. Uma falha média num servidor exposto à internet e já explorada por atacantes pode ser mais urgente que uma crítica num sistema isolado. A priorização considera exposição, criticidade do ativo e exploração conhecida.
 
@@ -162,6 +173,7 @@ gab: C
 ref: doutrina Engenharia social
 armadilha: conceito
 dif: 1
+tema: sg-ameacas
 enunciado: No pretexting, o atacante cria um cenário falso, como se passar por técnico de suporte ou auditor, para convencer a vítima a fornecer informações ou acesso.
 comentario: Certo. O pretexto dá à vítima uma razão plausível para colaborar. A defesa é verificar a identidade por canal independente antes de atender.
 
@@ -170,6 +182,7 @@ gab: C
 ref: doutrina Anonimização
 armadilha: conceito
 dif: 2
+tema: sg-privacidade
 enunciado: O ataque de ligação, que cruza uma base supostamente anônima com outra base pública por meio de quase-identificadores, é uma das principais vias de reidentificação.
 comentario: Certo. Um estudo clássico (Latanya Sweeney, 2000) estimou que data de nascimento, sexo e código postal identificavam cerca de 87% da população dos Estados Unidos. É por isso que tirar o nome não basta.
 

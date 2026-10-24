@@ -8,6 +8,7 @@ gab: C
 ref: doutrina Externalidades (Pigou)
 armadilha: conceito
 dif: 2
+tema: rg-por-que
 enunciado: O tributo pigouviano busca corrigir externalidade negativa ao fazer o agente arcar, por unidade produzida, com o custo que sua atividade impõe a terceiros.
 comentario: Igualando custo privado e custo social, o tributo leva a produção à quantidade socialmente ótima. Subsídio pigouviano faz o mesmo para externalidade positiva.
 
@@ -16,6 +17,7 @@ gab: C
 ref: doutrina Teorema de Coase
 armadilha: conceito
 dif: 3
+tema: rg-por-que
 enunciado: Segundo o teorema de Coase, com direitos de propriedade bem definidos e custos de transação nulos, a negociação privada leva à alocação eficiente diante de externalidades, ainda que os direitos sejam atribuídos inicialmente a qualquer das partes.
 comentario: Certo. É o núcleo do teorema: nessas condições, a atribuição inicial dos direitos afeta a distribuição, não a eficiência. Com custos de transação altos, como em danos difusos a muitos titulares de dados, a negociação falha e a regulação ganha espaço.
 
@@ -32,6 +34,7 @@ gab: E
 ref: doutrina Regulação por taxa de retorno
 armadilha: comparacao
 dif: 3
+tema: rg-por-que
 enunciado: A regulação por taxa de retorno é conhecida por incentivar fortemente a redução de custos, pois a empresa fica com toda a economia obtida.
 comentario: Errado. Na taxa de retorno, a tarifa cobre os custos mais uma remuneração sobre o capital, o que reduz o incentivo à eficiência e pode levar ao sobreinvestimento (efeito Averch-Johnson). O incentivo à redução de custos é traço do preço-teto.
 
@@ -72,6 +75,7 @@ gab: E
 ref: doutrina Mercados digitais (custos de troca)
 armadilha: conceito
 dif: 2
+tema: ec-estruturas
 enunciado: Situação hipotética: usuário de rede social desistiu de migrar para plataforma concorrente porque perderia contatos, histórico e seguidores. Assertiva: custos de troca como esses intensificam a concorrência entre plataformas.
 comentario: Errado. Custos de troca elevados prendem o consumidor ao fornecedor atual (lock-in) e reduzem a concorrência. A portabilidade de dados da LGPD (art. 18, V) é, também, instrumento pró-concorrencial para reduzir esses custos.
 
@@ -80,6 +84,7 @@ gab: C
 ref: doutrina Economia dos dados
 armadilha: conceito
 dif: 3
+tema: rg-por-que
 enunciado: Dados são bens não rivais, pois seu uso por um agente não impede o uso simultâneo por outro, mas o acesso a eles pode ser restringido, o que permite a formação de vantagens competitivas.
 comentario: Não rivalidade com exclusão possível: por isso o controle de grandes bases de dados pode virar barreira à entrada, tema que aproxima proteção de dados e defesa da concorrência.
 
@@ -112,6 +117,7 @@ gab: E
 ref: doutrina Bens de clube e recursos comuns
 armadilha: conceito
 dif: 3
+tema: rg-por-que
 enunciado: Recursos comuns, como estoques pesqueiros, são não rivais e excludentes, razão pela qual não sofrem o problema da tragédia dos comuns.
 comentario: Errado. Recursos comuns são rivais e não excludentes, combinação que gera sobreuso (tragédia dos comuns). Não rivais e excludentes são os bens de clube, como a TV por assinatura.
 
@@ -144,6 +150,7 @@ gab: E
 ref: doutrina Valor presente e taxa de desconto
 armadilha: conceito
 dif: 3
+tema: ec-avaliacao
 enunciado: Mantidos os fluxos de caixa, aumentar a taxa de desconto eleva o valor presente líquido de projeto cujos benefícios se concentram no futuro distante.
 comentario: Errado. Taxa de desconto maior reduz o valor presente dos fluxos futuros, e o efeito é mais forte quanto mais distantes estão os benefícios. Por isso a escolha da taxa pesa tanto em regulações com benefícios de longo prazo.
 
@@ -184,6 +191,7 @@ gab: C
 ref: doutrina Viés de seleção
 armadilha: caso
 dif: 2
+tema: ec-avaliacao
 enunciado: Comparar empresas que aderiram voluntariamente a um programa de boas práticas com as que não aderiram tende a superestimar o efeito do programa se as aderentes já eram, antes, mais organizadas.
 comentario: É viés de seleção: os grupos diferem antes do tratamento. Sorteio, diferenças em diferenças, pareamento por escore de propensão e regressão descontínua são formas de construir um contrafactual mais crível.
 
@@ -192,6 +200,7 @@ gab: E
 ref: doutrina Probabilidade
 armadilha: numero
 dif: 2
+tema: ec-estatistica
 enunciado: Se a probabilidade de um incidente de segurança em determinado mês é 0,1 e os meses são independentes, a probabilidade de não haver incidente em dois meses seguidos é 0,8.
 comentario: Errado. A probabilidade de não haver incidente em um mês é 0,9; em dois meses independentes, 0,9 × 0,9 = 0,81.
 

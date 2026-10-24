@@ -9,6 +9,7 @@ gab: C
 ref: doutrina segurança de aplicações
 armadilha: conceito
 dif: 2
+tema: sg-ameacas
 enunciado: Na injeção de SQL, o atacante insere comandos no dado de entrada que a aplicação concatena a uma consulta ao banco de dados; consultas parametrizadas são a defesa primária contra esse ataque.
 comentario: Certo. Com a consulta parametrizada (prepared statement), o banco recebe o comando e os dados separadamente, e a entrada nunca é interpretada como código. Validação de entrada e menor privilégio da conta do banco complementam.
 
@@ -25,6 +26,7 @@ gab: C
 ref: doutrina segurança de aplicações
 armadilha: conceito
 dif: 2
+tema: sg-ameacas
 enunciado: No cross-site scripting (XSS), o atacante faz o navegador da vítima executar script malicioso no contexto de um site confiável; a codificação adequada da saída é uma das medidas de defesa.
 comentario: Certo. O script roda com as permissões do site e pode, por exemplo, roubar cookies de sessão. Codificar a saída conforme o contexto (HTML, atributo, JavaScript) e adotar política de segurança de conteúdo (CSP) reduzem o risco.
 
@@ -89,6 +91,7 @@ gab: C
 ref: doutrina proteção de dados
 armadilha: conceito
 dif: 2
+tema: sg-privacidade
 enunciado: Na tokenização, um dado como o número do cartão é substituído por valor sem significado próprio (token), e a correspondência fica guardada em cofre separado; o token, isoladamente, não revela o dado original.
 comentario: Certo. É técnica comum no setor de pagamentos: sistemas que só precisam identificar a transação trabalham com o token e saem do alcance do dado real.
 
@@ -121,6 +124,7 @@ gab: C
 ref: doutrina resposta a incidentes
 armadilha: conceito
 dif: 2
+tema: sg-nist
 enunciado: Na resposta a incidentes, a preservação das evidências e o registro da cadeia de custódia permitem demonstrar que o material coletado não foi alterado desde a coleta.
 comentario: Certo. Registra-se quem coletou, quando, como e por onde a evidência passou; o hash calculado na coleta permite provar depois que a cópia é idêntica.
 
@@ -129,6 +133,7 @@ gab: E
 ref: doutrina resposta a incidentes
 armadilha: absoluto
 dif: 2
+tema: sg-nist
 enunciado: Diante de servidor comprometido, o primeiro passo para preservar evidências deve ser sempre desligá-lo da tomada, pois os dados em memória volátil não têm valor forense.
 comentario: Errado. A memória volátil guarda processos, conexões e chaves que somem ao desligar. A boa prática é coletar primeiro o que é mais volátil (ordem de volatilidade, RFC 3227); isolar o equipamento da rede costuma vir antes de desligá-lo.
 
@@ -145,6 +150,7 @@ gab: E
 ref: doutrina gestão de vulnerabilidades
 armadilha: comparacao
 dif: 2
+tema: sg-ameacas
 enunciado: Situação hipotética: em teste de intrusão, a empresa contratada recebeu documentação completa, código-fonte e credenciais do ambiente. Assertiva: trata-se de teste de caixa-preta.
 comentario: Errado. Com documentação, código-fonte e credenciais, o teste é de caixa-branca. Na caixa-preta, o testador parte sem conhecimento interno, como um atacante externo; na caixa-cinza, recebe informação parcial.
 
@@ -153,6 +159,7 @@ gab: E
 ref: doutrina segurança de redes
 armadilha: extrapolacao
 dif: 2
+tema: sg-ameacas
 enunciado: Situação hipotética: usuário passou a navegar por VPN comercial. Assertiva: a VPN lhe garante anonimato completo, inclusive perante o provedor do serviço.
 comentario: Errado. A VPN cria túnel cifrado entre o dispositivo e o servidor da VPN e protege o tráfego na rede local e no provedor de acesso. O provedor da VPN, porém, vê o tráfego que sai do túnel e pode registrá-lo.
 
@@ -161,5 +168,6 @@ gab: E
 ref: doutrina ISO/IEC 27005 e ISO 22301
 armadilha: conceito
 dif: 1
+tema: sg-iso
 enunciado: A ISO 22301 estabelece requisitos para sistema de gestão de privacidade da informação, e a ISO/IEC 27005 trata de continuidade de negócios.
 comentario: Errado. Os temas estão trocados com outras normas: a ISO 22301 traz requisitos para sistema de gestão de continuidade de negócios; a ISO/IEC 27005 orienta a gestão de riscos de segurança da informação; privacidade é a ISO/IEC 27701.

@@ -8,6 +8,7 @@ ref: dec12880 1
 trecho: Competem à Agência Nacional de Proteção de Dados - ANPD a regulamentação e a fiscalização do disposto na Lei nº 15.211, de 17 de setembro de 2025
 armadilha: sujeito
 dif: 1
+tema: ed-alcance
 enunciado: Pelo Decreto nº 12.880/2026, competem à ANPD a regulamentação e a fiscalização do ECA Digital, sem prejuízo das competências de outros órgãos do sistema de garantia de direitos da criança e do adolescente.
 comentario: Art. 1º, parágrafo único. O Decreto 12.622/2025 já designara a ANPD como autoridade administrativa autônoma (art. 2º); a Estrutura Regimental de 2026 incorporou a missão.
 
@@ -18,6 +19,7 @@ trecho: verificação de idade - procedimento específico de aferição de idade
 trecho: aferição de idade - termo geral referente aos procedimentos destinados a verificar, estimar ou inferir
 armadilha: conceito
 dif: 2
+tema: ed-idade
 enunciado: No Decreto nº 12.880/2026, aferição de idade é o procedimento específico, de alto grau de confiabilidade, baseado na conferência da veracidade do atributo etário, enquanto verificação de idade é o termo geral que abrange estimativa e inferência.
 comentario: Os conceitos estão trocados. Aferição é o gênero (verificar, estimar ou inferir a idade, art. 2º, IV); verificação é a espécie de alto grau de confiabilidade, nos termos da ANPD (art. 2º, V). A autodeclaração é a mera indicação pelo próprio usuário, sem evidências (VII).
 pesquisar: Aferição × verificação × estimativa de idade (age assurance, age verification, age estimation)
@@ -29,6 +31,7 @@ trecho: sinal de idade - informação ou credencial indicativa que atesta a idad
 trecho: sem revelar dados pessoais adicionais
 armadilha: conceito
 dif: 2
+tema: ed-idade
 enunciado: Situação hipotética: o sistema operacional informa ao aplicativo apenas a faixa etária do usuário, sem transmitir nome, data de nascimento ou documento. Assertiva: essa informação não corresponde ao sinal de idade do Decreto n.º 12.880/2026, que exige a transmissão da data de nascimento exata do usuário.
 comentario: Errado. O sinal de idade (art. 2º, VI) se limita ao estritamente necessário para confirmar a idade mínima, e o art. 25, § 1º, veda enviar data de nascimento exata, identidade civil ou dados de perfilamento. Informar a faixa etária é exatamente o que o decreto prevê.
 
@@ -38,6 +41,7 @@ ref: dec12880 7
 trecho: Ato da Ministra de Estado dos Direitos Humanos e da Cidadania instituirá comitê intersetorial
 armadilha: sujeito
 dif: 3
+tema: ed-alcance
 enunciado: O comitê intersetorial que coordena a Política Nacional de Promoção e Proteção dos Direitos da Criança e do Adolescente no Ambiente Digital é instituído por ato do Diretor-Presidente da ANPD.
 comentario: Art. 7º: o comitê é instituído por ato da Ministra dos Direitos Humanos e da Cidadania. A ANPD integra o comitê (§ 2º, VII), ao lado de MJSP, Saúde, Educação, MCTI, MGI, Secom e Conanda. O plano da Política é trienal (art. 6º, I).
 
@@ -69,6 +73,7 @@ trecho: ser transparentes na interação de crianças e adolescentes quanto a se
 trecho: A ANPD regulamentará e fiscalizará o disposto neste artigo.
 armadilha: extrapolacao
 dif: 2
+tema: ed-padrao
 enunciado: Situação hipotética: plataforma oferece a usuários de doze anos um agente conversacional de inteligência artificial, que informa ser um sistema automatizado. Assertiva: o Decreto n.º 12.880/2026 proíbe que crianças e adolescentes interajam com esse tipo de sistema.
 comentario: Art. 11: o decreto não proíbe; exige que esses sistemas sejam transparentes sobre seu caráter sintético e automatizado, previnam a manipulação comportamental, avaliem o risco algorítmico e tenham salvaguardas ao desenvolvimento, sob regulamentação e fiscalização da ANPD.
 
@@ -78,6 +83,7 @@ ref: dec12880 12, § 1º
 trecho: A política de classificação indicativa, de competência do Ministério da Justiça e Segurança Pública
 armadilha: sujeito
 dif: 2
+tema: ed-padrao
 enunciado: A política de classificação indicativa, que deve considerar os riscos à privacidade, à segurança e à saúde de crianças e adolescentes em ambientes digitais, é de competência da ANPD.
 comentario: Errado no sujeito. A política de classificação indicativa é de competência do Ministério da Justiça e Segurança Pública (art. 12, § 1º, do Decreto 12.880/2025). A ANPD regula e fiscaliza o ECA Digital em outros pontos.
 
@@ -97,6 +103,7 @@ ref: dec12880 16
 trecho: Equipara-se a conteúdo pornográfico a interação com sistemas que permitam diálogos, produção ou troca de vídeos e imagens, de forma artificial ou automatizada, de teor sexualmente explícito
 armadilha: caso
 dif: 2
+tema: ed-padrao
 enunciado: Situação hipotética: aplicativo de companhia virtual baseado em inteligência artificial mantém com usuários diálogos de teor sexualmente explícito. Assertiva: o Decreto nº 12.880/2026 equipara essa interação a conteúdo pornográfico.
 comentario: Art. 16, § 4º, que alcança chatbots e geradores de imagem de teor sexual. Não é pornográfico o conteúdo educativo, artístico, informativo ou jornalístico nas condições do § 2º (como livros sem imagens e reprodução de música).
 
@@ -107,6 +114,7 @@ trecho: exigir verificação de idade para desbloqueio, vedada a mera autodeclar
 trecho: ocultar, desfocar ou não exibir, por padrão, conteúdo pornográfico
 armadilha: conceito
 dif: 3
+tema: ed-idade
 enunciado: Situação hipotética: plataforma que hospeda conteúdo pornográfico passou a exibi-lo desfocado por padrão e a desbloqueá-lo quando o usuário declara ter mais de dezoito anos. Assertiva: o procedimento atende ao Decreto nº 12.880/2026.
 comentario: Art. 17: para usuário não cadastrado, com idade não verificada ou conta de criança ou adolescente, o fornecedor deve ocultar, desfocar ou não exibir o conteúdo por padrão, ou exigir verificação de idade para desbloqueio, vedada a mera autodeclaração (também art. 9º, § 1º, do ECA Digital).
 
@@ -116,6 +124,7 @@ ref: dec12880 19
 trecho: criar versões sem esse conteúdo, produto ou serviço ou publicidade relacionada a tais conteúdos, produtos ou serviços, hipótese em que fica dispensada a verificação de idade
 armadilha: excecao
 dif: 3
+tema: ed-idade
 enunciado: Rede social que disponibilize conteúdo proibido para crianças e adolescentes pode, em vez de verificar a idade dos usuários, criar versões sem esse conteúdo e sem a publicidade a ele relacionada, hipótese em que fica dispensada a verificação de idade.
 comentario: Art. 19, I e II. A alternativa é adotar verificação de idade efetiva nos termos da ANPD, vedada a autodeclaração. Para usuário não cadastrado ou não autenticado, aplica-se a versão sem o conteúdo (§ 1º). A ANPD pode reenquadrar um serviço como rede social (§ 2º).
 
@@ -154,6 +163,7 @@ trecho: A ANPD disciplinará o processo de certificação de soluções técnica
 trecho: poderá fazê-lo diretamente ou por meio do reconhecimento de entidades acreditadoras
 armadilha: fecho
 dif: 3
+tema: ed-idade
 enunciado: A ANPD disciplina o processo de certificação das soluções técnicas de aferição de idade, mas não pode reconhecer entidades acreditadoras para essa finalidade.
 comentario: Art. 30: a ANPD disciplina a certificação, diretamente ou reconhecendo entidades acreditadoras. O MGI pode oferecer solução pública e gratuita de verificação de idade (art. 28).
 
@@ -164,6 +174,7 @@ trecho: deverão requerer dos seus usuários autorização judicial regularmente
 trecho: Verificada a ausência da autorização judicial referida no caput, o fornecedor deverá retirar imediatamente o conteúdo.
 armadilha: fecho
 dif: 3
+tema: ed-supervisao
 enunciado: Situação hipotética: perfil monetizado publica, de forma habitual, vídeos da rotina de uma criança, e o usuário não apresentou autorização judicial nos termos do art. 149 do ECA. Assertiva: o fornecedor deve notificá-lo para regularizar a situação, mantendo o conteúdo até lá.
 comentario: Errado. Verificada a ausência da autorização judicial, o fornecedor deve retirar imediatamente o conteúdo (art. 34, § 1º, do Decreto 12.880/2025).
 pesquisar: Trabalho artístico infantil e autorização judicial (ECA, art. 149)
@@ -183,6 +194,7 @@ ref: dec12880 40
 trecho: As penalidades não serão aplicadas nas hipóteses de descumprimento decorrente de falha isolada ou residual, inerente ao estado da técnica e à natureza da operação
 armadilha: excecao
 dif: 3
+tema: ed-fiscalizacao
 enunciado: Pelo Decreto nº 12.880/2026, o descumprimento dos deveres de remover e comunicar conteúdos de abuso sexual infantil sujeita o fornecedor a sanções quando houver falha reincidente na moderação, mas não em caso de falha isolada ou residual, inerente ao estado da técnica.
 comentario: Art. 40 e §§ 1º e 2º. A falha reincidente é a negligência ou insuficiência dos mecanismos de resposta a violações graves; a dosimetria segue o art. 35, § 1º, do ECA Digital.
 
@@ -203,6 +215,7 @@ trecho: A ANPD habilitará, por meio de edital público, instituições acadêmi
 trecho: declaração de inexistência de finalidade comercial
 armadilha: extrapolacao
 dif: 2
+tema: ed-fiscalizacao
 enunciado: O acesso de pesquisadores aos dados dos grandes provedores, previsto no ECA Digital, depende de convênio individual com cada empresa, podendo os dados ser usados para fins comerciais se houver contrapartida.
 comentario: Art. 48: a ANPD habilita as instituições por edital público, exigindo plano de pesquisa, qualificação, governança e segurança e declaração de inexistência de finalidade comercial. O art. 31, parágrafo único, da lei veda o uso comercial dos dados.
 
@@ -212,5 +225,6 @@ ref: dec12880 50
 trecho: Este produto permite acesso à internet. Conteúdos da internet podem apresentar riscos a crianças e adolescentes. O uso do produto requer supervisão parental.
 armadilha: caso
 dif: 3
+tema: ed-supervisao
 enunciado: Situação hipotética: tablet direcionado exclusivamente ao público infantil chega ao mercado antes de a ANPD regulamentar a matéria. Assertiva: sua embalagem deve informar que o produto permite acesso à internet, que os conteúdos da internet podem apresentar riscos a crianças e adolescentes e que o uso requer supervisão parental.
 comentario: Art. 50, § 1º, com prazo de trinta dias da publicação para os fabricantes e importadores (caput), não aplicável aos equipamentos produzidos ou importados até a publicação (§ 2º). Regulamenta o art. 38 do ECA Digital.
