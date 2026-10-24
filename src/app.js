@@ -1,8 +1,21 @@
-(function () {
+(async function () {
 'use strict';
 
 /* ================= Dados embutidos ================= */
-const D = JSON.parse(document.getElementById('dados').textContent);
+// O build grava o pacote em gzip e base64 (scripts/build.mjs): o arquivo cai de ~10 MB para ~3 MB
+async function lerDados() {
+  const el = document.getElementById('dados');
+  const b64 = el.textContent.trim();
+  el.remove();
+  const bin = atob(b64), u = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
+  return new Response(new Blob([u]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+}
+if (typeof DecompressionStream !== 'function') {
+  document.body.insertAdjacentHTML('afterbegin', '<p style="padding:16px">Este navegador é antigo demais para abrir o painel. Atualize o Chrome, o Safari (16.4 ou mais novo) ou o Firefox.</p>');
+  return;
+}
+const D = JSON.parse(await lerDados());
 // O pacote chega enxuto (scripts/build.mjs, empacotar); aqui volta à forma completa antes de qualquer uso
 const TEXTO_ART = new Map();
 for (const [id, l] of Object.entries(D.lei || {})) {
@@ -1389,6 +1402,7 @@ function abrirSessao() {
   relogioTimer = setInterval(tique, 1000);
   renderSessao();
   el.scrollTop = 0;
+  sincronizarHistorico();
 }
 function fecharSessao(guardar = true) {
   if (guardar) guardarSessaoAberta();
@@ -1400,7 +1414,24 @@ function fecharSessao(guardar = true) {
   document.body.style.overflow = '';
   Store.descarregar();
   renderTudo();
+  sincronizarHistorico();
 }
+// Voltar do celular fecha a camada aberta (folha, depois sessão) em vez de sair do painel; a sessão fica guardada
+let camadaNoHistorico = false;
+function camadaAberta() { return !document.getElementById('folha').hidden || !document.getElementById('sessao').hidden; }
+function sincronizarHistorico() {
+  try {
+    if (camadaAberta() && !camadaNoHistorico) { history.pushState({ camada: 1 }, ''); camadaNoHistorico = true; }
+    else if (!camadaAberta() && camadaNoHistorico) { camadaNoHistorico = false; history.back(); }
+  } catch (e) { /* histórico indisponível: fecha só pelo botão */ }
+}
+window.addEventListener('popstate', () => {
+  if (!camadaNoHistorico) return;
+  camadaNoHistorico = false;
+  if (!document.getElementById('folha').hidden) fecharFolha();
+  else if (!document.getElementById('sessao').hidden) fecharSessao();
+  sincronizarHistorico();
+});
 function decorrido() { return (Date.now() - sessao.ini) / 1000; }
 function tique() {
   if (!sessao || sessao.fim) return;
@@ -2773,8 +2804,9 @@ function abrirFolha(html, rotulo) {
   f.scrollTop = 0;
   const b = f.querySelector('[data-acao="fechar-folha"]');
   if (b) b.focus();
+  sincronizarHistorico();
 }
-function fecharFolha() { const f = document.getElementById('folha'); f.hidden = true; f.innerHTML = ''; UI.folhaAula = null; }
+function fecharFolha() { const f = document.getElementById('folha'); f.hidden = true; f.innerHTML = ''; UI.folhaAula = null; sincronizarHistorico(); }
 function cabFolha(rotulo, titulo) { return '<div class="folha-cab"><div><span class="rotulo">' + esc(rotulo) + '</span><h2>' + esc(titulo) + '</h2></div><button class="btn pequeno" data-acao="fechar-folha">Fechar</button></div>'; }
 function folhaItem(id, resp) {
   const q = QI.get(id);
@@ -5156,4 +5188,4 @@ if (hot && typeof hot.snapshot === 'function') {
 }
 if (hot && typeof hot.ready === 'function') hot.ready(iniciar);
 else iniciar(hot && hot.data ? hot.data : {});
-})();
+})().catch((e) => console.error('Falha ao abrir o painel', e));

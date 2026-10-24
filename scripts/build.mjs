@@ -3,6 +3,7 @@
 //   dist/index.html     documento completo, para abrir no navegador ou hospedar em qualquer lugar
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { gzipSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import { ARMADILHAS, parseRef } from './lib/questoes.mjs';
 import { GRUPOS_LEIS, LEIS } from './lib/leis.mjs';
@@ -335,10 +336,6 @@ export function empacotar(d) {
   return { ...d, lei, questoes, cloze, tab };
 }
 
-function jsonSeguro(obj) {
-  return JSON.stringify(obj).replace(/</g, '\\u003c');
-}
-
 function build() {
   const dados = montarDados();
   const css = ler('src', 'app.css');
@@ -346,7 +343,7 @@ function build() {
   const corpo = ler('src', 'app.html');
   const pagina = corpo
     .replace('/*__CSS__*/', () => css)
-    .replace('/*__DADOS__*/', () => jsonSeguro(empacotar(dados)))
+    .replace('/*__DADOS__*/', () => gzipSync(Buffer.from(JSON.stringify(empacotar(dados))), { level: 9 }).toString('base64'))
     .replace('/*__JS__*/', () => js);
   mkdirSync(join(RAIZ, 'dist'), { recursive: true });
   writeFileSync(join(RAIZ, 'dist', 'artifact.html'), pagina);
