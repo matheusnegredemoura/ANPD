@@ -971,6 +971,13 @@ if (typeof DecompressionStream !== 'function') {
   return;
 }
 const D = JSON.parse(await lerDados());
+// Quarentena: a raspagem do Gran (ids gran-*) veio com o gabarito preenchido por padrão — A em 693 dos 698 itens de
+// múltipla escolha e CERTO em 547 dos 563 itens C/E —, e a conferência por amostra achou gabaritos errados. Os itens
+// seguem no pacote, mas ficam fora do banco (treino, simulados e estatísticas) até voltarem com o gabarito oficial.
+const QUARENTENA = [/^gran-/];
+function emQuarentena(q) { return QUARENTENA.some((r) => r.test(q.id)); }
+const N_QUARENTENA = D.questoes.filter(emQuarentena).length;
+D.questoes = D.questoes.filter((q) => !emQuarentena(q));
 // O pacote chega enxuto (scripts/build.mjs, empacotar); aqui volta à forma completa antes de qualquer uso
 const TEXTO_ART = new Map();
 for (const [id, l] of Object.entries(D.lei || {})) {
@@ -1170,7 +1177,7 @@ const CONQ = [
   { g: 'l', id: 'lei20', ic: '§', nome: 'Lei seca', desc: 'Abriu 20 artigos no leitor da lei seca.' },
   { g: 'l', id: 'lei100', ic: '§100', nome: 'Cem artigos', desc: 'Abriu 100 artigos no leitor da lei seca.' },
   { g: 'l', id: 'lei500', ic: '§500', nome: 'Biblioteca de normas', desc: 'Abriu 500 artigos no leitor da lei seca.' },
-  { g: 'l', id: 'leitodas', ic: '§§', nome: 'Lei inteira', desc: 'Abriu todos os artigos da LGPD no leitor.' },
+  { g: 'l', id: 'leitodas', ic: '§§', nome: 'Lei inteira', desc: 'Abriu todos os artigos da Lei Orgânica do TCU no leitor.' },
   { g: 'l', id: 'cards50', ic: 'C', nome: 'Cinquenta lacunas', desc: 'Revisou 50 cards cloze.' },
   { g: 'l', id: 'cards300', ic: 'C3', nome: 'Lei na ponta da língua', desc: 'Revisou 300 cards cloze.' },
   { g: 'l', id: 'cards1000', ic: 'C1k', nome: 'Mil lacunas', desc: 'Revisou 1.000 cards cloze.' },
@@ -1186,7 +1193,7 @@ const CONQ = [
   { g: 'p', id: 'bloco80', ic: '80', nome: 'Bloco dominado', desc: 'Chegou a 80% de domínio em um bloco.' },
   { g: 'p', id: 'blocos5', ic: '80×5', nome: 'Cinco blocos dominados', desc: '80% de domínio em 5 blocos.' },
   { g: 'p', id: 'blocos20', ic: '80×20', nome: 'Vinte blocos dominados', desc: '80% de domínio em 20 blocos.' },
-  { g: 'p', id: 'p1', ic: 'P1', nome: 'Prioridade 1 em dia', desc: '60% de domínio nos blocos de prioridade 1 da LGPD.' },
+  { g: 'p', id: 'p1', ic: 'P1', nome: 'Prioridade 1 em dia', desc: '60% de domínio nos blocos de prioridade 1 do edital.' },
   { g: 'p', id: 'disciplina', ic: '70', nome: 'Disciplina firme', desc: '70% de domínio médio numa disciplina inteira.' },
   { g: 'p', id: 'sim1', ic: 'S', nome: 'Primeiro simulado', desc: 'Entregou um simulado.' },
   { g: 'p', id: 'sim5', ic: 'S5', nome: 'Cinco simulados', desc: 'Entregou 5 simulados.' },
@@ -1478,6 +1485,8 @@ const Store = {
     const l = lerLS(CHAVE_LOCAL);
     if (!l) {
       if (typeof aplicarBackupExportado === 'function') aplicarBackupExportado();
+      // Navegador sem a cópia local (dados apagados, outro perfil): tenta o cofre; ele mesmo desiste se já houver progresso
+      recuperarIDBSeVazio();
       return false;
     }
     this.localReal = true;
@@ -1496,6 +1505,8 @@ const Store = {
     if (!this.localLido) return;
     const ok = gravarLS(CHAVE_LOCAL, { perfil: S.perfil, itens: S.itens, cards: S.cards, simulados: S.simulados, pesquisa: S.pesquisa, disc: S.disc, t: this.tLocal });
     this.diag.navegador = ok ? 'ok' : 'bloqueado';
+    // O cofre também é gravado durante o uso (no máximo a cada 5 min): ao fechar a aba, a gravação no IndexedDB pode não terminar
+    if (ok && Date.now() - (this.tCofre || 0) > 300000) { this.tCofre = Date.now(); protegerProgresso(); }
   },
   dados(n) {
     if (n === 'perfil') return S.perfil;
@@ -3121,7 +3132,7 @@ function cartaoPendencias() {
 // O herói é você: o nível vem do XP, os atributos são o seu domínio real em cada disciplina, e o equipamento sai do
 // saque. Toda semana um chefão encarna o bloco em que você está mais fraco. Acertar item desse bloco causa dano
 // (mais em item difícil, em dobro no crítico); na batalha, cada erro custa um coração e três acertos seguidos
-// devolvem um. Os itens do saque são os princípios e conceitos da LGPD, com o texto da lei como descrição.
+// devolvem um. Os itens do saque são institutos do controle externo e da auditoria, com o texto da norma como descrição.
 // Nada disso tira XP, e missão não feita não acumula para o dia seguinte.
 const MISSOES = [
   { id: 'q30', txt: () => 'Responder ' + metaDia() + ' itens', xp: 30, meta: () => metaDia(), val: (d) => d.r || 0 },
@@ -3409,7 +3420,7 @@ function renderPersonagem() {
     (inv.length ? '<div class="inventario">' + inv.map((it) => '<div class="inv-linha r-' + it.rar + '"><div><b>' + esc(it.nome) + '</b><span class="pequeno mudo">' + RARIDADES[it.rar].nome + ' · ' + ENCAIXES[it.slot] + ' · ' + esc(efeitoTxt(it)) + '</span></div>' +
       (r.eq[it.slot] === it.id ? '<span class="pequeno mudo">equipado</span>' : '<button class="btn pequeno" data-acao="equipar" data-item="' + it.id + '">Equipar</button>') + '</div>').join('') + '</div>'
       : '<p class="pequeno mudo">Vazio. Cumpra as três missões do dia para abrir o baú, ou derrote o chefão da semana.</p>') +
-    '<p class="pequeno mudo">Faltam ' + (ITENS_RPG.length - inv.length) + ' para completar a coleção. Cada item traz o texto da LGPD que lhe dá nome.</p></div>';
+    '<p class="pequeno mudo">Faltam ' + (ITENS_RPG.length - inv.length) + ' para completar a coleção. Cada item traz o texto da norma que lhe dá nome.</p></div>';
   return h + cartaoTrofeus();
 }
 function cartaoTrofeus() {
@@ -3658,6 +3669,17 @@ function espelharIDB(pacote) {
     } catch (e) {}
   });
 }
+// Ao esconder ou fechar a aba: o ponto de restauração do dia (substitui o de hoje, guarda 5 dias) e o espelho no
+// IndexedDB, que sobrevive a uma limpeza do localStorage. Progresso vazio nunca sobrescreve o cofre.
+function protegerProgresso() {
+  try {
+    if (!Store.localLido) return;
+    const pacote = { perfil: S.perfil, itens: S.itens, cards: S.cards, simulados: S.simulados, pesquisa: S.pesquisa, disc: S.disc, t: Store.tLocal };
+    if (!Object.keys(pacote.itens || {}).length && !(pacote.perfil && pacote.perfil.xp)) return;
+    salvarSnapshotDiario(pacote);
+    espelharIDB(pacote);
+  } catch (e) {}
+}
 function recuperarIDBSeVazio() {
   abrirIDBTCU((db) => {
     try {
@@ -3693,6 +3715,7 @@ function integrarQuestoesExtras() {
     let adicionadas = 0;
     for (const q of extras) {
       if (!q || !q.id || !q.b || !q.e || !q.g) continue;
+      if (emQuarentena(q)) continue;
       if (!BI.has(q.b)) continue;
       if (QI.has(q.id)) continue;
       if (!q.t) q.t = [];
@@ -6005,7 +6028,7 @@ function renderCebraspe() {
   html += '<div class="cartao cb-disc" id="cb-provas"><h2>Provas para mandar</h2><p class="mudo pequeno">Cebraspe, mais recentes primeiro. Para cada uma: o caderno, o gabarito definitivo (não o preliminar) e o padrão de resposta da discursiva, se houver. Cada prova enviada vira itens reais com gabarito oficial e atualiza esta página.</p><ol class="lista-cb">' + cb.provas.map(li).join('') + '</ol></div>';
   return html;
 }
-// Raio-x dos itens reais: artigos da LGPD e armadilhas mais frequentes, contados no banco, e os padrões que a banca repete
+// Raio-x dos itens reais: artigos e armadilhas mais frequentes, contados no banco, e os padrões que a banca repete
 function renderRaioX(cb, chip) {
   cb = cb || { padroes: [], disciplinas: [] };
   const conta = (lista, chave) => { const m = new Map(); for (const q of lista) { const k = chave(q); if (k) m.set(k, (m.get(k) || 0) + 1); } return [...m].sort((a, b) => b[1] - a[1]); };
@@ -6032,6 +6055,7 @@ function renderAjustes() {
     renderImportadorProvasTCU() +
     renderAutodiagnosticoTCU() +
     '<div class="cartao destaque"><h2>Sincronizar com o Painel ANPD</h2><p class="pequeno">Traz as respostas, cards e artigos lidos do tronco comum (Constitucional, Administrativo, LAI, Línguas, Gestão, Economia e Contabilidade) feitos no Painel ANPD neste navegador. Fica o registro mais recente de cada item; nada é apagado.</p><div class="linha-btns"><button class="btn primario" data-acao="sync-anpd">⇄ Trazer progresso do Painel ANPD</button></div></div>' +
+    (N_QUARENTENA ? '<div class="cartao"><h2>Itens em quarentena</h2><p class="pequeno">' + fmtNum(N_QUARENTENA) + ' questões da raspagem do Gran estão fora do banco: vieram com o gabarito preenchido por padrão (A ou CERTO), e a conferência achou gabaritos errados. Voltam quando forem reimportadas com o gabarito oficial; o que você já respondeu nelas fica guardado.</p></div>' : '') +
     '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha fica salva na sua conta, como as demais preferências.</p></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' + metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div>' +
       '<p class="pequeno mudo">Meta de hoje: <b>' + metaDia() + ' itens</b>, o maior entre o plano (' + (metaPlano() ? metaPlano() + ' por dia para ver os inéditos até ' + esc(D.cronograma.prova.split('-').reverse().join('/')) : 'sem data de prova') +
@@ -6060,49 +6084,8 @@ function renderAjustes() {
 
 /* ================= Caderno de erros ================= */
 function cadState() { return tcuState(); }
-function causaDe(k) { return CAUSAS_ERRO.find((c) => c[0] === k); }
 function errosDoBanco() {
   return Q.filter((q) => { const r = rec(q.id); return (r && r[3] > 0) || (cadState().erros[q.id] && cadState().erros[q.id].causa); });
-}
-
-function htmlEsqueletos() {
-  const ests = (D.discursivas && D.discursivas.estruturas) || [];
-  if (!ests.length) return '';
-  return '<div class="cartao esq"><h2>Esqueletos de Peça Técnica e Relatório de Auditoria (TCU)</h2><p class="pequeno mudo">Domine os três moldes antes de treinar velocidade. Copie e preencha os colchetes com os fatos do enunciado.</p>' +
-    ests.map((e) => '<details><summary><b>' + esc(e.nome) + '</b></summary><p class="pequeno"><b>Quando usar:</b> ' + esc(e.uso) + '</p><pre>' + esc(e.modelo) + '</pre></details>').join('') + '</div>';
-}
-
-// Sincronização inversa: traz do Painel TCU (mesmo navegador) as respostas, cards e leituras do tronco comum
-function sincronizarDoTCU() {
-  const origem = lerLS('painel-tcu-v1');
-  if (!origem || (!origem.itens && !origem.perfil)) { avisar('!', 'Painel TCU não encontrado neste navegador', 'Abra o Painel TCU neste mesmo navegador ao menos uma vez.'); return; }
-  let nItens = 0, nCards = 0, nLidos = 0, nErros = 0;
-  const num = (x) => Number(x) || 0;
-  for (const [id, r] of Object.entries(origem.itens || {})) {
-    if (!QI.has(id) || !Array.isArray(r)) continue;
-    const at = S.itens[id];
-    if (!at || num(r[4]) > num(at[4]) || (num(r[4]) === num(at[4]) && num(r[2]) + num(r[3]) > num(at[2]) + num(at[3]))) { S.itens[id] = r.slice(); nItens++; }
-  }
-  for (const [id, c] of Object.entries(origem.cards || {})) {
-    if (!CI.has(id) || !Array.isArray(c)) continue;
-    const at = S.cards[id];
-    if (!at || num(c[5]) > num(at[5])) { S.cards[id] = c.slice(); nCards++; }
-  }
-  S.perfil.lidos ||= {};
-  for (const [k, dt] of Object.entries((origem.perfil && origem.perfil.lidos) || {})) {
-    if (ARTI.has(k) && (!S.perfil.lidos[k] || dt < S.perfil.lidos[k])) { S.perfil.lidos[k] = dt; nLidos++; }
-  }
-  if (origem.perfil && origem.perfil.tcu && origem.perfil.tcu.erros) {
-    const ceLocal = (cadState().erros ||= {});
-    for (const [qid, obj] of Object.entries(origem.perfil.tcu.erros)) {
-      if (QI.has(qid) && (!ceLocal[qid] || (!ceLocal[qid].nota && obj.nota))) {
-        ceLocal[qid] = Object.assign({}, obj);
-        nErros++;
-      }
-    }
-  }
-  Store.salvarTudo(); renderTudo();
-  avisar('⇄', 'Tronco comum trazido do Painel TCU', pl(nItens, 'questão', 'questões') + ', ' + pl(nCards, 'card', 'cards') + (nErros ? ', ' + pl(nErros, 'anotação de erro', 'anotações de erro') : '') + ' e ' + pl(nLidos, 'artigo lido', 'artigos lidos') + ' aproveitados.');
 }
 
 /* ================= Backup ================= */
@@ -6819,8 +6802,8 @@ document.addEventListener('pointerover', (ev) => {
   dica.style.left = Math.max(8, Math.min(window.innerWidth - 200, r.left - 30)) + 'px';
   dica.style.top = (r.top - 32) + 'px';
 });
-document.addEventListener('visibilitychange', () => { if (document.hidden) { contarTempo(true); guardarSessaoAberta(); Store.descarregar(); } else { ultimoTique = Date.now(); marcarUso(); } });
-window.addEventListener('pagehide', () => { contarTempo(true); guardarSessaoAberta(); Store.descarregar(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden) { contarTempo(true); guardarSessaoAberta(); Store.descarregar(); protegerProgresso(); } else { ultimoTique = Date.now(); marcarUso(); } });
+window.addEventListener('pagehide', () => { contarTempo(true); guardarSessaoAberta(); Store.descarregar(); protegerProgresso(); });
 window.addEventListener('pageshow', (e) => { if (e.persisted) ultimoTique = Date.now(); });
 ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach((ev) => document.addEventListener(ev, marcarUso, { passive: true, capture: true }));
 // Rolar dentro da folha ou da sessão também é uso: o evento de rolagem não sobe, mas passa pela captura no documento
