@@ -7,9 +7,9 @@ gab: C
 tema: const-legislativo
 ref: cf88 45
 trecho: A Câmara dos Deputados compõe-se de representantes do povo, eleitos, pelo sistema proporcional
-armadilha: literal
+armadilha: comparacao
 dif: 1
-enunciado: A Câmara dos Deputados compõe-se de representantes do povo, eleitos pelo sistema proporcional, em cada estado, em cada território e no Distrito Federal.
+enunciado: Os deputados federais representam o povo e são eleitos pelo sistema proporcional, diferentemente dos senadores, eleitos pelo princípio majoritário.
 comentario: Art. 45. O número de deputados por estado é fixado por lei complementar, proporcionalmente à população (§ 1º). Cada território elege quatro deputados (§ 2º).
 
 === dc-leg-02
@@ -17,9 +17,9 @@ gab: E
 tema: const-legislativo
 ref: cf88 46
 trecho: O Senado Federal compõe-se de representantes dos Estados e do Distrito Federal, eleitos segundo o princípio majoritário.
-armadilha: sujeito
-dif: 1
-enunciado: O Senado Federal compõe-se de representantes do povo, eleitos pelo sistema proporcional.
+armadilha: comparacao
+dif: 2
+enunciado: Os senadores representam o povo e são eleitos pelo sistema proporcional, ao passo que os deputados federais representam os Estados e o Distrito Federal.
 comentario: Senadores representam os estados e o Distrito Federal e são eleitos pelo princípio majoritário (art. 46). Representantes do povo, pelo sistema proporcional, são os deputados (art. 45).
 
 === dc-leg-03
@@ -27,9 +27,9 @@ gab: C
 tema: const-legislativo
 ref: cf88 46, § 2º
 trecho: A representação de cada Estado e do Distrito Federal será renovada de quatro em quatro anos, alternadamente, por um e dois terços.
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: Cada estado e o Distrito Federal elegem três senadores, com mandato de oito anos, e a representação é renovada de quatro em quatro anos, alternadamente, por um e dois terços.
+enunciado: Situação hipotética: em uma eleição geral, cada estado elegeu dois senadores; na seguinte, quatro anos depois, elegeu um. Assertiva: o rodízio segue a Constituição, que renova a representação alternadamente por um e dois terços.
 comentario: Art. 46, §§ 1º e 2º. Cada senador é eleito com dois suplentes (§ 3º). Territórios não elegem senadores.
 
 === dc-leg-04
@@ -37,9 +37,9 @@ gab: C
 tema: const-legislativo
 ref: cf88 47
 trecho: Salvo disposição constitucional em contrário, as deliberações de cada Casa e de suas Comissões serão tomadas por maioria dos votos, presente a maioria absoluta de seus membros.
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: Salvo disposição constitucional em contrário, as deliberações de cada Casa do Congresso e de suas comissões são tomadas por maioria dos votos, presente a maioria absoluta de seus membros.
+enunciado: Situação hipotética: comissão da Câmara aprovou proposição por maioria dos votos, presente a maioria absoluta de seus membros, em matéria para a qual a Constituição não fixa quórum especial. Assertiva: a deliberação é válida.
 comentario: Art. 47: é a maioria simples (ou relativa), com quórum de instalação de maioria absoluta. Leis ordinárias seguem essa regra; leis complementares exigem maioria absoluta (art. 69).
 
 === dc-leg-05
@@ -47,9 +47,9 @@ gab: E
 tema: const-legislativo
 ref: cf88 49, IX
 trecho: julgar anualmente as contas prestadas pelo Presidente da República e apreciar os relatórios sobre a execução dos planos de governo
-armadilha: sujeito
-dif: 1
-enunciado: Compete ao Tribunal de Contas da União julgar anualmente as contas prestadas pelo Presidente da República.
+armadilha: comparacao
+dif: 2
+enunciado: O julgamento anual das contas do Presidente da República cabe ao TCU, ao passo que ao Congresso Nacional cabe apenas emitir parecer prévio sobre elas.
 comentario: Quem julga as contas do Presidente é o Congresso Nacional (art. 49, IX). O TCU apenas as aprecia, mediante parecer prévio elaborado em sessenta dias (art. 71, I). O TCU julga as contas dos demais administradores (art. 71, II).
 
 === dc-leg-06
@@ -57,9 +57,9 @@ gab: C
 tema: const-legislativo
 ref: cf88 49, V
 trecho: sustar os atos normativos do Poder Executivo que exorbitem do poder regulamentar ou dos limites de delegação legislativa
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: É da competência exclusiva do Congresso Nacional sustar os atos normativos do Poder Executivo que exorbitem do poder regulamentar ou dos limites de delegação legislativa.
+enunciado: Situação hipotética: decreto presidencial que regulamenta lei criou obrigação nela não prevista. Assertiva: o Congresso Nacional pode sustar o decreto, por exorbitar do poder regulamentar.
 comentario: Art. 49, V: controle político-legislativo dos regulamentos, por decreto legislativo. As competências exclusivas do art. 49 dispensam sanção do Presidente (art. 48).
 
 === dc-leg-07
@@ -77,9 +77,9 @@ gab: C
 tema: const-legislativo
 ref: cf88 51, I
 trecho: autorizar, por dois terços de seus membros, a instauração de processo contra o Presidente e o Vice-Presidente da República e os Ministros de Estado
-armadilha: literal
-dif: 1
-enunciado: Compete privativamente à Câmara dos Deputados autorizar, por dois terços de seus membros, a instauração de processo contra o Presidente e o Vice-Presidente da República e os Ministros de Estado.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a Câmara dos Deputados autorizou, por dois terços de seus membros, a instauração de processo contra Ministro de Estado. Assertiva: a autorização observa o quórum constitucional.
 comentario: Art. 51, I. Para os ministros, a autorização da Câmara é exigida nos crimes conexos com os do Presidente; nos crimes comuns e de responsabilidade não conexos, os ministros são julgados pelo STF (art. 102, I, “c”).
 
 === dc-leg-09
@@ -87,9 +87,9 @@ gab: C
 tema: const-legislativo
 ref: cf88 52, III
 trecho: aprovar previamente, por voto secreto, após argüição pública, a escolha de:
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: Compete privativamente ao Senado Federal aprovar previamente, por voto secreto, após arguição pública, a escolha do presidente e dos diretores do banco central, do Procurador-Geral da República e de titulares de outros cargos que a lei determinar.
+enunciado: Situação hipotética: indicado para presidente do Banco Central foi arguido publicamente no Senado, que aprovou a escolha por voto secreto. Assertiva: o procedimento segue a Constituição.
 comentario: Art. 52, III, “d”, “e” e “f”. É com base na alínea “f” que leis como a 9.986/2000 submetem ao Senado os dirigentes das agências reguladoras, e a LGPD, os diretores da ANPD.
 
 === dc-leg-10
@@ -97,9 +97,9 @@ gab: E
 tema: const-legislativo
 ref: cf88 52, X
 trecho: suspender a execução, no todo ou em parte, de lei declarada inconstitucional por decisão definitiva do Supremo Tribunal Federal
-armadilha: sujeito
+armadilha: caso
 dif: 2
-enunciado: Compete à Câmara dos Deputados suspender a execução, no todo ou em parte, de lei declarada inconstitucional por decisão definitiva do Supremo Tribunal Federal.
+enunciado: Situação hipotética: o STF declarou, em controle difuso e por decisão definitiva, a inconstitucionalidade de lei federal. Assertiva: cabe à Câmara dos Deputados suspender a execução da lei.
 comentario: A competência é privativa do Senado Federal (art. 52, X), no controle difuso. No controle concentrado, a própria decisão do STF já tem eficácia contra todos.
 
 === dc-leg-11
@@ -107,9 +107,9 @@ gab: C
 tema: const-legislativo
 ref: cf88 53
 trecho: Os Deputados e Senadores são invioláveis, civil e penalmente, por quaisquer de suas opiniões, palavras e votos.
-armadilha: literal
+armadilha: caso
 dif: 1
-enunciado: Os deputados e senadores são invioláveis, civil e penalmente, por quaisquer de suas opiniões, palavras e votos.
+enunciado: Situação hipotética: senador foi processado civilmente por opinião manifestada em discurso no exercício do mandato. Assertiva: ele é inviolável por essa opinião.
 comentario: Art. 53, caput: imunidade material. O STF exige nexo com o exercício do mandato: fora do Parlamento, a proteção só alcança manifestações ligadas à atividade parlamentar.
 
 === dc-leg-12
@@ -127,9 +127,9 @@ gab: C
 tema: const-legislativo
 ref: cf88 53, § 6º
 trecho: Os Deputados e Senadores não serão obrigados a testemunhar sobre informações recebidas ou prestadas em razão do exercício do mandato
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: Deputados e senadores não são obrigados a testemunhar sobre informações recebidas ou prestadas em razão do exercício do mandato, nem sobre as pessoas que lhes confiaram ou deles receberam informações.
+enunciado: Situação hipotética: deputado foi intimado a depor sobre informação que recebeu de fonte em razão do mandato. Assertiva: ele não é obrigado a testemunhar sobre a informação nem sobre quem a prestou.
 comentario: Art. 53, § 6º: sigilo da fonte parlamentar. É prerrogativa ligada ao mandato, como a imunidade material e a processual.
 
 === dc-leg-14
@@ -147,9 +147,9 @@ gab: C
 tema: const-legislativo
 ref: cf88 56, I
 trecho: investido no cargo de Ministro de Estado
-armadilha: literal
+armadilha: caso
 dif: 1
-enunciado: Não perde o mandato o deputado ou senador investido no cargo de Ministro de Estado.
+enunciado: Situação hipotética: deputado federal foi nomeado Ministro de Estado. Assertiva: ele não perde o mandato.
 comentario: Art. 56, I. Ele pode optar pela remuneração do mandato (§ 3º), e o suplente é convocado (§ 1º).
 
 === dc-leg-16
@@ -157,9 +157,9 @@ gab: C
 tema: const-legislativo
 ref: cf88 58, § 3º
 trecho: As comissões parlamentares de inquérito, que terão poderes de investigação próprios das autoridades judiciais
-armadilha: literal
-dif: 2
-enunciado: As comissões parlamentares de inquérito têm poderes de investigação próprios das autoridades judiciais e são criadas mediante requerimento de um terço dos membros da Casa, para apuração de fato determinado e por prazo certo.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: comissão parlamentar de inquérito criada para apurar fato determinado, por prazo certo, determinou a quebra do sigilo bancário de investigado, em decisão fundamentada. Assertiva: a medida está entre os poderes de investigação próprios das autoridades judiciais de que a CPI dispõe.
 comentario: Art. 58, § 3º. As conclusões são encaminhadas ao Ministério Público para que promova a responsabilização civil ou criminal. A CPI investiga; não julga nem aplica sanções.
 
 === dc-leg-17
@@ -209,7 +209,7 @@ ref: cf88 62, § 3º
 trecho: perderão eficácia, desde a edição, se não forem convertidas em lei no prazo de sessenta dias, prorrogável, nos termos do § 7º, uma vez por igual período
 armadilha: numero
 dif: 2
-enunciado: As medidas provisórias perdem eficácia se não forem convertidas em lei no prazo de cento e vinte dias, prorrogável uma vez por igual período.
+enunciado: A medida provisória não convertida em lei no prazo de cento e vinte dias, prorrogável uma vez por igual período, perde eficácia desde a edição.
 comentario: São sessenta dias, prorrogáveis uma vez por mais sessenta (art. 62, §§ 3º e 7º). O prazo se suspende durante o recesso (§ 4º). Se não for apreciada em quarenta e cinco dias, a MP tranca a pauta da Casa em que estiver (§ 6º).
 
 === dc-leg-22
@@ -217,9 +217,9 @@ gab: C
 tema: const-legislativo
 ref: cf88 62, § 10
 trecho: É vedada a reedição, na mesma sessão legislativa, de medida provisória que tenha sido rejeitada ou que tenha perdido sua eficácia por decurso de prazo.
-armadilha: literal
-dif: 2
-enunciado: É vedada a reedição, na mesma sessão legislativa, de medida provisória que tenha sido rejeitada ou que tenha perdido sua eficácia por decurso de prazo.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: medida provisória perdeu eficácia por decurso de prazo em abril, e o Presidente da República pretende reeditá-la em agosto do mesmo ano. Assertiva: a reedição é vedada, pois ocorreria na mesma sessão legislativa.
 comentario: Art. 62, § 10, incluído pela EC 32/2001 para acabar com as reedições sucessivas de MPs. A votação das MPs começa na Câmara (§ 8º), depois de parecer de comissão mista (§ 9º).
 
 === dc-leg-23
@@ -237,9 +237,9 @@ gab: C
 tema: const-legislativo
 ref: cf88 66, § 2º
 trecho: O veto parcial somente abrangerá texto integral de artigo, de parágrafo, de inciso ou de alínea.
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: O veto parcial somente abrange texto integral de artigo, de parágrafo, de inciso ou de alínea, não podendo recair sobre palavras ou expressões isoladas.
+enunciado: Situação hipotética: o Presidente da República vetou apenas a palavra “exclusivamente” de inciso de projeto de lei. Assertiva: o veto é inválido, pois o veto parcial só abrange texto integral de artigo, parágrafo, inciso ou alínea.
 comentario: Art. 66, § 2º. A regra impede que o veto de palavras isoladas altere o sentido do texto aprovado.
 
 === dc-leg-25
