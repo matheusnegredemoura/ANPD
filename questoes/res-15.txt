@@ -28,9 +28,9 @@ gab: E
 ref: res15 3, XIII
 trecho: integridade: propriedade pela qual se assegura que o dado pessoal não foi modificado ou destruído de maneira não autorizada ou acidental
 trecho: disponibilidade: propriedade pela qual se assegura que o dado pessoal esteja acessível e utilizável, sob demanda
-armadilha: conceito
-dif: 2
-enunciado: No regulamento de incidentes da ANPD, integridade é a propriedade pela qual se assegura que o dado pessoal esteja acessível e utilizável, sob demanda, por pessoa ou sistema autorizado.
+armadilha: comparacao
+dif: 3
+enunciado: No regulamento de incidentes da ANPD, a integridade é a propriedade que assegura que o dado pessoal esteja acessível e utilizável sob demanda, ao passo que a disponibilidade assegura que ele não foi modificado ou destruído de forma não autorizada ou acidental.
 comentario: O item descreve a disponibilidade (art. 3º, XI). Integridade é a garantia de que o dado não foi modificado ou destruído de maneira não autorizada ou acidental (art. 3º, XIII). Um ataque de ransomware que só criptografa os dados afeta a disponibilidade; um vazamento afeta a confidencialidade.
 
 === r15-09
@@ -85,9 +85,9 @@ gab: C
 ref: res15 6, § 5º
 trecho: A comunicação de incidente de segurança deverá ser realizada pelo controlador, por meio do encarregado, acompanhada de documento comprobatório de vínculo contratual, empregatício ou funcional, ou por meio de representante constituído
 trecho: a ANPD poderá apurar a ocorrência do incidente de segurança por meio do procedimento de apuração de incidente de segurança
-armadilha: literal
+armadilha: caso
 dif: 3
-enunciado: A comunicação de incidente é feita pelo controlador por meio do encarregado, com documento que comprove seu vínculo, ou por representante constituído, com instrumento de poderes; se os documentos não forem apresentados no prazo, a ANPD pode apurar o incidente pelo procedimento de apuração.
+enunciado: Situação hipotética: o encarregado de uma empresa comunicou à ANPD incidente de segurança, mas não apresentou, no prazo, documento que comprovasse seu vínculo com o controlador. Assertiva: nessa hipótese, a ANPD pode apurar a ocorrência do incidente por meio do procedimento de apuração de incidente de segurança.
 comentario: Art. 6º, §§ 5º a 7º. A comunicação usa formulário eletrônico da ANPD (§ 4º) e só se considera formalizada com esses documentos (art. 13, II).
 
 === r15-15
@@ -103,9 +103,9 @@ comentario: Art. 7º: cabe ao controlador pedir o sigilo, de forma fundamentada,
 gab: C
 ref: res15 8
 trecho: inclusive o registro das operações de tratamento dos dados pessoais afetados pelo incidente, o relatório de impacto à proteção de dados pessoais (RIPD) e o relatório de tratamento do incidente
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: A ANPD pode, a qualquer tempo, pedir ao controlador informações adicionais sobre o incidente, inclusive o registro das operações de tratamento dos dados afetados, o relatório de impacto à proteção de dados pessoais e o relatório de tratamento do incidente.
+enunciado: Situação hipotética: durante o processo de comunicação de um incidente, a ANPD pediu ao controlador o relatório de impacto à proteção de dados pessoais e o registro das operações de tratamento dos dados afetados, fixando prazo para o envio. Assertiva: o pedido é admitido pelo regulamento de incidentes.
 comentario: Art. 8º. O relatório de tratamento do incidente é definido no art. 3º, XIX, como documento com cópias de dados e informações relevantes para descrever o incidente e as providências adotadas.
 
 === r15-17
@@ -132,9 +132,9 @@ gab: C
 ref: res15 15
 trecho: a ANPD poderá determinar ao controlador, com ou sem a sua prévia manifestação, a adoção imediata de medidas preventivas necessárias para salvaguardar direitos dos titulares
 trecho: A ANPD poderá fixar multa diária para assegurar o cumprimento da determinação prevista no caput
-armadilha: literal
+armadilha: caso
 dif: 3
-enunciado: No processo de comunicação de incidente, a ANPD pode determinar ao controlador, mesmo sem sua prévia manifestação, medidas preventivas imediatas para evitar dano grave e irreparável, e fixar multa diária para assegurar o cumprimento.
+enunciado: Situação hipotética: logo após receber comunicação de incidente grave, a ANPD determinou ao controlador, sem ouvi-lo antes, medidas imediatas para salvaguardar os titulares, sob pena de multa diária. Assertiva: a determinação é compatível com o regulamento de incidentes.
 comentario: Art. 15 e parágrafo único, com multa diária na forma da Res. 4/2023 (art. 16). É uma cautelar administrativa, ligada ao art. 45 da Lei 9.784 (providências acauteladoras sem prévia manifestação em caso de risco iminente).
 pesquisar: Medidas acautelatórias no processo administrativo (Lei 9.784, art. 45)
 
@@ -173,9 +173,9 @@ gab: C
 ref: res15 17
 trecho: Constatada a ocorrência de incidente de segurança, a ANPD determinará ao controlador o envio da comunicação à Autoridade e aos titulares
 trecho: A ANPD poderá, ainda, instaurar processo administrativo sancionador para apurar o descumprimento do previsto nos arts. 6º e 9º deste Regulamento.
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: Constatado, em procedimento de apuração, incidente não comunicado, a ANPD determina ao controlador o envio da comunicação à agência e aos titulares e pode instaurar processo sancionador pelo descumprimento dos deveres de comunicação.
+enunciado: Situação hipotética: em procedimento de apuração, a ANPD constatou incidente de segurança que o controlador não havia comunicado. Assertiva: a Agência determinará o envio da comunicação a ela e aos titulares e poderá instaurar processo sancionador pelo descumprimento do dever de comunicar.
 comentario: Art. 17 e § 1º. Feita a comunicação, segue-se o procedimento de comunicação (§ 2º). A avaliação da ocorrência usa os critérios do art. 5º (art. 16, § 2º).
 
 === r15-24

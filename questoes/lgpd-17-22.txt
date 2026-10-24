@@ -5,9 +5,9 @@ bloco: lgpd-17-22
 gab: C
 ref: lgpd 17
 trecho: Toda pessoa natural tem assegurada a titularidade de seus dados pessoais e garantidos os direitos fundamentais de liberdade, de intimidade e de privacidade
-armadilha: literal
-dif: 1
-enunciado: Segundo a LGPD, toda pessoa natural tem assegurada a titularidade de seus dados pessoais, garantidos os direitos fundamentais de liberdade, de intimidade e de privacidade.
+armadilha: conceito
+dif: 3
+enunciado: O art. 17 da LGPD, ao assegurar a toda pessoa natural a titularidade de seus dados pessoais, garante-lhe expressamente os direitos fundamentais de liberdade, intimidade e privacidade, sem mencionar, nesse dispositivo, a honra e a imagem.
 comentario: Reprodução fiel do art. 17. Repare nos três direitos fundamentais citados (liberdade, intimidade e privacidade): o Cebraspe costuma trocar um deles por outro direito parecido, como honra ou imagem, que aparecem no art. 2º, IV, e não aqui.
 
 === lgpd-17-02
@@ -50,27 +50,27 @@ comentario: O § 7º do art. 18 exclui da portabilidade os dados já anonimizado
 gab: C
 ref: lgpd 18, § 8º
 trecho: também poderá ser exercido perante os organismos de defesa do consumidor
-armadilha: literal
-dif: 2
-enunciado: O direito do titular de peticionar contra o controlador em relação aos seus dados, que pode ser exercido perante a autoridade nacional, também poderá ser exercido perante os organismos de defesa do consumidor.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: insatisfeito com a resposta de uma loja virtual a pedido sobre seus dados, um consumidor apresentou petição ao Procon contra a empresa. Assertiva: a LGPD admite que o direito de petição do titular contra o controlador seja exercido perante os organismos de defesa do consumidor, e não apenas perante a ANPD.
 comentario: Combinação dos §§ 1º e 8º do art. 18. O § 8º estende aos Procons e demais órgãos de defesa do consumidor o direito de petição do § 1º.
 
 === lgpd-18-05
 gab: E
 ref: lgpd 18, § 2º
 trecho: O titular pode opor-se a tratamento realizado com fundamento em uma das hipóteses de dispensa de consentimento, em caso de descumprimento ao disposto nesta Lei
-armadilha: excecao
-dif: 2
-enunciado: O titular pode opor-se a tratamento realizado com fundamento em qualquer das hipóteses de dispensa de consentimento, independentemente de descumprimento da LGPD, bastando manifestar sua discordância.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa trata dados de clientes com base em obrigação legal, em plena conformidade com a LGPD, e um cliente pede que o tratamento cesse por simples discordância. Assertiva: o direito de oposição garante ao cliente a interrupção do tratamento, já que dispensa a demonstração de qualquer descumprimento da lei.
 comentario: O direito de oposição do § 2º do art. 18 é condicionado: cabe “em caso de descumprimento ao disposto nesta Lei”. Sem descumprimento, a base legal que dispensa o consentimento continua válida.
 
 === lgpd-18-06
 gab: C
 ref: lgpd 18, § 4º, I
 trecho: comunicar que não é agente de tratamento dos dados e indicar, sempre que possível, o agente
-armadilha: literal
+armadilha: caso
 dif: 2
-enunciado: Se não puder adotar imediatamente a providência requerida pelo titular, o controlador poderá responder comunicando que não é agente de tratamento dos dados e indicando, sempre que possível, quem é o agente.
+enunciado: Situação hipotética: uma loja recebeu pedido de eliminação de dados que, na verdade, eram tratados por outra empresa do mesmo grupo. Assertiva: a loja pode responder ao titular que não é agente de tratamento daqueles dados, indicando, sempre que possível, quem o é.
 comentario: É uma das duas respostas possíveis do § 4º do art. 18. A outra (inciso II) é indicar as razões de fato ou de direito que impedem a adoção imediata da providência.
 
 === lgpd-18-07
@@ -114,8 +114,8 @@ gab: C
 ref: lgpd 18, VIII
 trecho: informação sobre a possibilidade de não fornecer consentimento e sobre as consequências da negativa
 armadilha: rol
-dif: 1
-enunciado: Integra o rol de direitos do titular perante o controlador a informação sobre a possibilidade de não fornecer consentimento e sobre as consequências da negativa.
+dif: 2
+enunciado: Entre os direitos que o titular pode exercer perante o controlador está o de ser informado de que pode recusar o consentimento e de quais consequências essa recusa lhe trará.
 comentario: Inciso VIII do art. 18. Os nove incisos do caput formam o rol de direitos que o titular exerce perante o controlador.
 
 === lgpd-18-12
@@ -131,9 +131,9 @@ comentario: O inciso VII garante informação sobre as entidades públicas e pri
 gab: C
 ref: lgpd 18, § 1º
 trecho: O titular dos dados pessoais tem o direito de peticionar em relação aos seus dados contra o controlador perante a autoridade nacional
-armadilha: literal
-dif: 1
-enunciado: O titular dos dados pessoais tem o direito de peticionar em relação aos seus dados contra o controlador perante a autoridade nacional.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um titular que não obteve resposta adequada do controlador quer levar o caso à ANPD. Assertiva: a LGPD lhe assegura o direito de peticionar contra o controlador perante a autoridade nacional, mas a apreciação da petição pressupõe a comprovação de reclamação prévia ao controlador não solucionada no prazo regulamentar.
 comentario: § 1º do art. 18, literal. Para a ANPD apreciar a petição, porém, o titular precisa comprovar que reclamou antes ao controlador sem solução no prazo regulamentar (art. 55-J, V).
 
 === lgpd-18-14
@@ -169,7 +169,7 @@ ref: lgpd 19, II
 trecho: que indique a origem dos dados, a inexistência de registro, os critérios utilizados e a finalidade do tratamento, observados os segredos comercial e industrial
 armadilha: rol
 dif: 2
-enunciado: A declaração clara e completa fornecida ao titular deve indicar a origem dos dados, a inexistência de registro, os critérios utilizados e a finalidade do tratamento, observados os segredos comercial e industrial.
+enunciado: Na declaração clara e completa a que o titular tem direito, fornecida em até quinze dias do requerimento, o controlador, resguardados os segredos comercial e industrial, deve apontar de onde vieram os dados, a eventual inexistência de registro, os critérios adotados e a finalidade do tratamento.
 comentario: Conteúdo exigido pelo inciso II do art. 19. A ressalva dos segredos comercial e industrial aparece em vários dispositivos (arts. 9º, II; 18, V; 19, II e § 3º; 20, § 1º).
 
 === lgpd-19-04
@@ -194,18 +194,18 @@ comentario: O § 3º do art. 19 restringe a cópia eletrônica integral aos trat
 gab: C
 ref: lgpd 19, § 4º
 trecho: A autoridade nacional poderá dispor de forma diferenciada acerca dos prazos previstos nos incisos I e II do caput deste artigo para os setores específicos
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: A autoridade nacional poderá dispor de forma diferenciada sobre os prazos de confirmação de existência e de acesso a dados pessoais para setores específicos.
+enunciado: Os prazos que a LGPD fixa para a confirmação de existência e o acesso a dados pessoais não são inflexíveis: a autoridade nacional pode discipliná-los de forma diferenciada para setores específicos.
 comentario: § 4º do art. 19. É uma das brechas regulamentares da lei: a ANPD pode ajustar o “imediatamente” e os 15 dias conforme o setor.
 
 === lgpd-20-01
 gab: C
 ref: lgpd 20, caput
 trecho: incluídas as decisões destinadas a definir o seu perfil pessoal, profissional, de consumo e de crédito ou os aspectos de sua personalidade
-armadilha: literal
-dif: 1
-enunciado: O direito de solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado alcança as decisões destinadas a definir os aspectos da personalidade do titular.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um aplicativo de recrutamento usa algoritmo que, sem intervenção humana, define traços de personalidade dos candidatos e os elimina do processo seletivo. Assertiva: o candidato pode solicitar a revisão dessa decisão, que a LGPD alcança mesmo quando não envolve crédito ou consumo.
 comentario: O caput do art. 20 inclui expressamente as decisões que definem perfil pessoal, profissional, de consumo e de crédito “ou os aspectos de sua personalidade”.
 
 === lgpd-20-03
@@ -221,9 +221,9 @@ comentario: O § 2º do art. 20 prevê auditoria pela ANPD para verificar aspect
 gab: C
 ref: lgpd 20, § 2º
 trecho: Em caso de não oferecimento de informações de que trata o § 1º deste artigo baseado na observância de segredo comercial e industrial, a autoridade nacional poderá realizar auditoria
-armadilha: literal
-dif: 2
-enunciado: Na hipótese de o controlador não oferecer, com base em segredo comercial e industrial, informações sobre os critérios da decisão automatizada, a autoridade nacional poderá realizar auditoria para verificar aspectos discriminatórios no tratamento automatizado.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um banco recusou-se a informar ao titular os critérios de sua decisão automatizada de crédito, alegando segredo comercial. Assertiva: nesse caso, a autoridade nacional poderá realizar auditoria para verificar se há aspectos discriminatórios no tratamento automatizado.
 comentario: § 2º do art. 20. Para quem presta concurso de auditoria na ANPD, este parágrafo e o art. 55-J, XVI, são a base legal da auditoria de algoritmos.
 
 === lgpd-20-05

@@ -180,8 +180,8 @@ prova: Adaptado de IADES · ANPD PSS 2025 · cargo 100 · questão 28
 ref: lgpd 7
 trecho: quando necessário para atender aos interesses legítimos do controlador ou de terceiro, exceto no caso de prevalecerem direitos e liberdades fundamentais do titular que exijam a proteção dos dados pessoais
 armadilha: excecao
-dif: 1
-enunciado: O legítimo interesse do controlador ou de terceiro autoriza o tratamento de dados pessoais sem consentimento, exceto quando prevalecerem direitos e liberdades fundamentais do titular que exijam a proteção dos dados.
+dif: 2
+enunciado: O legítimo interesse do controlador ou de terceiro pode fundamentar o tratamento sem consentimento, mas não é base absoluta: cede quando prevalecem direitos e liberdades fundamentais do titular que exigem a proteção dos dados.
 comentario: Certo: art. 7º, IX. O art. 10 completa: o legítimo interesse só fundamenta tratamento para finalidades legítimas, a partir de situações concretas, e só com os dados estritamente necessários.
 
 === pce-16
@@ -321,7 +321,7 @@ ref: lgpd 5
 trecho: dado pessoal sensível: dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político
 armadilha: rol
 dif: 2
-enunciado: Informações socioeconômicas e sobre o estilo de vida do titular são, por definição legal, dados pessoais sensíveis.
+enunciado: Dados sobre a renda e o estilo de vida do titular, por permitirem inferir hábitos e condições pessoais, integram, por definição legal, a categoria de dados pessoais sensíveis.
 comentario: Errado. Não estão no rol do art. 5º, II. Podem revelar dado sensível por inferência (art. 11, § 1º) ou exigir cuidado reforçado, mas não são sensíveis por definição.
 
 === pce-28
@@ -354,9 +354,9 @@ prova: Adaptado de IADES · ANPD PSS 2025 · cargo 100 · questão 36
 bloco: lgpd-17-22
 ref: lgpd 20
 trecho: O titular dos dados tem direito a solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado de dados pessoais que afetem seus interesses
-armadilha: revogado
+armadilha: caso
 dif: 3
-enunciado: A LGPD assegura ao titular que a revisão de decisões tomadas unicamente com base em tratamento automatizado seja feita por pessoa natural.
+enunciado: Situação hipotética: um banco reviu, por meio de novo processamento automatizado, a decisão que negou crédito a um cliente. Assertiva: a revisão é inválida, pois a LGPD exige que a revisão de decisão tomada unicamente com base em tratamento automatizado seja feita por pessoa natural.
 comentario: Errado. O art. 20 garante a revisão, mas não exige que ela seja humana: o § 3º, que previa revisão por pessoa natural, foi vetado na Lei 13.853/2019. A questão do PSS que falava em revisão humana sempre que possível refletia boa prática, não o texto da lei.
 
 === pce-31
@@ -366,9 +366,9 @@ prova: Adaptado de IADES · ANPD PSS 2025 · cargo 100 · questão 37
 bloco: lgpd-17-22
 ref: lgpd 20
 trecho: informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada, observados os segredos comercial e industrial
-armadilha: literal
-dif: 2
-enunciado: O controlador deve fornecer, sempre que solicitadas, informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada, observados os segredos comercial e industrial.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: cliente que teve crédito negado por sistema automatizado pediu à financeira explicação sobre os critérios usados. Assertiva: a financeira deve fornecer informações claras e adequadas sobre os critérios e procedimentos da decisão, podendo resguardar seus segredos comercial e industrial.
 comentario: Certo: art. 20, § 1º. É aqui que a explicabilidade de modelos complexos, como redes neurais profundas, vira desafio jurídico.
 
 === pce-32

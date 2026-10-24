@@ -77,9 +77,9 @@ comentario: O § 3º do art. 4º manda a autoridade nacional emitir opiniões t�
 gab: C
 ref: lgpd 6, VI
 trecho: transparência: garantia, aos titulares, de informações claras, precisas e facilmente acessíveis sobre a realização do tratamento e os respectivos agentes de tratamento, observados os segredos comercial e industrial
-armadilha: conceito
-dif: 1
-enunciado: O princípio da transparência garante aos titulares informações claras, precisas e facilmente acessíveis sobre a realização do tratamento e os respectivos agentes de tratamento, observados os segredos comercial e industrial.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa informa aos titulares, em linguagem clara e em local de fácil acesso, como trata seus dados e quem são os agentes envolvidos, mas omite detalhes protegidos por segredo industrial. Assertiva: a conduta é compatível com o princípio da transparência.
 comentario: Art. 6º, VI. Não confunda com qualidade dos dados (V), que trata de exatidão, clareza, relevância e atualização dos próprios dados.
 
 === lgpd2-6-02
@@ -87,8 +87,8 @@ gab: C
 ref: lgpd 6, VIII
 trecho: prevenção: adoção de medidas para prevenir a ocorrência de danos em virtude do tratamento de dados pessoais
 armadilha: conceito
-dif: 1
-enunciado: Pelo princípio da prevenção, devem ser adotadas medidas para prevenir a ocorrência de danos em virtude do tratamento de dados pessoais.
+dif: 2
+enunciado: O princípio da prevenção, que não se confunde com o da segurança, impõe a adoção de medidas destinadas a evitar que o tratamento de dados pessoais cause danos.
 comentario: Art. 6º, VIII. Segurança (VII) trata das medidas técnicas e administrativas contra acessos não autorizados e incidentes; prevenção é mais ampla, voltada a evitar danos.
 
 === lgpd2-6-03
@@ -131,18 +131,18 @@ comentario: Art. 7º, VI: processo judicial, administrativo ou arbitral, este no
 gab: C
 ref: lgpd 7, IV
 trecho: para a realização de estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais
-armadilha: literal
-dif: 1
-enunciado: O tratamento de dados pessoais pode ser realizado para estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: instituto de pesquisa sem fins lucrativos trata dados de consumo de famílias para estudo estatístico e os mantém identificados porque a anonimização inviabilizaria o estudo. Assertiva: a conduta pode ser compatível com a LGPD, que exige a anonimização, nesse caso, apenas sempre que possível.
 comentario: Art. 7º, IV. O “sempre que possível” impede itens que digam que a anonimização é sempre obrigatória. Órgão de pesquisa está definido no art. 5º, XVIII.
 
 === lgpd2-7-03
 gab: C
 ref: lgpd 7, § 3º
 trecho: O tratamento de dados pessoais cujo acesso é público deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização.
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: O tratamento de dados pessoais cujo acesso é público deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização.
+enunciado: Mesmo quando o acesso ao dado pessoal é público, seu tratamento não fica livre de limites, pois deve considerar o propósito, a boa-fé e o interesse público que motivaram a sua disponibilização.
 comentario: Art. 7º, § 3º. Dado público não é dado livre: a finalidade original da disponibilização continua importando.
 pesquisar: Raspagem de dados públicos (web scraping) e LGPD
 
@@ -150,9 +150,9 @@ pesquisar: Raspagem de dados públicos (web scraping) e LGPD
 gab: E
 ref: lgpd 7, IX
 trecho: exceto no caso de prevalecerem direitos e liberdades fundamentais do titular que exijam a proteção dos dados pessoais
-armadilha: excecao
-dif: 2
-enunciado: Havendo interesse legítimo do controlador, o tratamento é autorizado ainda que prevaleçam direitos e liberdades fundamentais do titular que exijam a proteção dos dados.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa demonstrou ter interesse legítimo em tratar dados de clientes, mas, no caso concreto, prevalecem direitos e liberdades fundamentais dos titulares que exigem a proteção dos dados. Assertiva: o interesse legítimo, uma vez demonstrado, basta para autorizar o tratamento.
 comentario: Art. 7º, IX: o legítimo interesse cede quando prevalecerem direitos e liberdades fundamentais do titular. Daí a necessidade do teste de balanceamento.
 pesquisar: Teste de balanceamento do legítimo interesse (guia da ANPD)
 
@@ -178,9 +178,9 @@ comentario: Para dados sensíveis, o art. 11, I, exige consentimento “de forma
 gab: C
 ref: lgpd 11, § 3º
 trecho: poderá ser objeto de vedação ou de regulamentação por parte da autoridade nacional, ouvidos os órgãos setoriais do Poder Público
-armadilha: literal
+armadilha: caso
 dif: 3
-enunciado: A comunicação ou o uso compartilhado de dados pessoais sensíveis entre controladores com objetivo de obter vantagem econômica poderá ser vedado ou regulamentado pela autoridade nacional, ouvidos os órgãos setoriais do Poder Público.
+enunciado: Situação hipotética: duas empresas pretendem compartilhar entre si dados biométricos de clientes com o objetivo de obter vantagem econômica. Assertiva: esse compartilhamento pode ser vedado ou regulamentado pela autoridade nacional, ouvidos os órgãos setoriais do Poder Público.
 comentario: Art. 11, § 3º. Para dados de saúde, a própria lei já veda esse compartilhamento, com exceções (§ 4º).
 
 === lgpd2-15-01

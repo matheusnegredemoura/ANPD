@@ -27,9 +27,9 @@ comentario: Errado. O prazo é de até 15 dias (art. 19, II). A ANPD pode fixar 
 gab: C
 ref: lgpd 19
 trecho: Quando o tratamento tiver origem no consentimento do titular ou em contrato, o titular poderá solicitar cópia eletrônica integral de seus dados pessoais
-armadilha: excecao
-dif: 2
-enunciado: Quando o tratamento tiver origem no consentimento ou em contrato, o titular pode pedir cópia eletrônica integral de seus dados, em formato que permita sua utilização subsequente.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: cliente de academia, cujo contrato fundamenta o tratamento de seus dados, pede cópia eletrônica integral deles. Assertiva: o pedido tem amparo legal, e a cópia deve vir em formato que permita a utilização posterior dos dados, observados os segredos comercial e industrial.
 comentario: Certo: art. 19, § 3º, observados os segredos comercial e industrial e a regulamentação da ANPD.
 
 === dt-04
@@ -45,9 +45,9 @@ comentario: Errado. A cópia eletrônica integral do art. 19, § 3º, é garanti
 gab: C
 ref: lgpd 18
 trecho: A portabilidade dos dados pessoais a que se refere o inciso V do caput deste artigo não inclui dados que já tenham sido anonimizados pelo controlador
-armadilha: excecao
+armadilha: conceito
 dif: 2
-enunciado: A portabilidade dos dados pessoais não inclui os dados que já tenham sido anonimizados pelo controlador.
+enunciado: Dados que o controlador já anonimizou ficam de fora da portabilidade, o que é coerente com a regra segundo a qual dado anonimizado, em princípio, não é considerado dado pessoal para os fins da LGPD.
 comentario: Certo: art. 18, § 7º. Faz sentido: anonimizado, o dado deixou de ser pessoal (art. 12).
 
 === dt-06
@@ -72,9 +72,9 @@ comentario: Errado. A eliminação dos dados tratados com consentimento ressalva
 gab: C
 ref: lgpd 18
 trecho: O titular pode opor-se a tratamento realizado com fundamento em uma das hipóteses de dispensa de consentimento, em caso de descumprimento ao disposto nesta Lei
-armadilha: literal
-dif: 2
-enunciado: O titular pode opor-se a tratamento realizado com fundamento em hipótese de dispensa de consentimento, em caso de descumprimento da LGPD.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa trata dados de clientes com base na execução de contrato, mas passou a usá-los também para fins não informados, em desacordo com a LGPD. Assertiva: o titular pode se opor a esse tratamento, ainda que a base legal invocada dispense o consentimento.
 comentario: Certo: art. 18, § 2º. A oposição na LGPD depende de descumprimento da lei; no GDPR, o direito de oposição ao legítimo interesse é mais amplo.
 
 === dt-09
@@ -90,18 +90,18 @@ comentario: Errado. A oposição do art. 18, § 2º, pressupõe descumprimento d
 gab: C
 ref: lgpd 18
 trecho: comunicar que não é agente de tratamento dos dados e indicar, sempre que possível, o agente
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: Não sendo possível atender de imediato ao requerimento do titular, o controlador deve responder comunicando que não é agente de tratamento dos dados e indicando, sempre que possível, o agente, ou expondo as razões de fato ou de direito que impedem a providência imediata.
+enunciado: Quando não puder atender de imediato ao pedido do titular, o controlador não pode simplesmente silenciar: deve responder, seja informando que não é o agente de tratamento e, se possível, indicando quem é, seja expondo as razões de fato ou de direito que impedem a providência.
 comentario: Certo: art. 18, § 4º. O silêncio não é opção: há sempre dever de resposta.
 
 === dt-11
 gab: C
 ref: lgpd 18
 trecho: será atendido sem custos para o titular
-armadilha: literal
-dif: 1
-enunciado: O requerimento do titular para exercer seus direitos deve ser atendido sem custos para ele, nos prazos e termos previstos em regulamento.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma operadora de telefonia passou a cobrar tarifa administrativa para atender pedidos de correção de dados cadastrais. Assertiva: a cobrança contraria a LGPD, que manda atender sem custos os requerimentos do titular, nos prazos e termos do regulamento.
 comentario: Certo: art. 18, § 5º. Cobrar taxa para atender pedido de acesso ou correção viola a LGPD.
 
 === dt-12
@@ -117,9 +117,9 @@ comentario: Certo: art. 18, §§ 1º e 8º. Procons e órgãos do Sistema Nacion
 gab: E
 ref: lgpd 18
 trecho: O titular dos dados pessoais tem o direito de peticionar em relação aos seus dados contra o controlador perante a autoridade nacional
-armadilha: extrapolacao
-dif: 1
-enunciado: O titular só pode peticionar à ANPD contra o controlador depois de esgotar a via judicial.
+armadilha: fecho
+dif: 3
+enunciado: O titular pode peticionar à ANPD contra o controlador em relação aos seus dados, direito cujo exercício, segundo a LGPD, pressupõe o prévio ajuizamento de ação judicial sobre o mesmo pedido.
 comentario: Errado. O direito de petição à ANPD (art. 18, § 1º) não depende de ação judicial. A regulamentação exige, em regra, que o titular demonstre ter procurado antes o controlador, mas nunca o esgotamento do Judiciário.
 
 === dt-14
@@ -135,9 +135,9 @@ comentario: Certo: art. 21. Dados sobre o exercício regular de direitos (pedido
 gab: C
 ref: lgpd 22
 trecho: poderá ser exercida em juízo, individual ou coletivamente
-armadilha: literal
-dif: 1
-enunciado: A defesa dos direitos dos titulares de dados pode ser exercida em juízo, individual ou coletivamente, na forma da legislação sobre tutela individual e coletiva.
+armadilha: conceito
+dif: 2
+enunciado: A tutela dos direitos dos titulares de dados pode ser buscada em juízo tanto por ação individual quanto por instrumentos de tutela coletiva, conforme a legislação pertinente.
 comentario: Certo: art. 22. Ação civil pública, ações do Ministério Público, da Defensoria e de associações são caminhos coletivos; o art. 42, § 3º, trata das ações de reparação por danos coletivos.
 
 === dt-16
@@ -145,8 +145,8 @@ gab: E
 ref: lgpd 20
 trecho: incluídas as decisões destinadas a definir o seu perfil pessoal, profissional, de consumo e de crédito ou os aspectos de sua personalidade
 armadilha: extrapolacao
-dif: 2
-enunciado: O direito de revisão de decisões automatizadas restringe-se às decisões de concessão de crédito.
+dif: 3
+enunciado: Situação hipotética: uma plataforma de entregas classifica automaticamente o perfil profissional dos entregadores e, com base nisso, distribui as corridas, sem intervenção humana. Assertiva: o entregador não pode pedir a revisão dessa decisão, porque a LGPD só assegura revisão de decisões automatizadas sobre concessão de crédito.
 comentario: Errado. Alcança decisões tomadas unicamente com base em tratamento automatizado que afetem os interesses do titular, incluídas as que definem perfil pessoal, profissional, de consumo e de crédito ou aspectos da personalidade (art. 20).
 
 === dt-17
@@ -171,9 +171,9 @@ comentario: Errado. O direito alcança as entidades públicas e privadas com as 
 gab: C
 ref: lgpd 18
 trecho: O responsável deverá informar, de maneira imediata, aos agentes de tratamento com os quais tenha realizado uso compartilhado de dados a correção, a eliminação, a anonimização ou o bloqueio dos dados
-armadilha: literal
-dif: 2
-enunciado: Atendido pedido de correção ou eliminação, o controlador deve informar de imediato os agentes com quem compartilhou os dados, para que repitam o procedimento, salvo impossibilidade ou esforço desproporcional comprovados.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a pedido de um cliente, uma rede varejista bloqueou dados dele que havia compartilhado com duas empresas parceiras. Assertiva: a rede deve comunicar de imediato o bloqueio às parceiras, para que repitam o procedimento, salvo se essa comunicação for comprovadamente impossível ou exigir esforço desproporcional.
 comentario: Certo: art. 18, § 6º. Sem isso, a correção feita num lugar não chega às cópias.
 
 === pp-02

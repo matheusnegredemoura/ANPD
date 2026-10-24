@@ -25,18 +25,18 @@ comentario: Errado. O controlador deve informar previamente o titular sobre a mu
 gab: E
 ref: lgpd 9
 trecho: esse será considerado nulo caso as informações fornecidas ao titular tenham conteúdo enganoso ou abusivo
-armadilha: literal
-dif: 2
-enunciado: O consentimento obtido com informações de conteúdo enganoso é apenas anulável, e somente se o titular demonstrar ter sofrido prejuízo.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: para obter o consentimento, um aplicativo apresentou ao titular informações sobre o tratamento com conteúdo enganoso. Assertiva: o consentimento assim obtido vale até que o titular demonstre ter sofrido prejuízo, quando então se torna anulável.
 comentario: Errado. O consentimento é nulo quando as informações têm conteúdo enganoso ou abusivo ou não foram apresentadas previamente com transparência, de forma clara e inequívoca (art. 9º, § 1º). A lei não exige prova de prejuízo.
 
 === ab-04
 gab: E
 ref: lgpd 10
 trecho: I - apoio e promoção de atividades do controlador
-armadilha: literal
-dif: 2
-enunciado: O legítimo interesse não pode fundamentar tratamento de dados destinado ao apoio e à promoção das atividades do próprio controlador.
+armadilha: fecho
+dif: 3
+enunciado: Entre as finalidades legítimas que podem sustentar o tratamento com base no legítimo interesse, sempre consideradas a partir de situações concretas, a LGPD menciona a proteção do exercício regular dos direitos do titular, mas exclui o apoio e a promoção das atividades do próprio controlador.
 comentario: Errado. O apoio e a promoção de atividades do controlador estão entre as finalidades legítimas expressamente previstas (art. 10, I), sempre a partir de situações concretas e só com os dados estritamente necessários (§ 1º).
 
 === ab-05
@@ -189,9 +189,9 @@ gab: E
 bloco: res-15-2024
 ref: res15 8
 trecho: A ANPD poderá, a qualquer tempo, solicitar informações adicionais ao controlador
-armadilha: literal
-dif: 2
-enunciado: A ANPD só pode solicitar ao controlador o relatório de impacto à proteção de dados relacionado ao incidente durante o prazo de complementação da comunicação.
+armadilha: fecho
+dif: 3
+enunciado: No processo de comunicação de incidente de segurança, a ANPD pode pedir ao controlador informações adicionais, como o registro das operações de tratamento e o relatório de impacto, mas apenas enquanto não se encerrar o prazo de complementação da comunicação.
 comentario: Errado. A ANPD pode, a qualquer tempo, pedir informações adicionais, inclusive o registro das operações, o RIPD e o relatório de tratamento do incidente, fixando prazo (art. 8º).
 
 === ab-23
@@ -200,8 +200,8 @@ bloco: res-15-2024
 ref: res15 12
 trecho: A ANPD poderá, a qualquer momento, realizar auditorias ou inspeções junto aos agentes de tratamento, ou determinar a sua realização
 armadilha: extrapolacao
-dif: 2
-enunciado: As auditorias e inspeções da ANPD no processo de comunicação de incidente dependem de prévia autorização judicial.
+dif: 3
+enunciado: Para validar informações recebidas em comunicação de incidente, a ANPD pode determinar a realização de auditorias ou inspeções junto ao agente de tratamento, desde que obtenha antes autorização judicial, por se tratar de medida invasiva.
 comentario: Errado. A ANPD pode, a qualquer momento, realizar ou determinar auditorias e inspeções para coletar informações ou validar as recebidas (art. 12). Não há reserva de jurisdição.
 
 === ab-24

@@ -7,27 +7,27 @@ bloco: res-15-2024
 gab: C
 ref: res15 12
 trecho: a qualquer momento, realizar auditorias ou inspeções junto aos agentes de tratamento, ou determinar a sua realização
-armadilha: literal
-dif: 2
-enunciado: No processo de comunicação de incidente, a ANPD pode, a qualquer momento, realizar auditorias ou inspeções junto aos agentes de tratamento, ou determinar sua realização, para coletar informações complementares ou validar as recebidas.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: para validar as informações que um hospital lhe enviou em comunicação de incidente, a ANPD determinou inspeção nas instalações dele, sem autorização judicial. Assertiva: a medida tem respaldo no regulamento, que permite à Agência realizar ou determinar auditorias e inspeções a qualquer momento.
 comentario: Certo: art. 12 da Resolução CD/ANPD nº 15/2024. A medida é administrativa e não depende de autorização judicial.
 
 === icd-02
 gab: C
 ref: res15 18
 trecho: será recebida, exclusivamente, por meio de canal específico
-armadilha: literal
-dif: 1
-enunciado: A comunicação de incidente de segurança é recebida pela ANPD exclusivamente por meio de canal específico, conforme orientação publicada no sítio eletrônico da agência.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um controlador comunicou incidente de segurança enviando ofício em papel ao protocolo da ANPD. Assertiva: a comunicação não observou o regulamento, que exige o recebimento exclusivamente por canal específico, conforme orientação publicada no sítio eletrônico da Agência.
 comentario: Certo: art. 18, parágrafo único. O art. 6º, § 4º, fala em formulário eletrônico disponibilizado pela ANPD; e-mail a servidor ou ofício em papel não servem.
 
 === icd-03
 gab: C
 ref: res15 20
 trecho: informações estatísticas agregadas relativas aos incidentes de segurança
-armadilha: literal
-dif: 1
-enunciado: Como medida de transparência ativa, a ANPD pode divulgar em seu sítio eletrônico informações estatísticas agregadas relativas aos incidentes de segurança.
+armadilha: conceito
+dif: 2
+enunciado: Por transparência ativa, a ANPD pode publicar em seu sítio eletrônico estatísticas agregadas sobre os incidentes de segurança, o que não se confunde com a divulgação dos dados dos titulares afetados em cada caso.
 comentario: Certo: art. 20. São estatísticas agregadas, e não os dados dos titulares afetados por cada incidente.
 
 === icd-04
@@ -52,9 +52,9 @@ comentario: Certo: art. 22, que remete ao Regulamento de Fiscalização (Resolu�
 gab: C
 ref: res15 24
 trecho: respeitados os atos processuais praticados e consolidados
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: O Regulamento de Comunicação de Incidente aplica-se aos processos de comunicação em curso quando de sua entrada em vigor, respeitados os atos processuais praticados e consolidados.
+enunciado: O Regulamento de Comunicação de Incidente alcançou os processos de comunicação que estavam pendentes quando entrou em vigor, sem desfazer os atos processuais já praticados e consolidados.
 comentario: Certo: art. 24. A norma processual alcança os processos pendentes, sem desfazer o que já foi praticado.
 
 === icd-07
@@ -124,18 +124,18 @@ comentario: Errado. Entre os sete objetivos do art. 2º estão também a respons
 gab: C
 ref: res15 1
 trecho: que possa acarretar risco ou dano relevante aos titulares, nos termos do art. 48
-armadilha: literal
-dif: 1
-enunciado: O Regulamento de Comunicação de Incidente estabelece os procedimentos para a comunicação de incidente de segurança que possa acarretar risco ou dano relevante aos titulares, nos termos do art. 48 da LGPD.
+armadilha: conceito
+dif: 3
+enunciado: Nem todo incidente de segurança deve ser comunicado à ANPD na forma do regulamento próprio, mas apenas aquele capaz de acarretar risco ou dano relevante aos titulares; os demais devem ser registrados pelo controlador.
 comentario: Certo: art. 1º. Incidentes sem esse potencial não são comunicados, mas devem ser registrados (art. 10).
 
 === icd-15
 gab: C
 ref: res15 23
 trecho: caso o incidente não envolva dados pessoais
-armadilha: literal
-dif: 1
-enunciado: O processo de comunicação de incidente de segurança é declarado extinto se o incidente não envolver dados pessoais.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa comunicou à ANPD ataque que paralisou seus sistemas, mas a apuração revelou que nenhum dado pessoal foi atingido. Assertiva: o processo de comunicação de incidente deverá ser declarado extinto.
 comentario: Certo: art. 23, III. Sem dado pessoal não há matéria de proteção de dados, ainda que o incidente seja grave para a empresa.
 
 === icd-16
@@ -153,7 +153,7 @@ ref: res15 7
 trecho: Cabe ao controlador solicitar à ANPD, de maneira fundamentada, o sigilo de informações protegidas por lei
 armadilha: sujeito
 dif: 2
-enunciado: Cabe ao controlador solicitar à ANPD, de maneira fundamentada, o sigilo de informações protegidas por lei enviadas na comunicação de incidente, indicando aquelas cujo acesso deve ser restringido.
+enunciado: Não cabe à ANPD identificar de ofício, na comunicação de incidente, as informações protegidas por lei: é o controlador quem deve pedir, fundamentadamente, o sigilo delas, indicando aquelas cujo acesso deve ser restringido.
 comentario: Certo: art. 7º. A ANPD não identifica o segredo comercial de ofício: o pedido fundamentado é do controlador.
 
 === icd-18

@@ -12,9 +12,9 @@ apoio_FISC: No Relatório de Ciclo de Monitoramento, a ANPD registrou dezenas de
 gab: C
 ref: res1 3
 trecho: A ANPD atuará para a proteção dos direitos dos titulares de dados, para promover a implementação da legislação de proteção de dados pessoais, e para zelar pelo seu cumprimento
-armadilha: rol
-dif: 1
-enunciado: Segundo o regulamento de fiscalização, a ANPD atua para proteger os direitos dos titulares, para promover a implementação da legislação de proteção de dados pessoais e para zelar pelo seu cumprimento.
+armadilha: conceito
+dif: 2
+enunciado: Na disciplina da fiscalização da ANPD, zelar pelo cumprimento da legislação é apenas uma das frentes de atuação, ao lado da proteção dos direitos dos titulares e da promoção da implementação das normas de proteção de dados pessoais.
 comentario: Certo: Resolução 1/2021, art. 3º. Repare que fiscalizar não é só punir: proteger e promover vêm antes de zelar pelo cumprimento, e isso se reflete nas três atividades (orientativa, preventiva e repressiva).
 
 === fs-02
@@ -77,7 +77,7 @@ ref: res1 18
 trecho: considerar o risco regulatório em função do comportamento dos agentes de tratamento, de modo a alocar recursos e adotar ações compatíveis com o risco
 armadilha: conceito
 dif: 2
-enunciado: Uma das finalidades do monitoramento feito pela ANPD é considerar o risco regulatório em função do comportamento dos agentes de tratamento, para alocar recursos e adotar ações compatíveis com esse risco.
+enunciado: Ao monitorar os agentes de tratamento, a ANPD leva em conta o risco regulatório associado ao comportamento de cada um, o que lhe permite distribuir recursos e escolher ações proporcionais a esse risco.
 comentario: Certo: art. 18, III. É a fiscalização baseada em risco, ligada à premissa da atuação responsiva (art. 17).
 
 === fs-09
@@ -94,8 +94,8 @@ gab: E
 ref: res1 21
 trecho: O Mapa de Temas Prioritários será bianual
 armadilha: numero
-dif: 1
-enunciado: O Mapa de Temas Prioritários da ANPD tem vigência anual, coincidente com o ciclo de monitoramento.
+dif: 2
+enunciado: No regulamento de fiscalização da ANPD, tanto o ciclo de monitoramento, como regra, quanto o Mapa de Temas Prioritários têm periodicidade anual, razão pela qual ambos são revistos ao mesmo tempo.
 comentario: Errado. O Mapa de Temas Prioritários é bianual (art. 21). O ciclo de monitoramento é, em regra, anual, com possibilidade de prazo superior por decisão do Conselho Diretor (art. 19, parágrafo único); para 2026-2027, a Resolução CD/ANPD nº 30/2025 o fixou em dois anos (art. 2º). O erro do item está em dizer que o Mapa é anual.
 
 === fs-11
@@ -112,17 +112,17 @@ gab: E
 ref: res1 31
 trecho: As medidas aplicadas pela Coordenação-Geral de Fiscalização ao longo da atividade preventiva não constituem sanção ao agente regulado
 armadilha: conceito
-dif: 1
-enunciado: O aviso e a solicitação de regularização, medidas preventivas da ANPD, são sanções administrativas de natureza leve.
+dif: 3
+enunciado: Por constituírem sanção, ainda que de natureza leve, as medidas aplicadas pela Coordenação-Geral de Fiscalização na atividade preventiva, como o aviso e a solicitação de regularização, só podem ser impostas depois de instaurado processo administrativo sancionador.
 comentario: Errado. As medidas da atividade preventiva não constituem sanção (art. 31). Sanções são as do art. 52 da LGPD, aplicadas em processo sancionador. O descumprimento da medida preventiva, porém, é agravante se houver processo (art. 32, § 2º, II).
 
 === fs-13
 gab: C
 ref: res1 32
 trecho: será considerado circunstância agravante em caso de instauração de processo administrativo sancionador
-armadilha: literal
-dif: 2
-enunciado: O não atendimento de medida preventiva enseja a progressão da atuação da ANPD e é considerado circunstância agravante em caso de instauração de processo administrativo sancionador.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um controlador deixou de atender solicitação de regularização que lhe fora dirigida pela ANPD, e a Agência, em seguida, instaurou processo administrativo sancionador. Assertiva: o descumprimento da medida preventiva poderá agravar a sanção eventualmente aplicada nesse processo.
 comentario: Certo: art. 32, § 2º, incluído pela Resolução 4/2023. A mesma regra estava nos §§ 4º do art. 35 e 3º do art. 36, que foram revogados e concentrados aqui.
 
 === fs-14
@@ -183,9 +183,9 @@ comentario: Errado. O auto contém a identificação do infrator, a conduta impu
 gab: C
 ref: res1 51
 trecho: Os pedidos de produção de prova serão analisados pela Coordenação-Geral de Fiscalização e poderão ser indeferidos
-armadilha: literal
-dif: 1
-enunciado: Os pedidos de produção de prova feitos pelo autuado no processo sancionador da ANPD podem ser indeferidos pela Coordenação-Geral de Fiscalização.
+armadilha: conceito
+dif: 2
+enunciado: No processo administrativo sancionador da ANPD, o autuado que requer a produção de provas não tem garantido o deferimento do pedido, que é examinado pela Coordenação-Geral de Fiscalização e pode ser indeferido.
 comentario: Certo: art. 51. Na Lei 9.784/1999, a recusa exige que as provas sejam ilícitas, impertinentes, desnecessárias ou protelatórias, mediante decisão fundamentada (art. 38, § 2º).
 
 === fs-21
@@ -201,18 +201,18 @@ comentario: Errado. A ANPD define os quesitos relevantes, mas o autuado pode for
 gab: C
 ref: res1 57
 trecho: mesmo sem conexão entre eles
-armadilha: literal
+armadilha: caso
 dif: 3
-enunciado: Processos que possam gerar decisões conflitantes se julgados separadamente podem ser reunidos para julgamento conjunto, mesmo sem conexão entre eles, na primeira instância ou na fase recursal.
+enunciado: Situação hipotética: tramitam na ANPD processos sancionadores, sem conexão entre si, sobre condutas semelhantes de empresas distintas, e o julgamento em separado pode levar a decisões contraditórias. Assertiva: os processos podem ser reunidos para julgamento conjunto, ainda que já estejam em fase recursal.
 comentario: Certo: art. 57. O critério é o risco de decisões contraditórias, não a conexão formal.
 
 === fs-23
 gab: E
 ref: res1 59
 trecho: que poderão recorrer ao Conselho Diretor no prazo de até dez dias úteis da notificação
-armadilha: sujeito
-dif: 2
-enunciado: A decisão de arquivamento do processo sancionador é irrecorrível para os terceiros interessados habilitados no processo.
+armadilha: fecho
+dif: 3
+enunciado: Arquivado o processo administrativo sancionador, a área de fiscalização da ANPD deve informar os terceiros interessados habilitados, aos quais, por não serem parte, não se abre a via recursal contra o arquivamento.
 comentario: Errado. Arquivado o processo, a área de fiscalização informa os terceiros interessados habilitados, que podem recorrer ao Conselho Diretor em até dez dias úteis da notificação (art. 59).
 
 === fs-24

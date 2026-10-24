@@ -5,9 +5,9 @@ bloco: lgpd-52-54
 gab: C
 ref: lgpd 52, II
 trecho: multa simples, de até 2% (dois por cento) do faturamento da pessoa jurídica de direito privado, grupo ou conglomerado no Brasil no seu último exercício, excluídos os tributos, limitada, no total, a R$ 50.000.000,00 (cinquenta milhões de reais) por infração
-armadilha: numero
-dif: 1
-enunciado: A multa simples prevista na LGPD é de até 2% do faturamento da pessoa jurídica de direito privado, grupo ou conglomerado no Brasil no seu último exercício, excluídos os tributos, limitada, no total, a R$ 50 milhões por infração.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD vai aplicar multa simples a conglomerado com faturamento bilionário no Brasil no último exercício. Assertiva: a multa poderá chegar a 2% desse faturamento, excluídos os tributos, mas não ultrapassará R$ 50 milhões por infração.
 comentario: Inciso II do art. 52, literal. Guarde os quatro detalhes que o Cebraspe troca: 2%; faturamento no Brasil; excluídos os tributos; teto de R$ 50 milhões por infração.
 
 === lgpd-52-02
@@ -32,9 +32,9 @@ comentario: Dois erros: a base é o faturamento no Brasil (não o mundial) e os 
 gab: C
 ref: lgpd 52, III
 trecho: multa diária, observado o limite total a que se refere o inciso II
-armadilha: literal
-dif: 1
-enunciado: A multa diária prevista na LGPD está sujeita ao mesmo limite total estabelecido para a multa simples.
+armadilha: conceito
+dif: 2
+enunciado: A multa diária da LGPD não tem teto próprio: aplica-se a ela o limite total fixado para a multa simples, de R$ 50 milhões por infração.
 comentario: Inciso III do art. 52: multa diária, “observado o limite total a que se refere o inciso II”, ou seja, R$ 50 milhões por infração.
 
 === lgpd-52-05
@@ -113,18 +113,18 @@ comentario: Inciso X do art. 52. O inciso XI (suspensão do exercício da ativid
 gab: E
 ref: lgpd 52, XI
 trecho: suspensão do exercício da atividade de tratamento dos dados pessoais a que se refere a infração pelo período máximo de 6 (seis) meses, prorrogável por igual período
-armadilha: numero
-dif: 2
-enunciado: A suspensão do exercício da atividade de tratamento dos dados pessoais a que se refere a infração pode durar até seis meses, vedada a prorrogação.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD suspendeu por seis meses a atividade de tratamento a que se referia infração cometida por uma empresa e, ao fim do prazo, prorrogou a suspensão por igual período. Assertiva: a prorrogação é ilegal, pois seis meses é o prazo máximo admitido pela LGPD para essa sanção.
 comentario: O inciso XI admite prorrogação por igual período, o que leva o máximo a 12 meses.
 
 === lgpd-52-14
 gab: C
 ref: lgpd 52, § 1º
 trecho: As sanções serão aplicadas após procedimento administrativo que possibilite a oportunidade da ampla defesa, de forma gradativa, isolada ou cumulativa
-armadilha: literal
-dif: 1
-enunciado: As sanções da LGPD são aplicadas após procedimento administrativo que possibilite a ampla defesa, de forma gradativa, isolada ou cumulativa, conforme as peculiaridades do caso concreto.
+armadilha: conceito
+dif: 2
+enunciado: A LGPD admite que suas sanções sejam aplicadas de forma isolada ou cumulativa, de modo gradativo e conforme as peculiaridades do caso, mas sempre depois de procedimento administrativo que dê ao infrator oportunidade de ampla defesa.
 comentario: § 1º do art. 52. A expressão “gradativa, isolada ou cumulativa” costuma ser mutilada no item errado (por exemplo, “vedada a cumulação”).
 
 === lgpd-52-15
@@ -159,9 +159,9 @@ comentario: A reincidência está no inciso V do § 1º do art. 52. O regulament
 gab: C
 ref: lgpd 52, § 5º
 trecho: será destinado ao Fundo de Defesa de Direitos Difusos
-armadilha: literal
-dif: 2
-enunciado: O produto da arrecadação das multas aplicadas pela ANPD, inscritas ou não em dívida ativa, é destinado ao Fundo de Defesa de Direitos Difusos.
+armadilha: conceito
+dif: 3
+enunciado: As multas aplicadas pela ANPD, estejam ou não inscritas em dívida ativa, não constituem receita da Agência: o produto de sua arrecadação vai para o Fundo de Defesa de Direitos Difusos.
 comentario: § 5º do art. 52, incluído pela Lei nº 13.853/2019. O fundo é o da Lei da Ação Civil Pública (Lei nº 7.347/1985, art. 13).
 
 === lgpd-52-19
@@ -177,9 +177,9 @@ comentario: As multas vão para o Fundo de Defesa de Direitos Difusos (art. 52, 
 gab: C
 ref: lgpd 52, § 7º
 trecho: Os vazamentos individuais ou os acessos não autorizados de que trata o caput do art. 46 desta Lei poderão ser objeto de conciliação direta entre controlador e titular
-armadilha: literal
-dif: 2
-enunciado: Vazamentos individuais ou acessos não autorizados podem ser objeto de conciliação direta entre controlador e titular; não havendo acordo, o controlador fica sujeito às penalidades do art. 52 da LGPD.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: houve acesso não autorizado aos dados de um único cliente de uma loja virtual, e a empresa e o titular tentaram conciliação direta, sem acordo. Assertiva: frustrada a conciliação, a loja continua sujeita às sanções da LGPD.
 comentario: § 7º do art. 52. A conciliação direta é uma faculdade e não afasta a sanção se não houver acordo.
 
 === lgpd-52-21
@@ -195,27 +195,27 @@ comentario: O § 7º do art. 52 admite justamente a conciliação direta entre c
 gab: C
 ref: lgpd 52, § 2º
 trecho: O disposto neste artigo não substitui a aplicação de sanções administrativas, civis ou penais definidas na Lei nº 8.078, de 11 de setembro de 1990, e em legislação específica
-armadilha: literal
-dif: 2
-enunciado: As sanções administrativas da LGPD não substituem a aplicação de sanções administrativas, civis ou penais previstas no Código de Defesa do Consumidor e em legislação específica.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: depois de a ANPD multar uma operadora de telefonia por infração à LGPD, o Procon aplicou-lhe sanção com base no Código de Defesa do Consumidor. Assertiva: a sanção da LGPD não impede, por si só, a aplicação das sanções previstas no CDC.
 comentario: § 2º do art. 52. Por isso um Procon pode aplicar sanção com base no CDC, embora as sanções da própria LGPD sejam exclusivas da ANPD (art. 55-K).
 
 === lgpd-52-23
 gab: C
 ref: lgpd 52, § 4º
 trecho: a autoridade nacional poderá considerar o faturamento total da empresa ou grupo de empresas, quando não dispuser do valor do faturamento no ramo de atividade empresarial em que ocorreu a infração
-armadilha: excecao
+armadilha: caso
 dif: 3
-enunciado: No cálculo da multa simples, a autoridade nacional poderá considerar o faturamento total da empresa ou grupo de empresas quando não dispuser do valor do faturamento no ramo de atividade em que ocorreu a infração.
+enunciado: Situação hipotética: ao calcular multa simples, a ANPD não dispunha do faturamento da empresa no ramo de atividade em que ocorreu a infração. Assertiva: nesse caso, a Agência pode considerar o faturamento total da empresa ou do grupo de empresas.
 comentario: § 4º do art. 52. A regra é considerar o ramo da infração; o faturamento total entra quando esse valor falta, vem incompleto ou não é demonstrado de forma inequívoca e idônea.
 
 === lgpd-52-24
 gab: C
 ref: lgpd 52, § 6º, II
 trecho: em caso de controladores submetidos a outros órgãos e entidades com competências sancionatórias, ouvidos esses órgãos
-armadilha: literal
+armadilha: caso
 dif: 3
-enunciado: Para aplicar as sanções de suspensão ou de proibição a controlador submetido a outros órgãos e entidades com competências sancionatórias, a ANPD deve ouvir esses órgãos.
+enunciado: Situação hipotética: a ANPD pretende proibir parcialmente o exercício de atividades de tratamento de dados por um banco, sujeito à fiscalização do Banco Central. Assertiva: antes de aplicar a sanção, a ANPD deve ouvir o Banco Central.
 comentario: § 6º, II, do art. 52. Exemplo: um banco, submetido ao Banco Central. A oitiva vale para as sanções dos incisos X, XI e XII.
 
 === lgpd-53-01
@@ -231,18 +231,18 @@ comentario: O caput do art. 53 exige que o regulamento de sanções seja “obje
 gab: C
 ref: lgpd 53, § 1º
 trecho: devem ser previamente publicadas, para ciência dos agentes de tratamento
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: As metodologias de cálculo do valor-base das multas devem ser previamente publicadas, para ciência dos agentes de tratamento, com fundamentação detalhada de todos os seus elementos.
+enunciado: As metodologias de cálculo do valor-base das multas da LGPD não podem ser reveladas só no momento da sanção: devem ser publicadas previamente, com fundamentação detalhada de todos os seus elementos, para ciência dos agentes de tratamento.
 comentario: § 1º do art. 53. A publicação prévia dá previsibilidade ao regulado, uma ideia central na regulação.
 
 === lgpd-53-03
 gab: C
 ref: lgpd 53, § 2º
 trecho: deve estabelecer as circunstâncias e as condições para a adoção de multa simples ou diária
-armadilha: literal
+armadilha: conceito
 dif: 2
-enunciado: Cabe ao regulamento de sanções e metodologias estabelecer as circunstâncias e as condições para a adoção de multa simples ou de multa diária.
+enunciado: A escolha entre multa simples e multa diária não fica a critério livre da ANPD em cada caso, pois o regulamento de sanções deve fixar as circunstâncias e as condições para a adoção de uma ou de outra.
 comentario: § 2º do art. 53. A escolha entre multa simples e diária não fica livre: depende das condições fixadas no regulamento.
 
 === lgpd-54-01
@@ -258,9 +258,9 @@ comentario: O parágrafo único do art. 54 exige, no mínimo, três elementos: d
 gab: C
 ref: lgpd 54
 trecho: deve observar a gravidade da falta e a extensão do dano ou prejuízo causado e ser fundamentado pela autoridade nacional
-armadilha: literal
-dif: 1
-enunciado: O valor da multa diária deve observar a gravidade da falta e a extensão do dano ou prejuízo causado, e deve ser fundamentado pela autoridade nacional.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a ANPD fixou multa diária contra controlador sem explicar o valor escolhido. Assertiva: a decisão é falha, pois a LGPD exige que o valor seja fundamentado e observe a gravidade da falta e a extensão do dano ou prejuízo causado.
 comentario: Caput do art. 54. Dois critérios específicos da multa diária (gravidade da falta e extensão do dano), mais o dever de fundamentação.
 
 === lgpd-65-01
@@ -276,7 +276,7 @@ comentario: As sanções tiveram vigência própria: 1º de agosto de 2021 (art.
 gab: C
 ref: lgpd 55-K
 trecho: A aplicação das sanções previstas nesta Lei compete exclusivamente à ANPD
-armadilha: literal
-dif: 1
-enunciado: A aplicação das sanções previstas na LGPD compete exclusivamente à ANPD.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um Procon pretende aplicar a uma loja que descumpriu a LGPD a multa simples prevista nessa lei. Assertiva: a aplicação dessa sanção é exclusiva da ANPD, o que não impede o Procon de sancionar a loja com base no Código de Defesa do Consumidor.
 comentario: Caput do art. 55-K. Exclusividade sobre as sanções da LGPD não impede outros órgãos de aplicar sanções de suas próprias leis (art. 52, § 2º).
