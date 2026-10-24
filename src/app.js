@@ -2582,7 +2582,7 @@ function renderTira() {
     else if (r) cls = r === QI.get(id).g ? 'C' : 'E';
     if (id === atual) cls += ' atual';
     const i = '<i class="' + cls.trim() + '"></i>';
-    return sessao.modo === 'simulado' ? '<button data-acao="ir-item" data-i="' + k + '" aria-label="Ir para o item ' + (k + 1) + '">' + i + '</button>' : i;
+    return sessao.modo === 'simulado' ? '<button data-acao="ir-item" data-i="' + k + '" aria-label="Item ' + (k + 1) + ': ' + (r ? (r === BRANCO ? 'em branco' : 'marcado') : 'sem resposta') + '"' + (id === atual ? ' aria-current="step"' : '') + '>' + i + '</button>' : i;
   }).join('') + '</div>';
 }
 function renderApoio(q, aberto) {

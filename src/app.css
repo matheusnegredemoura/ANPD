@@ -44,23 +44,14 @@
     color-scheme:dark;
   }
 }
-:root[data-theme="dark"]{
-  --bg:#0e1513; --surface:#151f1c; --surface-2:#1c2925; --ink:#e3ebe7; --ink-2:#a2b5ad; --ink-3:#7f938b;
-  --line:#2a3a35; --accent:#52cfbe; --accent-2:#163a35; --accent-ink:#04201c; --gold:#e6b04b; --gold-bg:#3a2c10;
-  --certo:#72cf98; --certo-bg:#14321f; --errado:#f08a77; --errado-bg:#3d1d17; --mark:#5a4512;
-  --calor-0:#1c2925; --calor-1:#1f5f55; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
-  --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
-    --at-q:#3987e5; --at-c:#d95926; --at-l:#199e70; --at-d:#c98500;
-  color-scheme:dark;
-}
 /* Tema escolhido no app (botão de lua no topo ou Mais → Ajustes): vem depois e prevalece sobre o do aparelho e o do claude.ai */
-:root[data-tema="escuro"]{
+:root[data-theme="dark"],:root[data-tema="escuro"]{
   --bg:#0e1513; --surface:#151f1c; --surface-2:#1c2925; --ink:#e3ebe7; --ink-2:#a2b5ad; --ink-3:#7f938b;
   --line:#2a3a35; --accent:#52cfbe; --accent-2:#163a35; --accent-ink:#04201c; --gold:#e6b04b; --gold-bg:#3a2c10;
   --certo:#72cf98; --certo-bg:#14321f; --errado:#f08a77; --errado-bg:#3d1d17; --mark:#5a4512;
   --calor-0:#1c2925; --calor-1:#1f5f55; --calor-2:#22766b; --calor-3:#3aa597; --calor-4:#7fe0d1;
   --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
-    --at-q:#3987e5; --at-c:#d95926; --at-l:#199e70; --at-d:#c98500;
+  --at-q:#3987e5; --at-c:#d95926; --at-l:#199e70; --at-d:#c98500;
   color-scheme:dark;
 }
 :root[data-tema="claro"]{
@@ -860,3 +851,6 @@ details.det-lista[open]>summary{margin-bottom:10px}
   .folha-cabecalho h1{color:#000!important}
   .app{max-width:100%!important;padding:0!important}
 }
+
+/* Com o teclado do celular aberto, o que é fixo embaixo sai do caminho do texto */
+@media (hover:none){body:has(textarea:focus,input:not([type=checkbox]):not([type=radio]):not([type=file]):focus) :is(.abas,.cronometro,.comecar-fixo){display:none}}
