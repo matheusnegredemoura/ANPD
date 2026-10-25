@@ -1,0 +1,179 @@
+// LGPD, lote X32: casos sobre registro das operações e instruções ao operador (arts. 37 e 39), encarregado (art. 41),
+// dever de segurança de quem intervém no tratamento (art. 47), boas práticas e programa de governança (art. 50) e
+// sanções (art. 52). Conferidas com fontes/lgpd.txt.
+
+=== lx32-01
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 37
+trecho: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: um provedor de nuvem que processa dados por conta de clientes deixou de registrar as operações que realiza, alegando que esse dever é só do controlador. Assertiva: a alegação procede.
+comentario: Errado. O art. 37 impõe o registro das operações ao controlador e ao operador, especialmente quando o tratamento se baseia no legítimo interesse. A ANPD pode exigir esse registro para verificar a conformidade.
+
+=== lx32-02
+gab: C
+bloco: lgpd-37-45
+tema: pd-agentes
+ref: lgpd 39
+trecho: que verificará a observância das próprias instruções e das normas sobre a matéria
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um hospital contratou empresa para digitalizar prontuários e passou a auditá-la periodicamente, conferindo se ela segue as instruções contratuais e as normas de proteção de dados. Assertiva: a auditoria corresponde a um dever do controlador.
+comentario: Certo. Pelo art. 39, o operador trata os dados segundo as instruções do controlador, que verifica a observância dessas instruções e das normas sobre a matéria.
+
+=== lx32-03
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 41
+trecho: aceitar reclamações e comunicações dos titulares, prestar esclarecimentos e adotar providências
+armadilha: rol
+dif: 2
+enunciado: Entre as atividades do encarregado está receber as comunicações da ANPD, mas não as reclamações dos titulares, que cabem ao serviço de atendimento ao consumidor.
+comentario: Errado. O encarregado aceita reclamações e comunicações dos titulares, presta esclarecimentos e adota providências (art. 41, § 2º, I), além de receber as comunicações da ANPD (II) e orientar funcionários e contratados (III).
+
+=== lx32-04
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 41
+trecho: inclusive hipóteses de dispensa da necessidade de sua indicação, conforme a natureza e o porte da entidade ou o volume de operações de tratamento de dados
+armadilha: excecao
+dif: 2
+enunciado: Por norma complementar, a ANPD pode dispensar certos controladores de indicar encarregado, levando em conta a natureza e o tamanho da entidade ou a quantidade de dados que ela trata.
+comentario: Certo. Art. 41, § 3º. A Resolução CD/ANPD 2/2022 usou essa competência: os agentes de tratamento de pequeno porte não precisam indicar encarregado, mas devem oferecer canal de comunicação com os titulares.
+
+=== lx32-05
+bloco: lgpd-46-51
+gab: E
+tema: pd-seguranca
+ref: lgpd 47
+trecho: obriga-se a garantir a segurança da informação prevista nesta Lei em relação aos dados pessoais, mesmo após o seu término
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: encerrado o contrato, uma empresa de suporte técnico manteve cópias de dados de um cliente sem nenhuma proteção, alegando que o dever de segurança acabou com o fim do tratamento. Assertiva: a alegação procede.
+comentario: Errado. Quem intervém em qualquer fase do tratamento se obriga a garantir a segurança dos dados mesmo após o seu término (art. 47). Além disso, terminado o tratamento, os dados deveriam ter sido eliminados ou devolvidos, salvo hipótese de conservação (art. 16).
+
+=== lx32-06
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 47
+trecho: Os agentes de tratamento ou qualquer outra pessoa que intervenha em uma das fases do tratamento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa de transporte de documentos contratada por um cartório só leva as caixas de um endereço a outro, sem consultar o conteúdo. Assertiva: mesmo assim, ela se obriga a garantir a segurança dos dados pessoais contidos nos documentos.
+comentario: Certo. O art. 47 alcança os agentes de tratamento e qualquer outra pessoa que intervenha em uma das fases do tratamento. O conceito de tratamento é amplo e abrange operações como recepção, distribuição e arquivamento (art. 5º, X); levar os documentos de um lugar a outro integra esse ciclo.
+
+=== lx32-07
+bloco: lgpd-46-51
+gab: E
+tema: pd-seguranca
+ref: lgpd 50
+trecho: seja aplicável a todo o conjunto de dados pessoais que estejam sob seu controle, independentemente do modo como se realizou sua coleta
+armadilha: rol
+dif: 3
+enunciado: Situação hipotética: uma varejista criou programa de governança em privacidade que abrange só os dados coletados pelo site, deixando de fora os cadastros feitos nas lojas físicas. Assertiva: o programa atende ao conteúdo mínimo previsto na LGPD.
+comentario: Errado. O programa de governança, no mínimo, deve ser aplicável a todo o conjunto de dados sob controle do controlador, independentemente do modo de coleta (art. 50, § 2º, I, b).
+
+=== lx32-08
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 50
+trecho: demonstrar a efetividade de seu programa de governança em privacidade quando apropriado e, em especial, a pedido da autoridade nacional
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em fiscalização, a ANPD pediu a uma operadora de saúde que comprovasse que seu programa de governança em privacidade funciona na prática, e não apenas no papel. Assertiva: a LGPD prevê que o controlador demonstre a efetividade do programa, em especial a pedido da ANPD.
+comentario: Certo. Art. 50, § 2º, II. A efetividade pode ser demonstrada também a outra entidade responsável por promover boas práticas ou códigos de conduta. Programa que só existe no papel não atende à responsabilização e prestação de contas (art. 6º, X).
+
+=== lx32-09
+bloco: lgpd-46-51
+gab: E
+tema: pd-seguranca
+ref: lgpd 50
+trecho: As regras de boas práticas e de governança deverão ser publicadas e atualizadas periodicamente
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: uma associação de bancos elaborou regras de boas práticas em proteção de dados e decidiu mantê-las em sigilo, para não expor seus procedimentos internos. Assertiva: a LGPD admite que essas regras permaneçam sigilosas.
+comentario: Errado. As regras de boas práticas e de governança devem ser publicadas e atualizadas periodicamente e podem ser reconhecidas e divulgadas pela ANPD (art. 50, § 3º).
+
+=== lx32-10
+bloco: lgpd-52-54
+gab: C
+tema: pd-sancoes
+ref: lgpd 52
+trecho: a pronta adoção de medidas corretivas
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: ao detectar a infração, uma empresa corrigiu de imediato a falha e já mantinha política de boas práticas e governança. Assertiva: esses fatores devem ser considerados pela ANPD na definição da sanção.
+comentario: Certo. Entre os parâmetros do art. 52, § 1º, estão a adoção de política de boas práticas e governança (IX) e a pronta adoção de medidas corretivas (X), ao lado da boa-fé, da cooperação e da reincidência, entre outros.
+
+=== lx32-11
+bloco: lgpd-52-54
+gab: E
+tema: pd-sancoes
+ref: lgpd 52
+trecho: somente após já ter sido imposta ao menos 1 (uma) das sanções de que tratam os incisos II, III, IV, V e VI do caput deste artigo para o mesmo caso concreto
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: no primeiro processo sancionador contra uma empresa, a ANPD aplicou, como única sanção, a suspensão parcial do funcionamento do banco de dados. Assertiva: a aplicação dessa sanção nessas condições observou a LGPD.
+comentario: Errado. A suspensão parcial do banco de dados, a suspensão da atividade de tratamento e a proibição só podem ser aplicadas depois de imposta ao menos uma das sanções dos incisos II a VI para o mesmo caso concreto (art. 52, § 6º, I).
+
+=== lx32-12
+bloco: lgpd-52-54
+gab: C
+tema: pd-sancoes
+ref: lgpd 52
+trecho: O disposto nos incisos I, IV, V, VI, X, XI e XII do caput deste artigo poderá ser aplicado às entidades e aos órgãos públicos
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD apurou infração cometida por uma secretaria municipal de saúde. Assertiva: a secretaria pode receber advertência e publicização da infração, mas não multa simples.
+comentario: Certo. O art. 52, § 3º, permite aplicar a órgãos e entidades públicos as sanções dos incisos I, IV, V, VI, X, XI e XII, o que exclui as multas simples e diária, sem prejuízo da Lei 8.112/1990, da Lei de Improbidade e da LAI.
+
+=== lx32-13
+bloco: lgpd-52-54
+gab: E
+tema: pd-sancoes
+ref: lgpd 52
+trecho: caso não haja acordo, o controlador estará sujeito à aplicação das penalidades de que trata este artigo
+armadilha: excecao
+dif: 2
+enunciado: Situação hipotética: houve acesso não autorizado aos dados de um único cliente de uma loja, e a tentativa de conciliação direta entre os dois fracassou. Assertiva: por se tratar de vazamento individual, a loja não fica sujeita às sanções da LGPD.
+comentario: Errado. Vazamentos individuais ou acessos não autorizados podem ser objeto de conciliação direta entre controlador e titular; não havendo acordo, o controlador fica sujeito às penalidades do art. 52 (§ 7º).
+
+=== lx32-14
+bloco: lgpd-52-54
+gab: C
+tema: pd-sancoes
+ref: lgpd 52
+trecho: será destinado ao Fundo de Defesa de Direitos Difusos
+armadilha: conceito
+dif: 2
+enunciado: O dinheiro arrecadado com as multas aplicadas pela ANPD, inscritas ou não em dívida ativa, vai para o Fundo de Defesa de Direitos Difusos, e não para o orçamento próprio da autoridade.
+comentario: Certo. Art. 52, § 5º, que remete ao art. 13 da Lei 7.347/1985 (ação civil pública) e à Lei 9.008/1995.
+
+=== lx32-15
+bloco: lgpd-52-54
+gab: E
+tema: pd-sancoes
+ref: lgpd 52
+trecho: não substitui a aplicação de sanções administrativas, civis ou penais definidas na Lei nº 8.078
+armadilha: comparacao
+dif: 2
+enunciado: Situação hipotética: depois de multada pela ANPD por uso indevido de dados, uma loja foi autuada também pelo Procon, com base no Código de Defesa do Consumidor, pelo mesmo fato. Assertiva: a sanção da ANPD impede a aplicação das sanções do CDC.
+comentario: Errado. As sanções da LGPD não substituem as sanções administrativas, civis ou penais do Código de Defesa do Consumidor e da legislação específica (art. 52, § 2º).
+
+=== lx32-16
+bloco: lgpd-52-54
+gab: C
+tema: pd-sancoes
+ref: lgpd 52
+trecho: em caso de controladores submetidos a outros órgãos e entidades com competências sancionatórias, ouvidos esses órgãos
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD considera aplicar a um banco, já multado no mesmo caso, a suspensão do exercício da atividade de tratamento de dados. Assertiva: antes disso, ela deve ouvir os órgãos com competência sancionatória sobre o banco, como o Banco Central.
+comentario: Certo. As sanções dos incisos X, XI e XII, além de exigirem sanção anterior no mesmo caso (art. 52, § 6º, I), dependem da oitiva dos órgãos e entidades com competência sancionatória sobre o controlador (II).
