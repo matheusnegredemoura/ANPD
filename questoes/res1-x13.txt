@@ -1,0 +1,126 @@
+bloco: res-1-2021
+// Resolução CD/ANPD nº 1/2021 (fiscalização e processo administrativo sancionador), lote X13: conceito e finalidade
+// da fiscalização (art. 2º), prioridade de tramitação (art. 14), instrumentos de monitoramento (art. 19), orientação
+// (art. 27), divulgação de dados setoriais (art. 33), auto de infração (art. 46), julgamento conjunto (art. 57),
+// recurso de terceiros contra arquivamento (art. 59), assessoria ao relator (art. 64) e revisão (art. 68).
+// Os enunciados evitam nomes de unidades internas da ANPD. Conferidas com fontes/res1.txt.
+
+=== f1k-01
+gab: C
+tema: an-pas
+ref: res1 2
+trecho: A atividade de fiscalização da ANPD terá por finalidade orientar, prevenir e reprimir as infrações
+armadilha: conceito
+dif: 2
+enunciado: A fiscalização da ANPD compreende monitoramento, orientação e atuação preventiva, tem por finalidade orientar, prevenir e reprimir infrações à LGPD, e a sanção é aplicada por meio de processo administrativo sancionador.
+comentario: Certo. Art. 2º, caput e §§ 1º e 2º. É o modelo de fiscalização responsiva: a repressão é uma das camadas, não a primeira resposta.
+
+=== f1k-02
+gab: E
+tema: an-pas
+ref: res1 2
+trecho: terá por finalidade orientar, prevenir e reprimir as infrações
+armadilha: absoluto
+dif: 1
+enunciado: A fiscalização da ANPD tem finalidade exclusivamente repressiva, voltada à aplicação de sanções.
+comentario: Errado. A finalidade é orientar, prevenir e reprimir (art. 2º, § 2º). Monitoramento, orientação e prevenção fazem parte da fiscalização.
+
+=== f1k-03
+gab: C
+tema: an-pas
+ref: res1 19
+trecho: O ciclo de monitoramento será anual, podendo ser estabelecido prazo superior por decisão do Conselho Diretor
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: o Conselho Diretor da ANPD decidiu estender o ciclo de monitoramento para além do período anual. Assertiva: a decisão é admitida pelo regulamento de fiscalização.
+comentario: Certo. O ciclo é anual, mas o Conselho Diretor pode fixar prazo superior (art. 19, parágrafo único). O Relatório de Ciclo de Monitoramento e o Mapa de Temas Prioritários são os instrumentos de monitoramento (caput).
+
+=== f1k-04
+gab: E
+tema: an-pas
+ref: res1 27
+trecho: dos agentes de tratamento, dos titulares de dados pessoais e dos demais integrantes ou interessados no tratamento de dados pessoais
+armadilha: sujeito
+dif: 2
+enunciado: As medidas de orientação, conscientização e educação previstas no regulamento de fiscalização dirigem-se apenas aos agentes de tratamento, e não aos titulares.
+comentario: Errado. O art. 27 alcança agentes de tratamento, titulares e demais interessados no tratamento de dados.
+
+=== f1k-05
+gab: C
+tema: an-pas
+ref: res1 33
+trecho: como a taxa de resolução de problemas e pedidos de titulares atendidos
+armadilha: conceito
+dif: 2
+enunciado: Como medida preventiva, a ANPD pode divulgar em seu sítio dados setoriais agregados de desempenho, como a taxa de pedidos de titulares atendidos, e determinar ao agente regulado que divulgue informações desse tipo.
+comentario: Certo. Art. 33 e parágrafo único. A divulgação pode ser agregada ou restrita às atividades do agente e funciona como incentivo reputacional.
+
+=== f1k-06
+gab: E
+tema: an-pas
+ref: res1 46
+trecho: dispositivo legal ou regulamentar relacionado à suposta infração
+armadilha: rol
+dif: 2
+enunciado: O auto de infração da ANPD pode ser lavrado sem indicar o dispositivo legal ou regulamentar supostamente violado, que só será definido na decisão final.
+comentario: Errado. O auto deve identificar o infrator, descrever a conduta imputada com os fatos a apurar e indicar o dispositivo legal ou regulamentar relacionado (art. 46, I a III). Sem isso, o autuado não consegue se defender.
+
+=== f1k-07
+gab: C
+tema: an-pas
+ref: res1 56
+trecho: o processo será remetido para cobrança e execução
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: transitou em julgado a decisão que multou uma empresa, e o prazo para pagar terminou sem comprovação do pagamento. Assertiva: o processo será remetido para cobrança e execução.
+comentario: Certo. Art. 56, parágrafo único. A intimação da decisão que aplica sanção já determina o cumprimento e o prazo de execução (caput).
+
+=== f1k-08
+gab: E
+tema: an-pas
+ref: res1 59
+trecho: que poderão recorrer ao Conselho Diretor no prazo de até dez dias úteis da notificação
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD arquivou um processo sancionador em que uma associação de consumidores estava habilitada como terceira interessada. Assertiva: a associação não pode recorrer do arquivamento.
+comentario: Errado. Terceiros interessados habilitados são informados do arquivamento e podem recorrer ao Conselho Diretor em até dez dias úteis da notificação (art. 59).
+
+=== f1k-09
+gab: C
+tema: an-pas
+ref: res1 68
+trecho: poderão ser revistos, a qualquer tempo, a pedido ou de ofício, quando surgirem fatos novos ou circunstâncias relevantes
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: anos depois de punida pela ANPD, uma empresa apresentou fato novo que demonstrava a inadequação da sanção aplicada. Assertiva: o processo pode ser revisto a pedido da empresa.
+comentario: Certo. Art. 68: a revisão cabe a qualquer tempo, a pedido ou de ofício, diante de fatos novos ou circunstâncias relevantes. É a mesma lógica da revisão do art. 65 da Lei 9.784/1999.
+
+=== f1k-10
+gab: E
+tema: an-pas
+ref: res1 68
+trecho: a qualquer tempo, a pedido ou de ofício
+armadilha: excecao
+dif: 2
+enunciado: A revisão dos processos que resultaram em sanção só pode ocorrer de ofício e dentro de cinco anos da decisão.
+comentario: Errado. A revisão pode ser pedida pelo interessado ou feita de ofício, a qualquer tempo, quando houver fatos novos ou circunstâncias relevantes (art. 68).
+
+=== f1k-11
+gab: C
+tema: an-pas
+ref: res1 14
+trecho: os autos receberão identificação própria que evidencie o regime de tramitação prioritária
+armadilha: conceito
+dif: 2
+enunciado: Nas hipóteses legais, a prioridade de tramitação é conferida quando requerida pelo interessado e comprovados os requisitos, e os autos recebem identificação própria do regime prioritário.
+comentario: Certo. Art. 14, caput e § 2º. É o caso, por exemplo, de pessoa idosa ou com doença grave, conforme a lei.
+
+=== f1k-12
+gab: E
+tema: an-pas
+ref: res1 64
+trecho: O Diretor relator poderá remeter o processo à Assessoria Jurídica ou a outros órgãos da ANPD para análise e manifestação
+armadilha: conceito
+dif: 2
+enunciado: No julgamento de recurso pelo Conselho Diretor, o Diretor relator está proibido de remeter o processo a outras unidades da ANPD para manifestação.
+comentario: Errado. O art. 64 permite ao relator enviar o processo à assessoria jurídica ou a outros órgãos da ANPD para análise e manifestação, nos termos do regimento interno.
