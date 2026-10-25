@@ -1,0 +1,154 @@
+bloco: seginfo
+// NIST CSF 2.0, lote C: contexto organizacional, supervisão e política (função Governar), gestão de identidade e
+// acesso, conscientização e resiliência da infraestrutura (Proteger) e comunicação e mitigação de incidentes
+// (Responder). Trechos conferidos no texto oficial em inglês (fontes/nistcsf.txt).
+
+=== nc3-01
+gab: C
+tema: sg-nist
+ref: nistcsf GV.OC
+trecho: mission, stakeholder expectations, dependencies, and legal, regulatory, and contractual requirements
+armadilha: rol
+dif: 2
+enunciado: No NIST CSF 2.0, a categoria Contexto Organizacional reúne a compreensão da missão da organização, das expectativas das partes interessadas, das dependências e dos requisitos legais, regulatórios e contratuais que cercam as decisões de risco de cibersegurança.
+comentario: Certo. GV.OC, na função Governar (GOVERN), criada na versão 2.0. O contexto orienta todas as demais decisões de gestão de risco.
+
+=== nc3-02
+gab: E
+tema: sg-nist
+ref: nistcsf GV.OC
+trecho: including privacy and civil liberties obligations
+armadilha: extrapolacao
+dif: 3
+enunciado: Para o NIST CSF 2.0, as obrigações legais de privacidade ficam fora da gestão de riscos de cibersegurança e devem ser tratadas apenas em outro framework.
+comentario: Errado. GV.OC-03 manda compreender e gerenciar os requisitos legais, regulatórios e contratuais de cibersegurança, inclusive as obrigações de privacidade e de liberdades civis.
+
+=== nc3-03
+gab: C
+tema: sg-nist
+ref: nistcsf GV.OV
+trecho: Cybersecurity risk management strategy outcomes are reviewed to inform and adjust strategy and direction
+armadilha: conceito
+dif: 2
+enunciado: Na categoria Supervisão do NIST CSF 2.0, os resultados da estratégia de gestão de riscos de cibersegurança são revisados para ajustar a estratégia e a direção da organização.
+comentario: Certo. GV.OV-01. A categoria também prevê revisar a estratégia para cobrir requisitos e riscos (GV.OV-02) e avaliar o desempenho da gestão de riscos (GV.OV-03).
+
+=== nc3-04
+gab: E
+tema: sg-nist
+ref: nistcsf GV.PO
+trecho: is reviewed, updated, communicated, and enforced to reflect changes in requirements, threats, technology, and organizational mission
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, a política de gestão de riscos de cibersegurança, uma vez aprovada, não deve ser alterada, para garantir estabilidade às operações.
+comentario: Errado. GV.PO-02 prevê revisar, atualizar, comunicar e aplicar a política para refletir mudanças em requisitos, ameaças, tecnologia e missão da organização.
+
+=== nc3-05
+gab: C
+tema: sg-nist
+ref: nistcsf PR.AA
+trecho: incorporate the principles of least privilege and separation of duties
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, permissões e autorizações de acesso devem ser definidas em política, gerenciadas, aplicadas e revisadas, incorporando os princípios do privilégio mínimo e da segregação de funções.
+comentario: Certo. PR.AA-05, na categoria de gestão de identidade, autenticação e controle de acesso da função Proteger.
+
+=== nc3-06
+gab: E
+tema: sg-nist
+ref: nistcsf PR.AA
+trecho: Physical access to assets is managed, monitored, and enforced commensurate with risk
+armadilha: extrapolacao
+dif: 2
+enunciado: A categoria de gestão de identidade e controle de acesso do NIST CSF 2.0 trata só do acesso lógico a sistemas, sem abranger o acesso físico às instalações.
+comentario: Errado. PR.AA alcança ativos físicos e lógicos, e PR.AA-06 trata do acesso físico, gerenciado e monitorado conforme o risco.
+
+=== nc3-07
+gab: C
+tema: sg-nist
+ref: nistcsf PR.AA
+trecho: Identities are proofed and bound to credentials based on the context of interactions
+armadilha: conceito
+dif: 3
+enunciado: O NIST CSF 2.0 prevê que as identidades sejam comprovadas e vinculadas a credenciais de acordo com o contexto das interações.
+comentario: Certo. PR.AA-02. A comprovação de identidade (identity proofing) antecede a emissão de credenciais; depois, usuários, serviços e equipamentos são autenticados (PR.AA-03).
+
+=== nc3-08
+gab: E
+tema: sg-nist
+ref: nistcsf PR.AT
+trecho: Personnel are provided with awareness and training so that they possess the knowledge and skills to perform general tasks with cybersecurity risks in mind
+armadilha: sujeito
+dif: 2
+enunciado: No NIST CSF 2.0, a conscientização e o treinamento em cibersegurança destinam-se apenas aos profissionais que exercem funções especializadas de TI.
+comentario: Errado. PR.AT-01 alcança todo o pessoal, para tarefas gerais; PR.AT-02 complementa com treinamento para funções especializadas.
+
+=== nc3-09
+gab: C
+tema: sg-nist
+ref: nistcsf PR.IR
+trecho: Adequate resource capacity to ensure availability is maintained
+armadilha: rol
+dif: 2
+enunciado: A categoria de resiliência da infraestrutura tecnológica do NIST CSF 2.0 inclui proteger os ativos tecnológicos contra ameaças ambientais e manter capacidade de recursos adequada para garantir a disponibilidade.
+comentario: Certo. PR.IR-02 e PR.IR-04. A categoria também protege redes contra acesso lógico não autorizado (PR.IR-01) e prevê mecanismos de resiliência (PR.IR-03).
+
+=== nc3-10
+gab: E
+tema: sg-nist
+ref: nistcsf PR.IR
+trecho: Mechanisms are implemented to achieve resilience requirements in normal and adverse situations
+armadilha: excecao
+dif: 2
+enunciado: No NIST CSF 2.0, os mecanismos de resiliência da infraestrutura precisam atender aos requisitos apenas em situações normais de operação.
+comentario: Errado. PR.IR-03 exige atender aos requisitos de resiliência em situações normais e adversas. Resiliência é justamente continuar operando sob estresse.
+
+=== nc3-11
+gab: C
+tema: sg-nist
+ref: nistcsf RS.CO
+trecho: Response activities are coordinated with internal and external stakeholders as required by laws, regulations, or policies
+armadilha: conceito
+dif: 2
+enunciado: Na função Responder do NIST CSF 2.0, as atividades de resposta são coordenadas com partes interessadas internas e externas, conforme leis, regulamentos ou políticas, o que inclui notificá-las dos incidentes.
+comentario: Certo. RS.CO e RS.CO-02. No Brasil, a comunicação à ANPD e aos titulares (art. 48 da LGPD) é exemplo de exigência legal que essa categoria cobre.
+
+=== nc3-12
+gab: E
+tema: sg-nist
+ref: nistcsf RS.MI
+trecho: Incidents are eradicated
+armadilha: comparacao
+dif: 3
+enunciado: Na mitigação de incidentes do NIST CSF 2.0, a função Responder limita-se a conter o incidente, e a erradicação fica a cargo exclusivamente da função Recuperar.
+comentario: Errado. A categoria RS.MI, da função Responder, inclui conter (RS.MI-01) e erradicar (RS.MI-02) o incidente. Recuperar trata da restauração de ativos e operações.
+
+=== nc3-13
+gab: C
+tema: sg-nist
+ref: nistcsf GV.OC
+trecho: Outcomes, capabilities, and services that the organization depends on are understood and communicated
+armadilha: conceito
+dif: 3
+enunciado: Na categoria Contexto Organizacional do NIST CSF 2.0, a organização deve compreender e comunicar também os resultados, as capacidades e os serviços de que ela própria depende.
+comentario: Certo. GV.OC-05. A dependência de fornecedores e serviços externos é parte do contexto e se liga à gestão de riscos da cadeia de suprimentos (GV.SC).
+
+=== nc3-14
+gab: E
+tema: sg-nist
+ref: nistcsf GV.OC
+trecho: Critical objectives, capabilities, and services that external stakeholders depend on or expect from the organization are understood and communicated
+armadilha: extrapolacao
+dif: 2
+enunciado: O NIST CSF 2.0 dispensa a organização de considerar os serviços que partes externas esperam dela, concentrando a gestão de riscos nos ativos internos.
+comentario: Errado. GV.OC-04 manda compreender e comunicar os objetivos, capacidades e serviços críticos de que partes externas dependem ou que esperam da organização.
+
+=== nc3-15
+gab: C
+tema: sg-nist
+ref: nistcsf GV.PO
+trecho: Policy for managing cybersecurity risks is established based on organizational context, cybersecurity strategy, and priorities and is communicated and enforced
+armadilha: conceito
+dif: 2
+enunciado: Pelo NIST CSF 2.0, a política de gestão de riscos de cibersegurança deve basear-se no contexto organizacional, na estratégia e nas prioridades de cibersegurança, e ser comunicada e aplicada.
+comentario: Certo. GV.PO-01. A política liga a direção estratégica (Governar) às medidas das demais funções.
