@@ -1,0 +1,168 @@
+bloco: portugues
+// Texto original escrito para o banco (golpes que usam dados vazados e o dever de avisar os titulares), com itens
+// de interpretação, coesão, semântica, verbos, pontuação, concordância, crase, sintaxe e reescrita.
+
+apoio_PT18A: Poucos dias depois de um vazamento, é comum que as vítimas comecem a receber mensagens que parecem legítimas. O golpista já sabe o nome completo da pessoa, o banco em que ela tem conta e, às vezes, até o valor da última compra. Com esses detalhes, a fraude deixa de soar como um disparo aleatório e passa a parecer um atendimento personalizado.
+Esse é o lado menos visível dos incidentes de segurança. O prejuízo não se limita ao momento em que os dados escapam; ele se prolonga enquanto as informações circularem, combinadas com outras bases, em mercados clandestinos. Por isso, avisar os titulares rapidamente não é mera cortesia: é o que lhes permite trocar senhas, desconfiar de contatos inesperados e bloquear cartões antes que o dano se consume.
+Não se trata, contudo, de transferir ao cidadão a responsabilidade pela própria proteção. Quem coleta os dados deve guardá-los com cuidado proporcional ao risco que eles representam, e a quem fiscaliza cabe verificar se esse cuidado existiu de fato, e não apenas no papel.
+
+=== pt18-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT18A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do primeiro parágrafo que os dados vazados tornam os golpes mais convincentes, porque permitem ao fraudador simular um contato feito sob medida para a vítima.
+comentario: Certo. Com nome, banco e valor da última compra, a fraude “deixa de soar como um disparo aleatório e passa a parecer um atendimento personalizado”.
+
+=== pt18-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT18A
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, o dano causado por um vazamento termina no momento em que os dados escapam do controle de quem os guardava.
+comentario: Errado. O segundo parágrafo diz o contrário: o prejuízo “não se limita ao momento em que os dados escapam”, mas se prolonga enquanto as informações circulam.
+
+=== pt18-03
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT18A
+armadilha: interpretacao
+dif: 2
+enunciado: O autor defende que, uma vez avisado do incidente, o cidadão passa a ser o principal responsável pela segurança dos próprios dados.
+comentario: Errado. O terceiro parágrafo afasta essa ideia: “Não se trata, contudo, de transferir ao cidadão a responsabilidade pela própria proteção”. O dever de cuidado continua com quem coleta os dados.
+
+=== pt18-04
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT18A
+armadilha: interpretacao
+dif: 2
+enunciado: Para o autor, cabe à fiscalização verificar se a proteção dos dados foi efetiva, e não só formalmente declarada.
+comentario: Certo. O último período diz que a quem fiscaliza cabe verificar se o cuidado “existiu de fato, e não apenas no papel”.
+
+=== pt18-05
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT18A
+armadilha: literal
+dif: 1
+enunciado: No segundo parágrafo, o pronome “ele”, em “ele se prolonga”, retoma “O prejuízo”.
+comentario: Certo. O período contrapõe o momento do vazamento à duração do prejuízo, que é o referente de “ele”.
+
+=== pt18-06
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT18A
+armadilha: interpretacao
+dif: 2
+enunciado: A expressão “Por isso”, no segundo parágrafo, introduz uma ressalva ao que foi dito antes e poderia ser substituída por “Contudo” sem alteração do sentido.
+comentario: Errado. “Por isso” tem valor conclusivo: como o dano se prolonga, avisar rápido é necessário. “Contudo” é adversativo e mudaria a relação lógica.
+
+=== pt18-07
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT18A
+armadilha: interpretacao
+dif: 2
+enunciado: No primeiro parágrafo, a expressão “disparo aleatório” refere-se a mensagens enviadas a destinatários indistintos, sem conhecimento prévio sobre cada um deles.
+comentario: Certo. O texto opõe o “disparo aleatório”, feito a esmo, ao “atendimento personalizado” que os dados vazados permitem simular.
+
+=== pt18-08
+gab: E
+tema: pt-verbos
+ref: texto
+apoio: @PT18A
+armadilha: conceito
+dif: 3
+enunciado: Em “antes que o dano se consume”, a forma verbal “consume” pertence ao verbo consumir e foi empregada no sentido de gastar.
+comentario: Errado. “Consume” é o presente do subjuntivo de consumar (“que o dano se consume” = que se concretize). O subjuntivo de consumir seria “consuma”.
+
+=== pt18-09
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT18A
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, os dois-pontos empregados após “cortesia” introduzem uma explicação do que se afirmou antes.
+comentario: Certo. Depois de negar que o aviso seja “mera cortesia”, o autor explica o que ele é: o que permite ao titular reagir antes do dano.
+
+=== pt18-10
+gab: C
+tema: pt-reescrita
+ref: texto
+apoio: @PT18A
+armadilha: conceito
+dif: 3
+enunciado: O trecho “O prejuízo não se limita ao momento em que os dados escapam; ele se prolonga” poderia ser reescrito como “O prejuízo não se limita ao momento em que os dados escapam, mas se prolonga”, sem prejuízo da correção gramatical e do sentido original.
+comentario: Certo. O ponto e vírgula separa orações em contraste; a vírgula seguida de “mas” explicita a mesma oposição, e o sujeito “O prejuízo” continua subentendido na segunda oração.
+
+=== pt18-11
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @PT18A
+armadilha: conceito
+dif: 2
+enunciado: Se a expressão “as informações”, no segundo parágrafo, fosse substituída por “o conjunto das informações”, a forma verbal “circularem” deveria passar para o singular.
+comentario: Certo. O núcleo do sujeito passaria a ser “conjunto”, no singular: “enquanto o conjunto das informações circular”.
+
+=== pt18-12
+gab: E
+tema: pt-crase
+ref: texto
+apoio: @PT18A
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, o “a” de “a quem fiscaliza” deveria receber acento grave, pois o verbo caber exige a preposição a.
+comentario: Errado. Há só a preposição exigida por “cabe”; não há artigo diante do pronome “quem”, e por isso não ocorre crase.
+
+=== pt18-13
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT18A
+armadilha: conceito
+dif: 3
+enunciado: No período “Quem coleta os dados deve guardá-los com cuidado”, a oração “Quem coleta os dados” exerce a função de sujeito da locução verbal “deve guardá-los”.
+comentario: Certo. É oração subordinada substantiva subjetiva, introduzida pelo pronome “quem”: quem coleta os dados é que deve guardá-los.
+
+=== pt18-14
+gab: E
+tema: pt-concordancia
+ref: texto
+apoio: @PT18A
+armadilha: conceito
+dif: 3
+enunciado: No início do terceiro parágrafo, a forma verbal “trata” poderia ser substituída por “tratam”, sem prejuízo da correção gramatical, já que a oração se refere a várias pessoas.
+comentario: Errado. “Tratar-se de”, no sentido de “ser questão de”, é impessoal e fica sempre na terceira pessoa do singular: “Não se trata de transferir”.
+
+=== pt18-15
+gab: E
+tema: pt-reescrita
+ref: texto
+apoio: @PT18A
+armadilha: interpretacao
+dif: 2
+enunciado: O sentido original do terceiro período do primeiro parágrafo seria mantido se “Com esses detalhes” fosse substituído por “Apesar desses detalhes”.
+comentario: Errado. “Com esses detalhes” indica o meio que torna a fraude convincente; “Apesar desses detalhes” introduziria concessão, invertendo a relação lógica.
+
+=== pt18-16
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT18A
+armadilha: interpretacao
+dif: 2
+enunciado: No terceiro parágrafo, o termo “proporcional” indica que o cuidado com os dados deve ser o mesmo para qualquer tipo de informação.
+comentario: Errado. Cuidado “proporcional ao risco” varia conforme o risco que os dados representam: mais cuidado para dados mais arriscados.
