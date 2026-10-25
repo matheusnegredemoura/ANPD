@@ -10479,216 +10479,956 @@
     {
       "id": "normas-anpd",
       "nome": "Resoluções e Guias da ANPD do zero",
-      "resumo": "Fiscalização (Res. 1), dosimetria (Res. 4), incidentes em 3 dias úteis (Res. 15), pequeno porte (Res. 2), encarregado (Res. 18), transferência internacional (Res. 19 e 32) e Guias Orientativos.",
+      "resumo": "Fiscalização e processo sancionador (Res. 1), dosimetria (Res. 4), pequeno porte (Res. 2), incidentes em 3 dias úteis (Res. 15), encarregado (Res. 18), transferência internacional e adequação da UE (Res. 19 e 32), Mapa de Temas e Agenda Regulatória (Res. 30 e 31) e Guias Orientativos.",
       "subtemas": [
         {
           "id": "an-fisc-dosimetria",
-          "nome": "Fiscalização responsiva (Res. 1/2021) e Dosimetria (Res. 4/2023)",
-          "resumo": "Monitoramento, orientação, prevenção e repressão; cálculo de multa, atenuantes, agravantes e reincidência.",
-          "simples": "A ANPD não começa multando: ela usa uma pirâmide que vai do monitoramento e orientação até a prevenção e o processo sancionador. Quando aplica sanção, a Resolução nº 4/2023 classifica a infração em leve, média ou grave e calcula a multa passo a passo.",
+          "nome": "Fiscalização responsiva (Res. 1/2021)",
+          "resumo": "Monitoramento, orientação e prevenção; deveres de quem é fiscalizado; medidas preventivas e plano de conformidade.",
+          "simples": "A ANPD fiscaliza em degraus. Primeiro levanta informações (monitoramento), depois ensina (orientação) e, quando preciso, corrige junto com o agente (prevenção). Nada disso é punição. A punição só vem pela atividade repressiva, num processo sancionador. Quem é fiscalizado tem deveres: entregar documentos, abrir sistemas, aceitar auditoria e indicar alguém para atender a ANPD. Descumprir esses deveres pode ser obstrução.",
           "licao": {
-            "ideia": "A **Resolução CD/ANPD nº 1/2021** estrutura a fiscalização responsiva em **4 eixos** (monitoramento, orientação, prevenção e repressão), podendo acionar a repressão direto se a gravidade exigir. Já a **Resolução nº 4/2023** fixa a metodologia de **dosimetria**: classifica a infração (leve, média ou grave), define a alíquota-base pelo grau do dano (0 a 3), aplica agravantes (reincidência específica = até 40%, genérica = até 20%, descumprimento de medida preventiva = 20% por item, até 80%) e atenuantes (cessação, boas práticas, cooperação).",
+            "ideia": "A **Resolução CD/ANPD nº 1/2021** organiza a fiscalização em atividades de **monitoramento**, **orientação** e **prevenção**, e permite iniciar a atividade **repressiva** (art. 15). Medidas de orientação e preventivas **não são sanção** (arts. 28 e 31), mas descumprir medida preventiva faz a ANPD progredir na atuação e conta como **agravante** no processo sancionador (art. 32, § 2º). A atuação é **responsiva**: medidas proporcionais ao risco e à postura do agente (art. 17, IV).",
             "mapa": {
-              "centro": "Fiscalização e Dosimetria",
+              "centro": "Fiscalização (Res. 1/2021)",
               "ramos": [
                 {
-                  "t": "Res. 1/2021 (4 Eixos)",
+                  "t": "Monitoramento",
                   "f": [
-                    "Monitoramento",
-                    "Orientação",
-                    "Prevenção (plano de conformidade)",
-                    "Repressão (PAS)"
+                    "Relatório de Ciclo de Monitoramento",
+                    "Mapa de Temas Prioritários",
+                    "Requerimentos analisados de forma agregada"
                   ]
                 },
                 {
-                  "t": "Res. 4/2023 (Gravidade)",
+                  "t": "Orientação",
                   "f": [
-                    "Leve",
-                    "Média (afeta direitos ou 1 critério)",
-                    "Grave (obstrução, alto risco, dolo)"
+                    "Guias e modelos de documentos",
+                    "Ferramentas de autoavaliação",
+                    "Recomendações de governança e códigos de conduta"
                   ]
                 },
                 {
-                  "t": "Sanções",
+                  "t": "Prevenção",
                   "f": [
-                    "Advertência, multa até 2% (R$ 50 mi)",
-                    "Suspensão máx. 6 meses (+6m) após sanção prévia"
+                    "Divulgação de informações",
+                    "Aviso",
+                    "Solicitação de regularização ou informe",
+                    "Plano de conformidade"
+                  ]
+                },
+                {
+                  "t": "Repressão",
+                  "f": [
+                    "Processo administrativo sancionador",
+                    "Sanções do art. 52 da LGPD"
+                  ]
+                },
+                {
+                  "t": "Deveres do fiscalizado",
+                  "f": [
+                    "Entregar documentos e dados",
+                    "Dar acesso a sistemas e instalações",
+                    "Submeter-se a auditorias",
+                    "Indicar representante apto"
                   ]
                 }
               ]
             },
             "partes": [
               {
-                "t": "Pirâmide Responsiva e Processo Sancionador",
-                "texto": "Na prevenção, o agente pode apresentar plano de conformidade. Na repressão, lavra-se auto de infração, abre-se defesa e decisão de 1ª instância (Coordenação-Geral de Fiscalização), cabendo recurso ao Conselho Diretor."
+                "t": "As quatro atividades (art. 15)",
+                "tabela": {
+                  "cab": [
+                    "Atividade",
+                    "O que é"
+                  ],
+                  "linhas": [
+                    [
+                      "Monitoramento",
+                      "levantar informações que subsidiem as decisões da ANPD e o funcionamento regular do ambiente regulado"
+                    ],
+                    [
+                      "Orientação",
+                      "orientar, conscientizar e educar agentes e titulares, com economicidade"
+                    ],
+                    [
+                      "Prevenção",
+                      "construir com o agente, de preferência em diálogo, a volta à plena conformidade ou evitar e remediar riscos"
+                    ],
+                    [
+                      "Repressão",
+                      "atuação coercitiva: interromper dano ou risco, reconduzir à conformidade e punir com as sanções do art. 52 da LGPD, por processo sancionador"
+                    ]
+                  ]
+                },
+                "atencao": "Não há ordem obrigatória: pela gravidade e natureza da infração, a ANPD pode instaurar o processo sancionador de imediato, sem procedimento preparatório e sem orientação ou prevenção antes (art. 42, parágrafo único)."
+              },
+              {
+                "t": "Medidas preventivas (art. 32)",
+                "lista": [
+                  "**divulgação de informações**, como dados setoriais agregados e de desempenho (art. 33)",
+                  "**aviso**, que descreve a situação para o agente identificar as providências (art. 34)",
+                  "**solicitação de regularização** ou **informe**, para regularizar em prazo certo; o informe é usado quando a infração vem de órgão público (art. 35, § 1º)",
+                  "**plano de conformidade**, com objeto, prazos, ações, critérios de acompanhamento e trajetória de resultados (art. 36)"
+                ],
+                "ex": "O prazo da solicitação de regularização pode ser prorrogado uma única vez, por igual período, com justificativa (art. 35, § 3º). E o plano de conformidade não exime o agente das obrigações da regulamentação (art. 36, § 1º)."
+              },
+              {
+                "t": "Deveres e obstrução (arts. 5º e 6º)",
+                "texto": "Quem é fiscalizado deve fornecer documentos e dados no prazo e formato pedidos, dar acesso a instalações e sistemas, submeter-se a auditorias, guardar documentos durante os prazos legais e indicar representante apto a apoiar a ANPD. Descumprir esses deveres pode caracterizar **obstrução**, sujeita a medidas repressivas; na dosimetria da Res. 4/2023, obstrução à fiscalização torna a infração **grave**. Pedir sigilo de segredo comercial ou industrial cabe ao próprio agente (art. 5º, § 2º)."
+              },
+              {
+                "t": "Prazos",
+                "mnemo": "Na Res. 1/2021, os prazos correm da ciência oficial e contam em **dias úteis**, excluído o dia do começo e incluído o do vencimento (art. 8º)."
               }
             ]
           },
           "chave": [
-            "Quatro atividades da fiscalização: monitoramento, orientação, prevenção e repressão.",
-            "Não é obrigatório seguir ordem sequencial quando a gravidade exigir repressão direta.",
-            "Reincidência específica (mesmo dispositivo em 5 anos): agravante de 10% por caso, até 40%.",
-            "Reincidência genérica: 5% por caso, até 20%."
+            "Monitoramento, orientação e prevenção não são sanção; só a atividade repressiva, por processo sancionador, aplica as sanções do art. 52 da LGPD.",
+            "Atuação responsiva: medidas proporcionais ao risco identificado e à postura do agente regulado.",
+            "Descumprir medida preventiva leva à progressão da atuação e é agravante no processo sancionador.",
+            "O informe é a medida preventiva usada quando a infração vem de órgão público.",
+            "Prazos em dias úteis, contados da ciência oficial."
           ],
           "armadilhas": [
-            "Dizer que a ANPD é obrigada a passar por orientação e prevenção antes de instaurar PAS.",
-            "Confundir o percentual da reincidência específica (10% até 40%) com a genérica (5% até 20%).",
-            "Aplicar multa a órgãos e entidades públicas (vedado pelo art. 52, § 3º da LGPD)."
+            "Dizer que a ANPD só pode punir depois de orientar e prevenir.",
+            "Chamar aviso, solicitação de regularização ou plano de conformidade de sanção.",
+            "Afirmar que o plano de conformidade dispensa o agente das obrigações regulatórias.",
+            "Achar que a ANPD decide sozinha pelo sigilo: é o agente quem pede o sigilo do segredo comercial ou industrial."
           ],
           "artigos": [
-            "res1:14",
+            "res1:2",
+            "res1:5",
+            "res1:6",
+            "res1:8",
             "res1:15",
-            "res1:37",
-            "res4:7",
-            "res4:8",
-            "res4:12",
-            "res4:13",
-            "guias:10"
+            "res1:16",
+            "res1:17",
+            "res1:18",
+            "res1:24",
+            "res1:25",
+            "res1:26",
+            "res1:27",
+            "res1:28",
+            "res1:29",
+            "res1:30",
+            "res1:31",
+            "res1:32",
+            "res1:33",
+            "res1:34",
+            "res1:35",
+            "res1:36"
           ],
           "blocos": [
-            "res-1-2021",
+            "res-1-2021"
+          ],
+          "soArtigos": true,
+          "itens": 40
+        },
+        {
+          "id": "an-pas",
+          "nome": "Processo sancionador (Res. 1/2021)",
+          "resumo": "Procedimento preparatório, auto de infração, defesa em 10 dias úteis, decisão de primeira instância, recurso ao Conselho Diretor e TAC.",
+          "simples": "Quando a ANPD decide punir, abre um processo com direito de defesa. Antes pode haver uma investigação preliminar, o procedimento preparatório. No processo, o agente recebe o auto de infração e tem dez dias úteis para se defender. A Coordenação-Geral de Fiscalização decide em primeira instância, e cabe recurso ao Conselho Diretor, também em dez dias úteis. O agente pode propor um termo de ajustamento de conduta.",
+          "licao": {
+            "ideia": "O **processo administrativo sancionador** apura infrações à legislação de proteção de dados e pode ser instaurado de ofício, a partir do monitoramento ou de requerimento (art. 37). Quando os indícios não bastam, a **Coordenação-Geral de Fiscalização** pode fazer **procedimento preparatório**, que pode tramitar em sigilo (art. 40). Instaurado o processo, lavra-se o **auto de infração** e o autuado tem **10 dias úteis** para a defesa (arts. 46 e 47). A decisão de **primeira instância** é da Coordenação-Geral de Fiscalização (art. 55); o **recurso**, em **10 dias úteis**, vai ao **Conselho Diretor**, instância administrativa máxima (art. 58).",
+            "mapa": {
+              "centro": "Processo sancionador",
+              "ramos": [
+                {
+                  "t": "Antes do processo",
+                  "f": [
+                    "Procedimento preparatório",
+                    "Pode tramitar em sigilo",
+                    "Termina em arquivamento ou instauração"
+                  ]
+                },
+                {
+                  "t": "Instauração",
+                  "f": [
+                    "De ofício, pelo monitoramento ou por requerimento",
+                    "Despacho de instauração irrecorrível"
+                  ]
+                },
+                {
+                  "t": "Defesa",
+                  "f": [
+                    "Auto de infração",
+                    "10 dias úteis",
+                    "Relatório de instrução"
+                  ]
+                },
+                {
+                  "t": "Decisão",
+                  "f": [
+                    "1ª instância: Coordenação-Geral de Fiscalização",
+                    "Resumo publicado no DOU"
+                  ]
+                },
+                {
+                  "t": "Recurso",
+                  "f": [
+                    "10 dias úteis, ao Conselho Diretor",
+                    "Efeito suspensivo na matéria contestada",
+                    "Reconsideração sem agravar a sanção"
+                  ]
+                },
+                {
+                  "t": "TAC",
+                  "f": [
+                    "Proposta à Coordenação-Geral",
+                    "Deliberação do Conselho Diretor",
+                    "Cumprido, o processo é arquivado"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Passo a passo",
+                "passos": [
+                  "procedimento preparatório, quando os indícios não bastam para abrir o processo (art. 40)",
+                  "instauração do processo sancionador, sem recurso contra o despacho de instauração (art. 38)",
+                  "auto de infração com o infrator, a conduta imputada e o dispositivo violado (art. 46)",
+                  "defesa em até 10 dias úteis (art. 47)",
+                  "relatório de instrução, haja ou não defesa (art. 54)",
+                  "decisão de primeira instância, motivada, com resumo publicado no Diário Oficial da União (art. 55)",
+                  "recurso ao Conselho Diretor em 10 dias úteis da intimação da decisão (art. 58)"
+                ]
+              },
+              {
+                "t": "Regras do recurso",
+                "lista": [
+                  "efeito suspensivo **limitado à matéria contestada**, salvo fundado receio de prejuízo de difícil ou incerta reparação (art. 60)",
+                  "não é conhecido se interposto fora do prazo, por quem não é legitimado, depois de exaurida a esfera administrativa, sem interesse recursal ou contra ato de mero expediente (art. 61)",
+                  "a Coordenação-Geral pode **reconsiderar**, mas a reconsideração **não pode agravar** a sanção (art. 62, § 2º)",
+                  "se a reconsideração afastar toda a sanção, a nova decisão vai a **reexame necessário** do Conselho Diretor (art. 62, § 5º)"
+                ]
+              },
+              {
+                "t": "Termo de ajustamento de conduta (art. 43)",
+                "texto": "O interessado propõe o TAC à Coordenação-Geral de Fiscalização, e a proposta vai ao Conselho Diretor. O processo fica suspenso a partir da assinatura do termo e é arquivado quando ele é cumprido integralmente.",
+                "atencao": "Processo que resultou em sanção pode ser revisto a qualquer tempo, a pedido ou de ofício, quando surgirem fatos novos ou circunstâncias relevantes que mostrem a inadequação da sanção (art. 68)."
+              }
+            ]
+          },
+          "chave": [
+            "Despacho de instauração do processo sancionador é irrecorrível.",
+            "Defesa e recurso: 10 dias úteis cada; o recurso vai ao Conselho Diretor.",
+            "Primeira instância: Coordenação-Geral de Fiscalização.",
+            "Reconsideração não pode agravar a sanção; se a afastar por inteiro, há reexame necessário.",
+            "TAC: suspende o processo a partir da assinatura e leva ao arquivamento quando cumprido."
+          ],
+          "armadilhas": [
+            "Dizer que o recurso suspende a decisão inteira, e não só a matéria contestada.",
+            "Atribuir a decisão de primeira instância ao Conselho Diretor.",
+            "Afirmar que, sem defesa, o processo não segue para o relatório de instrução.",
+            "Tratar o procedimento preparatório como etapa obrigatória antes do processo."
+          ],
+          "artigos": [
+            "res1:37",
+            "res1:38",
+            "res1:40",
+            "res1:42",
+            "res1:43",
+            "res1:45",
+            "res1:46",
+            "res1:47",
+            "res1:54",
+            "res1:55",
+            "res1:58",
+            "res1:60",
+            "res1:61",
+            "res1:62",
+            "res1:68"
+          ],
+          "blocos": [
+            "res-1-2021"
+          ],
+          "soArtigos": true,
+          "itens": 40
+        },
+        {
+          "id": "an-dosimetria",
+          "nome": "Dosimetria e sanções (Res. 4/2023)",
+          "resumo": "Infração leve, média ou grave; advertência e multa; agravantes e atenuantes; teto, pagamento e redução por renúncia ao recurso.",
+          "simples": "Quando a ANPD multa, ela não escolhe um número no chute. A Resolução nº 4/2023 classifica a infração como leve, média ou grave, calcula um valor-base e depois soma agravantes, como reincidência e medida descumprida, e desconta atenuantes, como parar a infração cedo, ter boas práticas e cooperar. O resultado nunca passa de 2% do faturamento no Brasil nem de 50 milhões de reais.",
+          "licao": {
+            "ideia": "A **Resolução CD/ANPD nº 4/2023** fixa como aplicar as sanções do art. 52 da LGPD. A infração é **leve**, **média** ou **grave** (art. 8º): média quando pode afetar significativamente interesses e direitos fundamentais dos titulares; grave quando, além disso, há ao menos uma circunstância do § 3º (larga escala, vantagem econômica, risco à vida, dados sensíveis ou de crianças, adolescentes e idosos, tratamento sem base legal, efeito discriminatório, prática sistemática) ou quando há **obstrução à fiscalização**. **Advertência** cabe para infração leve ou média sem reincidência específica, ou quando há medidas corretivas a impor (art. 9º); **multa simples**, quando a infração é grave, quando medidas impostas não foram cumpridas ou quando outra sanção não é adequada (art. 10).",
+            "mapa": {
+              "centro": "Dosimetria (Res. 4/2023)",
+              "ramos": [
+                {
+                  "t": "Classificação (art. 8º)",
+                  "f": [
+                    "Leve: nenhuma hipótese de média ou grave",
+                    "Média: afeta direitos de forma significativa",
+                    "Grave: média + circunstância do § 3º, ou obstrução"
+                  ]
+                },
+                {
+                  "t": "Agravantes (art. 12)",
+                  "f": [
+                    "Reincidência específica: 10% cada, até 40%",
+                    "Reincidência genérica: 5% cada, até 20%",
+                    "Orientação ou prevenção descumprida: 20% cada, até 80%",
+                    "Medida corretiva descumprida: 30% cada, até 90%"
+                  ]
+                },
+                {
+                  "t": "Atenuantes (art. 13)",
+                  "f": [
+                    "Cessação: 75%, 50% ou 30%",
+                    "Boas práticas e governança: 20%",
+                    "Reverter ou mitigar efeitos: 20% ou 10%",
+                    "Cooperação ou boa-fé: 5%"
+                  ]
+                },
+                {
+                  "t": "Limites (art. 15)",
+                  "f": [
+                    "Piso do Apêndice II, ou o dobro da vantagem estimável",
+                    "Teto: 2% do faturamento no Brasil ou R$ 50 milhões"
+                  ]
+                },
+                {
+                  "t": "Pagamento",
+                  "f": [
+                    "20 dias úteis (em dobro para pequeno porte)",
+                    "Renúncia ao recurso: 25% de redução"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Reincidência (art. 2º)",
+                "tabela": {
+                  "cab": [
+                    "Tipo",
+                    "Definição",
+                    "Agravante"
+                  ],
+                  "linhas": [
+                    [
+                      "Específica",
+                      "nova infração ao **mesmo dispositivo**, em 5 anos contados do trânsito em julgado do processo anterior",
+                      "10% por caso, até 40%"
+                    ],
+                    [
+                      "Genérica",
+                      "nova infração a **qualquer dispositivo**, no mesmo período",
+                      "5% por caso, até 20%"
+                    ]
+                  ]
+                },
+                "atencao": "Casos de reincidência específica além do suficiente para os 40% passam a contar como genérica (art. 12, § 2º). Os percentuais de agravantes de incisos diferentes se somam (art. 12, § 1º)."
+              },
+              {
+                "t": "Cessação da infração (art. 13, I)",
+                "lista": [
+                  "**75%** se antes da instauração do procedimento preparatório",
+                  "**50%** se depois do procedimento preparatório e até a instauração do processo sancionador",
+                  "**30%** se depois da instauração e até a decisão de primeira instância"
+                ],
+                "porque": "Quanto mais cedo o agente para, maior o desconto: a regra premia quem corrige sem esperar a ANPD. Por isso não conta a cessação feita só para cumprir determinação administrativa ou judicial (art. 13, § 1º), e é do infrator o ônus de provar a atenuante (art. 13, § 3º)."
+              },
+              {
+                "t": "Depois da decisão",
+                "texto": "A multa é paga em até **20 dias úteis** da ciência oficial da decisão, com prazo em dobro para agentes de pequeno porte (art. 17). Quem renuncia expressamente ao recurso e paga no prazo tem **redução de 25%** (art. 18). No atraso, incidem juros pela Selic e multa de mora de 0,33% ao dia, limitada a 20% (art. 17, § 3º)."
+              }
+            ]
+          },
+          "chave": [
+            "Grave = hipótese de média + ao menos uma circunstância do art. 8º, § 3º, I; ou obstrução à fiscalização.",
+            "Agravantes: 10% até 40%; 5% até 20%; 20% até 80%; 30% até 90%, somados entre si.",
+            "Atenuante de cessação: 75%, 50% ou 30%, conforme o momento.",
+            "Teto: 2% do faturamento no Brasil no último exercício, excluídos os tributos, ou R$ 50 milhões.",
+            "Renúncia ao recurso com pagamento no prazo: 25% de redução."
+          ],
+          "armadilhas": [
+            "Trocar os percentuais da reincidência específica (10% até 40%) e da genérica (5% até 20%).",
+            "Dizer que toda infração com dado sensível é grave: é preciso também a hipótese da média, afetar significativamente direitos.",
+            "Aceitar como atenuante a cessação feita só para cumprir ordem administrativa ou judicial.",
+            "Aplicar multa a órgão público: as multas não estão entre as sanções aplicáveis a ele (art. 52, § 3º, da LGPD)."
+          ],
+          "artigos": [
+            "res4:2",
+            "res4:8",
+            "res4:9",
+            "res4:10",
+            "res4:12",
+            "res4:13",
+            "res4:15",
+            "res4:17",
+            "res4:18"
+          ],
+          "blocos": [
             "res-4-2023"
           ],
           "itens": 40
         },
         {
-          "id": "an-incidentes-app",
-          "nome": "Incidentes de Segurança (Res. 15/2024) e Pequeno Porte (Res. 2/2022)",
-          "resumo": "Prazo de 3 dias úteis (6 para APP), critérios de risco relevante, registro por 5 anos e dispensas de APP.",
-          "simples": "Se um vazamento ou invasão puder causar risco ou dano relevante aos titulares, o controlador tem 3 dias úteis para avisar a ANPD e os afetados (6 dias úteis se for agente de pequeno porte). E mesmo quando não precisa comunicar, tem de guardar o registro por 5 anos.",
+          "id": "an-pequeno-porte",
+          "nome": "Agentes de pequeno porte (Res. 2/2022)",
+          "resumo": "Quem é pequeno porte, quem fica de fora, tratamento de alto risco, encarregado dispensado, registro e segurança simplificados e prazos em dobro.",
+          "simples": "Microempresas, startups e outros agentes pequenos têm regras mais leves na LGPD. Não precisam indicar encarregado, basta um canal com o titular; podem manter registro e política de segurança simplificados; e têm prazo em dobro para várias obrigações. O benefício não vale para quem faz tratamento de alto risco, passa do limite de receita ou faz parte de grupo que o ultrapassa.",
           "licao": {
-            "ideia": "Pela **Resolução CD/ANPD nº 15/2024**, o incidente deve ser comunicado à ANPD e aos titulares em **3 dias úteis** (ou **6 dias úteis** para Agentes de Pequeno Porte) sempre que houver **risco ou dano relevante** — configurado quando combina **afetação significativa de interesses/direitos fundamentais** com ao menos um critério como dados sensíveis, de crianças, adolescentes ou idosos, dados financeiros, credenciais de autenticação, dados protegidos por sigilo ou larga escala.",
+            "ideia": "A **Resolução CD/ANPD nº 2/2022** dá tratamento diferenciado aos **agentes de tratamento de pequeno porte**: microempresas, empresas de pequeno porte, startups, pessoas jurídicas de direito privado, inclusive sem fins lucrativos, pessoas naturais e entes privados despersonalizados (art. 2º, I). Ficam de fora (art. 3º) quem faz **tratamento de alto risco**, quem tem **receita bruta acima do limite legal** e quem integra **grupo econômico** que o ultrapassa. Alto risco exige ao mesmo tempo **um critério geral e um específico** (art. 4º). A dispensa ou flexibilização não isenta o agente das demais regras da LGPD, inclusive bases legais e princípios (art. 6º).",
             "mapa": {
-              "centro": "Res. 15/2024 e Res. 2/2022",
+              "centro": "Pequeno porte (Res. 2/2022)",
               "ramos": [
                 {
-                  "t": "Prazo de Comunicação",
+                  "t": "Quem é",
                   "f": [
-                    "Regra: 3 dias úteis do conhecimento",
-                    "APP: 6 dias úteis (prazo em dobro)",
-                    "Complementação: até 20 dias úteis"
+                    "Microempresas, EPP e startups",
+                    "PJ de direito privado, inclusive sem fins lucrativos",
+                    "Pessoas naturais e entes despersonalizados"
                   ]
                 },
                 {
-                  "t": "Registro Interno",
+                  "t": "Quem fica de fora (art. 3º)",
                   "f": [
-                    "Obrigatório para TODO incidente",
-                    "Prazo mínimo de guarda: 5 anos"
+                    "Tratamento de alto risco",
+                    "Receita acima do limite legal",
+                    "Grupo econômico acima do limite"
                   ]
                 },
                 {
-                  "t": "Pequeno Porte (Res. 2/2022)",
+                  "t": "Alto risco (art. 4º)",
                   "f": [
-                    "Dispensado de indicar encarregado (mantém canal)",
-                    "Vedado se houver tratamento de alto risco"
+                    "Geral: larga escala ou afetar direitos de forma significativa",
+                    "Específico: tecnologia inovadora, vigilância de zona pública, decisão automatizada, dados sensíveis ou de crianças, adolescentes e idosos"
+                  ]
+                },
+                {
+                  "t": "Flexibilizações",
+                  "f": [
+                    "Encarregado facultativo, com canal para o titular",
+                    "Registro simplificado",
+                    "Política simplificada de segurança",
+                    "Prazos em dobro"
                   ]
                 }
               ]
             },
             "partes": [
               {
-                "t": "Quando comunicar e o que fazer",
-                "texto": "A comunicação deve ser individualizada sempre que possível; se inviável, admite-se divulgação ampla pelos meios de comunicação."
+                "t": "Prazos em dobro (art. 14)",
+                "lista": [
+                  "atender solicitações dos titulares (art. 18 da LGPD)",
+                  "comunicar à ANPD e ao titular incidente de segurança que possa causar risco ou dano relevante",
+                  "fornecer a declaração clara e completa do art. 19, II, da LGPD",
+                  "entregar informações, documentos, relatórios e registros pedidos pela ANPD"
+                ],
+                "ex": "A declaração simplificada do art. 19, I, da LGPD pode ser dada em até 15 dias do requerimento do titular (art. 15)."
+              },
+              {
+                "t": "Encarregado",
+                "texto": "O pequeno porte não é obrigado a indicar encarregado, mas deve manter um canal de comunicação com o titular (art. 11, § 1º). Se indicar mesmo assim, a indicação conta como política de boas práticas e governança para a dosimetria (art. 11, § 2º).",
+                "atencao": "A ANPD pode determinar ao pequeno porte o cumprimento das obrigações dispensadas ou flexibilizadas, considerando a natureza ou o volume das operações e os riscos para os titulares (art. 16)."
               }
             ]
           },
           "chave": [
-            "Prazo geral da Res. 15/2024: 3 dias úteis contados da ciência de que o incidente afetou dados pessoais.",
-            "Prazo para complementar comunicação preliminar: até 20 dias úteis.",
-            "Guarda do registro de incidentes (mesmo os não comunicados): mínimo de 5 anos.",
-            "Agente de Pequeno Porte (Res. 2/2022): dispensado de encarregado (se mantiver canal) e prazos em dobro, salvo tratamento de alto risco."
+            "Alto risco = 1 critério geral + 1 critério específico, ao mesmo tempo.",
+            "Quem faz tratamento de alto risco, passa do limite de receita ou integra grupo acima dele não tem o tratamento diferenciado.",
+            "Encarregado é facultativo, mas o canal com o titular é obrigatório.",
+            "Prazo em dobro para titulares, incidentes, declaração completa e pedidos da ANPD; declaração simplificada em até 15 dias."
           ],
           "armadilhas": [
-            "Dizer que o prazo de comunicação é de 2 dias úteis ou 72 horas corridas (72h é no GDPR; na ANPD são 3 dias úteis).",
-            "Achar que o registro interno de 5 anos só vale para incidentes comunicados à ANPD.",
-            "Dizer que APP que trata dados em alto risco mantém direito às dispensas da Res. 2/2022."
+            "Dizer que basta um critério específico, como usar dado sensível, para haver alto risco.",
+            "Afirmar que o pequeno porte fica dispensado das bases legais e dos princípios da LGPD.",
+            "Dispensar também o canal de comunicação com o titular quando não há encarregado.",
+            "Achar que a flexibilização é definitiva: a ANPD pode exigir as obrigações dispensadas."
           ],
           "artigos": [
+            "res2:2",
+            "res2:3",
+            "res2:4",
+            "res2:6",
+            "res2:9",
+            "res2:11",
+            "res2:13",
+            "res2:14",
+            "res2:15",
+            "res2:16"
+          ],
+          "blocos": [
+            "res-2-2022"
+          ],
+          "itens": 30
+        },
+        {
+          "id": "an-incidentes-app",
+          "nome": "Incidentes de segurança (Res. 15/2024)",
+          "resumo": "Quando comunicar, prazo de 3 dias úteis à ANPD e ao titular, conteúdo da comunicação, registro por 5 anos e providências da ANPD.",
+          "simples": "Quando um incidente de segurança pode causar risco ou dano relevante aos titulares, o controlador tem três dias úteis para avisar a ANPD e os próprios titulares, contados de quando soube que dados pessoais foram afetados. Nem todo incidente precisa ser comunicado, mas todo incidente precisa ser registrado, e o registro fica guardado por pelo menos cinco anos.",
+          "licao": {
+            "ideia": "A **Resolução CD/ANPD nº 15/2024** regula a comunicação de **incidente de segurança** (art. 48 da LGPD). Incidente é **evento adverso confirmado** que viola a confidencialidade, a integridade, a disponibilidade ou a autenticidade de dados pessoais (art. 3º, XII). Comunica-se quando o incidente puder **afetar significativamente** interesses e direitos fundamentais **e**, cumulativamente, envolver ao menos um critério: dados sensíveis; de crianças, adolescentes ou idosos; financeiros; de autenticação; protegidos por sigilo; ou em larga escala (art. 5º). O prazo é de **3 dias úteis**, contados do conhecimento de que o incidente afetou dados pessoais, para a ANPD (art. 6º) e para o titular (art. 9º).",
+            "mapa": {
+              "centro": "Incidentes (Res. 15/2024)",
+              "ramos": [
+                {
+                  "t": "Quando comunicar (art. 5º)",
+                  "f": [
+                    "Afetar significativamente direitos",
+                    "E ao menos um critério: sensível; criança, adolescente ou idoso; financeiro; autenticação; sigilo; larga escala"
+                  ]
+                },
+                {
+                  "t": "À ANPD (art. 6º)",
+                  "f": [
+                    "3 dias úteis do conhecimento",
+                    "Formulário eletrônico",
+                    "Complemento em 20 dias úteis"
+                  ]
+                },
+                {
+                  "t": "Ao titular (art. 9º)",
+                  "f": [
+                    "3 dias úteis",
+                    "Linguagem simples",
+                    "Direta e individualizada, quando possível"
+                  ]
+                },
+                {
+                  "t": "Registro (art. 10)",
+                  "f": [
+                    "Todo incidente, inclusive o não comunicado",
+                    "Guarda mínima de 5 anos"
+                  ]
+                },
+                {
+                  "t": "Providências (art. 19)",
+                  "f": [
+                    "Ampla divulgação em meios de comunicação",
+                    "Medidas para reverter ou mitigar",
+                    "Não são sanção (art. 22)"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "O que a comunicação à ANPD informa (art. 6º, § 2º)",
+                "lista": [
+                  "natureza e categoria dos dados afetados",
+                  "número de titulares afetados, com crianças, adolescentes e idosos discriminados quando aplicável",
+                  "medidas de segurança adotadas antes e depois do incidente",
+                  "riscos e possíveis impactos aos titulares",
+                  "motivos da demora, se a comunicação passou do prazo",
+                  "medidas para reverter ou mitigar os efeitos",
+                  "data da ocorrência, quando possível, e a do conhecimento",
+                  "dados do encarregado, identificação do controlador (e se é pequeno porte) e do operador",
+                  "descrição do incidente e causa principal; total de titulares das atividades afetadas"
+                ],
+                "atencao": "O prazo conta do **conhecimento de que o incidente afetou dados pessoais**, não da data em que ele ocorreu. Para pequeno porte, os prazos são em dobro (art. 6º, § 8º, e art. 9º, § 6º)."
+              },
+              {
+                "t": "Depois da comunicação",
+                "texto": "A ANPD pode pedir informações adicionais e, avaliada a gravidade, determinar a **ampla divulgação** do incidente em meios de comunicação, às custas do controlador, e medidas para reverter ou mitigar os efeitos (art. 19). Essas providências **não são sanção**: equiparam-se às medidas preventivas (art. 22). A ampla divulgação não se confunde com a sanção de publicização do art. 52, IV, da LGPD (art. 19, § 6º). Incidente não comunicado pode ser investigado no **procedimento de apuração** (art. 16)."
+              }
+            ]
+          },
+          "chave": [
+            "Comunica-se o incidente que pode afetar significativamente direitos E envolve ao menos um dos seis critérios do art. 5º.",
+            "Prazo de 3 dias úteis, do conhecimento de que dados pessoais foram afetados, para a ANPD e para o titular.",
+            "Informações complementares em até 20 dias úteis.",
+            "Todo incidente é registrado, mesmo o não comunicado, e o registro é guardado por no mínimo 5 anos.",
+            "Ampla divulgação determinada pela ANPD não é sanção."
+          ],
+          "armadilhas": [
+            "Contar o prazo da data do incidente, e não do conhecimento de que ele afetou dados pessoais.",
+            "Achar que basta um critério do art. 5º, sem que o incidente possa afetar significativamente direitos.",
+            "Dispensar o registro do incidente que não precisou ser comunicado.",
+            "Dizer que o prazo é de 72 horas, que é o do RGPD europeu."
+          ],
+          "artigos": [
+            "res15:3",
+            "res15:4",
             "res15:5",
             "res15:6",
             "res15:9",
             "res15:10",
-            "res2:3",
-            "res2:4",
-            "res2:11",
-            "guias:7"
+            "res15:16",
+            "res15:19",
+            "res15:22"
           ],
           "blocos": [
-            "res-15-2024",
-            "res-2-2022"
+            "res-15-2024"
           ],
           "itens": 40
         },
         {
           "id": "an-encarregado-transf",
-          "nome": "Encarregado (Res. 18/2024) e Transferência Internacional (Res. 19 e 32)",
-          "resumo": "Ato formal, DPO pessoa física ou jurídica, conflito de interesses, cláusulas-padrão e adequação da União Europeia.",
-          "simples": "O encarregado (DPO) pode ser pessoa física ou empresa terceirizada, nomeado por ato formal, sem poder acumular cargo que decida como os dados são usados. Já na transferência para o exterior, a ANPD aprovou cláusulas-padrão (Res. 19/2024) e reconheceu a adequação da União Europeia (Res. 32/2026).",
+          "nome": "Encarregado (Res. 18/2024)",
+          "resumo": "Indicação por ato formal, substituto, órgão público, quem pode ser, divulgação, atividades, autonomia e conflito de interesse.",
+          "simples": "O encarregado é o canal entre o agente, os titulares e a ANPD. É indicado por documento formal, pode ser alguém de dentro, de fora ou até uma empresa, e precisa se comunicar em português. Não precisa de certificação. O órgão público publica a indicação no Diário Oficial. Ele orienta e acompanha, mas quem responde pela conformidade do tratamento é o agente de tratamento.",
           "licao": {
-            "ideia": "A **Resolução nº 18/2024** exige designação do encarregado por **ato formal**, admite **pessoa natural ou jurídica**, exige indicação de **substituto** nas ausências e veda **conflito de interesses** (acumular com chefia que decide finalidades/meios do tratamento). A **Resolução nº 19/2024** disciplina a transferência internacional (cláusulas-padrão no Anexo II exigem adoção **integral e sem alterações**), e a **Resolução nº 32/2026** reconheceu a **União Europeia** como adequada (art. 33, I da LGPD).",
+            "ideia": "A **Resolução CD/ANPD nº 18/2024** detalha o **encarregado** do art. 41 da LGPD. A indicação é feita por **ato formal**, escrito, datado e assinado (art. 3º), com **substituto** formalmente designado para ausências, impedimentos e vacâncias (art. 4º). O encarregado pode ser **pessoa natural**, do quadro ou externa, ou **pessoa jurídica** (art. 12), deve comunicar-se **em língua portuguesa** (art. 13) e não precisa de inscrição em entidade, certificação ou formação específica (art. 14). Para o **operador**, indicar encarregado é facultativo e conta como boa prática (art. 6º). O encarregado **não responde** perante a ANPD pela conformidade: essa responsabilidade é do agente de tratamento (arts. 11 e 17).",
             "mapa": {
-              "centro": "Res. 18, 19 e 32",
+              "centro": "Encarregado (Res. 18/2024)",
               "ramos": [
                 {
-                  "t": "Encarregado (Res. 18/2024)",
+                  "t": "Indicação",
                   "f": [
-                    "PF ou PJ por ato formal",
-                    "Sem conflito de interesses",
-                    "Responsabilidade final é do agente"
+                    "Ato formal escrito, datado e assinado",
+                    "Substituto formalmente designado",
+                    "Órgão público: publicação no Diário Oficial"
                   ]
                 },
                 {
-                  "t": "Transferência (Res. 19/2024)",
+                  "t": "Quem pode ser",
                   "f": [
-                    "Cláusulas-padrão: sem alteração",
-                    "Cláusulas específicas / BCR: aprovação do CD"
+                    "Pessoa natural, interna ou externa",
+                    "Pessoa jurídica",
+                    "Sem certificação obrigatória"
                   ]
                 },
                 {
-                  "t": "Adequação UE (Res. 32/2026)",
+                  "t": "Atividades (art. 15)",
                   "f": [
-                    "Reconhece países sob o GDPR",
-                    "Dispensa autorização específica"
+                    "Receber reclamações dos titulares",
+                    "Receber comunicações da ANPD",
+                    "Orientar funcionários e contratados"
+                  ]
+                },
+                {
+                  "t": "Deveres do agente (art. 10)",
+                  "f": [
+                    "Prover meios",
+                    "Garantir autonomia técnica",
+                    "Acesso direto à alta direção"
+                  ]
+                },
+                {
+                  "t": "Conflito de interesse (art. 19)",
+                  "f": [
+                    "Pode acumular funções e atender vários agentes",
+                    "Desde que sem conflito e com pleno atendimento"
                   ]
                 }
               ]
             },
             "partes": [
               {
-                "t": "Hierarquia prática na transferência internacional",
-                "texto": "Se o país tem decisão de adequação (como a UE pela Res. 32/2026), transfere-se pelo art. 33, I. Sem adequação, usam-se garantias contratuais (cláusulas-padrão integrais, cláusulas específicas ou normas corporativas globais)."
+                "t": "Divulgação (arts. 8º e 9º)",
+                "texto": "A identidade e o contato do encarregado são divulgados de forma clara, em local de destaque, no sítio eletrônico do agente: o nome completo, se pessoa natural; o nome empresarial e o nome do responsável, se pessoa jurídica. Sem sítio eletrônico, vale outro meio de comunicação disponível."
+              },
+              {
+                "t": "Assistência ao agente (art. 16)",
+                "lista": [
+                  "registro e comunicação de incidente de segurança",
+                  "registro das operações de tratamento",
+                  "relatório de impacto à proteção de dados",
+                  "medidas de segurança e mecanismos internos de mitigação de riscos",
+                  "contratos, transferências internacionais e programa de governança em privacidade",
+                  "produtos e serviços com privacidade desde a concepção e por padrão"
+                ]
+              },
+              {
+                "t": "Conflito de interesse",
+                "atencao": "Há conflito, por exemplo, quando o encarregado acumula atividades de decisão estratégica sobre o tratamento de dados pelo controlador (art. 19, § 1º, II). O conflito é verificado no caso concreto e pode levar a sanção ao **agente de tratamento** (art. 19, § 2º)."
               }
             ]
           },
           "chave": [
-            "Encarregado: PF ou PJ, designado por ato formal, com nome e contato públicos no site.",
-            "Encarregado não responde perante a ANPD pela conformidade: a responsabilidade é do agente de tratamento.",
-            "Cláusulas-padrão do Anexo II da Res. 19/2024 só valem se adotadas sem alterações.",
-            "Res. 32/2026 reconheceu a adequação da União Europeia para tratamentos regidos pelo GDPR."
+            "Indicação por ato formal escrito, datado e assinado, apresentado à ANPD quando solicitado.",
+            "Pessoa natural, interna ou externa, ou pessoa jurídica; comunicação em português; sem certificação obrigatória.",
+            "Órgão público publica a indicação no Diário Oficial da sua esfera.",
+            "Para o operador, indicar encarregado é facultativo e conta como boa prática.",
+            "Quem responde pela conformidade é o agente de tratamento, não o encarregado."
           ],
           "armadilhas": [
-            "Exigir que o encarregado seja obrigatoriamente pessoa natural ou certificado por órgão oficial.",
-            "Permitir que as partes alterem cláusulas-padrão sem pedir aprovação de cláusulas específicas.",
-            "Estender a decisão de adequação da UE a tratamentos de defesa nacional fora do escopo do GDPR."
+            "Exigir que o encarregado seja empregado do agente ou que tenha certificação.",
+            "Dizer que o encarregado responde perante a ANPD pela conformidade do tratamento.",
+            "Afirmar que o encarregado não pode atender mais de um agente de tratamento.",
+            "Tratar a indicação de encarregado pelo operador como obrigatória."
           ],
           "artigos": [
             "res18:3",
             "res18:4",
+            "res18:5",
+            "res18:6",
             "res18:9",
             "res18:10",
+            "res18:11",
+            "res18:12",
+            "res18:13",
+            "res18:14",
+            "res18:15",
+            "res18:16",
             "res18:17",
-            "res19:9",
-            "res19:15",
-            "res32:1",
-            "res32:3",
-            "guias:2"
+            "res18:19"
           ],
           "blocos": [
-            "res-18-2024",
-            "res-19-2024",
-            "res-32-2026"
+            "res-18-2024"
           ],
           "itens": 40
+        },
+        {
+          "id": "an-transferencia",
+          "nome": "Transferência internacional (Res. 19/2024)",
+          "resumo": "Base legal e mecanismo; decisão de adequação, cláusulas-padrão, cláusulas específicas e normas corporativas globais; transparência ao titular.",
+          "simples": "Mandar dados pessoais para fora do Brasil exige duas coisas: uma base legal da LGPD e um mecanismo de transferência. O mais usado são as cláusulas-padrão aprovadas pela ANPD, que devem ser adotadas sem nenhuma alteração. Também valem a decisão de adequação de um país, as normas corporativas globais de um grupo de empresas e cláusulas específicas aprovadas caso a caso. Coleta feita direto por empresa no exterior não é transferência.",
+          "licao": {
+            "ideia": "A **Resolução CD/ANPD nº 19/2024** aprova o Regulamento de Transferência Internacional (Anexo I) e as **cláusulas-padrão contratuais** (Anexo II). Há transferência quando o **exportador** transfere dados ao **importador** (art. 5º); a **coleta internacional**, feita diretamente por agente localizado no exterior, não é transferência (art. 6º). Toda transferência precisa de **base legal** do art. 7º ou 11 da LGPD **e** de um **mecanismo válido** (art. 9º): decisão de adequação, cláusulas-padrão, normas corporativas globais, cláusulas específicas ou as demais hipóteses do art. 33 da LGPD. As cláusulas-padrão só valem se adotadas **integralmente e sem alteração** (art. 16); quem já usava cláusulas contratuais teve **12 meses** para incorporá-las (art. 2º, parágrafo único, da resolução).",
+            "mapa": {
+              "centro": "Transferência (Res. 19/2024)",
+              "ramos": [
+                {
+                  "t": "Requisitos (art. 9º)",
+                  "f": [
+                    "Base legal do art. 7º ou 11",
+                    "Mecanismo válido",
+                    "Mínimo necessário"
+                  ]
+                },
+                {
+                  "t": "Mecanismos",
+                  "f": [
+                    "Decisão de adequação",
+                    "Cláusulas-padrão (Anexo II)",
+                    "Normas corporativas globais",
+                    "Cláusulas específicas",
+                    "Art. 33, II, d, e III a IX"
+                  ]
+                },
+                {
+                  "t": "Cláusulas-padrão (art. 16)",
+                  "f": [
+                    "Adoção integral e sem alteração",
+                    "Contrato próprio ou aditivo",
+                    "12 meses para incorporar"
+                  ]
+                },
+                {
+                  "t": "Transparência (art. 17)",
+                  "f": [
+                    "Íntegra das cláusulas ao titular em 15 dias",
+                    "Página em português sobre a transferência"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Os outros mecanismos",
+                "lista": [
+                  "**cláusulas específicas** só são aprovadas quando as cláusulas-padrão não servem, por circunstâncias excepcionais comprovadas (art. 21, § 1º)",
+                  "elas devem prever a aplicação da lei brasileira e a fiscalização da ANPD (art. 21, § 2º)",
+                  "**normas corporativas globais** valem entre organizações do mesmo grupo ou conglomerado e só para as organizações e países que abrangem (art. 25)",
+                  "**decisão de adequação** reconhece que país ou organismo internacional protege dados em nível equivalente (art. 10)"
+                ]
+              },
+              {
+                "t": "Transferir não é coletar",
+                "ex": "Uma loja virtual sediada na França que coleta, ela mesma, dados de um consumidor no Brasil faz coleta internacional, não transferência; a LGPD se aplica se houver uma das hipóteses do seu art. 3º (art. 6º, parágrafo único). Já a empresa brasileira que envia sua base de clientes a um importador nos Estados Unidos faz transferência internacional."
+              }
+            ]
+          },
+          "chave": [
+            "Transferência = base legal (art. 7º ou 11) + mecanismo válido (art. 9º).",
+            "Cláusulas-padrão: adoção integral e sem alteração; demais cláusulas do contrato não podem contrariá-las.",
+            "Cláusulas específicas: excepcionais, quando as cláusulas-padrão não servem.",
+            "Normas corporativas globais: só entre organizações do mesmo grupo.",
+            "Coleta internacional não é transferência."
+          ],
+          "armadilhas": [
+            "Dizer que as cláusulas-padrão podem ser adaptadas pelas partes.",
+            "Achar que o mecanismo de transferência dispensa a base legal.",
+            "Tratar coleta direta por empresa no exterior como transferência internacional.",
+            "Usar normas corporativas globais para transferir a empresas fora do grupo."
+          ],
+          "artigos": [
+            "res19:5",
+            "res19:6",
+            "res19:9",
+            "res19:10",
+            "res19:15",
+            "res19:16",
+            "res19:17",
+            "res19:21",
+            "res19:25",
+            "res19r:2"
+          ],
+          "blocos": [
+            "res-19-2024"
+          ],
+          "itens": 40
+        },
+        {
+          "id": "an-adequacao-ue",
+          "nome": "Adequação da União Europeia (Res. 32/2026)",
+          "resumo": "Decisão de adequação da UE: alcance, exclusões, monitoramento contínuo, reavaliação em 4 anos e convivência com os demais mecanismos.",
+          "simples": "Em 2026 a ANPD reconheceu que a União Europeia protege dados pessoais em nível adequado ao da LGPD. Com isso, dados podem ir para os países do bloco, para Islândia, Liechtenstein e Noruega e para os órgãos da própria União Europeia sem cláusulas contratuais. A decisão não vale para segurança pública, defesa e investigação penal, e será reavaliada em quatro anos.",
+          "licao": {
+            "ideia": "A **Resolução CD/ANPD nº 32/2026** é uma **decisão de adequação** (art. 33, I, da LGPD): reconhece a **União Europeia** como organismo internacional com proteção de dados adequada (art. 1º). Alcança os **Estados-membros da UE**, os três países da **AELC que integram o Espaço Econômico Europeu** (Islândia, Liechtenstein e Noruega) e as **instituições, órgãos e agências da UE**. Não se aplica a transferências para fins exclusivos de **segurança pública, defesa nacional, segurança do Estado ou investigação e repressão de infrações penais** (art. 2º). A ANPD monitora o nível de proteção continuamente e **reavalia a decisão em 4 anos** (art. 4º); os demais mecanismos do art. 33 seguem disponíveis (art. 5º).",
+            "mapa": {
+              "centro": "Adequação da UE (Res. 32/2026)",
+              "ramos": [
+                {
+                  "t": "Alcance (art. 1º)",
+                  "f": [
+                    "Estados-membros da UE",
+                    "Islândia, Liechtenstein e Noruega (EEE)",
+                    "Instituições, órgãos e agências da UE"
+                  ]
+                },
+                {
+                  "t": "Exclusões (art. 2º)",
+                  "f": [
+                    "Segurança pública",
+                    "Defesa nacional e segurança do Estado",
+                    "Investigação e repressão penal"
+                  ]
+                },
+                {
+                  "t": "Acompanhamento",
+                  "f": [
+                    "Monitoramento contínuo (art. 4º)",
+                    "Reavaliação em 4 anos",
+                    "Cooperação com a Comissão Europeia (art. 3º)"
+                  ]
+                },
+                {
+                  "t": "Efeito",
+                  "f": [
+                    "Transferência pelo art. 33, I",
+                    "Outros mecanismos continuam válidos (art. 5º)"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Como a adequação se encaixa",
+                "texto": "Decisão de adequação é o mecanismo do art. 33, I, da LGPD: a ANPD avalia o nível de proteção do país ou do organismo internacional (Res. 19/2024, arts. 10 a 13). Reconhecida a adequação, a transferência dispensa cláusulas contratuais, mas continua precisando de base legal do art. 7º ou 11 e de finalidade legítima, específica e informada ao titular (Res. 19/2024, art. 9º).",
+                "atencao": "A exclusão do art. 2º é para fins **exclusivos** de segurança pública, defesa, segurança do Estado ou persecução penal; transferências com outras finalidades para os mesmos destinos seguem amparadas."
+              }
+            ]
+          },
+          "chave": [
+            "A UE foi reconhecida como organismo internacional com proteção adequada, pelo art. 33, I, da LGPD.",
+            "Alcança a UE, Islândia, Liechtenstein e Noruega e os órgãos e agências da UE.",
+            "Não vale para fins exclusivos de segurança pública, defesa, segurança do Estado e persecução penal.",
+            "Reavaliação em 4 anos; monitoramento contínuo.",
+            "Adequação não dispensa base legal."
+          ],
+          "armadilhas": [
+            "Incluir a Suíça ou o Reino Unido no alcance da decisão.",
+            "Dizer que, com a adequação, os outros mecanismos de transferência para a UE deixam de valer.",
+            "Estender a decisão a transferências com fins exclusivos de segurança pública ou investigação penal.",
+            "Afirmar que a decisão de adequação dispensa a base legal da LGPD."
+          ],
+          "artigos": [
+            "res32:1",
+            "res32:2",
+            "res32:3",
+            "res32:4",
+            "res32:5",
+            "res19:10"
+          ],
+          "blocos": [
+            "res-32-2026"
+          ],
+          "itens": 25
+        },
+        {
+          "id": "an-planejamento",
+          "nome": "Mapa de Temas 2026-2027 e Agenda Regulatória (Res. 30 e 31/2025)",
+          "resumo": "Onde a ANPD vai fiscalizar e o que vai regular: os quatro temas prioritários do biênio, o ciclo de monitoramento e as fases da Agenda Regulatória.",
+          "simples": "A ANPD planeja onde vai fiscalizar e o que vai regular. O Mapa de Temas Prioritários de 2026-2027 aponta quatro focos: direitos dos titulares, crianças e adolescentes no ambiente digital, Poder Público e inteligência artificial. A Agenda Regulatória 2025-2026 lista as normas em preparo, divididas em fases, como direitos dos titulares, relatório de impacto, biometria e IA.",
+          "licao": {
+            "ideia": "O **Mapa de Temas Prioritários** é instrumento de monitoramento da Res. 1/2021 (art. 19), feito com os critérios de **risco, gravidade, atualidade e relevância** (art. 22). Pela **Res. CD/ANPD nº 30/2025**, o Mapa de **2026-2027** tem quatro temas: **direitos dos titulares**, **crianças e adolescentes no ambiente digital** (LGPD e Lei 15.211/2025), **Poder Público** e **IA e tecnologias emergentes**. Os temas do Mapa têm **prioridade** sobre pedidos de fiscalização de matérias fora dele (art. 1º, § 2º), e o **ciclo de monitoramento passa a ser bianual** (art. 2º). A **Agenda Regulatória 2025-2026**, alterada pela **Res. nº 31/2025**, tem 19 itens distribuídos em 4 fases.",
+            "mapa": {
+              "centro": "Planejamento da ANPD",
+              "ramos": [
+                {
+                  "t": "Mapa de Temas 2026-2027",
+                  "f": [
+                    "Direitos dos titulares",
+                    "Crianças e adolescentes (Lei 15.211/2025)",
+                    "Poder Público",
+                    "IA e tecnologias emergentes"
+                  ]
+                },
+                {
+                  "t": "Efeitos (Res. 30)",
+                  "f": [
+                    "Prioridade sobre pedidos fora do Mapa",
+                    "Ciclo de monitoramento bianual"
+                  ]
+                },
+                {
+                  "t": "Agenda, fase 1",
+                  "f": [
+                    "Direitos dos titulares e RIPD",
+                    "Compartilhamento pelo Poder Público",
+                    "Biometria e segurança",
+                    "IA e alto risco",
+                    "Organizações religiosas e anonimização"
+                  ]
+                },
+                {
+                  "t": "Agenda, fases 2 a 4",
+                  "f": [
+                    "Fase 2: PNPD, agregadores, saúde, ECA Digital, aferição de idade",
+                    "Fase 3: processo normativo",
+                    "Fase 4: boas práticas, consentimento e proteção do crédito"
+                  ]
+                }
+              ]
+            },
+            "partes": [
+              {
+                "t": "Critérios do Mapa (Res. 1/2021, art. 22)",
+                "lista": [
+                  "risco",
+                  "gravidade",
+                  "atualidade",
+                  "relevância"
+                ],
+                "mnemo": "Risco, gravidade, atualidade e relevância: os quatro filtros que levam um tema ao Mapa."
+              },
+              {
+                "t": "Enunciado CD/ANPD nº 1/2023",
+                "texto": "Dados de crianças e adolescentes podem ser tratados com base em qualquer hipótese do art. 7º ou do art. 11 da LGPD, desde que observado e prevalecente o seu melhor interesse, avaliado no caso concreto, nos termos do art. 14."
+              }
+            ]
+          },
+          "chave": [
+            "Mapa de Temas 2026-2027: direitos dos titulares, crianças e adolescentes, Poder Público e IA.",
+            "Temas do Mapa têm prioridade sobre pedidos de fiscalização fora dele.",
+            "Ciclo de monitoramento: bianual pela Res. 30/2025 (a Res. 1/2021 o previa anual, salvo decisão do Conselho Diretor).",
+            "Agenda Regulatória 2025-2026: 19 itens em 4 fases."
+          ],
+          "armadilhas": [
+            "Dizer que o Mapa de Temas é anual: é bianual.",
+            "Confundir o Mapa de Temas (fiscalização) com a Agenda Regulatória (normas a editar).",
+            "Achar que pedido de fiscalização sobre tema fora do Mapa tem a mesma prioridade."
+          ],
+          "artigos": [
+            "res30:1",
+            "res30:2",
+            "res30:Anexo",
+            "res31:1",
+            "res31:Anexo",
+            "res1:19",
+            "res1:21",
+            "res1:22",
+            "res1:23",
+            "enun1:1"
+          ],
+          "blocos": [
+            "regulacao-teoria",
+            "res-1-2021",
+            "lgpd-17-22",
+            "lgpd-1-4-14"
+          ],
+          "soArtigos": true,
+          "itens": 25
         },
         {
           "id": "an-guias-orientativos",
