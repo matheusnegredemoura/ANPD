@@ -1,0 +1,178 @@
+bloco: portugues
+// Texto original escrito para o banco (inteligência artificial nas decisões da administração pública), com itens de
+// interpretação, coesão, semântica, pontuação, concordância, crase, sintaxe, verbos e reescrita.
+
+apoio_PT16A: A inteligência artificial chegou à administração pública com a promessa de tornar mais rápidas decisões que antes dependiam de longas filas. Sistemas treinados com grandes volumes de dados já ajudam a selecionar contribuintes para fiscalização, a priorizar pedidos de benefícios e a detectar fraudes. Os ganhos são reais, mas não vêm sozinhos.
+Um algoritmo aprende com o passado, e o passado nem sempre é justo. Se os registros que o alimentam refletem desigualdades antigas, o sistema tende a reproduzi-las, agora com a aparência de neutralidade que os números costumam emprestar. O risco não está apenas no erro, mas na dificuldade de percebê-lo: quando ninguém sabe explicar por que um pedido foi negado, também ninguém consegue contestá-lo.
+Por isso, a discussão sobre o uso dessas ferramentas no Estado não se resume à eficiência. Ela envolve transparência, possibilidade de revisão humana e responsabilidade de quem decide implantá-las. Uma máquina pode sugerir; a decisão que afeta direitos, contudo, precisa continuar tendo um responsável.
+
+=== pt16-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT16A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do texto que a falta de explicação sobre uma decisão automatizada compromete a possibilidade de contestá-la.
+comentario: Certo. No segundo parágrafo: “quando ninguém sabe explicar por que um pedido foi negado, também ninguém consegue contestá-lo”.
+
+=== pt16-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT16A
+armadilha: interpretacao
+dif: 2
+enunciado: O autor se opõe ao uso da inteligência artificial pela administração pública, por considerar ilusórios os ganhos que ela promete.
+comentario: Errado. O primeiro parágrafo afirma que “Os ganhos são reais”. O texto não rejeita o uso; defende que ele venha acompanhado de transparência, revisão humana e responsabilidade.
+
+=== pt16-03
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT16A
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, a aparência de neutralidade associada aos números pode encobrir a reprodução de desigualdades presentes nos dados.
+comentario: Certo. O sistema tende a reproduzir desigualdades antigas “agora com a aparência de neutralidade que os números costumam emprestar” (segundo parágrafo).
+
+=== pt16-04
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT16A
+armadilha: extrapolacao
+dif: 2
+enunciado: O texto afirma que os sistemas de inteligência artificial usados pelo Estado erram com mais frequência que os servidores públicos.
+comentario: Errado. O texto não compara a frequência de erros de máquinas e servidores. Diz que o risco “não está apenas no erro”, mas na dificuldade de percebê-lo.
+
+=== pt16-05
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT16A
+armadilha: literal
+dif: 2
+enunciado: No segundo parágrafo, o pronome em “reproduzi-las” retoma a expressão “desigualdades antigas”.
+comentario: Certo. O sistema tende a reproduzir as desigualdades antigas refletidas nos registros. O pronome feminino plural concorda com o referente.
+
+=== pt16-06
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT16A
+armadilha: literal
+dif: 2
+enunciado: No último parágrafo, o pronome em “implantá-las” retoma os termos “transparência” e “responsabilidade”.
+comentario: Errado. O pronome retoma “essas ferramentas”, mencionadas no início do parágrafo: quem decide implantar as ferramentas de inteligência artificial. Transparência e responsabilidade não são implantadas no sentido do texto.
+
+=== pt16-07
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT16A
+armadilha: interpretacao
+dif: 2
+enunciado: Com a oração “mas não vêm sozinhos” (primeiro parágrafo), o autor sugere que os ganhos da inteligência artificial vêm acompanhados de riscos.
+comentario: Certo. A oração adversativa anuncia o que o segundo parágrafo desenvolve: a reprodução de desigualdades e a dificuldade de perceber e contestar erros.
+
+=== pt16-08
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT16A
+armadilha: literal
+dif: 2
+enunciado: A expressão “Por isso”, que inicia o último parágrafo, introduz uma oposição ao que foi dito no parágrafo anterior.
+comentario: Errado. “Por isso” tem valor conclusivo: dos riscos expostos no segundo parágrafo decorre que a discussão não se resume à eficiência.
+
+=== pt16-09
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT16A
+armadilha: literal
+dif: 3
+enunciado: No último período do texto, o ponto e vírgula poderia ser substituído por vírgula seguida de mas, com a supressão de “contudo” e das vírgulas que o isolam, sem prejuízo da correção gramatical e do sentido: Uma máquina pode sugerir, mas a decisão que afeta direitos precisa continuar tendo um responsável.
+comentario: Certo. O ponto e vírgula separa orações com relação adversativa, marcada por “contudo”. A conjunção “mas”, precedida de vírgula, expressa a mesma oposição; manter “contudo” junto de “mas” seria redundante.
+
+=== pt16-10
+gab: E
+tema: pt-pontuacao
+ref: texto
+apoio: @PT16A
+armadilha: literal
+dif: 2
+enunciado: No segundo parágrafo, os dois-pontos empregados depois de “percebê-lo” introduzem uma enumeração de exemplos de erros cometidos por algoritmos.
+comentario: Errado. Os dois-pontos introduzem uma explicação: por que a dificuldade de perceber o erro é um risco (sem explicação, não há como contestar). Não há enumeração.
+
+=== pt16-11
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @PT16A
+armadilha: literal
+dif: 2
+enunciado: Se o termo “Sistemas” (primeiro parágrafo) fosse substituído por O sistema, as formas “treinados” e “ajudam” deveriam passar, respectivamente, a treinado e ajuda.
+comentario: Certo. O particípio concorda com o substantivo a que se refere, e o verbo concorda com o núcleo do sujeito: “O sistema treinado com grandes volumes de dados já ajuda”.
+
+=== pt16-12
+gab: E
+tema: pt-concordancia
+ref: texto
+apoio: @PT16A
+armadilha: literal
+dif: 2
+enunciado: Na oração “Os ganhos são reais, mas não vêm sozinhos”, a forma verbal “vêm” poderia ser grafada sem acento, sem prejuízo da correção gramatical.
+comentario: Errado. O acento circunflexo diferencia a terceira pessoa do plural (“eles vêm”) da do singular (“ele vem”). Como o sujeito é “Os ganhos”, o acento é obrigatório.
+
+=== pt16-13
+gab: E
+tema: pt-crase
+ref: texto
+apoio: @PT16A
+armadilha: literal
+dif: 2
+enunciado: Em “chegou à administração pública” (primeiro parágrafo), o sinal indicativo de crase poderia ser suprimido sem prejuízo da correção gramatical.
+comentario: Errado. O verbo “chegar” rege a preposição “a”, e “administração” admite o artigo “a”. A fusão é obrigatória: “chegou à administração”.
+
+=== pt16-14
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT16A
+armadilha: literal
+dif: 2
+enunciado: Em “quando ninguém sabe explicar por que um pedido foi negado”, a grafia “por que”, separada e sem acento, está correta, pois a expressão equivale a por qual motivo.
+comentario: Certo. Na interrogativa indireta, usa-se “por que” separado e sem acento. “Porquê” acentuado é substantivo (“o porquê”), e “porque” junto é conjunção causal ou explicativa.
+
+=== pt16-15
+gab: E
+tema: pt-reescrita
+ref: texto
+apoio: @PT16A
+armadilha: literal
+dif: 3
+enunciado: O trecho “Se os registros que o alimentam refletem desigualdades antigas” poderia ser reescrito como Caso os registros que o alimentam refletem desigualdades antigas, sem prejuízo da correção gramatical.
+comentario: Errado. A conjunção “caso” exige o verbo no subjuntivo: “Caso os registros que o alimentam reflitam desigualdades antigas”. Com “se”, o presente do indicativo é correto.
+
+=== pt16-16
+gab: C
+tema: pt-verbos
+ref: texto
+apoio: @PT16A
+armadilha: literal
+dif: 1
+enunciado: No segundo parágrafo, a forma verbal “costumam” indica ação habitual, frequente.
+comentario: Certo. “Costumar” expressa hábito: os números habitualmente emprestam aparência de neutralidade ao que mostram.
+
+=== pt16-17
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT16A
+armadilha: literal
+dif: 2
+enunciado: Na oração “Uma máquina pode sugerir”, o sujeito é indeterminado, pois não se sabe qual máquina realiza a ação.
+comentario: Errado. O sujeito é simples: “Uma máquina”. O artigo indefinido indica uma máquina qualquer, mas o sujeito está expresso na oração. Sujeito indeterminado ocorre, por exemplo, com verbo na terceira pessoa do plural sem referente (“Disseram que...”).
