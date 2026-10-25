@@ -1,0 +1,212 @@
+// LGPD, lote X20: casos com cenários novos nos arts. 12, 13, 15, 46, 50, 55-K e 55-L (anonimização e perfil
+// comportamental, pesquisa em saúde pública e pseudonimização, término do tratamento, segurança desde a concepção,
+// boas práticas e programa de governança, competência sancionatória e receitas da ANPD). Conferidas com fontes/lgpd.txt.
+
+=== lx20-01
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 12
+trecho: salvo quando o processo de anonimização ao qual foram submetidos for revertido, utilizando exclusivamente meios próprios, ou quando, com esforços razoáveis, puder ser revertido
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa divulgou base “anonimizada” de viagens de aplicativo, mas pesquisadores conseguiram, cruzando-a com dados públicos e em poucas horas, identificar passageiros. Assertiva: esses dados devem ser tratados como dados pessoais.
+comentario: Certo. Pelo art. 12, o dado anonimizado deixa de ser pessoal, salvo se a anonimização for revertida ou puder sê-lo com esforços razoáveis. O § 1º manda considerar fatores objetivos, como custo e tempo, segundo as tecnologias disponíveis.
+
+=== lx20-02
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 12
+trecho: Poderão ser igualmente considerados como dados pessoais, para os fins desta Lei, aqueles utilizados para formação do perfil comportamental de determinada pessoa natural, se identificada
+armadilha: extrapolacao
+dif: 3
+enunciado: Dados usados para formar o perfil comportamental de uma pessoa natural identificada nunca são dados pessoais, se tiverem passado previamente por processo de anonimização.
+comentario: Errado. O art. 12, § 2º, permite considerar como pessoais os dados usados para formar o perfil comportamental de pessoa natural identificada. Se o perfil se refere a pessoa identificada, a finalidade contradiz a própria anonimização.
+
+=== lx20-03
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 12
+trecho: A determinação do que seja razoável deve levar em consideração fatores objetivos, tais como custo e tempo necessários para reverter o processo de anonimização, de acordo com as tecnologias disponíveis
+armadilha: rol
+dif: 3
+enunciado: Para avaliar se a anonimização pode ser revertida com esforços razoáveis, a LGPD considera apenas o custo financeiro da reversão, sendo irrelevantes o tempo necessário e as tecnologias disponíveis.
+comentario: Errado. O art. 12, § 1º, manda considerar fatores objetivos “tais como custo e tempo”, de acordo com as tecnologias disponíveis, e a utilização exclusiva de meios próprios. O rol é exemplificativo e não se limita ao custo.
+
+=== lx20-04
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 13
+trecho: senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro
+armadilha: comparacao
+dif: 3
+enunciado: Situação hipotética: um hospital trocou o nome dos pacientes por códigos, e a tabela que liga cada código ao paciente fica guardada em servidor separado e protegido. Assertiva: os dados codificados estão anonimizados e deixam de ser pessoais.
+comentario: Errado. Isso é pseudonimização (art. 13, § 4º): o dado perde a associação ao indivíduo, salvo pelo uso de informação adicional mantida separadamente. Como a reidentificação é possível com a tabela, os dados continuam pessoais. A pseudonimização é medida de segurança, não anonimização.
+
+=== lx20-05
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 13
+trecho: A divulgação dos resultados ou de qualquer excerto do estudo ou da pesquisa de que trata o caput deste artigo em nenhuma hipótese poderá revelar dados pessoais
+armadilha: absoluto
+dif: 2
+enunciado: Em estudo de saúde pública feito por órgão de pesquisa com acesso a bases de dados pessoais, a divulgação dos resultados ou de qualquer trecho da pesquisa não pode, em nenhuma hipótese, revelar dados pessoais.
+comentario: Certo. Art. 13, § 1º. Os dados são tratados exclusivamente dentro do órgão, só para a pesquisa, em ambiente controlado e seguro, com anonimização ou pseudonimização sempre que possível (caput).
+
+=== lx20-06
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 13
+trecho: O órgão de pesquisa será o responsável pela segurança da informação prevista no caput deste artigo, não permitida, em circunstância alguma, a transferência dos dados a terceiro
+armadilha: excecao
+dif: 2
+enunciado: Situação hipotética: uma fundação de pesquisa, com acesso a dados de saúde para estudo epidemiológico, quer repassá-los a uma universidade parceira para acelerar a análise. Assertiva: o repasse é permitido, desde que a parceira assine termo de confidencialidade.
+comentario: Errado. O art. 13, § 2º, torna o órgão de pesquisa responsável pela segurança e não permite, em circunstância alguma, a transferência dos dados a terceiro. O termo de confidencialidade não afasta a vedação.
+
+=== lx20-07
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 15
+trecho: comunicação do titular, inclusive no exercício de seu direito de revogação do consentimento conforme disposto no § 5º do art. 8º desta Lei, resguardado o interesse público
+armadilha: rol
+dif: 2
+enunciado: O término do tratamento ocorre, entre outras hipóteses, quando o titular o comunica, inclusive ao revogar o consentimento, resguardado o interesse público, e quando a ANPD o determina em razão de violação à LGPD.
+comentario: Certo. Art. 15, III e IV. As outras hipóteses são o alcance da finalidade ou a perda de necessidade dos dados (I) e o fim do período de tratamento (II). Terminado o tratamento, os dados são eliminados, salvo as conservações do art. 16.
+
+=== lx20-08
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 15
+trecho: verificação de que a finalidade foi alcançada ou de que os dados deixaram de ser necessários ou pertinentes ao alcance da finalidade específica almejada
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa coletou currículos para uma vaga já preenchida e quer mantê-los indefinidamente, pois “podem ser úteis um dia”. Assertiva: como a LGPD não fixa prazo de guarda, o tratamento continua legítimo.
+comentario: Errado. Alcançada a finalidade, ou deixando os dados de ser necessários, o tratamento termina (art. 15, I) e os dados devem ser eliminados, salvo as hipóteses de conservação do art. 16. A possível utilidade futura não é finalidade específica (art. 6º, I).
+
+=== lx20-09
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 46
+trecho: As medidas de que trata o caput deste artigo deverão ser observadas desde a fase de concepção do produto ou do serviço até a sua execução
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma startup decidiu desenvolver seu aplicativo de saúde primeiro e só depois pensar em segurança, antes do lançamento. Assertiva: a estratégia contraria a LGPD, que exige medidas de segurança desde a concepção do produto ou serviço.
+comentario: Certo. Art. 46, § 2º, base da privacidade e da segurança desde a concepção (privacy by design). Com dados de saúde, sensíveis, a exigência pesa ainda mais (§ 1º).
+
+=== lx20-10
+bloco: lgpd-46-51
+gab: E
+tema: pd-seguranca
+ref: lgpd 46
+trecho: A autoridade nacional poderá dispor sobre padrões técnicos mínimos para tornar aplicável o disposto no caput deste artigo
+armadilha: sujeito
+dif: 2
+enunciado: A definição de padrões técnicos mínimos de segurança para a proteção de dados pessoais cabe exclusivamente ao Comitê Gestor da Internet, por se tratar de matéria técnica de redes.
+comentario: Errado. O art. 46, § 1º, atribui à ANPD dispor sobre padrões técnicos mínimos, considerando a natureza das informações, as características do tratamento, o estado da tecnologia, os dados sensíveis e os princípios do art. 6º.
+
+=== lx20-11
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 46
+trecho: aptas a proteger os dados pessoais de acessos não autorizados e de situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou qualquer forma de tratamento inadequado ou ilícito
+armadilha: conceito
+dif: 2
+enunciado: O dever de segurança da LGPD abrange tanto situações ilícitas, como ataques de terceiros, quanto situações acidentais, como a perda de dados por falha de equipamento ou exclusão por engano.
+comentario: Certo. O art. 46 menciona expressamente situações acidentais ou ilícitas de destruição, perda, alteração ou comunicação. Por isso o backup e o controle de acesso interno também integram o dever de segurança.
+
+=== lx20-12
+bloco: lgpd-46-51
+gab: E
+tema: pd-seguranca
+ref: lgpd 50
+trecho: individualmente ou por meio de associações, poderão formular regras de boas práticas e de governança
+armadilha: sujeito
+dif: 2
+enunciado: As regras de boas práticas e de governança previstas na LGPD só podem ser formuladas individualmente por cada controlador, vedada sua elaboração por associações setoriais.
+comentario: Errado. O art. 50 permite que controladores e operadores formulem essas regras individualmente ou por meio de associações. As regras devem ser publicadas e atualizadas periodicamente e podem ser reconhecidas e divulgadas pela ANPD (§ 3º).
+
+=== lx20-13
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 50
+trecho: seja aplicável a todo o conjunto de dados pessoais que estejam sob seu controle, independentemente do modo como se realizou sua coleta
+armadilha: rol
+dif: 3
+enunciado: O programa de governança em privacidade deve, entre outros requisitos mínimos, aplicar-se a todo o conjunto de dados pessoais sob controle do controlador, qualquer que tenha sido o modo de coleta, e contar com planos de resposta a incidentes e remediação.
+comentario: Certo. Art. 50, § 2º, I, b e g. O programa também deve ser adaptado à estrutura e à escala das operações, basear-se em avaliação sistemática de riscos, integrar-se à governança geral e ser atualizado continuamente.
+
+=== lx20-14
+bloco: lgpd-46-51
+gab: E
+tema: pd-seguranca
+ref: lgpd 50
+trecho: demonstrar a efetividade de seu programa de governança em privacidade quando apropriado e, em especial, a pedido da autoridade nacional
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: em fiscalização, a ANPD pediu a uma empresa que demonstrasse a efetividade de seu programa de governança, e ela respondeu que bastava apresentar o documento que o instituiu. Assertiva: a resposta é suficiente, porque a LGPD exige apenas que o programa exista formalmente.
+comentario: Errado. O art. 50, § 2º, II, prevê demonstrar a efetividade do programa, em especial a pedido da ANPD. Isso se liga ao princípio da responsabilização e prestação de contas (art. 6º, X), que exige demonstrar a eficácia das medidas.
+
+=== lx20-15
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 50
+trecho: tenha o objetivo de estabelecer relação de confiança com o titular, por meio de atuação transparente e que assegure mecanismos de participação do titular
+armadilha: conceito
+dif: 2
+enunciado: Entre os requisitos mínimos do programa de governança em privacidade está o objetivo de criar relação de confiança com o titular, por meio de atuação transparente e de mecanismos que assegurem a participação dele.
+comentario: Certo. Art. 50, § 2º, I, e. A adoção de boas práticas e de política de governança também é critério para a dosimetria das sanções (art. 52, § 1º, IX).
+
+=== lx20-16
+bloco: lgpd-55
+gab: C
+tema: pd-anpd
+ref: lgpd 55-K
+trecho: A aplicação das sanções previstas nesta Lei compete exclusivamente à ANPD
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: um Procon estadual pretende aplicar a uma loja a multa simples prevista na LGPD por vazamento de dados de consumidores. Assertiva: a aplicação das sanções da LGPD compete exclusivamente à ANPD, embora o Procon possa aplicar as sanções do Código de Defesa do Consumidor.
+comentario: Certo. O art. 55-K reserva à ANPD a aplicação das sanções da LGPD, e suas competências prevalecem, quanto à proteção de dados, sobre as de outros órgãos. O Procon continua a aplicar a legislação consumerista (LGPD, art. 45, e art. 52, § 2º), em atuação articulada (art. 55-K, parágrafo único).
+
+=== lx20-17
+bloco: lgpd-55
+gab: E
+tema: pd-anpd
+ref: lgpd 55-K
+trecho: será o órgão central de interpretação desta Lei e do estabelecimento de normas e diretrizes para a sua implementação
+armadilha: sujeito
+dif: 2
+enunciado: A interpretação da LGPD na esfera administrativa é compartilhada em pé de igualdade entre a ANPD e as demais agências reguladoras, cada uma em seu setor, sem órgão central.
+comentario: Errado. O art. 55-K, parágrafo único, faz da ANPD o órgão central de interpretação da LGPD e de estabelecimento de normas e diretrizes para sua implementação, articulando-se com os outros órgãos com competências afins.
+
+=== lx20-18
+bloco: lgpd-55
+gab: C
+tema: pd-anpd
+ref: lgpd 55-L
+trecho: os recursos provenientes de acordos, convênios ou contratos celebrados com entidades, organismos ou empresas, públicos ou privados, nacionais ou internacionais
+armadilha: rol
+dif: 2
+enunciado: Entre as receitas da ANPD estão as dotações orçamentárias, as doações e os recursos de acordos, convênios ou contratos com entidades públicas ou privadas, nacionais ou internacionais.
+comentario: Certo. Art. 55-L, I, II e VI. Também são receitas o produto da venda ou aluguel de seus bens (III), as aplicações financeiras (IV) e a venda de publicações, material técnico, dados e informações (VII).
+
+=== lx20-19
+bloco: lgpd-55
+gab: E
+tema: pd-anpd
+ref: lgpd 55-L
+trecho: o produto da venda de publicações, material técnico, dados e informações, inclusive para fins de licitação pública
+armadilha: rol
+dif: 3
+enunciado: A ANPD é mantida exclusivamente por dotações do orçamento geral da União, sendo-lhe vedado obter receita com a venda de publicações ou material técnico.
+comentario: Errado. O art. 55-L inclui, entre as receitas, o produto da venda de publicações, material técnico, dados e informações (VII), além de doações, convênios, aluguel de bens e aplicações financeiras.
