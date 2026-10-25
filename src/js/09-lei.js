@@ -289,7 +289,9 @@ function renderLei() {
     '<input class="busca" id="busca-lei" type="search" placeholder="Buscar em todas as normas (ex.: quinze dias, encarregado, Senado)" value="' + esc(UI.busca) + '" aria-label="Buscar em todas as normas">' +
     '<div class="chips"><button class="chip" data-acao="ranking" aria-pressed="' + (UI.ranking && !UI.termometro) + '">Mais importantes primeiro</button><button class="chip" data-acao="ler-tudo">Ler do início</button><button class="chip" data-acao="toggle-termometro" aria-pressed="' + !!UI.termometro + '">Termômetro de Vulnerabilidades</button></div>' +
     '<p class="pequeno mudo">Estrelas: quanto o artigo pesa no banco. Pontos: acertos e erros. Borda termossensível: Crítico, Atenção, Dominado.</p></div>';
-  const diagArts = arts.map((a) => diagnosticoArtigo(a.k));
+  // Um diagnóstico por artigo, reaproveitado no termômetro, no ranking de vulnerabilidades e na grade de artigos
+  const diag = new Map(arts.map((a) => [a.k, diagnosticoArtigo(a.k)]));
+  const diagArts = [...diag.values()];
   const vermArts = diagArts.filter((d) => d.nivel === 'vermelho');
   const amarArts = diagArts.filter((d) => d.nivel === 'amarelo');
   const verdArts = diagArts.filter((d) => d.nivel === 'verde');
@@ -313,7 +315,7 @@ function renderLei() {
     '</div></div>';
   if (UI.busca.trim().length >= 3) html += '<div class="resultado-busca">' + buscarLei(UI.busca) + '</div>';
   else if (UI.termometro) {
-    const diagList = arts.map((a) => ({ a, d: diagnosticoArtigo(a.k) }))
+    const diagList = arts.map((a) => ({ a, d: diag.get(a.k) }))
                          .filter((x) => x.d.tot > 0)
                          .sort((x, y) => {
                            const ordem = { vermelho: 0, amarelo: 1, neutro: 2, verde: 3 };
@@ -364,7 +366,7 @@ function renderLei() {
       const pontos = qs.slice(0, 6).map((q) => { const r = rec(q.id); return '<i class="' + (!r || r[0] < 0 ? 'nv' : r[0] >= 3 ? 'ok' : 'no') + '"></i>'; }).join('');
       const vetado = /\((VETADO|Revogad[oa])/.test(a.texto.split('\n')[0]);
       const est = estrelas(a.k);
-      const dArt = diagnosticoArtigo(a.k);
+      const dArt = diag.get(a.k);
       const termoCls = dArt.nivel === 'vermelho' ? ' termo-verm' : dArt.nivel === 'amarelo' ? ' termo-amar' : dArt.nivel === 'verde' ? ' termo-verd' : '';
       html += '<button class="art-btn' + (S.perfil.lidos && S.perfil.lidos[a.k] ? ' lido' : '') + termoCls + '" data-acao="abrir-art" data-art="' + esc(a.k) + '"' + (vetado ? ' style="opacity:.5"' : '') + ' aria-label="' + esc(rotuloArt(a.k)) + '" title="' + esc(rotuloArt(a.k)) + (dArt.taxa != null ? ' · ' + dArt.taxa + '% acerto' : '') + '">' + esc(a.id) + (est ? '<span class="estrelas">' + '★'.repeat(est) + '</span>' : '') + '<span class="pontos">' + pontos + '</span></button>';
     }
