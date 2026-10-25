@@ -178,10 +178,10 @@ comentario: Errado. A ISO 22301 trata do sistema de gestão de continuidade de n
 gab: C
 tema: sg-riscos
 ref: doutrina continuidade de negócios
-armadilha: conceito
+armadilha: comparacao
 dif: 2
-enunciado: A análise de impacto nos negócios (BIA) identifica as atividades críticas e os efeitos de sua interrupção ao longo do tempo, subsidiando a definição dos objetivos de tempo e de ponto de recuperação.
-comentario: Certo. A BIA indica quanto tempo cada processo pode ficar parado (RTO) e quanta perda de dados é tolerável (RPO). Esses objetivos orientam as estratégias de continuidade e de backup.
+enunciado: Na recuperação de desastres, o site quente (hot site) é instalação alternativa já equipada, com sistemas e dados atualizados, que permite retomar as operações em pouco tempo, ao passo que o site frio (cold site) oferece apenas a infraestrutura básica.
+comentario: Certo. Quanto menor o tempo de recuperação exigido (RTO), mais preparado e caro precisa ser o local alternativo. O site morno (warm site) fica no meio: tem parte dos equipamentos, mas exige configuração e carga de dados.
 
 === sx5-21
 gab: E
