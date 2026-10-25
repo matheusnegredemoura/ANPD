@@ -1,0 +1,172 @@
+bloco: ingles
+// Original texts written for the bank (breach notification and notice fatigue; open government data and
+// re-identification), with comprehension, vocabulary, reference and grammar items. Comentários em português.
+
+apoio_EN17A: When a company suffers a data breach, the law in many countries requires it to tell the people affected. The rule seems simple, but its effects depend on how the message is written. A notice full of technical terms and legal caveats may satisfy the regulator while leaving customers no wiser about what to do next.
+There is also a risk of fatigue. People who receive warnings every few months may start to ignore them, much as drivers stop noticing a road sign they pass every day. Regulators have therefore begun to insist that notices be short, specific and accompanied by practical advice, such as changing passwords or monitoring bank statements.
+None of this replaces prevention. A well-written notice limits the damage; it does not undo it.
+
+apoio_EN17B: Governments collect vast amounts of information, from bus timetables to hospital waiting lists. Publishing this material in open formats allows journalists, researchers and entrepreneurs to find uses that officials never imagined. Several successful apps were built entirely on public transport data released by city councils.
+Openness, however, must be balanced against privacy. Datasets that look harmless on their own can reveal sensitive details when combined with others. For this reason, agencies are encouraged to assess the risk of re-identification before releasing data about individuals, even when names have been removed.
+The aim is not to publish less, but to publish wisely.
+
+=== en17-01
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN17A
+comando: Considerando as ideias e os aspectos linguísticos dos textos precedentes, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the first text, a breach notice may comply with the regulator’s requirements and still fail to help customers understand what to do.
+comentario: Certo. Primeiro parágrafo: um aviso cheio de termos técnicos e ressalvas jurídicas “may satisfy the regulator while leaving customers no wiser about what to do next”.
+
+=== en17-02
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN17A
+armadilha: interpretacao
+dif: 2
+enunciado: The first text states that frequent breach warnings make people more attentive to each new notice.
+comentario: Errado. O texto aponta o risco de fadiga: quem recebe avisos com frequência “may start to ignore them”, como motoristas que deixam de notar uma placa.
+
+=== en17-03
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN17A
+armadilha: interpretacao
+dif: 2
+enunciado: According to the first text, regulators now want breach notices to be short and specific and to include practical advice.
+comentario: Certo. Segundo parágrafo: notices “short, specific and accompanied by practical advice”, como trocar senhas e acompanhar extratos bancários. A Res. CD/ANPD 15/2024 também exige linguagem simples na comunicação ao titular (art. 9º, § 1º, I).
+
+=== en17-04
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN17A
+armadilha: extrapolacao
+dif: 2
+enunciado: The author of the first text suggests that a well-written notice can fully reverse the harm caused by a breach.
+comentario: Errado. O último parágrafo diz que o aviso “limits the damage; it does not undo it” e que nada disso substitui a prevenção.
+
+=== en17-05
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN17A
+armadilha: literal
+dif: 3
+enunciado: In the first text, the expression “no wiser” (first paragraph) means that customers do not gain any useful understanding from the notice.
+comentario: Certo. “Leaving customers no wiser” é deixá-los tão desinformados quanto antes: o aviso não acrescenta compreensão sobre o que fazer.
+
+=== en17-06
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN17A
+armadilha: literal
+dif: 2
+enunciado: In the first text, the word “caveats” (first paragraph) could be replaced with rewards without change in meaning.
+comentario: Errado. “Caveats” são ressalvas, advertências ou condições. “Rewards” (recompensas) não tem relação com o sentido do texto.
+
+=== en17-07
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN17A
+armadilha: literal
+dif: 2
+enunciado: In the first text, the pronoun “them”, in “may start to ignore them” (second paragraph), refers to the warnings people receive.
+comentario: Certo. Quem recebe avisos a cada poucos meses pode começar a ignorá-los: “them” retoma “warnings”.
+
+=== en17-08
+gab: E
+tema: en-gramatica
+ref: texto
+apoio: @EN17A
+armadilha: literal
+dif: 3
+enunciado: In the first text, in “insist that notices be short”, the form “be” is a grammatical error, since the correct form would necessarily be are.
+comentario: Errado. Depois de verbos como “insist”, “require” e “recommend”, o inglês usa o subjuntivo, com a forma base do verbo: “insist that notices be short”. A construção é correta e típica do registro formal.
+
+=== en17-09
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN17B
+armadilha: interpretacao
+dif: 1
+enunciado: According to the second text, publishing government data in open formats can lead to uses that officials had not foreseen.
+comentario: Certo. Primeiro parágrafo: jornalistas, pesquisadores e empreendedores encontram “uses that officials never imagined”, como aplicativos de transporte público.
+
+=== en17-10
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN17B
+armadilha: interpretacao
+dif: 2
+enunciado: The second text claims that removing names from a dataset is enough to eliminate any privacy risk.
+comentario: Errado. O texto recomenda avaliar o risco de reidentificação “even when names have been removed”, porque bases aparentemente inofensivas podem revelar detalhes sensíveis quando combinadas.
+
+=== en17-11
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN17B
+armadilha: interpretacao
+dif: 2
+enunciado: It can be inferred from the second text that combining datasets may expose information that none of them reveals on its own.
+comentario: Certo. “Datasets that look harmless on their own can reveal sensitive details when combined with others.” É o risco que a LGPD considera ao tratar a reversão da anonimização com esforços razoáveis (art. 12).
+
+=== en17-12
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN17B
+armadilha: extrapolacao
+dif: 2
+enunciado: The author of the second text concludes that governments should publish less data in order to protect privacy.
+comentario: Errado. A conclusão é outra: “The aim is not to publish less, but to publish wisely.” O texto defende equilibrar abertura e privacidade, não reduzir a publicação.
+
+=== en17-13
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN17B
+armadilha: literal
+dif: 2
+enunciado: In the second text, the word “harmless” (second paragraph) is opposite in meaning to dangerous.
+comentario: Certo. “Harmless” é inofensivo. Bases que parecem inofensivas isoladamente podem tornar-se perigosas quando cruzadas.
+
+=== en17-14
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN17B
+armadilha: literal
+dif: 2
+enunciado: In the second text, the word “however” (second paragraph) could be replaced with therefore without change in meaning.
+comentario: Errado. “However” é adversativo (no entanto): introduz o contraponto da privacidade à abertura. “Therefore” é conclusivo e alteraria a relação entre as ideias.
+
+=== en17-15
+gab: C
+tema: en-gramatica
+ref: texto
+apoio: @EN17B
+armadilha: literal
+dif: 2
+enunciado: In the second text, the sentence “Several successful apps were built entirely on public transport data” is in the passive voice.
+comentario: Certo. “Were built” é passiva (verbo “to be” no passado + particípio). O agente que construiu os aplicativos não é mencionado.
+
+=== en17-16
+gab: E
+tema: en-referencia
+ref: texto
+apoio: @EN17B
+armadilha: literal
+dif: 2
+enunciado: In the second text, the expression “this material” (first paragraph) refers to the apps built by entrepreneurs.
+comentario: Errado. “This material” retoma a informação que os governos coletam, como horários de ônibus e filas de hospitais, mencionada na frase anterior.
