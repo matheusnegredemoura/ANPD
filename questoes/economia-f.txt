@@ -1,0 +1,148 @@
+bloco: economia
+// Sexta leva de economia: concorrência perfeita, monopólio e peso morto, equilíbrio de Nash, dilema dos prisioneiros
+// e cartéis, Bertrand, efeitos de rede, mercados de dois lados, custos de troca, HHI, mercado relevante, elasticidade
+// cruzada, economias de escopo e noções de estatística (correlação, mediana, p-valor). Itens de doutrina.
+
+=== ec7-01
+gab: C
+tema: ec-estruturas
+ref: doutrina concorrência perfeita
+armadilha: conceito
+dif: 2
+enunciado: Em concorrência perfeita, no equilíbrio de longo prazo, o preço tende a igualar o custo marginal e o custo médio mínimo, e as empresas obtêm lucro econômico nulo.
+comentario: Certo. A livre entrada elimina lucros extraordinários. Lucro econômico nulo não significa lucro contábil zero: o capital é remunerado pelo seu custo de oportunidade.
+
+=== ec7-02
+gab: E
+tema: ec-estruturas
+ref: doutrina monopólio
+armadilha: comparacao
+dif: 2
+enunciado: O monopolista que maximiza lucro produz a quantidade em que o preço se iguala ao custo marginal, como na concorrência perfeita.
+comentario: Errado. O monopolista produz onde a receita marginal iguala o custo marginal e cobra preço acima do custo marginal, com quantidade menor que a competitiva.
+
+=== ec7-03
+gab: C
+tema: ec-estruturas
+ref: doutrina peso morto
+armadilha: conceito
+dif: 2
+enunciado: O peso morto do monopólio corresponde às trocas mutuamente benéficas que deixam de ocorrer porque o preço fica acima do custo marginal.
+comentario: Certo. Consumidores que valorizam o bem acima do custo de produzi-lo, mas abaixo do preço de monopólio, deixam de comprar. Essa perda de bem-estar justifica a defesa da concorrência e, em monopólios naturais, a regulação.
+
+=== ec7-04
+gab: E
+tema: ec-mercado
+ref: doutrina teoria dos jogos
+armadilha: conceito
+dif: 2
+enunciado: No equilíbrio de Nash, cada jogador poderia melhorar seu resultado mudando sozinho de estratégia.
+comentario: Errado. No equilíbrio de Nash, nenhum jogador ganha ao mudar unilateralmente de estratégia, dadas as estratégias dos demais.
+
+=== ec7-05
+gab: C
+tema: ec-mercado
+ref: doutrina teoria dos jogos
+armadilha: conceito
+dif: 3
+enunciado: No dilema dos prisioneiros, a escolha individualmente racional de cada jogador leva a resultado pior para ambos do que a cooperação, lógica que ajuda a explicar a instabilidade dos cartéis.
+comentario: Certo. Cada membro do cartel tem incentivo a baixar o preço às escondidas. Programas de leniência exploram esse incentivo ao premiar quem delata primeiro.
+
+=== ec7-06
+gab: E
+tema: ec-estruturas
+ref: doutrina oligopólio
+armadilha: conceito
+dif: 3
+enunciado: No modelo de Bertrand, com produtos homogêneos e custos iguais, duas empresas bastam para manter o preço no nível de monopólio.
+comentario: Errado. Competindo por preço com produtos idênticos, cada empresa tem incentivo a cobrar um pouco menos que a rival, e o preço cai até o custo marginal, o chamado paradoxo de Bertrand.
+
+=== ec7-07
+gab: C
+tema: ec-mercado
+ref: doutrina bens de experiência
+armadilha: comparacao
+dif: 2
+enunciado: Bens de experiência são aqueles cuja qualidade o consumidor só consegue avaliar depois de consumi-los, como a refeição de um restaurante, ao passo que nos bens de busca a qualidade pode ser verificada antes da compra.
+comentario: Certo. Nos bens de experiência, reputação, avaliações e garantias reduzem a assimetria de informação. Nos bens de credibilidade, como certos serviços médicos, a qualidade é difícil de avaliar até depois do consumo.
+
+=== ec7-08
+gab: E
+tema: ec-mercado
+ref: doutrina custos de troca
+armadilha: conceito
+dif: 2
+enunciado: Custos de troca elevados facilitam a migração de usuários entre plataformas concorrentes.
+comentario: Errado. Custos de troca altos, como perder histórico, contatos ou dados, prendem o usuário (lock-in). A portabilidade de dados (art. 18, V, da LGPD) é instrumento para reduzi-los.
+
+=== ec7-09
+gab: C
+tema: ec-estruturas
+ref: doutrina concentração de mercado
+armadilha: conceito
+dif: 2
+enunciado: O índice Herfindahl-Hirschman soma os quadrados das participações de mercado das empresas, e valores mais altos indicam mercado mais concentrado.
+comentario: Certo. Num monopólio com participação de 100%, o índice chega a 10.000. Elevar ao quadrado dá mais peso às empresas grandes.
+
+=== ec7-10
+gab: C
+tema: ec-mercado
+ref: doutrina elasticidade
+armadilha: conceito
+dif: 2
+enunciado: Se a elasticidade-preço cruzada da demanda entre dois bens é positiva, eles são substitutos.
+comentario: Certo. Se o preço de um sobe e a demanda do outro aumenta, o consumidor troca um pelo outro. Elasticidade cruzada negativa indica bens complementares.
+
+=== ec7-11
+gab: E
+tema: ec-estatistica
+ref: doutrina correlação
+armadilha: conceito
+dif: 1
+enunciado: Se duas variáveis apresentam correlação forte, pode-se concluir que uma é causa da outra.
+comentario: Errado. Correlação não implica causalidade: pode haver terceira variável influenciando as duas, causalidade reversa ou coincidência. A avaliação de impacto usa desenhos próprios para identificar causalidade.
+
+=== ec7-12
+gab: C
+tema: ec-estatistica
+ref: doutrina estatística descritiva
+armadilha: conceito
+dif: 2
+enunciado: Em distribuições muito assimétricas, como a de renda, a mediana costuma representar melhor o valor típico do que a média, por ser menos sensível a valores extremos.
+comentario: Certo. Poucas rendas muito altas puxam a média para cima; a mediana, que divide a amostra ao meio, não se altera tanto.
+
+=== ec7-13
+gab: E
+tema: ec-estatistica
+ref: doutrina testes de hipótese
+armadilha: conceito
+dif: 3
+enunciado: O p-valor de um teste estatístico é a probabilidade de a hipótese nula ser verdadeira.
+comentario: Errado. O p-valor é a probabilidade de observar resultado tão ou mais extremo que o obtido, supondo verdadeira a hipótese nula. Não mede a probabilidade da própria hipótese.
+
+=== ec7-14
+gab: C
+tema: ec-estruturas
+ref: doutrina economias de escopo
+armadilha: comparacao
+dif: 2
+enunciado: Há economias de escopo quando produzir dois bens em conjunto custa menos do que produzi-los separadamente.
+comentario: Certo. Já as economias de escala dizem respeito ao custo médio que cai com o aumento da produção de um mesmo bem.
+
+=== ec7-15
+gab: E
+tema: ec-mercado
+ref: doutrina mercados de dois lados
+armadilha: conceito
+dif: 2
+enunciado: Em mercados de dois lados, preço zero para os usuários indica necessariamente que a plataforma vende abaixo do custo para eliminar concorrentes.
+comentario: Errado. Preço zero de um lado é comum e pode ser financiado pelo outro lado (anunciantes, por exemplo). Pode também envolver pagamento em dados e atenção, o que atrai a análise de proteção de dados e de concorrência.
+
+=== ec7-16
+gab: C
+tema: ec-mercado
+ref: doutrina efeitos de rede
+armadilha: conceito
+dif: 3
+enunciado: Fortes efeitos de rede podem levar mercados digitais a se concentrarem em poucas plataformas, porque cada novo usuário torna a plataforma líder ainda mais atrativa.
+comentario: Certo. É a dinâmica do “vencedor leva tudo” (tipping). Por isso a interoperabilidade e a portabilidade aparecem como remédios regulatórios.
