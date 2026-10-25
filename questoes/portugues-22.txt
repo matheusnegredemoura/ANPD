@@ -1,0 +1,168 @@
+bloco: portugues
+// Texto original escrito para o banco (dados abertos e privacidade), com itens de interpretação, coesão, semântica,
+// pontuação, concordância, crase, sintaxe, reescrita e verbos.
+
+apoio_PT22A: Os portais de dados abertos tornaram-se vitrines da transparência pública. Neles, qualquer cidadão pode baixar planilhas com contratos, salários e indicadores de serviços, sem precisar justificar o pedido. Essa facilidade, que fortalece o controle social, traz consigo um risco pouco discutido: o de expor informações pessoais que, isoladas, parecem inofensivas.
+Uma planilha de beneficiários de um programa social, por exemplo, pode conter apenas nomes e municípios. Cruzada com outras bases, porém, ela permite deduzir a renda, o endereço e até a rotina de famílias inteiras. O problema, portanto, não está em cada arquivo, mas na combinação deles, que nenhum órgão controla sozinho.
+Por isso, a abertura de dados exige mais do que boa vontade. Antes de publicar, o órgão precisa avaliar o que poderá ser inferido a partir das informações, retirar o que não for necessário à finalidade pública e preferir dados agregados sempre que o detalhe individual não acrescentar nada ao controle. Transparência e privacidade só se tornam adversárias quando são mal equilibradas.
+
+=== pt22-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT22A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: Segundo o texto, nos portais de dados abertos, o cidadão pode obter planilhas públicas sem ter de justificar o pedido.
+comentario: Certo. Primeiro parágrafo: qualquer cidadão pode baixar planilhas “sem precisar justificar o pedido”.
+
+=== pt22-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT22A
+armadilha: extrapolacao
+dif: 2
+enunciado: O autor defende que dados de beneficiários de programas sociais nunca sejam publicados em portais de dados abertos.
+comentario: Errado. O texto não propõe proibição: pede que o órgão avalie o que pode ser inferido, retire o que não for necessário e prefira dados agregados quando o detalhe individual nada acrescentar ao controle.
+
+=== pt22-03
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT22A
+armadilha: interpretacao
+dif: 2
+enunciado: Depreende-se do texto que o risco apontado decorre sobretudo da possibilidade de cruzar bases de dados distintas.
+comentario: Certo. O segundo parágrafo conclui que o problema “não está em cada arquivo, mas na combinação deles”.
+
+=== pt22-04
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT22A
+armadilha: literal
+dif: 1
+enunciado: De acordo com o texto, cada órgão público consegue, sozinho, controlar a combinação entre os arquivos que publica e os de outras bases.
+comentario: Errado. O texto diz o contrário: a combinação dos arquivos é algo “que nenhum órgão controla sozinho”.
+
+=== pt22-05
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT22A
+armadilha: interpretacao
+dif: 1
+enunciado: No primeiro parágrafo, o termo “Neles” retoma “Os portais de dados abertos”.
+comentario: Certo. A contração “neles” (em + eles) remete aos portais, onde o cidadão baixa as planilhas.
+
+=== pt22-06
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT22A
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, o pronome “ela”, em “ela permite deduzir a renda”, refere-se a “outras bases”.
+comentario: Errado. “Ela” retoma “Uma planilha de beneficiários de um programa social”, que, cruzada com outras bases, permite as deduções. Além disso, “outras bases” está no plural e não concordaria com “ela”.
+
+=== pt22-07
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT22A
+armadilha: interpretacao
+dif: 2
+enunciado: A expressão “Essa facilidade”, no primeiro parágrafo, resume a possibilidade, descrita no período anterior, de baixar planilhas sem justificar o pedido.
+comentario: Certo. É um caso de coesão por retomada: o demonstrativo “Essa” aponta para o que acabou de ser dito, e “facilidade” o sintetiza.
+
+=== pt22-08
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT22A
+armadilha: literal
+dif: 1
+enunciado: Trocar “porém” por todavia, no segundo parágrafo, manteria o valor adversativo do trecho e a correção do texto.
+comentario: Certo. As duas conjunções têm valor adversativo e, intercaladas entre vírgulas, ocupam a mesma posição sem alterar a frase.
+
+=== pt22-09
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT22A
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, “portanto” introduz uma explicação da afirmação anterior e poderia ser substituído por porque.
+comentario: Errado. “Portanto” tem valor conclusivo: o autor tira uma conclusão do exemplo da planilha. “Porque” introduziria causa ou explicação e alteraria o sentido.
+
+=== pt22-10
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT22A
+armadilha: interpretacao
+dif: 3
+enunciado: No primeiro parágrafo, a supressão das vírgulas que isolam “que fortalece o controle social” alteraria o sentido do texto, pois a oração deixaria de ser explicativa e passaria a restringir o termo “Essa facilidade”.
+comentario: Certo. Entre vírgulas, a oração adjetiva acrescenta uma informação sobre a facilidade; sem elas, passaria a distinguir essa facilidade de outras, o que muda o sentido.
+
+=== pt22-11
+gab: E
+tema: pt-pontuacao
+ref: texto
+apoio: @PT22A
+armadilha: literal
+dif: 2
+enunciado: A inserção de vírgula logo após “privacidade”, no último período do texto, preservaria a correção gramatical.
+comentario: Errado. “Transparência e privacidade” é o sujeito de “se tornam”; a vírgula entre o sujeito e o verbo é incorreta.
+
+=== pt22-12
+gab: E
+tema: pt-concordancia
+ref: texto
+apoio: @PT22A
+armadilha: sujeito
+dif: 2
+enunciado: No primeiro parágrafo, a forma verbal “traz” concorda com “controle social”.
+comentario: Errado. O sujeito de “traz” é “Essa facilidade”; “o controle social” é complemento de “fortalece”, dentro da oração intercalada.
+
+=== pt22-13
+gab: E
+tema: pt-crase
+ref: texto
+apoio: @PT22A
+armadilha: literal
+dif: 2
+enunciado: No terceiro parágrafo, o acento grave em “necessário à finalidade pública” poderia ser suprimido sem prejuízo da correção gramatical.
+comentario: Errado. “Necessário” rege a preposição “a”, e “finalidade” pede o artigo “a”; a fusão das duas torna a crase obrigatória.
+
+=== pt22-14
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT22A
+armadilha: sujeito
+dif: 1
+enunciado: No primeiro parágrafo, em “Neles, qualquer cidadão pode baixar planilhas”, a expressão “qualquer cidadão” exerce a função de sujeito.
+comentario: Certo. “Qualquer cidadão” é o sujeito da locução “pode baixar”, cujo complemento é “planilhas com contratos, salários e indicadores de serviços”.
+
+=== pt22-15
+gab: C
+tema: pt-reescrita
+ref: texto
+apoio: @PT22A
+armadilha: literal
+dif: 3
+enunciado: Os dois primeiros períodos do segundo parágrafo poderiam ser reescritos como Embora possa conter apenas nomes e municípios, uma planilha de beneficiários de um programa social, quando cruzada com outras bases, permite deduzir a renda, o endereço e até a rotina de famílias inteiras, sem prejuízo do sentido e da correção.
+comentario: Certo. “Embora” mantém a oposição antes marcada por “porém”, e “quando cruzada com outras bases” conserva a condição do original.
+
+=== pt22-16
+gab: E
+tema: pt-verbos
+ref: texto
+apoio: @PT22A
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, em “o que poderá ser inferido a partir das informações”, a locução verbal está na voz ativa.
+comentario: Errado. “Poderá ser inferido” é voz passiva analítica (verbo ser mais particípio): o que se infere é o sujeito paciente, e o agente, quem faz a inferência, não é mencionado.
