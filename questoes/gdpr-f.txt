@@ -1,0 +1,148 @@
+bloco: gdpr
+// Direito comparado, sexta leva: objeto (art. 1º), limitações por lei (art. 23), princípio geral das transferências
+// (art. 44), ordens de autoridades de terceiros países (art. 48), autoridade de controle, seus membros e sua competência
+// (arts. 51, 53 e 55) e outras sanções (art. 84). Trechos conferidos no texto oficial em inglês (fontes/gdpr.txt).
+
+=== gd6-01
+gab: C
+ref: gdpr 1
+trecho: The free movement of personal data within the Union shall be neither restricted nor prohibited for reasons connected with the protection of natural persons with regard to the processing of personal data
+armadilha: conceito
+dif: 2
+enunciado: O GDPR tem duplo objetivo: proteger as pessoas naturais no tratamento de dados e assegurar a livre circulação desses dados na União, que não pode ser restringida nem proibida por razões ligadas a essa proteção.
+comentario: Certo. Art. 1º, 1 e 3. A harmonização afasta barreiras nacionais dentro da União. A LGPD também combina proteção de direitos e desenvolvimento econômico e tecnológico (art. 2º, V).
+
+=== gd6-02
+gab: E
+ref: gdpr 1
+trecho: This Regulation protects fundamental rights and freedoms of natural persons and in particular their right to the protection of personal data
+armadilha: sujeito
+dif: 2
+enunciado: O GDPR protege os direitos fundamentais das pessoas naturais e das pessoas jurídicas, estendendo a estas o direito à proteção de dados pessoais.
+comentario: Errado. O art. 1º, 2, protege as pessoas naturais. Dados de pessoas jurídicas não são dados pessoais para o GDPR, assim como na LGPD (art. 5º, I, que fala em pessoa natural identificada ou identificável).
+
+=== gd6-03
+gab: C
+ref: gdpr 23
+trecho: when such a restriction respects the essence of the fundamental rights and freedoms and is a necessary and proportionate measure in a democratic society
+armadilha: conceito
+dif: 3
+enunciado: No GDPR, o direito da União ou dos Estados-Membros pode limitar, por medida legislativa, direitos dos titulares, como o de acesso, desde que respeite a essência dos direitos fundamentais e seja medida necessária e proporcional numa sociedade democrática para salvaguardar fins como a segurança nacional.
+comentario: Certo. Art. 23, 1. As limitações alcançam os arts. 12 a 22 e 34 e exigem lei com conteúdo mínimo: finalidades, categorias de dados, alcance, salvaguardas contra abuso, prazos de conservação e riscos (art. 23, 2).
+
+=== gd6-04
+gab: E
+ref: gdpr 23
+trecho: Union or Member State law to which the data controller or processor is subject may restrict by way of a legislative measure
+armadilha: sujeito
+dif: 3
+enunciado: No GDPR, o próprio controlador pode, por política interna, limitar os direitos de acesso e de apagamento dos titulares sempre que isso for necessário para proteger seus interesses comerciais.
+comentario: Errado. As limitações do art. 23 exigem medida legislativa do direito da União ou do Estado-Membro, para fins de interesse público taxativamente indicados (segurança nacional, defesa, persecução penal, interesses econômicos importantes do Estado, entre outros). Política interna do controlador não basta.
+
+=== gd6-05
+gab: C
+ref: gdpr 44
+trecho: including for onward transfers of personal data from the third country or an international organisation to another third country or to another international organisation
+armadilha: conceito
+dif: 2
+enunciado: Pelo princípio geral das transferências do GDPR, as condições do capítulo sobre transferências valem também para as transferências ulteriores, do terceiro país ou da organização internacional para outro terceiro país ou organização.
+comentario: Certo. Art. 44. O objetivo é que o nível de proteção garantido pelo GDPR não seja enfraquecido. A Res. CD/ANPD 19/2024 segue a mesma lógica ao exigir salvaguardas nas transferências posteriores.
+
+=== gd6-06
+gab: E
+ref: gdpr 44
+trecho: All provisions in this Chapter shall be applied in order to ensure that the level of protection of natural persons guaranteed by this Regulation is not undermined
+armadilha: extrapolacao
+dif: 2
+enunciado: Para o GDPR, uma vez feita a transferência a terceiro país com base em mecanismo válido, o importador fica livre para repassar os dados a outros países sem observar as regras europeias.
+comentario: Errado. O art. 44 estende as condições do capítulo às transferências ulteriores, para que o nível de proteção do GDPR não seja enfraquecido. O mecanismo de transferência acompanha os dados no repasse.
+
+=== gd6-07
+gab: C
+ref: gdpr 48
+trecho: may only be recognised or enforceable in any manner if based on an international agreement, such as a mutual legal assistance treaty
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: tribunal de um terceiro país ordenou a uma empresa europeia que entregasse dados de clientes, sem tratado de cooperação jurídica com a União ou o Estado-Membro. Assertiva: pelo GDPR, a ordem, por si só, não pode ser reconhecida nem executada.
+comentario: Certo. Art. 48: decisões de tribunais ou de autoridades administrativas de terceiros países só são reconhecidas ou executáveis se baseadas em acordo internacional, como tratado de auxílio jurídico mútuo, sem prejuízo de outros fundamentos de transferência do capítulo.
+
+=== gd6-08
+gab: E
+ref: gdpr 48
+trecho: without prejudice to other grounds for transfer pursuant to this Chapter
+armadilha: absoluto
+dif: 3
+enunciado: O art. 48 do GDPR proíbe, em qualquer hipótese, a transferência de dados exigida por autoridade de terceiro país sem tratado de cooperação jurídica, ainda que outro fundamento do capítulo de transferências a autorize.
+comentario: Errado. A parte final do art. 48 ressalva outros fundamentos de transferência do capítulo V, como as derrogações do art. 49. O artigo trata do reconhecimento da ordem estrangeira, não proíbe toda transferência.
+
+=== gd6-09
+gab: C
+ref: gdpr 51
+trecho: Each Member State shall provide for one or more independent public authorities to be responsible for monitoring the application of this Regulation
+armadilha: conceito
+dif: 2
+enunciado: Cada Estado-Membro deve prever uma ou mais autoridades públicas independentes responsáveis por fiscalizar a aplicação do GDPR, para proteger direitos fundamentais e facilitar a livre circulação de dados na União.
+comentario: Certo. Art. 51, 1. Havendo mais de uma autoridade no Estado-Membro, ele designa a que o representa no Comitê Europeu (art. 51, 3). No Brasil, a ANPD é autarquia de natureza especial com autonomia funcional, técnica, decisória, administrativa e financeira (LGPD, art. 55-A).
+
+=== gd6-10
+gab: E
+ref: gdpr 51
+trecho: Each Member State shall provide for one or more independent public authorities
+armadilha: numero
+dif: 2
+enunciado: O GDPR obriga cada Estado-Membro a ter uma única autoridade de controle, vedada a existência de mais de uma no mesmo país.
+comentario: Errado. O art. 51, 1, admite uma ou mais autoridades por Estado-Membro, como na Alemanha, que tem autoridades federal e estaduais. O art. 51, 3, exige então designar a que representa o país no Comitê.
+
+=== gd6-11
+gab: C
+ref: gdpr 53
+trecho: A member shall be dismissed only in cases of serious misconduct or if the member no longer fulfils the conditions required for the performance of the duties
+armadilha: conceito
+dif: 3
+enunciado: No GDPR, o membro de autoridade de controle só pode ser destituído em caso de falta grave ou se deixar de cumprir as condições exigidas para o exercício das funções.
+comentario: Certo. Art. 53, 4, garantia da independência. Nas agências reguladoras brasileiras, categoria em que a ANPD passou a se incluir, o dirigente só perde o mandato por renúncia, condenação judicial transitada em julgado, condenação em processo administrativo disciplinar ou violação das vedações legais (Lei 9.986/2000, art. 9º).
+
+=== gd6-12
+gab: E
+ref: gdpr 53
+trecho: an independent body entrusted with the appointment under Member State law
+armadilha: rol
+dif: 2
+enunciado: O GDPR exige que os membros das autoridades de controle sejam nomeados exclusivamente pelo parlamento do Estado-Membro, vedada a nomeação pelo governo.
+comentario: Errado. O art. 53, 1, admite nomeação, por procedimento transparente, pelo parlamento, pelo governo, pelo chefe de Estado ou por órgão independente previsto na lei nacional. Os membros devem ter qualificação e experiência em proteção de dados (art. 53, 2).
+
+=== gd6-13
+gab: C
+ref: gdpr 55
+trecho: Supervisory authorities shall not be competent to supervise processing operations of courts acting in their judicial capacity
+armadilha: excecao
+dif: 3
+enunciado: As autoridades de controle do GDPR não são competentes para fiscalizar o tratamento de dados feito por tribunais no exercício da função jurisdicional.
+comentario: Certo. Art. 55, 3, que preserva a independência judicial. O art. 23, 1, f, também admite limitar direitos para proteger a independência judicial e os processos judiciais.
+
+=== gd6-14
+gab: E
+ref: gdpr 55
+trecho: Where processing is carried out by public authorities or private bodies acting on the basis of point (c) or (e) of Article 6(1), the supervisory authority of the Member State concerned shall be competent. In such cases Article 56 does not apply
+armadilha: excecao
+dif: 3
+enunciado: No GDPR, o tratamento feito por autoridade pública para cumprir obrigação legal ou exercer funções de interesse público segue o mecanismo de balcão único, em que atua a autoridade principal do estabelecimento principal do controlador.
+comentario: Errado. O art. 55, 2, atribui a competência à autoridade do Estado-Membro em causa quando o tratamento se baseia nas alíneas c ou e do art. 6º, 1, e afasta expressamente o art. 56 (autoridade de controle principal).
+
+=== gd6-15
+gab: C
+ref: gdpr 84
+trecho: Member States shall lay down the rules on other penalties applicable to infringements of this Regulation in particular for infringements which are not subject to administrative fines pursuant to Article 83
+armadilha: conceito
+dif: 2
+enunciado: Além das multas administrativas do GDPR, cabe aos Estados-Membros prever outras sanções para as infrações ao regulamento, sobretudo as não sujeitas a essas multas, que devem ser efetivas, proporcionais e dissuasivas.
+comentario: Certo. Art. 84, 1. Essas outras sanções podem ter natureza penal, conforme o direito nacional. As multas administrativas e seus limites estão no art. 83.
+
+=== gd6-16
+gab: E
+ref: gdpr 84
+trecho: Such penalties shall be effective, proportionate and dissuasive
+armadilha: sujeito
+dif: 2
+enunciado: O GDPR esgota o regime sancionatório da proteção de dados, vedando aos Estados-Membros prever sanções além das multas administrativas nele fixadas.
+comentario: Errado. O art. 84 manda os Estados-Membros fixarem outras sanções, efetivas, proporcionais e dissuasivas, especialmente para as infrações que não se sujeitam às multas do art. 83, e notificá-las à Comissão.
