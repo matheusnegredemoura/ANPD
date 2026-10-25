@@ -116,6 +116,14 @@ function saque(desde) {
   if (!atual || RARIDADES[atual.rar].ordem < RARIDADES[rar].ordem) r.eq[it.slot] = it.id;
   return { it, repetido: false };
 }
+// O baú segue o calendário até a prova: entrega item enquanto a coleção estiver atrás da reta que a completa no dia
+// dela; adiantada, dá XP. Sem isso, um baú por dia esgotaria os 36 itens em pouco mais de um mês, e a reta final, onde
+// o empurrão mais vale, ficaria sem prêmio.
+function bauTemItem() {
+  const ini = diaNum(S.perfil.criado || hojeISO()), fim = diaNum(dataProva()), hoje = HOJE();
+  const alvo = fim > ini ? Math.ceil(ITENS_RPG.length * Math.min(1, (hoje - ini + 1) / (fim - ini + 1))) : ITENS_RPG.length;
+  return Object.keys(rpg().inv).filter((id) => IR.has(id)).length < alvo;
+}
 function avisarSaque(origem, s) {
   avisar('◆', origem + ': ' + (s.repetido ? 'coleção completa' : s.it.nome), s.repetido ? 'virou +' + s.xp + ' XP' : RARIDADES[s.it.rar].nome + ' · ' + efeitoTxt(s.it));
 }
@@ -166,9 +174,15 @@ function verificarRPG() {
     // O histórico de missões guarda só 14 dias; o total de baús fica num contador próprio
     rpg().baus = (rpg().baus || 0) + 1;
     ganharXP(BAU_XP);
-    const s = saque('comum');
-    mh.item = s.it.id;
-    avisarSaque('Baú do dia', s);
+    if (bauTemItem()) {
+      const s = saque('comum');
+      mh.item = s.it.id;
+      avisarSaque('Baú do dia', s);
+    } else {
+      ganharXP(XP_REPETIDO.raro);
+      mh.xp = XP_REPETIDO.raro;
+      avisar('◆', 'Baú do dia: +' + (BAU_XP + XP_REPETIDO.raro) + ' XP', 'A coleção está adiantada para a data da prova; o próximo item vem num dos próximos baús.');
+    }
     tocar('festa');
   }
   if (mudou) Store.salvar('perfil');
@@ -196,7 +210,7 @@ function chefeDaSemana() {
       b, dom: dominioBloco(b.id) || 0, resp: POR_BLOCO.get(b.id).filter((q) => { const x = rec(q.id); return x && x[0] >= 0; }).length,
     }));
     const praticados = cand.filter((x) => x.resp >= 5);
-    const alvo = (praticados.length ? praticados : cand.filter((x) => P1.includes(x.b.id))).sort((a, b) => a.dom - b.dom)[0] || cand[0];
+    const alvo = (praticados.length ? praticados : cand.filter((x) => P1.includes(x.b.id))).sort((a, b) => a.dom - b.dom || P1.includes(b.b.id) - P1.includes(a.b.id))[0] || cand[0];
     r.chefe = { sem, bloco: alvo.b.id, vida: CHEFE_VIDA, max: CHEFE_VIDA };
   }
   normalizarChefe(r.chefe);
@@ -305,7 +319,9 @@ function cartaoJornada() {
   const chefe = '<div class="chefe' + (c.vencido ? ' vencido' : '') + '"><span class="brasao">' + brasao(discChefe(c.bloco)) + '</span><div class="chefe-info"><div class="chefe-cab"><b>' + esc(nomeChefe(c.bloco)) + '</b><span class="mono pequeno">' + (c.vencido ? 'derrotado' : 'HP ' + c.vida + '/' + c.max) + '</span></div>' +
     '<span class="pequeno mudo">' + esc(nomeBloco(c.bloco)) + (recuou(c) ? ' · recuou, volta amanhã' : !c.vencido ? ' · aguenta ' + tetoDia(c) + ' de dano por dia' : '') + '</span>' + hpBarra(c.vencido ? 0 : c.vida, c.max) + '</div>' +
     (c.vencido || recuou(c) ? '' : '<button class="btn pequeno primario" data-acao="enfrentar-chefe">' + esc(rotuloPausa('chefe:' + c.sem, 'Batalhar')) + '</button>') + '</div>';
-  const bau = mh.bau && mh.item && IR.get(mh.item) ? '<p class="pequeno">Baú aberto: <b class="r-txt-' + IR.get(mh.item).rar + '">' + esc(IR.get(mh.item).nome) + '</b></p>' : '<p class="pequeno mudo">Três missões abrem o baú do dia: ele traz o próximo item da coleção, do comum ao lendário (sem sorteio). O chefão vencido traz o próximo épico ou lendário.</p>';
+  const bau = mh.bau && mh.item && IR.get(mh.item) ? '<p class="pequeno">Baú aberto: <b class="r-txt-' + IR.get(mh.item).rar + '">' + esc(IR.get(mh.item).nome) + '</b></p>'
+    : mh.bau ? '<p class="pequeno">Baú aberto: <b>+' + (BAU_XP + (mh.xp || 0)) + ' XP</b> (a coleção está adiantada para a data da prova)</p>'
+    : '<p class="pequeno mudo">Três missões abrem o baú do dia: ele traz o próximo item da coleção, do comum ao lendário, sem sorteio e no ritmo que a completa até a prova. O chefão vencido traz o próximo épico ou lendário.</p>';
   // Recolhida por padrão (a tela Hoje começa pelo roteiro): o resumo mostra nível, missões e a vida do chefão
   return '<div class="cartao jornada"><details data-det="jornada"' + (UI.det.jornada ? ' open' : '') + '><summary class="jornada-resumo"><b>Jornada</b><span class="mono pequeno mudo">nível ' + nv.n + ' · ' + feitas + '/' + mh.ids.length + ' missões · ' +
     (c.vencido ? 'chefão vencido' : 'chefão ' + Math.round((c.vida / c.max) * 100) + '% de vida' + (recuou(c) ? ', volta amanhã' : '')) + '</span></summary>' +
@@ -371,8 +387,11 @@ function renderHoje() {
     : curtoFeito ? '<p class="dia-curto pequeno"><b>Dia curto feito:</b> o dia contou. Se sobrar tempo, siga o roteiro; o que ficar para trás vai para o Atraso do plano.</p>'
     : (diaHoje.r || 0) < 20 ? '<p class="dia-curto pequeno">Sem tempo hoje? <button class="linkish" data-acao="dia-curto">Dia curto (até 20 min)</button>: até 10 revisões vencidas e 10 itens do tema, para o dia não zerar.</p>' : '';
   let roteiro = '<div class="cartao"><div class="secao-cab"><h2>Roteiro de hoje</h2><span class="mono pequeno mudo">' + feitos + ' de ' + rt.passos.length + '</span></div>' + curto + '<div class="roteiro">';
+  // Só o próximo passo traz a explicação aberta; nos outros ela fica recolhida em "detalhes" (a tela Hoje passava de
+  // cinco telas de celular, e o roteiro sozinho era um terço dela)
+  const atual = rt.passos.find((p) => !p.feito);
   rt.passos.forEach((p, i) => {
-    roteiro += '<div class="passo' + (p.feito ? ' feito' : '') + '"><div class="marca-passo">' + (p.feito ? '✓' : (/^(\d+)\./.exec(p.titulo) || [, '•'])[1]) + '</div><div class="corpo-passo"><b>' + esc(p.titulo) + '</b>' + (p.feito || !p.texto ? '' : '<p>' + esc(p.texto) + '</p>') + '<div class="linha-btns">' + p.botoes + (p.extra || '') + '</div></div></div>';
+    roteiro += '<div class="passo' + (p.feito ? ' feito' : '') + (p === atual ? ' atual' : '') + '"><div class="marca-passo">' + (p.feito ? '✓' : (/^(\d+)\./.exec(p.titulo) || [, '•'])[1]) + '</div><div class="corpo-passo"><b>' + esc(p.titulo) + '</b>' + (p.feito || !p.texto ? '' : p === atual ? '<p>' + esc(p.texto) + '</p>' : '<details class="passo-mais"><summary>detalhes</summary><p>' + esc(p.texto) + '</p></details>') + '<div class="linha-btns">' + p.botoes + (p.extra || '') + '</div></div></div>';
   });
   roteiro += '</div><p class="pequeno mudo">' + (stDoDia(rt.dia) ? 'Matéria nova: revisão do que venceu, pré-teste, lei, aula e questões do mesmo tema, nessa ordem; depois as intercaladas e as lacunas.' : 'A ordem é o método: revisão primeiro, depois questão, depois a lei onde você errou, depois a memorização com lacunas.') + ' <button class="linkish" data-acao="mais" data-sub="metodo">Entenda o método</button></p></div>';
   const modos = '<div class="secao"><div class="secao-cab"><h2>Modos de jogo</h2></div><div class="grade-modos">' +

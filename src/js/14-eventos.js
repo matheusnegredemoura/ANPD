@@ -489,6 +489,12 @@ document.addEventListener('input', (ev) => {
 });
 document.addEventListener('keydown', (ev) => {
   if (ev.key === 'Escape' && !document.getElementById('folha').hidden) { fecharFolha(); return; }
+  // Folha aberta (diálogo modal): o Tab circula dentro dela, sem cair na tela de trás
+  if (ev.key === 'Tab' && !document.getElementById('folha').hidden) {
+    const fs = [...document.getElementById('folha').querySelectorAll('button, [href], input, select, textarea, summary, [tabindex]:not([tabindex="-1"])')].filter((x) => !x.disabled && x.offsetParent);
+    if (fs.length && (ev.shiftKey ? document.activeElement === fs[0] || !fs.includes(document.activeElement) : document.activeElement === fs[fs.length - 1])) { ev.preventDefault(); (ev.shiftKey ? fs[fs.length - 1] : fs[0]).focus(); }
+    return;
+  }
   if (!sessao || sessao.fim || sessao.confirmar) return;
   if (ev.target && ev.target.id === 'card-digitar' && ev.key === 'Enter') { ev.preventDefault(); proximo(); return; }
   if (ev.target && /INPUT|TEXTAREA|SELECT/.test(ev.target.tagName) && ev.target.type !== 'checkbox') return;

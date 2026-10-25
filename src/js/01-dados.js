@@ -98,8 +98,8 @@ function regexTermo(padroes) {
 }
 
 const INTERVALOS = [0, 1, 3, 7, 16, 35];
-// Manutenção: itens já dominados (nível 3 ou mais) que venceram voltam aos poucos, no máximo este número por dia,
-// para a carga de revisão caber no dia; os mais atrasados vêm primeiro.
+// Manutenção: itens já dominados (nível 3 ou mais) que venceram voltam aos poucos, no mínimo este número por dia
+// (tetoManutencao sobe com o volume real da pessoa), para a carga de revisão caber no dia; os mais atrasados vêm primeiro.
 const MANUTENCAO_DIA = 10;
 // Leitura do dia: acima deste número de artigos, o app escolhe os que você errou, os ainda não lidos e os mais cobrados
 const LEITURA_MAX = 25;
@@ -210,9 +210,10 @@ const REAIS_TREINO = 1 / 3;
 const TEMAS_DISC = (D.discursivas && D.discursivas.temas) || [];
 const CARACTERES_LINHA = 70;
 
-// 40 níveis com degraus crescentes: os primeiros saem no primeiro dia. No ritmo medido nas primeiras semanas de uso
-// (5 a 8 mil XP por semana), Diretor(a)-Presidente chega entre janeiro e março; depois dele, cada mandato pede
-// MANDATO_XP, e as conquistas de XP e ritmo seguem até 250 mil.
+// 40 níveis com degraus crescentes: os primeiros saem no primeiro dia. Acima de 25 mil os degraus são mais longos: no
+// ritmo medido nas primeiras semanas de uso (5 a 8 mil XP por semana), Diretor(a)-Presidente chega perto da prova, e
+// não meses antes, quando a escada acabaria justo na reta final; depois dele, cada mandato pede MANDATO_XP, e as
+// conquistas de XP e ritmo seguem até 250 mil.
 const NIVEIS = [
   [0, 'Titular de dados'], [150, 'Curioso(a) do art. 18'], [300, 'Leitor(a) de lei seca'], [500, 'Suboperador(a)'],
   [700, 'Operador(a)'], [950, 'Controlador(a)'], [1200, 'Controlador(a) conjunto(a)'], [1500, 'Encarregado(a)'],
@@ -222,11 +223,11 @@ const NIVEIS = [
   [7300, 'Caçador(a) de vazamentos'], [8300, 'Protetor(a) do ECA Digital'], [9400, 'Fiscal de campo'],
   [10500, 'Auditor(a) de algoritmos'], [12000, 'Mediador(a) de petições de titulares'], [13500, 'Analista de transferência internacional'],
   [15500, 'Instrutor(a) de processo sancionador'], [17500, 'Calculista da dosimetria'], [19500, 'Redator(a) de guia orientativo'],
-  [22000, 'Analista de impacto regulatório'], [25000, 'Relator(a) de consulta pública'], [28000, 'Arquiteto(a) do sandbox regulatório'],
-  [31500, 'Especialista em Regulação'], [35500, 'Especialista de referência'], [40000, 'Coordenador(a)'],
-  [45000, 'Coordenador(a)-Geral'], [50500, 'Ouvidor(a)'], [56500, 'Corregedor(a)'], [63500, 'Auditor(a)-Chefe'],
-  [71000, 'Superintendente'], [79500, 'Conselheiro(a) do CNPD'], [89000, 'Diretor(a) do Conselho Diretor'],
-  [100000, 'Diretor(a)-Presidente'],
+  [22000, 'Analista de impacto regulatório'], [25000, 'Relator(a) de consulta pública'], [30000, 'Arquiteto(a) do sandbox regulatório'],
+  [36000, 'Especialista em Regulação'], [42500, 'Especialista de referência'], [50000, 'Coordenador(a)'],
+  [58500, 'Coordenador(a)-Geral'], [67500, 'Ouvidor(a)'], [77500, 'Corregedor(a)'], [89000, 'Auditor(a)-Chefe'],
+  [101500, 'Superintendente'], [116000, 'Conselheiro(a) do CNPD'], [131500, 'Diretor(a) do Conselho Diretor'],
+  [150000, 'Diretor(a)-Presidente'],
 ];
 const MANDATO_XP = 10000;
 

@@ -48,7 +48,7 @@ await ctx.addInitScript(({ ids, itensRpg, tema }) => {
   const lidos = {};
   for (let k = 0; k < 100; k++) lidos['x' + k] = iso(hoje - 2);
   const perfil = {
-    xp: 31600, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias, conq: {}, recordes: { combo: 50, relampago: 25, ex: 5 },
+    xp: 36100, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias, conq: {}, recordes: { combo: 50, relampago: 25, ex: 5 },
     status: {}, feitos: {}, lidos, saidos: 300, criado: iso(hoje - 40), rpg: { inv, eq, m, trofeus, baus: 30 },
   };
   const simulados = Array.from({ length: 5 }, () => ({ data: iso(hoje - 2), n: 120, c: 105, e: 5, b: 10, liq: 100, seg: 10000, titulo: 'Simulado' }));

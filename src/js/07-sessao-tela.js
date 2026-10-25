@@ -393,8 +393,11 @@ function renderResultado() {
 }
 
 /* ================= Folha (painel sobreposto) ================= */
+// O foco volta, ao fechar, para o botão que abriu a folha (quem navega pelo teclado não perde o lugar)
+let folhaOrigem = null;
 function abrirFolha(html, rotulo) {
   const f = document.getElementById('folha');
+  if (f.hidden) folhaOrigem = document.activeElement;
   f.innerHTML = '<div class="folha-painel">' + html + '</div>';
   f.setAttribute('aria-label', rotulo || 'Detalhes');
   f.hidden = false;
@@ -403,7 +406,12 @@ function abrirFolha(html, rotulo) {
   if (b) b.focus();
   sincronizarHistorico();
 }
-function fecharFolha() { const f = document.getElementById('folha'); f.hidden = true; f.innerHTML = ''; UI.folhaAula = null; sincronizarHistorico(); }
+function fecharFolha() {
+  const f = document.getElementById('folha'), aberta = !f.hidden;
+  f.hidden = true; f.innerHTML = ''; UI.folhaAula = null; sincronizarHistorico();
+  if (aberta && folhaOrigem && folhaOrigem.isConnected && typeof folhaOrigem.focus === 'function') folhaOrigem.focus();
+  folhaOrigem = null;
+}
 function cabFolha(rotulo, titulo) { return '<div class="folha-cab"><div><span class="rotulo">' + esc(rotulo) + '</span><h2>' + esc(titulo) + '</h2></div><button class="btn pequeno" data-acao="fechar-folha">Fechar</button></div>'; }
 function folhaItem(id, resp) {
   const q = QI.get(id);

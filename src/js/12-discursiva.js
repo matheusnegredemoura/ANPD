@@ -52,7 +52,7 @@ function renderDiscursiva() {
       TEMAS_DISC.map((x) => {
         const tent = estadoDisc(x.id).tentativas, ult = tent[0];
         return '<div class="cartao disc-tema"><div class="secao-cab"><h2>' + esc(x.titulo) + '</h2><span class="selo mono">' + x.linhas + ' linhas · ' + x.pontos + ' pts</span></div>' +
-          '<p class="pequeno mudo">Tempo sugerido: ' + x.minutos + ' min · ' + (ult ? 'última nota ' + ult.nq.toFixed(2).replace('.', ',') + ' de ' + x.pontos + ' em ' + esc(fmtData(ult.d, { day: '2-digit', month: '2-digit' })) + ' · ' + pl(tent.length, 'tentativa', 'tentativas') : 'ainda não feito') + '</p>' +
+          '<p class="pequeno mudo">Tempo sugerido: ' + x.minutos + ' min · ' + (ult ? 'última nota ' + (Number(ult.nq) || 0).toFixed(2).replace('.', ',') + ' de ' + x.pontos + ' em ' + esc(fmtData(ult.d, { day: '2-digit', month: '2-digit' })) + ' · ' + pl(tent.length, 'tentativa', 'tentativas') : 'ainda não feito') + '</p>' +
           '<div class="linha-btns"><button class="btn primario" data-acao="disc-abrir" data-t="' + esc(x.id) + '">' + (estadoDisc(x.id).rascunho ? 'Continuar' : 'Escrever') + '</button></div></div>';
       }).join('');
   }
@@ -87,7 +87,7 @@ function renderDiscursiva() {
     '<div class="campo"><label for="disc-ne">Erros de português que você encontrou ao reler (grafia, acentuação, pontuação, concordância, regência)</label><input id="disc-ne" type="number" min="0" step="1" inputmode="numeric" value="' + esc(UI.discNE || 0) + '"></div>' +
     '<div class="disc-res" id="disc-res">' + resultadoDisc(t) + '</div>' +
     '<div class="linha-btns"><button class="btn primario" data-acao="disc-salvar">Salvar resultado</button><button class="btn" data-acao="disc-editar">Voltar a editar</button></div></div>';
-  if (st.tentativas.length) html += '<div class="cartao"><h2>Tentativas anteriores</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Data</th><th>Linhas</th><th>Erros</th><th>Nota</th></tr></thead><tbody>' + st.tentativas.map((x) => '<tr><td>' + esc(fmtData(x.d, { day: '2-digit', month: '2-digit' })) + '</td><td class="num">' + x.tl + '</td><td class="num">' + x.ne + '</td><td class="num">' + x.nq.toFixed(2).replace('.', ',') + '</td></tr>').join('') + '</tbody></table></div></div>';
+  if (st.tentativas.length) html += '<div class="cartao"><h2>Tentativas anteriores</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Data</th><th>Linhas</th><th>Erros</th><th>Nota</th></tr></thead><tbody>' + st.tentativas.map((x) => '<tr><td>' + esc(fmtData(x.d, { day: '2-digit', month: '2-digit' })) + '</td><td class="num">' + (Number(x.tl) || 0) + '</td><td class="num">' + (Number(x.ne) || 0) + '</td><td class="num">' + (Number(x.nq) || 0).toFixed(2).replace('.', ',') + '</td></tr>').join('') + '</tbody></table></div></div>';
   return html;
 }
 let timerDisc = null;
@@ -270,16 +270,16 @@ function sincronizarDoTCU(origem) {
   for (const [id, r] of Object.entries(origem.itens || {})) {
     if (!QI.has(id) || !Array.isArray(r)) continue;
     const at = S.itens[id];
-    if (!at || num(r[4]) > num(at[4]) || (num(r[4]) === num(at[4]) && num(r[2]) + num(r[3]) > num(at[2]) + num(at[3]))) { S.itens[id] = r.slice(); nItens++; }
+    if (!at || num(r[4]) > num(at[4]) || (num(r[4]) === num(at[4]) && num(r[2]) + num(r[3]) > num(at[2]) + num(at[3]))) { S.itens[id] = r.map(num); nItens++; }
   }
   for (const [id, c] of Object.entries(origem.cards || {})) {
     if (!CI.has(id) || !Array.isArray(c)) continue;
     const at = S.cards[id];
-    if (!at || num(c[5]) > num(at[5])) { S.cards[id] = c.slice(); nCards++; }
+    if (!at || num(c[5]) > num(at[5])) { S.cards[id] = c.map(num); nCards++; }
   }
   S.perfil.lidos ||= {};
   for (const [k, dt] of Object.entries((origem.perfil && origem.perfil.lidos) || {})) {
-    if (ARTI.has(k) && (!S.perfil.lidos[k] || dt < S.perfil.lidos[k])) { S.perfil.lidos[k] = dt; nLidos++; }
+    if (ARTI.has(k) && /^\d{4}-\d\d-\d\d$/.test(dt) && (!S.perfil.lidos[k] || dt < S.perfil.lidos[k])) { S.perfil.lidos[k] = dt; nLidos++; }
   }
   Store.salvarTudo(); renderTudo();
   avisar('⇄', 'Tronco comum trazido do Painel TCU', pl(nItens, 'questão', 'questões') + ', ' + pl(nCards, 'card', 'cards') + ' e ' + pl(nLidos, 'artigo lido', 'artigos lidos') + ' aproveitados.');

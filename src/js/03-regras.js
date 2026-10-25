@@ -21,8 +21,18 @@ function dominioBloco(bid) {
 function dominadoVencido(id) { const r = rec(id); return !!r && r[0] >= 3 && r[1] <= HOJE() && !SEM_REPETICAO.has(id); }
 function manutencaoFeitaHoje() { const d = S.perfil.dias[hojeISO()]; return (d && d.m) || 0; }
 // Itens dominados vencidos que entram hoje (respeitando o limite diário), dos mais atrasados para os mais recentes
+// Teto do dia: sobe com o volume real (até um quarto da mediana de itens por dia) e só até o fluxo que mantém a fila em
+// dia (Σ 1/intervalo dos dominados). Quem responde 100 itens por dia não fica preso a 10 revisões enquanto centenas de
+// dominados vencem: no certo/errado, item visto e esquecido vira erro confiante, que custa ponto.
+function tetoManutencao() {
+  const r = ritmo(), cap = r && r.r ? Math.round(r.r / 4) : 0;
+  if (cap <= MANUTENCAO_DIA) return MANUTENCAO_DIA;
+  let fluxo = 0;
+  for (const [id, x] of Object.entries(S.itens)) if (x[0] >= 3 && !SEM_REPETICAO.has(id)) fluxo += 1 / Math.max(1, x[1] - x[4]);
+  return Math.max(MANUTENCAO_DIA, Math.min(cap, Math.ceil(fluxo)));
+}
 function manutencaoHoje() {
-  const resta = Math.max(0, MANUTENCAO_DIA - manutencaoFeitaHoje());
+  const resta = Math.max(0, tetoManutencao() - manutencaoFeitaHoje());
   return resta ? Q.filter((q) => dominadoVencido(q.id)).sort((a, b) => rec(a.id)[1] - rec(b.id)[1]).slice(0, resta) : [];
 }
 function listaVencida() { return Q.filter((q) => vencida(q.id)).sort((a, b) => rec(a.id)[1] - rec(b.id)[1]); }

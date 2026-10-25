@@ -179,7 +179,7 @@ function renderProgresso() {
   let dc = 0, de = 0;
   for (const r of Object.values(S.itens)) { dc += r[5] || 0; de += r[6] || 0; }
   html += '<div class="cartao"><h2>Calibragem do chute</h2>' + (dc + de >= 5 ? '<p>Quando marca dúvida, você acerta <b>' + pct(dc, dc + de) + '%</b> (' + dc + ' de ' + (dc + de) + '). ' + (pct(dc, dc + de) > 50 ? 'Acima de 50%: na prova, chutar tende a somar pontos.' : 'Até 50%: na prova, deixar em branco tende a ser melhor.') + '</p>' : '<p class="mudo">Marque “Estou em dúvida” antes de responder. Com 5 marcações já dá para saber se o seu chute compensa.</p>') + '</div>';
-  if (S.simulados.length) html += '<div class="cartao"><h2>Simulados</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Data</th><th>Itens</th><th>C</th><th>E</th><th>Nota</th><th>Pontos</th><th>Reais</th></tr></thead><tbody>' + S.simulados.slice(0, 12).map((s) => '<tr><td>' + esc(fmtData(s.data, { day: '2-digit', month: '2-digit' })) + '</td><td class="num">' + s.n + '</td><td class="num">' + s.c + '</td><td class="num">' + s.e + '</td><td class="num">' + s.liq + ' (' + pct(s.liq, s.n) + '%)</td><td class="num">' + (s.ptMax ? s.pt + ' de ' + s.ptMax : '—') + '</td><td class="num">' + (s.nr ? pct(s.cr, s.nr) + '% de ' + s.nr : '—') + '</td></tr>').join('') + '</tbody></table></div>' +
+  if (S.simulados.length) html += '<div class="cartao"><h2>Simulados</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Data</th><th>Itens</th><th>C</th><th>E</th><th>Nota</th><th>Pontos</th><th>Reais</th></tr></thead><tbody>' + S.simulados.slice(0, 12).map((s) => { const n = (k) => Number(s[k]) || 0; return '<tr><td>' + esc(fmtData(s.data, { day: '2-digit', month: '2-digit' })) + '</td><td class="num">' + n('n') + '</td><td class="num">' + n('c') + '</td><td class="num">' + n('e') + '</td><td class="num">' + n('liq') + ' (' + pct(n('liq'), n('n')) + '%)</td><td class="num">' + (n('ptMax') ? n('pt') + ' de ' + n('ptMax') : '—') + '</td><td class="num">' + (n('nr') ? pct(n('cr'), n('nr')) + '% de ' + n('nr') : '—') + '</td></tr>'; }).join('') + '</tbody></table></div>' +
     '<p class="pequeno mudo">Pontos: nota com os pesos da prova (cada item vale ' + (PESO_ESPECIFICA === 1 ? '1' : '1 na básica e ' + PESO_ESPECIFICA + ' na específica') + '). Reais: acerto nos itens reais de prova do simulado.</p></div>';
   html += cartaoConquistas();
   html += cartaoTrofeus();
@@ -311,7 +311,7 @@ function metricasSemanaMentor() {
   let discSem = false;
   if (S.disc) {
     for (const t of Object.values(S.disc)) {
-      if (t.tentativas && t.tentativas.some((x) => x.data && x.data >= semIni)) {
+      if (t.tentativas && t.tentativas.some((x) => x.d && x.d >= semIni)) {
         discSem = true; break;
       }
       if (t.rascunho && t.rascunho.length >= 200 && S.perfil.feitos && S.perfil.feitos['disc:' + hoje]) {
