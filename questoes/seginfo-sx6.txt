@@ -1,0 +1,190 @@
+bloco: seginfo
+// Segurança da informação, lote SX6: modelos de controle de acesso (RBAC, ABAC, DAC e MAC), acessos privilegiados,
+// revisão de acessos e segregação de funções, EDR, SIEM, sandbox de malware, CSRF, armazenamento de senhas, MFA,
+// assinatura digital e mascaramento (doutrina), e prazos, severidade e conceito de incidente do Decreto 10.748/2021
+// (conferidos em fontes/dec10748.txt).
+
+=== sx6-01
+gab: C
+tema: si-controles
+ref: doutrina controle de acesso
+armadilha: conceito
+dif: 1
+enunciado: No controle de acesso baseado em papéis (RBAC), as permissões são associadas a funções da organização, e os usuários recebem as funções correspondentes ao cargo que ocupam.
+comentario: Certo. Quando alguém muda de cargo, troca-se o papel, e não cada permissão individual. Isso simplifica a administração e favorece o privilégio mínimo.
+
+=== sx6-02
+gab: E
+tema: si-controles
+ref: doutrina controle de acesso
+armadilha: conceito
+dif: 2
+enunciado: No controle de acesso baseado em atributos (ABAC), a decisão considera apenas a identidade do usuário, sem levar em conta características do recurso ou do contexto do pedido.
+comentario: Errado. O ABAC combina atributos do sujeito, do recurso, da ação e do ambiente (horário, localização, dispositivo). É o que permite regras como “só acessa prontuários do próprio setor, em horário de expediente”.
+
+=== sx6-03
+gab: C
+tema: si-controles
+ref: doutrina controle de acesso
+armadilha: comparacao
+dif: 2
+enunciado: No controle de acesso discricionário, o proprietário do recurso decide quem pode acessá-lo; no obrigatório, o acesso decorre de rótulos de classificação definidos de forma centralizada, que o usuário não pode alterar.
+comentario: Certo. O DAC é comum em sistemas de arquivos (o dono compartilha a pasta). O MAC aparece em ambientes de informação classificada, em que o nível de sigilo do dado e a credencial do usuário determinam o acesso.
+
+=== sx6-04
+gab: E
+tema: si-controles
+ref: doutrina acessos privilegiados
+armadilha: conceito
+dif: 2
+enunciado: Na gestão de acessos privilegiados, recomenda-se que a equipe de TI compartilhe uma mesma conta de administrador, para facilitar a rastreabilidade das ações.
+comentario: Errado. Conta compartilhada impede saber quem fez o quê. As boas práticas usam contas individuais, cofre de senhas, elevação temporária de privilégio e gravação das sessões administrativas.
+
+=== sx6-05
+gab: C
+tema: si-controles
+ref: doutrina revisão de acessos
+armadilha: conceito
+dif: 1
+enunciado: A revisão periódica de acessos e a revogação imediata de permissões de quem muda de função ou deixa a organização evitam o acúmulo indevido de privilégios.
+comentario: Certo. Sem revisão, o servidor que passa por vários setores carrega permissões de todos eles. A ISO/IEC 27002 trata da revisão e da remoção de direitos de acesso.
+
+=== sx6-06
+gab: C
+tema: si-controles
+ref: doutrina segregação de funções
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em um órgão, o mesmo servidor cadastra fornecedores, aprova pagamentos e os executa no sistema financeiro. Assertiva: o arranjo contraria o princípio da segregação de funções e eleva o risco de fraude.
+comentario: Certo. Segregar funções incompatíveis exige que mais de uma pessoa participe das etapas críticas, de modo que um erro ou desvio de uma seja percebido pela outra.
+
+=== sx6-07
+gab: E
+tema: sg-ameacas
+ref: doutrina EDR
+armadilha: comparacao
+dif: 2
+enunciado: As soluções de EDR limitam-se a comparar arquivos com assinaturas de vírus conhecidos, como os antivírus tradicionais, sem monitorar o comportamento das estações de trabalho.
+comentario: Errado. O EDR monitora continuamente os endpoints, registra atividades, detecta comportamento suspeito (inclusive de ameaças sem assinatura conhecida) e permite responder, isolando a máquina ou encerrando processos.
+
+=== sx6-08
+gab: C
+tema: sg-ameacas
+ref: doutrina SIEM
+armadilha: conceito
+dif: 2
+enunciado: Uma ferramenta de SIEM coleta e correlaciona registros de eventos de diversas fontes, o que permite detectar padrões de ataque que não seriam percebidos na análise isolada de cada log.
+comentario: Certo. Várias tentativas de login malsucedidas em servidores diferentes, por exemplo, só aparecem como ataque quando os eventos são vistos em conjunto. O SIEM costuma apoiar o trabalho do centro de operações de segurança.
+
+=== sx6-09
+gab: C
+tema: sg-ameacas
+ref: doutrina análise de malware
+armadilha: conceito
+dif: 2
+enunciado: Na análise dinâmica de malware, o arquivo suspeito é executado em ambiente isolado para que se observe seu comportamento sem comprometer a rede de produção.
+comentario: Certo. A sandbox registra o que o artefato faz (arquivos criados, conexões, alterações no sistema). A análise estática, por outro lado, examina o código sem executá-lo.
+
+=== sx6-10
+gab: E
+tema: sg-ameacas
+ref: doutrina CSRF
+armadilha: comparacao
+dif: 3
+enunciado: No ataque de cross-site request forgery (CSRF), o atacante insere em uma página um script malicioso que é executado no navegador de quem a visita.
+comentario: Errado. A descrição é de XSS. No CSRF, a vítima, já autenticada em um site, é induzida a enviar a ele uma requisição que não pretendia (como uma transferência). Tokens anti-CSRF e cookies com atributo SameSite são defesas comuns.
+
+=== sx6-11
+gab: C
+tema: sg-cripto
+ref: doutrina armazenamento de senhas
+armadilha: conceito
+dif: 2
+enunciado: No armazenamento de senhas com hash, o uso de salt aleatório e único por usuário dificulta ataques com tabelas pré-computadas, pois senhas iguais passam a gerar resumos diferentes.
+comentario: Certo. Com salt, o atacante precisaria de uma tabela para cada valor de salt, o que inviabiliza as rainbow tables. O salt não precisa ser secreto.
+
+=== sx6-12
+gab: E
+tema: sg-cripto
+ref: doutrina armazenamento de senhas
+armadilha: conceito
+dif: 3
+enunciado: Para armazenar senhas, recomenda-se função de hash rápida, aplicada uma única vez, porque reduz o tempo de autenticação sem prejuízo da segurança.
+comentario: Errado. Rapidez favorece o atacante, que testa bilhões de senhas por segundo. Usam-se funções lentas e ajustáveis, como bcrypt, scrypt, Argon2 ou PBKDF2 com muitas iterações.
+
+=== sx6-13
+gab: E
+tema: si-controles
+ref: doutrina autenticação
+armadilha: conceito
+dif: 2
+enunciado: Exigir do usuário uma senha e, em seguida, uma segunda senha diferente configura autenticação multifator, por se tratar de dois segredos distintos.
+comentario: Errado. As duas senhas pertencem à mesma categoria (algo que o usuário sabe). Multifator combina categorias diferentes: algo que se sabe, algo que se tem (token, celular) e algo que se é (biometria).
+
+=== sx6-14
+gab: C
+tema: sg-cripto
+ref: doutrina certificado digital
+armadilha: conceito
+dif: 2
+enunciado: A lista de certificados revogados e o protocolo OCSP permitem verificar se um certificado digital, embora ainda dentro do prazo de validade, foi revogado antes do vencimento.
+comentario: Certo. Um certificado pode ser revogado, por exemplo, se a chave privada vazar. Por isso, conferir só a data de validade não basta: é preciso consultar a situação do certificado junto à autoridade certificadora.
+
+=== sx6-15
+gab: E
+tema: sg-privacidade
+ref: doutrina mascaramento
+armadilha: conceito
+dif: 3
+enunciado: O mascaramento que exibe apenas parte dos dígitos do CPF na tela de atendimento transforma o dado em anonimizado para fins da LGPD, já que o atendente não vê o número completo.
+comentario: Errado. O controlador continua guardando o dado completo e associado ao titular. O mascaramento reduz a exposição e é medida de segurança, mas não torna o dado anônimo (art. 5º, III, e art. 12 da LGPD).
+
+=== sx6-16
+gab: C
+tema: sg-nist
+ref: dec10748 16
+trecho: deverão ser implementadas no prazo de dezoito meses, contado da data de publicação deste Decreto
+armadilha: numero
+dif: 3
+enunciado: As agências reguladoras, o Banco Central e a Comissão Nacional de Energia Nuclear tiveram dezoito meses, contados da publicação do decreto da Rede Federal de Gestão de Incidentes Cibernéticos, para implementar as ações a seu cargo que incluíssem instituir ou designar equipes de coordenação setorial.
+comentario: Certo. Art. 16, que remete aos órgãos do art. 13. Para os demais órgãos e entidades de participação obrigatória, o prazo de implementação foi de um ano (art. 17).
+
+=== sx6-17
+gab: E
+tema: sg-nist
+ref: dec10748 17
+trecho: deverão implementar as ações previstas para o funcionamento da Rede Federal de Gestão de Incidentes Cibernéticos no prazo de um ano
+armadilha: numero
+dif: 3
+enunciado: Os órgãos e entidades da administração federal direta, autárquica e fundacional, de participação obrigatória na Rede Federal de Gestão de Incidentes Cibernéticos, tiveram dois anos para implementar as ações de funcionamento da Rede.
+comentario: Errado. O art. 17 fixou prazo de um ano, contado da publicação do Decreto 10.748/2021. Os dezoito meses do art. 16 valem para as ações das agências reguladoras, do Banco Central e da CNEN que incluam as equipes de coordenação setorial.
+
+=== sx6-18
+gab: C
+tema: sg-nist
+ref: dec10748 13
+trecho: serão estabelecidos com base na classificação de severidade que consta do processo de gestão de riscos de segurança da informação do órgão ou da entidade
+armadilha: conceito
+dif: 3
+enunciado: Na Rede Federal de Gestão de Incidentes Cibernéticos, os incidentes de maior impacto que as equipes principais devem notificar são definidos pela classificação de severidade do processo de gestão de riscos de segurança da informação do próprio órgão ou entidade.
+comentario: Certo. Art. 13, § 1º, que remete aos incisos IV e V: as agências requerem às equipes principais essas notificações e as repassam ao centro de governo (CTIR Gov) por meio da equipe de coordenação setorial.
+
+=== sx6-19
+gab: E
+tema: sg-nist
+ref: dec10748 4
+trecho: ocorrência que comprometa, real ou potencialmente, a disponibilidade, a integridade, a confidencialidade ou a autenticidade
+armadilha: excecao
+dif: 3
+enunciado: Para o decreto que instituiu a Rede Federal de Gestão de Incidentes Cibernéticos, só configura incidente cibernético a ocorrência que efetivamente comprometa um sistema, excluídas as tentativas de explorar vulnerabilidades.
+comentario: Errado. O art. 4º, V, inclui o comprometimento real ou potencial da disponibilidade, integridade, confidencialidade ou autenticidade, e também a tentativa de exploração de vulnerabilidade que viole norma ou política de segurança.
+
+=== sx6-20
+gab: C
+tema: sg-nist
+ref: dec10748 13
+trecho: identificar as infraestruturas críticas de suas áreas prioritárias que requeiram atenção em termos de segurança cibernética nacional
+armadilha: rol
+dif: 2
+enunciado: No âmbito da Rede Federal de Gestão de Incidentes Cibernéticos, compete às agências reguladoras identificar as infraestruturas críticas de suas áreas prioritárias que exijam atenção para a segurança cibernética nacional, além de outras entidades relevantes para a segurança cibernética nessas áreas.
+comentario: Certo. Art. 13, VIII e X. As áreas prioritárias são as definidas no Plano Nacional de Segurança de Infraestruturas Críticas (art. 4º, IV).
