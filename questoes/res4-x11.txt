@@ -1,0 +1,184 @@
+bloco: res-4-2023
+// Resolução CD/ANPD nº 4/2023 (dosimetria e aplicação de sanções), lote X11: casos de classificação da infração,
+// advertência e multa, agravantes e atenuantes, piso e renúncia ao recurso, pagamento, pluralidade de infratores,
+// publicização e eliminação. Conferidas com fontes/res4.txt.
+
+=== r4x-01
+gab: C
+tema: an-dosimetria
+ref: res4 8
+trecho: a infração envolver tratamento de dados sensíveis ou de dados pessoais de crianças, de adolescentes ou de idosos
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma operadora de crédito consignado expôs, por falha de configuração, dados de aposentados, o que podia levar a fraudes financeiras contra eles. Assertiva: pelo regulamento de dosimetria da ANPD, a infração tende a ser classificada como grave.
+comentario: Certo. Há a hipótese do art. 8º, § 2º (pode afetar significativamente direitos, com risco de fraudes financeiras) e, cumulativamente, um critério do § 3º, I: dados de idosos (alínea d). A combinação leva à classificação grave.
+
+=== r4x-02
+gab: E
+tema: an-dosimetria
+ref: res4 8
+trecho: A infração será considerada leve quando não verificada nenhuma das hipóteses relacionadas nos §§ 2º ou 3º deste artigo
+armadilha: conceito
+dif: 2
+enunciado: Na dosimetria da ANPD, a infração leve é definida pelo número reduzido de titulares atingidos, independentemente de outros critérios.
+comentario: Errado. A classificação leve é residual (art. 8º, § 1º): ocorre quando não se verifica nenhuma das hipóteses de infração média (§ 2º) ou grave (§ 3º). O número de titulares pesa, por exemplo, no critério de larga escala da infração grave.
+
+=== r4x-03
+gab: C
+tema: an-dosimetria
+ref: res4 8
+trecho: constituir obstrução à atividade de fiscalização
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: durante fiscalização, uma empresa apagou registros pedidos pela ANPD e deixou de responder às requisições. Assertiva: a obstrução à fiscalização é infração grave, ainda que não se demonstre impacto significativo nos direitos dos titulares.
+comentario: Certo. O art. 8º, § 3º, tem duas vias para a infração grave: a do inciso I, que exige a hipótese do § 2º e mais um critério; e a do inciso II, obstrução à fiscalização, que basta por si.
+
+=== r4x-04
+gab: E
+tema: an-dosimetria
+ref: res4 9
+trecho: a infração for leve ou média e não caracterizar reincidência específica
+armadilha: excecao
+dif: 2
+enunciado: A ANPD pode aplicar advertência a infração grave, desde que o infrator não seja reincidente específico.
+comentario: Errado. A advertência cabe quando a infração é leve ou média e não há reincidência específica (art. 9º, I), ou quando há necessidade de impor medidas corretivas (II). Para a infração grave, a regra é a multa simples (art. 10, II).
+
+=== r4x-05
+gab: C
+tema: an-dosimetria
+ref: res4 10
+trecho: o infrator não tenha atendido as medidas preventivas ou corretivas a ele impostas, dentro dos prazos estabelecidos
+armadilha: rol
+dif: 2
+enunciado: A multa simples é aplicada quando o infrator não atende, no prazo, às medidas preventivas ou corretivas impostas, quando a infração é grave ou quando, pelas circunstâncias, outra sanção não for adequada.
+comentario: Certo. Art. 10, I a III. A multa simples observa o limite do art. 52, II, da LGPD: 2% do faturamento no Brasil, limitado a R$ 50 milhões por infração (art. 15, II, do regulamento).
+
+=== r4x-06
+gab: C
+tema: an-dosimetria
+ref: res4 12
+trecho: Na hipótese de incidência de mais de um dos incisos deste artigo, deverão ser somados os percentuais relativos a cada fator
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um infrator tem um caso de reincidência específica e descumpriu uma medida corretiva. Assertiva: sobre o valor-base da multa incidem os acréscimos de 10% pela reincidência específica e de 30% pela medida corretiva descumprida, somados.
+comentario: Certo. Art. 12, I e IV, e § 1º: os percentuais de cada agravante se somam. Os limites são de 40% para reincidência específica, 20% para genérica, 80% para medidas de orientação ou preventivas e 90% para corretivas descumpridas.
+
+=== r4x-07
+gab: E
+tema: an-dosimetria
+ref: res4 12
+trecho: os excedentes ingressarão na categoria de reincidência genérica
+armadilha: excecao
+dif: 3
+enunciado: Quando o número de reincidências específicas supera o necessário para atingir o teto do agravante, os registros excedentes são simplesmente desconsiderados no cálculo da multa.
+comentario: Errado. Pelo art. 12, § 2º, os registros que excedem o teto da reincidência específica passam a contar como reincidência genérica, com o acréscimo do inciso II.
+
+=== r4x-08
+gab: C
+tema: an-dosimetria
+ref: res4 13
+trecho: 75% (setenta e cinco por cento), se previamente à instauração de procedimento preparatório pela ANPD
+armadilha: numero
+dif: 3
+enunciado: A cessação da infração antes de a ANPD instaurar procedimento preparatório reduz a multa simples em 75%, percentual que cai conforme a cessação ocorra em fases posteriores do processo.
+comentario: Certo. Art. 13, I: 75% antes do procedimento preparatório; 50% entre ele e a instauração do processo sancionador; 30% depois disso e até a decisão de primeira instância. Quanto antes o infrator corrige a conduta, maior o benefício.
+
+=== r4x-09
+gab: E
+tema: an-dosimetria
+ref: res4 13
+trecho: não serão consideradas atenuantes a cessação da infração e a adoção de medidas capazes de reverter ou mitigar os efeitos da infração decorrentes do mero cumprimento de determinação administrativa ou judicial
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: uma empresa só cessou a coleta irregular de dados depois de ordem judicial que a obrigou a parar. Assertiva: ainda assim, ela faz jus à atenuante de cessação da infração.
+comentario: Errado. O art. 13, § 1º, não considera atenuante a cessação ou a mitigação que decorra do mero cumprimento de determinação administrativa ou judicial. A atenuação premia a iniciativa do infrator.
+
+=== r4x-10
+gab: E
+tema: an-dosimetria
+ref: res4 13
+trecho: Cabe ao infrator o ônus de comprovar perante a ANPD o cumprimento dos requisitos previstos neste artigo
+armadilha: sujeito
+dif: 2
+enunciado: Na dosimetria da multa, cabe à ANPD comprovar de ofício a presença das circunstâncias atenuantes em favor do infrator.
+comentario: Errado. O art. 13, § 3º, atribui ao infrator o ônus de comprovar os requisitos das atenuantes, como a cessação da infração, a política de governança ou a adoção de medidas de mitigação.
+
+=== r4x-11
+gab: C
+tema: an-dosimetria
+ref: res4 15
+trecho: exceto para os casos em que a vantagem auferida ou pretendida pelo infrator seja estimável, aplicando-se, neste caso, o dobro da vantagem econômica decorrente da infração
+armadilha: excecao
+dif: 3
+enunciado: Quando a vantagem auferida ou pretendida pelo infrator é estimável, o piso da multa depois de aplicadas agravantes e atenuantes passa a ser o dobro dessa vantagem, e não os valores mínimos do apêndice do regulamento.
+comentario: Certo. Art. 15, I. A regra impede que a infração compense: a multa não pode ficar abaixo do dobro do que o infrator ganhou ou pretendia ganhar. O teto continua a ser o do inciso II.
+
+=== r4x-12
+gab: C
+tema: an-dosimetria
+ref: res4 18
+trecho: fará jus a um fator de redução de 25% (vinte e cinco por cento) no valor da multa aplicada, caso faça o recolhimento no prazo para pagamento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: multada em primeira instância, uma empresa renunciou expressamente ao direito de recorrer e pagou a multa dentro do prazo. Assertiva: ela tem direito à redução de 25% no valor da multa.
+comentario: Certo. Art. 18. A redução exige as duas condições: renúncia expressa ao recurso e pagamento no prazo do art. 17 (até 20 dias úteis da ciência oficial da decisão).
+
+=== r4x-13
+gab: E
+tema: an-dosimetria
+ref: res4 17
+trecho: Aos agentes de tratamento de pequeno porte, assim definidos pela Resolução CD/ANPD nº 2, de 27 de janeiro de 2022, será concedido prazo em dobro para o pagamento das multas
+armadilha: excecao
+dif: 2
+enunciado: O prazo para pagamento da multa aplicada pela ANPD é o mesmo para todos os infratores, sem tratamento diferenciado para agentes de tratamento de pequeno porte.
+comentario: Errado. O art. 17, § 2º, dá prazo em dobro aos agentes de pequeno porte. O prazo geral é de até 20 dias úteis da ciência oficial da decisão (caput), e o atraso gera juros pela Selic e multa moratória (§ 3º).
+
+=== r4x-14
+gab: E
+tema: an-dosimetria
+ref: res4 4
+trecho: Em caso de pluralidade de infratores, as sanções serão aplicadas de forma individualizada
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: controlador e operador participaram da mesma infração. Assertiva: a ANPD deve aplicar-lhes uma única multa, a ser paga solidariamente.
+comentario: Errado. Pelo art. 4º, parágrafo único, havendo vários infratores, as sanções são individualizadas. Cada um responde conforme a própria conduta, após processo com ampla defesa e contraditório (caput).
+
+=== r4x-15
+gab: C
+tema: an-dosimetria
+ref: res4 20
+trecho: A sanção de publicização consiste na divulgação da infração pelo próprio infrator, após devidamente apurada e confirmada a sua ocorrência
+armadilha: sujeito
+dif: 2
+enunciado: Na sanção de publicização, é o próprio infrator quem divulga a infração, depois de apurada e confirmada, arcando com todos os custos dessa divulgação.
+comentario: Certo. Art. 20, §§ 1º e 3º. A decisão indica o teor, o meio, a duração e o prazo da divulgação (§ 2º). A sanção não se confunde com a publicação da decisão no Diário Oficial (art. 21).
+
+=== r4x-16
+gab: E
+tema: an-dosimetria
+ref: res4 6
+trecho: A intimação da sanção e a contagem dos prazos previstos neste Regulamento serão realizadas conforme o disposto no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador
+armadilha: sujeito
+dif: 2
+enunciado: O regulamento de dosimetria da ANPD estabelece regras próprias de intimação e de contagem de prazos, que afastam as do regulamento de fiscalização e do processo administrativo sancionador.
+comentario: Errado. O art. 6º remete a intimação da sanção e a contagem dos prazos ao Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador (Res. CD/ANPD 1/2021). Os dois regulamentos funcionam em conjunto.
+
+=== r4x-17
+gab: C
+tema: an-dosimetria
+ref: res4 23
+trecho: comunicar imediatamente a eliminação dos dados aos agentes de tratamento com os quais tenha realizado uso compartilhado de dados, para que repitam idêntico procedimento
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD aplicou a uma empresa a sanção de eliminação de base de dados que ela havia compartilhado com dois parceiros. Assertiva: intimada, a empresa deve comunicar de imediato a eliminação aos parceiros, para que façam o mesmo.
+comentario: Certo. Art. 23, § 2º, salvo quando a comunicação for comprovadamente impossível ou implicar esforço desproporcional, hipóteses avaliadas pela ANPD. É a mesma lógica do art. 18, § 6º, da LGPD.
+
+=== r4x-18
+gab: E
+tema: an-dosimetria
+ref: res4 8
+trecho: quando puder afetar significativamente interesses e direitos fundamentais dos titulares de dados pessoais
+armadilha: conceito
+dif: 3
+enunciado: Para a Res. CD/ANPD 4/2023, a infração só pode ser classificada como média se o dano aos titulares tiver efetivamente ocorrido e sido comprovado.
+comentario: Errado. O art. 8º, § 2º, fala em infração que “puder afetar significativamente” interesses e direitos fundamentais, como quando “puder impedir ou limitar” direitos ou ocasionar danos. Basta a potencialidade; o grau do dano efetivo é outro critério da dosimetria (art. 7º, VII).
