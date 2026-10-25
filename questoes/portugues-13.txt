@@ -1,0 +1,168 @@
+bloco: portugues
+// Texto original escrito para o banco (decisões automatizadas no serviço público e dever de explicar), com itens de
+// interpretação, coesão, semântica, pontuação, concordância, sintaxe e reescrita.
+
+apoio_PT13A: Sistemas de inteligência artificial já decidem, em muitos órgãos públicos, quem será chamado para uma entrevista, que pedido merece análise prioritária e qual declaração deve ser fiscalizada. A promessa é sedutora: decisões mais rápidas, mais baratas e, em tese, livres dos humores de quem as toma. Nem sempre, porém, a máquina entrega o que promete.
+Um modelo treinado com dados do passado tende a repetir os padrões que neles encontra, inclusive os injustos. Se determinado bairro foi historicamente mais fiscalizado, por exemplo, o sistema aprenderá a apontá-lo como mais suspeito, e a nova fiscalização produzirá novos registros que confirmarão a suspeita. O erro, assim, deixa de ser episódico e passa a se reproduzir em escala.
+Daí a importância do dever de explicar. Ao cidadão afetado por uma decisão automatizada não basta saber que ela existe; é preciso que ele compreenda os critérios que a orientaram, a fim de contestá-la quando julgar necessário. Explicar, nesse sentido, não é concessão da administração, mas condição para que o controle democrático alcance também os algoritmos.
+
+=== pt13-01
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT13A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: De acordo com o texto, os sistemas de inteligência artificial usados pelo poder público cumprem integralmente a promessa de decisões livres de vieses.
+comentario: Errado. O primeiro parágrafo já ressalva que nem sempre a máquina entrega o que promete, e o segundo mostra como o modelo pode reproduzir padrões injustos dos dados.
+
+=== pt13-02
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT13A
+armadilha: interpretacao
+dif: 3
+enunciado: Infere-se do segundo parágrafo que o viés de um modelo pode se retroalimentar, pois as decisões enviesadas geram dados que reforçam o padrão original.
+comentario: Certo. A nova fiscalização “produzirá novos registros que confirmarão a suspeita”: o erro alimenta os dados que o confirmam, e por isso passa a se reproduzir em escala.
+
+=== pt13-03
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT13A
+armadilha: interpretacao
+dif: 2
+enunciado: O autor sustenta que saber da existência de uma decisão automatizada é insuficiente para que o cidadão possa contestá-la.
+comentario: Certo. “Não basta saber que ela existe; é preciso que ele compreenda os critérios que a orientaram, a fim de contestá-la”.
+
+=== pt13-04
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT13A
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, explicar as decisões automatizadas é uma liberalidade da administração pública, que pode concedê-la ou não.
+comentario: Errado. O último período diz o oposto: explicar “não é concessão da administração, mas condição” do controle democrático.
+
+=== pt13-05
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT13A
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, a expressão “em tese” apresenta a ausência de interferência dos humores humanos como possibilidade teórica, e não como fato comprovado.
+comentario: Certo. “Em tese” relativiza a afirmação: as decisões seriam livres dos humores de quem as toma em princípio, ressalva que o restante do texto confirma ser necessária.
+
+=== pt13-06
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT13A
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, o pronome “neles”, em “os padrões que neles encontra”, retoma “dados do passado”.
+comentario: Certo. O modelo repete os padrões que encontra nos dados do passado: “neles” = “nos dados do passado”.
+
+=== pt13-07
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT13A
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, o pronome “o”, em “apontá-lo”, retoma “o sistema”.
+comentario: Errado. O sistema aprenderá a apontar o bairro como mais suspeito: o pronome retoma “determinado bairro”. “O sistema” é o sujeito de “aprenderá”.
+
+=== pt13-08
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT13A
+armadilha: conceito
+dif: 2
+enunciado: No final do segundo parágrafo, o vocábulo “assim” introduz uma conclusão do que foi exposto e poderia ser substituído por portanto, sem prejuízo do sentido e da correção do texto.
+comentario: Certo. “O erro, portanto, deixa de ser episódico...” mantém a ideia de conclusão, e as vírgulas continuam isolando o conector deslocado.
+
+=== pt13-09
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT13A
+armadilha: conceito
+dif: 2
+enunciado: A palavra “Daí”, que inicia o terceiro parágrafo, tem valor temporal e equivale a depois disso.
+comentario: Errado. “Daí” tem valor de consequência ou conclusão (= por isso, disso decorre): a importância do dever de explicar decorre do problema descrito no parágrafo anterior.
+
+=== pt13-10
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT13A
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, os dois-pontos empregados após “sedutora” introduzem a explicitação de qual seria a promessa.
+comentario: Certo. O que vem depois dos dois-pontos (“decisões mais rápidas, mais baratas e, em tese, livres dos humores...”) detalha a promessa anunciada.
+
+=== pt13-11
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT13A
+armadilha: conceito
+dif: 3
+enunciado: No trecho “Nem sempre, porém, a máquina entrega o que promete”, a supressão das vírgulas que isolam a conjunção “porém” prejudicaria a correção gramatical do texto.
+comentario: Certo. Conjunção adversativa deslocada para o interior da oração deve vir isolada por vírgulas. Sem elas, o período fica em desacordo com a norma-padrão.
+
+=== pt13-12
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @PT13A
+armadilha: conceito
+dif: 1
+enunciado: No primeiro parágrafo, a forma verbal “decidem” concorda com o núcleo do sujeito “Sistemas”.
+comentario: Certo. “Sistemas de inteligência artificial já decidem”: o verbo no plural concorda com “Sistemas”, núcleo do sujeito; “de inteligência artificial” é adjunto.
+
+=== pt13-13
+gab: E
+tema: pt-concordancia
+ref: texto
+apoio: @PT13A
+armadilha: conceito
+dif: 2
+enunciado: A substituição do trecho “Se determinado bairro foi historicamente mais fiscalizado” por Se determinados bairros foi historicamente mais fiscalizado manteria a correção gramatical do texto.
+comentario: Errado. Com o sujeito no plural, o verbo e o particípio também vão ao plural: “Se determinados bairros foram historicamente mais fiscalizados”.
+
+=== pt13-14
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT13A
+armadilha: conceito
+dif: 3
+enunciado: No terceiro parágrafo, a oração “saber que ela existe” exerce a função de sujeito da forma verbal “basta”.
+comentario: Certo. O que não basta? Saber que ela existe: a oração reduzida de infinitivo é o sujeito de “basta”, e “Ao cidadão afetado...” é o complemento indireto.
+
+=== pt13-15
+gab: C
+tema: pt-reescrita
+ref: texto
+apoio: @PT13A
+armadilha: conceito
+dif: 2
+enunciado: O trecho “a fim de contestá-la quando julgar necessário” poderia ser reescrito como para que possa contestá-la quando julgar necessário, sem prejuízo da correção gramatical e do sentido do texto.
+comentario: Certo. As duas formas exprimem finalidade, e o sujeito implícito de “possa” continua sendo o cidadão (“ele”), o mesmo de “compreenda”.
+
+=== pt13-16
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT13A
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, a palavra “concessão” foi empregada no sentido de contrato pelo qual o Estado delega a prestação de serviço público.
+comentario: Errado. No contexto, “concessão” significa favor, liberalidade: explicar não é um favor da administração, mas condição do controle democrático.
