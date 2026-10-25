@@ -1,0 +1,140 @@
+bloco: marco-civil
+// Decreto nº 8.771/2016 (regulamento do Marco Civil da Internet, com o Decreto nº 12.975/2026), lote C: os artigos
+// de base que não tinham item (objeto, alcance e serviços especializados, neutralidade, gerenciamento de rede,
+// emergências, ofertas comerciais, relatórios de requisição, conceitos, interoperabilidade, padrões de segurança e
+// competências da Anatel, Senacon, SBDC e demais órgãos). Conferidas com fontes/dec8771.txt.
+
+=== d87c-01
+gab: C
+ref: dec8771 1
+trecho: parâmetros para fiscalização e apuração das infrações previstas na Lei nº 12.965, de 23 de abril de 2014
+armadilha: rol
+dif: 2
+enunciado: O regulamento do Marco Civil da Internet trata, entre outros aspectos, das hipóteses admitidas de discriminação de pacotes de dados, da guarda e proteção de dados pelos provedores, de medidas de transparência e de parâmetros para fiscalização e apuração de infrações.
+comentario: Certo. Art. 1º, I a IV, com a redação do Decreto 12.975/2026, que acrescentou a transparência no dever de cuidado dos provedores de aplicações.
+
+=== d87c-02
+gab: E
+ref: dec8771 2
+trecho: aos serviços especializados, entendidos como serviços otimizados por sua qualidade assegurada de serviço, de velocidade ou de segurança
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: uma operadora oferece a hospitais rede dedicada, de acesso restrito e com qualidade garantida, usando protocolo TCP/IP, sem substituir a internet pública. Assertiva: esse serviço está sujeito às regras de neutralidade de rede do regulamento do Marco Civil.
+comentario: Errado. O art. 2º, parágrafo único, II, exclui os serviços especializados, otimizados por qualidade, velocidade ou segurança, ainda que usem TCP/IP, desde que não substituam a internet pública e se destinem a grupos específicos com controle estrito de admissão.
+
+=== d87c-03
+gab: C
+ref: dec8771 4
+trecho: somente poderão decorrer de requisitos técnicos indispensáveis à prestação adequada de serviços e aplicações ou da priorização de serviços de emergência
+armadilha: excecao
+dif: 2
+enunciado: A discriminação ou a degradação de tráfego na internet são medidas excepcionais, admitidas apenas por requisitos técnicos indispensáveis à prestação adequada dos serviços ou pela priorização de serviços de emergência.
+comentario: Certo. Art. 4º, que regulamenta o art. 9º, § 2º, do Marco Civil. Mesmo nesses casos, todos os requisitos legais devem ser cumpridos, como agir com proporcionalidade e transparência.
+
+=== d87c-04
+gab: E
+ref: dec8771 4
+trecho: A discriminação ou a degradação de tráfego são medidas excepcionais
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um provedor de conexão passou a reduzir a velocidade de acesso a um serviço de vídeo concorrente do seu, alegando estratégia comercial. Assertiva: a prática é admitida, pois o gerenciamento de rede é livre.
+comentario: Errado. A degradação só é admitida por requisitos técnicos indispensáveis ou priorização de emergências (art. 4º). Motivo comercial viola o tratamento isonômico do art. 9º do Marco Civil, que preserva o caráter público e irrestrito do acesso (art. 3º).
+
+=== d87c-05
+gab: C
+ref: dec8771 6
+trecho: é permitido o gerenciamento de redes com o objetivo de preservar sua estabilidade, segurança e funcionalidade
+armadilha: conceito
+dif: 2
+enunciado: O gerenciamento de redes é permitido para preservar sua estabilidade, segurança e funcionalidade, com medidas técnicas compatíveis com padrões internacionais, observados os parâmetros da Anatel e as diretrizes do CGI.br.
+comentario: Certo. Art. 6º. É o caso, por exemplo, de medidas contra ataques de negação de serviço. O que se veda é usar o gerenciamento como pretexto para discriminação comercial.
+
+=== d87c-06
+gab: E
+ref: dec8771 7
+trecho: a divulgação de informações referentes às práticas de gerenciamento adotadas em seus sítios eletrônicos, por meio de linguagem de fácil compreensão
+armadilha: extrapolacao
+dif: 2
+enunciado: Quando o gerenciamento de rede implicar discriminação ou degradação de tráfego, o responsável pela transmissão não precisa informar o usuário, por se tratar de questão técnica interna.
+comentario: Errado. O art. 7º exige transparência: indicação nos contratos e divulgação nos sítios eletrônicos, em linguagem de fácil compreensão, com a descrição das práticas, seus efeitos na qualidade de experiência e os motivos da adoção (parágrafo único).
+
+=== d87c-07
+gab: C
+ref: dec8771 8
+trecho: A transmissão de dados nos casos elencados neste artigo será gratuita
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: durante enchente, a defesa civil enviou alertas à população por meio da rede de uma operadora, com prioridade sobre o tráfego comum. Assertiva: a priorização é admitida, e a transmissão desses alertas é gratuita.
+comentario: Certo. Art. 8º, II e parágrafo único: comunicações para informar a população em situações de risco de desastre, emergência ou calamidade justificam a priorização, e a transmissão é gratuita.
+
+=== d87c-08
+gab: E
+ref: dec8771 10
+trecho: As ofertas comerciais e os modelos de cobrança de acesso à internet devem preservar uma internet única, de natureza aberta, plural e diversa
+armadilha: conceito
+dif: 2
+enunciado: As ofertas comerciais de acesso à internet podem fragmentar a rede em pacotes fechados de aplicativos, pois os modelos de cobrança são definidos livremente pelo mercado.
+comentario: Errado. O art. 10 exige que ofertas e modelos de cobrança preservem uma internet única, aberta, plural e diversa, como meio de desenvolvimento humano, econômico, social e cultural e de construção de sociedade inclusiva e não discriminatória.
+
+=== d87c-09
+gab: C
+ref: dec8771 12
+trecho: o número de usuários afetados por tais solicitações
+armadilha: rol
+dif: 3
+enunciado: Os órgãos da administração pública federal devem publicar anualmente relatórios estatísticos de requisição de dados cadastrais aos provedores, com o número de pedidos, os provedores consultados, os pedidos deferidos e indeferidos e o número de usuários afetados.
+comentario: Certo. Art. 12, I a IV. A publicação é feita pela autoridade máxima de cada órgão, em seu sítio na internet, e permite o controle social do acesso estatal a dados.
+
+=== d87c-10
+gab: E
+ref: dec8771 14
+trecho: inclusive números identificativos, dados locacionais ou identificadores eletrônicos, quando estes estiverem relacionados a uma pessoa
+armadilha: conceito
+dif: 2
+enunciado: Para o regulamento do Marco Civil, dados de localização e identificadores eletrônicos nunca são dados pessoais, por não revelarem diretamente o nome do usuário.
+comentario: Errado. O art. 14, I, inclui no conceito de dado pessoal os números identificativos, os dados locacionais e os identificadores eletrônicos, quando relacionados a uma pessoa. A definição é coerente com a LGPD (pessoa identificada ou identificável).
+
+=== d87c-11
+gab: C
+ref: dec8771 15
+trecho: deverão ser mantidos em formato interoperável e estruturado, para facilitar o acesso decorrente de decisão judicial ou determinação legal
+armadilha: conceito
+dif: 2
+enunciado: Os dados tratados por provedores que se submetem à lei brasileira devem ser mantidos em formato interoperável e estruturado, para facilitar o acesso por decisão judicial ou determinação legal.
+comentario: Certo. Art. 15, que remete ao art. 11 do Marco Civil (aplicação da lei brasileira a operações com ao menos um ato no Brasil). Devem ser respeitadas as diretrizes de segurança do art. 13 do decreto.
+
+=== d87c-12
+gab: E
+ref: dec8771 16
+trecho: devem ser divulgadas de forma clara e acessível a qualquer interessado, preferencialmente por meio de seus sítios na internet, respeitado o direito de confidencialidade quanto aos segredos empresariais
+armadilha: sujeito
+dif: 2
+enunciado: As informações sobre os padrões de segurança adotados pelos provedores de conexão e de aplicação são sigilosas e só podem ser fornecidas à autoridade judicial.
+comentario: Errado. O art. 16 manda divulgá-las de forma clara e acessível a qualquer interessado, preferencialmente nos sítios dos provedores, respeitada a confidencialidade dos segredos empresariais.
+
+=== d87c-13
+gab: C
+ref: dec8771 17
+trecho: A Anatel atuará na regulação, na fiscalização e na apuração de infrações, nos termos da Lei nº 9.472, de 16 de julho de 1997
+armadilha: sujeito
+dif: 2
+enunciado: No regulamento do Marco Civil, a Anatel atua na regulação, fiscalização e apuração de infrações nos termos da Lei Geral de Telecomunicações, a Secretaria Nacional do Consumidor atua nos termos do Código de Defesa do Consumidor, e o Sistema Brasileiro de Defesa da Concorrência apura as infrações à ordem econômica.
+comentario: Certo. Arts. 17, 18 e 19. Desde o Decreto 12.975/2026, a ANPD também atua quanto aos direitos dos usuários e aos deveres dos provedores de aplicações (art. 19-A).
+
+=== d87c-14
+gab: E
+ref: dec8771 20
+trecho: mesmo que as atividades sejam realizadas por pessoa jurídica sediada no exterior
+armadilha: excecao
+dif: 2
+enunciado: Situação hipotética: um provedor de aplicações sediado no exterior coleta dados de usuários no Brasil. Assertiva: por estar sediado fora do país, ele não se sujeita às sanções aplicadas pelos órgãos federais com base no regulamento do Marco Civil.
+comentario: Errado. O art. 20 manda os órgãos federais zelarem pelo cumprimento da lei brasileira, inclusive aplicando sanções, mesmo quando as atividades forem realizadas por pessoa jurídica sediada no exterior, nos termos do art. 11 do Marco Civil. Os órgãos atuam de forma colaborativa, consideradas as diretrizes do CGI.br.
+
+=== d87c-15
+gab: C
+ref: dec8771 3
+trecho: deve garantir a preservação do caráter público e irrestrito do acesso à internet
+armadilha: conceito
+dif: 2
+enunciado: A exigência de tratamento isonômico dos pacotes de dados deve preservar o caráter público e irrestrito do acesso à internet e os fundamentos, princípios e objetivos do seu uso no país.
+comentario: Certo. Art. 3º, que regulamenta o art. 9º do Marco Civil (neutralidade de rede). As exceções são as do art. 4º.
