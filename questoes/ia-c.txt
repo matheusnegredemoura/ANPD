@@ -1,0 +1,134 @@
+// Inteligência artificial e proteção de dados, lote C: tipos de aprendizado, viés de amostragem, deriva de dados,
+// supervisão humana, injeção de prompt, RAG, ataques de inferência e inversão, regulamento europeu de IA
+// (transparência, práticas proibidas e alto risco), deepfakes e eliminação de dados em modelos treinados.
+// Itens de doutrina escritos para o banco.
+
+bloco: ia
+
+=== ia3-01
+gab: C
+ref: doutrina aprendizado de máquina
+armadilha: conceito
+dif: 1
+enunciado: No aprendizado supervisionado, o modelo é treinado com exemplos rotulados, isto é, com as respostas corretas já conhecidas, como mensagens previamente classificadas como spam ou não spam.
+comentario: Certo. O modelo aprende a relação entre entradas e rótulos para prever o rótulo de casos novos. Classificação e regressão são tarefas supervisionadas típicas.
+
+=== ia3-02
+gab: E
+ref: doutrina aprendizado de máquina
+armadilha: comparacao
+dif: 2
+enunciado: O agrupamento de clientes por semelhança de comportamento de compra é exemplo típico de aprendizado supervisionado, pois depende de rótulos definidos previamente.
+comentario: Errado. O agrupamento (clustering) é aprendizado não supervisionado: o algoritmo encontra grupos sem rótulos prévios, a partir da semelhança entre os dados.
+
+=== ia3-03
+gab: C
+ref: doutrina aprendizado de máquina
+armadilha: conceito
+dif: 2
+enunciado: No aprendizado por reforço, um agente aprende por tentativa e erro, recebendo recompensas ou penalidades pelas ações que executa em um ambiente.
+comentario: Certo. O agente busca a política de ações que maximiza a recompensa acumulada, como em jogos e robótica.
+
+=== ia3-04
+gab: E
+ref: doutrina viés algorítmico
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a base de treinamento de um sistema de reconhecimento facial tinha poucas imagens de pessoas negras. Assertiva: como o algoritmo é neutro, o desempenho do sistema tende a ser igual para todos os grupos.
+comentario: Errado. Com poucos exemplos de um grupo, o modelo tende a errar mais para ele (viés de amostragem ou de representação). Isso pode gerar discriminação, vedada pelo princípio do art. 6º, IX, da LGPD.
+
+=== ia3-05
+gab: C
+ref: doutrina deriva de dados
+armadilha: conceito
+dif: 3
+enunciado: A deriva de dados ocorre quando a distribuição dos dados em produção se afasta da usada no treinamento, o que pode degradar o desempenho do modelo e exige monitoramento contínuo.
+comentario: Certo. Mudanças de comportamento dos usuários, de mercado ou de regras tornam o modelo desatualizado. A resposta é monitorar métricas e retreinar quando necessário.
+
+=== ia3-06
+gab: E
+ref: doutrina supervisão humana
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um servidor apenas assina, sem examinar, as decisões de concessão de benefício sugeridas por um sistema automatizado. Assertiva: há supervisão humana efetiva sobre as decisões.
+comentario: Errado. Revisão meramente formal não é supervisão efetiva e alimenta o viés de automação. A pessoa precisa ter competência, tempo, informação e autoridade para discordar da máquina.
+
+=== ia3-07
+gab: C
+ref: doutrina injeção de prompt
+armadilha: conceito
+dif: 2
+enunciado: Na injeção de prompt, instruções maliciosas inseridas em textos que o modelo processa podem levá-lo a ignorar as regras do sistema, revelando dados ou executando ações não autorizadas.
+comentario: Certo. O risco cresce quando o modelo lê documentos externos ou tem acesso a ferramentas. Mitigações incluem separar instruções de dados, limitar permissões e validar saídas.
+
+=== ia3-08
+gab: E
+ref: doutrina RAG
+armadilha: conceito
+dif: 3
+enunciado: Na geração aumentada por recuperação (RAG), o modelo de linguagem é retreinado a cada consulta com os documentos da organização.
+comentario: Errado. No RAG, o sistema busca trechos relevantes em uma base de documentos no momento da consulta e os insere no contexto do modelo, sem retreiná-lo. Isso permite atualizar a base sem novo treinamento.
+
+=== ia3-09
+gab: C
+ref: doutrina ataques a modelos
+armadilha: conceito
+dif: 3
+enunciado: Em um ataque de inferência de pertencimento, o adversário tenta descobrir se os dados de determinada pessoa foram usados no treinamento do modelo, o que pode revelar informação sensível sobre ela.
+comentario: Certo. Saber que alguém está na base de treino de um modelo sobre certa doença, por exemplo, revela dado de saúde. A privacidade diferencial é uma das defesas.
+
+=== ia3-10
+gab: E
+ref: doutrina ataques a modelos
+armadilha: absoluto
+dif: 2
+enunciado: Modelos de IA treinados não guardam nenhuma informação recuperável sobre os dados de treinamento, de modo que ataques de inversão de modelo são impossíveis.
+comentario: Errado. Modelos podem memorizar trechos dos dados, e ataques de inversão ou de extração podem reconstruir parte deles. Por isso o tratamento de dados pessoais no treinamento exige base legal e salvaguardas.
+
+=== ia3-11
+gab: C
+ref: doutrina regulamento europeu de IA
+armadilha: conceito
+dif: 2
+enunciado: O regulamento europeu de IA exige que as pessoas sejam informadas quando interagem com sistemas como chatbots, salvo se isso for óbvio pelo contexto, e que conteúdos sintéticos, como deepfakes, sejam identificados.
+comentario: Certo. São obrigações de transparência para sistemas de risco limitado. Elas convivem com as regras mais rígidas para sistemas de alto risco e com as práticas proibidas.
+
+=== ia3-12
+gab: E
+ref: doutrina regulamento europeu de IA
+armadilha: conceito
+dif: 3
+enunciado: No regulamento europeu de IA, o reconhecimento de emoções de trabalhadores no local de trabalho é prática de risco mínimo, sem restrições.
+comentario: Errado. O reconhecimento de emoções no trabalho e em instituições de ensino está entre as práticas proibidas, salvo por razões médicas ou de segurança.
+
+=== ia3-13
+gab: C
+ref: doutrina regulamento europeu de IA
+armadilha: conceito
+dif: 2
+enunciado: No regulamento europeu de IA, sistemas usados no recrutamento e na seleção de candidatos a emprego são de alto risco e se sujeitam a requisitos como gestão de riscos, qualidade dos dados, documentação técnica e supervisão humana.
+comentario: Certo. Emprego, educação, acesso a serviços essenciais (como crédito), segurança pública e justiça estão entre as áreas de alto risco do regulamento.
+
+=== ia3-14
+gab: E
+ref: doutrina regulamento europeu de IA
+armadilha: conceito
+dif: 3
+enunciado: O regulamento europeu de IA permite a raspagem não direcionada de imagens faciais da internet para criar bases de dados de reconhecimento facial.
+comentario: Errado. A criação ou ampliação de bases de reconhecimento facial por raspagem não direcionada de imagens da internet ou de câmeras está entre as práticas proibidas.
+
+=== ia3-15
+gab: C
+ref: doutrina deepfake
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um vídeo manipulado por IA reproduz o rosto e a voz de uma pessoa real, sem autorização, para promover um produto. Assertiva: a montagem envolve tratamento de dados pessoais dessa pessoa.
+comentario: Certo. Rosto e voz relacionados a pessoa identificada são dados pessoais (art. 5º, I, da LGPD), e o uso da imagem facial para identificação pode ser dado biométrico, portanto sensível. Também há violação do direito de imagem.
+
+=== ia3-16
+gab: E
+ref: doutrina eliminação em modelos treinados
+armadilha: extrapolacao
+dif: 3
+enunciado: Atendido um pedido de eliminação, basta apagar o registro da base original para que o modelo já treinado deixe automaticamente de refletir aqueles dados.
+comentario: Errado. O que o modelo aprendeu com o dado pode permanecer nos parâmetros. Pode ser preciso retreinar ou usar técnicas de desaprendizado de máquina (machine unlearning), além de impedir que o dado volte a ser usado.
