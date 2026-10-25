@@ -1,0 +1,168 @@
+bloco: portugues
+// Texto original escrito para o banco (algoritmos em decisões do governo e revisão humana), com itens de
+// interpretação, coesão, semântica, pontuação, crase, concordância, regência, sintaxe e reescrita.
+
+apoio_PT19A: Algoritmos já ajudam governos a decidir quem recebe um benefício, que empresa será fiscalizada primeiro e qual pedido merece análise mais demorada. A promessa é sedutora: decisões mais rápidas, menos sujeitas ao humor de quem as toma e, em tese, mais justas. Na prática, porém, um sistema treinado com dados do passado tende a repetir os padrões que encontrou neles, inclusive os injustos.
+Por isso, a transparência não pode ser tratada como um favor do Estado. Quem tem um pedido negado precisa saber, ao menos em linhas gerais, quais critérios pesaram contra si, e deve ter a quem recorrer. Não se exige que o cidadão entenda a matemática do modelo; exige-se que a administração seja capaz de explicá-la em termos que ele compreenda.
+Há também um risco mais silencioso. À medida que os servidores se habituam às recomendações da máquina, contestá-las passa a exigir coragem, e não apenas conhecimento técnico. Se a revisão humana se torna mera formalidade, o algoritmo deixa de ser ferramenta e vira, na prática, a autoridade.
+
+=== pt19-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT19A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: De acordo com o texto, sistemas treinados com dados do passado podem reproduzir as injustiças contidas nesses dados.
+comentario: Certo. Primeiro parágrafo: o sistema “tende a repetir os padrões que encontrou neles, inclusive os injustos”.
+
+=== pt19-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT19A
+armadilha: extrapolacao
+dif: 2
+enunciado: O autor sustenta que o uso de algoritmos pelo governo deve ser abandonado, por ser inevitavelmente injusto.
+comentario: Errado. O texto não propõe abandonar os algoritmos: aponta riscos e defende transparência, possibilidade de recurso e revisão humana efetiva.
+
+=== pt19-03
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT19A
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do segundo parágrafo que o dever de tornar a decisão compreensível recai sobre a administração, e não sobre o cidadão.
+comentario: Certo. “Não se exige que o cidadão entenda a matemática do modelo; exige-se que a administração seja capaz de explicá-la.”
+
+=== pt19-04
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT19A
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, o maior risco da revisão humana é que os servidores passem a contestar as recomendações da máquina com frequência excessiva.
+comentario: Errado. O risco descrito é o oposto: habituados às recomendações, os servidores deixam de contestá-las, e a revisão vira “mera formalidade”.
+
+=== pt19-05
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT19A
+armadilha: literal
+dif: 1
+enunciado: Em “repetir os padrões que encontrou neles”, o pronome “neles” retoma “dados do passado”.
+comentario: Certo. O sistema foi treinado com dados do passado e repete os padrões que encontrou nesses dados.
+
+=== pt19-06
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT19A
+armadilha: literal
+dif: 2
+enunciado: No segundo parágrafo, em “explicá-la em termos que ele compreenda”, o pronome “la” retoma “a administração”.
+comentario: Errado. A administração é quem explica; o que se explica é “a matemática do modelo”, referente de “la”. Já “ele” retoma “o cidadão”.
+
+=== pt19-07
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT19A
+armadilha: interpretacao
+dif: 2
+enunciado: A expressão “em tese”, no primeiro parágrafo, indica que a maior justiça das decisões é uma possibilidade teórica, e não uma garantia.
+comentario: Certo. O autor ressalva que a justiça é uma promessa, logo desmentida pelo risco de repetir padrões injustos.
+
+=== pt19-08
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT19A
+armadilha: interpretacao
+dif: 1
+enunciado: No terceiro parágrafo, a expressão “mera formalidade” indica que a revisão humana se torna mais rigorosa e minuciosa.
+comentario: Errado. “Mera formalidade” é o que se cumpre só na aparência, sem exame real. Por isso o algoritmo vira “a autoridade”.
+
+=== pt19-09
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT19A
+armadilha: literal
+dif: 2
+enunciado: No segundo parágrafo, o ponto e vírgula empregado após “modelo” separa orações que contrastam o que não se exige do cidadão com o que se exige da administração.
+comentario: Certo. As duas orações coordenadas se opõem (“Não se exige… exige-se…”), e o ponto e vírgula marca essa oposição sem conectivo.
+
+=== pt19-10
+gab: E
+tema: pt-crase
+ref: texto
+apoio: @PT19A
+armadilha: literal
+dif: 2
+enunciado: Em “se habituam às recomendações da máquina”, o acento grave poderia ser suprimido sem prejuízo da correção, pois o verbo habituar-se não exige preposição.
+comentario: Errado. Habituar-se rege a preposição “a” (habituar-se a algo), que se funde com o artigo “as” de “recomendações”. Sem o acento, o trecho ficaria incorreto.
+
+=== pt19-11
+gab: C
+tema: pt-crase
+ref: texto
+apoio: @PT19A
+armadilha: literal
+dif: 2
+enunciado: No início do terceiro parágrafo, o acento grave em “À medida que” é obrigatório, por se tratar de locução conjuntiva formada com palavra feminina.
+comentario: Certo. “À medida que” (proporção) leva sempre o acento grave. Não confundir com “na medida em que” (causa).
+
+=== pt19-12
+gab: E
+tema: pt-concordancia
+ref: texto
+apoio: @PT19A
+armadilha: literal
+dif: 3
+enunciado: Se “quais critérios” fosse substituído por “que conjunto de critérios”, a forma verbal “pesaram” deveria ser mantida no plural.
+comentario: Errado. O núcleo do sujeito passaria a ser “conjunto”, no singular: “que conjunto de critérios pesou contra si”.
+
+=== pt19-13
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT19A
+armadilha: literal
+dif: 2
+enunciado: Em “deve ter a quem recorrer”, a preposição “a” poderia ser suprimida, pois o verbo recorrer, nesse sentido, é transitivo direto.
+comentario: Errado. No sentido de apelar, pedir revisão, recorrer é transitivo indireto e rege a preposição “a” (recorrer a alguém).
+
+=== pt19-14
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT19A
+armadilha: literal
+dif: 3
+enunciado: Em “contestá-las passa a exigir coragem”, a forma “contestá-las” exerce a função de sujeito da locução verbal “passa a exigir”.
+comentario: Certo. É oração subordinada substantiva subjetiva reduzida de infinitivo: contestá-las (as recomendações) é o que passa a exigir coragem.
+
+=== pt19-15
+gab: E
+tema: pt-reescrita
+ref: texto
+apoio: @PT19A
+armadilha: literal
+dif: 3
+enunciado: O trecho “Não se exige que o cidadão entenda a matemática do modelo” poderia ser reescrito como “Não se exigem que o cidadão entenda a matemática do modelo”, sem prejuízo da correção gramatical.
+comentario: Errado. O sujeito de “exige” é a oração “que o cidadão entenda…”, e sujeito oracional leva o verbo para o singular.
+
+=== pt19-16
+gab: C
+tema: pt-reescrita
+ref: texto
+apoio: @PT19A
+armadilha: interpretacao
+dif: 2
+enunciado: O trecho “o algoritmo deixa de ser ferramenta e vira, na prática, a autoridade” poderia ser reescrito como “o algoritmo deixa de ser ferramenta e passa a ser, na prática, a autoridade”, sem prejuízo do sentido e da correção.
+comentario: Certo. “Virar”, no sentido de tornar-se, equivale a “passar a ser”; a reescrita mantém a ideia de transformação e a correção do período.
