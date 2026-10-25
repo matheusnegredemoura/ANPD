@@ -1,0 +1,388 @@
+// LGPD, lote X13: casos e parágrafos que pegam nos arts. 7º a 10 (dados públicos, consentimento, legítimo interesse),
+// 14 (crianças), 16, 18, 19 e 21 (direitos), 26 e 27 (Poder Público) e 37 a 43 (agentes e responsabilidade).
+// Conferidas com fontes/lgpd.txt.
+
+=== lx13-01
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7, § 3º
+trecho: deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: empresa coletou nomes e e-mails funcionais de servidores, publicados em portal da transparência, para lhes enviar ofertas comerciais. Assertiva: por serem dados de acesso público, o tratamento tem de levar em conta a finalidade, a boa-fé e o interesse público que motivaram a publicação.
+comentario: Certo. Art. 7º, § 3º. Dado público não é dado livre: a transparência que justificou a divulgação dos nomes é o controle social, e não a prospecção comercial, o que torna o uso descrito difícil de sustentar.
+
+=== lx13-02
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 7, § 3º
+trecho: O tratamento de dados pessoais cujo acesso é público deve considerar a finalidade
+armadilha: extrapolacao
+dif: 2
+enunciado: Dados pessoais de acesso público podem ser tratados para qualquer finalidade, porque a publicidade afasta a incidência dos princípios da LGPD.
+comentario: Errado. O § 3º do art. 7º amarra o tratamento à finalidade, à boa-fé e ao interesse público da divulgação, e o § 7º só admite novas finalidades com propósito legítimo e específico e preservados os direitos do titular.
+
+=== lx13-03
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7, § 4º
+trecho: dados tornados manifestamente públicos pelo titular, resguardados os direitos do titular e os princípios previstos nesta Lei
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: profissional publicou o próprio currículo, com telefone, em rede profissional aberta, e um recrutador o contatou. Assertiva: o recrutador pôde tratar esses dados sem consentimento, mas continua obrigado a respeitar os direitos do titular e os princípios da LGPD.
+comentario: Certo. Art. 7º, § 4º: dados tornados manifestamente públicos pelo próprio titular dispensam o consentimento, com a ressalva expressa dos direitos e dos princípios. O § 6º reforça que a dispensa não apaga as demais obrigações.
+
+=== lx13-04
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 7, § 5º
+trecho: deverá obter consentimento específico do titular para esse fim
+armadilha: extrapolacao
+dif: 2
+enunciado: O controlador que obteve o consentimento do titular pode compartilhar os dados com outros controladores sem nova autorização, pois o consentimento original cobre as comunicações posteriores.
+comentario: Errado. Pelo art. 7º, § 5º, comunicar ou compartilhar com outros controladores exige consentimento específico para esse fim, salvo as hipóteses legais de dispensa. O consentimento vale para a finalidade informada, não para repasses.
+
+=== lx13-05
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7, § 6º
+trecho: não desobriga os agentes de tratamento das demais obrigações previstas nesta Lei
+armadilha: conceito
+dif: 1
+enunciado: Quando o tratamento se apoia em hipótese que não exige consentimento, continuam valendo para o agente os princípios gerais e a garantia dos direitos do titular.
+comentario: Certo. Art. 7º, § 6º. A base legal responde à pergunta se pode tratar; os princípios e os direitos do titular respondem a como tratar, e valem para todas as bases.
+
+=== lx13-06
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 7, § 7º
+trecho: poderá ser realizado para novas finalidades, desde que observados os propósitos legítimos e específicos para o novo tratamento
+armadilha: absoluto
+dif: 3
+enunciado: Dados tornados manifestamente públicos pelo titular não podem ser objeto de tratamento posterior para finalidade diferente daquela que motivou a publicação.
+comentario: Errado. O art. 7º, § 7º, admite o tratamento posterior dos dados dos §§ 3º e 4º para novas finalidades, com propósitos legítimos e específicos e preservados os direitos do titular. A banca troca o condicionado pelo proibido.
+
+=== lx13-07
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 8, § 2º
+trecho: Cabe ao controlador o ônus da prova de que o consentimento foi obtido em conformidade com o disposto nesta Lei
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: titular afirmou à ANPD nunca ter consentido com o tratamento, e a empresa respondeu que caberia a ele provar a falta de consentimento. Assertiva: a empresa tem razão, porque o ônus da prova é de quem alega.
+comentario: Errado. O art. 8º, § 2º, põe no controlador o ônus de provar que o consentimento foi obtido conforme a lei. Por isso registros de consentimento (data, canal, texto aceito) são parte da conformidade.
+
+=== lx13-08
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 8, § 4º
+trecho: as autorizações genéricas para o tratamento de dados pessoais serão nulas
+armadilha: conceito
+dif: 2
+enunciado: É válida a cláusula pela qual o titular autoriza o tratamento de seus dados para quaisquer fins comerciais da empresa e de seus parceiros, desde que redigida em destaque.
+comentario: Errado. O destaque é exigência de forma (art. 8º, § 1º), mas não salva o conteúdo: o consentimento deve se referir a finalidades determinadas, e autorização genérica é nula (§ 4º).
+
+=== lx13-09
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 8, § 5º
+trecho: ratificados os tratamentos realizados sob amparo do consentimento anteriormente manifestado enquanto não houver requerimento de eliminação
+armadilha: literal
+dif: 3
+enunciado: Revogado o consentimento, os tratamentos feitos antes da revogação permanecem válidos enquanto o titular não pedir a eliminação dos dados.
+comentario: Certo. Art. 8º, § 5º. A revogação, gratuita e facilitada, vale para frente; o que já foi feito fica ratificado até que haja requerimento de eliminação (art. 18, VI).
+
+=== lx13-10
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 8, § 6º
+trecho: o controlador deverá informar ao titular, com destaque de forma específica do teor das alterações
+armadilha: conceito
+dif: 2
+enunciado: Alterada a informação sobre a forma e a duração do tratamento, o controlador deve avisar o titular destacando o teor da mudança, e o titular, se o tratamento depender de consentimento, pode revogá-lo caso discorde.
+comentario: Certo. Art. 8º, § 6º, que remete aos incisos I, II, III e V do art. 9º; forma e duração é o inciso II. A informação tem de destacar especificamente o que mudou, e não só republicar a política.
+
+=== lx13-11
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 9, § 1º
+trecho: esse será considerado nulo caso as informações fornecidas ao titular tenham conteúdo enganoso ou abusivo
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: aplicativo de lanterna pediu consentimento para usar a localização do celular dizendo que serviria para regular o brilho, mas vendia o histórico de deslocamentos a anunciantes. Assertiva: o consentimento obtido é nulo.
+comentario: Certo. Art. 9º, § 1º: o consentimento é nulo se as informações tiverem conteúdo enganoso ou abusivo ou não forem apresentadas previamente com transparência. Há também ofensa à finalidade e à transparência (art. 6º, I e VI).
+
+=== lx13-12
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 9, § 3º
+trecho: o titular será informado com destaque sobre esse fato e sobre os meios pelos quais poderá exercer os direitos do titular
+armadilha: extrapolacao
+dif: 2
+enunciado: Quando o tratamento é condição para o fornecimento de um serviço, o controlador fica desobrigado de informar ao titular os meios de exercer seus direitos, porque o tratamento é indispensável ao contrato.
+comentario: Errado. O art. 9º, § 3º, exige o contrário: se o tratamento é condição para o produto, o serviço ou o exercício de direito, o titular deve ser informado com destaque sobre esse fato e sobre como exercer os direitos do art. 18.
+
+=== lx13-13
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 10, § 1º
+trecho: somente os dados pessoais estritamente necessários para a finalidade pretendida poderão ser tratados
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: varejista usa o histórico de compras, com base no legítimo interesse, para recomendar produtos e passou a coletar também a renda e o estado civil dos clientes para uso futuro. Assertiva: o legítimo interesse ampara a nova coleta, pois se apoia em situação concreta.
+comentario: Errado. No legítimo interesse só se tratam os dados estritamente necessários à finalidade pretendida (art. 10, § 1º), e uso futuro indefinido não é finalidade legítima considerada a partir de situação concreta (caput).
+
+=== lx13-14
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 10, § 3º
+trecho: A autoridade nacional poderá solicitar ao controlador relatório de impacto à proteção de dados pessoais, quando o tratamento tiver como fundamento seu interesse legítimo
+armadilha: extrapolacao
+dif: 2
+enunciado: No tratamento baseado no legítimo interesse, a ANPD só pode solicitar relatório de impacto ao controlador depois que ocorrer incidente de segurança.
+comentario: Errado. O art. 10, § 3º, permite à ANPD solicitar o relatório sempre que o tratamento se fundar no interesse legítimo, observados os segredos comercial e industrial. A lei não condiciona o pedido a incidente.
+
+=== lx13-15
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-sensiveis
+ref: lgpd 14, § 3º
+trecho: quando a coleta for necessária para contatar os pais ou o responsável legal, utilizados uma única vez e sem armazenamento
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: monitor de acampamento anotou o nome de uma criança perdida para localizar os pais, usou o dado uma única vez e o descartou. Assertiva: a coleta dispensava o consentimento dos pais.
+comentario: Certo. Art. 14, § 3º: a coleta sem o consentimento parental é admitida para contatar os pais ou para a proteção da criança, com uso único e sem armazenamento. Repassar a terceiro continuaria exigindo o consentimento.
+
+=== lx13-16
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-sensiveis
+ref: lgpd 14, § 3º
+trecho: em nenhum caso poderão ser repassados a terceiro sem o consentimento de que trata o § 1º deste artigo
+armadilha: excecao
+dif: 2
+enunciado: Os dados de criança coletados sem consentimento para sua proteção podem ser repassados a terceiros sempre que isso atender ao melhor interesse da criança.
+comentario: Errado. O art. 14, § 3º, é taxativo: esses dados em nenhum caso podem ser repassados a terceiro sem o consentimento específico de um dos pais ou do responsável legal.
+
+=== lx13-17
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-sensiveis
+ref: lgpd 14, § 4º
+trecho: Os controladores não deverão condicionar a participação dos titulares
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: jogo on-line infantil exige o endereço residencial e a escola da criança para liberar as partidas. Assertiva: a exigência é lícita se um dos pais tiver dado consentimento específico e em destaque.
+comentario: Errado. O art. 14, § 4º, proíbe condicionar a participação em jogos e aplicações ao fornecimento de dados além dos estritamente necessários à atividade. O consentimento parental não torna necessário o que não é.
+
+=== lx13-18
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 16
+trecho: uso exclusivo do controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados
+armadilha: rol
+dif: 2
+enunciado: Terminado o tratamento, o controlador pode conservar os dados para uso exclusivo próprio, bastando impedir o acesso de terceiros, ainda que os dados continuem identificados.
+comentario: Errado. A conservação para uso exclusivo do controlador exige, além do bloqueio a terceiros, que os dados estejam anonimizados (art. 16, IV). As outras hipóteses são obrigação legal, pesquisa e transferência a terceiro conforme a lei.
+
+=== lx13-19
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 16
+trecho: cumprimento de obrigação legal ou regulatória pelo controlador
+armadilha: caso
+dif: 1
+enunciado: Situação hipotética: encerrado o contrato com um cliente, loja manteve os documentos fiscais com os dados dele pelo prazo exigido pela legislação tributária. Assertiva: a conservação tem amparo na LGPD.
+comentario: Certo. Art. 16, I: a regra é eliminar ao fim do tratamento, mas a conservação é autorizada para cumprir obrigação legal ou regulatória. Vencido o prazo legal, volta a valer a eliminação.
+
+=== lx13-20
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 18, § 3º
+trecho: mediante requerimento expresso do titular ou de representante legalmente constituído
+armadilha: sujeito
+dif: 2
+enunciado: Os direitos do titular previstos no art. 18 da LGPD só podem ser exercidos pessoalmente, vedada a atuação de representante.
+comentario: Errado. O art. 18, § 3º, admite o requerimento expresso do titular ou de representante legalmente constituído, dirigido a agente de tratamento.
+
+=== lx13-21
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18, § 6º
+trecho: exceto nos casos em que esta comunicação seja comprovadamente impossível ou implique esforço desproporcional
+armadilha: excecao
+dif: 3
+enunciado: Quem corrigir ou eliminar dados de um titular deve informar de imediato aos agentes com quem os compartilhou, para que repitam o procedimento, salvo se a comunicação for comprovadamente impossível ou exigir esforço desproporcional.
+comentario: Certo. Art. 18, § 6º, na redação da Lei 13.853/2019. A comunicação vale para correção, eliminação, anonimização e bloqueio, e a exceção pede prova da impossibilidade ou do esforço desproporcional.
+
+=== lx13-22
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 18, § 7º
+trecho: não inclui dados que já tenham sido anonimizados pelo controlador
+armadilha: extrapolacao
+dif: 2
+enunciado: A portabilidade alcança todos os dados do titular mantidos pelo controlador, inclusive os que ele já anonimizou.
+comentario: Errado. O art. 18, § 7º, exclui da portabilidade os dados já anonimizados pelo controlador. Faz sentido: anonimizado, o dado deixa de ser pessoal (art. 12).
+
+=== lx13-23
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18, § 8º
+trecho: também poderá ser exercido perante os organismos de defesa do consumidor
+armadilha: conceito
+dif: 2
+enunciado: O direito de peticionar contra o controlador em relação aos próprios dados pode ser exercido perante a ANPD e também perante os organismos de defesa do consumidor.
+comentario: Certo. Art. 18, §§ 1º e 8º. Um mesmo caso pode chegar aos dois, e por isso a LGPD manda a ANPD articular sua atuação com outros órgãos com competências sobre o tema (art. 55-K, parágrafo único).
+
+=== lx13-24
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 19
+trecho: fornecida no prazo de até 15 (quinze) dias, contado da data do requerimento do titular
+armadilha: numero
+dif: 2
+enunciado: Situação hipotética: titular pediu declaração clara e completa sobre a origem dos seus dados e a finalidade do tratamento. Assertiva: o controlador tem até 30 dias, contados do requerimento, para fornecê-la.
+comentario: Errado. Pelo art. 19, II, a declaração completa sai em até 15 dias do requerimento; o formato simplificado é imediato (inciso I). A ANPD pode fixar prazos diferentes por setor (§ 4º).
+
+=== lx13-25
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 19
+trecho: o titular poderá solicitar cópia eletrônica integral de seus dados pessoais
+armadilha: conceito
+dif: 2
+enunciado: Quando o tratamento se baseia no consentimento ou em contrato, o titular pode pedir cópia eletrônica integral de seus dados, em formato que permita usá-los em outras operações de tratamento.
+comentario: Certo. Art. 19, § 3º, observados os segredos comercial e industrial e a regulamentação da ANPD. É a ponte entre o direito de acesso e a portabilidade.
+
+=== lx13-26
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 21
+trecho: não podem ser utilizados em seu prejuízo
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: operadora negou a renovação do contrato de um cliente porque, meses antes, ele havia pedido a eliminação de seus dados de marketing. Assertiva: a conduta viola a LGPD.
+comentario: Certo. Art. 21: os dados referentes ao exercício regular de direitos pelo titular não podem ser usados em seu prejuízo. Retaliar quem exerceu direito é exatamente o que a regra proíbe.
+
+=== lx13-27
+bloco: lgpd-23-32
+gab: C
+tema: pd-poder-publico
+ref: lgpd 26
+trecho: objetivar exclusivamente a prevenção de fraudes e irregularidades
+armadilha: excecao
+dif: 3
+enunciado: O Poder Público pode transferir a entidade privada dados de suas bases quando a transferência tiver por objetivo exclusivo prevenir fraudes e irregularidades, vedado o tratamento para outras finalidades.
+comentario: Certo. Art. 26, § 1º, V, incluído pela Lei 13.853/2019. As demais exceções à vedação são execução descentralizada, dados publicamente acessíveis e previsão legal ou instrumento contratual ou de convênio.
+
+=== lx13-28
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 26
+trecho: Os contratos e convênios de que trata o § 1º deste artigo deverão ser comunicados à autoridade nacional
+armadilha: extrapolacao
+dif: 2
+enunciado: Os contratos e convênios que amparam a transferência de dados do Poder Público a entidades privadas não precisam ser comunicados à ANPD, por já se sujeitarem ao controle externo.
+comentario: Errado. O art. 26, § 2º, manda comunicar esses contratos e convênios à autoridade nacional. O controle externo dos tribunais de contas não substitui a supervisão da ANPD sobre o tratamento de dados.
+
+=== lx13-29
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 27
+trecho: dependerá de consentimento do titular, exceto
+armadilha: absoluto
+dif: 2
+enunciado: A comunicação de dados pessoais de pessoa jurídica de direito público a pessoa de direito privado depende, em qualquer caso, do consentimento do titular.
+comentario: Errado. O art. 27 exige consentimento e informação à ANPD, mas excetua as hipóteses de dispensa de consentimento, o uso compartilhado com a publicidade do art. 23, I, e as exceções do art. 26, § 1º.
+
+=== lx13-30
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 37
+trecho: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem
+armadilha: sujeito
+dif: 1
+enunciado: O dever de manter registro das operações de tratamento recai sobre o operador, e não só sobre o controlador.
+comentario: Certo. Art. 37: controlador e operador registram as operações que realizam, especialmente quando baseadas no legítimo interesse. O registro é o que permite demonstrar a conformidade (art. 6º, X).
+
+=== lx13-31
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 38
+trecho: a análise do controlador com relação a medidas, salvaguardas e mecanismos de mitigação de risco adotados
+armadilha: rol
+dif: 2
+enunciado: O relatório de impacto determinado pela ANPD precisa conter apenas a descrição dos tipos de dados coletados, ficando a análise das medidas de mitigação a critério do controlador.
+comentario: Errado. O parágrafo único do art. 38 fixa o conteúdo mínimo: tipos de dados, metodologia de coleta e de garantia da segurança e a análise do controlador sobre medidas, salvaguardas e mecanismos de mitigação de risco.
+
+=== lx13-32
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 42
+trecho: hipótese em que o operador equipara-se ao controlador
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: operador contratado para emitir boletos usou a base do controlador em campanha própria, contra as instruções recebidas, e titulares sofreram dano. Assertiva: o operador responde solidariamente pelos danos, equiparado ao controlador.
+comentario: Certo. Art. 42, § 1º, I: o operador responde solidariamente quando descumpre a lei ou não segue as instruções lícitas do controlador, e nesse caso se equipara a ele, salvo as excludentes do art. 43.
+
+=== lx13-33
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 42
+trecho: O juiz, no processo civil, poderá inverter o ônus da prova a favor do titular dos dados quando, a seu juízo, for verossímil a alegação
+armadilha: absoluto
+dif: 2
+enunciado: Nas ações de reparação por dano decorrente de tratamento de dados, a inversão do ônus da prova em favor do titular é automática.
+comentario: Errado. O art. 42, § 2º, faz da inversão uma faculdade do juiz, cabível quando for verossímil a alegação, houver hipossuficiência ou a prova for excessivamente onerosa ao titular.
+
+=== lx13-34
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 42
+trecho: tem direito de regresso contra os demais responsáveis
+armadilha: conceito
+dif: 2
+enunciado: Quem indenizar o titular tem direito de regresso contra os demais responsáveis, na medida da participação de cada um no evento danoso.
+comentario: Certo. Art. 42, § 4º. A solidariedade protege o titular, que cobra de qualquer um; o regresso acerta as contas entre os agentes depois.
+
+=== lx13-35
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 43
+trecho: que o dano é decorrente de culpa exclusiva do titular dos dados ou de terceiro
+armadilha: absoluto
+dif: 2
+enunciado: Situação hipotética: o acesso indevido à conta decorreu apenas de o próprio titular ter divulgado sua senha em rede social. Assertiva: ainda assim o controlador responde pelo dano, porque a LGPD não admite excludentes de responsabilidade dos agentes de tratamento.
+comentario: Errado. O art. 43 prevê excludentes: o agente não responde se provar que não fez o tratamento, que não houve violação à lei ou que o dano veio de culpa exclusiva do titular ou de terceiro (inciso III).
