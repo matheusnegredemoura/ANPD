@@ -1,0 +1,299 @@
+// LGPD, lote X15: bases legais (art. 7º, §§ 3º a 7º), dados sensíveis (art. 11, II, g, §§ 2º e 5º), crianças (art. 14),
+// direitos do titular (arts. 18 e 20) e disposições finais (arts. 25, 30, 55-M, 61 a 65). Conferidas com fontes/lgpd.txt.
+
+=== lx15-01
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa copiou nomes e lotações de servidores divulgados em portal de transparência para montar lista de prospecção comercial. Assertiva: o fato de os dados serem de acesso público não dispensa a empresa de considerar a finalidade, a boa-fé e o interesse público que justificaram sua divulgação.
+comentario: Certo. Art. 7º, § 3º. Dado de acesso público não é dado livre: o tratamento continua preso à finalidade, à boa-fé e ao interesse público que justificaram a disponibilização, e a lista comercial dificilmente se ajusta a eles.
+
+=== lx15-02
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: resguardados os direitos do titular e os princípios previstos nesta Lei
+armadilha: extrapolacao
+dif: 2
+enunciado: Os dados tornados manifestamente públicos pelo próprio titular podem ser tratados sem consentimento, hipótese em que o controlador fica dispensado de observar os princípios da LGPD.
+comentario: Errado. O art. 7º, § 4º, dispensa apenas o consentimento, “resguardados os direitos do titular e os princípios previstos nesta Lei”. O § 6º reforça: a dispensa do consentimento não desobriga das demais obrigações.
+
+=== lx15-03
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: deverá obter consentimento específico do titular para esse fim
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma academia obteve o consentimento dos alunos para lhes enviar ofertas e agora quer repassar esses dados a uma loja parceira, outra controladora, sem que haja outra base legal aplicável. Assertiva: a academia precisará de consentimento específico dos alunos para esse repasse.
+comentario: Certo. Art. 7º, § 5º: quem obteve consentimento e precisa comunicar ou compartilhar os dados com outros controladores deve obter consentimento específico para esse fim, salvo hipótese de dispensa prevista na lei.
+
+=== lx15-04
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: poderá ser realizado para novas finalidades
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma pesquisadora usa dados que o próprio titular tornou manifestamente públicos para finalidade diversa da que motivou a divulgação, com propósito legítimo e específico e preservando os direitos do titular. Assertiva: o tratamento posterior para essa nova finalidade é admitido pela LGPD.
+comentario: Certo. O art. 7º, § 7º, admite o tratamento posterior dos dados dos §§ 3º e 4º para novas finalidades, desde que observados propósitos legítimos e específicos, a preservação dos direitos do titular e os fundamentos e princípios da lei.
+
+=== lx15-05
+bloco: lgpd-5-11
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: garantia da prevenção à fraude e à segurança do titular, nos processos de identificação e autenticação de cadastro em sistemas eletrônicos
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: banco digital trata, sem consentimento, a biometria facial dos clientes para autenticar o acesso ao aplicativo e prevenir fraudes. Assertiva: o tratamento pode apoiar-se na hipótese de prevenção à fraude e de segurança do titular, resguardados os direitos do art. 9º e salvo se prevalecerem direitos e liberdades fundamentais do titular.
+comentario: Certo. Dado biométrico é sensível (art. 5º, II), e o art. 11, II, g, admite o tratamento sem consentimento para prevenção à fraude e segurança do titular na identificação e autenticação de cadastro, com as duas ressalvas da própria alínea.
+
+=== lx15-06
+bloco: lgpd-5-11
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: sem fornecimento de consentimento do titular, nas hipóteses em que for indispensável para
+armadilha: rol
+dif: 2
+enunciado: Situação hipotética: uma rede de farmácias pretende tratar, sem consentimento, dados de saúde de clientes com base em seu legítimo interesse de oferecer descontos personalizados. Assertiva: o tratamento é possível, pois o legítimo interesse está entre as hipóteses que dispensam o consentimento para dados sensíveis.
+comentario: Errado. O rol do art. 11, II, não inclui o legítimo interesse nem a proteção do crédito, que só aparecem no art. 7º (incisos IX e X). Para dado sensível, a falta de consentimento exige hipótese indispensável listada nas alíneas a a g.
+
+=== lx15-07
+bloco: lgpd-5-11
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: será dada publicidade à referida dispensa de consentimento
+armadilha: rol
+dif: 2
+enunciado: Quando um órgão público trata dados sensíveis sem consentimento para cumprir obrigação legal ou para executar políticas públicas, deve dar publicidade a essa dispensa de consentimento.
+comentario: Certo. Art. 11, § 2º, que remete ao art. 23, I: nas alíneas a e b do inciso II, aplicadas por órgãos e entidades públicas, a dispensa de consentimento deve ser publicizada.
+
+=== lx15-08
+bloco: lgpd-5-11
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: seleção de riscos na contratação de qualquer modalidade
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: operadora de plano de saúde usa dados de saúde de interessados para recusar contratos de quem tem doenças de tratamento caro, depois de obter o consentimento específico e destacado de cada um. Assertiva: com esse consentimento, a prática é lícita.
+comentario: Errado. O art. 11, § 5º, veda às operadoras o tratamento de dados de saúde para seleção de riscos na contratação de qualquer modalidade e na contratação e exclusão de beneficiários. A vedação não tem exceção por consentimento.
+
+=== lx15-09
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-sensiveis
+ref: lgpd 14
+trecho: utilizados uma única vez e sem armazenamento
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: aplicativo infantil coletou, sem o consentimento dos pais, o e-mail da criança para contatar os responsáveis, guardou o endereço e passou a usá-lo para enviar novidades do aplicativo. Assertiva: a conduta é lícita, pois a coleta para contatar os pais dispensa o consentimento parental.
+comentario: Errado. O art. 14, § 3º, admite a coleta sem consentimento para contatar os pais, mas o dado deve ser usado uma única vez e sem armazenamento. Guardar o e-mail e usá-lo para divulgação extrapola a exceção.
+
+=== lx15-10
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-sensiveis
+ref: lgpd 14
+trecho: além das estritamente necessárias à atividade
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um jogo on-line voltado a crianças só libera a primeira fase depois que o jogador informa endereço residencial e nome da escola, dados que nada têm a ver com o funcionamento do jogo. Assertiva: a exigência contraria a LGPD.
+comentario: Certo. Art. 14, § 4º: o controlador não deve condicionar a participação de crianças em jogos, aplicações de internet ou outras atividades ao fornecimento de informações pessoais além das estritamente necessárias.
+
+=== lx15-11
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-sensiveis
+ref: lgpd 14
+trecho: todos os esforços razoáveis para verificar
+armadilha: conceito
+dif: 2
+enunciado: No tratamento de dados de crianças, não basta ao controlador receber um consentimento qualquer: ele deve empreender esforços razoáveis, conforme as tecnologias disponíveis, para verificar se quem consentiu foi de fato o responsável pela criança.
+comentario: Certo. Art. 14, § 5º. O consentimento do § 1º é específico e em destaque, dado por pelo menos um dos pais ou pelo responsável legal, e a verificação de quem consentiu é dever do controlador.
+
+=== lx15-12
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18
+trecho: comunicar que não é agente de tratamento dos dados e indicar, sempre que possível, o agente
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: titular pediu a uma empresa acesso a seus dados pessoais, mas a empresa não trata esses dados, que estão com outra companhia. Assertiva: a empresa pode responder que não é agente de tratamento dos dados e indicar, sempre que possível, quem é o agente.
+comentario: Certo. Art. 18, § 4º, I. Se não puder adotar a providência de imediato, o controlador responde comunicando que não é agente e indicando o agente, ou expondo as razões de fato ou de direito que impedem a providência (inciso II).
+
+=== lx15-13
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 18
+trecho: será atendido sem custos para o titular
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma loja passou a cobrar taxa módica, informada previamente, para entregar ao titular a cópia dos dados que trata sobre ele. Assertiva: a cobrança é admitida, desde que se limite a cobrir o custo administrativo do atendimento.
+comentario: Errado. O art. 18, § 5º, determina que o requerimento do titular seja atendido sem custos para ele, nos prazos e termos do regulamento.
+
+=== lx15-14
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18
+trecho: para que repitam idêntico procedimento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a pedido do titular, um controlador corrigiu dado inexato que já havia compartilhado com dois parceiros. Assertiva: em regra, o controlador deve informar de imediato os parceiros da correção, para que repitam o procedimento, salvo se a comunicação for comprovadamente impossível ou exigir esforço desproporcional.
+comentario: Certo. Art. 18, § 6º: correção, eliminação, anonimização ou bloqueio devem ser comunicados de imediato aos agentes com quem houve uso compartilhado, com a exceção da impossibilidade comprovada ou do esforço desproporcional.
+
+=== lx15-15
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 18
+trecho: não inclui dados que já tenham sido anonimizados pelo controlador
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: cliente pediu a portabilidade de seus dados para outro banco, incluindo as estatísticas anonimizadas que o banco atual produziu com base no histórico dos clientes. Assertiva: o banco atual deve transferir também esses dados anonimizados.
+comentario: Errado. Pelo art. 18, § 7º, a portabilidade não inclui dados que o controlador já tenha anonimizado. Dado anonimizado nem é dado pessoal (art. 12), salvo reversão.
+
+=== lx15-16
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18
+trecho: também poderá ser exercido perante os organismos de defesa do consumidor
+armadilha: rol
+dif: 2
+enunciado: O direito do titular de peticionar contra o controlador em relação a seus dados pode ser exercido tanto perante a autoridade nacional quanto perante os organismos de defesa do consumidor.
+comentario: Certo. Art. 18, §§ 1º e 8º. A petição vai à ANPD, mas o titular também pode recorrer aos Procons e aos demais organismos de defesa do consumidor.
+
+=== lx15-17
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18
+trecho: em caso de descumprimento ao disposto nesta Lei
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um titular quer se opor a tratamento que uma empresa faz, de forma regular e conforme a LGPD, para cumprir obrigação legal. Assertiva: a simples discordância do titular não obriga a empresa a interromper o tratamento, pois a oposição prevista na lei pressupõe descumprimento de suas normas.
+comentario: Certo. O art. 18, § 2º, permite ao titular opor-se a tratamento fundado em hipótese de dispensa de consentimento “em caso de descumprimento ao disposto nesta Lei”. Sem descumprimento, a oposição não se sustenta.
+
+=== lx15-18
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 20
+trecho: a autoridade nacional poderá realizar auditoria para verificação de aspectos discriminatórios
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma fintech negou crédito a cliente por decisão totalmente automatizada e se recusou a informar os critérios usados, alegando segredo comercial. Assertiva: nesse caso, a ANPD poderá fazer auditoria para verificar aspectos discriminatórios no tratamento automatizado.
+comentario: Certo. Art. 20, § 2º. O segredo comercial e industrial limita a informação prestada ao titular (§ 1º), mas não impede a auditoria da autoridade.
+
+=== lx15-19
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 20
+trecho: unicamente com base em tratamento automatizado
+armadilha: extrapolacao
+dif: 3
+enunciado: O direito de revisão previsto no art. 20 da LGPD alcança qualquer decisão apoiada em tratamento automatizado de dados, ainda que a decisão final tenha sido tomada por pessoa natural, após análise própria do caso.
+comentario: Errado. O art. 20 trata de decisões tomadas unicamente com base em tratamento automatizado que afetem os interesses do titular. Se uma pessoa natural decidiu após análise própria, a decisão não é unicamente automatizada.
+
+=== lx15-20
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-alcance
+ref: lgpd 61
+trecho: independentemente de procuração ou de disposição contratual ou estatutária
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: em processo da ANPD contra empresa estrangeira com escritório no Brasil, a empresa alegou nulidade da intimação feita na pessoa do responsável pelo escritório, por não haver procuração. Assertiva: a alegação não procede.
+comentario: Certo. Art. 61: a empresa estrangeira é notificada e intimada na pessoa do agente, representante ou responsável por filial, agência, sucursal, estabelecimento ou escritório no Brasil, independentemente de procuração.
+
+=== lx15-21
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-poder-publico
+ref: lgpd 62
+trecho: A autoridade nacional e o Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (Inep)
+armadilha: sujeito
+dif: 2
+enunciado: Compete exclusivamente ao Ministério da Educação editar os regulamentos específicos para o acesso a dados tratados pela União referentes ao Sistema Nacional de Avaliação da Educação Superior (Sinaes).
+comentario: Errado. O art. 62 atribui essa regulamentação à autoridade nacional e ao Inep, no âmbito de suas competências.
+
+=== lx15-22
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 63
+trecho: adequação progressiva de bancos de dados
+armadilha: absoluto
+dif: 1
+enunciado: Os bancos de dados constituídos até a entrada em vigor da LGPD tiveram de se adequar imediatamente à lei, sem consideração da complexidade das operações nem da natureza dos dados.
+comentario: Errado. O art. 63 prevê adequação progressiva, segundo normas da autoridade nacional que considerem a complexidade das operações de tratamento e a natureza dos dados.
+
+=== lx15-23
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 64
+trecho: não excluem outros previstos no ordenamento jurídico pátrio
+armadilha: conceito
+dif: 2
+enunciado: Por força do critério da especialidade, os direitos e princípios da LGPD afastam outros direitos relacionados à proteção de dados previstos em tratados internacionais de que o Brasil seja parte.
+comentario: Errado. O art. 64 diz o contrário: os direitos e princípios da LGPD não excluem outros previstos no ordenamento ou em tratados internacionais de que o Brasil seja parte. É cláusula de abertura, não de exclusão.
+
+=== lx15-24
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 65, I
+trecho: dia 28 de dezembro de 2018, quanto aos arts. 55-A
+armadilha: numero
+dif: 2
+enunciado: Os dispositivos da LGPD que criaram a ANPD entraram em vigor apenas 24 meses após a publicação da lei, juntamente com os demais artigos.
+comentario: Errado. Pelo art. 65, I, os arts. 55-A a 55-L, 58-A e 58-B vigoram desde 28 de dezembro de 2018. As sanções (arts. 52 a 54) vieram em 1º de agosto de 2021 (I-A), e os demais artigos, 24 meses após a publicação (II).
+
+=== lx15-25
+bloco: lgpd-55
+gab: E
+tema: pd-anpd
+ref: lgpd 55-M
+trecho: que venha a adquirir ou a incorporar
+armadilha: rol
+dif: 2
+enunciado: O patrimônio da ANPD limita-se aos bens e direitos que lhe foram transferidos por órgãos da Presidência da República, não abrangendo os que ela própria vier a adquirir.
+comentario: Errado. O art. 55-M inclui no patrimônio da ANPD tanto os bens e direitos transferidos pelos órgãos da Presidência da República (I) quanto os que ela venha a adquirir ou a incorporar (II).
+
+=== lx15-26
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 30
+trecho: A autoridade nacional poderá estabelecer normas complementares
+armadilha: sujeito
+dif: 2
+enunciado: Somente o Presidente da República, por decreto, pode estabelecer normas complementares para a comunicação e o uso compartilhado de dados pessoais, vedada à ANPD a edição dessas normas.
+comentario: Errado. O art. 30 atribui à autoridade nacional a possibilidade de estabelecer normas complementares para as atividades de comunicação e de uso compartilhado de dados pessoais.
+
+=== lx15-27
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 25
+trecho: Os dados deverão ser mantidos em formato interoperável e estruturado
+armadilha: extrapolacao
+dif: 2
+enunciado: A LGPD só exige que os dados do poder público sejam mantidos em formato interoperável e estruturado quando lei específica determinar o uso compartilhado entre órgãos.
+comentario: Errado. O art. 25 é regra geral para o poder público: os dados deverão ser mantidos em formato interoperável e estruturado para o uso compartilhado, com vistas a políticas públicas, serviços públicos, descentralização e acesso do público.
