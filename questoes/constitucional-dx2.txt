@@ -1,0 +1,164 @@
+bloco: constitucional
+// Direito constitucional, lote DX2: proteção de dados na Constituição (arts. 5º, LXXIX, 21, XXVI, e 22, XXX),
+// sabatina pelo Senado (art. 52, III e IV), iniciativa privativa do Presidente (art. 61, § 1º), limites materiais das
+// medidas provisórias (art. 62, § 1º) e ordem econômica (arts. 170, 173, 174 e 175). Conferidas com fontes/cf88.txt.
+
+=== cx2-01
+gab: C
+tema: const-organizacao
+ref: cf88 21
+trecho: organizar e fiscalizar a proteção e o tratamento de dados pessoais, nos termos da lei
+armadilha: conceito
+dif: 2
+enunciado: Compete à União organizar e fiscalizar a proteção e o tratamento de dados pessoais, nos termos da lei, competência incluída na Constituição pela EC 115/2022.
+comentario: Certo. Art. 21, XXVI. A mesma emenda deu à União competência privativa para legislar sobre o tema (art. 22, XXX) e incluiu o direito fundamental do art. 5º, LXXIX.
+
+=== cx2-02
+gab: E
+tema: const-organizacao
+ref: cf88 22
+trecho: proteção e tratamento de dados pessoais
+armadilha: comparacao
+dif: 2
+enunciado: Estados e Municípios têm competência legislativa concorrente com a União para legislar sobre proteção e tratamento de dados pessoais.
+comentario: Errado. A competência para legislar sobre o tema é privativa da União (art. 22, XXX, incluído pela EC 115/2022), e não concorrente (art. 24).
+
+=== cx2-03
+gab: E
+tema: const-direitos
+ref: cf88 5
+trecho: é assegurado, nos termos da lei, o direito à proteção dos dados pessoais, inclusive nos meios digitais
+armadilha: conceito
+dif: 2
+enunciado: O direito à proteção dos dados pessoais foi incluído entre os direitos fundamentais pela própria LGPD, já que a Constituição não o menciona.
+comentario: Errado. O direito está no art. 5º, LXXIX, incluído pela Emenda Constitucional 115/2022. A LGPD é de 2018 e não poderia alterar o rol constitucional.
+
+=== cx2-04
+gab: C
+tema: const-legislativo
+ref: cf88 52
+trecho: aprovar previamente, por voto secreto, após argüição pública, a escolha de
+armadilha: conceito
+dif: 2
+enunciado: Compete privativamente ao Senado aprovar previamente, por voto secreto e após arguição pública, a escolha de titulares de cargos que a lei determinar, como os dirigentes das agências reguladoras.
+comentario: Certo. Art. 52, III, f. A Lei 9.986/2000 (art. 5º) exige essa aprovação para os membros do Conselho Diretor ou da Diretoria Colegiada das agências reguladoras.
+
+=== cx2-05
+gab: E
+tema: const-legislativo
+ref: cf88 52
+trecho: após argüição em sessão secreta, a escolha dos chefes de missão diplomática de caráter permanente
+armadilha: comparacao
+dif: 3
+enunciado: A escolha dos dirigentes de agências reguladoras é aprovada pelo Senado após arguição em sessão secreta, como ocorre com os chefes de missão diplomática permanente.
+comentario: Errado. Para os cargos do art. 52, III, a arguição é pública. A arguição em sessão secreta é reservada aos chefes de missão diplomática de caráter permanente (IV). Nos dois casos, o voto é secreto.
+
+=== cx2-06
+gab: E
+tema: const-legislativo
+ref: cf88 61
+trecho: criação de cargos, funções ou empregos públicos na administração direta e autárquica ou aumento de sua remuneração
+armadilha: sujeito
+dif: 2
+enunciado: Lei de iniciativa parlamentar pode criar cargos públicos em autarquia federal, já que a função legislativa pertence ao Congresso Nacional.
+comentario: Errado. A iniciativa de leis que criem cargos na administração direta e autárquica ou aumentem sua remuneração é privativa do Presidente da República (art. 61, § 1º, II, a).
+
+=== cx2-07
+gab: C
+tema: const-legislativo
+ref: cf88 61
+trecho: criação e extinção de Ministérios e órgãos da administração pública, observado o disposto no art. 84, VI
+armadilha: conceito
+dif: 2
+enunciado: São de iniciativa privativa do Presidente da República as leis que disponham sobre a criação e a extinção de Ministérios e órgãos da administração pública.
+comentario: Certo. Art. 61, § 1º, II, e. Sem criar ou extinguir órgãos nem aumentar despesa, o Presidente pode reorganizar a administração federal por decreto (art. 84, VI, a).
+
+=== cx2-08
+gab: C
+tema: const-legislativo
+ref: cf88 62
+trecho: direito penal, processual penal e processual civil
+armadilha: rol
+dif: 2
+enunciado: É vedada a edição de medida provisória sobre direito penal, processual penal e processual civil.
+comentario: Certo. Art. 62, § 1º, I, b. Também não cabe MP sobre nacionalidade, direitos políticos, organização do Judiciário e do MP e matéria orçamentária, salvo créditos extraordinários (I, a, c e d).
+
+=== cx2-09
+gab: E
+tema: const-legislativo
+ref: cf88 62
+trecho: reservada a lei complementar
+armadilha: excecao
+dif: 2
+enunciado: Havendo relevância e urgência, a medida provisória pode tratar de matéria reservada a lei complementar.
+comentario: Errado. O art. 62, § 1º, III, veda MP sobre matéria reservada a lei complementar, independentemente da urgência.
+
+=== cx2-10
+gab: C
+tema: const-legislativo
+ref: cf88 62
+trecho: já disciplinada em projeto de lei aprovado pelo Congresso Nacional e pendente de sanção ou veto do Presidente da República
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: o Congresso aprovou projeto de lei sobre certo tema, que aguarda sanção, e o Presidente pretende disciplinar o mesmo assunto por medida provisória. Assertiva: a edição da MP é vedada.
+comentario: Certo. Art. 62, § 1º, IV. Cabe ao Presidente sancionar ou vetar o projeto, e não editar MP sobre a mesma matéria.
+
+=== cx2-11
+gab: E
+tema: const-ordem-social
+ref: cf88 174
+trecho: sendo este determinante para o setor público e indicativo para o setor privado
+armadilha: comparacao
+dif: 2
+enunciado: Como agente normativo e regulador da atividade econômica, o Estado exerce planejamento determinante tanto para o setor público quanto para o setor privado.
+comentario: Errado. O planejamento é determinante para o setor público e indicativo para o setor privado (art. 174). O Estado também fiscaliza e incentiva, na forma da lei.
+
+=== cx2-12
+gab: C
+tema: const-ordem-social
+ref: cf88 175
+trecho: diretamente ou sob regime de concessão ou permissão, sempre através de licitação, a prestação de serviços públicos
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um município concedeu o transporte coletivo a uma empresa escolhida sem licitação. Assertiva: a concessão contraria a Constituição.
+comentario: Certo. O art. 175 exige licitação sempre que o serviço público for prestado sob concessão ou permissão. A Lei 8.987/1995 regulamenta o dispositivo.
+
+=== cx2-13
+gab: E
+tema: const-ordem-social
+ref: cf88 173
+trecho: só será permitida quando necessária aos imperativos da segurança nacional ou a relevante interesse coletivo, conforme definidos em lei
+armadilha: conceito
+dif: 2
+enunciado: A exploração direta de atividade econômica pelo Estado é livre e dispensa qualquer justificativa.
+comentario: Errado. Ressalvados os casos da Constituição, ela só é permitida quando necessária aos imperativos da segurança nacional ou a relevante interesse coletivo, definidos em lei (art. 173, caput).
+
+=== cx2-14
+gab: C
+tema: const-ordem-social
+ref: cf88 173
+trecho: não poderão gozar de privilégios fiscais não extensivos às do setor privado
+armadilha: conceito
+dif: 2
+enunciado: As empresas públicas e as sociedades de economia mista que exploram atividade econômica não podem gozar de privilégios fiscais não extensivos às empresas do setor privado.
+comentario: Certo. Art. 173, § 2º. A regra protege a livre concorrência entre estatais e empresas privadas.
+
+=== cx2-15
+gab: C
+tema: const-ordem-social
+ref: cf88 170
+trecho: É assegurado a todos o livre exercício de qualquer atividade econômica, independentemente de autorização de órgãos públicos, salvo nos casos previstos em lei
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma pessoa quer abrir um pequeno negócio em atividade que nenhuma lei sujeita a autorização prévia. Assertiva: a Constituição lhe garante exercer a atividade sem pedir autorização a órgão público.
+comentario: Certo. Art. 170, parágrafo único. A Lei de Liberdade Econômica desenvolve essa garantia, por exemplo dispensando atos de liberação para atividades de baixo risco.
+
+=== cx2-16
+gab: E
+tema: const-ordem-social
+ref: cf88 170
+trecho: tratamento favorecido para as empresas de pequeno porte constituídas sob as leis brasileiras e que tenham sua sede e administração no País
+armadilha: conceito
+dif: 1
+enunciado: A Constituição proíbe tratamento favorecido às empresas de pequeno porte, por considerá-lo incompatível com a livre concorrência.
+comentario: Errado. O tratamento favorecido às empresas de pequeno porte constituídas sob as leis brasileiras, com sede e administração no País, é princípio da ordem econômica (art. 170, IX).
