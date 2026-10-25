@@ -1,0 +1,223 @@
+// LGPD, lote X23: casos com cenários novos nas bases legais (art. 7º, incisos V a X e §§ 3º a 6º), nos dados
+// sensíveis (art. 11), nos procedimentos dos direitos do titular (art. 18, §§ 4º, 5º, 7º e 8º) e no uso de dados do
+// exercício de direitos (art. 21). Conferidas com fontes/lgpd.txt.
+
+=== lx23-01
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: quando necessário para a execução de contrato ou de procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um consumidor pediu cotação a uma seguradora, que tratou os dados do veículo e do condutor para calcular o prêmio antes de fechar o contrato. Assertiva: o tratamento pode apoiar-se em procedimentos preliminares relacionados a contrato, a pedido do titular.
+comentario: Certo. Art. 7º, V. A base vale para a fase pré-contratual desde que a iniciativa seja do titular.
+
+=== lx23-02
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: a pedido do titular dos dados
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma financeira tratou dados de pessoas que nunca a procuraram para enviar-lhes, por iniciativa própria, propostas de empréstimo pré-aprovado. Assertiva: o tratamento se apoia na execução de procedimentos preliminares relacionados a contrato.
+comentario: Errado. O art. 7º, V, exige contrato de que o titular seja parte e, na fase preliminar, que os procedimentos ocorram a pedido dele. Oferta não solicitada não se enquadra nessa base.
+
+=== lx23-03
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: para o exercício regular de direitos em processo judicial, administrativo ou arbitral
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: processada por um ex-empregado, uma empresa juntou aos autos os registros de ponto e e-mails corporativos dele para se defender. Assertiva: o tratamento se apoia no exercício regular de direitos em processo judicial.
+comentario: Certo. Art. 7º, VI. A base vale para processos judiciais, administrativos e arbitrais, e dispensa o consentimento do titular.
+
+=== lx23-04
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: para a proteção da vida ou da incolumidade física do titular ou de terceiro
+armadilha: caso
+dif: 1
+enunciado: Situação hipotética: depois de um acidente, a equipe de resgate consultou os contatos de emergência no celular da vítima, que estava inconsciente, para avisar a família. Assertiva: o tratamento pode ocorrer sem consentimento, para a proteção da vida ou da incolumidade física da titular.
+comentario: Certo. Art. 7º, VII. Para dados sensíveis, a mesma hipótese está no art. 11, II, e.
+
+=== lx23-05
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: para a tutela da saúde, exclusivamente, em procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: uma academia passou a registrar os batimentos cardíacos dos alunos durante os treinos, alegando a tutela da saúde. Assertiva: qualquer empresa que trate dados de saúde pode invocar essa base legal.
+comentario: Errado. A tutela da saúde vale exclusivamente para procedimento feito por profissionais de saúde, serviços de saúde ou autoridade sanitária (art. 7º, VIII, e art. 11, II, f).
+
+=== lx23-06
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: para a proteção do crédito, inclusive quanto ao disposto na legislação pertinente
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um birô de crédito tratou o histórico de pagamento de contas de um consumidor para calcular sua pontuação de crédito. Assertiva: a proteção do crédito é base legal prevista na LGPD para esse tratamento, observada a legislação pertinente.
+comentario: Certo. Art. 7º, X. A legislação pertinente inclui a do cadastro positivo e o Código de Defesa do Consumidor.
+
+=== lx23-07
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa copiou nomes e salários de servidores do Portal da Transparência para oferecer-lhes empréstimos por telefone. Assertiva: o tratamento de dados de acesso público deve considerar a finalidade, a boa-fé e o interesse público que justificaram a divulgação.
+comentario: Certo. Art. 7º, § 3º. O dado é público para o controle social do gasto, e não para marketing. Estar acessível não significa estar livre para qualquer uso.
+
+=== lx23-08
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: resguardados os direitos do titular e os princípios previstos nesta Lei
+armadilha: excecao
+dif: 2
+enunciado: Os dados tornados manifestamente públicos pelo próprio titular podem ser tratados sem consentimento e sem observância dos princípios da LGPD, pois ele abriu mão da proteção.
+comentario: Errado. O art. 7º, § 4º, dispensa só o consentimento, resguardados os direitos do titular e os princípios da lei. Novos tratamentos exigem propósitos legítimos e específicos (§ 7º).
+
+=== lx23-09
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: deverá obter consentimento específico do titular para esse fim
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma loja obteve consentimento dos clientes para enviar-lhes novidades e agora quer repassar a lista a uma marca parceira. Assertiva: para esse compartilhamento, ela precisa de consentimento específico dos titulares, salvo hipótese legal de dispensa.
+comentario: Certo. Art. 7º, § 5º. O consentimento dado para uma finalidade não se estende à comunicação a outros controladores.
+
+=== lx23-10
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: A eventual dispensa da exigência do consentimento não desobriga os agentes de tratamento das demais obrigações previstas nesta Lei
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: um empregador trata dados de empregados para cumprir obrigações trabalhistas. Assertiva: como o consentimento está dispensado, ele também fica dispensado de atender aos direitos dos titulares.
+comentario: Errado. A dispensa do consentimento não desobriga das demais obrigações, especialmente dos princípios e dos direitos do titular (art. 7º, § 6º).
+
+=== lx23-11
+bloco: lgpd-5-11
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: garantia da prevenção à fraude e à segurança do titular, nos processos de identificação e autenticação de cadastro em sistemas eletrônicos
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um banco digital usa a biometria facial do cliente para confirmar sua identidade no acesso ao aplicativo e impedir fraudes. Assertiva: esse tratamento de dado sensível pode ocorrer sem consentimento.
+comentario: Certo. Art. 11, II, g: prevenção à fraude e segurança do titular em identificação e autenticação, resguardados os direitos do art. 9º e salvo se prevalecerem direitos e liberdades fundamentais do titular.
+
+=== lx23-12
+bloco: lgpd-5-11
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: quando o titular ou seu responsável legal consentir, de forma específica e destacada, para finalidades específicas
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um aplicativo de saúde obteve, junto com o aceite geral dos termos de uso, consentimento genérico para tratar os resultados de exames do usuário. Assertiva: esse consentimento basta para o tratamento desses dados sensíveis.
+comentario: Errado. Para dados sensíveis, o consentimento deve ser específico e destacado, para finalidades específicas (art. 11, I). O aceite geral dos termos não cumpre a exigência.
+
+=== lx23-13
+bloco: lgpd-5-11
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: Aplica-se o disposto neste artigo a qualquer tratamento de dados pessoais que revele dados pessoais sensíveis e que possa causar dano ao titular
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um supermercado cruza as compras dos clientes e infere, pelo padrão dos produtos, quais estão grávidas ou têm diabetes. Assertiva: esse tratamento se sujeita às regras de dados sensíveis.
+comentario: Certo. Art. 11, § 1º. Dados comuns que revelam dados sensíveis e podem causar dano recebem o mesmo regime, ressalvada legislação específica.
+
+=== lx23-14
+bloco: lgpd-5-11
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: É vedado às operadoras de planos privados de assistência à saúde o tratamento de dados de saúde para a prática de seleção de riscos
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma operadora de plano de saúde usou dados de saúde para recusar a adesão de pessoas com histórico de doença crônica. Assertiva: a prática é admitida como gestão dos riscos do contrato.
+comentario: Errado. O art. 11, § 5º, veda às operadoras tratar dados de saúde para seleção de riscos na contratação de qualquer modalidade e na contratação e exclusão de beneficiários.
+
+=== lx23-15
+bloco: lgpd-5-11
+gab: C
+tema: pd-poder-publico
+ref: lgpd 11
+trecho: será dada publicidade à referida dispensa de consentimento
+armadilha: conceito
+dif: 2
+enunciado: Quando um órgão público trata dado sensível sem consentimento para cumprir obrigação legal ou executar política pública prevista em lei, deve dar publicidade a essa dispensa.
+comentario: Certo. Art. 11, § 2º, que remete ao art. 23, I: o órgão informa as hipóteses em que trata dados, com a previsão legal, a finalidade e os procedimentos, preferencialmente em seu sítio eletrônico.
+
+=== lx23-16
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18
+trecho: comunicar que não é agente de tratamento dos dados e indicar, sempre que possível, o agente
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um titular pediu acesso aos seus dados a uma empresa que não os trata. Assertiva: a empresa pode responder que não é agente de tratamento desses dados, indicando, sempre que possível, quem é.
+comentario: Certo. Art. 18, § 4º, I. Se for agente mas não puder atender de imediato, deve indicar as razões de fato ou de direito que o impedem (II).
+
+=== lx23-17
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 18
+trecho: será atendido sem custos para o titular
+armadilha: conceito
+dif: 1
+enunciado: O controlador pode cobrar tarifa módica para atender ao pedido do titular de correção de dados desatualizados.
+comentario: Errado. Os requerimentos do art. 18 são atendidos sem custos para o titular, nos prazos e termos do regulamento (§ 5º).
+
+=== lx23-18
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 18
+trecho: A portabilidade dos dados pessoais a que se refere o inciso V do caput deste artigo não inclui dados que já tenham sido anonimizados pelo controlador
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: um titular pediu a portabilidade de seus dados, inclusive dos que a empresa já havia anonimizado para relatórios estatísticos. Assertiva: a portabilidade deve abranger também os dados anonimizados.
+comentario: Errado. A portabilidade não inclui dados já anonimizados pelo controlador (art. 18, § 7º), que deixaram de ser dados pessoais (art. 12).
+
+=== lx23-19
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18
+trecho: também poderá ser exercido perante os organismos de defesa do consumidor
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma consumidora quer reclamar porque uma loja não atendeu ao seu pedido de eliminação de dados. Assertiva: ela pode peticionar contra o controlador na ANPD e também em organismos de defesa do consumidor.
+comentario: Certo. Art. 18, §§ 1º e 8º. A reclamação ao Procon ou a outro órgão de defesa do consumidor não exclui a petição à ANPD, que é a autoridade de proteção de dados.
+
+=== lx23-20
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 21
+trecho: Os dados pessoais referentes ao exercício regular de direitos pelo titular não podem ser utilizados em seu prejuízo
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa descartou um candidato a emprego ao descobrir que ele havia processado o antigo empregador. Assertiva: o uso dessa informação é lícito, porque o processo judicial é público.
+comentario: Errado. O art. 21 proíbe usar em prejuízo do titular os dados referentes ao exercício regular de seus direitos, como ajuizar ação. A publicidade do processo não autoriza o uso discriminatório.
