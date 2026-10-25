@@ -1,0 +1,223 @@
+// LGPD, lote X22: casos com cenários novos sobre consentimento (art. 8º), acesso facilitado e mudança de finalidade
+// (art. 9º), legítimo interesse (art. 10), dados de crianças (art. 14) e confirmação, acesso e cópia dos dados
+// (art. 19). Conferidas com fontes/lgpd.txt.
+
+=== lx22-01
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 8
+trecho: Caso o consentimento seja fornecido por escrito, esse deverá constar de cláusula destacada das demais cláusulas contratuais
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma academia incluiu, no meio do contrato de adesão impresso e com a mesma letra das demais, cláusula em que o aluno consentia em ter seus dados enviados a parceiros. Assertiva: o consentimento escrito deveria constar de cláusula destacada das demais.
+comentario: Certo. Art. 8º, § 1º. Cláusula escondida no corpo do contrato não demonstra manifestação livre e informada, e o controlador é quem terá de provar que o consentimento foi regular (§ 2º).
+
+=== lx22-02
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 8
+trecho: Cabe ao controlador o ônus da prova de que o consentimento foi obtido em conformidade com o disposto nesta Lei
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: em processo na ANPD, uma empresa alegou que caberia ao titular provar que não havia consentido com o tratamento. Assertiva: a alegação está correta, pois quem afirma o vício deve prová-lo.
+comentario: Errado. O art. 8º, § 2º, põe no controlador o ônus de provar que o consentimento foi obtido conforme a lei.
+
+=== lx22-03
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 8
+trecho: ratificados os tratamentos realizados sob amparo do consentimento anteriormente manifestado enquanto não houver requerimento de eliminação
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma usuária revogou o consentimento que havia dado a um aplicativo de receitas. Assertiva: os tratamentos feitos antes da revogação continuam válidos enquanto não houver pedido de eliminação, e o procedimento para revogar deve ser gratuito e facilitado.
+comentario: Certo. Art. 8º, § 5º. A revogação vale para o futuro; para apagar o que já foi tratado com consentimento, a titular pode pedir a eliminação (art. 18, VI).
+
+=== lx22-04
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 8
+trecho: o controlador deverá informar ao titular, com destaque de forma específica do teor das alterações
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: após uma incorporação, uma loja virtual passou a ter outro controlador e começou a compartilhar dados com um novo parceiro, sem avisar os clientes, que haviam consentido com o tratamento. Assertiva: como o consentimento já tinha sido dado, não havia dever de informar.
+comentario: Errado. Mudanças na identificação do controlador e no uso compartilhado (art. 9º, III e V) devem ser informadas ao titular, com destaque específico do teor das alterações, e ele pode revogar o consentimento se discordar (art. 8º, § 6º).
+
+=== lx22-05
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 9
+trecho: esse será considerado nulo caso as informações fornecidas ao titular tenham conteúdo enganoso ou abusivo
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a tela de cadastro de um serviço dizia que os dados seriam usados “para melhorar sua experiência”, mas omitia que seriam vendidos a anunciantes. Assertiva: o consentimento obtido com essa informação é nulo.
+comentario: Certo. Art. 9º, § 1º: o consentimento é nulo se as informações tiverem conteúdo enganoso ou abusivo ou não forem apresentadas previamente com transparência, de forma clara e inequívoca.
+
+=== lx22-06
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 9
+trecho: o titular será informado com destaque sobre esse fato e sobre os meios pelos quais poderá exercer os direitos do titular
+armadilha: excecao
+dif: 2
+enunciado: Quando o tratamento de dados é condição para fornecer um serviço, o controlador fica dispensado de informar isso ao titular, já que ele pode simplesmente recusar o serviço.
+comentario: Errado. O art. 9º, § 3º, exige informar com destaque que o tratamento é condição para o serviço ou para o exercício de direito, e os meios para exercer os direitos do art. 18.
+
+=== lx22-07
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 10
+trecho: somente os dados pessoais estritamente necessários para a finalidade pretendida poderão ser tratados
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: com base no legítimo interesse, uma rede de farmácias passou a coletar CPF, endereço, renda mensal e número de dependentes dos clientes apenas para enviar cupons de desconto por aplicativo. Assertiva: a coleta excede o permitido nessa base legal.
+comentario: Certo. No legítimo interesse, só se tratam os dados estritamente necessários à finalidade (art. 10, § 1º). Renda e dependentes não são necessários para enviar cupons; o controlador também deve garantir transparência (§ 2º).
+
+=== lx22-08
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 10
+trecho: A autoridade nacional poderá solicitar ao controlador relatório de impacto à proteção de dados pessoais, quando o tratamento tiver como fundamento seu interesse legítimo
+armadilha: excecao
+dif: 2
+enunciado: A ANPD só pode pedir relatório de impacto ao controlador que se apoia no legítimo interesse quando o tratamento envolver dados sensíveis.
+comentario: Errado. O art. 10, § 3º, permite pedir o relatório sempre que o tratamento se fundar no legítimo interesse, observados os segredos comercial e industrial. A lei não restringe aos dados sensíveis, que, aliás, não admitem essa base (art. 11).
+
+=== lx22-09
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 10
+trecho: proteção, em relação ao titular, do exercício regular de seus direitos ou prestação de serviços que o beneficiem, respeitadas as legítimas expectativas dele
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um banco analisa as transações do cliente para detectar e bloquear compras atípicas que indiquem fraude no cartão dele. Assertiva: esse tratamento pode apoiar-se no legítimo interesse, por beneficiar o titular e estar dentro de suas expectativas legítimas.
+comentario: Certo. Art. 10, II. As finalidades devem partir de situações concretas, e o tratamento deve respeitar as legítimas expectativas e os direitos fundamentais do titular.
+
+=== lx22-10
+bloco: lgpd-12-16
+gab: E
+tema: pd-sensiveis
+ref: lgpd 14
+trecho: quando a coleta for necessária para contatar os pais ou o responsável legal, utilizados uma única vez e sem armazenamento
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um aplicativo infantil coletou, sem consentimento dos pais, o e-mail de uma criança para contatá-los; depois guardou o endereço e passou a usá-lo para enviar promoções. Assertiva: a conduta é lícita, porque a coleta inicial servia para contatar os pais.
+comentario: Errado. A exceção do art. 14, § 3º, exige uso único e sem armazenamento, e veda repassar os dados a terceiro sem o consentimento dos pais. Guardar e reutilizar o dado para marketing foge da exceção.
+
+=== lx22-11
+bloco: lgpd-12-16
+gab: C
+tema: pd-sensiveis
+ref: lgpd 14
+trecho: não deverão condicionar a participação dos titulares de que trata o § 1º deste artigo em jogos, aplicações de internet ou outras atividades ao fornecimento de informações pessoais além das estritamente necessárias
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um jogo on-line para crianças só liberava a primeira fase depois que o jogador informasse o número do telefone e o nome da escola. Assertiva: a exigência contraria a LGPD.
+comentario: Certo. Art. 14, § 4º. Participar do jogo não pode depender de informações além das estritamente necessárias à atividade.
+
+=== lx22-12
+bloco: lgpd-12-16
+gab: E
+tema: pd-sensiveis
+ref: lgpd 14
+trecho: O controlador deve realizar todos os esforços razoáveis para verificar que o consentimento a que se refere o § 1º deste artigo foi dado pelo responsável pela criança
+armadilha: conceito
+dif: 2
+enunciado: Para cumprir a LGPD, basta ao controlador oferecer uma caixa de seleção em que a própria criança declare ter autorização dos pais.
+comentario: Errado. O art. 14, § 5º, exige todos os esforços razoáveis, consideradas as tecnologias disponíveis, para verificar que o consentimento foi dado pelo responsável. A autodeclaração da criança não verifica nada.
+
+=== lx22-13
+bloco: lgpd-12-16
+gab: C
+tema: pd-sensiveis
+ref: lgpd 14
+trecho: com uso de recursos audiovisuais quando adequado
+armadilha: conceito
+dif: 2
+enunciado: As informações sobre o tratamento de dados de crianças devem considerar as características físico-motoras, perceptivas, sensoriais, intelectuais e mentais do usuário, com recursos audiovisuais quando adequado.
+comentario: Certo. Art. 14, § 6º. A informação deve servir aos pais e ser adequada ao entendimento da criança.
+
+=== lx22-14
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 19
+trecho: fornecida no prazo de até 15 (quinze) dias, contado da data do requerimento do titular
+armadilha: numero
+dif: 2
+enunciado: Situação hipotética: um titular pediu a uma empresa declaração completa sobre seus dados, com a origem, os critérios e a finalidade do tratamento, e recebeu a resposta 30 dias depois. Assertiva: a resposta foi tempestiva.
+comentario: Errado. A declaração clara e completa deve ser fornecida em até 15 dias do requerimento (art. 19, II). O formato simplificado é imediato (I). A ANPD pode fixar prazos diferentes para setores específicos (§ 4º).
+
+=== lx22-15
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 19
+trecho: As informações e os dados poderão ser fornecidos, a critério do titular
+armadilha: conceito
+dif: 1
+enunciado: Cabe ao titular escolher se recebe as informações e os dados por meio eletrônico, seguro e idôneo, ou em forma impressa.
+comentario: Certo. Art. 19, § 2º. Os dados devem ainda ser armazenados em formato que favoreça o direito de acesso (§ 1º).
+
+=== lx22-16
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 19
+trecho: Quando o tratamento tiver origem no consentimento do titular ou em contrato, o titular poderá solicitar cópia eletrônica integral de seus dados pessoais
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: um titular cujos dados são tratados só para cumprimento de obrigação legal pediu cópia eletrônica integral deles, em formato reutilizável. Assertiva: a LGPD garante essa cópia em qualquer tratamento, seja qual for a base legal.
+comentario: Errado. A cópia eletrônica integral em formato reutilizável (art. 19, § 3º) vale quando o tratamento tem origem no consentimento ou em contrato. O titular continua tendo direito de confirmação e de acesso (caput).
+
+=== lx22-17
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 19
+trecho: Os dados pessoais serão armazenados em formato que favoreça o exercício do direito de acesso
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa guarda os dados de clientes em documentos digitalizados sem nenhum índice, e por isso não consegue atender aos pedidos de acesso. Assertiva: a prática contraria a LGPD.
+comentario: Certo. Art. 19, § 1º: os dados devem ser armazenados em formato que favoreça o exercício do direito de acesso. A dificuldade técnica criada pelo próprio controlador não o exime de responder no prazo.
+
+=== lx22-18
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 8
+trecho: O consentimento deverá referir-se a finalidades determinadas, e as autorizações genéricas para o tratamento de dados pessoais serão nulas
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: o termo de consentimento de um aplicativo autorizava o uso dos dados “para quaisquer finalidades comerciais da empresa e de seus parceiros”. Assertiva: a autorização é válida, por ter sido dada de forma expressa.
+comentario: Errado. Ser expressa não basta: o consentimento deve referir-se a finalidades determinadas, e autorizações genéricas são nulas (art. 8º, § 4º).
+
+=== lx22-19
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 9
+trecho: o controlador deverá informar previamente o titular sobre as mudanças de finalidade, podendo o titular revogar o consentimento, caso discorde das alterações
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um aplicativo de corrida, que tratava a localização dos usuários com consentimento para registrar treinos, decidiu usar esses dados para vender mapas de calor a incorporadoras. Assertiva: ele deve informar previamente os usuários sobre a nova finalidade, e eles podem revogar o consentimento.
+comentario: Certo. Art. 9º, § 2º: mudança de finalidade incompatível com o consentimento original exige aviso prévio, e o titular pode revogar o consentimento se discordar.
+
+=== lx22-20
+bloco: lgpd-12-16
+gab: E
+tema: pd-sensiveis
+ref: lgpd 14
+trecho: os controladores deverão manter pública a informação sobre os tipos de dados coletados, a forma de sua utilização e os procedimentos para o exercício dos direitos
+armadilha: conceito
+dif: 2
+enunciado: No tratamento de dados de crianças com consentimento dos pais, o controlador pode manter em sigilo os tipos de dados que coleta, para proteger a segurança delas.
+comentario: Errado. O art. 14, § 2º, manda manter pública a informação sobre os tipos de dados coletados, a forma de uso e os procedimentos para exercer os direitos do art. 18.
