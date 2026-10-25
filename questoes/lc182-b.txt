@@ -1,0 +1,167 @@
+bloco: regulacao-teoria
+// Lei Complementar nº 182/2021 (Marco Legal das Startups), lote B: princípios, enquadramento como startup, sandbox
+// regulatório (art. 11) e licitação e Contrato Público para Solução Inovadora (CPSI, arts. 12 a 15).
+// Ficam de fora os dispositivos que remetem à Lei nº 8.666/1993 (art. 13, § 8º, e art. 15, § 3º, parte final).
+// Trechos conferidos em fontes/lc182.txt.
+
+=== st2-01
+gab: C
+ref: lc182 3
+trecho: incentivo à contratação, pela administração pública, de soluções inovadoras elaboradas ou desenvolvidas por startups
+armadilha: rol
+dif: 2
+enunciado: Entre os princípios e diretrizes do Marco Legal das Startups estão o reconhecimento do empreendedorismo inovador como vetor de desenvolvimento e o incentivo à contratação, pela administração pública, de soluções inovadoras desenvolvidas por startups.
+comentario: Certo. Art. 3º, I e VIII. O inciso VIII reconhece o poder de compra do Estado como instrumento de fomento à inovação, desenvolvido nos arts. 12 a 15.
+
+=== st2-02
+gab: E
+ref: lc182 4
+trecho: com até 10 (dez) anos de inscrição no Cadastro Nacional da Pessoa Jurídica (CNPJ)
+armadilha: numero
+dif: 3
+enunciado: Situação hipotética: uma sociedade empresária com 12 anos de CNPJ e receita bruta de R$ 8 milhões no ano anterior quer enquadrar-se como startup no Marco Legal das Startups. Assertiva: ela cumpre os requisitos de tempo e de receita.
+comentario: Errado. Cumpre o limite de receita (até R$ 16 milhões no ano anterior, art. 4º, § 1º, I), mas não o de tempo: o inciso II exige até 10 anos de inscrição no CNPJ. Também é preciso atender a um dos requisitos do inciso III.
+
+=== st2-03
+gab: C
+ref: lc182 4
+trecho: com receita bruta de até R$ 16.000.000,00 (dezesseis milhões de reais) no ano-calendário anterior
+armadilha: numero
+dif: 2
+enunciado: Para o tratamento especial do Marco Legal das Startups, a startup deve ter receita bruta de até R$ 16.000.000,00 no ano-calendário anterior e até 10 anos de inscrição no CNPJ, entre outros requisitos.
+comentario: Certo. Art. 4º, § 1º, I e II. Se a atividade no ano anterior durou menos de 12 meses, o limite é proporcional ao número de meses. O inciso III exige ainda declaração de uso de modelo de negócio inovador ou enquadramento no Inova Simples.
+
+=== st2-04
+gab: E
+ref: lc182 4
+trecho: para as empresas decorrentes de fusão, será considerado o maior tempo de inscrição entre as empresas fundidas
+armadilha: caso
+dif: 3
+enunciado: Na contagem do tempo de CNPJ para enquadramento como startup, a empresa resultante de fusão considera o menor tempo de inscrição entre as empresas fundidas.
+comentario: Errado. O art. 4º, § 2º, II, manda considerar o maior tempo de inscrição entre as fundidas. Na incorporação, vale o tempo da incorporadora (I); na cisão, o da cindida ou o da empresa que absorve o patrimônio (III).
+
+=== st2-05
+gab: C
+ref: lc182 11
+trecho: afastar a incidência de normas sob sua competência em relação à entidade regulada ou aos grupos de entidades reguladas
+armadilha: excecao
+dif: 3
+enunciado: No sandbox regulatório do Marco Legal das Startups, o regulador setorial pode afastar a incidência de normas sob sua competência para a entidade regulada participante, definindo a duração e o alcance dessa suspensão.
+comentario: Certo. Art. 11, caput e § 3º, II. O afastamento se limita às normas sob competência do próprio regulador, que também fixa os critérios de seleção e as normas abrangidas (§ 3º, I e III).
+
+=== st2-06
+gab: E
+ref: lc182 12
+trecho: Os órgãos e as entidades da administração pública direta, autárquica e fundacional de quaisquer dos Poderes da União, dos Estados, do Distrito Federal e dos Municípios subordinam-se ao regime disposto neste Capítulo
+armadilha: sujeito
+dif: 2
+enunciado: O regime de contratação de soluções inovadoras do Marco Legal das Startups aplica-se apenas à administração pública federal.
+comentario: Errado. O art. 12, § 1º, sujeita ao regime a administração direta, autárquica e fundacional de qualquer Poder da União, dos Estados, do DF e dos Municípios. Empresas estatais podem adotá-lo, no que couber, por seu regulamento interno (§ 2º).
+
+=== st2-07
+gab: C
+ref: lc182 13
+trecho: A delimitação do escopo da licitação poderá restringir-se à indicação do problema a ser resolvido e dos resultados esperados pela administração pública
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: um órgão quer contratar solução para reduzir filas de atendimento, mas não sabe que tecnologia usar. Assertiva: na licitação especial do Marco Legal das Startups, o edital pode limitar-se a descrever o problema e os resultados esperados, cabendo aos licitantes propor os meios.
+comentario: Certo. Art. 13, § 1º: dispensa-se a descrição prévia de solução técnica e suas especificações. É a lógica de contratar o problema, e não o produto.
+
+=== st2-08
+gab: E
+ref: lc182 13
+trecho: com antecedência de, no mínimo, 30 (trinta) dias corridos até a data de recebimento das propostas
+armadilha: numero
+dif: 2
+enunciado: O edital da licitação especial para teste de soluções inovadoras deve ser divulgado com antecedência mínima de 8 dias úteis da data de recebimento das propostas.
+comentario: Errado. O art. 13, § 2º, exige antecedência mínima de 30 dias corridos, com divulgação em sítio eletrônico oficial e no diário oficial do ente.
+
+=== st2-09
+gab: C
+ref: lc182 13
+trecho: 1 (uma) deverá ser professor de instituição pública de educação superior na área relacionada ao tema da contratação
+armadilha: rol
+dif: 3
+enunciado: As propostas na licitação especial do Marco Legal das Startups são julgadas por comissão especial de, no mínimo, 3 pessoas de reputação ilibada e conhecimento no assunto, das quais 1 deve ser servidor do órgão contratante e 1, professor de instituição pública de educação superior da área.
+comentario: Certo. Art. 13, § 3º. A presença de especialista acadêmico ajuda a avaliar o potencial e a maturidade das soluções.
+
+=== st2-10
+gab: E
+ref: lc182 13
+trecho: O preço indicado pelos proponentes para execução do objeto será critério de julgamento somente na forma disposta nos incisos IV e V do § 4º deste artigo
+armadilha: comparacao
+dif: 3
+enunciado: Na licitação especial de soluções inovadoras, vence a proposta de menor preço, como regra geral das licitações públicas.
+comentario: Errado. Os critérios do art. 13, § 4º, incluem potencial de resolver o problema, grau de desenvolvimento e maturidade do modelo de negócio. O preço só entra na viabilidade econômica e na comparação de custo-benefício (§ 5º).
+
+=== st2-11
+gab: C
+ref: lc182 13
+trecho: A análise da documentação relativa aos requisitos de habilitação será posterior à fase de julgamento das propostas e contemplará somente os proponentes selecionados
+armadilha: conceito
+dif: 2
+enunciado: Na licitação especial do Marco Legal das Startups, a habilitação é analisada depois do julgamento das propostas e apenas para os proponentes selecionados, e a licitação pode selecionar mais de uma proposta.
+comentario: Certo. Art. 13, §§ 6º e 7º. Selecionadas várias propostas, o edital limita a quantidade, e cada uma pode ter seu CPSI.
+
+=== st2-12
+gab: E
+ref: lc182 14
+trecho: com vigência limitada a 12 (doze) meses, prorrogável por mais um período de até 12 (doze) meses
+armadilha: numero
+dif: 2
+enunciado: O Contrato Público para Solução Inovadora (CPSI) tem vigência de até 24 meses, prorrogável por mais 24 meses.
+comentario: Errado. O CPSI tem vigência de até 12 meses, prorrogável por mais um período de até 12 meses (art. 14, caput). Os 24 meses, prorrogáveis por mais 24, são do contrato de fornecimento posterior (art. 15, § 2º).
+
+=== st2-13
+gab: C
+ref: lc182 14
+trecho: O valor máximo a ser pago à contratada será de R$ 1.600.000,00 (um milhão e seiscentos mil reais) por CPSI
+armadilha: numero
+dif: 3
+enunciado: O valor máximo a ser pago por Contrato Público para Solução Inovadora é de R$ 1.600.000,00, e o edital pode fixar limite inferior.
+comentario: Certo. Art. 14, § 2º. Os valores podem ser atualizados anualmente pelo IPCA (art. 12, § 3º).
+
+=== st2-14
+gab: E
+ref: lc182 14
+trecho: a administração pública deverá efetuar o pagamento conforme o critério adotado, ainda que os resultados almejados não sejam atingidos em decorrência do risco tecnológico
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: no CPSI, a contratada executou os trabalhos previstos, mas a solução não atingiu o resultado esperado por causa do risco tecnológico inerente. Assertiva: a administração fica desobrigada de pagar pelos trabalhos executados.
+comentario: Errado. Pelo art. 14, § 5º, a administração paga conforme o critério adotado mesmo que os resultados não sejam atingidos por risco tecnológico, exceto as remunerações variáveis vinculadas a metas. Pode, porém, rescindir antecipadamente se comprovada a inviabilidade técnica ou econômica.
+
+=== st2-15
+gab: C
+ref: lc182 14
+trecho: preço fixo mais remuneração variável de incentivo
+armadilha: rol
+dif: 2
+enunciado: A remuneração no CPSI pode seguir, entre outros critérios, preço fixo, preço fixo mais remuneração variável de incentivo ou reembolso de custos sem remuneração adicional.
+comentario: Certo. Art. 14, § 3º, I a V. Se a execução for dividida em etapas, cada etapa pode ter critério distinto (§ 6º).
+
+=== st2-16
+gab: E
+ref: lc182 14
+trecho: a administração pública deverá prever em edital o pagamento antecipado de uma parcela do preço anteriormente ao início da execução do objeto, mediante justificativa expressa
+armadilha: absoluto
+dif: 3
+enunciado: No CPSI, é vedado em qualquer hipótese o pagamento antecipado, pois os pagamentos ocorrem somente após a execução dos trabalhos.
+comentario: Errado. A regra é pagar após a execução, mas o art. 14, § 7º, prevê pagamento antecipado de parcela, com justificativa expressa, para viabilizar a etapa inicial. Havendo inexecução injustificada, a administração exige a devolução ou faz glosas (§ 8º).
+
+=== st2-17
+gab: C
+ref: lc182 15
+trecho: a administração pública poderá celebrar com a mesma contratada, sem nova licitação, contrato para o fornecimento do produto, do processo ou da solução resultante do CPSI
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: encerrado o CPSI, a solução testada por uma startup atingiu as metas e o órgão quer passar a usá-la em escala. Assertiva: o órgão pode celebrar com a mesma contratada, sem nova licitação, contrato de fornecimento da solução.
+comentario: Certo. Art. 15, caput. O contrato de fornecimento dura até 24 meses, prorrogável por mais 24 (§ 2º), e é limitado a 5 vezes o valor máximo do CPSI, incluídas as prorrogações (§ 3º).
+
+=== st2-18
+gab: E
+ref: lc182 15
+trecho: o contrato de fornecimento será firmado, mediante justificativa, com aquela cujo produto, processo ou solução atenda melhor às demandas públicas em termos de relação de custo e benefício
+armadilha: conceito
+dif: 3
+enunciado: Se mais de uma contratada cumprir satisfatoriamente as metas do CPSI, o contrato de fornecimento é firmado, por sorteio, com qualquer uma delas.
+comentario: Errado. O art. 15, § 1º, manda firmar o contrato, mediante justificativa, com aquela cuja solução atenda melhor às demandas públicas em custo e benefício, consideradas qualidade e preço.
