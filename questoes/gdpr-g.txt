@@ -1,0 +1,131 @@
+bloco: gdpr
+// Direito comparado, sétima leva: cooperação internacional (art. 50), independência, relatórios, secretariado e
+// confidencialidade do Comitê Europeu (arts. 69, 71, 75 e 76), suspensão de processos (art. 81), documentos oficiais,
+// número de identificação nacional, sigilo e igrejas (arts. 86, 87, 90 e 91) e disposições finais (arts. 94, 95 e 99).
+// Trechos conferidos no texto oficial em inglês (fontes/gdpr.txt).
+
+=== gd7-01
+gab: C
+ref: gdpr 50
+trecho: provide international mutual assistance in the enforcement of legislation for the protection of personal data
+armadilha: conceito
+dif: 2
+enunciado: O GDPR determina que a Comissão e as autoridades de controle adotem medidas para criar mecanismos de cooperação internacional e prestar assistência mútua a países terceiros e organizações internacionais na aplicação da legislação de proteção de dados.
+comentario: Certo. Art. 50, a e b. A assistência inclui notificação, encaminhamento de reclamações e troca de informações, com salvaguardas para os direitos fundamentais.
+
+=== gd7-02
+gab: E
+ref: gdpr 69
+trecho: the Board shall, in the performance of its tasks or the exercise of its powers, neither seek nor take instructions from anybody
+armadilha: conceito
+dif: 2
+enunciado: No exercício de suas atribuições, o Comitê Europeu para a Proteção de Dados atua sob instruções da Comissão Europeia.
+comentario: Errado. O art. 69 garante a independência do Comitê, que não pede nem recebe instruções de ninguém. A Comissão pode apenas solicitar pareceres e orientações nos casos do art. 70.
+
+=== gd7-03
+gab: C
+ref: gdpr 71
+trecho: The report shall be made public and be transmitted to the European Parliament, to the Council and to the Commission
+armadilha: conceito
+dif: 2
+enunciado: O Comitê Europeu para a Proteção de Dados elabora relatório anual sobre a proteção de dados na União, que é tornado público e enviado ao Parlamento Europeu, ao Conselho e à Comissão.
+comentario: Certo. Art. 71. O relatório inclui a análise da aplicação prática das diretrizes e recomendações do Comitê e de suas decisões vinculativas.
+
+=== gd7-04
+gab: E
+ref: gdpr 75
+trecho: The Board shall have a secretariat, which shall be provided by the European Data Protection Supervisor
+armadilha: sujeito
+dif: 3
+enunciado: O secretariado do Comitê Europeu para a Proteção de Dados é fornecido pela Comissão Europeia e atua sob as instruções dela.
+comentario: Errado. O secretariado é fornecido pela Autoridade Europeia para a Proteção de Dados (EDPS) e atua exclusivamente sob as instruções do Presidente do Comitê (art. 75, §§ 1º e 2º).
+
+=== gd7-05
+gab: C
+ref: gdpr 75
+trecho: shall be subject to separate reporting lines from the staff involved in carrying out tasks conferred on the European Data Protection Supervisor
+armadilha: conceito
+dif: 3
+enunciado: Os servidores da Autoridade Europeia para a Proteção de Dados que trabalham para o Comitê Europeu ficam sujeitos a linhas hierárquicas separadas das que se aplicam às tarefas próprias dessa autoridade.
+comentario: Certo. Art. 75, § 3º. A separação protege a independência do Comitê em relação à instituição que lhe fornece o secretariado.
+
+=== gd7-06
+gab: E
+ref: gdpr 76
+trecho: The discussions of the Board shall be confidential where the Board deems it necessary
+armadilha: absoluto
+dif: 2
+enunciado: As discussões do Comitê Europeu para a Proteção de Dados são sempre públicas, por força do princípio da transparência.
+comentario: Errado. São confidenciais quando o Comitê o considerar necessário, conforme seu regulamento interno (art. 76, § 1º). O acesso a documentos segue o Regulamento (CE) 1049/2001.
+
+=== gd7-07
+gab: C
+ref: gdpr 81
+trecho: any competent court other than the court first seized may suspend its proceedings
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um tribunal de um Estado-Membro soube que corre, em outro Estado-Membro, ação sobre o mesmo objeto e o mesmo controlador. Assertiva: ele deve contatar o outro tribunal para confirmar o processo e, se não foi o primeiro a ser acionado, pode suspender a sua ação.
+comentario: Certo. Art. 81, §§ 1º e 2º. Em primeira instância, pode ainda declinar da competência, a pedido de uma das partes, se o primeiro tribunal for competente e sua lei permitir a reunião das ações (§ 3º).
+
+=== gd7-08
+gab: E
+ref: gdpr 86
+trecho: may be disclosed by the authority or body in accordance with Union or Member State law to which the public authority or body is subject in order to reconcile public access to official documents with the right to the protection of personal data
+armadilha: comparacao
+dif: 3
+enunciado: O GDPR proíbe a divulgação de dados pessoais contidos em documentos oficiais de autoridades públicas, ainda que para garantir o acesso do público a esses documentos.
+comentario: Errado. O art. 86 permite a divulgação, conforme o direito da União ou do Estado-Membro, para conciliar o acesso público a documentos oficiais com a proteção de dados. É a mesma tensão que, no Brasil, envolve a LAI e a LGPD.
+
+=== gd7-09
+gab: C
+ref: gdpr 87
+trecho: shall be used only under appropriate safeguards for the rights and freedoms of the data subject
+armadilha: conceito
+dif: 2
+enunciado: Os Estados-Membros podem definir condições específicas para o tratamento do número de identificação nacional, que só pode ser usado com salvaguardas adequadas para os direitos e liberdades do titular.
+comentario: Certo. Art. 87. Vale também para outros identificadores de aplicação geral, que facilitam cruzar bases e por isso exigem cuidado especial.
+
+=== gd7-10
+gab: E
+ref: gdpr 90
+trecho: Member States may adopt specific rules to set out the powers of the supervisory authorities
+armadilha: conceito
+dif: 3
+enunciado: O GDPR impede que os Estados-Membros adaptem os poderes de investigação das autoridades de controle em relação a controladores sujeitos a sigilo profissional.
+comentario: Errado. O art. 90 permite regras específicas sobre os poderes de acesso das autoridades (art. 58, § 1º, e e f) diante de controladores sujeitos a sigilo profissional, quando necessário e proporcional para conciliar os dois direitos. As regras são notificadas à Comissão.
+
+=== gd7-11
+gab: C
+ref: gdpr 91
+trecho: shall be subject to the supervision of an independent supervisory authority, which may be specific
+armadilha: conceito
+dif: 3
+enunciado: Igrejas e associações religiosas que já aplicavam regras abrangentes de proteção de dados quando o GDPR entrou em vigor podem continuar a aplicá-las, se as adequarem ao Regulamento, e ficam sujeitas à supervisão de autoridade independente, que pode ser específica.
+comentario: Certo. Art. 91, §§ 1º e 2º. A autoridade específica deve cumprir as condições de independência do capítulo VI.
+
+=== gd7-12
+gab: E
+ref: gdpr 94
+trecho: References to the repealed Directive shall be construed as references to this Regulation
+armadilha: conceito
+dif: 2
+enunciado: Com a revogação da Diretiva 95/46/CE, as referências a ela em outros atos deixaram de produzir efeito, sem relação com o GDPR.
+comentario: Errado. As referências à diretiva revogada são lidas como referências ao GDPR, e as feitas ao Grupo de Trabalho do Artigo 29 passam a valer para o Comitê Europeu para a Proteção de Dados (art. 94, § 2º).
+
+=== gd7-13
+gab: C
+ref: gdpr 99
+trecho: It shall apply from 25 May 2018. This Regulation shall be binding in its entirety and directly applicable in all Member States
+armadilha: conceito
+dif: 1
+enunciado: O GDPR aplica-se desde 25 de maio de 2018 e, por ser regulamento, é obrigatório em todos os seus elementos e diretamente aplicável em todos os Estados-Membros, sem necessidade de lei nacional de transposição.
+comentario: Certo. Art. 99, § 2º. A diretiva anterior precisava ser transposta por lei de cada país; o regulamento vale por si, embora deixe margens de regulação aos Estados (por exemplo, arts. 85 a 91).
+
+=== gd7-14
+gab: E
+ref: gdpr 95
+trecho: This Regulation shall not impose additional obligations on natural or legal persons in relation to processing in connection with the provision of publicly available electronic communications services
+armadilha: conceito
+dif: 3
+enunciado: O GDPR impõe obrigações adicionais aos prestadores de serviços públicos de comunicações eletrônicas mesmo nas matérias em que eles já se sujeitam a obrigações específicas de mesmo objetivo da Diretiva 2002/58/CE.
+comentario: Errado. O art. 95 afasta obrigações adicionais nessas matérias: prevalece a Diretiva ePrivacy (2002/58/CE), regra especial para comunicações eletrônicas.
