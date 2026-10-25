@@ -1,0 +1,322 @@
+// LGPD, lote X19: casos com cenários novos nos arts. 5º, 6º, 9º, 18, 19, 23, 26, 37, 38 e 41 (conceitos, princípios,
+// informação ao titular, direitos e prazos, Poder Público e uso compartilhado, registro, relatório de impacto e
+// encarregado). Conferidas com fontes/lgpd.txt.
+
+=== lx19-01
+bloco: lgpd-5-11
+gab: C
+tema: pd-conceitos
+ref: lgpd 5
+trecho: filiação a sindicato ou a organização de caráter religioso, filosófico ou político
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: o setor de recursos humanos de uma empresa mantém planilha que indica quais empregados são filiados ao sindicato da categoria. Assertiva: essa informação é dado pessoal sensível.
+comentario: Certo. A filiação a sindicato está no rol do art. 5º, II. O tratamento só pode apoiar-se nas hipóteses do art. 11, e o uso para fins discriminatórios é vedado (art. 6º, IX).
+
+=== lx19-02
+bloco: lgpd-5-11
+gab: E
+tema: pd-conceitos
+ref: lgpd 5
+trecho: dado pessoal sensível: dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política
+armadilha: rol
+dif: 3
+enunciado: Pelo rol da LGPD, os dados de geolocalização do celular de uma pessoa são, em si, dados pessoais sensíveis.
+comentario: Errado. A geolocalização não está no rol do art. 5º, II. Ela pode, porém, revelar dado sensível, como a frequência a um templo ou a uma clínica, e então o regime do art. 11 se aplica a esse tratamento (art. 11, § 1º).
+
+=== lx19-03
+bloco: lgpd-5-11
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 5
+trecho: considerando a utilização de meios técnicos razoáveis e disponíveis na ocasião de seu tratamento
+armadilha: absoluto
+dif: 3
+enunciado: Para a LGPD, um dado só é considerado anonimizado se nenhuma técnica, atual ou futura, for capaz de reidentificar o titular.
+comentario: Errado. O critério do art. 5º, III, é relativo: considera os meios técnicos razoáveis e disponíveis na ocasião do tratamento. O art. 12, § 1º, acrescenta fatores objetivos como custo e tempo. Se a anonimização puder ser revertida com esforços razoáveis, o dado volta a ser pessoal (art. 12).
+
+=== lx19-04
+bloco: lgpd-5-11
+gab: C
+tema: pd-conceitos
+ref: lgpd 5
+trecho: banco de dados: conjunto estruturado de dados pessoais, estabelecido em um ou em vários locais, em suporte eletrônico ou físico
+armadilha: caso
+dif: 1
+enunciado: Situação hipotética: uma clínica pequena guarda as fichas dos pacientes apenas em pastas de papel, organizadas por nome. Assertiva: esse arquivo é banco de dados para a LGPD.
+comentario: Certo. O art. 5º, IV, admite banco de dados em suporte eletrônico ou físico, em um ou vários locais. A LGPD vale para o tratamento em qualquer meio (art. 1º).
+
+=== lx19-05
+bloco: lgpd-5-11
+gab: C
+tema: pd-conceitos
+ref: lgpd 5
+trecho: arquivamento, armazenamento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa de tecnologia apenas guarda, em seus servidores, cópias de segurança de bases de clientes de outras empresas, sem consultá-las. Assertiva: mesmo sem acessar o conteúdo, ela realiza tratamento de dados pessoais.
+comentario: Certo. O conceito de tratamento do art. 5º, X, inclui o arquivamento e o armazenamento. A empresa, que atua em nome dos clientes, é em regra operadora e deve garantir a segurança dos dados (arts. 39 e 46).
+
+=== lx19-06
+bloco: lgpd-5-11
+gab: E
+tema: pd-principios
+ref: lgpd 6
+trecho: limitação do tratamento ao mínimo necessário para a realização de suas finalidades
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um aplicativo de lanterna exige acesso à agenda de contatos e à localização do usuário para funcionar. Assertiva: a exigência atende ao princípio da necessidade, desde que o usuário aceite os termos de uso.
+comentario: Errado. O princípio da necessidade (art. 6º, III) limita o tratamento ao mínimo necessário à finalidade, com dados pertinentes e não excessivos. A aceitação dos termos não torna necessário o que é excessivo para acender a lanterna.
+
+=== lx19-07
+bloco: lgpd-5-11
+gab: C
+tema: pd-principios
+ref: lgpd 6
+trecho: impossibilidade de realização do tratamento para fins discriminatórios ilícitos ou abusivos
+armadilha: interpretacao
+dif: 3
+enunciado: O princípio da não discriminação não proíbe toda diferenciação entre titulares, mas veda o tratamento de dados para fins discriminatórios ilícitos ou abusivos.
+comentario: Certo. Art. 6º, IX. Diferenciar clientes por perfil de risco de crédito, por exemplo, pode ser lícito; usar dados para negar serviço por origem étnica não é. O controle é reforçado pela revisão de decisões automatizadas (art. 20).
+
+=== lx19-08
+bloco: lgpd-5-11
+gab: C
+tema: pd-principios
+ref: lgpd 6
+trecho: demonstração, pelo agente, da adoção de medidas eficazes e capazes de comprovar a observância e o cumprimento das normas de proteção de dados pessoais e, inclusive, da eficácia dessas medidas
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em fiscalização, uma empresa apresentou política de privacidade bem escrita, mas não conseguiu mostrar se as medidas previstas eram de fato aplicadas e funcionavam. Assertiva: a situação contraria o princípio da responsabilização e prestação de contas.
+comentario: Certo. O art. 6º, X, exige demonstrar a adoção de medidas eficazes e a própria eficácia delas. Documento sem prática comprovada não basta. Registros de operações (art. 37) e programas de governança (art. 50) ajudam nessa prova.
+
+=== lx19-09
+bloco: lgpd-5-11
+gab: E
+tema: pd-principios
+ref: lgpd 6
+trecho: compatibilidade do tratamento com as finalidades informadas ao titular, de acordo com o contexto do tratamento
+armadilha: comparacao
+dif: 2
+enunciado: O princípio da adequação limita o tratamento ao mínimo necessário para atingir as finalidades, com dados pertinentes e não excessivos.
+comentario: Errado. Essa é a definição do princípio da necessidade (art. 6º, III). A adequação (inciso II) é a compatibilidade do tratamento com as finalidades informadas ao titular, de acordo com o contexto.
+
+=== lx19-10
+bloco: lgpd-5-11
+gab: C
+tema: pd-direitos
+ref: lgpd 9
+trecho: esse será considerado nulo caso as informações fornecidas ao titular tenham conteúdo enganoso ou abusivo ou não tenham sido apresentadas previamente com transparência
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um aplicativo pediu consentimento informando que os dados seriam usados “para melhorar a experiência”, quando o objetivo real era vendê-los a corretoras de dados. Assertiva: o consentimento é nulo.
+comentario: Certo. Pelo art. 9º, § 1º, é nulo o consentimento dado com base em informações enganosas ou abusivas ou não apresentadas previamente com transparência. A finalidade também deve ser específica e explícita (art. 6º, I).
+
+=== lx19-11
+bloco: lgpd-5-11
+gab: E
+tema: pd-direitos
+ref: lgpd 9
+trecho: o titular será informado com destaque sobre esse fato e sobre os meios pelos quais poderá exercer os direitos do titular
+armadilha: excecao
+dif: 2
+enunciado: Quando o tratamento de dados for condição para o fornecimento de um serviço, o controlador fica dispensado de informar o titular sobre isso, pois o próprio contrato já o pressupõe.
+comentario: Errado. O art. 9º, § 3º, exige informar com destaque que o tratamento é condição para o serviço ou para o exercício de direito e os meios para exercer os direitos do art. 18.
+
+=== lx19-12
+bloco: lgpd-5-11
+gab: C
+tema: pd-direitos
+ref: lgpd 9
+trecho: o controlador deverá informar previamente o titular sobre as mudanças de finalidade, podendo o titular revogar o consentimento, caso discorde das alterações
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma rede de academias, que tratava dados de alunos com consentimento para controle de acesso, quer passar a usá-los em campanhas de marketing de parceiros. Assertiva: deve informar previamente os alunos sobre a mudança, e quem discordar pode revogar o consentimento.
+comentario: Certo. Art. 9º, § 2º, para mudanças de finalidade incompatíveis com o consentimento original. O compartilhamento com parceiros ainda dependeria de consentimento específico (art. 7º, § 5º).
+
+=== lx19-13
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18
+trecho: comunicar que não é agente de tratamento dos dados e indicar, sempre que possível, o agente
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um titular pediu a uma loja acesso a dados que, na verdade, eram tratados por outra empresa do mesmo shopping. Assertiva: a loja deve responder que não é agente de tratamento desses dados e indicar, sempre que possível, quem é.
+comentario: Certo. Art. 18, § 4º, I. Se a providência não puder ser imediata por outro motivo, a resposta deve indicar as razões de fato ou de direito (inciso II). O atendimento não tem custo para o titular (§ 5º).
+
+=== lx19-14
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 18
+trecho: A portabilidade dos dados pessoais a que se refere o inciso V do caput deste artigo não inclui dados que já tenham sido anonimizados pelo controlador
+armadilha: excecao
+dif: 2
+enunciado: A portabilidade de dados a outro fornecedor abrange também os dados que o controlador já tenha anonimizado.
+comentario: Errado. O art. 18, § 7º, exclui da portabilidade os dados já anonimizados. Ela depende de requisição expressa, segue a regulamentação da ANPD e respeita os segredos comercial e industrial (inciso V).
+
+=== lx19-15
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18
+trecho: O direito a que se refere o § 1º deste artigo também poderá ser exercido perante os organismos de defesa do consumidor
+armadilha: sujeito
+dif: 2
+enunciado: O titular que quer reclamar contra o controlador sobre o tratamento de seus dados pode peticionar à ANPD e também aos organismos de defesa do consumidor, como os Procons.
+comentario: Certo. Art. 18, §§ 1º e 8º. Na relação de consumo, as regras de responsabilidade da legislação consumerista também continuam aplicáveis (art. 45).
+
+=== lx19-16
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 18
+trecho: será atendido sem custos para o titular
+armadilha: absoluto
+dif: 1
+enunciado: Situação hipotética: uma operadora passou a cobrar pequena taxa administrativa para responder a pedidos de correção de dados cadastrais. Assertiva: a cobrança é lícita, desde que o valor seja razoável.
+comentario: Errado. O art. 18, § 5º, determina que os requerimentos do titular sejam atendidos sem custos, nos prazos e termos do regulamento. A correção de dados é direito do art. 18, III.
+
+=== lx19-17
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 19
+trecho: fornecida no prazo de até 15 (quinze) dias, contado da data do requerimento do titular
+armadilha: numero
+dif: 2
+enunciado: Pedido o acesso aos dados, o controlador pode atendê-lo de imediato, em formato simplificado, ou, por declaração clara e completa com origem, critérios e finalidade, em até 15 dias do requerimento.
+comentario: Certo. Art. 19, I e II. A escolha entre meio eletrônico seguro e forma impressa é do titular (§ 2º), e a ANPD pode fixar prazos diferentes para setores específicos (§ 4º). Agentes de pequeno porte têm prazo em dobro (Res. CD/ANPD 2/2022).
+
+=== lx19-18
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 19
+trecho: Quando o tratamento tiver origem no consentimento do titular ou em contrato, o titular poderá solicitar cópia eletrônica integral de seus dados pessoais
+armadilha: excecao
+dif: 3
+enunciado: O direito de obter cópia eletrônica integral dos dados, em formato que permita sua reutilização, vale para qualquer tratamento, inclusive o realizado para cumprir obrigação legal.
+comentario: Errado. O art. 19, § 3º, garante a cópia eletrônica integral quando o tratamento tem origem no consentimento ou em contrato, nos termos da regulamentação da ANPD e observados os segredos comercial e industrial. Para as demais bases, valem a confirmação e o acesso do caput.
+
+=== lx19-19
+bloco: lgpd-23-32
+gab: C
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: Os serviços notariais e de registro exercidos em caráter privado, por delegação do Poder Público, terão o mesmo tratamento dispensado às pessoas jurídicas referidas no caput deste artigo
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: um cartório de registro civil, exercido em caráter privado por delegação, trata dados de nascimentos e casamentos. Assertiva: para a LGPD, ele recebe o mesmo tratamento das pessoas jurídicas de direito público.
+comentario: Certo. Art. 23, § 4º. Os cartórios também devem dar à administração pública acesso aos dados por meio eletrônico, para as finalidades do caput (§ 5º).
+
+=== lx19-20
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: Os prazos e procedimentos para exercício dos direitos do titular perante o Poder Público observarão o disposto em legislação específica
+armadilha: sujeito
+dif: 3
+enunciado: Os prazos para o titular exercer seus direitos perante o Poder Público seguem exclusivamente o art. 19 da LGPD, afastadas a Lei do Habeas Data e a Lei de Acesso à Informação.
+comentario: Errado. O art. 23, § 3º, remete os prazos e procedimentos à legislação específica, em especial a Lei do Habeas Data, a Lei 9.784/1999 e a LAI. A LGPD também não dispensa as autoridades da LAI (§ 2º).
+
+=== lx19-21
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: seja indicado um encarregado quando realizarem operações de tratamento de dados pessoais
+armadilha: excecao
+dif: 2
+enunciado: Os órgãos públicos estão dispensados de indicar encarregado pelo tratamento de dados, porque a autoridade de monitoramento da LAI já cumpre essa função.
+comentario: Errado. O art. 23, III, exige que as pessoas jurídicas de direito público indiquem encarregado quando tratarem dados pessoais, nos termos do art. 39. A autoridade da LAI continua existindo (§ 2º), mas não substitui o encarregado.
+
+=== lx19-22
+bloco: lgpd-23-32
+gab: C
+tema: pd-poder-publico
+ref: lgpd 26
+trecho: na hipótese de a transferência dos dados objetivar exclusivamente a prevenção de fraudes e irregularidades
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: um órgão federal repassou a um banco privado dados de beneficiários de um programa social, exclusivamente para impedir saques fraudulentos, vedado qualquer outro uso. Assertiva: a transferência pode ser admitida pela LGPD.
+comentario: Certo. A regra é vedar ao Poder Público transferir dados a entidades privadas (art. 26, § 1º), mas o inciso V admite a transferência exclusivamente para prevenir fraudes e irregularidades ou proteger o titular, vedado o tratamento para outras finalidades.
+
+=== lx19-23
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 26
+trecho: É vedado ao Poder Público transferir a entidades privadas dados pessoais constantes de bases de dados a que tenha acesso, exceto
+armadilha: absoluto
+dif: 2
+enunciado: O Poder Público pode transferir dados pessoais de suas bases a entidades privadas parceiras sempre que isso for útil à administração, independentemente de previsão legal ou instrumento formal.
+comentario: Errado. O art. 26, § 1º, veda a transferência, salvo nas exceções: execução descentralizada de atividade pública, dados acessíveis publicamente, previsão legal ou contratos e convênios, e prevenção de fraudes ou proteção do titular. Os contratos e convênios devem ser comunicados à ANPD (§ 2º).
+
+=== lx19-24
+bloco: lgpd-23-32
+gab: C
+tema: pd-poder-publico
+ref: lgpd 26
+trecho: em casos de execução descentralizada de atividade pública que exija a transferência, exclusivamente para esse fim específico e determinado
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um órgão federal contratou empresa privada para operar os postos de atendimento de um serviço público e lhe repassou os dados dos usuários necessários a esse atendimento. Assertiva: a transferência pode ser admitida, desde que limitada a esse fim específico e determinado.
+comentario: Certo. É a exceção do art. 26, § 1º, I: execução descentralizada de atividade pública que exija a transferência, exclusivamente para esse fim, observada a LAI. A empresa não pode usar os dados para finalidade própria.
+
+=== lx19-25
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 37
+trecho: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem
+armadilha: sujeito
+dif: 2
+enunciado: O dever de manter registro das operações de tratamento de dados pessoais é exclusivo do controlador, já que o operador apenas segue instruções.
+comentario: Errado. O art. 37 impõe o registro ao controlador e ao operador, especialmente quando o tratamento se baseia no legítimo interesse. Agentes de pequeno porte podem fazê-lo de forma simplificada (Res. CD/ANPD 2/2022).
+
+=== lx19-26
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 38
+trecho: A autoridade nacional poderá determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais, inclusive de dados sensíveis
+armadilha: excecao
+dif: 2
+enunciado: O relatório de impacto que a ANPD pode determinar ao controlador não alcança operações com dados sensíveis, que se sujeitam apenas ao regime do art. 11 da LGPD.
+comentario: Errado. O art. 38 permite à ANPD determinar o relatório de impacto “inclusive de dados sensíveis”, nos termos do regulamento e observados os segredos comercial e industrial. Tratamentos com dados sensíveis estão justamente entre os de maior risco.
+
+=== lx19-27
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 41
+trecho: A identidade e as informações de contato do encarregado deverão ser divulgadas publicamente, de forma clara e objetiva
+armadilha: excecao
+dif: 2
+enunciado: Por segurança, o controlador pode manter em sigilo a identidade do encarregado, bastando divulgar um formulário de contato genérico.
+comentario: Errado. O art. 41, § 1º, exige divulgar publicamente a identidade e as informações de contato do encarregado, de forma clara e objetiva, preferencialmente no sítio eletrônico. A Res. CD/ANPD 18/2024 detalha essa divulgação.
+
+=== lx19-28
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 41
+trecho: receber comunicações da autoridade nacional e adotar providências
+armadilha: conceito
+dif: 2
+enunciado: Ao receber comunicação da ANPD, o encarregado limita-se a arquivá-la, pois adotar providências é tarefa exclusiva da diretoria do controlador.
+comentario: Errado. O art. 41, § 2º, II, atribui ao encarregado receber as comunicações da ANPD e adotar providências. A Res. CD/ANPD 18/2024 detalha essas providências, como encaminhar a demanda internamente e orientar o agente de tratamento.
+
+=== lx19-29
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 41
+trecho: orientar os funcionários e os contratados da entidade a respeito das práticas a serem tomadas em relação à proteção de dados pessoais
+armadilha: caso
+dif: 1
+enunciado: Situação hipotética: o encarregado de uma rede varejista promoveu treinamento sobre proteção de dados para empregados e prestadores de serviço das lojas. Assertiva: a atividade está entre as atribuições do encarregado previstas na LGPD.
+comentario: Certo. Art. 41, § 2º, III. As outras atividades são atender titulares (I), receber comunicações da ANPD (II) e executar as atribuições dadas pelo controlador ou por normas complementares (IV).
