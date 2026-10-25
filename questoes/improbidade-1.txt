@@ -1,0 +1,317 @@
+bloco: etica-improbidade
+// Lei nº 8.429/1992 (Improbidade Administrativa) com a reforma da Lei nº 14.230/2021, lote 1: dolo, alcance, terceiros,
+// sucessão, tipos dos arts. 9º a 11, sanções, indisponibilidade de bens, afastamento, independência das instâncias,
+// prescrição e inquérito civil. Trechos conferidos em fontes/lei8429.txt.
+// Ficam de fora os dispositivos com nota "(Vide ADI ...)" no texto compilado (ex.: art. 1º, § 8º; art. 3º, § 1º;
+// art. 12, §§ 1º, 4º e 10; art. 16, §§ 3º, 4º e 10; arts. 17-B e 17-D; art. 21, § 4º; art. 23, § 5º), cujo alcance
+// depende do julgamento do STF.
+
+=== lia-01
+gab: C
+tema: adm-improbidade
+ref: lei8429 1
+trecho: Consideram-se atos de improbidade administrativa as condutas dolosas tipificadas nos arts. 9º, 10 e 11 desta Lei
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: por negligência, um servidor deixou de cobrar multa contratual devida por fornecedor, o que causou prejuízo ao órgão. Assertiva: pela redação atual da Lei de Improbidade, essa conduta culposa não configura ato de improbidade administrativa.
+comentario: Certo. Desde a reforma de 2021, só há improbidade nas condutas dolosas dos arts. 9º, 10 e 11 (art. 1º, § 1º); a modalidade culposa de lesão ao erário deixou de existir. O servidor pode responder em outras esferas, como a disciplinar e a civil de ressarcimento.
+
+=== lia-02
+gab: E
+tema: adm-improbidade
+ref: lei8429 1
+trecho: Considera-se dolo a vontade livre e consciente de alcançar o resultado ilícito tipificado nos arts. 9º, 10 e 11 desta Lei, não bastando a voluntariedade do agente
+armadilha: conceito
+dif: 2
+enunciado: Para a Lei de Improbidade, o dolo se caracteriza pela simples voluntariedade da conduta do agente, ainda que ele não tenha buscado o resultado ilícito.
+comentario: Errado. O art. 1º, § 2º, define dolo como a vontade livre e consciente de alcançar o resultado ilícito tipificado e diz expressamente que não basta a voluntariedade. A sentença deve indicar com precisão esses elementos, que não podem ser presumidos (art. 17-C, I).
+
+=== lia-03
+gab: C
+tema: adm-improbidade
+ref: lei8429 1
+trecho: O mero exercício da função ou desempenho de competências públicas, sem comprovação de ato doloso com fim ilícito, afasta a responsabilidade por ato de improbidade administrativa
+armadilha: conceito
+dif: 2
+enunciado: O simples exercício das competências do cargo, sem prova de ato doloso com fim ilícito, não gera responsabilidade por improbidade administrativa.
+comentario: Certo. Art. 1º, § 3º. Na mesma linha, a ilegalidade sem dolo que a qualifique não configura improbidade (art. 17-C, § 1º).
+
+=== lia-04
+gab: C
+tema: adm-improbidade
+ref: lei8429 1
+trecho: Aplicam-se ao sistema da improbidade disciplinado nesta Lei os princípios constitucionais do direito administrativo sancionador
+armadilha: conceito
+dif: 2
+enunciado: O sistema de responsabilização por improbidade submete-se aos princípios constitucionais do direito administrativo sancionador.
+comentario: Certo. Art. 1º, § 4º. Coerente com isso, o art. 17-D afirma que a ação de improbidade é repressiva e sancionatória, destinada a aplicar sanções de caráter pessoal.
+
+=== lia-05
+gab: E
+tema: adm-improbidade
+ref: lei8429 1
+trecho: limitado o ressarcimento de prejuízos, nesse caso, à repercussão do ilícito sobre a contribuição dos cofres públicos
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: em uma associação privada custeada em parte por repasses do Município, um dirigente desviou recursos dolosamente. Assertiva: por estar sujeito à Lei de Improbidade, ele deve ressarcir todo o prejuízo da associação, inclusive a parte custeada com recursos privados.
+comentario: Errado. O art. 1º, § 7º, sujeita à lei os atos contra entidade privada para cuja criação ou custeio o erário concorra, mas limita o ressarcimento à repercussão do ilícito sobre a contribuição dos cofres públicos. O prejuízo da parte privada se cobra por outras vias.
+
+=== lia-06
+gab: C
+tema: adm-improbidade
+ref: lei8429 2
+trecho: sujeita-se às sanções previstas nesta Lei o particular, pessoa física ou jurídica, que celebra com a administração pública convênio, contrato de repasse, contrato de gestão, termo de parceria
+armadilha: sujeito
+dif: 2
+enunciado: Quanto aos recursos de origem pública, o particular que celebra convênio, contrato de gestão ou termo de parceria com a administração pública sujeita-se às sanções da Lei de Improbidade.
+comentario: Certo. Art. 2º, parágrafo único. O caput define agente público de forma ampla: quem exerce mandato, cargo, emprego ou função, ainda que transitoriamente ou sem remuneração, por qualquer forma de investidura ou vínculo.
+
+=== lia-07
+gab: E
+tema: adm-improbidade
+ref: lei8429 3
+trecho: àquele que, mesmo não sendo agente público, induza ou concorra dolosamente para a prática do ato de improbidade
+armadilha: conceito
+dif: 2
+enunciado: O particular que, por descuido, contribui para a prática de ato de improbidade por agente público sujeita-se às sanções da Lei de Improbidade, ainda que não tenha agido com dolo.
+comentario: Errado. O art. 3º alcança quem, sem ser agente público, induza ou concorra dolosamente para o ato. A conduta culposa do terceiro, assim como a do agente, não é improbidade.
+
+=== lia-08
+gab: C
+tema: adm-improbidade
+ref: lei8429 3
+trecho: As sanções desta Lei não se aplicarão à pessoa jurídica, caso o ato de improbidade administrativa seja também sancionado como ato lesivo à administração pública
+armadilha: excecao
+dif: 3
+enunciado: Se o mesmo fato for também sancionado como ato lesivo pela Lei Anticorrupção, as sanções da Lei de Improbidade deixam de ser aplicadas à pessoa jurídica.
+comentario: Certo. Art. 3º, § 2º, que evita a dupla punição da pessoa jurídica pelo mesmo fato. O art. 12, § 7º, reforça o non bis in idem entre as duas leis.
+
+=== lia-09
+gab: E
+tema: adm-improbidade
+ref: lei8429 8-A
+trecho: a responsabilidade da sucessora será restrita à obrigação de reparação integral do dano causado, até o limite do patrimônio transferido
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: uma empresa condenada por improbidade foi incorporada por outra, sem fraude nem simulação. Assertiva: a incorporadora responde por todas as sanções aplicáveis à incorporada, inclusive multa civil e proibição de contratar com o poder público.
+comentario: Errado. Na fusão e na incorporação, a sucessora só responde pela reparação integral do dano, até o limite do patrimônio transferido; as demais sanções por fatos anteriores não lhe são aplicáveis, salvo simulação ou intuito de fraude comprovados (art. 8º-A, parágrafo único).
+
+=== lia-10
+gab: C
+tema: adm-improbidade
+ref: lei8429 9
+trecho: cujo valor seja desproporcional à evolução do patrimônio ou à renda do agente público, assegurada a demonstração pelo agente da licitude da origem dessa evolução
+armadilha: conceito
+dif: 3
+enunciado: Adquirir, em razão do cargo, bens de valor desproporcional à renda é ato de improbidade que importa enriquecimento ilícito, assegurada ao agente público a oportunidade de demonstrar a origem lícita da evolução patrimonial.
+comentario: Certo. Art. 9º, VII, com a redação de 2021, que vincula a aquisição aos atos do caput e garante ao agente a demonstração da licitude. A sanção é a do art. 12, I.
+
+=== lia-11
+gab: E
+tema: adm-improbidade
+ref: lei8429 9
+trecho: aceitar emprego, comissão ou exercer atividade de consultoria ou assessoramento para pessoa física ou jurídica que tenha interesse suscetível de ser atingido ou amparado por ação ou omissão decorrente das atribuições do agente público, durante a atividade
+armadilha: rol
+dif: 3
+enunciado: Situação hipotética: enquanto exercia o cargo, um fiscal prestou consultoria remunerada a empresa sujeita à sua fiscalização. Assertiva: a conduta só pode configurar improbidade se causar prejuízo efetivo ao erário.
+comentario: Errado. A conduta está no art. 9º, VIII (enriquecimento ilícito), que não depende de dano ao erário. A exigência de perda patrimonial efetiva é própria do art. 10, e a aplicação das sanções independe de dano, salvo quanto ao ressarcimento e às condutas do art. 10 (art. 21, I).
+
+=== lia-12
+gab: E
+tema: adm-improbidade
+ref: lei8429 10
+trecho: que enseje, efetiva e comprovadamente, perda patrimonial, desvio, apropriação, malbaratamento ou dilapidação dos bens ou haveres
+armadilha: conceito
+dif: 2
+enunciado: No ato de improbidade que causa lesão ao erário, a perda patrimonial é presumida sempre que demonstrada a ilegalidade da conduta, dispensando-se prova do prejuízo.
+comentario: Errado. O art. 10 exige ação ou omissão dolosa que cause, efetiva e comprovadamente, perda patrimonial, desvio, apropriação, malbaratamento ou dilapidação. Sem perda patrimonial efetiva não há ressarcimento (§ 1º).
+
+=== lia-13
+gab: C
+tema: adm-improbidade
+ref: lei8429 10
+trecho: A mera perda patrimonial decorrente da atividade econômica não acarretará improbidade administrativa, salvo se comprovado ato doloso praticado com essa finalidade
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa estatal teve prejuízo em investimento que, à época, seguia análise técnica regular, mas o mercado se comportou de forma adversa. Assertiva: o prejuízo, por si só, não configura improbidade administrativa.
+comentario: Certo. Art. 10, § 2º: a perda decorrente da atividade econômica só configura improbidade se comprovado ato doloso praticado com essa finalidade. O risco do negócio não se confunde com dano doloso ao erário.
+
+=== lia-14
+gab: E
+tema: adm-improbidade
+ref: lei8429 10
+trecho: Nos casos em que a inobservância de formalidades legais ou regulamentares não implicar perda patrimonial efetiva, não ocorrerá imposição de ressarcimento
+armadilha: excecao
+dif: 3
+enunciado: Quando o descumprimento de formalidades legais não causa perda patrimonial efetiva, impõe-se ainda assim o ressarcimento ao erário, a título de dano presumido.
+comentario: Errado. O art. 10, § 1º, afasta o ressarcimento quando a inobservância de formalidades não implica perda patrimonial efetiva, vedado o enriquecimento sem causa da administração.
+
+=== lia-15
+gab: C
+tema: adm-improbidade
+ref: lei8429 11
+trecho: compreendido o ajuste mediante designações recíprocas
+armadilha: conceito
+dif: 2
+enunciado: A nomeação de parente até o terceiro grau da autoridade nomeante para cargo em comissão é conduta tipificada como ato de improbidade que atenta contra os princípios da administração, o que inclui o nepotismo cruzado, feito por designações recíprocas.
+comentario: Certo. Art. 11, XI, incluído em 2021, que positiva a lógica da Súmula Vinculante 13. Como em todo o art. 11, é preciso dolo com fim de obter proveito ou benefício indevido (§ 1º).
+
+=== lia-16
+gab: E
+tema: adm-improbidade
+ref: lei8429 11
+trecho: Não se configurará improbidade a mera nomeação ou indicação política por parte dos detentores de mandatos eletivos, sendo necessária a aferição de dolo com finalidade ilícita por parte do agente
+armadilha: absoluto
+dif: 2
+enunciado: A indicação política feita por detentor de mandato eletivo para cargo da administração configura, por si só, ato de improbidade que atenta contra os princípios da administração pública.
+comentario: Errado. O art. 11, § 5º, afasta a improbidade na mera nomeação ou indicação política e exige a aferição de dolo com finalidade ilícita. Nomear parente, porém, é conduta tipificada (inciso XI).
+
+=== lia-17
+gab: C
+tema: adm-improbidade
+ref: lei8429 11
+trecho: exigem lesividade relevante ao bem jurídico tutelado para serem passíveis de sancionamento e independem do reconhecimento da produção de danos ao erário e de enriquecimento ilícito
+armadilha: conceito
+dif: 3
+enunciado: Os atos de improbidade que atentam contra os princípios da administração dependem de lesividade relevante ao bem jurídico tutelado, mas não exigem dano ao erário nem enriquecimento ilícito do agente.
+comentario: Certo. Art. 11, § 4º. O enquadramento também exige demonstração objetiva da ilegalidade, com indicação das normas violadas (§ 3º), e a conduta deve estar entre as do rol do caput.
+
+=== lia-18
+gab: E
+tema: adm-improbidade
+ref: lei8429 11
+trecho: somente haverá improbidade administrativa, na aplicação deste artigo, quando for comprovado na conduta funcional do agente público o fim de obter proveito ou benefício indevido para si ou para outra pessoa ou entidade
+armadilha: conceito
+dif: 3
+enunciado: Para configurar o ato de improbidade que atenta contra os princípios da administração, basta provar a violação dolosa ao dever de legalidade, sendo irrelevante se o agente buscava proveito ou benefício indevido.
+comentario: Errado. Pelo art. 11, § 1º, com base na Convenção da ONU contra a Corrupção, só há improbidade quando comprovado o fim de obter proveito ou benefício indevido para si ou para outrem. O § 2º estende essa exigência a todos os tipos de improbidade.
+
+=== lia-19
+gab: C
+tema: adm-improbidade
+ref: lei8429 12
+trecho: suspensão dos direitos políticos até 14 (catorze) anos, pagamento de multa civil equivalente ao valor do acréscimo patrimonial
+armadilha: numero
+dif: 3
+enunciado: Para o ato que importa enriquecimento ilícito, a lei prevê, entre outras sanções, suspensão dos direitos políticos até 14 anos, multa civil equivalente ao acréscimo patrimonial e proibição de contratar com o poder público por prazo não superior a 14 anos.
+comentario: Certo. Art. 12, I. Para a lesão ao erário (II), os limites são de 12 anos e a multa equivale ao dano; para a ofensa a princípios (III), multa de até 24 vezes a remuneração e proibição de contratar por até 4 anos.
+
+=== lia-20
+gab: E
+tema: adm-improbidade
+ref: lei8429 12
+trecho: pagamento de multa civil de até 24 (vinte e quatro) vezes o valor da remuneração percebida pelo agente e proibição de contratar com o poder público
+armadilha: rol
+dif: 3
+enunciado: Pela redação atual da Lei de Improbidade, o ato que atenta contra os princípios da administração pública sujeita o agente, entre outras sanções, à suspensão dos direitos políticos por até 3 anos e à perda da função pública.
+comentario: Errado. Após a reforma, o art. 12, III, prevê para o art. 11 só multa civil de até 24 vezes a remuneração e proibição de contratar ou de receber benefícios por até 4 anos. A perda da função e a suspensão dos direitos políticos ficaram restritas aos arts. 9º e 10.
+
+=== lia-21
+gab: C
+tema: adm-improbidade
+ref: lei8429 12
+trecho: As sanções previstas neste artigo somente poderão ser executadas após o trânsito em julgado da sentença condenatória
+armadilha: conceito
+dif: 2
+enunciado: As sanções da Lei de Improbidade só podem ser executadas depois do trânsito em julgado da sentença condenatória.
+comentario: Certo. Art. 12, § 9º. O art. 20 já dizia o mesmo da perda da função pública e da suspensão dos direitos políticos. O afastamento cautelar do agente (art. 20, § 1º) não é sanção.
+
+=== lia-22
+gab: C
+tema: adm-improbidade
+ref: lei8429 12
+trecho: No caso de atos de menor ofensa aos bens jurídicos tutelados por esta Lei, a sanção limitar-se-á à aplicação de multa
+armadilha: conceito
+dif: 2
+enunciado: Nos atos de improbidade de menor ofensa aos bens jurídicos tutelados, a sanção limita-se à multa, sem prejuízo do ressarcimento do dano e da perda dos valores obtidos, quando for o caso.
+comentario: Certo. Art. 12, § 5º, expressão da proporcionalidade. Na responsabilização da pessoa jurídica, consideram-se ainda os efeitos econômicos e sociais das sanções, para viabilizar a continuidade de suas atividades (§ 3º).
+
+=== lia-23
+gab: E
+tema: adm-improbidade
+ref: lei8429 16
+trecho: É vedada a decretação de indisponibilidade da quantia de até 40 (quarenta) salários mínimos depositados em caderneta de poupança, em outras aplicações financeiras ou em conta-corrente
+armadilha: numero
+dif: 3
+enunciado: Na ação de improbidade, a indisponibilidade de bens pode recair sobre todo o saldo da conta-corrente do réu, inclusive valores inferiores a 40 salários mínimos, para garantir o ressarcimento.
+comentario: Errado. O art. 16, § 13, veda a indisponibilidade de até 40 salários mínimos em poupança, outras aplicações financeiras ou conta-corrente. O § 14 também protege o bem de família, salvo se for fruto de vantagem indevida do art. 9º.
+
+=== lia-24
+gab: C
+tema: adm-improbidade
+ref: lei8429 16
+trecho: apenas na inexistência desses, o bloqueio de contas bancárias, de forma a garantir a subsistência do acusado e a manutenção da atividade empresária ao longo do processo
+armadilha: conceito
+dif: 3
+enunciado: A ordem de indisponibilidade deve priorizar veículos, imóveis e outros bens e só na falta deles atingir contas bancárias, para preservar a subsistência do réu e a manutenção da atividade empresária.
+comentario: Certo. Art. 16, § 11. Havendo vários réus, a soma dos valores indisponíveis não pode superar o montante indicado na inicial (§ 5º), e o réu pode pedir a substituição por caução, fiança bancária ou seguro-garantia (§ 6º).
+
+=== lia-25
+gab: E
+tema: adm-improbidade
+ref: lei8429 20
+trecho: sem prejuízo da remuneração
+armadilha: conceito
+dif: 2
+enunciado: O juiz pode afastar cautelarmente o agente público do cargo quando necessário à instrução processual, por prazo indeterminado e com suspensão da remuneração.
+comentario: Errado. O afastamento do art. 20, § 1º, é sem prejuízo da remuneração e dura até 90 dias, prorrogáveis uma única vez por igual prazo, por decisão motivada (§ 2º). Cabe também para evitar a iminente prática de novos ilícitos.
+
+=== lia-26
+gab: C
+tema: adm-improbidade
+ref: lei8429 21
+trecho: da aprovação ou rejeição das contas pelo órgão de controle interno ou pelo Tribunal ou Conselho de Contas
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um prefeito teve as contas do exercício aprovadas pelo tribunal de contas e alega que isso impede a ação de improbidade sobre despesa daquele ano. Assertiva: a aprovação das contas não impede, por si só, a aplicação das sanções da Lei de Improbidade.
+comentario: Certo. Art. 21, II: a aplicação das sanções independe da aprovação ou rejeição das contas. O juiz deve, porém, considerar as provas e decisões dos órgãos de controle (§ 2º) e os atos de controle que tenham fundamentado a conduta do agente (§ 1º).
+
+=== lia-27
+gab: E
+tema: adm-improbidade
+ref: lei8429 23
+trecho: prescreve em 8 (oito) anos, contados a partir da ocorrência do fato ou, no caso de infrações permanentes, do dia em que cessou a permanência
+armadilha: numero
+dif: 2
+enunciado: Pela redação atual da Lei de Improbidade, a ação para aplicar as sanções prescreve em 5 anos, contados do término do mandato ou do exercício do cargo em comissão.
+comentario: Errado. Desde 2021, o prazo é único: 8 anos, contados da ocorrência do fato ou, nas infrações permanentes, do dia em que cessou a permanência (art. 23, caput). A regra dos 5 anos contados do fim do mandato era a da redação anterior.
+
+=== lia-28
+gab: C
+tema: adm-improbidade
+ref: lei8429 23
+trecho: O inquérito civil para apuração do ato de improbidade será concluído no prazo de 365 (trezentos e sessenta e cinco) dias corridos, prorrogável uma única vez por igual período
+armadilha: numero
+dif: 3
+enunciado: O inquérito civil que apura ato de improbidade deve ser concluído em 365 dias corridos, prorrogáveis uma única vez por igual período, mediante ato fundamentado submetido à revisão da instância competente do órgão ministerial.
+comentario: Certo. Art. 23, § 2º. Encerrado o prazo, a ação deve ser proposta em 30 dias, se não for caso de arquivamento (§ 3º). A instauração do inquérito suspende a prescrição por no máximo 180 dias (§ 1º).
+
+=== lia-29
+gab: C
+tema: adm-improbidade
+ref: lei8429 18-A
+trecho: As sanções de suspensão de direitos políticos e de proibição de contratar ou de receber incentivos fiscais ou creditícios do poder público observarão o limite máximo de 20 (vinte) anos
+armadilha: numero
+dif: 3
+enunciado: Na unificação de sanções de vários processos, a suspensão dos direitos políticos e a proibição de contratar com o poder público não podem ultrapassar 20 anos.
+comentario: Certo. Art. 18-A, parágrafo único. A unificação é feita a requerimento do réu, no cumprimento de sentença: na continuidade de ilícito, aplica-se a maior sanção aumentada de 1/3 ou a soma, o que for mais benéfico; em novos ilícitos, somam-se as sanções.
+
+=== lia-30
+gab: E
+tema: adm-improbidade
+ref: lei8429 13
+trecho: Será apenado com a pena de demissão, sem prejuízo de outras sanções cabíveis, o agente público que se recusar a prestar a declaração dos bens
+armadilha: conceito
+dif: 2
+enunciado: O agente público que se recusa a apresentar a declaração de bens no prazo determinado, ou que a presta com informações falsas, sujeita-se apenas à pena de advertência.
+comentario: Errado. O art. 13, § 3º, prevê a pena de demissão, sem prejuízo de outras sanções. A declaração condiciona a posse e o exercício (caput) e é atualizada anualmente e na saída do cargo (§ 2º).
+
+=== lia-31
+gab: C
+tema: adm-improbidade
+ref: lei8429 17-C
+trecho: Não haverá remessa necessária nas sentenças de que trata esta Lei
+armadilha: conceito
+dif: 2
+enunciado: A sentença de improcedência proferida em ação de improbidade administrativa não se sujeita a remessa necessária.
+comentario: Certo. Art. 17-C, § 3º. A sentença deve ainda indicar com precisão os elementos dos arts. 9º, 10 e 11, que não podem ser presumidos, e considerar as consequências práticas da decisão e as dificuldades reais do gestor (incisos I a III).
