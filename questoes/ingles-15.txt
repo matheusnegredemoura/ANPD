@@ -1,0 +1,182 @@
+bloco: ingles
+// Original texts written for the bank (data minimisation in AI training; deceptive design in consent screens), with
+// comprehension, vocabulary, reference and grammar items. Comentários em português.
+
+apoio_EN15A: For years, the dominant assumption in machine learning was simple: the more data, the better the model. Developers collected everything they could, reasoning that information which looked useless today might prove valuable tomorrow.
+Data protection law challenges that habit. The principle of data minimisation requires organisations to process only the data that are adequate, relevant and limited to what is necessary for a specified purpose. A vague hope of future usefulness is not, in itself, a purpose.
+Some engineers had feared that this would cripple innovation. In practice, many teams have found that smaller, carefully curated datasets can produce models that are not only easier to secure but also less prone to reproducing errors and biases buried in the excess. Minimisation, it turns out, can be good engineering as well as good law.
+
+apoio_EN15B: A cookie banner offers two buttons. One, large and brightly coloured, says “Accept all”. The other, small and grey, says “Manage options” and leads to a series of screens in which every setting must be switched off by hand. Nothing in the design is technically false, yet the outcome is predictable: most people click the first button.
+Designers call such techniques “dark patterns”. Regulators increasingly treat them as a problem of consent rather than of aesthetics. If refusing is made much harder than accepting, the choice can hardly be described as free, and consent obtained this way may be invalid.
+The remedy is not to ban persuasion altogether. It is to ensure that the options are presented with comparable prominence, so that users who would rather say no are not punished for it with extra effort.
+
+=== en15-01
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN15A
+comando: Considerando as ideias e os aspectos linguísticos dos textos precedentes, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 1
+enunciado: According to the first text, developers used to collect as much data as possible because they believed apparently useless information could become valuable later.
+comentario: Certo. Primeiro parágrafo: eles coletavam tudo, “reasoning that information which looked useless today might prove valuable tomorrow”.
+
+=== en15-02
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN15A
+armadilha: interpretacao
+dif: 2
+enunciado: The first text states that a general expectation that data may be useful in the future is enough to satisfy the requirement of a specified purpose.
+comentario: Errado. O texto diz o contrário: “A vague hope of future usefulness is not, in itself, a purpose”. A minimização exige finalidade especificada.
+
+=== en15-03
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN15A
+armadilha: interpretacao
+dif: 2
+enunciado: The author of the first text suggests that collecting less data may also reduce the risk of models reproducing hidden errors and biases.
+comentario: Certo. Terceiro parágrafo: conjuntos menores e bem selecionados geram modelos “less prone to reproducing errors and biases buried in the excess”.
+
+=== en15-04
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN15A
+armadilha: interpretacao
+dif: 2
+enunciado: The first text concludes that the fears of the engineers were confirmed, since data minimisation has made innovation in machine learning impossible.
+comentario: Errado. O texto diz que alguns engenheiros “had feared” isso, mas “In practice” as equipes descobriram vantagens. A conclusão é que minimizar pode ser boa engenharia e bom direito.
+
+=== en15-05
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN15A
+armadilha: literal
+dif: 2
+enunciado: In the first text, the verb “cripple” (third paragraph) could be replaced with seriously damage without significant change in meaning.
+comentario: Certo. “To cripple” significa prejudicar gravemente, inutilizar. Os engenheiros temiam que a minimização paralisasse a inovação.
+
+=== en15-06
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN15A
+armadilha: literal
+dif: 2
+enunciado: In the first text, the word “curated” (third paragraph) means that the datasets were obtained without any selection or review.
+comentario: Errado. “Curated” indica o oposto: dados escolhidos, organizados e revisados com cuidado (“carefully curated”).
+
+=== en15-07
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN15A
+armadilha: literal
+dif: 2
+enunciado: In the first text, the pronoun “this”, in “this would cripple innovation” (third paragraph), refers to the requirement of data minimisation.
+comentario: Certo. O parágrafo anterior apresenta o princípio da minimização; “this” retoma essa exigência que, temiam os engenheiros, prejudicaria a inovação.
+
+=== en15-08
+gab: E
+tema: en-gramatica
+ref: texto
+apoio: @EN15A
+armadilha: literal
+dif: 3
+enunciado: In the first text, the structure “had feared” (third paragraph) indicates an action that will take place in the future.
+comentario: Errado. “Had feared” é past perfect: indica algo anterior a outro momento passado. O temor existia antes de as equipes, na prática, descobrirem os benefícios.
+
+=== en15-09
+gab: C
+tema: en-gramatica
+ref: texto
+apoio: @EN15A
+armadilha: literal
+dif: 2
+enunciado: In the first text, the structure “not only easier to secure but also less prone” (third paragraph) adds two advantages of smaller datasets.
+comentario: Certo. “Not only... but also” é correlação aditiva, equivalente a “não só... mas também”: os modelos são mais fáceis de proteger e menos sujeitos a vieses.
+
+=== en15-10
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN15B
+armadilha: interpretacao
+dif: 2
+enunciado: According to the second text, the design of the cookie banner leads most people to accept all cookies even though it contains no false statement.
+comentario: Certo. “Nothing in the design is technically false, yet the outcome is predictable: most people click the first button.” O problema está no desenho, não em mentira.
+
+=== en15-11
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN15B
+armadilha: interpretacao
+dif: 2
+enunciado: The second text informs that regulators mainly consider dark patterns an aesthetic issue that does not affect the validity of consent.
+comentario: Errado. Os reguladores tratam o tema “as a problem of consent rather than of aesthetics”, e o consentimento obtido assim “may be invalid”.
+
+=== en15-12
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN15B
+armadilha: extrapolacao
+dif: 2
+enunciado: The author of the second text proposes that any form of persuasion in consent interfaces should be prohibited.
+comentario: Errado. O último parágrafo diz que o remédio “is not to ban persuasion altogether”, mas apresentar as opções com destaque comparável.
+
+=== en15-13
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN15B
+armadilha: interpretacao
+dif: 2
+enunciado: It can be inferred from the second text that a consent is hardly free when refusing requires much more effort than accepting.
+comentario: Certo. “If refusing is made much harder than accepting, the choice can hardly be described as free”. É a ideia do consentimento livre do art. 5º, XII, da LGPD.
+
+=== en15-14
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN15B
+armadilha: literal
+dif: 2
+enunciado: In the second text, the word “prominence” (last paragraph) is related to how visible and noticeable each option is.
+comentario: Certo. “Prominence” é destaque, visibilidade. “Comparable prominence” significa que aceitar e recusar devem aparecer com destaque semelhante.
+
+=== en15-15
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN15B
+armadilha: literal
+dif: 2
+enunciado: In the second text, the word “yet” (first paragraph) could be replaced with therefore without change in meaning.
+comentario: Errado. “Yet” tem valor adversativo (porém, no entanto); “therefore” é conclusivo (portanto). A troca inverteria a relação entre “nada é falso” e o resultado previsível.
+
+=== en15-16
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN15B
+armadilha: literal
+dif: 2
+enunciado: In the second text, the pronoun “it”, in “punished for it with extra effort” (last paragraph), refers to the act of saying no.
+comentario: Certo. Os usuários que preferem recusar (“say no”) não devem ser punidos por isso com esforço adicional.
+
+=== en15-17
+gab: E
+tema: en-gramatica
+ref: texto
+apoio: @EN15B
+armadilha: literal
+dif: 2
+enunciado: In the second text, in “users who would rather say no” (last paragraph), the structure “would rather” expresses obligation.
+comentario: Errado. “Would rather” expressa preferência (prefeririam). Obrigação seria expressa por “must” ou “have to”.
