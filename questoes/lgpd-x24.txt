@@ -1,0 +1,179 @@
+// LGPD, lote X24: casos e itens sobre interesse nacional e alcance (arts. 1º, 3º e 4º), titularidade (art. 17),
+// tutela em juízo (art. 22), atuação da ANPD junto ao poder público (arts. 31 e 32), operador (art. 39), metodologia
+// das multas e multa diária (arts. 53 e 54) e receitas da ANPD (art. 55-L). Conferidas com fontes/lgpd.txt.
+
+=== lx24-01
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-alcance
+ref: lgpd 1
+trecho: As normas gerais contidas nesta Lei são de interesse nacional e devem ser observadas pela União, Estados, Distrito Federal e Municípios
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma lei municipal dispensou as secretarias do município de atender aos pedidos de acesso dos titulares previstos na LGPD. Assertiva: a lei municipal contraria a LGPD, cujas normas gerais vinculam todos os entes federativos.
+comentario: Certo. Art. 1º, parágrafo único, incluído pela Lei 13.853/2019: as normas gerais da LGPD são de interesse nacional e devem ser observadas por União, Estados, DF e Municípios.
+
+=== lx24-02
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 1
+trecho: Esta Lei dispõe sobre o tratamento de dados pessoais, inclusive nos meios digitais
+armadilha: extrapolacao
+dif: 1
+enunciado: A LGPD aplica-se apenas ao tratamento de dados em meios digitais, ficando de fora os fichários e arquivos em papel.
+comentario: Errado. A lei trata do tratamento de dados “inclusive nos meios digitais” (art. 1º) e se aplica a qualquer operação, independentemente do meio (art. 3º).
+
+=== lx24-03
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-alcance
+ref: lgpd 3
+trecho: Consideram-se coletados no território nacional os dados pessoais cujo titular nele se encontre no momento da coleta
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: em viagem ao Brasil, uma turista estrangeira se cadastrou em aplicativo de transporte de empresa sediada no exterior, com servidores fora do país. Assertiva: a LGPD se aplica a esse tratamento.
+comentario: Certo. Art. 3º, III e § 1º: são coletados no território nacional os dados do titular que aqui está no momento da coleta, independentemente da sede da empresa ou do local dos dados. A oferta de serviço a pessoas no Brasil também atrai a lei (inciso II).
+
+=== lx24-04
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 3
+trecho: a atividade de tratamento tenha por objetivo a oferta ou o fornecimento de bens ou serviços ou o tratamento de dados de indivíduos localizados no território nacional
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma loja virtual sediada no exterior, sem filial no Brasil, vende e entrega produtos a consumidores brasileiros. Assertiva: por não ter estabelecimento no país, ela fica fora do alcance da LGPD.
+comentario: Errado. A lei se aplica quando o tratamento tem por objetivo ofertar ou fornecer bens ou serviços a indivíduos no território nacional, independentemente do país da sede (art. 3º, II).
+
+=== lx24-05
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 4
+trecho: acadêmicos, aplicando-se a esta hipótese os arts. 7º e 11 desta Lei
+armadilha: excecao
+dif: 3
+enunciado: O tratamento de dados para fins exclusivamente acadêmicos está inteiramente fora da LGPD, inclusive quanto às bases legais.
+comentario: Errado. Diferentemente dos fins jornalísticos e artísticos, a exceção acadêmica (art. 4º, II, b) manda aplicar os arts. 7º e 11, isto é, o tratamento precisa de base legal.
+
+=== lx24-06
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 4
+trecho: É vedado o tratamento dos dados a que se refere o inciso III do caput deste artigo por pessoa de direito privado, exceto em procedimentos sob tutela de pessoa jurídica de direito público
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa privada de vigilância passou a montar, por conta própria, um banco de dados de suspeitos para fins de segurança pública. Assertiva: a atividade é lícita, porque a segurança pública está fora da LGPD.
+comentario: Errado. Pessoa de direito privado só pode tratar esses dados em procedimentos sob tutela de pessoa jurídica de direito público, com informe específico à ANPD (art. 4º, § 2º). A exceção do inciso III não autoriza a atuação privada autônoma.
+
+=== lx24-07
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-alcance
+ref: lgpd 4
+trecho: Em nenhum caso a totalidade dos dados pessoais de banco de dados de que trata o inciso III do caput deste artigo poderá ser tratada por pessoa de direito privado, salvo por aquela que possua capital integralmente constituído pelo poder público
+armadilha: excecao
+dif: 3
+enunciado: Nenhuma pessoa de direito privado pode tratar a totalidade de um banco de dados de segurança pública ou de investigação criminal, salvo a que tenha capital integralmente constituído pelo poder público.
+comentario: Certo. Art. 4º, § 4º, na redação da Lei 13.853/2019. A ANPD emite opiniões técnicas sobre essas exceções e deve pedir relatórios de impacto aos responsáveis (§ 3º).
+
+=== lx24-08
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 17
+trecho: Toda pessoa natural tem assegurada a titularidade de seus dados pessoais
+armadilha: sujeito
+dif: 1
+enunciado: A LGPD assegura também às pessoas jurídicas a titularidade de seus dados, com os direitos previstos no art. 18.
+comentario: Errado. O art. 17 assegura a titularidade à pessoa natural. Dado pessoal é o relacionado a pessoa natural identificada ou identificável (art. 5º, I).
+
+=== lx24-09
+bloco: lgpd-23-32
+gab: C
+tema: pd-poder-publico
+ref: lgpd 32
+trecho: A autoridade nacional poderá solicitar a agentes do Poder Público a publicação de relatórios de impacto à proteção de dados pessoais
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a ANPD pediu a uma secretaria estadual de educação que publicasse o relatório de impacto do sistema de matrícula escolar e sugeriu padrões de boas práticas para esse tratamento. Assertiva: a iniciativa tem amparo na LGPD.
+comentario: Certo. Art. 32: a ANPD pode solicitar a agentes do Poder Público a publicação de relatórios de impacto e sugerir padrões e boas práticas. Se houver infração, pode enviar informe com medidas para fazê-la cessar (art. 31).
+
+=== lx24-10
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 31
+trecho: a autoridade nacional poderá enviar informe com medidas cabíveis para fazer cessar a violação
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD constatou que um ministério tratava dados em violação à LGPD. Assertiva: a medida própria nesse caso é aplicar ao ministério multa simples sobre o seu orçamento.
+comentario: Errado. O art. 31 prevê o envio de informe com medidas para fazer cessar a violação, e as multas não se aplicam a órgãos e entidades públicos (art. 52, § 3º). Podem ser aplicadas, entre outras, advertência e publicização da infração.
+
+=== lx24-11
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 39
+trecho: O operador deverá realizar o tratamento segundo as instruções fornecidas pelo controlador
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um operador decidiu usar, por conta própria, os dados recebidos do controlador para treinar um produto seu. Assertiva: por ter os dados sob sua guarda, o operador pode definir livremente novas finalidades.
+comentario: Errado. O operador trata os dados segundo as instruções do controlador, que verifica seu cumprimento (art. 39). Fora das instruções, responde solidariamente pelos danos e se equipara ao controlador (art. 42, § 1º, I).
+
+=== lx24-12
+bloco: lgpd-52-54
+gab: C
+tema: pd-sancoes
+ref: lgpd 53
+trecho: devem ser previamente publicadas, para ciência dos agentes de tratamento
+armadilha: conceito
+dif: 2
+enunciado: As metodologias de cálculo do valor-base das multas da LGPD devem constar de regulamento submetido a consulta pública e ser publicadas previamente, com fundamentação detalhada de seus elementos.
+comentario: Certo. Art. 53, caput e § 1º. A ANPD cumpriu o dispositivo com a Resolução CD/ANPD nº 4/2023 (dosimetria).
+
+=== lx24-13
+bloco: lgpd-52-54
+gab: E
+tema: pd-sancoes
+ref: lgpd 53
+trecho: O regulamento de sanções e metodologias correspondentes deve estabelecer as circunstâncias e as condições para a adoção de multa simples ou diária
+armadilha: sujeito
+dif: 2
+enunciado: A LGPD deixa a critério do agente autuado a escolha entre a multa simples e a multa diária.
+comentario: Errado. Cabe ao regulamento de sanções fixar as circunstâncias e condições para adotar multa simples ou diária (art. 53, § 2º), e a escolha é da ANPD no caso concreto.
+
+=== lx24-14
+bloco: lgpd-52-54
+gab: C
+tema: pd-sancoes
+ref: lgpd 54
+trecho: a descrição da obrigação imposta, o prazo razoável e estipulado pelo órgão para o seu cumprimento e o valor da multa diária
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a ANPD intimou uma empresa a corrigir uma prática sob pena de multa diária. Assertiva: a intimação deve descrever a obrigação, fixar prazo razoável para o cumprimento e indicar o valor da multa diária.
+comentario: Certo. Art. 54, parágrafo único. O valor deve observar a gravidade da falta e a extensão do dano e ser fundamentado (caput).
+
+=== lx24-15
+bloco: lgpd-55
+gab: E
+tema: pd-anpd
+ref: lgpd 55-L
+trecho: os valores apurados em aplicações no mercado financeiro das receitas previstas neste artigo
+armadilha: rol
+dif: 2
+enunciado: As receitas da ANPD limitam-se às dotações consignadas no orçamento geral da União.
+comentario: Errado. O art. 55-L inclui também doações, legados e subvenções, venda ou aluguel de bens, aplicações financeiras, recursos de acordos e convênios e venda de publicações e material técnico.
+
+=== lx24-16
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-alcance
+ref: lgpd 3
+trecho: independentemente do meio, do país de sua sede ou do país onde estejam localizados os dados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa brasileira armazena os dados de seus clientes, todos no Brasil, em servidores localizados em outro país. Assertiva: o local de armazenamento não afasta a aplicação da LGPD.
+comentario: Certo. A lei se aplica independentemente do país onde estejam os dados (art. 3º, caput), e o envio ao exterior é transferência internacional, sujeita aos arts. 33 a 36.
