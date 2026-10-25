@@ -1,0 +1,147 @@
+// Resoluções da ANPD, lote X2: sanções de bloqueio, eliminação e suspensão parcial do banco de dados, piso da multa e
+// afastamento da metodologia (Resolução CD/ANPD nº 4/2023); divulgação, responsabilidade e conduta do encarregado
+// (Resolução CD/ANPD nº 18/2024); decisão de adequação e normas corporativas globais (Resolução CD/ANPD nº 19/2024).
+// Conferidas com fontes/res4.txt, fontes/res18.txt e fontes/res19.txt.
+
+=== rsx-01
+bloco: res-4-2023
+gab: C
+tema: an-dosimetria
+ref: res4 22
+trecho: consiste na suspensão temporária de qualquer operação de tratamento com os dados pessoais a que se refere a infração, mediante a sua guarda, até a regularização da conduta pelo infrator
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a ANPD aplicou a uma empresa a sanção de bloqueio dos dados pessoais ligados à infração. Assertiva: a empresa deve guardar os dados sem tratá-los e só poderá desbloqueá-los depois de comprovar a regularização da conduta e ser autorizada pela ANPD.
+comentario: Certo. Art. 22, §§ 1º e 3º, da Resolução 4/2023. O bloqueio é temporário e preserva os dados; a eliminação, ao contrário, os exclui (art. 23).
+
+=== rsx-02
+bloco: res-4-2023
+gab: E
+tema: an-dosimetria
+ref: res4 22
+trecho: A sanção de bloqueio dos dados pessoais consiste na suspensão temporária
+armadilha: comparacao
+dif: 2
+enunciado: A sanção de bloqueio dos dados pessoais consiste na exclusão definitiva dos dados ligados à infração, por qualquer procedimento técnico.
+comentario: Errado. O enunciado descreve a eliminação (art. 23, § 1º). O bloqueio é a suspensão temporária do tratamento, com guarda dos dados, até a regularização (art. 22, § 1º).
+
+=== rsx-03
+bloco: res-4-2023
+gab: C
+tema: an-dosimetria
+ref: res4 23
+trecho: comunicar imediatamente a eliminação dos dados aos agentes de tratamento com os quais tenha realizado uso compartilhado de dados, para que repitam idêntico procedimento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: intimada da sanção de eliminação de dados que havia compartilhado com dois parceiros, uma empresa apagou-os de seus servidores. Assertiva: ela deve ainda comunicar a eliminação aos parceiros, de imediato, para que façam o mesmo, salvo impossibilidade comprovada ou esforço desproporcional.
+comentario: Certo. Art. 23, § 2º. A regra espelha o dever do art. 18, § 6º, da LGPD e vale também para o bloqueio (art. 22, § 2º).
+
+=== rsx-04
+bloco: res-4-2023
+gab: E
+tema: an-dosimetria
+ref: res4 24
+trecho: será aplicada pelo período máximo de 6 (seis) meses, prorrogável por igual período
+armadilha: numero
+dif: 2
+enunciado: A sanção de suspensão parcial do funcionamento do banco de dados pode durar até um ano, sem possibilidade de prorrogação.
+comentario: Errado. O período máximo é de seis meses, prorrogável por igual período, até a regularização (art. 24, § 2º, da Resolução 4/2023, em linha com o art. 52, X, da LGPD).
+
+=== rsx-05
+bloco: res-4-2023
+gab: C
+tema: an-dosimetria
+ref: res4 24
+trecho: a ANPD deverá considerar o interesse público, o impacto aos direitos dos titulares de dados pessoais, a classificação da infração e a complexidade para regularização
+armadilha: rol
+dif: 3
+enunciado: Para definir o prazo da suspensão parcial do funcionamento do banco de dados, a ANPD considera, entre outros fatores, o interesse público, o impacto aos direitos dos titulares e a dificuldade que o infrator terá para regularizar o tratamento.
+comentario: Certo. Art. 24, § 3º, que inclui também a classificação da infração. O restabelecimento depende de o infrator comprovar a regularização (§ 4º).
+
+=== rsx-06
+bloco: res-4-2023
+gab: E
+tema: an-dosimetria
+ref: res4 15
+trecho: aplicando-se, neste caso, o dobro da vantagem econômica decorrente da infração
+armadilha: numero
+dif: 3
+enunciado: Quando a vantagem obtida ou pretendida pelo infrator for estimável, o valor da multa simples não pode ser inferior ao montante exato dessa vantagem.
+comentario: Errado. Nesse caso, o piso deixa de ser o valor mínimo do Apêndice II e passa a ser o dobro da vantagem econômica decorrente da infração (art. 15, I). O teto continua sendo o do inciso II.
+
+=== rsx-07
+bloco: res-4-2023
+gab: C
+tema: an-dosimetria
+ref: res4 27
+trecho: nos casos em que for constatado prejuízo à proporcionalidade entre a gravidade da infração e a intensidade da sanção
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: aplicada a metodologia de dosimetria, a multa calculada para uma pequena associação ficou muito acima do que a gravidade da infração justificava, e a ANPD a substituiu por advertência, em decisão motivada. Assertiva: o regulamento de dosimetria admite essa substituição.
+comentario: Certo. Art. 27 da Resolução 4/2023: constatado prejuízo à proporcionalidade entre a gravidade da infração e a intensidade da sanção, a ANPD pode afastar a metodologia ou trocar a sanção. A decisão deve ser motivada e mostrar a necessidade e a adequação da medida, a desproporcionalidade constatada, o interesse público protegido e os parâmetros usados (parágrafo único).
+
+=== rsx-08
+bloco: res-4-2023
+gab: E
+tema: an-dosimetria
+ref: res4 27
+trecho: não poderá ser baseada em valores jurídicos abstratos
+armadilha: conceito
+dif: 2
+enunciado: A decisão que afasta a metodologia de dosimetria pode fundamentar-se apenas em valores jurídicos abstratos, como a proteção da dignidade, dispensada a demonstração dos parâmetros adotados.
+comentario: Errado. O parágrafo único do art. 27 veda a decisão baseada em valores jurídicos abstratos e exige motivação com necessidade, adequação, desproporcionalidade constatada e parâmetros adotados. A regra ecoa o art. 20 da LINDB.
+
+=== rsx-09
+bloco: res-18-2024
+gab: C
+tema: an-encarregado-transf
+ref: res18 8
+trecho: O agente de tratamento deverá divulgar e manter atualizadas a identidade e as informações de contato do encarregado.
+armadilha: caso
+dif: 1
+enunciado: Situação hipotética: o site de uma rede de farmácias informa que ela tem encarregado, mas não traz o nome nem o contato dele, e o último registro é de um profissional que já saiu da empresa. Assertiva: a rede descumpre o dever de divulgar e manter atualizadas essas informações.
+comentario: Certo. Art. 8º da Resolução 18/2024, que detalha o art. 41, § 1º, da LGPD. A divulgação deve ser clara e objetiva, em local de destaque no sítio eletrônico do agente, ou por outros meios se ele não tiver site (art. 9º).
+
+=== rsx-10
+bloco: res-18-2024
+gab: E
+tema: an-encarregado-transf
+ref: res18 11
+trecho: O agente de tratamento é o responsável pela conformidade do tratamento dos dados pessoais
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: autuada por tratar dados sem base legal, uma empresa alegou que a responsabilidade pela conformidade era exclusivamente do encarregado que ela havia nomeado. Assertiva: a alegação procede.
+comentario: Errado. O agente de tratamento é o responsável pela conformidade do tratamento (art. 11 da Resolução 18/2024). O encarregado orienta e serve de canal de comunicação, mas não assume a responsabilidade do controlador.
+
+=== rsx-11
+bloco: res-18-2024
+gab: C
+tema: an-encarregado-transf
+ref: res18 18
+trecho: O encarregado deverá atuar com ética, integridade e autonomia técnica, evitando situações que possam configurar conflito de interesse.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: além de encarregado, um gerente passou a decidir, como diretor de marketing, quais dados de clientes a empresa coleta e para quê. Assertiva: o acúmulo pode configurar conflito de interesse, situação que o encarregado deve evitar e declarar ao agente de tratamento.
+comentario: Certo. O encarregado atua com ética, integridade e autonomia técnica, evitando conflito de interesse (art. 18 da Resolução 18/2024). O conflito pode surgir do acúmulo com atividades de decisão estratégica sobre o tratamento (art. 19, § 1º, II), e o encarregado deve declarar ao agente qualquer situação desse tipo (art. 20).
+
+=== rsx-12
+bloco: res-19-2024
+gab: E
+tema: an-transferencia
+ref: res19 10
+trecho: A ANPD poderá reconhecer, mediante decisão de adequação, a equivalência do nível de proteção de dados pessoais de país estrangeiro ou de organismo internacional
+armadilha: sujeito
+dif: 2
+enunciado: O reconhecimento de que um país estrangeiro tem nível de proteção de dados equivalente ao brasileiro é feito por decreto do Presidente da República, após parecer da ANPD.
+comentario: Errado. A decisão de adequação é da própria ANPD (art. 10 da Resolução 19/2024 e art. 34 da LGPD) e pode alcançar país estrangeiro ou organismo internacional.
+
+=== rsx-13
+bloco: res-19-2024
+gab: C
+tema: an-transferencia
+ref: res19 26
+trecho: As normas corporativas globais deverão estar vinculadas à implementação de programa de governança em privacidade
+armadilha: conceito
+dif: 3
+enunciado: As normas corporativas globais submetidas à ANPD devem estar vinculadas a um programa de governança em privacidade que atenda às condições mínimas previstas na LGPD para esses programas.
+comentario: Certo. Art. 26 da Resolução 19/2024, que remete ao art. 50, § 2º, da LGPD (comprometimento do controlador, aplicação a todo o conjunto de dados, adaptação à estrutura e ao volume, políticas, plano de resposta a incidentes, entre outras condições).
