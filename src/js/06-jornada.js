@@ -100,25 +100,24 @@ function equipado(slot) { const id = rpg().eq[slot]; return id && rpg().inv[id] 
 function bonusDano() { const a = equipado('arma'); return a ? EFEITO.arma[a.rar] : 0; }
 function chanceCritico() { const a = equipado('amuleto'); return a ? EFEITO.amuleto[a.rar] : 0; }
 function coracoesMax() { const a = equipado('armadura'); return CORACOES + (a ? EFEITO.armadura[a.rar] : 0); }
-// Sorteio de saque. O item repetido vira XP; o novo vai para o inventário e é equipado se o encaixe estiver vazio
-// ou ocupado por item de raridade menor.
-function sortearRaridade(pesos) {
-  let x = Math.random() * Object.values(pesos).reduce((a, b) => a + b, 0);
-  for (const [k, p] of Object.entries(pesos)) { x -= p; if (x < 0) return k; }
-  return 'comum';
-}
-function saque(pesos) {
-  const rar = sortearRaridade(pesos), opcoes = ITENS_RPG.filter((x) => x.rar === rar);
-  const it = opcoes[Math.floor(Math.random() * opcoes.length)];
-  const r = rpg();
-  if (r.inv[it.id]) { ganharXP(XP_REPETIDO[rar]); return { it, repetido: true }; }
+// Saque sem sorteio: recompensa ao acaso é o reforço de razão variável dos jogos de azar, e não cabe numa ferramenta
+// de estudo. Cada prêmio entrega o próximo item que falta na coleção, do comum ao lendário, alternando os encaixes; o
+// baú do dia começa pelo comum, a vitória sobre o chefão pelo épico. Com a coleção completa, o prêmio vira XP. O item
+// novo vai para o inventário e é equipado se o encaixe estiver vazio ou ocupado por item de raridade menor.
+const ORDEM_SAQUE = ITENS_RPG.map((x, i) => ({ x, k: ITENS_RPG.slice(0, i).filter((y) => y.slot === x.slot && y.rar === x.rar).length }))
+  .sort((a, b) => RARIDADES[a.x.rar].ordem - RARIDADES[b.x.rar].ordem || a.k - b.k || Object.keys(ENCAIXES).indexOf(a.x.slot) - Object.keys(ENCAIXES).indexOf(b.x.slot))
+  .map((o) => o.x);
+function saque(desde) {
+  const r = rpg(), min = RARIDADES[desde].ordem, falta = ORDEM_SAQUE.filter((x) => !r.inv[x.id]);
+  const it = falta.find((x) => RARIDADES[x.rar].ordem >= min) || falta[0];
+  if (!it) { const topo = ORDEM_SAQUE[ORDEM_SAQUE.length - 1]; ganharXP(XP_REPETIDO[desde]); return { it: topo, repetido: true, xp: XP_REPETIDO[desde] }; }
   r.inv[it.id] = hojeISO();
   const atual = equipado(it.slot);
   if (!atual || RARIDADES[atual.rar].ordem < RARIDADES[rar].ordem) r.eq[it.slot] = it.id;
   return { it, repetido: false };
 }
 function avisarSaque(origem, s) {
-  avisar('◆', origem + ': ' + s.it.nome, RARIDADES[s.it.rar].nome + ' · ' + (s.repetido ? 'repetido, virou +' + XP_REPETIDO[s.it.rar] + ' XP' : efeitoTxt(s.it)));
+  avisar('◆', origem + ': ' + (s.repetido ? 'coleção completa' : s.it.nome), s.repetido ? 'virou +' + s.xp + ' XP' : RARIDADES[s.it.rar].nome + ' · ' + efeitoTxt(s.it));
 }
 
 function hashTxt(t) { let h = 2166136261; for (const c of t) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
@@ -167,7 +166,7 @@ function verificarRPG() {
     // O histórico de missões guarda só 14 dias; o total de baús fica num contador próprio
     rpg().baus = (rpg().baus || 0) + 1;
     ganharXP(BAU_XP);
-    const s = saque({ comum: 60, raro: 30, epico: 9, lendario: 1 });
+    const s = saque('comum');
     mh.item = s.it.id;
     avisarSaque('Baú do dia', s);
     tocar('festa');
@@ -204,10 +203,11 @@ function chefeDaSemana() {
   return r.chefe;
 }
 // Dano de um acerto: 10, 15 ou 20 pela dificuldade do item, mais o bônus da arma. É crítico (dano em dobro) quando o
-// artigo do item já caiu em prova real ou, ao acaso, pela chance do amuleto.
+// artigo do item já caiu em prova real ou, sem sorteio, a cada tantos golpes pelo amuleto (25% = um a cada 4).
 function danoDe(q) {
-  const base = 5 + 5 * Math.min(3, Math.max(1, q.d || 2));
-  const crit = caiuEmProva(q) > 0 || Math.random() * 100 < chanceCritico();
+  const base = 5 + 5 * Math.min(3, Math.max(1, q.d || 2)), ch = chanceCritico(), r = rpg();
+  r.golpes = (r.golpes || 0) + 1;
+  const crit = caiuEmProva(q) > 0 || (ch > 0 && r.golpes % Math.round(100 / ch) === 0);
   return { dano: Math.round(base * (1 + bonusDano() / 100)) * (crit ? 2 : 1), crit };
 }
 function golpeChefe(q) {
@@ -225,7 +225,7 @@ function golpeChefe(q) {
   ganharXP(CHEFE_XP);
   rpg().trofeus = rpg().trofeus || [];
   rpg().trofeus.unshift({ sem: c.sem, bloco: c.bloco, data: hojeISO() });
-  const s = saque({ raro: 20, epico: 50, lendario: 30 });
+  const s = saque('epico');
   c.item = s.it.id;
   golpeRecente.item = s;
   avisarSaque('Saque do chefão', s);
@@ -277,7 +277,7 @@ function cartaoBatalha() {
     hpBarra(c.vencido ? 0 : c.vida, c.max) +
     (sessao.defesas ? '<p class="pequeno">' + pl(sessao.defesas, 'defesa', 'defesas') + ': em branco quando faltou certeza, sem perder coração. Na prova, é ponto que não se perde.</p>' : '') +
     '<div class="placar"><div><b>' + (sessao.danoTotal || 0) + '</b><span>dano</span></div><div><b>' + (sessao.criticos || 0) + '</b><span>críticos</span></div><div><b>' + sessao.comboMax + '</b><span>maior série</span></div><div><b>' + (c.vencido ? 0 : c.vida) + '</b><span>HP restante</span></div></div>' +
-    (s ? cartaoItem(s.it, s.repetido ? 'Repetido: virou +' + XP_REPETIDO[s.it.rar] + ' XP' : 'Novo no inventário') : '') +
+    (s ? cartaoItem(s.it, s.repetido ? 'Coleção completa: virou +' + s.xp + ' XP' : 'Novo no inventário') : '') +
     (fim === 'derrota' ? '<p class="pequeno mudo">Sem corações, a batalha acabou. O dano causado fica: o chefão continua com ' + c.vida + ' de vida até domingo.</p>' : '') +
     (fim === 'recuo' ? '<p class="pequeno mudo">Ele aguenta no máximo ' + tetoDia(c) + ' de dano por dia e hoje já levou ' + danoHoje(c) + '. Volta amanhã com ' + c.vida + ' de vida; derrubá-lo pede estudo em cinco dias da semana.</p>' : '') +
     (fim !== 'vitoria' && !c.vencido && !recuou(c) ? '<div class="linha-btns"><button class="btn primario" data-acao="enfrentar-chefe">Batalhar de novo</button></div>' : '') + '</div>';
@@ -305,7 +305,7 @@ function cartaoJornada() {
   const chefe = '<div class="chefe' + (c.vencido ? ' vencido' : '') + '"><span class="brasao">' + brasao(discChefe(c.bloco)) + '</span><div class="chefe-info"><div class="chefe-cab"><b>' + esc(nomeChefe(c.bloco)) + '</b><span class="mono pequeno">' + (c.vencido ? 'derrotado' : 'HP ' + c.vida + '/' + c.max) + '</span></div>' +
     '<span class="pequeno mudo">' + esc(nomeBloco(c.bloco)) + (recuou(c) ? ' · recuou, volta amanhã' : !c.vencido ? ' · aguenta ' + tetoDia(c) + ' de dano por dia' : '') + '</span>' + hpBarra(c.vencido ? 0 : c.vida, c.max) + '</div>' +
     (c.vencido || recuou(c) ? '' : '<button class="btn pequeno primario" data-acao="enfrentar-chefe">' + esc(rotuloPausa('chefe:' + c.sem, 'Batalhar')) + '</button>') + '</div>';
-  const bau = mh.bau && mh.item && IR.get(mh.item) ? '<p class="pequeno">Baú aberto: <b class="r-txt-' + IR.get(mh.item).rar + '">' + esc(IR.get(mh.item).nome) + '</b></p>' : '<p class="pequeno mudo">Três missões abrem o baú do dia, com um item.</p>';
+  const bau = mh.bau && mh.item && IR.get(mh.item) ? '<p class="pequeno">Baú aberto: <b class="r-txt-' + IR.get(mh.item).rar + '">' + esc(IR.get(mh.item).nome) + '</b></p>' : '<p class="pequeno mudo">Três missões abrem o baú do dia: ele traz o próximo item da coleção, do comum ao lendário (sem sorteio). O chefão vencido traz o próximo épico ou lendário.</p>';
   // Recolhida por padrão (a tela Hoje começa pelo roteiro): o resumo mostra nível, missões e a vida do chefão
   return '<div class="cartao jornada"><details data-det="jornada"' + (UI.det.jornada ? ' open' : '') + '><summary class="jornada-resumo"><b>Jornada</b><span class="mono pequeno mudo">nível ' + nv.n + ' · ' + feitas + '/' + mh.ids.length + ' missões · ' +
     (c.vencido ? 'chefão vencido' : 'chefão ' + Math.round((c.vida / c.max) * 100) + '% de vida' + (recuou(c) ? ', volta amanhã' : '')) + '</span></summary>' +

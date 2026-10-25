@@ -157,6 +157,27 @@ function aplicarEdital(ed) {
   PONTOS_PROVA = Object.values(PONTOS_DISC).reduce((a, b) => a + b, 0);
 }
 aplicarEdital();
+// Números nos textos do mentor e do Cebraspe, calculados na hora: {peso:lgpd} ou {peso:lgpd+eca} é a parte dessas
+// disciplinas na nota pelos pesos em vigor (os de Ajustes, se mudados); {pontos}, {itens}, {itensB}, {itensE} e
+// {regraPesos} descrevem a prova; {horasPre}, {horasPos}, {itensPre}, {itensPos}, {itensSemana} e {semanasPos} vêm do
+// cronograma, que é a fonte das metas. Assim nenhuma tela repete um número de uma versão antiga do plano ou dos pesos.
+function comNumeros(s) {
+  const soma = (o) => Object.values(o).reduce((a, b) => a + b, 0);
+  const regra = PESO_BASICA === PESO_ESPECIFICA ? 'todo item vale ' + PESO_BASICA : 'cada item da básica vale ' + PESO_BASICA + ' e cada item da específica vale ' + PESO_ESPECIFICA;
+  let pre, pos;
+  const plano = () => { if (!pre) { pre = planoPorSemana(null, D.cronograma.edital); pos = planoPorSemana(D.cronograma.edital, null); } };
+  return String(s).replace(/\{(peso:[a-z+]+|pontos|itensB|itensE|itensPre|itensPos|itensSemana|itens|regraPesos|horasPre|horasPos|semanasPos)\}/g, (m, k) => {
+    if (k.startsWith('peso:')) return PONTOS_PROVA ? Math.round((k.slice(5).split('+').reduce((a, d) => a + (PONTOS_DISC[d] || 0), 0) / PONTOS_PROVA) * 100) + '%' : m;
+    if (k === 'pontos' || k === 'itens' || k === 'itensB' || k === 'itensE' || k === 'regraPesos') return { pontos: PONTOS_PROVA, itens: TOTAL_PROVA, itensB: soma(PROVA_BASICA), itensE: soma(PROVA_ESPECIFICA), regraPesos: regra }[k];
+    plano();
+    if (k === 'horasPre') return fmtDur(Math.round(pre.h * 4) / 4 * 3600);
+    if (k === 'horasPos') return fmtDur(Math.round(pos.h * 4) / 4 * 3600);
+    if (k === 'itensPre') return String(Math.round(pre.n / 10) * 10);
+    if (k === 'itensPos') return String(Math.round(pos.n / 10) * 10);
+    if (k === 'itensSemana') return String(itensPlanoSemana());
+    return String(Math.max(1, Math.round((diaNum(dataProva()) - diaNum(D.cronograma.edital)) / 7)));
+  });
+}
 // Data da prova: a do edital, quando a pessoa a informa em Ajustes; antes disso, a estimativa do cronograma
 function dataProva() { return (S.perfil.edital && S.perfil.edital.prova) || D.cronograma.prova; }
 // Simulado da prova inteira: 1,75 min por item (os 120 da Anatel 2024 em 3h30)
@@ -189,9 +210,9 @@ const REAIS_TREINO = 1 / 3;
 const TEMAS_DISC = (D.discursivas && D.discursivas.temas) || [];
 const CARACTERES_LINHA = 70;
 
-// 40 níveis com degraus crescentes: os primeiros saem no primeiro dia. Num ritmo de 10 mil XP por semana,
-// Diretor(a)-Presidente chega uns dois meses antes da prova; depois dele, cada mandato pede MANDATO_XP (cerca de uma
-// semana), e as conquistas de XP e ritmo seguem até 250 mil.
+// 40 níveis com degraus crescentes: os primeiros saem no primeiro dia. No ritmo medido nas primeiras semanas de uso
+// (5 a 8 mil XP por semana), Diretor(a)-Presidente chega entre janeiro e março; depois dele, cada mandato pede
+// MANDATO_XP, e as conquistas de XP e ritmo seguem até 250 mil.
 const NIVEIS = [
   [0, 'Titular de dados'], [150, 'Curioso(a) do art. 18'], [300, 'Leitor(a) de lei seca'], [500, 'Suboperador(a)'],
   [700, 'Operador(a)'], [950, 'Controlador(a)'], [1200, 'Controlador(a) conjunto(a)'], [1500, 'Encarregado(a)'],
@@ -238,8 +259,8 @@ const CONQ = [
   { g: 'c', id: 'roteiro', ic: '5/5', nome: 'Roteiro completo', desc: 'Fechou todos os passos do roteiro de um dia.' },
   { g: 'c', id: 'roteiro7', ic: '7×', nome: 'Semana de roteiros', desc: 'Fechou o roteiro completo em 7 dias.' },
   { g: 'c', id: 'recuperacao', ic: '↺', nome: 'Nada fica para trás', desc: 'Terminou uma sessão de recuperação do atraso do plano.' },
-  { g: 'c', id: 'semanas4', ic: '4×', nome: 'Ritmo de cruzeiro', desc: '4 semanas seguidas com 5.000 XP ou mais.' },
-  { g: 'c', id: 'semanas12', ic: '12×', nome: 'Ritmo de prova', desc: '12 semanas seguidas com 5.000 XP ou mais.' },
+  { g: 'c', id: 'semanas4', ic: '4×', nome: 'Ritmo de cruzeiro', desc: '4 semanas seguidas com 2.500 XP ou mais (uma semana inteira do plano).' },
+  { g: 'c', id: 'semanas12', ic: '12×', nome: 'Ritmo de prova', desc: '12 semanas seguidas com 2.500 XP ou mais (uma semana inteira do plano).' },
   { g: 'l', id: 'lei20', ic: '§', nome: 'Lei seca', desc: 'Abriu 20 artigos no leitor da lei seca.' },
   { g: 'l', id: 'lei100', ic: '§100', nome: 'Cem artigos', desc: 'Abriu 100 artigos no leitor da lei seca.' },
   { g: 'l', id: 'lei500', ic: '§500', nome: 'Biblioteca de normas', desc: 'Abriu 500 artigos no leitor da lei seca.' },

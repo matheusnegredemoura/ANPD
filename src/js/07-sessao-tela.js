@@ -365,7 +365,7 @@ function renderResultado() {
   if (sessao.modo === 'simulado' && Object.keys(porDisc).length > 1) {
     html += '<div class="cartao"><h2>Por disciplina</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>C</th><th>E</th><th>B</th><th>Líquida</th><th>Pontos</th></tr></thead><tbody>' +
       Object.entries(porDisc).sort((a, b) => b[1].ptMax - a[1].ptMax).map(([dd, v]) => { const t = v.c + v.e + v.b; return '<tr><td>' + esc((DI.get(dd) || { nome: dd }).nome) + '</td><td class="num">' + v.c + '</td><td class="num">' + v.e + '</td><td class="num">' + v.b + '</td><td class="num">' + (v.c - v.e + v.eMc) + ' (' + pct(v.c - v.e + v.eMc, t) + '%)</td><td class="num">' + v.pt + ' de ' + v.ptMax + '</td></tr>'; }).join('') + '</tbody></table></div>' +
-      '<p class="pequeno mudo">Pontos: cada item vale 1, como na Anatel 2024. A ordem segue o que cada disciplina pesa na nota.</p></div>';
+      '<p class="pequeno mudo">' + comNumeros('Pontos: {regraPesos}' + (PESO_BASICA === 1 && PESO_ESPECIFICA === 1 ? ', como na Anatel 2024' : '')) + '. A ordem segue o que cada disciplina pesa na nota.</p></div>';
   }
   const nd = dc + de;
   if (nd) {

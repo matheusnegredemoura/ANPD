@@ -1,5 +1,5 @@
 // Revisão adaptativa: com o histórico de revisões de manutenção semeado no navegador, o prazo gravado depois de um
-// acerto seguro de primeira deve seguir a calibração pela retenção medida (16 dias sem calibração, mais com retenção
+// acerto seguro de primeira deve seguir a calibração pela retenção medida (7 dias sem calibração, mais com retenção
 // alta, menos com retenção baixa).
 import { APP, abrirNavegador, placar, vigiarErros } from './comum.mjs';
 
@@ -47,11 +47,11 @@ async function prazoDoAcerto(m, mc, noPrazo = true) {
   throw new Error('nenhum acerto em 20 itens');
 }
 
-await passo('sem calibração, acerto seguro de primeira volta em 16 dias', async () => { const d = await prazoDoAcerto(0, 0); if (d !== 16) throw new Error(d + ' dias'); });
-await passo('retenção medida de 100% alonga o prazo em 50% (24 dias)', async () => { const d = await prazoDoAcerto(40, 40); if (d !== 24) throw new Error(d + ' dias'); });
-await passo('retenção medida de 70% encurta o prazo em 30% (11 dias)', async () => { const d = await prazoDoAcerto(40, 28); if (d !== 11) throw new Error(d + ' dias'); });
-await passo('menos de 20 revisões medidas não calibra (16 dias)', async () => { const d = await prazoDoAcerto(10, 10); if (d !== 16) throw new Error(d + ' dias'); });
-await passo('revisões atrasadas não calibram: 40 feitas, nenhuma no prazo (16 dias)', async () => { const d = await prazoDoAcerto(40, 28, false); if (d !== 16) throw new Error(d + ' dias'); });
+await passo('sem calibração, acerto seguro de primeira volta em 7 dias', async () => { const d = await prazoDoAcerto(0, 0); if (d !== 7) throw new Error(d + ' dias'); });
+await passo('retenção medida de 100% alonga o prazo em 50% (11 dias)', async () => { const d = await prazoDoAcerto(40, 40); if (d !== 11) throw new Error(d + ' dias'); });
+await passo('retenção medida de 70% encurta o prazo em 30% (5 dias)', async () => { const d = await prazoDoAcerto(40, 28); if (d !== 5) throw new Error(d + ' dias'); });
+await passo('menos de 20 revisões medidas não calibra (7 dias)', async () => { const d = await prazoDoAcerto(10, 10); if (d !== 7) throw new Error(d + ' dias'); });
+await passo('revisões atrasadas não calibram: 40 feitas, nenhuma no prazo (7 dias)', async () => { const d = await prazoDoAcerto(40, 28, false); if (d !== 7) throw new Error(d + ' dias'); });
 
 await browser.close();
 conferir('sem erro de página', !erros.length, erros.join(' | '));

@@ -206,7 +206,7 @@ await passo('aula da trilha com negritos e grifos', async () => {
   await p.click('.cartao.aula [data-acao="camada"][data-c="num"]');
 });
 
-for (const sub of ['metodo', 'cebraspe', 'discursiva', 'progresso', 'plano', 'pesquisar', 'glossario', 'ajustes']) {
+for (const sub of ['trilha', 'metodo', 'edital', 'raiox', 'cebraspe', 'discursiva', 'personagem', 'progresso', 'plano', 'pesquisar', 'glossario', 'contestacoes', 'ajustes']) {
   await passo('mais/' + sub + ' sem rolagem horizontal', async () => {
     await p.click('.aba[data-vista="mais"]');
     await p.click('[data-acao="mais"][data-sub="menu"]').catch(() => {});

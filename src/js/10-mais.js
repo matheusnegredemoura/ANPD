@@ -2,25 +2,26 @@
 function renderMais() {
   const el = document.getElementById('vista-mais');
   const sub = UI.mais;
+  let html;
   // Folha da discursiva aberta: uma coluna só, para a pauta ter a largura da linha da folha da banca
   el.classList.toggle('com-folha', sub === 'discursiva' && !!UI.discTema);
-  if (sub === 'progresso') el.innerHTML = voltarMais() + renderProgresso();
-  else if (sub === 'plano') el.innerHTML = voltarMais() + renderPlano();
-  else if (sub === 'pesquisar') el.innerHTML = voltarMais() + renderPesquisar();
-  else if (sub === 'glossario') el.innerHTML = voltarMais() + renderGlossario();
-  else if (sub === 'metodo') el.innerHTML = voltarMais() + renderMetodo();
-  else if (sub === 'edital') el.innerHTML = voltarMais() + renderEditalANPD();
-  else if (sub === 'raiox') el.innerHTML = voltarMais() + renderRaioXANPD();
-  else if (sub === 'cebraspe') el.innerHTML = voltarMais() + renderCebraspe();
-  else if (sub === 'discursiva') el.innerHTML = (UI.discTema ? '' : voltarMais()) + renderDiscursiva() + (UI.discTema ? '' : htmlEsqueletos());
-  else if (sub === 'contestacoes') el.innerHTML = voltarMais() + renderContestacoes();
-  else if (sub === 'trilha') el.innerHTML = (UI.subtema ? '' : voltarMais()) + renderTrilhas();
-  else if (sub === 'ajustes') el.innerHTML = voltarMais() + renderAjustes();
-  else if (sub === 'personagem') el.innerHTML = voltarMais() + renderPersonagem();
+  if (sub === 'progresso') html = voltarMais() + renderProgresso();
+  else if (sub === 'plano') html = voltarMais() + renderPlano();
+  else if (sub === 'pesquisar') html = voltarMais() + renderPesquisar();
+  else if (sub === 'glossario') html = voltarMais() + renderGlossario();
+  else if (sub === 'metodo') html = voltarMais() + renderMetodo();
+  else if (sub === 'edital') html = voltarMais() + renderEditalANPD();
+  else if (sub === 'raiox') html = voltarMais() + renderRaioXANPD();
+  else if (sub === 'cebraspe') html = voltarMais() + renderCebraspe();
+  else if (sub === 'discursiva') html = (UI.discTema ? '' : voltarMais()) + renderDiscursiva() + (UI.discTema ? '' : htmlEsqueletos());
+  else if (sub === 'contestacoes') html = voltarMais() + renderContestacoes();
+  else if (sub === 'trilha') html = (UI.subtema ? '' : voltarMais()) + renderTrilhas();
+  else if (sub === 'ajustes') html = voltarMais() + renderAjustes();
+  else if (sub === 'personagem') html = voltarMais() + renderPersonagem();
   else {
     const pend = Object.values(S.pesquisa).filter((p) => !p.s).length;
     const item = (s, ic, t, d) => '<button data-acao="mais" data-sub="' + s + '"><span class="ic">' + ic + '</span><span class="tx"><b>' + t + '</b><span class="s">' + d + '</span></span><span class="mudo">›</span></button>';
-    el.innerHTML = '<div class="secao-cab"><h2>Mais</h2></div><div class="menu-mais">' +
+    html = '<div class="secao-cab"><h2>Mais</h2></div><div class="menu-mais">' +
       item('trilha', '§', 'Trilhas do zero', TRILHAS.length + ' matérias por subtema, para quem começa: pré-teste, aula, prática e domínio') +
       item('metodo', '1·2', 'Método do Mentor (6 Degraus)', 'Ciclo semanal, degraus de foco, métricas semanais e checklist') +
       item('edital', '≡', 'Edital Projetado e Verticalizado', '10 disciplinas, 38 tópicos com prioridades A/B/C e treino direto') +
@@ -36,6 +37,7 @@ function renderMais() {
       item('contestacoes', '!', 'Minhas contestações', CONTEST.length ? pl(CONTEST.length, 'contestação', 'contestações') + ', ' + CONTEST.filter((c) => c.status === 'aberta' || c.status === 'pendente').length + ' em aberto' : 'Itens que você apontou como errados e a resposta') +
       item('ajustes', '⚙', 'Ajustes, backup e diagnóstico', 'Metas, salvar progresso em arquivo, conferir a gravação') + '</div>';
   }
+  el.innerHTML = comNumeros(html);
 }
 // Conquistas: as quatro mais recentes à mostra (fecham duas linhas no celular) e os cinco grupos recolhidos, cada um com a contagem
 function cartaoConquistas() {
@@ -64,20 +66,27 @@ function prontidao() {
     for (const t of q.o ? [real, x.r] : [banco, x.b]) { t.n++; t.c += r[7]; }
   }
   const fator = real.n >= 30 && banco.n >= 30 && banco.c ? real.c / real.n / (banco.c / banco.n) : 1;
-  let soma = 0, peso = 0;
+  // Var(ln p̂) ≈ (1 − p)/(n·p): incerteza relativa de uma taxa de acerto, para levar a do fator à nota
+  const vrel = (t) => { const q = (t.c + 1) / (t.n + 2); return (1 - q) / (q * t.n); };
+  const vFator = fator === 1 ? 0 : vrel(real) + vrel(banco);
+  let soma = 0, peso = 0, vSoma = 0;
   const linhas = Object.keys(PONTOS_DISC).sort((a, b) => PONTOS_DISC[b] - PONTOS_DISC[a]).map((d) => {
-    const x = porD[d] || { r: z(), b: z() };
-    let p = null, fonte = 'sem dados';
-    if (x.r.n >= 10) { p = x.r.c / x.r.n; fonte = 'reais'; }
-    else if (x.b.n >= 10) { p = Math.min(1, (x.b.c / x.b.n) * fator); fonte = fator === 1 ? 'banco' : 'banco corrigido'; }
-    if (p != null) { soma += PONTOS_DISC[d] * (2 * p - 1); peso += PONTOS_DISC[d]; }
+    const x = porD[d] || { r: z(), b: z() }, w = PONTOS_DISC[d];
+    let p = null, fonte = 'sem dados', vp = 0;
+    if (x.r.n >= 10) { p = x.r.c / x.r.n; fonte = 'reais'; const q = (x.r.c + 1) / (x.r.n + 2); vp = (q * (1 - q)) / x.r.n; }
+    else if (x.b.n >= 10) {
+      // Correção da disciplina: a razão real/banco dela, puxada para a geral quando há poucos itens reais (peso de 30)
+      const fd = x.r.n && x.b.c && fator !== 1 ? (x.r.n * (x.r.c / x.r.n / (x.b.c / x.b.n)) + 30 * fator) / (x.r.n + 30) : fator;
+      p = Math.min(1, (x.b.c / x.b.n) * fd); fonte = fd === 1 ? 'banco' : 'banco corrigido';
+      const q = (x.b.c + 1) / (x.b.n + 2); vp = ((q * (1 - q)) / x.b.n) * fd * fd + p * p * vFator;
+    }
+    if (p != null) { soma += w * (2 * p - 1); peso += w; vSoma += w * w * 4 * vp; }
     return { d, x, p, fonte };
   });
-  // Faixa de 95%: a incerteza do acerto nos itens reais (p ± 1,96·√(p(1−p)/n)) vale para a nota inteira, e cada ponto
-  // percentual de acerto vira 2 pontos líquidos (2p − 1). Aproximação conservadora: as disciplinas medidas pelo banco
-  // herdam a incerteza dos reais pela correção.
+  // Faixa de 95%: a nota é a soma ponderada do acerto líquido (2p − 1) de cada disciplina, e a incerteza de cada uma
+  // entra com o próprio número de itens (Σ w²·4·Var(p) ÷ (Σ w)²); as medidas pelo banco somam a incerteza do fator
   const nota = peso ? (soma / peso) * PONTOS_PROVA : null;
-  const pr = real.n ? real.c / real.n : null, meia = pr != null ? 2 * 1.96 * Math.sqrt((pr * (1 - pr)) / real.n) * PONTOS_PROVA : null;
+  const meia = peso && real.n ? (1.96 * Math.sqrt(vSoma) / peso) * PONTOS_PROVA : null;
   const faixa = nota != null && meia != null ? [Math.max(-PONTOS_PROVA, Math.round(nota - meia)), Math.min(PONTOS_PROVA, Math.round(nota + meia))] : null;
   const semReais = linhas.filter((l) => l.p != null && l.fonte !== 'reais').length, semDados = linhas.filter((l) => l.p == null).length;
   return { real, banco, fator, linhas, nota, faixa, semReais, semDados, cobre: peso / PONTOS_PROVA };
@@ -159,7 +168,7 @@ function renderProgresso() {
     '<p>' + (rm.calibra ? 'Você lembrou, com segurança, ' + pct(rm.mc, rm.m) + '% dos acertos antigos que voltaram. A meta é 90%: os intervalos de revisão estão ' + (fp > 1.02 ? 'alongados em ' + Math.round((fp - 1) * 100) + '%, porque você está esquecendo menos do que o previsto.' : fp < 0.98 ? 'encurtados em ' + Math.round((1 - fp) * 100) + '%, para os itens voltarem antes de serem esquecidos.' : 'no ponto certo.') : 'A calibração começa com 20 revisões de acertos antigos feitas no prazo (faltam ' + (20 - rm.m) + '). Até lá, os intervalos seguem o padrão.') + '</p>' +
     '<p class="pequeno mudo">Cada item também tem o seu ritmo: o que você já errou ou acertou com dúvida volta antes; o que acerta com segurança repetidas vezes espaça mais.</p></div>';
   html += '<div class="cartao"><div class="secao-cab"><h2>Acerto em itens inéditos</h2><span class="mudo pequeno">' + (tot1.n ? pct(tot1.c, tot1.n) + '% em ' + tot1.n + ' primeiras respostas' : 'primeira resposta de cada item') + '</span></div>' +
-    (pl1.length ? '<div class="dominio">' + pl1.map(([dd, v]) => '<div class="dom-linha"><span class="nome">' + esc((DI.get(dd) || { nome: dd }).nome) + ' · ' + v.n + ' itens</span>' + barra(v.c / v.n) + '<span class="val">' + pct(v.c, v.n) + '%</span></div>').join('') + '</div>' : '<p class="mudo">Aparece por disciplina a partir de 10 itens respondidos pela primeira vez.</p>') +
+    (pl1.length ? '<div class="dominio">' + pl1.map(([dd, v]) => '<div class="dom-linha"><span class="nome">' + esc((DI.get(dd) || { nome: dd }).nome) + ' · ' + pl(v.n, 'item', 'itens') + '</span>' + barra(v.c / v.n) + '<span class="val">' + pct(v.c, v.n) + '%</span></div>').join('') + '</div>' : '<p class="mudo">Aparece por disciplina a partir de 10 itens respondidos pela primeira vez.</p>') +
     '<p class="pequeno mudo">O acerto geral sobe quando o mesmo item volta na revisão e você o reconhece. Aqui conta só a primeira resposta de cada item: é o número que se parece com a prova.</p></div>';
   const arm = {};
   for (const q of Q) { const r = rec(q.id); if (!r || r[0] < 0) continue; const x = (arm[q.a] ||= { c: 0, e: 0 }); x.c += r[2]; x.e += r[3]; }
@@ -190,10 +199,23 @@ function mapaCalor() {
 }
 const STATUS_CICLO = { nao: 'andamento', andamento: 'concluido', concluido: 'nao' };
 const STATUS_ROT = { nao: 'Não iniciado', andamento: 'Em andamento', concluido: 'Concluído' };
+// O cronograma foi montado para a prova projetada e não se refaz sozinho: com a data informada antes do fim dele, o
+// cartão diz quais fases perdem dias e quanto, para a pessoa decidir o que comprimir
+function cartaoPlanoEncolhe() {
+  const prova = dataProva(), fim = DIAS.length ? DIAS[DIAS.length - 1].data : prova;
+  if (prova >= fim) return '';
+  const fora = DIAS.filter((d) => d.data >= prova);
+  const porFase = D.cronograma.fases.map((f) => ({ f, n: fora.filter((d) => d.fase === f.id).length, tot: DIAS.filter((d) => d.fase === f.id).length })).filter((x) => x.n);
+  const fmt = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit' });
+  return '<div class="cartao cansaco"><h2>O plano passa da data da prova</h2><p class="pequeno">Com a prova em <b>' + fmt(prova) + '</b>, ' + pl(fora.length, 'dia do cronograma fica', 'dias do cronograma ficam') + ' para depois dela (o plano vai até ' + fmt(fim) + '). O plano não se refaz sozinho; o que encolhe:</p><ul class="pequeno">' +
+    porFase.map((x) => '<li><b>' + esc(x.f.titulo) + ': ' + esc(x.f.subtitulo) + '</b> perde ' + x.n + ' de ' + x.tot + ' dias' + (x.n === x.tot ? ' (inteira)' : '') + '</li>').join('') +
+    '</ul><p class="pequeno mudo">Até a prova, a revisão espaçada já para dois dias antes dela. Para não perder conteúdo, adiante os dias das fases cortadas nos sábados e use o treino intercalado, que reparte os itens pelo peso de cada disciplina.</p></div>';
+}
 function renderPlano() {
   const h = hojeISO(), ctx = contextoHoje();
   if (UI.faseAberta === null) UI.faseAberta = ctx.tipo === 'dia' ? ctx.dia.fase : ctx.tipo === 'folga' ? ctx.prox.fase : 'f5';
   let html = (D.cronograma.doc ? '<p class="pequeno"><a href="' + esc(D.cronograma.doc) + '" target="_blank" rel="noopener">Abrir o Plano de Estudos completo (doc) ↗</a></p>' : '') +
+    cartaoPlanoEncolhe() +
     '<div class="secao"><div class="secao-cab"><h2>Cronograma diário</h2><span class="mudo pequeno">' + DIAS.filter((d) => S.perfil.feitos[d.data]).length + ' de ' + DIAS.length + ' sessões feitas</span></div>';
   for (const f of D.cronograma.fases) {
     const dias = DIAS.filter((d) => d.fase === f.id), feitos = dias.filter((d) => S.perfil.feitos[d.data]).length, aberto = UI.faseAberta === f.id;
@@ -388,18 +410,18 @@ function metricasDegrau(degNum) {
 function cartaoFaseANPD() {
   const c = cadState();
   const f = c.fase || 'f2';
-  let html = '<div class="cartao anpd-banner-fase"><div class="secao-cab"><h2>Fase e Ciclo do Método ANPD</h2>' +
+  let html = '<div class="cartao anpd-banner-fase"><div class="secao-cab"><h2>Etapa e ciclo do método do mentor</h2>' +
     '<div class="chips"><button class="linkish pequeno" data-acao="mais" data-sub="raiox">Ver Raio-X</button>' +
     '<button class="linkish pequeno" data-acao="mais" data-sub="edital">Ver Edital Verticalizado</button></div></div>' +
-    '<div class="chips" role="group" aria-label="Fase de preparação">' +
-    [['f1', 'Fase 1 · Base ANPD + Tronco TCU'], ['f2', 'Fase 2 · Ciclo 25h e 6 Degraus'], ['f3', 'Fase 3 · Reta Final Pós-Edital']].map(([id, rot]) => '<button class="chip" data-acao="anpd-set-fase" data-fase="' + id + '" aria-pressed="' + (f === id) + '">' + rot + '</button>').join('') +
+    '<div class="chips" role="group" aria-label="Etapa do método">' +
+    [['f1', 'Etapa 1 · Base ANPD + Tronco TCU'], ['f2', 'Etapa 2 · Ciclo e 6 Degraus'], ['f3', 'Etapa 3 · Reta final pós-edital']].map(([id, rot]) => '<button class="chip" data-acao="anpd-set-fase" data-fase="' + id + '" aria-pressed="' + (f === id) + '">' + rot + '</button>').join('') +
     '</div>';
   if (f === 'f1') {
-    html += '<p class="pequeno mudo">Pré-edital com foco em construção de base: <b>18 a 25 horas semanais</b> divididas entre o Núcleo Duro da ANPD (LGPD, 7 Resoluções, ECA Digital e Regulação) e o <b>Tronco Comum</b> compartilhado com o TCU (Constitucional, Administrativo, Gestão, Economia e Português), trazido do Painel TCU com 1 clique (Ajustes), quando os dois estão abertos no mesmo navegador.</p>';
+    html += '<p class="pequeno mudo">Pré-edital, construção de base: o seu plano tem <b>{horasPre} por semana</b> (1 h nos dias úteis e um bloco longo no sábado), e é ele que o roteiro do dia segue; o mentor sugere 18 a 25 h para quem tem esse tempo. As horas se dividem entre o Núcleo Duro da ANPD (LGPD, Resoluções, ECA Digital e Regulação) e o <b>Tronco Comum</b> com o TCU (Constitucional, Administrativo, Gestão, Economia e Português), cujo progresso vem do Painel TCU pelo arquivo de backup dele (Ajustes).</p>';
   } else if (f === 'f2') {
-    html += '<p class="pequeno mudo">Fase de tração e fechamento de lacunas: <b>25 horas por semana</b> organizadas no ciclo rotativo com foco na subida dos <b>6 Degraus de Prioridade</b>. Só avance para o próximo degrau quando atingir a nota líquida de saída (≥ +0,60).</p>';
+    html += '<p class="pequeno mudo">Tração e fechamento de lacunas: as horas do seu plano (<b>{horasPre} por semana</b>) no ciclo rotativo, nas proporções do ciclo de 25 h do mentor, com foco na subida dos <b>6 Degraus de Prioridade</b>. Só avance para o próximo degrau quando atingir a nota líquida de saída (≥ +0,60).</p>';
   } else {
-    html += '<p class="pequeno mudo">Pós-edital anunciado ou publicado: <b>35 a 40 horas semanais</b> com foco em velocidade de resolução de itens Cebraspe (450+ questões/semana), simulados de 120 itens todo sábado e baterias dos itens que você errou.</p>';
+    html += '<p class="pequeno mudo">Pós-edital: o seu plano tem <b>{horasPos} por semana</b> e cerca de {itensPos} itens; o mentor sugere 35 a 40 h e 450+ questões para quem puder ampliar. O foco é velocidade de resolução de itens Cebraspe, simulados de 120 itens todo sábado e baterias dos itens que você errou.</p>';
   }
   html += '</div>';
   return html;
@@ -440,9 +462,9 @@ function renderMetodo() {
     }).join('') + '</div>';
 
   // O ciclo do mentor é de 25 h; aqui ele vai para as horas que a pessoa de fato estudou por semana, nas mesmas proporções
-  const hs = horasSemana(), H = hs ? Math.max(1, Math.round(hs * 2) / 2) : 25;
-  html += '<div class="cartao"><div class="secao-cab"><h2>3. Ciclo semanal (Fase 2)</h2><span class="selo mono">Soma = ' + fmtDur(H * 3600) + '</span></div>' +
-    '<p class="pequeno mudo">' + (hs ? 'Nas suas horas reais: ' + fmtDur(hs * 3600) + ' por semana na média das duas últimas semanas (o cronômetro do dia). As proporções são as do ciclo de 25 h do mentor; nenhuma disciplina fica abandonada.' : 'Ciclo de referência de 25 h. Depois de 5 dias de estudo nas duas últimas semanas, as horas passam a seguir o seu tempo real, nas mesmas proporções. Nenhuma disciplina fica abandonada.') + '</p>' +
+  const hs = horasSemana(), hp = planoPorSemana(null, D.cronograma.edital).h, H = Math.max(1, Math.round((hs || hp || 25) * 2) / 2);
+  html += '<div class="cartao"><div class="secao-cab"><h2>3. Ciclo semanal (Etapa 2)</h2><span class="selo mono">Soma = ' + fmtDur(H * 3600) + '</span></div>' +
+    '<p class="pequeno mudo">' + (hs ? 'Nas suas horas reais: ' + fmtDur(hs * 3600) + ' por semana na média das duas últimas semanas (o cronômetro do dia). As proporções são as do ciclo de 25 h do mentor; nenhuma disciplina fica abandonada.' : 'Nas horas do seu plano (' + fmtDur(H * 3600) + ' por semana), nas proporções do ciclo de 25 h do mentor. Depois de 5 dias de estudo nas duas últimas semanas, as horas passam a seguir o seu tempo real. Nenhuma disciplina fica abandonada.') + '</p>' +
     '<div class="tabela-env"><table class="tabela"><thead><tr><th>Bloco do ciclo</th><th>Horas</th><th>%</th><th>Ação rápida</th></tr></thead><tbody>' +
     mt.ciclo25h.map((c) => {
       const pct = Math.round((c.horas / 25) * 100);
@@ -465,9 +487,10 @@ function renderMetodo() {
     mt.materiaisPorDisciplina.map((m) => '<tr><td><b>' + esc(m.mat) + '</b></td><td class="pequeno">' + esc(m.primarias) + '</td><td class="pequeno">' + esc(m.livro) + '</td><td class="pequeno mudo">' + esc(m.obs) + '</td></tr>').join('') +
     '</tbody></table></div></div>';
 
-  html += '<div class="cartao"><div class="secao-cab"><h2>6. Reta Final Pós-Edital (16 Semanas)</h2><span class="selo p1">35–40h/sem · 450+ questões/sem</span></div>' +
+  html += '<div class="cartao"><div class="secao-cab"><h2>6. Reta final pós-edital ({semanasPos} semanas)</h2><span class="selo p1">Seu plano: {horasPos}/sem · ~{itensPos} itens/sem</span></div>' +
     '<div class="tabela-env"><table class="tabela"><thead><tr><th>Período</th><th>Foco principal</th></tr></thead><tbody>' +
-    (mt.retaFinal16Semanas || []).map((r) => '<tr><td><b>' + esc(r.semanas) + '</b></td><td>' + esc(r.foco) + '</td></tr>').join('') +
+    // Os quatro trechos repartem as semanas que de fato há entre o edital e a prova (a data de Ajustes, se informada)
+    (() => { const rf = mt.retaFinal16Semanas || [], n = Math.max(rf.length, Math.round((diaNum(dataProva()) - diaNum(D.cronograma.edital)) / 7)); return rf.map((r, i) => { const a = Math.round((n * i) / rf.length) + 1, b = Math.round((n * (i + 1)) / rf.length); return '<tr><td><b>' + (a === b ? 'Semana ' + a : 'Semanas ' + a + ' a ' + b) + (i === rf.length - 1 ? ' (véspera)' : '') + '</b></td><td>' + esc(r.foco) + '</td></tr>'; }).join(''); })() +
     '</tbody></table></div></div>';
 
   const ms = metricasSemanaMentor();
@@ -485,7 +508,7 @@ function renderMetodo() {
     (mt.checklistSemanal || []).map((item, i) => {
       let dicaAuto = '';
       if (i === 0) dicaAuto = ms.revisaoTotal === 0 ? '<span class="selo ok pequeno" style="margin-left:6px">✓ Zerado hoje</span>' : '<span class="selo p2 pequeno" style="margin-left:6px">' + ms.revisaoTotal + ' pendentes</span>';
-      else if (i === 1) dicaAuto = '<span class="selo mono pequeno" style="margin-left:6px">' + ms.r + '/200 itens · ' + (ms.total > 0 ? (ms.liq >= 0 ? '+' : '') + Math.round(ms.liq * 100) + '% líq' : '0%') + '</span>';
+      else if (i === 1) dicaAuto = '<span class="selo mono pequeno" style="margin-left:6px">' + ms.r + '/' + itensPlanoSemana() + ' itens · ' + (ms.total > 0 ? (ms.liq >= 0 ? '+' : '') + Math.round(ms.liq * 100) + '% líq' : '0%') + '</span>';
       else if (i === 3) dicaAuto = ms.errosPendentes === 0 ? '<span class="selo ok pequeno" style="margin-left:6px">✓ Todos recuperados</span>' : '<span class="selo p2 pequeno" style="margin-left:6px">' + ms.errosPendentes + ' por recuperar</span>';
       else if (i === 5) dicaAuto = ms.discSem ? '<span class="selo ok pequeno" style="margin-left:6px">✓ Feito na semana</span>' : '<span class="selo mono pequeno" style="margin-left:6px">Pendente para sábado</span>';
       return '<label class="pesq-linha' + (chk[i] ? ' feito' : '') + '"><input type="checkbox" data-acao="anpd-check-sem" data-i="' + i + '"' + (chk[i] ? ' checked' : '') + '><div class="tx"><b>' + esc(item.texto || item) + '</b> ' + dicaAuto + '</div></label>';
@@ -557,7 +580,7 @@ function renderEditalANPD() {
 
   const topicos = ed.topicos || [];
   html += '<div class="cartao"><div class="campo"><span class="rot">Filtrar por prioridade</span><div class="chips">' +
-    [['todas', 'Todas (' + topicos.length + ' tópicos)'], ['A', 'Prioridade A (~70% da prova)'], ['B', 'Prioridade B (~20%)'], ['C', 'Prioridade C (~10%)']].map(([v, t]) => '<button class="chip" data-acao="ed-prio" data-v="' + v + '" aria-pressed="' + (fPrio === v) + '">' + t + '</button>').join('') +
+    [['todas', 'Todas (' + topicos.length + ')'], ...['A', 'B', 'C'].map((v) => [v, 'Prioridade ' + v + ' (' + topicos.filter((t) => t.prio === v).length + ')'])].map(([v, t]) => '<button class="chip" data-acao="ed-prio" data-v="' + v + '" aria-pressed="' + (fPrio === v) + '">' + t + '</button>').join('') +
     '</div></div>' +
     '<input class="busca" id="busca-edital" type="search" placeholder="Filtrar tópico, norma ou conceito no edital (ex.: legítimo interesse, encarregado, AIR, NIST, DPO)" value="' + esc(UI.edBusca || '') + '"></div>';
 
@@ -570,7 +593,7 @@ function renderEditalANPD() {
   }
 
   for (const [matNome, info] of porMat.entries()) {
-    html += '<div class="cartao"><div class="secao-cab"><h2>' + esc(matNome) + '</h2><span class="selo mono">' + esc(info.grupo) + ' · ' + info.topicos.length + ' tópicos</span></div><div>' +
+    html += '<div class="cartao"><div class="secao-cab"><h2>' + esc(matNome) + '</h2><span class="selo mono">' + esc(info.grupo) + ' · ' + pl(info.topicos.length, 'tópico', 'tópicos') + '</span></div><div>' +
       info.topicos.map((t) => {
         const nQ = (POR_BLOCO.get(t.bloco) || []).length;
         return '<div class="anpd-topico-linha"><div><div><span class="selo ' + (t.prio === 'A' ? 'p1' : t.prio === 'B' ? 'p2' : '') + '">Prio ' + esc(t.prio) + '</span> ' +

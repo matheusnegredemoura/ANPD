@@ -371,7 +371,7 @@ async function executar(a, alvo) {
       Store.salvarTudo(); renderTudo(); avisar('0', 'Progresso zerado', 'Status dos blocos, metas e preferências foram mantidos.');
       break;
     case 'copiar-erros': if (await copiarTexto(JSON.stringify(ERROS, null, 1))) avisar('✓', 'Erros copiados', 'Cole na conversa com o Claude.'); break;
-    case 'sync-tcu': sincronizarDoTCU(); break;
+    case 'sync-tcu': sincronizarDoTCU(undefined); break;
     default: break;
   }
 }
@@ -421,6 +421,12 @@ document.addEventListener('change', (ev) => {
     if (!f) return;
     const leitor = new FileReader();
     leitor.onload = () => restaurar(String(leitor.result));
+    leitor.readAsText(f);
+  } else if (a === 'tcu-arquivo') {
+    const f = alvo.files && alvo.files[0];
+    if (!f) return;
+    const leitor = new FileReader();
+    leitor.onload = () => { let o = null; try { o = JSON.parse(String(leitor.result)); } catch (e) { /* arquivo inválido */ } sincronizarDoTCU(o); };
     leitor.readAsText(f);
   }
 });

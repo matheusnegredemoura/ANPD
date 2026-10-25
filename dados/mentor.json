@@ -1,16 +1,20 @@
 {
  "nota": "Método do mentor, raio-x do concurso e edital projetado. Vieram da versão 4.6 enviada pelo usuário e foram conferidos onde havia fonte no painel (Lei 15.352/2026, Decreto 12.881/2026, edital da Anatel 2024); o resto é projeção até o edital da ANPD sair.",
  "raiox": {
-  "atualizadoEm": "Outubro de 2026",
+  "atualizadoEm": "25 de outubro de 2026",
   "veredito": [
-   "O primeiro concurso efetivo para Especialista em Regulação de Proteção de Dados da ANPD (carreira criada pela Lei nº 15.352/2026 e estruturada pelo Decreto nº 12.881/2026) é a oportunidade mais assimétrica das carreiras de regulação federal: ~35% a 45% dos pontos da prova objetiva e 100% da discursiva concentram-se em LGPD, Resoluções da ANPD, ECA Digital, Regulação e Segurança da Informação.",
+   "O primeiro concurso efetivo para Especialista em Regulação de Proteção de Dados da ANPD (carreira criada pela Lei nº 15.352/2026 e estruturada pelo Decreto nº 12.881/2026) é a oportunidade mais assimétrica das carreiras de regulação federal: cerca de {peso:lgpd+eca+regulacao+seginfo} dos pontos da prova objetiva (pelos pesos deste painel) e 100% da discursiva concentram-se em LGPD, Resoluções da ANPD, ECA Digital, Regulação e Segurança da Informação.",
    "Enquanto nos concursos tradicionais de agências (Anatel, ANAC, ANEEL) o candidato disputa contra veteranos de engenharia ou economia, na ANPD o núcleo específico inclui normas recentíssimas (Resoluções 15, 18, 19 e 32; ECA Digital Lei 15.211/2025 e Decreto 12.880/2026) nas quais quem domina a letra da lei e os Guias Orientativos sai anos à frente.",
-   "As matérias do tronco comum (Constitucional, Administrativo, Lei 9.784, LAI, Línguas, Gestão e Dados, Economia e Estatística, AFO e Contabilidade) valem para os dois concursos: em Ajustes, o progresso feito no Painel TCU vem para cá com 1 clique, quando os dois painéis estão abertos no mesmo navegador."
+   "As matérias do tronco comum (Constitucional, Administrativo, Lei 9.784, LAI, Línguas, Gestão e Dados, Economia e Estatística, AFO e Contabilidade) valem para os dois concursos: em Ajustes, o progresso feito no Painel TCU vem para cá pelo arquivo de backup do outro painel (no claude.ai cada painel guarda o progresso só para si)."
   ],
   "situacao": [
    {
     "item": "Órgão e Natureza",
     "valor": "ANPD — Autarquia de natureza especial vinculada ao MJSP (Lei 13.709/2018 e Decreto 12.881/2026)"
+   },
+   {
+    "item": "Estrutura organizacional",
+    "valor": "Desde 8/4/2026: Decreto nº 12.881/2026 (estrutura regimental, no painel) e Resolução CD/ANPD nº 33, de 6/4/2026, que redistribui os cargos e funções comissionadas (quadro de cargos, não anexado ao painel). O Regimento de 2021 (Portaria 1/2021) ficou para trás nesse ponto."
    },
    {
     "item": "Carreira e Cargo",
@@ -21,22 +25,26 @@
     "valor": "Autoridade administrativa autônoma de proteção de dados e autoridade nacional do ECA Digital (Lei 15.211/2025 e Dec. 12.622/2025)"
    },
    {
+    "item": "Autorização",
+    "valor": "Portaria MGI nº 5.092, de 22/6/2026 (DOU de 24/6/2026): 50 vagas de Especialista em Regulação de Proteção de Dados (31 de ampla concorrência, 13 para pessoas negras, 3 para pessoas com deficiência, 2 para indígenas e 1 para quilombolas). Edital em até seis meses; prova no mínimo dois meses depois do edital."
+   },
+   {
     "item": "Banca de referência (projeção)",
-    "valor": "Cebraspe, banca das últimas agências (Anatel 2024, ANAC 2024) e do TCU 2026: 120 itens certo ou errado e discursiva. A banca da ANPD ainda não foi anunciada."
+    "valor": "Cebraspe, banca das últimas agências (Anatel 2024, ANAC 2024) e do TCU 2026: 120 itens certo ou errado e discursiva. A banca da ANPD ainda não foi definida: a equipe para contratá-la foi formada em julho de 2026, e até 25/10/2026 nenhuma banca tinha sido anunciada."
    },
    {
     "item": "Estrutura projetada",
-    "valor": "50 itens básicos + 70 específicos, 1 ponto cada (como na Anatel 2024) = 120 pontos, mais a discursiva (parecer ou estudo de caso)"
+    "valor": "{itensB} itens básicos + {itensE} específicos; {regraPesos} = {pontos} pontos, mais a discursiva (parecer ou estudo de caso)"
    },
    {
     "item": "Sinergia Tronco Comum",
-    "valor": "Progresso do tronco comum trazido do Painel TCU com 1 clique (Ajustes), com os dois painéis no mesmo navegador"
+    "valor": "Progresso do tronco comum trazido do Painel TCU pelo arquivo de backup dele (Ajustes)"
    }
   ],
   "sinais": [
-   "1º Sinal: Portaria autorizativa do MGI para provimento efetivo dos cargos criados pela Lei nº 15.352/2026.",
-   "2º Sinal: Formação da comissão organizadora na ANPD e publicação do termo de referência da banca (foco Cebraspe).",
-   "3º Sinal: Publicação do edital (prazo de 60 a 90 dias até a prova objetiva e discursiva)."
+   "1º Sinal: banca contratada (extrato do contrato no DOU). Até lá, a estrutura da prova é projeção.",
+   "2º Sinal: edital publicado. Pelo prazo da portaria (seis meses), sai até dezembro de 2026; a ANPD declarou que quer publicá-lo antes de dezembro. Prova no mínimo dois meses depois: informe a data em Mais → Ajustes, e o plano mostra o que encolhe.",
+   "3º Sinal: áreas de atuação. Em agosto de 2026 a ANPD informou que as áreas de atuação da carreira ainda estão em estudo; se o edital separar vagas por formação (Direito, TI, Economia), o conteúdo específico muda e a projeção generalista no padrão da Anatel 2024 deixa de valer."
   ],
   "remuneracao": [
    {
@@ -125,13 +133,13 @@
     "id": "horas",
     "metrica": "Horas líquidas de estudo ativo",
     "como": "Relógio automático do painel (só conta questão, card, leitura e discursiva)",
-    "meta": "18 a 25h/sem no pré-edital; 35h/sem no pós-edital"
+    "meta": "{horasPre}/sem até o edital e {horasPos}/sem depois (as do seu plano)"
    },
    {
     "id": "questoes",
     "metrica": "Questões resolvidas por semana",
     "como": "Tudo o que você responde na semana: revisões, questões do tema, prática, intercaladas e baterias",
-    "meta": "200/sem no pré-edital (o roteiro de 1h por dia útil, com as revisões, chega perto disso); 450+/sem no pós-edital"
+    "meta": "~{itensPre}/sem até o edital e ~{itensPos}/sem depois (a cota do seu plano)"
    },
    {
     "id": "liquida",
@@ -165,7 +173,7 @@
     "discs": [
      "lgpd"
     ],
-    "motivo": "Sozinha responde por ~38% dos pontos da prova objetiva e é a base de toda questão discursiva.",
+    "motivo": "Sozinha responde por ~{peso:lgpd} dos pontos da prova objetiva e é a base de toda questão discursiva.",
     "saida": "≥ 100 itens vistos e nota líquida ≥ +0,65"
    },
    {
@@ -291,7 +299,7 @@
    {
     "tipo": "Tronco Comum (Direito, Gestão, Economia e Línguas)",
     "materias": "Constitucional, Administrativo, Lei 9.784, LAI, Gestão, Economia, Português e Inglês",
-    "como": "Sessão diária de Intercaladas + sincronização bidirecional com o Painel TCU para aproveitar cada bateria.",
+    "como": "Sessão diária de Intercaladas + progresso do Painel TCU trazido pelo arquivo de backup dele, para aproveitar cada bateria.",
     "erro": "Gastar 60% da semana nas matérias básicas, quando as específicas são 70 dos 120 itens."
    },
    {
@@ -352,19 +360,15 @@
   ],
   "retaFinal16Semanas": [
    {
-    "semanas": "Semanas 1 a 4",
     "foco": "Fechar 100% da leitura grifada da LGPD, das 7 Resoluções da ANPD, dos Guias Orientativos e do ECA Digital; zerar os Degraus 1, 2 e 3."
    },
    {
-    "semanas": "Semanas 5 a 8",
-    "foco": "Subir os Degraus 4, 5 e 6; manter 300+ questões/semana e 1 parecer técnico discursivo por sábado."
+    "foco": "Subir os Degraus 4, 5 e 6; manter a cota de itens do plano e 1 parecer técnico discursivo por sábado."
    },
    {
-    "semanas": "Semanas 9 a 12",
     "foco": "Baterias dos itens que você errou (Questões › Só as que já errei) + Simulados de 120 itens a cada fim de semana calibrando o chute Cebraspe."
    },
    {
-    "semanas": "Semanas 13 a 16 (Véspera)",
     "foco": "Revisão final de prazos, percentuais e competências nos Cards Cloze, leitura dos dispositivos mais cobrados (3 estrelas) e 2 esqueletos discursivos na ponta da língua."
    }
   ],
@@ -375,7 +379,7 @@
    },
    {
     "id": "ck2",
-    "texto": "Cumpri a cota semanal de questões (≥ 200 itens) mantendo nota líquida ≥ +0,60"
+    "texto": "Cumpri a cota semanal de questões do plano ({itensSemana} itens nesta semana) mantendo nota líquida ≥ +0,60"
    },
    {
     "id": "ck3",

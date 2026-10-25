@@ -198,7 +198,7 @@ function renderSubtema(id) {
   }
   html += '<div class="cartao aula" id="aula-' + esc(id) + '"><h2>Aula</h2>' + (arts.length ? '' : htmlPalavras(st)) + legendaCamadas(true) +
     (arts.length ? '<p class="pequeno mudo">Toque numa citação sublinhada (“art. 3º”) para ler o artigo ali mesmo.</p>' : '') + htmlAula(st) +
-    (e.n ? '<div class="linha-btns fim-aula"><button class="btn primario" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pratica">Fixar com questões · ' + Math.min(20, e.n) + ' itens</button></div>' : '') + '</div>';
+    (e.n ? '<div class="linha-btns fim-aula"><button class="btn primario" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pratica">Fixar com questões · ' + pl(Math.min(20, e.n), 'item', 'itens') + '</button></div>' : '') + '</div>';
   html += '<div class="cartao"><h2>Pontos-chave</h2><ul class="lista-chave">' + st.chave.map((c) => '<li>' + grifarProsa(c) + '</li>').join('') + '</ul></div>';
   html += '<div class="cartao"><h2>Como o Cebraspe tenta te derrubar</h2><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul></div>';
   const reais = (POR_TEMA.get(id) || []).filter((q) => q.o).length;

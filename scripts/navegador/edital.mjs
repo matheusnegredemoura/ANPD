@@ -36,7 +36,7 @@ await passo('ciclo do mentor nas horas reais', async () => {
   await p.click('.aba[data-vista="mais"]');
   await p.click('#vista-mais [data-acao="mais"][data-sub="metodo"]');
   const t = (await p.textContent('#vista-mais')).replace(/\s+/g, ' ');
-  conferir('soma do ciclo = 5h', /Ciclo semanal \(Fase 2\) ?Soma = 5h00/.test(t), t.match(/Ciclo semanal[^.]{0,80}/)?.[0]);
+  conferir('soma do ciclo = 5h', /Ciclo semanal \(Etapa 2\) ?Soma = 5h00/.test(t), t.match(/Ciclo semanal[^.]{0,80}/)?.[0]);
   conferir('explica a média das duas semanas', /5h00 por semana na média das duas últimas semanas/.test(t));
 });
 
@@ -49,7 +49,7 @@ await passo('edital salvo: contagem, simulado e régua seguem o edital', async (
   await p.click('[data-acao="edital-salvar"]');
   conferir('disciplina nas duas partes recusada', /Gestão pública[^.]* está nas duas partes/.test(await p.textContent('#ed-msg')));
   await p.fill('.ed-n[data-parte="b"][data-d="gestao"]', '');
-  await p.fill('#ed-prova', isoMais(10));
+  await p.fill('#ed-prova', isoMais(6));
   await p.fill('#ed-c1', '5');
   await p.fill('#ed-c2', '12');
   await p.fill('#ed-ct', '25');
@@ -58,10 +58,10 @@ await passo('edital salvo: contagem, simulado e régua seguem o edital', async (
   const msg = await p.textContent('#ed-msg');
   conferir('salvo com a nova soma', /Edital salvo: prova de 129 itens e 129 pontos/.test(msg), msg);
   const ed = await p.evaluate(() => JSON.parse(localStorage.getItem('painel-anpd-v3')).perfil.edital);
-  conferir('gravado no perfil', ed && ed.basica.linguas === 30 && ed.cortes.p2 === 12 && ed.prova === isoMais(10), JSON.stringify(ed));
+  conferir('gravado no perfil', ed && ed.basica.linguas === 30 && ed.cortes.p2 === 12 && ed.prova === isoMais(6), JSON.stringify(ed));
   await p.click('.aba[data-vista="hoje"]');
   const h = (await p.textContent('#vista-hoje')).replace(/\s+/g, ' ');
-  conferir('contagem com a data do edital', /10 ?dias até a prova, \d\d\/\d\d\/\d{4}\./.test(h), h.match(/.{4}dias até a prova[^.]*/)?.[0]);
+  conferir('contagem com a data do edital', /6 ?dias até a prova, \d\d\/\d\d\/\d{4}\./.test(h), h.match(/.{4}dias até a prova[^.]*/)?.[0]);
   await p.click('[data-acao="abrir-modo"][data-modo="simulado"]');
   const s = (await p.textContent('#vista-questoes')).replace(/\s+/g, ' ');
   conferir('simulado da prova inteira com 129 itens e a régua nova', /129 itens · 3h46/.test(s) && /nota mínima de 5 na P1, 12 na P2 e 25 no conjunto/.test(s), s.match(/Simulado no formato.{0,300}/)?.[0]);
@@ -77,7 +77,7 @@ await passo('revisão não vence depois da prova', async () => {
   else await p.click('.bolha.' + gab.get(id).toLowerCase());
   await p.waitForTimeout(300);
   const r = await p.evaluate((id) => JSON.parse(localStorage.getItem('painel-anpd-v3')).itens[id], id);
-  conferir('acerto de primeira vence 2 dias antes da prova (8 dias), não em 16', r && r[0] === 4 && r[1] - hojeNum() === 8, JSON.stringify(r));
+  conferir('acerto de primeira (nível 3, 7 dias) vence 2 dias antes da prova (4 dias)', r && r[0] === 3 && r[1] - hojeNum() === 4, JSON.stringify(r));
   await p.click('[data-acao="sair-sessao"]');
   if (await p.locator('[data-acao="confirmar-saida"]').count()) await p.click('[data-acao="confirmar-saida"]');
 });

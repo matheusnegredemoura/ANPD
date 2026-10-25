@@ -208,7 +208,7 @@ p{margin:0}
 
 .item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:14px}
 .item-cab{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
-.item-cab .selo{white-space:normal;max-width:100%}
+.item-cab .selo,.secao-cab .selo{white-space:normal;max-width:100%}
 .pausa-linha{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;padding-block:10px;border-top:1px solid var(--line)}
 .pausa-txt{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 220px}
 .inv-conversa{display:flex;flex-direction:column;gap:8px;margin-block:12px}
@@ -224,7 +224,9 @@ p{margin:0}
 details.apoio-det summary{cursor:pointer;font-weight:700;color:var(--accent);font-size:.88rem}
 details.apoio-det[open] summary{margin-bottom:8px}
 
-.respostas{display:flex;gap:12px}
+.respostas{display:flex;gap:12px;flex-wrap:wrap}
+/* No celular, "Em branco" desce para uma linha própria: ao lado de CERTO e ERRADO a linha passava da tela */
+@media (max-width:480px){.respostas .bolha.b{flex:1 1 100%;min-height:44px}}
 .bolha{flex:1;appearance:none;border:2px solid var(--ink-2);background:var(--surface);border-radius:999px;min-height:56px;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;font-weight:700;font-size:.98rem;letter-spacing:.03em;color:var(--ink);transition:background .15s,border-color .15s,transform .1s}
 .bolha .oval{width:26px;height:18px;border-radius:50%;border:2px solid currentColor;display:grid;place-items:center;font-family:var(--f-mono);font-size:.72rem}
 .bolha.c.marcada{border-color:var(--certo);color:var(--certo)}

@@ -77,6 +77,11 @@ test('pacote compactado volta igual ao original no app', async () => {
   assert.deepEqual(pacote, JSON.parse(JSON.stringify(d)));
 });
 
+// Um erro de sintaxe em qualquer parte de src/js derruba o painel inteiro; o build não roda o JS e não percebe
+test('JS do app compila', () => {
+  assert.doesNotThrow(() => new Function(jsDoApp(new URL('..', import.meta.url).pathname)));
+});
+
 test('plano do zero: subtemas existem, seguem a ordem da trilha e trazem os blocos dos próprios itens', () => {
   const d = montarDados();
   const dias = d.cronograma.fases.flatMap((f) => f.semanas.flatMap((s) => s.dias)).filter((x) => x.st);

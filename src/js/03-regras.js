@@ -5,7 +5,14 @@ const SEM_REPETICAO = new Set(Q.filter((q) => q.ap != null && (BI.get(q.b) || {}
 function rec(id) { return S.itens[id]; }
 function emRevisao(id) { const r = rec(id); return !!r && r[0] >= 0 && r[0] < 3 && !SEM_REPETICAO.has(id); }
 function vencida(id) { const r = rec(id); return emRevisao(id) && r[1] <= HOJE(); }
-function dominioItem(id) { const r = rec(id); return !r || r[0] < 0 ? 0 : Math.min(r[0], 5) / 5; }
+// Item dominado parado há mais que o dobro do intervalo programado (o teto diário de manutenção atrasa a volta) conta
+// como nível 2 até ser revisto: o domínio não mostra como sabido o que não se confere há semanas
+function dominioItem(id) {
+  const r = rec(id);
+  if (!r || r[0] < 0) return 0;
+  const parado = r[0] >= 3 && HOJE() - r[4] > 2 * Math.max(1, r[1] - r[4]);
+  return (parado ? 2 : Math.min(r[0], 5)) / 5;
+}
 function dominioBloco(bid) {
   const qs = POR_BLOCO.get(bid) || [];
   if (!qs.length) return null;
@@ -106,6 +113,25 @@ function metaArtigos() { const r = ritmo(); return r && r.a ? limitar(r.a, 6, 12
 function fmtDur(seg) { const m = Math.floor((seg || 0) / 60); return m < 60 ? m + ' min' : Math.floor(m / 60) + 'h' + String(m % 60).padStart(2, '0'); }
 // Duração prevista no plano para o dia ("1h45", "3h"); dia livre ou fora do plano não tem meta de tempo
 function metaMin(iso) { const dia = DIAS.find((x) => x.data === iso); const m = dia && /^(\d+)h(\d+)?$/.exec(dia.duracao || ''); return m ? Number(m[1]) * 60 + Number(m[2] || 0) : null; }
+// Meta mais comum do plano na semana do dia (a dos dias úteis): o sábado de bloco longo (3h) não é a meta de todo dia
+function metaComum(iso) {
+  const n = diaNum(iso), conta = {};
+  for (let x = n - 6; x <= n + 6; x++) { const m = metaMin(isoDeNum(x)); if (m) conta[m] = (conta[m] || 0) + 1; }
+  const [m] = Object.entries(conta).sort((p, q) => q[1] - p[1] || p[0] - q[0])[0] || [];
+  return m ? Number(m) : null;
+}
+// Média por semana do plano num trecho (de exclusivo, até inclusivo): horas pela duração de cada dia e itens pela cota
+function planoPorSemana(de, ate) {
+  const ds = DIAS.filter((d) => (!de || d.data > de) && (!ate || d.data <= ate));
+  const semanas = new Set(ds.map((d) => diaNum(d.data) - ((diaSemana(d.data) + 6) % 7))).size;
+  if (!semanas) return { h: 0, n: 0 };
+  return { h: ds.reduce((a, d) => a + (metaMin(d.data) || 0), 0) / 60 / semanas, n: ds.reduce((a, d) => a + (d.n || 0), 0) / semanas };
+}
+// Cota de itens do plano na semana atual (de segunda a domingo); fora do plano, a média dele
+function itensPlanoSemana() {
+  const ini = diaNum(semanaAtual()), n = DIAS.filter((d) => diaNum(d.data) >= ini && diaNum(d.data) < ini + 7).reduce((a, d) => a + (d.n || 0), 0);
+  return n || Math.round(planoPorSemana(null, null).n);
+}
 function marcarUso() { ultimoUso = Date.now(); }
 function ocioso(k, agora) { return agora - ultimoUso > (k === 'l' ? OCIOSO_LER_S : OCIOSO_S) * 1000; }
 function fmtRelogio(seg) { const s = Math.floor(seg), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60); return (h ? h + ':' + String(m).padStart(2, '0') : m) + ':' + String(s % 60).padStart(2, '0'); }
@@ -171,7 +197,7 @@ function cartaoTempo() {
   const semDias = sem.filter(([, x]) => segundosEstudo(x) >= 600).length;
   const semMetas = sem.filter(([iso]) => metaMin(iso)), semOk = semMetas.filter(([iso, x]) => segundosEstudo(x) >= metaMin(iso) * 60).length;
   const met = (v, rot) => '<div><b class="mono">' + v + '</b><span>' + rot + '</span></div>';
-  return '<div class="cartao"><div class="secao-cab"><h2>Tempo de estudo</h2><span class="mono pequeno mudo">' + (meta ? 'meta do plano ' + fmtDur(meta * 60) : 'dia sem meta no plano') + '</span></div>' +
+  return '<div class="cartao"><div class="secao-cab"><h2>Tempo de estudo</h2><span class="mono pequeno mudo">' + (meta ? 'meta do plano ' + fmtDur(meta * 60) + (metaComum(h) && meta > metaComum(h) ? ' (dia longo; nos outros, ' + fmtDur(metaComum(h) * 60) + ')' : '') : 'dia sem meta no plano') + '</span></div>' +
     '<div class="tempo-topo"><span class="tempo-grande mono" id="tempo-hoje">' + fmtDur(seg) + '</span><span class="mudo">' + (meta ? (seg >= meta * 60 ? 'meta cumprida' : 'faltam ' + fmtDur(meta * 60 - seg)) : 'hoje') + '</span></div>' +
     (meta ? '<div class="barra" id="tempo-barra"><i style="width:' + Math.min(100, Math.round((seg / 60 / meta) * 100)) + '%"></i></div>' : '') +
     '<p class="pequeno mudo">Últimos 7 dias: <b>' + fmtDur(semSeg) + '</b> em ' + pl(semDias, 'dia', 'dias') + (semMetas.length ? ' · meta cumprida em ' + semOk + ' de ' + semMetas.length : '') + '.</p>' +
@@ -298,7 +324,10 @@ function registrar(q, resp, duvida) {
     if (antes < 0) r[7] = ok ? 1 : 0;
     if (ok) {
       r[2]++;
-      if (antes < 0) r[0] = duvida ? 2 : 4;
+      // Primeiro acerto seguro vai ao nível 3 (volta em 7 dias), não ao 4: no certo/errado, um acerto isolado pode ser
+      // chute, e 19% dos acertos de primeira erravam no retorno de 16 dias; na simulação até a prova, o nível 3 deixa
+      // mais itens sabidos no dia dela com o mesmo número de respostas
+      if (antes < 0) r[0] = duvida ? 2 : 3;
       else if (duvida) r[0] = Math.max(1, Math.min(antes, 2));
       else r[0] = jaRespondidoHoje ? Math.max(1, antes) : Math.min(5, antes + 1);
       if (duvida) r[5]++;
@@ -416,10 +445,11 @@ function verificarConquistas(ctx) {
   se(ativos >= 30, 'dias30'); se(ativos >= 100, 'dias100');
   se(metas >= 10, 'meta10');
   se(manut >= 50, 'memoria50'); se(roteiros >= 7, 'roteiro7'); se(seg >= 100 * 3600, 'horas100');
-  // XP por semana (de segunda a domingo) e a maior série de semanas seguidas com 5.000 XP ou mais
+  // XP por semana (de segunda a domingo) e a maior série de semanas seguidas com 2.500 XP ou mais: uma semana do plano
+  // cumprida (150 a 200 itens, com cards e roteiro) rende por volta disso
   let serie = 0, melhorSerie = 0;
   const sems = Object.keys(xpSem).sort();
-  if (sems.length) for (let n = diaNum(sems[0]); n <= HOJE(); n += 7) { serie = (xpSem[isoDeNum(n)] || 0) >= 5000 ? serie + 1 : 0; melhorSerie = Math.max(melhorSerie, serie); }
+  if (sems.length) for (let n = diaNum(sems[0]); n <= HOJE(); n += 7) { serie = (xpSem[isoDeNum(n)] || 0) >= 2500 ? serie + 1 : 0; melhorSerie = Math.max(melhorSerie, serie); }
   se(melhorSerie >= 4, 'semanas4'); se(melhorSerie >= 12, 'semanas12');
   se(S.simulados.length >= 1, 'sim1'); se(S.simulados.length >= 5, 'sim5');
   se(S.simulados.some((s) => s.n >= 30 && s.liq / s.n >= 0.7), 'sim70');
@@ -677,12 +707,10 @@ function selecionarReais(n) {
   const livres = embaralhar(REAIS.filter((q) => !q.al && inedito(q)));
   const porD = new Map();
   for (const q of livres) { const d = (BI.get(q.b) || {}).disciplina; if (!porD.has(d)) porD.set(d, []); porD.get(d).push(q); }
-  const base = Object.entries(PONTOS_DISC).map(([d, w]) => { const x = (n * w) / PONTOS_PROVA; return [d, Math.floor(x), x - Math.floor(x)]; });
-  let falta = n - base.reduce((a, b) => a + b[1], 0);
-  base.slice().sort((a, b) => b[2] - a[2]).forEach((b) => { if (falta > 0) { b[1]++; falta--; } });
   const out = [];
-  for (const [d, k] of base) out.push(...(porD.get(d) || []).slice(0, k));
-  if (out.length < n) out.push(...livres.filter((q) => !out.includes(q)).slice(0, n - out.length));
+  for (const [d, k] of Object.entries(repartir(n, Object.entries(PONTOS_DISC)))) out.push(...(porD.get(d) || []).slice(0, k));
+  const ja = new Set(out);
+  if (out.length < n) out.push(...livres.filter((q) => !ja.has(q)).slice(0, n - out.length));
   return embaralhar(out);
 }
 // Blocos já vistos no cronograma (dias anteriores a hoje), fora as básicas
