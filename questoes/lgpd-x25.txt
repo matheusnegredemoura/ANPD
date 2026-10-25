@@ -1,0 +1,157 @@
+// LGPD, lote X25: casos e itens sobre transferência internacional (arts. 33 a 35), segurança após o término do
+// tratamento (art. 47), sanções administrativas, critérios, faturamento, destino das multas, gradação e conciliação
+// (art. 52) e competência exclusiva da ANPD (art. 55-K). Conferidas com fontes/lgpd.txt.
+
+=== lx25-01
+bloco: lgpd-33-36
+gab: C
+tema: pd-transferencia
+ref: lgpd 33
+trecho: cláusulas-padrão contratuais
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa brasileira enviou dados de clientes a um fornecedor nos Estados Unidos, com base em cláusulas-padrão contratuais aprovadas pela ANPD. Assertiva: a transferência internacional é admitida, ainda que não haja decisão de adequação sobre aquele país.
+comentario: Certo. Art. 33, II, b: as cláusulas-padrão são uma das garantias que o controlador pode oferecer e comprovar. A decisão de adequação (inciso I) é outro mecanismo, independente deste.
+
+=== lx25-02
+bloco: lgpd-33-36
+gab: E
+tema: pd-transferencia
+ref: lgpd 34
+trecho: as normas gerais e setoriais da legislação em vigor no país de destino ou no organismo internacional
+armadilha: rol
+dif: 2
+enunciado: Na avaliação do nível de proteção de dados de um país estrangeiro, a ANPD considera exclusivamente a existência de lei geral de proteção de dados no país de destino.
+comentario: Errado. O art. 34 manda considerar normas gerais e setoriais, a natureza dos dados, a observância dos princípios e direitos, as medidas de segurança, as garantias judiciais e institucionais e outras circunstâncias da transferência.
+
+=== lx25-03
+bloco: lgpd-33-36
+gab: C
+tema: pd-transferencia
+ref: lgpd 35
+trecho: Os atos realizados por organismo de certificação poderão ser revistos pela autoridade nacional e, caso em desconformidade com esta Lei, submetidos a revisão ou anulados
+armadilha: conceito
+dif: 3
+enunciado: A ANPD pode designar organismos de certificação para verificar cláusulas, normas corporativas globais e selos usados em transferências internacionais, e os atos desses organismos podem ser revistos e até anulados por ela.
+comentario: Certo. Art. 35, §§ 3º e 4º. Os organismos permanecem sob fiscalização da ANPD, nos termos do regulamento.
+
+=== lx25-04
+bloco: lgpd-33-36
+gab: E
+tema: pd-transferencia
+ref: lgpd 35
+trecho: poderão ser requeridas informações suplementares ou realizadas diligências de verificação quanto às operações de tratamento, quando necessário
+armadilha: conceito
+dif: 2
+enunciado: Na análise de normas corporativas globais submetidas à sua aprovação, a ANPD não pode requerer informações suplementares nem fazer diligências sobre as operações de tratamento.
+comentario: Errado. O art. 35, § 2º, autoriza a ANPD a requerer informações suplementares e a realizar diligências de verificação, quando necessário.
+
+=== lx25-05
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 47
+trecho: obriga-se a garantir a segurança da informação prevista nesta Lei em relação aos dados pessoais, mesmo após o seu término
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: encerrado o contrato com um hospital, a empresa de tecnologia que operava os sistemas guardou cópias de prontuários em servidor sem proteção. Assertiva: o dever de garantir a segurança desses dados continua mesmo após o término do tratamento.
+comentario: Certo. Art. 47: agentes e qualquer pessoa que intervenha no tratamento devem garantir a segurança mesmo após o término. Sem base para conservar os dados, a empresa também deveria eliminá-los (art. 16).
+
+=== lx25-06
+bloco: lgpd-52-54
+gab: E
+tema: pd-sancoes
+ref: lgpd 52
+trecho: de forma gradativa, isolada ou cumulativa, de acordo com as peculiaridades do caso concreto
+armadilha: absoluto
+dif: 3
+enunciado: As sanções da LGPD devem ser aplicadas sempre na ordem fixa dos incisos do art. 52, começando obrigatoriamente pela advertência.
+comentario: Errado. O art. 52, § 1º, manda aplicá-las de forma gradativa, isolada ou cumulativa, conforme as peculiaridades do caso e os critérios legais. Não há advertência obrigatória antes da multa; a restrição de ordem existe só para as sanções dos incisos X a XII (§ 6º).
+
+=== lx25-07
+bloco: lgpd-52-54
+gab: E
+tema: pd-sancoes
+ref: lgpd 52
+trecho: somente após já ter sido imposta ao menos 1 (uma) das sanções de que tratam os incisos II, III, IV, V e VI do caput deste artigo para o mesmo caso concreto
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: no primeiro processo contra uma empresa, a ANPD aplicou de imediato a suspensão do exercício da atividade de tratamento relacionada à infração. Assertiva: a aplicação foi regular.
+comentario: Errado. A suspensão do banco de dados, a suspensão da atividade e a proibição (incisos X a XII) só cabem depois de imposta ao menos uma das sanções dos incisos II a VI no mesmo caso concreto (art. 52, § 6º, I).
+
+=== lx25-08
+bloco: lgpd-52-54
+gab: C
+tema: pd-sancoes
+ref: lgpd 52
+trecho: poderão ser objeto de conciliação direta entre controlador e titular
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: os dados de um único cliente foram acessados indevidamente, e a empresa propôs a ele um acordo de reparação. Assertiva: vazamentos individuais podem ser objeto de conciliação direta, e, se não houver acordo, o controlador fica sujeito às sanções da LGPD.
+comentario: Certo. Art. 52, § 7º, incluído pela Lei 13.853/2019.
+
+=== lx25-09
+bloco: lgpd-52-54
+gab: C
+tema: pd-sancoes
+ref: lgpd 52
+trecho: poderá considerar o faturamento total da empresa ou grupo de empresas, quando não dispuser do valor do faturamento no ramo de atividade empresarial em que ocorreu a infração
+armadilha: conceito
+dif: 3
+enunciado: Se não dispuser do faturamento no ramo de atividade em que ocorreu a infração, a ANPD pode considerar o faturamento total da empresa ou do grupo no cálculo da multa simples.
+comentario: Certo. Art. 52, § 4º. Vale também quando o valor for apresentado de forma incompleta ou não demonstrado de modo inequívoco. O limite de R$ 50 milhões por infração continua aplicável (inciso II).
+
+=== lx25-10
+bloco: lgpd-52-54
+gab: E
+tema: pd-sancoes
+ref: lgpd 52
+trecho: será destinado ao Fundo de Defesa de Direitos Difusos
+armadilha: sujeito
+dif: 2
+enunciado: O produto das multas aplicadas pela ANPD constitui receita própria da Agência, destinada ao custeio de suas atividades de fiscalização.
+comentario: Errado. As multas vão para o Fundo de Defesa de Direitos Difusos (art. 52, § 5º), e não constam entre as receitas da ANPD (art. 55-L).
+
+=== lx25-11
+bloco: lgpd-52-54
+gab: E
+tema: pd-sancoes
+ref: lgpd 52
+trecho: pelo período máximo de 6 (seis) meses, prorrogável por igual período
+armadilha: numero
+dif: 2
+enunciado: A suspensão parcial do funcionamento do banco de dados a que se refere a infração pode durar até um ano, sem possibilidade de prorrogação.
+comentario: Errado. O prazo máximo é de 6 meses, prorrogável por igual período, até a regularização (art. 52, X). A suspensão da atividade de tratamento segue o mesmo limite (XI).
+
+=== lx25-12
+bloco: lgpd-55
+gab: C
+tema: pd-anpd
+ref: lgpd 55-K
+trecho: A aplicação das sanções previstas nesta Lei compete exclusivamente à ANPD
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um Procon multou uma loja com fundamento nas sanções da LGPD por tratamento irregular de dados de consumidores. Assertiva: a aplicação das sanções previstas na LGPD compete exclusivamente à ANPD, o que não impede o Procon de aplicar as sanções do Código de Defesa do Consumidor.
+comentario: Certo. Art. 55-K e art. 52, § 2º: as sanções da LGPD são exclusivas da ANPD, e o art. 52 não substitui as sanções do CDC e da legislação específica.
+
+=== lx25-13
+bloco: lgpd-55
+gab: E
+tema: pd-anpd
+ref: lgpd 55-K
+trecho: será o órgão central de interpretação desta Lei e do estabelecimento de normas e diretrizes para a sua implementação
+armadilha: conceito
+dif: 2
+enunciado: A ANPD atua sem articulação com outros órgãos que têm competências sancionatórias sobre proteção de dados, e com eles divide, em pé de igualdade, a interpretação da LGPD.
+comentario: Errado. A ANPD articula sua atuação com esses órgãos e é o órgão central de interpretação da LGPD e de estabelecimento de normas e diretrizes para sua implementação (art. 55-K, parágrafo único).
+
+=== lx25-14
+bloco: lgpd-52-54
+gab: C
+tema: pd-sancoes
+ref: lgpd 52
+trecho: em caso de controladores submetidos a outros órgãos e entidades com competências sancionatórias, ouvidos esses órgãos
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD cogita suspender a atividade de tratamento de dados de um banco, já punido antes com multa no mesmo caso. Assertiva: antes disso, ela deve ouvir o Banco Central, que tem competência sancionatória sobre a instituição.
+comentario: Certo. Art. 52, § 6º, II: as sanções dos incisos X a XII, para controladores submetidos a outros órgãos com competência sancionatória, exigem a oitiva desses órgãos. O requisito do inciso I (sanção anterior) foi cumprido com a multa.
