@@ -1,0 +1,166 @@
+bloco: seginfo
+// Segurança da informação, lote SX7 (doutrina): IPsec e seus modos, firewalls com estado e de próxima geração,
+// VLAN, WEP e WPA3, TLS e HTTPS, MD5 e SHA-1, gestão de chaves, defesa em profundidade, BYOD, responsabilidade
+// compartilhada na nuvem, cavalo de troia e esteganografia.
+
+=== sx7-01
+gab: C
+tema: si-controles
+ref: doutrina IPsec
+armadilha: conceito
+dif: 2
+enunciado: O IPsec opera na camada de rede e pode prover confidencialidade, integridade e autenticação de origem dos pacotes IP, sendo muito usado em VPNs entre redes de filiais.
+comentario: Certo. O AH garante integridade e autenticação; o ESP acrescenta confidencialidade. Por agir na camada de rede, protege qualquer aplicação que use IP.
+
+=== sx7-02
+gab: E
+tema: si-controles
+ref: doutrina IPsec
+armadilha: comparacao
+dif: 3
+enunciado: No modo transporte do IPsec, todo o pacote IP original, inclusive o cabeçalho, é encapsulado dentro de um novo pacote IP.
+comentario: Errado. Essa é a descrição do modo túnel, típico das VPNs entre gateways. No modo transporte, protege-se a carga útil e o cabeçalho original é mantido, o que é comum em comunicação fim a fim entre hosts.
+
+=== sx7-03
+gab: C
+tema: si-controles
+ref: doutrina firewall
+armadilha: comparacao
+dif: 2
+enunciado: Um firewall com inspeção de estado acompanha as conexões estabelecidas e admite os pacotes de retorno das sessões legítimas, ao passo que o filtro de pacotes simples analisa cada pacote isoladamente.
+comentario: Certo. O firewall stateful mantém uma tabela de estados das conexões; o filtro estático decide só por regras de endereço, porta e protocolo, sem contexto.
+
+=== sx7-04
+gab: E
+tema: si-controles
+ref: doutrina firewall
+armadilha: conceito
+dif: 2
+enunciado: Os firewalls de próxima geração limitam-se a filtrar o tráfego por endereço IP e porta, como os filtros de pacotes tradicionais.
+comentario: Errado. Os NGFW identificam aplicações e usuários, inspecionam o conteúdo e costumam integrar prevenção de intrusão e inteligência de ameaças, além da filtragem tradicional.
+
+=== sx7-05
+gab: C
+tema: si-controles
+ref: doutrina VLAN
+armadilha: conceito
+dif: 2
+enunciado: A segmentação da rede em VLANs separa logicamente domínios de broadcast e, combinada com controles de acesso entre os segmentos, pode limitar a movimentação lateral de um atacante.
+comentario: Certo. Separar, por exemplo, a rede de visitantes da rede de servidores reduz o alcance de um invasor. A VLAN sozinha não é barreira: o tráfego entre segmentos precisa ser filtrado.
+
+=== sx7-06
+gab: E
+tema: si-controles
+ref: doutrina redes sem fio
+armadilha: conceito
+dif: 1
+enunciado: O protocolo WEP continua recomendado para redes sem fio corporativas, por ser mais leve que o WPA3.
+comentario: Errado. O WEP tem falhas graves conhecidas e pode ser quebrado em minutos. Recomendam-se WPA2 com AES ou, de preferência, WPA3.
+
+=== sx7-07
+gab: C
+tema: si-controles
+ref: doutrina redes sem fio
+armadilha: conceito
+dif: 3
+enunciado: No modo pessoal, o WPA3 substitui o método de chave pré-compartilhada do WPA2 pelo SAE, que dificulta ataques de dicionário feitos fora de linha contra a senha da rede.
+comentario: Certo. O SAE (Simultaneous Authentication of Equals) exige interação com o ponto de acesso a cada tentativa e oferece sigilo direto (forward secrecy).
+
+=== sx7-08
+gab: E
+tema: sg-cripto
+ref: doutrina TLS
+armadilha: conceito
+dif: 2
+enunciado: No TLS, toda a comunicação é cifrada com criptografia assimétrica, do início ao fim da sessão, porque ela é mais rápida que a simétrica.
+comentario: Errado. A criptografia assimétrica, mais lenta, é usada na autenticação e no estabelecimento da chave de sessão; os dados são cifrados com algoritmo simétrico, mais rápido.
+
+=== sx7-09
+gab: C
+tema: sg-cripto
+ref: doutrina HTTPS
+armadilha: conceito
+dif: 2
+enunciado: No HTTPS, o certificado digital do servidor permite ao navegador verificar a identidade do site, e a chave de sessão negociada cifra os dados trocados.
+comentario: Certo. O cadeado indica conexão cifrada e certificado válido, mas não garante que o site seja confiável: sites de phishing também podem ter certificado.
+
+=== sx7-10
+gab: E
+tema: sg-cripto
+ref: doutrina sigilo direto
+armadilha: conceito
+dif: 3
+enunciado: Em conexões TLS com sigilo direto (forward secrecy), se a chave privada de longo prazo do servidor vazar, todas as sessões gravadas no passado podem ser decifradas com ela.
+comentario: Errado. O sigilo direto usa chaves de sessão efêmeras (por exemplo, Diffie-Hellman efêmero), descartadas ao fim da sessão. O vazamento posterior da chave do servidor não revela o conteúdo das sessões antigas.
+
+=== sx7-11
+gab: C
+tema: sg-cripto
+ref: doutrina gestão de chaves
+armadilha: conceito
+dif: 2
+enunciado: A gestão do ciclo de vida das chaves criptográficas abrange geração, distribuição, armazenamento, rotação, revogação e destruição, e falhas nessa gestão podem comprometer até algoritmos fortes.
+comentario: Certo. Algoritmo robusto com chave exposta não protege nada. A ISO/IEC 27002 trata do uso de criptografia e do gerenciamento de chaves.
+
+=== sx7-12
+gab: E
+tema: sg-cripto
+ref: doutrina gestão de chaves
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa guarda a chave de decifração no mesmo servidor e na mesma pasta dos arquivos cifrados, para facilitar a recuperação. Assertiva: a prática é recomendável.
+comentario: Errado. Quem invadir o servidor leva os dados e a chave. Chaves devem ficar separadas, em cofre ou módulo de segurança de hardware (HSM), com acesso restrito e registrado.
+
+=== sx7-13
+gab: C
+tema: sg-principios
+ref: doutrina defesa em profundidade
+armadilha: conceito
+dif: 1
+enunciado: A defesa em profundidade combina camadas de controles físicos, técnicos e administrativos, de modo que a falha de uma camada não exponha sozinha o ativo.
+comentario: Certo. Exemplo: firewall, autenticação multifator, criptografia, monitoramento e treinamento atuando juntos.
+
+=== sx7-14
+gab: E
+tema: si-controles
+ref: doutrina BYOD
+armadilha: absoluto
+dif: 2
+enunciado: Em uma política de uso de dispositivos pessoais (BYOD), a organização não pode adotar nenhum controle sobre os aparelhos usados para acessar dados corporativos.
+comentario: Errado. É comum exigir senha, criptografia e atualização, e usar ferramentas de gestão de dispositivos ou de aplicações (MDM/MAM) que isolam os dados corporativos e permitem apagá-los remotamente, com regras conhecidas pelo empregado.
+
+=== sx7-15
+gab: C
+tema: sg-riscos
+ref: doutrina nuvem
+armadilha: comparacao
+dif: 3
+enunciado: No modelo de responsabilidade compartilhada da nuvem, em infraestrutura como serviço o cliente responde pela segurança do sistema operacional, das aplicações e dos dados, e o provedor, pela infraestrutura física e pela virtualização.
+comentario: Certo. Quanto mais gerenciado o serviço (PaaS, SaaS), mais o provedor assume; mas dados e gestão de acessos continuam com o cliente.
+
+=== sx7-16
+gab: E
+tema: sg-riscos
+ref: doutrina nuvem
+armadilha: sujeito
+dif: 2
+enunciado: Em software como serviço, a responsabilidade pela classificação dos dados inseridos pelo cliente e pela gestão dos acessos de seus usuários é integralmente do provedor.
+comentario: Errado. Mesmo em SaaS, o cliente decide quais dados coloca no serviço e quem tem acesso a eles. Para a LGPD, continua controlador, e o provedor normalmente atua como operador.
+
+=== sx7-17
+gab: C
+tema: sg-ameacas
+ref: doutrina malware
+armadilha: comparacao
+dif: 2
+enunciado: O cavalo de troia apresenta-se como programa legítimo para induzir o usuário a instalá-lo e, diferentemente do worm, não se propaga sozinho pela rede.
+comentario: Certo. O worm explora vulnerabilidades para se replicar automaticamente. O cavalo de troia depende da ação do usuário e costuma abrir porta para outros ataques.
+
+=== sx7-18
+gab: E
+tema: sg-cripto
+ref: doutrina esteganografia
+armadilha: comparacao
+dif: 2
+enunciado: A esteganografia, assim como a criptografia, torna a mensagem ininteligível, com a diferença de que não usa chave.
+comentario: Errado. A esteganografia esconde a existência da mensagem, por exemplo dentro de uma imagem; a criptografia deixa a mensagem visível, mas ininteligível. As duas técnicas podem ser combinadas.
