@@ -1,0 +1,130 @@
+bloco: seginfo
+// Segurança da informação, lote SX8 (doutrina): análise quantitativa e qualitativa de riscos, proprietário do risco,
+// apetite a risco, período máximo tolerável de interrupção, cadeia de ataque (kill chain), 802.1X, centro de
+// operações de segurança, ataque de bebedouro, pass-the-hash e ataque de dicionário.
+
+=== sx8-01
+gab: C
+tema: sg-riscos
+ref: doutrina análise quantitativa de riscos
+armadilha: conceito
+dif: 2
+enunciado: Na análise quantitativa de riscos, a expectativa de perda singular (SLE) resulta do valor do ativo multiplicado pelo fator de exposição, e a expectativa de perda anual (ALE) resulta da SLE multiplicada pela taxa anual de ocorrência (ARO).
+comentario: Certo. O fator de exposição é a fração do valor do ativo perdida em uma ocorrência; a ARO, quantas vezes por ano se espera o evento. A ALE ajuda a decidir se um controle compensa: ele só se justifica, em termos econômicos, se custar menos do que a redução de perda que proporciona.
+
+=== sx8-02
+gab: E
+tema: sg-riscos
+ref: doutrina análise quantitativa de riscos
+armadilha: numero
+dif: 3
+enunciado: Situação hipotética: um ativo vale R$ 200 mil, cada incidente destrói 25% do seu valor e espera-se uma ocorrência a cada quatro anos. Assertiva: a expectativa de perda anual é de R$ 50 mil.
+comentario: Errado. A SLE é 200 mil × 0,25 = R$ 50 mil, mas a ARO é 0,25 (uma vez a cada quatro anos). A ALE é 50 mil × 0,25 = R$ 12,5 mil. O valor de R$ 50 mil é a perda por ocorrência, não a anual.
+
+=== sx8-03
+gab: C
+tema: sg-riscos
+ref: doutrina análise qualitativa de riscos
+armadilha: comparacao
+dif: 2
+enunciado: A análise qualitativa de riscos usa escalas descritivas, como baixo, médio e alto, para probabilidade e impacto, sendo mais rápida e mais subjetiva que a análise quantitativa, que atribui valores monetários aos riscos.
+comentario: Certo. A qualitativa é útil quando faltam dados confiáveis; a quantitativa permite comparar custos e benefícios dos controles. Na prática, combinam-se as duas, por exemplo priorizando qualitativamente e quantificando os riscos mais relevantes.
+
+=== sx8-04
+gab: E
+tema: sg-riscos
+ref: doutrina análise quantitativa de riscos
+armadilha: absoluto
+dif: 2
+enunciado: A análise quantitativa de riscos dispensa estimativas, pois trabalha somente com valores exatos e objetivos.
+comentario: Errado. O fator de exposição e a taxa anual de ocorrência são, em geral, estimativas baseadas em histórico e em julgamento de especialistas. A aparência de precisão dos números não elimina a incerteza.
+
+=== sx8-05
+gab: C
+tema: sg-iso
+ref: doutrina ISO/IEC 27001
+armadilha: conceito
+dif: 3
+enunciado: Pelo processo de avaliação de riscos da ISO/IEC 27001, a organização deve identificar os riscos de segurança da informação e os seus proprietários, isto é, as pessoas com responsabilidade e autoridade para gerenciá-los.
+comentario: Certo. A norma exige identificar os proprietários dos riscos, que aprovam o plano de tratamento e aceitam os riscos residuais. Isso evita riscos sem dono, que ninguém prioriza nem acompanha.
+
+=== sx8-06
+gab: E
+tema: sg-riscos
+ref: doutrina continuidade de negócios
+armadilha: comparacao
+dif: 3
+enunciado: Na análise de impacto nos negócios, o objetivo de tempo de recuperação (RTO) de uma atividade pode ser fixado acima do período máximo tolerável de interrupção, desde que a alta direção o aprove.
+comentario: Errado. O período máximo tolerável de interrupção é o limite a partir do qual os impactos se tornam inaceitáveis; o RTO deve ficar abaixo dele, para que a atividade volte antes desse ponto. Um RTO maior significaria aceitar, de antemão, um dano tido como intolerável.
+
+=== sx8-07
+gab: E
+tema: sg-riscos
+ref: doutrina apetite a risco
+armadilha: conceito
+dif: 2
+enunciado: Apetite a risco é o nível de risco que permanece depois da aplicação dos controles.
+comentario: Errado. O risco que permanece após o tratamento é o risco residual. Apetite a risco é a quantidade e o tipo de risco que a organização está disposta a buscar ou a reter para atingir seus objetivos; serve de parâmetro para decidir se o residual é aceitável.
+
+=== sx8-08
+gab: C
+tema: sg-ameacas
+ref: doutrina cadeia de ataque
+armadilha: conceito
+dif: 2
+enunciado: No modelo de cadeia de ataque (cyber kill chain), as fases vão do reconhecimento do alvo à preparação da arma, à entrega, à exploração, à instalação, ao comando e controle e, por fim, às ações sobre os objetivos.
+comentario: Certo. O modelo, divulgado pela Lockheed Martin, ajuda o defensor a interromper o ataque o mais cedo possível: bloquear a entrega de um anexo malicioso, por exemplo, impede todas as fases seguintes.
+
+=== sx8-09
+gab: E
+tema: sg-ameacas
+ref: doutrina cadeia de ataque
+armadilha: conceito
+dif: 2
+enunciado: No modelo de cadeia de ataque (cyber kill chain), a primeira fase é a exploração da vulnerabilidade, e o reconhecimento do alvo ocorre apenas depois da instalação do código malicioso.
+comentario: Errado. O reconhecimento, em que o atacante coleta informações sobre o alvo, é a primeira fase. A exploração vem depois da preparação da arma e da entrega, e a instalação, depois da exploração.
+
+=== sx8-10
+gab: C
+tema: si-controles
+ref: doutrina controle de acesso à rede
+armadilha: conceito
+dif: 3
+enunciado: O padrão IEEE 802.1X faz controle de acesso à rede baseado em porta: o dispositivo que quer se conectar (suplicante) só ganha acesso depois de autenticado, por intermédio do switch ou ponto de acesso (autenticador), em um servidor de autenticação, como o RADIUS.
+comentario: Certo. Até a autenticação, a porta só deixa passar o tráfego de autenticação (EAP). O padrão é usado em redes cabeadas e em redes sem fio corporativas (WPA2 e WPA3 Enterprise).
+
+=== sx8-11
+gab: C
+tema: si-controles
+ref: doutrina centro de operações de segurança
+armadilha: conceito
+dif: 1
+enunciado: O centro de operações de segurança (SOC) é a equipe e a estrutura que monitoram continuamente os ambientes da organização para detectar, analisar e responder a incidentes, em geral com apoio de ferramentas de correlação de eventos, como o SIEM.
+comentario: Certo. O SIEM reúne e correlaciona registros de várias fontes e gera alertas que os analistas do SOC investigam. O SOC se liga às funções Detectar e Responder do NIST CSF.
+
+=== sx8-12
+gab: E
+tema: sg-ameacas
+ref: doutrina ataques
+armadilha: conceito
+dif: 3
+enunciado: No ataque de bebedouro (watering hole), o atacante envia mensagens de correio eletrônico personalizadas a cada vítima, com anexos maliciosos.
+comentario: Errado. O enunciado descreve o spear phishing. No ataque de bebedouro, o atacante compromete um site frequentado pelo grupo-alvo, como o portal de uma associação do setor, e espera que as vítimas o visitem para infectá-las.
+
+=== sx8-13
+gab: C
+tema: sg-ameacas
+ref: doutrina ataques
+armadilha: conceito
+dif: 3
+enunciado: No ataque pass-the-hash, o invasor usa o hash de uma credencial capturado em uma máquina comprometida para se autenticar em outros sistemas, sem precisar descobrir a senha em texto claro.
+comentario: Certo. O ataque explora protocolos que aceitam o hash como prova de identidade, como o NTLM. Ele favorece o movimento lateral na rede; são mitigações o menor privilégio, a restrição de contas administrativas e a autenticação multifator.
+
+=== sx8-14
+gab: E
+tema: sg-ameacas
+ref: doutrina ataques
+armadilha: comparacao
+dif: 2
+enunciado: O ataque de dicionário consiste em testar, uma a uma, todas as combinações possíveis de caracteres até encontrar a senha.
+comentario: Errado. Testar todas as combinações é a força bruta exaustiva. O ataque de dicionário usa listas de palavras e senhas prováveis, como senhas vazadas e termos comuns, o que o torna mais rápido, embora só funcione contra senhas previsíveis.
