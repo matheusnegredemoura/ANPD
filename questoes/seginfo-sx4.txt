@@ -1,0 +1,251 @@
+// Segurança da informação, lote SX4: Decreto 11.856/2023 (PNCiber), Decreto 12.572/2025 (PNSI) e doutrina de
+// criptografia, ISO/IEC 27001 e 27002 e ameaças. Itens de norma conferidos nas fontes.
+
+=== sx4-01
+bloco: seginfo
+gab: C
+tema: sg-principios
+ref: dec11856 4
+trecho: a Estratégia Nacional de Cibersegurança
+armadilha: rol
+dif: 1
+enunciado: A Política Nacional de Cibersegurança tem como instrumentos a Estratégia Nacional de Cibersegurança e o Plano Nacional de Cibersegurança.
+comentario: Certo. Art. 4º do Decreto 11.856/2023, que instituiu a PNCiber.
+
+=== sx4-02
+bloco: seginfo
+gab: E
+tema: sg-principios
+ref: dec11856 5
+trecho: no âmbito da Câmara de Relações Exteriores e Defesa Nacional do Conselho de Governo
+armadilha: sujeito
+dif: 2
+enunciado: O Comitê Nacional de Cibersegurança integra a estrutura da ANPD, a quem cabe acompanhar a implementação da Política Nacional de Cibersegurança.
+comentario: Errado. O CNCiber foi instituído no âmbito da Câmara de Relações Exteriores e Defesa Nacional do Conselho de Governo (art. 5º do Decreto 11.856/2023), e não na ANPD.
+
+=== sx4-03
+bloco: seginfo
+gab: C
+tema: sg-principios
+ref: dec11856 6
+trecho: formular propostas para o aperfeiçoamento da prevenção, da detecção, da análise e da resposta a incidentes cibernéticos
+armadilha: rol
+dif: 2
+enunciado: Compete ao Comitê Nacional de Cibersegurança propor atualizações da política e de seus instrumentos e formular propostas para aperfeiçoar a prevenção, a detecção, a análise e a resposta a incidentes cibernéticos.
+comentario: Certo. Art. 6º, I e III, do Decreto 11.856/2023.
+
+=== sx4-04
+bloco: seginfo
+gab: E
+tema: sg-principios
+ref: dec11856 8
+trecho: serão submetidas à Câmara de Relações Exteriores e Defesa Nacional
+armadilha: conceito
+dif: 2
+enunciado: As deliberações do Comitê Nacional de Cibersegurança sobre suas competências produzem efeito imediato, sem submissão a nenhuma outra instância.
+comentario: Errado. Pelo art. 8º do Decreto 11.856/2023, essas deliberações são submetidas à Câmara de Relações Exteriores e Defesa Nacional do Conselho de Governo.
+
+=== sx4-05
+bloco: seginfo
+gab: E
+tema: sg-principios
+ref: dec11856 10
+trecho: terão caráter temporário e duração não superior a um ano
+armadilha: numero
+dif: 2
+enunciado: Os grupos de trabalho temáticos do Comitê Nacional de Cibersegurança são permanentes e podem funcionar em número ilimitado.
+comentario: Errado. O art. 10, § 1º, do Decreto 11.856/2023 os define como temporários, com duração de até um ano, e limita a cinco os grupos em operação simultânea.
+
+=== sx4-06
+bloco: seginfo
+gab: E
+tema: sg-principios
+ref: dec12572 9
+trecho: Compete ao Sistema de Controle Interno do Poder Executivo Federal auditar
+armadilha: sujeito
+dif: 2
+enunciado: Cabe ao Gabinete de Segurança Institucional auditar a execução das ações da Política Nacional de Segurança da Informação pelos órgãos e entidades federais.
+comentario: Errado. Pelo art. 9º do Decreto 12.572/2025, essa auditoria compete ao Sistema de Controle Interno do Poder Executivo Federal. Ao GSI cabe editar normativos e atos complementares (arts. 7º, III, e 11).
+
+=== sx4-07
+bloco: seginfo
+gab: C
+tema: sg-principios
+ref: dec12572 6
+trecho: composto pelos gestores de segurança da informação
+armadilha: conceito
+dif: 2
+enunciado: O Comitê Gestor da Segurança da Informação, instituído pelo Gabinete de Segurança Institucional no âmbito da Câmara de Relações Exteriores e Defesa Nacional, é composto pelos gestores de segurança da informação dos órgãos e entidades federais.
+comentario: Certo. Art. 6º, caput e parágrafo único, do Decreto 12.572/2025.
+
+=== sx4-08
+bloco: seginfo
+gab: E
+tema: sg-principios
+ref: dec12572 12
+trecho: o Decreto nº 9.637, de 26 de dezembro de 2018
+armadilha: conceito
+dif: 2
+enunciado: A política de segurança da informação de 2018, do Decreto 9.637, continua em vigor ao lado da política de 2025, que apenas a complementa.
+comentario: Errado. O art. 12, I, do Decreto 12.572/2025 revogou o Decreto 9.637/2018. Por isso, dispositivos que remetem à política de 2018 devem ser lidos à luz da nova.
+
+=== sx4-09
+bloco: seginfo
+gab: E
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: O AES é exemplo de algoritmo de criptografia assimétrica, e o RSA, de criptografia simétrica.
+comentario: Errado. É o contrário: o AES é simétrico (a mesma chave cifra e decifra) e o RSA é assimétrico (par de chaves pública e privada).
+
+=== sx4-10
+bloco: seginfo
+gab: C
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 2
+enunciado: Para obter confidencialidade com criptografia assimétrica, o remetente cifra a mensagem com a chave pública do destinatário, e só quem tem a chave privada correspondente consegue decifrá-la.
+comentario: Certo. Confidencialidade: cifra-se com a chave pública do destinatário. Na assinatura digital a lógica se inverte: o remetente usa a própria chave privada.
+
+=== sx4-11
+bloco: seginfo
+gab: E
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 3
+enunciado: O código de autenticação de mensagem baseado em hash (HMAC) dispensa chave secreta e, por isso, garante o não repúdio.
+comentario: Errado. O HMAC usa uma chave secreta compartilhada entre as partes. Garante integridade e autenticidade, mas não o não repúdio, porque qualquer das partes que tem a chave poderia ter gerado o código.
+
+=== sx4-12
+bloco: seginfo
+gab: C
+tema: sg-cripto
+ref: doutrina hash
+armadilha: conceito
+dif: 2
+enunciado: O salt acrescentado à senha antes do cálculo do hash dificulta ataques com tabelas pré-computadas, porque senhas iguais passam a gerar resumos diferentes.
+comentario: Certo. O salt é um valor aleatório guardado junto ao hash; ele inutiliza as rainbow tables e impede que senhas iguais sejam reconhecidas pelo resumo.
+
+=== sx4-13
+bloco: seginfo
+gab: E
+tema: sg-cripto
+ref: doutrina hash
+armadilha: conceito
+dif: 2
+enunciado: MD5 e SHA-1 continuam recomendados para assinaturas digitais, por serem resistentes a colisões.
+comentario: Errado. Já se demonstraram colisões práticas em MD5 e SHA-1, e ambos foram abandonados para assinatura digital em favor de funções como as da família SHA-2 e SHA-3.
+
+=== sx4-14
+bloco: seginfo
+gab: C
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: Na infraestrutura de chaves públicas, o certificado digital associa uma chave pública à identidade do seu titular e traz a assinatura da autoridade certificadora que o emitiu.
+comentario: Certo. A assinatura da AC é o que permite confiar no vínculo entre chave pública e titular. A chave privada nunca vai no certificado.
+
+=== sx4-15
+bloco: seginfo
+gab: C
+tema: sg-iso
+ref: doutrina ISO/IEC 27001
+armadilha: conceito
+dif: 1
+enunciado: A ISO/IEC 27001 traz os requisitos para estabelecer, implementar, manter e melhorar continuamente um sistema de gestão de segurança da informação, enquanto a ISO/IEC 27002 orienta a escolha e a implementação dos controles.
+comentario: Certo. A 27001 é a norma certificável, com requisitos; a 27002 é guia de controles, que detalha o Anexo A da 27001.
+
+=== sx4-16
+bloco: seginfo
+gab: E
+tema: sg-iso
+ref: doutrina ISO/IEC 27001
+armadilha: conceito
+dif: 2
+enunciado: Organizações são certificadas com base na ISO/IEC 27002, pois a ISO/IEC 27001 é apenas um guia de boas práticas, sem requisitos.
+comentario: Errado. A certificação é feita pela ISO/IEC 27001, que contém requisitos auditáveis. A 27002 é o guia de boas práticas de controles.
+
+=== sx4-17
+bloco: seginfo
+gab: E
+tema: sg-iso
+ref: doutrina ISO/IEC 27002
+armadilha: numero
+dif: 2
+enunciado: A ISO/IEC 27002:2022 manteve a estrutura de 14 domínios e 114 controles da versão de 2013.
+comentario: Errado. A versão de 2022 reorganizou os controles em 4 temas e reduziu o total para 93, com fusões e alguns controles novos, como inteligência de ameaças.
+
+=== sx4-18
+bloco: seginfo
+gab: C
+tema: sg-iso
+ref: doutrina ISO/IEC 27001
+armadilha: conceito
+dif: 3
+enunciado: A Declaração de Aplicabilidade exigida pela ISO/IEC 27001 lista os controles necessários, justifica sua inclusão ou exclusão e informa se estão implementados.
+comentario: Certo. A declaração de aplicabilidade (Statement of Applicability) liga a avaliação de riscos aos controles escolhidos e é peça central na auditoria de certificação.
+
+=== sx4-19
+bloco: seginfo
+gab: E
+tema: sg-ameacas
+ref: doutrina ataques
+armadilha: conceito
+dif: 1
+enunciado: No ataque distribuído de negação de serviço (DDoS), o atacante usa uma única máquina para disparar as requisições, o que o distingue do DoS comum.
+comentario: Errado. É o contrário: no DDoS o tráfego parte de muitas máquinas, em geral uma botnet de dispositivos comprometidos. No DoS comum, a origem é uma só.
+
+=== sx4-20
+bloco: seginfo
+gab: E
+tema: sg-ameacas
+ref: doutrina Engenharia social
+armadilha: conceito
+dif: 2
+enunciado: No spear phishing, a mensagem fraudulenta é genérica e enviada em massa a destinatários escolhidos ao acaso.
+comentario: Errado. O spear phishing é direcionado: usa informações sobre a vítima ou a organização para tornar a mensagem convincente. O envio em massa e genérico é o phishing comum.
+
+=== sx4-21
+bloco: seginfo
+gab: C
+tema: sg-principios
+ref: dec11856 11
+trecho: participarão da reunião por meio de videoconferência
+armadilha: conceito
+dif: 2
+enunciado: Os membros do Comitê Nacional de Cibersegurança que estejam fora do Distrito Federal participam das reuniões por videoconferência.
+comentario: Certo. Art. 11 do Decreto 11.856/2023: quem está no Distrito Federal pode participar presencialmente ou por videoconferência.
+
+=== sx4-22
+bloco: seginfo
+gab: C
+tema: sg-principios
+ref: dec11856 14
+trecho: em caráter extraordinário e temporário
+armadilha: conceito
+dif: 3
+enunciado: Na primeira composição do Comitê Nacional de Cibersegurança, os membros dos incisos XVII a XIX do art. 7º e seus suplentes foram escolhidos pelo Ministro-Chefe do Gabinete de Segurança Institucional e compõem o comitê em caráter extraordinário e temporário.
+comentario: Certo. Art. 14 do Decreto 11.856/2023: eles ficam até a designação feita pelo processo de escolha do art. 7º, § 5º.
+=== sx4-23
+bloco: seginfo
+gab: C
+tema: sg-ameacas
+ref: doutrina ataques
+armadilha: conceito
+dif: 1
+enunciado: No ataque de força bruta, o atacante testa sistematicamente combinações de senha até acertar; limitar tentativas e exigir autenticação multifator reduzem esse risco.
+comentario: Certo. Bloqueio após tentativas, atraso progressivo e MFA tornam a força bruta inviável na prática.
+
+=== sx4-24
+bloco: seginfo
+gab: C
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: A criptografia simétrica costuma ser bem mais rápida que a assimétrica, por isso é a preferida para cifrar grandes volumes de dados.
+comentario: Certo. Por isso os protocolos usam a assimétrica para combinar a chave de sessão e a simétrica para o tráfego (criptografia híbrida).
