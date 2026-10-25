@@ -122,6 +122,9 @@ function mesclarDoc(n, nuvem, local, localNovo) {
   p.conq = Object.assign({}, velho.conq, novo.conq);
   // Dia, aula ou discursiva dados como feitos num aparelho continuam feitos no outro
   p.feitos = Object.assign({}, velho.feitos, novo.feitos);
+  // Sessões pausadas: cada uma fica com o registro mais recente dos dois aparelhos (um simulado pela metade num deles
+  // não some porque o outro gravou depois); a marca de encerrada, mais nova, vence a pausa antiga
+  p.pausas = mesclarMapa(velho.pausas, novo.pausas, (a, b) => (num(b && b.ts) >= num(a && a.ts) ? b : a));
   p.cad = mesclarCad(velho.cad, novo.cad);
   p.lidos = mesclarMapa(nuvem.lidos, local.lidos, (a, b) => (b < a ? b : a));
   p.trilha = mesclarMapa(nuvem.trilha, local.trilha, (a, b) => (b < a ? b : a));
@@ -149,7 +152,7 @@ function lerDoc(s) {
 // O progresso fica no banco do Artifact (por usuário) e, sempre, também neste navegador.
 // Na abertura, a cópia da conta e a deste navegador são mescladas (mesclarDoc): nenhuma apaga a outra.
 const Store = {
-  modo: 'local', dev: Math.random().toString(36).slice(2, 10), refs: {}, timer: {}, gravando: {}, fila: {}, ultimoT: {}, erro: null,
+  modo: 'local', dev: Math.random().toString(36).slice(2, 10), refs: {}, timer: {}, gravando: {}, fila: {}, ultimoT: {}, tGravou: {}, erro: null,
   // Partes do histórico de questões com resposta nova desde a última gravação; tamanho de cada documento enviado
   itensSujos: new Set(), tamanhos: {},
   // Quando cada documento mudou neste navegador; decide qual cópia manda no que liga e desliga (metas, status, preferências)
@@ -175,7 +178,9 @@ const Store = {
     // Antes de ler a cópia do navegador, gravar aqui apagaria o progresso guardado nele
     if (!this.localLido) return;
     const ok = gravarLS(CHAVE_LOCAL, { perfil: S.perfil, itens: S.itens, cards: S.cards, simulados: S.simulados, pesquisa: S.pesquisa, disc: S.disc, t: this.tLocal });
+    const antes = this.diag.navegador;
     this.diag.navegador = ok ? 'ok' : 'bloqueado';
+    if (antes !== this.diag.navegador && typeof atualizarRodapeSync === 'function') atualizarRodapeSync();
   },
   dados(n) {
     if (n === 'perfil') return S.perfil;
@@ -254,8 +259,10 @@ const Store = {
         this.refs[n].onSnapshot((s) => {
           const d = lerDoc(s);
           if (!d || d.dev === this.dev) return;
-          // Com gravação pendente aqui, junta as duas; sem nada pendente, adota a do outro aparelho
-          if ((this.timer[n] || this.gravando[n]) && (d.ep || 0) === (S.perfil.ep || 0)) this.mesclar(n, d, true); else this.aplicar(n, d);
+          // Com gravação pendente aqui, ou recém-feita (a do outro aparelho pode ter saído antes de ver a daqui), junta as
+          // duas; sem nada recente, adota a do outro aparelho
+          const recente = Date.now() - (this.tGravou[n] || 0) < 15000;
+          if ((this.timer[n] || this.gravando[n] || recente) && (d.ep || 0) === (S.perfil.ep || 0)) this.mesclar(n, d, true); else this.aplicar(n, d);
           renderTudo();
         }, (e) => { console.warn('assinatura encerrada', n, e && e.code); });
       });
@@ -318,6 +325,7 @@ const Store = {
     try {
       await this.refs[n].set(corpo);
       this.ultimoT[n] = t;
+      this.tGravou[n] = Date.now();
       this.erro = null;
       this.diag.gravacao = 'ok';
     } catch (e) {

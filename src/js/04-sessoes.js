@@ -83,15 +83,18 @@ function atualizarPausa() {
   const pausas = (S.perfil.pausas ||= {});
   const sim = sessao.modo === 'simulado';
   const faltam = sessao.ids.filter((id) => !sessao.resp[id]);
-  if (sessao.fim || sessao.desfecho || (!sim && !faltam.length)) delete pausas[k];
+  // Sessão encerrada deixa uma marca (sem itens) em vez de sumir: na junção com o outro aparelho, a pausa velha de lá
+  // não volta, porque a marca é mais nova
+  if (sessao.fim || sessao.desfecho || (!sim && !faltam.length)) pausas[k] = pausaEncerrada();
   else {
     pausas[k] = Object.assign({ modo: sessao.modo, titulo: sessao.titulo, dia: sessao.dia, data: hojeISO(), ts: Date.now() }, sim
       ? { ids: sessao.ids, resp: sessao.resp, duv: sessao.duv, i: sessao.i, gasto: Math.round(decorrido()), limite: sessao.limite, total: sessao.ids.length, prova: sessao.prova || undefined }
       : { ids: faltam, feitas: (sessao.feitasAntes || 0) + sessao.ids.length - faltam.length, total: sessao.totalOrig || sessao.ids.length },
       sessao.batalha ? { cor: sessao.coracoes, dano: sessao.danoTotal || 0, crit: sessao.criticos || 0, cmb: sessao.comboMax, per: sessao.perdas || 0, def: sessao.defesas || 0 } : {});
   }
-  const manter = new Set(Object.entries(pausas).filter(([, v]) => v && v.data && HOJE() - diaNum(v.data) <= PAUSA_DIAS)
-    .sort((a, b) => (b[1].ts || 0) - (a[1].ts || 0)).slice(0, PAUSA_MAX).map(([x]) => x));
+  const recentes = Object.entries(pausas).filter(([, v]) => v && v.data && HOJE() - diaNum(v.data) <= PAUSA_DIAS);
+  const manter = new Set(recentes.filter(([, v]) => v.ids).sort((a, b) => (b[1].ts || 0) - (a[1].ts || 0)).slice(0, PAUSA_MAX)
+    .concat(recentes.filter(([, v]) => !v.ids)).map(([x]) => x));
   for (const x of Object.keys(pausas)) if (!manter.has(x)) delete pausas[x];
 }
 // Guarda a sessão aberta (ao sair, ao trocar de app ou de aba, ao fechar a página). Sessão sem nenhuma resposta não vira pausa.
@@ -121,7 +124,8 @@ function retomarPausa(k) {
   abrirSessao();
   return true;
 }
-function descartarPausa(k) { if (S.perfil.pausas && S.perfil.pausas[k]) { delete S.perfil.pausas[k]; Store.salvar('perfil'); } }
+function pausaEncerrada() { return { data: hojeISO(), ts: Date.now(), fim: 1 }; }
+function descartarPausa(k) { if (S.perfil.pausas && S.perfil.pausas[k]) { S.perfil.pausas[k] = pausaEncerrada(); Store.salvar('perfil'); } }
 // Rótulo do botão: "Continuar · faltam 12 de 40" quando há pausa; o rótulo normal quando não há
 function rotuloPausa(k, normal) { const p = pausaDe(k); return p ? 'Continuar · ' + resumoPausa(p) : normal; }
 // Lista das sessões guardadas, com Continuar e Descartar; "fora" são as chaves que já têm botão próprio na tela
@@ -284,6 +288,9 @@ function responder(resp) {
   // Virada: acertar um item cuja última resposta foi erro. É onde o aprendizado aparece: se o erro foi em outro dia,
   // o XP dobra; no mesmo dia (logo depois de ler o comentário), ganha só um pouco a mais
   const ant = rec(id), virada = ant && ant[0] === 0 && ant[3] > 0 ? (ant[4] < HOJE() ? 'plena' : 'mesmo-dia') : null;
+  // Acerto repetido no mesmo dia (sem ser a virada logo depois do erro) vale 1 XP: o filtro "só as que já errei"
+  // devolve o mesmo item quantas vezes se quiser, e o XP cheio a cada volta premiaria repetir, não aprender
+  const repetidoHoje = ant && ant[0] >= 0 && ant[4] === HOJE() && !virada;
   const ok = registrar(q, resp, !!sessao.duv[id]);
   sessao.golpe = golpeRecente;
   sessao.cansaco = sessao.modo === 'relampago' ? null : avaliarCansaco();
@@ -293,6 +300,7 @@ function responder(resp) {
     sessao.combo++; sessao.comboMax = Math.max(sessao.comboMax, sessao.combo); x = xpAcerto(q, sessao.combo, sessao.modo);
     if (sessao.modo !== 'relampago' && caiuEmProva(q)) x = Math.round(x * 1.5);
     if (virada === 'plena') { x *= 2; sessao.viradas = (sessao.viradas || 0) + 1; const dv = diaLog(); dv.vr = (dv.vr || 0) + 1; } else if (virada) x += 4;
+    else if (repetidoHoje) x = 1;
   } else sessao.combo = 0;
   sessao.virada = ok ? virada : null;
   efeitoBatalha(ok);

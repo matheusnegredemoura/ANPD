@@ -88,10 +88,11 @@ p{margin:0}
 /* Cabeçalho */
 .topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);margin-inline:-16px;padding:12px 16px 10px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
 .marca{display:flex;flex-direction:column;min-width:0;flex:1}
-.marca b{font-family:var(--f-titulo);font-size:1.25rem;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+.marca b{font-family:var(--f-titulo);font-size:1.25rem;font-weight:700;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .marca span{font-size:.78rem;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .status{display:flex;align-items:center;gap:8px;flex-shrink:0}
-@media (max-width:380px){.status{gap:5px}.status .pilula{padding:4px 7px}.marca b{font-size:1.12rem}}
+/* Celular estreito: o botão de tema sai do topo (continua em Ajustes) para o título não ficar por baixo das pílulas */
+@media (max-width:380px){.topo{gap:8px}.status{gap:5px}.status .pilula{padding:4px 7px}.marca b{font-size:1.12rem}.status [data-acao="tema-alternar"]{display:none}}
 .pilula{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-family:var(--f-mono);font-size:.8rem;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
 .pilula svg{width:15px;height:15px}
 .pilula.fogo{color:var(--gold)}
@@ -199,11 +200,12 @@ p{margin:0}
 .tira::-webkit-scrollbar{display:none}
 .tira>*{flex-shrink:0}
 .tira i{width:14px;height:10px;border-radius:50%;border:1.5px solid var(--line);display:block}
-.tira i.atual{border-color:var(--accent);border-width:2px}
 .tira i.C{background:var(--certo);border-color:var(--certo)}
 .tira i.E{background:var(--errado);border-color:var(--errado)}
 .tira i.B{background:var(--ink-3);border-color:var(--ink-3)}
 .tira i.R{background:var(--accent);border-color:var(--accent)}
+/* Depois das cores de estado: o item atual continua marcado mesmo já respondido (no simulado, a bolinha marcada tem a cor do destaque) */
+.tira i.atual{border-color:var(--accent);border-width:2px;box-shadow:0 0 0 1.5px var(--bg),0 0 0 3px var(--accent)}
 .tira button{appearance:none;border:0;padding:7px 2px;background:none;cursor:pointer}
 
 .item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:14px}
@@ -389,7 +391,7 @@ button.alt{cursor:pointer;transition:border-color .15s}
 /* Avisos (toasts) */
 .avisos{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + var(--abas-h) + 20px);z-index:60;display:flex;flex-direction:column;gap:8px;width:min(92vw,420px);pointer-events:none}
 .aviso{background:var(--ink);color:var(--bg);border-radius:12px;padding:12px 14px;box-shadow:var(--sombra);display:flex;gap:10px;align-items:center;animation:entra .3s ease;pointer-events:none}
-.aviso .ic{width:30px;height:30px;border-radius:8px;background:var(--gold);color:var(--ink);display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;flex-shrink:0}
+.aviso .ic{width:30px;height:30px;border-radius:8px;background:var(--gold);color:var(--bg);display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;flex-shrink:0}
 .aviso b{display:block;font-size:.92rem}
 .aviso span{font-size:.8rem;opacity:.85}
 @keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}

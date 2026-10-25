@@ -12,12 +12,13 @@ const MISSOES = [
   { id: 'arterro', txt: 'Ler o artigo de um item que você errou', xp: 40, meta: 1, val: (d) => { const e = artigosDeErros(); return (d.a || []).filter((k) => e.has(k)).length; }, so: () => artigosDeErros().size > 0 },
   { id: 'lei5', txt: () => 'Ler ' + metaLei() + ' artigos da lei seca', xp: 30, meta: () => metaLei(), val: (d) => (d.a || []).length },
   { id: 'tempo60', txt: () => 'Estudar ' + fmtDur(metaMin60() * 60), xp: 40, meta: () => metaMin60(), val: (d) => Math.floor(segundosEstudo(d) / 60) },
-  { id: 'virada', txt: 'Acertar 5 itens que você tinha errado em outro dia', xp: 50, meta: 5, val: (d) => d.vr || 0, so: () => Object.values(S.itens).filter((r) => r[0] === 0 && r[3] > 0 && r[4] < HOJE()).length >= 5 },
+  { id: 'virada', txt: 'Acertar 5 itens que você tinha errado em outro dia', xp: 50, meta: 5, val: (d) => d.vr || 0, so: () => errosDeOutroDia() >= 5, vivo: (d) => (d.vr || 0) + errosDeOutroDia() >= 5 },
   { id: 'pesq', txt: 'Investigar um tema da lista Para pesquisar', xp: 30, meta: 1, val: () => Object.values(S.pesquisa).filter((p) => p.s && p.f === hojeISO()).length },
   { id: 'pend', txt: 'Recuperar uma sessão do atraso', xp: 60, meta: 1, val: (d) => d.pd || 0, so: () => pendencias().some((x) => x.sessao) },
   { id: 'chefe5', txt: 'Acertar 5 golpes no chefão', xp: 40, meta: 5, val: (d) => (chefeDaSemana().vencido || recuou(chefeDaSemana()) ? 5 : d.cg || 0), so: () => !chefeDaSemana().vencido },
 ];
 const MI = new Map(MISSOES.map((m) => [m.id, m]));
+function errosDeOutroDia() { return Object.values(S.itens).filter((r) => r[0] === 0 && r[3] > 0 && r[4] < HOJE()).length; }
 // Metas das missões pelo ritmo pessoal (sem ritmo, os valores de sempre: 30, 60, 20, 5 artigos e 1 hora)
 function metaNovas() { const r = ritmo(); return r && r.ni ? limitar(Math.round(r.ni / 10) * 10, 20, 80) : 20; }
 function metaLei() { const r = ritmo(); return r && r.a ? limitar(r.a, 5, 12) : 5; }
@@ -163,7 +164,9 @@ function verificarRPG() {
   let mudou = false;
   for (const id of mh.ids) {
     const x = MI.get(id);
-    if (!x || mh.ok[id] || x.val(d) < valM(x.meta)) continue;
+    // Missão que deixou de ser possível no meio do dia (os erros já foram todos recuperados, o atraso saiu) conta como
+    // cumprida: senão o baú do dia ficaria trancado por algo que a pessoa não tem mais como fazer
+    if (!x || mh.ok[id] || (x.val(d) < valM(x.meta) && (x.vivo ? x.vivo(d) : !x.so || x.so()))) continue;
     mh.ok[id] = 1; mudou = true;
     ganharXP(x.xp);
     avisar('★', 'Missão cumprida', valM(x.txt) + ' · +' + x.xp + ' XP');
@@ -194,14 +197,15 @@ function nomeChefe(bloco) { return CHEFES[discChefe(bloco)] || 'O Chefão'; }
 // sem repetir o da semana anterior; quem ainda não praticou nada enfrenta o bloco mais fraco da prioridade 1.
 // Chefão ainda vivo de uma escala anterior (15 golpes, 300 de vida) é convertido na mesma proporção.
 function normalizarChefe(c) {
-  if (c && !c.vencido && (c.max || 15) < CHEFE_VIDA) { c.vida = Math.round((c.vida / (c.max || 15)) * CHEFE_VIDA); c.max = CHEFE_VIDA; }
+  // Chefões das primeiras versões tinham 15 de vida
+  if (c && !c.vencido && (c.max || 15) < 100) { c.vida = Math.round((c.vida / (c.max || 15)) * CHEFE_VIDA); c.max = CHEFE_VIDA; }
   else if (c && !c.max) c.max = CHEFE_VIDA;
   return c;
 }
 // Teto do dia: o golpe que passa dele conta inteiro, e o chefão recua até amanhã
 function danoHoje(c) { return c.dia === hojeISO() ? c.danoDia || 0 : 0; }
-function tetoDia(c) { return Math.ceil(c.max / CHEFE_DIAS); }
-function recuou(c) { return !c.vencido && danoHoje(c) >= tetoDia(c); }
+function tetoDia() { return Math.ceil(CHEFE_VIDA / CHEFE_DIAS); }
+function recuou(c) { return !c.vencido && danoHoje(c) >= tetoDia(); }
 function chefeDaSemana() {
   const r = rpg(), sem = semanaAtual();
   if (!r.chefe || r.chefe.sem !== sem) {
@@ -211,7 +215,10 @@ function chefeDaSemana() {
     }));
     const praticados = cand.filter((x) => x.resp >= 5);
     const alvo = (praticados.length ? praticados : cand.filter((x) => P1.includes(x.b.id))).sort((a, b) => a.dom - b.dom || P1.includes(b.b.id) - P1.includes(a.b.id))[0] || cand[0];
-    r.chefe = { sem, bloco: alvo.b.id, vida: CHEFE_VIDA, max: CHEFE_VIDA };
+    // Chefão que surge no meio da semana vem com menos vida: com o teto diário, quem abre o painel só na quinta teria
+    // quatro dias para tirar 1.500 e nunca venceria. A vida acompanha os dias que restam até domingo (até CHEFE_DIAS)
+    const dias = Math.min(CHEFE_DIAS, 7 - ((diaSemana(hojeISO()) + 6) % 7)), vida = Math.round((CHEFE_VIDA * dias) / CHEFE_DIAS);
+    r.chefe = { sem, bloco: alvo.b.id, vida, max: vida };
   }
   normalizarChefe(r.chefe);
   return r.chefe;
@@ -293,7 +300,7 @@ function cartaoBatalha() {
     '<div class="placar"><div><b>' + (sessao.danoTotal || 0) + '</b><span>dano</span></div><div><b>' + (sessao.criticos || 0) + '</b><span>críticos</span></div><div><b>' + sessao.comboMax + '</b><span>maior série</span></div><div><b>' + (c.vencido ? 0 : c.vida) + '</b><span>HP restante</span></div></div>' +
     (s ? cartaoItem(s.it, s.repetido ? 'Coleção completa: virou +' + s.xp + ' XP' : 'Novo no inventário') : '') +
     (fim === 'derrota' ? '<p class="pequeno mudo">Sem corações, a batalha acabou. O dano causado fica: o chefão continua com ' + c.vida + ' de vida até domingo.</p>' : '') +
-    (fim === 'recuo' ? '<p class="pequeno mudo">Ele aguenta no máximo ' + tetoDia(c) + ' de dano por dia e hoje já levou ' + danoHoje(c) + '. Volta amanhã com ' + c.vida + ' de vida; derrubá-lo pede estudo em cinco dias da semana.</p>' : '') +
+    (fim === 'recuo' ? '<p class="pequeno mudo">Ele aguenta no máximo ' + tetoDia() + ' de dano por dia e hoje já levou ' + danoHoje(c) + '. Volta amanhã com ' + c.vida + ' de vida; derrubá-lo pede estudo em cinco dias da semana.</p>' : '') +
     (fim !== 'vitoria' && !c.vencido && !recuou(c) ? '<div class="linha-btns"><button class="btn primario" data-acao="enfrentar-chefe">Batalhar de novo</button></div>' : '') + '</div>';
 }
 function cartaoItem(it, nota) {
@@ -317,7 +324,7 @@ function cartaoJornada() {
   const heroi = '<button class="heroi-rpg" data-acao="mais" data-sub="personagem"><span class="insignia">' + nv.n + '</span><span class="h-info"><b>' + esc(nv.nome) + '</b>' + barra((S.perfil.xp - nv.base) / (nv.prox - nv.base), 'ouro') +
     '<span class="mono pequeno">' + fmtNum(S.perfil.xp) + ' / ' + fmtNum(nv.prox) + ' XP · ' + coracoesMax() + ' ♥ · +' + bonusDano() + '% dano · ' + chanceCritico() + '% crítico</span></span><span class="slots">' + slots + '</span></button>';
   const chefe = '<div class="chefe' + (c.vencido ? ' vencido' : '') + '"><span class="brasao">' + brasao(discChefe(c.bloco)) + '</span><div class="chefe-info"><div class="chefe-cab"><b>' + esc(nomeChefe(c.bloco)) + '</b><span class="mono pequeno">' + (c.vencido ? 'derrotado' : 'HP ' + c.vida + '/' + c.max) + '</span></div>' +
-    '<span class="pequeno mudo">' + esc(nomeBloco(c.bloco)) + (recuou(c) ? ' · recuou, volta amanhã' : !c.vencido ? ' · aguenta ' + tetoDia(c) + ' de dano por dia' : '') + '</span>' + hpBarra(c.vencido ? 0 : c.vida, c.max) + '</div>' +
+    '<span class="pequeno mudo">' + esc(nomeBloco(c.bloco)) + (recuou(c) ? ' · recuou, volta amanhã' : !c.vencido ? ' · aguenta ' + tetoDia() + ' de dano por dia' : '') + '</span>' + hpBarra(c.vencido ? 0 : c.vida, c.max) + '</div>' +
     (c.vencido || recuou(c) ? '' : '<button class="btn pequeno primario" data-acao="enfrentar-chefe">' + esc(rotuloPausa('chefe:' + c.sem, 'Batalhar')) + '</button>') + '</div>';
   const bau = mh.bau && mh.item && IR.get(mh.item) ? '<p class="pequeno">Baú aberto: <b class="r-txt-' + IR.get(mh.item).rar + '">' + esc(IR.get(mh.item).nome) + '</b></p>'
     : mh.bau ? '<p class="pequeno">Baú aberto: <b>+' + (BAU_XP + (mh.xp || 0)) + ' XP</b> (a coleção está adiantada para a data da prova)</p>'
@@ -433,8 +440,9 @@ function cartaoSoNoAparelho() {
 function atualizarRodapeSync() {
   const el = document.getElementById('sync');
   if (!el) return;
-  if (Store.modo === 'nuvem') el.innerHTML = Store.erro ? 'Falha ao salvar na sua conta (' + esc(Store.erro) + '). O progresso continua guardado neste navegador. <button class="linkish" data-acao="mais" data-sub="ajustes">Diagnóstico e backup</button>' : 'Progresso salvo na sua conta e neste navegador.';
-  else el.innerHTML = 'Progresso salvo só neste navegador. <button class="linkish" data-acao="mais" data-sub="ajustes">Ver diagnóstico e fazer backup</button>';
+  const nav = Store.diag.navegador !== 'bloqueado', diag = ' <button class="linkish" data-acao="mais" data-sub="ajustes">Diagnóstico e backup</button>';
+  if (Store.modo === 'nuvem') el.innerHTML = Store.erro ? 'Falha ao salvar na sua conta (' + esc(Store.erro) + '). ' + (nav ? 'O progresso continua guardado neste navegador.' : 'Este navegador também bloqueou a gravação: baixe um backup antes de fechar.') + diag : 'Progresso salvo na sua conta' + (nav ? ' e neste navegador.' : '; este navegador bloqueou a cópia local.');
+  else el.innerHTML = nav ? 'Progresso salvo só neste navegador.' + diag : 'O navegador bloqueou a gravação: o progresso desta aba se perde ao fechar. Baixe um backup.' + diag;
 }
 function iniciarDia(data) {
   const dia = DIAS.find((d) => d.data === data);

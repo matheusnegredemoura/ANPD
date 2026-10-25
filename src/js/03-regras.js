@@ -357,7 +357,8 @@ function registrar(q, resp, duvida) {
     d.sq = ((d.sq || '') + (sabia ? (ok ? 'k' : 'l') : ok ? 'c' : 'e')).slice(-30);
   }
   if (antes < 0 && resp !== BRANCO) d.ni = (d.ni || 0) + 1;
-  if (ok) golpeChefe(q);
+  // O chefão só sente o primeiro acerto do dia em cada item: repetir o mesmo item não é golpe novo
+  if (ok && !jaRespondidoHoje) golpeChefe(q);
   if (eraManutencao) { d.m = (d.m || 0) + 1; if (ok && !duvida) d.mc = (d.mc || 0) + 1; }
   if (pontual) { d.mp = (d.mp || 0) + 1; if (ok && !duvida) d.mpc = (d.mpc || 0) + 1; }
   if (ok === false) sugerirPesquisaDoErro(q);
@@ -527,6 +528,8 @@ function verificarConquistas(ctx) {
 // Estado do card: [vence, intervalo, facilidade×100, repetições, lapsos, último dia]
 function cardNovo(id) { return !S.cards[id]; }
 function cardVencido(id) { const r = S.cards[id]; return !!r && r[0] <= HOJE(); }
+// "Fácil" seguido multiplica o intervalo sem fim; um ano basta para um plano de meses
+const CARD_IVL_MAX = 365;
 function calcularCard(id, nota) {
   const r = S.cards[id];
   let ivl, ease, reps, lapses;
@@ -538,12 +541,14 @@ function calcularCard(id, nota) {
   } else {
     [, ivl, ease, reps, lapses] = r;
     if (nota === 1) { lapses++; ease = Math.max(130, ease - 20); ivl = 0; reps = 0; }
-    else if (nota === 2) { ease = Math.max(130, ease - 15); ivl = Math.max(1, Math.round(Math.max(ivl, 1) * 1.2)); reps++; }
+    // Difícil cresce devagar, mas cresce: 1,2 × 1 dia arredondava para 1 e o card ficava preso em 1 dia
+    else if (nota === 2) { ease = Math.max(130, ease - 15); ivl = Math.max(ivl + 1, Math.round(Math.max(ivl, 1) * 1.2)); reps++; }
     else if (nota === 3) { ivl = ivl < 1 ? 1 : Math.max(ivl + 1, Math.round((ivl * ease) / 100)); reps++; }
     else { ease += 15; ivl = ivl < 1 ? 3 : Math.max(ivl + 2, Math.round(((ivl * ease) / 100) * 1.3)); reps++; }
   }
   // "Errei" (intervalo 0) volta no fim da própria sessão e, depois, amanhã. O intervalo guardado segue crescendo;
   // só o vencimento para antes da prova
+  ivl = Math.min(CARD_IVL_MAX, ivl);
   return [HOJE() + tetoProva(Math.max(1, ivl)), ivl, ease, reps, lapses, HOJE()];
 }
 function avaliarCard(id, nota) {

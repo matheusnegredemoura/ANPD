@@ -339,6 +339,13 @@ async function executar(a, alvo) {
       Store.salvarTudo(); renderTudo(); avisar('↺', 'Backup somado a este aparelho', fmtNum(S.perfil.xp) + ' XP · ' + pl(Object.keys(S.itens).length, 'questão', 'questões') + ' com histórico');
       break;
     }
+    case 'backup-substituir': {
+      const z = document.getElementById('zona-backup');
+      if (!backupPendente || !z) break;
+      z.insertAdjacentHTML('beforeend', '<div class="cartao"><p><b>Substituir tudo?</b> O progresso deste aparelho e o da sua conta saem, e o do backup entra no lugar. Não dá para desfazer: baixe um backup do estado atual antes.</p><div class="linha-btns"><button class="btn" data-acao="backup-confirmar">Sim, substituir</button><button class="btn" data-acao="mais" data-sub="ajustes">Cancelar</button></div></div>');
+      z.querySelector('[data-acao="backup-substituir"]').disabled = true;
+      break;
+    }
     case 'backup-confirmar': {
       const d = backupPendente;
       if (!d) break;
@@ -366,9 +373,9 @@ async function executar(a, alvo) {
       break;
     case 'zerar': document.getElementById('zona-zerar').innerHTML = '<p><b>Tem certeza?</b> Não dá para desfazer. Baixe um backup antes.</p><div class="linha-btns"><button class="btn primario" data-acao="confirmar-zerar">Apagar tudo</button><button class="btn" data-acao="mais" data-sub="ajustes">Cancelar</button></div>'; break;
     case 'confirmar-zerar':
-      S.perfil = Object.assign(perfilPadrao(), { status: S.perfil.status, meta: S.perfil.meta, metaFixa: S.perfil.metaFixa, novosCards: S.perfil.novosCards, intercaladas: S.perfil.intercaladas, ui: S.perfil.ui, ep: Date.now() });
+      S.perfil = Object.assign(perfilPadrao(), { status: S.perfil.status, meta: S.perfil.meta, metaFixa: S.perfil.metaFixa, novosCards: S.perfil.novosCards, intercaladas: S.perfil.intercaladas, ui: S.perfil.ui, edital: S.perfil.edital, ep: Date.now() });
       S.itens = {}; S.cards = {}; S.simulados = []; S.pesquisa = {}; S.disc = {};
-      Store.salvarTudo(); renderTudo(); avisar('0', 'Progresso zerado', 'Status dos blocos, metas e preferências foram mantidos.');
+      Store.salvarTudo(); renderTudo(); avisar('0', 'Progresso zerado', 'Status dos blocos, metas, preferências e os dados do edital foram mantidos.');
       break;
     case 'copiar-erros': if (await copiarTexto(JSON.stringify(ERROS, null, 1))) avisar('✓', 'Erros copiados', 'Cole na conversa com o Claude.'); break;
     case 'sync-tcu': sincronizarDoTCU(undefined); break;
@@ -397,17 +404,19 @@ document.addEventListener('change', (ev) => {
   else if (a === 'dia-feito') { if (alvo.checked) S.perfil.feitos[alvo.dataset.dia] = 1; else delete S.perfil.feitos[alvo.dataset.dia]; Store.salvar('perfil'); renderMais(); }
   else if (a === 'anpd-check-sem' || a === 'tcu-check-sem') {
     const semKey = semanaAtual(), cs = ((cadState().checkSem ||= {})[semKey] ||= {});
+    // Desmarcar guarda o item como já pago (0): remarcar não paga os 15 XP de novo, e o bônus sai uma vez por semana
     if (alvo.checked) {
-      cs[alvo.dataset.i] = true;
-      ganharXP(15);
+      const pago = alvo.dataset.i in cs;
+      cs[alvo.dataset.i] = 1;
+      if (!pago) ganharXP(15);
       const totalChecks = ((D.mentor && D.mentor.metodo && D.mentor.metodo.checklistSemanal) || []).length || 7;
-      const feitos = Object.values(cs).filter(Boolean).length;
-      if (feitos >= totalChecks) {
+      if (checksFeitos(cs) >= totalChecks && !cs.bonus) {
+        cs.bonus = 1;
         ganharXP(50);
         avisar('★', 'Semana 100% Cumprida!', 'Checklist semanal do mentor zerado (+50 XP de bônus)');
       }
     } else {
-      delete cs[alvo.dataset.i];
+      cs[alvo.dataset.i] = 0;
     }
     Store.salvar('perfil');
     if (UI.vista === 'mais') renderMais();
@@ -451,14 +460,18 @@ window.addEventListener('storage', (ev) => {
   S.disc = mesclarDoc('discursivas', { d: d.disc || {} }, { d: S.disc }, true).d;
   if (!sessao) renderTudo();
 });
-// Teclado do celular aberto de verdade (a área visível encolhe): o que é fixo embaixo sai do caminho. Pelo foco não dá:
-// no Android, fechar o teclado com o Voltar mantém o campo focado
+// Teclado do celular aberto de verdade (a área visível encolhe com um campo de texto focado): o que é fixo embaixo sai do
+// caminho. Só pelo foco não dá: no Android, fechar o teclado com o Voltar mantém o campo focado. Girar o aparelho muda a
+// largura e recomeça a medida (em paisagem a altura cai sem teclado nenhum, e a barra de abas sumia)
 if (window.visualViewport) {
-  let alturaMax = window.visualViewport.height;
-  window.visualViewport.addEventListener('resize', () => {
-    const h = window.visualViewport.height;
+  const vv = window.visualViewport;
+  let alturaMax = vv.height, largura = vv.width;
+  vv.addEventListener('resize', () => {
+    const h = vv.height, a = document.activeElement;
+    if (Math.abs(vv.width - largura) > 1) { largura = vv.width; alturaMax = h; }
     if (h > alturaMax) alturaMax = h;
-    document.body.classList.toggle('kb-aberto', h < alturaMax * 0.75);
+    const campo = !!a && (/^(TEXTAREA|SELECT)$/.test(a.tagName) || (a.tagName === 'INPUT' && !/^(checkbox|radio|button|submit|range|file)$/.test(a.type)) || a.isContentEditable);
+    document.body.classList.toggle('kb-aberto', campo && h < alturaMax * 0.75);
   });
 }
 // Partes recolhidas (<details data-det>) continuam abertas ou fechadas quando a tela é redesenhada

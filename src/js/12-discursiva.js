@@ -233,6 +233,8 @@ function renderAjustes() {
 }
 
 /* ================= Fase, degrau e checklist do mentor ================= */
+// Metas marcadas na semana: só as chaves numéricas (a do bônus fica de fora)
+function checksFeitos(cs) { return Object.keys(cs || {}).filter((k) => /^\d+$/.test(k) && cs[k]).length; }
 function cadState() {
   const c = (S.perfil.cad ||= {});
   c.checkSem ||= {};

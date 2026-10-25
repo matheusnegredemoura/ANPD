@@ -494,7 +494,7 @@ function renderMetodo() {
     '</tbody></table></div></div>';
 
   const ms = metricasSemanaMentor();
-  const chkFeitos = Object.values(chk).filter(Boolean).length;
+  const chkFeitos = checksFeitos(chk);
   const chkTotal = (mt.checklistSemanal && mt.checklistSemanal.length) || 7;
   const chkPct = Math.min(100, Math.round((chkFeitos / chkTotal) * 100));
 

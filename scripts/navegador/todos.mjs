@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { FOTOS } from './comum.mjs';
 
 const DIR = dirname(fileURLToPath(import.meta.url));
-const TESTES = ['fumaca.mjs', 'sincronizacao.mjs', 'pausa.mjs', 'retomada.mjs', 'ia.mjs', 'revisao.mjs', 'multipla-escolha.mjs', 'cards.mjs', 'armadilha.mjs', 'lista-curta.mjs', 'jornada.mjs', 'conquistas.mjs', 'backup.mjs', 'pesos.mjs', 'prontidao.mjs', 'discursiva-plano.mjs', 'cronometro.mjs', 'virada.mjs', 'trilhas.mjs', 'atraso-inicio.mjs', 'artigo-inline.mjs', 'dia-do-zero.mjs', 'voltar.mjs', 'defesa.mjs', 'abas.mjs', 'ritmo.mjs', 'gaveta.mjs', 'ouvir.mjs', 'fria.mjs', 'correcao.mjs', 'semana.mjs', 'medida.mjs', 'edital.mjs', 'roteiro.mjs', 'largura.mjs', 'desafio.mjs', 'cansaco.mjs', 'teclado.mjs'];
+const TESTES = ['fumaca.mjs', 'sincronizacao.mjs', 'pausa.mjs', 'retomada.mjs', 'ia.mjs', 'revisao.mjs', 'multipla-escolha.mjs', 'cards.mjs', 'armadilha.mjs', 'lista-curta.mjs', 'jornada.mjs', 'conquistas.mjs', 'backup.mjs', 'pesos.mjs', 'prontidao.mjs', 'discursiva-plano.mjs', 'cronometro.mjs', 'virada.mjs', 'trilhas.mjs', 'atraso-inicio.mjs', 'artigo-inline.mjs', 'dia-do-zero.mjs', 'voltar.mjs', 'defesa.mjs', 'abas.mjs', 'ritmo.mjs', 'gaveta.mjs', 'ouvir.mjs', 'fria.mjs', 'correcao.mjs', 'semana.mjs', 'medida.mjs', 'edital.mjs', 'roteiro.mjs', 'largura.mjs', 'desafio.mjs', 'cansaco.mjs', 'teclado.mjs', 'brechas.mjs'];
 const args = process.argv.slice(2), nomes = [];
 let repetir = 1;
 for (let i = 0; i < args.length; i++) {

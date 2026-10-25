@@ -87,15 +87,17 @@ async function responder(p, certo) {
 
 await passo('na batalha, acerto causa dano no chefão e erro custa um coração', async () => {
   const { ctx, p } = await abrir(() => ({}), () => ({}));
+  // Chefão novo: 1500 de vida de segunda a quarta; a partir de quinta, proporcional aos dias que restam até domingo
+  const restam = Math.min(5, 7 - ((new Date().getDay() + 6) % 7)), vidaIni = Math.round((1500 * restam) / 5);
   const vida0 = (await p.textContent('.chefe .chefe-cab .mono')).trim();
-  if (vida0 !== 'HP 1500/1500') throw new Error('vida inicial: ' + vida0);
+  if (vida0 !== 'HP ' + vidaIni + '/' + vidaIni) throw new Error('vida inicial: ' + vida0 + ' (esperado ' + vidaIni + ')');
   await abrirJornada(p);
   await p.click('[data-acao="enfrentar-chefe"]');
   await p.waitForSelector('.arena');
   await responder(p, true);
   const dano = (await p.textContent('.arena .dano')).trim();
   const c = (await salvo(p)).perfil.rpg.chefe;
-  if (!(c.vida < 1500) || !/−\d+/.test(dano)) throw new Error('dano: ' + dano + ' · vida ' + c.vida);
+  if (!(c.vida < vidaIni) || !/−\d+/.test(dano)) throw new Error('dano: ' + dano + ' · vida ' + c.vida);
   await p.click('[data-acao="proximo"]');
   await responder(p, false);
   const cheios = await p.locator('.arena .cor.cheio').count(), total = await p.locator('.arena .cor').count();

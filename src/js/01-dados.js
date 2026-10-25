@@ -140,8 +140,18 @@ const PADRAO_EDITAL = {
 const REG_NA_BASICA = new Set(['lei-13848', 'lei-9784']);
 const PROVA_BASICA = {}, PROVA_ESPECIFICA = {}, ITENS_PROVA = {}, PONTOS_DISC = {}, CORTES = {};
 let PESO_BASICA = 1, PESO_ESPECIFICA = 1, TOTAL_PROVA = 0, PONTOS_PROVA = 0;
+// Só disciplinas conhecidas e números positivos: o edital também chega por backup e pela conta, e vai para o HTML
+function parteEdital(o) {
+  if (!o || typeof o !== 'object') return null;
+  const r = {};
+  for (const [d, k] of Object.entries(o)) { const n = Math.round(Number(k)); if (DI.has(d) && n > 0 && n <= 500) r[d] = n; }
+  return Object.keys(r).length ? r : null;
+}
 function aplicarEdital(ed) {
-  ed = ed || {};
+  ed = ed && typeof ed === 'object' ? ed : {};
+  const cortes = {};
+  for (const [k, v] of Object.entries(ed.cortes && typeof ed.cortes === 'object' ? ed.cortes : {})) if (k in PADRAO_EDITAL.cortes && Number.isFinite(Number(v)) && Number(v) >= 0) cortes[k] = Number(v);
+  ed = { basica: parteEdital(ed.basica), especifica: parteEdital(ed.especifica), cortes, pesoB: Math.min(10, Number(ed.pesoB)), pesoE: Math.min(10, Number(ed.pesoE)) };
   const troca = (alvo, novo) => { for (const k of Object.keys(alvo)) delete alvo[k]; Object.assign(alvo, novo); };
   troca(PROVA_BASICA, ed.basica || PADRAO_EDITAL.basica);
   troca(PROVA_ESPECIFICA, ed.especifica || PADRAO_EDITAL.especifica);
@@ -179,7 +189,7 @@ function comNumeros(s) {
   });
 }
 // Data da prova: a do edital, quando a pessoa a informa em Ajustes; antes disso, a estimativa do cronograma
-function dataProva() { return (S.perfil.edital && S.perfil.edital.prova) || D.cronograma.prova; }
+function dataProva() { const p = S.perfil.edital && S.perfil.edital.prova; return typeof p === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(p) ? p : D.cronograma.prova; }
 // Simulado da prova inteira: 1,75 min por item (os 120 da Anatel 2024 em 3h30)
 const RITMO_PROVA_MIN = 1.75;
 function minutosProva() { return Math.round(TOTAL_PROVA * RITMO_PROVA_MIN); }
