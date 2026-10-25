@@ -1,0 +1,135 @@
+bloco: eca-digital
+// Decreto nº 12.880/2026 (regulamento do ECA Digital), parte D: conteúdo pornográfico (art. 16), contestação da idade
+// (art. 27), publicidade abusiva (art. 31), apostas e produtos proibidos (art. 32), entidades habilitadas (arts. 44,
+// 46 e 52), pesquisa (art. 48), embalagens (art. 50) e Centro Nacional de Triagem (art. 51).
+// Trechos conferidos em fontes/dec12880.txt.
+
+=== ecd4-01
+gab: C
+tema: ed-idade
+ref: dec12880 16
+trecho: ainda que em forma de prévias, imagens, títulos ou legendas
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um site de conteúdo pornográfico exibia prévias e títulos dos vídeos a qualquer visitante, e só pedia a verificação de idade para reproduzir o vídeo completo. Assertiva: a prática contraria o regulamento do ECA Digital.
+comentario: Certo. Art. 16, § 1º: o fornecedor deve adotar verificação de idade própria que impeça o acesso de crianças e adolescentes, ainda que em forma de prévias, imagens, títulos ou legendas.
+
+=== ecd4-02
+gab: C
+tema: ed-idade
+ref: dec12880 16
+trecho: educação para promoção da saúde, inclusive mental, ou para prevenção de violência
+armadilha: excecao
+dif: 2
+enunciado: Para o regulamento do ECA Digital, o conteúdo inserido em contexto de educação para a promoção da saúde, inclusive mental, ou para a prevenção de violência não se enquadra como pornográfico.
+comentario: Certo. Art. 16, § 2º, II. As exceções protegem a liberdade de expressão e evitam censura (art. 220, § 2º, da Constituição). Também ficam de fora livros e audiolivros sem imagens e a reprodução de áudio (III e IV).
+
+=== ecd4-03
+gab: C
+tema: ed-idade
+ref: dec12880 16
+trecho: a ANPD poderá, no âmbito de suas competências, a qualquer tempo, determinar enquadramento diverso com fundamento na natureza preponderante ou nos efeitos práticos do produto ou do serviço
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma plataforma de vídeos concluiu, em avaliação própria, que não disponibiliza conteúdo pornográfico. Assertiva: a ANPD pode, a qualquer tempo, determinar enquadramento diverso com base na natureza preponderante ou nos efeitos práticos do serviço.
+comentario: Certo. Art. 16, § 3º. A avaliação do fornecedor não vincula a ANPD, que olha para a finalidade, a funcionalidade e o modelo de negócio (caput).
+
+=== ecd4-04
+gab: E
+tema: ed-idade
+ref: dec12880 27
+trecho: deverá possibilitar ao usuário meio adequado para contestar a idade ou a faixa etária aferida ou verificada
+armadilha: conceito
+dif: 2
+enunciado: O fornecedor que verifica a idade dos usuários não precisa oferecer meio de contestação do resultado, pois a aferição técnica presume-se correta.
+comentario: Errado. O art. 27 obriga o fornecedor que afere ou verifica a idade a oferecer meio adequado para o usuário contestar a idade ou a faixa etária atribuída.
+
+=== ecd4-05
+gab: E
+tema: ed-supervisao
+ref: dec12880 31
+trecho: toda publicidade que se aproveite da deficiência de julgamento e experiência da criança
+armadilha: conceito
+dif: 2
+enunciado: Para o regulamento do ECA Digital, só é abusiva a publicidade dirigida a crianças em produtos e serviços digitais que contenha informação falsa.
+comentario: Errado. Publicidade com informação falsa é enganosa. O art. 31 considera abusiva, nos termos do art. 37, § 2º, do CDC, toda publicidade que se aproveite da deficiência de julgamento e experiência da criança.
+
+=== ecd4-06
+gab: C
+tema: ed-supervisao
+ref: dec12880 32
+trecho: jogos de azar, apostas de quota fixa, loterias, produtos de tabaco, bebidas alcoólicas, narcóticos
+armadilha: rol
+dif: 2
+enunciado: A ANPD regulamentará requisitos mínimos para que os fornecedores previnam e mitiguem a exposição de crianças e adolescentes à promoção e à comercialização de apostas de quota fixa, loterias, produtos de tabaco e bebidas alcoólicas, entre outros produtos.
+comentario: Certo. Art. 32. A regra alcança acesso, exposição, recomendação ou facilitação de contato com esses produtos, inclusive jogos de azar e narcóticos.
+
+=== ecd4-07
+gab: E
+tema: ed-fiscalizacao
+ref: dec12880 44
+trecho: não ter fins lucrativos
+armadilha: rol
+dif: 2
+enunciado: Uma empresa com fins lucrativos pode ser habilitada pela ANPD como entidade representativa de defesa dos direitos de crianças e adolescentes, desde que tenha experiência comprovada na proteção desses direitos no ambiente digital.
+comentario: Errado. Os requisitos do art. 44 são cumulativos: experiência demonstrada, independência em relação aos fornecedores, procedimentos que assegurem qualidade e imparcialidade das notificações e ausência de fins lucrativos (IV).
+
+=== ecd4-08
+gab: C
+tema: ed-fiscalizacao
+ref: dec12880 44
+trecho: A relação das entidades representativas de defesa dos direitos de crianças e adolescentes habilitadas pela ANPD será publicada no sítio eletrônico da Agência
+armadilha: conceito
+dif: 1
+enunciado: A ANPD publica em seu sítio eletrônico a relação das entidades de defesa dos direitos de crianças e adolescentes que habilitou, e pode desabilitá-las em caso de desvio de atuação ou de envio abusivo de notificações.
+comentario: Certo. Art. 44, §§ 2º e 3º. Ato da ANPD disciplina requisitos, procedimentos e prazos de credenciamento, supervisão e descredenciamento (§ 1º).
+
+=== ecd4-09
+gab: C
+tema: ed-fiscalizacao
+ref: dec12880 46
+trecho: a classificação das notificações por tipo de conteúdo ilegal
+armadilha: rol
+dif: 2
+enunciado: As entidades que notificam fornecedores para retirada de conteúdo devem publicar relatório anual com o número de denúncias recebidas, os fornecedores notificados, a classificação das notificações por tipo de conteúdo ilegal e as respostas obtidas.
+comentario: Certo. Art. 46, I a IV. O relatório dá transparência à atuação dos notificadores e permite verificar se há abuso.
+
+=== ecd4-10
+gab: E
+tema: ed-fiscalizacao
+ref: dec12880 48
+trecho: instituições acadêmicas, científicas, tecnológicas, de inovação ou jornalísticas
+armadilha: sujeito
+dif: 2
+enunciado: A habilitação da ANPD para acesso de pesquisadores a dados dos provedores restringe-se a universidades públicas, excluídas as instituições jornalísticas.
+comentario: Errado. O art. 48 prevê habilitação, por edital público, de instituições acadêmicas, científicas, tecnológicas, de inovação ou jornalísticas, com finalidade compatível com pesquisa de interesse público e equipe qualificada.
+
+=== ecd4-11
+gab: C
+tema: ed-supervisao
+ref: dec12880 50
+trecho: Conteúdos da internet podem apresentar riscos a crianças e adolescentes. O uso do produto requer supervisão parental
+armadilha: conceito
+dif: 2
+enunciado: Até que a ANPD regulamente o tema, a embalagem de equipamento com acesso à internet direcionado exclusivamente a crianças e adolescentes deve informar que o produto permite acesso à internet, que os conteúdos podem apresentar riscos e que o uso requer supervisão parental.
+comentario: Certo. Art. 50, § 1º, que fixa a redação provisória da mensagem. A ANPD regulamentará o aviso do art. 38 da Lei 15.211/2025 por segmento de equipamento (§ 3º).
+
+=== ecd4-12
+gab: E
+tema: ed-fiscalizacao
+ref: dec12880 48
+trecho: declaração de inexistência de finalidade comercial e plano de governança e segurança da informação
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma consultoria de marketing quer acesso aos dados dos provedores previstos no ECA Digital para estudar o comportamento de consumo de adolescentes e vender os resultados a anunciantes. Assertiva: basta apresentar plano de pesquisa e equipe qualificada para ser habilitada pela ANPD.
+comentario: Errado. O art. 48 exige finalidade institucional compatível com pesquisa de interesse público e declaração de inexistência de finalidade comercial, além de plano de pesquisa, equipe qualificada e plano de governança e segurança da informação. A habilitação é feita por edital público.
+
+=== ecd4-13
+gab: E
+tema: ed-fiscalizacao
+ref: dec12880 52
+trecho: a ANPD poderá habilitar provisoriamente as entidades representativas de defesa dos direitos de crianças e adolescentes de reconhecida atuação em âmbito nacional
+armadilha: excecao
+dif: 2
+enunciado: Enquanto não houver o ato de credenciamento previsto no regulamento, a ANPD não pode habilitar nenhuma entidade de defesa dos direitos de crianças e adolescentes, nem mesmo provisoriamente.
+comentario: Errado. O art. 52 permite habilitação provisória de entidades de atuação nacional que cumpram os requisitos do art. 44 e integrem, como titulares ou suplentes, o Conanda ou a Comissão Intersetorial de Enfrentamento da Violência Sexual contra Crianças e Adolescentes.
