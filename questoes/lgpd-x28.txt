@@ -1,0 +1,157 @@
+// LGPD, lote X28: casos sobre anonimização e perfil comportamental (art. 12), pesquisa em saúde pública e
+// pseudonimização (art. 13), término do tratamento (art. 15), poder público e cartórios (art. 23) e empresas estatais
+// (art. 24). Conferidas com fontes/lgpd.txt.
+
+=== lx28-01
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 12
+trecho: ou quando, com esforços razoáveis, puder ser revertido
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa retirou nomes e CPFs de uma base, mas manteve data de nascimento, CEP e profissão, o que permite, com cruzamentos simples em fontes públicas, chegar a quase todos os titulares. Assertiva: os dados já não são pessoais para a LGPD.
+comentario: Errado. Se a anonimização pode ser revertida com esforços razoáveis, os dados continuam pessoais (art. 12, caput). A razoabilidade considera custo, tempo e tecnologias disponíveis (§ 1º).
+
+=== lx28-02
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 12
+trecho: aqueles utilizados para formação do perfil comportamental de determinada pessoa natural, se identificada
+armadilha: conceito
+dif: 3
+enunciado: Dados usados para formar o perfil comportamental de determinada pessoa natural identificada podem ser considerados dados pessoais, ainda que não tragam o nome dela.
+comentario: Certo. Art. 12, § 2º. O que importa é o vínculo do perfil com uma pessoa, e não a presença de identificadores diretos.
+
+=== lx28-03
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 12
+trecho: ouvido o Conselho Nacional de Proteção de Dados Pessoais
+armadilha: sujeito
+dif: 2
+enunciado: Cabe ao Conselho Nacional de Proteção de Dados Pessoais e da Privacidade editar, com exclusividade, os padrões técnicos de anonimização.
+comentario: Errado. Quem pode dispor sobre padrões e técnicas de anonimização e verificar sua segurança é a autoridade nacional, ouvido o Conselho Nacional (art. 12, § 3º), que é órgão consultivo.
+
+=== lx28-04
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 13
+trecho: em nenhuma hipótese poderá revelar dados pessoais
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um instituto público de pesquisa em saúde publicou um estudo sobre uma doença rara com tabelas por município que permitiam identificar os poucos pacientes de cada cidade. Assertiva: a divulgação contraria a LGPD.
+comentario: Certo. Art. 13, § 1º: a divulgação dos resultados ou de qualquer trecho do estudo não pode revelar dados pessoais em nenhuma hipótese. Agregar demais ou de menos é questão de técnica, mas o resultado não pode identificar ninguém.
+
+=== lx28-05
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 13
+trecho: não permitida, em circunstância alguma, a transferência dos dados a terceiro
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um órgão de pesquisa que recebeu bases de dados pessoais para estudo de saúde pública repassou os dados a uma empresa parceira para acelerar a análise. Assertiva: o repasse é lícito, desde que a empresa mantenha os dados em ambiente seguro.
+comentario: Errado. O órgão de pesquisa é responsável pela segurança, e a transferência dos dados a terceiro é vedada em qualquer circunstância (art. 13, § 2º). Os dados devem ser tratados exclusivamente dentro do órgão (caput).
+
+=== lx28-06
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 13
+trecho: senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro
+armadilha: comparacao
+dif: 3
+enunciado: Na pseudonimização, o dado só volta a ser associado ao indivíduo por meio de informação adicional que o controlador mantém separadamente, em ambiente controlado e seguro, razão pela qual o dado pseudonimizado continua sendo pessoal.
+comentario: Certo. Art. 13, § 4º. Diferentemente da anonimização, a pseudonimização é reversível pelo controlador, e o dado segue sob a LGPD.
+
+=== lx28-07
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 15
+trecho: comunicação do titular, inclusive no exercício de seu direito de revogação do consentimento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a usuária de um aplicativo de exercícios revogou o consentimento que fundamentava o tratamento de seus dados. Assertiva: a revogação é hipótese de término do tratamento, resguardado o interesse público.
+comentario: Certo. Art. 15, III. Após o término, os dados são eliminados, salvo as hipóteses de conservação do art. 16.
+
+=== lx28-08
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 15
+trecho: determinação da autoridade nacional, quando houver violação ao disposto nesta Lei
+armadilha: rol
+dif: 2
+enunciado: O término do tratamento de dados só ocorre por vontade do controlador ou do titular, sem que a autoridade nacional possa determiná-lo.
+comentario: Errado. A ANPD pode determinar o término quando houver violação à LGPD (art. 15, IV). As demais hipóteses são o alcance da finalidade, o fim do período e a comunicação do titular (I a III).
+
+=== lx28-09
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 15
+trecho: verificação de que a finalidade foi alcançada ou de que os dados deixaram de ser necessários
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: encerrado um sorteio promocional e entregues os prêmios, a empresa organizadora não precisa mais dos dados dos participantes para aquela finalidade. Assertiva: o tratamento chegou ao fim, por ter sido alcançada a finalidade.
+comentario: Certo. Art. 15, I. A conservação posterior só cabe nas hipóteses do art. 16, como obrigação legal.
+
+=== lx28-10
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: em veículos de fácil acesso, preferencialmente em seus sítios eletrônicos
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma secretaria estadual trata dados de cidadãos para conceder benefícios, mas não informa em lugar nenhum a previsão legal, a finalidade e os procedimentos desse tratamento. Assertiva: como o tratamento decorre de competência legal, a secretaria está dispensada de dar essa publicidade.
+comentario: Errado. O art. 23, I, exige que o poder público informe as hipóteses de tratamento, com previsão legal, finalidade, procedimentos e práticas, em veículos de fácil acesso, preferencialmente na internet.
+
+=== lx28-11
+bloco: lgpd-23-32
+gab: C
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: Os órgãos notariais e de registro devem fornecer acesso aos dados por meio eletrônico para a administração pública
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um órgão federal, no exercício de sua competência legal, pediu a um cartório de registro de imóveis acesso eletrônico a dados de matrículas. Assertiva: os órgãos notariais e de registro devem fornecer esse acesso por meio eletrônico à administração pública, para as finalidades públicas.
+comentario: Certo. Art. 23, § 5º. Os cartórios recebem o mesmo tratamento das pessoas jurídicas de direito público (§ 4º), e o tratamento deve atender à finalidade pública e às competências legais (caput).
+
+=== lx28-12
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: O disposto nesta Lei não dispensa as pessoas jurídicas mencionadas no caput deste artigo de instituir as autoridades de que trata a Lei nº 12.527
+armadilha: conceito
+dif: 2
+enunciado: Ao indicar encarregado de dados, o órgão público fica dispensado de manter as autoridades e estruturas exigidas pela Lei de Acesso à Informação.
+comentario: Errado. A LGPD não dispensa a instituição das autoridades da LAI (art. 23, § 2º). Os prazos e procedimentos dos direitos do titular perante o poder público seguem também o habeas data, a Lei 9.784 e a LAI (§ 3º).
+
+=== lx28-13
+bloco: lgpd-23-32
+gab: C
+tema: pd-poder-publico
+ref: lgpd 24
+trecho: terão o mesmo tratamento dispensado às pessoas jurídicas de direito privado particulares
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um banco estatal que atua em concorrência com bancos privados trata dados de clientes para oferecer cartões de crédito. Assertiva: nessa atividade, ele recebe da LGPD o mesmo tratamento das pessoas jurídicas de direito privado.
+comentario: Certo. Art. 24, caput: estatais em regime de concorrência (art. 173 da Constituição) seguem o regime privado. Quando operacionalizam políticas públicas, seguem o regime do poder público (parágrafo único).
+
+=== lx28-14
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 24
+trecho: quando estiverem operacionalizando políticas públicas e no âmbito da execução delas
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa pública operacionaliza o pagamento de um programa social do governo federal. Assertiva: mesmo nessa atividade, ela recebe da LGPD o tratamento de empresa privada, por ter personalidade de direito privado.
+comentario: Errado. Ao operacionalizar e executar políticas públicas, empresas públicas e sociedades de economia mista recebem o tratamento dos órgãos e entidades do poder público (art. 24, parágrafo único).
