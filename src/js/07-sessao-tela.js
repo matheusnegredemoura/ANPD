@@ -402,14 +402,18 @@ function abrirFolha(html, rotulo) {
   f.setAttribute('aria-label', rotulo || 'Detalhes');
   f.hidden = false;
   f.scrollTop = 0;
+  trancarFundo();
   const b = f.querySelector('[data-acao="fechar-folha"]');
-  if (b) b.focus();
+  if (b) b.focus(); else focarDialogo(f);
   sincronizarHistorico();
 }
 function fecharFolha() {
   const f = document.getElementById('folha'), aberta = !f.hidden;
   f.hidden = true; f.innerHTML = ''; UI.folhaAula = null; sincronizarHistorico();
+  // Devolve o fundo antes de devolver o foco: com #sessao ainda inerte, focar nela não teria efeito
+  trancarFundo();
   if (aberta && folhaOrigem && folhaOrigem.isConnected && typeof folhaOrigem.focus === 'function') folhaOrigem.focus();
+  else if (aberta) { const v = document.getElementById(document.getElementById('sessao').hidden ? 'conteudo' : 'sessao'); if (v) try { v.focus({ preventScroll: true }); } catch (e) { /* segue */ } }
   folhaOrigem = null;
 }
 function cabFolha(rotulo, titulo) { return '<div class="folha-cab"><div><span class="rotulo">' + esc(rotulo) + '</span><h2>' + esc(titulo) + '</h2></div><button class="btn pequeno" data-acao="fechar-folha">Fechar</button></div>'; }

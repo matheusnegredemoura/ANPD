@@ -489,6 +489,8 @@ document.addEventListener('input', (ev) => {
 });
 document.addEventListener('keydown', (ev) => {
   if (ev.key === 'Escape' && !document.getElementById('folha').hidden) { fecharFolha(); return; }
+  // Diálogo com aria-modal tem de fechar no Escape; a sessão fica guardada e volta em "Continuar"
+  if (ev.key === 'Escape' && sessao && !sessao.confirmar) { fecharSessao(true); return; }
   // Folha aberta (diálogo modal): o Tab circula dentro dela, sem cair na tela de trás
   if (ev.key === 'Tab' && !document.getElementById('folha').hidden) {
     const fs = [...document.getElementById('folha').querySelectorAll('button, [href], input, select, textarea, summary, [tabindex]:not([tabindex="-1"])')].filter((x) => !x.disabled && x.offsetParent);
@@ -499,6 +501,10 @@ document.addEventListener('keydown', (ev) => {
   if (ev.target && ev.target.id === 'card-digitar' && ev.key === 'Enter') { ev.preventDefault(); proximo(); return; }
   if (ev.target && /INPUT|TEXTAREA|SELECT/.test(ev.target.tagName) && ev.target.type !== 'checkbox') return;
   if (!document.getElementById('folha').hidden) return;
+  // Atalho de uma letra só vale sem modificador: com Cmd/Ctrl/Alt a tecla pertence ao navegador.
+  // Sem esta guarda, copiar o enunciado (Cmd+C) marcava "Certo", Ctrl+E marcava "Errado" e Cmd+B
+  // respondia em branco, e a resposta ia para o histórico, para o XP e para a medida de prontidão.
+  if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
   const k = ev.key.toLowerCase();
   if (sessao.modo === 'cards') {
     if (!sessao.revelado && (k === ' ' || k === 'enter')) { ev.preventDefault(); proximo(); }

@@ -674,6 +674,10 @@ async function enviarContestacoesPendentes() {
       if (c && (c.status !== x.status || c.resposta !== x.resposta)) { c.status = x.status; c.resposta = x.resposta || ''; mudou = true; }
     }
   } catch (e) { /* sem leitura: fica o que está no navegador */ }
+  // A resposta que veio no pacote de dados não pode ser desfeita pela leitura da conta: o documento
+  // da coleção continua com status "aberta" e resposta vazia enquanto não for respondido lá, e sem
+  // isto o status voltava para "aberta" e a resposta sumia a cada abertura do painel.
+  aplicarRespostasDoBanco();
   if (mudou) { gravarContest(); if (UI.vista === 'mais') renderMais(); }
 }
 function renderContestacoes() {

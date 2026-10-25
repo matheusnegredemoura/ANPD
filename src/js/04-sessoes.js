@@ -186,6 +186,20 @@ function novaSessao(cfg, ids) {
 function tituloModo(m) {
   return { treino: 'Treino', revisao: 'Revisão da lista curta', simulado: 'Simulado Cebraspe', relampago: 'Relâmpago 90 s', cards: 'Cards cloze' }[m] || 'Sessão';
 }
+// Enquanto um diálogo está aberto, o fundo fica inerte: sem Tab, sem leitor de tela, sem clique.
+// Sem isto o aria-modal="true" de #sessao e #folha é promessa falsa: o Tab saía do diálogo e caía
+// nos botões da tela de trás, escondidos atrás dele.
+function trancarFundo() {
+  const temSessao = !document.getElementById('sessao').hidden;
+  const temFolha = !document.getElementById('folha').hidden;
+  for (const id of ['topo', 'conteudo', 'abas']) { const e = document.getElementById(id); if (e) e.inert = temSessao || temFolha; }
+  document.getElementById('sessao').inert = temSessao && temFolha;
+}
+function focarDialogo(el) {
+  if (!el.hasAttribute('tabindex')) el.tabIndex = -1;
+  const alvo = el.querySelector('button, [href], input, select, textarea') || el;
+  try { alvo.focus({ preventScroll: true }); } catch (e) { /* sem foco: segue sem travar */ }
+}
 function abrirSessao() {
   const el = document.getElementById('sessao');
   el.hidden = false;
@@ -195,6 +209,8 @@ function abrirSessao() {
   renderSessao();
   el.scrollTop = 0;
   sincronizarHistorico();
+  trancarFundo();
+  focarDialogo(el);
 }
 function fecharSessao(guardar = true) {
   if (guardar) guardarSessaoAberta();
@@ -207,6 +223,10 @@ function fecharSessao(guardar = true) {
   Store.descarregar();
   renderTudo();
   sincronizarHistorico();
+  trancarFundo();
+  // O gatilho foi reescrito por renderTudo; o foco volta para o conteúdo, que já tem tabindex="-1"
+  const c = document.getElementById('conteudo');
+  if (c) try { c.focus({ preventScroll: true }); } catch (e) { /* segue */ }
 }
 // Voltar do celular fecha a camada aberta (folha, depois sessão) em vez de sair do painel; a sessão fica guardada
 let camadaNoHistorico = false;

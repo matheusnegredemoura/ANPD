@@ -448,7 +448,7 @@ function iniciarDia(data) {
   }
   if (dia.modo === 'simulado') {
     const n = nItensDoDia(dia);
-    iniciarSessao({ modo: 'simulado', n, blocos: dia.blocos, prova: !dia.blocos.length, titulo, dia: dia.data, minutos: Math.round(n * 1.5) });
+    iniciarSessao({ modo: 'simulado', n, blocos: dia.blocos, prova: !dia.blocos.length, titulo, dia: dia.data, minutos: Math.round(n * RITMO_PROVA_MIN) });
     return;
   }
   const st = stDoDia(dia);
@@ -460,8 +460,12 @@ function idsDoSubtemaNoDia(st, blocos, n) {
   if (ids.length < n) for (const q of selecionar(poolDe(blocos).filter((q) => !usados.has(q.id) && !q.al), n - ids.length, 'mistas')) ids.push(q.id);
   return ids;
 }
-// Sessão de questões do dia: simulado e revisão com até 30 itens; no treino, o pré-teste que cabe nos 15 min do Passo 2
+// Sessão de questões do dia: o simulado com o tamanho do cronograma; a revisão com até 30 itens; no treino, o pré-teste que cabe nos 15 min do Passo 2
 function nItensDoDia(dia) {
+  // O teto de 30 é do pré-teste. Aplicado também ao simulado, cortava os doze simulados do
+  // cronograma (de 50 a 120 itens) para 30 e dava o dia por feito: a pessoa chegaria à prova sem
+  // ter feito uma única prova inteira cronometrada, com o painel marcando o plano como cumprido.
+  if (dia.modo === 'simulado') return dia.n;
   if (dia.modo !== 'treino') return Math.min(dia.n, 30);
   return nPreTeste();
 }

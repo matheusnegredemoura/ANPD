@@ -181,7 +181,8 @@ function comNumeros(s) {
 // Data da prova: a do edital, quando a pessoa a informa em Ajustes; antes disso, a estimativa do cronograma
 function dataProva() { return (S.perfil.edital && S.perfil.edital.prova) || D.cronograma.prova; }
 // Simulado da prova inteira: 1,75 min por item (os 120 da Anatel 2024 em 3h30)
-function minutosProva() { return Math.round(TOTAL_PROVA * 1.75); }
+const RITMO_PROVA_MIN = 1.75;
+function minutosProva() { return Math.round(TOTAL_PROVA * RITMO_PROVA_MIN); }
 function duracaoProva() { const m = minutosProva(); return Math.floor(m / 60) + 'h' + String(m % 60).padStart(2, '0'); }
 // Parte da prova em que o item cairia: 'b' (básica) ou 'e' (específica)
 function somaItens(parte) { return Object.values(parte).reduce((a, b) => a + b, 0); }
