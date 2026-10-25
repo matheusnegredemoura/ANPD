@@ -1,0 +1,244 @@
+// ECA Digital, lote EX5: Lei 15.211/2025 (arts. 11, 12, 14, 16, 18, 19, 21, 24, 28, 30, 31, 33 e 34), com casos.
+// Conferidas em fontes/lei15211.txt. A autoridade de que trata a lei é a ANPD (Decreto 12.880/2026, art. 1º, parágrafo único).
+
+=== ex5-01
+bloco: eca-digital
+gab: C
+tema: ed-fiscalizacao
+ref: lei15211 11
+trecho: A atuação do poder público prevista no caput deste artigo deverá assegurar a participação social, por meio de consulta pública e de outros mecanismos de participação social
+armadilha: conceito
+dif: 2
+enunciado: Quando o poder público atuar como regulador, certificador ou promotor de soluções de verificação de idade, deverá assegurar a participação social, inclusive por consulta pública, para garantir a transparência do processo regulatório.
+comentario: Certo. Art. 11 e parágrafo único. A atuação respeita os limites da legalidade, da proteção à privacidade e dos direitos fundamentais.
+
+=== ex5-02
+bloco: eca-digital
+gab: E
+tema: ed-idade
+ref: lei15211 12
+trecho: vedada a presunção de autorização na hipótese de ausência de manifestação dos pais ou responsáveis legais
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma loja de aplicativos notificou os pais de um adolescente sobre o pedido de download de um jogo e, sem resposta em 48 horas, liberou a instalação. Assertiva: a conduta é válida, pois o silêncio dos pais equivale a autorização.
+comentario: Errado. O art. 12, § 2º, condiciona o download por crianças e adolescentes ao consentimento livre e informado dos pais ou responsáveis e veda presumir a autorização quando eles não se manifestam. Respeita-se a autonomia progressiva, mas o silêncio não é consentimento.
+
+=== ex5-03
+bloco: eca-digital
+gab: C
+tema: ed-idade
+ref: lei15211 12
+trecho: vedado qualquer compartilhamento contínuo, automatizado e irrestrito de dados pessoais de crianças e de adolescentes
+armadilha: conceito
+dif: 3
+enunciado: O sinal de idade que sistemas operacionais e lojas de aplicativos fornecem aos aplicativos por meio de API deve observar a minimização de dados, vedado o compartilhamento contínuo, automatizado e irrestrito de dados pessoais de crianças e adolescentes.
+comentario: Certo. Art. 12, III e § 1º. O sinal serve exclusivamente às finalidades da lei, com salvaguardas técnicas e privacidade desde o padrão. A ideia é transmitir a faixa etária, não o perfil completo do usuário.
+
+=== ex5-04
+bloco: eca-digital
+gab: E
+tema: ed-idade
+ref: lei15211 14
+trecho: Independentemente das medidas adotadas pelos sistemas operacionais e pelas lojas de aplicações, os fornecedores de que trata o caput deste artigo deverão implementar mecanismos próprios
+armadilha: sujeito
+dif: 3
+enunciado: Situação hipotética: uma plataforma de vídeos de acesso provável por adolescentes alegou que, por receber o sinal de idade do sistema operacional, não precisa ter mecanismos próprios para barrar conteúdo inadequado. Assertiva: a alegação está de acordo com a Lei 15.211/2025.
+comentario: Errado. O art. 14 manda o fornecedor receber o sinal de idade, mas o parágrafo único exige, independentemente das medidas das lojas e dos sistemas operacionais, mecanismos próprios para impedir o acesso a conteúdo inadequado à faixa etária. As camadas de proteção se somam.
+
+=== ex5-05
+bloco: eca-digital
+gab: C
+tema: ed-base
+ref: lei15211 16
+trecho: com acesso de forma independente da aquisição do produto, informações sobre os riscos e as medidas de segurança adotadas para esse público
+armadilha: conceito
+dif: 2
+enunciado: As informações sobre os riscos e as medidas de segurança de um produto digital voltado a crianças devem estar acessíveis a pais, responsáveis, crianças e adolescentes mesmo antes da compra do produto.
+comentario: Certo. Art. 16, caput: o acesso a essas informações independe da aquisição do produto, o que permite avaliar os riscos antes de contratar. Inclui privacidade e proteção de dados, em conformidade com o art. 14 da LGPD.
+
+=== ex5-06
+bloco: eca-digital
+gab: E
+tema: ed-base
+ref: lei15211 16
+trecho: elaborar relatório de impacto, de monitoramento e de avaliação da proteção de dados pessoais, a ser compartilhado sob requisição da autoridade
+armadilha: excecao
+dif: 3
+enunciado: O controlador que trata dados de crianças para fins além dos estritamente necessários à operação do serviço deve mapear os riscos, mas fica dispensado de relatório de impacto, exigido apenas pela LGPD quando há dados sensíveis.
+comentario: Errado. O art. 16, parágrafo único, exige mapear e mitigar riscos (I) e elaborar relatório de impacto, de monitoramento e de avaliação da proteção de dados, compartilhado quando a autoridade o requisitar (II). A exigência é própria do ECA Digital.
+
+=== ex5-07
+bloco: eca-digital
+gab: C
+tema: ed-supervisao
+ref: lei15211 18
+trecho: identificar os perfis de adultos com os quais a criança ou o adolescente se comunica
+armadilha: rol
+dif: 2
+enunciado: As ferramentas de supervisão parental devem permitir aos pais, entre outras funções, restringir compras, identificar os perfis de adultos com quem o filho se comunica e acessar métricas consolidadas do tempo total de uso.
+comentario: Certo. Art. 18, II, III e IV. O rol inclui ainda gerenciar opções de conta e privacidade (I), ativar ou desativar salvaguardas (V) e dispor de informações e controles em português (VI).
+
+=== ex5-08
+bloco: eca-digital
+gab: E
+tema: ed-supervisao
+ref: lei15211 18
+trecho: É vedado ao fornecedor projetar, modificar ou manipular interfaces com o objetivo ou efeito de comprometer a autonomia, a tomada de decisão ou a escolha do usuário
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um aplicativo exibe aos pais alertas insistentes de que a supervisão parental “deixa o app lento” e oferece um botão em destaque para desativá-la. Assertiva: a prática é lícita, pois a decisão final de desativar continua com os pais.
+comentario: Errado. O art. 18, § 2º, veda interfaces com objetivo ou efeito de comprometer a autonomia e a escolha do usuário, especialmente se enfraquecerem a supervisão parental ou as salvaguardas. O § 1º também proíbe incentivar a desativação. Manter a decisão formal com os pais não afasta o padrão manipulativo.
+
+=== ex5-09
+bloco: eca-digital
+gab: C
+tema: ed-supervisao
+ref: lei15211 19
+trecho: Os produtos ou serviços deverão conter mecanismos que informem as crianças e os adolescentes, em linguagem apropriada, acerca da realização do monitoramento
+armadilha: conceito
+dif: 2
+enunciado: Produtos de monitoramento infantil, como babás eletrônicas conectadas e relógios com localização, devem informar a criança, em linguagem apropriada, de que ela está sendo monitorada.
+comentario: Certo. Art. 19, § 1º. Esses produtos devem garantir a inviolabilidade das imagens, sons e informações captadas e transmitidas (caput), e o monitoramento se orienta pelo melhor interesse da criança (§ 2º).
+
+=== ex5-10
+bloco: eca-digital
+gab: E
+tema: ed-padrao
+ref: lei15211 21
+trecho: deverão, por padrão, limitar as funcionalidades de interação a usuários, de modo a assegurar o consentimento dos pais ou responsáveis legais
+armadilha: conceito
+dif: 2
+enunciado: Jogos eletrônicos de acesso provável por crianças que permitem conversa por texto, áudio ou vídeo entre usuários devem vir com essas funcionalidades liberadas por padrão, cabendo aos pais restringi-las se quiserem.
+comentario: Errado. O art. 21, parágrafo único, inverte a lógica: por padrão, as funcionalidades de interação são limitadas, para assegurar o consentimento dos pais. O caput manda observar as salvaguardas do art. 16 da Lei 14.852/2024 (marco dos jogos eletrônicos).
+
+=== ex5-11
+bloco: eca-digital
+gab: C
+tema: ed-supervisao
+ref: lei15211 24
+trecho: usuários ou contas de crianças e de adolescentes de até 16 (dezesseis) anos de idade estejam vinculados ao usuário ou à conta de um de seus responsáveis legais
+armadilha: numero
+dif: 2
+enunciado: Os provedores de serviços direcionados a crianças e adolescentes, ou de acesso provável por eles, devem garantir que as contas de usuários de até 16 anos estejam vinculadas à conta de um dos responsáveis legais.
+comentario: Certo. Art. 24, caput. Sem conta de responsável vinculada, o provedor deve impedir que as configurações de supervisão parental sejam alteradas para nível menor de proteção que o padrão (§ 5º).
+
+=== ex5-12
+bloco: eca-digital
+gab: E
+tema: ed-idade
+ref: lei15211 24
+trecho: os dados coletados deverão ser utilizados exclusivamente para verificação de idade
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: uma rede social pediu documento de identidade ao responsável por conta com fundados indícios de ser operada por criança e passou a usar os dados obtidos também para direcionar publicidade. Assertiva: o uso adicional é lícito, porque a coleta foi legítima.
+comentario: Errado. O art. 24, § 3º, permite pedir a confirmação da identificação nessas contas, mas os dados coletados só podem ser usados para verificar a idade. O uso para publicidade viola também o princípio da finalidade da LGPD (art. 6º, I).
+
+=== ex5-13
+bloco: eca-digital
+gab: C
+tema: ed-idade
+ref: lei15211 24
+trecho: os provedores de redes sociais deverão suspender o acesso do usuário e assegurar a instauração de procedimento célere e acessível no qual o responsável legal possa apresentar apelação e comprovar a idade
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma rede social encontrou fundados indícios de que certa conta é operada por criança abaixo da idade mínima permitida. Assertiva: ela deve suspender o acesso e garantir procedimento célere e acessível em que o responsável possa recorrer e comprovar a idade.
+comentario: Certo. Art. 24, § 4º, na forma do regulamento. A suspensão não é definitiva: o responsável pode apelar e comprovar a idade por meio adequado.
+
+=== ex5-14
+bloco: eca-digital
+gab: E
+tema: ed-fiscalizacao
+ref: lei15211 24
+trecho: O grau de efetividade e o progresso dos mecanismos referidos no inciso III do § 1º deste artigo serão avaliados pela autoridade administrativa autônoma
+armadilha: sujeito
+dif: 2
+enunciado: A efetividade dos mecanismos de verificação de idade que redes sociais impróprias para crianças devem aprimorar é avaliada exclusivamente pelas próprias plataformas, por autorregulação.
+comentario: Errado. O art. 24, § 2º, atribui essa avaliação à autoridade administrativa autônoma de proteção dos direitos de crianças e adolescentes no ambiente digital, que é a ANPD (Decreto 12.880/2026), nos termos de regulamentação específica.
+
+=== ex5-15
+bloco: eca-digital
+gab: C
+tema: ed-fiscalizacao
+ref: lei15211 28
+trecho: os fornecedores deverão, quando for o caso, oficiar às autoridades competentes para instauração de investigação
+armadilha: conceito
+dif: 2
+enunciado: Notificado de violação aos direitos de crianças e adolescentes em seu serviço, o fornecedor deve, quando for o caso, oficiar às autoridades competentes para que se instaure investigação.
+comentario: Certo. Art. 28, parágrafo único. O caput exige que os fornecedores ofereçam aos usuários mecanismos de notificação dessas violações.
+
+=== ex5-16
+bloco: eca-digital
+gab: E
+tema: ed-fiscalizacao
+ref: lei15211 30
+trecho: informando se a identificação do conteúdo removido decorreu de análise humana ou automatizada
+armadilha: rol
+dif: 2
+enunciado: Ao retirar conteúdo com base no ECA Digital, o fornecedor deve notificar o autor e indicar o motivo da retirada, mas não precisa informar se a identificação foi feita por pessoa ou por sistema automatizado.
+comentario: Errado. O art. 30, II, exige informar o motivo e a fundamentação e se a identificação decorreu de análise humana ou automatizada. O autor também tem direito a recurso de fácil acesso e com prazos definidos (III a V).
+
+=== ex5-17
+bloco: eca-digital
+gab: C
+tema: ed-fiscalizacao
+ref: lei15211 31
+trecho: possuírem mais de 1.000.000 (um milhão) de usuários nessa faixa etária registrados, com conexão de internet no território nacional, deverão elaborar relatórios semestrais, em língua portuguesa
+armadilha: numero
+dif: 3
+enunciado: Provedores de aplicações direcionadas a crianças e adolescentes com mais de 1.000.000 de usuários dessa faixa etária registrados no país devem publicar relatórios semestrais, em português, com dados como a quantidade de denúncias recebidas e de moderações por tipo.
+comentario: Certo. Art. 31, incisos II e III. O relatório também traz os canais de denúncia, as medidas de identificação de contas infantis, os aprimoramentos de privacidade e de consentimento parental e os resultados das avaliações de risco.
+
+=== ex5-18
+bloco: eca-digital
+gab: E
+tema: ed-fiscalizacao
+ref: lei15211 31
+trecho: vedada a utilização desses dados para quaisquer finalidades comerciais
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: uma empresa de marketing pediu a uma grande plataforma infantil acesso gratuito a dados para “pesquisa sobre comportamento de consumo” de crianças, com o objetivo de vender os resultados a anunciantes. Assertiva: a plataforma deve fornecer os dados, pois o ECA Digital garante acesso gratuito a dados para pesquisa.
+comentario: Errado. O art. 31, parágrafo único, garante acesso gratuito a dados para pesquisa sobre os impactos dos serviços nos direitos das crianças, mas só a instituições acadêmicas, científicas, tecnológicas, de inovação ou jornalísticas, conforme regulamento, e veda o uso para quaisquer fins comerciais.
+
+=== ex5-19
+bloco: eca-digital
+gab: C
+tema: ed-fiscalizacao
+ref: lei15211 33
+trecho: o cancelamento da conta em casos de reincidência ou de abuso grave
+armadilha: conceito
+dif: 2
+enunciado: O uso abusivo dos instrumentos de denúncia pode levar à suspensão temporária da conta do usuário e, em caso de reincidência ou abuso grave, ao seu cancelamento, observado procedimento com notificação e possibilidade de recurso.
+comentario: Certo. Art. 33, § 1º, I e II, e § 2º, II e III. O provedor deve fixar critérios técnicos e objetivos para caracterizar o abuso e registrar os casos e as sanções aplicadas (§ 3º).
+
+=== ex5-20
+bloco: eca-digital
+gab: E
+tema: ed-fiscalizacao
+ref: lei15211 34
+trecho: A regulamentação não poderá, em nenhuma hipótese, autorizar ou resultar na implantação de mecanismos de vigilância massiva, genérica ou indiscriminada
+armadilha: absoluto
+dif: 2
+enunciado: Para garantir a proteção integral, a autoridade responsável pelo ECA Digital pode, em regulamento, autorizar o monitoramento generalizado das comunicações de todos os usuários das plataformas.
+comentario: Errado. O art. 34, § 1º, proíbe que a regulamentação autorize ou resulte em vigilância massiva, genérica ou indiscriminada, vedadas práticas contra a liberdade de expressão, a privacidade, a proteção integral e o tratamento diferenciado dos dados de crianças. O art. 37, parágrafo único, repete o limite para o regulamento do Executivo.
+
+=== ex5-21
+bloco: eca-digital
+gab: C
+tema: ed-fiscalizacao
+ref: lei15211 34
+trecho: a autoridade competente deverá observar as assimetrias regulatórias e adotar abordagem responsiva
+armadilha: conceito
+dif: 2
+enunciado: Na fiscalização do ECA Digital, a autoridade deve adotar abordagem responsiva e considerar as assimetrias regulatórias, com tratamento proporcional a serviços de natureza, risco e modelo de negócio diferentes.
+comentario: Certo. Art. 34, § 2º. É a mesma lógica da regulação responsiva aplicada pela ANPD na LGPD (Res. 1/2021): atuação graduada e proporcional ao risco e à conduta do regulado.
+
+=== ex5-22
+bloco: eca-digital
+gab: E
+tema: ed-idade
+ref: lei15211 12
+trecho: tomar medidas proporcionais, auditáveis e tecnicamente seguras para aferir a idade ou a faixa etária dos usuários
+armadilha: sujeito
+dif: 2
+enunciado: Pelo ECA Digital, a aferição de idade dos usuários é dever exclusivo dos aplicativos, sem nenhuma obrigação para as lojas de aplicações e os sistemas operacionais.
+comentario: Errado. O art. 12, I, obriga os provedores de lojas de aplicações e de sistemas operacionais a adotar medidas proporcionais, auditáveis e tecnicamente seguras para aferir a idade ou a faixa etária, além de oferecer supervisão parental (II) e sinal de idade por API (III). Os aplicativos têm deveres próprios (art. 14).
