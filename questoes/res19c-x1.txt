@@ -1,0 +1,310 @@
+bloco: res-19-2024
+// Resolução CD/ANPD nº 19/2024, Anexo II (cláusulas-padrão contratuais), lote C1: interpretação, opções A e B da
+// cláusula 4, definições, adesão, obrigações gerais, transparência, direitos do titular, transferência posterior,
+// término, segurança, lei do país de destino, descumprimento, responsabilidade, acesso por autoridade e foro.
+// Conferidas com fontes/res19c.txt (cada CLÁUSULA é uma unidade). Complementa r19-17 a r19-21 e painel-08.
+
+=== scc-01
+gab: E
+tema: an-transferencia
+ref: res19c 8
+trecho: nenhum item destas Cláusulas, incluindo-se aqui um Contrato Coligado e as disposições previstas na Seção IV, poderá ser interpretado com o objetivo de limitar ou excluir a responsabilidade de qualquer uma das Partes em relação a obrigações previstas na Legislação Nacional
+armadilha: excecao
+dif: 2
+enunciado: Exportador e importador que adotam as cláusulas-padrão da ANPD podem, nas cláusulas adicionais da Seção IV, limitar a responsabilidade do importador por obrigações previstas na legislação brasileira, desde que o limite conste de forma expressa.
+comentario: Errado. A Cláusula 8.1, c, proíbe interpretar qualquer item, inclusive a Seção IV e os contratos coligados, para limitar ou excluir a responsabilidade das partes pelas obrigações da legislação nacional. Deixar o limite expresso não muda isso. Além disso, as Seções I e II prevalecem sobre a Seção IV em caso de conflito (8.1, d).
+
+=== scc-02
+gab: C
+tema: an-transferencia
+ref: res19c 8
+trecho: em caso de dúvida sobre o significado de termos destas Cláusulas, aplica-se o significado que mais se alinha com a Legislação Nacional
+armadilha: interpretacao
+dif: 1
+enunciado: Quando houver dúvida sobre o sentido de algum termo das cláusulas-padrão, prevalece o significado mais alinhado à legislação brasileira de proteção de dados.
+comentario: Certo. É a regra da Cláusula 8.1, b. Ela se soma a duas outras: as cláusulas são interpretadas sempre do modo mais favorável ao titular (8.1, a), e as Seções I e II prevalecem sobre as cláusulas adicionais (8.1, d).
+
+=== scc-03
+gab: E
+tema: an-transferencia
+ref: res19c 4
+trecho: A responsabilidade pelo cumprimento das obrigações referidas nas Cláusulas 14 a 16 não pode ser atribuída à Parte que atua como Operador
+armadilha: sujeito
+dif: 3
+enunciado: Situação hipotética: na opção A da cláusula de responsabilidades, o exportador atua como controlador e o importador, como operador. Assertiva: as partes podem designar o importador para publicar o documento de transparência, atender aos titulares e comunicar incidentes de segurança.
+comentario: Errado. A observação oficial da Cláusula 4 (opção A) veda atribuir à parte que atua como operador as obrigações das Cláusulas 14 a 16: transparência, direitos dos titulares e comunicação de incidente. Só um controlador pode ser a Parte Designada. Se mesmo assim se verificar depois que a designada é operadora, o controlador continua responsável (4.2).
+
+=== scc-04
+gab: C
+tema: an-transferencia
+ref: res19c 4
+trecho: verificado, posteriormente, que a Parte Designada na forma do item 4.1. atua como Operador, o Controlador permanecerá responsável
+trecho: pelo atendimento às determinações da ANPD
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: depois de assinadas as cláusulas-padrão na opção A, constatou-se que a parte indicada como Parte Designada, na verdade, atua como operadora. Assertiva: o controlador continua responsável pelas obrigações de transparência, pelo atendimento aos titulares, pela comunicação de incidentes e pelo cumprimento das determinações da ANPD.
+comentario: Certo. Cláusula 4.2 da opção A: o controlador permanece responsável pelas obrigações das Cláusulas 14, 15 e 16, pelo atendimento às determinações da ANPD e pela garantia dos direitos dos titulares e reparação dos danos, observada a Cláusula 17. A designação errada não transfere a responsabilidade ao operador.
+
+=== scc-05
+gab: E
+tema: an-transferencia
+ref: res19c 4
+trecho: O Exportador responde, solidariamente, pelos danos causados pela Transferência Internacional de Dados caso está seja realizada em desconformidade com as obrigações da Legislação Nacional ou com as instruções lícitas do Terceiro Controlador, hipótese em que o Exportador se equipara a Controlador
+armadilha: conceito
+dif: 3
+enunciado: Na transferência entre operadores (opção B), o exportador que transfere os dados em desacordo com as instruções lícitas do terceiro controlador responde apenas de forma subsidiária pelos danos, mantida a sua condição de operador.
+comentario: Errado. Pela Cláusula 4.2 da opção B, o exportador responde solidariamente e se equipara a controlador. Com a equiparação, passa a cumprir as obrigações das Cláusulas 14, 15 e 16 (4.3). A lógica é a mesma do art. 42, § 1º, I, da LGPD para o operador que desobedece às instruções lícitas do controlador.
+
+=== scc-06
+gab: C
+tema: an-transferencia
+ref: res19c 4
+trecho: Ressalvado o disposto nos itens 4.2. e 4.3, não se aplica às Partes, na condição de Operadores, o disposto nas Cláusulas 14, 15 e 16
+trecho: As Partes fornecerão, em qualquer hipótese, todas as informações de que dispuserem
+armadilha: excecao
+dif: 3
+enunciado: Na transferência entre dois operadores, fora o caso de equiparação do exportador a controlador, as partes não têm o dever próprio de publicar o documento de transparência nem de comunicar incidentes, mas devem fornecer ao terceiro controlador as informações de que dispuserem para que ele cumpra essas obrigações.
+comentario: Certo. Opção B, itens 4.4 e 4.5: as Cláusulas 14 a 16 não se aplicam às partes como operadores (salvo 4.2 e 4.3), mas elas fornecem, em qualquer hipótese, as informações necessárias ao terceiro controlador. Também prestam assistência mútua (4.6) e mantêm registro de incidentes (4.8).
+
+=== scc-07
+gab: E
+tema: an-transferencia
+ref: res19c 6
+trecho: Transferência Posterior: transferência Internacional de Dados, originada de um Importador, e destinada a um terceiro, incluindo um Subcontratado, desde que não configure Solicitação de Acesso
+armadilha: conceito
+dif: 2
+enunciado: Pelas definições das cláusulas-padrão, o importador que entrega os dados recebidos a uma autoridade pública estrangeira, em cumprimento a ordem legal, realiza transferência posterior.
+comentario: Errado. A definição da Cláusula 6.1, x, exclui da transferência posterior o que configure solicitação de acesso, ou seja, o atendimento obrigatório a lei, regulamento ou determinação de autoridade pública (6.1, r). A solicitação de acesso tem regime próprio, na Cláusula 19: notificar o exportador e o titular e manter registro.
+
+=== scc-08
+gab: C
+tema: an-transferencia
+ref: res19c 6
+trecho: Subcontratado: agente de tratamento contratado pelo Importador, sem vínculo com o Exportador, para realizar tratamento de Dados Pessoais após uma Transferência Internacional de Dados
+armadilha: conceito
+dif: 2
+enunciado: Para as cláusulas-padrão, subcontratado é o agente que o importador contrata, sem vínculo com o exportador, para tratar os dados depois da transferência internacional.
+comentario: Certo. Cláusula 6.1, s. O subcontratado é operador (6.1, o) e pode ser destinatário de transferência posterior (6.1, x). Nas excludentes de responsabilidade, o dano causado por subcontratado das partes não conta como culpa exclusiva de terceiro (17.6, c).
+
+=== scc-09
+gab: E
+tema: an-transferencia
+ref: res19c 6
+trecho: Exportador: agente de tratamento, localizado no território nacional ou em país estrangeiro, que transfere dados pessoais para Importador
+armadilha: absoluto
+dif: 2
+enunciado: Nas definições das cláusulas-padrão, exportador é necessariamente agente de tratamento estabelecido no território nacional, ao passo que importador é o agente localizado em país estrangeiro.
+comentario: Errado. A Cláusula 6.1, i, admite exportador localizado no território nacional ou em país estrangeiro. O importador é o agente localizado em país estrangeiro ou que seja organismo internacional (6.1, j). O que importa é o sentido do fluxo, não a sede do exportador.
+
+=== scc-10
+gab: C
+tema: an-transferencia
+ref: res19c 9
+trecho: Em comum acordo entre as Partes, é possível a um agente de tratamento aderir a estas Cláusulas na condição de Exportador ou de Importador
+trecho: A parte aderente terá os mesmos direitos e obrigações das Partes originárias
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: uma terceira empresa quer entrar, como importadora, em contrato já firmado com as cláusulas-padrão. Assertiva: havendo concordância das partes e assinatura de documento escrito de adesão, ela passa a ter os mesmos direitos e deveres das partes originárias que ocupam essa posição.
+comentario: Certo. Cláusula 9: a adesão depende de comum acordo, é feita por documento escrito que integra o instrumento (9.1), e o aderente assume os direitos e obrigações conforme a posição de exportador ou importador e a categoria de agente de tratamento (9.2).
+
+=== scc-11
+gab: E
+tema: an-transferencia
+ref: res19c 10
+trecho: manter registro das operações de tratamento dos Dados Pessoais objeto da Transferência Internacional de Dados regida por estas Cláusulas, e apresentar a documentação pertinente à ANPD, quando solicitado
+armadilha: sujeito
+dif: 2
+enunciado: Como o importador está submetido à lei do país de destino, as cláusulas-padrão dispensam-no de manter registro das operações de tratamento dos dados transferidos, obrigação que recai apenas sobre o exportador.
+comentario: Errado. A Cláusula 10.1, h, impõe às Partes, exportador e importador, o dever de manter o registro das operações e apresentá-lo à ANPD quando solicitado. A transferência se submete à legislação brasileira e à fiscalização da ANPD, inclusive quanto ao importador (Cláusula 7.1).
+
+=== scc-12
+gab: C
+tema: an-transferencia
+ref: res19c 12
+trecho: as Partes aplicarão salvaguardas adicionais, incluindo medidas que assegurem que o tratamento seja realizado em seu melhor interesse
+armadilha: conceito
+dif: 1
+enunciado: Se a transferência regida pelas cláusulas-padrão abranger dados de crianças e adolescentes, as partes devem adotar salvaguardas adicionais que garantam o tratamento no melhor interesse desses titulares.
+comentario: Certo. Cláusula 12.1, com remissão à legislação nacional e aos instrumentos de direito internacional. Ecoa o art. 14 da LGPD. Os dados sensíveis também pedem salvaguardas adicionais (Cláusula 11), e as medidas de segurança devem considerar especialmente esses dois casos (21.2).
+
+=== scc-13
+gab: E
+tema: an-transferencia
+ref: res19c 13
+trecho: O Exportador garante que os Dados Pessoais foram coletados, tratados e transferidos para o Importador de acordo com a Legislação Nacional
+armadilha: sujeito
+dif: 2
+enunciado: Nas cláusulas-padrão, cabe ao importador garantir que os dados pessoais recebidos foram coletados e tratados no Brasil de acordo com a legislação nacional.
+comentario: Errado. A garantia do uso legal dos dados é do exportador (Cláusula 13.1), que é quem coletou, tratou e transferiu. O importador declara outra coisa: que não identificou leis ou práticas do país de destino que o impeçam de cumprir as cláusulas (22.1).
+
+=== scc-14
+gab: C
+tema: an-transferencia
+ref: res19c 14
+trecho: O documento referido no item 14.1. poderá ser disponibilizado em página específica ou integrado, de forma destacada e de fácil acesso, à Política de Privacidade ou documento equivalente
+armadilha: interpretacao
+dif: 2
+enunciado: As informações sobre a transferência internacional exigidas pelas cláusulas-padrão podem constar da própria política de privacidade da parte designada, desde que em destaque e de fácil acesso, sem necessidade de página exclusiva.
+comentario: Certo. Cláusula 14.2: página específica ou integração destacada à política de privacidade ou documento equivalente. O conteúdo mínimo está em 14.1 (forma, duração e finalidade, país de destino, contatos, uso compartilhado, responsabilidades, direitos e canal, transferências posteriores).
+
+=== scc-15
+gab: E
+tema: an-transferencia
+ref: res19c 14
+trecho: Todas as informações disponibilizadas aos titulares, nos termos destas Cláusulas, deverão ser redigidas na língua portuguesa
+armadilha: excecao
+dif: 2
+enunciado: Quando a parte designada for o importador estrangeiro, as informações das cláusulas-padrão destinadas aos titulares podem ser redigidas no idioma do país de destino, bastando oferecer ferramenta de tradução automática.
+comentario: Errado. A Cláusula 14.4 exige que todas as informações aos titulares sejam redigidas em português, sem exceção para a parte estrangeira. O art. 17 da Res. 19 traz a mesma exigência para a página de transparência sobre a transferência.
+
+=== scc-16
+gab: C
+tema: an-transferencia
+ref: res19c 15
+trecho: O prazo para atendimento às solicitações previstas nesta Cláusula e no item 14.3. é de 15 (quinze) dias contados da data do requerimento do titular, ressalvada a hipótese de prazo distinto estabelecido em regulamentação específica da ANPD
+armadilha: numero
+dif: 2
+enunciado: Salvo regulamentação específica da ANPD com outro prazo, a parte designada tem 15 dias, a contar do pedido do titular, para atender aos direitos previstos nas cláusulas-padrão, inclusive ao pedido de cópia das cláusulas.
+comentario: Certo. Cláusula 15.3, que abrange os direitos da Cláusula 15 e o pedido de cópia gratuita das cláusulas (14.3). Não confunda com o prazo de 3 dias úteis para comunicar incidente (16.1).
+
+=== scc-17
+gab: E
+tema: an-transferencia
+ref: res19c 15
+trecho: Caso a solicitação do Titular seja direcionada à Parte não designada como responsável pelas obrigações previstas nesta Cláusula ou no item 14.3., a Parte deverá
+trecho: encaminhar a solicitação para a Parte Designada o quanto antes
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um titular enviou pedido de acesso aos seus dados ao importador, mas a parte designada para atender aos titulares é o exportador. Assertiva: o importador fica desobrigado de qualquer providência, pois cabe ao titular identificar a parte responsável.
+comentario: Errado. A Cláusula 15.4 obriga a parte não designada a informar ao titular o canal de atendimento da Parte Designada ou a encaminhar o pedido a ela o quanto antes. As partes também prestam assistência mútua (15.6). O texto oficial de 15.4, b, remete ao "prazo previsto no item 15.2", mas o prazo de 15 dias está no item 15.3.
+
+=== scc-18
+gab: C
+tema: an-transferencia
+ref: res19c 15
+trecho: As Partes deverão informar, imediatamente, aos Agentes de Tratamento com os quais tenham realizado uso compartilhado de dados a correção, a eliminação, a anonimização ou o bloqueio dos dados, para que repitam idêntico procedimento, exceto nos casos em que esta comunicação seja comprovadamente impossível ou implique esforço desproporcional
+armadilha: excecao
+dif: 2
+enunciado: Corrigidos ou eliminados os dados a pedido do titular, as partes devem avisar de imediato os agentes com quem os compartilharam, para que façam o mesmo, salvo quando o aviso for comprovadamente impossível ou exigir esforço desproporcional.
+comentario: Certo. Cláusula 15.5, que vale para correção, eliminação, anonimização e bloqueio. A regra repete o art. 18, § 6º, da LGPD, com a mesma exceção de impossibilidade comprovada ou esforço desproporcional.
+
+=== scc-19
+gab: E
+tema: an-transferencia
+ref: res19c 18
+trecho: para fins destas Cláusulas, e em relação aos Dados Pessoais transferidos, será considerado o responsável por eventuais irregularidades praticadas pelo terceiro destinatário da Transferência Posterior
+armadilha: excecao
+dif: 3
+enunciado: O importador autorizado a fazer transferência posterior fica isento de responsabilidade pelas irregularidades do terceiro destinatário, desde que tenha firmado com ele contrato escrito que reproduza as salvaguardas das cláusulas-padrão.
+comentario: Errado. O contrato escrito com o terceiro é exigência (Cláusula 18.2, b), não excludente. Além dele, o importador deve assegurar a compatibilidade da finalidade (18.2, a) e é considerado responsável pelas irregularidades do terceiro em relação aos dados transferidos (18.2, c).
+
+=== scc-20
+gab: C
+tema: an-transferencia
+ref: res19c 18
+trecho: A Transferência Posterior poderá, ainda, ser realizada com base em outro mecanismo válido de Transferência Internacional de Dados previsto na Legislação Nacional, independentemente da autorização de que trata a Cláusula 3
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: no contrato com cláusulas-padrão, as partes escolheram a opção que proíbe o importador de fazer transferências posteriores. Assertiva: ainda assim, o importador pode transferir os dados a um terceiro se a operação se apoiar em outro mecanismo válido de transferência internacional previsto na legislação brasileira.
+comentario: Certo. A opção A da Cláusula 3 veda a transferência posterior "salvo nas hipóteses previstas no item 18.3", e o item 18.3 admite outro mecanismo válido (decisão de adequação, normas corporativas globais etc.), independentemente da autorização da Cláusula 3.
+
+=== scc-21
+gab: E
+tema: an-transferencia
+ref: res19c 20
+trecho: uso exclusivo do Controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados
+armadilha: rol
+dif: 2
+enunciado: Terminado o tratamento regido pelas cláusulas-padrão, o controlador pode conservar os dados para seu uso exclusivo sem precisar anonimizá-los, desde que vede o acesso de terceiros.
+comentario: Errado. A Cláusula 20.1, d, exige as duas condições: uso exclusivo do controlador, sem acesso de terceiro, e dados anonimizados. As outras hipóteses de conservação são obrigação legal ou regulatória, estudo por órgão de pesquisa e transferência a terceiro que respeite as cláusulas. É o espelho do art. 16 da LGPD.
+
+=== scc-22
+gab: C
+tema: an-transferencia
+ref: res19c 20
+trecho: determinado pela ANPD, quando houver violação ao disposto nestas Cláusulas ou na Legislação Nacional
+armadilha: rol
+dif: 2
+enunciado: Entre as hipóteses de término do tratamento previstas nas cláusulas-padrão está a determinação da ANPD diante de violação das cláusulas ou da legislação nacional, além do alcance da finalidade e do atendimento a pedido do titular.
+comentario: Certo. Cláusula 20.2, alíneas a, d e e. Completam o rol os dados que deixam de ser necessários ou pertinentes (b) e o fim do período de tratamento (c). Com o término, os dados são eliminados, salvo as conservações de 20.1.
+
+=== scc-23
+gab: E
+tema: an-transferencia
+ref: res19c 21
+trecho: As Partes deverão adotar medidas de segurança que garantam proteção aos Dados Pessoais objeto da Transferência Internacional de Dados regida por estas Cláusulas, mesmo após o seu término
+armadilha: extrapolacao
+dif: 2
+enunciado: O dever das partes de adotar medidas de segurança sobre os dados transferidos com base nas cláusulas-padrão cessa com o término da transferência internacional.
+comentario: Errado. A Cláusula 21.1 exige medidas de segurança mesmo após o término. As medidas adotadas são informadas na Seção III (21.2), e as partes devem avaliá-las e revisá-las periodicamente (21.3).
+
+=== scc-24
+gab: C
+tema: an-transferencia
+ref: res19c 22
+trecho: Sobrevindo alteração normativa que altere esta situação, o Importador notificará, de imediato, o Exportador para avaliação da continuidade do contrato
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: após a assinatura das cláusulas-padrão, o país do importador aprovou lei que o impede de cumprir parte das obrigações assumidas. Assertiva: o importador deve notificar de imediato o exportador, para que este avalie a continuidade do contrato.
+comentario: Certo. Cláusula 22: o importador declara não ter identificado leis ou práticas que o impeçam de cumprir as cláusulas (22.1) e, se isso mudar, notifica de imediato o exportador (22.2). O exportador pode então suspender a transferência, pedir a devolução ou eliminação dos dados ou rescindir o contrato (23.2).
+
+=== scc-25
+gab: E
+tema: an-transferencia
+ref: res19c 23
+trecho: podendo, conforme o caso
+trecho: suspender a Transferência Internacional de Dados
+armadilha: absoluto
+dif: 2
+enunciado: Verificado o descumprimento das cláusulas-padrão pelo importador, o exportador é obrigado a rescindir o contrato, vedada a adoção de medidas intermediárias, como a simples suspensão da transferência.
+comentario: Errado. A Cláusula 23.2 dá ao exportador opções "conforme o caso": suspender a transferência, pedir a devolução, a transferência a terceiro ou a eliminação dos dados, ou rescindir o contrato. O dever é adotar as providências pertinentes para proteger os titulares, não rescindir sempre.
+
+=== scc-26
+gab: C
+tema: an-transferencia
+ref: res19c 19
+trecho: o Importador deve manter registro de Solicitações de Acesso, incluindo data, solicitante, finalidade da solicitação, tipo de dados solicitados, número de solicitações recebidas e medidas legais adotadas
+armadilha: rol
+dif: 2
+enunciado: O importador deve manter registro das solicitações de acesso feitas por autoridades públicas, com a data, o solicitante, a finalidade, o tipo de dados pedidos, a quantidade de solicitações e as medidas legais adotadas, para atender a pedidos da ANPD e do exportador.
+comentario: Certo. Cláusula 19.3. O importador também notifica o exportador e o titular, salvo se a lei local proibir (19.1), e deve questionar judicialmente a solicitação quando houver fundamento jurídico adequado (19.2).
+
+=== scc-27
+gab: E
+tema: an-transferencia
+ref: res19c 17
+trecho: o dano é decorrente de culpa exclusiva do Titular ou de terceiro que não seja destinatário de Transferência Posterior ou subcontratado pelas Partes
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: o vazamento de dados transferidos com base nas cláusulas-padrão foi causado exclusivamente por empresa subcontratada pelo importador. Assertiva: exportador e importador ficam isentos de responsabilidade, por se tratar de culpa exclusiva de terceiro.
+comentario: Errado. A excludente da Cláusula 17.6, c, não alcança o terceiro que seja destinatário de transferência posterior ou subcontratado pelas partes. Pelos atos do terceiro destinatário, o importador é considerado responsável (18.2, c). Quem repara o dano tem regresso contra os demais responsáveis (17.9).
+
+=== scc-28
+gab: E
+tema: an-transferencia
+ref: res19c 24
+trecho: Em comum acordo, as Partes poderão se valer da arbitragem para resolver os conflitos decorrentes destas Cláusulas, desde que realizada no Brasil e conforme as disposições da Lei de Arbitragem
+armadilha: excecao
+dif: 2
+enunciado: As partes das cláusulas-padrão podem, em comum acordo, submeter seus conflitos a arbitragem sediada no país do importador, desde que observadas as regras de arbitragem desse país.
+comentario: Errado. A Cláusula 24.3 admite a arbitragem só se realizada no Brasil e conforme a Lei de Arbitragem brasileira (Lei 9.307/1996). Fora dela, as controvérsias vão aos tribunais competentes do Brasil (24.1), e o titular pode processar exportador ou importador no Brasil, inclusive no foro de sua residência (24.2).
+
+=== scc-29
+gab: C
+tema: an-transferencia
+ref: res19c 15
+trecho: O titular pode opor-se a tratamento realizado com fundamento em uma das hipóteses de dispensa de consentimento, em caso de descumprimento ao disposto nestas Cláusulas ou na Legislação Nacional
+armadilha: conceito
+dif: 2
+enunciado: Mesmo quando a transferência não se apoia no consentimento, o titular pode se opor ao tratamento dos seus dados se houver descumprimento das cláusulas-padrão ou da legislação nacional.
+comentario: Certo. Cláusula 15.2, que reproduz o art. 18, § 2º, da LGPD. A oposição pressupõe descumprimento: não é um direito de recusar livremente tratamento regular feito com outra base legal.
+
+=== scc-30
+gab: E
+tema: an-transferencia
+ref: res19c 11
+trecho: Caso a Transferência Internacional de Dados envolva Dados Pessoais sensíveis, as Partes aplicarão salvaguardas adicionais
+armadilha: extrapolacao
+dif: 2
+enunciado: As cláusulas-padrão da ANPD não podem ser usadas para transferir dados pessoais sensíveis, que dependem sempre de cláusulas contratuais específicas aprovadas caso a caso.
+comentario: Errado. A Cláusula 11.1 prevê o uso das cláusulas-padrão com dados sensíveis, com salvaguardas adicionais e medidas de segurança proporcionais aos riscos, descritas na Seção III. As cláusulas específicas são excepcionais, para quando as cláusulas-padrão não servem (art. 21, § 1º, do Regulamento).
