@@ -171,7 +171,8 @@ function renderTrilhas() {
 }
 function passosDoSubtema(st, e) {
   const out = [], arts = artsDoSubtema(st);
-  if (e.novos) out.push({ rot: 'Pré-teste · ' + Math.min(8, e.novos) + ' itens', attrs: 'data-acao="trilha-sessao" data-st="' + esc(st.id) + '" data-tipo="pre"', primario: !e.resp });
+  // O pré-teste traz os itens novos e, depois deles, os errados (idsSubtema, tipo 'pre')
+  if (e.novos) out.push({ rot: 'Pré-teste · ' + Math.min(8, e.novos + e.erros) + ' itens', attrs: 'data-acao="trilha-sessao" data-st="' + esc(st.id) + '" data-tipo="pre"', primario: !e.resp });
   if (arts.length) out.push({ rot: 'Lei seca', attrs: 'data-acao="st-lei" data-st="' + esc(st.id) + '"' });
   out.push({ rot: 'Aula', attrs: 'data-acao="st-aula" data-st="' + esc(st.id) + '"' });
   if (e.n) out.push({ rot: 'Praticar · ' + Math.min(20, e.n) + ' itens', attrs: 'data-acao="trilha-sessao" data-st="' + esc(st.id) + '" data-tipo="pratica"', primario: !!e.resp });

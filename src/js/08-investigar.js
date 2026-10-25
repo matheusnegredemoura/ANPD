@@ -134,7 +134,8 @@ async function corrigirDiscIA() {
   try {
     const r = await IA.json(pedidoDiscIA(t, texto));
     // Se a pessoa trocou de tema ou voltou a editar enquanto o Claude lia, a correção não vale mais
-    if (UI.discTema !== t.id || UI.discFase === 'escrita') { UI.discIACarregando = false; return; }
+    // Redesenha mesmo assim: o botão do tema novo ficou desabilitado enquanto esta correção corria
+    if (UI.discTema !== t.id || UI.discFase === 'escrita') { UI.discIACarregando = false; if (UI.vista === 'mais') renderMais(); return; }
     const qs = Array.isArray(r && r.quesitos) ? r.quesitos : [];
     if (qs.length !== t.quesitos.length) throw { code: 'invalid_json' };
     const aval = {};
