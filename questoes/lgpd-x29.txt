@@ -1,0 +1,179 @@
+// LGPD, lote X29: casos sobre legítimo interesse (art. 10), conservação após o término (art. 16), decisão
+// automatizada (art. 20), relatório de impacto (art. 38), responsabilidade civil (arts. 42 e 44) e comunicação de
+// incidente (art. 48). Conferidas com fontes/lgpd.txt.
+
+=== lx29-01
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 10
+trecho: somente os dados pessoais estritamente necessários para a finalidade pretendida poderão ser tratados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma academia, com base no legítimo interesse, passou a enviar ofertas aos alunos e, aproveitando a campanha, coletou também a renda familiar e a religião de cada um. Assertiva: como a base legal é válida para a campanha, a coleta dos dados adicionais também é legítima.
+comentario: Errado. No legítimo interesse, só os dados estritamente necessários à finalidade podem ser tratados (art. 10, § 1º). Renda e religião nada têm a ver com o envio de ofertas; a religião, além disso, é dado sensível, que não admite o legítimo interesse como base (art. 11).
+
+=== lx29-02
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 10
+trecho: O controlador deverá adotar medidas para garantir a transparência do tratamento de dados baseado em seu legítimo interesse.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um supermercado usa o histórico de compras dos clientes cadastrados, com base no legítimo interesse, para sugerir produtos, e informa isso de forma clara no aplicativo e no programa de fidelidade. Assertiva: a informação aos clientes atende a um dever do controlador nessa base legal.
+comentario: Certo. Art. 10, § 2º: quem trata dados com base no legítimo interesse deve adotar medidas de transparência. A finalidade deve partir de situação concreta e respeitar as legítimas expectativas do titular (caput e inciso II).
+
+=== lx29-03
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 10
+trecho: A autoridade nacional poderá solicitar ao controlador relatório de impacto à proteção de dados pessoais, quando o tratamento tiver como fundamento seu interesse legítimo, observados os segredos comercial e industrial.
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: a ANPD pediu a uma rede varejista relatório de impacto sobre tratamento baseado no legítimo interesse. Assertiva: a empresa pode recusar o envio, pois o relatório só pode ser exigido quando o tratamento envolve dados sensíveis.
+comentario: Errado. O art. 10, § 3º, permite à ANPD solicitar o relatório de impacto quando o tratamento se funda no legítimo interesse, observados os segredos comercial e industrial. O art. 38 também não restringe o pedido a dados sensíveis; menciona-os como inclusão ("inclusive de dados sensíveis").
+
+=== lx29-04
+bloco: lgpd-12-16
+gab: C
+tema: pd-alcance
+ref: lgpd 16
+trecho: uso exclusivo do controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: encerrado o contrato com um cliente, uma operadora de telefonia quer guardar os registros de uso dele para estatísticas internas, sem compartilhá-los com ninguém. Assertiva: a conservação é admitida se os dados forem anonimizados e permanecerem de uso exclusivo da operadora.
+comentario: Certo. Art. 16, IV: após o término do tratamento, admite-se a conservação para uso exclusivo do controlador, vedado o acesso de terceiro, desde que os dados sejam anonimizados. Sem a anonimização, essa hipótese não socorre a empresa.
+
+=== lx29-05
+bloco: lgpd-12-16
+gab: E
+tema: pd-alcance
+ref: lgpd 16
+trecho: transferência a terceiro, desde que respeitados os requisitos de tratamento de dados dispostos nesta Lei
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: terminado o tratamento, uma loja virtual conservou o cadastro dos ex-clientes para transferi-lo a uma parceira, sem verificar se havia base legal para essa transferência. Assertiva: a conservação é lícita, pois a transferência a terceiro está entre as finalidades admitidas, independentemente de outros requisitos.
+comentario: Errado. A conservação para transferência a terceiro só é autorizada se respeitados os requisitos de tratamento da LGPD (art. 16, III), o que inclui base legal e finalidade compatível. Sem isso, os dados deveriam ter sido eliminados.
+
+=== lx29-06
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 20
+trecho: a autoridade nacional poderá realizar auditoria para verificação de aspectos discriminatórios em tratamento automatizado de dados pessoais
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma plataforma de entregas desligou um entregador por decisão automática e, invocando segredo comercial, negou-se a informar os critérios usados. Assertiva: a ANPD pode auditar o sistema para verificar aspectos discriminatórios.
+comentario: Certo. Art. 20, § 2º: se o controlador não informa os critérios da decisão automatizada alegando segredo comercial e industrial, a ANPD pode fazer auditoria para verificar aspectos discriminatórios. O entregador também pode pedir a revisão da decisão (caput).
+
+=== lx29-07
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 20
+trecho: O controlador deverá fornecer, sempre que solicitadas, informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: um banco recusou crédito a um cliente por decisão automatizada e, quando ele pediu os critérios usados, respondeu que só os informaria se a ANPD o determinasse. Assertiva: a resposta do banco está de acordo com a LGPD.
+comentario: Errado. O art. 20, § 1º, obriga o controlador a fornecer, sempre que solicitadas pelo titular, informações claras e adequadas sobre os critérios e procedimentos da decisão automatizada, observados os segredos comercial e industrial. Não depende de ordem da ANPD.
+
+=== lx29-08
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 38
+trecho: a análise do controlador com relação a medidas, salvaguardas e mecanismos de mitigação de risco adotados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a ANPD determinou a uma clínica que elaborasse relatório de impacto, e a clínica entregou documento que descrevia os tipos de dados e a forma de coleta, mas não analisava as salvaguardas adotadas. Assertiva: o relatório está incompleto.
+comentario: Certo. Pelo art. 38, parágrafo único, o relatório deve conter, no mínimo, os tipos de dados coletados, a metodologia de coleta e de garantia da segurança e a análise do controlador sobre medidas, salvaguardas e mecanismos de mitigação de risco.
+
+=== lx29-09
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 38
+trecho: A autoridade nacional poderá determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: a ANPD determinou a um operador que elaborasse, em nome próprio, relatório de impacto sobre as operações que executa por conta de um banco. Assertiva: a LGPD atribui ao operador essa obrigação.
+comentario: Errado. O art. 38 dirige a determinação ao controlador, que elabora o relatório sobre suas operações de tratamento. O operador colabora e segue as instruções do controlador (art. 39), mas o relatório é documento do controlador (art. 5º, XVII).
+
+=== lx29-10
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 42
+trecho: hipótese em que o operador equipara-se ao controlador
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: contratada para processar a folha de uma empresa, uma prestadora usou os dados dos empregados para vender cursos, contra as instruções recebidas, e causou danos. Assertiva: a prestadora responde solidariamente pelos danos e equipara-se ao controlador.
+comentario: Certo. Art. 42, § 1º, I: o operador responde solidariamente quando descumpre a legislação ou não segue as instruções lícitas do controlador, e nesse caso equipara-se a ele, salvo as excludentes do art. 43.
+
+=== lx29-11
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 42
+trecho: Aquele que reparar o dano ao titular tem direito de regresso contra os demais responsáveis, na medida de sua participação no evento danoso.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: condenado a indenizar sozinho um titular, um controlador quer cobrar do operador que também causou o dano a parte que lhe cabe. Assertiva: como a responsabilidade é solidária, o controlador que pagou não tem direito de regresso.
+comentario: Errado. O art. 42, § 4º, garante a quem reparou o dano o direito de regresso contra os demais responsáveis, na medida da participação de cada um. A solidariedade protege o titular, que pode cobrar de qualquer um, mas não elimina a divisão interna.
+
+=== lx29-12
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 42
+trecho: podem ser exercidas coletivamente em juízo, observado o disposto na legislação pertinente
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um vazamento de dados em uma operadora de saúde afetou milhares de beneficiários, e uma associação de defesa do consumidor quer propor uma única ação para reparar os danos coletivos. Assertiva: a LGPD admite essa via.
+comentario: Certo. Art. 42, § 3º: as ações de reparação por danos coletivos podem ser exercidas coletivamente em juízo, observada a legislação pertinente. O caput já prevê dano patrimonial, moral, individual ou coletivo.
+
+=== lx29-13
+bloco: lgpd-37-45
+gab: E
+tema: pd-seguranca
+ref: lgpd 44
+trecho: as técnicas de tratamento de dados pessoais disponíveis à época em que foi realizado
+armadilha: interpretacao
+dif: 3
+enunciado: Para saber se um tratamento ocorrido em anos anteriores forneceu a segurança que o titular podia esperar, consideram-se as técnicas de proteção disponíveis no momento do julgamento, ainda que inexistentes quando o tratamento foi feito.
+comentario: Errado. O art. 44, III, manda considerar as técnicas disponíveis à época em que o tratamento foi realizado. Também contam o modo pelo qual foi feito e o resultado e os riscos que razoavelmente dele se esperavam (I e II).
+
+=== lx29-14
+bloco: lgpd-37-45
+gab: C
+tema: pd-seguranca
+ref: lgpd 44
+trecho: Responde pelos danos decorrentes da violação da segurança dos dados o controlador ou o operador que, ao deixar de adotar as medidas de segurança previstas no art. 46 desta Lei, der causa ao dano.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: o operador que hospeda o banco de dados de uma loja não aplicou as atualizações de segurança, e um invasor copiou os cadastros dos clientes. Assertiva: o operador responde pelos danos decorrentes dessa violação.
+comentario: Certo. Art. 44, parágrafo único: responde pelos danos da violação da segurança o controlador ou o operador que, ao deixar de adotar as medidas do art. 46, der causa ao dano. A omissão do operador basta para a responsabilidade dele.
+
+=== lx29-15
+bloco: lgpd-46-51
+gab: E
+tema: pd-seguranca
+ref: lgpd 48
+trecho: os motivos da demora, no caso de a comunicação não ter sido imediata
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa comunicou à ANPD um incidente de segurança relevante semanas depois de descobri-lo e, na comunicação, não explicou por que demorou. Assertiva: como a LGPD não fixa prazo em dias, a empresa não precisava justificar a demora.
+comentario: Errado. A comunicação deve mencionar, no mínimo, os motivos da demora quando não for imediata (art. 48, § 1º, V). O prazo razoável é definido pela ANPD, que fixou três dias úteis no Regulamento de Comunicação de Incidente (Resolução CD/ANPD 15/2024).
+
+=== lx29-16
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 48
+trecho: será avaliada eventual comprovação de que foram adotadas medidas técnicas adequadas que tornem os dados pessoais afetados ininteligíveis
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um notebook com dados de clientes foi furtado, mas o disco estava criptografado e a chave não foi comprometida. Assertiva: no juízo de gravidade do incidente, a ANPD deve avaliar a comprovação dessa medida, que torna os dados ininteligíveis a terceiros.
+comentario: Certo. Art. 48, § 3º: no juízo de gravidade, avalia-se a comprovação de medidas técnicas que tornem os dados ininteligíveis a terceiros não autorizados. A criptografia com chave preservada reduz o risco aos titulares.
