@@ -1,0 +1,220 @@
+bloco: seginfo
+// Segurança da informação, lote SX5 (doutrina): hardening e correções, teste de invasão, inteligência de ameaças,
+// perícia digital, arquitetura de rede (DMZ, honeypot, WAF), malware, criptografia de curvas elípticas, blockchain e
+// LGPD, normas ISO para nuvem e continuidade, BIA, CVSS, OWASP e injeção de SQL.
+
+=== sx5-01
+gab: C
+tema: sg-principios
+ref: doutrina hardening
+armadilha: conceito
+dif: 1
+enunciado: O hardening de um sistema consiste em reduzir sua superfície de ataque, por exemplo desativando serviços e portas desnecessários, removendo contas e senhas padrão e aplicando configurações seguras.
+comentario: Certo. Quanto menos componentes expostos, menos pontos de entrada para o atacante. Guias de configuração segura, como os benchmarks do CIS, orientam essa tarefa.
+
+=== sx5-02
+gab: E
+tema: sg-riscos
+ref: doutrina gestão de correções
+armadilha: extrapolacao
+dif: 2
+enunciado: Na gestão de correções de segurança (patches), a boa prática é aplicá-las diretamente no ambiente de produção, sem testes prévios, para eliminar o quanto antes a janela de exposição.
+comentario: Errado. A boa prática é priorizar as correções pelo risco e testá-las antes em ambiente controlado, com plano de reversão, porque uma atualização pode quebrar sistemas. Correções emergenciais podem ter rito mais curto, mas continuam controladas pela gestão de mudanças.
+
+=== sx5-03
+gab: C
+tema: sg-riscos
+ref: doutrina teste de invasão
+armadilha: conceito
+dif: 2
+enunciado: O teste de invasão (pentest) simula ataques reais, com autorização formal e escopo definido, para identificar e explorar vulnerabilidades e avaliar o impacto que um atacante poderia causar.
+comentario: Certo. A autorização formal e o escopo distinguem o pentest de um ataque. O relatório final aponta as vulnerabilidades exploradas, o impacto e as recomendações de correção.
+
+=== sx5-04
+gab: E
+tema: sg-riscos
+ref: doutrina teste de invasão
+armadilha: comparacao
+dif: 2
+enunciado: Varredura de vulnerabilidades e teste de invasão são expressões sinônimas, pois ambos se limitam a listar vulnerabilidades conhecidas, sem tentar explorá-las.
+comentario: Errado. A varredura, em geral automatizada, identifica e lista vulnerabilidades conhecidas. O teste de invasão vai além: tenta explorá-las, encadeá-las e medir o impacto real, com forte participação humana.
+
+=== sx5-05
+gab: E
+tema: sg-riscos
+ref: doutrina teste de invasão
+armadilha: conceito
+dif: 2
+enunciado: No teste de invasão do tipo caixa-preta (black box), o avaliador recebe da organização a documentação completa da arquitetura, os códigos-fonte e credenciais de acesso.
+comentario: Errado. Na caixa-preta, o avaliador recebe pouca ou nenhuma informação, como um atacante externo. Com informação completa, o teste é de caixa-branca (white box); com informação parcial, de caixa-cinza (gray box).
+
+=== sx5-06
+gab: C
+tema: sg-ameacas
+ref: doutrina inteligência de ameaças
+armadilha: conceito
+dif: 2
+enunciado: Inteligência de ameaças (threat intelligence) é informação contextualizada sobre adversários, suas táticas, técnicas e procedimentos e indicadores de comprometimento, usada para apoiar decisões de defesa.
+comentario: Certo. Dado bruto não é inteligência: ela precisa ser analisada e contextualizada para orientar decisões, como priorizar correções ou ajustar regras de detecção. Bases como o MITRE ATT&CK organizam táticas e técnicas.
+
+=== sx5-07
+gab: E
+tema: sg-ameacas
+ref: doutrina inteligência de ameaças
+armadilha: extrapolacao
+dif: 2
+enunciado: Indicadores de comprometimento, como hashes de arquivos maliciosos e endereços de servidores de comando e controle, servem apenas para prevenir ataques futuros, sem utilidade para detectar incidentes já ocorridos.
+comentario: Errado. Os indicadores de comprometimento são usados justamente para detectar e investigar comprometimentos, inclusive retroativamente, ao buscar nos registros sinais de atividade passada. Também alimentam bloqueios preventivos.
+
+=== sx5-08
+gab: C
+tema: sg-ameacas
+ref: doutrina perícia digital
+armadilha: conceito
+dif: 2
+enunciado: Em perícia digital, a cadeia de custódia documenta quem coletou, manuseou e guardou a evidência desde a coleta, de modo a preservar sua integridade e sua admissibilidade como prova.
+comentario: Certo. Sem registro de cada passagem, a defesa pode alegar adulteração. No processo penal brasileiro, a cadeia de custódia está disciplinada nos arts. 158-A a 158-F do CPP.
+
+=== sx5-09
+gab: E
+tema: sg-ameacas
+ref: doutrina perícia digital
+armadilha: conceito
+dif: 3
+enunciado: Na coleta de evidências de um servidor comprometido ainda ligado, a primeira providência deve ser desligá-lo, pois os dados da memória volátil não têm valor para a investigação.
+comentario: Errado. Pela ordem de volatilidade (RFC 3227), coletam-se primeiro os dados mais voláteis, como memória, conexões de rede e processos em execução, que se perdem ao desligar a máquina e podem revelar o malware e o atacante. Desligar de imediato destrói essa evidência.
+
+=== sx5-10
+gab: C
+tema: sg-cripto
+ref: doutrina perícia digital
+armadilha: conceito
+dif: 2
+enunciado: Calcular o hash criptográfico da imagem forense logo após a cópia permite demonstrar, mais tarde, que a evidência analisada não foi alterada.
+comentario: Certo. Qualquer alteração em um bit muda o hash. A perícia trabalha sobre cópias e compara o hash com o registrado na coleta para provar a integridade.
+
+=== sx5-11
+gab: C
+tema: si-controles
+ref: doutrina arquitetura de rede
+armadilha: conceito
+dif: 1
+enunciado: A zona desmilitarizada (DMZ) é segmento de rede intermediário, separado da rede interna por firewall, onde ficam serviços expostos à internet, como servidores web e de correio.
+comentario: Certo. Se um servidor da DMZ for comprometido, o firewall ainda separa o atacante da rede interna. É aplicação da defesa em profundidade e da segmentação.
+
+=== sx5-12
+gab: E
+tema: si-controles
+ref: doutrina arquitetura de rede
+armadilha: conceito
+dif: 2
+enunciado: Honeypot é o servidor de produção mais protegido da organização, usado para armazenar os dados mais sensíveis com camadas adicionais de segurança.
+comentario: Errado. Honeypot é um chamariz: sistema propositalmente exposto, sem valor real de produção, para atrair atacantes, detectar tentativas e estudar suas técnicas. Qualquer acesso a ele já é suspeito.
+
+=== sx5-13
+gab: E
+tema: si-controles
+ref: doutrina arquitetura de rede
+armadilha: conceito
+dif: 2
+enunciado: O firewall de aplicação web (WAF) atua apenas na camada de rede, filtrando pacotes por endereço IP e porta, e por isso não consegue bloquear ataques como injeção de SQL.
+comentario: Errado. O WAF atua na camada de aplicação: inspeciona requisições e respostas HTTP/HTTPS e pode bloquear injeção de SQL, cross-site scripting e outros ataques à aplicação. A filtragem por IP e porta é típica do firewall de rede tradicional.
+
+=== sx5-14
+gab: E
+tema: sg-ameacas
+ref: doutrina malware
+armadilha: comparacao
+dif: 2
+enunciado: Cavalo de troia é o código malicioso que se replica sozinho pela rede, sem nenhuma ação do usuário, explorando vulnerabilidades dos sistemas.
+comentario: Errado. Essa é a descrição do worm. O cavalo de troia se disfarça de programa legítimo e depende de o usuário executá-lo; em geral não se replica sozinho.
+
+=== sx5-15
+gab: C
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: comparacao
+dif: 2
+enunciado: A criptografia de curvas elípticas é assimétrica e oferece nível de segurança comparável ao do RSA com chaves bem menores, o que a torna atraente para dispositivos com pouca capacidade de processamento.
+comentario: Certo. Uma chave de curva elíptica de 256 bits oferece segurança comparável à de RSA com cerca de 3.072 bits. Por isso é muito usada em TLS, em celulares e em cartões inteligentes.
+
+=== sx5-16
+gab: E
+tema: sg-privacidade
+ref: doutrina blockchain e proteção de dados
+armadilha: extrapolacao
+dif: 3
+enunciado: Por ser um registro distribuído e imutável, o blockchain facilita o atendimento ao direito do titular de pedir a eliminação de seus dados pessoais.
+comentario: Errado. A imutabilidade é justamente o ponto de tensão com o direito de eliminação (LGPD, art. 18, VI) e de correção. Soluções comuns são não gravar dados pessoais na cadeia, guardando fora dela e registrando só referências ou hashes que possam perder o vínculo com o titular.
+
+=== sx5-17
+gab: C
+tema: sg-iso
+ref: doutrina ISO/IEC 27018
+armadilha: conceito
+dif: 2
+enunciado: A ISO/IEC 27018 é código de prática para a proteção de dados pessoais em nuvem pública, voltado aos provedores que atuam como processadores desses dados.
+comentario: Certo. Na terminologia da LGPD, o provedor nessa posição é operador. A ISO/IEC 27017 complementa com controles de segurança específicos para serviços em nuvem.
+
+=== sx5-18
+gab: E
+tema: sg-iso
+ref: doutrina ISO/IEC 27017
+armadilha: comparacao
+dif: 3
+enunciado: A ISO/IEC 27017 é norma de sistema de gestão que substitui a ISO/IEC 27001 para os provedores de serviços em nuvem.
+comentario: Errado. A 27017 é código de prática com controles e orientações de segurança para serviços em nuvem, baseado na 27002. A norma de requisitos do sistema de gestão continua sendo a 27001, à qual a 27017 se soma.
+
+=== sx5-19
+gab: E
+tema: sg-iso
+ref: doutrina ISO 22301
+armadilha: comparacao
+dif: 2
+enunciado: A ISO 22301 especifica os requisitos para o sistema de gestão da segurança da informação e é a norma usada para a certificação desse sistema.
+comentario: Errado. A ISO 22301 trata do sistema de gestão de continuidade de negócios. Os requisitos do sistema de gestão da segurança da informação estão na ISO/IEC 27001.
+
+=== sx5-20
+gab: C
+tema: sg-riscos
+ref: doutrina continuidade de negócios
+armadilha: conceito
+dif: 2
+enunciado: A análise de impacto nos negócios (BIA) identifica as atividades críticas e os efeitos de sua interrupção ao longo do tempo, subsidiando a definição dos objetivos de tempo e de ponto de recuperação.
+comentario: Certo. A BIA indica quanto tempo cada processo pode ficar parado (RTO) e quanta perda de dados é tolerável (RPO). Esses objetivos orientam as estratégias de continuidade e de backup.
+
+=== sx5-21
+gab: E
+tema: sg-riscos
+ref: doutrina CVSS
+armadilha: conceito
+dif: 3
+enunciado: A nota-base do CVSS mede a probabilidade de uma vulnerabilidade ser explorada no ambiente de uma organização específica, o que dispensa análise de contexto na priorização das correções.
+comentario: Errado. A nota-base do CVSS expressa a severidade técnica da vulnerabilidade, independente do ambiente. A priorização deve considerar o contexto: exposição do ativo, criticidade, existência de exploração ativa e controles compensatórios.
+
+=== sx5-22
+gab: C
+tema: sg-ameacas
+ref: doutrina OWASP
+armadilha: conceito
+dif: 2
+enunciado: O OWASP Top 10 é lista de referência dos riscos de segurança mais críticos em aplicações web, que inclui falhas de controle de acesso e de injeção.
+comentario: Certo. A lista é atualizada periodicamente pela comunidade OWASP e serve de base para requisitos de desenvolvimento seguro e testes de aplicações.
+
+=== sx5-23
+gab: C
+tema: sg-ameacas
+ref: doutrina injeção de SQL
+armadilha: conceito
+dif: 2
+enunciado: Consultas parametrizadas são medida eficaz contra injeção de SQL, porque separam o comando da consulta dos dados informados pelo usuário, que deixam de ser interpretados como código.
+comentario: Certo. Validar entradas e dar ao banco o menor privilégio possível complementam a proteção, mas a parametrização é a defesa principal.
+
+=== sx5-24
+gab: C
+tema: sg-ameacas
+ref: doutrina vulnerabilidades
+armadilha: conceito
+dif: 1
+enunciado: Vulnerabilidade de dia zero é aquela explorada antes que o fornecedor tenha disponibilizado correção para ela.
+comentario: Certo. Como não há correção, a defesa depende de controles compensatórios, como segmentação, monitoramento de comportamento e menor privilégio.
