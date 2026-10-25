@@ -1,0 +1,191 @@
+// LGPD, lote X26: casos com cenários novos sobre os princípios (art. 6º) e os conceitos (art. 5º): adequação,
+// necessidade, livre acesso, qualidade, transparência, prevenção, não discriminação, responsabilização, dado pessoal,
+// dado sensível, dado anonimizado, banco de dados, encarregado, bloqueio, transferência internacional, órgão de
+// pesquisa e consentimento. Conferidas com fontes/lgpd.txt.
+
+=== lx26-01
+bloco: lgpd-5-11
+gab: C
+tema: pd-principios
+ref: lgpd 6
+trecho: compatibilidade do tratamento com as finalidades informadas ao titular, de acordo com o contexto do tratamento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um aplicativo de lanterna, que informou usar os dados só para funcionar, passou a coletar a lista de contatos do celular. Assertiva: há violação do princípio da adequação.
+comentario: Certo. Adequação é a compatibilidade do tratamento com as finalidades informadas, conforme o contexto (art. 6º, II). O caso também fere a necessidade (III), pois os contatos não são necessários à função.
+
+=== lx26-02
+bloco: lgpd-5-11
+gab: E
+tema: pd-principios
+ref: lgpd 6
+trecho: limitação do tratamento ao mínimo necessário para a realização de suas finalidades
+armadilha: conceito
+dif: 2
+enunciado: O princípio da necessidade permite coletar todos os dados que possam ser úteis no futuro, desde que mantidos em segurança.
+comentario: Errado. A necessidade limita o tratamento ao mínimo necessário para as finalidades, com dados pertinentes, proporcionais e não excessivos (art. 6º, III). Segurança não justifica coleta excessiva.
+
+=== lx26-03
+bloco: lgpd-5-11
+gab: C
+tema: pd-principios
+ref: lgpd 6
+trecho: garantia, aos titulares, de consulta facilitada e gratuita sobre a forma e a duração do tratamento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: para informar ao titular por quanto tempo seus dados ficariam guardados, uma empresa cobrava taxa de expediente. Assertiva: a cobrança viola o princípio do livre acesso.
+comentario: Certo. O livre acesso garante consulta facilitada e gratuita sobre a forma e a duração do tratamento e sobre a integralidade dos dados (art. 6º, IV).
+
+=== lx26-04
+bloco: lgpd-5-11
+gab: E
+tema: pd-principios
+ref: lgpd 6
+trecho: garantia, aos titulares, de exatidão, clareza, relevância e atualização dos dados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um birô de crédito manteve como pendente uma dívida já paga por não atualizar sua base. Assertiva: a falha não se relaciona a nenhum princípio da LGPD, sendo questão apenas de direito do consumidor.
+comentario: Errado. A falha fere o princípio da qualidade dos dados, que garante exatidão e atualização (art. 6º, V), e o titular pode pedir a correção (art. 18, III). O CDC também se aplica, sem excluir a LGPD.
+
+=== lx26-05
+bloco: lgpd-5-11
+gab: C
+tema: pd-principios
+ref: lgpd 6
+trecho: informações claras, precisas e facilmente acessíveis sobre a realização do tratamento e os respectivos agentes de tratamento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a política de privacidade de uma loja virtual não informava quem era o controlador nem como contatá-lo, e descrevia o tratamento em termos vagos. Assertiva: a política fere o princípio da transparência.
+comentario: Certo. A transparência garante informações claras, precisas e facilmente acessíveis sobre o tratamento e os agentes, observados os segredos comercial e industrial (art. 6º, VI). A identificação e o contato do controlador também estão no art. 9º, III e IV.
+
+=== lx26-06
+bloco: lgpd-5-11
+gab: E
+tema: pd-principios
+ref: lgpd 6
+trecho: adoção de medidas para prevenir a ocorrência de danos em virtude do tratamento de dados pessoais
+armadilha: conceito
+dif: 1
+enunciado: O princípio da prevenção só passa a se aplicar depois de ocorrido um incidente de segurança.
+comentario: Errado. Prevenção é adotar medidas para evitar danos (art. 6º, VIII), ou seja, atuar antes do incidente. A reação ao incidente segue o art. 48.
+
+=== lx26-07
+bloco: lgpd-5-11
+gab: C
+tema: pd-principios
+ref: lgpd 6
+trecho: impossibilidade de realização do tratamento para fins discriminatórios ilícitos ou abusivos
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma seguradora passou a cobrar mais de moradores de certos bairros, usando o CEP como substituto da cor da pele dos clientes, sem relação com o risco do seguro. Assertiva: o tratamento viola o princípio da não discriminação.
+comentario: Certo. Art. 6º, IX: veda tratamento para fins discriminatórios ilícitos ou abusivos. Dado comum usado para inferir origem racial também atrai o regime dos dados sensíveis (art. 11, § 1º).
+
+=== lx26-08
+bloco: lgpd-5-11
+gab: E
+tema: pd-principios
+ref: lgpd 6
+trecho: inclusive, da eficácia dessas medidas
+armadilha: conceito
+dif: 2
+enunciado: Pelo princípio da responsabilização e prestação de contas, basta ao agente adotar medidas de proteção de dados, sem precisar demonstrar que elas funcionam.
+comentario: Errado. O agente deve demonstrar a adoção de medidas eficazes e capazes de comprovar o cumprimento das normas, inclusive a eficácia dessas medidas (art. 6º, X).
+
+=== lx26-09
+bloco: lgpd-5-11
+gab: C
+tema: pd-conceitos
+ref: lgpd 5
+trecho: informação relacionada a pessoa natural identificada ou identificável
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa guarda apenas o identificador do aparelho e a geolocalização de celulares, sem o nome dos donos, mas consegue cruzar esses dados com sua base de clientes. Assertiva: esses registros são dados pessoais.
+comentario: Certo. Dado pessoal é a informação relacionada a pessoa natural identificada ou identificável (art. 5º, I). Se o cruzamento permite chegar à pessoa, ela é identificável.
+
+=== lx26-10
+bloco: lgpd-5-11
+gab: E
+tema: pd-conceitos
+ref: lgpd 5
+trecho: filiação a sindicato ou a organização de caráter religioso, filosófico ou político
+armadilha: rol
+dif: 2
+enunciado: A informação sobre a filiação de uma pessoa a sindicato é dado pessoal comum, pois não se refere à saúde nem à origem racial.
+comentario: Errado. A filiação a sindicato está no rol de dados sensíveis do art. 5º, II, ao lado de convicção religiosa, opinião política, saúde, vida sexual e dados genéticos ou biométricos.
+
+=== lx26-11
+bloco: lgpd-5-11
+gab: C
+tema: pd-conceitos
+ref: lgpd 5
+trecho: considerando a utilização de meios técnicos razoáveis e disponíveis na ocasião de seu tratamento
+armadilha: conceito
+dif: 3
+enunciado: Como a anonimização é avaliada pelos meios técnicos razoáveis e disponíveis na ocasião do tratamento, um dado considerado anonimizado hoje pode deixar de sê-lo com a evolução da tecnologia.
+comentario: Certo. Art. 5º, III e XI. Se a reversão se tornar possível com esforços razoáveis, o dado volta a ser pessoal (art. 12).
+
+=== lx26-12
+bloco: lgpd-5-11
+gab: E
+tema: pd-conceitos
+ref: lgpd 5
+trecho: estabelecido em um ou em vários locais, em suporte eletrônico ou físico
+armadilha: extrapolacao
+dif: 1
+enunciado: Para a LGPD, banco de dados é apenas o conjunto estruturado de dados mantido em suporte eletrônico e em um único local.
+comentario: Errado. Banco de dados é o conjunto estruturado de dados pessoais, em um ou em vários locais, em suporte eletrônico ou físico (art. 5º, IV). Fichário em papel também é banco de dados.
+
+=== lx26-13
+bloco: lgpd-5-11
+gab: E
+tema: pd-conceitos
+ref: lgpd 5
+trecho: pessoa indicada pelo controlador e operador para atuar como canal de comunicação
+armadilha: sujeito
+dif: 2
+enunciado: Pelo conceito da LGPD, o encarregado é indicado exclusivamente pelo controlador, sem que o operador possa indicar o seu.
+comentario: Errado. O art. 5º, VIII, define o encarregado como pessoa indicada pelo controlador e operador para atuar como canal entre o controlador, os titulares e a ANPD. O nome da Agência foi atualizado pela Lei 15.352/2026.
+
+=== lx26-14
+bloco: lgpd-5-11
+gab: E
+tema: pd-conceitos
+ref: lgpd 5
+trecho: suspensão temporária de qualquer operação de tratamento, mediante guarda do dado pessoal ou do banco de dados
+armadilha: comparacao
+dif: 2
+enunciado: O bloqueio, para a LGPD, é a exclusão definitiva do dado do banco de dados.
+comentario: Errado. Bloqueio é a suspensão temporária do tratamento, com guarda do dado (art. 5º, XIII). A exclusão definitiva é a eliminação (XIV).
+
+=== lx26-15
+bloco: lgpd-5-11
+gab: C
+tema: pd-conceitos
+ref: lgpd 5
+trecho: transferência de dados pessoais para país estrangeiro ou organismo internacional do qual o país seja membro
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma autarquia federal enviou dados de cidadãos brasileiros a um organismo internacional do qual o Brasil é membro. Assertiva: a operação é uma transferência internacional de dados para a LGPD.
+comentario: Certo. Art. 5º, XV. A operação precisa enquadrar-se em hipótese do art. 33, como compromisso assumido em acordo de cooperação internacional ou execução de política pública ou atribuição legal (incisos VI e VII).
+
+=== lx26-16
+bloco: lgpd-5-11
+gab: E
+tema: pd-conceitos
+ref: lgpd 5
+trecho: pessoa jurídica de direito privado sem fins lucrativos legalmente constituída sob as leis brasileiras
+armadilha: sujeito
+dif: 2
+enunciado: Uma empresa com fins lucrativos que faz pesquisas de mercado enquadra-se como órgão de pesquisa para os fins da LGPD.
+comentario: Errado. Órgão de pesquisa é entidade pública ou pessoa jurídica de direito privado sem fins lucrativos, com sede e foro no Brasil, que tenha a pesquisa básica ou aplicada de caráter histórico, científico, tecnológico ou estatístico em sua missão (art. 5º, XVIII).
+
+=== lx26-17
+bloco: lgpd-5-11
+gab: C
+tema: pd-conceitos
+ref: lgpd 5
+trecho: manifestação livre, informada e inequívoca pela qual o titular concorda com o tratamento de seus dados pessoais para uma finalidade determinada
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: no cadastro de uma loja, a caixa “aceito receber ofertas de parceiros” já vinha marcada. Assertiva: o silêncio do cliente, que não desmarcou a caixa, não configura consentimento válido.
+comentario: Certo. Consentimento é manifestação livre, informada e inequívoca (art. 5º, XII). Caixa pré-marcada não demonstra manifestação inequívoca, e cabe ao controlador provar o consentimento (art. 8º, § 2º).
