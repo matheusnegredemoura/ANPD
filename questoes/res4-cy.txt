@@ -1,7 +1,7 @@
 bloco: res-4-2023
 // Resolução CD/ANPD nº 4/2023 (dosimetria), lote CY: advertência (art. 9º), piso da multa (art. 15), multa diária
 // (art. 16), prazo de pagamento (art. 17), renúncia ao recurso (art. 18), pagamento e recurso (art. 19), publicização
-// (arts. 20 e 21), bloqueio e eliminação (arts. 22 e 23), intimação (art. 6º) e aplicação aos processos em curso (art. 28).
+// (arts. 20 e 21), bloqueio e eliminação (arts. 22 e 23) e aplicação aos processos em curso (art. 28).
 // Itens escritos para o banco. Trechos conferidos em fontes/res4.txt.
 
 === r4z-01
@@ -127,12 +127,12 @@ comentario: Errado. A multa diária incide a partir do primeiro dia útil de atr
 === r4z-13
 gab: C
 tema: an-dosimetria
-ref: res4 6
-trecho: serão realizadas conforme o disposto no Regulamento do Processo de Fiscalização e do Processo Administrativo Sancionador
-armadilha: conceito
+ref: res4 22
+trecho: consiste na suspensão temporária de qualquer operação de tratamento com os dados pessoais a que se refere a infração, mediante a sua guarda
+armadilha: comparacao
 dif: 2
-enunciado: A intimação da sanção e a contagem dos prazos do regulamento de dosimetria seguem o regulamento de fiscalização e do processo sancionador da ANPD.
-comentario: Certo. Art. 6º, que remete à Resolução CD/ANPD nº 1/2021: os dois regulamentos funcionam em conjunto.
+enunciado: No bloqueio, os dados ligados à infração ficam guardados e sem nenhum tratamento até a regularização; na eliminação, são excluídos.
+comentario: Certo. Arts. 22, § 1º, e 23, § 1º. O bloqueio é temporário; a eliminação, definitiva.
 
 === r4z-14
 gab: E
