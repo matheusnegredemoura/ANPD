@@ -1,0 +1,124 @@
+bloco: res-15-2024
+// Resolução CD/ANPD nº 15/2024 (comunicação de incidente de segurança), lote CX: casos sobre risco ou dano relevante,
+// prazos, conteúdo e forma da comunicação, agentes de pequeno porte, conceito de incidente e comunicação ao titular.
+// Itens escritos para o banco. Trechos conferidos em fontes/res15.txt.
+
+=== r15c-01
+gab: C
+tema: an-incidentes-app
+ref: res15 5
+trecho: quando puder afetar significativamente interesses e direitos fundamentais dos titulares e, cumulativamente, envolver, pelo menos, um dos seguintes critérios
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: invasores copiaram números de cartão e dados de transações de milhares de clientes de uma loja virtual, expondo-os a fraudes. Assertiva: o incidente pode acarretar risco ou dano relevante e deve ser comunicado à ANPD e aos titulares.
+comentario: Certo. Há afetação significativa de interesses dos titulares (risco de prejuízo financeiro) e, cumulativamente, dados financeiros em larga escala (art. 5º, III e VI). Por isso a comunicação é obrigatória (art. 48 da LGPD).
+
+=== r15c-02
+gab: E
+tema: an-incidentes-app
+ref: res15 5
+trecho: e, cumulativamente, envolver, pelo menos, um dos seguintes critérios
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma clínica geriátrica perdeu por instantes o acesso a uma planilha com nome e idade de pacientes, recuperada logo depois sem qualquer efeito sobre eles. Assertiva: por envolver dados de idosos, o incidente é automaticamente de risco ou dano relevante, sem necessidade de avaliar a afetação dos titulares.
+comentario: Errado. O risco ou dano relevante exige, cumulativamente, a possibilidade de afetar significativamente interesses e direitos fundamentais dos titulares e pelo menos um dos critérios do art. 5º. Dados de idosos, sozinhos, não bastam.
+
+=== r15c-03
+gab: C
+tema: an-incidentes-app
+ref: res15 6
+trecho: será contado do conhecimento pelo controlador de que o incidente afetou dados pessoais
+armadilha: conceito
+dif: 2
+enunciado: O prazo de comunicação à ANPD começa a correr quando o controlador fica sabendo que o incidente atingiu dados pessoais.
+comentario: Certo. Art. 6º, § 1º. O prazo é de três dias úteis, ressalvado prazo diverso em legislação específica (caput).
+
+=== r15c-04
+gab: E
+tema: an-incidentes-app
+ref: res15 6
+trecho: As informações poderão ser complementadas, de maneira fundamentada, no prazo de vinte dias úteis, a contar da data da comunicação.
+armadilha: numero
+dif: 3
+enunciado: Situação hipotética: ao comunicar um incidente à ANPD, o controlador ainda não sabia quantos titulares foram afetados. Assertiva: ele pode complementar as informações, de forma fundamentada, em até cinco dias úteis contados da comunicação.
+comentario: Errado. A complementação pode ocorrer, de forma fundamentada, em até vinte dias úteis da comunicação (art. 6º, § 3º).
+
+=== r15c-05
+gab: C
+tema: an-incidentes-app
+ref: res15 6
+trecho: A comunicação de incidente de segurança deverá ocorrer por meio de formulário eletrônico disponibilizado pela ANPD.
+armadilha: conceito
+dif: 1
+enunciado: A comunicação de incidente de segurança à ANPD é feita por formulário eletrônico disponibilizado pela autoridade.
+comentario: Certo. Art. 6º, § 4º. O formulário reúne as informações mínimas do § 2º, como natureza dos dados, número de titulares e medidas adotadas.
+
+=== r15c-06
+gab: E
+tema: an-incidentes-app
+ref: res15 6
+trecho: são contados em dobro para os agentes de pequeno porte
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma microempresa enquadrada como agente de tratamento de pequeno porte sofreu incidente relevante e quer saber o prazo para comunicá-lo à ANPD. Assertiva: o prazo é o mesmo aplicável às grandes empresas, pois o regulamento de incidentes não diferencia o porte do controlador.
+comentario: Errado. Os prazos de comunicação e de complementação são contados em dobro para os agentes de pequeno porte (art. 6º, § 8º, em linha com a Resolução 2/2022).
+
+=== r15c-07
+gab: C
+tema: an-incidentes-app
+ref: res15 6
+trecho: discriminando, quando aplicável, o número de crianças, de adolescentes ou de idosos
+armadilha: conceito
+dif: 2
+enunciado: Na comunicação de incidente à ANPD, o número de titulares afetados deve discriminar, quando aplicável, quantos são crianças, adolescentes ou idosos.
+comentario: Certo. Art. 6º, § 2º, II. A informação ajuda a ANPD a avaliar a gravidade, já que dados desses grupos são critério de risco relevante (art. 5º, II).
+
+=== r15c-08
+gab: E
+tema: an-incidentes-app
+ref: res15 3
+trecho: qualquer evento adverso confirmado, relacionado à violação das propriedades de confidencialidade, integridade, disponibilidade e autenticidade
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a equipe de TI de uma empresa recebeu alerta genérico de possível ataque e, ainda sem confirmar nada, discutiu se já havia incidente de segurança para fins do regulamento. Assertiva: para o regulamento, qualquer suspeita ainda não confirmada já configura incidente de segurança.
+comentario: Errado. Incidente de segurança é o evento adverso confirmado, relacionado à violação de confidencialidade, integridade, disponibilidade ou autenticidade dos dados pessoais (art. 3º, XII). A suspeita deve ser investigada, mas só o evento confirmado é incidente.
+
+=== r15c-09
+gab: C
+tema: an-incidentes-app
+ref: res15 9
+trecho: Poderá ser considerada boa prática, para fins do disposto no art. 52, § 1º, IX, da LGPD, a inclusão, na comunicação ao titular, de recomendações aptas a reverter ou mitigar os efeitos do incidente
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: ao avisar os clientes sobre o vazamento de senhas, uma empresa recomendou que trocassem as senhas e ativassem a autenticação em dois fatores. Assertiva: incluir essas recomendações pode ser considerado boa prática na dosimetria de eventual sanção.
+comentario: Certo. Art. 9º, § 5º, para fins do art. 52, § 1º, IX, da LGPD. A comunicação ao titular deve ser direta e individualizada, pelos meios usuais de contato (§ 2º), ou por divulgação ampla quando isso for inviável (§ 3º).
+
+=== r15c-10
+gab: E
+tema: an-incidentes-app
+ref: res15 6
+trecho: deverá ser realizada pelo controlador, por meio do encarregado, acompanhada de documento comprobatório de vínculo
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um empregado do setor de vendas, sem procuração e sem ser o encarregado, enviou à ANPD a comunicação de incidente em nome da empresa, sem nenhum documento de vínculo. Assertiva: a comunicação foi feita na forma exigida pelo regulamento.
+comentario: Errado. A comunicação é feita pelo controlador, por meio do encarregado, com documento que comprove o vínculo, ou por representante constituído, com instrumento de poderes (art. 6º, § 5º). Sem isso, a ANPD pode instaurar procedimento de apuração (§ 7º).
+
+=== r15c-11
+gab: C
+tema: an-incidentes-app
+ref: res15 3
+trecho: qualquer dado pessoal utilizado como credencial para determinar o acesso a um sistema ou para confirmar a identificação de um usuário, como contas de login, tokens e senhas
+armadilha: conceito
+dif: 1
+enunciado: Para o regulamento de incidentes, contas de login, tokens e senhas são dados de autenticação em sistemas.
+comentario: Certo. Art. 3º, VI. Dados de autenticação são critério de risco relevante (art. 5º, IV), porque permitem acesso indevido a outras contas.
+
+=== r15c-12
+gab: E
+tema: an-incidentes-app
+ref: res15 6
+trecho: ressalvada a existência de prazo para comunicação previsto em legislação específica
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: lei setorial fixou prazo próprio para que instituições de determinado setor comuniquem incidentes. Assertiva: mesmo assim, prevalece sempre o prazo de três dias úteis do regulamento da ANPD, que afasta qualquer outro.
+comentario: Errado. O art. 6º, caput, ressalva a existência de prazo para comunicação previsto em legislação específica.
