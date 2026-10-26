@@ -1,0 +1,130 @@
+bloco: seginfo
+// Segurança da informação, lote SX13: responsabilidade compartilhada na nuvem, biometria (FAR, FRR e EER), ISO/IEC
+// 27002:2022, confiança zero, chaves pública e privada, assinatura digital, DDoS, smishing e menor privilégio.
+// Itens de doutrina escritos para o banco; comentários próprios.
+
+=== sx13-01
+gab: C
+tema: si-nuvem
+ref: doutrina computação em nuvem
+armadilha: conceito
+dif: 2
+enunciado: Na nuvem, a divisão das responsabilidades de segurança entre provedor e cliente varia conforme o modelo de serviço contratado.
+comentario: Certo. É o modelo de responsabilidade compartilhada: no IaaS o cliente cuida de mais camadas; no SaaS, de menos, mas nunca de nenhuma.
+
+=== sx13-02
+gab: E
+tema: si-nuvem
+ref: doutrina computação em nuvem
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: ao contratar um software como serviço, um órgão entendeu que a gestão dos acessos de seus usuários e a classificação de seus dados passariam a caber exclusivamente ao provedor. Assertiva: o entendimento está correto.
+comentario: Errado. Mesmo no SaaS, o cliente continua responsável por seus dados, pelas identidades e pelos acessos de seus usuários. O provedor cuida da infraestrutura e da aplicação.
+
+=== sx13-03
+gab: C
+tema: si-nuvem
+ref: doutrina modelos de serviço em nuvem
+armadilha: conceito
+dif: 2
+enunciado: No modelo IaaS, o cliente responde pela segurança do sistema operacional e das aplicações que instala nas máquinas virtuais.
+comentario: Certo. O provedor entrega a infraestrutura (servidores, rede, armazenamento); atualizar e proteger o que roda sobre ela fica com o cliente.
+
+=== sx13-04
+gab: E
+tema: si-biometria
+ref: doutrina biometria
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: para reforçar a segurança, uma empresa tornou mais rígido seu leitor biométrico, e um gestor afirmou que, com isso, também cairia a taxa de falsa rejeição. Assertiva: a afirmação está correta.
+comentario: Errado. Reduzir a taxa de falsa aceitação (FAR) costuma aumentar a de falsa rejeição (FRR): o sistema passa a barrar mais usuários legítimos. As duas taxas variam em sentidos opostos.
+
+=== sx13-05
+gab: C
+tema: si-biometria
+ref: doutrina biometria
+armadilha: conceito
+dif: 3
+enunciado: A taxa de erro igual (EER) de um sistema biométrico é o ponto em que as taxas de falsa aceitação e de falsa rejeição se igualam.
+comentario: Certo. Quanto menor a EER, mais preciso o sistema; ela é usada para comparar soluções biométricas.
+
+=== sx13-06
+gab: E
+tema: sg-iso
+ref: doutrina ISO/IEC 27002
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: ao revisar sua política, uma equipe afirmou que a ISO/IEC 27002:2022 manteve a estrutura de catorze seções de controles da versão de 2013. Assertiva: a afirmação está correta.
+comentario: Errado. A versão de 2022 reorganizou os controles em quatro temas (organizacionais, de pessoas, físicos e tecnológicos), num total de 93 controles.
+
+=== sx13-07
+gab: C
+tema: sg-iso
+ref: doutrina ISO/IEC 27002
+armadilha: conceito
+dif: 2
+enunciado: Na ISO/IEC 27002 em vigor, os controles se agrupam em temas organizacionais, de pessoas, físicos e tecnológicos.
+comentario: Certo. A estrutura em quatro temas substituiu as catorze seções da versão anterior.
+
+=== sx13-08
+gab: E
+tema: sg-principios
+ref: doutrina confiança zero
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa passou a considerar confiável, por padrão, todo dispositivo conectado à sua rede interna. Assertiva: a regra traduz a arquitetura de confiança zero.
+comentario: Errado. A confiança zero (zero trust) não concede confiança implícita pela localização na rede; cada acesso é verificado, interno ou externo.
+
+=== sx13-09
+gab: C
+tema: sg-principios
+ref: doutrina confiança zero
+armadilha: conceito
+dif: 2
+enunciado: Na arquitetura de confiança zero, cada acesso é verificado com base na identidade, no dispositivo e no contexto, sem confiança implícita.
+comentario: Certo. O lema é “nunca confie, sempre verifique”, com privilégio mínimo e segmentação.
+
+=== sx13-10
+gab: E
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: comparacao
+dif: 2
+enunciado: Situação hipotética: para que só o destinatário lesse uma mensagem, o remetente a cifrou com a própria chave privada. Assertiva: o procedimento garante a confidencialidade da mensagem.
+comentario: Errado. Para confidencialidade, cifra-se com a chave pública do destinatário, que decifra com sua chave privada. Cifrar com a chave privada do remetente serve para assinatura: qualquer um decifra com a chave pública dele.
+
+=== sx13-11
+gab: C
+tema: sg-cripto
+ref: doutrina criptografia
+armadilha: conceito
+dif: 2
+enunciado: A assinatura digital garante integridade, autenticidade e não repúdio, mas não garante, por si, a confidencialidade da mensagem.
+comentario: Certo. Uma mensagem assinada pode ser lida por qualquer um; para sigilo, é preciso também cifrá-la.
+
+=== sx13-12
+gab: E
+tema: sg-ameacas
+ref: doutrina ameaças
+armadilha: conceito
+dif: 1
+enunciado: Situação hipotética: em relatório sobre um ataque distribuído de negação de serviço (DDoS), um analista afirmou que o objetivo principal do ataque era ler o conteúdo dos bancos de dados. Assertiva: a afirmação descreve corretamente esse tipo de ataque.
+comentario: Errado. O DDoS busca esgotar recursos e derrubar o serviço, atingindo a disponibilidade, não a confidencialidade dos dados.
+
+=== sx13-13
+gab: C
+tema: sg-ameacas
+ref: doutrina ameaças
+armadilha: conceito
+dif: 1
+enunciado: No smishing, o golpista usa mensagens de texto para induzir a vítima a entregar dados ou abrir link malicioso.
+comentario: Certo. É o phishing por SMS; no vishing, o golpe é por voz.
+
+=== sx13-14
+gab: E
+tema: si-controles
+ref: doutrina controles de acesso
+armadilha: caso
+dif: 1
+enunciado: Situação hipotética: para agilizar o suporte técnico, uma empresa deu a todos os funcionários privilégios de administrador em suas máquinas. Assertiva: a medida está alinhada ao princípio do menor privilégio.
+comentario: Errado. O menor privilégio concede a cada usuário só as permissões necessárias à sua função. Privilégio de administrador para todos amplia o impacto de malware e de erros.
