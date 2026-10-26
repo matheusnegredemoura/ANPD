@@ -1,0 +1,145 @@
+bloco: res-15-2024
+// Resolução CD/ANPD nº 15/2024 (comunicação de incidente de segurança), lote CY: sigilo e informações adicionais
+// (arts. 7º e 8º), registro do incidente (art. 10), auditorias, início e análise agregada (arts. 12 a 14), medidas
+// preventivas (art. 15), canal de comunicação (art. 18), ampla divulgação (art. 19) e processo
+// sancionador (art. 21). Itens escritos para o banco. Trechos conferidos em fontes/res15.txt.
+
+=== r15y-01
+gab: C
+tema: an-incidentes-app
+ref: res15 7
+trecho: Cabe ao controlador solicitar à ANPD, de maneira fundamentada, o sigilo de informações protegidas por lei
+armadilha: sujeito
+dif: 2
+enunciado: Cabe ao controlador pedir à ANPD, de forma fundamentada, o sigilo de informações protegidas por lei, como segredos comerciais ligados ao incidente.
+comentario: Certo. Art. 7º. O controlador indica quais informações devem ter acesso restrito.
+
+=== r15y-02
+gab: E
+tema: an-incidentes-app
+ref: res15 8
+trecho: inclusive o registro das operações de tratamento dos dados pessoais afetados pelo incidente, o relatório de impacto à proteção de dados pessoais (RIPD)
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: depois de comunicado um incidente, a ANPD pediu à empresa o relatório de impacto e o registro das operações afetadas; a empresa recusou, alegando que a comunicação inicial esgota seus deveres. Assertiva: a recusa é legítima.
+comentario: Errado. A ANPD pode, a qualquer tempo, pedir informações adicionais sobre o incidente, inclusive o registro das operações, o relatório de impacto e o relatório de tratamento do incidente, fixando prazo (art. 8º).
+
+=== r15y-03
+gab: C
+tema: an-incidentes-app
+ref: res15 10
+trecho: os motivos da ausência de comunicação, quando for o caso
+armadilha: rol
+dif: 2
+enunciado: O registro de incidente que não foi comunicado à ANPD deve indicar os motivos da falta de comunicação.
+comentario: Certo. Art. 10, § 1º, VIII. O registro traz também a avaliação do risco e os possíveis danos aos titulares (V).
+
+=== r15y-04
+gab: E
+tema: an-incidentes-app
+ref: res15 10
+trecho: O controlador deverá manter o registro do incidente de segurança, inclusive daquele não comunicado à ANPD e aos titulares
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um controlador sofreu incidente sem risco relevante, não o comunicou à ANPD e também não o registrou, por entender que só incidentes comunicados precisam ser registrados. Assertiva: o entendimento está correto.
+comentario: Errado. O registro abrange inclusive o incidente não comunicado à ANPD e aos titulares, mantido pelo prazo mínimo de cinco anos (art. 10).
+
+=== r15y-05
+gab: C
+tema: an-incidentes-app
+ref: res15 12
+trecho: realizar auditorias ou inspeções junto aos agentes de tratamento, ou determinar a sua realização
+armadilha: conceito
+dif: 2
+enunciado: No processo de comunicação de incidente, a ANPD pode fazer ou determinar auditorias e inspeções para validar as informações recebidas.
+comentario: Certo. Art. 12. As auditorias também servem para colher informações complementares.
+
+=== r15y-06
+gab: E
+tema: an-incidentes-app
+ref: res15 13
+trecho: de ofício, no caso de procedimento de apuração de incidente de segurança
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD soube pela imprensa de um vazamento não comunicado e abriu apuração; a empresa alegou que o processo só pode começar com sua própria comunicação. Assertiva: a alegação procede.
+comentario: Errado. O processo pode começar de ofício, pelo procedimento de apuração de incidente (art. 13, I), e a ANPD pode apurar incidentes não comunicados de que tome conhecimento (art. 16).
+
+=== r15y-07
+gab: C
+tema: an-incidentes-app
+ref: res15 14
+trecho: poderão ser analisados de forma agregada, e as eventuais providências deles decorrentes poderão ser adotadas de forma padronizada
+armadilha: conceito
+dif: 2
+enunciado: A ANPD pode analisar processos de comunicação de incidente de forma agregada e adotar providências padronizadas.
+comentario: Certo. Art. 14, conforme o planejamento da fiscalização e os critérios do relatório de ciclo de monitoramento.
+
+=== r15y-08
+gab: E
+tema: an-incidentes-app
+ref: res15 15
+trecho: com ou sem a sua prévia manifestação, a adoção imediata de medidas preventivas
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: diante de risco de dano grave e irreparável, a ANPD determinou uma medida preventiva imediata sem ouvir antes o controlador, que alegou nulidade. Assertiva: a determinação é nula, pois o regulamento exige manifestação prévia em qualquer caso.
+comentario: Errado. A ANPD pode determinar medidas preventivas imediatas com ou sem prévia manifestação do controlador, para evitar dano grave e irreparável ou de difícil reparação (art. 15).
+
+=== r15y-09
+gab: C
+tema: an-incidentes-app
+ref: res15 15
+trecho: A ANPD poderá fixar multa diária para assegurar o cumprimento da determinação
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: para garantir que um controlador cumprisse a ordem de fechar o acesso a uma base exposta, a ANPD fixou multa diária no processo de incidente. Assertiva: a medida tem amparo no regulamento.
+comentario: Certo. Art. 15, parágrafo único, na forma do regulamento de dosimetria (Resolução CD/ANPD nº 4/2023).
+
+=== r15y-10
+gab: E
+tema: an-incidentes-app
+ref: res15 19
+trecho: A ampla divulgação do incidente não se confunde com a sanção de publicização da infração
+armadilha: comparacao
+dif: 3
+enunciado: Situação hipotética: a ANPD determinou a ampla divulgação de um incidente nos meios de comunicação, e o controlador alegou que sofreu, com isso, a sanção de publicização da infração. Assertiva: a alegação está correta.
+comentario: Errado. A ampla divulgação do incidente não se confunde com a sanção de publicização do art. 52, IV, da LGPD (art. 19, § 6º). É providência para proteger titulares, equiparada a medida preventiva (art. 22).
+
+=== r15y-11
+gab: C
+tema: an-incidentes-app
+ref: res15 19
+trecho: quando a comunicação realizada pelo controlador mostrar-se insuficiente para alcançar parcela significativa dos titulares afetados
+armadilha: conceito
+dif: 2
+enunciado: A ANPD pode ordenar a ampla divulgação do incidente, às custas do controlador, se a comunicação feita por ele não alcançar parcela significativa dos titulares.
+comentario: Certo. Art. 19, § 3º. A divulgação deve ser compatível com a abrangência de atuação do controlador e a localização dos titulares (§ 4º).
+
+=== r15y-12
+gab: E
+tema: an-incidentes-app
+ref: res15 18
+trecho: A comunicação do incidente será recebida, exclusivamente, por meio de canal específico
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um controlador comunicou o incidente por e-mail enviado a um servidor da ANPD que conhecia, em vez de usar o canal indicado no site da autarquia. Assertiva: a comunicação foi regularmente recebida, pois o regulamento admite qualquer meio.
+comentario: Errado. A comunicação do incidente é recebida exclusivamente por canal específico, conforme orientação publicada no site da ANPD (art. 18, parágrafo único).
+
+=== r15y-13
+gab: C
+tema: an-incidentes-app
+ref: res15 19
+trecho: As providências citadas no caput devem estar diretamente relacionadas ao incidente
+armadilha: conceito
+dif: 2
+enunciado: As providências que a ANPD determina depois de avaliar a gravidade do incidente devem guardar relação direta com ele.
+comentario: Certo. Art. 19, § 2º. A gravidade é avaliada pelos critérios do art. 5º (§ 1º).
+
+=== r15y-14
+gab: E
+tema: an-incidentes-app
+ref: res15 21
+trecho: A ANPD poderá instaurar processo administrativo sancionador caso o controlador não adote as medidas
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um controlador deixou de adotar, no prazo fixado pela ANPD, as medidas para mitigar os efeitos de um incidente. Assertiva: a ANPD não pode abrir processo sancionador, pois o processo de comunicação de incidente tem natureza apenas orientativa.
+comentario: Errado. Se o controlador não adotar as medidas no prazo e nas condições determinados, a ANPD pode instaurar processo administrativo sancionador (art. 21).
