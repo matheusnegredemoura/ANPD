@@ -129,13 +129,13 @@ enunciado: O ataque de repetição só é possível quando o invasor consegue de
 comentario: Errado. No replay, o invasor reenvia a mensagem como foi capturada, sem precisar entender seu conteúdo. Por isso a criptografia, sozinha, não basta: é preciso que a mensagem tenha validade única ou curta.
 
 === sx9-15
-gab: E
+gab: C
 tema: si-controles
 ref: doutrina segurança de correio eletrônico
 armadilha: conceito
 dif: 2
-enunciado: O registro SPF de um domínio lista os destinatários autorizados a receber mensagens daquele domínio.
-comentario: Errado. O SPF lista os servidores autorizados a enviar mensagens em nome do domínio. O servidor que recebe a mensagem consulta o registro para verificar se a origem é legítima.
+enunciado: O servidor que recebe uma mensagem pode consultar o registro SPF do domínio do remetente para verificar se ela partiu de servidor autorizado.
+comentario: Certo. O SPF, publicado no DNS, lista os servidores autorizados a enviar mensagens em nome do domínio; não lista destinatários. Sozinho, porém, não garante a integridade da mensagem, papel do DKIM.
 
 === sx9-16
 gab: C

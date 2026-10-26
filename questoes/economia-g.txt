@@ -1,7 +1,7 @@
 bloco: economia
 // Sétima leva de economia: índice de Lerner, Cournot e Stackelberg, elasticidade-renda, bens substitutos e
 // complementares, custo de oportunidade e custo irrecuperável, excedente do produtor, discriminação de preços e
-// noções de estatística (intervalo de confiança e valor-p). Itens de doutrina.
+// noções de estatística (intervalo de confiança e desvio-padrão). Itens de doutrina.
 
 === ec8-01
 gab: C
@@ -103,10 +103,10 @@ enunciado: Um intervalo de confiança de 95% para uma média indica que, se o pr
 comentario: Certo. A confiança se refere ao método, não a um intervalo específico. Dizer que há 95% de probabilidade de a média estar naquele intervalo já calculado é a interpretação incorreta mais comum.
 
 === ec8-12
-gab: E
+gab: C
 tema: ec-estatistica
 ref: doutrina estatística
-armadilha: interpretacao
-dif: 3
-enunciado: Um valor-p de 0,03 significa que há 3% de probabilidade de a hipótese nula ser verdadeira.
-comentario: Errado. O valor-p é a probabilidade de obter resultado tão extremo quanto o observado, ou mais, supondo verdadeira a hipótese nula. Com nível de significância de 5%, um valor-p de 0,03 leva a rejeitar a hipótese nula, mas não mede a probabilidade de ela ser verdadeira.
+armadilha: conceito
+dif: 2
+enunciado: O desvio-padrão é a raiz quadrada da variância e, ao contrário dela, é expresso na mesma unidade de medida dos dados.
+comentario: Certo. A variância eleva os desvios ao quadrado, o que muda a unidade (reais ao quadrado, por exemplo); a raiz quadrada devolve a medida à unidade original e facilita a interpretação da dispersão.
