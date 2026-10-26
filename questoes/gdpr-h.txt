@@ -1,0 +1,112 @@
+bloco: gdpr
+// Direito comparado, oitava leva: cooperação com a autoridade de controle (art. 31), avaliação de impacto (art. 35),
+// códigos de conduta (art. 40), organismos de certificação (art. 43) e derrogações para transferências (art. 49).
+// Trechos conferidos no texto oficial em inglês (fontes/gdpr.txt).
+
+=== gd8-01
+gab: C
+ref: gdpr 31
+trecho: shall cooperate, on request, with the supervisory authority in the performance of its tasks
+armadilha: conceito
+dif: 1
+enunciado: No RGPD, o responsável pelo tratamento e o subcontratante, e, quando for o caso, seus representantes, devem cooperar com a autoridade de controle, a pedido desta, no exercício de suas funções.
+comentario: Certo. Art. 31. A LGPD não tem regra idêntica, mas o dever de colaborar com a fiscalização aparece no regulamento de fiscalização da ANPD (Resolução 1/2021, art. 5º).
+
+=== gd8-02
+gab: C
+ref: gdpr 35
+trecho: The controller shall seek the advice of the data protection officer, where designated, when carrying out a data protection impact assessment.
+armadilha: conceito
+dif: 2
+enunciado: Ao realizar a avaliação de impacto sobre a proteção de dados, o responsável pelo tratamento deve pedir o parecer do encarregado da proteção de dados, quando houver um designado.
+comentario: Certo. Art. 35(2). Quem faz a avaliação é o responsável pelo tratamento; o encarregado aconselha e acompanha (art. 39(1)(c)).
+
+=== gd8-03
+gab: E
+ref: gdpr 35
+trecho: a systematic monitoring of a publicly accessible area on a large scale
+armadilha: rol
+dif: 3
+enunciado: No RGPD, a avaliação de impacto é obrigatória apenas quando o tratamento envolve categorias especiais de dados em grande escala, não alcançando o monitoramento de áreas públicas.
+comentario: Errado. O art. 35(3) exige a avaliação, em especial, na avaliação sistemática e extensa de aspectos pessoais com decisões automatizadas, inclusive definição de perfis, no tratamento em grande escala de categorias especiais ou de dados sobre condenações penais e no controle sistemático de zonas acessíveis ao público em grande escala.
+
+=== gd8-04
+gab: C
+ref: gdpr 35
+trecho: The supervisory authority shall establish and make public a list of the kind of processing operations which are subject to the requirement
+armadilha: conceito
+dif: 2
+enunciado: No RGPD, a autoridade de controle deve elaborar e tornar pública lista dos tipos de operações de tratamento sujeitas à avaliação de impacto e pode também publicar lista das operações que dela estão dispensadas.
+comentario: Certo. Art. 35(4) e (5). As listas são comunicadas ao Comitê Europeu de Proteção de Dados e, se envolverem vários Estados-Membros, passam pelo mecanismo de controle da coerência (35(6)).
+
+=== gd8-05
+gab: E
+ref: gdpr 35
+trecho: an assessment of the necessity and proportionality of the processing operations in relation to the purposes
+armadilha: rol
+dif: 2
+enunciado: A avaliação de impacto do RGPD limita-se a descrever as operações de tratamento e suas finalidades, sem exigir análise da necessidade e da proporcionalidade do tratamento.
+comentario: Errado. O art. 35(7) exige, no mínimo, a descrição das operações e finalidades, a avaliação da necessidade e da proporcionalidade, a avaliação dos riscos para os titulares e as medidas previstas para enfrentá-los.
+
+=== gd8-06
+gab: C
+ref: gdpr 35
+trecho: Where appropriate, the controller shall seek the views of data subjects or their representatives on the intended processing
+armadilha: conceito
+dif: 3
+enunciado: No RGPD, o responsável pelo tratamento deve, quando adequado, ouvir os titulares ou seus representantes sobre o tratamento previsto, sem prejuízo dos interesses comerciais ou públicos e da segurança das operações.
+comentario: Certo. Art. 35(9). A avaliação também deve ser revista quando houver alteração do risco das operações (35(11)).
+
+=== gd8-07
+gab: E
+ref: gdpr 35
+trecho: the controller shall, prior to the processing, carry out an assessment of the impact
+armadilha: conceito
+dif: 2
+enunciado: No RGPD, a avaliação de impacto pode ser feita depois de iniciado o tratamento de alto risco, desde que concluída no prazo de seis meses.
+comentario: Errado. O art. 35(1) exige que a avaliação seja feita antes do tratamento. O RGPD não prevê esse prazo posterior de seis meses.
+
+=== gd8-08
+gab: C
+ref: gdpr 40
+trecho: taking account of the specific features of the various processing sectors and the specific needs of micro, small and medium-sized enterprises
+armadilha: conceito
+dif: 2
+enunciado: No RGPD, Estados-Membros, autoridades de controle, Comitê e Comissão devem promover códigos de conduta que levem em conta as características dos diferentes setores e as necessidades específicas das micro, pequenas e médias empresas.
+comentario: Certo. Art. 40(1). Associações representativas podem elaborar os códigos sobre temas como tratamento leal, interesses legítimos, pseudonimização, direitos dos titulares e notificação de violações (40(2)).
+
+=== gd8-09
+gab: E
+ref: gdpr 40
+trecho: shall submit the draft code, amendment or extension to the supervisory authority which is competent pursuant to Article 55
+armadilha: sujeito
+dif: 3
+enunciado: No RGPD, os códigos de conduta elaborados por associações setoriais produzem efeitos assim que publicados, sem necessidade de submissão a nenhuma autoridade.
+comentario: Errado. O projeto de código deve ser submetido à autoridade de controle competente, que dá parecer e o aprova se estiver conforme (art. 40(5)). Se o código abranger vários Estados-Membros, passa ainda pelo Comitê, e a Comissão pode lhe dar validade geral na União (40(7) a (9)).
+
+=== gd8-10
+gab: C
+ref: gdpr 43
+trecho: The accreditation shall be issued for a maximum period of five years
+armadilha: numero
+dif: 3
+enunciado: No RGPD, a acreditação de organismos de certificação em proteção de dados é concedida por período máximo de cinco anos, renovável se os requisitos continuarem cumpridos.
+comentario: Certo. Art. 43(4). A acreditação pode ser feita pela autoridade de controle competente ou pelo organismo nacional de acreditação (43(1)) e é revogada quando as condições deixam de ser cumpridas (43(7)).
+
+=== gd8-11
+gab: E
+ref: gdpr 43
+trecho: without prejudice to the responsibility of the controller or processor for compliance with this Regulation
+armadilha: extrapolacao
+dif: 2
+enunciado: No RGPD, o responsável pelo tratamento que obtém certificação passa a ter a responsabilidade pelo cumprimento do regulamento transferida ao organismo de certificação.
+comentario: Errado. O organismo responde pela avaliação que leva à certificação, sem prejuízo da responsabilidade do responsável pelo tratamento ou do subcontratante pelo cumprimento do regulamento (art. 43(4)). A certificação não transfere responsabilidade.
+
+=== gd8-12
+gab: C
+ref: gdpr 49
+trecho: the data subject has explicitly consented to the proposed transfer, after having been informed of the possible risks of such transfers
+armadilha: conceito
+dif: 3
+enunciado: No RGPD, na falta de decisão de adequação e de garantias adequadas, a transferência para país terceiro pode basear-se no consentimento explícito do titular, depois de informado dos possíveis riscos dessa transferência.
+comentario: Certo. Art. 49(1)(a). As derrogações do art. 49 são exceções para situações específicas, como execução de contrato, interesse público importante, defesa em processo e interesses vitais, e não substituem as garantias adequadas como regra.
