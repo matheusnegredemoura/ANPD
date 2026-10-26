@@ -1,0 +1,164 @@
+bloco: lgpd-5-11
+// LGPD, lote X34: casos sobre os princípios do art. 6º e os conceitos do art. 5º (banco de dados, controlador, órgão de
+// pesquisa, encarregado, dado anonimizado, uso compartilhado e transferência internacional). Conferidas com
+// fontes/lgpd.txt.
+
+=== lx34-01
+gab: C
+tema: pd-principios
+ref: lgpd 6
+trecho: realização do tratamento para propósitos legítimos, específicos, explícitos e informados ao titular
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um aplicativo de lanterna coleta a localização dos usuários e a vende a anunciantes, sem informar esse uso em nenhum momento. Assertiva: a conduta viola, entre outros, o princípio da finalidade.
+comentario: Certo. A finalidade exige propósitos legítimos, específicos, explícitos e informados ao titular (art. 6º, I). O caso fere também a adequação, pois a localização nada tem a ver com uma lanterna, e a transparência.
+
+=== lx34-02
+gab: E
+tema: pd-principios
+ref: lgpd 6
+trecho: limitação do tratamento ao mínimo necessário para a realização de suas finalidades
+armadilha: comparacao
+dif: 2
+enunciado: Situação hipotética: para cadastrar clientes que só querem receber uma newsletter, uma loja exige CPF, renda e profissão. Assertiva: a exigência fere apenas o princípio da qualidade dos dados.
+comentario: Errado. O excesso de dados fere o princípio da necessidade, que limita o tratamento ao mínimo necessário e aos dados pertinentes, proporcionais e não excessivos (art. 6º, III). A qualidade diz respeito à exatidão e à atualização dos dados (V).
+
+=== lx34-03
+gab: C
+tema: pd-principios
+ref: lgpd 6
+trecho: com abrangência dos dados pertinentes, proporcionais e não excessivos em relação às finalidades do tratamento de dados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um condomínio passou a exigir dos visitantes, além do nome e do documento, a profissão, o estado civil e a renda mensal. Assertiva: a exigência contraria o princípio da necessidade.
+comentario: Certo. Para controlar o acesso, bastam dados de identificação; profissão, estado civil e renda são excessivos para essa finalidade (art. 6º, III).
+
+=== lx34-04
+gab: E
+tema: pd-principios
+ref: lgpd 6
+trecho: garantia, aos titulares, de consulta facilitada e gratuita sobre a forma e a duração do tratamento
+armadilha: conceito
+dif: 1
+enunciado: Pelo princípio do livre acesso, o titular pode consultar a forma e a duração do tratamento de seus dados, mas o controlador pode cobrar por essa consulta.
+comentario: Errado. O livre acesso garante consulta facilitada e gratuita sobre a forma e a duração do tratamento e sobre a integralidade dos dados (art. 6º, IV). A gratuidade é reforçada no art. 18, § 5º.
+
+=== lx34-05
+gab: C
+tema: pd-principios
+ref: lgpd 6
+trecho: garantia, aos titulares, de exatidão, clareza, relevância e atualização dos dados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um banco manteve o endereço antigo de um cliente mesmo após ele informar a mudança, e as cobranças continuaram indo para o imóvel anterior. Assertiva: a situação contraria o princípio da qualidade dos dados.
+comentario: Certo. A qualidade dos dados garante exatidão, clareza, relevância e atualização, conforme a necessidade e a finalidade (art. 6º, V). O titular também pode pedir a correção de dados desatualizados (art. 18, III).
+
+=== lx34-06
+gab: C
+tema: pd-principios
+ref: lgpd 6
+trecho: impossibilidade de realização do tratamento para fins discriminatórios ilícitos ou abusivos
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa passou a recusar candidatos a emprego a partir de dados de saúde obtidos em aplicativos de exercícios, sem relação com as funções do cargo. Assertiva: a conduta viola o princípio da não discriminação.
+comentario: Certo. O tratamento para fins discriminatórios ilícitos ou abusivos é vedado (art. 6º, IX). Dados de saúde são sensíveis, e o art. 11, § 5º, proíbe operadoras de planos de saúde de usá-los na seleção de riscos.
+
+=== lx34-07
+gab: E
+tema: pd-principios
+ref: lgpd 6
+trecho: adoção de medidas para prevenir a ocorrência de danos em virtude do tratamento de dados pessoais
+armadilha: conceito
+dif: 2
+enunciado: O princípio da prevenção limita-se a exigir que o agente repare os danos depois de ocorrido o incidente de segurança.
+comentario: Errado. A prevenção exige medidas para evitar que o dano ocorra (art. 6º, VIII). A reparação é tema da responsabilidade civil (arts. 42 a 45).
+
+=== lx34-08
+gab: C
+tema: pd-principios
+ref: lgpd 6
+trecho: demonstração, pelo agente, da adoção de medidas eficazes e capazes de comprovar a observância e o cumprimento das normas de proteção de dados pessoais e, inclusive, da eficácia dessas medidas
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: em fiscalização, uma empresa apresentou políticas de privacidade bem redigidas, mas não soube mostrar se elas eram aplicadas nem se funcionavam. Assertiva: a situação não atende ao princípio da responsabilização e prestação de contas.
+comentario: Certo. O princípio exige que o agente demonstre a adoção de medidas eficazes e, inclusive, a eficácia delas (art. 6º, X). Documentos sem prova de aplicação não bastam.
+
+=== lx34-09
+gab: C
+tema: pd-conceitos
+ref: lgpd 5
+trecho: conjunto estruturado de dados pessoais, estabelecido em um ou em vários locais, em suporte eletrônico ou físico
+armadilha: caso
+dif: 1
+enunciado: Situação hipotética: uma clínica pequena guarda fichas de pacientes em papel, organizadas em ordem alfabética num arquivo de aço. Assertiva: esse arquivo é banco de dados para a LGPD.
+comentario: Certo. Banco de dados é o conjunto estruturado de dados pessoais, em um ou vários locais, em suporte eletrônico ou físico (art. 5º, IV). A LGPD não se limita ao meio digital (art. 1º).
+
+=== lx34-10
+gab: E
+tema: pd-conceitos
+ref: lgpd 5
+trecho: pessoa natural ou jurídica, de direito público ou privado, a quem competem as decisões referentes ao tratamento de dados pessoais
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: uma psicóloga que atende em consultório próprio, sem constituir empresa, decide quais dados dos pacientes coleta e como os guarda. Assertiva: por ser pessoa natural, ela não pode ser controladora de dados.
+comentario: Errado. Controlador é a pessoa natural ou jurídica, de direito público ou privado, a quem competem as decisões sobre o tratamento (art. 5º, VI). A profissional que decide sobre os dados dos pacientes é controladora.
+
+=== lx34-11
+gab: C
+tema: pd-conceitos
+ref: lgpd 5
+trecho: pessoa jurídica de direito privado sem fins lucrativos legalmente constituída sob as leis brasileiras, com sede e foro no País
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma associação sem fins lucrativos, constituída no Brasil e com sede no país, tem em seu estatuto a pesquisa básica em saúde pública. Assertiva: ela pode ser considerada órgão de pesquisa para a LGPD.
+comentario: Certo. Órgão de pesquisa é órgão ou entidade da administração pública ou pessoa jurídica de direito privado sem fins lucrativos, constituída sob as leis brasileiras, com sede e foro no País, cuja missão ou objetivo social inclua pesquisa básica ou aplicada de caráter histórico, científico, tecnológico ou estatístico (art. 5º, XVIII).
+
+=== lx34-12
+gab: E
+tema: pd-conceitos
+ref: lgpd 5
+trecho: pessoa jurídica de direito privado sem fins lucrativos
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: uma empresa de consultoria com fins lucrativos que faz pesquisas de mercado alegou ser órgão de pesquisa para usar a base legal de estudos. Assertiva: a alegação procede, pois a pesquisa consta de seu objeto social.
+comentario: Errado. Entre as pessoas de direito privado, só as sem fins lucrativos podem ser órgão de pesquisa (art. 5º, XVIII). A empresa precisa de outra base legal para o tratamento.
+
+=== lx34-13
+gab: E
+tema: pd-conceitos
+ref: lgpd 5
+trecho: pessoa indicada pelo controlador e operador para atuar como canal de comunicação
+armadilha: sujeito
+dif: 1
+enunciado: O encarregado pelo tratamento de dados pessoais é indicado pela ANPD para atuar como canal de comunicação entre ela e as empresas.
+comentario: Errado. O encarregado é indicado pelo controlador e pelo operador para atuar como canal de comunicação entre o controlador, os titulares e a ANPD (art. 5º, VIII, na redação da Lei 15.352/2026).
+
+=== lx34-14
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 5
+trecho: considerando a utilização de meios técnicos razoáveis e disponíveis na ocasião de seu tratamento
+armadilha: conceito
+dif: 3
+enunciado: Para a LGPD, só é anonimizado o dado que não possa ser vinculado ao titular por nenhum meio, inclusive técnicas que venham a ser inventadas no futuro.
+comentario: Errado. O parâmetro são os meios técnicos razoáveis e disponíveis na ocasião do tratamento (art. 5º, III e XI). O art. 12 completa: o dado volta a ser pessoal se a anonimização puder ser revertida com esforços razoáveis.
+
+=== lx34-15
+gab: C
+tema: pd-conceitos
+ref: lgpd 5
+trecho: interconexão de dados pessoais ou tratamento compartilhado de bancos de dados pessoais por órgãos e entidades públicos no cumprimento de suas competências legais, ou entre esses e entes privados
+armadilha: conceito
+dif: 2
+enunciado: O conceito de uso compartilhado de dados abrange a interconexão de dados pessoais entre órgãos públicos, no cumprimento de suas competências legais, e entre esses órgãos e entes privados.
+comentario: Certo. Art. 5º, XVI, que inclui ainda comunicação, difusão, transferência internacional e tratamento compartilhado de bancos de dados, entre órgãos públicos ou entre eles e entes privados, e entre entes privados.
+
+=== lx34-16
+gab: E
+tema: pd-transferencia
+ref: lgpd 5
+trecho: transferência de dados pessoais para país estrangeiro ou organismo internacional do qual o país seja membro
+armadilha: conceito
+dif: 2
+enunciado: Para a LGPD, o envio de dados a um organismo internacional de que o Brasil faz parte não configura transferência internacional, que se restringe ao envio a outro país.
+comentario: Errado. Transferência internacional é a transferência para país estrangeiro ou para organismo internacional do qual o país seja membro (art. 5º, XV).
