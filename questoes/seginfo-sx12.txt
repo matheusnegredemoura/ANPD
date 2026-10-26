@@ -1,0 +1,144 @@
+bloco: seginfo
+// Segurança da informação, lote SX12: NIST CSF 2.0, categorias com poucos itens (governança e estratégia de riscos,
+// supervisão, melhoria, treinamento, análise de eventos, comunicação, análise e mitigação de incidentes e plano de
+// recuperação). Conferidas com fontes/nistcsf.txt.
+
+=== sx12-01
+gab: E
+tema: sg-nist
+ref: nistcsf GV.RM
+trecho: Strategic opportunities (i.e., positive risks) are characterized and are included in organizational cybersecurity risk discussions
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: ao montar sua estratégia de riscos com base no NIST CSF 2.0, uma agência deixou de fora as oportunidades estratégicas, por entender que o framework trata apenas de riscos negativos. Assertiva: o entendimento está correto.
+comentario: Errado. O CSF 2.0 prevê que oportunidades estratégicas, isto é, riscos positivos, sejam caracterizadas e incluídas nas discussões de risco (GV.RM-07).
+
+=== sx12-02
+gab: C
+tema: sg-nist
+ref: nistcsf GV.RM
+trecho: Cybersecurity risk management activities and outcomes are included in enterprise risk management processes
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, a gestão de riscos de cibersegurança integra os processos de gestão de riscos corporativos da organização.
+comentario: Certo. GV.RM-03. O risco cibernético deixa de ser assunto só da área de tecnologia e entra na gestão de riscos da organização.
+
+=== sx12-03
+gab: E
+tema: sg-nist
+ref: nistcsf GV.OV
+trecho: Cybersecurity risk management strategy outcomes are reviewed to inform and adjust strategy and direction
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: depois de aprovar sua estratégia de riscos cibernéticos, uma empresa decidiu não revisá-la mais, mesmo diante de resultados ruins de desempenho. Assertiva: a decisão é compatível com o NIST CSF 2.0.
+comentario: Errado. Na categoria de supervisão (GV.OV), os resultados da estratégia são revistos para ajustar estratégia e direção, e o desempenho da gestão de riscos é avaliado para identificar ajustes necessários.
+
+=== sx12-04
+gab: C
+tema: sg-nist
+ref: nistcsf PR.AT
+trecho: Individuals in specialized roles are provided with awareness and training
+armadilha: conceito
+dif: 1
+enunciado: No NIST CSF 2.0, quem ocupa funções especializadas recebe conscientização e treinamento próprios para cumprir suas tarefas com atenção aos riscos cibernéticos.
+comentario: Certo. PR.AT-02. O PR.AT-01 cuida do treinamento geral de todo o pessoal.
+
+=== sx12-05
+gab: E
+tema: sg-nist
+ref: nistcsf RC.RP
+trecho: The integrity of backups and other restoration assets is verified before using them for restoration
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: após um ataque de ransomware, a equipe restaurou os sistemas a partir dos backups sem verificar sua integridade, para ganhar tempo. Assertiva: o procedimento está alinhado ao NIST CSF 2.0.
+comentario: Errado. O CSF 2.0 prevê verificar a integridade dos backups e demais ativos de restauração antes de usá-los (RC.RP-03). Backup contaminado pode reintroduzir o ataque.
+
+=== sx12-06
+gab: C
+tema: sg-nist
+ref: nistcsf RS.AN
+trecho: Incident data and metadata are collected, and their integrity and provenance are preserved
+armadilha: conceito
+dif: 2
+enunciado: Na análise de incidentes do NIST CSF 2.0, preservam-se a integridade e a proveniência dos dados e dos registros da investigação.
+comentario: Certo. RS.AN-06 e RS.AN-07. A cadeia de custódia sustenta a perícia e eventuais medidas jurídicas.
+
+=== sx12-07
+gab: E
+tema: sg-nist
+ref: nistcsf RS.MI
+trecho: RS.MI-01: Incidents are contained
+armadilha: rol
+dif: 2
+enunciado: Situação hipotética: diante de um malware que se espalhava pela rede, um gestor afirmou que a mitigação, no NIST CSF 2.0, se limita a erradicar o incidente, sem etapa de contenção. Assertiva: a afirmação está correta.
+comentario: Errado. A categoria de mitigação (RS.MI) prevê conter e erradicar os incidentes. Conter vem antes: impede que o evento se expanda.
+
+=== sx12-08
+gab: C
+tema: sg-nist
+ref: nistcsf DE.AE
+trecho: Incidents are declared when adverse events meet the defined incident criteria
+armadilha: conceito
+dif: 2
+enunciado: No NIST CSF 2.0, declara-se um incidente quando eventos adversos atendem aos critérios de incidente definidos pela organização.
+comentario: Certo. DE.AE-08. Nem todo evento adverso é incidente; critérios prévios evitam alarmes falsos e omissões.
+
+=== sx12-09
+gab: E
+tema: sg-nist
+ref: nistcsf RC.CO
+trecho: Public updates on incident recovery are shared using approved methods and messaging
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: durante a recuperação de um incidente, cada funcionário passou a publicar, por conta própria, atualizações nas redes sociais. Assertiva: a prática está alinhada ao NIST CSF 2.0, que não trata da comunicação pública da recuperação.
+comentario: Errado. O CSF 2.0 prevê que atualizações públicas sobre a recuperação sejam compartilhadas por métodos e mensagens aprovados (RC.CO-04).
+
+=== sx12-10
+gab: C
+tema: sg-nist
+ref: nistcsf ID.IM
+trecho: Improvements are identified from security tests and exercises, including those done in coordination with suppliers and relevant third parties
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: após um exercício simulado de ataque feito com seu provedor de nuvem, uma organização registrou as falhas e ajustou seus processos. Assertiva: o NIST CSF 2.0 prevê esse uso de exercícios para identificar melhorias.
+comentario: Certo. ID.IM-02. A categoria de melhoria também aproveita avaliações e a execução de processos operacionais.
+
+=== sx12-11
+gab: E
+tema: sg-nist
+ref: nistcsf RS.CO
+trecho: Internal and external stakeholders are notified of incidents
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: após um incidente grave, uma empresa deixou de notificar partes interessadas externas, ainda que a lei o exigisse, alegando que o NIST CSF 2.0 trata só da comunicação interna. Assertiva: a alegação está correta.
+comentario: Errado. A categoria RS.CO prevê notificar partes interessadas internas e externas e coordenar a resposta conforme leis, regulamentos e políticas.
+
+=== sx12-12
+gab: C
+tema: sg-nist
+ref: nistcsf DE.AE
+trecho: Information is correlated from multiple sources
+armadilha: conceito
+dif: 1
+enunciado: Na análise de eventos adversos do NIST CSF 2.0, correlacionam-se informações de múltiplas fontes.
+comentario: Certo. DE.AE-03. A correlação ajuda a distinguir um ataque real de ruído isolado.
+
+=== sx12-13
+gab: E
+tema: sg-nist
+ref: nistcsf RC.RP
+trecho: The end of incident recovery is declared based on criteria, and incident-related documentation is completed
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a equipe declarou encerrada a recuperação assim que o primeiro servidor voltou a funcionar, sem critérios definidos e sem concluir a documentação do incidente. Assertiva: a conduta segue o NIST CSF 2.0.
+comentario: Errado. O fim da recuperação é declarado com base em critérios, e a documentação do incidente é concluída (RC.RP-06).
+
+=== sx12-14
+gab: C
+tema: sg-nist
+ref: nistcsf GV
+trecho: The organization’s cybersecurity risk management strategy, expectations, and policy are established, communicated, and monitored
+armadilha: conceito
+dif: 1
+enunciado: A função Governar do NIST CSF 2.0 estabelece, comunica e monitora a estratégia, as expectativas e a política de gestão de riscos cibernéticos.
+comentario: Certo. Governar é a função nova da versão 2.0 e orienta as demais (Identificar, Proteger, Detectar, Responder e Recuperar).
