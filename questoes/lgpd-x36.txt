@@ -1,0 +1,164 @@
+bloco: lgpd-5-11
+// LGPD, lote X36: casos sobre o tratamento de dados pessoais sensíveis (art. 11): prevenção à fraude, exercício de
+// direitos em contrato, inferência de dados sensíveis, publicidade no poder público, dados de saúde e vantagem
+// econômica, seleção de riscos e pesquisa. Conferidas com fontes/lgpd.txt.
+
+=== lx36-01
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: garantia da prevenção à fraude e à segurança do titular, nos processos de identificação e autenticação de cadastro em sistemas eletrônicos
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um banco digital usa reconhecimento facial para confirmar a identidade do cliente no acesso ao aplicativo, a fim de evitar fraudes, sem colher consentimento. Assertiva: a LGPD admite esse tratamento, resguardados os direitos de informação do titular.
+comentario: Certo. Art. 11, II, g: a prevenção à fraude e a segurança do titular em processos de identificação e autenticação permitem tratar dado biométrico sem consentimento, resguardados os direitos do art. 9º e salvo se prevalecerem direitos e liberdades fundamentais do titular.
+
+=== lx36-02
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: nos processos de identificação e autenticação de cadastro em sistemas eletrônicos
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: o mesmo banco passou a usar as imagens faciais coletadas na autenticação para medir a reação emocional dos clientes a anúncios. Assertiva: a hipótese de prevenção à fraude também ampara esse novo uso.
+comentario: Errado. A hipótese do art. 11, II, g, limita-se à identificação e à autenticação para prevenir fraudes e proteger o titular. Medir emoções para publicidade é finalidade diversa, que exige outra base legal, em regra o consentimento específico e destacado (I).
+
+=== lx36-03
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: O tratamento de dados pessoais sensíveis somente poderá ocorrer nas seguintes hipóteses
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma academia registra lesões e doenças dos alunos e usa esses dados para oferecer suplementos, com base no seu legítimo interesse. Assertiva: o legítimo interesse ampara o tratamento desses dados.
+comentario: Errado. O art. 11 não inclui o legítimo interesse entre as hipóteses para dados sensíveis, como os de saúde. Para essa finalidade comercial, a academia precisaria de consentimento específico e destacado (I).
+
+=== lx36-04
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: exercício regular de direitos, inclusive em contrato e em processo judicial, administrativo e arbitral
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: para avaliar um pedido de indenização, uma seguradora de vida analisou as informações de saúde que o próprio segurado declarou na proposta do contrato. Assertiva: o tratamento pode fundar-se no exercício regular de direitos em contrato.
+comentario: Certo. Art. 11, II, d. Para dados sensíveis, a LGPD não prevê a execução de contrato como base, mas admite o exercício regular de direitos, inclusive em contrato. A vedação de seleção de riscos do § 5º alcança as operadoras de planos de saúde.
+
+=== lx36-05
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: exercício regular de direitos, inclusive em contrato
+armadilha: comparacao
+dif: 3
+enunciado: Entre as hipóteses que dispensam o consentimento para tratar dados sensíveis está a execução de contrato, nos mesmos termos previstos para os dados pessoais comuns.
+comentario: Errado. O art. 11, II, não repete a execução de contrato do art. 7º, V. Para dados sensíveis, a hipótese mais próxima é o exercício regular de direitos, inclusive em contrato (alínea d).
+
+=== lx36-06
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: Aplica-se o disposto neste artigo a qualquer tratamento de dados pessoais que revele dados pessoais sensíveis e que possa causar dano ao titular
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a partir do histórico de compras, uma rede varejista passou a inferir quais clientes estavam grávidas, para direcionar ofertas. Assertiva: esse tratamento se sujeita às regras dos dados sensíveis.
+comentario: Certo. O art. 11, § 1º, estende as regras dos dados sensíveis a qualquer tratamento que revele dados sensíveis e possa causar dano ao titular. Dados comuns podem, combinados, revelar informações de saúde.
+
+=== lx36-07
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: será dada publicidade à referida dispensa de consentimento
+armadilha: excecao
+dif: 2
+enunciado: O órgão público que trata dados sensíveis para cumprir obrigação legal ou executar política pública está dispensado de dar publicidade à dispensa de consentimento.
+comentario: Errado. Nesses casos, o art. 11, § 2º, exige que se dê publicidade à dispensa de consentimento, nos termos do art. 23, I.
+
+=== lx36-08
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: a portabilidade de dados quando solicitada pelo titular
+armadilha: excecao
+dif: 2
+enunciado: A vedação de compartilhar dados de saúde para obter vantagem econômica não impede a portabilidade desses dados quando solicitada pelo titular.
+comentario: Certo. Art. 11, § 4º, I. A vedação também não alcança as transações financeiras e administrativas decorrentes da prestação dos serviços de saúde (II).
+
+=== lx36-09
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: É vedada a comunicação ou o uso compartilhado entre controladores de dados pessoais sensíveis referentes à saúde com objetivo de obter vantagem econômica
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma rede de farmácias vendeu a um laboratório o histórico de compras de medicamentos dos clientes, para campanhas de marketing. Assertiva: o repasse é lícito, pois se insere na assistência farmacêutica.
+comentario: Errado. É vedado compartilhar dados de saúde entre controladores para obter vantagem econômica (art. 11, § 4º). A exceção da assistência farmacêutica alcança a prestação do serviço ao titular, e não a venda de dados para marketing.
+
+=== lx36-10
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: na contratação e exclusão de beneficiários
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma operadora de plano de saúde passou a recusar novos clientes com base em dados de saúde obtidos de aplicativos de exercício. Assertiva: a prática é vedada pela LGPD.
+comentario: Certo. O art. 11, § 5º, proíbe às operadoras de planos de saúde tratar dados de saúde para seleção de riscos na contratação de qualquer modalidade e na contratação e exclusão de beneficiários.
+
+=== lx36-11
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: garantida, sempre que possível, a anonimização dos dados pessoais sensíveis
+armadilha: absoluto
+dif: 2
+enunciado: O órgão de pesquisa que trata dados sensíveis sem consentimento nunca precisa anonimizá-los, pois a finalidade científica justifica a identificação dos titulares.
+comentario: Errado. Na realização de estudos por órgão de pesquisa, deve-se garantir, sempre que possível, a anonimização dos dados sensíveis (art. 11, II, c).
+
+=== lx36-12
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: proteção da vida ou da incolumidade física do titular ou de terceiro
+armadilha: caso
+dif: 1
+enunciado: Situação hipotética: após um acidente, a escola informou ao socorro o tipo sanguíneo e as alergias de um aluno desacordado. Assertiva: o tratamento é admitido para proteger a vida do titular.
+comentario: Certo. Art. 11, II, e. A hipótese dispensa o consentimento quando ele não pode ser obtido a tempo de proteger a vida ou a incolumidade física.
+
+=== lx36-13
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: poderá ser objeto de vedação ou de regulamentação por parte da autoridade nacional, ouvidos os órgãos setoriais do Poder Público
+armadilha: conceito
+dif: 3
+enunciado: A ANPD não pode vedar nem regulamentar o compartilhamento de dados sensíveis entre controladores para obter vantagem econômica, matéria reservada à lei.
+comentario: Errado. O art. 11, § 3º, permite à ANPD vedar ou regulamentar essa comunicação ou uso compartilhado, ouvidos os órgãos setoriais do Poder Público.
+
+=== lx36-14
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: cumprimento de obrigação legal ou regulatória pelo controlador
+armadilha: caso
+dif: 1
+enunciado: Situação hipotética: um hospital comunicou à vigilância epidemiológica caso de doença de notificação compulsória. Assertiva: o tratamento pode fundar-se no cumprimento de obrigação legal.
+comentario: Certo. Art. 11, II, a. A notificação compulsória de doenças é dever previsto em lei, o que dispensa o consentimento do paciente.
+
+=== lx36-15
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: exceto no caso de prevalecerem direitos e liberdades fundamentais do titular que exijam a proteção dos dados pessoais
+armadilha: absoluto
+dif: 3
+enunciado: Na hipótese de prevenção à fraude em processos de autenticação, o interesse do controlador prevalece sempre sobre os direitos e liberdades fundamentais do titular.
+comentario: Errado. O art. 11, II, g, ressalva expressamente os casos em que prevalecem direitos e liberdades fundamentais do titular que exijam a proteção dos dados.
+
+=== lx36-16
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: quando o titular ou seu responsável legal consentir, de forma específica e destacada, para finalidades específicas
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um aplicativo de meditação pediu, em tela própria e separada dos termos de uso, autorização para registrar crises de ansiedade relatadas pelos usuários, dado referente à saúde, com o fim de personalizar exercícios. Assertiva: a forma de obter o consentimento atende à LGPD para dados sensíveis.
+comentario: Certo. O consentimento para dados sensíveis deve ser específico e destacado, para finalidades específicas (art. 11, I). Tela própria, separada dos termos gerais e com finalidade definida, atende ao requisito.
