@@ -32,6 +32,7 @@ if (hoje < '2027-02-01') {
     conferir('cartão do plano B', /Plano B: prova em 28\/02\/2027/.test(t), t.match(/Plano B[^.]{0,120}/)?.[0]);
     const n = Number(t.match(/tira (\d+) semanas? de revisão/)?.[1]);
     conferir('quatro semanas saem', n === 4, String(n));
+    conferir('o cartão diz que um simulado sai junto e qual semana o tinha', /1 simulado sai junto/.test(t) && /\(15\/03 a 21\/03\), com simulado/.test(t) && !/mantém os simulados/.test(t), t.match(/tira[^:]{0,160}/)?.[0]);
     await p.click('details[data-det="plano-b"] summary');
     await p.click('[data-acao="plano-b"]');
     const e = (await perfil()).encaixe;

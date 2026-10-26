@@ -226,7 +226,7 @@ function cartaoPlanoEncolhe() {
   if (S.perfil.edital && S.perfil.edital.prova) return '';
   const b = encaixarPlano(PLANO_B, hojeISO());
   if (!b) return '';
-  return '<details class="cartao det-lista" data-det="plano-b"' + (UI.det['plano-b'] ? ' open' : '') + '><summary><b>Plano B: prova em ' + fmtA(PLANO_B) + '</b></summary><p class="pequeno">Se o concurso for antecipado, o plano encaixado em ' + fmt(PLANO_B) + ' tira ' + pl(b.cortadas.length, 'semana', 'semanas') + ' de revisão e mantém toda a primeira volta do conteúdo e os simulados restantes:</p>' + lista(b) +
+  return '<details class="cartao det-lista" data-det="plano-b"' + (UI.det['plano-b'] ? ' open' : '') + '><summary><b>Plano B: prova em ' + fmtA(PLANO_B) + '</b></summary><p class="pequeno">Se o concurso for antecipado, o plano encaixado em ' + fmt(PLANO_B) + ' tira ' + pl(b.cortadas.length, 'semana', 'semanas') + (b.novo ? '' : ' de revisão') + ((m) => (m.length ? ' e mantém ' + m.join(' e ') : ''))([!b.novo && 'toda a primeira volta do conteúdo', !b.simulados && 'os simulados'].filter(Boolean)) + (b.simulados ? '; ' + pl(b.simulados, 'simulado sai', 'simulados saem') + ' junto' : '') + ':</p>' + lista(b) +
     '<p class="pequeno mudo">Um clique troca o plano e a contagem até a prova; dá para voltar ao original quando quiser. Quando o edital sair, informe a data em Ajustes → Edital e prova e encaixe o plano nela.</p><div class="linha-btns"><button class="btn" data-acao="plano-b">Usar o plano B</button></div></details>';
 }
 function renderPlano() {

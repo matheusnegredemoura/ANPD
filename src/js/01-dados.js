@@ -99,8 +99,10 @@ function encaixarPlano(prova, desde, cortes) {
   const visto = new Set();
   semanas.forEach((w) => { w.ini = w.dias[0].data; });
   semanas.forEach((w, i) => {
-    w.valor = w.dias.some((d) => d.modo === 'simulado') ? 0.5 : 0;
-    for (const d of w.dias) for (const k of [d.st].concat(d.blocos || [])) if (k && !visto.has(k)) { visto.add(k); w.valor += PONTOS_DISC[(BI.get((d.blocos || [])[0]) || {}).disciplina] || 1; }
+    w.sim = w.dias.filter((d) => d.modo === 'simulado').length;
+    w.valor = w.sim ? 0.5 : 0;
+    w.novo = 0;
+    for (const d of w.dias) for (const k of [d.st].concat(d.blocos || [])) if (k && !visto.has(k)) { visto.add(k); w.novo++; w.valor += PONTOS_DISC[(BI.get((d.blocos || [])[0]) || {}).disciplina] || 1; }
     w.cheia = i < semanas.length - 1 && diaNum(semanas[i + 1].ini) - diaNum(w.ini) === 7 && diaSemana(w.ini) === 1;
   });
   const falta = Math.ceil((diaNum(fim) - diaNum(prova)) / 7);
@@ -145,7 +147,8 @@ function encaixarPlano(prova, desde, cortes) {
     return Object.assign({}, f, { semanas: sems, periodo: mudou ? dm(sems[0].dias[0].data) + ' a ' + sems[sems.length - 1].periodo.split(' a ')[1] : f.periodo });
   }).filter(Boolean);
   const ordem = [...sai].sort((a, b) => (a.ini < b.ini ? -1 : 1));
-  return { fases, cortes: ordem.map((w) => w.ini), cortadas: ordem.map((w) => w.s.titulo + ' (' + w.s.periodo + ')'), curto: !Array.isArray(cortes) && cand.length < falta };
+  const cortada = (w) => w.s.titulo + ' (' + w.s.periodo + ')' + (w.novo ? ', com conteúdo novo' : '') + (w.sim ? ', com simulado' : '');
+  return { fases, cortes: ordem.map((w) => w.ini), cortadas: ordem.map(cortada), novo: ordem.some((w) => w.novo), simulados: ordem.reduce((a, w) => a + w.sim, 0), curto: !Array.isArray(cortes) && cand.length < falta };
 }
 let PLANO_CHAVE = '';
 function aplicarPlano() {
