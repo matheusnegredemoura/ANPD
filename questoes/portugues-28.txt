@@ -1,0 +1,148 @@
+bloco: portugues
+// Texto original escrito para o banco (transparência ativa e dados abertos), com itens de interpretação, coesão,
+// semântica, pontuação, concordância e sintaxe.
+
+apoio_PT28A: Publicar dados na internet não é o mesmo que torná-los acessíveis. Muitas prefeituras disponibilizam planilhas extensas, em formatos que só programas específicos conseguem abrir, e consideram cumprido o dever de transparência. O cidadão que procura saber quanto se gastou na escola do bairro, porém, raramente encontra a resposta sem ajuda.
+A transparência que interessa é aquela que permite compreender. Para isso, os dados precisam vir acompanhados de explicações simples, de ferramentas de busca e de séries históricas que mostrem como os números evoluíram. Nada disso exige grandes investimentos; exige, antes, a disposição de enxergar o portal pelos olhos de quem não é especialista.
+Há ainda um cuidado que não pode ser esquecido: dados abertos sobre gastos públicos não se confundem com exposição de informações pessoais. Divulgar o salário de um cargo é diferente de publicar o endereço de quem o ocupa.
+
+=== pt28-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT28A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: literal
+dif: 1
+enunciado: O texto distingue a simples publicação de dados de sua efetiva acessibilidade ao cidadão.
+comentario: Certo. A frase inicial afirma que publicar dados “não é o mesmo que torná-los acessíveis”.
+
+=== pt28-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT28A
+armadilha: literal
+dif: 1
+enunciado: Segundo o texto, tornar a transparência compreensível exige grandes investimentos em tecnologia.
+comentario: Errado. O segundo parágrafo diz que “Nada disso exige grandes investimentos”; exige a disposição de ver o portal pelos olhos de quem não é especialista.
+
+=== pt28-03
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT28A
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, a expressão “Nada disso” retoma as explicações, as ferramentas de busca e as séries históricas mencionadas no período anterior.
+comentario: Certo. O pronome resume os recursos que, segundo o autor, devem acompanhar os dados.
+
+=== pt28-04
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT28A
+armadilha: interpretacao
+dif: 1
+enunciado: No primeiro parágrafo, o pronome em “torná-los” retoma “Muitas prefeituras”, mencionado no período seguinte.
+comentario: Errado. O pronome retoma “dados”: publicar dados não é o mesmo que tornar os dados acessíveis.
+
+=== pt28-05
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT28A
+armadilha: interpretacao
+dif: 3
+enunciado: No segundo parágrafo, em “exige, antes, a disposição”, o vocábulo “antes” não tem valor temporal, mas o sentido de em vez disso.
+comentario: Certo. “Antes” marca retificação: o que se exige não são investimentos, mas, sobretudo, disposição.
+
+=== pt28-06
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT28A
+armadilha: literal
+dif: 1
+enunciado: No terceiro parágrafo, a expressão “não se confundem com” poderia ser substituída por equivalem a, sem alteração do sentido do texto.
+comentario: Errado. A troca inverteria o sentido: o autor afirma que dados sobre gastos públicos são diferentes da exposição de informações pessoais.
+
+=== pt28-07
+gab: C
+tema: pt-regencia
+ref: texto
+apoio: @PT28A
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, em “acompanhados de explicações simples”, a preposição “de” introduz o complemento exigido por “acompanhados”.
+comentario: Certo. Quem é acompanhado é acompanhado de algo; a preposição se repete diante de “ferramentas” e de “séries históricas”.
+
+=== pt28-08
+gab: E
+tema: pt-pontuacao
+ref: texto
+apoio: @PT28A
+armadilha: literal
+dif: 2
+enunciado: No terceiro parágrafo, os dois-pontos empregados após “esquecido” poderiam ser substituídos por vírgula, sem prejuízo da correção gramatical do texto.
+comentario: Errado. Os dois-pontos introduzem a explicação do cuidado mencionado; com vírgula, duas orações independentes ficariam ligadas de forma inadequada.
+
+=== pt28-09
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @PT28A
+armadilha: sujeito
+dif: 1
+enunciado: No primeiro parágrafo, a forma verbal “conseguem” está no plural para concordar com “programas específicos”.
+comentario: Certo. Na oração adjetiva, o sujeito de “conseguem” é “só programas específicos”, cujo núcleo está no plural.
+
+=== pt28-10
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT28A
+armadilha: conceito
+dif: 3
+enunciado: No terceiro parágrafo, em “Divulgar o salário de um cargo é diferente de publicar o endereço de quem o ocupa”, a oração “Divulgar o salário de um cargo” exerce a função de objeto direto.
+comentario: Errado. A oração reduzida de infinitivo é o sujeito de “é”: divulgar o salário é diferente de publicar o endereço.
+
+=== pt28-11
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT28A
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, a oração “que procura saber quanto se gastou na escola do bairro” restringe o sentido de “O cidadão”.
+comentario: Certo. É oração adjetiva restritiva: não se fala de qualquer cidadão, mas do que procura essa informação. Por isso não vem entre vírgulas.
+
+=== pt28-12
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT28A
+armadilha: extrapolacao
+dif: 1
+enunciado: O autor defende que, em nome da transparência, os portais publiquem também o endereço dos ocupantes de cargos públicos.
+comentario: Errado. O último parágrafo afirma o contrário: divulgar o salário de um cargo é diferente de publicar o endereço de quem o ocupa.
+
+=== pt28-13
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT28A
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do texto que os portais de transparência devem ser pensados a partir do ponto de vista de quem não é especialista.
+comentario: Certo. O segundo parágrafo pede “a disposição de enxergar o portal pelos olhos de quem não é especialista”.
+
+=== pt28-14
+gab: E
+tema: pt-concordancia
+ref: texto
+apoio: @PT28A
+armadilha: sujeito
+dif: 2
+enunciado: No segundo parágrafo, a forma verbal “mostrem” poderia ser flexionada no singular, mostre, para concordar com o núcleo de “séries históricas”.
+comentario: Errado. O pronome relativo “que” retoma “séries históricas”, no plural; por isso o verbo fica no plural.
