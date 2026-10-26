@@ -1,0 +1,157 @@
+// LGPD, lote X41: alcance territorial (art. 3º), exceções do art. 4º, anonimização reversível e perfil comportamental
+// (art. 12), término do tratamento (art. 15), uso de dados em prejuízo do titular (art. 21) e responsabilidade e
+// segurança esperada (arts. 44 e 45). Conferidas com fontes/lgpd.txt.
+
+=== lx41-01
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 3
+trecho: Consideram-se coletados no território nacional os dados pessoais cujo titular nele se encontre no momento da coleta
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: em visita a Salvador, um turista alemão instalou o aplicativo de uma empresa sediada em Singapura, que coletou sua localização durante a viagem. Assertiva: a LGPD não se aplica, pois nem o titular é brasileiro nem a empresa tem sede no País.
+comentario: Errado. A LGPD alcança dados coletados no território nacional, assim considerados aqueles cujo titular nele se encontre no momento da coleta (art. 3º, III e § 1º), independentemente da sede do agente ou da nacionalidade do titular.
+
+=== lx41-02
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-alcance
+ref: lgpd 3
+trecho: a atividade de tratamento tenha por objetivo a oferta ou o fornecimento de bens ou serviços ou o tratamento de dados de indivíduos localizados no território nacional
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma loja virtual sediada no exterior, sem filial no Brasil, vende para consumidores localizados no País e trata seus dados. Assertiva: a LGPD se aplica a esse tratamento.
+comentario: Certo. A LGPD se aplica quando o tratamento tem por objetivo a oferta ou o fornecimento de bens ou serviços a indivíduos localizados no território nacional (art. 3º, II), independentemente do país da sede.
+
+=== lx41-03
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 4
+trecho: realizado por pessoa natural para fins exclusivamente particulares e não econômicos
+armadilha: excecao
+dif: 2
+enunciado: Situação hipotética: uma doceira que vende pela internet guarda em planilha o nome, o endereço e o telefone dos clientes para fazer as entregas. Assertiva: a LGPD não se aplica, pois o tratamento é feito por pessoa natural.
+comentario: Errado. A exceção do art. 4º, I, exige tratamento por pessoa natural para fins exclusivamente particulares e não econômicos. Uso em atividade comercial atrai a LGPD.
+
+=== lx41-04
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-alcance
+ref: lgpd 4
+trecho: acadêmicos, aplicando-se a esta hipótese os arts. 7º e 11 desta Lei
+armadilha: excecao
+dif: 2
+enunciado: Mesmo no tratamento para fins exclusivamente acadêmicos, a LGPD exige base legal para tratar dados pessoais e dados sensíveis.
+comentario: Certo. Art. 4º, II, b: à hipótese acadêmica aplicam-se os arts. 7º e 11. Já os fins exclusivamente jornalísticos e artísticos ficam fora da lei (alínea a).
+
+=== lx41-05
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 4
+trecho: Em nenhum caso a totalidade dos dados pessoais de banco de dados de que trata o inciso III do caput deste artigo poderá ser tratada por pessoa de direito privado
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: para modernizar seus sistemas, um estado pretende entregar a uma empresa privada comum a gestão da totalidade de seu banco de dados de investigações criminais. Assertiva: a medida é permitida pela LGPD, pois o procedimento ficará sob tutela do ente público.
+comentario: Errado. Em nenhum caso a totalidade desses bancos de dados pode ser tratada por pessoa de direito privado, salvo a de capital integralmente público (art. 4º, § 4º). A tutela pública permite só o tratamento parcial (§ 2º).
+
+=== lx41-06
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-alcance
+ref: lgpd 4
+trecho: deverá prever medidas proporcionais e estritamente necessárias ao atendimento do interesse público
+armadilha: excecao
+dif: 3
+enunciado: A lei específica sobre tratamento de dados para segurança pública deve observar os princípios gerais de proteção e os direitos do titular previstos na LGPD.
+comentario: Certo. Art. 4º, § 1º: essa legislação deve prever medidas proporcionais e estritamente necessárias ao interesse público, observados o devido processo legal, os princípios e os direitos do titular.
+
+=== lx41-07
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 12
+trecho: quando, com esforços razoáveis, puder ser revertido
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa publicou uma base dita anonimizada que, cruzada com dados públicos a baixo custo, permite reidentificar os titulares. Assertiva: a base está fora da LGPD, pois passou por processo de anonimização.
+comentario: Errado. Dados anonimizados voltam a ser dados pessoais quando a anonimização puder ser revertida com esforços razoáveis (art. 12, caput), avaliados por fatores objetivos como custo e tempo (§ 1º).
+
+=== lx41-08
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 12
+trecho: aqueles utilizados para formação do perfil comportamental de determinada pessoa natural, se identificada
+armadilha: conceito
+dif: 2
+enunciado: Dados usados para formar o perfil comportamental de pessoa natural identificada podem ser tratados como dados pessoais.
+comentario: Certo. Art. 12, § 2º. O dispositivo alcança perfis montados a partir de dados agregados, quando ligados a pessoa identificada.
+
+=== lx41-09
+bloco: lgpd-12-16
+gab: E
+tema: pd-direitos
+ref: lgpd 15
+trecho: comunicação do titular, inclusive no exercício de seu direito de revogação do consentimento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: ao cancelar a matrícula, um aluno comunicou à academia que retirava o consentimento e queria o fim do tratamento de seus dados de saúde; a academia respondeu que só ela decide quando o tratamento termina. Assertiva: a resposta está de acordo com a LGPD.
+comentario: Errado. A comunicação do titular, inclusive ao revogar o consentimento, é hipótese de término do tratamento, resguardado o interesse público (art. 15, III).
+
+=== lx41-10
+bloco: lgpd-12-16
+gab: C
+tema: pd-direitos
+ref: lgpd 15
+trecho: determinação da autoridade nacional, quando houver violação ao disposto nesta Lei
+armadilha: conceito
+dif: 1
+enunciado: Havendo violação da LGPD, a ANPD pode determinar o término do tratamento de dados pessoais.
+comentario: Certo. Art. 15, IV. Terminado o tratamento, os dados são eliminados, ressalvadas as hipóteses de conservação do art. 16.
+
+=== lx41-11
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 21
+trecho: Os dados pessoais referentes ao exercício regular de direitos pelo titular não podem ser utilizados em seu prejuízo
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma operadora de plano de saúde passou a recusar a renovação de clientes que haviam pedido acesso e correção de seus dados, por considerá-los problemáticos. Assertiva: a prática é lícita, pois a renovação é decisão comercial da operadora.
+comentario: Errado. Os dados referentes ao exercício regular de direitos pelo titular não podem ser usados em seu prejuízo (art. 21).
+
+=== lx41-12
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 45
+trecho: permanecem sujeitas às regras de responsabilidade previstas na legislação pertinente
+armadilha: conceito
+dif: 2
+enunciado: Violações de direitos do titular em relações de consumo continuam sujeitas às regras de responsabilidade da legislação própria.
+comentario: Certo. Art. 45. Nas relações de consumo, aplica-se o Código de Defesa do Consumidor, com sua responsabilidade objetiva.
+
+=== lx41-13
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 44
+trecho: quando não fornecer a segurança que o titular dele pode esperar
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: processado por vazamento de prontuários, um hospital alegou que só responde se tiver descumprido regra expressa da LGPD, sendo irrelevante a segurança que o paciente podia esperar. Assertiva: a alegação procede.
+comentario: Errado. O tratamento é irregular também quando não fornece a segurança que o titular pode esperar, consideradas circunstâncias como o modo de realização, os riscos e as técnicas disponíveis (art. 44).
+
+=== lx41-14
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 44
+trecho: as técnicas de tratamento de dados pessoais disponíveis à época em que foi realizado
+armadilha: conceito
+dif: 2
+enunciado: Ao avaliar a segurança que o titular podia esperar, consideram-se as técnicas de tratamento disponíveis à época em que ele ocorreu.
+comentario: Certo. Art. 44, III. Não se exige do agente tecnologia que ainda não existia quando tratou os dados.
