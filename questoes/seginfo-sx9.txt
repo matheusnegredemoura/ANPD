@@ -1,0 +1,147 @@
+bloco: seginfo
+// Segurança da informação, lote SX9 (doutrina): RAID, Kerberos, HSTS, envenenamento de cache DNS e DNSSEC, ataque de
+// repetição, SPF, DKIM e DMARC, senhas de uso único baseadas em tempo, chaves de acesso FIDO e falsificação de ARP.
+
+=== sx9-01
+gab: C
+tema: si-controles
+ref: doutrina RAID
+armadilha: conceito
+dif: 2
+enunciado: No RAID 1, os dados são espelhados em dois ou mais discos, de modo que a falha de um deles não causa perda de dados; no RAID 0, os dados são distribuídos entre os discos sem redundância.
+comentario: Certo. O RAID 0 ganha desempenho, mas a falha de qualquer disco compromete o conjunto. O RAID 5 distribui dados e paridade e tolera a falha de um disco.
+
+=== sx9-02
+gab: E
+tema: si-controles
+ref: doutrina RAID
+armadilha: conceito
+dif: 2
+enunciado: Por manter cópia espelhada dos dados, o RAID 1 dispensa a política de backup, pois também protege contra exclusão acidental e ransomware.
+comentario: Errado. RAID protege contra falha de disco, não contra exclusão, corrupção ou criptografia maliciosa: o que é apagado ou cifrado num disco é replicado no outro na hora. Backup, de preferência com cópia isolada ou imutável, continua necessário.
+
+=== sx9-03
+gab: C
+tema: si-controles
+ref: doutrina Kerberos
+armadilha: conceito
+dif: 3
+enunciado: No Kerberos, o usuário se autentica no centro de distribuição de chaves e recebe tíquetes que apresenta aos serviços, sem enviar a senha pela rede; o protocolo usa criptografia simétrica e depende da sincronização dos relógios.
+comentario: Certo. O servidor de autenticação emite o tíquete de concessão (TGT), e o serviço de concessão de tíquetes emite os tíquetes de cada serviço. Os carimbos de tempo limitam a validade dos tíquetes e dificultam ataques de repetição.
+
+=== sx9-04
+gab: E
+tema: si-controles
+ref: doutrina Kerberos
+armadilha: conceito
+dif: 2
+enunciado: O Kerberos baseia-se em criptografia assimétrica e não exige sincronização de horário entre os participantes.
+comentario: Errado. O Kerberos usa criptografia simétrica, com chaves compartilhadas com o centro de distribuição, e exige relógios sincronizados, porque os tíquetes e autenticadores carregam carimbos de tempo.
+
+=== sx9-05
+gab: C
+tema: sg-cripto
+ref: doutrina HTTPS
+armadilha: conceito
+dif: 3
+enunciado: O cabeçalho HSTS (HTTP Strict Transport Security) instrui o navegador a acessar determinado domínio apenas por HTTPS durante um período, o que dificulta ataques que rebaixam a conexão para HTTP.
+comentario: Certo. Sem HSTS, um atacante na rede pode interceptar o primeiro acesso em HTTP e impedir o redirecionamento para HTTPS (SSL stripping). Com o cabeçalho, o próprio navegador recusa a conexão sem criptografia.
+
+=== sx9-06
+gab: C
+tema: sg-ameacas
+ref: doutrina ataques
+armadilha: conceito
+dif: 2
+enunciado: No envenenamento de cache DNS, o atacante insere registros falsos no servidor de nomes, que passa a direcionar os usuários a endereços controlados por ele, mesmo quando digitam o endereço correto.
+comentario: Certo. A vítima não percebe a troca, pois o nome do site é o legítimo. O DNSSEC mitiga o ataque com assinaturas digitais que permitem verificar a autenticidade e a integridade das respostas.
+
+=== sx9-07
+gab: E
+tema: sg-ameacas
+ref: doutrina ataques
+armadilha: conceito
+dif: 3
+enunciado: O DNSSEC protege a confidencialidade das consultas DNS, cifrando-as para que terceiros não saibam quais sites o usuário acessa.
+comentario: Errado. O DNSSEC assina as respostas e garante autenticidade e integridade, mas não cifra as consultas. A confidencialidade é objetivo de outros protocolos, como DNS sobre HTTPS (DoH) e DNS sobre TLS (DoT).
+
+=== sx9-08
+gab: C
+tema: sg-ameacas
+ref: doutrina ataques
+armadilha: conceito
+dif: 2
+enunciado: No ataque de repetição (replay), o invasor captura uma transmissão válida, como uma autenticação, e a reenvia depois para obter o mesmo efeito, o que se previne com números de uso único, carimbos de tempo ou tokens de sessão.
+comentario: Certo. O atacante nem precisa decifrar a mensagem: basta repeti-la. Valores que só valem uma vez ou por pouco tempo fazem a cópia ser recusada.
+
+=== sx9-09
+gab: C
+tema: si-controles
+ref: doutrina segurança de correio eletrônico
+armadilha: conceito
+dif: 3
+enunciado: O SPF indica, no DNS do domínio, quais servidores podem enviar mensagens em seu nome; o DKIM acrescenta à mensagem assinatura digital verificável com chave pública publicada no DNS; e o DMARC define o que o destinatário deve fazer com mensagens que falham nessas verificações.
+comentario: Certo. O DMARC permite as políticas de apenas monitorar, mandar para quarentena ou rejeitar, e gera relatórios ao dono do domínio. Os três juntos dificultam a falsificação do remetente em ataques de phishing.
+
+=== sx9-10
+gab: E
+tema: si-controles
+ref: doutrina segurança de correio eletrônico
+armadilha: comparacao
+dif: 3
+enunciado: O DKIM cifra o conteúdo das mensagens de correio eletrônico, garantindo que apenas o destinatário consiga lê-las.
+comentario: Errado. O DKIM assina a mensagem para comprovar o domínio de origem e a integridade de partes dela; não cifra o conteúdo. Confidencialidade exige outros mecanismos, como TLS no transporte ou criptografia de ponta a ponta (S/MIME, OpenPGP).
+
+=== sx9-11
+gab: C
+tema: si-controles
+ref: doutrina autenticação multifator
+armadilha: conceito
+dif: 2
+enunciado: Nas senhas de uso único baseadas em tempo (TOTP), usadas em aplicativos autenticadores, o código é calculado a partir de um segredo compartilhado e do horário atual e muda a cada curto intervalo, em geral de trinta segundos.
+comentario: Certo. Como o código expira rapidamente, uma senha capturada perde valor em pouco tempo. Ainda assim, o TOTP pode ser enganado por phishing em tempo real, em que o atacante repassa o código na hora.
+
+=== sx9-12
+gab: E
+tema: si-controles
+ref: doutrina autenticação multifator
+armadilha: conceito
+dif: 3
+enunciado: Nas chaves de acesso (passkeys) do padrão FIDO2, a chave privada do usuário é armazenada no servidor do serviço, que a compara com a enviada pelo dispositivo a cada login.
+comentario: Errado. A chave privada fica no dispositivo do usuário; o servidor guarda apenas a chave pública e verifica uma assinatura. Como a credencial é vinculada ao domínio legítimo, a autenticação resiste a phishing, e um vazamento do servidor não expõe segredos reutilizáveis.
+
+=== sx9-13
+gab: C
+tema: sg-ameacas
+ref: doutrina ataques
+armadilha: conceito
+dif: 3
+enunciado: Na falsificação de ARP (ARP spoofing), o atacante envia respostas ARP forjadas na rede local para associar seu endereço MAC ao endereço IP de outro equipamento, como o gateway, e assim interceptar o tráfego.
+comentario: Certo. É técnica comum para ataques de intermediário (man-in-the-middle) em redes locais. Mitigações incluem inspeção dinâmica de ARP nos switches, segmentação e criptografia ponta a ponta.
+
+=== sx9-14
+gab: E
+tema: sg-ameacas
+ref: doutrina ataques
+armadilha: conceito
+dif: 2
+enunciado: O ataque de repetição só é possível quando o invasor consegue decifrar a mensagem capturada.
+comentario: Errado. No replay, o invasor reenvia a mensagem como foi capturada, sem precisar entender seu conteúdo. Por isso a criptografia, sozinha, não basta: é preciso que a mensagem tenha validade única ou curta.
+
+=== sx9-15
+gab: E
+tema: si-controles
+ref: doutrina segurança de correio eletrônico
+armadilha: conceito
+dif: 2
+enunciado: O registro SPF de um domínio lista os destinatários autorizados a receber mensagens daquele domínio.
+comentario: Errado. O SPF lista os servidores autorizados a enviar mensagens em nome do domínio. O servidor que recebe a mensagem consulta o registro para verificar se a origem é legítima.
+
+=== sx9-16
+gab: C
+tema: sg-cripto
+ref: doutrina HTTPS
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em uma rede Wi-Fi pública, um atacante interceptou o primeiro acesso de um usuário a um banco e manteve a conexão em HTTP. Assertiva: se o site do banco usasse HSTS e o navegador já o tivesse registrado, a conexão sem criptografia seria recusada.
+comentario: Certo. O navegador que já recebeu o cabeçalho HSTS converte o acesso em HTTPS antes de enviar qualquer dado. Para proteger até o primeiríssimo acesso, existe a lista de pré-carga (preload) dos navegadores.
