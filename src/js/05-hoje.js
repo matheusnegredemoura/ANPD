@@ -249,7 +249,6 @@ function leituraAtrasadaDoDia(dia, lidos) {
 // Discursiva do plano: o dia com "disc" pede uma discursiva corrigida e salva (uma por semana; duas nas seis últimas).
 // Cada correção salva dá baixa em um dia: o de hoje primeiro, depois o atrasado mais antigo, depois o próximo da semana
 // (adiantar vale). Vale qualquer tema; o do dia vem sugerido. A baixa fica em S.perfil.feitos['disc:' + data].
-const DIAS_DISC = DIAS.filter((d) => d.disc);
 // Cota da semana (segunda a domingo): uma discursiva completa, escrita e corrigida pelos quesitos, e um simulado de 30
 // itens ou mais com tempo. Ficam à vista abaixo do roteiro até serem cumpridas e não entram na contagem do roteiro do
 // dia (que fecha completo sem elas). O simulado do plano na semana também cumpre a cota.

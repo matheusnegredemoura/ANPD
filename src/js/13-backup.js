@@ -54,6 +54,7 @@ function ir(v, rolar = 0) {
 }
 function renderTudo() {
   aplicarEdital(S.perfil.edital);
+  aplicarPlano();
   document.documentElement.classList.toggle('lei-teste', !!UI.camadas.teste);
   UI.artInline = null;
   renderTopo();

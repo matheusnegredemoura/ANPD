@@ -64,9 +64,98 @@ const POR_ART = agrupar(Q.filter((q) => q.art && LEIS[q.l]), (q) => chave(q.l, q
 const REAIS_POR_ART = new Map();
 for (const [k, qs] of POR_ART) { const n = qs.filter((q) => q.o).length; if (n) REAIS_POR_ART.set(k, n); }
 function caiuEmProva(q) { return q.art && !q.o ? REAIS_POR_ART.get(chave(q.l, q.art)) || 0 : 0; }
-const DIAS = [];
-D.cronograma.fases.forEach((f) => f.semanas.forEach((s) => s.dias.forEach((d) => DIAS.push(Object.assign({ fase: f.id }, d)))));
-DIAS.sort((a, b) => (a.data < b.data ? -1 : 1));
+// O cronograma do arquivo é a projeção. Com a prova antes do fim dele, a pessoa encaixa o plano na data (perfil.encaixe)
+// e D.cronograma.fases e DIAS passam a ser o plano encaixado; aplicarPlano os refaz a cada desenho da tela, como
+// aplicarEdital faz com os pesos. DIAS_DISC são os dias com discursiva marcada.
+const FASES_BASE = D.cronograma.fases;
+const DIAS = [], DIAS_DISC = [];
+function montarDias() {
+  DIAS.length = 0;
+  D.cronograma.fases.forEach((f) => f.semanas.forEach((s) => s.dias.forEach((d) => DIAS.push(Object.assign({ fase: f.id }, d)))));
+  DIAS.sort((a, b) => (a.data < b.data ? -1 : 1));
+  DIAS_DISC.length = 0;
+  DIAS_DISC.push(...DIAS.filter((d) => d.disc));
+}
+montarDias();
+// Plano B: a ANPD disse querer antecipar o concurso; quatro semanas antes da prova provável do cronograma
+const PLANO_B = '2027-02-28';
+function encaixeValido(x) {
+  const iso = (v) => typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v);
+  return x && typeof x === 'object' && iso(x.prova) && iso(x.desde) && x.prova > x.desde ? x : null;
+}
+// Encaixe numa prova antes do fim do cronograma: saem semanas inteiras que ainda não começaram (as de menor valor
+// primeiro: sem conteúdo novo e sem simulado, das mais tardias para as mais cedo), as seguintes são adiantadas em
+// múltiplos de 7 dias (cada dia fica no mesmo dia da semana e o sábado continua sendo o bloco longo) e a reta final
+// termina no dia da prova. O cálculo parte do dia em que a pessoa encaixou (desde) e, uma vez gravadas, as semanas
+// cortadas (cortes) não mudam com o tempo nem com os pesos.
+function encaixarPlano(prova, desde, cortes) {
+  const semanas = [];
+  for (const f of FASES_BASE) for (const s of f.semanas) if (s.dias.length) semanas.push({ s, dias: s.dias.slice().sort((a, b) => (a.data < b.data ? -1 : 1)) });
+  semanas.sort((a, b) => (a.dias[0].data < b.dias[0].data ? -1 : 1));
+  const reta = semanas[semanas.length - 1], fim = reta && reta.dias[reta.dias.length - 1].data;
+  if (!reta || prova >= fim || prova <= desde) return null;
+  // Valor da semana: o conteúdo que aparece nela pela primeira vez no plano (subtema ou bloco), pelo peso da disciplina
+  // na prova; um simulado vale meio ponto, para que entre semanas só de revisão saiam antes as sem simulado
+  const visto = new Set();
+  semanas.forEach((w) => { w.ini = w.dias[0].data; });
+  semanas.forEach((w, i) => {
+    w.valor = w.dias.some((d) => d.modo === 'simulado') ? 0.5 : 0;
+    for (const d of w.dias) for (const k of [d.st].concat(d.blocos || [])) if (k && !visto.has(k)) { visto.add(k); w.valor += PONTOS_DISC[(BI.get((d.blocos || [])[0]) || {}).disciplina] || 1; }
+    w.cheia = i < semanas.length - 1 && diaNum(semanas[i + 1].ini) - diaNum(w.ini) === 7 && diaSemana(w.ini) === 1;
+  });
+  const falta = Math.ceil((diaNum(fim) - diaNum(prova)) / 7);
+  const cand = semanas.filter((w) => w !== reta && w.cheia && w.ini > desde).sort((a, b) => a.valor - b.valor || (a.ini < b.ini ? 1 : -1));
+  const sai = Array.isArray(cortes) ? new Set(semanas.filter((w) => w !== reta && cortes.includes(w.ini))) : new Set(cand.slice(0, falta));
+  const novos = new Map();
+  let desloc = 0;
+  for (const w of semanas) {
+    if (sai.has(w)) { desloc += 7; continue; }
+    w.desloc = desloc;
+    // Dia de feriado que mudou de data perde a menção ao feriado
+    novos.set(w, w.dias.map((d) => Object.assign({}, d, { data: isoDeNum(diaNum(d.data) - desloc) }, desloc && /natal|ano-novo/i.test(d.atividade) ? { atividade: 'Revisão leve: o que venceu na revisão espaçada e o que ficou para trás' } : {})));
+  }
+  const rd = novos.get(reta), ajuste = diaNum(prova) - diaNum(rd[rd.length - 1].data);
+  rd.forEach((d) => { d.data = isoDeNum(diaNum(d.data) + ajuste); });
+  const iniReta = rd[0].data;
+  if (ajuste > 0) {
+    // Dias que sobram antes da reta final (prova fora do domingo): livres para o atrasado e o treino intercalado
+    for (let n = diaNum(iniReta) - ajuste; n < diaNum(iniReta); n++) {
+      const iso = isoDeNum(n);
+      if (diaSemana(iso) !== 0 && iso > desde) rd.push({ data: iso, atividade: 'Dia livre do encaixe: o que ficou para trás e o treino intercalado pelo peso da prova', duracao: '1h', modo: 'revisao', blocos: [], n: 30 });
+    }
+  } else if (ajuste < 0) {
+    // Sem semanas bastantes para cortar: o que cairia na reta final sai do plano, e a reta final não volta ao passado
+    for (const [w, ds] of novos) if (w !== reta) novos.set(w, ds.filter((d) => d.data < iniReta || d.data <= desde));
+    novos.set(reta, rd.filter((d, i) => d.data > desde || i === rd.length - 1));
+  }
+  const ultimo = novos.get(reta)[novos.get(reta).length - 1];
+  ultimo.atividade = 'Prova (' + fmtData(prova, { weekday: 'long', day: '2-digit', month: '2-digit' }).toLowerCase() + '). Nada de conteúdo novo.';
+  const dm = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit' });
+  let num = 0;
+  const fases = FASES_BASE.map((f) => {
+    const sems = f.semanas.map((s) => semanas.find((w) => w.s === s)).filter((w) => w && novos.has(w) && novos.get(w).length).map((w) => {
+      const ds = novos.get(w).sort((a, b) => (a.data < b.data ? -1 : 1));
+      const titulo = /^Semana \d+$/.test(w.s.titulo) ? 'Semana ' + ++num : w.s.titulo;
+      const periodo = w.desloc === 0 && w !== reta ? w.s.periodo : dm(ds[0].data) + ' a ' + dm(w.cheia ? isoDeNum(diaNum(ds[0].data) + 6) : ds[ds.length - 1].data);
+      const extra = w === reta ? { nota: 'Plano encaixado na prova de ' + fmtData(prova, { day: '2-digit', month: '2-digit', year: 'numeric' }) + '.' } : {};
+      return Object.assign({}, w.s, { titulo, periodo, dias: ds }, extra);
+    });
+    if (!sems.length) return null;
+    const mudou = sems.some((s, i) => s.dias !== (f.semanas[i] || {}).dias);
+    return Object.assign({}, f, { semanas: sems, periodo: mudou ? dm(sems[0].dias[0].data) + ' a ' + sems[sems.length - 1].periodo.split(' a ')[1] : f.periodo });
+  }).filter(Boolean);
+  const ordem = [...sai].sort((a, b) => (a.ini < b.ini ? -1 : 1));
+  return { fases, cortes: ordem.map((w) => w.ini), cortadas: ordem.map((w) => w.s.titulo + ' (' + w.s.periodo + ')'), curto: !Array.isArray(cortes) && cand.length < falta };
+}
+let PLANO_CHAVE = '';
+function aplicarPlano() {
+  const e = encaixeValido(S.perfil.encaixe), chave = e ? e.prova + '|' + e.desde + '|' + (e.cortes || []).join(',') : '';
+  if (chave === PLANO_CHAVE) return;
+  PLANO_CHAVE = chave;
+  const r = e ? encaixarPlano(e.prova, e.desde, e.cortes) : null;
+  D.cronograma.fases = r ? r.fases : FASES_BASE;
+  montarDias();
+}
 
 // Cards cloze: cada número de lacuna de uma nota vira um card
 const RE_LACUNA = /\{\{(?:c(\d+)::)?([^}]+?)\}\}/g;
@@ -188,8 +277,12 @@ function comNumeros(s) {
     return String(Math.max(1, Math.round((diaNum(dataProva()) - diaNum(D.cronograma.edital)) / 7)));
   });
 }
-// Data da prova: a do edital, quando a pessoa a informa em Ajustes; antes disso, a estimativa do cronograma
-function dataProva() { const p = S.perfil.edital && S.perfil.edital.prova; return typeof p === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(p) ? p : D.cronograma.prova; }
+// Data da prova: a do edital, quando a pessoa a informa em Ajustes; antes disso, a do plano encaixado (plano B) ou a
+// estimativa do cronograma
+function dataProva() {
+  const p = S.perfil.edital && S.perfil.edital.prova, e = encaixeValido(S.perfil.encaixe);
+  return typeof p === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(p) ? p : e ? e.prova : D.cronograma.prova;
+}
 // Simulado da prova inteira: 1,75 min por item (os 120 da Anatel 2024 em 3h30)
 const RITMO_PROVA_MIN = 1.75;
 function minutosProva() { return Math.round(TOTAL_PROVA * RITMO_PROVA_MIN); }

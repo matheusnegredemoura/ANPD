@@ -199,17 +199,35 @@ function mapaCalor() {
 }
 const STATUS_CICLO = { nao: 'andamento', andamento: 'concluido', concluido: 'nao' };
 const STATUS_ROT = { nao: 'Não iniciado', andamento: 'Em andamento', concluido: 'Concluído' };
-// O cronograma foi montado para a prova projetada e não se refaz sozinho: com a data informada antes do fim dele, o
-// cartão diz quais fases perdem dias e quanto, para a pessoa decidir o que comprimir
+// Prova antes do fim do plano: o cartão mostra quais fases perdem dias e oferece encaixar o plano na data (saem semanas
+// inteiras ainda por vir, as de revisão primeiro, e o resto é adiantado). Com o plano encaixado, diz o que saiu e
+// permite voltar ao original. Sem edital nem encaixe, mostra o plano B (prova em fevereiro) pronto para um clique.
 function cartaoPlanoEncolhe() {
-  const prova = dataProva(), fim = DIAS.length ? DIAS[DIAS.length - 1].data : prova;
-  if (prova >= fim) return '';
-  const fora = DIAS.filter((d) => d.data >= prova);
-  const porFase = D.cronograma.fases.map((f) => ({ f, n: fora.filter((d) => d.fase === f.id).length, tot: DIAS.filter((d) => d.fase === f.id).length })).filter((x) => x.n);
-  const fmt = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit' });
-  return '<div class="cartao cansaco"><h2>O plano passa da data da prova</h2><p class="pequeno">Com a prova em <b>' + fmt(prova) + '</b>, ' + pl(fora.length, 'dia do cronograma fica', 'dias do cronograma ficam') + ' para depois dela (o plano vai até ' + fmt(fim) + '). O plano não se refaz sozinho; o que encolhe:</p><ul class="pequeno">' +
-    porFase.map((x) => '<li><b>' + esc(x.f.titulo) + ': ' + esc(x.f.subtitulo) + '</b> perde ' + x.n + ' de ' + x.tot + ' dias' + (x.n === x.tot ? ' (inteira)' : '') + '</li>').join('') +
-    '</ul><p class="pequeno mudo">Até a prova, a revisão espaçada já para dois dias antes dela. Para não perder conteúdo, adiante os dias das fases cortadas nos sábados e use o treino intercalado, que reparte os itens pelo peso de cada disciplina.</p></div>';
+  const prova = dataProva(), fim = DIAS.length ? DIAS[DIAS.length - 1].data : prova, e = encaixeValido(S.perfil.encaixe);
+  const fmt = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit' }), fmtA = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const lista = (r) => '<ul class="pequeno">' + r.cortadas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul>';
+  const fimBase = FASES_BASE.flatMap((f) => f.semanas.flatMap((s) => s.dias)).reduce((m, d) => (d.data > m ? d.data : m), '');
+  const previa = prova < fimBase && prova > hojeISO() ? encaixarPlano(prova, hojeISO()) : null;
+  const botaoEncaixe = previa ? '<button class="btn primario" data-acao="plano-encaixar">Encaixar o plano até ' + fmt(prova) + '</button>' : '';
+  if (e) {
+    const r = encaixarPlano(e.prova, e.desde, e.cortes), outra = prova !== e.prova;
+    return '<div class="cartao"><h2>Plano encaixado na prova de ' + fmtA(e.prova) + '</h2><p class="pequeno">Encaixado em ' + fmt(e.desde) + '. ' +
+      (r && r.cortadas.length ? pl(r.cortadas.length, 'semana saiu', 'semanas saíram') + ' do plano; o resto foi adiantado, cada dia no mesmo dia da semana, e a reta final termina no dia da prova:</p>' + lista(r) : 'Nenhuma semana precisou sair.</p>') +
+      (outra ? '<p class="pequeno"><b>A data da prova agora é ' + fmtA(prova) + '.</b> ' + (previa ? 'Encaixe de novo para ela ou volte ao plano original.' : 'Ela não cai antes do fim do plano original: volte a ele.') + '</p>' : '') +
+      '<div class="linha-btns">' + (outra ? botaoEncaixe : '') + '<button class="btn" data-acao="plano-original">Voltar ao plano original</button></div></div>';
+  }
+  if (prova < fim) {
+    const fora = DIAS.filter((d) => d.data >= prova);
+    const porFase = D.cronograma.fases.map((f) => ({ f, n: fora.filter((d) => d.fase === f.id).length, tot: DIAS.filter((d) => d.fase === f.id).length })).filter((x) => x.n);
+    return '<div class="cartao cansaco"><h2>O plano passa da data da prova</h2><p class="pequeno">Com a prova em <b>' + fmt(prova) + '</b>, ' + pl(fora.length, 'dia do cronograma fica', 'dias do cronograma ficam') + ' para depois dela (o plano vai até ' + fmt(fim) + '). Sem encaixe, o que encolhe:</p><ul class="pequeno">' +
+      porFase.map((x) => '<li><b>' + esc(x.f.titulo) + ': ' + esc(x.f.subtitulo) + '</b> perde ' + x.n + ' de ' + x.tot + ' dias' + (x.n === x.tot ? ' (inteira)' : '') + '</li>').join('') + '</ul>' +
+      (previa ? '<p class="pequeno">Encaixando, saem ' + pl(previa.cortadas.length, 'semana inteira', 'semanas inteiras') + ' ainda por vir, primeiro as de revisão sem conteúdo novo, e o resto é adiantado' + (previa.curto ? '; como não há semanas bastantes para cortar, o que cairia na reta final também sai' : '') + ':</p>' + lista(previa) + '<div class="linha-btns">' + botaoEncaixe + '</div>' : '<p class="pequeno mudo">Até a prova, a revisão espaçada já para dois dias antes dela. Use os sábados e o treino intercalado, que reparte os itens pelo peso de cada disciplina.</p>') + '</div>';
+  }
+  if (S.perfil.edital && S.perfil.edital.prova) return '';
+  const b = encaixarPlano(PLANO_B, hojeISO());
+  if (!b) return '';
+  return '<details class="cartao det-lista" data-det="plano-b"' + (UI.det['plano-b'] ? ' open' : '') + '><summary><b>Plano B: prova em ' + fmtA(PLANO_B) + '</b></summary><p class="pequeno">Se o concurso for antecipado, o plano encaixado em ' + fmt(PLANO_B) + ' tira ' + pl(b.cortadas.length, 'semana', 'semanas') + ' de revisão e mantém toda a primeira volta do conteúdo e os simulados restantes:</p>' + lista(b) +
+    '<p class="pequeno mudo">Um clique troca o plano e a contagem até a prova; dá para voltar ao original quando quiser. Quando o edital sair, informe a data em Ajustes → Edital e prova e encaixe o plano nela.</p><div class="linha-btns"><button class="btn" data-acao="plano-b">Usar o plano B</button></div></details>';
 }
 function renderPlano() {
   const h = hojeISO(), ctx = contextoHoje();

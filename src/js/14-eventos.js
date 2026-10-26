@@ -312,6 +312,17 @@ async function executar(a, alvo) {
     }
     // null, não delete: a junção de perfis (mesclarDoc) traria de volta o edital do outro aparelho
     case 'edital-padrao': S.perfil.edital = null; Store.salvar('perfil'); renderTudo(); document.getElementById('ed-msg').textContent = 'De volta à projeção da Anatel 2024.'; break;
+    // Encaixe do plano numa prova antes do fim do cronograma (a do edital) ou no plano B; as semanas cortadas ficam
+    // gravadas, para o plano não mudar depois com o tempo nem com os pesos
+    case 'plano-encaixar': case 'plano-b': {
+      const prova = a === 'plano-b' ? PLANO_B : dataProva(), r = encaixarPlano(prova, hojeISO());
+      if (!r) break;
+      S.perfil.encaixe = { prova, desde: hojeISO(), cortes: r.cortes };
+      Store.salvar('perfil'); renderTudo();
+      avisar('✓', 'Plano encaixado até ' + fmtData(prova, { day: '2-digit', month: '2-digit' }), pl(r.cortes.length, 'semana saiu', 'semanas saíram') + ' do plano; o resto foi adiantado.');
+      break;
+    }
+    case 'plano-original': S.perfil.encaixe = null; Store.salvar('perfil'); renderTudo(); avisar('✓', 'Plano original', 'O cronograma voltou a ser o da projeção.'); break;
     case 'backup-baixar': {
       const r = await salvarArquivo('painel-anpd-backup-' + hojeISO() + '.json', backupTexto());
       if (r === true) marcarBackup();
