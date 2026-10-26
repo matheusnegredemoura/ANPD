@@ -1,0 +1,130 @@
+bloco: seginfo
+// Segurança da informação, lote SX10 (doutrina): CVE e CVSS, lista de materiais de software (SBOM), CASB, SOAR,
+// equipes vermelha e azul, microssegmentação, EDR, endurecimento de sistemas, programas de recompensa por falhas,
+// proxy reverso, WAF e NAT.
+
+=== sx10-01
+gab: C
+tema: sg-ameacas
+ref: doutrina vulnerabilidades
+armadilha: conceito
+dif: 1
+enunciado: O CVE é um identificador público e padronizado atribuído a vulnerabilidades conhecidas.
+comentario: Certo. O identificador (por exemplo, CVE-2021-44228) permite que fabricantes, pesquisadores e equipes de segurança falem da mesma falha. A gravidade é medida por outro sistema, o CVSS.
+
+=== sx10-02
+gab: E
+tema: sg-ameacas
+ref: doutrina vulnerabilidades
+armadilha: comparacao
+dif: 2
+enunciado: Situação hipotética: em reunião, um analista afirmou que, quanto maior o número do identificador CVE de uma vulnerabilidade, mais grave ela é, e que por isso as correções devem seguir essa ordem. Assertiva: o raciocínio do analista está correto.
+comentario: Errado. O número do CVE só identifica a falha e indica, em parte, o ano e a ordem de registro. A gravidade é estimada pelo CVSS, e a priorização deve considerar também a exposição e a criticidade dos sistemas da organização.
+
+=== sx10-03
+gab: C
+tema: si-controles
+ref: doutrina cadeia de suprimentos de software
+armadilha: conceito
+dif: 2
+enunciado: A lista de materiais de software (SBOM) inventaria os componentes de um sistema, inclusive bibliotecas de terceiros e suas versões, o que ajuda a localizar rapidamente onde está uma vulnerabilidade recém-divulgada.
+comentario: Certo. O SBOM é peça da gestão de riscos da cadeia de suprimentos, tema da função Governar do NIST CSF 2.0 (GV.SC).
+
+=== sx10-04
+gab: E
+tema: si-controles
+ref: doutrina cadeia de suprimentos de software
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: após a divulgação de falha grave em uma biblioteca de registro de eventos, uma empresa levou semanas para descobrir quais de seus sistemas a utilizavam. Assertiva: uma lista de materiais de software não teria ajudado, porque ela registra apenas o fabricante do produto final.
+comentario: Errado. O SBOM lista os componentes internos do software, inclusive bibliotecas de terceiros e versões. Com ele, a empresa saberia de imediato quais sistemas usavam a biblioteca afetada.
+
+=== sx10-05
+gab: C
+tema: si-nuvem
+ref: doutrina computação em nuvem
+armadilha: conceito
+dif: 2
+enunciado: O CASB atua entre os usuários e os serviços de nuvem, dando visibilidade sobre os serviços usados e aplicando políticas de segurança, como controle de acesso e prevenção de vazamento de dados.
+comentario: Certo. O agente de segurança de acesso à nuvem ajuda a identificar o uso de serviços não autorizados (TI invisível) e a estender às aplicações em nuvem as políticas da organização.
+
+=== sx10-06
+gab: C
+tema: si-controles
+ref: doutrina resposta a incidentes
+armadilha: conceito
+dif: 2
+enunciado: Plataformas SOAR integram ferramentas de segurança e automatizam etapas de resposta a incidentes por meio de roteiros predefinidos.
+comentario: Certo. A orquestração, automação e resposta de segurança reduz o tempo de reação: por exemplo, ao receber alerta do SIEM, pode isolar a máquina, bloquear o endereço e abrir chamado automaticamente.
+
+=== sx10-07
+gab: E
+tema: sg-ameacas
+ref: doutrina testes de segurança
+armadilha: comparacao
+dif: 2
+enunciado: Situação hipotética: em exercício de segurança, uma equipe simulou ataques reais à organização, enquanto outra monitorou o ambiente e respondeu às invasões. Assertiva: a equipe que defendeu e respondeu aos ataques é chamada de equipe vermelha (red team).
+comentario: Errado. A equipe vermelha simula o atacante; a equipe azul (blue team) defende, monitora e responde. Quando as duas trabalham juntas, trocando aprendizados, fala-se em equipe roxa (purple team).
+
+=== sx10-08
+gab: C
+tema: si-controles
+ref: doutrina segmentação de rede
+armadilha: conceito
+dif: 2
+enunciado: A microssegmentação divide a rede em segmentos pequenos, com políticas de acesso próprias, o que dificulta o movimento lateral de um invasor que comprometa um único servidor.
+comentario: Certo. É técnica associada ao modelo de confiança zero: cada fluxo precisa ser explicitamente permitido, em vez de tudo confiar em tudo dentro do perímetro.
+
+=== sx10-09
+gab: E
+tema: si-controles
+ref: doutrina proteção de estações
+armadilha: comparacao
+dif: 3
+enunciado: Situação hipotética: uma empresa trocou o antivírus tradicional por uma solução de detecção e resposta em endpoints (EDR). Assertiva: a mudança não acrescenta capacidade, pois o EDR também se limita a comparar arquivos com assinaturas de vírus conhecidos.
+comentario: Errado. O EDR monitora continuamente o comportamento das estações, registra a telemetria para investigação e permite resposta, como isolar a máquina. Por isso detecta ataques sem assinatura conhecida, o que o antivírus baseado só em assinaturas não faz.
+
+=== sx10-10
+gab: C
+tema: si-controles
+ref: doutrina endurecimento de sistemas
+armadilha: conceito
+dif: 1
+enunciado: O endurecimento (hardening) de sistemas inclui desativar serviços e contas desnecessários, trocar senhas padrão e aplicar configurações seguras.
+comentario: Certo. Reduzir a superfície de ataque é um dos controles mais baratos e eficazes. Guias de referência, como os benchmarks do CIS, orientam essas configurações.
+
+=== sx10-11
+gab: E
+tema: sg-ameacas
+ref: doutrina testes de segurança
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: um órgão lançou programa de recompensa por falhas (bug bounty). Assertiva: com o programa, qualquer pessoa fica autorizada a atacar todos os sistemas do órgão, sem limites de escopo nem regras de divulgação.
+comentario: Errado. Os programas de recompensa definem escopo, condutas permitidas, forma de reportar e regras de divulgação responsável. Ações fora dessas regras continuam ilícitas.
+
+=== sx10-12
+gab: C
+tema: si-controles
+ref: doutrina proxy reverso
+armadilha: conceito
+dif: 2
+enunciado: O proxy reverso fica à frente dos servidores de uma organização, recebe as requisições externas e pode ocultar os servidores internos, distribuir a carga e encerrar conexões TLS.
+comentario: Certo. Ele também é o ponto natural para aplicar um firewall de aplicação web (WAF), que filtra ataques como injeção de SQL e XSS.
+
+=== sx10-13
+gab: E
+tema: si-controles
+ref: doutrina firewall
+armadilha: comparacao
+dif: 3
+enunciado: Situação hipotética: para conter ataques de falsificação de ARP na rede interna, uma empresa contratou um firewall de aplicação web (WAF). Assertiva: a solução é adequada, pois o WAF atua sobre ataques nas camadas de enlace e de rede.
+comentario: Errado. O WAF atua na camada de aplicação, sobre o tráfego HTTP, contra ataques como injeção de SQL e XSS. A falsificação de ARP ocorre na rede local e se mitiga com recursos dos switches, como a inspeção dinâmica de ARP.
+
+=== sx10-14
+gab: E
+tema: si-controles
+ref: doutrina redes
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: um gestor afirmou que, como a rede usa tradução de endereços (NAT), o tráfego que sai para a internet já segue cifrado e dispensa outros controles. Assertiva: a afirmação está correta.
+comentario: Errado. O NAT só traduz endereços IP privados em públicos; não cifra nada. Ele oculta parcialmente a estrutura interna, mas não substitui criptografia, firewall nem outros controles.
