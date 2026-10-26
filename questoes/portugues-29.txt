@@ -1,0 +1,148 @@
+bloco: portugues
+// Texto original escrito para o banco (regulação de inteligência artificial baseada em risco), com itens de
+// interpretação, coesão, semântica, pontuação, concordância e sintaxe.
+
+apoio_PT29A: Regular a inteligência artificial não significa tratar da mesma forma um filtro de spam e um sistema que decide quem recebe tratamento médico. Por isso, várias propostas legislativas adotam a ideia de risco: quanto maior o potencial de dano a direitos, mais rigorosas as obrigações.
+A abordagem tem a vantagem da proporcionalidade, mas transfere ao regulador uma tarefa delicada. Classificar um sistema como de alto risco exige conhecer seu uso concreto, e o mesmo algoritmo pode ser inofensivo em um contexto e perigoso em outro. Uma lista fechada de aplicações proibidas tende a envelhecer depressa, enquanto critérios abertos demais geram insegurança para quem desenvolve.
+O equilíbrio possível talvez esteja em combinar regras gerais estáveis com revisões periódicas, feitas com transparência e participação dos afetados.
+
+=== pt29-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT29A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: literal
+dif: 1
+enunciado: Segundo o texto, na regulação baseada em risco, sistemas com maior potencial de dano a direitos recebem obrigações mais rigorosas.
+comentario: Certo. Primeiro parágrafo: “quanto maior o potencial de dano a direitos, mais rigorosas as obrigações”.
+
+=== pt29-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT29A
+armadilha: extrapolacao
+dif: 1
+enunciado: O texto defende que todos os sistemas de inteligência artificial sejam regulados da mesma forma.
+comentario: Errado. O texto afirma o contrário: regular a IA “não significa tratar da mesma forma” um filtro de spam e um sistema que decide tratamentos médicos.
+
+=== pt29-03
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT29A
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, a expressão “A abordagem” retoma a ideia de risco adotada pelas propostas legislativas mencionadas no primeiro parágrafo.
+comentario: Certo. “A abordagem” é a regulação baseada em risco descrita no período anterior.
+
+=== pt29-04
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT29A
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, o pronome “seu”, em “seu uso concreto”, refere-se a “regulador”.
+comentario: Errado. “Seu” refere-se a “um sistema”: classificar um sistema exige conhecer o uso concreto desse sistema.
+
+=== pt29-05
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT29A
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, o vocábulo “enquanto” estabelece contraste entre o problema das listas fechadas e o dos critérios abertos demais.
+comentario: Certo. “Enquanto” opõe dois riscos: listas fechadas envelhecem depressa; critérios muito abertos geram insegurança.
+
+=== pt29-06
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT29A
+armadilha: literal
+dif: 1
+enunciado: No terceiro parágrafo, o advérbio “talvez” confere à proposta do autor um tom de certeza.
+comentario: Errado. “Talvez” indica possibilidade: o autor apresenta a solução com cautela, não como certeza.
+
+=== pt29-07
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT29A
+armadilha: interpretacao
+dif: 2
+enunciado: No primeiro parágrafo, o pronome relativo “que”, em “que decide quem recebe tratamento médico”, retoma “um sistema”.
+comentario: Certo. É o sistema que decide quem recebe tratamento médico.
+
+=== pt29-08
+gab: E
+tema: pt-concordancia
+ref: texto
+apoio: @PT29A
+armadilha: sujeito
+dif: 1
+enunciado: No segundo parágrafo, a forma verbal “tende” deveria estar no plural, tendem, para concordar com “aplicações proibidas”.
+comentario: Errado. O sujeito de “tende” é “Uma lista fechada de aplicações proibidas”, cujo núcleo, “lista”, está no singular.
+
+=== pt29-09
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @PT29A
+armadilha: sujeito
+dif: 1
+enunciado: No segundo parágrafo, a forma verbal “geram” está no plural para concordar com “critérios abertos demais”.
+comentario: Certo. O núcleo do sujeito é “critérios”, no plural.
+
+=== pt29-10
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT29A
+armadilha: conceito
+dif: 3
+enunciado: No primeiro parágrafo, a oração “quem recebe tratamento médico” exerce a função de sujeito da forma verbal “decide”.
+comentario: Errado. O sujeito de “decide” é o pronome relativo “que”, referido a “um sistema”; “quem recebe tratamento médico” é o objeto direto: o sistema decide quem recebe o tratamento.
+
+=== pt29-11
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT29A
+armadilha: interpretacao
+dif: 2
+enunciado: O autor admite que um mesmo algoritmo pode oferecer riscos diferentes conforme o contexto em que é usado.
+comentario: Certo. Segundo parágrafo: o mesmo algoritmo “pode ser inofensivo em um contexto e perigoso em outro”.
+
+=== pt29-12
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT29A
+armadilha: literal
+dif: 1
+enunciado: De acordo com o texto, listas fechadas de aplicações proibidas tendem a permanecer atualizadas por longo tempo.
+comentario: Errado. O texto diz que essas listas tendem “a envelhecer depressa”.
+
+=== pt29-13
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT29A
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, a vírgula após “periódicas” isola trecho que caracteriza as revisões mencionadas.
+comentario: Certo. “feitas com transparência e participação dos afetados” é oração reduzida de particípio que se refere a “revisões periódicas”.
+
+=== pt29-14
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT29A
+armadilha: literal
+dif: 1
+enunciado: No segundo parágrafo, o adjetivo “delicada” poderia ser substituído por simples, sem alteração do sentido do texto.
+comentario: Errado. “Delicada” indica tarefa difícil, que exige cuidado; “simples” diria o contrário.
