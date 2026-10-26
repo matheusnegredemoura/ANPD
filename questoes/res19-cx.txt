@@ -1,0 +1,124 @@
+bloco: res-19-2024
+// Resolução CD/ANPD nº 19/2024 (transferência internacional de dados), lote CX: conceitos, alcance e trânsito de dados,
+// cláusulas-padrão, transparência ao titular e equivalência de cláusulas estrangeiras. Itens escritos para o banco.
+// Trechos conferidos em fontes/res19.txt.
+
+=== r19c-01
+gab: C
+tema: an-transferencia
+ref: res19 3
+trecho: coleta de dados pessoais do titular efetuada diretamente pelo agente de tratamento localizado no exterior
+armadilha: conceito
+dif: 2
+enunciado: Para a Resolução 19/2024, coleta internacional é a coleta de dados feita diretamente do titular por agente de tratamento localizado no exterior.
+comentario: Certo. Art. 3º, V. Na transferência, ao contrário, um agente transmite ou dá acesso a dados a outro agente (III e IV).
+
+=== r19c-02
+gab: E
+tema: an-transferencia
+ref: res19 8
+trecho: trânsito de dados pessoais, sem a ocorrência de comunicação ou uso compartilhado de dados com agente de tratamento situado em território nacional
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: dados de clientes europeus passam por um servidor no Brasil apenas em trânsito para os Estados Unidos, sem serem comunicados nem compartilhados com nenhum agente situado no país. Assertiva: a LGPD se aplica a esse tratamento como a qualquer outro realizado no território nacional.
+comentario: Errado. A LGPD não se aplica aos dados provenientes do exterior em mero trânsito, sem comunicação ou uso compartilhado com agente situado no Brasil (art. 8º, § 1º, I). Outras normas, como as de sigilo das comunicações, continuam aplicáveis (§ 3º).
+
+=== r19c-03
+gab: C
+tema: an-transferencia
+ref: res19 7
+trecho: independe do meio utilizado para sua realização, do país de sede dos agentes de tratamento ou do país onde estejam localizados os dados
+armadilha: conceito
+dif: 2
+enunciado: A aplicação da legislação brasileira à transferência internacional de dados independe do meio usado, do país de sede dos agentes e do país onde os dados estejam.
+comentario: Certo. Art. 7º, parágrafo único, que repete a lógica do art. 3º da LGPD.
+
+=== r19c-04
+gab: E
+tema: an-transferencia
+ref: res19 16
+trecho: pressupõe a adoção integral e sem alteração do texto disponibilizado no Anexo II
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: ao adotar as cláusulas-padrão da ANPD com o importador estrangeiro, uma empresa alterou a cláusula de responsabilidade para limitar o valor das indenizações aos titulares. Assertiva: a transferência continua amparada nas cláusulas-padrão.
+comentario: Errado. A validade da transferência com base nas cláusulas-padrão pressupõe sua adoção integral e sem alteração (art. 16), e as demais disposições contratuais não podem excluí-las, modificá-las ou contrariá-las (§ 2º).
+
+=== r19c-05
+gab: C
+tema: an-transferencia
+ref: res19 16
+trecho: contrato com objeto mais amplo, inclusive mediante a assinatura de termo aditivo
+armadilha: conceito
+dif: 2
+enunciado: As cláusulas-padrão podem integrar contrato de objeto mais amplo entre exportador e importador, inclusive por termo aditivo.
+comentario: Certo. Art. 16, § 1º, II. Nesse caso, as Seções I, II e III do Anexo II devem figurar como anexo do instrumento (§ 3º).
+
+=== r19c-06
+gab: E
+tema: an-transferencia
+ref: res19 17
+trecho: O controlador deverá disponibilizar ao titular, em caso de solicitação, a íntegra das cláusulas utilizadas para a realização da transferência internacional de dados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um titular pediu à empresa a íntegra das cláusulas usadas para transferir seus dados ao exterior, e ela recusou, afirmando que todo contrato com o importador é sigiloso. Assertiva: a recusa é legítima.
+comentario: Errado. O controlador deve disponibilizar ao titular, a pedido, a íntegra das cláusulas usadas na transferência, observados os segredos comercial e industrial (art. 17), no prazo de quinze dias (§ 1º).
+
+=== r19c-07
+gab: C
+tema: an-transferencia
+ref: res19 17
+trecho: O prazo para atendimento da solicitação é de 15 (quinze) dias
+armadilha: numero
+dif: 2
+enunciado: O pedido do titular para receber a íntegra das cláusulas de transferência internacional deve ser atendido em 15 dias, salvo prazo distinto em regulamentação específica da ANPD.
+comentario: Certo. Art. 17, § 1º. É o mesmo prazo da declaração completa do art. 19, II, da LGPD.
+
+=== r19c-08
+gab: E
+tema: an-transferencia
+ref: res19 17
+trecho: documento contendo informações em língua portuguesa, em linguagem simples, clara, precisa e acessível
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa brasileira publicou em seu site as informações sobre a transferência internacional de dados apenas em inglês, idioma do grupo econômico. Assertiva: a prática atende ao regulamento de transferência internacional.
+comentario: Errado. O documento deve estar em língua portuguesa, em linguagem simples, clara, precisa e acessível, com informações como finalidade, país de destino e direitos do titular (art. 17, § 2º).
+
+=== r19c-09
+gab: C
+tema: an-transferencia
+ref: res19 8
+trecho: não excepcionará a aplicação da Lei nº 13.709, de 14 de agosto de 2018, em situações que possam violar ou colocar em risco a observância dos princípios gerais de proteção de dados pessoais
+armadilha: excecao
+dif: 3
+enunciado: Mesmo no retorno de dados ao país de proveniência, a decisão de adequação da ANPD não afasta a LGPD em situações que ponham em risco os princípios gerais de proteção de dados e os direitos dos titulares.
+comentario: Certo. Art. 8º, § 2º. A não aplicação da LGPD no retorno de dados exige decisão de adequação que a preveja expressamente (§ 1º, II, c), e ainda assim tem esse limite.
+
+=== r19c-10
+gab: E
+tema: an-transferencia
+ref: res19 18
+trecho: A ANPD poderá reconhecer a equivalência de cláusulas-padrão contratuais de outros países ou de organismos internacionais
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: um grupo multinacional já usa, na Europa, cláusulas-padrão aprovadas pela Comissão Europeia e quer saber se elas podem valer no Brasil. Assertiva: a ANPD não tem competência para reconhecer a equivalência de cláusulas-padrão estrangeiras.
+comentario: Errado. A ANPD pode reconhecer a equivalência de cláusulas-padrão de outros países ou de organismos internacionais com as do Anexo II (art. 18), segundo procedimento próprio.
+
+=== r19c-11
+gab: C
+tema: an-transferencia
+ref: res19 2
+trecho: promoção do livre fluxo transfronteiriço de dados com confiança
+armadilha: conceito
+dif: 1
+enunciado: Entre as diretrizes da transferência internacional de dados está a promoção do livre fluxo transfronteiriço de dados com confiança.
+comentario: Certo. Art. 2º, III, com observância dos direitos dos titulares. A ideia, conhecida como fluxo de dados com confiança, concilia comércio digital e proteção.
+
+=== r19c-12
+gab: E
+tema: an-transferencia
+ref: res19 3
+trecho: agente de tratamento, localizado em país estrangeiro ou que seja organismo internacional, que recebe dados pessoais transferidos por exportador
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: em contrato de transferência internacional, uma empresa brasileira que recebe dados enviados por sua matriz estrangeira foi qualificada como importadora. Assertiva: a qualificação está de acordo com o regulamento, que define importador como quem recebe dados no Brasil.
+comentario: Errado. Importador é o agente localizado em país estrangeiro, ou organismo internacional, que recebe dados do exportador (art. 3º, II). O exportador pode estar no Brasil ou no exterior (I).
