@@ -412,7 +412,7 @@ function renderHoje() {
   const contagem = (n, txt) => '<div class="contagem">' + (n > 0 ? '<span class="grande">' + n + '</span>' : '') + '<span>' + txt + '</span></div>';
   const edital = '<div class="cartao">' +
     contagem(faltaEd, faltaEd > 0 ? 'dias até ' + dataCurta(cr.edital) + ', prazo legal máximo para o edital.' : faltaEd === 0 ? 'Hoje vence o prazo legal máximo para o edital (' + dataCurta(cr.edital) + ').' : 'O prazo legal do edital (' + dataCurta(cr.edital) + ') passou: acompanhe as notícias.') +
-    contagem(faltaPr, faltaPr > 0 ? (oficial ? 'dias até a prova, ' + dataCurta(prova) + '.' : 'dias até a prova provável, domingo ' + dataCurta(prova) + ' (três meses depois do edital; troque pela data oficial em Ajustes → Edital e prova).') : faltaPr === 0 ? 'Hoje é o dia da prova. Boa prova!' : 'A data ' + (oficial ? '' : 'estimada ') + 'da prova (' + dataCurta(prova) + ') passou.') + '</div>';
+    contagem(faltaPr, faltaPr > 0 ? (oficial ? 'dias até a prova, ' + dataCurta(prova) + '.' : encaixeValido(S.perfil.encaixe) ? 'dias até a prova do plano encaixado, ' + dataCurta(prova) + ' (troque pela data oficial em Ajustes → Edital e prova quando o edital sair).' : 'dias até a prova provável, domingo ' + dataCurta(prova) + ' (três meses depois do edital; troque pela data oficial em Ajustes → Edital e prova).') : faltaPr === 0 ? 'Hoje é o dia da prova. Boa prova!' : 'A data ' + (oficial ? '' : 'estimada ') + 'da prova (' + dataCurta(prova) + ') passou.') + '</div>';
   // Sessões guardadas que não têm botão próprio no roteiro (o dia, as intercaladas e a trilha de hoje já mostram Continuar)
   const fora = new Set(['i:' + h]);
   if (ctx.tipo === 'dia') fora.add(ctx.dia.data);

@@ -45,7 +45,7 @@ if (hoje < '2027-02-01') {
     conferir('cartão do plano encaixado', /Plano encaixado na prova de 28\/02\/2027/.test(c) && /4 semanas saíram/.test(c), c.match(/Plano encaixado[^:]{0,160}/)?.[0]);
     await p.click('.aba[data-vista="hoje"]');
     const h = (await p.textContent('#vista-hoje')).replace(/\s+/g, ' ');
-    conferir('contagem até 28/02/2027', /dias até a prova provável, 28\/02\/2027/.test(h) || /28\/02\/2027/.test(h), h.match(/.{4}dias até a prova[^.]*/)?.[0]);
+    conferir('contagem até 28/02/2027, sem a estimativa de três meses', /dias até a prova do plano encaixado, 28\/02\/2027/.test(h) && !/três meses depois/.test(h), h.match(/.{4}dias até a prova[^.]*/)?.[0]);
   });
 
   await passo('volta ao plano original', async () => {
