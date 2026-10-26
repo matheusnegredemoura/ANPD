@@ -1,0 +1,146 @@
+bloco: eca-digital
+// ECA Digital (Lei nº 15.211/2025), parte F: experiências adequadas à idade (art. 10), uso dos dados de verificação
+// de idade (art. 13), responsabilidade da cadeia digital (art. 15), caixas de recompensa (art. 20), conteúdo
+// erotizado (art. 23), regras das redes sociais (art. 25), perfis para publicidade (art. 26), uso abusivo de denúncias
+// (art. 32), destino das multas (art. 36-A), limite da regulamentação (art. 37) e adesivo nas embalagens (art. 38).
+// Conferidas com fontes/lei15211.txt.
+
+=== edf-01
+gab: C
+tema: ed-idade
+ref: lei15211 13
+trecho: poderão ser utilizados unicamente para essa finalidade, vedado seu tratamento para qualquer outro propósito
+armadilha: conceito
+dif: 1
+enunciado: Os dados coletados para verificar a idade de crianças e adolescentes só podem ser usados para essa finalidade.
+comentario: Certo. Art. 13. Qualquer outro propósito é vedado.
+
+=== edf-02
+gab: E
+tema: ed-idade
+ref: lei15211 13
+trecho: vedado seu tratamento para qualquer outro propósito
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma plataforma usou as selfies coletadas na verificação de idade de adolescentes para treinar seu modelo de recomendação de anúncios. Assertiva: o uso é lícito, pois os dados foram coletados de forma legítima.
+comentario: Errado. Os dados da verificação de idade só podem ser usados para essa finalidade, vedado qualquer outro propósito (art. 13). O art. 26 também veda perfis para publicidade a partir desses dados.
+
+=== edf-03
+gab: C
+tema: ed-idade
+ref: lei15211 15
+trecho: cabendo a todos os envolvidos garantir de forma solidária a proteção integral de crianças e de adolescentes
+armadilha: conceito
+dif: 2
+enunciado: Cumprir as obrigações do ECA Digital não exime os demais agentes da cadeia digital, que respondem solidariamente pela proteção integral.
+comentario: Certo. Art. 15. A proteção de crianças e adolescentes não se esgota em um único elo da cadeia.
+
+=== edf-04
+gab: E
+tema: ed-supervisao
+ref: lei15211 20
+trecho: São vedadas as caixas de recompensa (loot boxes) oferecidas em jogos eletrônicos direcionados a crianças e a adolescentes ou de acesso provável por eles
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um jogo eletrônico com classificação indicativa para maiores de dez anos vende caixas de recompensa com itens aleatórios. Assertiva: a oferta é permitida, pois o ECA Digital veda caixas de recompensa só em jogos para crianças pequenas.
+comentario: Errado. São vedadas as caixas de recompensa em jogos direcionados a crianças e adolescentes ou de acesso provável por eles, conforme a classificação indicativa (art. 20).
+
+=== edf-05
+gab: C
+tema: ed-supervisao
+ref: lei15211 23
+trecho: a monetização e o impulsionamento de conteúdos que retratem crianças e adolescentes de forma erotizada ou sexualmente sugestiva
+armadilha: conceito
+dif: 1
+enunciado: Provedores de aplicações não podem monetizar nem impulsionar conteúdo que retrate criança ou adolescente de forma erotizada.
+comentario: Certo. Art. 23, que alcança também conteúdo sexualmente sugestivo ou em contexto próprio do universo sexual adulto.
+
+=== edf-06
+gab: E
+tema: ed-idade
+ref: lei15211 26
+trecho: bem como de dados grupais e coletivos, para fins de direcionamento de publicidade comercial
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma rede social deixou de usar dados individuais, mas passou a criar perfis a partir de dados grupais de adolescentes para direcionar publicidade comercial. Assertiva: a prática é lícita, pois a vedação não alcança dados grupais e coletivos.
+comentario: Errado. A vedação de perfis comportamentais para publicidade comercial abrange também dados grupais e coletivos (art. 26).
+
+=== edf-07
+gab: C
+tema: ed-idade
+ref: lei15211 25
+trecho: deverão prever regras específicas para o tratamento de dados de crianças e de adolescentes, definidas de forma concreta e documentada e com base no seu melhor interesse
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma rede social aprovou documento com regras próprias e detalhadas para tratar dados de usuários adolescentes, guiadas pelo melhor interesse deles. Assertiva: a medida cumpre dever previsto no ECA Digital.
+comentario: Certo. Art. 25. O melhor interesse da criança também orienta o art. 14 da LGPD.
+
+=== edf-08
+gab: E
+tema: ed-fiscalizacao
+ref: lei15211 32
+trecho: adotar mecanismos eficazes para a identificação de uso abusivo dos instrumentos de denúncia
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um provedor não adotou nenhum mecanismo para identificar o uso abusivo de denúncias, e grupos passaram a denunciar em massa perfis de jornalistas para derrubá-los. Assertiva: o ECA Digital não impõe ao provedor o dever de coibir esse uso.
+comentario: Errado. Os provedores devem adotar mecanismos eficazes para identificar o uso abusivo dos instrumentos de denúncia, para coibir censura, perseguição e outras práticas ilícitas (art. 32).
+
+=== edf-09
+gab: C
+tema: ed-alcance
+ref: lei15211 37
+trecho: não poderá, em nenhuma hipótese, impor, autorizar ou resultar na implantação de mecanismos de vigilância massiva, genérica ou indiscriminada
+armadilha: conceito
+dif: 2
+enunciado: A regulamentação do ECA Digital não pode impor nem autorizar mecanismos de vigilância massiva, genérica ou indiscriminada.
+comentario: Certo. Art. 37, parágrafo único, que protege a liberdade de expressão, a privacidade e o tratamento diferenciado dos dados de crianças.
+
+=== edf-10
+gab: E
+tema: ed-fiscalizacao
+ref: lei15211 36-A
+trecho: serão destinados, pelo prazo de 5 (cinco) anos, ao Fundo Nacional para a Criança e o Adolescente
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: em audiência pública, um gestor afirmou que as multas aplicadas com base no ECA Digital vão para o caixa geral do Tesouro, sem destinação específica. Assertiva: a afirmação está correta.
+comentario: Errado. Por cinco anos, os valores das multas vão para o Fundo Nacional para a Criança e o Adolescente e devem ser usados em políticas e projetos de proteção (art. 36-A, incluído pela Lei 15.504/2026).
+
+=== edf-11
+gab: C
+tema: ed-padrao
+ref: lei15211 10
+trecho: respeitadas a autonomia progressiva e a diversidade de contextos socioeconômicos brasileiros
+armadilha: conceito
+dif: 2
+enunciado: Serviços digitais de acesso provável por crianças devem oferecer experiências adequadas à idade, respeitada a autonomia progressiva.
+comentario: Certo. Art. 10, que considera também a diversidade de contextos socioeconômicos brasileiros.
+
+=== edf-12
+gab: E
+tema: ed-supervisao
+ref: lei15211 38
+trecho: fabricados no Brasil ou importados, deverão conter adesivo, em língua portuguesa
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma importadora vendeu tablets sem o adesivo em português que alerta os pais sobre conteúdo impróprio, alegando que a exigência vale só para aparelhos fabricados no País. Assertiva: a alegação procede.
+comentario: Errado. O adesivo é exigido nas embalagens de equipamentos eletrônicos de uso pessoal com acesso à internet, fabricados no Brasil ou importados (art. 38).
+
+=== edf-13
+gab: C
+tema: ed-idade
+ref: lei15211 26
+trecho: inclusive daqueles obtidos nos processos de verificação de idade
+armadilha: conceito
+dif: 2
+enunciado: A proibição de perfis comportamentais de crianças para publicidade alcança também os dados obtidos na verificação de idade.
+comentario: Certo. Art. 26. A regra se soma à limitação de finalidade do art. 13.
+
+=== edf-14
+gab: E
+tema: ed-supervisao
+ref: lei15211 23
+trecho: ou em contexto próprio do universo sexual adulto
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um provedor impulsionou, mediante pagamento, vídeo que mostrava uma adolescente em contexto próprio do universo sexual adulto, argumentando que não havia nudez. Assertiva: o impulsionamento é lícito.
+comentario: Errado. É vedado monetizar ou impulsionar conteúdo que retrate adolescente em contexto próprio do universo sexual adulto, ainda que sem nudez (art. 23).
