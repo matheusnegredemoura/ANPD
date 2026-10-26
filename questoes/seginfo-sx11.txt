@@ -1,0 +1,144 @@
+bloco: seginfo
+// Segurança da informação, lote SX11: Política Nacional de Segurança da Informação (Decreto nº 12.572/2025),
+// Comitê Nacional de Cibersegurança (Decreto nº 11.856/2023) e Rede Federal de Gestão de Incidentes Cibernéticos
+// (Decreto nº 10.748/2021). Conferidas com fontes/dec12572.txt, fontes/dec11856.txt e fontes/dec10748.txt.
+
+=== sx11-01
+gab: E
+tema: sg-principios
+ref: dec12572 2
+trecho: do ambiente físico e eletrônico que contenha ativos de informação; e III - do pessoal envolvido no ciclo de vida da informação
+armadilha: rol
+dif: 2
+enunciado: Situação hipotética: um órgão federal limitou sua política de segurança da informação aos sistemas eletrônicos, sem tratar do ambiente físico nem das pessoas que lidam com a informação. Assertiva: o recorte está alinhado à política nacional, para a qual segurança da informação abrange apenas dados e sistemas.
+comentario: Errado. A segurança da informação abrange a dos dados, ativos e processos, a do ambiente físico e eletrônico que contenha ativos e a do pessoal envolvido no ciclo de vida da informação (Decreto 12.572/2025, art. 2º).
+
+=== sx11-02
+gab: C
+tema: sg-nist
+ref: dec12572 8
+trecho: estimular a cooperação internacional, em coordenação com o Ministério das Relações Exteriores
+armadilha: sujeito
+dif: 2
+enunciado: Na política nacional de segurança da informação, cabe ao GSI estimular a cooperação internacional, em coordenação com o Itamaraty.
+comentario: Certo. Decreto 12.572/2025, art. 8º, VI. O GSI também promove a cultura de segurança da informação e programas de qualificação (III e IV).
+
+=== sx11-03
+gab: E
+tema: sg-nist
+ref: dec12572 9
+trecho: Compete ao Sistema de Controle Interno do Poder Executivo Federal auditar a execução das ações da Política Nacional de Segurança da Informação
+armadilha: sujeito
+dif: 3
+enunciado: Situação hipotética: em reunião, um gestor afirmou que a auditoria da execução da política de segurança da informação nos órgãos federais cabe ao GSI, por ser ele o coordenador da política. Assertiva: a afirmação está correta.
+comentario: Errado. O GSI coordena as ações (art. 5º), mas auditar a execução da política nos órgãos e entidades compete ao Sistema de Controle Interno do Poder Executivo Federal (Decreto 12.572/2025, art. 9º).
+
+=== sx11-04
+gab: C
+tema: sg-nist
+ref: dec12572 6
+trecho: será composto pelos gestores de segurança da informação dos órgãos e das entidades da administração pública federal
+armadilha: sujeito
+dif: 2
+enunciado: O Comitê Gestor da Segurança da Informação é formado pelos gestores de segurança da informação dos órgãos e entidades federais.
+comentario: Certo. Decreto 12.572/2025, art. 6º, parágrafo único. O comitê acompanha a implementação e a evolução da política.
+
+=== sx11-05
+gab: E
+tema: sg-nist
+ref: dec12572 12
+trecho: Ficam revogados: I - o Decreto nº 9.637, de 26 de dezembro de 2018
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: um servidor fundamentou a política de segurança de seu órgão no decreto de 2018 que instituiu a primeira política nacional de segurança da informação. Assertiva: o fundamento é atual, pois o decreto de 2025 apenas complementou aquele ato.
+comentario: Errado. O Decreto 12.572/2025 revogou o Decreto 9.637/2018 (art. 12, I) e passou a disciplinar sozinho a política nacional de segurança da informação.
+
+=== sx11-06
+gab: E
+tema: sg-nist
+ref: dec11856 9
+trecho: Na hipótese de empate, além do voto ordinário, o Presidente do CNCiber terá o voto de qualidade
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma proposta de atualização da política de cibersegurança terminou empatada em reunião do comitê nacional da área. Assertiva: a proposta fica rejeitada, pois o presidente do comitê não tem voto de qualidade.
+comentario: Errado. Em caso de empate, o Presidente do CNCiber tem, além do voto ordinário, o voto de qualidade (Decreto 11.856/2023, art. 9º, § 2º).
+
+=== sx11-07
+gab: C
+tema: sg-nist
+ref: dec11856 12
+trecho: A participação no CNCiber e nos grupos de trabalho será considerada prestação de serviço público relevante, não remunerada
+armadilha: conceito
+dif: 1
+enunciado: Participar do CNCiber ou de seus grupos de trabalho é serviço público relevante e não remunerado.
+comentario: Certo. Decreto 11.856/2023, art. 12, regra comum aos colegiados federais.
+
+=== sx11-08
+gab: E
+tema: sg-nist
+ref: dec11856 10
+trecho: terão caráter temporário e duração não superior a um ano
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: o comitê nacional de cibersegurança criou um grupo de trabalho permanente, sem prazo de encerramento, para acompanhar ataques a hospitais. Assertiva: a medida está de acordo com o decreto, que deixa ao comitê a definição da duração de seus grupos.
+comentario: Errado. Os grupos de trabalho do CNCiber têm caráter temporário, duração não superior a um ano, e no máximo cinco funcionam ao mesmo tempo (Decreto 11.856/2023, art. 10, § 1º).
+
+=== sx11-09
+gab: C
+tema: sg-nist
+ref: dec11856 13
+trecho: A Secretaria-Executiva do CNCiber será exercida pelo Gabinete de Segurança Institucional da Presidência da República
+armadilha: sujeito
+dif: 1
+enunciado: Cabe ao Gabinete de Segurança Institucional exercer a Secretaria-Executiva do CNCiber.
+comentario: Certo. Decreto 11.856/2023, art. 13. O GSI também preside o comitê (art. 7º, I).
+
+=== sx11-10
+gab: E
+tema: sg-nist
+ref: dec10748 9
+trecho: por decisão do Gabinete de Segurança Institucional da Presidência da República, na hipótese de
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa privada de energia, convidada pelo GSI a integrar a rede federal de incidentes cibernéticos, passou a descumprir o plano setorial de gestão de incidentes. Assertiva: sua saída da rede só pode ocorrer a pedido do próprio dirigente máximo.
+comentario: Errado. A saída pode ocorrer a pedido do dirigente máximo ou por decisão do GSI, em caso de descumprimento dos requisitos, do plano setorial ou por conveniência administrativa (Decreto 10.748/2021, art. 9º).
+
+=== sx11-11
+gab: C
+tema: sg-nist
+ref: dec10748 7
+trecho: poderá recusá-la motivadamente, mesmo que tenham sido cumpridos os requisitos estabelecidos neste artigo
+armadilha: excecao
+dif: 2
+enunciado: O GSI pode recusar, de forma motivada, a adesão de entidade à rede federal de incidentes, ainda que ela cumpra os requisitos.
+comentario: Certo. Decreto 10.748/2021, art. 7º, § 3º. A colaboração espontânea, caso a caso, com o centro de governo independe da adesão (§ 5º).
+
+=== sx11-12
+gab: E
+tema: sg-nist
+ref: dec10748 6
+trecho: será feita prioritariamente por meio da equipe de coordenação setorial, operada pelo Comando de Defesa Cibernética
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: a equipe de resposta a incidentes de uma Força Singular articulou-se diretamente com o centro de resposta a incidentes do governo, sem informar a coordenação setorial do Ministério da Defesa. Assertiva: a conduta está regular, pois a via direta é a prioritária no âmbito militar.
+comentario: Errado. No âmbito da Defesa, a articulação é feita prioritariamente pela equipe de coordenação setorial, operada pelo Comando de Defesa Cibernética; a via direta é excepcional e exige informar essa equipe (Decreto 10.748/2021, art. 6º, caput e § 1º).
+
+=== sx11-13
+gab: C
+tema: sg-nist
+ref: dec10748 3
+trecho: compartilhar alertas sobre ameaças e vulnerabilidades cibernéticas
+armadilha: rol
+dif: 1
+enunciado: Compartilhar alertas sobre ameaças e vulnerabilidades cibernéticas é objetivo da rede federal de gestão de incidentes.
+comentario: Certo. Decreto 10.748/2021, art. 3º, II. Os demais objetivos incluem cooperação entre participantes e celeridade na resposta.
+
+=== sx11-14
+gab: C
+tema: sg-nist
+ref: dec10748 10
+trecho: convocar reunião da Câmara de Relações Exteriores e Defesa Nacional do Conselho de Governo para deliberar sobre ocorrência de incidente cibernético grave
+armadilha: sujeito
+dif: 2
+enunciado: Diante de incidente cibernético grave, cabe ao GSI convocar reunião da Câmara de Relações Exteriores e Defesa Nacional para deliberar.
+comentario: Certo. Decreto 10.748/2021, art. 10, II, que prevê o mesmo quando houver risco cibernético elevado. O GSI também coordena a rede (I).
