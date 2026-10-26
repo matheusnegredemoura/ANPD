@@ -1,0 +1,112 @@
+bloco: gdpr
+// Direito comparado, nona leva: definições de perfis e pseudonimização (art. 4º), registro das atividades (art. 30),
+// consulta prévia (art. 36), normas corporativas vinculativas (art. 47), operações conjuntas e mecanismo de coerência
+// (arts. 62 e 63). Conferidas com fontes/gdpr.txt.
+
+=== gdi-01
+gab: C
+ref: gdpr 30
+trecho: the purposes of the processing; (c) a description of the categories of data subjects and of the categories of personal data
+armadilha: rol
+dif: 2
+enunciado: No RGPD, o registro das atividades mantido pelo responsável indica, entre outros elementos, as finalidades do tratamento e as categorias de titulares e de dados.
+comentario: Certo. Art. 30, n. 1, b e c. A LGPD também exige registro das operações (art. 37), mas sem fixar na lei o conteúdo mínimo.
+
+=== gdi-02
+gab: E
+ref: gdpr 30
+trecho: the processing is not occasional, or the processing includes special categories of data
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: uma clínica europeia com poucos empregados trata, de forma habitual, dados de saúde de pacientes e deixou de manter o registro das atividades por causa de seu porte. Assertiva: a dispensa vale, pois o RGPD isenta as pequenas organizações dessa obrigação em qualquer caso.
+comentario: Errado. A dispensa para organizações com menos de 250 pessoas não se aplica se o tratamento puder gerar risco, não for ocasional ou envolver categorias especiais de dados, como os de saúde (art. 30, n. 5).
+
+=== gdi-03
+gab: C
+ref: gdpr 30
+trecho: shall make the record available to the supervisory authority on request
+armadilha: conceito
+dif: 1
+enunciado: No RGPD, o registro das atividades de tratamento deve ser posto à disposição da autoridade de controle quando ela o pedir.
+comentario: Certo. Art. 30, n. 4, que alcança responsável, subcontratante e seus representantes.
+
+=== gdi-04
+gab: E
+ref: gdpr 30
+trecho: shall be in writing, including in electronic form
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma autoridade de controle recusou o registro de atividades de uma empresa por estar só em meio eletrônico e exigiu versão em papel. Assertiva: a exigência decorre do RGPD, que não admite registro em formato eletrônico.
+comentario: Errado. Os registros devem ser feitos por escrito, inclusive em formato eletrônico (art. 30, n. 3).
+
+=== gdi-05
+gab: E
+ref: gdpr 36
+trecho: The controller shall consult the supervisory authority prior to processing where a data protection impact assessment under Article 35 indicates that the processing would result in a high risk
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a avaliação de impacto de um responsável europeu apontou alto risco que ele não conseguiu mitigar, e o tratamento começou sem contato com a autoridade de controle. Assertiva: a conduta está de acordo com o RGPD, para o qual a consulta prévia é sempre facultativa.
+comentario: Errado. Se a avaliação de impacto indicar alto risco na ausência de medidas de mitigação, o responsável deve consultar a autoridade de controle antes do tratamento (art. 36, n. 1).
+
+=== gdi-06
+gab: C
+ref: gdpr 36
+trecho: Member States shall consult the supervisory authority during the preparation of a proposal for a legislative measure
+armadilha: sujeito
+dif: 2
+enunciado: No RGPD, os Estados-Membros devem consultar a autoridade de controle ao preparar proposta legislativa que trate de tratamento de dados.
+comentario: Certo. Art. 36, n. 4. A regra vale também para medidas regulamentares baseadas nessa legislação.
+
+=== gdi-07
+gab: E
+ref: gdpr 47
+trecho: are legally binding and apply to and are enforced by every member concerned of the group of undertakings
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um grupo empresarial redigiu normas corporativas que obrigam só a matriz e não conferem aos titulares direitos que eles possam exigir. Assertiva: o texto preenche os requisitos do RGPD para aprovação como normas corporativas vinculativas.
+comentario: Errado. As normas devem ser juridicamente vinculativas e aplicadas por todos os membros do grupo, incluindo empregados, e conferir expressamente direitos exigíveis aos titulares (art. 47, n. 1, a e b).
+
+=== gdi-08
+gab: C
+ref: gdpr 47
+trecho: the acceptance by the controller or processor established on the territory of a Member State of liability for any breaches of the binding corporate rules by any member concerned not established in the Union
+armadilha: conceito
+dif: 3
+enunciado: Nas normas corporativas vinculativas do RGPD, o membro estabelecido na União aceita responder por violações cometidas por membro do grupo situado fora dela.
+comentario: Certo. Art. 47, n. 2, f. A Resolução CD/ANPD nº 19/2024 segue lógica parecida ao exigir entidade responsável com sede no Brasil.
+
+=== gdi-09
+gab: E
+ref: gdpr 62
+trecho: The supervisory authorities shall, where appropriate, conduct joint operations including joint investigations and joint enforcement measures
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: autoridades de controle de dois Estados-Membros queriam investigar em conjunto uma empresa com estabelecimentos em ambos, mas um assessor afirmou que o RGPD veda operações conjuntas. Assertiva: o assessor está correto.
+comentario: Errado. As autoridades de controle realizam, quando adequado, operações conjuntas, incluindo investigações e medidas de execução conjuntas (art. 62, n. 1).
+
+=== gdi-10
+gab: C
+ref: gdpr 63
+trecho: In order to contribute to the consistent application of this Regulation throughout the Union, the supervisory authorities shall cooperate with each other
+armadilha: conceito
+dif: 2
+enunciado: O mecanismo de coerência do RGPD busca a aplicação uniforme do regulamento na União, por meio da cooperação entre as autoridades de controle.
+comentario: Certo. Art. 63. Quando pertinente, a Comissão também participa, e o Comitê Europeu de Proteção de Dados tem papel central no mecanismo.
+
+=== gdi-11
+gab: E
+ref: gdpr 4
+trecho: ‘profiling’ means any form of automated processing of personal data
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: em parecer, um consultor afirmou que, no RGPD, a definição de perfis abrange apenas a análise manual de aspectos pessoais, como o desempenho no trabalho. Assertiva: a afirmação está correta.
+comentario: Errado. A definição de perfis é qualquer forma de tratamento automatizado de dados pessoais para avaliar aspectos pessoais, como desempenho profissional, situação econômica, saúde ou localização (art. 4º, n. 4).
+
+=== gdi-12
+gab: C
+ref: gdpr 4
+trecho: provided that such additional information is kept separately and is subject to technical and organisational measures
+armadilha: conceito
+dif: 2
+enunciado: No RGPD, os dados pseudonimizados só podem ser atribuídos ao titular com informações adicionais, mantidas em separado e protegidas.
+comentario: Certo. Art. 4º, n. 5. Dados pseudonimizados continuam sendo dados pessoais; a LGPD tem conceito semelhante no art. 13, § 4º.
