@@ -1,0 +1,124 @@
+bloco: res-2-2022
+// Resolução CD/ANPD nº 2/2022 (agentes de tratamento de pequeno porte), lote CX: casos sobre encarregado e canal de
+// comunicação, tratamento de alto risco, exclusões, prazos em dobro, registro e segurança simplificados.
+// Itens escritos para o banco. Trechos conferidos em fontes/res2.txt.
+
+=== r2c-01
+gab: C
+tema: an-pequeno-porte
+ref: res2 11
+trecho: deve disponibilizar um canal de comunicação com o titular de dados
+armadilha: conceito
+dif: 1
+enunciado: O agente de tratamento de pequeno porte pode deixar de indicar encarregado, mas deve oferecer canal de comunicação com os titulares.
+comentario: Certo. Art. 11, caput e § 1º. O canal serve para receber reclamações e comunicações dos titulares, prestar esclarecimentos e adotar providências (art. 41, § 2º, I, da LGPD).
+
+=== r2c-02
+gab: E
+tema: an-pequeno-porte
+ref: res2 11
+trecho: O agente de tratamento de pequeno porte que não indicar um encarregado deve disponibilizar um canal de comunicação com o titular de dados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma microempresa que não trata dados de alto risco não indicou encarregado e também não oferece nenhum meio para os clientes perguntarem sobre seus dados. Assertiva: a situação está conforme o regulamento dos agentes de pequeno porte, que os dispensa dessas duas obrigações.
+comentario: Errado. A dispensa alcança só a indicação do encarregado; quem não o indica deve disponibilizar canal de comunicação com o titular (art. 11, § 1º).
+
+=== r2c-03
+gab: C
+tema: an-pequeno-porte
+ref: res2 4
+trecho: vigilância ou controle de zonas acessíveis ao público
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma startup instalou câmeras com reconhecimento facial em vários centros comerciais, identificando milhares de frequentadores por dia. Assertiva: o tratamento é de alto risco e afasta o tratamento jurídico diferenciado dos agentes de pequeno porte.
+comentario: Certo. Há critério geral (larga escala) e critério específico (vigilância de zonas acessíveis ao público e uso de tecnologia emergente), o que configura alto risco (art. 4º). O alto risco afasta o regime diferenciado (art. 3º, I), ressalvado o art. 8º.
+
+=== r2c-04
+gab: E
+tema: an-pequeno-porte
+ref: res2 4
+trecho: será considerado de alto risco o tratamento de dados pessoais que atender cumulativamente a pelo menos um critério geral e um critério específico
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma padaria mantém cadastro com nome, telefone e endereço de clientes para entregas, sem usar tecnologia inovadora, dados sensíveis ou decisões automatizadas. Assertiva: o simples fato de tratar dados pessoais de clientes caracteriza tratamento de alto risco e afasta o regime diferenciado.
+comentario: Errado. O alto risco exige, cumulativamente, ao menos um critério geral e um critério específico do art. 4º. O cadastro da padaria não atende a nenhum critério específico.
+
+=== r2c-05
+gab: C
+tema: an-pequeno-porte
+ref: res2 14
+trecho: no fornecimento de declaração clara e completa, prevista no art. 19, II da LGPD
+armadilha: conceito
+dif: 2
+enunciado: O agente de tratamento de pequeno porte tem prazo em dobro para fornecer a declaração clara e completa prevista no art. 19, II, da LGPD.
+comentario: Certo. Art. 14, III. O prazo em dobro vale também para o atendimento das solicitações dos titulares, para a comunicação de incidentes e para a entrega de informações pedidas pela ANPD (I, II e IV).
+
+=== r2c-06
+gab: E
+tema: an-pequeno-porte
+ref: res2 15
+trecho: no prazo de até quinze dias, contados da data do requerimento do titular
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um cliente pediu a uma microempresa a confirmação, em formato simplificado, de que ela trata seus dados, e a empresa respondeu dez dias depois. Assertiva: a empresa descumpriu a LGPD, pois a resposta simplificada deve ser imediata para qualquer agente de tratamento.
+comentario: Errado. Os agentes de pequeno porte podem fornecer a declaração simplificada do art. 19, I, da LGPD em até quinze dias, contados do requerimento (art. 15 da Resolução 2/2022).
+
+=== r2c-07
+gab: C
+tema: an-pequeno-porte
+ref: res2 3
+trecho: pertençam a grupo econômico de fato ou de direito, cuja receita global ultrapasse os limites
+armadilha: excecao
+dif: 2
+enunciado: Não se beneficia do regime diferenciado a microempresa que integre grupo econômico cuja receita global ultrapasse os limites legais.
+comentario: Certo. Art. 3º, III. Também ficam de fora quem realiza tratamento de alto risco (I) e quem aufere receita bruta acima dos limites da LC 123/2006 ou, para startups, da LC 182/2021 (II).
+
+=== r2c-08
+gab: E
+tema: an-pequeno-porte
+ref: res2 2
+trecho: bem como pessoas naturais e entes privados despersonalizados que realizam tratamento de dados pessoais
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um fotógrafo autônomo, sem empresa constituída, trata dados de clientes em sua atividade profissional e quer usar o regime simplificado da ANPD. Assertiva: o regime não o alcança, porque se destina apenas a pessoas jurídicas.
+comentario: Errado. O conceito de agente de pequeno porte inclui pessoas naturais e entes privados despersonalizados que realizam tratamento de dados, assumindo obrigações típicas de controlador ou operador (art. 2º, I).
+
+=== r2c-09
+gab: C
+tema: an-pequeno-porte
+ref: res2 13
+trecho: A ANPD considerará a existência de política simplificada de segurança da informação para fins do disposto no art. 6º X e no art. 52, § 1º VIII e IX da LGPD.
+armadilha: conceito
+dif: 2
+enunciado: A política simplificada de segurança da informação do agente de pequeno porte é considerada pela ANPD na avaliação da responsabilização e na dosimetria das sanções.
+comentario: Certo. Art. 13, § 2º, que remete ao princípio da responsabilização e prestação de contas (art. 6º, X) e aos parâmetros de dosimetria do art. 52, § 1º, VIII e IX, da LGPD.
+
+=== r2c-10
+gab: E
+tema: an-pequeno-porte
+ref: res2 9
+trecho: podem cumprir a obrigação de elaboração e manutenção de registro das operações de tratamento de dados pessoais, constante do art. 37 da LGPD, de forma simplificada
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma pequena loja virtual não mantém nenhum registro de suas operações de tratamento, alegando que os agentes de pequeno porte estão dispensados dessa obrigação. Assertiva: a alegação procede.
+comentario: Errado. O agente de pequeno porte pode cumprir a obrigação de registro de forma simplificada, mas não está dispensado dela (art. 9º). A ANPD fornece modelo para esse registro (parágrafo único).
+
+=== r2c-11
+gab: C
+tema: an-pequeno-porte
+ref: res2 11
+trecho: será considerada política de boas práticas e governança
+armadilha: conceito
+dif: 2
+enunciado: Se o agente de pequeno porte indicar encarregado mesmo sem ser obrigado, a indicação é considerada política de boas práticas e governança.
+comentario: Certo. Art. 11, § 2º, para fins do art. 52, § 1º, IX, da LGPD, o que pode atenuar eventual sanção.
+
+=== r2c-12
+gab: E
+tema: an-pequeno-porte
+ref: res2 12
+trecho: devem adotar medidas administrativas e técnicas essenciais e necessárias, com base em requisitos mínimos de segurança da informação
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: depois de vazamento de dados em seu sistema, uma startup de pequeno porte alegou que, pelo regime simplificado, não estava obrigada a adotar nenhuma medida de segurança. Assertiva: a alegação procede.
+comentario: Errado. Os agentes de pequeno porte devem adotar medidas administrativas e técnicas essenciais, com base em requisitos mínimos de segurança da informação (art. 12). O regime simplifica, mas não elimina o dever de segurança.
