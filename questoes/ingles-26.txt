@@ -1,0 +1,148 @@
+bloco: ingles
+// Original text written for the bank (explaining automated decisions), with comprehension, vocabulary, reference and grammar items.
+// Comentários em português.
+
+apoio_EN26A: When a bank rejects a loan application, the customer usually wants to know why. If the decision was made by an algorithm, however, the answer may be hard to obtain. Some companies argue that explaining their models would expose trade secrets; others admit that even their own engineers cannot fully trace how a particular result was reached.
+Regulators have responded in different ways. Several data protection laws now give individuals the right to request a review of decisions taken solely on the basis of automated processing. Such a right, though, is only meaningful if people are told, in plain language, which factors were considered and how much each of them weighed.
+Transparency does not require publishing source code. What matters is that a person affected by a decision can understand it well enough to challenge it. Without that, accountability becomes a promise that nobody is able to verify.
+
+=== en26-01
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN26A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: literal
+dif: 1
+enunciado: According to the text, some companies claim that explaining their models could reveal trade secrets.
+comentario: Certo. Primeiro parágrafo: “Some companies argue that explaining their models would expose trade secrets”.
+
+=== en26-02
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN26A
+armadilha: literal
+dif: 1
+enunciado: The text states that engineers are always able to trace exactly how an algorithm reached a particular result.
+comentario: Errado. O texto diz o contrário: algumas empresas admitem que nem seus engenheiros conseguem rastrear plenamente como um resultado foi alcançado.
+
+=== en26-03
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN26A
+armadilha: interpretacao
+dif: 2
+enunciado: The author suggests that the right to request a review of automated decisions has little value if people are not told which factors were considered.
+comentario: Certo. Segundo parágrafo: o direito “is only meaningful if people are told, in plain language, which factors were considered”.
+
+=== en26-04
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN26A
+armadilha: extrapolacao
+dif: 1
+enunciado: According to the text, transparency requires companies to publish the source code of their models.
+comentario: Errado. Terceiro parágrafo: “Transparency does not require publishing source code”. Importa que a pessoa afetada entenda a decisão o bastante para contestá-la.
+
+=== en26-05
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN26A
+armadilha: literal
+dif: 1
+enunciado: In the second paragraph, the word “solely” could be replaced by only without changing the meaning of the sentence.
+comentario: Certo. “Solely” significa exclusivamente, unicamente; “only” mantém o sentido de decisões tomadas apenas com base em tratamento automatizado.
+
+=== en26-06
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN26A
+armadilha: interpretacao
+dif: 2
+enunciado: In the first paragraph, the word “however” introduces an idea that confirms what was said in the previous sentence.
+comentario: Errado. “However” marca contraste: o cliente quer saber o motivo, mas, se a decisão foi tomada por algoritmo, a resposta pode ser difícil de obter.
+
+=== en26-07
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN26A
+armadilha: interpretacao
+dif: 1
+enunciado: In the first paragraph, the word “others” refers to companies.
+comentario: Certo. “Some companies argue (...); others admit (...)”: “others” equivale a “other companies”.
+
+=== en26-08
+gab: E
+tema: en-referencia
+ref: texto
+apoio: @EN26A
+armadilha: interpretacao
+dif: 2
+enunciado: In the second paragraph, the pronoun “them”, in “how much each of them weighed”, refers to “people”.
+comentario: Errado. “Them” retoma “factors”: o texto fala de quanto pesou cada um dos fatores considerados.
+
+=== en26-09
+gab: C
+tema: en-gramatica
+ref: texto
+apoio: @EN26A
+armadilha: conceito
+dif: 2
+enunciado: In the first paragraph, “was made” is an example of the passive voice.
+comentario: Certo. “The decision was made by an algorithm”: verbo “to be” no passado mais particípio, com o agente introduzido por “by”.
+
+=== en26-10
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN26A
+armadilha: literal
+dif: 2
+enunciado: In the third paragraph, the verb “challenge” means to accept a decision without questioning it.
+comentario: Errado. “Challenge” significa contestar, questionar. O texto diz que a pessoa deve entender a decisão o bastante para contestá-la.
+
+=== en26-11
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN26A
+armadilha: literal
+dif: 1
+enunciado: The text mentions the rejection of a loan application as an example of a decision that may be made by an algorithm.
+comentario: Certo. O primeiro parágrafo abre com o exemplo do banco que rejeita um pedido de empréstimo.
+
+=== en26-12
+gab: E
+tema: en-gramatica
+ref: texto
+apoio: @EN26A
+armadilha: conceito
+dif: 2
+enunciado: In the second paragraph, the excerpt “Several data protection laws now give” would remain grammatically correct if “give” were replaced by gives.
+comentario: Errado. O sujeito “Several data protection laws” está no plural, e o verbo no presente simples não leva o “-s” da terceira pessoa do singular.
+
+=== en26-13
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN26A
+armadilha: conceito
+dif: 2
+enunciado: In the third paragraph, “accountability” refers to the obligation to answer for one's decisions and their consequences.
+comentario: Certo. “Accountability” é o dever de prestar contas e responder pelas decisões; o texto alerta que, sem transparência, essa promessa não pode ser verificada.
+
+=== en26-14
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN26A
+armadilha: extrapolacao
+dif: 3
+enunciado: The text concludes that accountability is guaranteed as soon as laws create a right to request a review of automated decisions.
+comentario: Errado. Para o autor, o direito de revisão só tem sentido com explicações claras; sem compreensão da decisão, a prestação de contas vira promessa que ninguém pode verificar.
