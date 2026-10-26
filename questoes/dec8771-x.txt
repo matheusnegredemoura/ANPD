@@ -1,0 +1,76 @@
+bloco: marco-civil
+// Decreto nº 8.771/2016 (regulamento do Marco Civil da Internet), lote X: padrões de segurança na guarda de registros
+// (art. 13), retenção mínima e exclusão (art. 13, § 2º), formato dos dados (art. 15), transparência dos padrões
+// (art. 16) e competências da Senacon e do SBDC (arts. 18 e 19). Trechos conferidos em fontes/dec8771.txt.
+
+=== d87x-01
+gab: C
+ref: dec8771 13
+trecho: usando, por exemplo, sistemas de autenticação dupla para assegurar a individualização do responsável pelo tratamento dos registros
+armadilha: conceito
+dif: 2
+enunciado: Os provedores devem prever mecanismos de autenticação de acesso aos registros, como a autenticação dupla, para individualizar quem os trata.
+comentario: Certo. Art. 13, II. A autenticação em dois fatores impede que uma senha vazada baste para acessar os registros e permite saber quem acessou.
+
+=== d87x-02
+gab: E
+ref: dec8771 13
+trecho: a criação de inventário detalhado dos acessos aos registros de conexão e de acesso a aplicações, contendo o momento, a duração, a identidade do funcionário
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um provedor de conexão permite que vários técnicos consultem os registros de conexão dos clientes, mas não anota quem acessou, quando, por quanto tempo nem qual arquivo foi aberto. Assertiva: a prática atende às diretrizes de segurança do regulamento do Marco Civil.
+comentario: Errado. O art. 13, III, exige inventário detalhado dos acessos aos registros, com o momento, a duração, a identidade do responsável e o arquivo acessado.
+
+=== d87x-03
+gab: C
+ref: dec8771 13
+trecho: devem reter a menor quantidade possível de dados pessoais, comunicações privadas e registros de conexão e acesso a aplicações
+armadilha: conceito
+dif: 2
+enunciado: Os provedores devem reter a menor quantidade possível de dados pessoais e registros e excluí-los tão logo atingida a finalidade do uso ou encerrado o prazo legal de guarda.
+comentario: Certo. Art. 13, § 2º, que concretiza os direitos do art. 7º, VII a X, do Marco Civil. A lógica é a mesma do princípio da necessidade da LGPD.
+
+=== d87x-04
+gab: E
+ref: dec8771 13
+trecho: o uso de soluções de gestão dos registros por meio de técnicas que garantam a inviolabilidade dos dados, como encriptação ou medidas de proteção equivalentes
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um provedor de aplicações guarda os registros de acesso em planilhas sem nenhuma proteção, em pasta compartilhada da rede interna. Assertiva: como os registros não incluem o conteúdo das comunicações, a prática atende ao regulamento do Marco Civil.
+comentario: Errado. O art. 13, IV, exige soluções de gestão dos registros que garantam sua inviolabilidade, como encriptação ou medidas equivalentes, e o inciso I exige controle estrito de acesso. Registros de acesso também são protegidos.
+
+=== d87x-05
+gab: C
+ref: dec8771 16
+trecho: devem ser divulgadas de forma clara e acessível a qualquer interessado, preferencialmente por meio de seus sítios na internet
+armadilha: conceito
+dif: 2
+enunciado: Os provedores de conexão e de aplicação devem divulgar seus padrões de segurança de forma clara e acessível, preferencialmente em seus sítios na internet.
+comentario: Certo. Art. 16, que ressalva o direito de confidencialidade quanto aos segredos empresariais.
+
+=== d87x-06
+gab: E
+ref: dec8771 19
+trecho: A apuração de infrações à ordem econômica ficará a cargo do Sistema Brasileiro de Defesa da Concorrência
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: um grande provedor de aplicações passou a discriminar o tráfego de concorrentes para dominar o mercado. Assertiva: pelo regulamento do Marco Civil, a apuração da infração à ordem econômica cabe à Secretaria Nacional do Consumidor.
+comentario: Errado. A apuração de infrações à ordem econômica cabe ao Sistema Brasileiro de Defesa da Concorrência, nos termos da Lei 12.529/2011 (art. 19). A Senacon atua nas infrações às normas de defesa do consumidor (art. 18).
+
+=== d87x-07
+gab: C
+ref: dec8771 18
+trecho: A Secretaria Nacional do Consumidor atuará na fiscalização e na apuração de infrações, nos termos da Lei nº 8.078
+armadilha: conceito
+dif: 1
+enunciado: No regulamento do Marco Civil, a Secretaria Nacional do Consumidor fiscaliza e apura infrações nos termos do Código de Defesa do Consumidor.
+comentario: Certo. Art. 18. A Anatel atua nos termos da Lei Geral de Telecomunicações (art. 17), e o SBDC, nas infrações à ordem econômica (art. 19).
+
+=== d87x-08
+gab: E
+ref: dec8771 15
+trecho: deverão ser mantidos em formato interoperável e estruturado, para facilitar o acesso decorrente de decisão judicial ou determinação legal
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um provedor sujeito à lei brasileira guarda os dados em formato proprietário que só seus engenheiros conseguem ler, o que atrasa o cumprimento de ordens judiciais. Assertiva: a prática é compatível com o regulamento do Marco Civil.
+comentario: Errado. Os dados do art. 11 do Marco Civil devem ser mantidos em formato interoperável e estruturado, para facilitar o acesso decorrente de decisão judicial ou determinação legal (art. 15).
