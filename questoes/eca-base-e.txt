@@ -1,0 +1,144 @@
+bloco: eca-digital
+// Estatuto da Criança e do Adolescente (Lei 8.069/1990), lote E: sigilo sobre ato infracional (art. 143),
+// infiltração de agentes de polícia na internet (arts. 190-A a 190-E) e conceito de material de violência sexual,
+// inclusive gerado por inteligência artificial (art. 241-E, redação da Lei 15.487/2026). Conferidas com fontes/eca.txt.
+
+=== ebe-01
+gab: C
+tema: ed-base
+ref: eca 143
+trecho: vedando-se fotografia, referência a nome, apelido, filiação, parentesco, residência e, inclusive, iniciais do nome e sobrenome
+armadilha: rol
+dif: 2
+enunciado: Notícia sobre ato infracional atribuído a adolescente não pode identificá-lo, nem mesmo pelas iniciais do nome e sobrenome.
+comentario: Certo. Art. 143, parágrafo único. Também são vedados fotografia, apelido, filiação, parentesco e residência.
+
+=== ebe-02
+gab: E
+tema: ed-base
+ref: eca 143
+trecho: Qualquer notícia a respeito do fato não poderá identificar a criança ou adolescente
+armadilha: rol
+dif: 2
+enunciado: Situação hipotética: um portal noticiou ato infracional atribuído a um adolescente sem publicar foto nem nome, mas informou seu apelido e o bairro em que mora. Assertiva: a notícia respeita o ECA, que veda apenas a divulgação do nome e da fotografia.
+comentario: Errado. A notícia não pode identificar o adolescente por nenhum meio: são vedados fotografia, nome, apelido, filiação, parentesco, residência e até iniciais (art. 143, parágrafo único).
+
+=== ebe-03
+gab: C
+tema: ed-base
+ref: eca 190-A
+trecho: A infiltração de agentes de polícia na internet não será admitida se a prova puder ser obtida por outros meios
+armadilha: excecao
+dif: 2
+enunciado: A infiltração de policiais na internet é medida subsidiária: não cabe se a prova puder ser obtida por outros meios.
+comentario: Certo. Art. 190-A, § 3º. A medida invade a esfera dos investigados e por isso fica reservada aos casos em que outros meios de prova não bastam.
+
+=== ebe-04
+gab: E
+tema: ed-base
+ref: eca 190-A
+trecho: será precedida de autorização judicial devidamente circunstanciada e fundamentada
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um delegado iniciou infiltração virtual em grupo de troca de imagens de abuso infantil com base apenas em ordem interna da corporação, para não perder provas. Assertiva: a infiltração é válida, pois o ECA dispensa autorização judicial nesse caso.
+comentario: Errado. A infiltração deve ser precedida de autorização judicial circunstanciada e fundamentada, que fixa seus limites, ouvido o Ministério Público (art. 190-A, I).
+
+=== ebe-05
+gab: C
+tema: ed-base
+ref: eca 190-A
+trecho: informações referentes a hora, data, início, término, duração, endereço de Protocolo de Internet (IP) utilizado e terminal de origem da conexão
+armadilha: conceito
+dif: 2
+enunciado: Na disciplina da infiltração virtual, o endereço IP e a duração da conexão estão entre os dados de conexão.
+comentario: Certo. Art. 190-A, § 2º, I. Já nome e endereço do assinante são dados cadastrais (II).
+
+=== ebe-06
+gab: E
+tema: ed-base
+ref: eca 190-A
+trecho: não poderá exceder o prazo de 90 (noventa) dias, sem prejuízo de eventuais renovações
+armadilha: numero
+dif: 3
+enunciado: Situação hipotética: o juiz autorizou, em decisão única, uma infiltração virtual por seis meses, prazo que considerou razoável para a investigação. Assertiva: a decisão está de acordo com o ECA, que deixa ao juiz fixar livremente a duração de cada autorização.
+comentario: Errado. Cada autorização não pode exceder noventa dias, admitidas renovações até o total de setecentos e vinte dias, demonstrada a efetiva necessidade (art. 190-A, III).
+
+=== ebe-07
+gab: C
+tema: ed-base
+ref: eca 190-C
+trecho: Não comete crime o policial que oculta a sua identidade para, por meio da internet, colher indícios de autoria e materialidade
+armadilha: conceito
+dif: 2
+enunciado: Não comete crime o policial que oculta a identidade na internet para colher indícios de autoria e materialidade dos crimes que autorizam a infiltração.
+comentario: Certo. Art. 190-C, caput. A proteção não alcança excessos (parágrafo único).
+
+=== ebe-08
+gab: E
+tema: ed-base
+ref: eca 190-C
+trecho: O agente policial infiltrado que deixar de observar a estrita finalidade da investigação responderá pelos excessos praticados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um policial infiltrado em fórum on-line passou a ameaçar outros participantes por motivos pessoais, sem relação com a investigação. Assertiva: ele não responde por esses atos, pois atuava sob identidade fictícia autorizada pelo juiz.
+comentario: Errado. O agente que deixar de observar a estrita finalidade da investigação responde pelos excessos praticados (art. 190-C, parágrafo único).
+
+=== ebe-09
+gab: C
+tema: ed-base
+ref: eca 190-B
+trecho: o acesso aos autos será reservado ao juiz, ao Ministério Público e ao delegado de polícia responsável pela operação
+armadilha: sujeito
+dif: 2
+enunciado: Antes de concluída a infiltração, o acesso aos autos fica restrito ao juiz, ao Ministério Público e ao delegado responsável.
+comentario: Certo. Art. 190-B, parágrafo único, para garantir o sigilo das investigações.
+
+=== ebe-10
+gab: E
+tema: ed-base
+ref: eca 190-E
+trecho: assegurando-se a preservação da identidade do agente policial infiltrado e a intimidade das crianças e dos adolescentes envolvidos
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: concluída a infiltração, a defesa pediu que os registros eletrônicos fossem juntados ao processo com a identificação do policial infiltrado e das vítimas. Assertiva: o pedido deve ser atendido, pois o ECA não prevê nenhuma reserva nessa fase.
+comentario: Errado. Os atos eletrônicos são reunidos em autos apartados, preservadas a identidade do agente infiltrado e a intimidade das crianças e dos adolescentes envolvidos (art. 190-E, parágrafo único).
+
+=== ebe-11
+gab: C
+tema: ed-base
+ref: eca 241-E
+trecho: ainda que produzida, manipulada ou gerada mediante o uso de tecnologias digitais, inclusive inteligência artificial
+armadilha: conceito
+dif: 2
+enunciado: Para os crimes do ECA, imagem gerada por inteligência artificial pode configurar material de violência sexual contra criança.
+comentario: Certo. Art. 241-E, com a redação da Lei 15.487/2026: a representação pode envolver criança real ou fictícia e ser gerada por tecnologias digitais.
+
+=== ebe-12
+gab: E
+tema: ed-base
+ref: eca 241-E
+trecho: ainda que não haja exposição de órgãos genitais ou que esses estejam cobertos
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um investigado alegou que imagens de crianças em poses de evidente conotação sexual não configuravam o material previsto no ECA, pois nelas os órgãos genitais estavam cobertos. Assertiva: a alegação procede.
+comentario: Errado. Configura o material a representação de pose ou contexto de conotação sexual ou libidinosa, ainda que os órgãos genitais não estejam expostos ou estejam cobertos (art. 241-E, III).
+
+=== ebe-13
+gab: C
+tema: ed-base
+ref: eca 190-D
+trecho: mediante procedimento sigiloso e requisição da autoridade judicial, as informações necessárias à efetividade da identidade fictícia criada
+armadilha: conceito
+dif: 3
+enunciado: Por requisição judicial e em procedimento sigiloso, órgãos de registro público podem incluir em seus bancos de dados informações que deem efetividade à identidade fictícia do policial infiltrado.
+comentario: Certo. Art. 190-D. O procedimento é numerado e tombado em livro específico (parágrafo único).
+
+=== ebe-14
+gab: E
+tema: ed-base
+ref: eca 190-A
+trecho: dar-se-á mediante requerimento do Ministério Público ou representação de delegado de polícia
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: os pais de uma vítima pediram diretamente ao juiz a infiltração de policiais em um aplicativo de mensagens usado pelo agressor. Assertiva: o pedido é idôneo, pois o ECA legitima a vítima e seus representantes a requerer a medida.
+comentario: Errado. A infiltração se dá mediante requerimento do Ministério Público ou representação do delegado de polícia (art. 190-A, II).
