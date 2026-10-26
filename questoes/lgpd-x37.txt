@@ -1,0 +1,156 @@
+// LGPD, lote X37: casos sobre o tratamento de dados pelo Poder Público (arts. 23, 31 e 32), inclusive cartórios, e
+// sobre o dever de segurança desde a concepção (art. 46). Conferidas com fontes/lgpd.txt.
+
+=== lx37-01
+bloco: lgpd-23-32
+gab: C
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: fornecendo informações claras e atualizadas sobre a previsão legal, a finalidade, os procedimentos e as práticas utilizadas para a execução dessas atividades
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma prefeitura publicou em seu sítio eletrônico as hipóteses em que trata dados pessoais, com a previsão legal, a finalidade e os procedimentos de cada serviço. Assertiva: a conduta atende ao dever de transparência da LGPD para o Poder Público.
+comentario: Certo. Art. 23, I: as informações devem ser claras e atualizadas, em veículos de fácil acesso, preferencialmente nos sítios eletrônicos.
+
+=== lx37-02
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: seja indicado um encarregado quando realizarem operações de tratamento de dados pessoais
+armadilha: excecao
+dif: 1
+enunciado: Por já se submeterem ao controle externo, os órgãos públicos ficam dispensados de indicar encarregado pelo tratamento de dados pessoais.
+comentario: Errado. O art. 23, III, exige que os órgãos e entidades públicos indiquem encarregado quando realizarem operações de tratamento de dados pessoais.
+
+=== lx37-03
+bloco: lgpd-23-32
+gab: C
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: não dispensa as pessoas jurídicas mencionadas no caput deste artigo de instituir as autoridades de que trata a Lei nº 12.527
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: depois de indicar seu encarregado pela proteção de dados, um ministério manteve a autoridade de monitoramento prevista na Lei de Acesso à Informação. Assertiva: a decisão é compatível com a LGPD.
+comentario: Certo. A LGPD não dispensa os órgãos públicos de instituir as autoridades da LAI (art. 23, § 2º). As duas leis convivem: a LAI garante o acesso à informação pública, e a LGPD protege os dados pessoais, inclusive os tratados pelo Estado.
+
+=== lx37-04
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: observarão o disposto em legislação específica, em especial as disposições constantes da Lei nº 9.507
+armadilha: comparacao
+dif: 3
+enunciado: Os prazos e procedimentos para o titular exercer seus direitos perante o Poder Público são exclusivamente os previstos na LGPD, sem aplicação de outras leis.
+comentario: Errado. Pelo art. 23, § 3º, observam a legislação específica, em especial a Lei do Habeas Data, a Lei Geral do Processo Administrativo (Lei 9.784/1999) e a LAI.
+
+=== lx37-05
+bloco: lgpd-23-32
+gab: C
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: terão o mesmo tratamento dispensado às pessoas jurídicas referidas no caput deste artigo
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um cartório de registro civil, exercido em caráter privado por delegação, alegou estar sujeito às regras da LGPD aplicáveis às empresas privadas. Assertiva: a alegação não procede, pois os serviços notariais e de registro recebem o mesmo tratamento das pessoas jurídicas de direito público.
+comentario: Certo. Art. 23, § 4º. Os cartórios devem ainda fornecer acesso aos dados por meio eletrônico à administração pública, para as finalidades do caput (§ 5º).
+
+=== lx37-06
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: Os órgãos notariais e de registro devem fornecer acesso aos dados por meio eletrônico para a administração pública
+armadilha: conceito
+dif: 2
+enunciado: Por exercerem atividade em caráter privado, os cartórios não estão obrigados a fornecer à administração pública acesso eletrônico aos dados que mantêm.
+comentario: Errado. O art. 23, § 5º, obriga os órgãos notariais e de registro a fornecer acesso aos dados por meio eletrônico para a administração pública, tendo em vista as finalidades públicas do caput.
+
+=== lx37-07
+bloco: lgpd-23-32
+gab: C
+tema: pd-poder-publico
+ref: lgpd 31
+trecho: a autoridade nacional poderá enviar informe com medidas cabíveis para fazer cessar a violação
+armadilha: conceito
+dif: 2
+enunciado: Quando órgão público infringe a LGPD ao tratar dados pessoais, a ANPD pode enviar-lhe informe com as medidas cabíveis para fazer cessar a violação.
+comentario: Certo. Art. 31. Além disso, órgãos e entidades públicos podem receber sanções como advertência, publicização e bloqueio (art. 52, § 3º), mas não multa.
+
+=== lx37-08
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 32
+trecho: A autoridade nacional poderá solicitar a agentes do Poder Público a publicação de relatórios de impacto à proteção de dados pessoais
+armadilha: conceito
+dif: 2
+enunciado: A ANPD não pode solicitar a órgãos públicos a publicação de relatórios de impacto à proteção de dados, em respeito à autonomia administrativa de cada ente.
+comentario: Errado. O art. 32 permite à ANPD solicitar a agentes do Poder Público a publicação desses relatórios e sugerir padrões e boas práticas para os tratamentos.
+
+=== lx37-09
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 46
+trecho: deverão ser observadas desde a fase de concepção do produto ou do serviço até a sua execução
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma startup lançou aplicativo de saúde sem nenhuma medida de segurança, prometendo incluí-las em versão futura. Assertiva: a conduta contraria a LGPD, que exige as medidas de segurança desde a concepção do produto.
+comentario: Certo. Art. 46, § 2º: as medidas devem ser observadas desde a fase de concepção do produto ou serviço até a sua execução, ideia conhecida como privacidade e segurança desde a concepção.
+
+=== lx37-10
+bloco: lgpd-46-51
+gab: E
+tema: pd-seguranca
+ref: lgpd 46
+trecho: A autoridade nacional poderá dispor sobre padrões técnicos mínimos
+armadilha: conceito
+dif: 2
+enunciado: A LGPD veda à ANPD fixar padrões técnicos mínimos de segurança, para não engessar a escolha tecnológica das empresas.
+comentario: Errado. O art. 46, § 1º, autoriza a ANPD a dispor sobre padrões técnicos mínimos, considerados a natureza das informações, as características do tratamento e o estado atual da tecnologia, especialmente no caso de dados sensíveis.
+
+=== lx37-11
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 46
+trecho: situações acidentais ou ilícitas de destruição, perda, alteração
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: sem cópia de segurança, uma clínica perdeu os prontuários dos pacientes quando o único servidor queimou. Assertiva: mesmo sem ataque, houve falha no dever de adotar medidas de segurança.
+comentario: Certo. O art. 46 alcança também situações acidentais de destruição e perda, e não só os acessos não autorizados. A ausência de backup expõe os dados a perda evitável.
+
+=== lx37-12
+bloco: lgpd-46-51
+gab: E
+tema: pd-seguranca
+ref: lgpd 46
+trecho: aptas a proteger os dados pessoais de acessos não autorizados e de situações acidentais ou ilícitas
+armadilha: rol
+dif: 2
+enunciado: O dever de segurança da LGPD limita-se a proteger os dados contra ataques intencionais de terceiros.
+comentario: Errado. As medidas devem proteger contra acessos não autorizados e contra situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou qualquer tratamento inadequado (art. 46).
+
+=== lx37-13
+bloco: lgpd-23-32
+gab: C
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: com o objetivo de executar as competências legais ou cumprir as atribuições legais do serviço público
+armadilha: conceito
+dif: 1
+enunciado: O tratamento de dados pelo Poder Público deve atender à sua finalidade pública, na persecução do interesse público, para executar competências legais ou cumprir atribuições legais do serviço público.
+comentario: Certo. Art. 23, caput. Por isso a base legal mais comum no setor público é o cumprimento de obrigação legal ou a execução de políticas públicas, e não o consentimento.
+
+=== lx37-14
+bloco: lgpd-23-32
+gab: E
+tema: pd-poder-publico
+ref: lgpd 23
+trecho: em veículos de fácil acesso, preferencialmente em seus sítios eletrônicos
+armadilha: conceito
+dif: 2
+enunciado: As informações sobre o tratamento de dados pelos órgãos públicos devem ser divulgadas exclusivamente no Diário Oficial.
+comentario: Errado. A LGPD pede veículos de fácil acesso, preferencialmente os sítios eletrônicos dos órgãos (art. 23, I). O Diário Oficial, de consulta mais difícil para o cidadão, não é o meio exigido.
