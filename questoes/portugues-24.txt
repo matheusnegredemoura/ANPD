@@ -1,0 +1,158 @@
+bloco: portugues
+// Texto original escrito para o banco (reconhecimento facial em estádios), com itens de interpretação, coesão,
+// semântica, pontuação, concordância, crase, sintaxe, reescrita e verbos.
+
+apoio_PT24A: Estádios de várias cidades passaram a exigir que o torcedor cadastre o rosto para entrar. A promessa é dupla: acabar com a venda de ingressos falsificados e identificar rapidamente quem pratica violência. Poucos discordam desses objetivos. A discussão está em saber se o meio escolhido é proporcional a eles.
+O rosto não é uma senha que se possa trocar. Se um banco de dados com milhões de imagens for invadido, os torcedores não terão como substituir o dado vazado, que poderá ser usado por anos em fraudes de identidade. Além disso, sistemas de reconhecimento ainda erram mais com determinados grupos, o que pode transformar um simples acesso ao jogo em constrangimento.
+Nada impede que a tecnologia seja usada, desde que cercada de garantias: alternativas para quem não quiser cadastrar o rosto, prazo curto de guarda das imagens, auditorias independentes e regras claras sobre quem pode consultá-las. Sem isso, a segurança de alguns poderá custar a privacidade de todos.
+
+=== pt24-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT24A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: literal
+dif: 1
+enunciado: Segundo o texto, o cadastro facial nos estádios pretende combater a venda de ingressos falsificados e identificar quem pratica violência.
+comentario: Certo. Primeiro parágrafo: “A promessa é dupla: acabar com a venda de ingressos falsificados e identificar rapidamente quem pratica violência”.
+
+=== pt24-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT24A
+armadilha: extrapolacao
+dif: 2
+enunciado: O autor opõe-se a qualquer uso de reconhecimento facial nos estádios.
+comentario: Errado. O último parágrafo diz que “Nada impede que a tecnologia seja usada”, desde que cercada de garantias.
+
+=== pt24-03
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT24A
+armadilha: interpretacao
+dif: 2
+enunciado: Depreende-se do texto que, ao contrário de uma senha, o dado biométrico vazado não pode ser substituído pelo titular.
+comentario: Certo. O segundo parágrafo afirma que “O rosto não é uma senha que se possa trocar” e que os torcedores “não terão como substituir o dado vazado”.
+
+=== pt24-04
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT24A
+armadilha: literal
+dif: 2
+enunciado: De acordo com o texto, os sistemas de reconhecimento facial erram na mesma proporção com todos os grupos de pessoas.
+comentario: Errado. O texto diz que esses sistemas “ainda erram mais com determinados grupos”.
+
+=== pt24-05
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT24A
+armadilha: interpretacao
+dif: 1
+enunciado: No primeiro parágrafo, o pronome “eles”, em “proporcional a eles”, retoma “desses objetivos”.
+comentario: Certo. Discute-se se o meio escolhido é proporcional aos objetivos de combater fraudes e violência.
+
+=== pt24-06
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT24A
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, o pronome relativo “que”, em “que poderá ser usado por anos”, retoma “um banco de dados”.
+comentario: Errado. O relativo retoma “o dado vazado”, termo imediatamente anterior: é o dado que poderá ser usado em fraudes.
+
+=== pt24-07
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT24A
+armadilha: interpretacao
+dif: 1
+enunciado: No segundo parágrafo, a expressão “Além disso” introduz um argumento que se soma ao anterior.
+comentario: Certo. Depois do risco de vazamento, o autor acrescenta outro problema: os erros mais frequentes com certos grupos.
+
+=== pt24-08
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT24A
+armadilha: interpretacao
+dif: 2
+enunciado: No primeiro parágrafo, o período “Poucos discordam desses objetivos” significa que a maioria das pessoas rejeita os objetivos do cadastro facial.
+comentario: Errado. Se poucos discordam, a maioria concorda com os objetivos; a divergência está no meio usado para alcançá-los.
+
+=== pt24-09
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT24A
+armadilha: conceito
+dif: 1
+enunciado: No terceiro parágrafo, os dois-pontos empregados após “garantias” introduzem uma enumeração.
+comentario: Certo. Depois dos dois-pontos vem a lista das garantias: alternativas, prazo curto de guarda, auditorias e regras de consulta.
+
+=== pt24-10
+gab: E
+tema: pt-pontuacao
+ref: texto
+apoio: @PT24A
+armadilha: literal
+dif: 2
+enunciado: A inserção de vírgula imediatamente após “cidades”, no primeiro período do texto, manteria a correção gramatical.
+comentario: Errado. “Estádios de várias cidades” é o sujeito de “passaram”; a vírgula entre o sujeito e o verbo é incorreta.
+
+=== pt24-11
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @PT24A
+armadilha: sujeito
+dif: 2
+enunciado: No segundo parágrafo, a locução “poderá ser usado” está no masculino singular para concordar com “o dado vazado”, retomado pelo pronome relativo.
+comentario: Certo. O sujeito da oração adjetiva é o relativo “que”, que equivale a “o dado vazado”.
+
+=== pt24-12
+gab: E
+tema: pt-crase
+ref: texto
+apoio: @PT24A
+armadilha: literal
+dif: 1
+enunciado: No primeiro parágrafo, a expressão “proporcional a eles” poderia ser corretamente reescrita como proporcional à eles.
+comentario: Errado. Não há crase antes de pronome pessoal como “eles”, que não admite artigo; o “a” é só preposição.
+
+=== pt24-13
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT24A
+armadilha: sujeito
+dif: 1
+enunciado: No primeiro período do texto, “o torcedor” exerce a função de sujeito da forma verbal “cadastre”.
+comentario: Certo. Na oração “que o torcedor cadastre o rosto”, “o torcedor” é o sujeito e “o rosto”, o complemento.
+
+=== pt24-14
+gab: C
+tema: pt-reescrita
+ref: texto
+apoio: @PT24A
+armadilha: literal
+dif: 3
+enunciado: Os dois últimos períodos do primeiro parágrafo poderiam ser reescritos como Embora poucos discordem desses objetivos, discute-se se o meio escolhido é proporcional a eles, sem prejuízo do sentido e da correção.
+comentario: Certo. “Embora” mantém a oposição implícita entre o consenso sobre os fins e a dúvida sobre o meio, e o verbo “discordar” passa corretamente ao subjuntivo.
+
+=== pt24-15
+gab: E
+tema: pt-verbos
+ref: texto
+apoio: @PT24A
+armadilha: conceito
+dif: 2
+enunciado: No último período do texto, a locução “poderá custar” indica fato já ocorrido no passado.
+comentario: Errado. “Poderá” está no futuro do presente e, com “custar”, exprime possibilidade futura: o que pode acontecer se faltarem garantias.
