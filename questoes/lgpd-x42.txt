@@ -1,0 +1,156 @@
+// LGPD, lote X42: casos sobre bases legais (art. 7º), dados sensíveis e saúde (art. 11), crianças (art. 14), direitos
+// do titular (art. 18), decisões automatizadas (art. 20) e responsabilização (art. 6º, X). Conferidas com fontes/lgpd.txt.
+
+=== lx42-01
+bloco: lgpd-5-11
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: X - para a proteção do crédito, inclusive quanto ao disposto na legislação pertinente
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um birô de crédito tratou, sem consentimento, o histórico de pagamentos de consumidores para calcular sua pontuação, e um deles alegou que o tratamento era ilícito por falta de consentimento. Assertiva: a alegação procede.
+comentario: Errado. A proteção do crédito é base legal autônoma (art. 7º, X), que dispensa o consentimento, sem afastar os princípios e os direitos do titular (§ 6º).
+
+=== lx42-02
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: para o exercício regular de direitos em processo judicial, administrativo ou arbitral
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em ação trabalhista, uma empresa juntou os registros de ponto de um ex-empregado para se defender. Assertiva: o tratamento tem base legal no exercício regular de direitos em processo judicial.
+comentario: Certo. Art. 7º, VI. A base vale também para processos administrativos e arbitrais.
+
+=== lx42-03
+bloco: lgpd-5-11
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: e) proteção da vida ou da incolumidade física do titular ou de terceiro
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: após um acidente, socorristas consultaram a ficha médica de um motorista inconsciente para saber de alergias antes de medicá-lo. Assertiva: o tratamento foi ilícito, pois dados de saúde sempre exigem consentimento.
+comentario: Errado. Dados sensíveis podem ser tratados sem consentimento quando indispensável para proteger a vida ou a incolumidade física do titular ou de terceiro (art. 11, II, e).
+
+=== lx42-04
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: É dispensada a exigência do consentimento previsto no caput deste artigo para os dados tornados manifestamente públicos pelo titular
+armadilha: conceito
+dif: 2
+enunciado: Dispensa-se o consentimento para dados tornados manifestamente públicos pelo titular, resguardados seus direitos e os princípios da LGPD.
+comentario: Certo. Art. 7º, § 4º. A dispensa do consentimento não afasta as demais obrigações da lei (§ 6º).
+
+=== lx42-05
+bloco: lgpd-12-16
+gab: E
+tema: pd-direitos
+ref: lgpd 14
+trecho: quando a coleta for necessária para contatar os pais ou o responsável legal, utilizados uma única vez e sem armazenamento
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: um aplicativo educativo pediu o e-mail dos pais de uma criança para contatá-los uma única vez e pedir o consentimento, sem armazenar o dado. Assertiva: a coleta é ilícita, pois todo tratamento de dados de criança exige consentimento prévio dos pais.
+comentario: Errado. A LGPD admite coletar dados de criança sem o consentimento parental para contatar os pais ou o responsável, uma única vez e sem armazenamento, ou para sua proteção, vedado o repasse a terceiro (art. 14, § 3º).
+
+=== lx42-06
+bloco: lgpd-12-16
+gab: C
+tema: pd-direitos
+ref: lgpd 14
+trecho: não deverão condicionar a participação dos titulares de que trata o § 1º deste artigo em jogos, aplicações de internet ou outras atividades ao fornecimento de informações pessoais além das estritamente necessárias
+armadilha: conceito
+dif: 2
+enunciado: O controlador não deve condicionar a participação de crianças em jogos e aplicações ao fornecimento de dados além dos estritamente necessários.
+comentario: Certo. Art. 14, § 4º, expressão do princípio da necessidade.
+
+=== lx42-07
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 18
+trecho: anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade com o disposto nesta Lei
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um cliente pediu a uma loja a eliminação de dados excessivos coletados no cadastro, e a loja respondeu que a LGPD só permite pedir eliminação de dados tratados com consentimento. Assertiva: a resposta está correta.
+comentario: Errado. O titular pode pedir anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade com a lei (art. 18, IV), qualquer que seja a base legal.
+
+=== lx42-08
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 18
+trecho: informação sobre a possibilidade de não fornecer consentimento e sobre as consequências da negativa
+armadilha: conceito
+dif: 1
+enunciado: O titular tem direito de saber que pode recusar o consentimento e quais são as consequências da recusa.
+comentario: Certo. Art. 18, VIII. O consentimento só é livre se o titular souber o que perde ao recusá-lo.
+
+=== lx42-09
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 20
+trecho: a autoridade nacional poderá realizar auditoria para verificação de aspectos discriminatórios em tratamento automatizado de dados pessoais
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um banco negou crédito por decisão automatizada e recusou-se a informar os critérios usados, invocando segredo comercial. Assertiva: diante dessa recusa fundada em segredo, a ANPD fica impedida de verificar o tratamento.
+comentario: Errado. Se o controlador não oferece as informações com base em segredo comercial e industrial, a ANPD pode realizar auditoria para verificar aspectos discriminatórios no tratamento automatizado (art. 20, § 2º).
+
+=== lx42-10
+bloco: lgpd-17-22
+gab: C
+tema: pd-direitos
+ref: lgpd 20
+trecho: incluídas as decisões destinadas a definir o seu perfil pessoal, profissional, de consumo e de crédito
+armadilha: conceito
+dif: 2
+enunciado: O titular pode pedir a revisão de decisões tomadas unicamente por tratamento automatizado que afetem seus interesses, como as que definem seu perfil de crédito.
+comentario: Certo. Art. 20, caput. O controlador deve informar, quando solicitado, os critérios e procedimentos da decisão (§ 1º).
+
+=== lx42-11
+bloco: lgpd-5-11
+gab: E
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: É vedada a comunicação ou o uso compartilhado entre controladores de dados pessoais sensíveis referentes à saúde com objetivo de obter vantagem econômica
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma rede de farmácias vendeu a uma seguradora os dados de compras de medicamentos dos clientes, para que ela precificasse seguros de vida. Assertiva: a prática é permitida, pois o compartilhamento de dados de saúde com fins econômicos é livre entre empresas privadas.
+comentario: Errado. É vedado o compartilhamento entre controladores de dados sensíveis de saúde para obter vantagem econômica, salvo as exceções ligadas à prestação de serviços de saúde, à portabilidade pedida pelo titular e às transações daí decorrentes (art. 11, § 4º).
+
+=== lx42-12
+bloco: lgpd-5-11
+gab: C
+tema: pd-sensiveis
+ref: lgpd 11
+trecho: É vedado às operadoras de planos privados de assistência à saúde o tratamento de dados de saúde para a prática de seleção de riscos
+armadilha: conceito
+dif: 2
+enunciado: Operadoras de planos de saúde não podem usar dados de saúde para selecionar riscos na contratação ou na exclusão de beneficiários.
+comentario: Certo. Art. 11, § 5º. A vedação vale para qualquer modalidade de contratação e também para a exclusão de beneficiários.
+
+=== lx42-13
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-principios
+ref: lgpd 6
+trecho: demonstração, pelo agente, da adoção de medidas eficazes e capazes de comprovar a observância e o cumprimento das normas de proteção de dados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em fiscalização, uma empresa apresentou políticas de privacidade aprovadas, mas nenhuma evidência de que eram aplicadas ou funcionavam. Assertiva: a empresa atende ao princípio da responsabilização e prestação de contas, que se satisfaz com a adoção formal das políticas.
+comentario: Errado. O princípio exige demonstrar a adoção de medidas eficazes e capazes de comprovar o cumprimento das normas, inclusive a eficácia dessas medidas (art. 6º, X).
+
+=== lx42-14
+bloco: lgpd-5-11
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: deverá obter consentimento específico do titular para esse fim
+armadilha: conceito
+dif: 2
+enunciado: O controlador que tratou dados com base no consentimento precisa de novo consentimento específico para compartilhá-los com outros controladores, salvo hipótese de dispensa.
+comentario: Certo. Art. 7º, § 5º. O consentimento dado a um controlador não se estende automaticamente a outros.
