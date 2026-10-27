@@ -143,8 +143,7 @@ function encaixarPlano(prova, desde, cortes) {
       return Object.assign({}, w.s, { titulo, periodo, dias: ds }, extra);
     });
     if (!sems.length) return null;
-    const mudou = sems.some((s, i) => s.dias !== (f.semanas[i] || {}).dias);
-    return Object.assign({}, f, { semanas: sems, periodo: mudou ? dm(sems[0].dias[0].data) + ' a ' + sems[sems.length - 1].periodo.split(' a ')[1] : f.periodo });
+    return Object.assign({}, f, { semanas: sems, periodo: dm(sems[0].dias[0].data) + ' a ' + sems[sems.length - 1].periodo.split(' a ')[1] });
   }).filter(Boolean);
   const ordem = [...sai].sort((a, b) => (a.ini < b.ini ? -1 : 1));
   const cortada = (w) => w.s.titulo + ' (' + w.s.periodo + ')' + (w.novo ? ', com conteúdo novo' : '') + (w.sim ? ', com simulado' : '');
