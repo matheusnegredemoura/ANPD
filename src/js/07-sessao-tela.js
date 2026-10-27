@@ -23,10 +23,9 @@ function renderQuestoes() {
       '</div>' +
       '<div class="cartao">' +
       '<div class="secao-cab"><h2>Provas recentes do Cebraspe</h2><span class="selo mono">Gabarito oficial</span></div>' +
-      '<p class="pequeno mudo">Os itens destas provas que estão no banco, com o tempo proporcional ao da prova. Ficaram de fora os que dependem de texto da prova que não veio junto.</p>' +
+      '<p class="pequeno mudo">Os itens destas provas que estão no banco, com o tempo proporcional ao da prova. Ficaram de fora os que dependem de texto da prova que não veio junto. A AGEPAR 2026 é de múltipla escolha e ainda está com o gabarito preliminar.</p>' +
       '<div class="linha-btns">' +
-      '<button class="btn pequeno" data-acao="simulado-anvisa-2024">ANVISA 2024 · ' + pl(Q.filter((q) => q.id.startsWith('anvisa-2024-cebraspe-')).length, 'item', 'itens') + '</button>' +
-      '<button class="btn pequeno" data-acao="simulado-tcu-2026">TCU 2026 (AUFC) · ' + pl(Q.filter((q) => q.id.startsWith('tcu-aufc-2026-')).length, 'item', 'itens') + '</button>' +
+      PROVAS_RECENTES.map(([pref, nome, min]) => '<button class="btn pequeno" data-acao="simulado-prova" data-pref="' + pref + '" data-nome="' + esc(nome) + '" data-min="' + min + '">' + esc(nome) + ' · ' + pl(Q.filter((q) => q.id.startsWith(pref)).length, 'item', 'itens') + '</button>').join('') +
       '</div></div>';
     html += '<div class="campo"><span class="rot">Composição</span><div class="chips">' +
       '<button class="chip" data-acao="set-prova" data-prova="prova" aria-pressed="' + usarProva + '">Prova completa (básicos + específicos)</button>' +
@@ -44,9 +43,9 @@ function renderQuestoes() {
     html += listaBlocos(sel, 'toggle-bloco', (b) => POR_BLOCO.get(b.id) || [], (b) => dominioBloco(b.id)) + '</div>';
   }
   html += '<button class="btn primario largo comecar-fixo" data-acao="comecar"' + (pool.length || usarProva ? '' : ' disabled') + '>Começar ' + esc({ treino: 'treino', simulado: 'simulado', relampago: 'relâmpago' }[modo]) + '</button>';
-  const conferidos = REAIS.filter(gabConferido).length;
+  const conferidos = REAIS.filter(gabConferido).length, prelim = REAIS.filter((q) => /preliminar/.test(q.pv)).length;
   const nIades = REAIS.filter((q) => bancaDe(q) === 'IADES').length;
-  if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais de prova</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas de 2021 a 2026, com comentário: ' + (REAIS.length - conferidos) + ' com gabarito oficial definitivo e ' + conferidos + ' avulsos, com o gabarito conferido na lei ou no texto da prova. ' + (nIades ? nIades + ' são da seleção da própria ANPD (IADES, 2025). ' : '') + '</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
+  if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais de prova</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas de 2021 a 2026, com comentário: ' + (REAIS.length - conferidos - prelim) + ' com gabarito oficial definitivo, ' + conferidos + ' avulsos, com o gabarito conferido na lei ou no texto da prova' + (prelim ? ', e ' + prelim + ' com o gabarito preliminar da banca, conferido na lei e a revisar quando sair o definitivo' : '') + '. ' + (nIades ? nIades + ' são da seleção da própria ANPD (IADES, 2025). ' : '') + '</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
   if (!usarProva && !UI.blocos.length) html += '<p class="mudo pequeno">Nenhum bloco marcado: a sessão usa o banco inteiro.</p>';
   document.getElementById('vista-questoes').innerHTML = html;
 }
@@ -144,6 +143,9 @@ function renderApoio(q, aberto) {
 }
 // Itens reais de prova: selo com a origem e o comando da banca que antecede o item
 // Itens reais avulsos chegaram sem gabarito: o gabarito foi conferido no texto da lei
+// Provas recentes do Cebraspe com caderno próprio no simulado: prefixo dos ids, nome e minutos por item (certo/errado no
+// ritmo da prova; múltipla escolha com mais tempo por questão)
+const PROVAS_RECENTES = [['anvisa-2024-cebraspe-', 'ANVISA 2024', 1.75], ['tcu-aufc-2026-', 'TCU 2026 (AUFC)', 1.75], ['ag26-', 'AGEPAR 2026', 3]];
 function gabConferido(q) { return /conferido n[ao] (lei|texto)/.test(q.pv || ''); }
 // Múltipla escolha: rótulos da resposta marcada e do gabarito
 function nomeResp(q, r) { return q.al ? 'a letra ' + r : r === 'C' ? 'CERTO' : 'ERRADO'; }
@@ -201,7 +203,7 @@ function renderItem(q) {
   return dupla ? '<article class="item dupla"><div class="item-esq">' + esq + '</div><div class="item-dir">' + html + '</div></article>' : '<article class="item">' + esq + html + '</article>';
 }
 function renderExplicacao(q) {
-  let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</span>';
+  let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (/preliminar/.test(q.pv) ? ' preliminar da banca' : gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</span>';
   if (q.o || (q.ad && q.pv)) html += '<p class="pequeno mudo">' + esc(q.pv) + '</p>';
   html += '<p>' + marcarTermos(q.c, 3) + '</p>';
   if (q.t && q.t.length) {

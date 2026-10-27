@@ -1,0 +1,970 @@
+// Itens reais: Cebraspe, Agência Reguladora de Serviços Públicos Delegados do Paraná – AGEPAR (Edital nº 1 – AGEPAR,
+// de 30/6/2026; aplicação em 18/10/2026), cargos de Especialista em Regulação. Provas objetivas de múltipla escolha:
+// Conhecimentos Gerais (caderno 233_AGEPAR_CG1_01) e Conhecimentos Específicos das especialidades Administração
+// (233_AGEPAR_001_01) e Tecnologia da Informação (233_AGEPAR_008_01).
+// Gabarito oficial PRELIMINAR (divulgado em 20/10/2026); cada gabarito foi conferido na lei ou na doutrina, e o
+// definitivo deve ser conferido quando sair. É a prova do Cebraspe mais próxima do cargo da ANPD: agência reguladora,
+// mesmo nome de cargo, mesmo ano.
+// Ficaram fora: Windows (CG 6), normas do Paraná (CG 13 a 15; Administração 34, 43 e 44; TI 59), saneamento e
+// resíduos sólidos (Administração 41 e 42) e as questões de banco de dados e desenvolvimento da especialidade de TI.
+// Comentários escritos para o banco.
+
+bloco: regulacao-teoria
+
+apoio_AG1: A corrida pela exploração dos chamados minerais críticos à transição energética acentua os conflitos socioambientais existentes no setor mineral brasileiro. Esses elementos naturais são necessários para o desenvolvimento de uma economia de baixo carbono e a produção de componentes utilizados na fabricação de baterias, veículos elétricos, painéis solares, turbinas eólicas, entre outros itens. Além disso, eles também são aplicados majoritariamente em atividades não relacionadas com a transição energética.
+No total, 101 mil pessoas em 15 estados foram impactadas pela extração de minerais da transição, que desencadeou 380 confrontos no país entre 2020 e 2023. A Amazônia Legal, composta por nove estados brasileiros, foi a região com mais disputas, concentrando 46,3% das ocorrências.
+Um dos autores das pesquisas, o geógrafo Luiz Jardim Wanderley, da Universidade Federal Fluminense (UFF), esclarece que são consideradas conflitos as reações dos atingidos pelos impactos socioambientais e pelas situações de violência, que incluem trabalho em condições análogas à escravidão, estupros, acidentes, ameaças, tentativas de assassinato e mortes.
+Os conflitos identificados nesse levantamento podem se sobrepor. O tipo mais prevalente abarca disputas pelo uso da terra, que abrangeram 59,2% das ocorrências, seguidas de embates relativos a acesso à água (39,4%), problemas de saúde (16,4%) e questões trabalhistas (12,4%), explica Wanderley. Entre os minerais utilizados na produção de componentes necessários à transição energética, o cobre e a bauxita foram os que provocaram mais danos, com 25,3% das ocorrências cada um deles. Ao mesmo tempo, esses elementos apresentaram valorização no mercado entre 2020 e 2023. “Os dados sugerem que há uma correlação entre a intensidade da extração do mineral, seu valor de venda e a incidência de conflitos”, diz.
+(Christina Queiroz. Pesquisas mapeiam conflitos causados pela mineração. In: Revista Pesquisa FAPESP, São Paulo, n.º 343, set./2024, p. 78-82, com adaptações.)
+
+=== ag26-cg-01
+gab: D
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 1 · gabarito preliminar
+bloco: portugues
+tema: pt-interpretacao
+ref: texto
+apoio: @AG1
+armadilha: extrapolacao
+dif: 1
+enunciado: Com base nas ideias expressas no texto CG1A1, é correto afirmar que
+alt: A | a expansão da transição energética no Brasil tende a reduzir os conflitos socioambientais associados à exploração mineral, em razão do surgimento de novas tecnologias.
+alt: B | a reatividade dos atingidos pelos impactos socioambientais gerados pela mineração é desproporcional às situações decorrentes dessa atividade.
+alt: C | a exploração de minerais críticos é atividade incompatível com a transição para uma economia de baixo carbono.
+alt: D | a violência física e a degradação das condições de dignidade humana integram algumas das situações que caracterizam os conflitos socioambientais associados à atividade de extração de minerais críticos no território brasileiro.
+alt: E | a valorização de mercado de determinados minerais é a principal causa dos conflitos socioambientais identificados no levantamento feito pelo geógrafo da UFF.
+comentario: Letra D: o terceiro parágrafo inclui entre os conflitos as reações a situações de violência, como trabalho análogo à escravidão, estupros, ameaças e mortes. O texto diz o contrário de A (a corrida pelos minerais acentua os conflitos) e de C (os minerais são necessários à economia de baixo carbono). Nada avalia a reação dos atingidos como desproporcional (B). Sobre E, o pesquisador fala só em correlação entre extração, preço e conflitos, não em causa principal.
+
+=== ag26-cg-02
+gab: D
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 2 · gabarito preliminar
+bloco: portugues
+tema: pt-coesao
+ref: texto
+apoio: @AG1
+armadilha: interpretacao
+dif: 2
+enunciado: Dos sentidos do texto CG1A1 conclui-se que, no trecho “No total, 101 mil pessoas em 15 estados foram impactadas pela extração de minerais da transição, que desencadeou 380 confrontos no país entre 2020 e 2023” (segundo parágrafo), o vocábulo “que” retoma
+alt: A | a ideia transmitida pela oração “101 mil pessoas em 15 estados foram impactadas”.
+alt: B | a expressão “101 mil pessoas”.
+alt: C | o segmento “minerais da transição”.
+alt: D | a expressão “extração de minerais da transição”.
+alt: E | o segmento “15 estados”.
+comentario: Letra D. O verbo “desencadeou” está no singular, então o antecedente do pronome relativo é um núcleo singular, e o sentido aponta para a extração: foi ela que desencadeou os 380 confrontos. Isso exclui “pessoas” (B), “minerais” (C) e “estados” (E), todos no plural. A oração inteira (A) também não serve, porque o que gerou os confrontos foi a atividade de extração, não o fato de as pessoas terem sido impactadas.
+
+=== ag26-cg-03
+gab: E
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 3 · gabarito preliminar
+bloco: portugues
+tema: pt-sintaxe
+ref: texto
+apoio: @AG1
+armadilha: conceito
+dif: 2
+enunciado: No trecho ‘Os dados sugerem que há uma correlação entre a intensidade da extração do mineral, seu valor de venda e a incidência de conflitos’ (último parágrafo do texto CG1A1), a oração introduzida pelo vocábulo ‘que’
+alt: A | exerce função adjetiva e tem sentido restritivo sobre a informação dada na primeira oração do trecho.
+alt: B | coordena-se à primeira oração do trecho, veiculando noção de consequência.
+alt: C | coordena-se à primeira oração do trecho, transmitindo noção de conclusão.
+alt: D | exerce função adverbial e expressa circunstância de comparação.
+alt: E | complementa o sentido da primeira oração do trecho.
+comentario: Letra E. Quem sugere, sugere alguma coisa: “que há uma correlação…” é o objeto direto de “sugerem”, uma oração subordinada substantiva, e o “que” é conjunção integrante. Não é relativa (A), porque não retoma termo anterior. Não é coordenada (B e C), porque depende do verbo da principal. Também não é adverbial (D).
+
+=== ag26-cg-04
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 4 · gabarito preliminar
+bloco: portugues
+tema: pt-reescrita
+ref: texto
+apoio: @AG1
+armadilha: conceito
+dif: 3
+enunciado: Assinale a opção correta no que se refere a aspectos linguísticos do texto CG1A1.
+alt: A | Em “Um dos autores das pesquisas, o geógrafo Luiz Jardim Wanderley, da Universidade Federal Fluminense (UFF), esclarece” (terceiro parágrafo), o emprego da vírgula logo após “pesquisas” tem a finalidade de marcar a elipse da forma verbal é.
+alt: B | Em “A corrida pela exploração dos chamados minerais críticos à transição energética acentua os conflitos socioambientais” (primeiro parágrafo), a flexão da forma verbal “acentua” no plural — acentuam — manteria a correção gramatical do texto, mas alteraria seu sentido original.
+alt: C | No trecho “eles também são aplicados majoritariamente em atividades não relacionadas com a transição energética” (primeiro parágrafo), o segmento “com a” poderia ser corretamente substituído por à.
+alt: D | No trecho “são consideradas conflitos as reações dos atingidos pelos impactos socioambientais e pelas situações de violência” (terceiro parágrafo), o segmento “são consideradas” poderia ser substituído por considera-se, sem prejuízo da correção gramatical e dos sentidos originais do texto.
+alt: E | Em “A Amazônia Legal, composta por nove estados brasileiros, foi a região com mais disputas, concentrando 46,3% das ocorrências” (segundo parágrafo), a forma verbal “concentrando” poderia ser substituída, sem prejuízo da correção gramatical e dos sentidos do texto, por que concentram.
+comentario: Letra C: “relacionadas com a transição” pode virar “relacionadas à transição”, porque relacionar admite a preposição a, que se funde com o artigo feminino. Em A, a vírgula abre o aposto “o geógrafo Luiz Jardim Wanderley”; não há elipse de verbo. Em B, o sujeito é “A corrida”, no singular, e o plural quebraria a concordância. Em D, a passiva sintética concorda com o sujeito plural, “as reações”, e pediria “consideram-se”. Em E, “que concentram” passaria a ter “estados” como sujeito, o que muda o sentido; o texto atribui a concentração à Amazônia Legal.
+
+=== ag26-cg-05
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 5 · gabarito preliminar
+bloco: portugues
+tema: pt-semantica
+ref: texto
+apoio: @AG1
+armadilha: conceito
+dif: 1
+enunciado: No trecho “eles também são aplicados majoritariamente em atividades não relacionadas com a transição energética” (primeiro parágrafo do texto CG1A1), o vocábulo “majoritariamente” poderia ser substituído, sem alteração dos sentidos originais, por
+alt: A | preferencialmente.
+alt: B | excepcionalmente.
+alt: C | predominantemente.
+alt: D | exclusivamente.
+alt: E | simultaneamente.
+comentario: Letra C: “majoritariamente” diz que a maior parte do uso desses minerais está fora da transição energética, e “predominantemente” tem o mesmo sentido. “Preferencialmente” (A) traz ideia de escolha, que o texto não menciona. “Excepcionalmente” (B) inverte o sentido. “Exclusivamente” (D) apagaria o uso na transição, que o texto afirma existir. “Simultaneamente” (E) fala de tempo.
+
+=== ag26-cg-07
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 7 · gabarito preliminar
+bloco: seginfo
+tema: sg-ameacas
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Assinale a opção em que é citado o mecanismo cuja função principal é controlar o tráfego de rede com base em regras de segurança previamente estabelecidas, segundo uma política de segurança ao fluxo das comunicações.
+alt: A | antivírus
+alt: B | antimalware
+alt: C | firewall
+alt: D | IDS
+alt: E | antispyware
+comentario: Letra C. O firewall filtra o tráfego de rede: permite ou bloqueia pacotes e conexões conforme regras (origem, destino, porta, protocolo, estado) que traduzem a política de segurança. O IDS (D) detecta e alerta, mas não é feito para bloquear; o bloqueio é papel do IPS. Antivírus, antimalware e antispyware (A, B e E) protegem o equipamento contra código malicioso, não controlam o fluxo da rede.
+
+=== ag26-cg-08
+gab: E
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 8 · gabarito preliminar
+bloco: dados-bi
+tema: gp-dados
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: No que se refere às métricas utilizadas para avaliar a qualidade de dados, assinale a opção em que é citada a dimensão que mensura se todos os valores de dados requeridos estão presentes em um conjunto de dados.
+alt: A | validade
+alt: B | consistência
+alt: C | exclusividade
+alt: D | precisão
+alt: E | integridade
+comentario: Letra E no gabarito preliminar. A dimensão descrita costuma ser chamada de completude: estão presentes todos os valores obrigatórios? Entre as opções, a banca a chamou de integridade, no sentido de o conjunto estar inteiro. As outras medem coisas diferentes: validade (A), se o dado segue formato e regras do domínio; consistência (B), se não há contradição entre registros ou bases; exclusividade, ou unicidade (C), se não há duplicatas; precisão, ou acurácia (D), se o dado corresponde à realidade. Item a conferir no gabarito definitivo.
+
+=== ag26-cg-09
+gab: A
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 9 · gabarito preliminar
+bloco: dados-bi
+tema: gp-dados
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: No âmbito da governança da informação, o mecanismo que permite a compreensão da procedência dos dados, das transformações por que passaram e dos locais para os quais foram movimentados ao longo do tempo é denominado
+alt: A | data lineage.
+alt: B | data catalog.
+alt: C | data profiling.
+alt: D | data classification.
+alt: E | business data glossary.
+comentario: Letra A. A linhagem de dados (data lineage) registra de onde o dado veio, que transformações sofreu e por onde passou. O catálogo (B) é o inventário dos ativos de dados com seus metadados. O perfilamento (C) analisa o conteúdo para medir qualidade e padrões. A classificação (D) rotula os dados por sensibilidade ou categoria. O glossário de negócio (E) padroniza os termos e as definições usados pela organização.
+
+=== ag26-cg-10
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 10 · gabarito preliminar
+bloco: gestao-publica
+tema: gp-dados
+ref: lei14129 4
+trecho: transparência ativa: disponibilização de dados pela administração pública independentemente de solicitações
+armadilha: literal
+dif: 1
+enunciado: Assinale a opção em que é citado, de acordo com o previsto na Lei n.º 14.129/2021, o conceito correspondente à disponibilização de dados pela administração pública, independentemente de solicitações formuladas pelos interessados.
+alt: A | registros de referência
+alt: B | interoperabilidade
+alt: C | transparência ativa
+alt: D | governo como plataforma
+alt: E | dados abertos
+comentario: Letra C. É a definição literal de transparência ativa no art. 4º, XI, da Lei do Governo Digital. Dados abertos (E) são os dados acessíveis ao público, legíveis por máquina e de livre uso, o que é uma qualidade do dado e não o ato de publicá-lo sem pedido. Interoperabilidade (B) é a capacidade de sistemas trocarem informações. Registros de referência (A) são a base cadastral de referência sobre um ente. Governo como plataforma (D) é o modelo de infraestrutura aberta sobre a qual outros constroem serviços.
+
+=== ag26-cg-11
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 11 · gabarito preliminar
+bloco: constitucional
+tema: const-direitos
+ref: cf88 5
+trecho: salvo em caso de flagrante delito ou desastre, ou para prestar socorro, ou, durante o dia, por determinação judicial
+armadilha: excecao
+dif: 2
+enunciado: A respeito dos direitos e garantias fundamentais previstos na Constituição Federal de 1988, assinale a opção correta.
+alt: A | Diferentemente das associações, as cooperativas só podem ser criadas mediante autorização em lei.
+alt: B | A inviolabilidade do domicílio é ressalvada no caso de flagrante delito e desastre ou, ainda, para prestar socorro, independentemente do período do dia.
+alt: C | São gratuitas as ações de mandado de segurança e habeas corpus.
+alt: D | A garantia do direito de resposta, proporcional ao agravo sofrido, exclui a indenização por dano moral.
+alt: E | Garante-se a todos o acesso à informação, assegurado, em todo caso, o conhecimento da fonte.
+comentario: Letra B. Pelo art. 5º, XI, só a determinação judicial está limitada ao período do dia; flagrante, desastre e socorro autorizam a entrada a qualquer hora. A criação de associações e, na forma da lei, de cooperativas independe de autorização (inciso XVIII), o que derruba A. São gratuitos o habeas corpus e o habeas data (LXXVII), não o mandado de segurança (C). O direito de resposta vem além da indenização por dano material, moral ou à imagem (V), e não a exclui (D). O acesso à informação é assegurado, mas o sigilo da fonte é resguardado quando necessário ao exercício profissional (XIV), o contrário de E.
+
+=== ag26-cg-12
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 12 · gabarito preliminar
+bloco: administrativo
+tema: adm-licitacoes
+ref: lei14133 30
+trecho: Nos concursos destinados à elaboração de projeto, o vencedor deverá ceder à Administração Pública, nos termos do art. 93 desta Lei, todos os direitos patrimoniais relativos ao projeto
+armadilha: literal
+dif: 2
+enunciado: Assinale a opção correta com base no previsto na Lei n.º 14.133/2021 a respeito das modalidades licitatórias.
+alt: A | A seleção de leiloeiro oficial pela administração pública para a condução da modalidade leilão deve ser realizada mediante convite, adotando-se o critério de julgamento de menor comissão.
+alt: B | É facultado aos órgãos e entidades públicas criar novas modalidades de licitação por meio de regulamento próprio ou combinar as modalidades existentes.
+alt: C | Nos concursos destinados à elaboração de projeto, o vencedor deverá ceder à administração pública todos os direitos patrimoniais relativos ao projeto, autorizando sua execução segundo o juízo de conveniência e oportunidade do poder público.
+alt: D | O diálogo competitivo é uma modalidade de uso amplo e irrestrito, podendo ser utilizada discricionariamente pela administração pública para qualquer tipo de aquisição de bens ou serviços comuns.
+alt: E | A lei exige registro cadastral prévio dos participantes do leilão bem como fase de habilitação documental antes da etapa de apresentação dos lances.
+comentario: Letra C: é o parágrafo único do art. 30. Em A, o leiloeiro oficial é selecionado por credenciamento ou por pregão com critério de maior desconto sobre as comissões (art. 31, § 1º); o convite nem existe mais. Em B, o art. 28, § 2º, proíbe criar novas modalidades e combinar as existentes. Em D, o diálogo competitivo só cabe nas hipóteses do art. 32: inovação, necessidade de adaptar soluções disponíveis, especificações que não se definem com precisão. Em E, o leilão não exige registro cadastral prévio nem tem fase de habilitação (art. 31, § 4º).
+
+=== ag26-cg-16
+gab: E
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 16 · gabarito preliminar
+bloco: lei-13848
+tema: rg-agencias
+ref: lei13848 32
+trecho: com força de título executivo extrajudicial, termo de ajustamento de conduta
+armadilha: literal
+dif: 3
+enunciado: Considerando o disposto na Lei Geral das Agências Reguladoras em relação às interações entre essas agências e outros órgãos e instituições, assinale a opção correta.
+alt: A | Na descentralização de atividades de fiscalização da agência reguladora federal para uma agência estadual conveniada, esta passa a ser a instância final e soberana para o julgamento dos recursos administrativos contra suas próprias decisões.
+alt: B | As agências reguladoras federais podem, mediante acordo de cooperação, promover a descentralização de suas atividades fiscalizatórias, sancionatórias, arbitrais e normativas em favor de órgãos reguladores estaduais ou municipais.
+alt: C | É vedada a edição de atos normativos conjuntos entre duas ou mais agências reguladoras, devendo cada uma regulamentar matérias de sua área de atuação por meio de normativos isolados e independentes.
+alt: D | Ao analisarem atos de concentração ou instaurarem processos administrativos no setor regulado, os órgãos de defesa da concorrência ficam vinculados aos pareceres técnicos emitidos pelas agências reguladoras setoriais.
+alt: E | Na articulação das agências reguladoras com órgãos de defesa do meio ambiente, o termo de ajustamento de conduta firmado entre a agência e pessoas físicas ou jurídicas sujeitas à sua competência regulatória terá força de título executivo extrajudicial, apto a suspender a aplicação de sanções administrativas.
+comentario: Letra E: o art. 32, no capítulo da articulação com defesa do consumidor e meio ambiente, dá ao termo de ajustamento de conduta força de título executivo extrajudicial, e o § 1º suspende as sanções sobre os mesmos fatos enquanto o termo vigorar. Em A, a agência federal delegante continua instância superior e recursal (art. 34, § 7º). Em B, é vedada a delegação de competências normativas (art. 34, § 1º). Em C, o art. 29 permite atos normativos conjuntos. Em D, os arts. 25 a 28 preveem cooperação: a agência monitora o mercado, auxilia os órgãos de defesa da concorrência e comunica indícios de infração à ordem econômica. Não há parecer da agência que vincule esses órgãos.
+
+=== ag26-cg-17
+gab: D
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 17 · gabarito preliminar
+bloco: constitucional
+tema: const-organizacao
+ref: cf88 23
+trecho: promover programas de construção de moradias e a melhoria das condições habitacionais e de saneamento básico
+armadilha: rol
+dif: 2
+enunciado: Consoante prevê a Constituição Federal de 1988, é atribuição comum da União, dos estados, do Distrito Federal e dos municípios
+alt: A | elaborar planos nacionais e regionais de ordenação do território e de desenvolvimento econômico e social.
+alt: B | organizar a inspeção do trabalho.
+alt: C | explorar, diretamente ou mediante autorização, concessão ou permissão os serviços e instalações de energia elétrica e o aproveitamento energético dos cursos de água.
+alt: D | promover a melhoria das condições habitacionais e de saneamento básico.
+alt: E | promover a defesa permanente contra as calamidades públicas, especialmente as secas e as inundações.
+comentario: Letra D, do art. 23, IX, rol da competência comum, a que todos os entes exercem juntos. As outras opções são competências exclusivas da União, do art. 21: planos nacionais e regionais de ordenação do território (IX), inspeção do trabalho (XXIV), energia elétrica e aproveitamento energético dos cursos de água (XII, b) e defesa permanente contra calamidades (XVIII). O teste é lembrar que o art. 21 é da União e o art. 23 é de todos.
+
+=== ag26-cg-18
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 18 · gabarito preliminar
+bloco: administrativo
+tema: adm-servicos
+ref: lei8987 16
+trecho: A outorga de concessão ou permissão não terá caráter de exclusividade
+armadilha: conceito
+dif: 3
+enunciado: Julgue os itens a seguir, relativos aos serviços públicos. I Denominam-se serviços públicos uti singuli os passíveis de utilização e mensuração individual por destinatário. II A concessão de serviço público faz-se por meio de contrato administrativo bilateral, oneroso, comutativo e de caráter personalíssimo, e, como regra, não deve ser conferida com exclusividade a um único prestador. III Serviços permitidos são aqueles em que a administração pública confere a um particular, sem procedimento licitatório e em caráter precário e não personalíssimo, o exercício de uma atribuição de utilidade pública. Assinale a opção correta.
+alt: A | Nenhum item está certo.
+alt: B | Apenas os itens I e II estão certos.
+alt: C | Apenas os itens I e III estão certos.
+alt: D | Apenas os itens II e III estão certos.
+alt: E | Todos os itens estão certos.
+comentario: Letra B. I está certo: serviços uti singuli, como água e energia, têm usuário determinado e uso mensurável. II está certo: a doutrina descreve a concessão como contrato bilateral, oneroso, comutativo e intuitu personae, e o art. 16 da Lei 8.987 afasta a exclusividade, salvo inviabilidade técnica ou econômica justificada. III está errado: a permissão também exige licitação (art. 2º, IV, e art. 40). O traço dela é a precariedade, não a dispensa de licitação.
+
+=== ag26-cg-19
+gab: D
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 19 · gabarito preliminar
+tema: rg-por-que
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Após a privatização de um serviço público essencial, o Estado deixa de atuar diretamente em sua prestação, mas continua agindo de modo a assegurar continuidade, modicidade e qualidade do serviço prestado por particulares. Essa mudança de postura estatal caracteriza-se como
+alt: A | delegação da função legislativa às empresas prestadoras, que passam a criar as regras do setor de forma autônoma.
+alt: B | extinção da intervenção estatal, já que a atividade passa a ser integralmente regida pela livre iniciativa.
+alt: C | transferência da titularidade do serviço público ao particular, que passa a exercê-lo em caráter próprio e permanente.
+alt: D | substituição do Estado-executor pelo Estado-regulador, que passa a orientar e fiscalizar a atividade exercida por particulares.
+alt: E | manutenção do Estado-empresário, que continua a prestar serviço, mas com nova denominação jurídica.
+comentario: Letra D: é a passagem do Estado prestador ao Estado regulador, que deu origem às agências nos anos 1990. O Estado sai da execução e fica com a normatização, a fiscalização e a garantia da continuidade, da modicidade e da qualidade. As regras continuam públicas (A). A intervenção muda de forma, mas não acaba (B). Na concessão só a execução é delegada, e a titularidade continua do poder público (C). O Estado deixa de prestar o serviço, e por isso E não descreve a mudança.
+
+=== ag26-cg-20
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 20 · gabarito preliminar
+bloco: administrativo
+tema: adm-organizacao
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Uma autarquia federal pratica atos administrativos vinculados às finalidades previstas em sua lei de criação. O ministério ao qual ela se vincula não pode rever ou modificar tais atos por iniciativa própria, nem lhe dar ordens diretas, mas acompanha a consecução dos objetivos institucionais fixados em lei. Nesse caso, o controle exercido pelo ministério é denominado
+alt: A | interno corporativo.
+alt: B | autotutela plena.
+alt: C | finalístico.
+alt: D | hierárquico.
+alt: E | regulamentar.
+comentario: Letra C. Entre ministério e autarquia não há hierarquia, só vinculação. O controle é finalístico, também chamado de tutela ou supervisão ministerial: verifica se a entidade cumpre as finalidades da lei de criação, nos limites que a lei fixa. Hierárquico (D) seria o controle com poder de dar ordens e rever atos, que a questão nega. A autotutela (B) é o controle da administração sobre os próprios atos, não sobre os de outra pessoa jurídica.
+
+=== ag26-cg-21
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 21 · gabarito preliminar
+tema: rg-teorias
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: A quarentena impede que ex-dirigente de agência reguladora atue, por certo tempo, no setor que regulava. Todavia, há entendimento de que apenas essa medida não seja suficiente para evitar a captura e de que se apresenta como medida complementar mais eficaz para tanto a
+alt: A | edição de decreto do titular do Poder Executivo.
+alt: B | participação social, com consultas e audiências públicas.
+alt: C | atuação do Ministério Público.
+alt: D | ampliação do quadro técnico da agência.
+alt: E | subordinação da agência a órgão da administração direta.
+comentario: Letra B. A captura acontece quando o regulador passa a servir aos interesses do regulado. O antídoto apontado pela literatura é a transparência com participação: consultas e audiências públicas obrigam a agência a ouvir todos os interessados e a motivar a decisão diante deles (arts. 9º e 10 da Lei 13.848). Subordinar a agência à administração direta (E) troca a captura econômica pela política e fere a autonomia. Decreto (A), Ministério Público (C) e quadro maior (D) não atacam o problema de frente.
+
+=== ag26-cg-22
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 22 · gabarito preliminar
+bloco: administrativo
+tema: adm-servicos
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Um serviço de interesse coletivo pode ser remunerado de várias formas. A remuneração paga ao prestador pelo poder público, com recursos do orçamento, e não pelo usuário do serviço, denomina-se
+alt: A | imposto.
+alt: B | preço público.
+alt: C | contraprestação pública.
+alt: D | taxa.
+alt: E | tarifa.
+comentario: Letra C. Contraprestação pública é o pagamento que o parceiro público faz ao privado, como nas parcerias público-privadas da Lei 11.079: total na concessão administrativa, somado à tarifa na concessão patrocinada. Tarifa (E) e preço público (B) são pagos pelo usuário. Taxa (D) é tributo cobrado pelo serviço público específico e divisível ou pelo poder de polícia. Imposto (A) é tributo sem contraprestação específica.
+
+=== ag26-cg-23
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 23 · gabarito preliminar
+bloco: administrativo
+tema: adm-servicos
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Suponha que, durante a execução de um contrato de concessão, o poder concedente decida alterar unilateralmente, por razão de interesse público, a forma de prestação do serviço. Nessa situação hipotética, a alteração seria
+alt: A | ilegal, porque incidiria sobre cláusulas privadas.
+alt: B | legítima, porque incidiria sobre cláusulas pessoais, vinculadas ao concessionário.
+alt: C | legítima, porque incidiria sobre cláusulas regulamentares (modo de execução do serviço).
+alt: D | ilegal, porque incidiria sobre cláusulas irrevogáveis, inalteráveis.
+alt: E | ilegal, porque incidiria sobre cláusulas econômico-financeiras (remuneração contratual).
+comentario: Letra C. O contrato de concessão tem cláusulas regulamentares, que dizem como o serviço é prestado, e cláusulas econômico-financeiras, que garantem a remuneração. As regulamentares podem ser alteradas unilateralmente pelo poder concedente por interesse público. As econômicas não podem ser mudadas sem a concordância do concessionário, e qualquer alteração que afete o equilíbrio obriga a recompô-lo (art. 9º, § 4º, da Lei 8.987). Por isso a alteração do modo de prestação é legítima, e E confunde as duas espécies.
+
+=== ag26-cg-24
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 24 · gabarito preliminar
+bloco: administrativo
+tema: adm-servicos
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Se, durante um contrato de parceria público-privada, um fato imprevisível onerar os custos do parceiro privado,
+alt: A | esse parceiro poderá reclamar multa contra o parceiro público.
+alt: B | haverá rescisão automática do contrato.
+alt: C | esse parceiro terá direito à recomposição do equilíbrio econômico-financeiro.
+alt: D | a este não será devida nenhuma compensação.
+alt: E | esse parceiro terá direito a indenização extracontratual.
+comentario: Letra C. Fato imprevisível que onera a execução é álea extraordinária, e a resposta do direito é recompor a equação econômico-financeira do contrato, observada a repartição de riscos da Lei 11.079 (art. 5º, III, que inclui caso fortuito, força maior, fato do príncipe e álea econômica extraordinária). Não gera multa contra o parceiro público (A), não rescinde o contrato por si só (B) e não é responsabilidade extracontratual (E). Negar qualquer compensação (D) desconsidera a teoria da imprevisão.
+
+=== ag26-cg-25
+gab: D
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Conhecimentos Gerais) · questão 25 · gabarito preliminar
+bloco: lei-13848
+tema: rg-participacao
+ref: lei13848 6
+trecho: precedidas da realização de Análise de Impacto Regulatório (AIR)
+armadilha: conceito
+dif: 1
+enunciado: Antes de editar uma norma, a agência reguladora avalia previamente os custos, os benefícios e as alternativas de regulação e de não regulação. Assinale a opção que indica o instrumento destinado a tal avaliação.
+alt: A | consulta pública
+alt: B | agenda regulatória
+alt: C | avaliação de resultado regulatório
+alt: D | análise de impacto regulatório
+alt: E | regulação de entrada
+comentario: Letra D. A AIR vem antes da norma e compara alternativas, inclusive a de não regular, com seus custos e benefícios (art. 6º da Lei 13.848 e Decreto 10.411). A avaliação de resultado regulatório (C) é feita depois, para medir os efeitos da norma em vigor. A consulta pública (A) colhe contribuições da sociedade sobre a minuta. A agenda regulatória (B) lista os temas que a agência pretende regular no período. Regulação de entrada (E) é a que controla quem pode atuar no mercado.
+
+=== ag26-adm-26
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 26 · gabarito preliminar
+bloco: gestao-publica
+tema: gp-estrategia
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: É correto afirmar que, em contraste com o modelo burocrático tradicional, a nova gestão pública, ao ser implementada no Brasil, caracterizou-se principalmente por
+alt: A | rejeitar inovações tecnológicas, mantendo os processos administrativos tradicionais como forma de preservar a estabilidade institucional.
+alt: B | enfatizar a orientação para resultados, eficiência operacional e accountability, incorporando práticas de gestão privada e formas de avaliação de desempenho.
+alt: C | priorizar a ampliação do quadro de servidores públicos, independentemente de indicadores de produtividade ou eficiência.
+alt: D | eliminar a estrutura hierárquica das organizações públicas, substituindo-a por estruturas horizontalizadas desprovidas de supervisão.
+alt: E | manter a rigidez processual da burocracia clássica e adicionar maior ênfase no controle político partidário das decisões administrativas.
+comentario: Letra B. A nova gestão pública, que no Brasil chegou com o Plano Diretor da Reforma do Aparelho do Estado (1995) e a EC 19/1998, desloca o foco do controle de procedimentos para o controle de resultados. Traz metas, avaliação de desempenho, accountability e técnicas vindas da gestão privada. As demais opções descrevem o oposto, como a rigidez burocrática (E) e a resistência à inovação (A), ou exageros que o modelo não propôs, como acabar com a hierarquia (D).
+
+=== ag26-adm-27
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 27 · gabarito preliminar
+bloco: gestao-publica
+tema: gp-estrategia
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Considerando-se a evolução das principais abordagens administrativas, é correto afirmar que o diferencial da teoria contingencial, em relação às escolas clássicas, é
+alt: A | propor que as organizações, independentemente de seu tamanho, reconheçam as pessoas como custos para garantir eficiência.
+alt: B | manter o foco na estrutura formal da organização, rejeitando as contribuições da escola de relações humanas sobre o comportamento dos colaboradores.
+alt: C | postular que não há uma única forma de gerir melhor uma empresa, sendo a estrutura e os processos administrativos dependentes do contexto e das variáveis ambientais.
+alt: D | eliminar a necessidade de planejamento estratégico, substituindo-o por decisões intuitivas, baseadas na experiência dos gestores.
+alt: E | retomar os princípios tayloristas de divisão do trabalho e aplicá-los ao setor público, restringindo-se a mudar seu escopo de abrangência.
+comentario: Letra C. As escolas clássicas buscavam a melhor maneira de administrar, válida para qualquer organização. A teoria contingencial afirma que tudo depende: a estrutura e os processos adequados variam com o ambiente, a tecnologia e o tamanho. Ela integra contribuições anteriores em vez de rejeitá-las (B), não dispensa o planejamento (D) e não é um retorno a Taylor (E).
+
+=== ag26-adm-28
+gab: E
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 28 · gabarito preliminar
+bloco: gestao-publica
+tema: gp-estrategia
+ref: doutrina
+armadilha: caso
+dif: 2
+enunciado: Suponha que uma empresa de tecnologia em crescimento acelerado enfrente desafios na coordenação de suas atividades. A diretoria reconhece que as decisões são tomadas de forma reativa, sem direcionamento claro, e que não há mecanismos formais para avaliar se os objetivos estabelecidos estão sendo alcançados. Os departamentos trabalham de forma desarticulada, sem clareza sobre suas responsabilidades e sobre a conexão de suas ações com o todo organizacional. Com base nessa situação hipotética e considerando as funções administrativas clássicas e o processo de planejamento, assinale a opção que identifica corretamente as deficiências administrativas da empresa.
+alt: A | A empresa apresenta funções administrativas independentes entre si, de modo que melhorias em uma função não afetam as demais, o que justifica a gestão com abordagem fragmentada.
+alt: B | A empresa carece principalmente da função de direção, pois o problema central é a falta de liderança motivacional dos gestores: com líderes carismáticos e inspiradores, os problemas de desarticulação departamental e falta de avaliação de resultados seriam resolvidos.
+alt: C | A empresa apresenta falhas principalmente na função de controle, uma vez que o monitoramento inadequado dos resultados é a causa principal de todos os demais problemas.
+alt: D | A empresa necessita substituir os colaboradores que não atinjam as metas, eliminando a necessidade de investimento em planejamento ou reorganização estrutural.
+alt: E | A empresa apresenta falhas nas funções de planejamento e organização: a ausência de planejamento estratégico e operacional impede o estabelecimento de objetivos precisos, e a falta de organização adequada resulta em departamentos sem definição clara de responsabilidades e hierarquias.
+comentario: Letra E. Decisões reativas e sem rumo apontam falha de planejamento, que define objetivos e caminhos. Departamentos desarticulados e sem responsabilidades claras apontam falha de organização, que divide o trabalho e define atribuições. Há também falha de controle, mas ela não é a causa de tudo (C), porque não se controla o que não foi planejado. As funções são interdependentes (A), e liderança carismática (B) ou troca de pessoas (D) não suprem a falta de objetivos e estrutura.
+
+=== ag26-adm-29
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 29 · gabarito preliminar
+bloco: gestao-publica
+tema: gp-estrategia
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Entre os objetivos principais da gestão de pessoas contemporânea, inclui-se I a redução de custos com folha de pagamento e com ações de capacitação, por meio da substituição gradual de colaboradores com baixo desempenho. II o alinhamento de competências individuais com os objetivos organizacionais, bem como a busca de equilíbrio entre as demandas organizacionais e o bem-estar dos colaboradores. III o gerenciamento de processos administrativos como admissão, folha de pagamento e demissão, em detrimento de aspectos relativos à avaliação de desempenho e planejamento de carreira. Assinale a opção correta.
+alt: A | Nenhum item está certo.
+alt: B | Apenas o item I está certo.
+alt: C | Apenas o item II está certo.
+alt: D | Apenas o item III está certo.
+alt: E | Todos os itens estão certos.
+comentario: Letra C. A gestão de pessoas contemporânea é estratégica: alinha competências aos objetivos da organização e cuida do bem-estar de quem trabalha (II). Tratar capacitação como custo a cortar (I) e reduzir a área a admissão, folha e demissão (III) descrevem o velho departamento de pessoal, que é justamente o modelo superado.
+
+=== ag26-adm-30
+gab: A
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 30 · gabarito preliminar
+bloco: gestao-publica
+tema: gp-estrategia
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Assinale a opção que indica corretamente o teórico responsável por introduzir, no âmbito da qualidade total, o conceito de adequação ao uso e estruturar os processos gerenciais por meio da chamada trilogia, composta por planejamento, controle e melhoria da qualidade.
+alt: A | Joseph M. Juran.
+alt: B | W. Edwards Deming.
+alt: C | Philip Crosby.
+alt: D | Kaoru Ishikawa.
+alt: E | Armand Feigenbaum.
+comentario: Letra A. Juran definiu qualidade como adequação ao uso e organizou a gestão na trilogia planejamento, controle e melhoria. Deming (B) difundiu o ciclo PDCA e os 14 pontos. Crosby (C) é o do zero defeito e do custo da qualidade. Ishikawa (D) criou o diagrama de causa e efeito e os círculos de controle da qualidade. Feigenbaum (E) cunhou o controle da qualidade total.
+
+=== ag26-adm-31
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 31 · gabarito preliminar
+bloco: gestao-publica
+tema: gp-estrategia
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Considerando a elaboração do escopo de um projeto, o planejamento da qualidade e a estrutura analítica do projeto (EAP), assinale a opção correta.
+alt: A | O planejamento dispensa o controle do escopo para obter qualidade, visto que a garantia de padrões elevados substitui a definição de pacotes de trabalho.
+alt: B | O escopo do projeto deve restringir-se à definição de prazos e custos orçamentários, destinando-se a EAP ao gerenciamento da execução técnica.
+alt: C | A EAP é uma decomposição hierárquica com foco nas entregas do escopo do trabalho, servindo como guia para que os produtos resultantes atendam aos critérios de aceitação.
+alt: D | A EAP consiste em uma decomposição hierárquica que visa aos processos funcionais da organização contratante do projeto.
+alt: E | O planejamento da qualidade deve ser realizado durante a execução do projeto, funcionando como mecanismo de verificação de resultados ao seu término.
+comentario: Letra C: no PMBOK, a EAP decompõe hierarquicamente todo o trabalho do projeto em entregas e pacotes de trabalho, o que permite verificar se cada produto atende aos critérios de aceitação. O escopo define o trabalho e as entregas, não só prazo e custo (B). A EAP é orientada a entregas, não aos processos funcionais da organização (D). A qualidade se planeja antes de executar (E) e não substitui o controle do escopo (A).
+
+=== ag26-adm-32
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 32 · gabarito preliminar
+bloco: gestao-publica
+tema: gp-estrategia
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: No âmbito do BPM, a compreensão correta do significado dos processos é fundamental para o mapeamento e a estruturação organizacional. Com base nas definições dos processos primários, de suporte e de gerenciamento, julgue os itens a seguir. I Os processos primários são caracterizados por sua natureza interfuncional de ponta a ponta, agregando valor diretamente ao cliente externo e representando a essência da atividade finalística da organização. II Os processos de suporte diferem dos primários por não entregarem valor diretamente ao cliente externo, tendo a finalidade principal de prover sustentação a outros processos da cadeia, sejam eles primários, de gerenciamento ou também de suporte. III Nos processos de gerenciamento, o propósito é agregar valor direto ao cliente final, abrangendo as atividades operacionais diárias de transformação de insumos em produtos acabados. Assinale a opção correta.
+alt: A | Apenas o item II está certo.
+alt: B | Apenas o item III está certo.
+alt: C | Apenas os itens I e II estão certos.
+alt: D | Apenas os itens I e III estão certos.
+alt: E | Todos os itens estão certos.
+comentario: Letra C, pelas definições do CBOK. Os processos primários atravessam as áreas de ponta a ponta e entregam valor ao cliente externo, porque são a atividade-fim (I). Os de suporte sustentam os demais, inclusive outros de suporte, sem entregar valor direto ao cliente (II). Os de gerenciamento medem, monitoram e controlam as atividades e também não agregam valor direto ao cliente. A transformação de insumos em produtos é primária, o que torna III errado.
+
+=== ag26-adm-33
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 33 · gabarito preliminar
+bloco: contabilidade
+ref: doutrina
+armadilha: numero
+dif: 2
+enunciado: Suponha que uma empresa do setor do comércio apresente os seguintes dados em seu balanço patrimonial: ativo circulante de R$ 800.000 (sendo R$ 200.000 em estoques), passivo circulante de R$ 400.000 e realizável a longo prazo de R$ 100.000. Com base nessa situação hipotética e no que diz respeito à liquidez dessa organização, assinale a opção correta.
+alt: A | A folga financeira (capital de giro líquido) da empresa é de R$ 1.000.000.
+alt: B | A liquidez corrente é de 2,00, ou seja, para cada R$ 1,00 de dívida de curto prazo, a empresa tem R$ 2,00 de direitos circulantes.
+alt: C | A liquidez geral, que considera prazos curtos e longos, é inferior a 1,00.
+alt: D | A liquidez imediata é de 1,50, considerando-se todos os ativos circulantes.
+alt: E | A liquidez seca é de 1,5, que é superior à liquidez corrente, por não considerar os estoques.
+comentario: Letra B: liquidez corrente = ativo circulante ÷ passivo circulante = 800.000 ÷ 400.000 = 2,00. O capital de giro líquido é 800.000 − 400.000 = 400.000 (A). A liquidez geral soma o realizável a longo prazo no numerador e o exigível a longo prazo no denominador; com os dados dados, (800.000 + 100.000) ÷ 400.000 = 2,25, longe de ser menor que 1 (C). A liquidez imediata usa só as disponibilidades (D). A liquidez seca é (800.000 − 200.000) ÷ 400.000 = 1,5, menor que a corrente, e não maior (E).
+
+=== ag26-adm-35
+gab: E
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 35 · gabarito preliminar
+bloco: orcamento
+tema: gp-orcamento
+ref: cf88 165
+trecho: não se incluindo na proibição a autorização para abertura de créditos suplementares e contratação de operações de crédito, ainda que por antecipação de receita
+armadilha: excecao
+dif: 2
+enunciado: Suponha que a lei orçamentária anual (LOA) de um estado seja submetida à aprovação com autorização para que o Poder Executivo contraia operações de crédito por antecipação de receita (ARO), além da fixação das despesas para o exercício. Com relação a essa situação e com base nos princípios orçamentários, é correto afirmar que, caso seja aprovada a LOA, a inclusão dessa autorização
+alt: A | refletirá o princípio do orçamento bruto, pois as receitas e despesas constam sem deduções.
+alt: B | ferirá o princípio da universalidade, pois as operações ARO deveriam constar em lei específica.
+alt: C | atenderá ao princípio da não afetação, garantindo que os impostos não sejam vinculados a órgãos.
+alt: D | violará o princípio da exclusividade, pois operações de crédito são matérias estranhas à previsão da receita.
+alt: E | obedecerá ao princípio da exclusividade, por ser uma das exceções constitucionais permitidas.
+comentario: Letra E. O princípio da exclusividade (art. 165, § 8º, da CF) proíbe na LOA matéria estranha à previsão da receita e à fixação da despesa, mas ressalva expressamente a autorização para créditos suplementares e para operações de crédito, ainda que por antecipação de receita. Por isso a autorização não viola o princípio (D). Orçamento bruto (A), universalidade (B) e não afetação (C) tratam de outros aspectos e não explicam a situação.
+
+=== ag26-adm-36
+gab: A
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 36 · gabarito preliminar
+bloco: orcamento
+tema: gp-orcamento
+ref: lei4320 36
+trecho: Consideram-se Restos a Pagar as despesas empenhadas mas não pagas até o dia 31 de dezembro distinguindo-se as processadas das não processadas
+armadilha: conceito
+dif: 1
+enunciado: Suponha que, no processamento contábil das despesas de determinado ente federado, tenha-se verificado a existência de empenhos que não tenham sido pagos até 31 de dezembro, embora o direito dos credores já tivesse sido verificado e atestado (fase de liquidação concluída). Nessa situação hipotética, tais despesas deverão ser inscritas em
+alt: A | restos a pagar processados, integrando a dívida flutuante.
+alt: B | dívida ativa não tributária, por representarem créditos do Estado.
+alt: C | suprimento de fundos, com vistas ao pagamento imediato por meio de adiantamento.
+alt: D | despesas de exercícios anteriores (DEA), utilizando dotação do ano atual.
+alt: E | restos a pagar não processados, integrando a dívida fundada.
+comentario: Letra A. Despesa empenhada e não paga até 31/12 vira restos a pagar (art. 36 da Lei 4.320). Com a liquidação concluída, é processada; sem ela, seria não processada (E). Restos a pagar compõem a dívida flutuante (art. 92, I), não a fundada. A dívida ativa (B) é crédito do Estado, e aqui ele é devedor. DEA (D) é para despesa que nem chegou a ser empenhada ou processada na época própria. Suprimento de fundos (C) é adiantamento a servidor.
+
+=== ag26-adm-37
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 37 · gabarito preliminar
+bloco: administrativo
+tema: adm-licitacoes
+ref: lei14133 17
+trecho: anteceder as fases referidas nos incisos III e IV do caput deste artigo, desde que expressamente previsto no edital de licitação
+armadilha: excecao
+dif: 2
+enunciado: No que se refere ao processo de licitação previsto na Lei n.º 14.133/2021, assinale a opção correta.
+alt: A | Nos procedimentos licitatórios realizados por meio eletrônico, a administração pública poderá determinar, como condição de validade e eficácia, que os licitantes pratiquem seus atos em formato eletrônico ou físico.
+alt: B | Desde que expressamente previsto no edital, a fase de habilitação poderá anteceder as fases de apresentação de propostas e lances e de julgamento, mediante ato motivado que demonstre os benefícios.
+alt: C | Na fase de julgamento, a administração pública poderá, em relação ao licitante provisoriamente vencedor, realizar análise e avaliação da conformidade da proposta, mediante homologação de amostras, exame de conformidade e prova de conceito, independentemente de previsão no edital.
+alt: D | Na licitação sob a forma presencial, é desnecessária a gravação, em áudio e vídeo, da sessão pública de apresentação de propostas.
+alt: E | As licitações serão realizadas preferencialmente sob a forma presencial, admitida a utilização da forma eletrônica, desde que motivada, devendo a sessão pública ser registrada em ata.
+comentario: Letra B: a inversão de fases do art. 17, § 1º, exige ato motivado com os benefícios e previsão expressa no edital. Nas licitações eletrônicas, os atos são praticados em formato eletrônico (§ 4º), e não “eletrônico ou físico” (A). A prova de conceito e as amostras do § 3º dependem de previsão no edital (C). Na forma presencial, a sessão deve ser gravada em áudio e vídeo (§ 2º), o que derruba D. E inverte a regra do § 2º: a forma eletrônica é a preferencial, e a presencial é que precisa de motivação.
+
+=== ag26-adm-38
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 38 · gabarito preliminar
+bloco: administrativo
+tema: adm-licitacoes
+ref: lei14133 29
+trecho: O pregão não se aplica às contratações de serviços técnicos especializados de natureza predominantemente intelectual
+armadilha: excecao
+dif: 2
+enunciado: Assinale a opção correta, acerca das modalidades de licitação previstas na Lei n.º 14.133/2021.
+alt: A | Nos concursos destinados à elaboração de projeto, o vencedor cederá à administração pública os direitos patrimoniais e autorizará sua execução a cada vez que as autoridades competentes fizerem uso do projeto de forma alterada.
+alt: B | É vedada a criação de novas modalidades de licitação, embora a lei permita a combinação entre pregão, concorrência, concurso, leilão e diálogo competitivo.
+alt: C | O pregão não se aplica às contratações de serviços técnicos especializados de natureza predominantemente intelectual.
+alt: D | O leilão será cometido a leiloeiro oficial, vedada a designação de servidor indicado pela autoridade competente da administração pública.
+alt: E | O diálogo competitivo será conduzido por comissão de contratação composta de pelo menos 2 (dois) servidores efetivos, admitida a contratação de profissionais para assessoramento técnico da comissão.
+comentario: Letra C, do parágrafo único do art. 29, que também afasta o pregão de obras e serviços de engenharia, salvo os serviços comuns de engenharia. No concurso, o vencedor cede os direitos e autoriza a execução conforme o juízo de conveniência e oportunidade da administração (art. 30), sem autorização a cada uso (A). A lei proíbe tanto criar quanto combinar modalidades (art. 28, § 2º), por isso B erra. O leilão pode ser cometido a leiloeiro oficial ou a servidor designado (art. 31), o que derruba D. A comissão do diálogo competitivo tem pelo menos 3 servidores efetivos ou empregados públicos (art. 32, § 1º, XI), não 2 (E).
+
+=== ag26-adm-39
+gab: A
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 39 · gabarito preliminar
+bloco: administrativo
+tema: adm-servicos
+ref: lei8987 9
+trecho: tabela com o valor das tarifas praticadas e a evolução das revisões ou reajustes realizados nos últimos cinco anos
+armadilha: literal
+dif: 2
+enunciado: A respeito dos serviços públicos prestados por concessionárias, previstos na Lei n.º 8.987/1995, assinale a opção correta.
+alt: A | A concessionária deverá divulgar em seu sítio eletrônico, de forma clara e de fácil compreensão pelos usuários, a tabela com o valor das tarifas praticadas e a evolução das revisões ou reajustes realizados nos últimos cinco anos.
+alt: B | As concessionárias de serviços públicos, de direito público e privado, são obrigadas a oferecer ao consumidor e ao usuário, 60 dias antes do mês de vencimento, o mínimo de três datas opcionais para escolherem os dias de vencimento de seus débitos.
+alt: C | Considera-se concessão de serviço público precedida de execução de obra pública a delegação de sua prestação feita pelo poder concedente, mediante licitação sob qualquer modalidade, a pessoa jurídica que demonstre capacidade para seu desempenho, por sua conta e risco e por prazo indeterminado.
+alt: D | A tarifa do serviço público concedido será fixada pelo preço da proposta vencedora da licitação e preservada pelas regras de revisão previstas somente no contrato.
+alt: E | As concessões e permissões sujeitam-se a ações de fiscalização pelo poder concedente responsável pela delegação, sendo nelas vedada a participação de usuários dos respectivos serviços.
+comentario: Letra A, texto do art. 9º, § 5º. B erra duas vezes: o art. 7º-A manda oferecer o mínimo de seis datas opcionais, não três, e dentro do mês de vencimento, não 60 dias antes. C mistura conceitos e erra duas vezes: a concessão se faz por concorrência ou diálogo competitivo e sempre por prazo determinado (art. 2º). D erra porque as regras de revisão estão nesta lei, no edital e no contrato (art. 9º, caput). E contraria o art. 3º, pelo qual a fiscalização se faz com a cooperação dos usuários.
+
+=== ag26-adm-40
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 40 · gabarito preliminar
+bloco: administrativo
+tema: adm-servicos
+ref: lei8987 23-A
+trecho: inclusive a arbitragem, a ser realizada no Brasil e em língua portuguesa
+armadilha: literal
+dif: 2
+enunciado: Assinale a opção correta, com relação aos contratos de concessão.
+alt: A | Nos termos previstos no contrato de concessão, admite-se a subconcessão, desde que expressamente autorizada pelo poder concedente e precedida de qualquer modalidade de licitação.
+alt: B | A transferência de concessão ou do controle societário da concessionária sem prévia anuência do poder concedente implicará a encampação da concessão.
+alt: C | O contrato de concessão poderá prever o emprego de mecanismos privados para resolução de disputas decorrentes ou relacionadas ao contrato, inclusive a arbitragem, a ser realizada no Brasil e em língua portuguesa.
+alt: D | À concessionária cabe executar o serviço concedido, bem como responder por todos os prejuízos causados ao poder concedente, aos usuários ou a terceiros, podendo a fiscalização exercida pelo órgão competente atenuar essa responsabilidade.
+alt: E | Os contratos celebrados entre a concessionária e os terceiros regem-se pelo direito público, não se estabelecendo qualquer relação jurídica entre os terceiros e o poder concedente.
+comentario: Letra C, texto do art. 23-A. A subconcessão exige concorrência, e não qualquer modalidade (art. 26, § 1º), por isso A erra. A transferência sem anuência gera caducidade, não encampação (art. 27), o que derruba B. A fiscalização não exclui nem atenua a responsabilidade da concessionária (art. 25), contra D. Os contratos com terceiros regem-se pelo direito privado (art. 25, § 2º), contra E.
+
+=== ag26-adm-45
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 45 · gabarito preliminar
+bloco: orcamento
+tema: gp-orcamento
+ref: doutrina
+armadilha: caso
+dif: 2
+enunciado: Suponha que, em determinado órgão público, a metodologia orçamentária historicamente utilizada tenha concentrado a decisão sobre os gastos nas unidades responsáveis e nos meios que seriam adquiridos, com destaque para pessoal, materiais e serviços. Em processo de aperfeiçoamento, decidiu-se adotar metodologia na qual sejam previamente definidos os objetivos a alcançar, examinadas alternativas de atuação, organizadas as despesas em programas e mensurados os custos e as realizações correspondentes, preservando-se a elaboração do orçamento para cada exercício. A partir dessa situação hipotética e no que diz respeito à classificação doutrinária dos modelos orçamentários, aos princípios orçamentários e à técnica do orçamento-programa, assinale a opção correta.
+alt: A | A estruturação da despesa em programas mostra-se incompatível com o conceito legal de orçamento público, pois restringe a lei orçamentária à previsão de receitas e à identificação de objetos de gasto.
+alt: B | Com a mudança de metodologia, são adotadas características do orçamento-programa, mantendo-se o princípio da anualidade, pois a programação por objetivos, programas, custos e mensuração das realizações pode ser operacionalizada por meio da elaboração de orçamento a cada ano.
+alt: C | Com a mudança de metodologia, passa-se do orçamento-programa para o orçamento tradicional, pois a definição prévia de objetivos e a avaliação de alternativas transferem o foco dos resultados para os meios empregados pela administração pública, o que caracteriza o modelo tradicional de orçamento.
+alt: D | Com a mudança de metodologia, substitui-se o princípio da anualidade pelo princípio da universalidade, uma vez que programas governamentais podem apresentar objetivos cuja realização ultrapasse um exercício financeiro.
+alt: E | O orçamento tradicional e o orçamento-programa distinguem-se exclusivamente pela forma jurídica de aprovação, sendo a definição de objetivos, custos e medidas de realização igualmente central nos dois modelos.
+comentario: Letra B. A mudança descrita vai do orçamento tradicional, centrado em quem gasta e no que se compra, para o orçamento-programa, centrado em objetivos, programas, custos e resultados. Continuar elaborando um orçamento por exercício mantém a anualidade. C inverte a direção da mudança. Programas podem durar mais de um ano, mas isso não troca a anualidade pela universalidade (D), que é outro princípio: todas as receitas e despesas no orçamento. A diferença entre os modelos está no foco, e não na forma de aprovação (E).
+
+=== ag26-adm-46
+gab: E
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 46 · gabarito preliminar
+bloco: orcamento
+tema: gp-orcamento
+ref: lc101 32
+trecho: não serão computadas nas despesas de capital as realizadas sob a forma de empréstimo ou financiamento a contribuinte, com o intuito de promover incentivo fiscal
+armadilha: numero
+dif: 3
+enunciado: Suponha que, no curso de determinado exercício financeiro, determinado estado da federação tenha apurado os seguintes valores: ingresso de recursos provenientes de operações de crédito: R$ 1,2 bilhão; despesas de capital executadas: R$ 1 bilhão; do total de despesas de capital executadas, R$ 100 milhões são correspondentes a empréstimos concedidos a contribuintes com a finalidade de promover incentivo fiscal baseado em tributo estadual, do qual resulta redução indireta do ônus tributário dos beneficiários. Considere que o Poder Legislativo estadual, paralelamente, tenha aprovado, por maioria absoluta, crédito especial no montante de R$ 300 milhões, com finalidade precisamente determinada, autorizando a parcela correspondente de operação de crédito, havendo prévia e expressa autorização para a contratação, inclusão orçamentária dos recursos e observância dos limites e condições fixados pelo Senado Federal. A partir dessa situação hipotética e à luz da denominada regra de ouro constitucional e dos critérios estabelecidos pela Lei de Responsabilidade Fiscal (LRF) para sua aferição, assinale a opção correta.
+alt: A | Para fins da regra de ouro, a LRF determina que sejam comparadas as operações de crédito realizadas com as despesas de capital apenas autorizadas no orçamento, independentemente do montante efetivamente executado no exercício.
+alt: B | As operações de crédito são constitucionalmente inviáveis quanto à parcela que exceda as despesas de capital, pois a regra de ouro configura proibição absoluta, insuscetível de autorização legislativa excepcional.
+alt: C | A aprovação, por maioria absoluta, de crédito especial com finalidade precisa torna desnecessária a observância das demais condições previstas na LRF para contratação de operação de crédito.
+alt: D | O excesso das operações de crédito sobre as despesas de capital corresponde a R$ 200 milhões, pois toda despesa contabilmente classificada como despesa de capital integra necessariamente a base de comparação utilizada pela regra de ouro.
+alt: E | As despesas de capital consideradas totalizam R$ 900 milhões, tendo havido excesso de R$ 300 milhões nas operações de crédito, cuja autorização se enquadra na ressalva constitucional, por ter sido concedida mediante crédito especial de finalidade precisa aprovado por maioria absoluta.
+comentario: Letra E. A regra de ouro (art. 167, III, da CF) veda operações de crédito acima das despesas de capital, ressalvadas as autorizadas por créditos suplementares ou especiais com finalidade precisa, aprovados por maioria absoluta. A LRF compara o que ingressou com o que foi executado no exercício (art. 32, § 3º), e não o que foi apenas autorizado (A). Também manda excluir das despesas de capital os empréstimos a contribuinte para incentivo fiscal (inciso I). A conta fica 1 bilhão − 100 milhões = 900 milhões de despesas de capital e 1,2 bilhão − 900 milhões = 300 milhões de excesso, coberto pela ressalva. D esquece a exclusão. B ignora a ressalva. C esquece que as demais condições do art. 32 continuam valendo.
+
+=== ag26-adm-47
+gab: A
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 47 · gabarito preliminar
+bloco: orcamento
+tema: gp-orcamento
+ref: cf88 166
+trecho: indiquem os recursos necessários, admitidos apenas os provenientes de anulação de despesa
+armadilha: conceito
+dif: 2
+enunciado: Considerando-se o ciclo orçamentário e as regras aplicáveis às emendas parlamentares ao orçamento, caso, durante a tramitação de projeto de lei orçamentária anual, pretenda-se apresentar emenda destinada à inclusão de ação de investimento, é correto afirmar que isso deve ser feito
+alt: A | na fase de aprovação do orçamento, devendo indicar os recursos provenientes da anulação de despesa admitida pela Constituição.
+alt: B | na fase de elaboração do orçamento, podendo-se utilizar recursos provenientes da anulação de dotações destinadas ao serviço da dívida.
+alt: C | na fase de execução do orçamento, devendo-se indicar recursos provenientes exclusivamente do excesso de arrecadação do exercício.
+alt: D | na fase de controle do orçamento, podendo-se modificar dotações independentemente de compatibilidade com o plano plurianual e a LDO.
+alt: E | na fase de aprovação do orçamento, sendo suficiente sua compatibilidade com a LDO, ainda que contrarie o plano plurianual.
+comentario: Letra A. Emenda é apresentada no Legislativo, durante a apreciação do projeto, que é a fase de aprovação. Pelo art. 166, § 3º, da CF, ela precisa ser compatível com o PPA e com a LDO e indicar os recursos, admitidos apenas os de anulação de despesa, excluídas dotações de pessoal, serviço da dívida e transferências constitucionais. Por isso B usa uma fonte vedada, C e D estão na fase errada e E dispensa a compatibilidade com o PPA, que a Constituição exige.
+
+=== ag26-adm-48
+gab: D
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 48 · gabarito preliminar
+bloco: orcamento
+tema: gp-orcamento
+ref: lei4320 37
+trecho: As despesas de exercícios encerrados, para as quais o orçamento respectivo consignava crédito próprio, com saldo suficiente para atendê-las, que não se tenham processado na época própria
+armadilha: conceito
+dif: 3
+enunciado: Suponha que, ao final do exercício X1, determinado órgão estadual tenha apresentado as seguintes despesas: I aquisição de material de consumo destinado à manutenção regular, empenhada, liquidada e ainda não paga; II serviço de manutenção destinado apenas à conservação de bem em condições normais de funcionamento, empenhado e ainda não liquidado, estando presentes as condições para sua inscrição; III obrigação referente a X0, para a qual havia crédito próprio e saldo suficiente, que não se tenha processado na época própria. Considerando a classificação e os estágios da despesa pública, os restos a pagar e as despesas de exercícios anteriores, assinale a opção correta.
+alt: A | As despesas I e II são correntes; I constitui restos a pagar não processados; II constitui restos a pagar processados; III classifica-se como despesa de exercícios anteriores; e a execução segue empenho, liquidação e pagamento.
+alt: B | As despesas I e II são de capital; I constitui restos a pagar processados; II constitui restos a pagar não processados; III classifica-se como despesa de exercícios anteriores; e a execução segue empenho, liquidação e pagamento.
+alt: C | As despesas I e II são correntes; I constitui restos a pagar processados; II constitui restos a pagar não processados; III classifica-se como restos a pagar do exercício anterior; e a execução segue empenho, liquidação e pagamento.
+alt: D | As despesas I e II são correntes; I constitui restos a pagar processados; II constitui restos a pagar não processados; III classifica-se como despesa de exercícios anteriores; e a execução segue empenho, liquidação e pagamento.
+alt: E | As despesas I e II são correntes; I constitui restos a pagar processados; II constitui restos a pagar não processados; III classifica-se como despesa de exercícios anteriores; e a execução segue empenho, pagamento e liquidação.
+comentario: Letra D. Material de consumo e manutenção de bem são despesas correntes, porque não aumentam o patrimônio; isso exclui B. A despesa I, liquidada e não paga, é restos a pagar processados; a II, só empenhada, é restos a pagar não processados. A inverte as duas. A III é despesa de exercícios anteriores, pelo art. 37 da Lei 4.320: havia crédito, mas a despesa não se processou na época, e por isso não é restos a pagar (C). A ordem dos estágios é empenho, liquidação e pagamento (E troca os dois últimos).
+
+=== ag26-adm-49
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 49 · gabarito preliminar
+bloco: contabilidade
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: A análise das demonstrações contábeis pode ser utilizada para avaliar diferentes aspectos da situação econômico-financeira de uma empresa. No que diz respeito a esse assunto, assinale a opção que apresenta corretamente os elementos que, em conjunto, permitem avaliar a capacidade de geração de resultados, a estrutura de financiamento e a situação financeira no curto prazo de uma empresa.
+alt: A | política de investimentos, indicadores de liquidez e estrutura de capital
+alt: B | estrutura de capital, política de dividendos e indicadores de rentabilidade
+alt: C | indicadores de rentabilidade, estrutura de capital e indicadores de liquidez
+alt: D | indicadores de liquidez, política de dividendos e estrutura de capital
+alt: E | política de investimentos, indicadores de rentabilidade e indicadores de liquidez
+comentario: Letra C, um elemento para cada aspecto pedido. A capacidade de gerar resultados se mede com indicadores de rentabilidade; a forma de financiamento, com indicadores de estrutura de capital (endividamento); a situação de curto prazo, com indicadores de liquidez. Política de investimentos e política de dividendos são decisões de gestão, não indicadores extraídos das demonstrações.
+
+=== ag26-adm-50
+gab: D
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 50 · gabarito preliminar
+bloco: economia
+tema: ec-avaliacao
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Considerando-se custos de capital, alavancagem e riscos associados a diferentes fontes de financiamento, é correto afirmar que, caso uma empresa avalie variadas combinações entre capital próprio e dívida para financiar sua expansão,
+alt: A | o financiamento via dívida fortalecerá a capacidade da empresa de honrar seus compromissos, ao ampliar sua capacidade de geração de caixa.
+alt: B | a utilização de capital próprio estabelece, no momento de sua captação, uma remuneração financeira fixa e previamente definida para os investidores.
+alt: C | a estrutura ótima de capital corresponderá à maior participação possível de recursos de terceiros, em razão do benefício fiscal advindo da dedutibilidade dos juros.
+alt: D | o financiamento via dívida poderá gerar benefício fiscal decorrente da possibilidade de dedução de juros, mas também aumentar as obrigações financeiras da empresa e sua exposição ao risco de insolvência.
+alt: E | o aumento do capital próprio reduzirá o custo médio ponderado de capital da empresa, pois essa fonte de financiamento envolve menor risco para os investidores.
+comentario: Letra D: a dívida tem o benefício fiscal dos juros dedutíveis, mas aumenta compromissos fixos e o risco de insolvência. É esse equilíbrio que define a estrutura de capital. Dívida não gera caixa, ela cria obrigação (A). O capital próprio não tem remuneração fixa, porque o acionista recebe o residual (B). Endividar ao máximo (C) ignora os custos de dificuldade financeira. O capital próprio é mais caro, porque o acionista corre mais risco que o credor, e aumentá-lo não reduz necessariamente o custo médio ponderado (E).
+
+=== ag26-adm-51
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 51 · gabarito preliminar
+bloco: economia
+tema: ec-avaliacao
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A avaliação de empresas envolve diferentes metodologias e conceitos relacionados a fluxos de caixa, crescimento, retorno sobre o capital investido, custo de capital e criação de valor. Em relação à avaliação de empresas, assinale a opção correta.
+alt: A | O valor econômico de uma empresa é relacionado diretamente aos lucros ou prejuízos mensurados nas demonstrações de resultado de exercício (DRE).
+alt: B | Na avaliação pelo fluxo de caixa descontado, considera-se a projeção dos dividendos a serem pagos aos acionistas, descontados pelo custo de financiamento da empresa.
+alt: C | A empresa cria valor quando seu crescimento ocorre com retorno sobre o capital investido superior ao custo médio ponderado de capital.
+alt: D | A avaliação por múltiplos utiliza um multiplicador associado ao setor econômico, aplicado ao EBITDA, para determinar diretamente o valor do patrimônio líquido da empresa.
+alt: E | O EVA (Economic Value Added) é obtido pela diferença entre o valor de mercado da empresa e o custo do capital próprio.
+comentario: Letra C: só há criação de valor quando o retorno sobre o capital investido supera o custo médio ponderado de capital; crescer com retorno abaixo dele destrói valor. O valor econômico vem dos fluxos de caixa futuros, não do lucro contábil (A). O fluxo de caixa descontado da firma projeta fluxos livres e os desconta pelo custo de capital; descontar dividendos é outro modelo (B). O múltiplo de EBITDA dá o valor da firma, e é preciso subtrair a dívida líquida para chegar ao patrimônio (D). O EVA é o lucro operacional após impostos menos o custo de todo o capital empregado (E).
+
+=== ag26-adm-52
+gab: A
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 52 · gabarito preliminar
+bloco: economia
+tema: ec-avaliacao
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: A análise financeira envolve a aplicação de conceitos de matemática financeira para avaliar o valor do dinheiro no tempo, comparar alternativas de investimento e financiamento e verificar a viabilidade econômica de diferentes fluxos de caixa. Sobre esse tema, assinale a opção correta.
+alt: A | O ponto de Fisher é aquele em que dois projetos com prazos e valores distintos possuem o mesmo valor presente líquido (VPL).
+alt: B | A taxa interna de retorno (TIR) de um projeto corresponde à taxa de desconto que iguala o respectivo valor presente líquido (VPL) ao custo de reposição do ativo fixo.
+alt: C | Dois valores são financeiramente equivalentes, quando, submetidos a taxas de juros diferentes, apresentam o mesmo resultado em determinada data.
+alt: D | O custo de oportunidade de um investimento é dado, em regra, pela taxa de juros de um projeto igualmente possível de elevada rentabilidade e risco.
+alt: E | O saldo devedor de um financiamento imobiliário calculado pela tabela Price decresce de forma mais rápida do que outro calculado pelo sistema de amortização constante (SAC).
+comentario: Letra A: o ponto de Fisher é a taxa de desconto em que as curvas de VPL de dois projetos se cruzam, isto é, em que os dois têm o mesmo VPL. A TIR é a taxa que zera o VPL (B). A equivalência financeira supõe a mesma taxa de juros (C). O custo de oportunidade é o retorno da melhor alternativa de risco semelhante, não de uma de risco elevado (D). No SAC a amortização é constante desde o início, por isso o saldo cai mais rápido que na Price, cujas primeiras parcelas são quase só juros (E).
+
+=== ag26-adm-53
+gab: E
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 53 · gabarito preliminar
+bloco: administrativo
+tema: adm-servicos
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: A atividade material cuja titularidade o Estado assume, para satisfazer, de modo direto, as necessidades básicas da coletividade, sob regime jurídico predominantemente de direito público, é denominada
+alt: A | atividade econômica em sentido estrito.
+alt: B | poder de polícia administrativo.
+alt: C | intervenção estatal na propriedade.
+alt: D | fomento público industrial.
+alt: E | serviço público essencial.
+comentario: Letra E. Serviço público é a atividade material de titularidade estatal que oferece utilidades à coletividade, sob regime de direito público, prestada diretamente ou por delegados (art. 175 da CF). A atividade econômica em sentido estrito (A) cabe à iniciativa privada, e o Estado só a exerce nas hipóteses do art. 173. O poder de polícia (B) restringe direitos em vez de prestar utilidades. A intervenção na propriedade (C) e o fomento (D) são outras formas de atuação estatal.
+
+=== ag26-adm-54
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 54 · gabarito preliminar
+bloco: administrativo
+tema: adm-servicos
+ref: lei8987 2
+trecho: mediante licitação, na modalidade concorrência ou diálogo competitivo, a pessoa jurídica ou consórcio de empresas que demonstre capacidade para seu desempenho, por sua conta e risco e por prazo determinado
+armadilha: literal
+dif: 1
+enunciado: A concessão de serviço público, conforme a legislação brasileira, diferencia-se de outras formas de delegação, por se caracterizar essencialmente como um contrato administrativo que delega a execução de serviço
+alt: A | por prazo indeterminado, permitindo a exploração contínua, até que o poder concedente decida revogar o ajuste.
+alt: B | sob a condição de ser precedido obrigatoriamente de licitação, como ocorre na modalidade concorrência, por conta e risco da concessionária.
+alt: C | mediante ato unilateral do poder público, eximindo o uso de qualquer modalidade licitatória para a seleção da empresa a ser contratada.
+alt: D | sob o regime de direito público integral, sem qualquer assunção de risco financeiro pela empresa contratada.
+alt: E | de forma gratuita para o Estado, sendo vedada a cobrança de tarifas ou qualquer forma de remuneração direta dos usuários.
+comentario: Letra B. Pelo art. 2º, II, da Lei 8.987, a concessão exige licitação por concorrência ou diálogo competitivo, é feita por conta e risco da concessionária e tem prazo determinado, o que derruba A. É contrato, e não ato unilateral sem licitação (C). O risco do negócio é da concessionária (D). A remuneração típica é a tarifa paga pelo usuário (E).
+
+=== ag26-adm-55
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 55 · gabarito preliminar
+tema: rg-teorias
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: No ambiente da regulação econômica, a teoria da captura pressupõe, essencialmente, que
+alt: A | a sociedade civil organizada exerce controle majoritário sobre as normas de fiscalização de tarifas.
+alt: B | as empresas reguladas conseguem direcionar as decisões da agência em favor de seus próprios interesses.
+alt: C | o processo regulatório é moldado para proteger os novos entrantes em mercados competitivos.
+alt: D | o órgão regulador atua de forma autônoma para maximizar o bem-estar social de longo prazo.
+alt: E | a criação de agências independentes elimina completamente os conflitos de interesse entre governantes e empresários.
+comentario: Letra B. Na teoria da captura, de Stigler e da Escola de Chicago, a regulação é demandada e acaba moldada pelo setor regulado, que tem mais informação e mais incentivo para se organizar que os consumidores dispersos. D descreve a teoria do interesse público, que a captura critica. A captura tende a proteger os incumbentes contra novos entrantes, o oposto de C. Nenhum desenho institucional elimina completamente o risco (E).
+
+=== ag26-adm-56
+gab: C
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 56 · gabarito preliminar
+bloco: lei-13848
+tema: rg-participacao
+ref: lei13848 9
+trecho: Serão objeto de consulta pública, previamente à tomada de decisão pelo conselho diretor ou pela diretoria colegiada
+armadilha: conceito
+dif: 2
+enunciado: Acerca das boas práticas regulatórias no Estado brasileiro, é correto afirmar que
+alt: A | a agenda regulatória constitui o modelo de governança em que a fiscalização e a intervenção do Estado submetem-se estritamente aos direitos, obrigações, metas de desempenho e matrizes de risco estipulados no corpo do termo de concessão.
+alt: B | a regulação contratual define-se como o estudo técnico preventivo realizado antes da edição de um ato normativo, cujo objetivo central é mapear os custos, os benefícios e as diferentes opções de ação para resolver um problema setorial.
+alt: C | o processo de participação e controle social materializa-se na criação de canais institucionais abertos de diálogo, como audiências e consultas públicas, que permitem aos cidadãos influenciar e fiscalizar as decisões tomadas pelo regulador.
+alt: D | a análise de impacto regulatório consiste no planejamento público formal por meio do qual a instância colegiada de uma agência divulga antecipadamente o cronograma de temas prioritários que receberão atuação normativa em um período.
+alt: E | a avaliação de resultado regulatório caracteriza-se como o processo de recepção de contribuições da sociedade civil e dos agentes econômicos, mediante consultas públicas, visando legitimar democraticamente a edição de novas regras.
+comentario: Letra C. As alternativas erradas trocam os conceitos entre si. A descreve a regulação contratual, e não a agenda regulatória. B descreve a AIR, e não a regulação contratual. D descreve a agenda regulatória (art. 21 da Lei 13.848), e não a AIR. E descreve a consulta pública, e não a avaliação de resultado regulatório, que mede os efeitos da norma já em vigor. A participação social por audiências e consultas públicas está nos arts. 9º e 10 da Lei 13.848.
+
+=== ag26-adm-57
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 57 · gabarito preliminar
+bloco: contabilidade
+ref: doutrina
+armadilha: conceito
+dif: 1
+enunciado: Suponha que uma indústria tenha adquirido, à vista, uma máquina destinada exclusivamente à fabricação de seus produtos. O equipamento tem vida útil estimada de dez anos e será utilizado normalmente no processo produtivo. Com base nessa situação e na terminologia empregada para a gestão de custos, é correto afirmar que, no momento da aquisição, o valor aplicado na máquina é classificado como
+alt: A | desperdício.
+alt: B | investimento.
+alt: C | perda.
+alt: D | custo.
+alt: E | despesa.
+comentario: Letra B. Gasto ativado por beneficiar vários períodos é investimento, e a máquina vai para o imobilizado. Ela vira custo aos poucos, pela depreciação, à medida que é usada na produção (D). Despesa (E) é o consumo ligado à obtenção de receita fora da produção. Perda (C) é o consumo anormal e involuntário. Desperdício (A) é o gasto que não agrega valor.
+
+=== ag26-adm-58
+gab: E
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 58 · gabarito preliminar
+bloco: contabilidade
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Suponha que uma indústria tenha celebrado contrato de fornecimento de energia elétrica que estabeleça cobrança mensal de R$ 8.000,00 até determinado nível de consumo. Ultrapassado esse limite, a empresa paga adicional de R$ 0,40 por kWh excedente consumido. Nessa situação, tendo em vista o comportamento desse custo em relação ao nível de atividade, o gasto com energia descrito é classificado como
+alt: A | custo afundado.
+alt: B | custo variável.
+alt: C | custo semifixo.
+alt: D | custo fixo.
+alt: E | custo semivariável.
+comentario: Letra E no gabarito preliminar: há uma parcela fixa (os 8.000 mensais até o limite) e uma parcela que cresce com o consumo (0,40 por kWh excedente), o que caracteriza o custo misto chamado de semivariável. Semifixo (C) é o custo fixo que sobe em degraus quando a capacidade é ampliada. Custo variável puro (B) não teria a parte fixa, e custo fixo (D) não cresceria com o consumo. Custo afundado (A) é o já incorrido e irrecuperável, que não muda com a decisão.
+
+=== ag26-adm-59
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 59 · gabarito preliminar
+bloco: contabilidade
+ref: doutrina
+armadilha: numero
+dif: 2
+enunciado: Considere que uma empresa comercialize cada unidade de um único produto por R$ 200,00. O custo variável unitário é de R$ 120,00, e os custos e despesas fixos totalizam R$ 160.000,00 mensais. Em determinado mês, a empresa vendeu 2.500 unidades do produto. Com base nessa situação hipotética, é correto afirmar que o ponto de equilíbrio contábil, em unidades, e a margem de segurança, também em unidades, correspondem, respectivamente, a
+alt: A | 2.500 e 500.
+alt: B | 2.000 e 500.
+alt: C | 2.000 e 2.500.
+alt: D | 1.250 e 1.250.
+alt: E | 1.600 e 900.
+comentario: Letra B. A margem de contribuição unitária é 200 − 120 = 80. O ponto de equilíbrio contábil é 160.000 ÷ 80 = 2.000 unidades. A margem de segurança é o que se vende acima do equilíbrio: 2.500 − 2.000 = 500 unidades.
+
+=== ag26-adm-60
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Administração) · questão 60 · gabarito preliminar
+bloco: contabilidade
+ref: doutrina
+armadilha: numero
+dif: 3
+enunciado: Suponha que uma indústria fabrique internamente 20.000 unidades anuais de determinado componente. Para esse volume, são apurados os seguintes custos: materiais diretos: R$ 18,00 por unidade; mão de obra direta: R$ 10,00 por unidade; custos indiretos variáveis: R$ 4,00 por unidade; custos fixos rateados: R$ 160.000,00 por ano. Suponha, ainda, que um fornecedor tenha oferecido cada unidade do mesmo componente por R$ 35,00. Caso a indústria deixe de fabricá-lo, 75% dos custos fixos atualmente rateados ao componente permanecerão, e os demais 25% serão eliminados. A indústria está prestes a decidir se adota a oferta do fornecedor ou não. Considerando que não haja diferenças de qualidade ou outros fatores qualitativos determinantes para embasar a decisão da empresa e no que diz respeito exclusivamente aos custos relevantes para a decisão, julgue os itens a seguir. I A indústria obterá maior vantagem econômica, se mantiver a fabricação própria do componente — o que gerará economia anual de R$ 20.000,00. II A indústria obterá maior vantagem econômica, se comprar o componente do fornecedor — o que gerará economia anual de R$ 60.000,00. III O custo relevante do componente será o mesmo, se a indústria fabricar ou comprar o componente, não havendo diferença de vantagem econômica entre as duas opções. Assinale a opção correta.
+alt: A | Nenhum item está certo.
+alt: B | Apenas o item I está certo.
+alt: C | Apenas o item II está certo.
+alt: D | Apenas o item III está certo.
+alt: E | Todos os itens estão certos.
+comentario: Letra B. Só contam os custos que mudam com a decisão. Fabricar custa 20.000 × (18 + 10 + 4) = 640.000 de custos variáveis, mais os 25% dos fixos que deixariam de existir (40.000): 680.000. Comprar custa 20.000 × 35 = 700.000. Os 75% de fixos que permanecem (120.000) são iguais nas duas opções e não pesam. Fabricar sai 20.000 mais barato, o que torna I certo e II e III errados.
+
+=== ag26-ti-56
+gab: A
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Tecnologia da Informação) · questão 56 · gabarito preliminar
+bloco: dados-bi
+tema: gp-dados
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A respeito das tarefas e do processo de mineração de dados (data mining), assinale a opção correta.
+alt: A | O agrupamento (clustering) consiste em tarefa de natureza descritiva na qual se busca identificar grupos que descrevam os dados, sem que esses grupos sejam previamente conhecidos.
+alt: B | A sumarização consiste em construir um modelo que estime o valor de uma variável contínua a partir dos demais atributos do conjunto de dados.
+alt: C | A classificação constitui tarefa descritiva destinada a associar registros a classes previamente definidas, com base nos atributos observados.
+alt: D | Mineração de dados e descoberta de conhecimento em bases de dados (KDD) são expressões equivalentes, pois ambas designam todo o processo de seleção, pré-processamento, transformação, mineração e interpretação dos dados.
+alt: E | A detecção de mudanças e desvios consiste em tarefa destinada a estimar valores futuros de uma variável com base em seus valores anteriores.
+comentario: Letra A. O agrupamento é descritivo e não supervisionado: os grupos emergem dos dados, sem rótulos prévios. Estimar uma variável contínua é regressão, não sumarização (B). A classificação é tarefa preditiva e supervisionada, e não descritiva (C). A mineração é uma etapa do KDD, que é o processo inteiro (D). Estimar valores futuros é previsão; a detecção de desvios procura anomalias e mudanças em relação ao padrão (E).
+
+=== ag26-ti-57
+gab: A
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Tecnologia da Informação) · questão 57 · gabarito preliminar
+bloco: lgpd-5-11
+tema: pd-conceitos
+ref: lgpd 5
+trecho: documentação do controlador que contém a descrição dos processos de tratamento de dados pessoais que podem gerar riscos às liberdades civis e aos direitos fundamentais
+armadilha: conceito
+dif: 2
+enunciado: Assinale a opção correta com base no disposto na Lei Geral de Proteção de Dados Pessoais (LGPD).
+alt: A | O relatório de impacto à proteção de dados pessoais é a documentação do controlador na qual devem constar a descrição dos processos de tratamento de dados pessoais que podem gerar riscos às liberdades civis e aos direitos fundamentais, bem como medidas, salvaguardas e mecanismos de mitigação de risco.
+alt: B | Considera-se dado pessoal sensível toda informação relacionada a pessoa natural identificada ou identificável.
+alt: C | Considera-se anonimização toda operação realizada com dados pessoais, como as que se referem a coleta, produção, recepção, classificação, utilização, acesso, reprodução, transmissão, distribuição, processamento, arquivamento, armazenamento, eliminação, avaliação ou controle da informação, modificação, comunicação, transferência, difusão ou extração.
+alt: D | Considera-se controlador pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do titular.
+alt: E | Considera-se autoridade nacional o órgão ou a entidade da administração pública direta ou indireta ou pessoa jurídica de direito privado sem fins lucrativos legalmente constituída sob as leis brasileiras, com sede e foro no País, que inclua em sua missão institucional ou em seu objetivo social ou estatutário a pesquisa básica ou aplicada de caráter histórico, científico, tecnológico ou estatístico.
+comentario: Letra A, art. 5º, XVII. As outras trocam definições do mesmo artigo. B dá a definição de dado pessoal (inciso I); o sensível é o do inciso II (origem racial ou étnica, saúde, biometria etc.). C dá a definição de tratamento (inciso X); anonimização é usar meios técnicos para que o dado perca a possibilidade de associação ao titular. Em D, o controlador é quem toma as decisões sobre o tratamento, e quem trata em nome de outro é o operador, que age em nome do controlador e não do titular. E descreve o órgão de pesquisa (inciso XVIII), e não a autoridade nacional, que é a ANPD.
+
+=== ag26-ti-58
+gab: B
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Tecnologia da Informação) · questão 58 · gabarito preliminar
+bloco: lgpd-1-4-14
+tema: pd-alcance
+ref: lgpd 2
+trecho: a liberdade de expressão, de informação, de comunicação e de opinião
+armadilha: rol
+dif: 1
+enunciado: De acordo com o previsto na LGPD, constitui fundamento da proteção de dados pessoais
+alt: A | a proteção dos dados para fins acadêmicos.
+alt: B | a liberdade de expressão, de informação, de comunicação e de opinião.
+alt: C | a prevalência do interesse público sobre o privado.
+alt: D | a soberania nacional.
+alt: E | a solidariedade.
+comentario: Letra B, art. 2º, III. Os fundamentos são: respeito à privacidade; autodeterminação informativa; liberdade de expressão, de informação, de comunicação e de opinião; inviolabilidade da intimidade, da honra e da imagem; desenvolvimento econômico e tecnológico e inovação; livre iniciativa, livre concorrência e defesa do consumidor; e direitos humanos, livre desenvolvimento da personalidade, dignidade e exercício da cidadania. Fins acadêmicos (A) aparecem na exceção do art. 4º, II, b. Soberania nacional (D) e defesa nacional aparecem no art. 4º, III. Prevalência do interesse público (C) e solidariedade (E) não estão no rol.
+
+=== ag26-ti-60
+gab: E
+origem: real
+prova: Cebraspe · AGEPAR 2026 · Especialista em Regulação (Tecnologia da Informação) · questão 60 · gabarito preliminar
+bloco: lai
+tema: adm-lai
+ref: lai 24
+trecho: ultrassecreta: 25 (vinte e cinco) anos
+armadilha: numero
+dif: 2
+enunciado: Assinale a opção em que são respectivamente indicados, de acordo com o previsto na Lei n.º 12.527/2011 (Lei de Acesso à Informação), o prazo máximo de restrição de acesso à informação ultrassecreta e uma autoridade competente, no âmbito da administração pública, para a classificação da informação nesse grau de sigilo.
+alt: A | 100 anos; presidente da República
+alt: B | 75 anos; ministro de Estado
+alt: C | 25 anos; presidente de autarquia
+alt: D | 15 anos; comandante do Exército
+alt: E | 25 anos; chefe de missão diplomática permanente no exterior
+comentario: Letra E. A informação ultrassecreta tem prazo máximo de 25 anos (art. 24, § 1º, I). Classificam nesse grau o Presidente e o Vice-Presidente da República, os Ministros de Estado e autoridades equivalentes, os Comandantes das Forças Armadas e os Chefes de Missões Diplomáticas e Consulares permanentes no exterior (art. 27, I). Os 100 anos (A) são o prazo das informações pessoais (art. 31). Presidentes de autarquia (C) classificam até o grau secreto (art. 27, II). Quinze anos (D) é o prazo da informação secreta, e 75 anos (B) não existe na lei.

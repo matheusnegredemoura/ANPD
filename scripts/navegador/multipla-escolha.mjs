@@ -47,5 +47,23 @@ await passo('simulado de itens reais: nota não desconta erro de letra', async (
   await p.screenshot({ path: foto('mc-resultado.png'), fullPage: true });
 });
 
+await passo('AGEPAR 2026: caderno próprio no simulado e gabarito preliminar avisado', async () => {
+  if (await p.locator('#sessao:not([hidden]) [data-acao="fechar-sessao"]').count()) await p.click('#sessao [data-acao="fechar-sessao"]');
+  await p.click('.aba[data-vista="questoes"]');
+  const cartao = (await p.textContent('.cartao.reais')).replace(/\s+/g, ' ');
+  if (!/com o gabarito preliminar da banca/.test(cartao)) throw new Error('cartão dos reais não avisa o gabarito preliminar: ' + cartao.slice(0, 200));
+  await p.click('[data-acao="set-modo"][data-modo="simulado"]');
+  const botao = p.locator('[data-acao="simulado-prova"][data-pref="ag26-"]');
+  const rotulo = await botao.textContent();
+  const n = Number(rotulo.match(/(\d+) itens/)?.[1]);
+  if (!(n >= 50)) throw new Error('botão da AGEPAR sem os itens: ' + rotulo);
+  await botao.click();
+  await p.waitForSelector('#sessao:not([hidden])');
+  if ((await p.locator('.tira button').count()) !== n) throw new Error('sessão não tem os ' + n + ' itens');
+  if ((await p.locator('button.alt').count()) < 5) throw new Error('primeiro item sem as cinco alternativas');
+  if (!/AGEPAR 2026/.test(await p.textContent('#sessao'))) throw new Error('título da sessão sem AGEPAR 2026');
+  await sairDaSessao(p);
+});
+
 await browser.close();
 fim(erros);

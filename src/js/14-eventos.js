@@ -77,16 +77,10 @@ async function executar(a, alvo) {
     case 'comecar': comecarConfigurado(); break;
     case 'simulado-semana': iniciarSessao({ modo: 'simulado', n: SIM_SEMANA_N, prova: true, minutos: Math.round(SIM_SEMANA_N * RITMO_PROVA_S / 60), titulo: 'Simulado da semana', chave: 'sim:' + semanaAtual() }); break;
     case 'simulado-oficial-120': iniciarSessao({ modo: 'simulado', n: TOTAL_PROVA, prova: true, minutos: minutosProva(), titulo: 'Simulado · prova inteira (' + TOTAL_PROVA + ' itens)' }); break;
-    case 'simulado-anvisa-2024': {
-      const ids = Q.filter((q) => q.id.startsWith('anvisa-2024-cebraspe-')).map((q) => q.id);
-      if (!ids.length) { avisar('!', 'Caderno vazio', 'Nenhum item da ANVISA 2024 encontrado.'); break; }
-      iniciarSessao({ modo: 'simulado', ids, minutos: Math.round(ids.length * 1.75), titulo: 'ANVISA 2024 · Cebraspe · ' + ids.length + ' itens' });
-      break;
-    }
-    case 'simulado-tcu-2026': {
-      const ids = Q.filter((q) => q.id.startsWith('tcu-aufc-2026-')).map((q) => q.id);
-      if (!ids.length) { avisar('!', 'Caderno vazio', 'Nenhum item do TCU 2026 encontrado.'); break; }
-      iniciarSessao({ modo: 'simulado', ids, minutos: Math.round(ids.length * 1.75), titulo: 'TCU 2026 · AUFC · Cebraspe · ' + ids.length + ' itens' });
+    case 'simulado-prova': {
+      const { pref, nome } = alvo.dataset, ids = Q.filter((q) => q.id.startsWith(pref)).map((q) => q.id);
+      if (!ids.length) { avisar('!', 'Caderno vazio', 'Nenhum item de ' + nome + ' encontrado.'); break; }
+      iniciarSessao({ modo: 'simulado', ids, minutos: Math.round(ids.length * Number(alvo.dataset.min)), titulo: nome + ' · Cebraspe · ' + ids.length + ' itens' });
       break;
     }
     case 'imprimir-folha-vespera': abrirFolhaVespera(); break;
