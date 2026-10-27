@@ -44,6 +44,10 @@ card = await abrirProgresso();
 txt = (await card.textContent()).replace(/\s+/g, ' ');
 conferir('conta as 20 primeiras respostas em itens reais', /Itens reais de prova · 20 primeiras respostas/.test(txt), txt.slice(0, 200));
 conferir('faltam 80 para a medida ficar confiável', /faltam 80/.test(txt));
+const lista = txt.match(/Itens reais ainda inéditos[^:]*:([^.]*)\./)?.[1] || '';
+const pares = [...lista.matchAll(/(\d+) de (\d+)/g)].map((m) => [Number(m[1]), Number(m[2])]);
+const vistos = pares.reduce((a, [i, n]) => a + n - i, 0);
+conferir('inéditos por disciplina descontam os 20 respondidos, da mais perto do fim para a mais folgada', pares.length >= 5 && vistos === 20 && pares.every(([i, n], k) => !k || i / n >= pares[k - 1][0] / pares[k - 1][1]), lista.slice(0, 160));
 await card.screenshot({ path: foto('prontidao.png') });
 
 await browser.close();

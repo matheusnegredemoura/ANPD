@@ -103,7 +103,10 @@ function cartaoMistura() {
 }
 function cartaoProntidao() {
   const pr = prontidao(), { real, banco } = pr;
-  const livres = REAIS.filter((q) => !q.al && inedito(q)).length;
+  // Reais ainda inéditos por disciplina: mostra onde a reposição com itens de outro banco faz mais falta
+  const ined = {};
+  for (const q of REAIS) if (!q.al) { const x = (ined[(BI.get(q.b) || {}).disciplina] ||= [0, 0]); x[1]++; if (inedito(q)) x[0]++; }
+  const livres = Object.values(ined).reduce((a, x) => a + x[0], 0);
   const taxa = (t) => (t.n ? pct(t.c, t.n) + '%' : '—');
   let html = '<div class="cartao"><div class="secao-cab"><h2>Prontidão para a prova</h2><span class="mudo pequeno">' + pl(real.n, 'item real respondido', 'itens reais respondidos') + '</span></div>';
   html += '<div class="dominio">' +
@@ -126,7 +129,8 @@ function cartaoProntidao() {
   if (comDados.length) {
     html += '<details class="det-lista" data-det="prontidao"' + (UI.det.prontidao ? ' open' : '') + '><summary>Por disciplina</summary><div class="tabela-env"><table class="tabela"><thead><tr><th>Disciplina</th><th>Na nota</th><th>Reais</th><th>Banco</th><th>Usado</th></tr></thead><tbody>' +
       comDados.map((l) => '<tr><td>' + esc((DI.get(l.d) || { nome: l.d }).nome) + '</td><td class="num">' + PONTOS_DISC[l.d] + '</td><td class="num">' + (l.x.r.n ? pct(l.x.r.c, l.x.r.n) + '% de ' + l.x.r.n : '—') + '</td><td class="num">' + (l.x.b.n ? pct(l.x.b.c, l.x.b.n) + '% de ' + l.x.b.n : '—') + '</td><td>' + (l.p == null ? 'menos de 10 respostas' : Math.round(l.p * 100) + '% (' + l.fonte + ')') + '</td></tr>').join('') +
-      '</tbody></table></div></details>';
+      '</tbody></table></div>' +
+      '<p class="pequeno">Itens reais ainda inéditos, da disciplina mais perto do fim para a mais folgada: ' + Object.entries(ined).filter(([d]) => DI.has(d)).sort((a, b) => a[1][0] / a[1][1] - b[1][0] / b[1][1]).map(([d, x]) => esc(DI.get(d).nome) + ' ' + x[0] + ' de ' + x[1]).join('; ') + '. Quando acabam numa disciplina, o treino dela fica só com itens escritos para o banco e a prontidão para de acompanhar o seu progresso ali; a reposição vem de itens reais de outros bancos, com o gabarito conferido na lei.</p></details>';
   }
   html += livres ? '<div class="linha-btns"><button class="btn primario" data-acao="treinar-reais">' + esc(rotuloPausa('reais:ineditos', 'Treinar ' + pl(Math.min(20, livres), 'item real inédito', 'itens reais inéditos'))) + '</button></div>' : '';
   html += '<p class="pequeno mudo">Conta só a primeira resposta de cada item certo/errado, no peso da nota (cada item vale ' + (PESO_ESPECIFICA === 1 ? '1' : '1 na básica e ' + PESO_ESPECIFICA + ' na específica') + '). ' + pl(livres, 'item real ainda inédito', 'itens reais ainda inéditos') + ' no banco. Nos simulados de prova completa, pelo menos metade de cada disciplina vem deles enquanto houver inéditos.</p></div>';
