@@ -347,9 +347,15 @@ function cfgRecuperacao() {
   const r = proximaRecuperacao();
   if (!r) return null;
   const usados = new Set();
-  const st = stDoDia(r.dia);
-  const ids = st ? idsDoSubtemaNoDia(st, r.dia.blocos, Math.max(r.n, 10)) : [];
-  if (!st) for (const f of r.falta) for (const q of selecionar(poolDe([f.b]).filter((q) => !usados.has(q.id)), f.falta, 'mistas')) { usados.add(q.id); ids.push(q.id); }
+  const st = stDoDia(r.dia), ids = [];
+  // Só conta para o dia item das matérias dele ainda não respondido desde aquele dia (como em faltaDoDia): os do subtema
+  // que caem em outra matéria ficam de fora, e cada matéria recebe o que ainda falta dela
+  const desde = diaNum(r.dia.data), conta = (q) => { const x = rec(q.id); return !(x && x[0] >= 0 && x[4] >= desde); };
+  if (st) for (const id of idsDoSubtemaNoDia(st, r.dia.blocos, Math.max(r.n, 10))) { const q = QI.get(id); if (q && r.dia.blocos.includes(q.b) && !usados.has(id)) { usados.add(id); ids.push(id); } }
+  for (const f of r.falta) {
+    const ja = ids.filter((id) => { const q = QI.get(id); return q.b === f.b && conta(q); }).length;
+    if (f.falta > ja) for (const q of selecionar(poolDe([f.b]).filter((q) => !usados.has(q.id) && conta(q)), f.falta - ja, 'mistas')) { usados.add(q.id); ids.push(q.id); }
+  }
   return ids.length ? { modo: 'treino', ids: embaralhar(ids), titulo: 'Recuperação · ' + fmtData(r.dia.data, { weekday: 'short', day: '2-digit', month: '2-digit' }), dia: 'rec:' + hojeISO() } : null;
 }
 function botaoRecuperar(p) {

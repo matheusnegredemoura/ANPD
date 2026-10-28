@@ -61,7 +61,11 @@ const rec = await recuperados(p);
 conferir('os dois dias ficam gravados como recuperados', rec[m1] === 1 && rec[m2] === 1 && Object.keys(rec).length === 2, JSON.stringify(rec));
 await p.reload();
 await p.waitForSelector('#vista-hoje .roteiro');
-conferir('depois de recarregar, a sequência continua', (await fogo(p)) === dentro && !/Sequência de volta/.test(await p.textContent('#avisos')));
+{
+  // Com o detalhe, uma falha rara (só com a bateria em paralelo) diz o que mudou: a contagem, o aviso ou a marca gravada
+  const f = await fogo(p), av = (await p.textContent('#avisos')).replace(/\s+/g, ' ').trim();
+  conferir('depois de recarregar, a sequência continua', f === dentro && !/Sequência de volta/.test(av), f + ' de ' + dentro + (av ? ' · aviso: ' + av.slice(0, 100) : '') + ' · ' + JSON.stringify(await recuperados(p)));
+}
 await p.context().close();
 
 p = await abrir(estado([], { [m1]: hoje, [m2]: hoje }));

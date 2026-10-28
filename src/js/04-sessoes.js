@@ -35,10 +35,11 @@ function emBlocosDeTexto(itens, puxar, soBlocos) {
       total += g.length;
     }
     // Itens sem texto preenchem o resto: revisões primeiro, depois os reais inéditos (a cota de reais do treino não se perde
-    // quando os textos ocupam vagas), depois os do banco
+    // quando os textos ocupam vagas), depois os do banco. No desafio, os do banco que ficam são os primeiros da ordem do
+    // desafio (certos e errados alternados, a armadilha em que mais se erra à frente), não os que o sorteio pôs antes
     const semTexto = itens.filter((q) => q.ap == null), vistosST = semTexto.filter((q) => rec(q.id)), novosST = semTexto.filter((q) => !rec(q.id));
-    const vagas = Math.max(0, itens.length - total);
-    const ficam = new Set(vistosST.concat(novosST.filter((q) => q.o), novosST.filter((q) => !q.o)).slice(0, Math.max(vagas, vistosST.length)).map((q) => q.id));
+    const vagas = Math.max(0, itens.length - total), autST = novosST.filter((q) => !q.o);
+    const ficam = new Set(vistosST.concat(novosST.filter((q) => q.o), desafioAutoral() ? ordemDesafio(autST) : autST).slice(0, Math.max(vagas, vistosST.length)).map((q) => q.id));
     itens = itens.filter((q) => (q.ap == null ? ficam.has(q.id) : blocos.has(q.ap)));
   }
   const feitos = new Set();
@@ -424,6 +425,7 @@ function finalizar() {
     // Sessão de um dia anterior do plano: conta para a missão de encaixar pendências
     if ((/^\d{4}-\d{2}-\d{2}$/.test(sessao.dia) && sessao.dia < hojeISO() || /^rec:/.test(sessao.dia)) && !S.perfil.feitos[sessao.dia]) { const d = diaLog(); d.pd = (d.pd || 0) + 1; }
     S.perfil.feitos[sessao.dia] = 1;
+    pendCache = null;
     verificarRPG();
   }
   atualizarPausa();
