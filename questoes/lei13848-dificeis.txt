@@ -408,3 +408,57 @@ armadilha: extrapolacao
 dif: 3
 enunciado: Por reunir os temas que a agência reguladora pretende regulamentar, a agenda regulatória só pode ser aprovada depois de concluída a análise de impacto regulatório de cada tema nela incluído.
 comentario: Errado. A agenda é planejamento: lista os temas prioritários a regulamentar durante sua vigência (art. 21). A AIR vem depois, antes da edição de cada ato normativo de interesse geral (art. 6º), e não é condição para incluir o tema na agenda.
+
+// Art. 10 (audiência pública): no lugar de um item que copiava o caput e de outro que espelhava ag3-07, cinco que
+// cobram quem convoca, a antecedência dos §§ 2º e 3º, os documentos de cada tipo de proposta, a ressalva do sigilo e
+// o marco do prazo do posicionamento (§ 4º, que remete ao § 5º do art. 9º), fácil de confundir com o do art. 12.
+
+=== a48-41
+gab: C
+tema: rg-participacao
+ref: lei13848 10
+trecho: A agência reguladora, por decisão colegiada, poderá convocar audiência pública
+armadilha: sujeito
+dif: 3
+enunciado: Situação hipotética: o diretor-presidente de uma agência reguladora, por ato isolado, convocou audiência pública sobre matéria que considerou relevante. Assertiva: a convocação contraria a Lei nº 13.848/2019.
+comentario: Certo. O caput do art. 10 exige "decisão colegiada" para convocar audiência pública; o diretor-presidente não decide isso sozinho. A audiência continua facultativa ("poderá"), reservada a matéria considerada relevante.
+
+=== a48-42
+gab: C
+tema: rg-participacao
+ref: lei13848 10
+trecho: com antecedência mínima de 5 (cinco) dias úteis do início do período de audiência pública
+armadilha: numero
+dif: 3
+enunciado: Tanto a publicação do aviso de abertura quanto a disponibilização dos documentos que fundamentam a proposta devem anteceder em pelo menos cinco dias úteis o início do período de audiência pública.
+comentario: Certo. Os dois prazos são iguais: o § 2º do art. 10 manda publicar o despacho ou aviso de abertura no Diário Oficial da União e em outros meios de comunicação com antecedência mínima de 5 dias úteis, e o § 3º manda disponibilizar os documentos, em local específico e no sítio da agência, com a mesma antecedência do início do período. Compare com a consulta pública, que dura no mínimo 45 dias (art. 9º, § 2º).
+
+=== a48-43
+gab: C
+tema: rg-participacao
+ref: lei13848 10
+trecho: para outras propostas submetidas a audiência pública, a nota técnica ou o documento equivalente que as tenha fundamentado
+armadilha: conceito
+dif: 3
+enunciado: Quando a audiência pública trata de proposta que não é de ato normativo, a agência reguladora cumpre o dever de transparência prévia disponibilizando a nota técnica ou documento equivalente que fundamentou a proposta, sem precisar de relatório de AIR.
+comentario: Certo. O § 3º do art. 10 separa dois casos: para proposta de ato normativo, a agência disponibiliza o relatório de AIR, os estudos, os dados e o material técnico (inciso I); para outras propostas, a nota técnica ou documento equivalente que as fundamentou (inciso II). A audiência não se limita a normas.
+
+=== a48-44
+gab: C
+tema: rg-participacao
+ref: lei13848 10
+trecho: ressalvados aqueles de caráter sigiloso
+armadilha: excecao
+dif: 3
+enunciado: Na audiência pública sobre proposta de ato normativo, a agência reguladora deve disponibilizar previamente o relatório de AIR, mas não está obrigada a expor estudos e dados de caráter sigiloso que tenham fundamentado a proposta.
+comentario: Certo. O inciso I do § 3º do art. 10 manda disponibilizar o relatório de AIR, os estudos, os dados e o material técnico que fundamentaram a proposta, "ressalvados aqueles de caráter sigiloso". A mesma ressalva aparece na consulta pública (art. 9º, § 3º).
+
+=== a48-45
+gab: E
+tema: rg-participacao
+ref: lei13848 10
+trecho: aplicando-se o § 5º do art. 9º às contribuições recebidas
+armadilha: numero
+dif: 3
+enunciado: O posicionamento da agência reguladora sobre as contribuições recebidas em audiência pública deve ser divulgado na sede e no sítio na internet em até trinta dias úteis contados do encerramento da audiência.
+comentario: Errado no marco do prazo. O § 4º do art. 10 aplica às contribuições da audiência o § 5º do art. 9º: o posicionamento sai em até 30 dias úteis após a reunião do conselho diretor ou da diretoria colegiada para deliberação final sobre a matéria. O prazo contado do encerramento é outro: o do relatório da audiência (art. 12), também de 30 dias úteis.
