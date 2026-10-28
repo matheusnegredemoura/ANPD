@@ -19,6 +19,7 @@ const CONFERIDOS = {
   'r4-40': 'conta conferida: V1 leve 1.500; −75% = 375; mínimo da Tabela 1 do Apêndice II = 1.000',
   'sc-35': 'conta conferida: Vbase 3 mi (1,5% × 200 mi), agravantes 35% = atenuantes 35%; −25% (art. 18) = 2,25 mi',
   'sc-36': 'conta conferida: dobro da vantagem (art. 15, I) = 3,6 mi, abaixo do teto de 2% (4 mi)',
+  'a48-28': 'o art. 11 remete ao § 5º do art. 9º da Lei 13.848, que fixa os 30 dias úteis',
   'ic-24': 'o prazo em dobro vem do art. 14 da Res. 2; o item cita o art. 3º pela exclusão do alto risco',
   'jur-16': 'anos do caso; decadência de cinco anos (Lei 9.784, art. 54) aplicada pela Súmula 633 do STJ',
 };
