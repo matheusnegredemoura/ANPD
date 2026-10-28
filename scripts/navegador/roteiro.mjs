@@ -1,4 +1,4 @@
-// Roteiro do dia útil (1 h): núcleo sem caderno de erros, cards só de número e prazo, dia curto para não zerar,
+// Roteiro do dia útil (1 h): núcleo sem caderno de erros, sem cards (as lacunas ficam no modo Testar da lei seca), dia curto para não zerar,
 // intercaladas com português e inglês no peso da prova e reforço na disciplina de pior acerto, e XP por ler.
 import { APP, abrirNavegador, placar, responder, sairDaSessao, vigiarErros } from './comum.mjs';
 import { montarDados } from '../build.mjs';
@@ -36,7 +36,7 @@ const salvo = () => p.evaluate(() => JSON.parse(localStorage.getItem('painel-anp
 await passo('roteiro do dia útil: núcleo de 1 h, sem caderno de erros', async () => {
   const t = (await p.locator('.roteiro .passo b').allTextContents()).map((x) => x.trim());
   conferir('sem o passo do caderno de erros', !t.some((x) => /Caderno de erros/.test(x)), t.join(' | '));
-  conferir('cards só de número e prazo', t.some((x) => /Cards de número e prazo/.test(x)), t.join(' | '));
+  conferir('sem passo de cards (as lacunas ficam no modo Testar da lei seca)', !t.some((x) => /Cards/i.test(x)), t.join(' | '));
   const min = t.reduce((a, x) => a + Number((/~(\d+) min/.exec(x) || [0, 0])[1]), 0);
   conferir('o núcleo cabe em 1 h', min <= 60, min + ' min: ' + t.join(' | '));
   conferir('intercaladas também no dia de matéria nova', t.some((x) => /Treino intercalado/.test(x)));
@@ -64,17 +64,10 @@ await passo('intercaladas: 10 itens, línguas no peso da prova e reforço em Reg
   await p.click('[data-acao="fechar-sessao"]').catch(() => {});
 });
 
-await passo('cards do roteiro: só de número e prazo', async () => {
-  await p.click('.aba[data-vista="hoje"]');
-  await p.click('[data-acao="cards-dia"]');
-  await p.waitForSelector('#sessao:not([hidden])');
-  conferir('sessão de cards de número', /Cards de número e prazo/.test(await p.textContent('.sessao-topo .tit b')));
-  conferir('o card pede o número digitado', (await p.locator('#card-digitar').count()) === 1);
-  await sairDaSessao(p);
-});
-
 await passo('ler um artigo rende XP', async () => {
-  const xp0 = (await salvo()).perfil.xp;
+  // A sessão anterior ainda pode estar gravando o XP dela: mede a partir de um valor estável
+  let xp0 = (await salvo()).perfil.xp;
+  for (let k = 0; k < 10; k++) { await p.waitForTimeout(200); const x = (await salvo()).perfil.xp; if (x === xp0) break; xp0 = x; }
   await p.click('.aba[data-vista="lei"]');
   if (!(await p.locator('.ranking button').count())) await p.click('[data-acao="ranking"]');
   await p.locator('.ranking button').first().click();

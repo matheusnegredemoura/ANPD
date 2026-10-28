@@ -121,11 +121,21 @@ async function traduzirIA(alvo) {
     if (!e || e.code !== 'cancelled') avisar('!', 'Claude indisponível', erroIA(e));
   }
 }
+// Texto do card com as lacunas preenchidas e a posição de cada lacuna nele: [início, tamanho]
+function posicoesLacunas(t) {
+  const partes = [];
+  let plena = '', ult = 0;
+  for (const m of t.matchAll(RE_LACUNA)) { plena += t.slice(ult, m.index); partes.push([plena.length, m[2].length]); plena += m[2]; ult = m.index + m[0].length; }
+  return { plena: plena + t.slice(ult), partes };
+}
 function textoLei(a, qExtras) {
   const cam = UI.camadas;
   const erros = [], cai = [], extras = [];
   for (const q of POR_ART.get(a.k) || []) { const r = rec(q.id); if (r && r[3] > 0) erros.push(...q.t); cai.push(...q.t); }
-  for (const c of CARDS_POR_ART.get(a.k) || []) cai.push(c.nota.t.replace(RE_LACUNA, '$2'));
+  // No modo Testar, as lacunas dos cards deste artigo também viram tarjas, no próprio texto (o card solto, sem contexto,
+  // saiu do roteiro)
+  const lacs = [];
+  for (const c of CARDS_POR_ART.get(a.k) || []) { const x = posicoesLacunas(c.nota.t); cai.push(x.plena); if (cam.teste) lacs.push(x); }
   for (const id of qExtras || []) { const q = QI.get(id); if (q) extras.push(...q.t); }
   return a.texto.split('\n').map((linha, k) => {
     // Vetos e revogações não têm valor de estudo: a linha aparece apagada e sem grifo, e a revogada sem o texto antigo
@@ -139,6 +149,7 @@ function textoLei(a, qExtras) {
     if (cam.num) rs = rs.concat(rangesRegex(linha, RE_NUM, 'g-num'));
     if (cam.alerta) rs = rs.concat(rangesRegex(linha, RE_ALERTA, 'g-alerta'));
     if (cam.verbo) rs = rs.concat(rangesRegex(linha, RE_VERBO, 'g-verbo'));
+    for (const x of lacs) for (let i = linha.indexOf(x.plena); i >= 0; i = linha.indexOf(x.plena, i + x.plena.length)) for (const [o, n] of x.partes) rs.push([i + o, i + o + n, 'g-lac']);
     const remissoes = remissoesDaLinha(linha, a);
     rs = rs.concat(remissoes);
     const cortes = new Set([0, linha.length]);
@@ -231,7 +242,7 @@ function legendaCamadas(soTexto) {
     (soTexto ? '' : item('cai', 'O que cai', 'background:var(--mark)')) + item('num', 'Prazos e números', 'background:var(--accent)') +
     item('alerta', 'Palavras de alerta', 'background:var(--errado)') + item('verbo', 'Deve × pode', 'border:1.5px dotted var(--ink)') +
     (soTexto ? '' : item('erro', 'Meus erros', 'background:var(--errado-bg);box-shadow:inset 0 -2px 0 var(--errado)')) +
-    item('teste', 'Testar: esconder prazos e deve × pode', 'background:var(--surface-2);border:1px solid var(--line)') + '</div>';
+    item('teste', soTexto ? 'Testar: esconder prazos e deve × pode' : 'Testar: esconder prazos, deve × pode e lacunas', 'background:var(--surface-2);border:1px solid var(--line)') + '</div>';
 }
 function seletorLei() {
   return '<label class="rotulo" for="sel-lei">Norma</label><select id="sel-lei" class="sel-lei" data-acao="sel-lei">' +

@@ -2,9 +2,9 @@
 document.addEventListener('click', async (ev) => {
   // Modo Testar da lei seca e das aulas: a tarja some no toque e volta no segundo. Um prazo cortado por outro grifo
   // (o que cai começando no meio dele) vira pedaços colados: todos abrem juntos. Na leitura fria não há tarja
-  const tarja = UI.camadas.teste && ev.target.closest(':is(.texto-lei,.texto-aula) :is(.g-num,.g-verbo)');
+  const tarja = UI.camadas.teste && ev.target.closest(':is(.texto-lei,.texto-aula) :is(.g-num,.g-verbo,.g-lac)');
   if (tarja && !tarja.closest('.fria')) {
-    const g = tarja.classList.contains('g-num') ? 'g-num' : 'g-verbo', abrir = !tarja.classList.contains('revelado'), grupo = [tarja];
+    const g = ['g-lac', 'g-num', 'g-verbo'].find((c) => tarja.classList.contains(c)), abrir = !tarja.classList.contains('revelado'), grupo = [tarja];
     for (const lado of ['previousSibling', 'nextSibling']) for (let n = tarja[lado]; n && n.nodeType === 1 && n.classList.contains(g); n = n[lado]) grupo.push(n);
     grupo.forEach((x) => x.classList.toggle('revelado', abrir));
     return;

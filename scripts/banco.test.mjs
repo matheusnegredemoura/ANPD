@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { validar } from './validar.mjs';
 import { montarDados, rotuloRef, copiaDoTrecho } from './build.mjs';
 import { jsDoApp } from './lib/fonte.mjs';
@@ -201,4 +201,19 @@ test('dificuldade por disciplina: no máximo 35% fáceis e pelo menos 12% difíc
     if (p(1) > 0.35 || p(3) < 0.12) fora.push(disc + ' ' + Math.round(p(1) * 100) + '/' + Math.round(p(3) * 100));
   }
   assert.deepEqual(fora, []);
+});
+
+test('nenhum nome declarado duas vezes no escopo único do app', () => {
+  // Os arquivos de src/js viram um só escopo no build: uma função nova com o nome de outra já existente a substitui
+  // em silêncio (e o app para de abrir); const ou let repetidos quebram o script inteiro
+  const vistos = new Map(), repetidos = [];
+  for (const f of readdirSync('src/js').filter((x) => x.endsWith('.js')).sort()) {
+    for (const [n, linha] of readFileSync('src/js/' + f, 'utf8').split('\n').entries()) {
+      const m = /^(?:async\s+)?(?:function\s*\*?\s*([\p{L}_$][\p{L}\d_$]*)|(?:const|let|var)\s+([\p{L}_$][\p{L}\d_$]*))/u.exec(linha);
+      if (!m) continue;
+      const nome = m[1] || m[2], onde = f + ':' + (n + 1);
+      if (vistos.has(nome)) repetidos.push(nome + ' em ' + vistos.get(nome) + ' e ' + onde); else vistos.set(nome, onde);
+    }
+  }
+  assert.deepEqual(repetidos, []);
 });

@@ -76,33 +76,30 @@ function roteiroHoje() {
   const blocos = blocosDoDia(dia);
   const venc = listaVencida().length;
   const manut = manutencaoHoje().length;
-  const cardsV = cardsVencidos().filter((c) => c.nota.nu).length;
   const leitura = leituraDoDia(dia);
   const arts = leitura.arts;
   const lidosHoje = (d.a || []).filter((a) => arts.includes(a)).length;
-  const cardsBlocos = blocos.filter((b) => (CARDS_POR_BLOCO.get(b) || []).length);
-  const novosDisp = cardsNovos(cardsBlocos.length ? cardsBlocos : null).filter((c) => c.nota.nu).length || cardsNovos().filter((c) => c.nota.nu).length;
   const stPlano = dia && dia.modo === 'treino' ? stDoDia(dia) : null;
   const stH = stPlano || subtemaDoDia();
   const dd = discDeHoje();
   const chaveInt = 'i:' + hojeISO();
 
   const passos = [];
-  // O núcleo cabe no dia útil do plano (1 h): revisão, questões do tema, lei, aula (em dia de matéria nova), cards de
-  // número e intercaladas (onde entram português e inglês). Dia de plano mais longo (fim de semana) acrescenta a
-  // fixação e a discursiva; dia com discursiva no plano traz a discursiva.
+  // O núcleo cabe no dia útil do plano (1 h): revisão, questões do tema, lei, aula (em dia de matéria nova) e
+  // intercaladas (onde entram português e inglês). Os cards saíram do roteiro: prazos, deve × pode e as lacunas dos
+  // cards se treinam no modo Testar da lei seca, no próprio artigo, e nas questões de número trocado. Dia de plano mais
+  // longo (fim de semana) acrescenta a fixação e a discursiva; dia com discursiva no plano traz a discursiva.
   const longo = !!dia && (metaMin(dia.data) || 0) > 60;
 
-  // Revisão espaçada (~10 min): questões vencidas, manutenção e cards de número vencidos
-  const revFeita = venc === 0 && manut === 0 && cardsV === 0;
+  // Revisão espaçada (~10 min): questões vencidas e manutenção
+  const revFeita = venc === 0 && manut === 0;
   passos.push({
     titulo: 'Revisão espaçada (~10 min)',
     feito: revFeita,
-    texto: (venc || manut || cardsV)
-      ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'item de manutenção', 'itens de manutenção') : '', cardsV ? pl(cardsV, 'card de número vencido', 'cards de número vencidos') : ''].filter(Boolean).join(', ') + '.'
+    texto: (venc || manut)
+      ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'item de manutenção', 'itens de manutenção') : ''].filter(Boolean).join(', ') + '.'
       : 'Memória em dia! Nenhum item pendente de revisão para agora.',
-    botoes: (venc + manut ? '<button class="btn pequeno primario" data-acao="iniciar-revisao">Revisar questões (' + (venc + manut) + ')</button>' : '') +
-            (cardsV ? '<button class="btn pequeno' + (venc + manut ? '' : ' primario') + '" data-acao="cards-revisao" data-num="1">Revisar cards (' + cardsV + ')</button>' : '')
+    botoes: venc + manut ? '<button class="btn pequeno primario" data-acao="iniciar-revisao">Revisar questões (' + (venc + manut) + ')</button>' : ''
   });
 
   // Questões do tema / pré-teste (~15 min)
@@ -174,16 +171,6 @@ function roteiroHoje() {
       : '<button class="btn pequeno" data-acao="treino-rapido" data-n="5">Treino curto (5 itens)</button>'
   });
 
-  // Cards de número e prazo (~5 min): o dado arbitrário que o card fixa melhor; os demais cards ficam na aba Cards
-  const metaNovos = Math.min(novosDisp + (d.n || 0), 5);
-  const cardsFeitos = (d.n || 0) >= metaNovos && cardsV === 0;
-  passos.push({
-    titulo: 'Cards de número e prazo (~5 min)',
-    feito: cardsFeitos,
-    texto: 'Lacunas de prazos, quóruns, percentuais e valores: você digita o número antes de ver (' + Math.min(d.n || 0, 5) + '/' + metaNovos + ' novos hoje).',
-    botoes: '<button class="btn pequeno' + (qTemaFeita && leiFeita && !cardsFeitos ? ' primario' : '') + '" data-acao="cards-dia">Estudar ' + Math.max(1, metaNovos - Math.min(d.n || 0, metaNovos)) + ' cards</button>'
-  });
-
   // Treino intercalado: todo dia, com o que falta para a prática chegar ao peso de cada matéria na prova
   const intFeita = !!S.perfil.feitos[chaveInt], nInt = nIntercaladas(), ci = cotasIntercaladas(nInt, estatDisciplinas()), rf = ci.rf;
   const maiores = Object.entries(ci.cotas).filter(([, k]) => k > 0).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([d, k]) => (d === 'linguas' ? 'português e inglês' : DI.get(d).nome) + ' (' + k + ')');
@@ -191,7 +178,7 @@ function roteiroHoje() {
     titulo: 'Treino intercalado (~' + Math.round(nInt) + ' min)',
     feito: intFeita,
     texto: nInt + ' itens para a sua prática chegar ao peso de cada matéria na prova' + (maiores.length ? ': ' + maiores.join(', ') : '') + (rf ? '; reforço em ' + DI.get(rf.d).nome + ' (' + Math.round(rf.ac * 100) + '% de acerto, a mais baixa entre as matérias pesadas)' : '') + '.',
-    botoes: '<button class="btn pequeno' + (cardsFeitos && !intFeita ? ' primario' : '') + '" data-acao="intercaladas">' + esc(rotuloPausa(chaveInt, 'Treinar itens intercalados')) + '</button>',
+    botoes: '<button class="btn pequeno' + (qTemaFeita && leiFeita && !intFeita ? ' primario' : '') + '" data-acao="intercaladas">' + esc(rotuloPausa(chaveInt, 'Treinar itens intercalados')) + '</button>',
     extra: botaoRecomecar(chaveInt)
   });
 

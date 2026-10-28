@@ -51,9 +51,9 @@ await passo('termo do glossário na explicação', async () => {
   await sairDaSessao(p);
 });
 
-await passo('cards do dia pelo teclado', async () => {
-  await p.click('.aba[data-vista="hoje"]');
-  await p.click('[data-acao="cards-dia"]');
+await passo('cards pelo teclado (aba Cards; fora do roteiro do dia)', async () => {
+  await p.click('.aba[data-vista="cards"]');
+  await p.click('[data-acao="cards-iniciar"]');
   await p.waitForSelector('#sessao:not([hidden])');
   // O deck do dia pode ter menos de 5 cards (o de números e prazos de um bloco curto): para no resultado
   for (let i = 0; i < 5; i++) {
