@@ -114,7 +114,7 @@ function roteiroHoje() {
     const nDia = nItensDoDia(dia);
     qTemaTxt = dia.modo === 'simulado'
       ? 'Simulado do dia: ' + nDia + ' itens, com tempo e nota líquida.'
-      : nDia + ' questões para achar os pontos cegos do tema (' + esc((dia.blocos || []).map(nomeBloco).join(', ')) + ').';
+      : nDia + ' questões para achar os pontos cegos do tema (' + (dia.blocos || []).map(nomeBloco).join(', ') + ').';
     qTemaBtns = '<button class="btn pequeno primario" data-acao="iniciar-dia" data-dia="' + dia.data + '">' +
       esc(rotuloPausa(dia.data, (qTemaFeita ? 'Outra rodada' : 'Resolver questões') + ' · ' + nDia + ' itens')) + '</button>';
   } else {
@@ -157,7 +157,7 @@ function roteiroHoje() {
   if (stPlano || (longo && stH)) passos.push({
     titulo: 'Aula da trilha & jurisprudência (~10 min)',
     feito: aulaFeita,
-    texto: esc(nomeTrilha(stH.trilha) || 'Trilha do zero') + ': ' + esc(stH.nome) + '. Mapa mental, exemplos e as armadilhas da banca.',
+    texto: (nomeTrilha(stH.trilha) || 'Trilha do zero') + ': ' + stH.nome + '. Mapa mental, exemplos e as armadilhas da banca.',
     botoes: stPlano ? '<button class="btn pequeno' + (leiFeita && !aulaFeita ? ' primario' : '') + '" data-acao="st-aula" data-st="' + esc(stPlano.id) + '">Abrir a aula</button>'
       : '<button class="btn pequeno' + (leiFeita && !aulaFeita ? ' primario' : '') + '" data-acao="aula-folha" data-st="' + esc(stH.id) + '" data-marca="1">Abrir aula da trilha</button>'
   });
@@ -170,7 +170,7 @@ function roteiroHoje() {
     feito: fixFeita,
     texto: '5 itens práticos para aplicar os artigos lidos e consolidar os pontos exigidos pela banca.',
     botoes: stH
-      ? '<button class="btn pequeno' + (aulaFeita && !fixFeita ? ' primario' : '') + '" data-acao="trilha-sessao" data-st="' + esc(stH.id) + '" data-tipo="pratica" data-n="5">Fixar na prática (5 itens)</button>'
+      ? '<button class="btn pequeno' + (aulaFeita && !fixFeita ? ' primario' : '') + '" data-acao="trilha-sessao" data-st="' + esc(stH.id) + '" data-tipo="pratica" data-n="5">' + esc(rotuloPausa('t:' + stH.id + ':pratica:5', 'Fixar na prática (5 itens)')) + '</button>'
       : '<button class="btn pequeno" data-acao="treino-rapido" data-n="5">Treino curto (5 itens)</button>'
   });
 
@@ -196,13 +196,13 @@ function roteiroHoje() {
   });
 
   // Discursiva: no dia que o plano marca (e nos dias longos, um esboço ou o espelho)
-  const discOk = (dd ? discFeita(dd) : false) || (d.t && (d.t.d || 0) >= 300) || !!S.perfil.feitos['disc:' + hojeISO()];
+  const discOk = (dd ? discFeita(dd) : false) || (d.t && (d.t.d || 0) >= 300) || discSalvaHoje();
   const tDisc = dd ? temaDisc(dd) : TEMAS_DISC[0], atrDisc = dd ? pendencias().filter((x) => x.disc).length : 0;
   if (dd || longo) passos.push({
     titulo: dd ? 'Discursiva do dia (~10 min)' : 'Discursiva ou espelho (~10 min)',
     feito: discOk,
     texto: dd
-      ? 'Tema do dia: ' + esc(tDisc ? tDisc.titulo : 'Tema do edital') + '. Esboce os quesitos ou analise o espelho Cebraspe.' + (atrDisc ? ' Há ' + pl(atrDisc, 'discursiva atrasada', 'discursivas atrasadas') + ': cada uma salva dá baixa primeiro na de hoje e depois na mais antiga.' : '')
+      ? 'Tema do dia: ' + (tDisc ? tDisc.titulo : 'Tema do edital') + '. Esboce os quesitos ou analise o espelho Cebraspe.' + (atrDisc ? ' Há ' + pl(atrDisc, 'discursiva atrasada', 'discursivas atrasadas') + ': cada uma salva dá baixa primeiro na de hoje e depois na mais antiga.' : '')
       : 'Pratique a estruturação de tópicos e o padrão de resposta Cebraspe de um tema da ANPD.',
     botoes: '<button class="btn pequeno' + (intFeita && !discOk ? ' primario' : '') + '" data-acao="disc-dia" data-t="' + esc((tDisc && tDisc.id) || 'sancoes') + '">Escrever / Ver espelho</button>'
   });
@@ -280,6 +280,9 @@ function cartaoSemana() {
 function discFeita(dia) { return !!S.perfil.feitos['disc:' + dia.data]; }
 function discDeHoje() { const h = hojeISO(); return DIAS_DISC.find((d) => d.data === h) || null; }
 function temaDisc(dia) { return TEMAS_DISC.find((t) => t.id === dia.disc) || null; }
+// Tentativa salva hoje em qualquer tema: num dia sem discursiva no plano, a baixa vai para outro dia, mas o passo de hoje
+// foi cumprido
+function discSalvaHoje() { const h = hojeISO(); return Object.values(S.disc).some((st) => (st.tentativas || []).some((x) => x.d === h)); }
 function darBaixaDisc() {
   const h = hojeISO(), fim = isoDeNum(HOJE() + ((7 - diaSemana(h)) % 7));
   const atrasadas = pendencias().filter((x) => x.disc).map((x) => x.dia);

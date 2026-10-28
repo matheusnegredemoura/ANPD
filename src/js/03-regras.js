@@ -426,6 +426,7 @@ function ganharXP(x) {
   diaLog().xp += x;
   const depois = nivelDe(S.perfil.xp);
   if (depois.n > antes) { avisar('N' + depois.n, 'Subiu de nível', depois.nome); tocar('festa'); }
+  if (document.getElementById('topo')) renderTopo();
 }
 function verificarMeta() {
   const d = diaLog();
@@ -488,7 +489,7 @@ function verificarConquistas(ctx) {
   se(pesq >= 10, 'pesq10'); se(pesq >= 30, 'pesq30');
   se((S.perfil.recordes.ex || 0) >= 5, 'explicar5');
   // Histórico das questões: dúvidas marcadas, itens diferentes, reais, múltipla escolha e domínio dos difíceis
-  let duv = 0, vistos = 0, reais = 0, me = 0, dificeis = 0;
+  let duv = 0, vistos = 0, reais = 0, dificeis = 0;
   for (const [id, r] of Object.entries(S.itens)) {
     duv += (r[5] || 0) + (r[6] || 0);
     if (r[0] < 0) continue;
@@ -496,7 +497,6 @@ function verificarConquistas(ctx) {
     const q = QI.get(id);
     if (!q) continue;
     if (q.o) reais++;
-    if (q.al) me++;
     if (q.d === 3 && r[0] >= 3) dificeis++;
   }
   se(duv >= 20, 'calibrado'); se(vistos >= Math.ceil(Q.length / 2), 'metade');
@@ -529,10 +529,6 @@ function verificarConquistas(ctx) {
   se(trofeus >= 1, 'chefe1'); se(trofeus >= 5, 'chefe5'); se(trofeus >= 10, 'chefe10');
   const nv = nivelDe(S.perfil.xp).n;
   se(nv >= 10, 'nivel10'); se(nv >= 20, 'nivel20'); se(nv >= 30, 'nivel30');
-  if (ctx.respondeu) {
-    const h = new Date().getHours();
-    se(h >= 23, 'coruja'); se(h >= 4 && h < 7, 'madrugador');
-  }
   const rt = roteiroHoje();
   if (rt && rt.passos.every((p) => p.feito) && (S.perfil.dias[hojeISO()] || {}).r > 0) { diaLog().rt = 1; conquistar('roteiro'); }
 }

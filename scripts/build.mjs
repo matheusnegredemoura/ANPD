@@ -277,7 +277,7 @@ export function montarDados() {
   const gloss = glossario.map((t) => {
     const re = regexTermo(t.padroes);
     const n = textos.filter((x) => re.test(x)).length;
-    return { t: t.termo, p: t.padroes, d: t.def, s: t.busca, f: Math.round((n / textos.length) * 1000) / 1000, ...(t.tipo === 'juridiques' ? { j: 1 } : {}) };
+    return { t: t.termo, p: t.padroes, d: t.def, f: Math.round((n / textos.length) * 1000) / 1000, ...(t.tipo === 'juridiques' ? { j: 1 } : {}) };
   });
   const lei = {};
   for (const [id, { lei: l }] of Object.entries(leis)) {
@@ -286,8 +286,9 @@ export function montarDados() {
   const grupos = GRUPOS_LEIS.map(([nome, ids]) => ({ nome, ids: ids.filter((id) => lei[id]) })).filter((g) => g.ids.length);
   return {
     versao: 'ANPD 2026/2027 · ' + new Date().toISOString().slice(0, 10),
-    disciplinas,
-    blocos,
+    // Só o que o app lê (curto, faixa, prio, blocoProva, pontoPartida e hist ficam no blocos.json, para quem edita)
+    disciplinas: disciplinas.map(({ id, nome, peso, degrau }) => ({ id, nome, peso, ...(degrau != null ? { degrau } : {}) })),
+    blocos: blocos.map(({ prio, hist, ...b }) => b),
     armadilhas: ARMADILHAS,
     armadilhasANPD,
     mentor,

@@ -84,7 +84,12 @@ function alvenaria(v) {
   // De volta à ordem do desenho
   const blocos = [];
   for (const c of [...el.children]) blocos.push(...(c.matches('.colunas') ? [...c.querySelectorAll(':scope > .coluna > *')].sort((a, b) => a.dataset.alv - b.dataset.alv) : [c]));
-  if (n === 1) { if (montada) el.replaceChildren(...blocos); return; }
+  // Mover um nó tira o foco dele: o campo em que se digita (a busca da lei, do edital, do glossário) volta focado,
+  // com o cursor onde estava
+  const foco = el.contains(document.activeElement) ? document.activeElement : null;
+  const sel = foco && typeof foco.selectionStart === 'number' ? [foco.selectionStart, foco.selectionEnd] : null;
+  const devolverFoco = () => { if (foco && document.activeElement !== foco && foco.isConnected) { foco.focus({ preventScroll: true }); if (sel) try { foco.setSelectionRange(sel[0], sel[1]); } catch (e) { /* campo sem seleção */ } } };
+  if (n === 1) { if (montada) { el.replaceChildren(...blocos); devolverFoco(); } return; }
   const filhos = [], grupos = new Map();
   let g = null;
   blocos.forEach((c, i) => {
@@ -109,6 +114,7 @@ function alvenaria(v) {
     let acc = 0;
     lista.forEach((c, i) => { cols[Math.min(n - 1, Math.floor(((acc + alt[i] / 2) / tot) * n))].appendChild(c); acc += alt[i]; });
   }
+  devolverFoco();
 }
 const emOrdem = (v) => v === 'lei' || (v === 'mais' && UI.mais === 'glossario');
 for (const v of VISTAS) { const el = document.getElementById('vista-' + v); if (el) new MutationObserver(() => alvenaria(v)).observe(el, { childList: true }); }
@@ -117,6 +123,7 @@ window.addEventListener('resize', () => { clearTimeout(alvenariaTimer); alvenari
 // Página do subtema já na parte pedida: na lei, abre o primeiro artigo ainda não lido; na aula do dia, dá baixa no passo
 function abrirSubtemaEm(id, parte) {
   if (!SUBTEMAS.get(id)) return;
+  if (sessao) fecharSessao(true);
   fecharFolha();
   UI.subtema = id;
   UI.stUltimo = id;

@@ -114,7 +114,7 @@ function saque(desde) {
   if (!it) { const topo = ORDEM_SAQUE[ORDEM_SAQUE.length - 1]; ganharXP(XP_REPETIDO[desde]); return { it: topo, repetido: true, xp: XP_REPETIDO[desde] }; }
   r.inv[it.id] = hojeISO();
   const atual = equipado(it.slot);
-  if (!atual || RARIDADES[atual.rar].ordem < RARIDADES[rar].ordem) r.eq[it.slot] = it.id;
+  if (!atual || RARIDADES[atual.rar].ordem < RARIDADES[it.rar].ordem) r.eq[it.slot] = it.id;
   return { it, repetido: false };
 }
 // O baú segue o calendário até a prova: entrega item enquanto a coleção estiver atrás da reta que a completa no dia
@@ -316,7 +316,7 @@ function cartaoJornada() {
     const x = MI.get(id);
     if (!x) return '';
     const v = x.val(d), ok = !!mh.ok[id], meta = valM(x.meta), f = ok ? 1 : x.fr ? x.fr(d) : Math.min(1, v / meta);
-    return '<div class="missao' + (ok ? ' ok' : '') + '"><span class="m-ic" aria-hidden="true">' + (ok ? '✓' : '★') + '</span><div class="m-txt"><b>' + esc(valM(x.txt)) + '</b>' + barra(f, 'ouro') + (!ok && x.acao ? x.acao() : '') + '</div>' +
+    return '<div class="missao' + (ok ? ' ok' : '') + '"><span class="m-ic" aria-hidden="true">' + (ok ? '✓' : '★') + '</span><div class="m-txt"><b>' + esc(valM(x.txt)) + '</b>' + barra(f, 'ouro') + '</div>' +
       '<span class="mono pequeno">' + (ok ? '+' + x.xp + ' XP' : x.fr ? (d.r || 0) + '/20' : Math.min(v, meta) + '/' + meta) + '</span></div>';
   }).join('');
   const eq = Object.keys(ENCAIXES).map(equipado).filter(Boolean);
@@ -418,7 +418,7 @@ function renderHoje() {
   if (ctx.tipo === 'dia') fora.add(ctx.dia.data);
   // num dia de subtema, o roteiro tem botão só para o pré-teste; a prática guardada continua na lista
   const stH = subtemaDoDia(), diaSt = ctx.tipo === 'dia' && ctx.dia.modo === 'treino' && stDoDia(ctx.dia);
-  if (stH) fora.add('t:' + stH.id + ':' + (diaSt || estadoSubtema(stH.id).novos ? 'pre' : 'pratica'));
+  if (stH) fora.add('t:' + stH.id + ':' + (diaSt || estadoSubtema(stH.id).novos ? 'pre' : 'pratica')).add('t:' + stH.id + ':pratica:5');
   verificarRPG();
   const local = cartaoSoNoAparelho(), localTopo = local && backupAtrasado();
   document.getElementById('vista-hoje').innerHTML = topo + (localTopo ? local : '') + cartaoPausas(fora) + roteiro + cartaoSemana() + cartaoPendencias() + cartaoJornada() + cartaoTempo() + cartaoTaticoMentorando() + modos + edital + (localTopo ? '' : local) + '<p class="sync" id="sync"></p>';

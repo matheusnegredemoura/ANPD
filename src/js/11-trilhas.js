@@ -104,7 +104,7 @@ function htmlParteAula(p, i, base) {
 }
 function htmlAula(st) {
   const li = st.licao, base = refsDaAula(st);
-  if (!li) { const [refs, caixa] = caixaRefs(base); return '<div class="texto-aula">' + st.aula.map((p) => '<p>' + grifarProsa(p, refs) + '</p>').join('') + caixa + '</div>'; }
+  if (!li) return '';
   const [refs, caixa] = caixaRefs(base);
   return '<div class="texto-aula licao"><div class="ideia"><span class="rotulo">Ideia central</span><p>' + grifarProsa(li.ideia, refs) + '</p>' + caixa + '</div>' +
     htmlMapa(li.mapa) + li.partes.map((p, i) => htmlParteAula(p, i, base)).join('') + '</div>';
@@ -116,7 +116,7 @@ const PALAVRAS_ST = new Map();
 function termosDoSubtema(st) {
   const li = st.licao || {};
   const partes = (li.partes || []).flatMap((p) => [p.t, p.texto, p.depois].concat(p.lista || [], p.passos || [], p.tabela ? p.tabela.linhas.flat() : [], CAIXAS_AULA.map(([k]) => p[k])));
-  const texto = (st.arts || []).filter((k) => ARTI.has(k)).map((k) => ARTI.get(k).texto).concat(li.ideia || '', partes, st.aula || [], st.chave || []).filter(Boolean).join('\n').replace(/\*\*/g, '');
+  const texto = (st.arts || []).filter((k) => ARTI.has(k)).map((k) => ARTI.get(k).texto).concat(li.ideia || '', partes, st.chave || []).filter(Boolean).join('\n').replace(/\*\*/g, '');
   return GLOSS.filter((g) => !g.j).map((g) => ({ g, i: texto.search(g.re) })).filter((x) => x.i >= 0).sort((a, b) => a.i - b.i).map((x) => x.g);
 }
 function palavrasDoSubtema(st) {
@@ -171,11 +171,13 @@ function renderTrilhas() {
 }
 function passosDoSubtema(st, e) {
   const out = [], arts = artsDoSubtema(st);
-  // O pré-teste traz os itens novos e, depois deles, os errados (idsSubtema, tipo 'pre')
-  if (e.novos) out.push({ rot: 'Pré-teste · ' + Math.min(8, e.novos + e.erros) + ' itens', attrs: 'data-acao="trilha-sessao" data-st="' + esc(st.id) + '" data-tipo="pre"', primario: !e.resp });
+  // O pré-teste traz os itens novos e, depois deles, os errados (idsSubtema, tipo 'pre'). Só antes da primeira resposta
+  // do subtema, como no Hoje (ou para continuar o que ficou pausado); depois, quem pratica já pega os inéditos
+  const kp = 't:' + st.id + ':';
+  if (e.novos && (!e.resp || pausaDe(kp + 'pre'))) out.push({ rot: rotuloPausa(kp + 'pre', 'Pré-teste · ' + Math.min(8, e.novos + e.erros) + ' itens'), attrs: 'data-acao="trilha-sessao" data-st="' + esc(st.id) + '" data-tipo="pre"', primario: !e.resp });
   if (arts.length) out.push({ rot: 'Lei seca', attrs: 'data-acao="st-lei" data-st="' + esc(st.id) + '"' });
   out.push({ rot: 'Aula', attrs: 'data-acao="st-aula" data-st="' + esc(st.id) + '"' });
-  if (e.n) out.push({ rot: 'Praticar · ' + Math.min(20, e.n) + ' itens', attrs: 'data-acao="trilha-sessao" data-st="' + esc(st.id) + '" data-tipo="pratica"', primario: !!e.resp });
+  if (e.n) out.push({ rot: rotuloPausa(kp + 'pratica', 'Praticar · ' + Math.min(20, e.n) + ' itens'), attrs: 'data-acao="trilha-sessao" data-st="' + esc(st.id) + '" data-tipo="pratica"', primario: !!e.resp });
   return out;
 }
 function renderSubtema(id) {
@@ -186,8 +188,8 @@ function renderSubtema(id) {
   let html = '<button class="btn pequeno voltar" data-acao="subtema" data-st="">← Trilhas</button>' +
     '<div class="cartao destaque"><span class="rotulo">Subtema ' + (pos + 1) + ' de ' + t.subtemas.length + '</span><h2 class="titulo-st">' + esc(st.nome) + '</h2><p>' + esc(st.resumo) + '</p>' + htmlSimples(st) +
     '<div class="linha-st">' + chipEstado(e) + '<span class="pequeno mudo">' + (e.visto ? 'estudado em ' + esc(fmtData(e.visto, { day: '2-digit', month: '2-digit' })) + ' · ' : '') + pl(e.n, 'questão', 'questões') + ' · ' + e.resp + ' respondidas · ' + (e.resp ? 'acerto atual ' + Math.round(e.acerto * 100) + '%' : 'nenhuma respondida') + ' · domínio pede ' + e.minimo + ' respondidas com 80% de acerto</span></div>' +
-    '<div class="linha-btns">' + passosDoSubtema(st, e).map((x, i, a) => '<button class="btn' + (x.primario ? ' primario' : '') + '" ' + x.attrs + '>' + (a.length > 1 ? (i + 1) + '. ' : '') + x.rot + '</button>').join('') +
-    (e.erros ? '<button class="btn" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="erros">Refazer erros · ' + e.erros + '</button>' : '') +
+    '<div class="linha-btns">' + passosDoSubtema(st, e).map((x, i, a) => '<button class="btn' + (x.primario ? ' primario' : '') + '" ' + x.attrs + '>' + (a.length > 1 ? (i + 1) + '. ' : '') + esc(x.rot) + '</button>').join('') +
+    (e.erros ? '<button class="btn" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="erros">' + esc(rotuloPausa('t:' + id + ':erros', 'Refazer erros · ' + e.erros)) + '</button>' : '') +
     '</div></div>';
   const arts = artsDoSubtema(st).filter((k) => ARTI.get(k));
   if (arts.length) {
@@ -199,7 +201,7 @@ function renderSubtema(id) {
   }
   html += '<div class="cartao aula" id="aula-' + esc(id) + '"><h2>Aula</h2>' + (arts.length ? '' : htmlPalavras(st)) + legendaCamadas(true) +
     (arts.length ? '<p class="pequeno mudo">Toque numa citação sublinhada (“art. 3º”) para ler o artigo ali mesmo.</p>' : '') + htmlAula(st) +
-    (e.n ? '<div class="linha-btns fim-aula"><button class="btn primario" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pratica">Fixar com questões · ' + pl(Math.min(20, e.n), 'item', 'itens') + '</button></div>' : '') + '</div>';
+    (e.n ? '<div class="linha-btns fim-aula"><button class="btn primario" data-acao="trilha-sessao" data-st="' + esc(id) + '" data-tipo="pratica">' + esc(rotuloPausa('t:' + id + ':pratica', 'Fixar com questões · ' + pl(Math.min(20, e.n), 'item', 'itens'))) + '</button></div>' : '') + '</div>';
   html += '<div class="cartao"><h2>Pontos-chave</h2><ul class="lista-chave">' + st.chave.map((c) => '<li>' + grifarProsa(c) + '</li>').join('') + '</ul></div>';
   html += '<div class="cartao"><h2>Como o Cebraspe tenta te derrubar</h2><ul class="lista-chave armadilhas">' + st.armadilhas.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul></div>';
   const reais = (POR_TEMA.get(id) || []).filter((q) => q.o).length;

@@ -19,13 +19,13 @@ function renderQuestoes() {
     html += '<div class="cartao destaque anpd-sim-banner">' +
       '<div class="secao-cab"><h2>Simulado no formato ' + (S.perfil.edital ? 'do edital' : 'projetado da ANPD') + '</h2><span class="selo mono">' + TOTAL_PROVA + ' itens · ' + duracaoProva() + '</span></div>' +
       '<p class="pequeno"><b>' + somaItens(PROVA_BASICA) + ' itens de conhecimentos básicos (P1)</b> e <b>' + somaItens(PROVA_ESPECIFICA) + ' de específicos (P2)</b>' + (S.perfil.edital ? ', como no edital informado em Ajustes' : ', como na Anatel 2024') + '. No fim, a régua de eliminação (nota mínima de ' + CORTES.p1 + ' na P1, ' + CORTES.p2 + ' na P2 e ' + CORTES.total + ' no conjunto).' + (S.perfil.edital ? '' : ' O edital da ANPD ainda não saiu: estrutura e cortes são projeção; troque em Ajustes → Edital e prova quando sair.') + '</p>' +
-      '<div class="linha-btns"><button class="btn primario" data-acao="simulado-oficial-120">Começar (' + TOTAL_PROVA + ' itens · ' + duracaoProva() + ')</button></div>' +
+      '<div class="linha-btns"><button class="btn primario" data-acao="simulado-oficial-120">' + esc(rotuloPausa('sim:prova', 'Começar (' + TOTAL_PROVA + ' itens · ' + duracaoProva() + ')')) + '</button></div>' +
       '</div>' +
       '<div class="cartao">' +
       '<div class="secao-cab"><h2>Provas recentes do Cebraspe</h2><span class="selo mono">Gabarito oficial</span></div>' +
       '<p class="pequeno mudo">Os itens destas provas que estão no banco, com o tempo proporcional ao da prova. Ficaram de fora os que dependem de texto da prova que não veio junto. A AGEPAR 2026 é de múltipla escolha e ainda está com o gabarito preliminar.</p>' +
       '<div class="linha-btns">' +
-      PROVAS_RECENTES.map(([pref, nome, min]) => '<button class="btn pequeno" data-acao="simulado-prova" data-pref="' + pref + '" data-nome="' + esc(nome) + '" data-min="' + min + '">' + esc(nome) + ' · ' + pl(Q.filter((q) => q.id.startsWith(pref)).length, 'item', 'itens') + '</button>').join('') +
+      PROVAS_RECENTES.map(([pref, nome, min]) => '<button class="btn pequeno" data-acao="simulado-prova" data-pref="' + pref + '" data-nome="' + esc(nome) + '" data-min="' + min + '">' + esc(rotuloPausa('prova:' + pref, nome + ' · ' + pl(Q.filter((q) => q.id.startsWith(pref)).length, 'item', 'itens'))) + '</button>').join('') +
       '</div></div>';
     html += '<div class="campo"><span class="rot">Composição</span><div class="chips">' +
       '<button class="chip" data-acao="set-prova" data-prova="prova" aria-pressed="' + usarProva + '">Prova completa (básicos + específicos)</button>' +
@@ -275,7 +275,7 @@ function lacunaDoCard(nota, n) { let auto = 0, achou = ''; nota.t.replace(RE_LAC
 function renderCardSessao(card) {
   const nota = card.nota;
   const r = S.cards[card.id];
-  let html = '<article class="item"><div class="item-cab"><span class="selo mono">' + esc(nomeBloco(nota.b)) + '</span><span class="item-num">' + (r ? 'revisão · intervalo ' + fmtIntervalo(r[1]) : 'novo') + '</span></div>';
+  let html = '<article class="item"><div class="item-cab"><span class="selo mono">' + esc(nomeBloco(nota.b)) + '</span><span class="item-num">' + (r ? (r[1] > 0 ? 'revisão · intervalo ' + fmtIntervalo(r[1]) : 'revisão · errado da última vez') : 'novo') + '</span></div>';
   html += '<p class="mono pequeno mudo">' + esc(nota.r) + '</p>';
   html += '<p class="card-cloze">' + textoCard(nota, card.n, sessao.revelado) + '</p>';
   const lac = lacunaDoCard(nota, card.n), dado = lac.length <= 60 && RE_DADO_CARD.test(lac);
@@ -284,7 +284,7 @@ function renderCardSessao(card) {
     html += '<button class="btn primario largo" data-acao="revelar">Mostrar resposta</button><p class="atalhos">' + (dado ? 'Enter no campo = mostrar · ' : '') + 'Espaço ou Enter = mostrar</p>';
   } else {
     if (sessao.digOk != null) html += '<p class="digitado ' + (sessao.digOk ? 'ok' : 'no') + '">Você digitou <b>' + esc(sessao.dig) + '</b>: ' + (sessao.digOk ? 'confere.' : 'não confere. Bom e Fácil ficam bloqueados neste card.') + '</p>';
-    html += '<div class="notas-card">' + [[1, 'Errei'], [2, 'Difícil'], [3, 'Bom'], [4, 'Fácil']].map(([n, t]) => '<button class="n' + n + '" data-acao="avaliar" data-n="' + n + '"' + (sessao.digOk === false && n >= 3 ? ' disabled' : '') + '>' + t + '<small>' + (n === 1 ? 'agora' : fmtIntervalo(calcularCard(card.id, n)[1])) + '</small></button>').join('') + '</div>';
+    html += '<div class="notas-card">' + [[1, 'Errei'], [2, 'Difícil'], [3, 'Bom'], [4, 'Fácil']].map(([n, t]) => '<button class="n' + n + '" data-acao="avaliar" data-n="' + n + '"' + (sessao.digOk === false && n >= 3 ? ' disabled' : '') + '>' + t + '<small>' + (n === 1 ? 'agora' : fmtIntervalo(calcularCard(card.id, n)[0] - HOJE())) + '</small></button>').join('') + '</div>';
     html += '<p class="atalhos">Teclado: 1 Errei · 2 Difícil · 3 Bom · 4 Fácil</p>';
     const kn = nota.art ? chave(nota.l || 'lgpd', nota.art) : null;
     if (kn && ARTI.get(kn)) html += '<div>' + botaoArt(kn) + '</div>';
@@ -331,34 +331,36 @@ function renderResultado() {
     html += '<p class="pequeno ritmo-sessao">Tempo por item: média de ' + fmtTempo(media) + (lentos ? '; ' + pl(lentos, 'item passou', 'itens passaram') + ' de ' + fmtTempo(RITMO_PROVA_S) + ', o ritmo de prova.' : '; todos dentro do ritmo de prova (' + fmtTempo(RITMO_PROVA_S) + ').') + '</p>';
   }
   html += cartaoBatalha();
-  html += '<div class="cartao destaque"><span class="rotulo">Nota líquida Cebraspe (certas − erradas)</span><div class="nota-final"><span class="grande">' + liq + '</span><span class="mudo">de ' + n + ' possíveis · ' + (n ? Math.round((liq / n) * 100) : 0) + '%</span></div>' +
+  const soMe = ids.length && ids.every((id) => QI.get(id).al);
+  html += '<div class="cartao destaque"><span class="rotulo">' + (soMe ? 'Acertos (na múltipla escolha, o erro não desconta)' : 'Nota líquida Cebraspe (certas − erradas)') + '</span><div class="nota-final"><span class="grande">' + liq + '</span><span class="mudo">de ' + n + ' possíveis · ' + (n ? Math.round((liq / n) * 100) : 0) + '%</span></div>' +
     '<div class="placar"><div class="C"><b>' + c + '</b><span>certas</span></div><div class="E"><b>' + e + '</b><span>erradas</span></div><div><b>' + b + '</b><span>em branco</span></div><div class="L"><b>+' + sessao.xp + '</b><span>XP</span></div></div>';
   // Régua de eliminação (a do edital informado ou, como projeção, a da Anatel 2024): só faz sentido na prova inteira
   if (sessao.modo === 'simulado' && sessao.prova && ids.length >= TOTAL_PROVA) {
-    let c1 = 0, e1 = 0, b1 = 0, c2 = 0, e2 = 0, b2 = 0;
+    // Nota líquida com os pesos, como a do edital: o erro desconta o peso do item (na múltipla escolha, não desconta)
+    let c1 = 0, e1 = 0, b1 = 0, c2 = 0, e2 = 0, b2 = 0, liq1 = 0, liq2 = 0;
     ids.forEach((id) => {
-      const q = QI.get(id), r = sessao.resp[id] || BRANCO, isBasica = parteProva(q) === 'b';
-      if (isBasica) { if (r === BRANCO) b1++; else if (r === q.g) c1++; else e1++; }
-      else { if (r === BRANCO) b2++; else if (r === q.g) c2++; else e2++; }
+      const q = QI.get(id), r = sessao.resp[id] || BRANCO, w = pesoItem(q), pts = r === BRANCO ? 0 : r === q.g ? w : q.al ? 0 : -w;
+      if (parteProva(q) === 'b') { if (r === BRANCO) b1++; else if (r === q.g) c1++; else e1++; liq1 += pts; }
+      else { if (r === BRANCO) b2++; else if (r === q.g) c2++; else e2++; liq2 += pts; }
     });
-    const liq1 = c1 - e1, liq2 = c2 - e2, liqTot = liq1 + liq2;
+    const liqTot = liq1 + liq2, fmtPt = (x) => String(Math.round(x * 100) / 100).replace('.', ',');
     const okP1 = liq1 >= CORTES.p1, okP2 = liq2 >= CORTES.p2, okTot = liqTot >= CORTES.total;
-    const aprovado = okP1 && okP2 && okTot;
-    const faixaCorte = !aprovado ? 'Eliminado pela régua de nota mínima' : (liqTot >= 72 ? 'Nota alta (60% ou mais da prova)' : liqTot >= 54 ? 'Nota intermediária (45% a 59%)' : 'Nota baixa (menos de 45%)');
-    const badgeCls = !aprovado ? 'eliminado' : (liqTot >= 72 ? 'aprovado' : 'alerta');
+    const aprovado = okP1 && okP2 && okTot, alta = 0.6 * PONTOS_PROVA, media = 0.45 * PONTOS_PROVA;
+    const faixaCorte = !aprovado ? 'Eliminado pela régua de nota mínima' : (liqTot >= alta ? 'Nota alta (60% ou mais da prova)' : liqTot >= media ? 'Nota intermediária (45% a 59%)' : 'Nota baixa (menos de 45%)');
+    const badgeCls = !aprovado ? 'eliminado' : (liqTot >= alta ? 'aprovado' : 'alerta');
     html += '<div class="cartao" style="border-left:4px solid var(--accent);margin-top:10px">' +
       '<div class="secao-cab"><h2>Régua de eliminação (' + (S.perfil.edital && S.perfil.edital.cortes ? 'do edital' : 'Anatel 2024, como projeção') + ')</h2><span class="corte-badge ' + badgeCls + '">' + (aprovado ? 'HABILITADO' : 'ELIMINADO') + '</span></div>' +
       '<div class="corte-grid">' +
-        '<div class="corte-kpi"><b>P1 · Básicos (' + ids.filter((x) => parteProva(QI.get(x)) === 'b').length + ' itens)</b><span>Líquida: <b>' + liq1 + '</b> pts (' + c1 + 'C / ' + e1 + 'E / ' + b1 + 'B)</span><span class="corte-badge ' + (okP1 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP1 ? 'Mínimo atingido (≥ ' + CORTES.p1 + ')' : 'Abaixo do mínimo (< 10)') + '</span></div>' +
-        '<div class="corte-kpi"><b>P2 · Específicos (' + ids.filter((x) => parteProva(QI.get(x)) !== 'b').length + ' itens)</b><span>Líquida: <b>' + liq2 + '</b> pts (' + c2 + 'C / ' + e2 + 'E / ' + b2 + 'B)</span><span class="corte-badge ' + (okP2 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP2 ? 'Mínimo atingido (≥ ' + CORTES.p2 + ')' : 'Abaixo do mínimo (< 21)') + '</span></div>' +
-        '<div class="corte-kpi"><b>Conjunto Objetivas (P1+P2)</b><span>Líquida: <b>' + liqTot + '</b> pts</span><span class="corte-badge ' + (okTot ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okTot ? 'Habilitado para Discursiva (≥ ' + CORTES.total + ')' : 'Eliminado do concurso (< 36)') + '</span></div>' +
+        '<div class="corte-kpi"><b>P1 · Básicos (' + ids.filter((x) => parteProva(QI.get(x)) === 'b').length + ' itens)</b><span>Líquida: <b>' + fmtPt(liq1) + '</b> pts (' + c1 + 'C / ' + e1 + 'E / ' + b1 + 'B)</span><span class="corte-badge ' + (okP1 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP1 ? 'Mínimo atingido (≥ ' + CORTES.p1 + ')' : 'Abaixo do mínimo (< ' + CORTES.p1 + ')') + '</span></div>' +
+        '<div class="corte-kpi"><b>P2 · Específicos (' + ids.filter((x) => parteProva(QI.get(x)) !== 'b').length + ' itens)</b><span>Líquida: <b>' + fmtPt(liq2) + '</b> pts (' + c2 + 'C / ' + e2 + 'E / ' + b2 + 'B)</span><span class="corte-badge ' + (okP2 ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okP2 ? 'Mínimo atingido (≥ ' + CORTES.p2 + ')' : 'Abaixo do mínimo (< ' + CORTES.p2 + ')') + '</span></div>' +
+        '<div class="corte-kpi"><b>Conjunto Objetivas (P1+P2)</b><span>Líquida: <b>' + fmtPt(liqTot) + '</b> pts</span><span class="corte-badge ' + (okTot ? 'aprovado' : 'eliminado') + '" style="margin-top:4px">' + (okTot ? 'Habilitado para Discursiva (≥ ' + CORTES.total + ')' : 'Eliminado do concurso (< ' + CORTES.total + ')') + '</span></div>' +
       '</div>' +
       '<p class="pequeno"><b>Faixa:</b> <span class="corte-badge ' + badgeCls + '">' + faixaCorte + '</span> <span class="mudo">Nenhuma nota de corte da ANPD existe ainda; as faixas são só referência.</span></p>' +
       '</div>';
   }
   if (sessao.modo === 'relampago') html += '<p>' + (sessao.recorde ? '<b>Novo recorde!</b> ' : '') + 'Recorde pessoal: ' + (S.perfil.recordes.relampago || 0) + '.</p>';
   if (eMc) html += '<p class="mudo pequeno">' + pl(eMc, 'erro', 'erros') + ' em múltipla escolha não ' + (eMc > 1 ? 'descontaram' : 'descontou') + ' ponto, como no Cebraspe.</p>';
-  if (sessao.modo === 'simulado' && ptMax !== n) html += '<p class="pequeno">Nota com os pesos da prova (cada item vale ' + (PESO_ESPECIFICA === 1 ? '1' : '1 na básica e ' + PESO_ESPECIFICA + ' na específica') + '): <b>' + pt + '</b> de ' + ptMax + ' pontos · <b>' + pct(pt, ptMax) + '%</b>.</p>';
+  if (sessao.modo === 'simulado' && ptMax !== n) html += '<p class="pequeno">Nota com os pesos da prova (cada item vale ' + valorDosItens() + '): <b>' + String(Math.round(pt * 100) / 100).replace('.', ',') + '</b> de ' + String(ptMax).replace('.', ',') + ' pontos · <b>' + pct(pt, ptMax) + '%</b>.</p>';
   if (sessao.viradas) html += '<p class="pequeno">' + pl(sessao.viradas, 'virada', 'viradas') + ': ' + pl(sessao.viradas, 'item que você tinha errado em outro dia agora certo', 'itens que você tinha errado em outro dia agora certos') + ', com XP em dobro.</p>';
   if (sessao.ineditos && sessao.ineditos.n >= 5) html += '<p class="pequeno">Nos ' + sessao.ineditos.n + ' itens que você via pela primeira vez, acerto de <b>' + pct(sessao.ineditos.c, sessao.ineditos.n) + '%</b>. É a medida mais fiel do seu nível: item repetido se reconhece.</p>';
   if (sessao.comboMax >= 3) html += '<p class="mudo">Maior sequência de acertos: ' + sessao.comboMax + '.</p>';
@@ -453,14 +455,14 @@ function abrirArtInline(alvo) {
     return;
   }
   // Artigo já aberto mais acima na mesma cadeia de remissões: em vez de abrir de novo dentro dele mesmo, leva até lá
-  const ancestral = box.parentElement && box.parentElement.closest('.art-inline[data-art="' + k + '"]');
+  const ancestral = box.parentElement && box.parentElement.closest('.art-inline[data-art="' + CSS.escape(k) + '"]');
   if (ancestral) { ancestral.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
   const lista = box.dataset.lista ? box.dataset.lista.split(',') : null;
   box.innerHTML = htmlArtInline(k, alvo.dataset.q || box.dataset.q, lista, alvo.dataset.box, box.classList.contains('remissao'));
   if (alvo.dataset.q) box.dataset.q = alvo.dataset.q;
   box.hidden = false;
   box.dataset.art = k;
-  const dono = document.querySelector('[aria-controls="' + alvo.dataset.box + '"][data-art="' + k + '"]');
+  const dono = document.querySelector('[aria-controls="' + CSS.escape(alvo.dataset.box) + '"][data-art="' + CSS.escape(k) + '"]');
   if (dono) dono.setAttribute('aria-expanded', 'true');
   UI.artInline = k;
   // ao trocar pelo anterior ou próximo, o começo do artigo novo fica à vista

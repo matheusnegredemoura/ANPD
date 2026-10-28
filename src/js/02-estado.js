@@ -140,7 +140,6 @@ function mesclarCad(velho, novo) {
   if (!velho && !novo) return undefined;
   velho = velho || {}; novo = novo || {};
   const r = Object.assign({}, velho, novo);
-  delete r.erros;
   r.checkSem = mesclarMapa(velho.checkSem, novo.checkSem, (a, b) => Object.assign({}, a, b));
   return r;
 }

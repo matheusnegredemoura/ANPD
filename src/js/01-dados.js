@@ -297,6 +297,8 @@ function parteProva(q) {
   return PROVA_BASICA[d] > 0 ? 'b' : 'e';
 }
 function pesoItem(q) { return parteProva(q) === 'b' ? PESO_BASICA : PESO_ESPECIFICA; }
+// Quanto vale cada item com os pesos em vigor ("1" ou "1 na básica e 2 na específica")
+function valorDosItens() { const f = (x) => String(x).replace('.', ','); return PESO_BASICA === PESO_ESPECIFICA ? f(PESO_BASICA) : f(PESO_BASICA) + ' na básica e ' + f(PESO_ESPECIFICA) + ' na específica'; }
 // Fatias da prova (parte + disciplina) para n itens, pelo método do maior resto (a soma dá exatamente n)
 function cotasProva(n) {
   const fatias = Object.entries(PROVA_BASICA).map(([d, k]) => ['b', d, k]).concat(Object.entries(PROVA_ESPECIFICA).map(([d, k]) => ['e', d, k]));

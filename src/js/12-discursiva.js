@@ -5,8 +5,8 @@ function linhasEstimadas(texto) {
 // Passa o texto da caixa para o rascunho do tema aberto e grava (navegador na hora; conta logo em seguida)
 function guardarRascunhoDisc() {
   const area = document.getElementById('disc-texto');
-  if (!area || !UI.discTema || area.readOnly) return;
-  estadoDisc(UI.discTema).rascunho = area.value;
+  if (!area || !area.dataset.tema || area.readOnly) return;
+  estadoDisc(area.dataset.tema).rascunho = area.value;
   clearTimeout(timerDisc);
   Store.salvar('discursivas');
 }
@@ -62,7 +62,7 @@ function renderDiscursiva() {
     '<p>' + esc(t.comando) + '</p><ol class="lista-cb">' + t.aspectos.map((a) => '<li>' + esc(a) + '</li>').join('') + '</ol></div>' +
     '<div class="secao-cab" style="margin-top:10px"><label class="rotulo" for="disc-texto">Folha de resposta (' + t.linhas + ' linhas)</label><span class="mudo pequeno mono" id="disc-cont">' + contadorDisc(t) + '</span></div>' +
     '<div class="regua-discursiva">' +
-      '<textarea id="disc-texto" class="disc-area-30" rows="' + t.linhas + '" style="min-height:' + (t.linhas * 24 + 16) + 'px" spellcheck="false"' + (corrigindo ? ' readonly' : '') + ' placeholder="Escreva aqui o seu texto discursivo, parágrafo por parágrafo, contemplando todos os aspectos do comando...">' + esc(st.rascunho) + '</textarea>' +
+      '<textarea id="disc-texto" data-tema="' + esc(t.id) + '" class="disc-area-30" rows="' + t.linhas + '" style="min-height:' + (t.linhas * 24 + 16) + 'px" spellcheck="false"' + (corrigindo ? ' readonly' : '') + ' placeholder="Escreva aqui o seu texto discursivo, parágrafo por parágrafo, contemplando todos os aspectos do comando...">' + esc(st.rascunho) + '</textarea>' +
     '</div>';
   if (!corrigindo) {
     html += CHECK_DISC;
@@ -70,7 +70,7 @@ function renderDiscursiva() {
       '<button class="btn primario" data-acao="disc-corrigir">Terminei: corrigir pelos quesitos</button>' +
       '<button class="btn" data-acao="disc-salvar-rascunho" title="Salva imediatamente o rascunho no navegador">Salvar rascunho</button>' +
       '<button class="btn" data-acao="disc-limpar">Apagar e recomeçar</button>' +
-      '<span id="disc-status-salvo" class="pequeno verde" style="font-weight:600"></span>' +
+      '<span id="disc-status-salvo" class="pequeno" style="font-weight:600;color:var(--certo)"></span>' +
       '</div>';
     return html;
   }

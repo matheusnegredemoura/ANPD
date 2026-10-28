@@ -32,7 +32,7 @@ async function executar(a, alvo) {
       break;
     case 'dispensar-dia': {
       (S.perfil.dispensados ||= {})[alvo.dataset.dia] = hojeISO();
-      Store.salvar('perfil'); renderHoje();
+      Store.salvar('perfil'); pendCache = null; renderHoje();
       avisar('✓', 'Pendência dispensada', 'O dia ' + fmtData(alvo.dataset.dia, { day: '2-digit', month: '2-digit' }) + ' saiu da lista. O que você estudou dele continua contando.');
       break;
     }
@@ -55,7 +55,7 @@ async function executar(a, alvo) {
     case 'set-filtro': UI.filtro = alvo.dataset.filtro; salvarUI(); renderQuestoes(); break;
     case 'set-banca': UI.filtroBanca = alvo.dataset.banca; salvarUI(); renderQuestoes(); break;
     case 'anpd-set-fase': cadState().fase = alvo.dataset.fase; Store.salvar('perfil'); renderMais(); break;
-    case 'anpd-set-degrau': cadState().degrau = Number(alvo.dataset.deg); Store.salvar('perfil'); renderMais(); break;
+    case 'anpd-set-degrau': cadState().degrau = Number(alvo.dataset.deg); Store.salvar('perfil'); if (UI.vista === 'hoje') renderHoje(); else renderMais(); break;
     case 'anpd-treino-rapido': {
       let bls = (alvo.dataset.blocos || '').split(',').filter(Boolean);
       let tit = alvo.dataset.tit;
@@ -65,7 +65,7 @@ async function executar(a, alvo) {
         bls = BLOCOS.filter((b) => discsDeg.includes(b.disciplina)).map((b) => b.id);
         tit = degNum + 'º Degrau · Treino Focado (20 itens)';
       }
-      iniciarSessao({ modo: 'treino', n: 20, blocos: bls, filtro: 'mistas', titulo: tit || 'Treino ANPD' });
+      iniciarSessao({ modo: 'treino', n: 20, blocos: bls, filtro: 'mistas', titulo: tit || 'Treino ANPD', chave: 'deg:' + (alvo.dataset.deg || bls.join(',')) });
       break;
     }
     case 'ed-prio': UI.edPrio = alvo.dataset.v; renderMais(); break;
@@ -76,11 +76,11 @@ async function executar(a, alvo) {
     }
     case 'comecar': comecarConfigurado(); break;
     case 'simulado-semana': iniciarSessao({ modo: 'simulado', n: SIM_SEMANA_N, prova: true, minutos: Math.round(SIM_SEMANA_N * RITMO_PROVA_S / 60), titulo: 'Simulado da semana', chave: 'sim:' + semanaAtual() }); break;
-    case 'simulado-oficial-120': iniciarSessao({ modo: 'simulado', n: TOTAL_PROVA, prova: true, minutos: minutosProva(), titulo: 'Simulado · prova inteira (' + TOTAL_PROVA + ' itens)' }); break;
+    case 'simulado-oficial-120': iniciarSessao({ modo: 'simulado', n: TOTAL_PROVA, prova: true, minutos: minutosProva(), titulo: 'Simulado · prova inteira (' + TOTAL_PROVA + ' itens)', chave: 'sim:prova' }); break;
     case 'simulado-prova': {
       const { pref, nome } = alvo.dataset, ids = Q.filter((q) => q.id.startsWith(pref)).map((q) => q.id);
       if (!ids.length) { avisar('!', 'Caderno vazio', 'Nenhum item de ' + nome + ' encontrado.'); break; }
-      iniciarSessao({ modo: 'simulado', ids, minutos: Math.round(ids.length * Number(alvo.dataset.min)), titulo: nome + ' · Cebraspe · ' + ids.length + ' itens' });
+      iniciarSessao({ modo: 'simulado', ids, minutos: Math.round(ids.length * Number(alvo.dataset.min)), titulo: nome + ' · Cebraspe · ' + ids.length + ' itens', chave: 'prova:' + pref });
       break;
     }
     case 'imprimir-folha-vespera': abrirFolhaVespera(); break;
@@ -148,22 +148,9 @@ async function executar(a, alvo) {
     case 'ranking': UI.ranking = !UI.ranking; if (UI.ranking) UI.termometro = false; renderLei(); break;
     case 'toggle-termometro': UI.termometro = !UI.termometro; if (UI.termometro) UI.ranking = false; renderLei(); break;
     case 'neutralizar-vulnerabilidades': {
-      const L = LEIS[UI.lei || 'lgpd'];
-      const diagArts = L.artigos.map((a) => diagnosticoArtigo(a.k));
-      const verms = diagArts.filter((d) => d.nivel === 'vermelho');
-      let ids = [];
-      for (const d of verms) {
-        if (d.erradasIds && d.erradasIds.length) ids.push(...d.erradasIds);
-        else { const qs = POR_ART.get(d.k) || []; ids.push(...qs.map((q) => q.id)); }
-      }
-      ids = [...new Set(ids)];
-      if (!ids.length) {
-        const amars = diagArts.filter((d) => d.nivel === 'amarelo');
-        for (const d of amars) { const qs = POR_ART.get(d.k) || []; ids.push(...qs.map((q) => q.id)); }
-        ids = [...new Set(ids)];
-      }
+      const L = LEIS[UI.lei || 'lgpd'], ids = idsVulneraveis(L.artigos.map((x) => diagnosticoArtigo(x.k)));
       if (!ids.length) { avisar('✓', 'Nenhuma vulnerabilidade crítica', 'Parabéns! Você não tem artigos com desempenho crítico nesta norma.'); break; }
-      iniciarSessao({ modo: 'treino', ids: embaralhar(ids).slice(0, 30), titulo: 'Neutralizar Vulnerabilidades · ' + (L.curto || L.nome), chave: 'vuln:' + (UI.lei || 'lgpd') });
+      iniciarSessao({ modo: 'treino', ids: embaralhar(ids).slice(0, VULN_MAX), titulo: 'Neutralizar Vulnerabilidades · ' + (L.curto || L.nome), chave: 'vuln:' + (UI.lei || 'lgpd') });
       break;
     }
     case 'camada':
@@ -239,6 +226,7 @@ async function executar(a, alvo) {
     case 'contestar': folhaContestar(alvo.dataset.q); break;
     case 'subtema':
       if (alvo.dataset.de) marcarEstudado(alvo.dataset.de);
+      if (sessao) fecharSessao(true);
       fecharFolha(); UI.subtema = alvo.dataset.st || null; if (UI.subtema) UI.stUltimo = UI.subtema; UI.mais = 'trilha'; salvarUI(); if (UI.vista !== 'mais') ir('mais'); else renderMais(); window.scrollTo(0, 0); break;
     case 'aula-folha':
       marcarEstudado(alvo.dataset.st);
@@ -247,9 +235,9 @@ async function executar(a, alvo) {
     case 'st-lei': case 'st-aula': abrirSubtemaEm(alvo.dataset.st, a === 'st-lei' ? 'lei' : 'aula'); break;
     case 'trilha-sessao': {
       const st = SUBTEMAS.get(alvo.dataset.st), tipo = alvo.dataset.tipo;
-      const chT = 't:' + st.id + ':' + tipo;
+      const nPed = Number(alvo.dataset.n) || 0, chT = 't:' + st.id + ':' + tipo + (nPed ? ':' + nPed : '');
       if (pausaDe(chT)) { fecharFolha(); retomarPausa(chT); break; }
-      const ids = idsSubtema(st.id, tipo, Number(alvo.dataset.n) || (tipo === 'pre' ? 8 : 20));
+      const ids = idsSubtema(st.id, tipo, nPed || (tipo === 'pre' ? 8 : 20));
       if (!ids.length) { avisar('§', 'Nada para fazer aqui', tipo === 'erros' ? 'Você não tem erros pendentes neste subtema.' : 'Todos os itens já foram vistos: use Praticar.'); break; }
       fecharFolha();
       iniciarSessao({ modo: 'treino', ids, titulo: (tipo === 'pre' ? 'Pré-teste · ' : tipo === 'erros' ? 'Erros · ' : 'Prática · ') + st.nome, dia: 't:' + hojeISO(), chave: chT, st: st.id, tipoSubtema: tipo });
@@ -407,7 +395,7 @@ document.addEventListener('change', (ev) => {
     if (t && el) el.innerHTML = resultadoDisc(t);
   }
   else if (a === 'dia-feito') { if (alvo.checked) S.perfil.feitos[alvo.dataset.dia] = 1; else delete S.perfil.feitos[alvo.dataset.dia]; Store.salvar('perfil'); renderMais(); }
-  else if (a === 'anpd-check-sem' || a === 'tcu-check-sem') {
+  else if (a === 'anpd-check-sem') {
     const semKey = semanaAtual(), cs = ((cadState().checkSem ||= {})[semKey] ||= {});
     // Desmarcar guarda o item como já pago (0): remarcar não paga os 15 XP de novo, e o bônus sai uma vez por semana
     if (alvo.checked) {
@@ -454,15 +442,23 @@ window.addEventListener('storage', (ev) => {
   let d;
   try { d = JSON.parse(ev.newValue); } catch (e) { return; }
   if (!d || !d.perfil) return;
-  const ep = S.perfil.ep;
-  S.perfil = Object.assign(perfilPadrao(), mesclarDoc('perfil', d.perfil, S.perfil, true));
-  if (ep) S.perfil.ep = ep; else delete S.perfil.ep;
+  // Época diferente (zerou ou restaurou backup numa das abas): vale a mais nova, inteira, como na conta; somar traria de
+  // volta o progresso apagado. Na mesma época, o que a outra aba acabou de gravar é o lado mais novo
+  const epAqui = S.perfil.ep || 0, epLa = d.perfil.ep || 0;
+  if (epLa < epAqui) return;
+  if (epLa > epAqui) {
+    S.perfil = Object.assign(perfilPadrao(), d.perfil); S.itens = d.itens || {}; S.cards = d.cards || {};
+    S.simulados = d.simulados || []; S.pesquisa = d.pesquisa || {}; S.disc = d.disc || {};
+  } else {
+    S.perfil = Object.assign(perfilPadrao(), mesclarDoc('perfil', d.perfil, S.perfil, false));
+    if (epAqui) S.perfil.ep = epAqui; else delete S.perfil.ep;
+    S.itens = mesclarDoc('itens', { q: d.itens || {} }, { q: S.itens }).q;
+    S.cards = mesclarDoc('cards', { c: d.cards || {} }, { c: S.cards }).c;
+    S.simulados = mesclarDoc('simulados', { lista: d.simulados || [] }, { lista: S.simulados }, false).lista;
+    S.pesquisa = mesclarDoc('pesquisa', { p: d.pesquisa || {} }, { p: S.pesquisa }, false).p;
+    S.disc = mesclarDoc('discursivas', { d: d.disc || {} }, { d: S.disc }, false).d;
+  }
   podarPerfil();
-  S.itens = mesclarDoc('itens', { q: d.itens || {} }, { q: S.itens }).q;
-  S.cards = mesclarDoc('cards', { c: d.cards || {} }, { c: S.cards }).c;
-  S.simulados = mesclarDoc('simulados', { lista: d.simulados || [] }, { lista: S.simulados }, true).lista;
-  S.pesquisa = mesclarDoc('pesquisa', { p: d.pesquisa || {} }, { p: S.pesquisa }, true).p;
-  S.disc = mesclarDoc('discursivas', { d: d.disc || {} }, { d: S.disc }, true).d;
   if (!sessao) renderTudo();
 });
 // Teclado do celular aberto de verdade (a área visível encolhe com um campo de texto focado): o que é fixo embaixo sai do

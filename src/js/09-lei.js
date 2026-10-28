@@ -272,6 +272,14 @@ function diagnosticoArtigo(k) {
   return { k, tot, nResp, c, e, taxa, pendentes, erradasIds, nivel, est };
 }
 
+// Itens que "Neutralizar vulnerabilidades" abre (até VULN_MAX): os errados dos artigos em vermelho (os itens todos do
+// artigo, se nenhum foi errado); sem artigo em vermelho, os itens dos amarelos. O botão conta pela mesma regra.
+const VULN_MAX = 30;
+function idsVulneraveis(diag) {
+  const de = (d, soErradas) => (soErradas && d.erradasIds && d.erradasIds.length ? d.erradasIds : (POR_ART.get(d.k) || []).map((q) => q.id));
+  const verm = [...new Set(diag.filter((d) => d.nivel === 'vermelho').flatMap((d) => de(d, true)))];
+  return verm.length ? verm : [...new Set(diag.filter((d) => d.nivel === 'amarelo').flatMap((d) => de(d, false)))];
+}
 function renderLei() {
   const el = document.getElementById('vista-lei');
   if (!Object.keys(LEIS).length) { el.innerHTML = '<p class="vazio-msg">Nenhum texto legal anexado ainda.</p>'; return; }
@@ -296,8 +304,7 @@ function renderLei() {
   const amarArts = diagArts.filter((d) => d.nivel === 'amarelo');
   const verdArts = diagArts.filter((d) => d.nivel === 'verde');
   const neutArts = diagArts.filter((d) => d.nivel === 'neutro');
-  let totQuestoesVerm = 0;
-  for (const d of vermArts) totQuestoesVerm += (d.erradasIds && d.erradasIds.length ? d.erradasIds.length : d.tot);
+  const totQuestoesVerm = Math.min(VULN_MAX, idsVulneraveis(diagArts).length);
 
   html += '<div class="cartao destaque termometro-card">' +
     '<div class="secao-cab"><h2>Termômetro de Vulnerabilidade · ' + esc(L.curto || L.nome) + '</h2>' +
@@ -310,7 +317,7 @@ function renderLei() {
       '<div class="termo-seg neut" style="width:' + pct(neutArts.length, arts.length) + '%" title="' + neutArts.length + ' Não Testados"></div>' +
     '</div></div>' +
     '<div class="linha-btns" style="margin-top:10px">' +
-      (vermArts.length ? '<button class="btn primario" data-acao="neutralizar-vulnerabilidades">Neutralizar Vulnerabilidades (' + pl(totQuestoesVerm, 'item crítico', 'itens críticos') + ')</button>' : amarArts.length ? '<button class="btn primario" data-acao="neutralizar-vulnerabilidades">Treinar Artigos em Atenção (' + amarArts.length + ')</button>' : '') +
+      (vermArts.length ? '<button class="btn primario" data-acao="neutralizar-vulnerabilidades">' + esc(rotuloPausa('vuln:' + (UI.lei || 'lgpd'), 'Neutralizar Vulnerabilidades (' + pl(totQuestoesVerm, 'item crítico', 'itens críticos') + ')')) + '</button>' : amarArts.length ? '<button class="btn primario" data-acao="neutralizar-vulnerabilidades">Treinar Artigos em Atenção (' + amarArts.length + ')</button>' : '') +
       '<button class="chip" data-acao="toggle-termometro" aria-pressed="' + !!UI.termometro + '">' + (UI.termometro ? 'Ver estrutura da lei' : 'Ver ranking de vulnerabilidades') + '</button>' +
     '</div></div>';
   if (UI.busca.trim().length >= 3) html += '<div class="resultado-busca">' + buscarLei(UI.busca) + '</div>';
@@ -376,11 +383,13 @@ function renderLei() {
 }
 // Busca em todas as normas: a norma aberta vem primeiro; no máximo 60 resultados
 // Sem resultado exato, tenta a família da palavra: "transferencia" acha "transferir" (prefixo de 60% da palavra)
+// Na segunda tentativa, até três palavras entre as buscadas: quem digita “direitos titular” quer “direitos do titular”
+const SEP_APROX = '[^a-z0-9º]+(?:[a-z0-9º]+[^a-z0-9º]+){0,3}?';
 function buscarLei(termo, aprox) {
   const palavras = semAcento(termo.trim()).split(/[^a-z0-9º]+/).filter(Boolean);
   if (!palavras.length) return '';
   const raiz = (p) => (aprox && p.length > 5 ? p.slice(0, Math.max(4, Math.round(p.length * 0.6))) : p);
-  const re = new RegExp(palavras.map((p) => raiz(p).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + (aprox && p.length > 5 ? '[a-z]*' : '')).join('[^a-z0-9º]+'));
+  const re = new RegExp(palavras.map((p) => raiz(p).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + (aprox && p.length > 5 ? '[a-z]*' : '')).join(aprox ? SEP_APROX : '[^a-z0-9º]+'));
   const ordem = [UI.lei].concat(GRUPOS.flatMap((g) => g.ids).filter((id) => id !== UI.lei));
   const res = [];
   let total = 0;
@@ -395,8 +404,8 @@ function buscarLei(termo, aprox) {
       res.push('<button data-acao="abrir-art" data-art="' + esc(a.k) + '"><b>' + esc(id === UI.lei ? rotuloArt(a.k) : LEIS[id].curto + ' · ' + rotuloArt(a.k)) + '</b><span>' + esc((ini ? '…' : '') + a.texto.slice(ini, m.index + m[0].length + 90).replace(/\n/g, ' ') + '…') + '</span></button>');
     }
   }
-  if (!res.length) return !aprox && palavras.some((p) => p.length > 5) ? buscarLei(termo, true) : '<p class="vazio-msg">Nada encontrado para “' + esc(termo) + '”.</p>';
-  return (aprox ? '<p class="pequeno mudo">Nada exato para “' + esc(termo) + '”; mostrando palavras da mesma família.</p>' : '') + (total > res.length ? '<p class="pequeno mudo">' + total + ' resultados; mostrando os 60 primeiros (norma aberta primeiro).</p>' : '') + res.join('');
+  if (!res.length) return !aprox && (palavras.length > 1 || palavras.some((p) => p.length > 5)) ? buscarLei(termo, true) : '<p class="vazio-msg">Nada encontrado para “' + esc(termo) + '”.</p>';
+  return (aprox ? '<p class="pequeno mudo">Nada exato para “' + esc(termo) + '”; mostrando trechos com até três palavras entre as buscadas e palavras da mesma família.</p>' : '') + (total > res.length ? '<p class="pequeno mudo">' + total + ' resultados; mostrando os 60 primeiros (norma aberta primeiro).</p>' : '') + res.join('');
 }
 // Gaveta do artigo na lei seca: os itens deste artigo que a pessoa já errou, os ainda não recuperados primeiro, com o
 // gabarito e o comentário
@@ -423,17 +432,20 @@ function textoParaFala(a) {
 }
 function pararFala() { if (falando && PODE_FALAR) speechSynthesis.cancel(); falando = null; }
 function rotuloFala(k) { return falando === k ? 'Parar a leitura em voz' : 'Ouvir o artigo'; }
+// A fala em curso fica guardada aqui: presa só a uma variável local, o Chrome e o Safari podem descartá-la no meio de
+// um artigo longo, e o fim (que libera o botão) nunca chega
+let falaAtual = null;
 function ouvirArtigo(k) {
   const a = ARTI.get(k);
   if (!a || !PODE_FALAR) return;
   if (falando === k) { pararFala(); } else {
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(textoParaFala(a));
+    const u = falaAtual = new SpeechSynthesisUtterance(textoParaFala(a));
     u.lang = 'pt-BR';
     const voz = speechSynthesis.getVoices().find((v) => /^pt[-_]BR/i.test(v.lang)) || speechSynthesis.getVoices().find((v) => /^pt/i.test(v.lang));
     if (voz) u.voice = voz;
     u.onboundary = marcarUso;
-    u.onend = u.onerror = () => { if (falando === k) { falando = null; const b = document.querySelector('[data-acao="ouvir-art"]'); if (b) b.textContent = rotuloFala(k); } };
+    u.onend = u.onerror = () => { if (falaAtual === u) falaAtual = null; if (falando === k) { falando = null; const b = document.querySelector('[data-acao="ouvir-art"]'); if (b) b.textContent = rotuloFala(k); } };
     falando = k;
     speechSynthesis.speak(u);
     marcarUso();

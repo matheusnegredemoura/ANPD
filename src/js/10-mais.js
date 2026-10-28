@@ -133,7 +133,7 @@ function cartaoProntidao() {
       '<p class="pequeno">Itens reais ainda inéditos, da disciplina mais perto do fim para a mais folgada: ' + Object.entries(ined).filter(([d]) => DI.has(d)).sort((a, b) => a[1][0] / a[1][1] - b[1][0] / b[1][1]).map(([d, x]) => esc(DI.get(d).nome) + ' ' + x[0] + ' de ' + x[1]).join('; ') + '. Quando acabam numa disciplina, o treino dela fica só com itens escritos para o banco e a prontidão para de acompanhar o seu progresso ali; a reposição vem de itens reais de outros bancos, com o gabarito conferido na lei.</p></details>';
   }
   html += livres ? '<div class="linha-btns"><button class="btn primario" data-acao="treinar-reais">' + esc(rotuloPausa('reais:ineditos', 'Treinar ' + pl(Math.min(20, livres), 'item real inédito', 'itens reais inéditos'))) + '</button></div>' : '';
-  html += '<p class="pequeno mudo">Conta só a primeira resposta de cada item certo/errado, no peso da nota (cada item vale ' + (PESO_ESPECIFICA === 1 ? '1' : '1 na básica e ' + PESO_ESPECIFICA + ' na específica') + '). ' + pl(livres, 'item real ainda inédito', 'itens reais ainda inéditos') + ' no banco. Nos simulados de prova completa, pelo menos metade de cada disciplina vem deles enquanto houver inéditos.</p></div>';
+  html += '<p class="pequeno mudo">Conta só a primeira resposta de cada item certo/errado, no peso da nota (cada item vale ' + valorDosItens() + '). ' + pl(livres, 'item real ainda inédito', 'itens reais ainda inéditos') + ' no banco. Nos simulados de prova completa, pelo menos metade de cada disciplina vem deles enquanto houver inéditos.</p></div>';
   return html;
 }
 function renderProgresso() {
@@ -184,7 +184,7 @@ function renderProgresso() {
   for (const r of Object.values(S.itens)) { dc += r[5] || 0; de += r[6] || 0; }
   html += '<div class="cartao"><h2>Calibragem do chute</h2>' + (dc + de >= 5 ? '<p>Quando marca dúvida, você acerta <b>' + pct(dc, dc + de) + '%</b> (' + dc + ' de ' + (dc + de) + '). ' + (pct(dc, dc + de) > 50 ? 'Acima de 50%: na prova, chutar tende a somar pontos.' : 'Até 50%: na prova, deixar em branco tende a ser melhor.') + '</p>' : '<p class="mudo">Marque “Estou em dúvida” antes de responder. Com 5 marcações já dá para saber se o seu chute compensa.</p>') + '</div>';
   if (S.simulados.length) html += '<div class="cartao"><h2>Simulados</h2><div class="tabela-env"><table class="tabela"><thead><tr><th>Data</th><th>Itens</th><th>C</th><th>E</th><th>Nota</th><th>Pontos</th><th>Reais</th></tr></thead><tbody>' + S.simulados.slice(0, 12).map((s) => { const n = (k) => Number(s[k]) || 0; return '<tr><td>' + esc(fmtData(s.data, { day: '2-digit', month: '2-digit' })) + '</td><td class="num">' + n('n') + '</td><td class="num">' + n('c') + '</td><td class="num">' + n('e') + '</td><td class="num">' + n('liq') + ' (' + pct(n('liq'), n('n')) + '%)</td><td class="num">' + (n('ptMax') ? n('pt') + ' de ' + n('ptMax') : '—') + '</td><td class="num">' + (n('nr') ? pct(n('cr'), n('nr')) + '% de ' + n('nr') : '—') + '</td></tr>'; }).join('') + '</tbody></table></div>' +
-    '<p class="pequeno mudo">Pontos: nota com os pesos da prova (cada item vale ' + (PESO_ESPECIFICA === 1 ? '1' : '1 na básica e ' + PESO_ESPECIFICA + ' na específica') + '). Reais: acerto nos itens reais de prova do simulado.</p></div>';
+    '<p class="pequeno mudo">Pontos: nota com os pesos da prova (cada item vale ' + valorDosItens() + '). Reais: acerto nos itens reais de prova do simulado.</p></div>';
   html += cartaoConquistas();
   html += cartaoTrofeus();
   return html;
@@ -309,20 +309,16 @@ function renderGlossario() {
 function metricasSemanaMentor() {
   const semIni = semanaAtual();
   const hoje = hojeISO();
-  let r = 0, c = 0, e = 0, b = 0, k = 0, seg = 0;
+  let r = 0, c = 0, e = 0;
   for (const [iso, d] of Object.entries(S.perfil.dias || {})) {
     if (iso >= semIni && iso <= hoje) {
       r += d.r || 0;
       c += d.c || 0;
       e += d.e || 0;
-      b += d.b || 0;
-      k += d.k || 0;
-      seg += segundosEstudo(d);
     }
   }
   const total = c + e;
   const liq = total > 0 ? (c - e) / total : 0;
-  const liqPontos = c - e;
   const venc = listaVencida().length;
   const cardsV = cardsVencidos().length;
   const cad = cadState();
@@ -336,17 +332,14 @@ function metricasSemanaMentor() {
       if (t.tentativas && t.tentativas.some((x) => x.d && x.d >= semIni)) {
         discSem = true; break;
       }
-      if (t.rascunho && t.rascunho.length >= 200 && S.perfil.feitos && S.perfil.feitos['disc:' + hoje]) {
-        discSem = true; break;
-      }
     }
   }
 
   return {
-    semIni, r, c, e, b, k, seg, total, liq, liqPontos,
+    semIni, r, c, e, total, liq,
     venc, cardsV, revisaoTotal: venc + cardsV,
     errosPendentes, degrauAtual, md, discSem,
-    metaQuestoes: 200, metaHorasSeg: 25 * 3600
+    metaQuestoes: itensPlanoSemana()
   };
 }
 
@@ -360,7 +353,7 @@ function cartaoTaticoMentorando(forcar = false) {
   const ms = metricasSemanaMentor();
   const deg = (D.mentor && D.mentor.metodo && D.mentor.metodo.degrausFoco && D.mentor.metodo.degrausFoco.find((x) => x.ordem === ms.degrauAtual)) || { bloco: 'Núcleo Duro ANPD', ordem: 1 };
   const liqPct = ms.total > 0 ? (ms.liq >= 0 ? '+' : '') + Math.round(ms.liq * 100) + '%' : '—';
-  const liqCor = ms.total === 0 ? 'var(--mudo)' : ms.liq >= 0.6 ? 'var(--certo)' : ms.liq >= 0.4 ? 'var(--accent)' : 'var(--errado)';
+  const liqCor = ms.total === 0 ? 'var(--ink-3)' : ms.liq >= 0.6 ? 'var(--certo)' : ms.liq >= 0.4 ? 'var(--accent)' : 'var(--errado)';
   const pctQ = Math.min(100, Math.round((ms.r / ms.metaQuestoes) * 100));
 
   let prescricao = '';
@@ -385,28 +378,28 @@ function cartaoTaticoMentorando(forcar = false) {
     '<span class="mono pequeno mudo">' + esc(fmtData(ms.semIni, { day: '2-digit', month: '2-digit' })) + ' a ' + esc(fmtData(hojeISO(), { day: '2-digit', month: '2-digit' })) + '</span>' +
     '</div><button class="linkish pequeno" data-acao="mais" data-sub="metodo">Método 6 Degraus ›</button></div>' +
     '<div class="estat" style="grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:10px 0 12px">' +
-    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--raio)">' +
+    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--r)">' +
       '<b class="mono" style="font-size:1.15rem">' + ms.r + ' <span class="pequeno mudo" style="font-size:.75rem">/ ' + ms.metaQuestoes + '</span></b>' +
       '<span style="font-size:.76rem">itens na semana</span>' +
       '<div class="barra" style="height:4px;margin-top:6px"><i style="width:' + pctQ + '%"></i></div>' +
     '</div>' +
-    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--raio)">' +
+    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--r)">' +
       '<b class="mono" style="font-size:1.15rem;color:' + liqCor + '">' + liqPct + '</b>' +
       '<span style="font-size:.76rem">líquido Cebraspe (meta ≥ +60%)</span>' +
     '</div>' +
-    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--raio)">' +
+    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--r)">' +
       '<b class="mono" style="font-size:1.15rem">' + ms.degrauAtual + 'º <span class="pequeno mudo" style="font-size:.75rem">/ 6</span></b>' +
       '<span style="font-size:.76rem">degrau ativo (' + Math.round(ms.md.dom * 100) + '% dom)</span>' +
     '</div>' +
-    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--raio)">' +
+    '<div style="padding:8px 10px;background:var(--surface);border-radius:var(--r)">' +
       '<b class="mono" style="font-size:1.15rem;' + (ms.revisaoTotal ? 'color:var(--errado)' : 'color:var(--certo)') + '">' + (ms.revisaoTotal ? ms.revisaoTotal : '✓ 0') + '</b>' +
       '<span style="font-size:.76rem">' + (ms.revisaoTotal ? 'revisões pendentes' : 'revisão em dia') + '</span>' +
     '</div>' +
     '</div>' +
-    '<div style="background:var(--surface);padding:10px 12px;border-radius:var(--raio);font-size:.86rem;border-left:3px solid var(--accent)">' +
+    '<div style="background:var(--surface);padding:10px 12px;border-radius:var(--r);font-size:.86rem;border-left:3px solid var(--accent)">' +
     '<p style="margin:0 0 6px 0;line-height:1.45">' + prescricao + '</p>' +
     '<div class="linha-btns" style="margin-top:4px">' + acaoSugerida +
-    '<button class="btn pequeno" data-acao="anpd-treino-rapido" data-deg="' + ms.degrauAtual + '">Treinar 20 itens do ' + ms.degrauAtual + 'º Degrau</button>' +
+    '<button class="btn pequeno" data-acao="anpd-treino-rapido" data-deg="' + ms.degrauAtual + '">' + esc(rotuloPausa('deg:' + ms.degrauAtual, 'Treinar 20 itens do ' + ms.degrauAtual + 'º Degrau')) + '</button>' +
     '</div></div>' +
     '</div>';
   return html;
@@ -478,7 +471,7 @@ function renderMetodo() {
         '<div class="secao-cab"><b>' + d.ordem + 'º degrau · ' + esc(d.bloco) + '</b><span class="mono pequeno">' + (md.pronto ? '✓ Meta atingida' : Math.round(md.dom * 100) + '% domínio · ' + md.resp + ' itens vistos') + '</span></div>' +
         '<p class="pequeno" style="margin:4px 0">' + esc(d.motivo) + '</p>' +
         '<p class="pequeno mudo">Critério para avançar: <b>' + esc(d.saida) + '</b> · Nota líquida atual: <b>' + (md.totalRespostas ? (md.liq >= 0 ? '+' : '') + md.liq.toFixed(2).replace('.', ',') : '—') + '</b></p>' +
-        '<div class="linha-btns"><button class="btn pequeno' + (ativo ? ' primario' : '') + '" data-acao="anpd-treino-rapido" data-blocos="' + esc(blocosDeg.join(',')) + '" data-tit="Degrau ' + d.ordem + ' · ' + esc(d.bloco) + '">Treinar 20 itens deste degrau</button>' +
+        '<div class="linha-btns"><button class="btn pequeno' + (ativo ? ' primario' : '') + '" data-acao="anpd-treino-rapido" data-blocos="' + esc(blocosDeg.join(',')) + '" data-tit="Degrau ' + d.ordem + ' · ' + esc(d.bloco) + '">' + esc(rotuloPausa('deg:' + blocosDeg.join(','), 'Treinar 20 itens deste degrau')) + '</button>' +
         (ativo ? '<span class="selo ok">Degrau ativo no ciclo</span>' : '<button class="btn pequeno" data-acao="anpd-set-degrau" data-deg="' + d.ordem + '">Definir como degrau ativo</button>') +
         '</div></div>';
     }).join('') + '</div>';
@@ -533,7 +526,7 @@ function renderMetodo() {
       else if (i === 1) dicaAuto = '<span class="selo mono pequeno" style="margin-left:6px">' + ms.r + '/' + itensPlanoSemana() + ' itens · ' + (ms.total > 0 ? (ms.liq >= 0 ? '+' : '') + Math.round(ms.liq * 100) + '% líq' : '0%') + '</span>';
       else if (i === 3) dicaAuto = ms.errosPendentes === 0 ? '<span class="selo ok pequeno" style="margin-left:6px">✓ Todos recuperados</span>' : '<span class="selo p2 pequeno" style="margin-left:6px">' + ms.errosPendentes + ' por recuperar</span>';
       else if (i === 5) dicaAuto = ms.discSem ? '<span class="selo ok pequeno" style="margin-left:6px">✓ Feito na semana</span>' : '<span class="selo mono pequeno" style="margin-left:6px">Pendente para sábado</span>';
-      return '<label class="pesq-linha' + (chk[i] ? ' feito' : '') + '"><input type="checkbox" data-acao="anpd-check-sem" data-i="' + i + '"' + (chk[i] ? ' checked' : '') + '><div class="tx"><b>' + esc(item.texto || item) + '</b> ' + dicaAuto + '</div></label>';
+      return '<label class="pesq-linha' + (chk[i] ? ' feito' : '') + '"><input type="checkbox" data-acao="anpd-check-sem" data-i="' + i + '"' + (chk[i] ? ' checked' : '') + '><div class="tx"><b>' + esc(item.texto) + '</b> ' + dicaAuto + '</div></label>';
     }).join('') +
     '</div></div>';
 
@@ -587,7 +580,7 @@ function renderRaioXANPD() {
 }
 
 function renderEditalANPD() {
-  const ed = (D.mentor && (D.mentor.edital || D.mentor.edital2027)) || {};
+  const ed = (D.mentor && D.mentor.edital) || {};
   const fPrio = UI.edPrio || 'todas';
   const busca = semAcento((UI.edBusca || '').trim());
   let html = '<div class="prosa"><h2>Edital Projetado e Conteúdo Programático — ANPD</h2>' +

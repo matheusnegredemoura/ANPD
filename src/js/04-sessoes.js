@@ -87,7 +87,7 @@ function atualizarPausa() {
   // não volta, porque a marca é mais nova
   if (sessao.fim || sessao.desfecho || (!sim && !faltam.length)) pausas[k] = pausaEncerrada();
   else {
-    pausas[k] = Object.assign({ modo: sessao.modo, titulo: sessao.titulo, dia: sessao.dia, data: hojeISO(), ts: Date.now() }, sim
+    pausas[k] = Object.assign({ modo: sessao.modo, titulo: sessao.titulo, dia: sessao.dia, data: hojeISO(), ts: Date.now(), st: sessao.st || undefined, tipoSubtema: sessao.tipoSubtema || undefined }, sim
       ? { ids: sessao.ids, resp: sessao.resp, duv: sessao.duv, i: sessao.i, gasto: Math.round(decorrido()), limite: sessao.limite, total: sessao.ids.length, prova: sessao.prova || undefined }
       : { ids: faltam, feitas: (sessao.feitasAntes || 0) + sessao.ids.length - faltam.length, total: sessao.totalOrig || sessao.ids.length },
       sessao.batalha ? { cor: sessao.coracoes, dano: sessao.danoTotal || 0, crit: sessao.criticos || 0, cmb: sessao.comboMax, per: sessao.perdas || 0, def: sessao.defesas || 0 } : {});
@@ -107,7 +107,7 @@ function guardarSessaoAberta() {
 function retomarPausa(k) {
   const p = pausaDe(k);
   if (!p) return false;
-  sessao = novaSessao({ modo: p.modo, titulo: p.titulo, dia: p.dia, chave: k, prova: p.prova }, p.ids);
+  sessao = novaSessao({ modo: p.modo, titulo: p.titulo, dia: p.dia, chave: k, prova: p.prova, st: p.st, tipoSubtema: p.tipoSubtema }, p.ids);
   sessao.retomada = true;
   if (p.modo === 'simulado') {
     sessao.resp = p.resp;
@@ -306,7 +306,6 @@ function responder(resp) {
   efeitoBatalha(ok);
   if (sessao.golpe && sessao.golpe.vencido) sessao.golpeFinal = sessao.golpe;
   tocar(!ok ? 'erro' : sessao.golpe && sessao.golpe.vencido ? 'festa' : sessao.combo >= 5 && sessao.combo % 5 === 0 ? 'combo' : 'acerto');
-  { const dl = diaLog(); if (sessao.combo > (dl.cmb || 0)) dl.cmb = sessao.combo; }
   if (sessao.comboMax > (S.perfil.recordes.combo || 0)) S.perfil.recordes.combo = sessao.comboMax;
   sessao.xp += x;
   ganharXP(x);
@@ -349,9 +348,11 @@ function avaliar(nota) {
   if (!sessao || sessao.modo !== 'cards' || !sessao.revelado || (sessao.digOk === false && nota >= 3)) return;
   const id = sessao.ids[sessao.i];
   sessao.dig = ''; sessao.digOk = null;
-  avaliarCard(id, nota);
-  sessao.notas[nota]++;
-  const x = nota === 1 ? 1 : 3;
+  // A volta de um "Errei" no fim da sessão é reaprendizado: o card já está marcado para amanhã, e avaliá-lo de novo
+  // cortaria a facilidade e somaria lapso e card revisado a cada volta, no mesmo dia. Também fica fora da retenção
+  const volta = (sessao.repetidos[id] || 0) > 0 && sessao.ids.indexOf(id) < sessao.i;
+  if (!volta) { avaliarCard(id, nota); sessao.notas[nota]++; }
+  const x = volta ? 1 : nota === 1 ? 1 : 3;
   sessao.xp += x;
   ganharXP(x);
   if (nota === 1 && (sessao.repetidos[id] || 0) < 2) { sessao.repetidos[id] = (sessao.repetidos[id] || 0) + 1; sessao.ids.push(id); }
@@ -395,13 +396,15 @@ function finalizar() {
     sessao.ids.forEach((id) => {
       const q = QI.get(id);
       const r = sessao.resp[id] || BRANCO;
-      const novo = inedito(q);
+      const novo = inedito(q), ant = rec(id);
       const ok = registrar(q, r, !!sessao.duv[id]);
       const w = pesoItem(q);
+      // Virada no simulado conta para a missão como no treino (o registro acima já tira o item da lista de erros)
+      if (ok && ant && ant[0] === 0 && ant[3] > 0 && ant[4] < HOJE()) { const dv = diaLog(); dv.vr = (dv.vr || 0) + 1; }
       ptMax += w;
       if (novo && r !== BRANCO) { ni++; if (ok) nc++; }
       if (q.o && r !== BRANCO) { nr++; if (ok) cr++; }
-      if (r === BRANCO) b++; else if (ok) { c++; xp += 10; pt += w; } else { e++; if (q.al) eMc++; else pt -= w; }
+      if (r === BRANCO) b++; else if (ok) { c++; xp += xpAcerto(q, 0, 'simulado'); pt += w; } else { e++; if (q.al) eMc++; else pt -= w; }
     });
     sessao.ineditos = { n: ni, c: nc };
     xp += 40;
@@ -415,7 +418,7 @@ function finalizar() {
     let c = 0, e = 0;
     sessao.ids.forEach((id) => { const r = sessao.resp[id]; if (!r) return; if (r === QI.get(id).g) c++; else e++; });
     if (c - e > (S.perfil.recordes.relampago || 0)) { S.perfil.recordes.relampago = c - e; sessao.recorde = true; }
-    if (c + e) { const d = diaLog(); d.rl = (d.rl || 0) + 1; verificarRPG(); }
+    if (c + e) verificarRPG();
   }
   if (sessao.dia) {
     // Sessão de um dia anterior do plano: conta para a missão de encaixar pendências
@@ -438,8 +441,8 @@ const SONS = { acerto: [[660, 0], [880, 0.07]], erro: [[196, 0]], combo: [[660, 
 function tocar(tipo) {
   if (!UI.som || !SONS[tipo]) return;
   try {
-    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
+    if (!audioCtx || audioCtx.state === 'closed') audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state !== 'running') audioCtx.resume();
     const t0 = audioCtx.currentTime, dur = tipo === 'erro' ? 0.22 : 0.15;
     for (const [f, dt] of SONS[tipo]) {
       const o = audioCtx.createOscillator(), g = audioCtx.createGain();
