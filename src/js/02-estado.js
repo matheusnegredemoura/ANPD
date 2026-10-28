@@ -85,6 +85,7 @@ function mesclarRPG(velho, novo) {
   r.m = mesclarMapa(velho.m, novo.m, (x, y) => Object.assign({}, x, y, { ok: Object.assign({}, x.ok, y.ok), bau: x.bau || y.bau, item: y.item || x.item }));
   return r;
 }
+const CAMPOS_RESPOSTA = new Set(['r', 'c', 'e', 'b', 'k', 'n', 'sq', 'ni', 'm', 'mc', 'mp', 'mpc', 'cz']);
 function mesclarDoc(n, nuvem, local, localNovo) {
   nuvem = nuvem || {}; local = local || {};
   const novo = localNovo ? local : nuvem, velho = localNovo ? nuvem : local;
@@ -114,10 +115,21 @@ function mesclarDoc(n, nuvem, local, localNovo) {
   p.xp = Math.max(num(nuvem.xp), num(local.xp));
   p.saidos = Math.max(num(nuvem.saidos), num(local.saidos));
   p.melhorSeq = Math.max(num(nuvem.melhorSeq), num(local.melhorSeq));
+  // Dia: o que vem das respostas e dos cards (contagens, sequência, cansaço) sai inteiro do lado com mais atividade,
+  // para os números baterem entre si; o resto junta campo a campo: artigos lidos somados sem repetir, tempos e
+  // contadores (XP, roteiro, atraso recuperado, viradas) pelo maior, marcas que valem num aparelho valem no outro
   p.dias = mesclarMapa(nuvem.dias, local.dias, (a, b) => {
-    const dia = atividade(b) > atividade(a) ? b : a;
-    const t = mesclarMapa(a && a.t, b && b.t, (x, y) => Math.max(num(x), num(y)));
-    return Object.keys(t).length ? Object.assign({}, dia, { t }) : dia;
+    if (!a || !b) return a || b;
+    const base = atividade(b) > atividade(a) ? b : a, outro = base === b ? a : b, r = Object.assign({}, outro, base);
+    for (const k of Object.keys(outro)) {
+      if (CAMPOS_RESPOSTA.has(k)) continue;
+      const x = base[k], y = outro[k];
+      if (Array.isArray(x) || Array.isArray(y)) r[k] = [...new Set([].concat(x || [], y || []))];
+      else if (typeof x === 'number' || typeof y === 'number') r[k] = Math.max(num(x), num(y));
+      else if (x && y && typeof x === 'object') r[k] = mesclarMapa(x, y, (u, v) => Math.max(num(u), num(v)));
+      else r[k] = x || y;
+    }
+    return r;
   });
   p.conq = Object.assign({}, velho.conq, novo.conq);
   // Dia, aula ou discursiva dados como feitos num aparelho continuam feitos no outro
@@ -205,6 +217,8 @@ const Store = {
   aplicar(n, corpo) {
     if (!corpo || !corpo.dados) return;
     if (corpo.t && this.ultimoT[n] && corpo.t <= this.ultimoT[n]) return;
+    // O que estava para ser gravado daqui era sobre a cópia antiga: gravá-lo depois desfaria a adoção
+    clearTimeout(this.timer[n]); this.timer[n] = null;
     this.ultimoT[n] = corpo.t || Date.now();
     this.tLocal[n] = this.ultimoT[n];
     this.definir(n, corpo.dados);
@@ -250,7 +264,7 @@ const Store = {
           if (epLocal > epNuvem) this.gravar(n);
           // Época mais nova na conta (zerou ou restaurou em outro aparelho): documento que lá não existe conta como vazio,
           // para o que é deste navegador, de antes, não voltar para a conta
-          else if (epNuvem > epLocal) { if (d && d.dados) this.aplicar(n, d); else this.definir(n, {}); }
+          else if (epNuvem > epLocal) { if (d && d.dados) this.aplicar(n, d); else { this.definir(n, {}); this.guardarLocal(); } }
           else if (!d || !d.dados) this.gravar(n);
           else this.mesclar(n, d, this.localReal && !!this.tLocal[n] && !!d.t && this.tLocal[n] > d.t);
         });
@@ -262,6 +276,8 @@ const Store = {
           // Com gravação pendente aqui, ou recém-feita (a do outro aparelho pode ter saído antes de ver a daqui), junta as
           // duas; sem nada recente, adota a do outro aparelho
           const recente = Date.now() - (this.tGravou[n] || 0) < 15000;
+          // Cópia de antes de zerar ou restaurar (época mais velha que a daqui) chegando atrasada: fica de fora
+          if ((d.ep || 0) < (S.perfil.ep || 0)) return;
           if ((this.timer[n] || this.gravando[n] || recente) && (d.ep || 0) === (S.perfil.ep || 0)) this.mesclar(n, d, true); else this.aplicar(n, d);
           renderTudo();
         }, (e) => { console.warn('assinatura encerrada', n, e && e.code); });

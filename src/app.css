@@ -855,16 +855,14 @@ details.det-lista[open]>summary{margin-bottom:10px}
 
 /* Com o teclado do celular aberto (classe posta pela área visível), o que é fixo embaixo sai do caminho do texto */
 body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}
-/* Lei seca no modo Testar: prazos e deve × pode viram tarjas que o toque revela */
-.lei-teste .texto-lei :is(.g-num,.g-verbo):not(.revelado){color:transparent;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line);border-radius:3px;text-decoration:none;cursor:pointer}
-/* Caça-Pegadinha: depois de acertar um item errado, apontar o tipo da pegadinha */
+/* Lei seca e aulas no modo Testar: prazos e deve × pode viram tarjas que o toque revela */
+.lei-teste :is(.texto-lei,.texto-aula) :is(.g-num,.g-verbo):not(.revelado){color:transparent;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line);border-radius:3px;text-decoration:none;cursor:pointer}
 /* Gaveta de erros do artigo na lei seca */
 .erros-art{margin:10px 0;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--surface-2)}
 .erros-art summary{cursor:pointer;font-weight:700;color:var(--errado)}
 .erro-art{border-top:1px dashed var(--line);padding-top:8px;margin-top:8px}
 .erro-art p{margin:4px 0}
 .erro-art.virou{opacity:.8}
-/* Masmorra da semana na Jornada */
 /* Card de número ou prazo: lacuna digitada antes de ver a resposta */
 .card-digitar{width:100%;margin:4px 0 10px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font:inherit}
 .digitado{margin:6px 0 10px;padding:8px 12px;border-radius:8px}
@@ -872,7 +870,7 @@ body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}
 .digitado.no{background:var(--errado-bg);color:var(--errado)}
 .notas-card button:disabled{opacity:.4;cursor:not-allowed}
 /* Leitura fria: artigo já lido em outro dia, sem grifos nem andaimes até a pessoa pedir para conferir */
-.fria .texto-lei :is(.g-cai,.g-erro,.g-num,.g-alerta,.g-verbo){background:none;box-shadow:none;color:inherit;font-weight:inherit;font-style:inherit;text-decoration:none}
+:root .fria .texto-lei :is(.g-cai,.g-erro,.g-num,.g-alerta,.g-verbo){background:none;box-shadow:none;color:inherit;font-weight:inherit;font-style:inherit;text-decoration:none}
 .fria :is(.claro,.camadas,.juridiques){display:none}
 .fria-aviso{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:10px 0;padding:8px 12px;border-radius:8px;border:1px dashed var(--line);font-size:.9rem;color:var(--ink-2)}
 .fria-aviso span{flex:1 1 200px;min-width:0}
@@ -880,7 +878,6 @@ body.kb-aberto :is(.abas,.cronometro,.comecar-fixo){display:none}
 .t-item{font-size:.8rem;color:var(--ink-3);padding:2px 6px;border-radius:6px}
 .t-item.lento{color:var(--errado);background:var(--errado-bg)}
 .ritmo-sessao{margin:8px 0}
-/* Causa do erro marcada na correção do item */
 /* Autoverificação antes de corrigir a discursiva */
 .check-disc{margin:10px 0;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
 .check-disc summary{cursor:pointer;font-weight:700}

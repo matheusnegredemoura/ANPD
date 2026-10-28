@@ -342,7 +342,7 @@ function dominioDisciplina(disc) {
 }
 function renderPersonagem() {
   const nv = nivelDe(S.perfil.xp), r = rpg();
-  let h = '<div class="cartao ficha"><div class="ficha-cab"><span class="insignia grande">' + nv.n + '</span><div><span class="rotulo">Nível ' + nv.n + '</span><h2>' + esc(nv.nome) + '</h2>' +
+  let h = '<div class="cartao"><div class="ficha-cab"><span class="insignia grande">' + nv.n + '</span><div><span class="rotulo">Nível ' + nv.n + '</span><h2>' + esc(nv.nome) + '</h2>' +
     barra((S.perfil.xp - nv.base) / (nv.prox - nv.base), 'ouro') + '<span class="mono pequeno mudo">' + fmtNum(S.perfil.xp) + ' / ' + fmtNum(nv.prox) + ' XP</span></div></div>' +
     '<div class="placar"><div><b>' + coracoesMax() + '</b><span>corações</span></div><div><b>+' + bonusDano() + '%</b><span>dano</span></div><div><b>' + chanceCritico() + '%</b><span>crítico</span></div><div><b>' + ((r.trofeus || []).length) + '</b><span>chefões</span></div></div></div>';
   // Pontos de 1 a 20 pela raiz do domínio: o começo rende pontos visíveis, e o 20 exige dominar o banco inteiro

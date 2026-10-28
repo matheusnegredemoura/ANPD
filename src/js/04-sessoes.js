@@ -504,7 +504,7 @@ function cartaoGanhos() {
 // no chefão, 50% a mais de XP fora dele)
 function extrasResposta(q) {
   const n = caiuEmProva(q);
-  return n ? '<p class="extra-resp quente"><span aria-hidden="true">★</span> Já caiu em prova: ' + pl(n, 'item real', 'itens reais') + ' deste artigo no banco.</p>' : '';
+  return n ? '<p class="extra-resp"><span aria-hidden="true">★</span> Já caiu em prova: ' + pl(n, 'item real', 'itens reais') + ' deste artigo no banco.</p>' : '';
 }
 
 /* ================= Avisos ================= */

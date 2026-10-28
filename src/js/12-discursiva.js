@@ -51,7 +51,7 @@ function renderDiscursiva() {
     return '<div class="prosa"><h2>Treino de discursiva</h2><p>' + esc((D.discursivas || {}).fonte || '') + '</p><p>Escreva como na prova: sem consulta, no tempo sugerido e dentro do limite de linhas. Depois corrija pelos quesitos com honestidade. O conceito máximo exige explicar, não só citar.</p></div>' + cartaoDiscPlano() +
       TEMAS_DISC.map((x) => {
         const tent = estadoDisc(x.id).tentativas, ult = tent[0];
-        return '<div class="cartao disc-tema"><div class="secao-cab"><h2>' + esc(x.titulo) + '</h2><span class="selo mono">' + x.linhas + ' linhas · ' + x.pontos + ' pts</span></div>' +
+        return '<div class="cartao"><div class="secao-cab"><h2>' + esc(x.titulo) + '</h2><span class="selo mono">' + x.linhas + ' linhas · ' + x.pontos + ' pts</span></div>' +
           '<p class="pequeno mudo">Tempo sugerido: ' + x.minutos + ' min · ' + (ult ? 'última nota ' + (Number(ult.nq) || 0).toFixed(2).replace('.', ',') + ' de ' + x.pontos + ' em ' + esc(fmtData(ult.d, { day: '2-digit', month: '2-digit' })) + ' · ' + pl(tent.length, 'tentativa', 'tentativas') : 'ainda não feito') + '</p>' +
           '<div class="linha-btns"><button class="btn primario" data-acao="disc-abrir" data-t="' + esc(x.id) + '">' + (estadoDisc(x.id).rascunho ? 'Continuar' : 'Escrever') + '</button></div></div>';
       }).join('');

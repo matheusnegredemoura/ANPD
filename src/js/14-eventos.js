@@ -1,8 +1,14 @@
 /* ================= Eventos ================= */
 document.addEventListener('click', async (ev) => {
-  // Modo Testar da lei seca: a tarja some no toque e volta no segundo
-  const tarja = UI.camadas.teste && ev.target.closest('.texto-lei .g-num, .texto-lei .g-verbo');
-  if (tarja) { tarja.classList.toggle('revelado'); return; }
+  // Modo Testar da lei seca e das aulas: a tarja some no toque e volta no segundo. Um prazo cortado por outro grifo
+  // (o que cai começando no meio dele) vira pedaços colados: todos abrem juntos. Na leitura fria não há tarja
+  const tarja = UI.camadas.teste && ev.target.closest(':is(.texto-lei,.texto-aula) :is(.g-num,.g-verbo)');
+  if (tarja && !tarja.closest('.fria')) {
+    const g = tarja.classList.contains('g-num') ? 'g-num' : 'g-verbo', abrir = !tarja.classList.contains('revelado'), grupo = [tarja];
+    for (const lado of ['previousSibling', 'nextSibling']) for (let n = tarja[lado]; n && n.nodeType === 1 && n.classList.contains(g); n = n[lado]) grupo.push(n);
+    grupo.forEach((x) => x.classList.toggle('revelado', abrir));
+    return;
+  }
   const alvo = ev.target.closest('[data-acao]');
   if (!alvo) { if (ev.target.id === 'folha') fecharFolha(); return; }
   const a = alvo.dataset.acao;
