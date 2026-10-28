@@ -24,17 +24,6 @@ dif: 2
 enunciado: Situação hipotética: um clube de vantagens só aceita a revogação do consentimento por carta registrada enviada à sede, mediante pagamento de taxa de processamento. Assertiva: a exigência é válida, pois a LGPD deixa ao controlador a escolha do procedimento de revogação.
 comentario: Errado. A revogação pode ocorrer a qualquer momento, por manifestação expressa do titular, em procedimento gratuito e facilitado (art. 8º, § 5º).
 
-=== lx39-03
-bloco: lgpd-5-11
-gab: C
-tema: pd-bases
-ref: lgpd 9
-trecho: esse será considerado nulo caso as informações fornecidas ao titular tenham conteúdo enganoso ou abusivo
-armadilha: conceito
-dif: 2
-enunciado: O consentimento é nulo se as informações dadas ao titular forem enganosas ou abusivas ou não tiverem sido apresentadas antes, com transparência.
-comentario: Certo. Art. 9º, § 1º. As informações devem ser claras e inequívocas.
-
 === lx39-04
 bloco: lgpd-5-11
 gab: E
@@ -57,17 +46,6 @@ dif: 2
 enunciado: O controlador que trata dados com base no legítimo interesse deve adotar medidas que garantam a transparência desse tratamento.
 comentario: Certo. Art. 10, § 2º. Nessa base, só se tratam os dados estritamente necessários (§ 1º), e a ANPD pode pedir relatório de impacto (§ 3º).
 
-=== lx39-06
-bloco: lgpd-12-16
-gab: E
-tema: pd-anonimizacao
-ref: lgpd 16
-trecho: uso exclusivo do controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados
-armadilha: excecao
-dif: 3
-enunciado: Situação hipotética: encerrados os contratos, uma operadora de telefonia manteve os dados identificados de ex-clientes para análises internas futuras, sem acesso de terceiros. Assertiva: a conservação é autorizada, pois o uso é exclusivo do controlador.
-comentario: Errado. A conservação para uso exclusivo do controlador exige, além da vedação de acesso por terceiro, que os dados estejam anonimizados (art. 16, IV).
-
 === lx39-07
 bloco: lgpd-17-22
 gab: C
@@ -78,17 +56,6 @@ armadilha: caso
 dif: 2
 enunciado: Situação hipotética: cliente de um banco digital, cujos dados são tratados para executar o contrato de conta, pediu cópia eletrônica integral desses dados, num formato que lhe permita usá-los em outro banco. Assertiva: o pedido tem amparo na LGPD.
 comentario: Certo. Quando o tratamento se origina de consentimento ou contrato, o titular pode pedir cópia eletrônica integral dos dados em formato que permita sua utilização subsequente (art. 19, § 3º), observados os segredos comercial e industrial.
-
-=== lx39-08
-bloco: lgpd-17-22
-gab: E
-tema: pd-direitos
-ref: lgpd 19
-trecho: As informações e os dados poderão ser fornecidos, a critério do titular
-armadilha: sujeito
-dif: 2
-enunciado: Situação hipotética: um titular pediu à empresa acesso a seus dados em forma impressa, e ela respondeu que só os fornece por meio eletrônico. Assertiva: a recusa é legítima, pois cabe ao controlador escolher o meio de fornecimento.
-comentario: Errado. As informações e os dados podem ser fornecidos por meio eletrônico seguro ou sob forma impressa, a critério do titular (art. 19, § 2º).
 
 === lx39-09
 bloco: lgpd-37-45
@@ -112,17 +79,6 @@ dif: 3
 enunciado: Situação hipotética: uma empresa de cobrança contratada por um banco, contrariando as instruções lícitas recebidas, usou os dados dos devedores para vender seguros, causando-lhes danos. Assertiva: perante os titulares, só o banco, como controlador, responde.
 comentario: Errado. O operador que não segue as instruções lícitas do controlador responde solidariamente pelos danos e se equipara ao controlador (art. 42, § 1º, I).
 
-=== lx39-11
-bloco: lgpd-37-45
-gab: C
-tema: pd-agentes
-ref: lgpd 42
-trecho: Aquele que reparar o dano ao titular tem direito de regresso contra os demais responsáveis, na medida de sua participação no evento danoso
-armadilha: conceito
-dif: 2
-enunciado: O agente que indeniza o titular pode cobrar dos demais responsáveis a parte correspondente à participação de cada um no dano.
-comentario: Certo. Art. 42, § 4º: é o direito de regresso.
-
 === lx39-12
 bloco: lgpd-37-45
 gab: E
@@ -144,14 +100,3 @@ armadilha: conceito
 dif: 2
 enunciado: Ao avaliar a gravidade de um incidente, a ANPD considera se os dados afetados tinham sido tornados ininteligíveis para terceiros não autorizados.
 comentario: Certo. Art. 48, § 3º. A criptografia adequada, por exemplo, pode reduzir a gravidade do incidente.
-
-=== lx39-14
-bloco: lgpd-46-51
-gab: E
-tema: pd-seguranca
-ref: lgpd 48
-trecho: os motivos da demora, no caso de a comunicação não ter sido imediata
-armadilha: rol
-dif: 2
-enunciado: Situação hipotética: um controlador comunicou um incidente relevante à ANPD semanas depois de descobri-lo, sem explicar o atraso. Assertiva: a comunicação está completa, pois a LGPD não exige justificar o momento em que ela é feita.
-comentario: Errado. Se a comunicação não for imediata, ela deve mencionar os motivos da demora, entre outros elementos mínimos (art. 48, § 1º, V).

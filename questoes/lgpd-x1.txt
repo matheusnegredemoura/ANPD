@@ -144,17 +144,6 @@ dif: 2
 enunciado: Se o consentimento constar de contrato escrito, deve vir em cláusula destacada das demais.
 comentario: Certo. Art. 8º, § 1º. O destaque evita que o consentimento se perca no meio do contrato.
 
-=== lx1-14
-bloco: lgpd-5-11
-gab: E
-tema: pd-bases
-ref: lgpd 8
-trecho: ratificados os tratamentos realizados sob amparo do consentimento anteriormente manifestado
-armadilha: conceito
-dif: 2
-enunciado: A revogação do consentimento torna ilícitos, retroativamente, os tratamentos realizados antes dela.
-comentario: Errado. Pelo art. 8º, § 5º, a revogação vale para o futuro: ficam ratificados os tratamentos feitos sob o consentimento anterior enquanto não houver pedido de eliminação (art. 18, VI).
-
 === lx1-15
 bloco: lgpd-5-11
 gab: C
@@ -176,28 +165,6 @@ armadilha: rol
 dif: 2
 enunciado: O titular tem direito de receber, de forma clara e ostensiva, informações sobre a identidade e o contato do controlador e sobre o uso compartilhado dos dados e sua finalidade.
 comentario: Certo. Art. 9º, III a V. O rol também inclui finalidade específica, forma e duração, responsabilidades dos agentes e os direitos do titular, com menção explícita ao art. 18.
-
-=== lx1-17
-bloco: lgpd-5-11
-gab: E
-tema: pd-bases
-ref: lgpd 9
-trecho: esse será considerado nulo caso as informações fornecidas ao titular tenham conteúdo enganoso ou abusivo
-armadilha: conceito
-dif: 2
-enunciado: O consentimento obtido com base em informação enganosa torna-se válido se o titular o confirmar por escrito.
-comentario: Errado. Pelo art. 9º, § 1º, o consentimento é nulo quando as informações têm conteúdo enganoso ou abusivo ou não foram apresentadas previamente com transparência. A confirmação escrita não sana o vício.
-
-=== lx1-18
-bloco: lgpd-5-11
-gab: C
-tema: pd-bases
-ref: lgpd 9
-trecho: o titular será informado com destaque sobre esse fato e sobre os meios pelos quais poderá exercer os direitos
-armadilha: conceito
-dif: 2
-enunciado: Quando o tratamento de dados é condição para fornecer um produto ou serviço, o titular deve ser informado com destaque sobre esse fato e sobre como exercer seus direitos.
-comentario: Certo. Art. 9º, § 3º. A informação destacada permite ao titular decidir sabendo que, sem os dados, não terá o produto.
 
 === lx1-19
 bloco: lgpd-5-11
@@ -221,17 +188,6 @@ dif: 2
 enunciado: O término do tratamento ocorre quando a finalidade é alcançada ou quando os dados deixam de ser necessários ou pertinentes a ela.
 comentario: Certo. Art. 15, I. As outras hipóteses são o fim do período de tratamento, a comunicação do titular e a determinação da ANPD em caso de violação da lei.
 
-=== lx1-21
-bloco: lgpd-12-16
-gab: E
-tema: pd-anonimizacao
-ref: lgpd 15
-trecho: determinação da autoridade nacional, quando houver violação ao disposto nesta Lei
-armadilha: conceito
-dif: 2
-enunciado: A ANPD pode determinar o término do tratamento por mera conveniência administrativa, sem que haja violação à LGPD.
-comentario: Errado. A determinação da ANPD como causa de término pressupõe violação à LGPD (art. 15, IV).
-
 === lx1-22
 bloco: lgpd-12-16
 gab: C
@@ -242,17 +198,6 @@ armadilha: caso
 dif: 3
 enunciado: Situação hipotética: o titular comunica ao controlador que revoga o consentimento dado para o envio de ofertas. Assertiva: a comunicação é hipótese de término do tratamento, resguardado o interesse público.
 comentario: Certo. Art. 15, III, com remissão ao art. 8º, § 5º. Depois do término, vale a regra de eliminação do art. 16, com as hipóteses de conservação.
-
-=== lx1-23
-bloco: lgpd-12-16
-gab: E
-tema: pd-anonimizacao
-ref: lgpd 16
-trecho: uso exclusivo do controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados
-armadilha: excecao
-dif: 2
-enunciado: Encerrado o tratamento, o controlador pode conservar os dados identificados para seu uso exclusivo, vedado o acesso de terceiros.
-comentario: Errado. A conservação para uso exclusivo do controlador exige que os dados estejam anonimizados (art. 16, IV). Dados identificados não se mantêm nessa hipótese.
 
 === lx1-24
 bloco: lgpd-12-16
@@ -342,17 +287,6 @@ dif: 2
 enunciado: Cabe ao titular escolher se as informações sobre seus dados serão fornecidas por meio eletrônico ou sob forma impressa.
 comentario: Certo. Art. 19, § 2º. O meio eletrônico deve ser seguro e idôneo para esse fim.
 
-=== lx1-32
-bloco: lgpd-17-22
-gab: E
-tema: pd-direitos
-ref: lgpd 19
-trecho: Quando o tratamento tiver origem no consentimento do titular ou em contrato
-armadilha: excecao
-dif: 3
-enunciado: O direito de obter cópia eletrônica integral dos dados, em formato que permita sua utilização subsequente, existe qualquer que seja a base legal do tratamento.
-comentario: Errado. Pelo art. 19, § 3º, esse direito existe quando o tratamento tem origem no consentimento ou em contrato, nos termos da regulamentação da ANPD.
-
 === lx1-33
 bloco: lgpd-17-22
 gab: C
@@ -374,36 +308,3 @@ armadilha: caso
 dif: 2
 enunciado: Situação hipotética: empresa nega promoção a empregado porque ele pediu acesso aos próprios dados. Assertiva: a conduta viola a LGPD, que proíbe usar contra o titular os dados sobre o exercício regular de seus direitos.
 comentario: Certo. Art. 21. Exercer direito de titular não pode gerar retaliação; o pedido de acesso não pode virar motivo de prejuízo.
-
-=== lx1-35
-bloco: lgpd-17-22
-gab: E
-tema: pd-direitos
-ref: lgpd 21
-trecho: Os dados pessoais referentes ao exercício regular de direitos pelo titular não podem ser utilizados em seu prejuízo
-armadilha: excecao
-dif: 2
-enunciado: Os dados sobre o exercício de direitos pelo titular podem ser usados em seu prejuízo quando houver interesse legítimo do controlador.
-comentario: Errado. O art. 21 proíbe o uso desses dados em prejuízo do titular, sem ressalva para o legítimo interesse.
-
-=== lx1-36
-bloco: lgpd-17-22
-gab: C
-tema: pd-direitos
-ref: lgpd 22
-trecho: poderá ser exercida em juízo, individual ou coletivamente
-armadilha: conceito
-dif: 1
-enunciado: A defesa dos direitos dos titulares de dados pode ser exercida em juízo de forma individual ou coletiva.
-comentario: Certo. Art. 22, que remete à legislação sobre tutela individual e coletiva, como a ação civil pública e o Código de Defesa do Consumidor.
-
-=== lx1-37
-bloco: lgpd-17-22
-gab: E
-tema: pd-direitos
-ref: lgpd 22
-trecho: poderá ser exercida em juízo, individual ou coletivamente
-armadilha: conceito
-dif: 2
-enunciado: Por se referirem a cada pessoa, os direitos dos titulares de dados só podem ser defendidos em juízo individualmente.
-comentario: Errado. O art. 22 admite a defesa individual ou coletiva, na forma da legislação sobre tutela individual e coletiva.

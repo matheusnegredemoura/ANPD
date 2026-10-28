@@ -46,17 +46,6 @@ dif: 2
 enunciado: Mesmo no tratamento para fins exclusivamente acadêmicos, a LGPD exige base legal para tratar dados pessoais e dados sensíveis.
 comentario: Certo. Art. 4º, II, b: à hipótese acadêmica aplicam-se os arts. 7º e 11. Já os fins exclusivamente jornalísticos e artísticos ficam fora da lei (alínea a).
 
-=== lx41-05
-bloco: lgpd-1-4-14
-gab: E
-tema: pd-alcance
-ref: lgpd 4
-trecho: Em nenhum caso a totalidade dos dados pessoais de banco de dados de que trata o inciso III do caput deste artigo poderá ser tratada por pessoa de direito privado
-armadilha: excecao
-dif: 3
-enunciado: Situação hipotética: para modernizar seus sistemas, um estado pretende entregar a uma empresa privada comum a gestão da totalidade de seu banco de dados de investigações criminais. Assertiva: a medida é permitida pela LGPD, pois o procedimento ficará sob tutela do ente público.
-comentario: Errado. Em nenhum caso a totalidade desses bancos de dados pode ser tratada por pessoa de direito privado, salvo a de capital integralmente público (art. 4º, § 4º). A tutela pública permite só o tratamento parcial (§ 2º).
-
 === lx41-06
 bloco: lgpd-1-4-14
 gab: C
@@ -101,28 +90,6 @@ dif: 2
 enunciado: Situação hipotética: ao cancelar a matrícula, um aluno comunicou à academia que retirava o consentimento e queria o fim do tratamento de seus dados de saúde; a academia respondeu que só ela decide quando o tratamento termina. Assertiva: a resposta está de acordo com a LGPD.
 comentario: Errado. A comunicação do titular, inclusive ao revogar o consentimento, é hipótese de término do tratamento, resguardado o interesse público (art. 15, III).
 
-=== lx41-10
-bloco: lgpd-12-16
-gab: C
-tema: pd-direitos
-ref: lgpd 15
-trecho: determinação da autoridade nacional, quando houver violação ao disposto nesta Lei
-armadilha: conceito
-dif: 1
-enunciado: Havendo violação da LGPD, a ANPD pode determinar o término do tratamento de dados pessoais.
-comentario: Certo. Art. 15, IV. Terminado o tratamento, os dados são eliminados, ressalvadas as hipóteses de conservação do art. 16.
-
-=== lx41-11
-bloco: lgpd-17-22
-gab: E
-tema: pd-direitos
-ref: lgpd 21
-trecho: Os dados pessoais referentes ao exercício regular de direitos pelo titular não podem ser utilizados em seu prejuízo
-armadilha: caso
-dif: 2
-enunciado: Situação hipotética: uma operadora de plano de saúde passou a recusar a renovação de clientes que haviam pedido acesso e correção de seus dados, por considerá-los problemáticos. Assertiva: a prática é lícita, pois a renovação é decisão comercial da operadora.
-comentario: Errado. Os dados referentes ao exercício regular de direitos pelo titular não podem ser usados em seu prejuízo (art. 21).
-
 === lx41-12
 bloco: lgpd-37-45
 gab: C
@@ -144,14 +111,3 @@ armadilha: caso
 dif: 3
 enunciado: Situação hipotética: processado por vazamento de prontuários, um hospital alegou que só responde se tiver descumprido regra expressa da LGPD, sendo irrelevante a segurança que o paciente podia esperar. Assertiva: a alegação procede.
 comentario: Errado. O tratamento é irregular também quando não fornece a segurança que o titular pode esperar, consideradas circunstâncias como o modo de realização, os riscos e as técnicas disponíveis (art. 44).
-
-=== lx41-14
-bloco: lgpd-37-45
-gab: C
-tema: pd-agentes
-ref: lgpd 44
-trecho: as técnicas de tratamento de dados pessoais disponíveis à época em que foi realizado
-armadilha: conceito
-dif: 2
-enunciado: Ao avaliar a segurança que o titular podia esperar, consideram-se as técnicas de tratamento disponíveis à época em que ele ocorreu.
-comentario: Certo. Art. 44, III. Não se exige do agente tecnologia que ainda não existia quando tratou os dados.

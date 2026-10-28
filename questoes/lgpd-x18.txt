@@ -24,17 +24,6 @@ dif: 3
 enunciado: Situação hipotética: empresa privada de tecnologia foi contratada por uma polícia estadual para operar parte de um sistema de análise de dados usado exclusivamente em investigações criminais. Assertiva: a participação da empresa só é admitida em procedimento sob tutela de pessoa jurídica de direito público e deve ser objeto de informe específico à ANPD.
 comentario: Certo. O art. 4º, § 2º, veda o tratamento desses dados por pessoa de direito privado, exceto sob tutela de pessoa jurídica de direito público, com informe específico à autoridade nacional e respeitado o limite do § 4º (nunca a totalidade do banco).
 
-=== lx18-03
-bloco: lgpd-1-4-14
-gab: E
-tema: pd-alcance
-ref: lgpd 4
-trecho: acadêmicos, aplicando-se a esta hipótese os arts. 7º e 11 desta Lei
-armadilha: excecao
-dif: 2
-enunciado: Situação hipotética: uma doutoranda coleta entrevistas com dados pessoais para sua tese. Assertiva: como o tratamento tem fins exclusivamente acadêmicos, ela não precisa de nenhuma base legal da LGPD.
-comentario: Errado. No art. 4º, II, b, a exclusão dos fins acadêmicos é parcial: a própria alínea manda aplicar os arts. 7º e 11. É preciso base legal, como o consentimento ou a realização de estudos por órgão de pesquisa. Os fins jornalísticos e artísticos (alínea a) não têm essa ressalva.
-
 === lx18-04
 bloco: lgpd-1-4-14
 gab: C
@@ -90,39 +79,6 @@ dif: 2
 enunciado: Situação hipotética: no contrato de adesão de um clube de descontos, a autorização para compartilhar dados com anunciantes aparece no meio de uma cláusula extensa, em letra miúda e sem destaque. Assertiva: o consentimento colhido dessa forma desatende à LGPD, que exige cláusula destacada quando ele é dado por escrito.
 comentario: Certo. Art. 8º, § 1º. Além disso, o consentimento deve referir-se a finalidades determinadas (§ 4º), e o ônus de provar que foi obtido regularmente é do controlador (§ 2º).
 
-=== lx18-09
-bloco: lgpd-5-11
-gab: E
-tema: pd-bases
-ref: lgpd 8
-trecho: ratificados os tratamentos realizados sob amparo do consentimento anteriormente manifestado enquanto não houver requerimento de eliminação
-armadilha: conceito
-dif: 2
-enunciado: Situação hipotética: um cliente revogou o consentimento que havia dado a uma operadora para receber ofertas personalizadas. Assertiva: a revogação torna ilícitos, desde a origem, todos os tratamentos feitos com base naquele consentimento.
-comentario: Errado. A revogação produz efeitos dali em diante. O art. 8º, § 5º, ratifica os tratamentos realizados enquanto o consentimento valia e não houve pedido de eliminação. A revogação deve ser gratuita e facilitada.
-
-=== lx18-10
-bloco: lgpd-5-11
-gab: C
-tema: pd-bases
-ref: lgpd 8
-trecho: Cabe ao controlador o ônus da prova de que o consentimento foi obtido em conformidade com o disposto nesta Lei
-armadilha: sujeito
-dif: 1
-enunciado: Situação hipotética: um titular afirma nunca ter consentido com o envio de mensagens, e a empresa sustenta que cabe a ele provar a ausência de consentimento. Assertiva: a tese da empresa contraria a LGPD, que atribui ao controlador o ônus de provar a regularidade do consentimento.
-comentario: Certo. Art. 8º, § 2º. Por isso, o controlador deve guardar registro de como, quando e para quê o consentimento foi obtido.
-
-=== lx18-11
-bloco: lgpd-5-11
-gab: E
-tema: pd-bases
-ref: lgpd 10
-trecho: somente os dados pessoais estritamente necessários para a finalidade pretendida poderão ser tratados
-armadilha: excecao
-dif: 2
-enunciado: Quando o tratamento se apoia no legítimo interesse do controlador, é possível tratar dados além dos estritamente necessários à finalidade, desde que o controlador adote medidas de transparência.
-comentario: Errado. A transparência é exigência adicional (art. 10, § 2º), não compensa o excesso. O § 1º limita o tratamento aos dados estritamente necessários para a finalidade. A ANPD também pode pedir relatório de impacto nesses casos (§ 3º).
-
 === lx18-12
 bloco: lgpd-5-11
 gab: C
@@ -177,17 +133,6 @@ armadilha: excecao
 dif: 3
 enunciado: Situação hipotética: a pedido do paciente, um laboratório enviou a outro serviço de saúde o histórico de exames dele, em portabilidade de dados. Assertiva: a comunicação não viola a vedação de compartilhar dados de saúde para obter vantagem econômica.
 comentario: Certo. O art. 11, § 4º, veda o compartilhamento de dados de saúde para obter vantagem econômica, mas excetua a prestação de serviços de saúde, de assistência farmacêutica e de assistência à saúde, em benefício do titular, para permitir a portabilidade solicitada por ele (inciso I) e as transações financeiras e administrativas desses serviços (inciso II).
-
-=== lx18-17
-bloco: lgpd-1-4-14
-gab: C
-tema: pd-sensiveis
-ref: lgpd 14
-trecho: quando a coleta for necessária para contatar os pais ou o responsável legal, utilizados uma única vez e sem armazenamento, ou para sua proteção
-armadilha: excecao
-dif: 2
-enunciado: Situação hipotética: uma criança perdida em um parque foi levada à administração, que anotou o nome dela para chamar os pais pelo sistema de som e descartou a anotação em seguida. Assertiva: a coleta, mesmo sem consentimento dos pais, é admitida pela LGPD.
-comentario: Certo. O art. 14, § 3º, dispensa o consentimento quando a coleta serve para contatar os pais ou o responsável, com uso único e sem armazenamento, ou para a proteção da criança. Os dados nunca podem ser repassados a terceiro sem o consentimento do § 1º.
 
 === lx18-18
 bloco: lgpd-1-4-14
@@ -255,17 +200,6 @@ dif: 2
 enunciado: Situação hipotética: um hospital e a empresa que operava seu sistema foram condenados solidariamente por um vazamento, e o hospital pagou sozinho toda a indenização. Assertiva: o hospital pode cobrar da empresa a parte correspondente à participação dela no dano.
 comentario: Certo. Art. 42, § 4º: quem repara o dano tem regresso contra os demais responsáveis, na medida da participação de cada um. A solidariedade protege o titular, que pode cobrar tudo de um só; a divisão é resolvida depois, entre os responsáveis.
 
-=== lx18-24
-bloco: lgpd-37-45
-gab: E
-tema: pd-agentes
-ref: lgpd 43
-trecho: que o dano é decorrente de culpa exclusiva do titular dos dados ou de terceiro
-armadilha: excecao
-dif: 2
-enunciado: Situação hipotética: o titular contribuiu para o próprio dano ao anotar a senha em local visível, mas a empresa também deixou de usar autenticação adequada. Assertiva: a contribuição do titular basta para excluir a responsabilidade da empresa.
-comentario: Errado. O art. 43, III, só exclui a responsabilidade quando a culpa é exclusiva do titular ou de terceiro. Se a empresa também falhou nas medidas de segurança, ela responde (art. 44, parágrafo único). A contribuição do titular pode influir no valor da indenização, mas não exclui a responsabilidade.
-
 === lx18-25
 bloco: lgpd-37-45
 gab: C
@@ -287,17 +221,6 @@ armadilha: caso
 dif: 2
 enunciado: Situação hipotética: foi furtado o notebook de uma empregada de uma clínica, com prontuários gravados em disco protegido por criptografia forte. Assertiva: ao avaliar a gravidade do incidente, a ANPD considerará a comprovação de que os dados estavam ininteligíveis para terceiros não autorizados.
 comentario: Certo. Art. 48, § 3º. A criptografia não apaga o incidente, mas pesa no juízo de gravidade e na avaliação do risco aos titulares, que decide a necessidade de comunicar (caput).
-
-=== lx18-27
-bloco: lgpd-46-51
-gab: E
-tema: pd-seguranca
-ref: lgpd 48
-trecho: os motivos da demora, no caso de a comunicação não ter sido imediata
-armadilha: rol
-dif: 2
-enunciado: Situação hipotética: uma empresa comunicou o incidente de segurança à ANPD semanas depois de descobri-lo. Assertiva: a LGPD não exige que a comunicação explique a demora, bastando descrever os dados afetados e as medidas adotadas.
-comentario: Errado. O art. 48, § 1º, V, inclui no conteúdo mínimo os motivos da demora, quando a comunicação não for imediata. O rol também pede natureza dos dados, titulares envolvidos, medidas de proteção, riscos e medidas para reverter ou mitigar os efeitos.
 
 === lx18-28
 bloco: lgpd-46-51

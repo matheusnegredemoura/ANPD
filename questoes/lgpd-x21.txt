@@ -47,61 +47,6 @@ dif: 2
 enunciado: Situação hipotética: encerrada a relação com seus clientes, uma loja manteve as notas fiscais com os dados deles pelo prazo exigido pela legislação tributária. Assertiva: a conservação é autorizada pela LGPD.
 comentario: Certo. A regra é eliminar os dados após o término do tratamento, mas o art. 16, I, autoriza a conservação para cumprimento de obrigação legal ou regulatória pelo controlador.
 
-=== lx21-05
-bloco: lgpd-12-16
-gab: E
-tema: pd-anonimizacao
-ref: lgpd 16
-trecho: uso exclusivo do controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados
-armadilha: excecao
-dif: 3
-enunciado: Situação hipotética: findo o tratamento, um controlador guardou os dados de antigos clientes, ainda identificados, para uso próprio, e garantiu que nenhum terceiro teria acesso a eles. Assertiva: a conservação é lícita.
-comentario: Errado. O uso exclusivo do controlador (art. 16, IV) exige duas condições: vedação de acesso por terceiro e anonimização dos dados. Dados identificados não se enquadram nessa hipótese.
-
-=== lx21-06
-bloco: lgpd-17-22
-gab: C
-tema: pd-direitos
-ref: lgpd 20
-trecho: a autoridade nacional poderá realizar auditoria para verificação de aspectos discriminatórios em tratamento automatizado de dados pessoais
-armadilha: caso
-dif: 3
-enunciado: Situação hipotética: um banco negou crédito a um cliente com base apenas em pontuação automatizada e se recusou a explicar os critérios usados, alegando segredo comercial. Assertiva: nesse caso, a ANPD pode auditar o tratamento para verificar aspectos discriminatórios.
-comentario: Certo. Art. 20, § 2º. O controlador deve informar critérios e procedimentos da decisão automatizada, observados os segredos comercial e industrial (§ 1º). Se recusar com base no segredo, a ANPD pode auditar.
-
-=== lx21-07
-bloco: lgpd-23-32
-gab: E
-tema: pd-poder-publico
-ref: lgpd 26
-trecho: É vedado ao Poder Público transferir a entidades privadas dados pessoais constantes de bases de dados a que tenha acesso
-armadilha: caso
-dif: 2
-enunciado: Situação hipotética: um município repassou a uma operadora de planos de saúde o cadastro de pacientes da rede municipal para que ela lhes oferecesse planos. Assertiva: a transferência é lícita, pois a base de dados pertence ao próprio município.
-comentario: Errado. O art. 26, § 1º, veda ao poder público transferir a entidades privadas dados de suas bases, salvo exceções taxativas (execução descentralizada, dados acessíveis publicamente, previsão legal ou contratual, prevenção de fraudes). Oferta comercial não está entre elas e foge à finalidade de política pública; com dados de saúde, o art. 11, § 4º, ainda veda o compartilhamento para vantagem econômica.
-
-=== lx21-08
-bloco: lgpd-23-32
-gab: C
-tema: pd-poder-publico
-ref: lgpd 26
-trecho: objetivar exclusivamente a prevenção de fraudes e irregularidades, ou proteger e resguardar a segurança e a integridade do titular dos dados, desde que vedado o tratamento para outras finalidades
-armadilha: excecao
-dif: 3
-enunciado: Situação hipotética: um órgão federal enviou a um banco privado dados de beneficiários apenas para impedir pagamentos fraudulentos, com proibição expressa de qualquer outro uso. Assertiva: a transferência se enquadra em exceção prevista na LGPD.
-comentario: Certo. Art. 26, § 1º, V, incluído pela Lei 13.853/2019. A finalidade deve ser exclusivamente a prevenção de fraudes e irregularidades ou a proteção do titular, vedado o uso para outros fins.
-
-=== lx21-09
-bloco: lgpd-23-32
-gab: C
-tema: pd-poder-publico
-ref: lgpd 26
-trecho: Os contratos e convênios de que trata o § 1º deste artigo deverão ser comunicados à autoridade nacional
-armadilha: conceito
-dif: 2
-enunciado: Quando a transferência de dados do poder público a entidade privada se apoia em contrato ou convênio, esse instrumento deve ser comunicado à autoridade nacional.
-comentario: Certo. Art. 26, § 2º. A comunicação permite à ANPD acompanhar o uso compartilhado e fiscalizar se ele respeita as finalidades públicas e os princípios do art. 6º.
-
 === lx21-10
 bloco: lgpd-37-45
 gab: C
@@ -157,17 +102,6 @@ dif: 3
 enunciado: No processo civil, o juiz só pode inverter o ônus da prova a favor do titular quando houver, ao mesmo tempo, verossimilhança da alegação e hipossuficiência para produzir a prova.
 comentario: Errado. As hipóteses do art. 42, § 2º, são alternativas: alegação verossímil, hipossuficiência para a prova ou prova excessivamente onerosa para o titular. Basta uma delas, a juízo do juiz.
 
-=== lx21-15
-bloco: lgpd-37-45
-gab: C
-tema: pd-agentes
-ref: lgpd 43
-trecho: que o dano é decorrente de culpa exclusiva do titular dos dados ou de terceiro
-armadilha: caso
-dif: 2
-enunciado: Situação hipotética: processada por um titular, uma empresa provou que a invasão da conta decorreu só de o próprio titular ter publicado a senha em rede social. Assertiva: a empresa não será responsabilizada.
-comentario: Certo. Art. 43, III: culpa exclusiva do titular ou de terceiro exclui a responsabilidade. Cabe ao agente provar a excludente; as outras são não ter feito o tratamento (I) ou não ter havido violação da legislação (II).
-
 === lx21-16
 bloco: lgpd-37-45
 gab: C
@@ -178,28 +112,6 @@ armadilha: caso
 dif: 2
 enunciado: Situação hipotética: uma clínica não adotou medidas de segurança adequadas, e por isso terceiros acessaram prontuários de pacientes. Assertiva: a clínica responde pelos danos decorrentes da violação de segurança.
 comentario: Certo. Art. 44, parágrafo único, com o art. 46. O tratamento também é irregular quando não oferece a segurança que o titular pode esperar, considerados o modo, os riscos esperados e as técnicas disponíveis à época (art. 44, I a III).
-
-=== lx21-17
-bloco: lgpd-37-45
-gab: E
-tema: pd-agentes
-ref: lgpd 45
-trecho: As hipóteses de violação do direito do titular no âmbito das relações de consumo permanecem sujeitas às regras de responsabilidade previstas na legislação pertinente
-armadilha: comparacao
-dif: 2
-enunciado: Situação hipotética: um consumidor teve seus dados expostos por uma loja virtual e pediu reparação. Assertiva: por ser lei específica, a LGPD afasta as regras de responsabilidade do Código de Defesa do Consumidor.
-comentario: Errado. O art. 45 mantém as violações no âmbito das relações de consumo sujeitas às regras de responsabilidade da legislação pertinente, isto é, o CDC continua aplicável.
-
-=== lx21-18
-bloco: lgpd-46-51
-gab: C
-tema: pd-seguranca
-ref: lgpd 48
-trecho: os motivos da demora, no caso de a comunicação não ter sido imediata
-armadilha: caso
-dif: 2
-enunciado: Situação hipotética: o controlador comunicou um incidente à ANPD alguns dias depois de descobri-lo e incluiu na comunicação por que não o fizera antes. Assertiva: essa justificativa faz parte do conteúdo mínimo da comunicação.
-comentario: Certo. Art. 48, § 1º, V. A comunicação traz ainda natureza dos dados, titulares envolvidos, medidas de proteção, riscos e providências para reverter ou mitigar os efeitos (I a IV e VI).
 
 === lx21-19
 bloco: lgpd-46-51

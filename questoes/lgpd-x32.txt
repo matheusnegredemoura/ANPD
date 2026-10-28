@@ -2,17 +2,6 @@
 // dever de segurança de quem intervém no tratamento (art. 47), boas práticas e programa de governança (art. 50) e
 // sanções (art. 52). Conferidas com fontes/lgpd.txt.
 
-=== lx32-01
-bloco: lgpd-37-45
-gab: E
-tema: pd-agentes
-ref: lgpd 37
-trecho: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem
-armadilha: sujeito
-dif: 2
-enunciado: Situação hipotética: um provedor de nuvem que processa dados por conta de clientes deixou de registrar as operações que realiza, alegando que esse dever é só do controlador. Assertiva: a alegação procede.
-comentario: Errado. O art. 37 impõe o registro das operações ao controlador e ao operador, especialmente quando o tratamento se baseia no legítimo interesse. A ANPD pode exigir esse registro para verificar a conformidade.
-
 === lx32-02
 gab: C
 bloco: lgpd-37-45
@@ -68,17 +57,6 @@ dif: 2
 enunciado: Situação hipotética: uma empresa de transporte de documentos contratada por um cartório só leva as caixas de um endereço a outro, sem consultar o conteúdo. Assertiva: mesmo assim, ela se obriga a garantir a segurança dos dados pessoais contidos nos documentos.
 comentario: Certo. O art. 47 alcança os agentes de tratamento e qualquer outra pessoa que intervenha em uma das fases do tratamento. O conceito de tratamento é amplo e abrange operações como recepção, distribuição e arquivamento (art. 5º, X); levar os documentos de um lugar a outro integra esse ciclo.
 
-=== lx32-07
-bloco: lgpd-46-51
-gab: E
-tema: pd-seguranca
-ref: lgpd 50
-trecho: seja aplicável a todo o conjunto de dados pessoais que estejam sob seu controle, independentemente do modo como se realizou sua coleta
-armadilha: rol
-dif: 3
-enunciado: Situação hipotética: uma varejista criou programa de governança em privacidade que abrange só os dados coletados pelo site, deixando de fora os cadastros feitos nas lojas físicas. Assertiva: o programa atende ao conteúdo mínimo previsto na LGPD.
-comentario: Errado. O programa de governança, no mínimo, deve ser aplicável a todo o conjunto de dados sob controle do controlador, independentemente do modo de coleta (art. 50, § 2º, I, b).
-
 === lx32-08
 bloco: lgpd-46-51
 gab: C
@@ -111,17 +89,6 @@ armadilha: caso
 dif: 2
 enunciado: Situação hipotética: ao detectar a infração, uma empresa corrigiu de imediato a falha e já mantinha política de boas práticas e governança. Assertiva: esses fatores devem ser considerados pela ANPD na definição da sanção.
 comentario: Certo. Entre os parâmetros do art. 52, § 1º, estão a adoção de política de boas práticas e governança (IX) e a pronta adoção de medidas corretivas (X), ao lado da boa-fé, da cooperação e da reincidência, entre outros.
-
-=== lx32-11
-bloco: lgpd-52-54
-gab: E
-tema: pd-sancoes
-ref: lgpd 52
-trecho: somente após já ter sido imposta ao menos 1 (uma) das sanções de que tratam os incisos II, III, IV, V e VI do caput deste artigo para o mesmo caso concreto
-armadilha: excecao
-dif: 3
-enunciado: Situação hipotética: no primeiro processo sancionador contra uma empresa, a ANPD aplicou, como única sanção, a suspensão parcial do funcionamento do banco de dados. Assertiva: a aplicação dessa sanção nessas condições observou a LGPD.
-comentario: Errado. A suspensão parcial do banco de dados, a suspensão da atividade de tratamento e a proibição só podem ser aplicadas depois de imposta ao menos uma das sanções dos incisos II a VI para o mesmo caso concreto (art. 52, § 6º, I).
 
 === lx32-12
 bloco: lgpd-52-54

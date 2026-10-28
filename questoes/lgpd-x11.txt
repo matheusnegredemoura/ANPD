@@ -35,17 +35,6 @@ dif: 3
 enunciado: Situação hipotética: empresa privada contratada por secretaria de segurança pública trata dados para investigação criminal, sob tutela do órgão. Assertiva: a atuação é possível, com informe específico à ANPD, mas a empresa não pode tratar a totalidade do banco de dados, salvo se tiver capital integralmente público.
 comentario: Certo. Art. 4º, §§ 2º e 4º. O tratamento para segurança pública e investigação será regido por lei específica (§ 1º), e a ANPD pode pedir relatórios de impacto (§ 3º).
 
-=== lx11-04
-bloco: lgpd-1-4-14
-gab: E
-tema: pd-alcance
-ref: lgpd 4
-trecho: acadêmicos, aplicando-se a esta hipótese os arts. 7º e 11 desta Lei
-armadilha: excecao
-dif: 2
-enunciado: O tratamento de dados para fins exclusivamente acadêmicos fica totalmente fora da LGPD, sem aplicação de nenhum de seus dispositivos.
-comentario: Errado. O art. 4º, II, b, afasta a LGPD dos fins acadêmicos, mas manda aplicar os arts. 7º e 11, isto é, as bases legais. Nos fins jornalísticos e artísticos (alínea a), não há essa ressalva.
-
 === lx11-05
 bloco: lgpd-5-11
 gab: C
@@ -57,17 +46,6 @@ dif: 3
 enunciado: Situação hipotética: livraria usa o histórico de compras dos clientes para lhes enviar recomendações de livros, com base no legítimo interesse. Assertiva: só os dados estritamente necessários podem ser tratados, a livraria deve garantir transparência e a ANPD pode pedir o relatório de impacto.
 comentario: Certo. Art. 10, §§ 1º a 3º. O legítimo interesse exige finalidade legítima em situação concreta e respeito às legítimas expectativas do titular (caput, II).
 
-=== lx11-06
-bloco: lgpd-5-11
-gab: E
-tema: pd-sensiveis
-ref: lgpd 11
-trecho: O tratamento de dados pessoais sensíveis somente poderá ocorrer nas seguintes hipóteses
-armadilha: caso
-dif: 3
-enunciado: Situação hipotética: hospital usa diagnósticos de pacientes para campanhas de marketing de seus serviços, invocando legítimo interesse. Assertiva: a base legal é adequada, porque a campanha apoia atividade do controlador.
-comentario: Errado. Diagnóstico é dado sensível, e o rol do art. 11 não inclui o legítimo interesse. O apoio às atividades do controlador (art. 10, I) só serve a dados não sensíveis.
-
 === lx11-07
 bloco: lgpd-12-16
 gab: C
@@ -78,17 +56,6 @@ armadilha: caso
 dif: 3
 enunciado: Situação hipotética: plataforma remove nomes e CPFs da base, mas mantém perfis de comportamento de navegação ligados a pessoas identificadas, que recebem publicidade dirigida. Assertiva: esses dados podem ser considerados pessoais para a LGPD.
 comentario: Certo. Art. 12, § 2º. Retirar o nome não basta: se o perfil se liga a pessoa identificada, a LGPD continua valendo.
-
-=== lx11-08
-bloco: lgpd-12-16
-gab: E
-tema: pd-anonimizacao
-ref: lgpd 13
-trecho: não permitida, em circunstância alguma, a transferência dos dados a terceiro
-armadilha: excecao
-dif: 3
-enunciado: Órgão de pesquisa que acessa bases de dados para estudos em saúde pública pode repassar os dados a universidade parceira se os mantiver pseudonimizados.
-comentario: Errado. O art. 13, § 2º, torna o órgão de pesquisa responsável pela segurança e não permite, em circunstância alguma, a transferência dos dados a terceiro. A pseudonimização não afasta a vedação.
 
 === lx11-09
 bloco: lgpd-1-4-14
@@ -155,17 +122,6 @@ armadilha: conceito
 dif: 2
 enunciado: No processo civil, o juiz pode inverter o ônus da prova a favor do titular quando a alegação for verossímil, quando houver hipossuficiência ou quando a prova for excessivamente onerosa para ele.
 comentario: Certo. Art. 42, § 2º. A regra se inspira no Código de Defesa do Consumidor (art. 6º, VIII).
-
-=== lx11-15
-bloco: lgpd-37-45
-gab: E
-tema: pd-agentes
-ref: lgpd 42
-trecho: Aquele que reparar o dano ao titular tem direito de regresso contra os demais responsáveis
-armadilha: conceito
-dif: 2
-enunciado: O agente que repara o dano ao titular não tem direito de regresso contra os demais responsáveis, por responder sozinho.
-comentario: Errado. O art. 42, § 4º, garante direito de regresso contra os demais responsáveis, na medida da participação de cada um no evento danoso.
 
 === lx11-16
 bloco: lgpd-37-45

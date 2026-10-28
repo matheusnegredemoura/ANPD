@@ -35,72 +35,6 @@ dif: 3
 enunciado: Situação hipotética: uma universidade pública que conduz estudo de saúde pública repassou a base de dados dos participantes a uma empresa de tecnologia parceira, para acelerar as análises estatísticas. Assertiva: o repasse é lícito, pois a finalidade continua sendo a pesquisa.
 comentario: Errado. O órgão de pesquisa é responsável pela segurança dos dados, e a transferência a terceiro não é permitida em circunstância alguma (art. 13, § 2º).
 
-=== lx38-04
-bloco: lgpd-12-16
-gab: C
-tema: pd-anonimizacao
-ref: lgpd 13
-trecho: senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro
-armadilha: conceito
-dif: 2
-enunciado: Na pseudonimização, o dado só pode ser associado a um indivíduo pelo uso de informação adicional mantida separadamente pelo controlador, em ambiente controlado e seguro.
-comentario: Certo. Art. 13, § 4º. Como a associação continua possível com a informação adicional, o dado pseudonimizado continua sendo dado pessoal.
-
-=== lx38-05
-bloco: lgpd-12-16
-gab: E
-tema: pd-anonimizacao
-ref: lgpd 13
-trecho: senão pelo uso de informação adicional mantida separadamente pelo controlador
-armadilha: comparacao
-dif: 3
-enunciado: Situação hipotética: um hospital substituiu o nome dos pacientes por códigos, guardando em outro servidor a tabela que liga cada código a cada nome, e passou a tratar a base como dado anonimizado, fora da LGPD. Assertiva: o hospital agiu corretamente.
-comentario: Errado. Trata-se de pseudonimização: a tabela de correspondência permite reidentificar os pacientes (art. 13, § 4º). Os dados continuam pessoais e sujeitos à LGPD; anonimizado é o dado que não pode ser associado ao titular por meios razoáveis (art. 5º, III, e art. 12).
-
-=== lx38-06
-bloco: lgpd-12-16
-gab: C
-tema: pd-alcance
-ref: lgpd 15
-trecho: verificação de que a finalidade foi alcançada ou de que os dados deixaram de ser necessários ou pertinentes
-armadilha: conceito
-dif: 1
-enunciado: O tratamento de dados termina quando se verifica que a finalidade foi alcançada ou que os dados deixaram de ser necessários a ela.
-comentario: Certo. Art. 15, I. Também terminam o tratamento o fim do período previsto, a comunicação do titular e a determinação da ANPD (II a IV).
-
-=== lx38-07
-bloco: lgpd-12-16
-gab: E
-tema: pd-alcance
-ref: lgpd 15
-trecho: determinação da autoridade nacional, quando houver violação ao disposto nesta Lei
-armadilha: caso
-dif: 2
-enunciado: Situação hipotética: após constatar que uma empresa tratava dados em violação à LGPD, a ANPD determinou o término do tratamento, e a empresa alegou que só ela, como controladora, poderia decidir isso. Assertiva: a alegação procede.
-comentario: Errado. A determinação da autoridade nacional, quando houver violação à LGPD, é uma das hipóteses de término do tratamento (art. 15, IV).
-
-=== lx38-08
-bloco: lgpd-12-16
-gab: C
-tema: pd-alcance
-ref: lgpd 15
-trecho: comunicação do titular, inclusive no exercício de seu direito de revogação do consentimento
-armadilha: caso
-dif: 2
-enunciado: Situação hipotética: um cliente revogou o consentimento que havia dado a uma loja para receber ofertas personalizadas. Assertiva: o tratamento baseado nesse consentimento deve terminar, resguardado o interesse público.
-comentario: Certo. Art. 15, III. Terminado o tratamento, os dados devem ser eliminados, salvo as hipóteses de conservação do art. 16.
-
-=== lx38-09
-bloco: lgpd-17-22
-gab: C
-tema: pd-direitos
-ref: lgpd 17
-trecho: Toda pessoa natural tem assegurada a titularidade de seus dados pessoais
-armadilha: conceito
-dif: 1
-enunciado: A LGPD assegura a toda pessoa natural a titularidade de seus dados pessoais.
-comentario: Certo. Art. 17, que garante também os direitos fundamentais de liberdade, intimidade e privacidade. Pessoa jurídica não é titular de dados pessoais.
-
 === lx38-10
 bloco: lgpd-17-22
 gab: E
@@ -111,17 +45,6 @@ armadilha: caso
 dif: 3
 enunciado: Situação hipotética: uma empresa passou a negar crédito a clientes que já haviam pedido a eliminação ou a correção de seus dados, por considerá-los “problemáticos”. Assertiva: a prática é lícita, pois o histórico de requisições é dado verdadeiro sobre o cliente.
 comentario: Errado. Os dados referentes ao exercício regular de direitos pelo titular não podem ser usados em seu prejuízo (art. 21). Punir quem exerce direitos esvaziaria a própria lei.
-
-=== lx38-11
-bloco: lgpd-17-22
-gab: C
-tema: pd-direitos
-ref: lgpd 22
-trecho: poderá ser exercida em juízo, individual ou coletivamente
-armadilha: conceito
-dif: 1
-enunciado: Os direitos de muitos titulares atingidos pelo mesmo tratamento ilícito podem ser defendidos em juízo de uma só vez, por ação coletiva.
-comentario: Certo. Art. 22, na forma da legislação sobre tutela individual e coletiva, como a Lei da Ação Civil Pública e o Código de Defesa do Consumidor.
 
 === lx38-12
 bloco: lgpd-37-45
@@ -144,14 +67,3 @@ armadilha: caso
 dif: 2
 enunciado: Situação hipotética: um titular teve pedido de eliminação ignorado e ajuizou ação contra a empresa, que alegou que ele deveria antes reclamar à ANPD, única via prevista na LGPD. Assertiva: a alegação da empresa procede.
 comentario: Errado. A LGPD prevê a defesa dos direitos em juízo, individual ou coletivamente (art. 22), e o acesso ao Judiciário não depende de prévia reclamação à ANPD (CF, art. 5º, XXXV). A petição à ANPD é caminho adicional (art. 18, § 1º).
-
-=== lx38-14
-bloco: lgpd-17-22
-gab: C
-tema: pd-direitos
-ref: lgpd 21
-trecho: não podem ser utilizados em seu prejuízo
-armadilha: caso
-dif: 2
-enunciado: Situação hipotética: uma plataforma passou a reduzir o alcance das publicações de usuários que haviam pedido acesso aos próprios dados. Assertiva: a prática contraria a LGPD.
-comentario: Certo. O art. 21 proíbe usar em prejuízo do titular os dados referentes ao exercício regular de seus direitos.

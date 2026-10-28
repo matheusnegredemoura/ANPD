@@ -112,50 +112,6 @@ dif: 2
 enunciado: Situação hipotética: um aplicativo pediu consentimento informando que os dados seriam usados “para melhorar a experiência”, quando o objetivo real era vendê-los a corretoras de dados. Assertiva: o consentimento é nulo.
 comentario: Certo. Pelo art. 9º, § 1º, é nulo o consentimento dado com base em informações enganosas ou abusivas ou não apresentadas previamente com transparência. A finalidade também deve ser específica e explícita (art. 6º, I).
 
-=== lx19-11
-bloco: lgpd-5-11
-gab: E
-tema: pd-direitos
-ref: lgpd 9
-trecho: o titular será informado com destaque sobre esse fato e sobre os meios pelos quais poderá exercer os direitos do titular
-armadilha: excecao
-dif: 2
-enunciado: Quando o tratamento de dados for condição para o fornecimento de um serviço, o controlador fica dispensado de informar o titular sobre isso, pois o próprio contrato já o pressupõe.
-comentario: Errado. O art. 9º, § 3º, exige informar com destaque que o tratamento é condição para o serviço ou para o exercício de direito e os meios para exercer os direitos do art. 18.
-
-=== lx19-12
-bloco: lgpd-5-11
-gab: C
-tema: pd-direitos
-ref: lgpd 9
-trecho: o controlador deverá informar previamente o titular sobre as mudanças de finalidade, podendo o titular revogar o consentimento, caso discorde das alterações
-armadilha: caso
-dif: 2
-enunciado: Situação hipotética: uma rede de academias, que tratava dados de alunos com consentimento para controle de acesso, quer passar a usá-los em campanhas de marketing de parceiros. Assertiva: deve informar previamente os alunos sobre a mudança, e quem discordar pode revogar o consentimento.
-comentario: Certo. Art. 9º, § 2º, para mudanças de finalidade incompatíveis com o consentimento original. O compartilhamento com parceiros ainda dependeria de consentimento específico (art. 7º, § 5º).
-
-=== lx19-17
-bloco: lgpd-17-22
-gab: C
-tema: pd-direitos
-ref: lgpd 19
-trecho: fornecida no prazo de até 15 (quinze) dias, contado da data do requerimento do titular
-armadilha: numero
-dif: 2
-enunciado: Pedido o acesso aos dados, o controlador pode atendê-lo de imediato, em formato simplificado, ou, por declaração clara e completa com origem, critérios e finalidade, em até 15 dias do requerimento.
-comentario: Certo. Art. 19, I e II. A escolha entre meio eletrônico seguro e forma impressa é do titular (§ 2º), e a ANPD pode fixar prazos diferentes para setores específicos (§ 4º). Agentes de pequeno porte têm prazo em dobro (Res. CD/ANPD 2/2022).
-
-=== lx19-18
-bloco: lgpd-17-22
-gab: E
-tema: pd-direitos
-ref: lgpd 19
-trecho: Quando o tratamento tiver origem no consentimento do titular ou em contrato, o titular poderá solicitar cópia eletrônica integral de seus dados pessoais
-armadilha: excecao
-dif: 3
-enunciado: O direito de obter cópia eletrônica integral dos dados, em formato que permita sua reutilização, vale para qualquer tratamento, inclusive o realizado para cumprir obrigação legal.
-comentario: Errado. O art. 19, § 3º, garante a cópia eletrônica integral quando o tratamento tem origem no consentimento ou em contrato, nos termos da regulamentação da ANPD e observados os segredos comercial e industrial. Para as demais bases, valem a confirmação e o acesso do caput.
-
 === lx19-19
 bloco: lgpd-23-32
 gab: C
@@ -200,17 +156,6 @@ dif: 3
 enunciado: Situação hipotética: um órgão federal repassou a um banco privado dados de beneficiários de um programa social, exclusivamente para impedir saques fraudulentos, vedado qualquer outro uso. Assertiva: a transferência pode ser admitida pela LGPD.
 comentario: Certo. A regra é vedar ao Poder Público transferir dados a entidades privadas (art. 26, § 1º), mas o inciso V admite a transferência exclusivamente para prevenir fraudes e irregularidades ou proteger o titular, vedado o tratamento para outras finalidades.
 
-=== lx19-23
-bloco: lgpd-23-32
-gab: E
-tema: pd-poder-publico
-ref: lgpd 26
-trecho: É vedado ao Poder Público transferir a entidades privadas dados pessoais constantes de bases de dados a que tenha acesso, exceto
-armadilha: absoluto
-dif: 2
-enunciado: O Poder Público pode transferir dados pessoais de suas bases a entidades privadas parceiras sempre que isso for útil à administração, independentemente de previsão legal ou instrumento formal.
-comentario: Errado. O art. 26, § 1º, veda a transferência, salvo nas exceções: execução descentralizada de atividade pública, dados acessíveis publicamente, previsão legal ou contratos e convênios, e prevenção de fraudes ou proteção do titular. Os contratos e convênios devem ser comunicados à ANPD (§ 2º).
-
 === lx19-24
 bloco: lgpd-23-32
 gab: C
@@ -221,28 +166,6 @@ armadilha: caso
 dif: 3
 enunciado: Situação hipotética: um órgão federal contratou empresa privada para operar os postos de atendimento de um serviço público e lhe repassou os dados dos usuários necessários a esse atendimento. Assertiva: a transferência pode ser admitida, desde que limitada a esse fim específico e determinado.
 comentario: Certo. É a exceção do art. 26, § 1º, I: execução descentralizada de atividade pública que exija a transferência, exclusivamente para esse fim, observada a LAI. A empresa não pode usar os dados para finalidade própria.
-
-=== lx19-25
-bloco: lgpd-37-45
-gab: E
-tema: pd-agentes
-ref: lgpd 37
-trecho: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem
-armadilha: sujeito
-dif: 2
-enunciado: O dever de manter registro das operações de tratamento de dados pessoais é exclusivo do controlador, já que o operador apenas segue instruções.
-comentario: Errado. O art. 37 impõe o registro ao controlador e ao operador, especialmente quando o tratamento se baseia no legítimo interesse. Agentes de pequeno porte podem fazê-lo de forma simplificada (Res. CD/ANPD 2/2022).
-
-=== lx19-26
-bloco: lgpd-37-45
-gab: E
-tema: pd-agentes
-ref: lgpd 38
-trecho: A autoridade nacional poderá determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais, inclusive de dados sensíveis
-armadilha: excecao
-dif: 2
-enunciado: O relatório de impacto que a ANPD pode determinar ao controlador não alcança operações com dados sensíveis, que se sujeitam apenas ao regime do art. 11 da LGPD.
-comentario: Errado. O art. 38 permite à ANPD determinar o relatório de impacto “inclusive de dados sensíveis”, nos termos do regulamento e observados os segredos comercial e industrial. Tratamentos com dados sensíveis estão justamente entre os de maior risco.
 
 === lx19-27
 bloco: lgpd-37-45
