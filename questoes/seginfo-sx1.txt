@@ -207,15 +207,6 @@ dif: 3
 enunciado: Na ISO 31000:2018, a gestão de riscos é atividade isolada, separada da governança e das demais atividades da organização.
 comentario: Errado. O primeiro princípio é a gestão integrada a todas as atividades organizacionais, e a estrutura da norma liga a gestão de riscos à governança e à liderança.
 
-=== sx1-22
-gab: C
-tema: sg-iso
-ref: doutrina ISO/IEC 27002
-armadilha: numero
-dif: 2
-enunciado: A ISO/IEC 27002:2022 organiza seus 93 controles em quatro temas: organizacionais, de pessoas, físicos e tecnológicos.
-comentario: Certo. A versão de 2022 reduziu os 114 controles da versão anterior para 93, agrupados nesses quatro temas.
-
 === sx1-23
 gab: E
 tema: sg-iso
@@ -233,12 +224,3 @@ armadilha: conceito
 dif: 2
 enunciado: Na ISO/IEC 27001, a declaração de aplicabilidade registra os controles necessários, a justificativa para incluí-los ou excluí-los e se estão implementados.
 comentario: Certo. A declaração de aplicabilidade decorre do tratamento de riscos e liga cada controle do Anexo A à decisão da organização.
-
-=== sx1-25
-gab: E
-tema: sg-iso
-ref: doutrina ISO/IEC 27001
-armadilha: absoluto
-dif: 3
-enunciado: Na ISO/IEC 27001, a organização deve implementar todos os controles do Anexo A, sem possibilidade de exclusão justificada.
-comentario: Errado. A organização seleciona os controles necessários a partir do tratamento de riscos e pode excluir os que não se aplicam, justificando na declaração de aplicabilidade.

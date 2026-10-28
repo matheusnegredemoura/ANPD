@@ -60,15 +60,6 @@ dif: 2
 enunciado: Situação hipotética: uma empresa sofreu incidente com dados pessoais que estavam criptografados. Assertiva: a criptografia dispensa, por si só, a comunicação do incidente à ANPD, independentemente da avaliação de gravidade.
 comentario: Errado. Medidas que tornem os dados ininteligíveis a terceiros são avaliadas no juízo de gravidade (art. 48, § 3º); não há dispensa automática. Se a chave também vazou, por exemplo, a proteção não existe.
 
-=== sg-09
-gab: C
-ref: lgpd 50
-trecho: conte com planos de resposta a incidentes e remediação
-armadilha: rol
-dif: 2
-enunciado: O programa de governança em privacidade deve, entre outros requisitos mínimos, contar com planos de resposta a incidentes e remediação e ser atualizado constantemente a partir de monitoramento contínuo e avaliações periódicas.
-comentario: Certo: art. 50, § 2º, I, g e h. O programa deve ser adaptado à estrutura e à escala do controlador e integrado à sua governança geral.
-
 === sg-13
 gab: C
 bloco: lgpd-1-4-14
@@ -139,16 +130,6 @@ dif: 2
 enunciado: O término do tratamento de dados pessoais ocorre, entre outras hipóteses, com o fim do período de tratamento, e a comunicação do titular, inclusive a revogação do consentimento, põe fim ao tratamento em qualquer hipótese, ainda que haja interesse público envolvido.
 comentario: Errado. Pelo art. 15, III, da LGPD, a comunicação do titular, inclusive a revogação do consentimento, encerra o tratamento, resguardado o interesse público. A ressalva existe; por isso o término não ocorre em qualquer hipótese.
 
-=== sg-21
-gab: C
-bloco: lgpd-12-16
-ref: lgpd 16
-trecho: uso exclusivo do controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados
-armadilha: excecao
-dif: 2
-enunciado: Encerrado o tratamento, o controlador pode conservar os dados para seu uso exclusivo, vedado o acesso por terceiro, desde que os anonimize.
-comentario: Certo: art. 16, IV. As outras hipóteses de conservação são obrigação legal ou regulatória, estudo por órgão de pesquisa e transferência a terceiro conforme a lei.
-
 === sg-22
 gab: E
 bloco: lgpd-12-16
@@ -168,16 +149,6 @@ armadilha: excecao
 dif: 3
 enunciado: Podem ser considerados dados pessoais aqueles utilizados para formar o perfil comportamental de determinada pessoa natural, se identificada.
 comentario: Certo: art. 12, § 2º. Dados agregados que alimentam um perfil individual identificado entram na LGPD.
-
-=== sg-24
-gab: E
-bloco: lgpd-12-16
-ref: lgpd 13
-trecho: não permitida, em circunstância alguma, a transferência dos dados a terceiro
-armadilha: excecao
-dif: 2
-enunciado: Em estudos de saúde pública, o órgão de pesquisa pode transferir os dados pessoais a terceiro, desde que por convênio e para a mesma finalidade.
-comentario: Errado. O art. 13, § 2º, torna o órgão de pesquisa responsável pela segurança e não permite, em circunstância alguma, a transferência a terceiro. A divulgação dos resultados também não pode revelar dados pessoais (§ 1º).
 
 === sg-25
 gab: C
