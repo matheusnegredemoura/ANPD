@@ -55,8 +55,11 @@ await passo('cards do dia pelo teclado', async () => {
   await p.click('.aba[data-vista="hoje"]');
   await p.click('[data-acao="cards-dia"]');
   await p.waitForSelector('#sessao:not([hidden])');
+  // O deck do dia pode ter menos de 5 cards (o de números e prazos de um bloco curto): para no resultado
   for (let i = 0; i < 5; i++) {
-    await p.keyboard.press('Space');
+    if (i && /Resultado/.test(await p.textContent('#sessao'))) break;
+    // Enter mostra a resposta tanto no card comum quanto no card de número com campo para digitar (nele, Espaço digita)
+    await p.keyboard.press('Enter');
     await p.waitForSelector('.notas-card');
     if (i === 0) await p.screenshot({ path: foto('card-verso.png'), fullPage: true });
     await p.keyboard.press(String((i % 4) + 1));

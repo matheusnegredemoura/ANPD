@@ -90,6 +90,8 @@ export async function responder(p, bolha = 'c') {
 }
 
 export async function sairDaSessao(p) {
+  // Sessão que já chegou ao resultado fecha pelo botão do resultado
+  if (await p.locator('#sessao [data-acao="fechar-sessao"]').count()) return p.click('#sessao [data-acao="fechar-sessao"]');
   await p.click('[data-acao="sair-sessao"]');
   if (await p.locator('[data-acao="confirmar-saida"]').count()) await p.click('[data-acao="confirmar-saida"]');
 }

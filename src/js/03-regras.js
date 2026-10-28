@@ -253,13 +253,14 @@ function cartaoTempoHistorico() {
 }
 // Dias seguidos de estudo. Domingo não quebra, e cada semana (de segunda a sábado) tem uma folga: um dia sem estudo
 // não zera a sequência, para um imprevisto não apagar semanas de constância. O dia de folga não conta como estudado.
+// Dia do plano recuperado (marcarRecuperados) conta como estudado.
 function sequencia() {
   let n = 0, dia = HOJE();
   if (!ativo(isoDeNum(dia))) dia--;
-  const folgas = new Set();
+  const folgas = new Set(), recuperados = S.perfil.recuperados || {};
   for (let k = 0; k < 800; k++) {
     const iso = isoDeNum(dia);
-    if (ativo(iso)) n++;
+    if (ativo(iso) || recuperados[iso]) n++;
     else if (diaSemana(iso) !== 0) {
       const semana = dia - ((diaSemana(iso) + 6) % 7);
       if (folgas.has(semana)) break;
@@ -268,6 +269,18 @@ function sequencia() {
     dia--;
   }
   return n;
+}
+// Quando o atraso do plano zera, os dias do plano que ficaram sem estudo e foram recuperados depois voltam a contar na
+// sequência. Ficam de fora os dispensados e os de revisão sem discursiva, que nunca entram no atraso. A marca fica no
+// perfil, para um atraso novo depois não desfazer a recuperação.
+function marcarRecuperados() {
+  if (pendencias().length) return;
+  const h = hojeISO(), ini = inicioAtraso(), disp = S.perfil.dispensados || {}, rec = S.perfil.recuperados || {};
+  const novos = DIAS.filter((d) => d.data >= ini && d.data < h && !disp[d.data] && (d.modo !== 'revisao' || d.disc) && !ativo(d.data) && !rec[d.data]);
+  if (!novos.length) return;
+  S.perfil.recuperados = Object.assign({}, rec, Object.fromEntries(novos.map((d) => [d.data, 1])));
+  Store.salvar('perfil');
+  avisar('🔥', 'Sequência de volta', 'Atraso zerado: ' + pl(novos.length, 'dia do plano recuperado volta', 'dias do plano recuperados voltam') + ' a contar na sequência.');
 }
 function totais() {
   let r = 0, c = 0, e = 0, b = 0, k = 0;

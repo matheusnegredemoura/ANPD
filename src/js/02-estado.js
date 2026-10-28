@@ -122,6 +122,7 @@ function mesclarDoc(n, nuvem, local, localNovo) {
   p.conq = Object.assign({}, velho.conq, novo.conq);
   // Dia, aula ou discursiva dados como feitos num aparelho continuam feitos no outro
   p.feitos = Object.assign({}, velho.feitos, novo.feitos);
+  p.recuperados = Object.assign({}, velho.recuperados, novo.recuperados);
   // Sessões pausadas: cada uma fica com o registro mais recente dos dois aparelhos (um simulado pela metade num deles
   // não some porque o outro gravou depois); a marca de encerrada, mais nova, vence a pausa antiga
   p.pausas = mesclarMapa(velho.pausas, novo.pausas, (a, b) => (num(b && b.ts) >= num(a && a.ts) ? b : a));
