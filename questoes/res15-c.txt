@@ -31,9 +31,9 @@ gab: C
 ref: res15 3
 trecho: dado de autenticação em sistemas: qualquer dado pessoal utilizado como credencial para determinar o acesso a um sistema ou para confirmar a identificação de um usuário, como contas de login, tokens e senhas
 armadilha: conceito
-dif: 1
-enunciado: Para o regulamento de incidentes, contas de login, tokens e senhas são exemplos de dados de autenticação em sistemas, um dos critérios que tornam o incidente potencialmente relevante.
-comentario: Certo: art. 3º, VI, e art. 5º, IV. Lembre que o critério só vale somado à possibilidade de afetar significativamente interesses e direitos fundamentais (art. 5º, caput).
+dif: 3
+enunciado: O vazamento de senhas e tokens envolve dados de autenticação em sistemas, mas só caracteriza incidente que pode acarretar risco ou dano relevante se puder, também, afetar significativamente interesses e direitos fundamentais dos titulares.
+comentario: Certo. Res. 15/2024, art. 3º, VI, e art. 5º: os critérios do art. 5º (aqui, o inciso IV) valem cumulativamente com a possibilidade de afetar significativamente interesses e direitos fundamentais.
 
 === ic-04
 gab: E
@@ -112,9 +112,9 @@ gab: E
 ref: res15 6
 trecho: A comunicação de incidente de segurança deverá ocorrer por meio de formulário eletrônico disponibilizado pela ANPD
 armadilha: extrapolacao
-dif: 1
-enunciado: A comunicação de incidente à ANPD pode ser feita por qualquer meio escrito, inclusive por ofício entregue em papel na sede da agência.
-comentario: Errado. A comunicação ocorre por formulário eletrônico disponibilizado pela ANPD (art. 6º, § 4º), recebido exclusivamente por canal específico (art. 18, parágrafo único).
+dif: 2
+enunciado: A comunicação de incidente à ANPD, que deve ser feita pelo controlador por meio do encarregado ou de representante constituído, pode ser apresentada por ofício em papel protocolado na sede da agência.
+comentario: Errado. Res. 15/2024, art. 6º, § 5º (encarregado ou representante, certo) e § 4º: a comunicação ocorre por formulário eletrônico disponibilizado pela ANPD.
 
 === ic-13
 gab: C
@@ -232,11 +232,11 @@ gab: C
 ref: res15 5
 trecho: dados de crianças, de adolescentes ou de idosos
 armadilha: caso
-dif: 1
+dif: 3
 apoio: @CLIN
 comando: Com base na situação hipotética e na Resolução CD/ANPD nº 15/2024, julgue os itens seguintes.
-enunciado: O incidente atende a mais de um dos critérios do regulamento, pois envolve dado de saúde, que é sensível, e dados de crianças.
-comentario: Certo: art. 5º, I e II. Somados à possibilidade de afetar significativamente direitos dos pacientes (exposição de prontuários, indisponibilidade do atendimento), o incidente deve ser comunicado.
+enunciado: O incidente envolve ao menos dois dos critérios de risco do regulamento, mas a comunicação só é exigida porque, além deles, o ataque pode afetar significativamente interesses e direitos fundamentais dos pacientes.
+comentario: Certo. Res. 15/2024, art. 5º: os critérios (dados sensíveis, como os de saúde, e dados de crianças: incisos I e II) somam-se, cumulativamente, à possibilidade de afetar significativamente direitos (caput e § 1º), aqui presente pela exposição dos prontuários e pela indisponibilidade do atendimento.
 
 === ic-26
 gab: E

@@ -8,9 +8,9 @@ ref: res15 6
 trecho: A comunicação de incidente de segurança à ANPD deverá ser realizada pelo controlador no prazo de três dias úteis
 trecho: O prazo a que se refere o caput será contado do conhecimento pelo controlador de que o incidente afetou dados pessoais
 armadilha: numero
-dif: 1
-enunciado: Segundo o regulamento de comunicação de incidentes da ANPD, a comunicação à autoridade deve ser feita pelo controlador em três dias úteis, contados do conhecimento de que o incidente afetou dados pessoais.
-comentario: Art. 6º, caput e § 1º, da Resolução CD/ANPD nº 15/2024, que deu concretude ao “prazo razoável” do art. 48, § 1º, da LGPD. Ressalva-se prazo previsto em legislação específica, e o prazo conta em dobro para agentes de pequeno porte (§ 8º). As informações podem ser complementadas em 20 dias úteis (§ 3º).
+dif: 3
+enunciado: O prazo de três dias úteis para comunicar o incidente à ANPD conta-se do conhecimento, pelo controlador, de que o incidente afetou dados pessoais, e não da data em que o incidente ocorreu, e cede diante de prazo previsto em legislação específica.
+comentario: Certo. Res. 15/2024, art. 6º, caput e § 1º, que deu concretude ao “prazo razoável” do art. 48, § 1º, da LGPD. O prazo conta em dobro para agentes de pequeno porte (§ 8º).
 pesquisar: Formulário de comunicação de incidente de segurança (CIS) da ANPD
 
 === r15-02
@@ -19,9 +19,9 @@ ref: res15 6
 trecho: no prazo de três dias úteis
 trecho: será contado do conhecimento pelo controlador de que o incidente afetou dados pessoais
 armadilha: comparacao
-dif: 1
-enunciado: Assim como no GDPR, o regulamento da ANPD fixa o prazo de 72 horas, contado da ocorrência do incidente, para a comunicação à autoridade.
-comentario: São três dias úteis, contados do conhecimento pelo controlador de que o incidente afetou dados pessoais (art. 6º, caput e § 1º). As 72 horas são do GDPR (art. 33), contadas de quando o controlador toma conhecimento da violação.
+dif: 3
+enunciado: Diferentemente do RGPD, que adota setenta e duas horas, o regulamento da ANPD fixa três dias úteis para a comunicação do incidente à autoridade, contados da data de ocorrência do incidente.
+comentario: Errado. Res. 15/2024, art. 6º, § 1º: os três dias úteis contam do conhecimento pelo controlador de que o incidente afetou dados pessoais, e não da ocorrência. A comparação com as setenta e duas horas do RGPD (art. 33) está certa.
 
 === r15-03
 gab: C
@@ -37,9 +37,9 @@ gab: E
 ref: res15 10
 trecho: inclusive daquele não comunicado à ANPD e aos titulares
 armadilha: extrapolacao
-dif: 1
-enunciado: Segundo a Resolução CD/ANPD nº 15/2024, o dever de registro alcança apenas os incidentes que foram comunicados à ANPD, por presumirem risco relevante.
-comentario: Errado. Pelo art. 10 da Resolução CD/ANPD 15/2024, o controlador mantém registro de todo incidente de segurança, inclusive do que não foi comunicado à ANPD e aos titulares. O registro permite à ANPD verificar se a decisão de não comunicar foi correta.
+dif: 2
+enunciado: O controlador deve manter registro dos incidentes de segurança comunicados à ANPD pelo prazo mínimo de cinco anos, dispensado o registro dos incidentes que, por não oferecerem risco relevante, não foram comunicados.
+comentario: Errado. Res. 15/2024, art. 10: o registro alcança todo incidente, inclusive o não comunicado à ANPD e aos titulares, e deve conter os motivos da ausência de comunicação (§ 1º, VIII). O prazo de cinco anos está certo.
 
 === r15-05
 gab: C
@@ -101,10 +101,10 @@ gab: E
 ref: res2 11
 trecho: Os agentes de tratamento de pequeno porte não são obrigados a indicar o encarregado
 bloco: res-2-2022
-armadilha: absoluto
-dif: 1
-enunciado: A microempresa que trata dados pessoais sem alto risco deve indicar encarregado, sob pena de multa, pois a LGPD não admite exceção a esse dever.
-comentario: O art. 41, § 3º, da LGPD admite hipóteses de dispensa por norma da ANPD, e a Resolução CD/ANPD nº 2/2022 (art. 11) dispensou os agentes de pequeno porte que não realizem tratamento de alto risco nem ultrapassem os limites de receita (art. 3º). A microempresa do item está nesse caso.
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: uma startup que realiza tratamento de alto risco, com uso de tecnologia inovadora em larga escala, deixou de indicar encarregado, invocando sua condição de agente de pequeno porte. Assertiva: a dispensa é válida, pois o enquadramento como startup basta para o tratamento jurídico diferenciado.
+comentario: Errado. Res. 2/2022, art. 3º, I: não se beneficia do tratamento diferenciado o agente de pequeno porte que realize tratamento de alto risco, como o que combina larga escala (critério geral) e uso de tecnologia inovadora (critério específico) (art. 4º). Sem a dispensa do art. 11, vale o dever do art. 41 da LGPD.
 
 === r2-06
 gab: C
@@ -164,10 +164,10 @@ gab: C
 ref: res4 8
 trecho: As infrações são classificadas, segundo a gravidade e a natureza das infrações e dos direitos pessoais afetados, em
 bloco: res-4-2023
-armadilha: rol
-dif: 1
-enunciado: O regulamento de dosimetria da ANPD classifica as infrações, conforme a gravidade e a natureza das infrações e dos direitos pessoais afetados, em leves, médias ou graves.
-comentario: Art. 8º da Resolução CD/ANPD nº 4/2023, que cumpre o art. 53 da LGPD. A infração é leve quando não for média nem grave (§ 1º).
+armadilha: conceito
+dif: 3
+enunciado: Infração que não possa afetar significativamente interesses e direitos fundamentais dos titulares e que não constitua obstrução à fiscalização é classificada como leve, ainda que envolva dados pessoais sensíveis.
+comentario: Certo. Res. 4/2023, art. 8º: é leve a infração que não se enquadra nos §§ 2º e 3º. Dados sensíveis só levam à infração grave quando somados à afetação significativa de direitos (§ 3º, I, d); sozinhos, não tornam a infração média nem grave.
 pesquisar: Quando a infração é grave na Resolução CD/ANPD 4/2023
 
 === r4-02

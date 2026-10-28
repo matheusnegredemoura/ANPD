@@ -37,19 +37,19 @@ comentario: Certo. Art. 6º da Resolução CD/ANPD 18/2024: para o operador, ind
 gab: E
 ref: res18 14
 trecho: O exercício da atividade de encarregado não pressupõe a inscrição em qualquer entidade nem qualquer certificação ou formação profissional específica
-armadilha: extrapolacao
-dif: 1
-enunciado: Para exercer a função de encarregado, a pessoa natural deve ter formação em Direito ou certificação profissional reconhecida pela ANPD.
-comentario: Errado. A função não pressupõe inscrição em entidade, certificação ou formação específica (art. 14). Cabe ao agente definir as qualificações necessárias, conforme o contexto e o risco do tratamento (art. 7º).
+armadilha: fecho
+dif: 2
+enunciado: Embora o regulamento da ANPD dispense inscrição em entidade profissional para o exercício da função de encarregado, exige-se do encarregado pessoa natural formação de nível superior em Direito ou em tecnologia da informação.
+comentario: Errado. Res. CD/ANPD 18/2024, art. 14: a atividade não pressupõe inscrição em entidade nem certificação ou formação profissional específica. Cabe ao agente definir as qualificações, conforme o contexto, o volume e o risco dos tratamentos (art. 7º).
 
 === enc-06
 gab: C
-ref: res18 12
-trecho: uma pessoa natural, integrante do quadro organizacional do agente de tratamento ou externo a esse
+ref: res18 9
+trecho: o nome empresarial ou o título do estabelecimento, bem como o nome completo da pessoa natural responsável
 armadilha: rol
-dif: 1
-enunciado: O encarregado pode ser pessoa natural, integrante ou não do quadro do agente de tratamento, ou pessoa jurídica.
-comentario: Certo: art. 12. É comum a contratação de encarregado como serviço (DPO as a service).
+dif: 2
+enunciado: Se o encarregado for pessoa jurídica, a divulgação de sua identidade abrangerá o nome empresarial ou o título do estabelecimento e o nome completo da pessoa natural responsável.
+comentario: Certo. Res. 18/2024, art. 9º, § 1º, II. O encarregado pode ser pessoa natural, do quadro do agente ou externa, ou pessoa jurídica (art. 12); para a pessoa natural, divulga-se o nome completo (§ 1º, I).
 
 === enc-07
 gab: C
@@ -119,10 +119,10 @@ gab: E
 bloco: res-2-2022
 ref: res2 11
 trecho: Os agentes de tratamento de pequeno porte não são obrigados a indicar o encarregado
-armadilha: conceito
-dif: 1
-enunciado: Agentes de tratamento de pequeno porte não são obrigados a indicar encarregado, mas, se não o indicarem, devem informar à ANPD a pessoa responsável pelo atendimento aos titulares.
-comentario: Errado. Quem não indica encarregado deve disponibilizar canal de comunicação com o titular (art. 11, § 1º, da Resolução CD/ANPD 2/2022). Não há comunicação de responsável à ANPD.
+armadilha: fecho
+dif: 3
+enunciado: O agente de tratamento de pequeno porte que deixa de indicar encarregado deve disponibilizar canal de comunicação com o titular, e a eventual indicação voluntária de encarregado não produz efeito algum na dosimetria de sanções.
+comentario: Errado. Res. CD/ANPD 2/2022, art. 11: a primeira parte está certa (§ 1º), mas a indicação de encarregado pelo pequeno porte é considerada política de boas práticas e governança para fins do art. 52, § 1º, IX, da LGPD (§ 2º), parâmetro da dosimetria.
 
 === pq-02
 gab: E
@@ -160,9 +160,9 @@ bloco: res-2-2022
 ref: res2 6
 trecho: não isenta os agentes de tratamento de pequeno porte do cumprimento dos demais dispositivos da LGPD, inclusive das bases legais e dos princípios
 armadilha: extrapolacao
-dif: 1
-enunciado: A dispensa ou flexibilização de obrigações não isenta os agentes de pequeno porte de cumprir os demais dispositivos da LGPD, inclusive as bases legais e os princípios.
-comentario: Certo: art. 6º. A resolução simplifica a forma de cumprir; não cria zona livre da LGPD.
+dif: 2
+enunciado: A flexibilização de obrigações conferida aos agentes de pequeno porte alcança a forma de cumprir certas obrigações, como o registro das operações de tratamento, mas não os isenta de observar as bases legais, os princípios e os direitos dos titulares.
+comentario: Certo. Res. 2/2022, art. 6º (a dispensa ou flexibilização não isenta dos demais dispositivos da LGPD) e art. 9º (registro simplificado, conforme modelo da ANPD). A resolução simplifica a forma de cumprir; não cria zona livre da LGPD.
 
 === pq-07
 gab: E
