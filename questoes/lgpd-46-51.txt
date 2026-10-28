@@ -24,9 +24,9 @@ gab: E
 ref: lgpd 46, § 2º
 trecho: desde a fase de concepção do produto ou do serviço até a sua execução
 armadilha: extrapolacao
-dif: 1
-enunciado: As medidas de segurança exigidas pela LGPD devem ser adotadas a partir do início da execução do serviço, quando os dados pessoais começam a ser efetivamente tratados.
-comentario: Errado. O art. 46, § 2º, da LGPD manda observar as medidas de segurança desde a fase de concepção do produto ou do serviço até a sua execução. Começar só na execução é justamente o que a privacidade desde a concepção evita.
+dif: 2
+enunciado: Dirigidas a proteger os dados contra acessos não autorizados e situações acidentais ou ilícitas, as medidas de segurança exigidas pela LGPD devem ser observadas a partir do momento em que o produto ou o serviço entra em execução.
+comentario: Errado. Art. 46, § 2º: as medidas devem ser observadas desde a fase de concepção do produto ou do serviço até a sua execução. A primeira parte reproduz o caput; o erro está no marco inicial.
 
 === lgpd-46-04
 gab: E
@@ -78,18 +78,18 @@ gab: E
 ref: lgpd 48
 trecho: deverá comunicar à autoridade nacional e ao titular
 armadilha: sujeito
-dif: 1
-enunciado: Ocorrido incidente de segurança relevante, o controlador comunica o fato apenas à ANPD, que decide se os titulares devem ou não ser informados.
-comentario: O caput do art. 48 manda o controlador comunicar à ANPD e ao titular. A ANPD pode ainda determinar ampla divulgação (§ 2º, I).
+dif: 2
+enunciado: Ocorrido incidente de segurança que possa acarretar risco ou dano relevante aos titulares, o controlador deve comunicá-lo à ANPD, a quem cabe, após verificar a gravidade do incidente, comunicar o fato aos titulares afetados.
+comentario: Errado. Art. 48, caput: o controlador comunica o incidente à autoridade nacional e ao titular. A ANPD verifica a gravidade e pode determinar providências, como a ampla divulgação do fato (§ 2º), mas a comunicação ao titular é dever do controlador.
 
 === lgpd-48-04
 gab: E
 ref: lgpd 48, § 1º
 trecho: A comunicação será feita em prazo razoável, conforme definido pela autoridade nacional
 armadilha: numero
-dif: 1
-enunciado: A LGPD fixa o prazo de 72 horas para a comunicação de incidente de segurança à autoridade nacional, contado da ciência do fato.
-comentario: A lei fala em “prazo razoável, conforme definido pela autoridade nacional”. O prazo de 72 horas é do GDPR (art. 33). Na ANPD, o prazo foi fixado na Resolução CD/ANPD nº 15/2024 (três dias úteis, a conferir quando você trouxer o texto).
+dif: 3
+enunciado: A LGPD não fixa em horas o prazo para comunicar incidente de segurança à autoridade nacional, mas a Resolução CD/ANPD 15/2024 o estabeleceu em setenta e duas horas, contadas do conhecimento do incidente, como no regulamento europeu.
+comentario: Errado. A LGPD fala em prazo razoável, conforme definido pela autoridade nacional (art. 48, § 1º), e a Resolução CD/ANPD 15/2024 fixou três dias úteis, contados do conhecimento pelo controlador de que o incidente afetou dados pessoais (art. 6º). As setenta e duas horas são do RGPD (art. 33).
 
 === lgpd-48-05
 gab: E

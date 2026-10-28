@@ -28,10 +28,10 @@ gab: E
 tema: pd-principios
 ref: lgpd 6
 trecho: garantia, aos titulares, de consulta facilitada e gratuita sobre a forma e a duração do tratamento
-armadilha: conceito
-dif: 1
-enunciado: Pelo princípio do livre acesso, o titular pode consultar a forma e a duração do tratamento de seus dados, mas o controlador pode cobrar por essa consulta.
-comentario: Errado. O livre acesso garante consulta facilitada e gratuita sobre a forma e a duração do tratamento e sobre a integralidade dos dados (art. 6º, IV). A gratuidade é reforçada no art. 18, § 5º.
+armadilha: extrapolacao
+dif: 2
+enunciado: O princípio do livre acesso garante ao titular consulta facilitada sobre a forma e a duração do tratamento e sobre a integralidade de seus dados, admitida a cobrança de valor módico quando a consulta exigir a extração de grande volume de informações.
+comentario: Errado. Art. 6º, IV: a consulta é facilitada e gratuita. A gratuidade vale também para o atendimento dos requerimentos do titular (art. 18, § 5º) e não tem exceção por volume.
 
 === lx34-05
 gab: C
@@ -79,9 +79,9 @@ tema: pd-conceitos
 ref: lgpd 5
 trecho: conjunto estruturado de dados pessoais, estabelecido em um ou em vários locais, em suporte eletrônico ou físico
 armadilha: caso
-dif: 1
-enunciado: Situação hipotética: uma clínica pequena guarda fichas de pacientes em papel, organizadas em ordem alfabética num arquivo de aço. Assertiva: esse arquivo é banco de dados para a LGPD.
-comentario: Certo. Banco de dados é o conjunto estruturado de dados pessoais, em um ou vários locais, em suporte eletrônico ou físico (art. 5º, IV). A LGPD não se limita ao meio digital (art. 1º).
+dif: 3
+enunciado: Situação hipotética: uma academia guarda, num arquivo de aço, fichas de matrícula em papel com nome, telefone e restrições médicas dos alunos, ordenadas alfabeticamente. Assertiva: o arquivo é banco de dados, e as informações sobre restrições médicas, por se referirem à saúde, são dados pessoais sensíveis.
+comentario: Certo. Art. 5º, IV (banco de dados em suporte eletrônico ou físico) e II (dado referente à saúde é sensível, quando vinculado a pessoa natural). Por isso, o tratamento dessas informações precisa de uma das hipóteses do art. 11, e não do art. 7º.
 
 === lx34-10
 gab: E
@@ -119,9 +119,9 @@ tema: pd-conceitos
 ref: lgpd 5
 trecho: pessoa indicada pelo controlador e operador para atuar como canal de comunicação
 armadilha: sujeito
-dif: 1
-enunciado: O encarregado pelo tratamento de dados pessoais é indicado pela ANPD para atuar como canal de comunicação entre ela e as empresas.
-comentario: Errado. O encarregado é indicado pelo controlador e pelo operador para atuar como canal de comunicação entre o controlador, os titulares e a ANPD (art. 5º, VIII, na redação da Lei 15.352/2026).
+dif: 2
+enunciado: Na redação dada pela Lei 15.352/2026, o encarregado é a pessoa indicada pela ANPD para atuar como canal de comunicação entre o controlador, os titulares dos dados e a própria Agência.
+comentario: Errado. Art. 5º, VIII: o encarregado é indicado pelo controlador e pelo operador; a ANPD é um dos polos da comunicação, não quem indica. O restante do item reproduz a definição.
 
 === lx34-14
 gab: E
