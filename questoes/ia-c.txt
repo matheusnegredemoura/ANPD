@@ -130,5 +130,5 @@ gab: E
 ref: doutrina eliminação em modelos treinados
 armadilha: extrapolacao
 dif: 3
-enunciado: Atendido um pedido de eliminação, basta apagar o registro da base original para que o modelo já treinado deixe automaticamente de refletir aqueles dados.
-comentario: Errado. O que o modelo aprendeu com o dado pode permanecer nos parâmetros. Pode ser preciso retreinar ou usar técnicas de desaprendizado de máquina (machine unlearning), além de impedir que o dado volte a ser usado.
+enunciado: Atendido um pedido de eliminação, a exclusão do registro da base original faz com que o modelo de aprendizado de máquina já treinado deixe automaticamente de refletir aqueles dados.
+comentario: Errado. O modelo já treinado pode ter incorporado padrões dos dados em seus parâmetros, e apagar o registro da base não os remove. Para isso seria preciso retreinar o modelo ou aplicar técnicas de desaprendizado de máquina (machine unlearning).
