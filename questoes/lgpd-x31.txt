@@ -3,14 +3,14 @@ bloco: lgpd-5-11
 // dados públicos), consentimento (art. 8º) e acesso facilitado às informações (art. 9º). Conferidas com fontes/lgpd.txt.
 
 === lx31-01
-gab: C
+gab: E
 tema: pd-bases
 ref: lgpd 7
 trecho: procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados
 armadilha: caso
-dif: 2
-enunciado: Situação hipotética: uma pessoa pediu a uma marcenaria orçamento para móveis sob medida e informou nome, endereço e medidas do imóvel. Assertiva: o tratamento desses dados para elaborar o orçamento pode fundar-se na execução de procedimentos preliminares de contrato.
-comentario: Certo. Art. 7º, V: a base alcança a execução de contrato e os procedimentos preliminares a ele relacionados, a pedido do titular. O orçamento solicitado é exemplo típico.
+dif: 3
+enunciado: Situação hipotética: uma marcenaria usou, meses depois e sem pedido do cliente, o endereço e as medidas informados num orçamento recusado para enviar-lhe catálogos. Assertiva: o tratamento continua amparado na execução de procedimentos preliminares relacionados a contrato.
+comentario: Errado. Essa base legal exige que o tratamento seja necessário à execução de contrato ou de procedimentos preliminares a ele relacionados, a pedido do titular (art. 7º, V). Recusado o orçamento e sem pedido do cliente, o envio de catálogos não se apoia nela.
 
 === lx31-02
 gab: E
@@ -23,14 +23,14 @@ enunciado: Situação hipotética: uma corretora comprou lista de contatos e pas
 comentario: Errado. Os procedimentos preliminares de contrato só servem de base quando realizados a pedido do titular (art. 7º, V). Aqui não houve pedido; a empresa teria de buscar outra base, como o consentimento ou, com teste de balanceamento, o legítimo interesse.
 
 === lx31-03
-gab: C
+gab: E
 tema: pd-bases
 ref: lgpd 7
 trecho: para o exercício regular de direitos em processo judicial, administrativo ou arbitral
-armadilha: caso
-dif: 2
-enunciado: Situação hipotética: processada por um ex-empregado, uma empresa usou registros de ponto e mensagens corporativas dele para se defender na Justiça do Trabalho. Assertiva: o tratamento pode fundar-se no exercício regular de direitos em processo judicial.
-comentario: Certo. Art. 7º, VI. A base vale para processos judiciais, administrativos e arbitrais e permite conservar dados após o fim da relação, na medida do necessário para a defesa.
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: processada por um ex-empregado, uma empresa usou registros de ponto e mensagens corporativas dele para se defender na Justiça do Trabalho. Assertiva: o tratamento pode fundar-se no exercício regular de direitos, mas, por se tratar de processo judicial, exige também o consentimento do titular.
+comentario: Errado. O exercício regular de direitos em processo judicial, administrativo ou arbitral é base legal autônoma (art. 7º, VI), que dispensa o consentimento. Exigi-lo inviabilizaria a defesa contra o próprio titular.
 
 === lx31-04
 gab: E
