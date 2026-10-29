@@ -22,14 +22,14 @@ enunciado: Situação hipotética: provedor de aplicações guardou a data e a h
 comentario: O item descreve o registro de acesso a aplicações (art. 5º, VIII). Registro de conexão é a data e hora de início e término da conexão, sua duração e o IP usado (VI). A distinção define quem guarda o quê: provedor de conexão guarda registros de conexão (1 ano); provedor de aplicação, registros de acesso a aplicações (6 meses).
 
 === mci-03
-gab: C
+gab: E
 ref: mci 7
 trecho: não suspensão da conexão à internet, salvo por débito diretamente decorrente de sua utilização
 trecho: exclusão definitiva dos dados pessoais que tiver fornecido a determinada aplicação de internet, a seu requerimento, ao término da relação entre as partes
-armadilha: caso
-dif: 2
-enunciado: Situação hipotética: encerrada a relação com uma aplicação de internet, o usuário pediu a exclusão definitiva dos dados pessoais que lhe havia fornecido. Assertiva: o Marco Civil lhe assegura esse direito, ressalvadas as hipóteses de guarda obrigatória de registros.
-comentario: Art. 7º, IV e X (redação da LGPD). O acesso à internet é essencial ao exercício da cidadania (caput).
+armadilha: excecao
+dif: 3
+enunciado: Ao término da relação com uma aplicação de internet, o usuário tem direito à exclusão definitiva dos dados pessoais que lhe forneceu, a seu requerimento, e esse direito prevalece inclusive sobre os registros de acesso que o provedor deve guardar por seis meses.
+comentario: Errado. O art. 7º, X, assegura a exclusão definitiva a requerimento do usuário ao fim da relação, mas ressalva as hipóteses de guarda obrigatória de registros previstas no Marco Civil e na LGPD, como a guarda dos registros de acesso por seis meses (art. 15).
 
 === mci-04
 gab: E
@@ -257,14 +257,14 @@ enunciado: Situação hipotética: a autoridade competente notificou provedor pa
 comentario: Art. 16-I e parágrafo único. A supervisão é sistêmica, não caso a caso: também é vedada a responsabilização fundada só na manutenção ou remoção isolada de um conteúdo.
 
 === d8771-12
-gab: E
+gab: C
 ref: dec8771 16-A
 trecho: constituir e manter sede e representante legal no País
 trecho: O representante legal de que trata o inciso I do caput será constituído na forma de pessoa jurídica
-armadilha: conceito
-dif: 2
-enunciado: Situação hipotética: provedor de aplicações estrangeiro indicou como representante legal no Brasil uma pessoa natural residente no país. Assertiva: a indicação cumpre o dever de representação.
-comentario: Art. 16-A, I e parágrafo único: o provedor deve ter sede e representante legal no País, e o representante será pessoa jurídica, com contatos acessíveis no sítio do representado. Deve ainda manter canal de denúncia permanente e coibir redes artificiais de distribuição (II e III).
+armadilha: sujeito
+dif: 3
+enunciado: O provedor de aplicações deve manter sede e representante legal no País, constituído como pessoa jurídica, com poderes para responder administrativa e judicialmente, cumprir determinações judiciais e responder por multas em que o representado incorrer.
+comentario: Certo. O art. 16-A, I, do Decreto 8.771/2016 exige sede e representante legal no País com esses poderes, e o parágrafo único manda constituir o representante como pessoa jurídica, com contato facilmente acessível no sítio do representado.
 
 === d8771-13
 gab: C
