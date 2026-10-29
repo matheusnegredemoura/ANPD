@@ -56,13 +56,13 @@ enunciado: Situação hipotética: durante a apuração de grave incidente de se
 comentario: O inciso IV do art. 52 só admite a publicização “após devidamente apurada e confirmada a sua ocorrência”.
 
 === lgpd-52-07
-gab: C
+gab: E
 ref: lgpd 52, § 3º
 trecho: O disposto nos incisos I, IV, V, VI, X, XI e XII do caput deste artigo poderá ser aplicado às entidades e aos órgãos públicos
 armadilha: rol
-dif: 2
-enunciado: Órgãos e entidades públicos sujeitam-se, entre outras, às sanções de publicização da infração e de bloqueio dos dados pessoais a que se refere a infração.
-comentario: O § 3º do art. 52 lista os incisos aplicáveis ao Poder Público: I (advertência), IV (publicização), V (bloqueio), VI (eliminação), X e XI (suspensões) e XII (proibição). Ficam fora as multas (II e III).
+dif: 3
+enunciado: Órgãos e entidades públicos sujeitam-se às sanções de advertência, publicização, bloqueio e eliminação dos dados, mas não às de suspensão e de proibição do exercício de atividades de tratamento, reservadas aos agentes privados.
+comentario: Errado. O art. 52, § 3º, permite aplicar a órgãos e entidades públicos as sanções dos incisos I, IV, V, VI, X, XI e XII, o que inclui as suspensões (X e XI) e a proibição (XII). Ficam de fora as multas simples e diária (II e III).
 
 === lgpd-52-08
 gab: E
@@ -74,13 +74,13 @@ enunciado: Às entidades e aos órgãos públicos aplicam-se todas as sanções 
 comentario: A multa simples (II) e a multa diária (III) não estão no rol do § 3º. Guarde o rol na ordem: I, IV, V, VI, X, XI e XII.
 
 === lgpd-52-09
-gab: C
+gab: E
 ref: lgpd 52, § 6º, I
 trecho: somente após já ter sido imposta ao menos 1 (uma) das sanções de que tratam os incisos II, III, IV, V e VI do caput deste artigo para o mesmo caso concreto
 armadilha: excecao
-dif: 2
-enunciado: A suspensão do exercício da atividade de tratamento dos dados pessoais somente pode ser aplicada depois de imposta ao menos uma das sanções de multa simples, multa diária, publicização, bloqueio ou eliminação, para o mesmo caso concreto.
-comentario: O § 6º do art. 52 trata as sanções mais severas (X, XI e XII) como degrau final: exigem sanção anterior dos incisos II a VI no mesmo caso.
+dif: 3
+enunciado: A suspensão do exercício da atividade de tratamento só pode ser aplicada depois de imposta, no mesmo caso concreto, ao menos uma das sanções de multa, publicização, bloqueio ou eliminação, e a prévia advertência atende a essa exigência.
+comentario: Errado. O art. 52, § 6º, I, exige a imposição prévia de ao menos uma das sanções dos incisos II a VI (multa simples, multa diária, publicização, bloqueio ou eliminação). A advertência (inciso I) não está nesse rol e não satisfaz a exigência.
 
 === lgpd-52-10
 gab: E
@@ -183,13 +183,13 @@ enunciado: Situação hipotética: houve acesso não autorizado aos dados de um 
 comentario: § 7º do art. 52. A conciliação direta é uma faculdade e não afasta a sanção se não houver acordo.
 
 === lgpd-52-21
-gab: E
+gab: C
 ref: lgpd 52, § 7º
 trecho: poderão ser objeto de conciliação direta entre controlador e titular e, caso não haja acordo, o controlador estará sujeito à aplicação das penalidades
-armadilha: extrapolacao
-dif: 2
-enunciado: Situação hipotética: em vazamento individual, dados de um único cliente foram expostos, e o controlador propôs ao titular um acordo de reparação. Assertiva: a conciliação direta é vedada, e o caso deve ser obrigatoriamente submetido à ANPD.
-comentario: O § 7º do art. 52 admite justamente a conciliação direta entre controlador e titular nesses casos.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: em vazamento individual, os dados de um único cliente foram expostos, e controlador e titular não chegaram a acordo na conciliação direta. Assertiva: o controlador fica sujeito às sanções do art. 52 da LGPD.
+comentario: Certo. Vazamentos individuais e acessos não autorizados podem ser objeto de conciliação direta entre controlador e titular, e, não havendo acordo, o controlador estará sujeito às penalidades do art. 52 (§ 7º).
 
 === lgpd-52-22
 gab: E

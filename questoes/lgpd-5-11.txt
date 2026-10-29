@@ -355,14 +355,14 @@ enunciado: Situação hipotética: um aplicativo de transporte só presta o serv
 comentario: O § 3º do art. 9º admite que o tratamento seja condição para o fornecimento, desde que o titular seja informado com destaque sobre isso e sobre como exercer seus direitos.
 
 === lgpd-9-03
-gab: C
+gab: E
 ref: lgpd 9
 trecho: identificação do controlador
 trecho: direitos do titular, com menção explícita aos direitos contidos no art. 18 desta Lei
-armadilha: rol
-dif: 2
-enunciado: Entre as informações que devem ser disponibilizadas ao titular de forma clara, adequada e ostensiva estão a identificação do controlador e os direitos do titular, com menção explícita aos direitos do art. 18.
-comentario: Incisos III e VII do art. 9º. A lista é exemplificativa (“entre outras características previstas em regulamentação”).
+armadilha: excecao
+dif: 3
+enunciado: Entre as informações que devem ser disponibilizadas ao titular de forma clara, adequada e ostensiva estão a identificação do controlador e a forma e a duração do tratamento, estas sem ressalva alguma, ainda que envolvam segredo comercial ou industrial.
+comentario: Errado. O art. 9º, II, exige informar a forma e a duração do tratamento, observados os segredos comercial e industrial. A identificação do controlador (III) também integra o rol.
 
 === lgpd-10-01
 gab: E
@@ -464,10 +464,10 @@ enunciado: Situação hipotética: uma secretaria estadual de saúde passou a tr
 comentario: Certo. Art. 11, § 2º, da LGPD: quando órgãos públicos tratam dados sensíveis sem consentimento para cumprir obrigação legal ou regulatória ou executar políticas públicas (inciso II, a e b), a dispensa de consentimento é tornada pública nos termos do art. 23, I, preferencialmente no sítio eletrônico do órgão.
 
 === lgpd-11-08
-gab: C
+gab: E
 ref: lgpd 11, § 1º
 trecho: Aplica-se o disposto neste artigo a qualquer tratamento de dados pessoais que revele dados pessoais sensíveis e que possa causar dano ao titular
 armadilha: conceito
-dif: 2
-enunciado: Dados comuns, como o histórico de compras em farmácia, podem atrair o regime dos dados sensíveis quando o tratamento os revelar e puder causar dano ao titular.
-comentario: Certo. LGPD, art. 11, § 1º. O que importa é o que o tratamento revela, não a natureza do dado coletado.
+dif: 3
+enunciado: Dados comuns, como o histórico de compras em farmácia, atraem o regime dos dados sensíveis sempre que o tratamento os revelar, ainda que esse tratamento não possa causar dano ao titular.
+comentario: Errado. O art. 11, § 1º, aplica o regime dos dados sensíveis ao tratamento que revele dados sensíveis e que possa causar dano ao titular, ressalvada a legislação específica. As duas condições são cumulativas.
