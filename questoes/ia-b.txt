@@ -17,9 +17,9 @@ comentario: Certo. O sinal típico é a distância entre o bom desempenho no tre
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 2
-enunciado: Quando um modelo preditivo é simples demais para captar a estrutura dos dados e tem desempenho ruim tanto no treinamento quanto no teste, diz-se que ele sofre de sobreajuste (overfitting).
-comentario: Errado. Isso é subajuste (underfitting), associado a alto viés. No sobreajuste, o modelo vai bem no treino e mal em dados novos (alta variância).
+dif: 3
+enunciado: O sobreajuste (overfitting) se caracteriza por erro baixo no conjunto de treinamento e erro alto em dados novos, e técnicas como regularização e validação cruzada ajudam a combatê-lo, ao passo que aumentar a complexidade do modelo é a forma usual de corrigi-lo.
+comentario: Errado. A descrição do sobreajuste e das técnicas para mitigá-lo está correta, mas aumentar a complexidade do modelo tende a agravá-lo. Esse é o remédio do subajuste (underfitting), em que o modelo, simples demais, erra no treino e no teste.
 
 === ia-03
 gab: C
@@ -72,12 +72,12 @@ enunciado: Situação hipotética: empresa substituiu nomes e CPFs da base de tr
 comentario: Errado. Pseudonimização mantém a possibilidade de reidentificação pela informação adicional guardada pelo controlador (art. 13, § 4º): o dado segue pessoal. É boa medida de segurança, não saída da lei.
 
 === ia-09
-gab: C
+gab: E
 ref: doutrina
-armadilha: conceito
-dif: 2
-enunciado: O regulamento europeu de inteligência artificial adota abordagem baseada em risco, com práticas de risco inaceitável proibidas, sistemas de alto risco sujeitos a requisitos rigorosos, obrigações de transparência para certos sistemas e regras mínimas para os demais.
-comentario: Certo. O Regulamento (UE) 2024/1689 entrou em vigor em agosto de 2024, com aplicação escalonada: as proibições valem desde fevereiro de 2025.
+armadilha: comparacao
+dif: 3
+enunciado: O regulamento europeu de inteligência artificial classifica os sistemas por nível de risco e proíbe, como prática de risco inaceitável, os sistemas usados no recrutamento e na seleção de candidatos a emprego.
+comentario: Errado. No regulamento europeu, sistemas de recrutamento e seleção de pessoal são de alto risco: permitidos, mas sujeitos a requisitos como gestão de riscos, qualidade dos dados, documentação técnica e supervisão humana. Entre as práticas proibidas estão, por exemplo, a pontuação social e a manipulação que explore vulnerabilidades.
 
 === ia-10
 gab: E
@@ -106,20 +106,20 @@ enunciado: Dados sintéticos podem reduzir o uso de dados pessoais reais no trei
 comentario: Certo: art. 12. Dados sintéticos gerados a partir de bases reais podem reter padrões individuais; a avaliação de reidentificação é indispensável.
 
 === ia-13
-gab: E
-ref: doutrina
-armadilha: conceito
-dif: 2
-enunciado: Em classificação binária muito desbalanceada, como fraudes que são 0,1% das transações, a acurácia global é suficiente para aferir a eficácia do classificador, dispensando precisão, revocação e F1-score.
-comentario: Errado. Um modelo que diga “legítima” para tudo teria acurácia de 99,9% sem achar fraude alguma. Com classes desbalanceadas, avaliam-se precisão, revocação e F1.
-
-=== ia-14
 gab: C
 ref: doutrina
-armadilha: conceito
-dif: 2
-enunciado: Revocação (recall) é a proporção de casos positivos reais que o modelo conseguiu identificar, e precisão é a proporção de acertos entre os casos que o modelo classificou como positivos.
-comentario: Certo. Num filtro de denúncias, alta revocação evita perder casos graves; alta precisão evita sobrecarregar a fiscalização com alarmes falsos.
+armadilha: caso
+dif: 3
+enunciado: Em base na qual as fraudes representam 0,1% das transações, um classificador que rotule todas as transações como legítimas tem acurácia de 99,9% e revocação nula para a classe de fraude.
+comentario: Certo. Ao acertar todas as transações legítimas (99,9% da base), o classificador tem acurácia de 99,9%, mas não identifica nenhuma fraude, de modo que a revocação da classe positiva é zero. Por isso, em bases desbalanceadas, a acurácia isolada engana.
+
+=== ia-14
+gab: E
+ref: doutrina
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: entre 100 transações fraudulentas, um modelo sinalizou 80 corretamente, e, das 160 transações que sinalizou como fraude, só essas 80 eram de fato fraudes. Assertiva: o modelo tem revocação de 50% e precisão de 80%.
+comentario: Errado. Os valores estão trocados. Revocação é a fração das fraudes reais identificadas: 80 de 100, ou 80%. Precisão é a fração de acertos entre os casos sinalizados: 80 de 160, ou 50%.
 
 === ia-15
 gab: E

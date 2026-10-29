@@ -17,9 +17,9 @@ comentario: Certo. Exemplo de classificação: detectar spam; de regressão: est
 gab: E
 ref: doutrina aprendizado de máquina
 armadilha: comparacao
-dif: 2
-enunciado: O agrupamento de clientes por semelhança de comportamento de compra é exemplo típico de aprendizado supervisionado, pois depende de rótulos definidos previamente.
-comentario: Errado. O agrupamento (clustering) é aprendizado não supervisionado: o algoritmo encontra grupos sem rótulos prévios, a partir da semelhança entre os dados.
+dif: 3
+enunciado: No aprendizado não supervisionado, o algoritmo trabalha sem rótulos prévios e busca estruturas nos dados, como no agrupamento de clientes, ao passo que a detecção de spam treinada com mensagens já marcadas como spam ou legítimas é exemplo de aprendizado por reforço.
+comentario: Errado. A primeira parte está correta. A detecção de spam treinada com mensagens já rotuladas é aprendizado supervisionado; no aprendizado por reforço, um agente aprende por tentativa e erro, recebendo recompensas e penalidades pelas ações.
 
 === ia3-03
 gab: C
@@ -80,10 +80,10 @@ comentario: Certo. Saber que alguém está na base de treino de um modelo sobre 
 === ia3-10
 gab: E
 ref: doutrina ataques a modelos
-armadilha: absoluto
-dif: 2
-enunciado: Modelos de IA treinados não guardam nenhuma informação recuperável sobre os dados de treinamento, de modo que ataques de inversão de modelo são impossíveis.
-comentario: Errado. Modelos podem memorizar trechos dos dados, e ataques de inversão ou de extração podem reconstruir parte deles. Por isso o tratamento de dados pessoais no treinamento exige base legal e salvaguardas.
+armadilha: extrapolacao
+dif: 3
+enunciado: Ataques de inferência de pertencimento buscam descobrir se determinado registro integrou o conjunto de treinamento de um modelo, e o risco desse tipo de ataque é eliminado quando o modelo é disponibilizado apenas por interface de consulta, sem acesso aos parâmetros.
+comentario: Errado. A definição do ataque está correta, mas a inferência de pertencimento pode ser feita só com consultas ao modelo, em cenário de caixa-preta, observando por exemplo a confiança das respostas. Expor apenas a interface reduz, mas não elimina, o risco; privacidade diferencial e limitação de consultas são mitigações usuais.
 
 === ia3-11
 gab: C
