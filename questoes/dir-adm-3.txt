@@ -10,14 +10,14 @@ apoio_POSSE: Joana foi aprovada no concurso para o cargo de Especialista em Regu
 === da-age-01
 gab: C
 tema: adm-agentes
-ref: lei8112 13, § 1º
-trecho: A posse ocorrerá no prazo de trinta dias contados da publicação do ato de provimento
+ref: lei8112 13, § 6º
+trecho: Será tornado sem efeito o ato de provimento se a posse não ocorrer no prazo previsto
 apoio: @POSSE
 comando: Com base nessa situação hipotética e na Lei n.º 8.112/1990, julgue os itens a seguir.
-armadilha: numero
-dif: 1
-enunciado: Joana terá trinta dias, contados da publicação do ato de nomeação, para tomar posse.
-comentario: Art. 13, § 1º: trinta dias da publicação do ato de provimento. Depois da posse, mais quinze dias para entrar em exercício (art. 15, § 1º).
+armadilha: caso
+dif: 3
+enunciado: Se Joana não tomar posse no prazo legal, o ato de nomeação será tornado sem efeito; se tomar posse e não entrar em exercício no prazo, será exonerada.
+comentario: Certo. Sem posse no prazo, o ato de provimento é tornado sem efeito (art. 13, § 6º). Empossada e sem exercício no prazo, é exonerada de ofício (arts. 15, § 2º, e 34, parágrafo único, II).
 
 === da-age-02
 gab: C
@@ -26,10 +26,10 @@ ref: lei8112 15, § 1º
 trecho: É de quinze dias o prazo para o servidor empossado em cargo público entrar em exercício, contados da data da posse
 apoio: @POSSE
 comando: Com base nessa situação hipotética e na Lei n.º 8.112/1990, julgue os itens a seguir.
-armadilha: numero
-dif: 1
-enunciado: Uma vez empossada, Joana terá quinze dias, contados da posse, para entrar em exercício.
-comentario: Art. 15, § 1º, da Lei 8.112/1990. Se não entrar em exercício no prazo, será exonerada (§ 2º).
+armadilha: caso
+dif: 2
+enunciado: O prazo de Joana para entrar em exercício será contado da data da posse, e não da publicação do ato de nomeação.
+comentario: Certo. Art. 15, § 1º: o prazo de exercício corre da posse; o da posse é que corre da publicação do ato de provimento (art. 13, § 1º).
 
 === da-age-03
 gab: E
@@ -249,11 +249,11 @@ comentario: Art. 5º, IV. O alcance é amplo: qualquer Poder, qualquer ente, mes
 gab: E
 tema: adm-etica
 ref: dec1171 VI
-trecho: A função pública deve ser tida como exercício profissional e, portanto, se integra na vida particular de cada servidor público
+trecho: poderão acrescer ou diminuir o seu bom conceito na vida funcional
 armadilha: extrapolacao
-dif: 1
-enunciado: Segundo o Código de Ética Profissional do Servidor Público Civil do Poder Executivo Federal, as condutas da vida privada do servidor não repercutem em sua vida funcional.
-comentario: O item VI do Código diz o oposto: a função pública se integra na vida particular, e os atos da vida privada podem acrescer ou diminuir o bom conceito na vida funcional. O item I fala de dignidade e decoro no exercício do cargo “ou fora dele”.
+dif: 3
+enunciado: Para o Código de Ética do servidor federal, a função pública integra-se à vida particular do servidor; por isso, os fatos de sua vida privada podem diminuir o bom conceito funcional, mas nunca acrescê-lo.
+comentario: Errado. O item VI diz que esses fatos “poderão acrescer ou diminuir” o bom conceito na vida funcional.
 
 === da-eti-09
 gab: C
@@ -261,9 +261,9 @@ tema: adm-etica
 ref: dec1171 III
 trecho: A moralidade da Administração Pública não se limita à distinção entre o bem e o mal, devendo ser acrescida da idéia de que o fim é sempre o bem comum
 armadilha: conceito
-dif: 1
-enunciado: Para o Código de Ética do servidor público civil do Executivo federal, a moralidade administrativa vai além da distinção entre o bem e o mal: inclui a ideia de que o fim é sempre o bem comum.
-comentario: Item III do Código. Ele completa: o equilíbrio entre a legalidade e a finalidade é que consolida a moralidade do ato administrativo.
+dif: 2
+enunciado: Para o Código de Ética do servidor federal, a moralidade administrativa não se esgota em distinguir o bem do mal: exige ter o bem comum como fim e equilibrar legalidade e finalidade na conduta do servidor.
+comentario: Certo. Item III. É esse equilíbrio que consolida a moralidade do ato administrativo.
 
 === da-eti-10
 gab: C
@@ -318,12 +318,12 @@ comentario: Errado. Retomar o serviço por interesse público, com lei autorizat
 === da-ser-05
 gab: C
 tema: adm-servicos
-ref: lei8987 6, § 1º
-trecho: Serviço adequado é o que satisfaz as condições de regularidade, continuidade, eficiência, segurança, atualidade, generalidade, cortesia na sua prestação e modicidade das tarifas
-armadilha: rol
-dif: 1
-enunciado: Modicidade das tarifas, cortesia na prestação e atualidade estão entre as condições que caracterizam o serviço adequado na Lei nº 8.987/1995.
-comentario: Lei 8.987, art. 6º, § 1º. Atualidade significa modernidade das técnicas, do equipamento e das instalações; generalidade, atender a todos sem discriminação.
+ref: lei8987 6, § 4º
+trecho: não poderá iniciar-se na sexta-feira, no sábado ou no domingo, nem em feriado ou no dia anterior a feriado
+armadilha: excecao
+dif: 3
+enunciado: A interrupção do serviço por inadimplemento do usuário, feita após aviso prévio, não caracteriza descontinuidade, mas não pode começar em sexta-feira, sábado, domingo, feriado ou véspera de feriado.
+comentario: Certo. Art. 6º, § 3º, II, e § 4º, da Lei 8.987/1995; a restrição de dias foi incluída pela Lei 14.015/2020.
 
 === da-ser-06
 gab: E
@@ -393,12 +393,12 @@ comentario: A restrição de acesso da informação pessoal protege a pessoa con
 === da-ser-12
 gab: C
 tema: adm-servicos
-ref: lei8987 2, II
-trecho: por sua conta e risco e por prazo determinado
-armadilha: conceito
-dif: 1
-enunciado: Na concessão de serviço público, a concessionária executa o serviço em seu próprio nome, por sua conta e risco e por prazo determinado.
-comentario: Lei 8.987, art. 2º, II. O Estado mantém a titularidade e fiscaliza; a concessionária assume o risco do negócio e é remunerada, em regra, pela tarifa.
+ref: lei8987 2, IV
+trecho: feita pelo poder concedente à pessoa física ou jurídica que demonstre capacidade para seu desempenho
+armadilha: comparacao
+dif: 3
+enunciado: Ao contrário da concessão, que só pode ser outorgada a pessoa jurídica ou consórcio de empresas, a permissão de serviço público pode ter pessoa física como delegatária.
+comentario: Certo. Art. 2º, II e IV, da Lei 8.987/1995. A permissão é delegação a título precário.
 
 === da-lic-01
 gab: E
