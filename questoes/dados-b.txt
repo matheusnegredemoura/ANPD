@@ -14,12 +14,12 @@ enunciado: No DAMA-DMBOK, a governança de dados ocupa o centro da roda de funç
 comentario: Certo. As áreas em volta incluem arquitetura, modelagem, armazenamento e operações, segurança, integração e interoperabilidade, documentos e conteúdo, dados mestres e de referência, data warehousing e BI, metadados e qualidade.
 
 === dd-02
-gab: E
+gab: C
 ref: doutrina
-armadilha: conceito
-dif: 2
-enunciado: Governança de dados e gerenciamento de dados confundem-se, pois ambas as expressões designam a execução operacional do armazenamento, da integração e da qualidade dos dados.
-comentario: Errado. Governança é o exercício de autoridade e controle (planejamento, monitoramento e aplicação de políticas) sobre o gerenciamento dos dados; o gerenciamento executa as atividades. É a mesma distinção entre governança e gestão.
+armadilha: comparacao
+dif: 3
+enunciado: No DAMA-DMBOK, a governança de dados exerce autoridade e controle, com planejamento, monitoramento e fiscalização, sobre a gestão dos ativos de dados, e por isso se distingue do gerenciamento de dados, que executa essas funções no dia a dia.
+comentario: Certo. Para o DMBOK, governança é o exercício de autoridade, controle e tomada de decisão compartilhada sobre a gestão dos ativos de dados; o gerenciamento executa as funções (arquitetura, qualidade, metadados, segurança e outras). A governança fica no centro da roda e orienta as demais áreas.
 
 === dd-03
 gab: C
@@ -102,12 +102,12 @@ enunciado: Situação hipotética: o sistema que registra, a cada minuto, centen
 comentario: Certo. OLTP é otimizado para muitas transações curtas de inserção e atualização; OLAP, para consultas analíticas complexas sobre grandes volumes históricos. Por isso o data warehouse é alimentado a partir dos sistemas transacionais, sem disputar recursos com eles.
 
 === dd-14
-gab: C
+gab: E
 ref: doutrina
-armadilha: conceito
-dif: 2
-enunciado: Na análise OLAP, a operação slice fixa um valor de uma das dimensões do cubo e gera um subconjunto dos dados, como as vendas de um único ano.
-comentario: Certo. Dice seleciona faixas em várias dimensões; drill down detalha; roll up agrega; pivot gira os eixos da visualização.
+armadilha: comparacao
+dif: 3
+enunciado: Na análise OLAP, a operação slice fixa valores em duas ou mais dimensões do cubo, gerando um subcubo, ao passo que a operação dice fixa um único valor de uma só dimensão, como as vendas de um único ano.
+comentario: Errado. As definições estão trocadas. O slice fixa um valor de uma dimensão e gera uma fatia do cubo (por exemplo, só o ano de 2024); o dice seleciona intervalos ou valores em duas ou mais dimensões e gera um subcubo.
 
 === dd-15
 gab: C
@@ -134,30 +134,30 @@ enunciado: Situação hipotética: prefeitura publicou na internet, em formato a
 comentario: Errado. Dados abertos são dados públicos disponibilizados para livre uso, em formato aberto e legível por máquina. Dados pessoais, em regra, não são abertos, e sua divulgação exige base legal, além do respeito à LAI e à LGPD.
 
 === dd-18
-gab: E
+gab: C
 ref: doutrina
 armadilha: conceito
-dif: 2
-enunciado: Para que dados governamentais sejam dados abertos, é suficiente publicá-los na internet em relatórios protegidos contra alteração, como PDF digitalizado por imagem, sob licença que permita só a leitura para fins não comerciais.
-comentario: Errado. Dados abertos exigem formato aberto e legível por máquina (CSV, JSON, XML) e licença que permita uso, reúso e redistribuição livres (Decreto 8.777/2016).
+dif: 3
+enunciado: Para serem considerados abertos, os dados governamentais devem estar estruturados em formato aberto, ser processáveis por máquina, referenciados na internet e disponibilizados sob licença aberta que permita sua livre utilização, consumo ou cruzamento, limitada a exigência à citação da autoria ou da fonte.
+comentario: Certo. É o conceito do Decreto 8.777/2016 (Política de Dados Abertos do Poder Executivo federal), alinhado aos princípios internacionais de dados abertos. PDF digitalizado por imagem não é processável por máquina, e licença restrita a fins não comerciais não é aberta.
 
 === dd-19
 gab: C
 ref: dec10046 4
-trecho: é categorizado em três níveis, de acordo com sua confidencialidade
-armadilha: rol
-dif: 2
-enunciado: O Decreto nº 10.046/2019 categoriza o compartilhamento de dados entre órgãos e entidades federais em três níveis, de acordo com a confidencialidade: amplo, restrito e específico.
-comentario: Certo. Amplo: dados públicos sem restrição de acesso; restrito: dados protegidos por sigilo, compartilhados para execução de políticas públicas; específico: dados protegidos por sigilo, compartilhados com órgãos determinados, nas hipóteses autorizadas.
+trecho: A categorização do nível de compartilhamento será feita pelo gestor de dados, com base na legislação
+armadilha: sujeito
+dif: 3
+enunciado: No Decreto 10.046/2019, cabe ao gestor de dados categorizar o nível de compartilhamento com base na legislação; não feita a categorização, ele a fará ao responder a pedido de acesso, e ela será revista a cada cinco anos ou quando mudarem as diretrizes que a motivaram.
+comentario: Certo. Art. 4º, § 1º (categorização pelo gestor de dados), § 5º (categorização ao responder ao pedido de acesso) e § 6º (revisão a cada cinco anos ou quando mudarem as diretrizes). O § 7º manda priorizar a categoria de maior abertura.
 
 === dd-20
 gab: E
-ref: dec10046 4, I
-trecho: compartilhamento amplo, quando se tratar de dados públicos que não estão sujeitos a nenhuma restrição de acesso
-armadilha: conceito
-dif: 2
-enunciado: O Decreto n.º 10.046/2019 categoriza o compartilhamento de dados em três níveis, de acordo com sua confidencialidade, amplo, restrito e específico, e no amplo se enquadram os dados protegidos por sigilo, cujo acesso depende de autorização do gestor da base.
-comentario: Errado. O amplo é para dados públicos, sem restrição de acesso. Dados protegidos por sigilo entram no compartilhamento restrito ou no específico.
+ref: dec10046 4, II
+trecho: cujo mecanismo de compartilhamento e regras sejam simplificados e estabelecidos pelo Comitê Central de Governança de Dados
+armadilha: sujeito
+dif: 3
+enunciado: No compartilhamento restrito do Decreto 10.046/2019, os dados protegidos por sigilo podem ser acessados por todos os órgãos e entidades abrangidos, para a execução de políticas públicas, com mecanismo e regras definidos pelo gestor de dados de cada base.
+comentario: Errado. No compartilhamento restrito, o mecanismo e as regras são simplificados e estabelecidos pelo Comitê Central de Governança de Dados (art. 4º, II). É no compartilhamento específico, com acesso apenas a órgãos determinados nas hipóteses legais, que as regras são definidas pelo gestor de dados (III).
 
 === dd-21
 gab: C
@@ -171,12 +171,12 @@ enunciado: Ao julgar a ADI 6.649 e a ADPF 695, o STF admitiu o compartilhamento 
 comentario: Certo. A decisão de 2022 exigiu, entre outros pontos, transparência sobre o compartilhamento, mecanismos de segurança e responsabilização por uso indevido. O Decreto 11.266/2022 levou essas exigências ao texto do Decreto 10.046 (art. 3º, VII a IX; art. 5º, § 4º; art. 15-A).
 
 === dd-22
-gab: C
+gab: E
 ref: doutrina
 armadilha: comparacao
-dif: 2
-enunciado: Na mineração de dados, a classificação é técnica supervisionada que atribui registros a classes predefinidas, enquanto o agrupamento (clustering) é técnica não supervisionada, que descobre grupos sem rótulos prévios.
-comentario: Certo. Exemplo: classificar denúncias como procedentes ou não a partir de casos rotulados (supervisionado) ou agrupar reclamações parecidas para descobrir temas recorrentes (não supervisionado).
+dif: 3
+enunciado: Na mineração de dados, classificação e regressão são técnicas supervisionadas, e diferem porque a classificação prevê valores numéricos contínuos, enquanto a regressão atribui os registros a classes predefinidas.
+comentario: Errado. As duas são supervisionadas, mas as funções estão trocadas: a classificação atribui registros a classes (categorias) predefinidas, e a regressão prevê valores numéricos contínuos. O agrupamento (clustering) é técnica não supervisionada.
 
 === dd-23
 gab: E

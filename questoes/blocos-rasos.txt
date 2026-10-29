@@ -3,14 +3,14 @@
 // Trechos conferidos em fontes/cf88.txt, lei8429.txt, lei12813.txt, res2.txt, res32.txt e lgpd.txt.
 
 === orc-01
-gab: C
+gab: E
 bloco: orcamento
-ref: cf88 166
-trecho: serão apreciados pelas duas Casas do Congresso Nacional, na forma do regimento comum
-armadilha: caso
-dif: 2
-enunciado: Situação hipotética: o projeto de lei de diretrizes orçamentárias chegou ao Congresso. Assertiva: ele é apreciado pelas duas Casas, na forma do regimento comum.
-comentario: Certo: art. 166, caput. A apreciação é conjunta, em sessão do Congresso Nacional, e não em uma Casa depois da outra, como no processo legislativo comum.
+ref: cf88 166, § 4º
+trecho: As emendas ao projeto de lei de diretrizes orçamentárias não poderão ser aprovadas quando incompatíveis com o plano plurianual
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: o projeto de lei de diretrizes orçamentárias chegou ao Congresso Nacional, e um deputado apresentou emenda incompatível com o plano plurianual. Assertiva: o projeto é apreciado pelas duas Casas, na forma do regimento comum, e a emenda pode ser aprovada, pois a exigência de compatibilidade com o plano plurianual vale só para emendas ao projeto da lei orçamentária anual.
+comentario: Errado. A apreciação conjunta pelas duas Casas está correta (art. 166, caput), mas as emendas ao projeto de lei de diretrizes orçamentárias não podem ser aprovadas quando incompatíveis com o plano plurianual (§ 4º). Para as emendas à lei orçamentária anual, exige-se compatibilidade com o plano plurianual e com a LDO (§ 3º, I).
 
 === orc-02
 gab: E
@@ -26,11 +26,11 @@ comentario: Errado. As emendas são apresentadas na comissão mista, que emite p
 gab: E
 bloco: orcamento
 ref: cf88 166, § 1º
-trecho: e sobre as contas apresentadas anualmente pelo Presidente da República
-armadilha: sujeito
-dif: 2
-enunciado: Situação hipotética: chegaram ao Congresso as contas anuais do Presidente da República. Assertiva: a Comissão de Fiscalização e Controle da Câmara dos Deputados deve emitir parecer sobre elas.
-comentario: Errado. Cabe à comissão mista permanente de senadores e deputados examinar e emitir parecer sobre as contas anuais do Presidente (art. 166, § 1º, I, da Constituição), a mesma que examina os projetos orçamentários.
+trecho: sem prejuízo da atuação das demais comissões do Congresso Nacional e de suas Casas
+armadilha: extrapolacao
+dif: 3
+enunciado: Cabe à comissão mista permanente de Senadores e Deputados emitir parecer sobre os projetos das leis orçamentárias e sobre as contas anuais do Presidente da República, competência que afasta a atuação das demais comissões do Congresso Nacional e de suas Casas no acompanhamento e na fiscalização orçamentária.
+comentario: Errado. A comissão mista exerce o acompanhamento e a fiscalização orçamentária sem prejuízo da atuação das demais comissões do Congresso Nacional e de suas Casas (art. 166, § 1º, II). O parecer sobre os projetos e sobre as contas do Presidente está correto (inciso I).
 
 === orc-04
 gab: C
@@ -63,14 +63,14 @@ enunciado: Situação hipotética: deputado apresentou emenda ao projeto de lei 
 comentario: Certo: art. 166, § 3º, I. É a hierarquia entre as três leis: a LOA segue a LDO, que segue o PPA.
 
 === orc-07
-gab: E
+gab: C
 bloco: orcamento
 ref: cf88 166, § 3º
 trecho: serviço da dívida
 armadilha: excecao
-dif: 2
-enunciado: A anulação de despesas com o serviço da dívida pode servir de fonte de recursos para emendas parlamentares ao projeto de lei orçamentária anual.
-comentario: Errado. O serviço da dívida está entre as despesas cuja anulação não pode financiar emendas (art. 166, § 3º, II, b), ao lado de pessoal e transferências tributárias constitucionais.
+dif: 3
+enunciado: Emenda ao projeto de lei orçamentária anual pode indicar como fonte de recursos a anulação de despesas de custeio, mas não a anulação de dotações para pessoal e encargos, do serviço da dívida ou de transferências tributárias constitucionais a Estados, Municípios e Distrito Federal.
+comentario: Certo. A emenda deve indicar os recursos necessários, admitidos apenas os de anulação de despesa, excluídas as que incidam sobre pessoal e encargos, serviço da dívida e transferências tributárias constitucionais (art. 166, § 3º, II). A despesa de custeio comum não está na lista de exclusões.
 
 === orc-08
 gab: E
@@ -143,14 +143,14 @@ enunciado: Para reconduzir a despesa com pessoal ao limite, a Constituição man
 comentario: Errado. O § 6º do art. 169 considera extinto o cargo e veda, pelo prazo de quatro anos, a criação de cargo, emprego ou função com atribuições iguais ou assemelhadas. O restante está nos §§ 3º a 5º: redução das despesas com comissionados, exoneração dos não estáveis e perda do cargo pelo estável, com indenização de um mês de remuneração por ano de serviço.
 
 === orc-15
-gab: C
+gab: E
 bloco: orcamento
-ref: cf88 169, § 5º
-trecho: fará jus a indenização correspondente a um mês de remuneração por ano de serviço
+ref: cf88 169, § 6º
+trecho: vedada a criação de cargo, emprego ou função com atribuições iguais ou assemelhadas pelo prazo de quatro anos
 armadilha: numero
-dif: 2
-enunciado: O servidor estável que perde o cargo para que o ente cumpra o limite de despesa com pessoal tem direito a indenização correspondente a um mês de remuneração por ano de serviço.
-comentario: Certo: art. 169, § 5º. E o cargo é extinto, vedada a criação de cargo com atribuições iguais ou assemelhadas por quatro anos (§ 6º).
+dif: 3
+enunciado: O servidor estável que perde o cargo para que o ente cumpra o limite de despesa com pessoal tem direito a indenização de um mês de remuneração por ano de serviço, e o cargo é extinto, vedada a criação de cargo, emprego ou função com atribuições iguais ou assemelhadas por dois anos.
+comentario: Errado. A indenização está correta (art. 169, § 5º), mas a vedação de criar cargo, emprego ou função com atribuições iguais ou assemelhadas dura quatro anos (§ 6º).
 
 === eti-01
 gab: E
