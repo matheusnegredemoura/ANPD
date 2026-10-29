@@ -89,12 +89,12 @@ enunciado: No modelo das três linhas, a gestão que entrega os serviços respon
 comentario: O modelo do Instituto dos Auditores Internos (2020) substituiu as “três linhas de defesa”. A propriedade dos riscos é da gestão, não da auditoria.
 
 === gp-11
-gab: E
+gab: C
 ref: doutrina Gestão de projetos (PMBOK)
-armadilha: conceito
-dif: 2
-enunciado: Situação hipotética: o setor de protocolo recebe e registra documentos todos os dias, de forma contínua. Assertiva: essa atividade é um projeto.
-comentario: Errado. Projeto é esforço temporário empreendido para criar produto, serviço ou resultado único. O trabalho contínuo e repetitivo é operação.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: o setor de protocolo de um órgão recebe e registra documentos todos os dias e, neste ano, recebeu uma equipe encarregada de implantar, em seis meses, o novo sistema eletrônico de protocolo. Assertiva: a implantação do sistema é um projeto, e o registro diário dos documentos, uma operação.
+comentario: Certo. Projeto é esforço temporário, com início e fim definidos, para criar produto, serviço ou resultado exclusivo (PMBOK); a implantação do sistema tem prazo e entrega única. O registro diário é trabalho contínuo e repetitivo, típico de operação.
 
 === gp-12
 gab: C
@@ -124,9 +124,9 @@ comentario: Errado. Pelo Guia do Scrum, o product owner é quem responde por max
 gab: E
 ref: doutrina Gestão de projetos (abordagem ágil)
 armadilha: comparacao
-dif: 2
-enunciado: Abordagens ágeis exigem que todo o escopo seja detalhado e congelado antes do início do projeto, ao passo que as preditivas admitem mudanças constantes ao longo da execução.
-comentario: Errado. É o inverso: o ciclo preditivo define o escopo no início e controla mudanças; o ágil trabalha em iterações curtas, com escopo que evolui por entregas incrementais e feedback.
+dif: 3
+enunciado: Nas abordagens ágeis, o escopo tende a ser fixado de antemão, enquanto prazo e custo variam conforme as entregas, ao contrário das abordagens preditivas, em que prazo e custo são fixos e o escopo se ajusta ao longo da execução.
+comentario: Errado. A lógica é a inversa. Nas abordagens preditivas, o escopo é definido no início, e prazo e custo são estimados a partir dele. Nas ágeis, prazo e custo tendem a ser fixados (ciclos com duração definida e equipe estável), e o escopo é priorizado e refinado a cada iteração.
 
 === gp-16
 gab: C
@@ -137,20 +137,20 @@ enunciado: No gerenciamento de processos (BPM), processo é conjunto estruturado
 comentario: Certo. Automatizar sem redesenhar perpetua ineficiências.
 
 === gp-17
-gab: C
+gab: E
 ref: doutrina Notação BPMN
-armadilha: conceito
-dif: 2
-enunciado: Na notação BPMN, eventos são representados por círculos, atividades por retângulos de cantos arredondados e gateways, que controlam divergências e convergências do fluxo, por losangos.
-comentario: Raias (lanes) e piscinas (pools) indicam os participantes. Fluxo de sequência liga elementos dentro de uma piscina; fluxo de mensagem liga piscinas diferentes.
+armadilha: comparacao
+dif: 3
+enunciado: Na notação BPMN, o gateway exclusivo, representado por losango com X, permite que o fluxo siga por todos os caminhos ao mesmo tempo, ao passo que o gateway paralelo, representado por losango com sinal de mais, direciona o fluxo para um único caminho, conforme a condição.
+comentario: Errado. As funções estão trocadas. O gateway exclusivo (X) escolhe um único caminho conforme a condição; o paralelo (+) dispara todos os caminhos ao mesmo tempo, sem condição, e na convergência espera que todos cheguem.
 
 === gp-18
-gab: E
+gab: C
 ref: doutrina Gestão do conhecimento (Nonaka e Takeuchi)
 armadilha: conceito
-dif: 2
-enunciado: No modelo SECI de criação do conhecimento, a externalização é a conversão de conhecimento explícito em tácito, como ocorre quando o servidor aprende lendo um manual.
-comentario: Errado. Externalização converte tácito em explícito (registrar a experiência em manual). Aprender lendo o manual é internalização (explícito em tácito). Socialização é tácito para tácito, e combinação é explícito para explícito.
+dif: 3
+enunciado: No modelo SECI de Nonaka e Takeuchi, a socialização converte conhecimento tácito em tácito, como na observação e na prática conjunta, e a externalização converte conhecimento tácito em explícito, como na redação de um manual com base na experiência dos servidores.
+comentario: Certo. As quatro conversões do SECI: socialização (tácito para tácito), externalização (tácito para explícito), combinação (explícito para explícito) e internalização (explícito para tácito, como quando se aprende fazendo a partir de um manual).
 
 === gp-19
 gab: C
@@ -169,21 +169,21 @@ enunciado: Situação hipotética: um órgão passou a pactuar metas de desempen
 comentario: Errado. Metas, controle de resultados a posteriori e mais autonomia do gestor caracterizam o modelo gerencial. O burocrático enfatiza o controle a priori dos procedimentos. No Brasil, o Plano Diretor da Reforma do Aparelho do Estado (1995) foi o marco do modelo gerencial.
 
 === gp-21
-gab: C
+gab: E
 ref: doutrina Metas e indicadores
 armadilha: conceito
-dif: 2
-enunciado: Indicadores de insumo medem os recursos empregados, indicadores de produto medem as entregas realizadas e indicadores de resultado ou impacto medem as mudanças provocadas no público-alvo ou na sociedade.
-comentario: Exemplo da ANPD: servidores e orçamento da fiscalização (insumo); fiscalizações concluídas (produto); redução de incidentes graves no setor fiscalizado (resultado). Bons indicadores são mensuráveis, comparáveis no tempo e ligados a metas.
+dif: 3
+enunciado: Indicadores de eficiência relacionam os produtos obtidos aos insumos empregados, indicadores de eficácia medem o grau de alcance das metas de entrega, e indicadores de efetividade medem os recursos consumidos pela ação.
+comentario: Errado. Os de efetividade medem os efeitos ou impactos da ação sobre o público-alvo ou a sociedade, isto é, se o problema foi de fato resolvido. Os recursos consumidos são objeto dos indicadores de insumo e entram no cálculo da eficiência e da economicidade.
 
 === gp-22
-gab: E
+gab: C
 ref: lai 8
-trecho: possibilitar o acesso automatizado por sistemas externos em formatos abertos, estruturados e legíveis por máquina
-armadilha: conceito
-dif: 2
-enunciado: Situação hipotética: órgão publica em seu sítio as informações de transparência ativa em imagens escaneadas, legíveis por pessoas, mas não por máquinas. Assertiva: a prática atende à Lei de Acesso à Informação.
-comentario: Errado. O art. 8º, § 3º, da LAI exige, entre outros requisitos, a gravação de relatórios em formatos abertos e não proprietários e o acesso automatizado por sistemas externos em formatos abertos, estruturados e legíveis por máquina. É a base legal dos dados abertos.
+trecho: conter ferramenta de pesquisa de conteúdo que permita o acesso à informação de forma objetiva, transparente, clara e em linguagem de fácil compreensão
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: órgão publica as informações de transparência ativa em planilhas em formato aberto e legível por máquina, com acesso automatizado por sistemas externos, mas seu sítio não tem ferramenta de pesquisa de conteúdo. Assertiva: a prática descumpre requisito da LAI.
+comentario: Certo. Os sítios oficiais devem, entre outros requisitos, conter ferramenta de pesquisa de conteúdo que permita o acesso à informação de forma objetiva, transparente, clara e em linguagem de fácil compreensão (art. 8º, § 3º, I). O formato aberto e o acesso automatizado (incisos II e III) não suprem a falta.
 
 === gp-23
 bloco: dados-bi
@@ -250,7 +250,7 @@ comentario: Na Lei nº 13.460/2017, a ideia aparece na vedação de exigir nova 
 === gp-30
 gab: E
 ref: doutrina Agenda 2030 (ODS)
-armadilha: numero
-dif: 2
-enunciado: A Agenda 2030 da ONU estrutura-se em 8 Objetivos de Desenvolvimento Sustentável, que sucederam os 17 Objetivos de Desenvolvimento do Milênio, vigentes até 2015.
-comentario: Errado. Os números estão trocados: os ODM eram 8; a Agenda 2030 tem 17 ODS e 169 metas.
+armadilha: absoluto
+dif: 3
+enunciado: A Agenda 2030 da ONU estrutura-se em 17 Objetivos de Desenvolvimento Sustentável, que sucederam os 8 Objetivos de Desenvolvimento do Milênio e se desdobram em 169 metas, aplicáveis apenas aos países em desenvolvimento.
+comentario: Errado. Os números estão corretos (17 ODS, 169 metas, sucessores dos 8 ODM), mas a Agenda 2030 é universal: aplica-se a todos os países, desenvolvidos ou em desenvolvimento. A aplicação restrita aos países em desenvolvimento era característica associada aos ODM.
