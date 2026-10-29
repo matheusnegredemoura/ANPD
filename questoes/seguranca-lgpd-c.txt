@@ -54,11 +54,11 @@ comentario: Certo: art. 48, § 2º. É providência para salvaguardar os titular
 === sg-07
 gab: E
 ref: lgpd 48
-trecho: No juízo de gravidade do incidente, será avaliada eventual comprovação de que foram adotadas medidas técnicas adequadas que tornem os dados pessoais afetados ininteligíveis
-armadilha: conceito
-dif: 2
-enunciado: Situação hipotética: uma empresa sofreu incidente com dados pessoais que estavam criptografados. Assertiva: a criptografia dispensa, por si só, a comunicação do incidente à ANPD, independentemente da avaliação de gravidade.
-comentario: Errado. Medidas que tornem os dados ininteligíveis a terceiros são avaliadas no juízo de gravidade (art. 48, § 3º); não há dispensa automática. Se a chave também vazou, por exemplo, a proteção não existe.
+trecho: medidas técnicas adequadas que tornem os dados pessoais afetados ininteligíveis
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: dados pessoais vazados estavam cifrados, mas a chave da cifra foi exposta no mesmo incidente. Assertiva: o simples fato de os dados estarem criptografados assegura que, no juízo de gravidade, sejam tidos como ininteligíveis para terceiros não autorizados.
+comentario: Errado. O § 3º do art. 48 avalia a comprovação de medidas técnicas adequadas que tornem os dados ininteligíveis para terceiros não autorizados. Cifra cuja chave vazou junto não produz esse efeito: o que conta é a ininteligibilidade efetiva, não o rótulo da medida.
 
 === sg-13
 gab: C

@@ -23,28 +23,28 @@ comentario: Art. 46, § 2º: é a privacidade e segurança desde a concepção (
 gab: E
 ref: lgpd 46, § 2º
 trecho: desde a fase de concepção do produto ou do serviço até a sua execução
-armadilha: extrapolacao
-dif: 2
-enunciado: Dirigidas a proteger os dados contra acessos não autorizados e situações acidentais ou ilícitas, as medidas de segurança exigidas pela LGPD devem ser observadas a partir do momento em que o produto ou o serviço entra em execução.
-comentario: Errado. Art. 46, § 2º: as medidas devem ser observadas desde a fase de concepção do produto ou do serviço até a sua execução. A primeira parte reproduz o caput; o erro está no marco inicial.
+armadilha: literal
+dif: 3
+enunciado: Situação hipotética: uma empresa projetou seu novo serviço digital sem prever controles de segurança, mas pretende implantá-los antes do lançamento, quando o tratamento efetivamente começar. Assertiva: a conduta atende à LGPD, que exige as medidas de segurança a partir do momento em que o serviço entra em execução.
+comentario: Errado. O § 2º do art. 46 exige que as medidas de segurança sejam observadas desde a fase de concepção do produto ou do serviço até a sua execução. Deixar a segurança fora do projeto contraria essa exigência, ainda que os controles sejam implantados antes do lançamento.
 
 === lgpd-46-04
 gab: E
 ref: lgpd 46, § 1º
-trecho: A autoridade nacional poderá dispor sobre padrões técnicos mínimos
-armadilha: conceito
-dif: 2
-enunciado: A LGPD obriga a autoridade nacional a editar padrões técnicos mínimos de segurança antes que os agentes de tratamento possam ser responsabilizados por falhas de segurança.
-comentario: O § 1º do art. 46 diz que a ANPD “poderá” dispor sobre padrões técnicos mínimos. O dever de segurança do caput existe independentemente desse regulamento.
+trecho: considerados a natureza das informações tratadas, as características específicas do tratamento e o estado atual da tecnologia
+armadilha: rol
+dif: 3
+enunciado: Ao dispor sobre padrões técnicos mínimos de segurança, a autoridade nacional considera a natureza das informações tratadas, as características específicas do tratamento e o custo de implementação das medidas, com atenção especial aos dados pessoais sensíveis.
+comentario: Errado. O § 1º do art. 46 manda considerar a natureza das informações, as características específicas do tratamento, o estado atual da tecnologia e os princípios do art. 6º, com atenção especial aos dados sensíveis. O custo de implementação é critério do art. 32 do RGPD europeu, não do dispositivo da LGPD.
 
 === lgpd-47-01
 gab: C
 ref: lgpd 47
 trecho: obriga-se a garantir a segurança da informação prevista nesta Lei em relação aos dados pessoais, mesmo após o seu término
-armadilha: extrapolacao
-dif: 2
-enunciado: Os agentes de tratamento e qualquer outra pessoa que intervenha em uma das fases do tratamento continuam obrigados a garantir a segurança dos dados pessoais depois de encerrado o tratamento.
-comentario: Art. 47 da LGPD: o dever de segurança persiste “mesmo após o seu término” e alcança qualquer pessoa que intervenha em uma das fases do tratamento.
+armadilha: sujeito
+dif: 3
+enunciado: Situação hipotética: empresa contratada só para digitalizar documentos de um controlador encerrou o contrato e devolveu os arquivos, mas manteve cópias de segurança em seus servidores. Assertiva: mesmo encerrado o contrato e o tratamento para o qual foi contratada, a empresa continua obrigada a garantir a segurança dessas informações.
+comentario: Certo. O art. 47 obriga os agentes de tratamento e qualquer outra pessoa que intervenha em uma das fases do tratamento a garantir a segurança dos dados pessoais, mesmo após o término do tratamento. Quem digitalizou os documentos interveio no tratamento e segue vinculado.
 
 === lgpd-47-02
 gab: C
@@ -65,13 +65,13 @@ enunciado: Situação hipotética: um hospital sofreu vazamento de dados de paci
 comentario: Errado. O controlador deve comunicar à autoridade nacional e ao titular a ocorrência de incidente que possa acarretar risco ou dano relevante (art. 48, caput). O operador informa o controlador.
 
 === lgpd-48-02
-gab: E
+gab: C
 ref: lgpd 48
 trecho: incidente de segurança que possa acarretar risco ou dano relevante aos titulares
-armadilha: absoluto
-dif: 2
-enunciado: Situação hipotética: empregado de empresa enviou por engano a colega de outro setor uma planilha com nomes de clientes, sem risco ou dano relevante aos titulares. Assertiva: o controlador deve comunicar o incidente à autoridade nacional, independentemente do risco.
-comentario: A LGPD exige a comunicação do incidente que possa acarretar risco ou dano relevante. O que fazer com os incidentes sem esse potencial (registro interno, por exemplo) é matéria da Resolução CD/ANPD nº 15/2024, que entra no banco quando você trouxer o texto.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um empregado enviou por engano a colega de outro setor planilha com nomes de clientes, e o controlador concluiu, de forma fundamentada, que o episódio não pode acarretar risco ou dano relevante aos titulares. Assertiva: o controlador não está obrigado a comunicar o incidente à ANPD e aos titulares, mas deve mantê-lo registrado.
+comentario: Certo. O art. 48 da LGPD só impõe a comunicação do incidente que possa acarretar risco ou dano relevante aos titulares. A Resolução CD/ANPD nº 15/2024 (art. 10) manda o controlador manter o registro de todo incidente de segurança, inclusive do que não foi comunicado.
 
 === lgpd-48-03
 gab: E
@@ -94,12 +94,11 @@ comentario: Errado. A LGPD fala em prazo razoável, conforme definido pela autor
 === lgpd-48-05
 gab: E
 ref: lgpd 48, § 1º
-trecho: os motivos da demora, no caso de a comunicação não ter sido imediata
-trecho: os riscos relacionados ao incidente
-armadilha: rol
-dif: 2
-enunciado: Situação hipotética: um controlador comunicou incidente à ANPD semanas depois de tomar conhecimento dele. Assertiva: a comunicação deve explicar os motivos da demora, além dos riscos relacionados ao incidente, mas não precisa indicar as medidas para reverter seus efeitos.
-comentario: Errado no fecho. A comunicação menciona, no mínimo, as medidas adotadas ou a adotar para reverter ou mitigar os efeitos do prejuízo (art. 48, § 1º, VI, da LGPD), além dos riscos (V) e dos motivos da demora (IV).
+trecho: A comunicação será feita em prazo razoável, conforme definido pela autoridade nacional
+armadilha: literal
+dif: 3
+enunciado: A comunicação de incidente de segurança à ANPD deve ser feita no prazo fixado pela própria LGPD e mencionar, no mínimo, a natureza dos dados afetados, os titulares envolvidos, os riscos relacionados ao incidente e as medidas de reversão ou mitigação.
+comentario: Errado. O § 1º do art. 48 não fixa prazo: a comunicação será feita em prazo razoável, conforme definido pela autoridade nacional, e a Resolução CD/ANPD nº 15/2024 fixou três dias úteis. O conteúdo mínimo listado na assertiva está nos incisos do § 1º.
 
 === lgpd-48-06
 gab: C
@@ -121,13 +120,13 @@ enunciado: Se os dados afetados por um incidente estavam criptografados, o contr
 comentario: A criptografia entra no juízo de gravidade (art. 48, § 3º) e pode levar à conclusão de que não há risco relevante, mas a lei não cria dispensa automática.
 
 === lgpd-49-01
-gab: C
+gab: E
 ref: lgpd 49
 trecho: Os sistemas utilizados para o tratamento de dados pessoais devem ser estruturados de forma a atender aos requisitos de segurança, aos padrões de boas práticas e de governança e aos princípios gerais previstos nesta Lei
-armadilha: conceito
-dif: 2
-enunciado: Pela LGPD, a conformidade deve estar no próprio desenho dos sistemas de tratamento, que precisam ser estruturados para cumprir requisitos de segurança, padrões de governança e os princípios da lei.
-comentario: Certo. Art. 49, que fecha a seção de segurança e sigilo.
+armadilha: rol
+dif: 3
+enunciado: Pelo art. 49 da LGPD, os sistemas de tratamento devem ser estruturados para atender aos requisitos de segurança e aos padrões de boas práticas e de governança, sem que se exija deles a observância aos princípios gerais da lei, que se dirigem às condutas dos agentes.
+comentario: Errado. O art. 49 exige que os sistemas sejam estruturados para atender aos requisitos de segurança, aos padrões de boas práticas e de governança, aos princípios gerais da LGPD e às demais normas regulamentares. Os princípios também orientam o desenho dos sistemas.
 
 === lgpd-50-01
 gab: C
@@ -141,11 +140,11 @@ comentario: Caput do art. 50. É a base da corregulação: o setor cria regras e
 === lgpd-50-02
 gab: E
 ref: lgpd 50
-trecho: poderão formular regras de boas práticas e de governança
-armadilha: conceito
-dif: 2
-enunciado: As regras de boas práticas e de governança estabelecem condições de organização, procedimentos e normas de segurança, e sua formulação é obrigatória para todos os controladores, sob pena de multa.
-comentario: O art. 50 usa “poderão”. Adotar política de boas práticas conta a favor na dosimetria (art. 52, § 1º, IX), mas não é obrigação.
+trecho: individualmente ou por meio de associações, poderão formular regras de boas práticas e de governança
+armadilha: sujeito
+dif: 3
+enunciado: Controladores e operadores podem formular regras de boas práticas e de governança apenas individualmente, pois a LGPD não admite que o façam por meio de associações, para não diluir a responsabilidade de cada agente.
+comentario: Errado. O caput do art. 50 permite que controladores e operadores formulem regras de boas práticas e de governança individualmente ou por meio de associações. A formulação é facultativa e pode ser coletiva.
 
 === lgpd-50-03
 gab: E
@@ -177,12 +176,12 @@ comentario: O inciso II do § 2º do art. 50 prevê a demonstração quando apro
 
 === lgpd-50-06
 gab: C
-ref: lgpd 50, § 3º
-trecho: deverão ser publicadas e atualizadas periodicamente e poderão ser reconhecidas e divulgadas pela autoridade nacional
-armadilha: conceito
-dif: 2
-enunciado: As regras de boas práticas e de governança formuladas pelos agentes de tratamento têm de ser publicadas e periodicamente atualizadas, mas o reconhecimento e a divulgação delas pela autoridade nacional são faculdades desta.
-comentario: Art. 50, § 3º. Repare: publicar é dever (“deverão”); o reconhecimento pela ANPD é possibilidade (“poderão”).
+ref: lgpd 50, § 1º
+trecho: a natureza, o escopo, a finalidade e a probabilidade e a gravidade dos riscos e dos benefícios decorrentes de tratamento de dados do titular
+armadilha: rol
+dif: 3
+enunciado: Ao fixar regras de boas práticas, controlador e operador devem pesar não só a probabilidade e a gravidade dos riscos do tratamento, mas também os benefícios que ele produz, além da natureza, do escopo e da finalidade do tratamento.
+comentario: Certo. O § 1º do art. 50 manda considerar, em relação ao tratamento e aos dados, a natureza, o escopo, a finalidade e a probabilidade e a gravidade dos riscos e dos benefícios do tratamento. Os benefícios entram no cálculo ao lado dos riscos.
 
 === lgpd-51-01
 gab: E
