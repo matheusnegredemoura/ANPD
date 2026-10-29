@@ -449,14 +449,14 @@ enunciado: Os agentes de tratamento devem adotar medidas de segurança aptas a p
 comentario: Errado. A ANPD considera a natureza das informações, as características do tratamento, o estado atual da tecnologia (em especial para dados sensíveis) e os princípios do art. 6º (art. 46, § 1º).
 
 === ae-47
-gab: E
+gab: C
 bloco: eca-digital
 ref: lei15211 7
 trecho: para que a criança ou o adolescente e seus responsáveis possam exercer escolhas informadas quanto à eventual adoção de configurações menos protetivas
-armadilha: absoluto
-dif: 2
-enunciado: Pelo ECA Digital, como o produto deve operar por padrão com o grau mais elevado de proteção da privacidade, é vedado à criança ou aos responsáveis optar por configurações menos protetivas.
-comentario: Errado. A proteção máxima é o padrão, não uma trava: com informações claras e adequadas, a criança ou o adolescente e os responsáveis podem fazer escolhas informadas por configurações menos protetivas (art. 7º, § 1º).
+armadilha: excecao
+dif: 3
+enunciado: Pelo ECA Digital, o produto direcionado a crianças deve operar, por padrão, com o grau mais elevado de proteção da privacidade, mas a criança ou o adolescente e seus responsáveis podem adotar configurações menos protetivas, desde que tenham recebido informações claras para uma escolha informada.
+comentario: Certo. O art. 7º, § 1º, exige o grau mais elevado de proteção por padrão e obriga a disponibilizar informações claras, acessíveis e adequadas para que a criança ou o adolescente e seus responsáveis possam exercer escolhas informadas quanto à eventual adoção de configurações menos protetivas. O padrão é protetivo, mas não é imutável.
 
 === ae-48
 gab: E
@@ -549,24 +549,24 @@ enunciado: Situação hipotética: notificado pela vítima sobre conteúdo que v
 comentario: Errado. A retirada deve ocorrer assim que o fornecedor for comunicado do caráter ofensivo pela vítima, representantes, Ministério Público ou entidades de defesa, independentemente de ordem judicial (art. 29).
 
 === ae-57
-gab: E
+gab: C
 bloco: eca-digital
 ref: lei15211 29
 trecho: vedada a denúncia anônima
 armadilha: conceito
-dif: 2
-enunciado: Situação hipotética: usuário que não quis se identificar notificou plataforma sobre conteúdo que viola direitos de criança. Assertiva: o ECA Digital admite a notificação anônima, para proteger quem denuncia.
-comentario: Errado. A notificação deve identificar o conteúdo e o autor da notificação, sob pena de nulidade, vedada a denúncia anônima (art. 29, § 2º). O art. 32 ainda exige mecanismos contra o uso abusivo das denúncias.
+dif: 3
+enunciado: A notificação para retirada de conteúdo que viola direitos de criança deve conter, sob pena de nulidade, elementos que permitam identificar tecnicamente o conteúdo e o autor da notificação, pois o ECA Digital veda a denúncia anônima.
+comentario: Certo. Art. 29, § 2º. A identificação do notificante é requisito de validade da notificação, e o § 3º obriga os provedores a tornar público e de fácil acesso o mecanismo de envio.
 
 === ae-58
-gab: E
+gab: C
 bloco: eca-digital
 ref: lei15211 29
 trecho: Não estarão sujeitos ao procedimento de retirada de que trata o caput deste artigo os conteúdos jornalísticos e os submetidos a controle editorial
 armadilha: excecao
-dif: 2
-enunciado: Situação hipotética: portal de notícias com controle editorial publicou reportagem sobre violência escolar, e um leitor notificou o provedor pedindo a retirada do conteúdo. Assertiva: o procedimento de retirada por notificação do ECA Digital alcança essa reportagem.
-comentario: Errado. O art. 29 do ECA Digital obriga os fornecedores a retirar, após notificação, conteúdo que viole direitos de crianças e adolescentes, mas o § 4º exclui desse procedimento os conteúdos jornalísticos e os submetidos a controle editorial. A reportagem do portal fica fora; um eventual abuso se discute por outras vias.
+dif: 3
+enunciado: Situação hipotética: portal de notícias com controle editorial publicou reportagem sobre violência escolar, e um leitor notificou o provedor pedindo a retirada do conteúdo. Assertiva: a reportagem não se sujeita ao procedimento de retirada por notificação do ECA Digital.
+comentario: Certo. Os conteúdos jornalísticos e os submetidos a controle editorial não estão sujeitos ao procedimento de retirada do art. 29, caput (§ 4º). Eventual ilicitude da reportagem segue outras vias, como a judicial.
 
 === ae-59
 gab: E
