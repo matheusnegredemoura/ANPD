@@ -144,13 +144,13 @@ enunciado: O CVSS atribui às vulnerabilidades uma pontuação de 0 a 10, a part
 comentario: Certo. Common Vulnerability Scoring System. A pontuação base descreve a falha em si; métricas de ameaça e de ambiente ajustam a nota ao contexto.
 
 === si8-17
-gab: E
+gab: C
 ref: doutrina Gestão de vulnerabilidades
-armadilha: absoluto
-dif: 2
+armadilha: conceito
+dif: 3
 tema: sg-ameacas
-enunciado: Na gestão de vulnerabilidades, a pontuação base do CVSS basta para definir a prioridade de correção, independentemente do contexto do ativo e de haver exploração ativa da falha.
-comentario: Errado. Uma falha média num servidor exposto à internet e já explorada por atacantes pode ser mais urgente que uma crítica num sistema isolado. A priorização considera exposição, criticidade do ativo e exploração conhecida.
+enunciado: Na gestão de vulnerabilidades, a pontuação base do CVSS não deve definir, isoladamente, a prioridade de correção, que depende também da exposição e da criticidade do ativo e de haver exploração ativa da falha.
+comentario: Certo. A pontuação base mede a gravidade técnica intrínseca. A priorização considera o contexto: uma falha média num servidor exposto à internet e já explorada pode ser mais urgente que uma crítica num sistema isolado. Catálogos de vulnerabilidades exploradas e métricas temporais e ambientais ajudam nisso.
 
 === si8-18
 gab: C

@@ -109,10 +109,10 @@ comentario: Certo. A injeção de SQL insere comandos em entradas não validadas
 === si2-13
 gab: E
 ref: doutrina hash
-armadilha: conceito
+armadilha: causalidade
 dif: 3
-enunciado: Para armazenar senhas, basta aplicar uma única vez a função SHA-256, sendo desnecessário o uso de sal, pois o hash já é irreversível.
-comentario: Sem sal, senhas iguais geram o mesmo resumo e ficam expostas a tabelas pré-computadas. Recomenda-se sal aleatório e funções lentas próprias para senhas, como bcrypt, scrypt ou Argon2.
+enunciado: Ao armazenar senhas com uma única aplicação de SHA-256, sem sal, senhas iguais de usuários diferentes geram resumos diferentes, o que impede ataques com tabelas pré-computadas.
+comentario: Errado. Sem sal, a mesma senha gera sempre o mesmo resumo, o que expõe a base a tabelas pré-computadas (rainbow tables) e revela quais usuários usam a mesma senha. Recomenda-se sal aleatório e funções lentas próprias para senhas, como bcrypt, scrypt ou Argon2.
 
 === si2-14
 gab: C
