@@ -87,14 +87,14 @@ function renderCards() {
   const blocos = UI.blocosCards.length ? UI.blocosCards : null;
   const venc = cardsVencidos(blocos).length;
   const novos = cardsNovos(blocos).length;
-  const rest = novosRestantesHoje();
+  const lote = Math.min(S.perfil.novosCards || 20, novos), hoje = diaLog().nc || 0;
   const vistos = CARDS.filter((c) => S.cards[c.id]).length;
   let html = '<div class="secao"><div class="secao-cab"><h2>Cards cloze</h2><span class="mudo pequeno mono">' + CARDS.length + ' cards · ' + NOTAS.length + ' notas</span></div>' +
     '<p class="mudo pequeno">Cada card esconde um dado-chave dentro de uma frase com contexto: a norma, o artigo e a regra em volta. Os marcados “Doutrina” cobrem conceitos de gestão, riscos, dados, IA e economia, que não têm lei de referência. O texto literal dos artigos fica na lei seca, no modo Testar. Responda de cabeça, revele e diga como foi: Errei, Difícil, Bom ou Fácil. O intervalo até a próxima revisão cresce a cada acerto, como no Anki.</p></div>';
-  html += '<div class="contadores"><div class="rev"><b>' + venc + '</b><span>para revisar hoje</span></div><div class="nov"><b>' + Math.min(rest, novos) + '</b><span>novos liberados hoje</span></div><div><b>' + vistos + '</b><span>já estudados</span></div></div>';
-  html += '<div class="linha-btns"><button class="btn primario" data-acao="cards-iniciar"' + (venc || (rest && novos) ? '' : ' disabled') + '>Estudar (' + (venc + Math.min(rest, novos)) + ')</button>' +
+  html += '<div class="contadores"><div class="rev"><b>' + venc + '</b><span>para revisar hoje</span></div><div class="nov"><b>' + novos + '</b><span>novos a estudar</span></div><div><b>' + vistos + '</b><span>já estudados</span></div></div>';
+  html += '<div class="linha-btns"><button class="btn primario" data-acao="cards-iniciar"' + (venc || lote ? '' : ' disabled') + '>Estudar (' + (venc + lote) + ')</button>' +
     '<button class="btn" data-acao="cards-so-revisao"' + (venc ? '' : ' disabled') + '>Só revisões (' + venc + ')</button></div>';
-  if (!rest) html += '<p class="pequeno mudo">Limite de cards novos de hoje atingido (' + (S.perfil.novosCards || 20) + '). Ajuste em Mais → Ajustes.</p>';
+  html += '<p class="pequeno mudo">Cada sessão traz até ' + (S.perfil.novosCards || 20) + ' cards novos (Mais → Ajustes); estude quantas sessões quiser.' + (hoje >= (S.perfil.novosCards || 20) ? ' Hoje você já começou ' + hoje + ' novos: cada um volta nos próximos dias, então a fila de revisão cresce junto.' : '') + '</p>';
   html += '<div class="secao"><div class="secao-cab"><h2>Baralhos</h2><span class="mudo pequeno">Nenhum marcado = todos</span></div>' +
     listaBlocos(sel, 'toggle-bloco-card', (b) => CARDS_POR_BLOCO.get(b.id) || [], (b) => dominioCardsBloco(b.id)) + '</div>';
   document.getElementById('vista-cards').innerHTML = html;

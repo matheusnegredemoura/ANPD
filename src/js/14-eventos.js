@@ -267,7 +267,8 @@ async function executar(a, alvo) {
       iniciarSessao({ modo: alvo.dataset.modo, ids: alvo.dataset.modo === 'simulado' ? ids.sort((a, b) => ordemProva(QI.get(a)) - ordemProva(QI.get(b))) : embaralhar(ids), titulo: alvo.dataset.modo === 'simulado' ? 'Itens reais como prova' : 'Itens reais de prova', chave: 'reais-' + alvo.dataset.modo });
       break;
     }
-    case 'cards-iniciar': iniciarSessao({ modo: 'cards', blocos: UI.blocosCards, novos: novosRestantesHoje() }); break;
+    // Na aba Cards o estudo é livre: cada sessão traz um lote de novos, quantas vezes a pessoa quiser
+    case 'cards-iniciar': iniciarSessao({ modo: 'cards', blocos: UI.blocosCards, novos: S.perfil.novosCards || 20 }); break;
     case 'cards-so-revisao': iniciarSessao({ modo: 'cards', blocos: UI.blocosCards, soRevisao: true }); break;
     case 'dia-curto': {
       const ctx = contextoHoje(), bs = blocosDoDia(ctx.tipo === 'dia' ? ctx.dia : null);
