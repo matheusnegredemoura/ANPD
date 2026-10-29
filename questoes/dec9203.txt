@@ -3,13 +3,13 @@ bloco: gestao-publica
 // mecanismos, CIG, grupos de trabalho e programa de integridade. Conferidas com fontes/dec9203.txt.
 
 === gv9-01
-gab: E
+gab: C
 ref: dec9203 1
-trecho: direta, autárquica e fundacional
-armadilha: extrapolacao
-dif: 2
-enunciado: O Decreto n.º 9.203/2017, que dispõe sobre a política de governança da administração pública federal, define governança pública como mecanismos de liderança, estratégia e controle e aplica-se também às empresas públicas e às sociedades de economia mista.
-comentario: Errado. Aplica-se à administração federal direta, autárquica e fundacional (art. 1º). As estatais seguem a Lei nº 13.303/2016.
+trecho: administração pública federal direta, autárquica e fundacional
+armadilha: sujeito
+dif: 3
+enunciado: O Decreto nº 9.203/2017 dispõe sobre a política de governança da administração pública federal direta, autárquica e fundacional, o que alcança as agências reguladoras, mas não as empresas públicas nem as sociedades de economia mista.
+comentario: Certo. O art. 1º limita o decreto à administração federal direta, autárquica e fundacional. As agências reguladoras, autarquias de regime especial, estão incluídas; empresas públicas e sociedades de economia mista seguem regime próprio de governança, como o da Lei 13.303/2016.
 
 === gv9-02
 gab: C
@@ -30,40 +30,40 @@ enunciado: Valor público corresponde aos produtos e resultados gerados, preserv
 comentario: Certo: art. 2º, II, que acrescenta: resultados que modifiquem aspectos do conjunto da sociedade ou de grupos reconhecidos como destinatários legítimos.
 
 === gv9-04
-gab: C
+gab: E
 ref: dec9203 2
 trecho: presidentes e diretores de autarquias, inclusive as especiais
-armadilha: rol
-dif: 2
-enunciado: Para o Decreto nº 9.203/2017, integram a alta administração os presidentes e diretores de autarquias, inclusive as de regime especial, como as agências reguladoras.
-comentario: Certo: art. 2º, III, ao lado de ministros, cargos de natureza especial e nível 6 de DAS. Na ANPD, o Conselho Diretor é alta administração.
+armadilha: sujeito
+dif: 3
+enunciado: Para o Decreto nº 9.203/2017, integram a alta administração os Ministros de Estado, os ocupantes de cargos de natureza especial e os presidentes e diretores de autarquias e fundações, mas não os dirigentes de autarquias de regime especial, dada a autonomia reforçada que possuem.
+comentario: Errado. O art. 2º, III, inclui expressamente na alta administração os presidentes e diretores de autarquias, inclusive as especiais, como as agências reguladoras. A autonomia reforçada não as tira do conceito.
 
 === gv9-05
-gab: C
+gab: E
 ref: dec9203 4
 trecho: privilegiará ações estratégicas de prevenção antes de processos sancionadores
 armadilha: conceito
-dif: 2
-enunciado: Entre as diretrizes da governança pública está implementar controles internos fundamentados na gestão de risco, que privilegiem ações estratégicas de prevenção antes de processos sancionadores.
-comentario: Certo: art. 4º, VI. A ANPD segue essa lógica na fiscalização responsiva: orientar e prevenir antes de sancionar (Resolução CD/ANPD nº 1/2021).
+dif: 3
+enunciado: Entre as diretrizes da governança pública está implementar controles internos fundamentados na gestão de risco que privilegiem processos sancionadores céleres em lugar de ações preventivas, para desestimular desvios.
+comentario: Errado. O art. 4º, VI, manda privilegiar ações estratégicas de prevenção antes de processos sancionadores. A lógica é inversa à da assertiva: o controle baseado em risco prioriza prevenir.
 
 === gv9-06
 gab: E
 ref: dec9203 5
-trecho: a) integridade;
-armadilha: rol
-dif: 2
-enunciado: Para o Decreto n.º 9.203/2017, o mecanismo de liderança compreende práticas de natureza humana ou comportamental exercidas nos principais cargos das organizações, e as condições mínimas para a boa governança nesse mecanismo são transparência, legalidade, eficiência e publicidade.
-comentario: Errado. São integridade, competência, responsabilidade e motivação (art. 5º, I, a a d).
+trecho: estratégia, que compreende a definição de diretrizes, objetivos, planos e ações
+armadilha: conceito
+dif: 3
+enunciado: No Decreto nº 9.203/2017, o mecanismo de controle compreende a definição de diretrizes, objetivos, planos e ações, com critérios de priorização e alinhamento entre organizações e partes interessadas, para que os serviços alcancem o resultado pretendido.
+comentario: Errado. A descrição é a do mecanismo de estratégia (art. 5º, II). O controle (inciso III) compreende processos estruturados para mitigar os possíveis riscos e garantir a execução ordenada, ética, econômica, eficiente e eficaz das atividades, com preservação da legalidade e da economicidade.
 
 === gv9-07
 gab: E
 ref: dec9203 6
 trecho: instrumentos de promoção do processo decisório fundamentado em evidências
-armadilha: rol
-dif: 2
-enunciado: Os mecanismos, instâncias e práticas de governança devem incluir, no mínimo, formas de acompanhamento de resultados, soluções para melhoria do desempenho e instrumentos de controle prévio de legalidade dos atos.
-comentario: Errado no rol. O terceiro elemento mínimo são instrumentos de promoção do processo decisório fundamentado em evidências (art. 6º, parágrafo único, III, do Decreto 9.203/2017). A Lei do Governo Digital repete a lista (art. 47, parágrafo único).
+armadilha: literal
+dif: 3
+enunciado: Os mecanismos, instâncias e práticas de governança mantidos pela alta administração incluirão, no mínimo, formas de acompanhamento de resultados, soluções para melhoria do desempenho das organizações e instrumentos que promovam processo decisório fundamentado em pareceres jurídicos prévios.
+comentario: Errado. O art. 6º, parágrafo único, III, fala em instrumentos de promoção do processo decisório fundamentado em evidências, e não em pareceres jurídicos prévios. Os incisos I e II estão reproduzidos corretamente.
 
 === gv9-08
 gab: E
@@ -84,19 +84,19 @@ enunciado: O Comitê Interministerial de Governança reúne-se trimestralmente, 
 comentario: Certo. Art. 8º-B do Decreto 9.203/2017 (incluído pelo Decreto 9.901/2019): o CIG se reúne trimestralmente em caráter ordinário; o quórum de reunião é a maioria simples dos membros, o de aprovação, a maioria absoluta, e o coordenador tem voto de qualidade no empate. A banca costuma inverter os dois quóruns.
 
 === gv9-10
-gab: C
+gab: E
 ref: dec9203 10-B
-trecho: não poderão ter mais de cinco membros
+trecho: estarão limitados a três operando simultaneamente
 armadilha: numero
-dif: 2
-enunciado: Os grupos de trabalho instituídos pelo Comitê Interministerial de Governança têm duração não superior a um ano, no máximo três podem funcionar simultaneamente e cada um não pode ter mais de cinco membros.
-comentario: Certo. Art. 10-B do Decreto 9.203/2017 (incluído pelo Decreto 9.901/2019): os grupos de trabalho do CIG têm no máximo cinco membros, duram no máximo um ano e só três podem funcionar ao mesmo tempo. Três números, três chances de troca.
+dif: 3
+enunciado: Os grupos de trabalho do Comitê Interministerial de Governança são temporários, com duração não superior a um ano, não podem ter mais de cinco membros e são limitados a cinco em funcionamento simultâneo.
+comentario: Errado. O art. 10-B limita a três os grupos de trabalho operando simultaneamente. Os demais limites estão corretos: até cinco membros e duração não superior a um ano.
 
 === gv9-11
-gab: C
+gab: E
 ref: dec9203 19
-trecho: comprometimento e apoio da alta administração
-armadilha: rol
-dif: 2
-enunciado: O programa de integridade dos órgãos e entidades federais estrutura-se nos eixos de comprometimento da alta administração, unidade responsável, gestão dos riscos de integridade e monitoramento contínuo.
-comentario: Certo: art. 19, I a IV. O objetivo é prevenir, detectar, punir e remediar fraudes e atos de corrupção.
+trecho: monitoramento contínuo dos atributos do programa de integridade
+armadilha: literal
+dif: 3
+enunciado: O programa de integridade que os órgãos e entidades federais devem instituir estrutura-se, entre outros eixos, na existência de unidade responsável por sua implementação e no monitoramento periódico, a cada exercício, dos atributos do programa.
+comentario: Errado. O art. 19, IV, exige monitoramento contínuo dos atributos do programa de integridade, e não periódico a cada exercício. Os demais eixos são o comprometimento e apoio da alta administração, a unidade responsável e a gestão dos riscos associados à integridade.

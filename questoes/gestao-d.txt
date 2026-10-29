@@ -37,12 +37,12 @@ enunciado: Situação hipotética: em hospital público, a gestão da folha de p
 comentario: Errado. A folha de pagamento é processo de suporte: serve a outros processos e só indiretamente ao paciente, como gestão de pessoas, contratações e tecnologia. Processo finalístico (ou primário) é o que entrega valor diretamente ao cliente final, como o atendimento assistencial.
 
 === gd-05
-gab: C
+gab: E
 ref: doutrina
-armadilha: conceito
-dif: 2
-enunciado: Em BPMN, o fluxo de sequência liga elementos dentro de uma mesma piscina, ao passo que a comunicação entre piscinas diferentes é representada por fluxo de mensagem.
-comentario: Certo. Piscina (pool) representa um participante, como uma organização; raias (lanes) dividem responsabilidades dentro dele. O fluxo de sequência é linha cheia; o de mensagem, tracejada.
+armadilha: comparacao
+dif: 3
+enunciado: Em BPMN, o fluxo de mensagem liga elementos dentro de uma mesma piscina, inclusive entre raias diferentes, ao passo que a comunicação entre piscinas distintas é representada por fluxo de sequência.
+comentario: Errado. É o contrário: o fluxo de sequência liga elementos dentro da mesma piscina, inclusive entre raias, e o fluxo de mensagem representa a comunicação entre participantes, isto é, entre piscinas diferentes.
 
 === gd-06
 gab: E
@@ -72,9 +72,9 @@ comentario: Errado. Melhorias pequenas, constantes e participativas são o kaize
 gab: E
 ref: doutrina
 armadilha: comparacao
-dif: 2
-enunciado: A reengenharia de processos de Hammer e Champy baseia-se no Kaizen e propõe pequenos ajustes incrementais e de baixo risco, sem questionar a existência do processo.
-comentario: Errado. Melhoria incremental é Kaizen. A reengenharia propõe repensar radicalmente os processos, partindo do zero, em busca de ganhos drásticos.
+dif: 3
+enunciado: A reengenharia de processos, de Hammer e Champy, propõe o repensar fundamental e o redesenho radical dos processos para obter melhorias drásticas e, como o Kaizen, prefere mudanças graduais conduzidas pelas próprias equipes de linha.
+comentario: Errado. A primeira parte descreve bem a reengenharia de Hammer e Champy: repensar fundamental e redesenho radical para ganhos drásticos. O Kaizen é o oposto, melhoria contínua e incremental, e a reengenharia não prefere mudanças graduais.
 
 === gd-10
 gab: C
@@ -87,10 +87,10 @@ comentario: Certo. São os sete desperdícios clássicos; há quem acrescente o 
 === gd-11
 gab: E
 ref: doutrina
-armadilha: conceito
-dif: 2
-enunciado: A metodologia Seis Sigma busca reduzir a variabilidade dos processos e estrutura seu ciclo de melhoria nas etapas de ideação, prototipação e teste.
-comentario: Errado. O ciclo do Seis Sigma é o DMAIC: definir, medir, analisar, melhorar e controlar. Ideação, prototipação e teste são etapas do design thinking.
+armadilha: numero
+dif: 3
+enunciado: No Seis Sigma, o ciclo DMAIC compreende definir, medir, analisar, melhorar e controlar, e o nível de desempenho seis sigma corresponde a cerca de 3,4 defeitos por mil oportunidades.
+comentario: Errado. O nível seis sigma corresponde a cerca de 3,4 defeitos por milhão de oportunidades, e não por mil. As etapas do DMAIC (definir, medir, analisar, melhorar e controlar) estão corretas.
 
 === gd-12
 gab: C
