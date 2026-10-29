@@ -12,20 +12,20 @@ tema: en-compreensao
 ref: texto
 apoio: @EN26A
 comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
-armadilha: literal
-dif: 1
-enunciado: According to the text, some companies claim that explaining their models could reveal trade secrets.
-comentario: Certo. Primeiro parágrafo: “Some companies argue that explaining their models would expose trade secrets”.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the first paragraph, the difficulty in explaining an algorithmic loan decision may stem from companies' claims of trade secrecy or from the fact that even their engineers cannot fully trace how a result was reached.
+comentario: Certo. São as duas razões do primeiro parágrafo.
 
 === en26-02
 gab: E
 tema: en-compreensao
 ref: texto
 apoio: @EN26A
-armadilha: literal
-dif: 1
-enunciado: The text states that engineers are always able to trace exactly how an algorithm reached a particular result.
-comentario: Errado. O texto diz o contrário: algumas empresas admitem que nem seus engenheiros conseguem rastrear plenamente como um resultado foi alcançado.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the second paragraph, the right to request a review of automated decisions is meaningful on its own, whether or not people are told which factors were considered and how much each weighed.
+comentario: Errado. O direito só tem sentido se as pessoas souberem, em linguagem clara, os fatores e o peso de cada um.
 
 === en26-03
 gab: C
@@ -42,10 +42,10 @@ gab: E
 tema: en-compreensao
 ref: texto
 apoio: @EN26A
-armadilha: extrapolacao
-dif: 1
-enunciado: According to the text, transparency requires companies to publish the source code of their models.
-comentario: Errado. Terceiro parágrafo: “Transparency does not require publishing source code”. Importa que a pessoa afetada entenda a decisão o bastante para contestá-la.
+armadilha: interpretacao
+dif: 2
+enunciado: In the final paragraph, the author argues that accountability cannot be achieved unless companies publish the source code of their models.
+comentario: Errado. “Transparency does not require publishing source code”: basta que a pessoa entenda a decisão a ponto de contestá-la.
 
 === en26-05
 gab: C
@@ -53,9 +53,9 @@ tema: en-vocabulario
 ref: texto
 apoio: @EN26A
 armadilha: literal
-dif: 1
-enunciado: In the second paragraph, the word “solely” could be replaced by only without changing the meaning of the sentence.
-comentario: Certo. “Solely” significa exclusivamente, unicamente; “only” mantém o sentido de decisões tomadas apenas com base em tratamento automatizado.
+dif: 2
+enunciado: In the second paragraph, “solely”, in “decisions taken solely on the basis of automated processing”, could be replaced with exclusively without changing the meaning.
+comentario: Certo. Solely é exclusivamente.
 
 === en26-06
 gab: E
@@ -68,14 +68,14 @@ enunciado: In the first paragraph, the word “however” introduces an idea tha
 comentario: Errado. “However” marca contraste: o cliente quer saber o motivo, mas, se a decisão foi tomada por algoritmo, a resposta pode ser difícil de obter.
 
 === en26-07
-gab: C
+gab: E
 tema: en-referencia
 ref: texto
 apoio: @EN26A
-armadilha: interpretacao
-dif: 1
-enunciado: In the first paragraph, the word “others” refers to companies.
-comentario: Certo. “Some companies argue (...); others admit (...)”: “others” equivale a “other companies”.
+armadilha: conceito
+dif: 2
+enunciado: In the first paragraph, “others”, in “others admit that even their own engineers”, refers to “loan applications”.
+comentario: Errado. Na estrutura “Some companies argue...; others admit...”, others são outras empresas.
 
 === en26-08
 gab: E
@@ -112,10 +112,10 @@ gab: C
 tema: en-compreensao
 ref: texto
 apoio: @EN26A
-armadilha: literal
-dif: 1
-enunciado: The text mentions the rejection of a loan application as an example of a decision that may be made by an algorithm.
-comentario: Certo. O primeiro parágrafo abre com o exemplo do banco que rejeita um pedido de empréstimo.
+armadilha: conceito
+dif: 2
+enunciado: In the third paragraph, both occurrences of “it”, in “understand it well enough to challenge it”, refer to “a decision”.
+comentario: Certo. Entender a decisão e contestá-la.
 
 === en26-12
 gab: E

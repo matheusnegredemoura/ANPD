@@ -12,20 +12,20 @@ tema: en-compreensao
 ref: texto
 apoio: @EN25A
 comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
-armadilha: literal
-dif: 1
-enunciado: According to the text, data that a company does not hold cannot be leaked.
-comentario: Certo. Primeiro parágrafo: “Data that a company does not hold cannot be stolen, leaked or misused”.
+armadilha: interpretacao
+dif: 2
+enunciado: The first paragraph bases the principle of data minimisation on the simple idea that data a company does not hold cannot be stolen, leaked or misused.
+comentario: Certo. Cada campo a mais no formulário é um risco a mais.
 
 === en25-02
 gab: E
 tema: en-compreensao
 ref: texto
 apoio: @EN25A
-armadilha: literal
-dif: 1
-enunciado: The text claims that collecting extra data carries no risk for the people concerned.
-comentario: Errado. O texto diz que coletar mais dados pode parecer inofensivo, mas que “every extra field in a form is also an extra risk”.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the text, data minimisation governs the moment of collection but stops applying once records have been lawfully stored.
+comentario: Errado. “Minimisation also applies after collection”: registros devem ser apagados ou anonimizados quando deixam de ser necessários.
 
 === en25-03
 gab: C
@@ -33,9 +33,9 @@ tema: en-compreensao
 ref: texto
 apoio: @EN25A
 armadilha: interpretacao
-dif: 1
-enunciado: The text suggests that a delivery service probably does not need to know the customer's date of birth.
-comentario: Certo. Segundo parágrafo: o serviço precisa do endereço, “but probably not the customer's date of birth”.
+dif: 2
+enunciado: In the second paragraph, a delivery service that asks for the customer's date of birth is an example of collection that probably goes beyond the purpose of the service.
+comentario: Certo. O endereço é necessário; a data de nascimento, provavelmente não.
 
 === en25-04
 gab: E
@@ -88,14 +88,14 @@ enunciado: In the first paragraph, “which”, in “which appears in data prot
 comentario: Errado. “Which” retoma “the principle of data minimisation”, que aparece em leis de proteção de dados pelo mundo.
 
 === en25-09
-gab: C
+gab: E
 tema: en-vocabulario
 ref: texto
 apoio: @EN25A
 armadilha: literal
-dif: 1
-enunciado: In the first paragraph, “misused” means used in a wrong or improper way.
-comentario: Certo. “Misuse” é usar de forma indevida; o prefixo “mis-” indica erro ou impropriedade.
+dif: 2
+enunciado: In the first paragraph, “misused” refers to data that has been accidentally erased before the end of its retention period.
+comentario: Errado. Misused é usado de forma indevida (mis- + used), não apagado.
 
 === en25-10
 gab: E
@@ -142,7 +142,7 @@ gab: E
 tema: en-compreensao
 ref: texto
 apoio: @EN25A
-armadilha: literal
-dif: 1
-enunciado: According to the text, data minimisation makes compliance more complicated for companies.
-comentario: Errado. O texto diz que a minimização “simplifies compliance”.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the final paragraph, deleting or anonymising records that are no longer needed raises storage costs and makes compliance harder for companies.
+comentario: Errado. O texto diz que reduz custos de armazenamento e simplifica a conformidade.

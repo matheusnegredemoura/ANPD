@@ -12,20 +12,20 @@ tema: en-compreensao
 ref: texto
 apoio: @EN28A
 comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
-armadilha: literal
-dif: 1
-enunciado: According to the text, companies used to keep personal data indefinitely partly because storage was cheap.
-comentario: Certo. Primeiro parágrafo: “Storage was cheap, and nobody knew which information might prove useful later”.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the first paragraph, companies used to keep personal data indefinitely because storage was cheap and nobody knew which information might prove useful later.
+comentario: Certo. As duas razões estão no início do texto.
 
 === en28-02
 gab: E
 tema: en-compreensao
 ref: texto
 apoio: @EN28A
-armadilha: literal
-dif: 1
-enunciado: The text states that data protection laws allow organisations to keep all their records for as long as they wish.
-comentario: Errado. As leis exigem que as organizações definam por quanto tempo guardam cada tipo de registro e apaguem o que não é mais necessário.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the text, data protection laws require organisations to define retention periods but allow them to keep obsolete data indefinitely in offline backups.
+comentario: Errado. As leis exigem apagar o que não é mais necessário; as cópias em backups aparecem como obstáculo prático a mapear, não como exceção.
 
 === en28-03
 gab: C
@@ -42,10 +42,10 @@ gab: E
 tema: en-compreensao
 ref: texto
 apoio: @EN28A
-armadilha: literal
-dif: 1
-enunciado: According to the text, deleting data is a simple task, since copies are usually kept in a single place.
-comentario: Errado. O texto diz que apagar é mais difícil do que parece, pois cópias podem estar em backups, servidores antigos e sistemas de prestadores.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the second paragraph, deleting data is simple in practice, because copies of a file are rarely kept by service providers or on old servers.
+comentario: Errado. “Deletion, however, is harder than it sounds”: há cópias em backups, servidores antigos e prestadores.
 
 === en28-05
 gab: C
@@ -53,9 +53,9 @@ tema: en-vocabulario
 ref: texto
 apoio: @EN28A
 armadilha: literal
-dif: 1
-enunciado: In the first paragraph, the word “indefinitely” means without a fixed time limit.
-comentario: Certo. “Indefinitely” significa por tempo indeterminado.
+dif: 2
+enunciado: In the first paragraph, replacing “indefinitely” with for an unlimited period would preserve the meaning of the sentence.
+comentario: Certo. Indefinitely é sem prazo fixo.
 
 === en28-06
 gab: E
@@ -68,14 +68,14 @@ enunciado: In the second paragraph, the verb “sit”, in “Copies of the same
 comentario: Errado. No contexto, “sit” significa ficar, permanecer guardado: as cópias continuam nos backups e em outros sistemas.
 
 === en28-07
-gab: C
+gab: E
 tema: en-referencia
 ref: texto
 apoio: @EN28A
-armadilha: interpretacao
-dif: 1
-enunciado: In the second paragraph, the pronoun “it”, in “to erase it”, refers to the company's data.
-comentario: Certo. A empresa não pode prometer apagar os dados se não souber onde eles estão.
+armadilha: conceito
+dif: 3
+enunciado: In “Unless a company knows where its data actually is, it cannot honestly promise to erase it”, both occurrences of “it” have the same antecedent.
+comentario: Errado. O primeiro it retoma “a company”; o segundo, “its data”.
 
 === en28-08
 gab: E
@@ -112,10 +112,10 @@ gab: C
 tema: en-compreensao
 ref: texto
 apoio: @EN28A
-armadilha: literal
-dif: 1
-enunciado: According to the text, experts recommend mapping data flows before a retention policy is written.
-comentario: Certo. Terceiro parágrafo: “experts recommend mapping data flows before writing a retention policy”.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the final paragraph, a retention policy that lists deadlines without first mapping where information is stored rarely works in practice.
+comentario: Certo. Pode parecer boa no papel, mas raramente funciona.
 
 === en28-12
 gab: E

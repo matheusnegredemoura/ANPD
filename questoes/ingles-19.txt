@@ -13,9 +13,9 @@ ref: texto
 apoio: @EN19A
 comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
 armadilha: interpretacao
-dif: 1
-enunciado: According to the text, a flashlight app that asks for access to the user’s contacts illustrates the collection of data beyond what is necessary.
-comentario: Certo. O exemplo mostra coleta feita “simply because it can”, sem relação com a função do aplicativo.
+dif: 2
+enunciado: In the first paragraph, a flashlight app that asks for access to the user's contacts illustrates data collected simply because it can be, the opposite of data minimisation.
+comentario: Certo. Coleta sem necessidade, contrária à minimização.
 
 === en19-02
 gab: E
@@ -63,9 +63,9 @@ tema: en-compreensao
 ref: texto
 apoio: @EN19A
 armadilha: interpretacao
-dif: 1
-enunciado: In the text, pre-ticked boxes are presented as an example of good practice in obtaining consent.
-comentario: Errado. Caixas pré-marcadas aparecem como exemplo de dark pattern, que empurra o usuário a escolhas que ele não faria.
+dif: 2
+enunciado: According to the second paragraph, pre-ticked boxes and a bright “Accept all” button next to a barely visible link are accepted by regulators as legitimate ways of helping users choose.
+comentario: Errado. São dark patterns, que empurram o usuário para escolhas que ele não faria; os reguladores passaram a tratá-los como manipulação.
 
 === en19-07
 gab: C
@@ -78,14 +78,14 @@ enunciado: The text suggests that the way an interface is designed can influence
 comentario: Certo. “Interface design can make matters worse”: botões e links desiguais conduzem o usuário a aceitar tudo.
 
 === en19-08
-gab: E
+gab: C
 tema: en-compreensao
 ref: texto
 apoio: @EN19A
-armadilha: extrapolacao
-dif: 1
-enunciado: The main idea of the text is that all mobile apps are illegal and should be banned.
-comentario: Errado. O texto critica a coleta excessiva e os dark patterns, não os aplicativos em geral.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the text, regulators may consider consent obtained through manipulative interface designs not genuinely free, in which case the data thus collected may have to be deleted.
+comentario: Certo. É o último período do texto.
 
 === en19-09
 gab: C
@@ -108,14 +108,14 @@ enunciado: In the second paragraph, the verb “nudge” means to force someone 
 comentario: Errado. “To nudge” é empurrar de leve, induzir sutilmente. Os dark patterns conduzem o usuário sem obrigá-lo.
 
 === en19-11
-gab: C
+gab: E
 tema: en-vocabulario
 ref: texto
 apoio: @EN19A
 armadilha: literal
-dif: 1
-enunciado: In the second paragraph, “barely visible” means hardly visible.
-comentario: Certo. “Barely” equivale a “hardly”, “scarcely”: o link de opções quase não se vê.
+dif: 2
+enunciado: In the second paragraph, “barely visible”, which describes the “Manage options” link, means prominently displayed and contrasts with the bright “Accept all” button.
+comentario: Errado. O contraste existe, mas barely visible é quase invisível: o link discreto contra o botão chamativo.
 
 === en19-12
 gab: E
@@ -142,10 +142,10 @@ gab: E
 tema: en-referencia
 ref: texto
 apoio: @EN19A
-armadilha: literal
-dif: 1
-enunciado: In the last paragraph, the pronoun “they”, in “they argue”, refers to “users”.
-comentario: Errado. “They” retoma “Regulators”, sujeito da frase anterior: são os reguladores que argumentam.
+armadilha: conceito
+dif: 2
+enunciado: In the final paragraph, the pronoun “they”, in “Consent obtained through tricks, they argue, is not genuinely free”, refers to the companies that use dark patterns.
+comentario: Errado. Retoma “Regulators”, sujeito do período anterior.
 
 === en19-15
 gab: C
