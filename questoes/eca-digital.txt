@@ -45,10 +45,10 @@ comentario: Errado. O vínculo à conta de um responsável legal é exigido para
 gab: E
 ref: lei15211 24
 trecho: de até 16 (dezesseis) anos de idade
-armadilha: numero
-dif: 2
-enunciado: A vinculação obrigatória da conta do usuário à conta de responsável legal, prevista no ECA Digital, limita-se às crianças de até 12 anos de idade.
-comentario: O marco etário da vinculação é de até 16 anos, alcançando também parte dos adolescentes. Doze anos é o limite entre criança e adolescente no ECA (Lei nº 8.069/1990).
+armadilha: sujeito
+dif: 3
+enunciado: A vinculação da conta de crianças e adolescentes de até 16 anos à conta de um responsável legal só é exigida dos provedores de redes sociais, e não dos demais provedores de serviços direcionados a esse público.
+comentario: Errado. O caput do art. 24 dirige a exigência aos provedores de produtos ou serviços direcionados a crianças e adolescentes ou de acesso provável por eles, e não só às redes sociais. As regras específicas das redes sociais impróprias ficam nos §§ 1º a 4º.
 
 === eca-06
 gab: C
@@ -184,13 +184,13 @@ comentario: Art. 7º, caput e § 1º: privacidade por padrão (privacy by defaul
 pesquisar: Privacidade desde a concepção e por padrão (LGPD, art. 46, § 2º; ECA Digital, art. 7º)
 
 === eca-20
-gab: E
+gab: C
 ref: lei15211 12
 trecho: vedada a presunção de autorização na hipótese de ausência de manifestação dos pais ou responsáveis legais
-armadilha: extrapolacao
-dif: 2
-enunciado: Pelo ECA Digital, se os pais ou responsáveis não se manifestarem em prazo razoável, presume-se autorizado o download de aplicativo solicitado por criança ou adolescente na loja de aplicações.
-comentario: Art. 12, § 2º: o download por crianças e adolescentes depende de consentimento livre e informado dos pais ou responsáveis, vedada a presunção de autorização no silêncio.
+armadilha: conceito
+dif: 3
+enunciado: Pelo ECA Digital, o download de aplicativo por criança ou adolescente depende do consentimento livre e informado dos pais ou responsáveis, respeitada a autonomia progressiva, e o silêncio deles não vale como autorização.
+comentario: Certo. O § 2º do art. 12 condiciona o download ao consentimento livre e informado dos pais ou responsáveis, respeitada a autonomia progressiva, e veda a presunção de autorização na falta de manifestação deles.
 
 === eca-21
 gab: C
@@ -206,10 +206,10 @@ comentario: Art. 12, III e § 1º. O sinal de idade não dispensa o provedor de 
 gab: E
 ref: lei15211 13
 trecho: Os dados coletados para a verificação de idade de crianças e de adolescentes poderão ser utilizados unicamente para essa finalidade, vedado seu tratamento para qualquer outro propósito.
-armadilha: extrapolacao
-dif: 2
-enunciado: Os dados coletados na verificação de idade de crianças e adolescentes podem ser reutilizados pelo fornecedor para personalização de conteúdo, desde que informada essa finalidade na política de privacidade.
-comentario: Art. 13: os dados da verificação de idade só servem a essa finalidade, vedado qualquer outro uso. O art. 26 ainda proíbe usá-los para perfis comportamentais com fins de publicidade, e o art. 24, § 3º, repete a regra para a confirmação de identidade em redes sociais.
+armadilha: excecao
+dif: 3
+enunciado: Os dados coletados para verificar a idade de crianças e adolescentes só podem ser usados para essa finalidade, salvo consentimento específico e destacado de um dos pais ou responsável, hipótese em que podem servir à personalização de conteúdo.
+comentario: Errado. O art. 13 do ECA Digital restringe esses dados unicamente à verificação de idade e veda seu tratamento para qualquer outro propósito, sem ressalva para o consentimento dos pais. O consentimento do art. 14 da LGPD não reabre essa finalidade.
 
 === eca-23
 gab: C
@@ -262,10 +262,10 @@ comentario: Certo. Art. 23 do ECA Digital: são vedados aos provedores de aplica
 gab: E
 ref: lei15211 24
 trecho: os provedores de redes sociais deverão suspender o acesso do usuário e assegurar a instauração de procedimento célere e acessível no qual o responsável legal possa apresentar apelação e comprovar a idade por meio adequado
-armadilha: conceito
-dif: 2
-enunciado: Situação hipotética: rede social identificou fundados indícios de que uma conta é operada por criança abaixo da idade mínima e a suspendeu. Assertiva: a rede social deve então excluir a conta definitivamente, sem possibilidade de apelação pelo responsável.
-comentario: Art. 24, § 4º: a rede social suspende o acesso e assegura procedimento célere e acessível em que o responsável legal pode apelar e comprovar a idade. A ANPD normatiza esse processo (Estrutura Regimental, art. 2º, XXXII).
+armadilha: caso
+dif: 3
+enunciado: Diante de fundados indícios de que uma conta é operada por criança abaixo da idade mínima, a rede social deve suspender o acesso e assegurar procedimento célere em que o responsável possa apelar e comprovar a idade, e os dados usados nessa comprovação podem servir também para aprimorar a segmentação de anúncios.
+comentario: Errado. A suspensão e o procedimento de apelação estão no § 4º do art. 24, mas os dados coletados na confirmação de identidade devem ser usados exclusivamente para verificação de idade (§ 3º; também art. 13). Não podem servir à segmentação de anúncios.
 
 === eca-29
 gab: C
