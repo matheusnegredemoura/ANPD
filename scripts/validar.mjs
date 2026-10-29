@@ -6,7 +6,8 @@ import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { GRUPOS_LEIS, LEIS, carregarLei, indicePorArtigo, normalizar } from './lib/leis.mjs';
 import { ARMADILHAS, lerTodas, parseRef } from './lib/questoes.mjs';
-import { lacunas, lerCloze, lerGlossario, semMarcas } from './lib/cloze.mjs';
+import { lacunas, lerCloze, lerGlossario, refsResumo, semMarcas } from './lib/cloze.mjs';
+import { numerosDe } from './lib/numeros.mjs';
 
 // Refs que não apontam para norma anexada (doutrina, jurisprudência, textos de apoio). Qualquer outro id fora de leis.mjs é erro de digitação.
 const REFS_SEM_TEXTO = new Set(['doutrina', 'stf', 'stj', 'tjue', 'texto', 'eciber', 'mrpr', 'lei13303']);
@@ -125,6 +126,22 @@ export function validar({ silencioso = false } = {}) {
     // Card de conceito (doutrina): não há texto normativo para conferir, mas o tema é obrigatório
     if (ref && ref.lei === 'doutrina') {
       if (!ref.art) erros.push(`${onde}: card de doutrina sem tema (use "doutrina <tema>")`);
+      if (new Set(ls.map((l) => l.n)).size > 2) erros.push(`${onde}: card de doutrina com mais de 2 lacunas (uma ideia por card)`);
+      continue;
+    }
+    // Card de resumo: texto próprio; cada artigo citado existe e cada número do texto está em algum deles
+    const rs = refsResumo(n.ref);
+    if (rs) {
+      // Card atômico: uma ideia, no máximo duas lacunas (dois lados de um contraste) e frase curta
+      const nums = new Set(ls.map((l) => l.n));
+      if (nums.size > 2) erros.push(`${onde}: card de resumo com ${nums.size} lacunas (máximo 2)`);
+      if (semMarcas(n.texto).length > 240) erros.push(`${onde}: card de resumo longo demais (${semMarcas(n.texto).length} caracteres; máximo 240)`);
+      const arts = rs.map((x) => { const r = parseRef(x), f = r && leis[r.lei], a = f && r.art && f.idx.get(r.art); if (!a) erros.push(`${onde}: artigo citado não existe (${x})`); return a; }).filter(Boolean);
+      if (arts.length === rs.length) {
+        const base = numerosDe(arts.map((a) => a.texto).join('\n'), true);
+        const faltam = [...numerosDe(semMarcas(n.texto), false)].filter((v) => v > 1 && !base.has(v));
+        if (faltam.length) erros.push(`${onde}: número que não está nos artigos citados: ${faltam.join(', ')}`);
+      }
       continue;
     }
     const fonte = ref && leis[ref.lei];

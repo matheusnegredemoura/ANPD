@@ -4,8 +4,10 @@
 //   bloco: lgpd-19-22                     (vale para as linhas seguintes)
 //   lgpd 19, II | ... no prazo de até {{15 (quinze) dias}}, contado ... | dica opcional
 // Cada {{...}} vira um card (c1, c2...). {{c1::a}} ... {{c1::b}} agrupa lacunas no mesmo card.
-// Sem as chaves, o texto precisa existir literalmente no artigo citado. A exceção são os cards de conceito,
-// com ref "doutrina <tema>": não há norma anexada para conferir, então o texto é redação própria.
+// Sem as chaves, o texto precisa existir literalmente no artigo citado. As exceções são os cards de conceito,
+// com ref "doutrina <tema>" (não há norma anexada para conferir, então o texto é redação própria), e os cards
+// de resumo, com ref "resumo lgpd 8; lgpd 9, § 1º": texto próprio com contexto, que pode juntar vários
+// artigos; cada artigo citado precisa existir e todo número do texto precisa aparecer em algum deles.
 //
 // glossario/*.txt — blocos:
 //   === Termo
@@ -39,6 +41,12 @@ export function lacunas(texto) {
     return t;
   });
   return out;
+}
+
+// Refs de um card de resumo ("resumo lgpd 8; lei9784 13"), ou null se o card não for de resumo
+export function refsResumo(ref) {
+  const m = /^resumo\s+(.+)$/.exec(ref || '');
+  return m ? m[1].split(';').map((x) => x.trim()).filter(Boolean) : null;
 }
 
 export function lerCloze(raiz) {

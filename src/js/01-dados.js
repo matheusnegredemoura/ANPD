@@ -167,15 +167,19 @@ function lacunasDe(texto) {
   texto.replace(RE_LACUNA, (m, n, t) => { out.push({ n: n ? Number(n) : ++auto, t }); return m; });
   return out;
 }
-const NOTAS = D.cloze || [];
-const CARDS = [];
-NOTAS.forEach((nota) => {
+// O baralho tem só os cards com contexto (resumo e doutrina). Os literais, recortes do artigo, servem às lacunas do
+// modo Testar da lei seca; continuam em CI para o histórico deles seguir no backup e na importação.
+const NOTAS_TODAS = D.cloze || [];
+const NOTAS = NOTAS_TODAS.filter((nota) => !nota.art);
+const TODOS_CARDS = [];
+NOTAS_TODAS.forEach((nota) => {
   const nums = [...new Set(lacunasDe(nota.t).map((l) => l.n))];
-  nums.forEach((n) => CARDS.push({ id: nota.id + '.' + n, nota, n }));
+  nums.forEach((n) => TODOS_CARDS.push({ id: nota.id + '.' + n, nota, n }));
 });
-const CI = new Map(CARDS.map((c) => [c.id, c]));
+const CARDS = TODOS_CARDS.filter((c) => !c.nota.art);
+const CI = new Map(TODOS_CARDS.map((c) => [c.id, c]));
 const CARDS_POR_BLOCO = agrupar(CARDS, (c) => c.nota.b);
-const CARDS_POR_ART = agrupar(CARDS.filter((c) => c.nota.art), (c) => chave(c.nota.l || 'lgpd', c.nota.art));
+const CARDS_POR_ART = agrupar(TODOS_CARDS.filter((c) => c.nota.art), (c) => chave(c.nota.l || 'lgpd', c.nota.art));
 // Bloco do cronograma que cobre cada artigo (para o peso do artigo no ranking)
 const BLOCO_DO_ART = new Map();
 for (const b of BLOCOS) for (const a of b.artigos || []) { const k = chave(b.lei || 'lgpd', a); if (!BLOCO_DO_ART.has(k)) BLOCO_DO_ART.set(k, b); }

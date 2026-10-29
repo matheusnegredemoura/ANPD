@@ -1,0 +1,44 @@
+# Cards com contexto de direito comparado (RGPD e Convenção 108+), segurança da informação (NIST CSF 2.0,
+# PNSI, PNCiber, Rede Federal de Incidentes, IN GSI 1/2020) e orçamento (CF, art. 165, LRF e Lei 4.320/1964).
+# Formato "resumo" (ver cloze.mjs): frase própria, uma ideia por card, no máximo duas lacunas.
+
+bloco: gdpr
+resumo gdpr 6 | No RGPD, o legítimo interesse {{não se aplica}} ao tratamento feito por autoridades públicas no desempenho de suas atribuições (art. 6º, 1, f).
+resumo gdpr 8 | Pelo RGPD, a criança pode consentir sozinha nos serviços da sociedade da informação a partir dos {{16 anos}}, e os Estados-membros podem reduzir essa idade (art. 8º, 1).
+resumo gdpr 33 | No RGPD, a violação de dados deve ser notificada à autoridade de controle sem demora injustificada e, se possível, em até {{72 horas}} (art. 33, 1).
+resumo gdpr 83 | No patamar inferior do RGPD, as multas chegam a {{10 milhões de euros}} ou 2% do faturamento anual mundial, o que for mais elevado (art. 83, 4).
+resumo gdpr 83 | No patamar superior do RGPD, para infrações a princípios, bases legais e direitos, as multas chegam a 20 milhões de euros ou {{4%}} do faturamento anual mundial (art. 83, 5).
+resumo conv108 3 | A Convenção 108+ não se aplica ao tratamento feito por pessoa no exercício de atividades {{exclusivamente pessoais ou domésticas}} (art. 3º, 2).
+resumo conv108 7 | Na Convenção 108+, o responsável deve notificar à autoridade de controle, {{sem demora}}, as violações de dados que possam afetar gravemente os direitos dos titulares (art. 7º, 2).
+resumo conv108 14 | Pela Convenção 108+, a transferência a destinatário de Estado que não seja Parte exige nível de proteção {{apropriado}} (art. 14, 2).
+resumo conv108 15 | As autoridades de controle da Convenção 108+ agem com independência e imparcialidade e {{não solicitam nem aceitam instruções}} (art. 15, 5).
+resumo conv108 29 | As disposições da Convenção 108+ {{não podem ser objeto de qualquer reserva}} (art. 29).
+resumo conv108 30 | A denúncia da Convenção 108+ produz efeitos no primeiro dia do mês seguinte ao fim de {{6 meses}} da notificação ao Secretário-Geral (art. 30, 2).
+resumo stfsum SCHREMS | No caso Schrems I (2015), o TJUE invalidou o acordo {{Safe Harbor}} entre a União Europeia e os EUA.
+resumo stfsum SCHREMS | No caso Schrems II (2020), o TJUE invalidou o {{Privacy Shield}}, mas manteve as cláusulas contratuais-padrão, com avaliação caso a caso do país de destino.
+
+bloco: seginfo
+resumo nistcsf S2 | No núcleo do NIST CSF 2.0, a função que estabelece e monitora a estratégia, as expectativas e a política de risco cibernético é a {{GOVERN}} (GV).
+resumo nistcsf S2 | O NIST CSF 2.0 acrescentou ao núcleo a função GOVERN; com ela, são {{6}} funções: governar, identificar, proteger, detectar, responder e recuperar.
+doutrina NIST CSF 2.0 | No NIST CSF 2.0, os níveis de implementação (tiers) vão do Tier 1, parcial, ao Tier 4, {{adaptativo}} (adaptive).
+doutrina NIST CSF 2.0 | No NIST CSF 2.0, o Tier 2 é o {{informado pelo risco}} (risk informed), e o Tier 3, o repetível (repeatable).
+resumo dec12572 5 | Pela Política Nacional de Segurança da Informação (Decreto 12.572/2025), quem coordena as ações do Governo federal em segurança da informação é o {{Gabinete de Segurança Institucional}} (art. 5º).
+resumo dec12572 12 | O Decreto 12.572/2025, que instituiu a nova Política Nacional de Segurança da Informação, revogou o {{Decreto 9.637/2018}}, a PNSI anterior (art. 12, I).
+resumo ingsi1 12 | Pela IN GSI/PR 1/2020, a política de segurança da informação de cada órgão deve ser revista em prazo que não exceda {{4 anos}} (art. 12, § 1º).
+resumo dec11856 7 | O Comitê Nacional de Cibersegurança (CNCiber) da PNCiber é presidido pelo representante do {{Gabinete de Segurança Institucional}} (Decreto 11.856/2023, art. 7º).
+resumo dec11856 9 | O CNCiber reúne-se ordinariamente a cada {{trimestre}} (Decreto 11.856/2023, art. 9º).
+resumo dec10748 1 | A participação de empresas públicas e sociedades de economia mista federais na Rede Federal de Gestão de Incidentes Cibernéticos é {{voluntária}}, por adesão (Decreto 10.748/2021, art. 1º, § 2º).
+
+bloco: orcamento
+resumo cf88 165 | O PPA estabelece, de forma {{regionalizada}}, as diretrizes, objetivos e metas para as despesas de capital e os programas de duração continuada (CF, art. 165, § 1º).
+resumo cf88 165 | O Poder Executivo publica o relatório resumido da execução orçamentária até 30 dias após o fim de cada {{bimestre}} (CF, art. 165, § 3º).
+resumo cf88 165 | Pelo princípio da exclusividade, a LOA só pode conter, além de receita e despesa, autorização para créditos {{suplementares}} e para operações de crédito (CF, art. 165, § 8º).
+resumo cf88 165 | O dever de executar as programações orçamentárias, na programação geral, aplica-se exclusivamente às despesas primárias {{discricionárias}} (CF, art. 165, § 11, III).
+resumo lc101 19 | Pela LRF, a despesa total com pessoal da União não pode passar de {{50%}} da receita corrente líquida (art. 19, I).
+resumo lc101 19 | Pela LRF, a despesa total com pessoal de Estados e Municípios não pode passar de {{60%}} da receita corrente líquida (art. 19, II e III).
+resumo lc101 20 | Na esfera federal, o limite de despesa com pessoal do Executivo é de {{40,9%}} da receita corrente líquida (LRF, art. 20, I, c).
+resumo lc101 20 | Na esfera federal, o Legislativo, incluído o TCU, tem limite de despesa com pessoal de {{2,5%}} da receita corrente líquida (LRF, art. 20, I, a).
+resumo lc101 22 | O limite prudencial da LRF é atingido quando a despesa com pessoal passa de {{95%}} do limite máximo (art. 22, parágrafo único).
+resumo lc101 23 | Ultrapassado o limite de pessoal, o excedente deve ser eliminado nos {{dois quadrimestres}} seguintes, sendo ao menos um terço no primeiro (LRF, art. 23).
+resumo lei4320 35 | Pela Lei 4.320/1964, pertencem ao exercício as receitas nele {{arrecadadas}} e as despesas nele legalmente {{empenhadas}} (art. 35).
+resumo lei4320 103 | No Balanço Financeiro, os restos a pagar do exercício entram na receita {{extraorçamentária}} para compensar sua inclusão na despesa orçamentária (Lei 4.320/1964, art. 103).

@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { ARMADILHAS, parseRef } from './lib/questoes.mjs';
 import { GRUPOS_LEIS, LEIS } from './lib/leis.mjs';
 import { validar } from './validar.mjs';
-import { lacunas } from './lib/cloze.mjs';
+import { lacunas, refsResumo } from './lib/cloze.mjs';
 import { jsDoApp } from './lib/fonte.mjs';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -270,6 +270,12 @@ export function montarDados() {
     const r = parseRef(n.ref);
     // nu: a nota esconde dado arbitrário (prazo, número, quórum), o que card memoriza melhor que questão; entra primeiro
     const nu = lacunas(n.texto).some((l) => RE_DADO.test(l.t)) ? 1 : undefined;
+    // Resumo: sem art (não entra no modo Testar da lei seca, que pinta o texto literal); ar abre os artigos citados
+    const rs = refsResumo(n.ref);
+    if (rs) {
+      const ar = rs.map((x) => { const p = parseRef(x); return [p.lei, p.art]; });
+      return { id: n.id, b: n.bloco, l: ar[0][0], r: [...new Set(ar.map(([l]) => rotuloRef(l)))].join(' · '), ar, t: n.texto, dc: n.dica || undefined, nu };
+    }
     return { id: n.id, b: n.bloco, l: r.lei, art: r.lei === 'doutrina' ? undefined : r.art, r: rotuloRef(n.ref), t: n.texto, dc: n.dica || undefined, nu };
   });
   // Frequência de cada termo do glossário nas questões: termos raros são sinalizados primeiro

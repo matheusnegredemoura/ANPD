@@ -90,7 +90,7 @@ function renderCards() {
   const rest = novosRestantesHoje();
   const vistos = CARDS.filter((c) => S.cards[c.id]).length;
   let html = '<div class="secao"><div class="secao-cab"><h2>Cards cloze</h2><span class="mudo pequeno mono">' + CARDS.length + ' cards · ' + NOTAS.length + ' notas</span></div>' +
-    '<p class="mudo pequeno">Cada card esconde uma palavra-chave. Os cards de lei usam o texto literal do artigo; os marcados “Doutrina” cobrem conceitos de gestão, riscos, dados, IA e economia, que não têm lei de referência. Responda de cabeça, revele e diga como foi: Errei, Difícil, Bom ou Fácil. O intervalo até a próxima revisão cresce a cada acerto, como no Anki.</p></div>';
+    '<p class="mudo pequeno">Cada card esconde um dado-chave dentro de uma frase com contexto: a norma, o artigo e a regra em volta. Os marcados “Doutrina” cobrem conceitos de gestão, riscos, dados, IA e economia, que não têm lei de referência. O texto literal dos artigos fica na lei seca, no modo Testar. Responda de cabeça, revele e diga como foi: Errei, Difícil, Bom ou Fácil. O intervalo até a próxima revisão cresce a cada acerto, como no Anki.</p></div>';
   html += '<div class="contadores"><div class="rev"><b>' + venc + '</b><span>para revisar hoje</span></div><div class="nov"><b>' + Math.min(rest, novos) + '</b><span>novos liberados hoje</span></div><div><b>' + vistos + '</b><span>já estudados</span></div></div>';
   html += '<div class="linha-btns"><button class="btn primario" data-acao="cards-iniciar"' + (venc || (rest && novos) ? '' : ' disabled') + '>Estudar (' + (venc + Math.min(rest, novos)) + ')</button>' +
     '<button class="btn" data-acao="cards-so-revisao"' + (venc ? '' : ' disabled') + '>Só revisões (' + venc + ')</button></div>';
@@ -286,8 +286,8 @@ function renderCardSessao(card) {
     if (sessao.digOk != null) html += '<p class="digitado ' + (sessao.digOk ? 'ok' : 'no') + '">Você digitou <b>' + esc(sessao.dig) + '</b>: ' + (sessao.digOk ? 'confere.' : 'não confere. Bom e Fácil ficam bloqueados neste card.') + '</p>';
     html += '<div class="notas-card">' + [[1, 'Errei'], [2, 'Difícil'], [3, 'Bom'], [4, 'Fácil']].map(([n, t]) => '<button class="n' + n + '" data-acao="avaliar" data-n="' + n + '"' + (sessao.digOk === false && n >= 3 ? ' disabled' : '') + '>' + t + '<small>' + (n === 1 ? 'agora' : fmtIntervalo(calcularCard(card.id, n)[0] - HOJE())) + '</small></button>').join('') + '</div>';
     html += '<p class="atalhos">Teclado: 1 Errei · 2 Difícil · 3 Bom · 4 Fácil</p>';
-    const kn = nota.art ? chave(nota.l || 'lgpd', nota.art) : null;
-    if (kn && ARTI.get(kn)) html += '<div>' + botaoArt(kn) + '</div>';
+    const ks = (nota.ar || (nota.art ? [[nota.l || 'lgpd', nota.art]] : [])).map(([l, a]) => chave(l, a)).filter((k) => ARTI.get(k));
+    for (const k of ks) html += '<div>' + botaoArt(k) + '</div>';
     html += blocoPesquisar(nota.t.replace(RE_LACUNA, '$2'), null, 'card');
   }
   return html + '</article>';
