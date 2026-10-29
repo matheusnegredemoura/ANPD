@@ -187,10 +187,10 @@ enunciado: O ataque de ligação, que cruza uma base supostamente anônima com o
 comentario: Certo. Um estudo clássico (Latanya Sweeney, 2000) estimou que data de nascimento, sexo e código postal identificavam cerca de 87% da população dos Estados Unidos. É por isso que tirar o nome não basta.
 
 === si8-22
-gab: E
+gab: C
 ref: lgpd 12
 trecho: ou quando, com esforços razoáveis, puder ser revertido
-armadilha: conceito
-dif: 2
-enunciado: Remover nome e CPF de uma base basta para que ela seja considerada anonimizada pela LGPD, ainda que permaneçam data de nascimento, sexo e CEP completo de cada registro.
-comentario: Errado. Com esses quase-identificadores, a reidentificação por ligação com outras bases exige esforço razoável, e a LGPD trata como pessoal o dado anonimizado que puder ser revertido com esforços razoáveis (art. 12).
+armadilha: caso
+dif: 3
+enunciado: Uma base da qual se retiraram nome e CPF, mas que mantém data de nascimento, sexo e CEP completo de cada registro, pode não ser considerada anonimizada pela LGPD, pois a combinação desses atributos pode permitir reidentificar pessoas com esforços razoáveis.
+comentario: Certo. O dado anonimizado deixa de ser pessoal salvo quando, com esforços razoáveis, a anonimização puder ser revertida (art. 12). A combinação de data de nascimento, sexo e CEP é clássica para reidentificação, e a retirada dos identificadores diretos não garante a anonimização.
