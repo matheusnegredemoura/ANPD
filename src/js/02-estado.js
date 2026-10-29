@@ -85,7 +85,7 @@ function mesclarRPG(velho, novo) {
   r.m = mesclarMapa(velho.m, novo.m, (x, y) => Object.assign({}, x, y, { ok: Object.assign({}, x.ok, y.ok), bau: x.bau || y.bau, item: y.item || x.item }));
   return r;
 }
-const CAMPOS_RESPOSTA = new Set(['r', 'c', 'e', 'b', 'k', 'n', 'sq', 'ni', 'm', 'mc', 'mp', 'mpc', 'cz']);
+const CAMPOS_RESPOSTA = new Set(['r', 'c', 'e', 'b', 'k', 'n', 'nc', 'sq', 'ni', 'm', 'mc', 'mp', 'mpc', 'cz']);
 function mesclarDoc(n, nuvem, local, localNovo) {
   nuvem = nuvem || {}; local = local || {};
   const novo = localNovo ? local : nuvem, velho = localNovo ? nuvem : local;

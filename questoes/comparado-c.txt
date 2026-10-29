@@ -55,10 +55,10 @@ bloco: gdpr
 ref: conv108 12
 trecho: sanções e vias de recurso judiciais e extrajudiciais apropriadas
 comando: Com base na Convenção 108+ do Conselho da Europa (Convenção para a Proteção das Pessoas relativamente ao Tratamento de Dados de Caráter Pessoal, modernizada), julgue os itens a seguir.
-armadilha: conceito
-dif: 1
-enunciado: As Partes da Convenção 108+ devem aplicar as sanções judiciais e extrajudiciais fixadas pela própria Convenção para as violações de suas disposições.
-comentario: Errado. A Convenção obriga as Partes a prever sanções e vias de recurso apropriadas (art. 12), mas não as fixa: cada Parte as define em sua legislação, como o Brasil fez nos arts. 52 a 54 da LGPD.
+armadilha: comparacao
+dif: 2
+enunciado: Assim como o RGPD, a Convenção 108+ fixa diretamente os valores máximos das multas aplicáveis em caso de violação, cabendo às Partes apenas adotá-los em seu direito interno.
+comentario: Errado. A Convenção 108+ só obriga cada Parte a estabelecer sanções e vias de recurso judiciais e extrajudiciais apropriadas (art. 12), sem fixar valores. Quem tabela multas é o RGPD (art. 83), por ser regulamento.
 
 === cmc-06
 gab: E
@@ -174,12 +174,12 @@ comentario: Errado. O art. 14, n.º 2, f, manda informar a origem dos dados e, s
 gab: E
 bloco: gdpr
 ref: gdpr 42
-trecho: The certification shall be voluntary
+trecho: A certification pursuant to this Article does not reduce the responsibility of the controller or the processor for compliance with this Regulation
 comando: Com base no Regulamento (UE) 2016/679 (Regulamento Geral sobre a Proteção de Dados — RGPD), julgue os itens a seguir.
-armadilha: absoluto
-dif: 1
-enunciado: No RGPD, a certificação em proteção de dados é obrigatória para os responsáveis que tratam dados em larga escala.
-comentario: Errado. Art. 42, n.º 3: a certificação é voluntária e disponível por processo transparente. Serve para demonstrar conformidade e pode ser usada como garantia em transferências internacionais (n.º 2).
+armadilha: conceito
+dif: 3
+enunciado: No RGPD, a certificação em proteção de dados é voluntária e, por servir para demonstrar a conformidade do tratamento, reduz a responsabilidade do responsável pelo cumprimento do regulamento.
+comentario: Errado. Art. 42, n.º 4: a certificação não reduz a responsabilidade do responsável ou do subcontratante. Ela é voluntária (n.º 3) e vale por até três anos, renováveis (n.º 7).
 
 === cmc-17
 gab: E

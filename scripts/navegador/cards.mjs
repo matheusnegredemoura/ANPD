@@ -1,5 +1,5 @@
 // Cards por baralho: card de lei mostra a referência e o link para o artigo grifado; card de conceito (doutrina)
-// mostra o tema e nenhum link.
+// mostra o tema e nenhum link. Cards literais estudados hoje (contador antigo) não gastam o limite de novos do baralho.
 import { APP, abrirNavegador, foto, placar, sairDaSessao, vigiarErros } from './comum.mjs';
 
 const browser = await abrirNavegador();
@@ -12,7 +12,7 @@ vigiarErros(p, erros);
 await p.goto(APP);
 await p.waitForTimeout(400);
 
-for (const [bloco, rotulo, comLink] of [['riscos', /^Doutrina · /, false], ['lei-13460', /^Lei 13\.460, art\./, true], ['orcamento', /^CF\/88, art\. 16[5-9]/, true]]) {
+for (const [bloco, rotulo, comLink] of [['riscos', /^Doutrina · /, false], ['lei-13460', /^Lei 13\.460, art\./, true], ['orcamento', /^(CF\/88|LRF|Lei 4\.320)[^,]*, art\. \d/, true]]) {
   await passo('baralho ' + bloco, async () => {
     await p.click('.aba[data-vista="cards"]');
     for (const el of await p.locator('#vista-cards input[data-acao="toggle-bloco-card"]:checked').all()) await el.click();
@@ -29,6 +29,26 @@ for (const [bloco, rotulo, comLink] of [['riscos', /^Doutrina · /, false], ['le
     await sairDaSessao(p);
   });
 }
+
+await passo('limite de novos gasto com cards literais não trava o baralho novo', async () => {
+  const ctx2 = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  await ctx2.addInitScript(() => {
+    if (sessionStorage.getItem('semeado')) return;
+    sessionStorage.setItem('semeado', '1');
+    const d = new Date(), hoje = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    const perfil = { xp: 0, meta: 30, novosCards: 5, intercaladas: 20, melhorSeq: 0, dias: { [hoje]: { r: 0, c: 0, e: 0, b: 0, xp: 0, k: 5, n: 5, a: [], t: {} } }, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: hoje };
+    localStorage.setItem('painel-anpd-v3', JSON.stringify({ perfil, itens: {}, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: {} }));
+  });
+  const p2 = await ctx2.newPage();
+  vigiarErros(p2, erros);
+  await p2.goto(APP);
+  await p2.waitForTimeout(400);
+  await p2.click('.aba[data-vista="cards"]');
+  const btn = p2.locator('[data-acao="cards-iniciar"]');
+  if (await btn.isDisabled()) throw new Error('Estudar desabilitado: ' + (await btn.textContent()));
+  if (!/Estudar \(5\)/.test(await btn.textContent())) throw new Error('esperava 5 novos: ' + (await btn.textContent()));
+  await ctx2.close();
+});
 
 await browser.close();
 fim(erros);

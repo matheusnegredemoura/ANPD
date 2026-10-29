@@ -48,10 +48,9 @@ function nivelDe(xp) {
 }
 function diaLog(iso) {
   iso = iso || hojeISO();
-  if (!S.perfil.dias[iso]) S.perfil.dias[iso] = { r: 0, c: 0, e: 0, b: 0, xp: 0, k: 0, n: 0, a: [], t: {} };
+  if (!S.perfil.dias[iso]) S.perfil.dias[iso] = { r: 0, c: 0, e: 0, b: 0, xp: 0, k: 0, nc: 0, a: [], t: {} };
   const d = S.perfil.dias[iso];
   if (d.k == null) d.k = 0;
-  if (d.n == null) d.n = 0;
   if (!d.a || !Array.isArray(d.a) || !Object.isExtensible(d.a)) d.a = Array.from(d.a || []);
   if (!d.t || typeof d.t !== 'object' || !Object.isExtensible(d.t)) d.t = Object.assign({}, d.t || {});
   return d;
@@ -565,7 +564,9 @@ function avaliarCard(id, nota) {
   S.cards[id] = calcularCard(id, nota);
   const d = diaLog();
   d.k = (d.k || 0) + 1;
-  if (novo) d.n = (d.n || 0) + 1;
+  // nc: cards novos do baralho de hoje. O contador antigo (n) somava os cards literais, que saíram da aba Cards,
+  // e gastava o limite do dia antes de o baralho novo começar
+  if (novo) d.nc = (d.nc || 0) + 1;
   verificarRPG();
   return novo;
 }
@@ -579,7 +580,7 @@ function cardsNovos(blocos) {
   return CARDS.filter((c) => (!set || set.has(c.nota.b)) && cardNovo(c.id)).sort((a, b) => (b.nota.nu || 0) - (a.nota.nu || 0));
 }
 const REV_MAX = 60;
-function novosRestantesHoje() { return Math.max(0, (S.perfil.novosCards || 20) - (diaLog().n || 0)); }
+function novosRestantesHoje() { return Math.max(0, (S.perfil.novosCards || 20) - (diaLog().nc || 0)); }
 
 /* ================= Pesquisa e glossário ================= */
 function termosDe(texto, limite, maxFreq) {

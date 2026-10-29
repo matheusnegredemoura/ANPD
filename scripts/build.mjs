@@ -274,7 +274,7 @@ export function montarDados() {
     const rs = refsResumo(n.ref);
     if (rs) {
       const ar = rs.map((x) => { const p = parseRef(x); return [p.lei, p.art]; });
-      return { id: n.id, b: n.bloco, l: ar[0][0], r: [...new Set(ar.map(([l]) => rotuloRef(l)))].join(' · '), ar, t: n.texto, dc: n.dica || undefined, nu };
+      return { id: n.id, b: n.bloco, l: ar[0][0], r: [...new Set(rs.map(rotuloRef))].join(' · '), ar, t: n.texto, dc: n.dica || undefined, nu };
     }
     return { id: n.id, b: n.bloco, l: r.lei, art: r.lei === 'doutrina' ? undefined : r.art, r: rotuloRef(n.ref), t: n.texto, dc: n.dica || undefined, nu };
   });

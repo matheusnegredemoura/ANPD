@@ -7,9 +7,9 @@ ref: gdpr 99
 trecho: It shall apply from 25 May 2018.
 trecho: directly applicable in all Member States
 armadilha: numero
-dif: 1
-enunciado: O Regulamento Geral sobre a Proteção de Dados da União Europeia (GDPR), adotado em 2016, passou a ser aplicável em maio de 2018.
-comentario: O GDPR é o Regulamento (UE) 2016/679 e se aplica desde 25 de maio de 2018 (art. 99). Por ser regulamento, vale diretamente em todos os Estados-membros, sem lei nacional de transposição.
+dif: 2
+enunciado: O RGPD é obrigatório em todos os seus elementos e diretamente aplicável nos Estados-membros, sem lei de transposição, embora deixe margem para regras nacionais em temas como o tratamento de dados no contexto laboral.
+comentario: Certo. Art. 99, n.º 2, e art. 88. Diferentemente da antiga diretiva, o regulamento vale por si, mas abre espaço para regras nacionais em alguns temas (arts. 85 a 91).
 
 === gdpr-02
 gab: C
@@ -36,9 +36,9 @@ ref: gdpr 33
 trecho: the controller shall without undue delay and, where feasible, not later than 72 hours after having become aware of it, notify the personal data breach to the supervisory authority
 trecho: unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons
 armadilha: numero
-dif: 1
-enunciado: No GDPR, o controlador deve notificar a violação de dados pessoais à autoridade de controle sem demora injustificada e, sempre que possível, até 72 horas após a ocorrência da violação, salvo se ela não for suscetível de resultar em risco.
-comentario: Errado no marco inicial. As 72 horas contam de quando o responsável teve conhecimento da violação (art. 33, 1), e não da ocorrência.
+dif: 2
+enunciado: No RGPD, quando a notificação da violação de dados à autoridade de controle não for feita em até 72 horas contadas da ocorrência da violação, deve vir acompanhada dos motivos do atraso.
+comentario: Errado no marco inicial. Art. 33, n.º 1: as 72 horas contam de quando o responsável teve conhecimento da violação, e não da ocorrência. A exigência de justificar o atraso está certa.
 
 === gdpr-05
 gab: E
@@ -170,12 +170,11 @@ comentario: Certo. GDPR, art. 3º, 2: o controlador ou operador não estabelecid
 === gdpr-18
 gab: C
 ref: gdpr 25
-trecho: Data protection by design and by default
-trecho: both at the time of the determination of the means for processing and at the time of the processing itself, implement appropriate technical and organisational measures
+trecho: by default personal data are not made accessible without the individual's intervention to an indefinite number of natural persons
 armadilha: conceito
-dif: 1
-enunciado: O GDPR consagra a proteção de dados desde a concepção e por padrão, exigindo medidas técnicas e organizativas adequadas tanto no momento de definir os meios de tratamento quanto no próprio tratamento.
-comentario: Art. 25 do GDPR. Na LGPD, o art. 46, § 2º, exige medidas desde a fase de concepção até a execução.
+dif: 3
+enunciado: No RGPD, a proteção de dados por padrão exige que, sem intervenção do titular, os dados não fiquem acessíveis a um número indeterminado de pessoas, e um mecanismo de certificação aprovado pode servir para demonstrar o cumprimento desse dever.
+comentario: Certo. Art. 25, n.os 2 e 3, do RGPD. Na LGPD, as medidas de segurança devem ser observadas desde a concepção até a execução (art. 46, § 2º).
 
 === gdpr-19
 gab: E
