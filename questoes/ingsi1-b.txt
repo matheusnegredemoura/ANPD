@@ -75,14 +75,14 @@ enunciado: Segundo a Instrução Normativa GSI n.º 1/2020, que dispõe sobre a 
 comentario: Errado. A adoção desses controles é de cumprimento obrigatório para a alta administração dos órgãos e entidades federais (art. 14, parágrafo único).
 
 === gsi2-08
-gab: C
+gab: E
 ref: ingsi1 15
-trecho: designar um gestor de segurança da informação interno, indicado pela alta administração do órgão ou da entidade
-armadilha: rol
-dif: 2
+trecho: instituir Comitê de Segurança da Informação ou estrutura equivalente, para deliberar sobre os assuntos relativos à Política Nacional de Segurança da Informação
+armadilha: conceito
+dif: 3
 tema: sg-nist
-enunciado: Compete aos órgãos e entidades federais designar gestor de segurança da informação indicado pela alta administração, instituir comitê de segurança da informação ou estrutura equivalente e instituir equipe de prevenção, tratamento e resposta a incidentes cibernéticos.
-comentario: Certo: art. 15, I, II e IV. Também lhes cabe capacitar pessoal, coordenar as ações, analisar os resultados de auditoria e aplicar as ações corretivas cabíveis (incisos III, V a VII).
+enunciado: Compete aos órgãos e entidades federais designar gestor de segurança da informação interno, indicado pela alta administração, e instituir Comitê de Segurança da Informação ou estrutura equivalente, de função apenas consultiva quanto aos assuntos da Política Nacional de Segurança da Informação.
+comentario: Errado. O comitê ou a estrutura equivalente é instituído para deliberar sobre os assuntos relativos à Política Nacional de Segurança da Informação (art. 15, II), e não apenas para opinar. A designação do gestor indicado pela alta administração está correta (inciso I).
 
 === gsi2-09
 gab: E
@@ -107,32 +107,32 @@ comentario: Certo: art. 19-A, §§ 1º e 2º. Os órgãos comunicam ao GSI os no
 === gsi2-11
 gab: E
 ref: ingsi1 20
-trecho: deliberar sobre normas internas de segurança da informação
-armadilha: conceito
-dif: 2
+trecho: encaminhar à alta administração para aprovação o processo contendo os documentos sobre a avaliação de conformidade
+armadilha: sujeito
+dif: 3
 tema: sg-nist
-enunciado: Nos órgãos federais, o comitê de segurança da informação interno assessora a implementação das ações de segurança da informação e pode constituir grupos de trabalho, mas é órgão consultivo, sem atribuição de deliberar sobre normas internas de segurança da informação.
-comentario: Errado. Entre suas atribuições está deliberar sobre normas internas e sobre as ações propostas pelo gestor no parecer de avaliação de conformidade (art. 20, V e VI). Também assessora, constitui grupos de trabalho e propõe alterações à política.
+enunciado: O Comitê de Segurança da Informação interno delibera sobre normas internas de segurança da informação e sobre as ações propostas pelo gestor no parecer técnico do relatório de avaliação de conformidade, cabendo-lhe ainda aprovar, em caráter final, o processo de avaliação de conformidade.
+comentario: Errado. O comitê delibera sobre as normas internas e sobre as ações propostas pelo gestor (art. 20, V e VI), mas o processo com os documentos da avaliação de conformidade é encaminhado por ele à alta administração para aprovação (inciso VI, parte final).
 
 === gsi2-12
 gab: E
 ref: ingsi1 22
-trecho: Todos os órgãos e entidades que possuem a competência de administrar a infraestrutura de rede de sua organização deverão criar uma Equipe de Prevenção
-armadilha: sujeito
-dif: 2
+trecho: o qual designará suas atribuições e seu escopo de atuação
+armadilha: rol
+dif: 3
 tema: sg-nist
-enunciado: Os órgãos e entidades que administram a infraestrutura de rede de sua organização devem criar equipe de prevenção, tratamento e resposta a incidentes cibernéticos, composta preferencialmente por empregados terceirizados com capacitação compatível.
-comentario: Errado na composição. A equipe é composta preferencialmente por servidores públicos civis ocupantes de cargo efetivo ou por militares com capacitação técnica compatível (art. 22 da IN GSI 1/2020).
+enunciado: Situação hipotética: autarquia federal que administra sua própria infraestrutura de rede criou sua equipe de prevenção, tratamento e resposta a incidentes cibernéticos e elaborou o documento de constituição com as atribuições da equipe, deixando o escopo de atuação para definição posterior pelo gestor de segurança. Assertiva: o documento atende à IN GSI/PR 1/2020.
+comentario: Errado. O documento de constituição da equipe deve designar suas atribuições e também seu escopo de atuação (art. 22, § 1º). A criação da equipe é obrigatória para quem administra a infraestrutura de rede da organização (caput).
 
 === gsi2-13
-gab: E
+gab: C
 ref: ingsi1 22
 trecho: será composta, preferencialmente, por servidores públicos civis ocupantes de cargo efetivo ou militares
 armadilha: absoluto
-dif: 2
+dif: 3
 tema: sg-nist
-enunciado: Situação hipotética: ministério montou sua equipe de prevenção, tratamento e resposta a incidentes cibernéticos com servidores efetivos e um ocupante de cargo em comissão sem vínculo, com capacitação técnica. Assertiva: a composição é irregular, porque a equipe deve ser formada exclusivamente por servidores de cargo efetivo.
-comentario: Errado. A composição é preferencialmente, e não exclusivamente, por servidores civis efetivos ou militares com capacitação técnica compatível (art. 22, § 2º).
+enunciado: Situação hipotética: ministério compôs sua equipe de prevenção, tratamento e resposta a incidentes cibernéticos com servidores efetivos, militares e um ocupante de cargo em comissão sem vínculo, todos com capacitação técnica compatível. Assertiva: a composição não contraria a IN GSI/PR 1/2020.
+comentario: Certo. A equipe será composta, preferencialmente, por servidores civis efetivos ou militares com capacitação compatível (art. 22, § 2º). A preferência não é exclusividade, de modo que a presença de um comissionado capacitado não torna a composição irregular.
 
 === gsi2-14
 gab: C

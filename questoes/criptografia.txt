@@ -42,19 +42,19 @@ comentario: Errado. O sal, único por senha, faz senhas iguais gerarem resumos d
 gab: C
 tema: sg-cripto
 ref: doutrina criptografia
-armadilha: conceito
-dif: 2
-enunciado: Uma função hash criptográfica deve ser resistente a colisões, isto é, deve ser computacionalmente inviável encontrar duas entradas diferentes com o mesmo resumo.
-comentario: Certo. Funções em que colisões se tornaram viáveis, como MD5 e SHA-1, deixaram de ser recomendadas para assinatura e integridade.
+armadilha: comparacao
+dif: 3
+enunciado: Resistência à segunda pré-imagem e resistência a colisões são propriedades distintas de uma função hash criptográfica: na primeira, dada uma entrada, é inviável achar outra com o mesmo resumo; na segunda, é inviável achar qualquer par de entradas distintas com resumo igual.
+comentario: Certo. Na segunda pré-imagem, a entrada é fixada e o atacante busca outra que colida com ela; na resistência a colisões, o atacante escolhe livremente as duas entradas, o que torna o ataque mais fácil (paradoxo do aniversário). Há ainda a resistência à pré-imagem: dado o resumo, é inviável achar uma entrada que o produza.
 
 === sc9-06
 gab: E
 tema: sg-cripto
 ref: doutrina criptografia
 armadilha: conceito
-dif: 2
-enunciado: A assinatura digital garante a confidencialidade do documento assinado.
-comentario: Errado. A assinatura digital garante autenticidade, integridade e não repúdio, mas o documento continua legível. Para sigilo, é preciso cifrá-lo, por exemplo com a chave pública do destinatário.
+dif: 3
+enunciado: Na assinatura digital, o signatário cifra com sua chave privada o resumo (hash) do documento; o verificador recalcula o resumo e o compara com o obtido ao decifrar a assinatura com a chave pública do signatário, procedimento que garante integridade e autenticidade, mas não o não repúdio.
+comentario: Errado. Como só o signatário detém a chave privada que gerou a assinatura, ele não pode negar a autoria: o não repúdio é justamente uma das garantias da assinatura digital, ao lado da integridade e da autenticidade. O que ela não garante, por si, é a confidencialidade.
 
 === sc9-07
 gab: C

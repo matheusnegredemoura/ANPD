@@ -18,20 +18,20 @@ enunciado: Na tríade da segurança da informação, integridade é a garantia d
 comentario: Errado. Está invertido: acesso quando necessário é disponibilidade; proteção contra alteração indevida é integridade.
 
 === si-03
-gab: C
-ref: doutrina criptografia
-armadilha: conceito
-dif: 2
-enunciado: Na criptografia assimétrica, para garantir a confidencialidade de uma mensagem, o remetente a cifra com a chave pública do destinatário, que a decifra com sua chave privada.
-comentario: Só o dono da chave privada consegue decifrar. É assim que dados ficam ininteligíveis para terceiros, fator considerado no juízo de gravidade de incidentes (LGPD, art. 48, § 3º).
-
-=== si-04
 gab: E
 ref: doutrina criptografia
 armadilha: conceito
-dif: 2
-enunciado: A assinatura digital com criptografia assimétrica assegura, por si só, a confidencialidade do documento, pois o resumo assinado com a chave privada do remetente impede a leitura por quem só tem a chave pública.
-comentario: Errado. A assinatura garante autenticidade, integridade e não repúdio, mas o documento continua legível. Sigilo exige cifrar o conteúdo.
+dif: 3
+enunciado: Na criptografia assimétrica, o remetente que deseja confidencialidade cifra a mensagem com a chave pública do destinatário; e, como as duas chaves do par são matematicamente relacionadas, a chave privada pode ser obtida a partir da pública de forma computacionalmente viável.
+comentario: Errado. A primeira parte está correta, mas a segurança da criptografia assimétrica depende justamente de ser computacionalmente inviável derivar a chave privada a partir da pública, apesar da relação matemática entre elas (no RSA, por exemplo, isso exigiria fatorar números muito grandes).
+
+=== si-04
+gab: C
+ref: doutrina criptografia
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: para enviar documento sigiloso e assinado, o remetente assinou-o com sua chave privada e, em seguida, cifrou o conjunto com a chave pública do destinatário. Assertiva: o procedimento soma autenticidade, integridade e não repúdio, obtidos pela assinatura, à confidencialidade, obtida pela cifragem.
+comentario: Certo. A assinatura com a chave privada do remetente garante autenticidade, integridade e não repúdio, mas não sigilo. A cifragem com a chave pública do destinatário garante a confidencialidade, pois só a chave privada dele decifra o conteúdo. Combinadas, as duas operações cobrem as quatro propriedades.
 
 === si-05
 gab: C

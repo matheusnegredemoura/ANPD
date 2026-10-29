@@ -50,13 +50,13 @@ enunciado: O NIST CSF 2.0 prevê que oportunidades estratégicas, isto é, risco
 comentario: Certo: GV.RM-07. Mesma ideia da ISO 31000, para a qual risco é efeito da incerteza nos objetivos, positivo ou negativo.
 
 === nist2-06
-gab: E
+gab: C
 ref: nistcsf ID.RA
-trecho: Processes for receiving, analyzing, and responding to vulnerability disclosures are established
-armadilha: extrapolacao
-dif: 2
-enunciado: A categoria avaliação de riscos (ID.RA) do NIST CSF 2.0 trata da identificação de vulnerabilidades em ativos, mas não do recebimento de comunicações de vulnerabilidades feitas por terceiros, assunto deixado a cada organização.
-comentario: Errado. A avaliação de riscos (ID.RA-08) prevê processos para receber, analisar e responder a divulgações de vulnerabilidades, como as feitas por pesquisadores de segurança.
+trecho: The authenticity and integrity of hardware and software are assessed prior to acquisition and use
+armadilha: rol
+dif: 3
+enunciado: Na categoria Avaliação de Riscos (ID.RA) do NIST CSF 2.0, além de identificar vulnerabilidades em ativos, a organização estabelece processos para receber, analisar e responder a comunicações de vulnerabilidades e avalia a autenticidade e a integridade de hardware e software antes de adquiri-los e usá-los.
+comentario: Certo. ID.RA-01 (vulnerabilidades em ativos identificadas, validadas e registradas), ID.RA-08 (processos para receber, analisar e responder a divulgações de vulnerabilidades) e ID.RA-09 (autenticidade e integridade de hardware e software avaliadas antes da aquisição e do uso).
 
 === nist2-07
 gab: C
@@ -86,14 +86,14 @@ enunciado: Situação hipotética: em órgão público, o mesmo servidor cadastr
 comentario: Certo: PR.AA-05, na categoria gestão de identidade, autenticação e controle de acesso, da função proteger.
 
 === nist2-10
-gab: E
+gab: C
 ref: nistcsf PR.AT
 trecho: Personnel are provided with awareness and training so that they possess the knowledge and skills to perform general tasks with cybersecurity risks in mind
-armadilha: sujeito
-dif: 2
+armadilha: comparacao
+dif: 3
 tema: sg-nist
-enunciado: Na função proteger do NIST CSF 2.0, a categoria conscientização e treinamento (PR.AT) prevê capacitação em cibersegurança, mas a destina aos profissionais da área técnica de segurança, sem alcançar o pessoal em geral.
-comentario: Errado. A conscientização alcança todo o pessoal (PR.AT-01); quem exerce funções especializadas recebe treinamento específico (PR.AT-02).
+enunciado: A categoria Conscientização e Treinamento (PR.AT) do NIST CSF 2.0 distingue a capacitação do pessoal em geral, voltada às tarefas comuns com atenção ao risco cibernético, da capacitação de quem ocupa papéis especializados, voltada às tarefas próprias dessas funções.
+comentario: Certo. PR.AT-01 trata do pessoal em geral (general tasks) e PR.AT-02, dos indivíduos em papéis especializados (relevant tasks). As duas subcategorias ficam na função Proteger.
 
 === nist2-11
 gab: C

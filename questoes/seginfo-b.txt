@@ -10,12 +10,12 @@ enunciado: Na criptografia simétrica, a exemplo do RSA, cada participante tem u
 comentario: Errado. Par de chaves pública e privada, como no RSA, caracteriza a criptografia assimétrica. Na simétrica, como no AES, uma única chave secreta compartilhada cifra e decifra.
 
 === si2-02
-gab: C
+gab: E
 ref: doutrina criptografia
-armadilha: conceito
-dif: 2
-enunciado: Enquanto o protocolo TLS protege a confidencialidade e a integridade de dados em trânsito na rede, a criptografia de disco ou de banco de dados se destina à proteção de dados em repouso.
-comentario: Certo. Trânsito e repouso pedem controles diferentes, e a distinção pesa na avaliação de incidentes: dado cifrado de forma adequada reduz o risco aos titulares (LGPD, art. 48, § 3º).
+armadilha: extrapolacao
+dif: 3
+enunciado: O protocolo TLS protege dados em trânsito, garantindo confidencialidade e integridade entre as pontas da conexão, de modo que os dados continuam cifrados depois de recebidos e gravados no servidor de destino.
+comentario: Errado. O TLS protege a comunicação entre as pontas; ao chegar ao destino, os dados são decifrados para uso. A proteção dos dados em repouso exige outra medida, como a criptografia de disco, de arquivo ou de banco de dados.
 
 === si2-03
 gab: E

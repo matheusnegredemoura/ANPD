@@ -24,24 +24,24 @@ enunciado: No NIST CSF 2.0, os requisitos de cibersegurança para fornecedores f
 comentario: Errado. GV.SC-05 prevê que os requisitos para tratar riscos na cadeia de suprimentos sejam estabelecidos, priorizados e integrados aos contratos e acordos com fornecedores e terceiros.
 
 === sx1-03
-gab: C
+gab: E
 tema: sg-nist
 ref: nistcsf GV.RR
 trecho: Organizational leadership is responsible and accountable for cybersecurity risk
 armadilha: conceito
-dif: 2
-enunciado: No NIST CSF 2.0, a liderança da organização é responsável pelo risco de cibersegurança e deve fomentar cultura consciente do risco, ética e de melhoria contínua.
-comentario: Certo. GV.RR-01. A responsabilidade pelo risco não fica só com a área de tecnologia: começa na alta liderança.
+dif: 3
+enunciado: No NIST CSF 2.0, a liderança da organização responde pelo risco de cibersegurança e fomenta cultura consciente do risco, ao passo que o estabelecimento e a comunicação dos papéis, responsabilidades e autoridades de gestão desse risco ficam fora da função Governar, a cargo das áreas técnicas.
+comentario: Errado. Tanto a responsabilidade da liderança (GV.RR-01) quanto o estabelecimento, a comunicação e a aplicação de papéis, responsabilidades e autoridades de gestão do risco de cibersegurança (GV.RR-02) estão na categoria GV.RR, da função Governar.
 
 === sx1-04
-gab: E
+gab: C
 tema: sg-nist
 ref: nistcsf GV.RR
 trecho: Cybersecurity is included in human resources practices
 armadilha: conceito
-dif: 2
-enunciado: No NIST CSF 2.0, as práticas de recursos humanos ficam fora da cibersegurança, que é atribuição exclusiva da área de tecnologia.
-comentario: Errado. GV.RR-04 inclui a cibersegurança nas práticas de recursos humanos, como admissão, treinamento e desligamento.
+dif: 3
+enunciado: No NIST CSF 2.0, a inclusão da cibersegurança nas práticas de recursos humanos e a alocação de recursos compatíveis com a estratégia de riscos de cibersegurança pertencem à mesma categoria da função Governar, a que trata de papéis, responsabilidades e autoridades.
+comentario: Certo. GV.RR-03 (recursos adequados, compatíveis com a estratégia de riscos, os papéis e as políticas) e GV.RR-04 (cibersegurança incluída nas práticas de recursos humanos) integram a categoria Papéis, Responsabilidades e Autoridades (GV.RR), da função Governar.
 
 === sx1-05
 gab: C

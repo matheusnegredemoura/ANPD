@@ -39,19 +39,19 @@ tema: sg-nist
 ref: nistcsf GV.PO
 trecho: is reviewed, updated, communicated, and enforced to reflect changes in requirements, threats, technology, and organizational mission
 armadilha: conceito
-dif: 2
-enunciado: No NIST CSF 2.0, a política de gestão de riscos de cibersegurança, uma vez aprovada, não deve ser alterada, para garantir estabilidade às operações.
-comentario: Errado. GV.PO-02 prevê revisar, atualizar, comunicar e aplicar a política para refletir mudanças em requisitos, ameaças, tecnologia e missão da organização.
+dif: 3
+enunciado: No NIST CSF 2.0, a política de gestão de riscos de cibersegurança deve ser revista e atualizada para refletir mudanças em requisitos, ameaças, tecnologia e missão organizacional, resultado que integra a categoria Avaliação de Riscos (ID.RA), da função Identificar.
+comentario: Errado. A revisão e a atualização da política de gestão de riscos de cibersegurança estão em GV.PO-02, na categoria Política (GV.PO), da função Governar. A categoria ID.RA trata da compreensão do risco: vulnerabilidades, ameaças, impactos e respostas.
 
 === nc3-05
-gab: C
+gab: E
 tema: sg-nist
 ref: nistcsf PR.AA
 trecho: incorporate the principles of least privilege and separation of duties
 armadilha: conceito
-dif: 2
-enunciado: No NIST CSF 2.0, permissões e autorizações de acesso devem ser definidas em política, gerenciadas, aplicadas e revisadas, incorporando os princípios do privilégio mínimo e da segregação de funções.
-comentario: Certo. PR.AA-05, na categoria de gestão de identidade, autenticação e controle de acesso da função Proteger.
+dif: 3
+enunciado: No NIST CSF 2.0, as permissões e autorizações de acesso devem ser definidas em política, gerenciadas, aplicadas e revisadas, incorporando os princípios do privilégio mínimo e da segregação de funções, resultado que pertence à categoria Gestão de Ativos (ID.AM), da função Identificar.
+comentario: Errado. Esse resultado é a subcategoria PR.AA-05, da categoria Gestão de Identidade, Autenticação e Controle de Acesso (PR.AA), na função Proteger. A categoria ID.AM trata do inventário e da gestão dos ativos.
 
 === nc3-06
 gab: E
