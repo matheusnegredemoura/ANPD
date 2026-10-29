@@ -17,9 +17,9 @@ comentario: Certo. As três etapas formam o processo global de avaliação, segu
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 2
-enunciado: Na ISO 31000, a etapa de avaliação de riscos (risk evaluation) consiste em identificar as fontes de risco e os eventos que podem afetar os objetivos.
-comentario: Errado. Encontrar e descrever fontes, eventos, causas e consequências é a identificação. A avaliação compara o nível do risco, obtido na análise, com os critérios definidos, para decidir se e como tratar.
+dif: 3
+enunciado: Na ISO 31000, a avaliação de riscos (risk evaluation) compara os resultados da análise com os critérios de risco para decidir se e como tratar, e a identificação de fontes e eventos ocorre depois dela.
+comentario: Errado. A primeira parte está certa, mas a ordem é identificação, análise e avaliação: identificar fontes e eventos vem antes.
 
 === rc-03
 gab: C
@@ -89,9 +89,9 @@ comentario: Certo. Atua antes do evento, dificultando que um só agente erre ou 
 gab: E
 ref: doutrina
 armadilha: comparacao
-dif: 2
-enunciado: Situação hipotética: órgão faz conciliação bancária mensal e auditorias periódicas. Assertiva: esses controles são preventivos, pois impedem que o erro ocorra.
-comentario: Errado. Quem impede é o controle preventivo (autorização prévia, segregação, validação na entrada). O detectivo identifica depois que o evento ocorreu; o corretivo reduz os efeitos.
+dif: 3
+enunciado: Situação hipotética: um órgão faz conciliação bancária mensal e exige dupla aprovação antes de cada pagamento. Assertiva: os dois controles são detectivos, pois atuam sobre transações financeiras.
+comentario: Errado. A conciliação é detectiva (identifica o erro depois); a dupla aprovação prévia é preventiva (impede o pagamento indevido). O que define o tipo é o momento em que o controle atua.
 
 === rc-12
 gab: C
@@ -113,9 +113,9 @@ comentario: Errado. O responsável pelo risco é o gestor do processo, na primei
 gab: C
 ref: doutrina
 armadilha: conceito
-dif: 2
-enunciado: Apetite a risco é o nível de risco que a organização está disposta a aceitar na busca de seus objetivos, e a tolerância a risco expressa a variação aceitável em torno de um objetivo específico.
-comentario: Certo. O apetite é definido pela alta administração e pela governança; a tolerância o traduz em limites operacionais mensuráveis.
+dif: 3
+enunciado: A tolerância a risco traduz o apetite em limites operacionais: expressa a variação aceitável em torno de um objetivo específico, ao passo que o apetite é o nível geral de risco que a organização aceita para alcançar seus objetivos.
+comentario: Certo. O apetite é definido pela alta administração e pela governança; a tolerância o detalha por objetivo.
 
 === rc-15
 gab: C
@@ -137,17 +137,17 @@ comentario: Errado. Seguro é transferência (ou compartilhamento) do risco. Evi
 gab: C
 ref: doutrina
 armadilha: conceito
-dif: 2
-enunciado: Aceitar um risco é decisão consciente de não adotar tratamento adicional, o que pode ocorrer quando o nível do risco está dentro do apetite ou quando o custo do controle supera o benefício esperado.
-comentario: Certo. Aceitar não é ignorar: a decisão deve ser registrada e o risco continua monitorado.
+dif: 3
+enunciado: Aceitar um risco pode ser decisão legítima quando o custo do controle supera o benefício esperado, mas não dispensa o registro da decisão nem o monitoramento do risco.
+comentario: Certo. Aceitar não é ignorar: o risco continua no registro e é acompanhado, pois o contexto pode mudar.
 
 === rc-18
-gab: C
+gab: E
 ref: doutrina
 armadilha: conceito
-dif: 2
-enunciado: No diagrama gravata-borboleta (bow-tie), o evento de risco fica no centro, as causas e as barreiras preventivas à esquerda e as consequências e as medidas de mitigação à direita.
-comentario: Certo. A ferramenta mostra num só desenho o que evita o evento e o que reduz seus efeitos se ele ocorrer.
+dif: 3
+enunciado: No diagrama gravata-borboleta, as barreiras preventivas ficam entre o evento de risco e suas consequências, enquanto as medidas de mitigação ficam entre as causas e o evento.
+comentario: Errado. Está trocado: barreiras preventivas ficam do lado das causas, antes do evento; medidas de mitigação, do lado das consequências.
 
 === rc-19
 gab: E
