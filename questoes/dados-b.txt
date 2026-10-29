@@ -86,12 +86,12 @@ enunciado: Situação hipotética: num modelo estrela sobre fiscalizações, uma
 comentario: Errado. É a tabela fato: guarda as métricas (valor da multa, titulares afetados) e as chaves das dimensões. As tabelas de empresa, data e setor são as dimensões, com os atributos descritivos usados para filtrar e agrupar.
 
 === dd-12
-gab: C
+gab: E
 ref: doutrina
 armadilha: comparacao
-dif: 2
-enunciado: O esquema floco de neve difere do esquema estrela por normalizar as tabelas de dimensão, que passam a se desdobrar em tabelas relacionadas.
-comentario: Certo. Ganha-se em redundância menor; perde-se em simplicidade e em desempenho das consultas, que exigem mais junções.
+dif: 3
+enunciado: O esquema floco de neve normaliza as tabelas de dimensão, o que reduz a redundância e, em regra, torna as consultas analíticas mais simples e rápidas que no esquema estrela.
+comentario: Errado. A normalização das dimensões reduz a redundância, mas aumenta o número de junções, o que tende a tornar as consultas mais complexas e, em regra, mais lentas que no esquema estrela, cujas dimensões desnormalizadas favorecem a leitura analítica.
 
 === dd-13
 gab: C
