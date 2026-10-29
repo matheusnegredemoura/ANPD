@@ -107,24 +107,24 @@ gab: E
 tema: sg-ameacas
 ref: doutrina ameaças
 armadilha: conceito
-dif: 1
-enunciado: Situação hipotética: em relatório sobre um ataque distribuído de negação de serviço (DDoS), um analista afirmou que o objetivo principal do ataque era ler o conteúdo dos bancos de dados. Assertiva: a afirmação descreve corretamente esse tipo de ataque.
-comentario: Errado. O DDoS busca esgotar recursos e derrubar o serviço, atingindo a disponibilidade, não a confidencialidade dos dados.
+dif: 2
+enunciado: Situação hipotética: após o portal de uma autarquia ficar fora do ar por um DDoS volumétrico, um analista registrou que esse ataque tem por finalidade primária ler remotamente o banco de dados. Assertiva: a conclusão do analista descreve corretamente o objetivo próprio do DDoS.
+comentario: Errado. O DDoS esgota recursos para tornar o serviço inacessível: atinge a disponibilidade, não a confidencialidade.
 
 === sx13-13
 gab: C
 tema: sg-ameacas
 ref: doutrina ameaças
 armadilha: conceito
-dif: 1
-enunciado: No smishing, o golpista usa mensagens de texto para induzir a vítima a entregar dados ou abrir link malicioso.
-comentario: Certo. É o phishing por SMS; no vishing, o golpe é por voz.
+dif: 2
+enunciado: Enquanto o vishing usa chamadas de voz para enganar o interlocutor, o smishing usa mensagens de texto com pretextos de urgência para levar a vítima a fornecer dados ou acessar links maliciosos.
+comentario: Certo. Os nomes indicam o canal: voice (voz) e SMS.
 
 === sx13-14
 gab: E
 tema: si-controles
 ref: doutrina controles de acesso
 armadilha: caso
-dif: 1
-enunciado: Situação hipotética: para agilizar o suporte técnico, uma empresa deu a todos os funcionários privilégios de administrador em suas máquinas. Assertiva: a medida está alinhada ao princípio do menor privilégio.
-comentario: Errado. O menor privilégio concede a cada usuário só as permissões necessárias à sua função. Privilégio de administrador para todos amplia o impacto de malware e de erros.
+dif: 2
+enunciado: Situação hipotética: para reduzir chamados de instalação de software, a área de TI de um órgão concedeu privilégios permanentes de administrador local a todos os servidores. Assertiva: a medida está de acordo com o princípio do menor privilégio e reduz a propagação de código malicioso.
+comentario: Errado. A medida contraria o menor privilégio (só as permissões necessárias às atribuições) e amplia o estrago de malware e de erros operacionais.

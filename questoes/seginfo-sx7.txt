@@ -53,9 +53,9 @@ gab: E
 tema: si-controles
 ref: doutrina redes sem fio
 armadilha: conceito
-dif: 1
-enunciado: O protocolo WEP continua recomendado para redes sem fio corporativas, por ser mais leve que o WPA3.
-comentario: Errado. O WEP tem falhas graves conhecidas e pode ser quebrado em minutos. Recomendam-se WPA2 com AES ou, de preferência, WPA3.
+dif: 2
+enunciado: Em redes sem fio corporativas que trafegam dados pessoais, o protocolo WEP continua adequado como alternativa leve ao WPA2 e ao WPA3, desde que o identificador da rede (SSID) fique oculto.
+comentario: Errado. O WEP tem falhas criptográficas graves e é quebrado em minutos; ocultar o SSID não resolve. Usa-se WPA2 com AES ou, de preferência, WPA3.
 
 === sx7-07
 gab: C
@@ -116,9 +116,9 @@ gab: C
 tema: sg-principios
 ref: doutrina defesa em profundidade
 armadilha: conceito
-dif: 1
-enunciado: A defesa em profundidade combina camadas de controles físicos, técnicos e administrativos, de modo que a falha de uma camada não exponha sozinha o ativo.
-comentario: Certo. Exemplo: firewall, autenticação multifator, criptografia, monitoramento e treinamento atuando juntos.
+dif: 2
+enunciado: A defesa em profundidade sobrepõe camadas de controles físicos, técnicos e administrativos, de modo que a falha isolada de uma barreira não baste para comprometer o ativo de informação.
+comentario: Certo. Exemplo: firewall, MFA, criptografia, monitoramento e conscientização combinados, sem ponto único de falha.
 
 === sx7-14
 gab: E

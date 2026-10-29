@@ -5,13 +5,13 @@ bloco: seginfo
 // (conferidos em fontes/dec10748.txt).
 
 === sx6-01
-gab: C
+gab: E
 tema: si-controles
 ref: doutrina controle de acesso
-armadilha: conceito
-dif: 1
-enunciado: No controle de acesso baseado em papéis (RBAC), as permissões são associadas a funções da organização, e os usuários recebem as funções correspondentes ao cargo que ocupam.
-comentario: Certo. Quando alguém muda de cargo, troca-se o papel, e não cada permissão individual. Isso simplifica a administração e favorece o privilégio mínimo.
+armadilha: comparacao
+dif: 2
+enunciado: No controle de acesso baseado em papéis (RBAC), o proprietário de cada arquivo define livremente quem pode acessá-lo, e a mudança de setor de um servidor exige editar manualmente cada permissão em cada objeto.
+comentario: Errado. Isso descreve o controle discricionário (DAC). No RBAC, as permissões ficam nos papéis, e basta trocar o papel do servidor quando ele muda de função.
 
 === sx6-02
 gab: E
@@ -45,9 +45,9 @@ gab: C
 tema: si-controles
 ref: doutrina revisão de acessos
 armadilha: conceito
-dif: 1
-enunciado: A revisão periódica de acessos e a revogação imediata de permissões de quem muda de função ou deixa a organização evitam o acúmulo indevido de privilégios.
-comentario: Certo. Sem revisão, o servidor que passa por vários setores carrega permissões de todos eles. A ISO/IEC 27002 trata da revisão e da remoção de direitos de acesso.
+dif: 2
+enunciado: Revisar periodicamente os direitos de acesso e revogar imediatamente credenciais e permissões quando o colaborador é desligado ou muda de unidade é controle previsto na ISO/IEC 27002 para evitar o acúmulo indevido de privilégios.
+comentario: Certo. Sem revisão, quem muda de setor carrega acessos antigos (privilege creep), contra o menor privilégio.
 
 === sx6-06
 gab: C

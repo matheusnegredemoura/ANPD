@@ -34,9 +34,9 @@ comentario: Certo. O script roda com as permissões do site e pode, por exemplo,
 gab: E
 ref: doutrina ataques
 armadilha: conceito
-dif: 1
-enunciado: No ataque de intermediário (man-in-the-middle), o atacante limita-se a tornar o serviço indisponível, sem interceptar a comunicação entre as partes.
-comentario: Errado. O atacante se interpõe entre duas partes que acreditam falar diretamente uma com a outra, podendo ler e alterar o que trafega. Tornar o serviço indisponível é negação de serviço.
+dif: 2
+enunciado: O ataque man-in-the-middle caracteriza-se pelo envio massivo de pacotes inválidos para esgotar a tabela de conexões do servidor, sem que o atacante se interponha na comunicação entre as partes.
+comentario: Errado. No man-in-the-middle o atacante se interpõe no canal e pode ler ou alterar o que passa. Esgotar recursos do servidor é negação de serviço.
 
 === si7-05
 gab: C
@@ -58,9 +58,9 @@ comentario: Errado. É protocolo de acordo de chaves, de criptografia de chave p
 gab: C
 ref: doutrina ataques
 armadilha: conceito
-dif: 1
-enunciado: O ataque distribuído de negação de serviço (DDoS) usa grande número de sistemas, muitas vezes uma botnet, para esgotar recursos do alvo, comprometendo principalmente a disponibilidade.
-comentario: Certo. A distribuição dificulta bloquear a origem. As defesas incluem serviços de mitigação no provedor, limitação de taxa e arquitetura com capacidade excedente.
+dif: 2
+enunciado: O DDoS usa muitos sistemas distribuídos, muitas vezes de uma botnet, para esgotar recursos de rede, processamento ou memória do alvo, comprometendo sobretudo a disponibilidade e exigindo contramedidas como limitação de taxa, capacidade elástica e serviços de mitigação de tráfego.
+comentario: Certo. A dispersão das origens impede o bloqueio simples por endereço, daí as defesas específicas.
 
 === si7-08
 gab: E
@@ -107,9 +107,9 @@ comentario: Errado. Quem guarda o cofre reverte o token com meios próprios. É 
 gab: E
 ref: doutrina malware
 armadilha: comparacao
-dif: 1
-enunciado: O worm depende de que o usuário execute um arquivo hospedeiro infectado para se propagar, característica que o distingue do vírus.
-comentario: Errado. É o contrário: o vírus se propaga inserindo cópias de si em programas e arquivos e depende da execução deles; o worm se propaga sozinho pela rede, executando cópias próprias ou explorando vulnerabilidades.
+dif: 2
+enunciado: A diferença entre worm e vírus está em que o worm não se autorreplica pela rede, dependendo de infectar um arquivo hospedeiro e de ser acionado pelo usuário.
+comentario: Errado. Está invertido: o vírus depende de hospedeiro e de execução; o worm se propaga sozinho pela rede, explorando vulnerabilidades.
 
 === si7-15
 gab: C
@@ -167,7 +167,7 @@ comentario: Errado. A VPN cria túnel cifrado entre o dispositivo e o servidor d
 gab: E
 ref: doutrina ISO/IEC 27005 e ISO 22301
 armadilha: conceito
-dif: 1
+dif: 2
 tema: sg-iso
-enunciado: A ISO 22301 estabelece requisitos para sistema de gestão de privacidade da informação, e a ISO/IEC 27005 trata de continuidade de negócios.
-comentario: Errado. Os temas estão trocados com outras normas: a ISO 22301 traz requisitos para sistema de gestão de continuidade de negócios; a ISO/IEC 27005 orienta a gestão de riscos de segurança da informação; privacidade é a ISO/IEC 27701.
+enunciado: Na família de normas ISO, a ISO 22301 trata do sistema de gestão da privacidade da informação, a ISO/IEC 27005 traz os requisitos certificáveis de continuidade de negócios e a ISO/IEC 27701 dá diretrizes para gestão de riscos de segurança da informação.
+comentario: Errado. Os escopos estão trocados: 22301, continuidade de negócios; 27005, gestão de riscos de segurança da informação; 27701, gestão da privacidade da informação.

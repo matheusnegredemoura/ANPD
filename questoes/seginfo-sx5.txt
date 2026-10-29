@@ -8,9 +8,9 @@ gab: C
 tema: sg-principios
 ref: doutrina hardening
 armadilha: conceito
-dif: 1
-enunciado: O hardening de um sistema consiste em reduzir sua superfície de ataque, por exemplo desativando serviços e portas desnecessários, removendo contas e senhas padrão e aplicando configurações seguras.
-comentario: Certo. Quanto menos componentes expostos, menos pontos de entrada para o atacante. Guias de configuração segura, como os benchmarks do CIS, orientam essa tarefa.
+dif: 2
+enunciado: O hardening de um ativo computacional reduz seus vetores de exposição por medidas como desativar portas e serviços supérfluos, remover ou renomear contas e senhas padrão e aplicar configurações seguras baseadas em padrões como os benchmarks do CIS.
+comentario: Certo. O objetivo é reduzir a superfície de ataque.
 
 === sx5-02
 gab: E
@@ -98,9 +98,9 @@ gab: C
 tema: si-controles
 ref: doutrina arquitetura de rede
 armadilha: conceito
-dif: 1
-enunciado: A zona desmilitarizada (DMZ) é segmento de rede intermediário, separado da rede interna por firewall, onde ficam serviços expostos à internet, como servidores web e de correio.
-comentario: Certo. Se um servidor da DMZ for comprometido, o firewall ainda separa o atacante da rede interna. É aplicação da defesa em profundidade e da segmentação.
+dif: 2
+enunciado: A zona desmilitarizada (DMZ) é sub-rede intermediária, separada da internet e da rede interna por regras de firewall, que hospeda serviços acessados de fora, como servidores web e de correio, para que o comprometimento de um deles não dê acesso direto à rede interna.
+comentario: Certo. É aplicação de segmentação e defesa em profundidade no perímetro.
 
 === sx5-12
 gab: E
@@ -215,6 +215,6 @@ gab: C
 tema: sg-ameacas
 ref: doutrina vulnerabilidades
 armadilha: conceito
-dif: 1
-enunciado: Vulnerabilidade de dia zero é aquela explorada antes que o fornecedor tenha disponibilizado correção para ela.
-comentario: Certo. Como não há correção, a defesa depende de controles compensatórios, como segmentação, monitoramento de comportamento e menor privilégio.
+dif: 2
+enunciado: Vulnerabilidade de dia zero é a falha conhecida ou explorada por atacantes antes que o fabricante disponibilize correção, o que exige controles compensatórios como segmentação de rede, privilégio mínimo e monitoramento de comportamento.
+comentario: Certo. Sem patch disponível, resta conter o dano com camadas de defesa.

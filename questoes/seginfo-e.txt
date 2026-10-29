@@ -16,9 +16,9 @@ comentario: Certo. É saída obrigatória do tratamento de riscos (requisito 6.1
 gab: E
 ref: doutrina ISO/IEC 27001
 armadilha: absoluto
-dif: 1
-enunciado: A ISO/IEC 27001 obriga a organização a implementar todos os controles de seu Anexo A, sem possibilidade de exclusão.
-comentario: Errado. Os controles são escolhidos a partir da avaliação de riscos. O Anexo A serve de lista de referência para conferir se nada necessário ficou de fora, e as exclusões são justificadas na declaração de aplicabilidade.
+dif: 2
+enunciado: Para obter a certificação na ABNT NBR ISO/IEC 27001, a organização deve implementar todos os controles do Anexo A, vedada a exclusão de controles na Declaração de Aplicabilidade.
+comentario: Errado. Os controles decorrem da avaliação e do tratamento de riscos, e a Declaração de Aplicabilidade traz a justificativa para as exclusões de controles do Anexo A.
 
 === si5-03
 gab: C
@@ -32,9 +32,9 @@ comentario: Certo. Em 2022 os controles foram reagrupados em quatro temas: organ
 gab: E
 ref: doutrina ISO/IEC 27001
 armadilha: conceito
-dif: 1
-enunciado: A auditoria interna e a análise crítica pela direção são práticas recomendadas pela ISO/IEC 27001, mas facultativas para quem busca a certificação.
-comentario: Errado. As duas são requisitos da avaliação de desempenho (9.2 e 9.3). As não conformidades encontradas exigem ação corretiva (10.2): é assim que o sistema de gestão melhora continuamente.
+dif: 2
+enunciado: Na ABNT NBR ISO/IEC 27001, a auditoria interna em intervalos planejados e a análise crítica do sistema de gestão pela direção são recomendações de melhoria, e não requisitos para a certificação.
+comentario: Errado. Auditoria interna (9.2) e análise crítica pela direção (9.3) são requisitos da cláusula 9, avaliação de desempenho, e entram na certificação.
 
 === si5-05
 gab: C
@@ -74,19 +74,19 @@ comentario: Errado. Quando o dono de cada arquivo decide com quem compartilhá-l
 gab: C
 ref: doutrina Controle de acesso
 armadilha: conceito
-dif: 1
+dif: 2
 tema: sg-principios
-enunciado: No controle de acesso, a autenticação confirma quem o usuário é, a autorização determina a que recursos ele tem acesso e o registro de atividades permite reconstituir o que ele fez.
-comentario: Certo. É a sequência AAA (autenticação, autorização e registro, em inglês accounting). Sem o registro, não há como apurar um incidente nem demonstrar a conformidade.
+enunciado: No modelo AAA, a autenticação comprova a identidade declarada, a autorização define os recursos e as operações permitidos e o registro de atividades (accounting) permite reconstituir as ações do usuário para auditoria e investigação de incidentes.
+comentario: Certo. Os três pilares respondem a: quem é, o que pode fazer e o que fez.
 
 === si5-10
 gab: E
 ref: doutrina Controle de acesso
 armadilha: conceito
-dif: 1
+dif: 2
 tema: sg-principios
-enunciado: Identificação e autenticação são sinônimos, de modo que informar o nome de usuário já comprova a identidade de quem acessa o sistema.
-comentario: Errado. Identificar é declarar quem se é (o nome de usuário); autenticar é comprovar essa declaração, com algo que se sabe, se tem ou se é.
+enunciado: No controle de acesso lógico, identificação e autenticação são a mesma etapa, de modo que informar um identificador único, como login ou matrícula, já comprova a identidade do usuário.
+comentario: Errado. Identificar é declarar quem se é; autenticar é comprovar essa declaração por fator de conhecimento, posse ou inerência.
 
 === si5-11
 gab: C
@@ -101,10 +101,10 @@ comentario: Certo. Tática é o porquê; técnica, o como; procedimento, a forma
 gab: E
 ref: doutrina MITRE ATT&CK
 armadilha: conceito
-dif: 1
+dif: 2
 tema: sg-ameacas
-enunciado: O MITRE ATT&CK é norma de certificação que fixa requisitos mínimos de controles de segurança para as organizações.
-comentario: Errado. É base de conhecimento pública sobre táticas e técnicas observadas em ataques reais. Serve para modelar ameaças, avaliar a cobertura das detecções e planejar defesas, mas não certifica ninguém.
+enunciado: O MITRE ATT&CK é norma internacional certificável de gestão de riscos que fixa o rol mínimo de controles administrativos exigidos de operadores de infraestruturas críticas.
+comentario: Errado. O ATT&CK é base de conhecimento pública sobre táticas, técnicas e procedimentos de adversários observados em ataques reais, usada para modelar ameaças e avaliar a cobertura de detecção.
 
 === si5-13
 gab: C
@@ -146,33 +146,33 @@ comentario: Errado. A varredura lista vulnerabilidades conhecidas de forma autom
 gab: C
 ref: doutrina ISO/IEC 27002
 armadilha: conceito
-dif: 1
-enunciado: A gestão de vulnerabilidades técnicas envolve obter informações sobre as vulnerabilidades dos sistemas em uso, avaliar a exposição da organização e adotar medidas, como a aplicação de correções, priorizadas pelo risco.
-comentario: Certo: controle 8.8 da ISO/IEC 27002:2022. Muitos incidentes graves exploram falhas cuja correção já estava disponível havia meses.
+dif: 2
+enunciado: Pelo controle 8.8 da ABNT NBR ISO/IEC 27002:2022, gerir vulnerabilidades técnicas envolve obter a tempo informações sobre falhas dos sistemas em uso, avaliar a exposição da organização e adotar medidas apropriadas, como correções ou controles compensatórios, priorizadas conforme o risco.
+comentario: Certo. É o núcleo do controle de gestão de vulnerabilidades técnicas da 27002:2022.
 
 === si5-18
 gab: E
 ref: doutrina Códigos maliciosos
 armadilha: comparacao
-dif: 1
-enunciado: O rootkit é código malicioso cuja principal característica é exibir mensagem de resgate ao usuário, informando que seus arquivos foram cifrados.
-comentario: Errado. O rootkit esconde a presença do invasor e de outros códigos maliciosos, em geral alterando componentes do sistema operacional. A mensagem de resgate é marca do ransomware.
+dif: 2
+enunciado: Chama-se rootkit o código malicioso que cifra ostensivamente os arquivos do usuário e exibe nota de extorsão exigindo pagamento pela chave de decifragem.
+comentario: Errado. Cifrar arquivos e pedir resgate é ransomware. O rootkit serve para esconder e manter a presença do invasor ou de outro malware no sistema, muitas vezes alterando o próprio sistema operacional.
 
 === si5-19
 gab: C
 ref: doutrina Códigos maliciosos
 armadilha: conceito
-dif: 1
-enunciado: Botnet é conjunto de computadores comprometidos, controlados remotamente pelo atacante sem o conhecimento dos usuários, que pode ser usado em ataques de negação de serviço distribuídos e no envio de spam.
-comentario: Certo. Cada máquina infectada é um bot (ou zumbi) e recebe ordens de um servidor de comando e controle. Derrubar esse servidor é uma das formas de desativar a rede.
+dif: 2
+enunciado: Uma botnet é rede de dispositivos comprometidos, controlados a distância por um atacante sem que seus usuários saibam, por meio de infraestrutura de comando e controle, e pode ser usada em ataques DDoS e campanhas de spam.
+comentario: Certo. Os bots ou zumbis recebem ordens do servidor de comando e controle (C2).
 
 === si5-20
 gab: E
 ref: doutrina Engenharia social
 armadilha: conceito
-dif: 1
-enunciado: O spear phishing caracteriza-se pelo envio massivo e indiscriminado de mensagens genéricas, sem personalização, ao maior número possível de destinatários.
-comentario: Errado. O spear phishing é direcionado: usa informações sobre a vítima ou sua organização para parecer legítimo. Quando o alvo é dirigente de alto escalão, fala-se em whaling. O envio em massa é o phishing comum.
+dif: 2
+enunciado: Enquanto o phishing convencional usa mensagens personalizadas a partir de levantamento prévio sobre um destinatário específico, o spear phishing é o disparo massivo e indiscriminado de iscas genéricas.
+comentario: Errado. Está invertido: o disparo em massa é o phishing comum; o spear phishing é dirigido e personalizado (e vira whaling quando o alvo é alto dirigente).
 
 === si5-21
 gab: C
@@ -205,18 +205,18 @@ comentario: Certo: controles 7.14 (descarte ou reutilização segura de equipame
 gab: E
 ref: doutrina Gestão de chaves
 armadilha: conceito
-dif: 1
+dif: 2
 tema: sg-cripto
-enunciado: Em um sistema criptográfico, a segurança depende principalmente do sigilo do algoritmo utilizado, e não da proteção das chaves.
-comentario: Errado. Pelo princípio de Kerckhoffs, o sistema deve continuar seguro ainda que tudo, menos a chave, seja público. Por isso se usam algoritmos abertos e testados, como AES e RSA, e se cuida da gestão de chaves: geração, guarda, rotação e revogação.
+enunciado: Pelo princípio de Kerckhoffs, a segurança de um sistema criptográfico deve repousar sobretudo no segredo do algoritmo, de modo que o comprometimento das chaves não afete a confidencialidade dos textos cifrados.
+comentario: Errado. Kerckhoffs diz o oposto: o sistema deve continuar seguro mesmo que tudo seja público, exceto a chave. Por isso se usam algoritmos públicos e auditados, e a segurança depende da gestão das chaves.
 
 === si5-25
 gab: C
 ref: doutrina Segurança de redes
 armadilha: conceito
-dif: 1
-enunciado: A rede privada virtual (VPN) cria túnel cifrado sobre rede pública, como a internet, protegendo a confidencialidade e a integridade dos dados em trânsito entre as pontas.
-comentario: Certo. A VPN protege o trânsito, não o dispositivo nem os dados em repouso: um notebook infectado conectado à VPN leva o problema para dentro da rede.
+dif: 2
+enunciado: A rede privada virtual (VPN) cria túnel criptográfico sobre rede pública ou não confiável, protegendo a confidencialidade e a integridade dos dados em trânsito, mas não impede, por si só, que um dispositivo já infectado introduza código malicioso na rede corporativa.
+comentario: Certo. A VPN protege o caminho, não a ponta: computador remoto comprometido leva o ataque para dentro pelo túnel.
 
 === si5-26
 gab: E
@@ -230,9 +230,9 @@ comentario: Errado. O TLS protege o caminho, não o conteúdo: a requisição ma
 gab: C
 ref: doutrina ISO/IEC 27002
 armadilha: conceito
-dif: 1
-enunciado: Segmentar a rede, separando, por exemplo, os sistemas que tratam dados sensíveis do restante do ambiente, limita o movimento lateral do atacante e o alcance de eventual incidente.
-comentario: Certo: controle 8.22 (segregação de redes) da ISO/IEC 27002:2022. Menos alcance significa menos titulares afetados, fator que pesa na avaliação de gravidade do incidente.
+dif: 2
+enunciado: A segregação de redes, prevista no controle 8.22 da ABNT NBR ISO/IEC 27002:2022 e usada, por exemplo, para isolar ambientes com dados pessoais sensíveis, restringe o movimento lateral do invasor e reduz o alcance de um incidente.
+comentario: Certo. Segmentar limita até onde o atacante chega depois da intrusão e, com isso, quantos titulares podem ser afetados.
 
 === si5-28
 gab: E
@@ -273,7 +273,7 @@ comentario: Certo. O sandbox regulatório é ambiente experimental em que o regu
 gab: E
 ref: doutrina Autenticação biométrica
 armadilha: absoluto
-dif: 1
+dif: 2
 tema: sg-principios
-enunciado: A autenticação biométrica é imune a falsificação e dispensa outros fatores, pois as características físicas de cada pessoa são únicas.
-comentario: Errado. A biometria pode ser fraudada com moldes, fotos ou gravações, e, se vazar, não pode ser trocada como uma senha. Para a LGPD, o dado biométrico é dado pessoal sensível (art. 5º, II).
+enunciado: Por se basear em características físicas ou comportamentais do indivíduo, a autenticação biométrica é imune a ataques de apresentação e, se a base de templates vazar, o atributo biométrico pode ser simplesmente revogado e substituído, como uma senha.
+comentario: Errado. A biometria pode ser fraudada com moldes, fotos ou gravações e, sobretudo, não se troca: digital ou íris vazada não se revoga. Dado biométrico é dado pessoal sensível (LGPD, art. 5º, II).

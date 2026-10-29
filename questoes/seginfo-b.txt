@@ -5,17 +5,17 @@ bloco: seginfo
 gab: E
 ref: doutrina criptografia
 armadilha: comparacao
-dif: 1
-enunciado: Na criptografia simétrica, cada participante tem um par de chaves, pública e privada, matematicamente relacionadas, o que dispensa o compartilhamento prévio de segredo.
-comentario: Isso descreve a criptografia assimétrica. Na simétrica, a mesma chave secreta cifra e decifra (exemplo: AES). Exemplo de assimétrica: RSA.
+dif: 2
+enunciado: Na criptografia simétrica, a exemplo do RSA, cada participante tem um par de chaves matematicamente relacionadas, uma pública e outra privada, o que dispensa o compartilhamento prévio de segredo.
+comentario: Errado. Par de chaves pública e privada, como no RSA, caracteriza a criptografia assimétrica. Na simétrica, como no AES, uma única chave secreta compartilhada cifra e decifra.
 
 === si2-02
 gab: C
 ref: doutrina criptografia
 armadilha: conceito
-dif: 1
-enunciado: O protocolo TLS protege dados em trânsito, ao passo que a criptografia de disco ou de banco de dados protege dados em repouso.
-comentario: Em trânsito × em repouso é distinção básica para avaliar medidas de segurança (LGPD, art. 46) e o juízo de gravidade de incidentes (art. 48, § 3º).
+dif: 2
+enunciado: Enquanto o protocolo TLS protege a confidencialidade e a integridade de dados em trânsito na rede, a criptografia de disco ou de banco de dados se destina à proteção de dados em repouso.
+comentario: Certo. Trânsito e repouso pedem controles diferentes, e a distinção pesa na avaliação de incidentes: dado cifrado de forma adequada reduz o risco aos titulares (LGPD, art. 48, § 3º).
 
 === si2-03
 gab: E
@@ -57,9 +57,9 @@ pesquisar: Latanya Sweeney e a reidentificação por quase-identificadores
 gab: C
 ref: doutrina ameaças
 armadilha: conceito
-dif: 1
-enunciado: O phishing é técnica de engenharia social em que o atacante se passa por entidade confiável para induzir a vítima a fornecer credenciais ou a executar ação maliciosa.
-comentario: Variações: spear phishing (alvo específico), whaling (altos executivos), smishing (SMS), vishing (voz).
+dif: 2
+enunciado: O phishing é técnica de engenharia social em que o atacante se passa por pessoa ou instituição confiável para obter credenciais e dados ou levar a vítima a executar código malicioso, com variantes como spear phishing, whaling, smishing e vishing.
+comentario: Certo. As variantes mudam o alvo (spear phishing, dirigido; whaling, altos executivos) ou o canal (smishing, SMS; vishing, voz).
 
 === si2-08
 gab: E
@@ -92,10 +92,10 @@ comentario: Certo. O modelo de confiança zero (zero trust, NIST SP 800-207) nã
 gab: E
 ref: doutrina redes
 armadilha: conceito
-dif: 1
+dif: 2
 tema: sg-ameacas
-enunciado: O firewall de filtragem de pacotes sem estado inspeciona o conteúdo das mensagens da camada de aplicação para bloquear comandos maliciosos.
-comentario: O filtro de pacotes atua nas camadas de rede e transporte (endereços, portas, protocolos). Inspeção de conteúdo de aplicação é feita por firewalls de aplicação (WAF) ou de próxima geração.
+enunciado: O firewall de filtragem de pacotes sem estado inspeciona a carga útil das mensagens na camada de aplicação para identificar e bloquear comandos de injeção de SQL.
+comentario: Errado. O filtro sem estado olha cabeçalhos (endereços, portas, protocolo) de cada pacote isolado. Inspecionar conteúdo na camada de aplicação é papel do WAF ou de firewalls de nova geração.
 
 === si2-12
 gab: C
@@ -135,14 +135,14 @@ comentario: DLP ajuda a prevenir incidentes de vazamento, ligando-se ao princíp
 gab: E
 ref: doutrina ameaças
 armadilha: conceito
-dif: 1
-enunciado: Ataque de negação de serviço distribuído (DDoS) tem como objetivo principal a exfiltração de dados pessoais armazenados no servidor atacado.
-comentario: O DDoS ataca a disponibilidade, sobrecarregando o serviço. Pode servir de distração para outros ataques, mas seu objetivo direto não é a exfiltração.
+dif: 2
+enunciado: O ataque distribuído de negação de serviço (DDoS) tem como efeito primário a violação da confidencialidade, pela exfiltração silenciosa de bases de dados do servidor-alvo.
+comentario: Errado. O DDoS atinge a disponibilidade, esgotando recursos do alvo. Pode servir de cortina de fumaça para outro ataque, mas sua finalidade própria não é extrair dados.
 
 === si2-18
 gab: C
 ref: doutrina minimização
 armadilha: conceito
-dif: 1
-enunciado: Coletar e reter apenas os dados necessários reduz a superfície de ataque e o impacto potencial de um incidente de segurança.
-comentario: Ponte entre o princípio da necessidade (LGPD, art. 6º, III) e a segurança: dado que não existe não vaza.
+dif: 2
+enunciado: Coletar e reter apenas os dados pessoais estritamente necessários à finalidade reduz tanto a superfície de exposição quanto o impacto potencial de um incidente de segurança.
+comentario: Certo. Dado que não foi coletado, ou que já foi eliminado, não vaza. É a ligação entre o princípio da necessidade (LGPD, art. 6º, III) e a gestão de riscos.

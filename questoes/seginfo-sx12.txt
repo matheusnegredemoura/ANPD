@@ -34,14 +34,14 @@ enunciado: Situação hipotética: depois de aprovar sua estratégia de riscos c
 comentario: Errado. Na categoria de supervisão (GV.OV), os resultados da estratégia são revistos para ajustar estratégia e direção, e o desempenho da gestão de riscos é avaliado para identificar ajustes necessários.
 
 === sx12-04
-gab: C
+gab: E
 tema: sg-nist
 ref: nistcsf PR.AT
-trecho: Individuals in specialized roles are provided with awareness and training
+trecho: PR.AT-02: Individuals in specialized roles are provided with awareness and training
 armadilha: conceito
-dif: 1
-enunciado: No NIST CSF 2.0, quem ocupa funções especializadas recebe conscientização e treinamento próprios para cumprir suas tarefas com atenção aos riscos cibernéticos.
-comentario: Certo. PR.AT-02. O PR.AT-01 cuida do treinamento geral de todo o pessoal.
+dif: 2
+enunciado: Na categoria Conscientização e Treinamento (PR.AT) do NIST CSF 2.0, a capacitação se destina ao pessoal em geral, para tarefas cotidianas, e o treinamento de quem ocupa papéis especializados foi deslocado para a função Governar.
+comentario: Errado. A própria PR.AT prevê, na subcategoria PR.AT-02, conscientização e treinamento para indivíduos em papéis especializados.
 
 === sx12-05
 gab: E
@@ -114,14 +114,14 @@ enunciado: Situação hipotética: após um incidente grave, uma empresa deixou 
 comentario: Errado. A categoria RS.CO prevê notificar partes interessadas internas e externas e coordenar a resposta conforme leis, regulamentos e políticas.
 
 === sx12-12
-gab: C
+gab: E
 tema: sg-nist
 ref: nistcsf DE.AE
-trecho: Information is correlated from multiple sources
+trecho: DE.AE-02: Potentially adverse events are analyzed to better understand associated activities
 armadilha: conceito
-dif: 1
-enunciado: Na análise de eventos adversos do NIST CSF 2.0, correlacionam-se informações de múltiplas fontes.
-comentario: Certo. DE.AE-03. A correlação ajuda a distinguir um ataque real de ruído isolado.
+dif: 3
+enunciado: Na categoria DE.AE do NIST CSF 2.0, a correlação de informações de múltiplas fontes e a estimativa do impacto e do escopo pressupõem incidente já declarado, não se aplicando a eventos apenas potencialmente adversos.
+comentario: Errado. Eventos potencialmente adversos são analisados (DE.AE-02), correlacionados (DE.AE-03) e têm impacto e escopo estimados (DE.AE-04) justamente para que se decida declarar ou não o incidente (DE.AE-08).
 
 === sx12-13
 gab: E
@@ -139,6 +139,6 @@ tema: sg-nist
 ref: nistcsf GV
 trecho: The organization’s cybersecurity risk management strategy, expectations, and policy are established, communicated, and monitored
 armadilha: conceito
-dif: 1
-enunciado: A função Governar do NIST CSF 2.0 estabelece, comunica e monitora a estratégia, as expectativas e a política de gestão de riscos cibernéticos.
-comentario: Certo. Governar é a função nova da versão 2.0 e orienta as demais (Identificar, Proteger, Detectar, Responder e Recuperar).
+dif: 2
+enunciado: No NIST CSF 2.0, o resultado da função Governar (GV) é que a estratégia, as expectativas e a política de gestão de riscos de cibersegurança da organização sejam estabelecidas, comunicadas e monitoradas.
+comentario: Certo. É a definição da função GOVERN, acrescentada ao Núcleo na versão 2.0.

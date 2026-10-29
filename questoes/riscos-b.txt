@@ -9,9 +9,9 @@ bloco: riscos
 gab: C
 ref: doutrina
 armadilha: rol
-dif: 1
-enunciado: Na ABNT NBR ISO 31000:2018, o processo de avaliação de riscos compreende a identificação, a análise e a avaliação de riscos.
-comentario: Certo. Avaliação de riscos (risk assessment) é o processo global; avaliação (risk evaluation) é a última das suas três etapas. Depois vem o tratamento.
+dif: 2
+enunciado: Pela ABNT NBR ISO 31000:2018, o processo de avaliação de riscos (risk assessment) compreende a identificação, a análise e a avaliação de riscos (risk evaluation), cujos resultados orientam o tratamento.
+comentario: Certo. As três etapas formam o processo global de avaliação, seguido do tratamento de riscos.
 
 === rc-02
 gab: E
@@ -25,25 +25,25 @@ comentario: Errado. Encontrar e descrever fontes, eventos, causas e consequênci
 gab: C
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: Na ISO 31000, a análise de riscos busca compreender a natureza do risco e determinar seu nível, considerando a probabilidade dos eventos e a magnitude das consequências.
-comentario: Certo. A análise pode ser qualitativa, semiquantitativa ou quantitativa, e considera a eficácia dos controles existentes.
+dif: 2
+enunciado: Segundo a ABNT NBR ISO 31000:2018, a análise de riscos busca compreender a natureza do risco e suas características, inclusive o nível de risco, considerando incertezas, fontes, consequências, probabilidades, cenários e a eficácia dos controles, com técnicas qualitativas, quantitativas ou mistas.
+comentario: Certo. A análise alimenta a avaliação, que compara o resultado com os critérios de risco para decidir a ação.
 
 === rc-04
-gab: C
+gab: E
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: Na ISO 31000, comunicação e consulta, assim como monitoramento e análise crítica, perpassam todas as etapas do processo de gestão de riscos.
-comentario: Certo. Não são etapas finais: acompanham o processo do início ao fim, ao lado do registro e relato.
+dif: 2
+enunciado: No processo de gestão de riscos da ABNT NBR ISO 31000:2018, comunicação e consulta, bem como monitoramento e análise crítica, são etapas executadas só após o encerramento do tratamento de riscos.
+comentario: Errado. São atividades contínuas, que acompanham todas as etapas do processo, do estabelecimento do contexto ao tratamento.
 
 === rc-05
 gab: E
 ref: doutrina
 armadilha: extrapolacao
-dif: 1
-enunciado: A ISO 31000 é norma certificável e de adoção obrigatória por todos os órgãos da administração pública federal.
-comentario: Errado. A ISO 31000 fornece diretrizes e não é passível de certificação. A obrigação de gerir riscos no Executivo federal decorre de normas próprias, como a IN Conjunta MP/CGU 1/2016 e o Decreto 9.203/2017, que se inspiram em referenciais como a ISO 31000 e o COSO.
+dif: 2
+enunciado: A ABNT NBR ISO 31000 é norma de requisitos passível de certificação por organismos acreditados, à semelhança da ABNT NBR ISO/IEC 27001.
+comentario: Errado. A ISO 31000 traz diretrizes (princípios, estrutura e processo) e não é certificável. No Executivo federal, a obrigação de gerir riscos vem de atos como a IN Conjunta MP/CGU 1/2016 e o Decreto 9.203/2017.
 
 === rc-06
 gab: C
@@ -65,9 +65,9 @@ comentario: Certo. São cinco componentes desdobrados em dezessete princípios, 
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: No COSO Controle Interno, o ambiente de controle é o componente que reúne procedimentos específicos, como segregação de funções, autorizações e reconciliações.
-comentario: Errado. Esses procedimentos são atividades de controle. O ambiente de controle é a base: integridade e valores éticos, supervisão pela governança, estrutura, competência e responsabilização, o chamado tom da liderança.
+dif: 2
+enunciado: No COSO de controle interno, o ambiente de controle reúne procedimentos como autorizações, reconciliações, verificações físicas e segregação de funções, enquanto as atividades de controle tratam dos valores éticos e da supervisão pela governança.
+comentario: Errado. Está invertido: autorizações, reconciliações e segregação de funções são atividades de controle; integridade, valores éticos e supervisão pela governança formam o ambiente de controle.
 
 === rc-09
 gab: C
@@ -81,9 +81,9 @@ comentario: Certo. Os componentes são governança e cultura; estratégia e defi
 gab: C
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: A segregação de funções, pela qual quem autoriza uma operação não a executa nem a confere, é atividade de controle de natureza preventiva.
-comentario: Certo. Evita que uma só pessoa concentre etapas críticas e reduz o risco de erro e de fraude.
+dif: 2
+enunciado: A segregação de funções, pela qual nenhum agente concentra autorização, execução, registro e conferência da mesma operação, é atividade de controle interno preventiva, voltada a reduzir erros e fraudes.
+comentario: Certo. Atua antes do evento, dificultando que um só agente erre ou frauda sem ser percebido.
 
 === rc-11
 gab: E
@@ -105,9 +105,9 @@ comentario: Certo. A norma exige política de gestão de riscos, comitê de gove
 gab: E
 ref: doutrina
 armadilha: sujeito
-dif: 1
-enunciado: Pela IN Conjunta MP/CGU nº 1/2016, a responsabilidade por gerenciar os riscos de cada processo é da unidade de auditoria interna.
-comentario: Errado. Cada risco deve ter um responsável identificado na gestão, o dono do processo. A auditoria interna avalia, de forma independente, se a gestão de riscos funciona; não gerencia riscos no lugar do gestor.
+dif: 2
+enunciado: Na lógica de responsabilização da IN Conjunta MP/CGU 1/2016, cada risco identificado deve ter como responsável formal um auditor interno designado pela unidade de controle interno do órgão.
+comentario: Errado. O responsável pelo risco é o gestor do processo, na primeira linha. A auditoria interna avalia a gestão de riscos com independência, sem assumir a propriedade deles.
 
 === rc-14
 gab: C
@@ -121,9 +121,9 @@ comentario: Certo. O apetite é definido pela alta administração e pela govern
 gab: C
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: Mitigar um risco é adotar medidas que reduzam a probabilidade de ocorrência do evento ou a magnitude de seu impacto.
-comentario: Certo. Exemplo: criptografar uma base reduz o impacto de um vazamento; autenticação multifator reduz a probabilidade de acesso indevido.
+dif: 2
+enunciado: Mitigar um risco negativo é adotar controles que reduzam a probabilidade do evento, como a autenticação multifator contra acessos indevidos, ou seu impacto, como a criptografia da base diante de eventual exfiltração, ou ambos.
+comentario: Certo. Controles preventivos atacam a probabilidade; controles de contenção, o impacto.
 
 === rc-16
 gab: E
@@ -153,9 +153,9 @@ comentario: Certo. A ferramenta mostra num só desenho o que evita o evento e o 
 gab: E
 ref: doutrina
 armadilha: extrapolacao
-dif: 1
-enunciado: O registro de riscos deve ser elaborado uma única vez, no início da implantação da gestão de riscos, sem necessidade de atualização.
-comentario: Errado. Riscos mudam com o ambiente, os processos e as ameaças; o registro é documento vivo, revisto periodicamente e sempre que houver mudança relevante.
+dif: 2
+enunciado: Aprovado na implantação da política de gestão de riscos, o registro de riscos mantém parâmetros de probabilidade, impacto e controles estáticos durante toda a vigência do plano estratégico, dispensando revisões periódicas.
+comentario: Errado. O registro de riscos é documento vivo: deve ser monitorado e atualizado periodicamente e sempre que o contexto mudar.
 
 === rc-20
 gab: C
@@ -169,9 +169,9 @@ comentario: Certo. Por exemplo, o crescimento de tentativas de acesso com falha 
 gab: C
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: Riscos à integridade, como conflito de interesses, nepotismo e recebimento de vantagens indevidas, devem ser tratados no programa de integridade do órgão.
-comentario: Certo. A gestão desses riscos é parte da governança pública e ganha peso em agências reguladoras, sujeitas a pressões do setor regulado.
+dif: 2
+enunciado: Os riscos à integridade, como corrupção, fraude, nepotismo, conflito de interesses e pressão indevida de regulados, são objeto específico do programa de integridade do órgão ou entidade e integram sua estrutura de governança.
+comentario: Certo. Em agência reguladora, a pressão de regulados (captura) é risco de integridade típico.
 
 === rc-22
 gab: C
@@ -220,9 +220,9 @@ comentario: Certo. A análise de impacto no negócio (BIA) orienta as estratégi
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: O objetivo de ponto de recuperação (RPO) indica o tempo máximo para restabelecer um serviço após uma interrupção.
-comentario: Errado. Tempo para restabelecer o serviço é o RTO. O RPO é a perda máxima de dados aceitável, medida em tempo: com RPO de 4 horas, os backups precisam ser feitos a cada 4 horas, no máximo.
+dif: 2
+enunciado: Na continuidade de negócios, o RPO define o tempo máximo para restabelecer um serviço crítico após a interrupção, e o RTO expressa a perda máxima aceitável de dados, orientando a periodicidade dos backups.
+comentario: Errado. Está invertido: o RTO é o tempo máximo para restabelecer o serviço; o RPO é a perda máxima de dados tolerada, medida em tempo, e orienta a frequência dos backups.
 
 === rc-28
 gab: C
@@ -276,17 +276,17 @@ comentario: Errado. São cinco componentes e 17 princípios. Cinco componentes e
 gab: E
 ref: doutrina Modelo das três linhas (IIA)
 armadilha: sujeito
-dif: 1
-enunciado: No modelo das três linhas do IIA, de 2020, os auditores externos compõem a terceira linha, por avaliarem a organização com independência.
-comentario: Errado. A terceira linha é a auditoria interna. Os prestadores externos de avaliação, como auditores independentes e órgãos de controle externo, ficam fora das três linhas e complementam a avaliação.
+dif: 2
+enunciado: Na atualização de 2020 do Modelo das Três Linhas do IIA, os auditores externos e os órgãos de controle externo passaram a integrar a terceira linha, ao lado da auditoria interna.
+comentario: Errado. A terceira linha é a auditoria interna. Auditores externos, reguladores e órgãos como o TCU são prestadores externos de avaliação, fora das três linhas.
 
 === rc-35
 gab: E
 ref: doutrina Gestão de riscos (apetite e capacidade)
 armadilha: conceito
-dif: 1
-enunciado: Capacidade de risco e apetite a risco são expressões sinônimas, pois ambas indicam o nível de risco que a organização deseja assumir.
-comentario: Errado. Capacidade é o máximo de risco que a organização consegue suportar; apetite é quanto ela está disposta a aceitar na busca de seus objetivos, e deve ficar abaixo da capacidade.
+dif: 2
+enunciado: Na gestão de riscos, apetite a risco e capacidade de risco são conceitos equivalentes: ambos expressam o quanto de risco a organização está disposta a aceitar na busca de seus objetivos.
+comentario: Errado. Capacidade é o máximo de risco que a organização suporta sem comprometer sua missão; apetite é o quanto ela aceita assumir, e deve ficar abaixo da capacidade.
 
 === rc-36
 gab: E
@@ -300,9 +300,9 @@ comentario: Errado. O nível resulta da combinação de probabilidade e impacto.
 gab: E
 ref: doutrina Controles internos
 armadilha: conceito
-dif: 1
-enunciado: Controles corretivos destinam-se a impedir que o evento indesejado ocorra, como a exigência de dupla assinatura para pagamentos.
-comentario: Errado. Controle que impede o evento é preventivo, como a dupla assinatura. O corretivo atua depois, para reduzir o dano e restabelecer a situação, como a restauração de cópias de segurança.
+dif: 2
+enunciado: Quanto ao momento de atuação, a dupla assinatura prévia para liberar ordens bancárias é controle corretivo, e a restauração de backups após incidente cibernético é controle preventivo.
+comentario: Errado. Está invertido: a dupla assinatura prévia atua antes do evento (preventivo); a restauração atua depois, para recompor (corretivo).
 
 === rc-38
 gab: E

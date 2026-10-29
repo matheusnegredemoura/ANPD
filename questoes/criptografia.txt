@@ -7,18 +7,18 @@ gab: C
 tema: sg-cripto
 ref: doutrina criptografia
 armadilha: conceito
-dif: 1
-enunciado: Na criptografia simétrica, a mesma chave cifra e decifra a mensagem, o que exige um canal seguro para distribuí-la entre as partes.
-comentario: Certo. É o ponto fraco do método simétrico (como o AES): rápido, mas dependente da troca segura da chave.
+dif: 2
+enunciado: Em algoritmos de criptografia simétrica, como o AES, a mesma chave secreta cifra e decifra a mensagem, o que dá alto desempenho, mas impõe o desafio de compartilhá-la entre remetente e destinatário por canal seguro.
+comentario: Certo. A simétrica é rápida e própria para grandes volumes; seu ponto fraco é a distribuição da chave, que a criptografia assimétrica ajuda a resolver.
 
 === sc9-02
 gab: E
 tema: sg-cripto
 ref: doutrina criptografia
 armadilha: conceito
-dif: 1
-enunciado: Na criptografia assimétrica, a mensagem cifrada com a chave pública do destinatário é decifrada com essa mesma chave pública.
-comentario: Errado. O que se cifra com a chave pública do destinatário só se decifra com a chave privada correspondente, que só ele tem. Isso garante a confidencialidade.
+dif: 2
+enunciado: Para garantir a confidencialidade com criptografia assimétrica, o remetente cifra a mensagem com sua própria chave privada, de modo que só o destinatário, que tem a chave pública correspondente, consiga decifrá-la.
+comentario: Errado. Para sigilo, cifra-se com a chave pública do destinatário, e só a chave privada dele decifra. Cifrar com a chave privada do remetente é assinar: qualquer um com a chave pública verifica.
 
 === sc9-03
 gab: C
@@ -34,9 +34,9 @@ gab: E
 tema: sg-cripto
 ref: doutrina criptografia
 armadilha: conceito
-dif: 1
-enunciado: A função hash é reversível: conhecendo o algoritmo, é possível reconstruir a mensagem original a partir do resumo.
-comentario: Errado. A função hash criptográfica é de mão única: do resumo não se volta à mensagem. Por isso serve para verificar integridade e guardar senhas (com sal), não para cifrar dados que precisam ser lidos depois.
+dif: 2
+enunciado: As funções de resumo criptográfico (hash) são determinísticas, servem para verificar a integridade de mensagens e guardar senhas com sal e admitem reverter o resumo ao texto original mediante a chave privada da autoridade emissora.
+comentario: Errado. Hash é função de mão única e não usa chave para reverter: do resumo não se reconstrói a mensagem. Por isso serve para integridade e senhas, não para guardar dados que precisem ser lidos depois.
 
 === sc9-05
 gab: C

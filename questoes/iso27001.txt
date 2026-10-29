@@ -157,17 +157,17 @@ comentario: Errado. Os controles são determinados no tratamento de riscos (6.1.
 gab: C
 ref: doutrina ABNT NBR ISO/IEC 27001:2022, 6.1.3
 armadilha: rol
-dif: 1
-enunciado: A lista de controles do Anexo A da ISO/IEC 27001 não é exaustiva, e a organização pode incluir controles adicionais quando necessário.
-comentario: Certo: é o que diz a nota da cláusula 6.1.3. O Anexo A serve para conferir que nenhum controle necessário foi esquecido, não para limitar a escolha.
+dif: 2
+enunciado: Pela ABNT NBR ISO/IEC 27001:2022, a lista de controles do Anexo A não é exaustiva: serve para verificar se nenhum controle necessário foi omitido no tratamento de riscos, e a organização pode desenhar ou incluir controles adicionais.
+comentario: Certo. Notas da subcláusula 6.1.3 da norma. A Declaração de Aplicabilidade registra os controles adotados e a justificativa das exclusões.
 
 === iso-17
 gab: E
 ref: doutrina ABNT NBR ISO/IEC 27002:2022
 armadilha: comparacao
-dif: 1
-enunciado: A ISO/IEC 27002 é a norma da família 27000 que estabelece os requisitos para a certificação de um sistema de gestão da segurança da informação.
-comentario: Errado. Os requisitos certificáveis estão na ISO/IEC 27001. A 27002 é um guia de boas práticas para implementar controles.
+dif: 2
+enunciado: Na família ISO/IEC 27000, a ABNT NBR ISO/IEC 27002:2022 é a norma de requisitos contra a qual o sistema de gestão da segurança da informação é auditado para fins de certificação.
+comentario: Errado. Os requisitos certificáveis do SGSI estão na ISO/IEC 27001. A 27002 é guia de boas práticas para escolher e implementar controles.
 
 === iso-18
 gab: C
@@ -181,17 +181,17 @@ comentario: Certo. A revisão de 2022 reagrupou os controles em 4 temas, no luga
 gab: E
 ref: doutrina ABNT NBR ISO/IEC 27001:2022, introdução
 armadilha: sujeito
-dif: 1
-enunciado: A adoção de um SGSI é decisão operacional da área de tecnologia da informação, que dispensa o envolvimento da alta direção.
-comentario: Errado. A adoção do SGSI é decisão estratégica da organização, e a alta direção precisa demonstrar liderança e comprometimento (cláusula 5).
+dif: 2
+enunciado: Segundo a ABNT NBR ISO/IEC 27001:2022, adotar um sistema de gestão da segurança da informação é decisão técnica da unidade de tecnologia da informação, dispensada a atuação direta da alta direção.
+comentario: Errado. A norma trata o SGSI como decisão estratégica e exige liderança e comprometimento da alta direção (cláusula 5).
 
 === iso-20
 gab: C
 ref: doutrina ABNT NBR ISO/IEC 27001:2022, introdução
 armadilha: conceito
-dif: 1
-enunciado: Para a ISO/IEC 27001, o SGSI preserva a confidencialidade, a integridade e a disponibilidade da informação por meio de um processo de gestão de riscos.
-comentario: Certo: introdução da norma. O SGSI dá às partes interessadas confiança de que os riscos são adequadamente gerenciados.
+dif: 2
+enunciado: Conforme a introdução da ABNT NBR ISO/IEC 27001:2022, o sistema de gestão da segurança da informação preserva confidencialidade, integridade e disponibilidade por meio de um processo de gestão de riscos e dá às partes interessadas confiança de que os riscos são adequadamente gerenciados.
+comentario: Certo. É a lógica central da 27001: o SGSI é orientado a riscos, e os controles decorrem da avaliação e do tratamento deles.
 
 === iso-21
 gab: E
@@ -221,6 +221,6 @@ comentario: Errado. Os requisitos valem para qualquer organização, pública ou
 gab: E
 ref: doutrina ABNT NBR ISO/IEC 27001:2022, 5.2
 armadilha: extrapolacao
-dif: 1
-enunciado: Pela ISO/IEC 27001, a política de segurança da informação deve ser mantida em sigilo pela alta direção, sem comunicação dentro da organização, para não expor os controles adotados.
-comentario: Errado. A política é comunicada dentro da organização e fica disponível às partes interessadas, conforme apropriado (5.2). Política que ninguém conhece não orienta ninguém.
+dif: 2
+enunciado: Pela subcláusula 5.2 da ABNT NBR ISO/IEC 27001:2022, a política de segurança da informação deve ficar restrita aos gestores de segurança, vedada sua disponibilização a partes interessadas externas.
+comentario: Errado. A política deve estar disponível como informação documentada, ser comunicada dentro da organização e estar disponível às partes interessadas, conforme apropriado.

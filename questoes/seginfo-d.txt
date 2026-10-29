@@ -31,9 +31,9 @@ comentario: A confiança vem da cadeia de certificação: o certificado do titul
 gab: E
 ref: doutrina Certificado digital
 armadilha: interpretacao
-dif: 1
-enunciado: O certificado digital contém a chave privada do titular, para que qualquer pessoa possa verificar as assinaturas por ele produzidas.
-comentario: Errado. O certificado contém a chave pública. A chave privada fica só com o titular e é usada para assinar; a verificação usa a chave pública constante do certificado.
+dif: 2
+enunciado: Em uma infraestrutura de chaves públicas, o certificado digital emitido pela autoridade certificadora incorpora a chave privada do titular em campo protegido, para que terceiros validem as assinaturas dele.
+comentario: Errado. O certificado contém a chave pública do titular, vinculada à sua identidade pela assinatura da AC. A chave privada fica só com o titular.
 
 === si4-05
 gab: C
@@ -106,10 +106,10 @@ comentario: É aplicação de segmentação e defesa em profundidade. Serviços 
 gab: E
 ref: doutrina Honeypot
 armadilha: conceito
-dif: 1
+dif: 2
 tema: sg-ameacas
-enunciado: O honeypot é sistema de produção crítico, protegido por múltiplas camadas, que armazena as informações mais sensíveis da organização.
-comentario: Errado. Honeypot é sistema-isca, propositalmente atrativo e monitorado, usado para atrair atacantes, estudar suas técnicas e desviar ataques dos sistemas reais.
+enunciado: O honeypot é o repositório isolado de produção que guarda as chaves criptográficas mestras e os dados mais críticos da organização sob várias camadas de controle de acesso.
+comentario: Errado. O honeypot é um sistema-isca, exposto e monitorado para atrair atacantes, desviá-los dos ativos reais e estudar suas técnicas. Não guarda dados reais.
 
 === si4-15
 gab: C
@@ -177,9 +177,9 @@ comentario: Quanto mais próximo do SaaS, mais responsabilidades ficam com o pro
 gab: E
 ref: doutrina Engenharia social
 armadilha: conceito
-dif: 1
-enunciado: O tailgating é técnica de ataque remoto por correio eletrônico em que o atacante envia anexos maliciosos disfarçados de documentos oficiais.
-comentario: Errado. Tailgating (ou piggybacking) é física: o invasor entra em área restrita seguindo de perto uma pessoa autorizada. O e-mail com anexo malicioso é phishing; o pretexto inventado para obter informação é pretexting.
+dif: 2
+enunciado: Chama-se tailgating a técnica de engenharia social feita a distância, por mensagens eletrônicas com anexos maliciosos disfarçados de expedientes oficiais.
+comentario: Errado. Tailgating (ou piggybacking) é intrusão física: entrar em área restrita colado a uma pessoa autorizada. E-mail fraudulento com anexo é phishing.
 
 === si4-23
 gab: C

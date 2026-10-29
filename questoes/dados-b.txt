@@ -33,9 +33,9 @@ comentario: Certo. O proprietário (data owner) responde pelo domínio e decide 
 gab: C
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: Dicionário de dados e glossário de negócio são instrumentos de gestão de metadados, que descrevem o significado, a origem e o formato dos dados.
-comentario: Certo. Metadados são dados sobre dados: técnicos (tipo, tamanho), de negócio (definição) e operacionais (cargas, acessos).
+dif: 2
+enunciado: Na governança de dados, o dicionário de dados e o glossário de negócios são artefatos complementares de gestão de metadados, que podem ser técnicos (tipo e tamanho das colunas), de negócio (definições e regras) ou operacionais (histórico de cargas e acessos).
+comentario: Certo. Metadados são dados sobre os dados: dizem o que significam, de onde vêm e como são usados.
 
 === dd-05
 gab: E
@@ -57,9 +57,9 @@ comentario: Certo. Mudam pouco e, quando padronizados, permitem integrar e compa
 gab: C
 ref: doutrina
 armadilha: caso
-dif: 1
-enunciado: Cadastro em que o mesmo cidadão aparece duas vezes, com o mesmo CPF e o nome grafado de formas diferentes, apresenta problema na dimensão de unicidade da qualidade de dados.
-comentario: Certo. Unicidade é a ausência de duplicidade. O caso também afeta a consistência, porque o mesmo fato aparece registrado de formas diferentes.
+dif: 2
+enunciado: Situação hipotética: em auditoria na base de usuários de um serviço público, achou-se o mesmo titular em dois registros ativos com o mesmo CPF, mas com grafias diferentes do nome. Assertiva: a falha afeta sobretudo a dimensão da unicidade da qualidade dos dados e também a da consistência.
+comentario: Certo. Duplicidade fere a unicidade; o mesmo atributo registrado de formas conflitantes fere a consistência.
 
 === dd-08
 gab: E
@@ -113,9 +113,9 @@ comentario: Certo. Dice seleciona faixas em várias dimensões; drill down detal
 gab: C
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: Data mart é um subconjunto de dados analíticos voltado às necessidades de uma área ou de um assunto específico da organização.
-comentario: Certo. Pode ser derivado do data warehouse corporativo (dependente) ou construído diretamente a partir das fontes (independente).
+dif: 2
+enunciado: Em business intelligence, o data mart é repositório analítico voltado a uma área ou tema específico e pode ser dependente, quando alimentado pelo data warehouse corporativo, ou independente, quando extraído direto das fontes transacionais.
+comentario: Certo. São as duas arquiteturas clássicas de data mart.
 
 === dd-16
 gab: C
@@ -134,12 +134,12 @@ enunciado: Situação hipotética: prefeitura publicou na internet, em formato a
 comentario: Errado. Dados abertos são dados públicos disponibilizados para livre uso, em formato aberto e legível por máquina. Dados pessoais, em regra, não são abertos, e sua divulgação exige base legal, além do respeito à LAI e à LGPD.
 
 === dd-18
-gab: C
+gab: E
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: Dados abertos devem ser disponibilizados em formato legível por máquina e sob licença que permita seu livre uso, reuso e redistribuição.
-comentario: Certo. É o núcleo da Política de Dados Abertos do Poder Executivo federal (Decreto 8.777/2016), que prevê planos de dados abertos em cada órgão.
+dif: 2
+enunciado: Para que dados governamentais sejam dados abertos, é suficiente publicá-los na internet em relatórios protegidos contra alteração, como PDF digitalizado por imagem, sob licença que permita só a leitura para fins não comerciais.
+comentario: Errado. Dados abertos exigem formato aberto e legível por máquina (CSV, JSON, XML) e licença que permita uso, reúso e redistribuição livres (Decreto 8.777/2016).
 
 === dd-19
 gab: C
@@ -239,17 +239,17 @@ comentario: Errado. Declarar o grão é passo central, anterior à escolha de di
 gab: E
 ref: doutrina Dados não estruturados
 armadilha: absoluto
-dif: 1
-enunciado: Dados não estruturados, como textos livres, imagens e áudios, não podem ser objeto de análise, por não estarem organizados em tabelas.
-comentario: Errado. Podem ser analisados com técnicas próprias, como processamento de linguagem natural e visão computacional. A análise só é mais trabalhosa do que a de dados estruturados.
+dif: 2
+enunciado: Por não terem esquema prévio em linhas e colunas, os dados não estruturados, como textos livres, áudios, vídeos e imagens, não admitem tratamento analítico automatizado e precisam ser convertidos manualmente em tabelas antes de qualquer análise.
+comentario: Errado. Há técnicas próprias para analisá-los diretamente, como processamento de linguagem natural e visão computacional, embora com maior custo computacional.
 
 === dd-31
 gab: E
 ref: doutrina Qualidade de dados
 armadilha: conceito
-dif: 1
-enunciado: A tempestividade, como dimensão da qualidade de dados, diz respeito à ausência de valores nulos em campos obrigatórios.
-comentario: Errado. Campos obrigatórios preenchidos são a completude. Tempestividade é o dado estar atualizado e disponível quando se precisa dele.
+dif: 2
+enunciado: Na qualidade de dados, a tempestividade mede o preenchimento de atributos obrigatórios sem valores nulos, e a completude verifica se a informação reflete o estado atual da realidade no momento em que é usada.
+comentario: Errado. Está invertido: ausência de nulos em campos necessários é completude; dado atualizado e disponível a tempo é tempestividade.
 
 === dd-32
 gab: E
@@ -263,9 +263,9 @@ comentario: Errado. No tipo 1, o valor antigo é sobrescrito e o histórico se p
 gab: E
 ref: doutrina Metadados
 armadilha: conceito
-dif: 1
-enunciado: Metadados são os próprios dados de negócio armazenados nas tabelas, como o nome e o endereço dos clientes.
-comentario: Errado. Metadados são dados sobre os dados: o significado de cada campo, o formato, a origem, o responsável e a data de atualização.
+dif: 2
+enunciado: Num banco de dados de gestão de pessoas, os metadados são o conteúdo das tabelas, como nome, remuneração e endereço de cada servidor, e a definição dos campos, o tipo de dado, a linhagem e a data da última carga são os dados primários.
+comentario: Errado. Está invertido: nome, remuneração e endereço são os dados; definição, tipo, linhagem e data de carga são metadados.
 
 === dd-34
 gab: E

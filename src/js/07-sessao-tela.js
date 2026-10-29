@@ -88,7 +88,7 @@ function renderCards() {
   const venc = cardsVencidos(blocos).length;
   const novos = cardsNovos(blocos).length;
   const lote = Math.min(S.perfil.novosCards || 20, novos), hoje = diaLog().nc || 0;
-  const vistos = CARDS.filter((c) => S.cards[c.id]).length;
+  const vistos = TODOS_CARDS.filter((c) => S.cards[c.id]).length;
   let html = '<div class="secao"><div class="secao-cab"><h2>Cards cloze</h2><span class="mudo pequeno mono">' + CARDS.length + ' cards · ' + NOTAS.length + ' notas</span></div>' +
     '<p class="mudo pequeno">Cada card esconde um dado-chave dentro de uma frase com contexto: a norma, o artigo e a regra em volta. Os marcados “Doutrina” cobrem conceitos de gestão, riscos, dados, IA e economia, que não têm lei de referência. O texto literal dos artigos fica na lei seca, no modo Testar. Responda de cabeça, revele e diga como foi: Errei, Difícil, Bom ou Fácil. O intervalo até a próxima revisão cresce a cada acerto, como no Anki.</p></div>';
   html += '<div class="contadores"><div class="rev"><b>' + venc + '</b><span>para revisar hoje</span></div><div class="nov"><b>' + novos + '</b><span>novos a estudar</span></div><div><b>' + vistos + '</b><span>já estudados</span></div></div>';

@@ -13,9 +13,9 @@ comentario: A tríade CID. Autenticidade e não repúdio costumam ser acrescenta
 gab: E
 ref: doutrina CID
 armadilha: conceito
-dif: 1
-enunciado: Na segurança da informação, a integridade consiste em garantir que a informação esteja acessível aos usuários autorizados quando necessário.
-comentario: Essa é a disponibilidade. Integridade é a garantia de que a informação não foi alterada de forma indevida.
+dif: 2
+enunciado: Na tríade da segurança da informação, integridade é a garantia de que sistemas e dados estarão acessíveis aos usuários autorizados quando solicitados, e disponibilidade é a proteção do dado contra alterações não autorizadas.
+comentario: Errado. Está invertido: acesso quando necessário é disponibilidade; proteção contra alteração indevida é integridade.
 
 === si-03
 gab: C
@@ -29,25 +29,25 @@ comentario: Só o dono da chave privada consegue decifrar. É assim que dados fi
 gab: E
 ref: doutrina criptografia
 armadilha: conceito
-dif: 1
-enunciado: A assinatura digital garante a confidencialidade do documento, pois o signatário cifra o conteúdo com a chave pública do destinatário.
-comentario: A assinatura digital usa a chave privada do signatário e garante autenticidade, integridade e não repúdio, mas não confidencialidade. Qualquer um com a chave pública verifica a assinatura.
+dif: 2
+enunciado: A assinatura digital com criptografia assimétrica assegura, por si só, a confidencialidade do documento, pois o resumo assinado com a chave privada do remetente impede a leitura por quem só tem a chave pública.
+comentario: Errado. A assinatura garante autenticidade, integridade e não repúdio, mas o documento continua legível. Sigilo exige cifrar o conteúdo.
 
 === si-05
 gab: C
 ref: doutrina hash
 armadilha: conceito
-dif: 1
-enunciado: Funções de resumo criptográfico (hash) produzem saída de tamanho fixo e são projetadas para ser unidirecionais, sendo úteis para verificar a integridade de dados.
-comentario: Certo. A função de resumo (hash) gera saída de tamanho fixo e é projetada para ser unidirecional e resistente a colisões; qualquer alteração no dado muda o resumo, o que a torna útil para verificar integridade. Não é criptografia reversível: não há chave para desfazer o hash. Exemplo: SHA-256.
+dif: 2
+enunciado: As funções hash, como o SHA-256, transformam entradas de qualquer tamanho em saídas de tamanho fixo e são projetadas para ser unidirecionais e resistentes a colisões, de modo que qualquer mudança no dado altera o resumo e permite aferir a integridade.
+comentario: Certo. Essas propriedades fazem do hash a ferramenta padrão de verificação de integridade.
 
 === si-06
 gab: E
 ref: doutrina hash
 armadilha: conceito
-dif: 1
-enunciado: A partir do resumo gerado por uma função hash criptográfica, é possível recuperar o dado original aplicando a função inversa.
-comentario: Funções hash criptográficas são projetadas para não ter inversa computável. Isso não as torna anonimização: dados com poucos valores possíveis (CPF, telefone) podem ser recuperados por força bruta.
+dif: 3
+enunciado: Embora as funções hash não tenham inversa computável, aplicar um hash puro, sem chave nem sal, a identificadores de espaço pequeno e previsível, como CPF ou telefone, é anonimização irreversível, imune a força bruta e a tabelas pré-computadas.
+comentario: Errado. Com poucos valores possíveis, o atacante calcula o hash de todos e reidentifica os titulares. O resultado é, no máximo, pseudonimização frágil, não anonimização.
 
 === si-07
 gab: C
@@ -62,9 +62,9 @@ comentario: A 27001 é a norma certificável de requisitos. A 27002 é o guia de
 gab: E
 ref: doutrina ISO 27002
 armadilha: conceito
-dif: 1
-enunciado: A ABNT NBR ISO/IEC 27002 é a norma de requisitos utilizada para certificar o sistema de gestão da segurança da informação das organizações.
-comentario: A certificação é feita pela 27001. A 27002 é código de prática com orientações sobre controles.
+dif: 2
+enunciado: A ABNT NBR ISO/IEC 27002 estabelece as cláusulas obrigatórias de estrutura, avaliação de desempenho e melhoria exigidas na auditoria de terceira parte para certificar o sistema de gestão da segurança da informação.
+comentario: Errado. A certificação se baseia nos requisitos da ISO/IEC 27001 (cláusulas 4 a 10). A 27002 é código de prática dos controles.
 
 === si-09
 gab: C
@@ -78,18 +78,18 @@ comentario: São dois dos sete princípios de Ann Cavoukian: proativo e preventi
 gab: E
 ref: doutrina privacy by design
 armadilha: conceito
-dif: 1
-enunciado: A privacidade desde a concepção parte da premissa de soma zero, segundo a qual mais privacidade implica necessariamente menos funcionalidade ou segurança.
-comentario: Um dos princípios é justamente a funcionalidade total, de soma positiva: privacidade e funcionalidade podem coexistir.
+dif: 2
+enunciado: Entre os sete princípios do Privacy by Design, de Ann Cavoukian, está o da soma zero, segundo o qual mais privacidade exige, necessariamente, menos funcionalidade ou menos segurança.
+comentario: Errado. O princípio é o oposto: funcionalidade total, soma positiva e não soma zero, que rejeita a falsa escolha entre privacidade e segurança ou funcionalidade.
 
 === si-11
-gab: C
+gab: E
 ref: lgpd 46, § 2º
 trecho: deverão ser observadas desde a fase de concepção do produto ou do serviço até a sua execução
-armadilha: conceito
-dif: 1
-enunciado: A LGPD incorpora a ideia de privacidade desde a concepção ao exigir que as medidas de segurança sejam observadas desde a fase de concepção do produto ou do serviço até a sua execução.
-comentario: Art. 46, § 2º, da LGPD. O GDPR tem regra equivalente no art. 25 (data protection by design and by default).
+armadilha: excecao
+dif: 2
+enunciado: As medidas de segurança do art. 46 da LGPD, destinadas a proteger dados pessoais de acessos não autorizados e de situações acidentais ou ilícitas, tornam-se exigíveis quando o sistema entra em operação, sendo facultativas na fase de concepção do produto ou serviço.
+comentario: Errado. O § 2º do art. 46 exige as medidas desde a fase de concepção do produto ou do serviço até a sua execução: é a segurança desde a concepção.
 
 === si-12
 gab: E
@@ -113,19 +113,19 @@ comentario: Quase identificadores são atributos que, combinados, identificam al
 gab: C
 ref: doutrina controle de acesso
 armadilha: conceito
-dif: 1
+dif: 2
 tema: sg-principios
-enunciado: Pelo princípio do menor privilégio, cada usuário deve receber apenas as permissões estritamente necessárias para executar suas funções.
-comentario: Certo. O menor privilégio dá a cada usuário só as permissões estritamente necessárias à função, o que reduz o dano de erro, abuso ou conta comprometida. É o espelho técnico do princípio da necessidade da LGPD (art. 6º, III) e base do controle de acesso por necessidade de conhecer.
+enunciado: O princípio do menor privilégio, pelo qual cada usuário, processo ou serviço recebe só as permissões necessárias às suas tarefas, é o correlato, no controle de acesso, do princípio da necessidade da LGPD e contém o impacto de erros, abusos internos e credenciais comprometidas.
+comentario: Certo. Menos permissões, menos dano possível quando algo dá errado.
 
 === si-15
 gab: E
 ref: doutrina autenticação
 armadilha: conceito
-dif: 1
+dif: 2
 tema: sg-principios
-enunciado: Exigir do usuário uma senha e um PIN numérico caracteriza autenticação de dois fatores, por envolver dois segredos distintos.
-comentario: Senha e PIN são do mesmo fator: algo que você sabe. Dois fatores exigem categorias diferentes: algo que você sabe, algo que você tem (token, celular) ou algo que você é (biometria).
+enunciado: Um fluxo de acesso que pede senha alfanumérica na primeira tela e, na seguinte, um PIN numérico definido no cadastro implementa autenticação de dois fatores, por combinar dois segredos independentes.
+comentario: Errado. Senha e PIN memorizado são o mesmo fator, conhecimento. Dois fatores exigem categorias diferentes, como conhecimento e posse ou conhecimento e inerência.
 
 === si-16
 gab: C
@@ -137,13 +137,13 @@ enunciado: No ciclo clássico de resposta a incidentes descrito pelo NIST (SP 80
 comentario: A revisão 3 (2025) reorganizou o guia em torno das funções do NIST Cybersecurity Framework 2.0, mas o ciclo da revisão 2 continua sendo o mais cobrado.
 
 === si-17
-gab: C
+gab: E
 ref: doutrina backup
 armadilha: numero
-dif: 1
+dif: 2
 tema: sg-principios
-enunciado: A regra 3-2-1 de cópias de segurança recomenda manter três cópias dos dados, em dois tipos de mídia diferentes, com uma cópia fora do local principal.
-comentario: É a defesa básica contra ransomware e desastres. Cópias imutáveis ou desconectadas da rede reforçam a proteção.
+enunciado: Pela regra 3-2-1 de backup, mantêm-se ao menos três cópias dos dados, em dois tipos diferentes de mídia, e todas devem permanecer no mesmo local físico dos servidores, para agilizar a restauração.
+comentario: Errado. A regra exige ao menos uma cópia fora do local principal, de preferência isolada ou imutável, justamente para resistir a ransomware e a desastres no local.
 
 === si-18
 gab: E
@@ -158,6 +158,6 @@ comentario: Engenharia social explora o fator humano (confiança, urgência, med
 gab: C
 ref: doutrina ransomware
 armadilha: conceito
-dif: 1
-enunciado: O ransomware é um código malicioso que torna inacessíveis os dados do equipamento, geralmente por criptografia, e exige pagamento de resgate para restabelecer o acesso.
-comentario: Variantes modernas também copiam os dados antes de cifrá-los e ameaçam publicá-los (dupla extorsão), o que caracteriza incidente com dados pessoais comunicável à ANPD quando houver risco relevante.
+dif: 2
+enunciado: O ransomware compromete a disponibilidade ao tornar os dados inacessíveis para exigir resgate, e a dupla extorsão, com exfiltração e ameaça de divulgação, agrega violação de confidencialidade e pode configurar incidente comunicável à ANPD e aos titulares.
+comentario: Certo. A comunicação é devida quando o incidente pode acarretar risco ou dano relevante aos titulares (LGPD, art. 48).

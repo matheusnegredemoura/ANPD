@@ -572,7 +572,9 @@ function avaliarCard(id, nota) {
 }
 function cardsVencidos(blocos) {
   const set = blocos && blocos.length ? new Set(blocos) : null;
-  return CARDS.filter((c) => (!set || set.has(c.nota.b)) && cardVencido(c.id)).sort((a, b) => S.cards[a.id][0] - S.cards[b.id][0]);
+  // Revisão percorre todos os cards: os literais que a pessoa já começou seguem vencendo na aba Cards; novos só vêm
+  // do baralho com contexto (cardsNovos)
+  return TODOS_CARDS.filter((c) => (!set || set.has(c.nota.b)) && cardVencido(c.id)).sort((a, b) => S.cards[a.id][0] - S.cards[b.id][0]);
 }
 function cardsNovos(blocos) {
   const set = blocos && blocos.length ? new Set(blocos) : null;

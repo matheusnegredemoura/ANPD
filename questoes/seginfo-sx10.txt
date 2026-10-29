@@ -4,13 +4,13 @@ bloco: seginfo
 // proxy reverso, WAF e NAT.
 
 === sx10-01
-gab: C
+gab: E
 tema: sg-ameacas
 ref: doutrina vulnerabilidades
-armadilha: conceito
-dif: 1
-enunciado: O CVE é um identificador público e padronizado atribuído a vulnerabilidades conhecidas.
-comentario: Certo. O identificador (por exemplo, CVE-2021-44228) permite que fabricantes, pesquisadores e equipes de segurança falem da mesma falha. A gravidade é medida por outro sistema, o CVSS.
+armadilha: comparacao
+dif: 2
+enunciado: O CVE é uma métrica de 0 a 10 que mede a severidade de uma falha de segurança, ao passo que o CVSS é apenas um catálogo de identificadores públicos de vulnerabilidades conhecidas.
+comentario: Errado. Está invertido: CVE é o identificador padronizado de uma vulnerabilidade específica; CVSS é o sistema que pontua sua gravidade.
 
 === sx10-02
 gab: E
@@ -89,9 +89,9 @@ gab: C
 tema: si-controles
 ref: doutrina endurecimento de sistemas
 armadilha: conceito
-dif: 1
-enunciado: O endurecimento (hardening) de sistemas inclui desativar serviços e contas desnecessários, trocar senhas padrão e aplicar configurações seguras.
-comentario: Certo. Reduzir a superfície de ataque é um dos controles mais baratos e eficazes. Guias de referência, como os benchmarks do CIS, orientam essas configurações.
+dif: 2
+enunciado: O endurecimento (hardening) de servidores e estações, orientado por referenciais como os benchmarks do CIS, reduz a superfície de ataque com a desativação de serviços e contas desnecessários, a troca de credenciais padrão e a configuração segura de parâmetros.
+comentario: Certo. Menos serviços, menos contas e nenhuma senha de fábrica: menos portas de entrada.
 
 === sx10-11
 gab: E

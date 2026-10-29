@@ -9,17 +9,17 @@ bloco: ia
 gab: C
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: Ocorre sobreajuste (overfitting) quando o modelo se ajusta tanto aos dados de treinamento, inclusive ao ruído, que passa a ter desempenho ruim em dados novos.
-comentario: Certo. O modelo memoriza em vez de generalizar. Validação com dados separados e regularização ajudam a evitar o problema.
+dif: 2
+enunciado: No aprendizado de máquina, há sobreajuste (overfitting) quando o modelo, complexo demais para a amostra, memoriza ruídos do conjunto de treinamento e tem erro baixo no treino, mas generaliza mal para dados novos, o que se mitiga com regularização e validação cruzada.
+comentario: Certo. O sinal típico é a distância entre o bom desempenho no treino e o ruim no teste.
 
 === ia-02
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: O sobreajuste ocorre quando o modelo, por ser excessivamente simples, ajusta-se mal tanto aos dados de treino quanto a dados novos.
-comentario: Errado. Modelo simples demais, que falha até nos dados de treinamento, sofre de subajuste (underfitting). Sobreajuste é o excesso de ajuste aos dados de treinamento.
+dif: 2
+enunciado: Quando um modelo preditivo é simples demais para captar a estrutura dos dados e tem desempenho ruim tanto no treinamento quanto no teste, diz-se que ele sofre de sobreajuste (overfitting).
+comentario: Errado. Isso é subajuste (underfitting), associado a alto viés. No sobreajuste, o modelo vai bem no treino e mal em dados novos (alta variância).
 
 === ia-03
 gab: C
@@ -34,9 +34,9 @@ comentario: Certo: art. 6º, IX. O viés algorítmico não exige intenção: o e
 gab: C
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: Modelos de linguagem de grande porte geram texto estimando, a cada passo, a continuação mais provável, e podem produzir afirmações falsas com aparência de verdade, as chamadas alucinações.
-comentario: Certo. Por isso respostas de IA generativa sobre pessoas podem gerar dados pessoais inexatos, o que se liga ao princípio da qualidade dos dados.
+dif: 2
+enunciado: Modelos de linguagem de grande porte estimam, a cada passo, a probabilidade do próximo token a partir do contexto e podem gerar frases fluentes, porém falsas, as chamadas alucinações, que, sobre pessoas identificadas, podem violar o princípio da qualidade dos dados da LGPD.
+comentario: Certo. O princípio da qualidade exige dados exatos, claros, relevantes e atualizados (LGPD, art. 6º, V).
 
 === ia-05
 gab: E
@@ -83,9 +83,9 @@ comentario: Certo. O Regulamento (UE) 2024/1689 entrou em vigor em agosto de 202
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: No regulamento europeu de inteligência artificial, sistemas de avaliação de crédito de pessoas naturais são práticas proibidas, por apresentarem risco inaceitável.
-comentario: Errado. Avaliação de crédito de pessoas naturais é, em regra, alto risco, com requisitos, e não prática proibida. Os usos biométricos são proibidos apenas em hipóteses específicas, como a identificação biométrica remota em tempo real em espaços públicos para fins policiais, salvo exceções.
+dif: 3
+enunciado: No Regulamento Europeu de Inteligência Artificial, os sistemas de avaliação de crédito de pessoas naturais são de risco inaceitável e, por isso, práticas proibidas no mercado europeu.
+comentario: Errado. A pontuação de crédito é, em regra, sistema de alto risco, sujeito a requisitos de governança de dados, transparência e supervisão humana. Risco inaceitável abrange práticas como a pontuação social.
 
 === ia-11
 gab: C
@@ -109,9 +109,9 @@ comentario: Certo: art. 12. Dados sintéticos gerados a partir de bases reais po
 gab: E
 ref: doutrina
 armadilha: conceito
-dif: 1
-enunciado: Em classificação com classes muito desbalanceadas, como detecção de fraudes raras, a acurácia é métrica suficiente para avaliar o modelo.
-comentario: Errado. Se 99% dos casos são legítimos, um modelo que diz sempre legítimo tem 99% de acurácia e não detecta nada. Usam-se precisão, revocação (recall) e F1.
+dif: 2
+enunciado: Em classificação binária muito desbalanceada, como fraudes que são 0,1% das transações, a acurácia global é suficiente para aferir a eficácia do classificador, dispensando precisão, revocação e F1-score.
+comentario: Errado. Um modelo que diga “legítima” para tudo teria acurácia de 99,9% sem achar fraude alguma. Com classes desbalanceadas, avaliam-se precisão, revocação e F1.
 
 === ia-14
 gab: C
@@ -144,9 +144,9 @@ comentario: Errado. A ANPD pode determinar ao controlador que elabore relatório
 gab: E
 ref: doutrina
 armadilha: extrapolacao
-dif: 1
-enunciado: Por não tratar de inteligência artificial em capítulo próprio, a LGPD não alcança o tratamento de dados pessoais realizado por sistemas de IA.
-comentario: Errado. A LGPD é tecnologicamente neutra. O ponto mais ligado à IA é o art. 20 (decisões automatizadas), somado aos princípios, às bases legais e ao relatório de impacto.
+dif: 2
+enunciado: Por não ter capítulo próprio sobre inteligência artificial, a LGPD não se aplica ao treinamento nem à inferência de modelos algorítmicos, que ficam sem regra até lei setorial específica.
+comentario: Errado. A LGPD é tecnologicamente neutra e alcança qualquer tratamento de dados pessoais, inclusive em IA: exige base legal, observância dos princípios e, nas decisões automatizadas, o direito de revisão (art. 20).
 
 === ia-18
 gab: C

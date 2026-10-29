@@ -8,9 +8,9 @@ tema: sg-principios
 ref: dec11856 4
 trecho: a Estratégia Nacional de Cibersegurança
 armadilha: rol
-dif: 1
-enunciado: A Política Nacional de Cibersegurança tem como instrumentos a Estratégia Nacional de Cibersegurança e o Plano Nacional de Cibersegurança.
-comentario: Certo. Art. 4º do Decreto 11.856/2023, que instituiu a PNCiber.
+dif: 2
+enunciado: A PNCiber tem como instrumentos a Estratégia Nacional e o Plano Nacional de Cibersegurança, ao passo que o plano setorial de gestão de incidentes cibernéticos é figura do decreto que instituiu a Rede Federal de Gestão de Incidentes Cibernéticos.
+comentario: Certo. Decreto 11.856/2023, art. 4º; Decreto 10.748/2021, arts. 13 e 14, I.
 
 === sx4-02
 bloco: seginfo
@@ -95,9 +95,9 @@ gab: E
 tema: sg-cripto
 ref: doutrina criptografia
 armadilha: conceito
-dif: 1
-enunciado: O AES é exemplo de algoritmo de criptografia assimétrica, e o RSA, de criptografia simétrica.
-comentario: Errado. É o contrário: o AES é simétrico (a mesma chave cifra e decifra) e o RSA é assimétrico (par de chaves pública e privada).
+dif: 2
+enunciado: Na classificação dos algoritmos criptográficos, o AES é assimétrico, com chaves pública e privada, e o RSA é simétrico, cifra de bloco com uma única chave compartilhada.
+comentario: Errado. Está invertido: AES é simétrico; RSA é assimétrico.
 
 === sx4-10
 bloco: seginfo
@@ -145,9 +145,9 @@ gab: C
 tema: sg-cripto
 ref: doutrina criptografia
 armadilha: conceito
-dif: 1
-enunciado: Na infraestrutura de chaves públicas, o certificado digital associa uma chave pública à identidade do seu titular e traz a assinatura da autoridade certificadora que o emitiu.
-comentario: Certo. A assinatura da AC é o que permite confiar no vínculo entre chave pública e titular. A chave privada nunca vai no certificado.
+dif: 2
+enunciado: Em uma infraestrutura de chaves públicas, o certificado digital vincula uma chave pública à identidade do titular, vínculo atestado pela assinatura da autoridade certificadora emissora, sem expor a chave privada do titular.
+comentario: Certo. A chave privada nunca sai do controle do titular; o certificado só publica a chave pública.
 
 === sx4-15
 bloco: seginfo
@@ -155,9 +155,9 @@ gab: C
 tema: sg-iso
 ref: doutrina ISO/IEC 27001
 armadilha: conceito
-dif: 1
-enunciado: A ISO/IEC 27001 traz os requisitos para estabelecer, implementar, manter e melhorar continuamente um sistema de gestão de segurança da informação, enquanto a ISO/IEC 27002 orienta a escolha e a implementação dos controles.
-comentario: Certo. A 27001 é a norma certificável, com requisitos; a 27002 é guia de controles, que detalha o Anexo A da 27001.
+dif: 2
+enunciado: Enquanto a ABNT NBR ISO/IEC 27001 especifica os requisitos certificáveis para estabelecer, implementar, manter e melhorar o sistema de gestão da segurança da informação, a ABNT NBR ISO/IEC 27002 orienta a seleção e a implementação dos controles do Anexo A da primeira.
+comentario: Certo. 27001 é a norma de requisitos; 27002 é o código de prática dos controles.
 
 === sx4-16
 bloco: seginfo
@@ -195,9 +195,9 @@ gab: E
 tema: sg-ameacas
 ref: doutrina ataques
 armadilha: conceito
-dif: 1
-enunciado: No ataque distribuído de negação de serviço (DDoS), o atacante usa uma única máquina para disparar as requisições, o que o distingue do DoS comum.
-comentario: Errado. É o contrário: no DDoS o tráfego parte de muitas máquinas, em geral uma botnet de dispositivos comprometidos. No DoS comum, a origem é uma só.
+dif: 2
+enunciado: A diferença entre DoS e DDoS está em que, no DDoS, as requisições partem de uma única estação, mas miram vários servidores da vítima ao mesmo tempo.
+comentario: Errado. “Distribuído” refere-se à origem: no DDoS, o tráfego parte de muitas máquinas, geralmente de uma botnet.
 
 === sx4-20
 bloco: seginfo
@@ -236,9 +236,9 @@ gab: C
 tema: sg-ameacas
 ref: doutrina ataques
 armadilha: conceito
-dif: 1
-enunciado: No ataque de força bruta, o atacante testa sistematicamente combinações de senha até acertar; limitar tentativas e exigir autenticação multifator reduzem esse risco.
-comentario: Certo. Bloqueio após tentativas, atraso progressivo e MFA tornam a força bruta inviável na prática.
+dif: 2
+enunciado: O ataque de força bruta testa automaticamente combinações de credenciais até achar a senha certa e é mitigado por bloqueio temporário após tentativas falhas, atraso progressivo de resposta e autenticação multifator.
+comentario: Certo. Limitar tentativas e exigir segundo fator tornam a adivinhação inviável na prática.
 
 === sx4-24
 bloco: seginfo
@@ -246,6 +246,6 @@ gab: C
 tema: sg-cripto
 ref: doutrina criptografia
 armadilha: conceito
-dif: 1
-enunciado: A criptografia simétrica costuma ser bem mais rápida que a assimétrica, por isso é a preferida para cifrar grandes volumes de dados.
-comentario: Certo. Por isso os protocolos usam a assimétrica para combinar a chave de sessão e a simétrica para o tráfego (criptografia híbrida).
+dif: 2
+enunciado: Em protocolos com criptografia híbrida, a criptografia assimétrica autentica as partes e permite trocar com segurança uma chave de sessão, e a simétrica, mais rápida, cifra o volume principal de dados.
+comentario: Certo. É o esquema do TLS: a assimétrica resolve a troca de chave; a simétrica dá desempenho.

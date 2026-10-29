@@ -4,11 +4,11 @@ bloco: seginfo
 === nist-01
 gab: C
 ref: nistcsf S2
-trecho: The CSF Core Functions — GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND, and RECOVER — organize cybersecurity outcomes at their highest level.
+trecho: the order and size of Functions, Categories, and Subcategories in the Core does not imply the sequence or importance of achieving them
 armadilha: rol
-dif: 1
-enunciado: O NIST Cybersecurity Framework 2.0 organiza os resultados de cibersegurança, em seu nível mais alto, em seis funções: governar, identificar, proteger, detectar, responder e recuperar.
-comentario: Seção 2 do CSF 2.0. A função GOVERN (governar) é a novidade da versão 2.0; a versão 1.1 tinha cinco funções.
+dif: 2
+enunciado: No NIST CSF 2.0, as seis funções do Núcleo (Govern, Identify, Protect, Detect, Respond e Recover) organizam os resultados de cibersegurança no nível mais alto, e a ordem e o tamanho das funções, categorias e subcategorias não indicam sequência nem importância relativa.
+comentario: Certo. Seção 2 do NIST CSF 2.0. Os resultados do Núcleo não são uma lista de ações a cumprir; as ações variam conforme a organização.
 pesquisar: Mudanças do NIST CSF 1.1 para o CSF 2.0
 
 === nist-02
@@ -129,13 +129,13 @@ enunciado: Situação hipotética: depois de identificar ataque de ransomware, a
 comentario: Conter os efeitos é da função responder. Detectar cuida da descoberta e da análise oportunas de anomalias, indicadores de comprometimento e outros eventos potencialmente adversos (Seção 2).
 
 === nist-13
-gab: C
+gab: E
 ref: nistcsf C
-trecho: A group of more specific outcomes of technical and management cybersecurity activities that comprise a CSF Category.
-armadilha: conceito
-dif: 1
-enunciado: No glossário do NIST CSF 2.0, subcategoria é um grupo de resultados mais específicos de atividades técnicas e de gestão de cibersegurança que compõem uma categoria.
-comentario: Hierarquia do Core: função (nível mais alto), categoria e subcategoria (Apêndice C).
+trecho: CSF Category: A group of related cybersecurity outcomes that collectively comprise a CSF Function.
+armadilha: comparacao
+dif: 3
+enunciado: Pelo glossário do NIST CSF 2.0, a categoria é o grupo de resultados mais específicos de atividades técnicas e de gestão, ao passo que a subcategoria é o grupo de resultados relacionados que, em conjunto, compõem uma função.
+comentario: Errado. Os conceitos estão trocados: a categoria reúne resultados relacionados que compõem uma função; a subcategoria reúne resultados mais específicos que compõem uma categoria (Apêndice C).
 
 === nist-14
 gab: E

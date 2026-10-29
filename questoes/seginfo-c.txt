@@ -7,15 +7,15 @@ bloco: seginfo
 apoio_ETIR: Em uma autarquia federal, a equipe de tratamento e resposta a incidentes identificou, numa sexta-feira à noite, acesso indevido a um servidor de arquivos com processos administrativos que continham dados pessoais de cidadãos. O chefe da unidade de tecnologia da informação, que também acumula a função de gestor de segurança da informação, decidiu apenas trocar as senhas e aguardar a segunda-feira para avaliar o caso.
 
 === si3-01
-gab: C
+gab: E
 ref: dec12572 1
-trecho: com a finalidade de assegurar a disponibilidade, a integridade, a confidencialidade e a autenticidade da informação no País
+trecho: a disponibilidade, a integridade, a confidencialidade e a autenticidade da informação no País
 comando: Acerca da Política Nacional de Segurança da Informação (Decreto n.º 12.572/2025) e da gestão de incidentes cibernéticos na administração pública federal, julgue os itens a seguir.
-armadilha: conceito
-dif: 1
+armadilha: rol
+dif: 2
 tema: sg-principios
-enunciado: Disponibilidade, integridade, confidencialidade e autenticidade da informação são o que a Política Nacional de Segurança da Informação busca assegurar no País.
-comentario: Art. 1º do Decreto 12.572/2025, que substituiu o Decreto 9.637/2018 como PNSI. As quatro propriedades (DICA) também aparecem na LAI e na Resolução 15/2024 da ANPD.
+enunciado: A Política Nacional de Segurança da Informação, instituída pelo Decreto 12.572/2025 no âmbito da administração pública federal, restringe sua finalidade à tríade disponibilidade, integridade e confidencialidade, deixando a autenticidade da informação para a regulamentação da certificação digital.
+comentario: Errado. O art. 1º do Decreto 12.572/2025 inclui a autenticidade entre as finalidades da PNSI, ao lado de disponibilidade, integridade e confidencialidade.
 
 === si3-02
 gab: E
@@ -176,9 +176,9 @@ gab: C
 ref: doutrina criptografia
 comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
 armadilha: conceito
-dif: 1
-enunciado: Na criptografia assimétrica, uma mensagem cifrada com a chave pública do destinatário só pode ser decifrada com a chave privada correspondente.
-comentario: É o par de chaves: pública para cifrar (confidencialidade), privada para decifrar. Na assinatura digital ocorre o inverso: assina-se com a chave privada e verifica-se com a pública.
+dif: 2
+enunciado: Na criptografia assimétrica, para proteger o sigilo, cifra-se com a chave pública do destinatário e decifra-se com a privada dele; na assinatura digital, o signatário usa sua chave privada para assinar, e a verificação se faz com a chave pública dele.
+comentario: Certo. O papel das chaves se inverte conforme o objetivo: sigilo (pública do destinatário) ou autoria e integridade (privada do signatário).
 
 === si3-18
 gab: E
@@ -212,10 +212,10 @@ gab: C
 ref: doutrina autenticação multifator
 comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
 armadilha: conceito
-dif: 1
+dif: 2
 tema: sg-principios
-enunciado: A autenticação multifator combina fatores de categorias diferentes, como algo que o usuário sabe, algo que possui e algo que ele é.
-comentario: Senha (conhecimento), token ou celular (posse) e biometria (inerência). Duas senhas não são multifator: são o mesmo fator duas vezes.
+enunciado: A autenticação multifator combina fatores de categorias distintas (algo que o usuário sabe, possui ou é) e não se configura quando se exigem apenas duas senhas.
+comentario: Certo. Duas senhas são o mesmo fator, conhecimento, repetido. MFA exige categorias diferentes, como senha e token ou senha e biometria.
 
 === si3-22
 gab: E
@@ -300,9 +300,9 @@ gab: E
 ref: doutrina DLP
 comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
 armadilha: conceito
-dif: 1
-enunciado: Ferramentas de prevenção de perda de dados (DLP) têm a função principal de cifrar os dados armazenados em servidores.
-comentario: DLP monitora e bloqueia a saída indevida de dados sensíveis (e-mail, upload, dispositivos removíveis), com base em políticas e classificação. Cifrar dados em repouso é outro controle.
+dif: 2
+enunciado: As soluções de prevenção de perda de dados (DLP) limitam-se a cifrar discos e bancos de dados, sem atuar sobre a transferência de informações por correio eletrônico, upload na web ou mídias removíveis.
+comentario: Errado. A função típica do DLP é justamente monitorar, detectar e bloquear a saída indevida de dados sensíveis por esses canais, com base em políticas e na classificação da informação.
 
 === si3-31
 gab: C
@@ -316,12 +316,12 @@ comentario: Registros (logs) bem guardados também atendem a deveres legais: o r
 === si3-32
 gab: E
 ref: nistcsf S2
-trecho: GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND, and RECOVER
+trecho: The Functions should be addressed concurrently.
 comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
 armadilha: rol
-dif: 1
-enunciado: O NIST Cybersecurity Framework 2.0 organiza os resultados de cibersegurança em cinco funções: identificar, proteger, detectar, responder e recuperar.
-comentario: A versão 2.0 (2024) acrescentou a função GOVERN, que fica no centro da roda: são seis funções. A versão 1.1 é que tinha cinco. Atualização de norma é armadilha frequente.
+dif: 2
+enunciado: No NIST CSF 2.0, as seis funções do Núcleo devem ser executadas em ciclo sequencial estrito, de modo que cada uma só começa após a conclusão formal da anterior.
+comentario: Errado. O CSF 2.0 manda tratar as funções de forma concorrente: as ações de Govern, Identify, Protect e Detect são contínuas, e as de Respond e Recover devem estar sempre prontas para quando ocorrer um incidente.
 
 === si3-33
 gab: E
