@@ -178,10 +178,10 @@ ref: lgpd 48
 trecho: a indicação das medidas técnicas e de segurança utilizadas para a proteção dos dados
 apoio: @ESCOLA
 comando: Considerando essa situação hipotética, a LGPD e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
-armadilha: conceito
-dif: 2
-enunciado: Como a falha foi corrigida no mesmo dia, a comunicação à ANPD fica dispensada, bastando registrar o incidente internamente.
-comentario: Errado. A correção rápida é medida de mitigação e deve constar da comunicação (art. 48, § 1º, VI), mas os dados já foram copiados e estão circulando: o risco aos titulares permanece.
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: a falha que expôs dados de clientes foi corrigida no mesmo dia, mas o incidente podia acarretar risco relevante aos titulares. Assertiva: a correção imediata afasta o dever de comunicar o incidente à ANPD e aos titulares, que só existe quando o problema persiste.
+comentario: Errado. O dever de comunicar decorre da possibilidade de risco ou dano relevante aos titulares (art. 48, caput), e não da persistência da falha. A correção rápida é informação relevante para a comunicação (medidas de reversão ou mitigação), mas não a dispensa.
 
 === sg-28
 gab: C
