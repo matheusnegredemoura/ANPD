@@ -35,9 +35,9 @@ gab: E
 tema: sg-ameacas
 ref: doutrina malware
 armadilha: comparacao
-dif: 2
-enunciado: O worm depende de que o usuário execute o arquivo hospedeiro para se propagar, ao contrário do vírus, que se espalha sozinho pela rede.
-comentario: Errado. É o inverso: o vírus precisa de hospedeiro e de execução; o worm se replica e se propaga de forma autônoma, explorando falhas na rede.
+dif: 3
+enunciado: Diferentemente do vírus, o worm propaga-se sozinho pela rede, explorando vulnerabilidades, e, por isso, não pode carregar cargas maliciosas como a cifragem de arquivos típica do ransomware.
+comentario: Errado. A primeira parte está certa. A autopropagação não impede carga maliciosa: o WannaCry, de 2017, combinou worm, que se espalhava explorando falha do protocolo SMB, e ransomware, que cifrava os arquivos.
 
 === sx2-05
 gab: C

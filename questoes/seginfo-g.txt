@@ -82,9 +82,9 @@ comentario: Certo. Cada tentativa fica cara para o atacante e quase imperceptív
 gab: E
 ref: doutrina criptografia
 armadilha: conceito
-dif: 2
-enunciado: Para armazenar senhas de usuários, recomenda-se cifrá-las com algoritmo simétrico, como o AES, de modo que possam ser decifradas e comparadas no momento do login.
-comentario: Errado. Senhas devem ser guardadas como hash com sal, gerado por função lenta: no login, calcula-se o hash da senha digitada e comparam-se os hashes. Cifra reversível expõe todas as senhas se a chave vazar.
+dif: 3
+enunciado: Para armazenar senhas, recomenda-se aplicar função hash rápida, como o SHA-256, porque a velocidade de cálculo dificulta ataques de força bruta contra a base vazada.
+comentario: Errado. A rapidez favorece o atacante, que testa bilhões de candidatas por segundo. Para senhas recomendam-se funções de derivação propositalmente lentas e com sal, como bcrypt, scrypt, Argon2 e PBKDF2.
 
 === si7-11
 gab: C

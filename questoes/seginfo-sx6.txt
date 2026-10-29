@@ -18,9 +18,9 @@ gab: E
 tema: si-controles
 ref: doutrina controle de acesso
 armadilha: conceito
-dif: 2
-enunciado: No controle de acesso baseado em atributos (ABAC), a decisão considera apenas a identidade do usuário, sem levar em conta características do recurso ou do contexto do pedido.
-comentario: Errado. O ABAC combina atributos do sujeito, do recurso, da ação e do ambiente (horário, localização, dispositivo). É o que permite regras como “só acessa prontuários do próprio setor, em horário de expediente”.
+dif: 3
+enunciado: No controle de acesso baseado em atributos (ABAC), a decisão combina atributos do usuário, do recurso e do contexto, como horário e localização, e, por depender desses atributos, dispensa a definição de políticas de acesso.
+comentario: Errado. A primeira parte descreve bem o ABAC, mas a decisão resulta da avaliação dessas combinações de atributos por políticas definidas pela organização. Sem política, não há regra a aplicar aos atributos.
 
 === sx6-03
 gab: C

@@ -121,10 +121,10 @@ enunciado: No ataque pass-the-hash, o invasor usa o hash de uma credencial captu
 comentario: Certo. O ataque explora protocolos que aceitam o hash como prova de identidade, como o NTLM. Ele favorece o movimento lateral na rede; são mitigações o menor privilégio, a restrição de contas administrativas e a autenticação multifator.
 
 === sx8-14
-gab: E
+gab: C
 tema: sg-ameacas
 ref: doutrina ataques
 armadilha: comparacao
-dif: 2
-enunciado: O ataque de dicionário consiste em testar, uma a uma, todas as combinações possíveis de caracteres até encontrar a senha.
-comentario: Errado. Testar todas as combinações é a força bruta exaustiva. O ataque de dicionário usa listas de palavras e senhas prováveis, como senhas vazadas e termos comuns, o que o torna mais rápido, embora só funcione contra senhas previsíveis.
+dif: 3
+enunciado: O ataque de dicionário testa senhas tiradas de listas de palavras e de senhas comuns ou vazadas, o que o torna mais rápido que a força bruta exaustiva, mas pouco eficaz contra senhas longas e aleatórias ausentes dessas listas.
+comentario: Certo. O ataque de dicionário restringe as tentativas a listas de candidatas prováveis, com variações, e por isso é rápido. Uma senha longa e aleatória, que não está nas listas, escapa dele, ao contrário do que ocorre na força bruta, que percorre todas as combinações.

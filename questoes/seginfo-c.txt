@@ -185,9 +185,9 @@ gab: E
 ref: doutrina criptografia
 comando: Julgue os itens seguintes, relativos a conceitos e práticas de segurança da informação.
 armadilha: conceito
-dif: 2
-enunciado: A assinatura digital é gerada com a chave pública do remetente e verificada pelo destinatário com a chave privada do remetente.
-comentario: Inverteu as chaves. Assina-se com a chave privada do remetente (só ele a tem) e qualquer um verifica com a chave pública. Isso garante autenticidade, integridade e não repúdio, não confidencialidade.
+dif: 3
+enunciado: Na assinatura digital, o signatário cifra com sua chave privada o resumo do documento, e o verificador, com a chave pública do signatário, compara o resumo decifrado com o que ele próprio calcula; se o documento for alterado depois de assinado, a verificação ainda será bem-sucedida, desde que a chave pública seja autêntica.
+comentario: Errado. O procedimento está certo até a comparação. Se o documento for alterado, o resumo recalculado muda e não coincide com o obtido da assinatura, e a verificação falha. É isso que dá integridade à assinatura.
 
 === si3-19
 gab: E

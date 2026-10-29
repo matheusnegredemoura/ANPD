@@ -124,9 +124,9 @@ gab: E
 tema: sg-ameacas
 ref: doutrina ataques
 armadilha: conceito
-dif: 2
-enunciado: O ataque de repetição só é possível quando o invasor consegue decifrar a mensagem capturada.
-comentario: Errado. No replay, o invasor reenvia a mensagem como foi capturada, sem precisar entender seu conteúdo. Por isso a criptografia, sozinha, não basta: é preciso que a mensagem tenha validade única ou curta.
+dif: 3
+enunciado: No ataque de repetição, o invasor captura uma transmissão válida e a reenvia depois, o que é evitado pelo uso de criptografia forte, já que, cifrada a mensagem, o reenvio deixa de produzir efeito.
+comentario: Errado. O reenvio funciona mesmo sem decifrar a mensagem: basta repetir o pacote cifrado válido. O replay se previne com números de uso único (nonces), carimbos de tempo, números de sequência e tokens de sessão de curta duração.
 
 === sx9-15
 gab: C

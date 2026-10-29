@@ -104,14 +104,14 @@ enunciado: Criar, proteger, manter e testar cópias de segurança é resultado p
 comentario: Certo. PR.DS-11. Backup que nunca foi testado pode falhar justamente na hora da recuperação.
 
 === sx1-11
-gab: E
+gab: C
 tema: sg-nist
 ref: nistcsf DE.CM
-trecho: The physical environment is monitored to find potentially adverse events
+trecho: External service provider activities and services are monitored to find potentially adverse events
 armadilha: rol
-dif: 2
-enunciado: O monitoramento contínuo (DE.CM) do NIST CSF 2.0 limita-se às redes e não alcança o ambiente físico nem as atividades de prestadores externos.
-comentario: Errado. DE.CM-02 e 06 incluem o monitoramento do ambiente físico e das atividades e serviços de prestadores externos, além de redes, pessoal e sistemas.
+dif: 3
+enunciado: No NIST CSF 2.0, o monitoramento contínuo abrange as redes e seus serviços, o ambiente físico, a atividade de pessoal, as atividades dos prestadores externos de serviço e o hardware e o software de computação.
+comentario: Certo. As subcategorias de DE.CM cobrem redes e serviços de rede (DE.CM-01), ambiente físico (DE.CM-02), atividade de pessoal e uso de tecnologia (DE.CM-03), atividades de provedores externos (DE.CM-06) e hardware, software, ambientes de execução e seus dados (DE.CM-09).
 
 === sx1-12
 gab: C
@@ -134,14 +134,14 @@ enunciado: Situação hipotética: depois de ataque de ransomware, a equipe vai 
 comentario: Certo. RC.RP-03. Restaurar a partir de cópia já comprometida reinstalaria o problema que se quer resolver.
 
 === sx1-14
-gab: E
+gab: C
 tema: sg-nist
 ref: nistcsf RC.CO
 trecho: Public updates on incident recovery are shared using approved methods and messaging
 armadilha: conceito
-dif: 2
-enunciado: No NIST CSF 2.0, a comunicação sobre a recuperação de incidentes restringe-se às equipes internas, sendo vedadas atualizações públicas.
-comentario: Errado. RC.CO-04 prevê atualizações públicas sobre a recuperação, por métodos e mensagens aprovados, e RC.CO-03 manda comunicar o andamento a partes internas e externas.
+dif: 3
+enunciado: No NIST CSF 2.0, a comunicação sobre a recuperação de incidentes é coordenada com partes internas e externas, e as atualizações públicas sobre essa recuperação são divulgadas por métodos e mensagens previamente aprovados.
+comentario: Certo. Na categoria RC.CO, as atividades e o progresso da recuperação são comunicados às partes internas e externas designadas (RC.CO-03), e as atualizações públicas são compartilhadas com métodos e mensagens aprovados (RC.CO-04). Não há vedação de comunicação pública; há controle sobre ela.
 
 === sx1-15
 gab: E

@@ -91,13 +91,13 @@ comentario: Errado. O art. 12, I, do Decreto 12.572/2025 revogou o Decreto 9.637
 
 === sx4-09
 bloco: seginfo
-gab: E
+gab: C
 tema: sg-cripto
 ref: doutrina criptografia
-armadilha: conceito
-dif: 2
-enunciado: Na classificação dos algoritmos criptográficos, o AES é assimétrico, com chaves pública e privada, e o RSA é simétrico, cifra de bloco com uma única chave compartilhada.
-comentario: Errado. Está invertido: AES é simétrico; RSA é assimétrico.
+armadilha: comparacao
+dif: 3
+enunciado: O AES é cifra simétrica que opera sobre blocos de 128 bits e admite chaves de 128, 192 ou 256 bits, enquanto o RSA é algoritmo assimétrico cuja segurança se apoia na dificuldade de fatorar números inteiros grandes.
+comentario: Certo. O AES, padronizado pelo NIST a partir do Rijndael, cifra blocos de 128 bits com chaves de 128, 192 ou 256 bits. O RSA é assimétrico, e sua segurança depende da dificuldade de fatorar o produto de dois primos grandes.
 
 === sx4-10
 bloco: seginfo
@@ -141,13 +141,13 @@ comentario: Errado. Já se demonstraram colisões práticas em MD5 e SHA-1, e am
 
 === sx4-14
 bloco: seginfo
-gab: C
+gab: E
 tema: sg-cripto
 ref: doutrina criptografia
 armadilha: conceito
-dif: 2
-enunciado: Em uma infraestrutura de chaves públicas, o certificado digital vincula uma chave pública à identidade do titular, vínculo atestado pela assinatura da autoridade certificadora emissora, sem expor a chave privada do titular.
-comentario: Certo. A chave privada nunca sai do controle do titular; o certificado só publica a chave pública.
+dif: 3
+enunciado: No certificado digital, a autoridade certificadora assina a chave privada do titular, vinculando-a à identidade dele, e qualquer pessoa pode verificar esse vínculo com a chave pública da autoridade certificadora.
+comentario: Errado. O certificado vincula à identidade do titular a chave pública dele, e a autoridade certificadora assina esse conjunto. A chave privada do titular não integra o certificado. A verificação com a chave pública da AC, mencionada no final, está correta.
 
 === sx4-15
 bloco: seginfo
