@@ -71,9 +71,9 @@ tema: pt-interpretacao
 ref: texto
 apoio: @PT11A
 armadilha: interpretacao
-dif: 2
-enunciado: Infere-se do texto que a legislação de proteção de dados proíbe as decisões tomadas unicamente com base em tratamento automatizado.
-comentario: Errado. O texto diz que a legislação “assegura a revisão” dessas decisões, e não que as proíbe; e o último parágrafo defende manter a automação. É também o que diz a LGPD (art. 20): o titular pode pedir revisão.
+dif: 3
+enunciado: Infere-se do texto que a legislação de proteção de dados admite decisões tomadas unicamente com base em tratamento automatizado, mas garante a revisão delas, e o autor conclui daí que a automação deve ser abandonada nos casos complexos.
+comentario: Errado. A legislação assegura a revisão dessas decisões, o que pressupõe admiti-las. Mas o autor não recomenda abandonar a automação: diz que ela libera servidores para os casos complexos e pede responsável identificado, critérios auditáveis e correção rápida dos erros.
 
 === pt11-07
 gab: E
@@ -188,11 +188,11 @@ enunciado: Em “congela soluções que talvez nem venham a prevalecer”, o emp
 comentario: Certo. O advérbio de dúvida “talvez” anteposto ao verbo pede o subjuntivo (“talvez venham”); com o indicativo (“vêm”), a frase ficaria em desacordo com a norma. O modo verbal acompanha a incerteza sobre quais soluções prevalecerão.
 
 === pt11-18
-gab: E
+gab: C
 tema: pt-sintaxe
 ref: texto
 apoio: @PT11C
-armadilha: interpretacao
-dif: 2
-enunciado: No segundo parágrafo, o sujeito das formas verbais “aceitam” e “se comprometem” é “os usuários”, termo que aparece no fim do mesmo período.
-comentario: Errado. Quem aceita compartilhar dados e se compromete a adotar salvaguardas são as empresas, sujeito do período anterior (“empresas testam produtos inovadores”), retomado de forma elíptica. Os usuários são os beneficiários das salvaguardas.
+armadilha: conceito
+dif: 3
+enunciado: No segundo parágrafo, o sujeito elíptico de “aceitam” e de “se comprometem” é “empresas”, mencionado no período anterior, e “Em troca” indica a contrapartida das empresas pelas regras flexibilizadas.
+comentario: Certo. As formas verbais retomam “empresas”, sujeito de “testam” no período anterior, e “Em troca” marca a contrapartida: pelas regras flexibilizadas, as empresas compartilham dados sobre riscos e adotam salvaguardas para os usuários.
