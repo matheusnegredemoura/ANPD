@@ -118,11 +118,11 @@ comentario: Certo. Art. 4º, § 6º, do Decreto 10.046/2019: a categorização d
 gab: E
 bloco: lgpd-23-32
 ref: dec10046 5
-trecho: Fica dispensada a celebração de convênio, acordo de cooperação técnica ou instrumentos congêneres
-armadilha: extrapolacao
-dif: 2
-enunciado: Situação hipotética: dois ministérios pretendem compartilhar dados na forma do Decreto nº 10.046/2019. Assertiva: o compartilhamento depende da celebração prévia de acordo de cooperação técnica entre eles.
-comentario: Errado. O art. 5º dispensa convênio, acordo de cooperação técnica ou instrumentos congêneres, observadas as diretrizes do art. 3º e a LGPD. Nos níveis restrito e específico, o compartilhamento é autorizado pelo gestor e formalizado em documentos de interoperabilidade (§ 3º).
+trecho: O compartilhamento de dados nos níveis de categorização restritos e específicos serão autorizados pelo gestor de dados
+armadilha: sujeito
+dif: 3
+enunciado: Embora dispense convênio ou acordo de cooperação técnica para o compartilhamento entre os órgãos abrangidos, o Decreto 10.046/2019 exige que os compartilhamentos restritos e específicos sejam autorizados pelo Comitê Central de Governança de Dados.
+comentario: Errado. A dispensa de convênio está no art. 5º, caput, mas os compartilhamentos restritos e específicos são autorizados pelo gestor de dados (§ 3º). Ao comitê cabe estabelecer os critérios da solicitação dos documentos de interoperabilidade.
 
 === d46-13
 gab: C
@@ -155,14 +155,14 @@ enunciado: Situação hipotética: uma autarquia federal pretende criar nova bas
 comentario: Art. 10-A do Decreto 10.046/2019, incluído pelo Decreto 10.332/2020: novas bases só podem ser criadas quando esgotadas as possibilidades de uso dos cadastros base existentes. A regra combate a duplicação de bases.
 
 === d46-16
-gab: E
+gab: C
 bloco: lgpd-23-32
 ref: dec10046 11
 trecho: O compartilhamento amplo de dados dispensa autorização prévia pelo gestor de dados
-armadilha: conceito
-dif: 2
-enunciado: Situação hipotética: órgão federal pretende compartilhar com outro órgão dados públicos, não sujeitos a restrição de acesso, por meio de seu canal de dados abertos. Assertiva: pelo Decreto n.º 10.046/2019, o compartilhamento depende de autorização prévia do gestor de dados, concedida caso a caso.
-comentario: Errado. O amplo dispensa autorização prévia e se faz pelos canais de dados abertos e de transparência ativa (art. 11). Os dados de compartilhamento amplo são catalogados no Portal Brasileiro de Dados Abertos (§ 5º).
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: órgão federal pediu dado de compartilhamento amplo que ainda não estava disponível em formato aberto. Assertiva: ele pode requerer a abertura ao gestor de dados, que pode condicioná-la ao pagamento de custos adicionais, quando desproporcionais e não previstos.
+comentario: Certo. O compartilhamento amplo dispensa autorização prévia do gestor e se faz pelos canais de dados abertos e transparência ativa (art. 11, caput). Se o dado não estiver em formato aberto, o solicitante pode pedir a abertura (§ 1º), e o gestor pode condicioná-la ao pagamento de custos adicionais desproporcionais e não previstos (§ 2º).
 
 === d46-17
 gab: E
@@ -175,14 +175,14 @@ enunciado: Pela redação vigente do Decreto n.º 10.046/2019, os dados recebido
 comentario: Errado. Essa era a redação original. Desde o Decreto 11.266/2022, a regra se inverteu: os dados não são retransmitidos, exceto se a autorização do gestor previr expressamente ou se houver permissão posterior dele (art. 12, § 4º). A mesma regra já valia para o compartilhamento específico (art. 14, § 2º).
 
 === d46-18
-gab: C
+gab: E
 bloco: lgpd-23-32
 ref: dec10046 15, § 2º
-trecho: O gestor de dados se manifestará quanto à solicitação de que trata o caput no prazo de trinta dias
-armadilha: numero
-dif: 2
-enunciado: No compartilhamento específico, o gestor de dados deve manifestar-se sobre a solicitação no prazo de trinta dias, contado do recebimento, conforme o Decreto n.º 10.046/2019.
-comentario: Certo: art. 15, § 2º. O solicitante fundamenta o pedido e especifica os dados no maior nível de detalhamento possível (caput).
+trecho: prestará apoio consultivo aos solicitantes de dados para a formulação da solicitação de permissão de compartilhamento
+armadilha: sujeito
+dif: 3
+enunciado: No compartilhamento específico, o gestor de dados deve manifestar-se sobre a solicitação em trinta dias do recebimento, e o apoio consultivo aos solicitantes na formulação do pedido cabe ao Comitê Central de Governança de Dados.
+comentario: Errado. O prazo de trinta dias está correto (art. 15, § 2º), mas o apoio consultivo aos solicitantes cabe à Secretaria de Governo Digital (§ 1º), e não ao comitê.
 
 === d46-19
 gab: C
@@ -235,14 +235,14 @@ enunciado: O acesso ao Cadastro Base do Cidadão pelos órgãos e entidades fede
 comentario: Certo. Pelos §§ 2º e 3º do art. 17, o acesso fica condicionado ao atendimento integral das diretrizes dos incisos VII a IX do art. 2º, e o Comitê Central de Governança de Dados estabelecerá controles que o limitem aos órgãos que comprovarem real necessidade.
 
 === d46-24
-gab: C
+gab: E
 bloco: lgpd-23-32
 ref: dec10046 22, IX
-trecho: dois de organizações da sociedade com atuação comprovada na temática de proteção de dados pessoais
-armadilha: rol
-dif: 2
-enunciado: Presidido pelo representante do órgão central do Sisp, o Comitê Central de Governança de Dados inclui, além de representantes de órgãos do Poder Executivo federal, dois representantes de organizações da sociedade com atuação comprovada em proteção de dados pessoais.
-comentario: Certo. Art. 22, I e IX, do Decreto 10.046/2019 (redação do Decreto 11.266/2022). Os demais membros representam AGU, Casa Civil, CGU, Receita Federal e ministérios; CNJ e Senado, entre outros, podem participar como convidados (§ 4º).
+trecho: serão selecionados por meio de processo seletivo
+armadilha: conceito
+dif: 3
+enunciado: Os dois representantes de organizações da sociedade no Comitê Central de Governança de Dados são indicados pelo Secretário-Executivo do órgão central do Sisp e têm direito a voto nas deliberações sobre gestão e tratamento de dados pessoais.
+comentario: Errado. Esses representantes (art. 22, IX) são selecionados por meio de processo seletivo, conforme regulamento do próprio comitê (§ 8º, I). O direito a voto nas deliberações sobre dados pessoais está correto (§ 8º, II).
 
 === d46-25
 gab: C
