@@ -4,10 +4,10 @@ bloco: economia
 === eco-01
 gab: C
 ref: doutrina externalidades
-armadilha: conceito
-dif: 1
-enunciado: Externalidade negativa ocorre quando a atividade de um agente impõe custos a terceiros que não são refletidos no preço de mercado.
-comentario: Um vazamento de dados é exemplo: o custo recai sobre os titulares, não sobre quem deixou de investir em segurança. Multas e responsabilidade civil buscam internalizar esse custo.
+armadilha: caso
+dif: 2
+enunciado: Na análise econômica da regulação, o subinvestimento em segurança por um controlador que acaba vazando dados pessoais é exemplo de externalidade negativa, pois boa parte do dano recai sobre os titulares sem entrar no preço, e a responsabilidade civil e as sanções da LGPD funcionam como meios de internalizar esse custo.
+comentario: Certo. O custo do vazamento cai sobre terceiros; multa e dever de indenizar devolvem esse custo a quem decidiu investir pouco.
 
 === eco-02
 gab: C
@@ -22,9 +22,9 @@ comentario: Não rival: o uso de um não reduz o do outro. Não excludente: não
 gab: E
 ref: doutrina bens públicos
 armadilha: conceito
-dif: 1
-enunciado: Bens públicos puros são rivais no consumo e excludentes, razão pela qual o mercado tende a ofertá-los em quantidade ótima.
-comentario: É o contrário: bens públicos são não rivais e não excludentes, e por isso o mercado tende a ofertá-los abaixo do ótimo (problema do carona).
+dif: 2
+enunciado: Os bens públicos puros caracterizam-se pela rivalidade no consumo e pela possibilidade de exclusão por meio do preço, atributos que permitem ao mercado ofertá-los no nível socialmente ótimo.
+comentario: Errado. Rivalidade e exclusão definem o bem privado. O bem público puro é não rival e não excludente, por isso o mercado o oferta abaixo do ótimo.
 
 === eco-04
 gab: C
@@ -37,10 +37,10 @@ comentario: Seleção adversa é ex ante; risco moral é ex post. Ambos são con
 === eco-05
 gab: E
 ref: doutrina assimetria de informação
-armadilha: conceito
-dif: 1
-enunciado: A seleção adversa ocorre após a celebração do contrato, quando uma das partes muda seu comportamento por estar protegida contra riscos.
-comentario: Mudança de comportamento depois do contrato é risco moral. Seleção adversa acontece antes.
+armadilha: comparacao
+dif: 2
+enunciado: A seleção adversa é a falha de informação pós-contratual em que o agente, já contratado e protegido contra riscos, reduz o cuidado em prejuízo do principal.
+comentario: Errado. Mudança de comportamento depois do contrato é risco moral. A seleção adversa é anterior ao contrato: a informação oculta sobre o tipo atrai os piores riscos, como no mercado de limões de Akerlof.
 
 === eco-06
 gab: C
@@ -78,9 +78,9 @@ comentario: Correlação não implica causalidade: pode haver variável omitida,
 gab: E
 ref: doutrina estatística descritiva
 armadilha: comparacao
-dif: 1
-enunciado: O desvio padrão corresponde à média dos quadrados dos desvios em relação à média, e a variância, à raiz quadrada desse valor.
-comentario: Errado: as definições estão trocadas. A média dos quadrados dos desvios em relação à média é a variância (populacional); o desvio padrão é a raiz quadrada da variância e tem a mesma unidade dos dados.
+dif: 2
+enunciado: Na estatística descritiva, o desvio padrão é a média dos quadrados dos desvios das observações em relação à média, e a variância é a raiz quadrada positiva do desvio padrão.
+comentario: Errado. Está trocado: a média dos quadrados dos desvios é a variância; o desvio padrão é a raiz da variância e fica na mesma unidade dos dados.
 
 === eco-11
 gab: C

@@ -40,9 +40,9 @@ comentario: Certo. Peltzman generaliza a teoria de Stigler: o regulador equilibr
 gab: E
 ref: doutrina Falhas de governo
 armadilha: extrapolacao
-dif: 1
-enunciado: As falhas de governo, como a captura e a assimetria de informação entre regulador e regulado, deixam de existir quando a regulação é feita por agência independente.
-comentario: Errado. A independência reduz a interferência política de curto prazo, mas não elimina a assimetria de informação (a empresa conhece melhor seus custos) nem o risco de captura. Daí a importância da AIR, da consulta pública e do controle social.
+dif: 2
+enunciado: Delegar a regulação a agência com autonomia decisória e mandatos fixos dos dirigentes elimina a assimetria de informação entre regulador e regulado, que deixa de ser fonte de falhas de governo.
+comentario: Errado. A autonomia reduz a interferência política de curto prazo, mas a empresa regulada continua conhecendo melhor seus custos que o regulador; por isso seguem necessários AIR, consulta pública e controle.
 
 === ec6-06
 gab: C
@@ -66,18 +66,18 @@ comentario: Errado. Não há preço a aumentar do lado do usuário. A literatura
 gab: C
 ref: doutrina Plataformas digitais
 armadilha: conceito
-dif: 1
+dif: 2
 tema: ec-estruturas
-enunciado: Há autopreferência (self-preferencing) quando uma plataforma que também vende produtos próprios os favorece em relação aos de concorrentes que dependem dela, por exemplo no ranqueamento dos resultados de busca.
-comentario: Certo. O problema é o duplo papel: a plataforma é, ao mesmo tempo, o mercado e um dos competidores nele. Normas como o DMA europeu proíbem a prática para as grandes plataformas.
+enunciado: Em plataformas digitais que intermedeiam a oferta de terceiros e também vendem produtos próprios, a autopreferência (self-preferencing) ocorre quando a plataforma usa o ranqueamento, a busca ou o acesso a dados para favorecer as próprias ofertas em detrimento dos concorrentes que dependem dela.
+comentario: Certo. A conduta decorre do duplo papel da plataforma, intermediária e concorrente, e está no centro do debate antitruste sobre mercados digitais.
 
 === ec6-09
 gab: E
 ref: doutrina Concorrência
 armadilha: conceito
-dif: 1
-enunciado: Barreiras à entrada são características do mercado que facilitam o ingresso de novos concorrentes, como as economias de escala e os efeitos de rede.
-comentario: Errado. Barreiras à entrada dificultam o ingresso. Economias de escala e efeitos de rede são exemplos de barreira: o entrante pequeno tem custo médio maior e oferece uma rede menos valiosa.
+dif: 2
+enunciado: Na análise concorrencial, economias de escala acentuadas, custos de troca elevados e fortes efeitos de rede reduzem as barreiras à entrada e facilitam a contestação das plataformas já estabelecidas por pequenos entrantes.
+comentario: Errado. Os três são barreiras à entrada: o entrante pequeno tem custo médio maior, precisa convencer o usuário a trocar e começa com uma rede de menor valor.
 
 === ec6-10
 gab: C
@@ -101,9 +101,9 @@ comentario: Errado. É o contrário: quem vence tende a ser quem mais superestim
 gab: C
 ref: doutrina Análise custo-benefício
 armadilha: conceito
-dif: 1
-enunciado: Na análise custo-benefício, a análise de sensibilidade verifica como o resultado se altera quando mudam premissas incertas, como a taxa de desconto ou o valor estimado dos benefícios.
-comentario: Certo. Se a alternativa escolhida muda com variações plausíveis das premissas, a conclusão é frágil e precisa ser apresentada com essa ressalva.
+dif: 2
+enunciado: Na análise custo-benefício feita em uma AIR, a análise de sensibilidade testa como o valor presente líquido e a ordem das alternativas reagem a variações plausíveis em parâmetros incertos, como a taxa de desconto ou a adesão esperada, para aferir a robustez da recomendação.
+comentario: Certo. Serve para ver se a alternativa recomendada continua a melhor ou se inverte quando as premissas incertas mudam.
 
 === ec6-13
 gab: E
@@ -168,9 +168,9 @@ comentario: Certo. O coeficiente passa a captar também o efeito da variável om
 gab: E
 ref: doutrina Econometria
 armadilha: conceito
-dif: 1
-enunciado: Há heterocedasticidade quando a variância dos erros do modelo de regressão permanece constante ao longo dos valores das variáveis explicativas.
-comentario: Errado. Variância constante é homocedasticidade. Heterocedasticidade é a variância dos erros que muda com as variáveis explicativas; ela não enviesa os coeficientes de mínimos quadrados, mas invalida os erros-padrão usuais.
+dif: 3
+enunciado: Há heterocedasticidade quando a variância do termo de erro muda ao longo das observações das variáveis explicativas; nesse caso, os estimadores de mínimos quadrados ordinários dos coeficientes tornam-se viesados e inconsistentes.
+comentario: Errado. A definição está certa, a consequência não: com heterocedasticidade os estimadores de MQO dos coeficientes seguem não viesados e consistentes; o que se perde é a validade dos erros-padrão usuais e dos testes t e F, que pedem erros-padrão robustos.
 
 === ec6-21
 gab: C
@@ -185,10 +185,10 @@ comentario: Certo. São as condições de relevância e de exclusão. A segunda 
 gab: E
 ref: doutrina Probabilidade
 armadilha: numero
-dif: 1
+dif: 2
 tema: ec-estatistica
-enunciado: Em uma distribuição binomial com 10 tentativas e probabilidade de sucesso igual a 0,2 em cada uma, o número esperado de sucessos é 5.
-comentario: Errado. A esperança da binomial é n × p = 10 × 0,2 = 2. A variância é n × p × (1 − p) = 1,6.
+enunciado: Considere que o número de processos com indício de irregularidade em uma amostra de 10 processos independentes siga distribuição binomial com probabilidade 0,2 em cada um. Nesse caso, o valor esperado e a variância desse número são ambos iguais a 2.
+comentario: Errado. A média é n·p = 10 × 0,2 = 2, mas a variância é n·p·(1 − p) = 10 × 0,2 × 0,8 = 1,6.
 
 === ec6-23
 gab: C

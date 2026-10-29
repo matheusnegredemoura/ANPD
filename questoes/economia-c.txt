@@ -181,10 +181,10 @@ comentario: Poder = 1 − β. Amostras maiores aumentam o poder. O nível de sig
 === ec4-22
 gab: E
 ref: doutrina Regressão linear
-armadilha: conceito
-dif: 1
-enunciado: Em regressão linear, coeficiente de determinação (R²) igual a 0,80 indica que a variável explicativa causa 80% das variações da variável dependente.
-comentario: Errado. R² de 0,80 indica que o modelo explica 80% da variância da variável dependente na amostra. É medida de ajuste, não prova de causalidade.
+armadilha: causalidade
+dif: 2
+enunciado: Em regressão linear estimada por mínimos quadrados, coeficiente de determinação (R²) igual a 0,80 indica que o modelo explica 80% da variância amostral da variável dependente e, por isso, comprova que a variável explicativa causa essas variações.
+comentario: Errado. A primeira parte está certa; a conclusão, não. R² mede qualidade do ajuste, não causalidade: a associação pode vir de variável omitida ou de causalidade reversa.
 
 === ec4-23
 gab: C
