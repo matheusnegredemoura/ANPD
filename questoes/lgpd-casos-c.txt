@@ -681,10 +681,10 @@ ref: lgpd 42
 trecho: o operador responde solidariamente pelos danos causados pelo tratamento quando descumprir as obrigações da legislação de proteção de dados ou quando não tiver seguido as instruções lícitas do controlador
 apoio: @BANCO
 comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
-armadilha: absoluto
+armadilha: excecao
 dif: 3
-enunciado: Se o banco tivesse contratado operador para hospedar os dados, esse operador responderia solidariamente pelo dano em qualquer hipótese, ainda que tivesse cumprido a lei e seguido as instruções lícitas do banco.
-comentario: Errado. Art. 42, § 1º, I: a solidariedade do operador depende de ele ter descumprido a legislação ou as instruções lícitas do controlador.
+enunciado: Se o banco tivesse contratado operador para hospedar os dados, esse operador responderia solidariamente pelo dano, ainda que tivesse cumprido a legislação e seguido as instruções lícitas do banco.
+comentario: Errado. O operador responde solidariamente quando descumprir a legislação de proteção de dados ou não seguir as instruções lícitas do controlador (art. 42, § 1º, I). Cumpridas a lei e as instruções, essa responsabilidade solidária não se configura.
 
 === kc-57
 gab: C
@@ -717,10 +717,10 @@ ref: lgpd 16
 trecho: transferência a terceiro, desde que respeitados os requisitos de tratamento de dados dispostos nesta Lei
 apoio: @ENCERRA
 comando: Com base nessa situação hipotética e na Lei n.º 13.709/2018, julgue os itens que se seguem.
-armadilha: absoluto
-dif: 2
-enunciado: Após o término do tratamento, a transferência da base de clientes à concorrente é vedada em qualquer hipótese.
-comentario: Errado. Art. 16, III: a conservação para transferência a terceiro é autorizada, desde que respeitados os requisitos de tratamento da LGPD. A concorrente precisará de hipótese legal e deverá respeitar finalidade e transparência.
+armadilha: rol
+dif: 3
+enunciado: Após o término do tratamento, a LGPD veda a conservação de dados para transferência a terceiro, ainda que respeitados os requisitos de tratamento previstos na lei.
+comentario: Errado. O art. 16, III, autoriza a conservação para transferência a terceiro, desde que respeitados os requisitos de tratamento da LGPD. A transferência precisa, portanto, de base legal e do cumprimento das demais regras.
 
 === kc-60
 gab: C

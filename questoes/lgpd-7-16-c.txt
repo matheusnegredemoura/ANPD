@@ -199,10 +199,10 @@ gab: E
 bloco: lgpd-12-16
 ref: lgpd 13
 trecho: que incluam, sempre que possível, a anonimização ou pseudonimização dos dados
-armadilha: absoluto
-dif: 2
-enunciado: Na realização de estudos em saúde pública, os órgãos de pesquisa podem ter acesso a bases de dados pessoais, mantidas em ambiente controlado e seguro, e a anonimização ou a pseudonimização desses dados é obrigatória em qualquer caso.
-comentario: Errado. As práticas de segurança devem incluir anonimização ou pseudonimização “sempre que possível” (art. 13, caput). O que é absoluto é a vedação de revelar dados pessoais na divulgação dos resultados (§ 1º) e de transferi-los a terceiro (§ 2º).
+armadilha: excecao
+dif: 3
+enunciado: Na realização de estudos em saúde pública, os órgãos de pesquisa podem ter acesso a bases de dados pessoais mantidas em ambiente controlado e seguro, desde que os dados sejam anonimizados ou pseudonimizados antes do acesso, condição sem a qual este é vedado.
+comentario: Errado. O art. 13 exige práticas de segurança que incluam, sempre que possível, a anonimização ou a pseudonimização. A lei não as torna condição absoluta de acesso.
 
 === bc-23
 gab: C
@@ -225,11 +225,11 @@ enunciado: Situação hipotética: encerrado o tratamento, uma universidade púb
 comentario: Certo: art. 16, II. As outras hipóteses são obrigação legal ou regulatória, transferência a terceiro respeitados os requisitos da lei e uso exclusivo do controlador com dados anonimizados.
 
 === bc-25
-gab: E
+gab: C
 bloco: lgpd-12-16
 ref: lgpd 16
 trecho: garantida, sempre que possível, a anonimização dos dados pessoais
-armadilha: absoluto
-dif: 2
-enunciado: Após o término do tratamento, os dados pessoais devem ser eliminados, autorizada a conservação para finalidades como o cumprimento de obrigação legal, e a conservação para estudo por órgão de pesquisa exige a anonimização em qualquer hipótese.
-comentario: Errado. A anonimização é garantida “sempre que possível” (art. 16, II). Exigência sem exceção há no inciso IV: uso exclusivo do controlador só com dados anonimizados.
+armadilha: comparacao
+dif: 3
+enunciado: Após o término do tratamento, a conservação dos dados para estudo por órgão de pesquisa é autorizada, garantida, sempre que possível, a anonimização, ao passo que a conservação para uso exclusivo do controlador exige dados anonimizados.
+comentario: Certo. Art. 16, II (estudo por órgão de pesquisa, anonimização sempre que possível) e IV (uso exclusivo do controlador, vedado o acesso de terceiros, desde que anonimizados os dados).
