@@ -60,7 +60,8 @@ function lerArquivoQuestoes(caminho) {
     if (cabecalho.apoio) q.apoio = cabecalho.apoio;
     let ultimo = null;
     for (const linha of linhas.slice(1)) {
-      if (!linha.trim()) continue;
+      // Nota interna do arquivo entre um item e outro não é continuação do campo anterior (vazava para o comentário)
+      if (!linha.trim() || linha.trimStart().startsWith('//')) continue;
       const m = linha.match(/^(\w+):\s?(.*)$/);
       if (m) {
         const [, k, v] = m;

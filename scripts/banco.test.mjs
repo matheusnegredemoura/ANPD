@@ -173,6 +173,11 @@ test('comentários: todo prazo ou percentual está em alguma norma anexada ou no
   assert.equal(auditarPrazosComentarios({ questoes: [falso], leis: v.leis }).length, 1);
 });
 
+test('nota interna do arquivo (//) não vaza para o texto do item', () => {
+  const vazados = validar({ silencioso: true }).questoes.filter((q) => ['enunciado', 'comentario', 'apoio'].some((k) => /(^|\n)\s*\/\//.test(q[k] || ''))).map((q) => q.id);
+  assert.deepEqual(vazados, []);
+});
+
 test('glossário: cada padrão marca uma entrada só (o termo grifado não abre a definição de outra)', () => {
   const { glossario } = validar({ silencioso: true });
   const sem = (x) => x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
