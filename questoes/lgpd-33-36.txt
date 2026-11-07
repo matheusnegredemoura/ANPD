@@ -212,3 +212,130 @@ armadilha: rol
 dif: 2
 enunciado: Situação hipotética: uma empresa brasileira enviou dados de clientes a organismo internacional de que o Brasil é membro. Assertiva: a operação não é transferência internacional, conceito que a LGPD reserva ao envio de dados a país estrangeiro.
 comentario: Errado. Transferência internacional de dados é a transferência de dados pessoais para país estrangeiro ou organismo internacional do qual o país seja membro (art. 5º, XV). A Resolução CD/ANPD 19/2024 distingue transferência internacional de coleta internacional.
+
+// Lote 116: incisos IV a IX e parágrafo único do art. 33, arts. 34 a 36, em casos.
+=== tz-01
+gab: E
+ref: lgpd 33, IV
+trecho: necessária para a proteção da vida ou da incolumidade física do titular ou de terceiro
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em viagem ao exterior, um brasileiro sofreu acidente grave, e a operadora de saúde enviou ao hospital estrangeiro o histórico clínico dele, sem consentimento, porque ele estava inconsciente. Assertiva: a transferência é ilícita, porque dado de saúde só pode ir ao exterior com consentimento específico e em destaque.
+comentario: Errado. O art. 33, IV, admite a transferência necessária para a proteção da vida ou da incolumidade física do titular ou de terceiro. O consentimento específico e em destaque é outra hipótese (inciso VIII), não a única.
+
+=== tz-02
+gab: C
+ref: lgpd 33, V
+trecho: quando a autoridade nacional autorizar a transferência
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa que não se enquadra em nenhuma outra hipótese do art. 33 pediu à autoridade nacional que autorizasse uma transferência específica. Assertiva: obtida a autorização, a transferência passa a ter fundamento na própria LGPD.
+comentario: Certo. A autorização da autoridade nacional é hipótese autônoma de transferência internacional (art. 33, V).
+
+=== tz-03
+gab: E
+ref: lgpd 33, VI
+trecho: quando a transferência resultar em compromisso assumido em acordo de cooperação internacional
+armadilha: extrapolacao
+dif: 2
+enunciado: Quando o Brasil se compromete, em acordo internacional de cooperação, a compartilhar certos dados, a remessa ao exterior só pode ocorrer se cada titular consentir de forma específica.
+comentario: Errado. O compromisso assumido em acordo de cooperação internacional é hipótese própria de transferência (art. 33, VI). O consentimento específico e em destaque é outra hipótese (inciso VIII), não um requisito somado a esta.
+
+=== tz-04
+gab: C
+ref: lgpd 33, VII
+trecho: necessária para a execução de política pública ou atribuição legal do serviço público, sendo dada publicidade nos termos do inciso I do caput do art. 23 desta Lei
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: para executar programa previsto em lei, um ministério enviou dados de beneficiários a organismo internacional parceiro e informou a operação em seu sítio eletrônico. Assertiva: a transferência pode apoiar-se na hipótese de execução de política pública.
+comentario: Certo. O art. 33, VII, admite a transferência necessária à execução de política pública ou atribuição legal do serviço público, com publicidade nos termos do art. 23, I.
+
+=== tz-05
+gab: E
+ref: lgpd 33, VII
+trecho: sendo dada publicidade nos termos do inciso I do caput do art. 23 desta Lei
+armadilha: fecho
+dif: 3
+enunciado: Situação hipotética: uma autarquia federal transferiu dados ao exterior para cumprir atribuição legal e manteve a operação sob reserva, sem informar nada ao público. Assertiva: a falta de publicidade não afeta a hipótese de transferência para execução de atribuição legal, que exige só a finalidade pública.
+comentario: Errado. O art. 33, VII, condiciona essa hipótese a que seja dada publicidade nos termos do art. 23, I: informações claras e atualizadas, preferencialmente no sítio eletrônico do órgão.
+
+=== tz-06
+gab: C
+ref: lgpd 33, IX
+trecho: quando necessário para atender as hipóteses previstas nos incisos II, V e VI do art. 7º desta Lei
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: para executar contrato de intercâmbio pedido pelo próprio estudante, uma agência enviou os dados dele à escola no exterior. Assertiva: a transferência pode fundar-se na hipótese que remete à execução de contrato de que o titular é parte.
+comentario: Certo. O art. 33, IX, remete aos incisos II (obrigação legal ou regulatória), V (execução de contrato a pedido do titular) e VI (exercício regular de direitos) do art. 7º.
+
+=== tz-07
+gab: E
+ref: lgpd 33, IX
+trecho: quando necessário para atender as hipóteses previstas nos incisos II, V e VI do art. 7º desta Lei
+armadilha: extrapolacao
+dif: 2
+enunciado: A LGPD permite a transferência internacional quando necessária para atender ao legítimo interesse do controlador, por remissão expressa às bases legais do art. 7º.
+comentario: Errado. A remissão do art. 33, IX, alcança só os incisos II, V e VI do art. 7º (obrigação legal, execução de contrato e exercício regular de direitos). O legítimo interesse (art. 7º, IX) ficou de fora.
+
+=== tz-08
+gab: C
+ref: lgpd 33, parágrafo único
+trecho: poderão requerer à autoridade nacional a avaliação do nível de proteção a dados pessoais conferido por país ou organismo internacional
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um ministério que precisa enviar dados a outro país quer saber se esse país oferece nível de proteção adequado. Assertiva: o ministério pode pedir à autoridade nacional que avalie o nível de proteção desse país.
+comentario: Certo. Pelo parágrafo único do art. 33, as pessoas jurídicas de direito público do art. 1º, parágrafo único, da Lei de Acesso à Informação podem requerer à autoridade nacional essa avaliação, no âmbito de suas competências.
+
+=== tz-09
+gab: E
+ref: lgpd 34
+trecho: as normas gerais e setoriais da legislação em vigor no país de destino ou no organismo internacional
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: ao avaliar o nível de proteção de dados de um país, a ANPD examinou só a lei geral de proteção de dados de lá, sem considerar normas setoriais nem as garantias judiciais e institucionais existentes. Assertiva: a análise cumpre o que a LGPD exige.
+comentario: Errado. O art. 34 manda considerar as normas gerais e setoriais do país de destino (inciso I) e as garantias judiciais e institucionais (inciso V), além da natureza dos dados, dos princípios e direitos, das medidas de segurança e de outras circunstâncias da transferência.
+
+=== tz-10
+gab: C
+ref: lgpd 34, II
+trecho: a natureza dos dados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a ANPD concluiu que um país protege bem dados cadastrais, mas não oferece garantias suficientes para dados de saúde. Assertiva: o tipo de dado a ser transferido é fator que a LGPD manda considerar nessa avaliação.
+comentario: Certo. A natureza dos dados está entre os fatores do art. 34 (inciso II), ao lado das normas do país, dos princípios e direitos, das medidas de segurança e das garantias judiciais e institucionais.
+
+=== tz-11
+gab: C
+ref: lgpd 35, § 2º
+trecho: poderão ser requeridas informações suplementares ou realizadas diligências de verificação quanto às operações de tratamento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: ao analisar normas corporativas globais submetidas por um grupo multinacional, a ANPD pediu informações suplementares e fez diligência sobre as operações de tratamento. Assertiva: as medidas têm previsão na LGPD.
+comentario: Certo. Art. 35, § 2º: na análise de cláusulas contratuais, documentos ou normas corporativas globais, podem ser requeridas informações suplementares ou realizadas diligências de verificação, quando necessário.
+
+=== tz-12
+gab: E
+ref: lgpd 35, § 4º
+trecho: Os atos realizados por organismo de certificação poderão ser revistos pela autoridade nacional
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um organismo de certificação designado pela ANPD emitiu selo em desacordo com a LGPD. Assertiva: o ato do organismo é definitivo e não pode ser revisto pela autoridade nacional.
+comentario: Errado. Pelo art. 35, § 4º, os atos de organismo de certificação podem ser revistos pela autoridade nacional e, se estiverem em desconformidade com a lei, submetidos a revisão ou anulados. Esses organismos ficam sob fiscalização da ANPD (§ 3º).
+
+=== tz-13
+gab: E
+ref: lgpd 36
+trecho: deverão ser comunicadas à autoridade nacional
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa que transfere dados com base em cláusulas contratuais específicas aprovadas mudou uma das garantias e não informou a ANPD, por entender que a aprovação anterior bastava. Assertiva: a conduta é compatível com a LGPD.
+comentario: Errado. O art. 36 exige que as alterações nas garantias apresentadas como suficientes, na forma do art. 33, II, sejam comunicadas à autoridade nacional.
+
+=== tz-14
+gab: C
+ref: lgpd 35, § 5º
+trecho: analisadas de acordo com as medidas técnicas e organizacionais adotadas pelo operador
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: ao analisar as garantias de uma transferência internacional, a ANPD examinou também as medidas técnicas e organizacionais adotadas pelo operador. Assertiva: o exame tem previsão na LGPD.
+comentario: Certo. Pelo art. 35, § 5º, as garantias de observância dos princípios e dos direitos do titular são analisadas também segundo as medidas técnicas e organizacionais do operador, conforme o art. 46, §§ 1º e 2º.
