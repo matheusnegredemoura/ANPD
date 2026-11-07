@@ -856,7 +856,7 @@ def: Expressão de Anu Bradford para a capacidade da União Europeia de exportar
 busca: efeito Bruxelas Anu Bradford GDPR influência global
 
 === Ciclo de políticas públicas
-padroes: ciclo de políticas públicas | ciclo de política pública
+padroes: ciclo de políticas públicas | ciclo de política pública | Secchi
 def: Modelo que divide a política pública em fases. Em Leonardo Secchi: identificação do problema, formação da agenda, formulação de alternativas, tomada de decisão, implementação, avaliação e extinção. É um esquema didático: na prática as fases se misturam e se repetem.
 busca: ciclo de políticas públicas Secchi agenda formulação implementação avaliação extinção
 
@@ -884,3 +884,43 @@ busca: CPC 46 hierarquia do valor justo nível 1 2 3 dados observáveis
 padroes: características qualitativas | representação fidedigna | CPC 00
 def: Fundamentais: relevância (inclui materialidade) e representação fidedigna (completa, neutra e livre de erro). De melhoria: comparabilidade, verificabilidade, tempestividade e compreensibilidade. As de melhoria não tornam útil uma informação que não seja relevante ou fidedigna.
 busca: CPC 00 R2 características qualitativas fundamentais de melhoria relevância representação fidedigna
+
+=== Crase
+padroes: crase
+def: Obrigatória quando a preposição “a” pedida por um termo se funde com o artigo “a” de palavra feminina (refiro-me à norma), em locuções femininas (às vezes, à medida que, à custa de) e na indicação de horas (às 10h). Proibida antes de palavra masculina, de verbo, da maioria dos pronomes (ela, esta, qualquer, Vossa Senhoria), com “a” no singular diante de plural (a empresas) e entre palavras repetidas (cara a cara). Teste: troque por um masculino; se virar “ao”, há crase.
+busca: crase casos obrigatórios proibidos facultativos regra prática
+
+=== Colocação pronominal
+padroes: colocação pronominal | próclise | ênclise | mesóclise
+def: Próclise (pronome antes do verbo) é obrigatória diante de palavra atrativa: negativa (não, nunca), pronome relativo, pronome indefinido, advérbio sem vírgula e conjunção subordinativa; também em frases optativas (Deus o abençoe) e com “em” + gerúndio. Sem palavra atrativa, a ênclise é a colocação padrão, mas a próclise é aceita depois de sujeito expresso (o diretor se manifestou); no início de frase, a norma culta não admite pronome átono. Mesóclise só com futuro do presente ou do pretérito sem palavra atrativa (far-se-á); nesses tempos não cabe ênclise.
+busca: colocação pronominal próclise obrigatória palavras atrativas ênclise mesóclise
+
+=== Pronome relativo “que”
+padroes: pronome relativo | pronomes relativos
+def: Retoma um antecedente e abre oração adjetiva, dentro da qual tem função própria: sujeito (a norma que vigora), objeto direto (a norma que a ANPD editou) ou, com a preposição que o verbo pede, objeto indireto, complemento nominal ou adjunto adverbial (a lei a que me refiro; a sala em que trabalho). Teste: troque por “o qual” e flexões. Não confunda com a conjunção integrante, que abre oração substantiva (espera-se que…).
+busca: pronome relativo que funções sintáticas o qual conjunção integrante
+
+=== Falsos cognatos
+padroes: falsos cognatos | falso cognato
+def: Palavras do inglês parecidas com o português, mas de outro sentido. Os que mais caem em texto de regulação: actually (na verdade), actual (real, efetivo), eventually (por fim), pretend (fingir), intend (pretender), comprehensive (abrangente), sensible (sensato), policy (política no sentido de diretriz; politics é a atividade política), assist (ajudar) e attend (comparecer).
+busca: false friends falsos cognatos inglês actually eventually policy comprehensive
+
+=== Plano de gerenciamento do projeto (PMBOK)
+padroes: plano de gerenciamento do projeto | planos de gerenciamento
+def: Documento que integra os planos auxiliares (escopo, requisitos, cronograma, custos, qualidade, recursos, comunicações, riscos, aquisições e engajamento das partes interessadas) e as linhas de base de escopo, cronograma e custos, além dos planos de mudanças e de configuração (PMBOK, 6ª edição).
+busca: PMBOK plano de gerenciamento do projeto planos auxiliares linhas de base
+
+=== Dimensões da qualidade de dados
+padroes: qualidade de dados | qualidade dos dados | DAMA-DMBOK
+def: Qualidade é adequação ao uso, medida por dimensões que a organização escolhe. As mais citadas: completude (não falta o que deveria estar lá), unicidade (sem duplicidade), tempestividade (atual quando preciso), validade (dentro do formato e das regras), exatidão (corresponde à realidade) e consistência (igual entre sistemas). A exatidão também é princípio da LGPD sob o nome de qualidade dos dados (art. 6º, V).
+busca: dimensões da qualidade de dados DAMA DMBOK completude unicidade tempestividade validade exatidão consistência
+
+=== Business intelligence × business analytics
+padroes: business intelligence | business analytics
+def: BI olha para o que aconteceu e está acontecendo: relatórios, painéis e consultas (análise descritiva). Business analytics usa estatística e modelos para explicar por que aconteceu e prever ou recomendar o que fazer (análise diagnóstica, preditiva e prescritiva).
+busca: business intelligence business analytics descritiva diagnóstica preditiva prescritiva
+
+=== Banco NoSQL de documentos
+padroes: NoSQL | orientado a documentos | orientados a documentos
+def: Guarda cada registro como documento autocontido, em geral JSON ou BSON, com esquema flexível: documentos da mesma coleção podem ter campos diferentes. Serve bem a dados semiestruturados lidos por inteiro (MongoDB é o exemplo clássico). Os outros tipos NoSQL são chave-valor, família de colunas e grafo.
+busca: NoSQL banco de dados de documentos MongoDB JSON esquema flexível chave-valor colunar grafo
