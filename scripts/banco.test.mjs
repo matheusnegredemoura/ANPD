@@ -173,6 +173,14 @@ test('comentários: todo prazo ou percentual está em alguma norma anexada ou no
   assert.equal(auditarPrazosComentarios({ questoes: [falso], leis: v.leis }).length, 1);
 });
 
+test('glossário: cada padrão marca uma entrada só (o termo grifado não abre a definição de outra)', () => {
+  const { glossario } = validar({ silencioso: true });
+  const sem = (x) => x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+  const dono = new Map(), repetidos = [];
+  for (const g of glossario) for (const p of g.padroes) { const k = sem(p); if (dono.has(k) && dono.get(k) !== g.termo) repetidos.push(p + ': ' + dono.get(k) + ' × ' + g.termo); else dono.set(k, g.termo); }
+  assert.deepEqual(repetidos, []);
+});
+
 test('item autoral não copia 60% ou mais do trecho da norma (padrão Cebraspe)', () => {
   const copiados = validar({ silencioso: true }).questoes
     .filter((q) => q.origem !== 'real' && q.trecho && q.trecho.length && copiaDoTrecho(q.enunciado, q.trecho) >= 0.6)
