@@ -663,6 +663,9 @@ function desafioAutoral() {
 // certos e nos errados (suavizados pela média do gabarito quando o tipo tem poucas respostas), intercalando certo e
 // errado para o desafio não virar uma fila de itens errados. O rótulo de dificuldade só desempata: nos dados de
 // outubro/2026 ele não previa os erros nos autorais (AUC 0,48, contra 0,54 da taxa por armadilha, fora da amostra).
+// Em novembro/2026 (980 primeiras respostas autorais), fora da amostra nada previu os erros: armadilha 0,50, rótulo
+// 0,48, situação hipotética 0,49, tamanho 0,50. O erro segue lacunas de conteúdo (artigo e bloco), não o tipo de item;
+// por isso os rótulos não foram recalibrados com esses dados.
 function ordemDesafio(lista) {
   const g = {}, a = {}, ce = (q) => !q.al && (q.g === 'C' || q.g === 'E');
   for (const [id, r] of Object.entries(S.itens)) {
