@@ -1,6 +1,7 @@
 // Treino por armadilha: com um histórico em que a pessoa erra itens de "erro no fim do período" e acerta os de "rol", o
 // cartão Onde você cai do Progresso oferece treinar a armadilha que mais derruba, e a sessão traz só itens dela.
 import { APP, abrirNavegador, foto, placar, vigiarErros } from './comum.mjs';
+import { lerTodas } from '../lib/questoes.mjs';
 
 const browser = await abrirNavegador();
 const { conferir, passo, fim } = placar();
@@ -44,6 +45,32 @@ await passo('a sessão traz só itens de erro no fim do período', async () => {
     if (!/armadilha: Erro no fim do período/.test(ex)) throw new Error('item de outra armadilha: ' + ex);
     await p.click('[data-acao="proximo"]');
   }
+});
+
+// Viés de certo/errado: 45 itens certos acertados de primeira e 45 errados com 20 erros de primeira
+const banco = lerTodas(new URL('../..', import.meta.url).pathname).filter((q) => !(q.alt || []).length);
+const certos = banco.filter((q) => q.gab === 'C').slice(0, 45).map((q) => q.id), errados = banco.filter((q) => q.gab === 'E').slice(0, 45).map((q) => q.id);
+await passo('Onde você cai mostra o viés de concordar com a frase', async () => {
+  const c2 = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  await c2.addInitScript(([cs, es]) => {
+    if (sessionStorage.getItem('semeado')) return;
+    sessionStorage.setItem('semeado', '1');
+    const hoje = Math.round(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) / 86400000);
+    const perfil = { xp: 0, meta: 30, novosCards: 20, intercaladas: 30, melhorSeq: 0, dias: {}, conq: {}, recordes: { combo: 0, relampago: 0 }, status: {}, feitos: {}, lidos: {}, saidos: 0, criado: '2026-08-01' };
+    const itens = {};
+    cs.forEach((id) => { itens[id] = [3, hoje + 7, 1, 0, hoje - 1, 0, 0, 1]; });
+    es.forEach((id, i) => { itens[id] = i < 20 ? [0, hoje + 1, 0, 1, hoje - 1, 0, 0, 0] : [3, hoje + 7, 1, 0, hoje - 1, 0, 0, 1]; });
+    localStorage.setItem('painel-anpd-v3', JSON.stringify({ perfil, itens, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: {} }));
+  }, [certos, errados]);
+  const p2 = await c2.newPage();
+  p2.setDefaultTimeout(5000);
+  vigiarErros(p2, erros);
+  await p2.goto(APP);
+  await p2.click('.aba[data-vista="mais"]');
+  await p2.click('.menu-mais [data-sub="progresso"]');
+  const txt = await p2.locator('.cartao', { hasText: 'Onde você cai' }).innerText();
+  conferir('linha do viés', /erra 44% dos itens errados e 0% dos certos: tende a concordar/.test(txt.replace(/\s+/g, ' ')), txt.slice(-300));
+  await c2.close();
 });
 
 await browser.close();

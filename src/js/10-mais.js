@@ -174,12 +174,20 @@ function renderProgresso() {
   html += '<div class="cartao"><div class="secao-cab"><h2>Acerto em itens inéditos</h2><span class="mudo pequeno">' + (tot1.n ? pct(tot1.c, tot1.n) + '% em ' + tot1.n + ' primeiras respostas' : 'primeira resposta de cada item') + '</span></div>' +
     (pl1.length ? '<div class="dominio">' + pl1.map(([dd, v]) => '<div class="dom-linha"><span class="nome">' + esc((DI.get(dd) || { nome: dd }).nome) + ' · ' + pl(v.n, 'item', 'itens') + '</span>' + barra(v.c / v.n) + '<span class="val">' + pct(v.c, v.n) + '%</span></div>').join('') + '</div>' : '<p class="mudo">Aparece por disciplina a partir de 10 itens respondidos pela primeira vez.</p>') +
     '<p class="pequeno mudo">O acerto geral sobe quando o mesmo item volta na revisão e você o reconhece. Aqui conta só a primeira resposta de cada item: é o número que se parece com a prova.</p></div>';
+  // Viés de certo/errado na primeira resposta: quem aceita a frase erra mais os itens errados; quem desconfia, os certos
+  function linhaVies() {
+    const t = { C: [0, 0], E: [0, 0] };
+    for (const q of Q) { const r = rec(q.id); if (q.al || !t[q.g] || !r || r[7] == null) continue; t[q.g][0] += 1 - r[7]; t[q.g][1]++; }
+    if (t.C[1] < 40 || t.E[1] < 40) return '';
+    const eC = t.C[0] / t.C[1], eE = t.E[0] / t.E[1], txt = 'Na primeira resposta, você erra <b>' + pct(t.E[0], t.E[1]) + '%</b> dos itens errados e <b>' + pct(t.C[0], t.C[1]) + '%</b> dos certos';
+    return '<p class="pequeno">' + (eE - eC >= 0.05 ? txt + ': tende a concordar com a frase. Antes de marcar certo, procure o erro: quantificador, sujeito, prazo, exceção.' : eC - eE >= 0.05 ? txt + ': tende a desconfiar demais. Se a frase bate com a norma e não restringe nem amplia nada, é certo.' : txt + ': sem viés para um lado.') + '</p>';
+  }
   const arm = {};
   for (const q of Q) { const r = rec(q.id); if (!r || r[0] < 0) continue; const x = (arm[q.a] ||= { c: 0, e: 0 }); x.c += r[2]; x.e += r[3]; }
   const armLista = Object.entries(arm).filter(([, v]) => v.c + v.e >= 3).map(([k, v]) => ({ k, taxa: v.e / (v.c + v.e) })).sort((a, b) => b.taxa - a.taxa);
   html += '<div class="cartao"><div class="secao-cab"><h2>Onde você cai</h2><span class="mudo pequeno">Taxa de erro por tipo de armadilha</span></div>' +
     (armLista.length ? '<div class="dominio">' + armLista.map((x) => '<div class="dom-linha"><span class="nome">' + esc(D.armadilhas[x.k] || x.k) + '</span>' + barra(x.taxa, '', '--accent:var(--errado)') + '<span class="val">' + Math.round(x.taxa * 100) + '%</span></div>').join('') + '</div>' +
-      (armLista[0].taxa > 0 ? '<p class="pequeno mudo">Treine de propósito a pegadinha que mais te derruba: 20 itens só desse tipo, dos blocos mais cobrados.</p><div class="linha-btns">' + armLista.filter((x) => x.taxa > 0).slice(0, 3).map((x, i) => '<button class="btn pequeno' + (i ? '' : ' primario') + '" data-acao="treinar-arm" data-a="' + esc(x.k) + '">' + esc(rotuloPausa('arm:' + x.k, D.armadilhas[x.k] || x.k)) + '</button>').join('') + '</div>' : '') : '<p class="mudo">Responda algumas dezenas de itens para ver em que tipo de pegadinha você mais erra.</p>') + '</div>';
+      (armLista[0].taxa > 0 ? '<p class="pequeno mudo">Treine de propósito a pegadinha que mais te derruba: 20 itens só desse tipo, dos blocos mais cobrados.</p><div class="linha-btns">' + armLista.filter((x) => x.taxa > 0).slice(0, 3).map((x, i) => '<button class="btn pequeno' + (i ? '' : ' primario') + '" data-acao="treinar-arm" data-a="' + esc(x.k) + '">' + esc(rotuloPausa('arm:' + x.k, D.armadilhas[x.k] || x.k)) + '</button>').join('') + '</div>' : '') : '<p class="mudo">Responda algumas dezenas de itens para ver em que tipo de pegadinha você mais erra.</p>') + linhaVies() + '</div>';
   let dc = 0, de = 0;
   for (const r of Object.values(S.itens)) { dc += r[5] || 0; de += r[6] || 0; }
   html += '<div class="cartao"><h2>Calibragem do chute</h2>' + (dc + de >= 5 ? '<p>Quando marca dúvida, você acerta <b>' + pct(dc, dc + de) + '%</b> (' + dc + ' de ' + (dc + de) + '). ' + (pct(dc, dc + de) > 50 ? 'Acima de 50%: na prova, chutar tende a somar pontos.' : 'Até 50%: na prova, deixar em branco tende a ser melhor.') + '</p>' : '<p class="mudo">Marque “Estou em dúvida” antes de responder. Com 5 marcações já dá para saber se o seu chute compensa.</p>') + '</div>';
