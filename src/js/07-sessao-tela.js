@@ -333,6 +333,21 @@ function renderResultadoCards() {
     '<p class="mudo">+' + sessao.xp + ' XP. Os cards marcados como “Errei” voltaram no fim da sessão e voltam amanhã também.</p></div>' +
     '<div class="linha-btns"><button class="btn primario" data-acao="fechar-sessao">Concluir</button></div>';
 }
+// Em que tipo de pegadinha caíram os erros desta sessão (certo/errado; a múltipla escolha não tem armadilha marcada).
+// Os erros se repetem por padrão, e o padrão é o que dá para treinar de propósito
+function cartaoArmadilhasSessao(ids) {
+  const cont = {};
+  for (const id of ids) {
+    const q = QI.get(id), r = sessao.resp[id];
+    if (!q || q.al || !q.a || !r || r === BRANCO || r === q.g) continue;
+    cont[q.a] = (cont[q.a] || 0) + 1;
+  }
+  const lista = Object.entries(cont).sort((a, b) => b[1] - a[1]);
+  if (!lista.length) return '';
+  return '<div class="cartao armadilhas-sessao"><div class="secao-cab"><h2>Onde você errou</h2><span class="mudo pequeno">Tipo de armadilha dos erros desta sessão</span></div>' +
+    '<ul class="lista-arm-sessao">' + lista.slice(0, 4).map(([k, n]) => '<li><span>' + esc(D.armadilhas[k] || k) + '</span><b class="mono">' + n + '</b></li>').join('') + '</ul>' +
+    '<div class="linha-btns"><button class="btn pequeno" data-acao="treinar-arm" data-a="' + esc(lista[0][0]) + '">Treinar ' + esc((D.armadilhas[lista[0][0]] || lista[0][0]).toLowerCase()) + ' (20 itens)</button></div></div>';
+}
 function renderResultado() {
   const ids = sessao.modo === 'relampago' ? sessao.ids.filter((id) => sessao.resp[id]) : sessao.ids;
   // No Cebraspe, erro em item certo/errado anula um acerto; erro em múltipla escolha não desconta
@@ -403,6 +418,7 @@ function renderResultado() {
   }
   const lista = ids.map((id) => { const q = QI.get(id), r = sessao.resp[id] || BRANCO; return { q, cls: r === BRANCO ? 'B' : r === q.g ? 'C' : 'E' }; });
   const ordenada = lista.filter((x) => x.cls !== 'C').concat(lista.filter((x) => x.cls === 'C'));
+  html += cartaoArmadilhasSessao(ids);
   html += '<div class="secao"><div class="secao-cab"><h2>Revisar itens</h2><span class="mudo pequeno">Erros e brancos primeiro</span></div><div class="lista-rev">' +
     ordenada.map((x) => '<button data-acao="revisar-item" data-q="' + esc(x.q.id) + '" data-r="' + esc(sessao.resp[x.q.id] || BRANCO) + '"><span class="marca-res ' + x.cls + '">' + ({ C: '✓', E: '✗', B: '–' }[x.cls]) + '</span><span class="txt">' + esc(x.q.e) + '</span></button>').join('') + '</div></div>';
   let proximoAcaoBtn = '';

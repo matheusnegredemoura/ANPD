@@ -217,7 +217,14 @@ function abrirSessao() {
   trancarFundo();
   focarDialogo(el);
 }
-function fecharSessao(guardar = true) {
+// Trocar de sessão (Refazer erros, treinar a armadilha do resultado) reaproveita a entrada do histórico. Fechar e
+// abrir em sequência fazia history.back(), e o popstate, que chega depois, fechava a sessão recém-aberta
+function trocarSessao(opts) {
+  if (sessao) fecharSessao(true, true);
+  iniciarSessao(opts);
+  sincronizarHistorico();
+}
+function fecharSessao(guardar = true, manterHistorico = false) {
   if (guardar) guardarSessaoAberta();
   clearInterval(relogioTimer);
   sessao = null;
@@ -227,7 +234,7 @@ function fecharSessao(guardar = true) {
   document.body.style.overflow = '';
   Store.descarregar();
   renderTudo();
-  sincronizarHistorico();
+  if (!manterHistorico) sincronizarHistorico();
   trancarFundo();
   // O gatilho foi reescrito por renderTudo; o foco volta para o conteúdo, que já tem tabindex="-1"
   const c = document.getElementById('conteudo');
@@ -235,14 +242,18 @@ function fecharSessao(guardar = true) {
 }
 // Voltar do celular fecha a camada aberta (folha, depois sessão) em vez de sair do painel; a sessão fica guardada
 let camadaNoHistorico = false;
+// Voltas do histórico pedidas pelo próprio painel: o popstate delas chega depois e não deve fechar a camada que
+// já tiver sido aberta nesse meio-tempo (fechar a folha e abrir um treino no mesmo toque)
+let voltasDoPainel = 0;
 function camadaAberta() { return !document.getElementById('folha').hidden || !document.getElementById('sessao').hidden; }
 function sincronizarHistorico() {
   try {
     if (camadaAberta() && !camadaNoHistorico) { history.pushState({ camada: 1 }, ''); camadaNoHistorico = true; }
-    else if (!camadaAberta() && camadaNoHistorico) { camadaNoHistorico = false; history.back(); }
+    else if (!camadaAberta() && camadaNoHistorico) { camadaNoHistorico = false; voltasDoPainel++; history.back(); }
   } catch (e) { /* histórico indisponível: fecha só pelo botão */ }
 }
 window.addEventListener('popstate', () => {
+  if (voltasDoPainel) { voltasDoPainel--; return; }
   if (!camadaNoHistorico) return;
   camadaNoHistorico = false;
   if (!document.getElementById('folha').hidden) fecharFolha();

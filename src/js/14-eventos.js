@@ -126,8 +126,7 @@ async function executar(a, alvo) {
     case 'fechar-sessao': fecharSessao(); break;
     case 'refazer-erros': {
       const ids = idsParaRefazer();
-      fecharSessao();
-      iniciarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Refazer erros' });
+      trocarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Refazer erros' });
       break;
     }
     case 'revisar-item': folhaItem(alvo.dataset.q, alvo.dataset.r); break;
@@ -138,8 +137,7 @@ async function executar(a, alvo) {
       const g = GLOSS[Number(alvo.dataset.t)];
       const ids = Q.filter((q) => g.re.test(q.e + ' ' + q.c)).map((q) => q.id);
       fecharFolha();
-      if (sessao) fecharSessao();
-      iniciarSessao({ modo: 'treino', ids: embaralhar(ids).slice(0, 20), titulo: g.t });
+      trocarSessao({ modo: 'treino', ids: embaralhar(ids).slice(0, 20), titulo: g.t });
       break;
     }
     case 'add-pesq':
@@ -179,7 +177,7 @@ async function executar(a, alvo) {
       const todos = Q.filter((q) => q.a === k && !q.al);
       const fortes = todos.filter((q) => (BI.get(q.b) || {}).prioridade <= 2);
       const ids = selecionar(fortes.length >= 20 ? fortes : todos, 20, 'mistas').map((q) => q.id);
-      if (ids.length) iniciarSessao({ modo: 'treino', ids, titulo: 'Armadilha · ' + (D.armadilhas[k] || k), chave: 'arm:' + k });
+      if (ids.length) trocarSessao({ modo: 'treino', ids, titulo: 'Armadilha · ' + (D.armadilhas[k] || k), chave: 'arm:' + k });
       break;
     }
     case 'treinar-bloco': iniciarSessao({ modo: 'treino', n: 20, blocos: [alvo.dataset.bloco], filtro: 'mistas', titulo: 'Treino · ' + nomeBloco(alvo.dataset.bloco), chave: 'bloco:' + alvo.dataset.bloco }); break;
