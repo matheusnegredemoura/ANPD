@@ -63,6 +63,10 @@ await p.reload();
 await p.waitForSelector('#vista-hoje .roteiro');
 {
   // Com o detalhe, uma falha rara (só com a bateria em paralelo) diz o que mudou: a contagem, o aviso ou a marca gravada
+  // Diagnóstico de 07/11/2026: quando falha, o localStorage lido no início do documento recarregado já não tem os dias
+  // recuperados que o documento anterior gravou e leu, mesmo com 600 ms de espera antes do reload. Nenhum caminho do
+  // app grava o perfil sem eles (guardarLocal grava sempre o S.perfil atual): o documento novo enxerga o armazenamento
+  // como estava logo depois da semeadura. É do armazenamento do navegador de teste, não da regra da sequência
   const f = await fogo(p), av = (await p.textContent('#avisos')).replace(/\s+/g, ' ').trim();
   conferir('depois de recarregar, a sequência continua', f === dentro && !/Sequência de volta/.test(av), f + ' de ' + dentro + (av ? ' · aviso: ' + av.slice(0, 100) : '') + ' · ' + JSON.stringify(await recuperados(p)));
 }
