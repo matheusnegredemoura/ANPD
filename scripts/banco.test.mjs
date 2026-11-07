@@ -17,9 +17,10 @@ test('toda questão de LGPD cita trecho literal', () => {
   assert.deepEqual(semTrecho.map((q) => q.id), []);
 });
 
-test('situação hipotética nunca é dificuldade 1 (docs/padrao-cebraspe.md, protocolo 5)', () => {
+test('situação hipotética e item de reescrita nunca são dificuldade 1 (docs/padrao-cebraspe.md, protocolo 5)', () => {
   const { questoes } = validar({ silencioso: true });
-  const faceis = questoes.filter((q) => q.origem !== 'real' && q.dif === '1' && /^situação hipotética/i.test(q.enunciado || ''));
+  const reescrita = /could be replaced|can be replaced|replaced with|substituí|reescrit|mantém(-se)? (a correção|o sentido)|preserva(m)? (a correção|o sentido)/i;
+  const faceis = questoes.filter((q) => q.origem !== 'real' && q.dif === '1' && (/^situação hipotética/i.test(q.enunciado || '') || reescrita.test(q.enunciado || '')));
   assert.deepEqual(faceis.map((q) => q.id), []);
 });
 
