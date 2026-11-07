@@ -1,5 +1,8 @@
-// Itens de prova trazidos na versão 4.6 enviada pelo usuário (banco de questões dele). Gabarito como veio; os do TCU 2026
-// conferem com o gabarito oficial. Ficaram de fora os que dependem de texto da prova que não veio junto e os autorais.
+// Itens de prova trazidos na versão 4.6 enviada pelo usuário (banco de questões dele). Gabaritos conferidos em
+// 7/11/2026 com os gabaritos definitivos publicados pelo Cebraspe (ANVISA 2024, TCE-RN, TCE-MS e TCE-MG 2025, TCU
+// 2025 AUFC e TEFC): todos iguais ao oficial. Item que não consta dos cadernos oficiais virou autoral (origem:
+// original), com a procedência anotada como não confirmada. Ficaram de fora os que dependem de texto da prova que não
+// veio junto e os autorais.
 
 === tcu-dad-001
 bloco: dados-bi
@@ -9,8 +12,8 @@ alt: B | SELECT cnpj_fornecedor, SUM(valor) AS total FROM empenhos HAVING ano = 
 alt: C | SELECT cnpj_fornecedor, SUM(valor) AS total FROM empenhos WHERE ano = 2026 GROUP BY cnpj_fornecedor HAVING COUNT(DISTINCT id_empenho) > 5 AND SUM(valor) > 1000000 ORDER BY total DESC;
 alt: D | SELECT cnpj_fornecedor, SUM(valor) AS total FROM empenhos GROUP BY cnpj_fornecedor WHERE ano = 2026 AND SUM(valor) > 1000000 ORDER BY total DESC;
 alt: E | SELECT DISTINCT cnpj_fornecedor, COUNT(id_empenho), SUM(valor) FROM empenhos WHERE ano = 2026 ORDER BY SUM(valor) DESC;
-origem: adaptada
-prova: FGV · TCU 2021 (molde Análise de Dados) · SQL
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como FGV · TCU 2021 (molde Análise de Dados) · SQL)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: caso
 dif: 2
@@ -20,8 +23,8 @@ comentario: Letra C. Na ordem lógica e sintática do SQL: `WHERE ano = 2026` fi
 === tcu-dad-002
 bloco: dados-bi
 gab: E
-origem: real
-prova: Cebraspe · TCU 2015 · Análise de Dados
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe · TCU 2015 · Análise de Dados)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
@@ -31,8 +34,8 @@ comentario: Errado. Os conceitos foram invertidos! A 2FN exige estar na 1FN e el
 === tcu-dad-003
 bloco: dados-bi
 gab: C
-origem: real
-prova: Cebraspe · TCU 2025 · Auditor TI
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe · TCU 2025 · Auditor TI)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
@@ -47,8 +50,8 @@ alt: B | Suporte = 10%, Confiança = 50% e Lift = 2,0.
 alt: C | Suporte = 10%, Confiança = 40% e Lift = 0,5.
 alt: D | Suporte = 45%, Confiança = 25% e Lift = 2,5.
 alt: E | Suporte = 5%, Confiança = 80% e Lift = 4,0.
-origem: real
-prova: FGV · TCU 2021 · Análise de Dados
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como FGV · TCU 2021 · Análise de Dados)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: caso
 dif: 2
@@ -63,8 +66,8 @@ alt: B | df['valor'] = df.groupby('modalidade')['valor'].apply(mean) ; df[df['an
 alt: C | df['valor'] = df['valor'].replace(None, df['valor'].median()) ; df.loc['anomalia' == 1]
 alt: D | df['valor'] = df['valor'].fillna(df.groupby('modalidade')['valor'].transform('median')) ; df_filtrado = df.loc[df['anomalia'] == 1]
 alt: E | df.fillna(inplace=False, method='median') ; df.filter(anomalia=1)
-origem: real
-prova: FGV · TCU 2021 · Análise de Dados (Python)
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como FGV · TCU 2021 · Análise de Dados (Python))
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: caso
 dif: 2
@@ -74,8 +77,8 @@ comentario: Letra D. Em `pandas`, `df.groupby('modalidade')['valor'].transform('
 === tcu-dad-006
 bloco: ia
 gab: C
-origem: real
-prova: Cebraspe · TCU 2025 · Auditor TI
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe · TCU 2025 · Auditor TI)
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: conceito
 dif: 2
@@ -85,8 +88,8 @@ comentario: Certo. Em bases desbalanceadas (ex.: 99% regulares e 1% fraude), um 
 === tcu-dad-101
 bloco: dados-bi
 gab: C
-origem: real
-prova: Cebraspe · TCU 2025 · Auditor TI
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe · TCU 2025 · Auditor TI)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 3
@@ -101,8 +104,8 @@ alt: B | RANK: (1, 2, 2, 4) e DENSE_RANK: (1, 2, 2, 3).
 alt: C | RANK: (1, 2, 2, 3) e DENSE_RANK: (1, 2, 2, 4).
 alt: D | RANK: (1, 1, 2, 3) e DENSE_RANK: (1, 2, 3, 4).
 alt: E | RANK: (1, 2, 2, 4) e DENSE_RANK: (1, 2, 3, 4).
-origem: real
-prova: FGV · TCU 2021 · Análise de Dados
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como FGV · TCU 2021 · Análise de Dados)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: caso
 dif: 2
@@ -112,8 +115,8 @@ comentario: Letra B. Em caso de empate no 2º lugar (dois contratos de R$ 80 mil
 === tcu-dad-103
 bloco: dados-bi
 gab: E
-origem: real
-prova: Cebraspe · TCU 2015
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe · TCU 2015)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
@@ -123,8 +126,8 @@ comentario: Errado. Os conceitos foram trocados! Atomicidade é a regra do 'tudo
 === tcu-dad-104
 bloco: dados-bi
 gab: C
-origem: real
-prova: Cebraspe · TCU 2025 · Auditor TI
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe · TCU 2025 · Auditor TI)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
@@ -139,8 +142,8 @@ alt: B | Ajustar (`fit_transform`) o `StandardScaler` e o `SimpleImputer` sobre 
 alt: C | Calcular a média e o desvio-padrão exclusivamente no conjunto de teste final e aplicá-los ao conjunto de treino.
 alt: D | Remover todas as variáveis numéricas do modelo, pois algoritmos de árvore de decisão exigem obrigatoriamente normalização Z-score para convergir.
 alt: E | Treinar e avaliar o modelo exatamente no mesmo conjunto de dados sem separação de validação.
-origem: adaptada
-prova: FGV · TCU 2021 (molde ML)
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como FGV · TCU 2021 (molde ML))
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: caso
 dif: 2
@@ -150,8 +153,8 @@ comentario: Letra A. Ajustar (`fit`) transformadores de pré-processamento na ba
 === tcu-dad-106
 bloco: ia
 gab: E
-origem: real
-prova: Cebraspe · TCU 2025 · Auditor TI
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe · TCU 2025 · Auditor TI)
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
@@ -161,8 +164,8 @@ comentario: Errado. O aumento da força da regularização (λ maior) restringe 
 === tcu-dad-107
 bloco: ia
 gab: C
-origem: adaptada
-prova: Cebraspe · TCDF 2026 (molde Dados)
+origem: original
+prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe · TCDF 2026 (molde Dados))
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: conceito
 dif: 2
