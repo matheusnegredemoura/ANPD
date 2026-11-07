@@ -305,7 +305,7 @@ function renderLei() {
     '<div class="secao-cab"><h2>' + esc(L.nome) + '</h2><a class="pequeno" href="' + esc(L.url) + '" target="_blank" rel="noopener">Fonte oficial ↗</a></div>' +
     (L.aviso ? '<p class="aviso-conferir">' + esc(L.aviso) + '</p>' : '') +
     '<p class="pequeno mudo">' + pl(arts.length, 'unidade', 'unidades') + ' · ' + lidos + ' lida' + (lidos === 1 ? '' : 's') + ' · ' + pl((arts.reduce((n, a) => n + (POR_ART.get(a.k) || []).length, 0)), 'questão ligada', 'questões ligadas') + '</p>' +
-    '<input class="busca" id="busca-lei" type="search" placeholder="Buscar em todas as normas (ex.: quinze dias, encarregado, Senado)" value="' + esc(UI.busca) + '" aria-label="Buscar em todas as normas">' +
+    '<input class="busca" aria-keyshortcuts="/" id="busca-lei" type="search" placeholder="Buscar em todas as normas (ex.: quinze dias, encarregado, Senado)" value="' + esc(UI.busca) + '" aria-label="Buscar em todas as normas">' +
     '<div class="chips"><button class="chip" data-acao="ranking" aria-pressed="' + (UI.ranking && !UI.termometro) + '">Mais importantes primeiro</button><button class="chip" data-acao="ler-tudo">Ler do início</button><button class="chip" data-acao="toggle-termometro" aria-pressed="' + !!UI.termometro + '">Termômetro de Vulnerabilidades</button></div>' +
     '<p class="pequeno mudo">Estrelas: quanto o artigo pesa no banco. Pontos: acertos e erros. Borda termossensível: Crítico, Atenção, Dominado.</p></div>';
   // Um diagnóstico por artigo, reaproveitado no termômetro, no ranking de vulnerabilidades e na grade de artigos

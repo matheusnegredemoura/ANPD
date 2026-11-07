@@ -299,7 +299,7 @@ function renderGlossario() {
   const q = semAcento(UI.buscaGloss.trim());
   const lista = GLOSS.filter((g) => !q || semAcento(g.t + ' ' + g.d).includes(q)).sort((a, b) => a.t.localeCompare(b.t, 'pt'));
   return '<div class="secao-cab"><h2>Glossário</h2><span class="mudo pequeno">' + GLOSS.length + ' termos</span></div>' +
-    '<input class="busca" id="busca-gloss" type="search" placeholder="Buscar termo" value="' + esc(UI.buscaGloss) + '" aria-label="Buscar no glossário">' +
+    '<input class="busca" aria-keyshortcuts="/" id="busca-gloss" type="search" placeholder="Buscar termo" value="' + esc(UI.buscaGloss) + '" aria-label="Buscar no glossário">' +
     '<p class="mudo pequeno">Os termos sublinhados com pontos nas questões e nos cards abrem estas definições. Os marcados como termo jurídico aparecem explicados embaixo de cada artigo da lei seca.</p>' +
     lista.map((g) => '<div class="gloss-item"><b>' + esc(g.t) + '</b>' + (g.j ? ' <span class="selo">termo jurídico</span>' : '') + '<p>' + esc(g.d) + '</p><div class="linha-btns"><button class="linkish pequeno" data-acao="investigar" data-t="' + esc(g.t) + '" data-o="glossário">Investigar</button>' +
       (S.pesquisa[chavePesq(g.t)] ? '<span class="selo ok">Na lista</span>' : '<button class="linkish pequeno" data-acao="add-pesq" data-t="' + esc(g.t) + '" data-o="glossário">Guardar na lista</button>') + '</div></div>').join('');
@@ -597,7 +597,7 @@ function renderEditalANPD() {
   html += '<div class="cartao"><div class="campo"><span class="rot">Filtrar por prioridade</span><div class="chips">' +
     [['todas', 'Todas (' + topicos.length + ')'], ...['A', 'B', 'C'].map((v) => [v, 'Prioridade ' + v + ' (' + topicos.filter((t) => t.prio === v).length + ')'])].map(([v, t]) => '<button class="chip" data-acao="ed-prio" data-v="' + v + '" aria-pressed="' + (fPrio === v) + '">' + t + '</button>').join('') +
     '</div></div>' +
-    '<input class="busca" id="busca-edital" type="search" placeholder="Filtrar tópico, norma ou conceito no edital (ex.: legítimo interesse, encarregado, AIR, NIST, DPO)" value="' + esc(UI.edBusca || '') + '"></div>';
+    '<input class="busca" aria-keyshortcuts="/" id="busca-edital" type="search" placeholder="Filtrar tópico, norma ou conceito no edital (ex.: legítimo interesse, encarregado, AIR, NIST, DPO)" value="' + esc(UI.edBusca || '') + '"></div>';
 
   const porMat = new Map();
   for (const t of topicos) {

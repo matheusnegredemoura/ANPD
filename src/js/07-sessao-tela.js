@@ -61,7 +61,7 @@ function buscarQuestoes(termo) {
 const BUSCA_Q_MAX = 50;
 function cartaoBuscaQuestoes() {
   const termo = UI.buscaQ || '', achadas = buscarQuestoes(termo);
-  let html = '<div class="secao busca-q"><input class="busca" id="busca-questoes" type="search" autocomplete="off" placeholder="Procurar questão por palavra ou código (ex.: legítimo interesse, tce-rn)" value="' + esc(termo) + '" aria-label="Procurar questão">';
+  let html = '<div class="secao busca-q"><input class="busca" aria-keyshortcuts="/" id="busca-questoes" type="search" autocomplete="off" placeholder="Procurar questão por palavra ou código (ex.: legítimo interesse, tce-rn)" value="' + esc(termo) + '" aria-label="Procurar questão">';
   if (semAcento(termo.trim()).length >= 3) {
     if (!achadas.length) html += '<p class="mudo pequeno">Nenhuma questão com esse termo no enunciado ou no código.</p>';
     else {
@@ -139,7 +139,7 @@ function renderSessao() {
     (comTempoItem() ? htmlTempoItem() : '') + '<span class="relogio" id="relogio">' + relogio + '</span></div>';
   if (sessao.confirmar) html += renderConfirmacao();
   if (sessao.modo === 'cards') html += barra(sessao.i / sessao.ids.length) + renderCardSessao(CI.get(sessao.ids[sessao.i]));
-  else { html += renderArena(QI.get(sessao.ids[sessao.i])); if (total) html += renderTira(); html += renderItem(QI.get(sessao.ids[sessao.i])); }
+  else { html += renderArena(QI.get(sessao.ids[sessao.i])); if (total) html += renderTira() + resumoSimulado(); html += renderItem(QI.get(sessao.ids[sessao.i])); }
   el.innerHTML = html + '</div>';
   centrarTira();
 }
@@ -154,6 +154,23 @@ function renderTira() {
     const i = '<i class="' + cls.trim() + '"></i>';
     return sessao.modo === 'simulado' ? '<button data-acao="ir-item" data-i="' + k + '" aria-label="Item ' + (k + 1) + ': ' + (r ? (r === BRANCO ? 'em branco' : 'marcado') : 'sem resposta') + '"' + (id === atual ? ' aria-current="step"' : '') + '>' + i + '</button>' : i;
   }).join('') + '</div>';
+}
+// No simulado, quanto já foi respondido em cada parte da prova (o em branco marcado conta como resposta). Nada de nota:
+// o gabarito só aparece no fim
+function resumoSimulado() {
+  if (sessao.modo !== 'simulado') return '';
+  const partes = { b: { n: 0, r: 0, br: 0 }, e: { n: 0, r: 0, br: 0 } };
+  for (const id of sessao.ids) {
+    const x = partes[parteProva(QI.get(id)) === 'b' ? 'b' : 'e'], r = sessao.resp[id];
+    x.n++;
+    if (r) { x.r++; if (r === BRANCO) x.br++; }
+  }
+  const fmt = (nome, x) => nome + ': <b>' + x.r + '/' + x.n + '</b>' + (x.br ? ' (' + x.br + ' em branco)' : '');
+  const duas = partes.b.n && partes.e.n;
+  const txt = duas ? fmt('P1 · Básicos', partes.b) + ' · ' + fmt('P2 · Específicos', partes.e)
+    : fmt('Respondidos', { n: partes.b.n + partes.e.n, r: partes.b.r + partes.e.r, br: partes.b.br + partes.e.br });
+  const duv = sessao.ids.filter((id) => sessao.duv[id]).length;
+  return '<p class="pequeno resumo-sim">' + txt + (duv ? ' · ' + pl(duv, 'com dúvida', 'com dúvida') : '') + '</p>';
 }
 // A folha de respostas é uma fita de uma linha: mantém a bolinha do item atual no meio
 function centrarTira() {

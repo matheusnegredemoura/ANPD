@@ -523,6 +523,12 @@ document.addEventListener('keydown', (ev) => {
     if (fs.length && (ev.shiftKey ? document.activeElement === fs[0] || !fs.includes(document.activeElement) : document.activeElement === fs[fs.length - 1])) { ev.preventDefault(); (ev.shiftKey ? fs[fs.length - 1] : fs[0]).focus(); }
     return;
   }
+  // "/" fora da sessão leva à busca da tela aberta (questões, lei seca, glossário ou edital), como nos sites de busca
+  if (ev.key === '/' && !sessao && document.getElementById('folha').hidden && !ev.ctrlKey && !ev.metaKey && !ev.altKey && !(ev.target && /INPUT|TEXTAREA|SELECT/.test(ev.target.tagName))) {
+    const campo = [...document.querySelectorAll('input.busca')].find((x) => x.offsetParent);
+    if (campo) { ev.preventDefault(); campo.focus(); campo.select(); }
+    return;
+  }
   if (!sessao || sessao.fim || sessao.confirmar) return;
   if (ev.target && ev.target.id === 'card-digitar' && ev.key === 'Enter') { ev.preventDefault(); proximo(); return; }
   if (ev.target && /INPUT|TEXTAREA|SELECT/.test(ev.target.tagName) && ev.target.type !== 'checkbox') return;
