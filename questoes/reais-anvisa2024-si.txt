@@ -1,0 +1,149 @@
+// Itens reais: Cebraspe, ANVISA 2024 (aplicação em 21/4/2024), Especialista em Regulação e Vigilância Sanitária,
+// Área 4, Conhecimentos Específicos, caderno 956_ANVISA_004_01. Gabarito oficial definitivo (o 119 mudou de E para C
+// no definitivo, com justificativa da banca). Baixados do site do Cebraspe em 7/11/2026.
+// Ficaram os assuntos que caem na ANPD: firewall, nuvem, política de segurança, ataques e mecanismos, ISO 27001/27002/
+// 27005 (100 a 103, 112, 114 e 116 a 120). Fora: desenvolvimento de software, projetos, PDTIC, BSC, COBIT e ITIL, e
+// os itens 113 e 115.
+
+=== anvisa-2024-cebraspe-100
+gab: E
+origem: real
+prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (Área 4) · item 100
+bloco: seginfo
+ref: doutrina firewall
+comando: Considerando um firewall com função de filtragem de pacotes entre uma rede local e a Internet, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+tema: si-controles
+enunciado: Para filtrar pacotes entre uma rede local e a Internet, o firewall, por padrão, faz NAT (network address translation).
+comentario: Errado. Filtrar pacotes é aceitar ou descartar cada pacote conforme regras sobre endereços IP, portas e protocolo. A tradução de endereços (NAT) é outra função, que muitos equipamentos de borda também executam, mas não é inerente à filtragem: um filtro de pacotes funciona sem NAT.
+
+=== anvisa-2024-cebraspe-101
+gab: E
+origem: real
+prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (Área 4) · item 101
+bloco: seginfo
+ref: doutrina firewall
+comando: Considerando um firewall com função de filtragem de pacotes entre uma rede local e a Internet, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+tema: si-controles
+enunciado: Esse tipo de firewall trabalha na camada de enlace, impedindo os quadros de passarem de uma interface física para outra.
+comentario: Errado. O filtro de pacotes atua nas camadas de rede e de transporte: lê o cabeçalho IP e as portas TCP ou UDP e decide pacote a pacote. Quadro é a unidade da camada de enlace, terreno de switches e bridges, não do firewall de filtragem de pacotes.
+
+=== anvisa-2024-cebraspe-102
+gab: C
+origem: real
+prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (Área 4) · item 102
+bloco: seginfo
+ref: doutrina computação em nuvem
+comando: Considerando uma nuvem pública com uma solução baseada em infraestrutura como serviço (IaaS), julgue os próximos itens.
+armadilha: conceito
+dif: 2
+tema: si-nuvem
+enunciado: O custo da nuvem pública pode ser considerado variável, pois depende do acordo de utilização, e isso pode ser definido de forma prévia, mediante contrato com o provedor de nuvem.
+comentario: Certo. Na nuvem pública paga-se pelo uso: o custo é variável, de despesa operacional, e não de investimento em equipamento próprio. As condições de cobrança, como preço por hora, reservas de capacidade e níveis de serviço, ficam definidas antes, no contrato com o provedor.
+
+=== anvisa-2024-cebraspe-103
+gab: C
+origem: real
+prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (Área 4) · item 103
+bloco: seginfo
+ref: doutrina computação em nuvem
+comando: Considerando uma nuvem pública com uma solução baseada em infraestrutura como serviço (IaaS), julgue os próximos itens.
+armadilha: conceito
+dif: 1
+tema: si-nuvem
+enunciado: Como a nuvem é pública, a infraestrutura é fornecida por meio de recursos compartilhados e com acesso à Internet.
+comentario: Certo. Na nuvem pública, o provedor atende vários clientes com os mesmos recursos físicos (multilocação), e o acesso se dá pela Internet. No IaaS, o cliente recebe máquinas virtuais, armazenamento e rede e administra o que roda sobre eles.
+
+=== anvisa-2024-cebraspe-112
+gab: C
+origem: real
+prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (Área 4) · item 112
+bloco: seginfo
+ref: doutrina política de segurança da informação
+comando: Julgue os próximos itens, a respeito da política de segurança da informação nas organizações.
+armadilha: conceito
+dif: 1
+tema: si-principios
+enunciado: A política de segurança da informação tem como objetivo a proteção das informações contra ameaças internas e externas, assim como a prevenção contra vazamento de dados e sua alteração ou eliminação sem as devidas autorizações.
+comentario: Certo. A política de segurança da informação é o documento de diretrizes que orienta a proteção da informação contra ameaças de dentro e de fora da organização. Evitar vazamento preserva a confidencialidade; impedir alteração ou eliminação não autorizada preserva a integridade.
+
+=== anvisa-2024-cebraspe-114
+gab: E
+origem: real
+prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (Área 4) · item 114
+bloco: seginfo
+ref: doutrina serviços de segurança
+comando: Considerando ameaças e ataques à segurança da informação, bem como mecanismos de segurança da informação, julgue os próximos itens.
+armadilha: conceito
+dif: 2
+tema: si-principios
+enunciado: Entre os serviços previstos pela arquitetura OSI de segurança para avaliação da segurança de uma organização, o serviço de não repúdio é aquele que confirma se é verdadeira a identidade de uma ou mais entidades conectadas a outra(s) entidade(s).
+comentario: Errado. Confirmar a identidade de quem se comunica é o serviço de autenticação da arquitetura de segurança OSI (X.800). O não repúdio impede que o emissor negue ter enviado, ou o receptor negue ter recebido, uma mensagem, e se obtém, por exemplo, com assinatura digital.
+
+=== anvisa-2024-cebraspe-116
+gab: C
+origem: real
+prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (Área 4) · item 116
+bloco: seginfo
+ref: doutrina ataques à segurança da informação
+comando: Considerando ameaças e ataques à segurança da informação, bem como mecanismos de segurança da informação, julgue os próximos itens.
+armadilha: conceito
+dif: 1
+tema: si-controles
+enunciado: Exfiltração consiste no ato criminoso de extração de dados sem que o titular de direito desses ativos assim o perceba.
+comentario: Certo. Exfiltração é a retirada não autorizada de dados de um sistema ou de uma organização, feita para não ser percebida: em pequenos volumes, disfarçada em tráfego legítimo ou por canais cifrados. Quando atinge dados pessoais, é incidente de segurança que pode exigir comunicação à ANPD e aos titulares (LGPD, art. 48).
+
+=== anvisa-2024-cebraspe-117
+gab: E
+origem: real
+prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (Área 4) · item 117
+bloco: seginfo
+ref: doutrina ataques à segurança da informação
+comando: Considerando ameaças e ataques à segurança da informação, bem como mecanismos de segurança da informação, julgue os próximos itens.
+armadilha: conceito
+dif: 2
+tema: si-controles
+enunciado: Nos ataques de força bruta, hackers utilizam uma metodologia que identifica senhas disponíveis online e, depois, as testam, pesquisando nomes de usuários, até encontrarem uma correspondência.
+comentario: Errado. Na força bruta, o atacante testa sistematicamente combinações de senha, todas ou as mais prováveis, até acertar. Testar senhas que já vazaram e estão disponíveis na Internet contra nomes de usuário é o preenchimento de credenciais (credential stuffing), que explora a reutilização de senhas.
+
+=== anvisa-2024-cebraspe-118
+gab: C
+origem: real
+prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (Área 4) · item 118
+bloco: seginfo
+ref: doutrina certificação digital
+comando: Considerando ameaças e ataques à segurança da informação, bem como mecanismos de segurança da informação, julgue os próximos itens.
+armadilha: conceito
+dif: 3
+tema: si-controles
+enunciado: Ao validar uma assinatura digital, o certificado digital vincula a ela um arquivo eletrônico com dados do signatário; tanto a assinatura digital quanto o arquivo são protegidos por criptografia pelo certificado digital, que deve ser emitido por uma autoridade certificadora credenciada.
+comentario: Certo. O certificado digital é o arquivo eletrônico que liga a chave pública aos dados do titular e acompanha a assinatura, para que quem a valida saiba quem assinou. Ele é assinado pela autoridade certificadora, o que impede adulteração. No Brasil, a assinatura eletrônica qualificada usa certificado emitido no âmbito da ICP-Brasil (Lei 14.063/2020, art. 4º, III).
+
+=== anvisa-2024-cebraspe-119
+gab: C
+origem: real
+prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (Área 4) · item 119
+bloco: seginfo
+ref: doutrina ISO 27005
+comando: Em relação à segurança da informação conforme o disposto nas normas ISO 27001, 27002 e 27005, julgue os itens subsecutivos.
+armadilha: conceito
+dif: 3
+tema: si-controles
+enunciado: O processo de avaliação de riscos de segurança da informação, conforme prevê a ISO 27005, é uma atividade na qual a equipe de análise deve mensurar o nível de risco mediante o uso de resultados obtidos nas etapas anteriores da gestão de riscos, atribuindo valores para a probabilidade e a consequência de cada risco.
+comentario: Certo. Na ISO 27005, a avaliação de riscos reúne identificação, análise e avaliação. Com o que foi levantado antes (ativos, ameaças, vulnerabilidades e controles existentes), a equipe estima a probabilidade e a consequência de cada risco e chega ao seu nível. O preliminar dava E; a banca mudou para C no definitivo.
+
+=== anvisa-2024-cebraspe-120
+gab: C
+origem: real
+prova: Cebraspe · ANVISA 2024 · Especialista em Regulação (Área 4) · item 120
+bloco: seginfo
+ref: doutrina ISO 27001 e 27002
+comando: Em relação à segurança da informação conforme o disposto nas normas ISO 27001, 27002 e 27005, julgue os itens subsecutivos.
+armadilha: extrapolacao
+dif: 2
+tema: si-principios
+enunciado: A política de segurança da informação deve ser divulgada a todos da organização, de maneira formal e efetiva, informando-se todos os detalhes da sua implementação, a forma como ela deve ser cumprida e as penalidades aplicáveis em caso da sua não observância.
+comentario: Certo. A política aprovada pela direção deve ser comunicada formalmente a todo o pessoal, que precisa saber como cumpri-la (ISO 27001, 5.2; ISO 27002, controle 5.1), e as consequências da violação devem ser conhecidas: a ISO 27002 pede processo disciplinar formalizado e comunicado (controle 6.4). Quem marcou errado por achar excessivo divulgar os detalhes da implementação contrariou o gabarito definitivo.
