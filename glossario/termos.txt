@@ -340,6 +340,41 @@ padroes: ISO/IEC 27001 | 27001 | 27701 | 27002
 def: 27001: requisitos certificáveis do sistema de gestão de segurança da informação. 27002: guia de controles. 27701: extensão para gestão da privacidade.
 busca: ISO 27001 27002 27701 diferenças certificação
 
+=== Não repúdio
+padroes: não repúdio | não-repúdio | irretratabilidade
+def: Serviço de segurança que impede o emissor de negar que enviou, ou o receptor de negar que recebeu, uma mensagem ou transação; obtém-se com assinatura digital e registros. Não confundir com autenticação, que confirma a identidade de quem se comunica.
+busca: não repúdio autenticação diferença X.800 assinatura digital
+
+=== Exfiltração de dados
+padroes: exfiltração | exfiltrar
+def: Retirada não autorizada de dados de um sistema ou de uma organização, feita para não ser percebida: pequenos volumes, tráfego disfarçado, canais cifrados. Se atinge dados pessoais, é incidente de segurança.
+busca: exfiltração de dados técnicas detecção prevenção de perda de dados
+
+=== Força bruta × preenchimento de credenciais
+padroes: força bruta | credential stuffing | preenchimento de credenciais
+def: Força bruta testa sistematicamente combinações de senha até acertar. O preenchimento de credenciais (credential stuffing) testa pares de usuário e senha já vazados em outros serviços, explorando a reutilização de senhas.
+busca: ataque de força bruta credential stuffing diferença defesa
+
+=== Nuvem pública e IaaS
+padroes: nuvem pública | IaaS | infraestrutura como serviço
+def: Na nuvem pública, o provedor atende vários clientes com recursos compartilhados, acessados pela Internet, e cobra pelo uso. No IaaS, o cliente recebe máquinas virtuais, rede e armazenamento e administra o que roda sobre eles; no PaaS recebe a plataforma; no SaaS usa o software pronto.
+busca: nuvem pública privada híbrida IaaS PaaS SaaS responsabilidade compartilhada
+
+=== Firewall de filtragem de pacotes
+padroes: firewall | filtragem de pacotes | filtro de pacotes
+def: Equipamento ou software que aceita ou descarta pacotes conforme regras sobre endereço IP, porta e protocolo, nas camadas de rede e de transporte. O firewall com estado acompanha as conexões; o de aplicação inspeciona o conteúdo.
+busca: firewall filtragem de pacotes stateful proxy de aplicação camadas
+
+=== Certificado digital
+padroes: certificado digital | certificados digitais | autoridade certificadora | ICP-Brasil
+def: Documento eletrônico, assinado por uma autoridade certificadora, que liga uma chave pública aos dados do titular e permite verificar quem assinou. No Brasil, a assinatura eletrônica qualificada usa certificado da ICP-Brasil (Lei 14.063/2020).
+busca: certificado digital ICP-Brasil autoridade certificadora assinatura qualificada
+
+=== Avaliação de riscos (ISO 27005)
+padroes: avaliação de riscos | ISO 27005 | 27005
+def: Processo que reúne identificação, análise e avaliação de riscos: levanta ativos, ameaças e vulnerabilidades, estima probabilidade e consequência para chegar ao nível de cada risco e compara o resultado com os critérios da organização para decidir o tratamento.
+busca: ISO 27005 avaliação de riscos identificação análise tratamento
+
 === Ransomware
 padroes: ransomware
 def: Código malicioso que cifra os dados e exige resgate; variantes atuais também copiam os dados e ameaçam publicá-los (dupla extorsão).
