@@ -544,6 +544,7 @@ document.addEventListener('keydown', (ev) => {
     if (k.length === 1 && LETRAS.slice(0, qAtual.al.length).includes(L)) responder(L);
     else if (sessao.modo === 'simulado' && k === 'arrowright') proximo();
     else if (sessao.modo === 'simulado' && k === 'arrowleft' && sessao.i > 0) { sessao.i--; renderSessao(); }
+    else if (sessao.modo === 'simulado' && k === 'u') irProximoSemResposta();
     return;
   }
   if (k === 'c') responder('C');
@@ -552,7 +553,16 @@ document.addEventListener('keydown', (ev) => {
   else if (k === 'd' && sessao.modo !== 'relampago') { const id = sessao.ids[sessao.i]; sessao.duv[id] = !sessao.duv[id]; renderSessao(); }
   else if (sessao.modo === 'simulado' && k === 'arrowright') proximo();
   else if (sessao.modo === 'simulado' && k === 'arrowleft' && sessao.i > 0) { sessao.i--; renderSessao(); }
+  else if (sessao.modo === 'simulado' && k === 'u') irProximoSemResposta();
 });
+// No simulado, U leva ao próximo item ainda sem resposta (o em branco marcado conta como resposta), dando a volta no fim
+function irProximoSemResposta() {
+  const n = sessao.ids.length;
+  for (let d = 1; d < n; d++) {
+    const j = (sessao.i + d) % n;
+    if (!sessao.resp[sessao.ids[j]]) { sessao.i = j; renderSessao(); return; }
+  }
+}
 document.addEventListener('pointerover', (ev) => {
   let dica = document.getElementById('dica');
   // No toque a dica não teria como sumir: só aparece com mouse

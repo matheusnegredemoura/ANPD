@@ -207,11 +207,11 @@ function renderItem(q) {
     const branco = sim || sessao.modo !== 'relampago' ? '<button class="bolha b' + (marcada === BRANCO ? ' marcada' : '') + '" data-acao="responder" data-r="' + BRANCO + '"' + (sim ? '' : ' title="Defesa: não perde coração nem combo; o item volta na revisão"') + '>Em branco</button>' : '';
     if (q.al) {
       if (branco) html += '<div class="respostas">' + branco + '</div>';
-      html += '<p class="atalhos">Teclado: A a ' + LETRAS[q.al.length - 1] + ' marcam a alternativa' + (sim ? ' · ← → navegam' : '') + '</p>';
+      html += '<p class="atalhos">Teclado: A a ' + LETRAS[q.al.length - 1] + ' marcam a alternativa' + (sim ? ' · ← → navegam · U = próximo sem resposta' : '') + '</p>';
     } else {
       html += '<div class="respostas"><button class="bolha c' + (marcada === 'C' ? ' marcada' : '') + '" data-acao="responder" data-r="C"><span class="oval"><span>C</span></span>CERTO</button>' +
         '<button class="bolha e' + (marcada === 'E' ? ' marcada' : '') + '" data-acao="responder" data-r="E"><span class="oval"><span>E</span></span>ERRADO</button>' + branco + '</div>';
-      html += '<p class="atalhos">Teclado: C = certo · E = errado' + (sim ? ' · B = em branco · ← → navegam' : branco ? ' · B = em branco (defesa)' : '') + ' · D = dúvida</p>';
+      html += '<p class="atalhos">Teclado: C = certo · E = errado' + (sim ? ' · B = em branco · ← → navegam · U = próximo sem resposta' : branco ? ' · B = em branco (defesa)' : '') + ' · D = dúvida</p>';
     }
     if (sim) html += '<div class="linha-btns"><button class="btn" data-acao="anterior"' + (sessao.i ? '' : ' disabled') + '>Anterior</button><button class="btn" data-acao="proximo"' + (sessao.i < sessao.ids.length - 1 ? '' : ' disabled') + '>Próximo</button><button class="btn primario" data-acao="entregar">Entregar (' + Object.keys(sessao.resp).length + '/' + sessao.ids.length + ')</button></div>';
   } else {
