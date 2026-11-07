@@ -28,7 +28,7 @@ function tetoManutencao() {
   const r = ritmo(), cap = r && r.r ? Math.round(r.r / 4) : 0;
   if (cap <= MANUTENCAO_DIA) return MANUTENCAO_DIA;
   let fluxo = 0;
-  for (const [id, x] of Object.entries(S.itens)) if (x[0] >= 3 && !SEM_REPETICAO.has(id)) fluxo += 1 / Math.max(1, x[1] - x[4]);
+  for (const [id, x] of Object.entries(S.itens)) if (x[0] >= 3 && QI.has(id) && !SEM_REPETICAO.has(id)) fluxo += 1 / Math.max(1, x[1] - x[4]);
   return Math.max(MANUTENCAO_DIA, Math.min(cap, Math.ceil(fluxo)));
 }
 function manutencaoHoje() {

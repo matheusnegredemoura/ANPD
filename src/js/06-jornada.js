@@ -18,7 +18,8 @@ const MISSOES = [
   { id: 'chefe5', txt: 'Acertar 5 golpes no chefão', xp: 40, meta: 5, val: (d) => (chefeDaSemana().vencido || recuou(chefeDaSemana()) ? 5 : d.cg || 0), so: () => !chefeDaSemana().vencido },
 ];
 const MI = new Map(MISSOES.map((m) => [m.id, m]));
-function errosDeOutroDia() { return Object.values(S.itens).filter((r) => r[0] === 0 && r[3] > 0 && r[4] < HOJE()).length; }
+// Só itens que ainda estão no banco: o registro de um item que saiu (anulado pela banca, por exemplo) não conta
+function errosDeOutroDia() { return Object.entries(S.itens).filter(([id, r]) => QI.has(id) && r[0] === 0 && r[3] > 0 && r[4] < HOJE()).length; }
 // Metas das missões pelo ritmo pessoal (sem ritmo, os valores de sempre: 30, 60, 20, 5 artigos e 1 hora)
 function metaNovas() { const r = ritmo(); return r && r.ni ? limitar(Math.round(r.ni / 10) * 10, 20, 80) : 20; }
 function metaLei() { const r = ritmo(); return r && r.a ? limitar(r.a, 5, 12) : 5; }
