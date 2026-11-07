@@ -20,7 +20,7 @@ ref: doutrina Língua portuguesa
 apoio: @RN26A
 armadilha: extrapolacao
 dif: 2
-enunciado: No trecho “enquanto só conheço uma relação num único caso particular, tenho dela somente um conhecimento individual” (segundo parágrafo) , a oração introduzida pelo termo “enquanto” exprime conformidade em relação à oração imediatamente subsequente.
+enunciado: No trecho “enquanto só conheço uma relação num único caso particular, tenho dela somente um conhecimento individual” (segundo parágrafo), a oração introduzida pelo termo “enquanto” exprime conformidade em relação à oração imediatamente subsequente.
 comentario: Errado. “Enquanto” marca tempo (durante o tempo em que só conheço a relação num caso), em contraste com “logo que” do período seguinte. Não há ideia de conformidade, própria de como, conforme e segundo.
 
 === tce-rn-2026-002
@@ -458,7 +458,7 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: Em arquiteturas de Big Data , dados não estruturados não podem ser indexados ou consultados diretamente, sendo obrigatória sua transformação em dados estruturados antes de qualquer análise.
+enunciado: Em arquiteturas de Big Data, dados não estruturados não podem ser indexados ou consultados diretamente, sendo obrigatória sua transformação em dados estruturados antes de qualquer análise.
 comentario: Errado. Dados não estruturados podem ser indexados e consultados diretamente, por exemplo com índices de texto completo, motores de busca e leitura com esquema na hora da consulta (schema-on-read).
 
 === tce-rn-2026-054
@@ -491,7 +491,7 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: Sistemas de armazenamento distribuído, como data lakes , permitem o armazenamento de dados em seu formato bruto, favorecendo abordagens ELT em detrimento de ETL.
+enunciado: Sistemas de armazenamento distribuído, como data lakes, permitem o armazenamento de dados em seu formato bruto, favorecendo abordagens ELT em detrimento de ETL.
 comentario: Certo. O data lake guarda dados no formato bruto e aplica o esquema na leitura; por isso favorece o ELT (carregar e depois transformar) em vez do ETL.
 
 === tce-rn-2026-057
@@ -689,7 +689,7 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: Em um data warehouse , o armazenamento orientado à transação não necessita de múltiplas operações de entrada e saída para carregar dados no banco de dados.
+enunciado: Em um data warehouse, o armazenamento orientado à transação não necessita de múltiplas operações de entrada e saída para carregar dados no banco de dados.
 comentario: Errado. O data warehouse não é orientado a transações (isso é OLTP): é orientado a assunto e feito para consulta analítica, e sua carga (ETL, em lote) envolve muitas operações de leitura e escrita.
 
 === tce-rn-2026-076
@@ -920,7 +920,7 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: A adoção de uma estratégia de camadas fechadas (closed layers ) permite que a camada de apresentação acesse diretamente os serviços da camada de dados quando houver necessidade de otimização de performance , desde que a camada de negócio permaneça inalterada.
+enunciado: A adoção de uma estratégia de camadas fechadas (closed layers ) permite que a camada de apresentação acesse diretamente os serviços da camada de dados quando houver necessidade de otimização de performance, desde que a camada de negócio permaneça inalterada.
 comentario: Errado. Com camadas fechadas, cada camada só fala com a imediatamente inferior: a apresentação não pode pular a camada de negócio. Permitir o atalho é próprio das camadas abertas.
 
 === tce-rn-2026-099
@@ -942,7 +942,7 @@ prova: Cebraspe · TCE-RN 2026 · Analista (TI e Inteligência da Informação)
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: No padrão de projeto abstract factory , a inclusão de uma nova categoria de objeto em uma família de produtos já existente prescinde da alteração da interface da fábrica abstrata e de suas subclasses concretas.
+enunciado: No padrão de projeto abstract factory, a inclusão de uma nova categoria de objeto em uma família de produtos já existente prescinde da alteração da interface da fábrica abstrata e de suas subclasses concretas.
 comentario: Errado. Incluir um novo tipo de produto na família exige mudar a interface da fábrica abstrata e todas as fábricas concretas; essa é justamente a desvantagem conhecida do padrão.
 
 === tce-rn-2026-101

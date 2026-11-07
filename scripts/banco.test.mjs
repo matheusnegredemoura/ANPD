@@ -189,6 +189,16 @@ test('comentário em português, também nos itens de inglês (citações entre 
   assert.deepEqual(ingles, []);
 });
 
+test('sem LaTeX cru no texto do item (o painel não renderiza fórmula: vai em texto, com × ÷ √ x̄ Q₁)', () => {
+  const comLatex = validar({ silencioso: true }).questoes.filter((q) => [q.enunciado, q.comentario, q.apoio || '', ...(q.alt || [])].some((t) => /\\[a-zA-Z]{2,}|(^|[^R\\])\$(?=\S)/.test(t))).map((q) => q.id);
+  assert.deepEqual(comLatex, []);
+});
+
+test('item real é da prova: "molde", "inédita" ou "adaptada" na prova vão como origem adaptada', () => {
+  const falsos = validar({ silencioso: true }).questoes.filter((q) => q.origem === 'real' && /molde|in[ée]dit|adaptad/i.test(q.prova || '')).map((q) => q.id);
+  assert.deepEqual(falsos, []);
+});
+
 test('glossário: cada padrão marca uma entrada só (o termo grifado não abre a definição de outra)', () => {
   const { glossario } = validar({ silencioso: true });
   const sem = (x) => x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();

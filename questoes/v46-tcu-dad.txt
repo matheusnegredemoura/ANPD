@@ -9,7 +9,7 @@ alt: B | SELECT cnpj_fornecedor, SUM(valor) AS total FROM empenhos HAVING ano = 
 alt: C | SELECT cnpj_fornecedor, SUM(valor) AS total FROM empenhos WHERE ano = 2026 GROUP BY cnpj_fornecedor HAVING COUNT(DISTINCT id_empenho) > 5 AND SUM(valor) > 1000000 ORDER BY total DESC;
 alt: D | SELECT cnpj_fornecedor, SUM(valor) AS total FROM empenhos GROUP BY cnpj_fornecedor WHERE ano = 2026 AND SUM(valor) > 1000000 ORDER BY total DESC;
 alt: E | SELECT DISTINCT cnpj_fornecedor, COUNT(id_empenho), SUM(valor) FROM empenhos WHERE ano = 2026 ORDER BY SUM(valor) DESC;
-origem: real
+origem: adaptada
 prova: FGV · TCU 2021 (molde Análise de Dados) · SQL
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: caso
@@ -52,8 +52,8 @@ prova: FGV · TCU 2021 · Análise de Dados
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: caso
 dif: 2
-enunciado: Em mineração de dados aplicada à detecção de conluio entre licitantes, um auditor utiliza o algoritmo Apriori para extrair regras de associação do tipo $A \Rightarrow B$ (quando a empresa $A$ participa de um certame, a empresa $B$ também participa). Sabendo que a empresa $A$ participou de 20% das licitações, a empresa $B$ participou de 25% das licitações, e ambas participaram juntas de 10% das licitações da base analisada, assinale a alternativa que apresenta os valores corretos de Suporte, Confiança e Lift da regra $A \Rightarrow B$.
-comentario: Letra B. Fórmulas clássicas de Regras de Associação: (1) $\text{Suporte}(A \Rightarrow B) = P(A \cap B) = 10\% = 0{,}10$; (2) $\text{Confiança}(A \Rightarrow B) = P(B \mid A) = \frac{P(A \cap B)}{P(A)} = \frac{0{,}10}{0{,}20} = 0{,}50 = 50\%$; (3) $\text{Lift}(A \Rightarrow B) = \frac{\text{Confiança}(A \Rightarrow B)}{P(B)} = \frac{0{,}50}{0{,}25} = 2{,}0$ (como Lift > 1, há associação positiva entre a presença de A e a de B).
+enunciado: Em mineração de dados aplicada à detecção de conluio entre licitantes, um auditor utiliza o algoritmo Apriori para extrair regras de associação do tipo A ⇒ B (quando a empresa A participa de um certame, a empresa B também participa). Sabendo que a empresa A participou de 20% das licitações, a empresa B participou de 25% das licitações, e ambas participaram juntas de 10% das licitações da base analisada, assinale a alternativa que apresenta os valores corretos de Suporte, Confiança e Lift da regra A ⇒ B.
+comentario: Letra B. Fórmulas clássicas de Regras de Associação: (1) Suporte(A ⇒ B) = P(A ∩ B) = 10% = 0,10; (2) Confiança(A ⇒ B) = P(B | A) = P(A ∩ B)/P(A) = 0,10/0,20 = 0,50 = 50%; (3) Lift(A ⇒ B) = Confiança(A ⇒ B)/P(B) = 0,50/0,25 = 2,0 (como Lift > 1, há associação positiva entre a presença de A e a de B).
 
 === tcu-dad-005
 bloco: ia
@@ -107,7 +107,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: caso
 dif: 2
 enunciado: Considere quatro contratos de um mesmo órgão com valores de R$ 100 mil, R$ 80 mil, R$ 80 mil e R$ 50 mil. Se um auditor aplicar, em SQL, as funções de janela `RANK() OVER (ORDER BY valor DESC)` e `DENSE_RANK() OVER (ORDER BY valor DESC)`, as sequências de posições atribuídas aos quatro contratos serão, respectivamente:
-comentario: Letra B. Em caso de empate no 2º lugar (dois contratos de R$ 80 mil): `RANK()` atribui 2 para ambos e PULA a posição seguinte, indo para 4 $\rightarrow (1, 2, 2, 4)$; já `DENSE_RANK()` atribui 2 para ambos e NÃO pula posição $\rightarrow (1, 2, 2, 3)$; enquanto `ROW_NUMBER()` nunca empata $\rightarrow (1, 2, 3, 4)$.
+comentario: Letra B. Em caso de empate no 2º lugar (dois contratos de R$ 80 mil): `RANK()` atribui 2 para ambos e PULA a posição seguinte, indo para 4 → (1, 2, 2, 4); já `DENSE_RANK()` atribui 2 para ambos e NÃO pula posição → (1, 2, 2, 3); enquanto `ROW_NUMBER()` nunca empata → (1, 2, 3, 4).
 
 === tcu-dad-103
 bloco: dados-bi
@@ -139,12 +139,12 @@ alt: B | Ajustar (`fit_transform`) o `StandardScaler` e o `SimpleImputer` sobre 
 alt: C | Calcular a média e o desvio-padrão exclusivamente no conjunto de teste final e aplicá-los ao conjunto de treino.
 alt: D | Remover todas as variáveis numéricas do modelo, pois algoritmos de árvore de decisão exigem obrigatoriamente normalização Z-score para convergir.
 alt: E | Treinar e avaliar o modelo exatamente no mesmo conjunto de dados sem separação de validação.
-origem: real
+origem: adaptada
 prova: FGV · TCU 2021 (molde ML)
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: caso
 dif: 2
-enunciado: Ao construir um pipeline de aprendizado de máquina com `scikit-learn` para prever risco de inadimplência em contratos públicos usando validação cruzada em $k$ pastas ($k$-fold cross-validation), um auditor deseja aplicar padronização (`StandardScaler`) e imputação de valores faltantes (`SimpleImputer`). Para evitar o vazamento de dados (*data leakage*) entre treino e validação, o procedimento correto é:
+enunciado: Ao construir um pipeline de aprendizado de máquina com `scikit-learn` para prever risco de inadimplência em contratos públicos usando validação cruzada em k pastas (k-fold cross-validation), um auditor deseja aplicar padronização (`StandardScaler`) e imputação de valores faltantes (`SimpleImputer`). Para evitar o vazamento de dados (*data leakage*) entre treino e validação, o procedimento correto é:
 comentario: Letra A. Ajustar (`fit`) transformadores de pré-processamento na base inteira antes da divisão treino/validação causa *data leakage* (informação da distribuição do conjunto de validação vaza para o treino), produzindo métricas artificialmente otimistas. O uso de `sklearn.pipeline.Pipeline` garante que o `fit` ocorra apenas nos folds de treino.
 
 === tcu-dad-106
@@ -155,16 +155,16 @@ prova: Cebraspe · TCU 2025 · Auditor TI
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: Em modelos lineares regularizados, o aumento do hiperparâmetro de penalização $\lambda$ (ou a redução de $C$ na regressão logística do `scikit-learn`) aumenta a variância do modelo e reduz o seu viés, aumentando o risco de sobreajuste (*overfitting*).
-comentario: Errado. O aumento da força da regularização ($\lambda$ maior) restringe a magnitude dos coeficientes, o que REDUZ a variância (combate o *overfitting*) e AUMENTA o viés (podendo levar ao *underfitting* se $\lambda$ for excessivamente alto).
+enunciado: Em modelos lineares regularizados, o aumento do hiperparâmetro de penalização λ (ou a redução de C na regressão logística do `scikit-learn`) aumenta a variância do modelo e reduz o seu viés, aumentando o risco de sobreajuste (*overfitting*).
+comentario: Errado. O aumento da força da regularização (λ maior) restringe a magnitude dos coeficientes, o que REDUZ a variância (combate o *overfitting*) e AUMENTA o viés (podendo levar ao *underfitting* se λ for excessivamente alto).
 
 === tcu-dad-107
 bloco: ia
 gab: C
-origem: real
+origem: adaptada
 prova: Cebraspe · TCDF 2026 (molde Dados)
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: conceito
 dif: 2
-enunciado: No pareamento probabilístico de bases de dados sem chave única compartilhada (*record linkage* / deduplicação de cadastros), utiliza-se a técnica de blocagem (*blocking*) para reduzir o espaço quadrático de comparações $O(N \times M)$, aplicando-se métricas de similaridade textual (como Jaro-Winkler ou distância de Levenshtein) apenas entre pares de registros que compartilham a mesma chave de bloco.
+enunciado: No pareamento probabilístico de bases de dados sem chave única compartilhada (*record linkage* / deduplicação de cadastros), utiliza-se a técnica de blocagem (*blocking*) para reduzir o espaço quadrático de comparações O(N × M), aplicando-se métricas de similaridade textual (como Jaro-Winkler ou distância de Levenshtein) apenas entre pares de registros que compartilham a mesma chave de bloco.
 comentario: Certo. *Record linkage* (pareamento de dados) consta expressamente do edital do TCU: a blocagem (*blocking*) particiona as bases (ex.: mesmo UF e ano de nascimento) para evitar comparar todos contra todos, e métricas como Jaro-Winkler (ótima para nomes próprios) medem a similaridade entre strings com erros de digitação.
