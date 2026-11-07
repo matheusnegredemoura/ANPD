@@ -178,6 +178,17 @@ test('nota interna do arquivo (//) não vaza para o texto do item', () => {
   assert.deepEqual(vazados, []);
 });
 
+test('comentário em português, também nos itens de inglês (citações entre aspas à parte)', () => {
+  const EN = new Set('the and of to is in that it not for are was with as be by this on or from but text its they which only'.split(' '));
+  const PT = new Set('o a os as de do da dos das e que é não em no na para por um uma com se ao à pelo pela texto mas'.split(' '));
+  const ingles = validar({ silencioso: true }).questoes.filter((q) => {
+    let en = 0, pt = 0;
+    for (const t of q.comentario.toLowerCase().replace(/[“"][^”"]*[”"]/g, ' ').split(/[^a-zà-ú]+/)) { if (EN.has(t)) en++; if (PT.has(t)) pt++; }
+    return en >= 4 && en > pt;
+  }).map((q) => q.id);
+  assert.deepEqual(ingles, []);
+});
+
 test('glossário: cada padrão marca uma entrada só (o termo grifado não abre a definição de outra)', () => {
   const { glossario } = validar({ silencioso: true });
   const sem = (x) => x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
