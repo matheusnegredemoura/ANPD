@@ -29,7 +29,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: Uma relação encontra-se na Segunda Forma Normal (2FN) quando está na Primeira Forma Normal (1FN) e não possui dependências funcionais transitivas de atributos não-chave em relação à chave primária; já a Terceira Forma Normal (3FN) exige apenas a eliminação de dependências funcionais parciais.
-comentario: Errado. Os conceitos foram invertidos! A 2FN exige estar na 1FN e eliminar as dependências funcionais PARCIAIS (atributos não-chave que dependem de apenas parte de uma chave primária composta). Já a 3FN exige estar na 2FN e eliminar as dependências funcionais TRANSITIVAS (atributo não-chave que depende de outro atributo não-chave).
+comentario: Errado. Os conceitos foram invertidos. A 2FN exige estar na 1FN e eliminar as dependências funcionais parciais (atributos não-chave que dependem de apenas parte de uma chave primária composta). Já a 3FN exige estar na 2FN e eliminar as dependências funcionais transitivas (atributo não-chave que depende de outro atributo não-chave).
 
 === tcu-dad-003
 bloco: dados-bi
@@ -40,7 +40,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: Para identificar em uma base relacional todos os servidores ativos da tabela `servidores(cpf, nome)` que também figuram como sócios administradores na tabela `socios_empresas(cpf_socio, cnpj)`, mantendo apenas a interseção entre ambas as tabelas, o auditor pode utilizar um `INNER JOIN` com a condição `servidores.cpf = socios_empresas.cpf_socio`; já para encontrar servidores que NÃO figuram na tabela `socios_empresas`, pode utilizar um `LEFT JOIN` combinado com `WHERE socios_empresas.cpf_socio IS NULL`.
-comentario: Certo. Padrão clássico de cruzamento de dados (audit data analytics) em provas do TCU: `INNER JOIN` retorna a interseção; `LEFT JOIN ... WHERE B.chave IS NULL` (anti-join) retorna os registros de A sem correspondência em B.
+comentario: Certo. É o cruzamento típico de bases em auditoria: `INNER JOIN` retorna a interseção; `LEFT JOIN ... WHERE B.chave IS NULL` (anti-join) retorna os registros de A sem correspondência em B.
 
 === tcu-dad-004
 bloco: dados-bi
@@ -110,7 +110,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: caso
 dif: 2
 enunciado: Considere quatro contratos de um mesmo órgão com valores de R$ 100 mil, R$ 80 mil, R$ 80 mil e R$ 50 mil. Se um auditor aplicar, em SQL, as funções de janela `RANK() OVER (ORDER BY valor DESC)` e `DENSE_RANK() OVER (ORDER BY valor DESC)`, as sequências de posições atribuídas aos quatro contratos serão, respectivamente:
-comentario: Letra B. Em caso de empate no 2º lugar (dois contratos de R$ 80 mil): `RANK()` atribui 2 para ambos e PULA a posição seguinte, indo para 4 → (1, 2, 2, 4); já `DENSE_RANK()` atribui 2 para ambos e NÃO pula posição → (1, 2, 2, 3); enquanto `ROW_NUMBER()` nunca empata → (1, 2, 3, 4).
+comentario: Letra B. Em caso de empate no 2º lugar (dois contratos de R$ 80 mil): `RANK()` atribui 2 para ambos e pula a posição seguinte, indo para 4 → (1, 2, 2, 4); já `DENSE_RANK()` atribui 2 para ambos e não pula posição → (1, 2, 2, 3); enquanto `ROW_NUMBER()` nunca empata → (1, 2, 3, 4).
 
 === tcu-dad-103
 bloco: dados-bi
@@ -121,7 +121,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: Nas propriedades ACID de uma transação em SGBD relacional, a Atomicidade garante que transações concorrentes não interfiram umas nas outras, enquanto o Isolamento assegura que ou todas as operações da transação são efetivadas (`COMMIT`) ou nenhuma o é (`ROLLBACK`).
-comentario: Errado. Os conceitos foram trocados! Atomicidade é a regra do 'tudo ou nada' (`COMMIT` ou `ROLLBACK`). Isolamento é a propriedade que garante que a execução concorrente de múltiplas transações produza o mesmo efeito de uma execução serial sem interferência mútua. (Consistência preserva as regras de integridade do banco, e Durabilidade garante persistência após o commit mesmo em caso de queda de energia).
+comentario: Errado. Os conceitos foram trocados. Atomicidade é a regra do 'tudo ou nada' (`COMMIT` ou `ROLLBACK`). Isolamento é a propriedade que garante que a execução concorrente de múltiplas transações produza o mesmo efeito de uma execução serial sem interferência mútua. (Consistência preserva as regras de integridade do banco, e Durabilidade garante persistência após o commit mesmo em caso de queda de energia).
 
 === tcu-dad-104
 bloco: dados-bi
@@ -132,7 +132,7 @@ ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
 enunciado: Em SQL padrão, o operador `UNION` elimina linhas duplicadas entre os resultados das duas consultas combinadas, enquanto `UNION ALL` mantém todas as linhas, inclusive as duplicadas; além disso, funções de agregação como `AVG(coluna)` e `COUNT(coluna)` ignoram valores `NULL`, ao passo que `COUNT(*)` conta todas as linhas, inclusive aquelas com valores `NULL`.
-comentario: Certo. Dois comportamentos clássicos de SQL cobrados tanto pela FGV quanto pelo Cebraspe: `UNION` remove duplicatas (`UNION ALL` preserva), e `COUNT(coluna)` / `AVG(coluna)` ignoram `NULL` (enquanto `COUNT(*)` conta todas as tuplas).
+comentario: Certo. São dois comportamentos do SQL padrão: `UNION` remove duplicatas (`UNION ALL` as preserva), e `COUNT(coluna)` e `AVG(coluna)` ignoram `NULL`, enquanto `COUNT(*)` conta todas as linhas.
 
 === tcu-dad-105
 bloco: ia
@@ -159,7 +159,7 @@ ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
 enunciado: Em modelos lineares regularizados, o aumento do hiperparâmetro de penalização λ (ou a redução de C na regressão logística do `scikit-learn`) aumenta a variância do modelo e reduz o seu viés, aumentando o risco de sobreajuste (*overfitting*).
-comentario: Errado. O aumento da força da regularização (λ maior) restringe a magnitude dos coeficientes, o que REDUZ a variância (combate o *overfitting*) e AUMENTA o viés (podendo levar ao *underfitting* se λ for excessivamente alto).
+comentario: Errado. O aumento da força da regularização (λ maior) restringe a magnitude dos coeficientes, o que reduz a variância (combate o overfitting) e aumenta o viés (podendo levar ao underfitting se λ for excessivamente alto).
 
 === tcu-dad-107
 bloco: ia

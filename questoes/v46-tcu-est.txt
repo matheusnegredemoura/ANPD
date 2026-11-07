@@ -59,7 +59,7 @@ ref: doutrina Economia da regulação e estatística
 armadilha: extrapolacao
 dif: 2
 enunciado: A amostragem estratificada apresenta maior ganho de precisão estatística quando os estratos são internamente heterogêneos e externamente homogêneos entre si; já na amostragem por conglomerados, o ideal é que cada conglomerado seja internamente homogêneo e muito diferente dos demais.
-comentario: Errado. É exatamente o oposto! Na Amostragem ESTRATIFICADA (em que se sorteiam elementos de TODOS os estratos), busca-se que cada estrato seja internamente HOMOGÊNEO (variância dentro baixa) e que os estratos sejam HETEROGÊNEOS entre si. Já na Amostragem por CONGLOMERADOS (em que se sorteiam apenas alguns conglomerados), o ideal para precisão é que cada conglomerado seja uma miniatura da população: internamente HETEROGÊNEO e externamente HOMOGÊNEO entre si.
+comentario: Errado. É o oposto. Na Amostragem estratificada (em que se sorteiam elementos de todos os estratos), busca-se que cada estrato seja internamente homogêneo (variância dentro baixa) e que os estratos sejam heterogêneos entre si. Já na Amostragem por conglomerados (em que se sorteiam apenas alguns conglomerados), o ideal para precisão é que cada conglomerado seja uma miniatura da população: internamente heterogêneo e externamente homogêneo entre si.
 
 === tcu-est-101
 bloco: economia
@@ -70,7 +70,7 @@ ref: doutrina Economia da regulação e estatística
 armadilha: conceito
 dif: 2
 enunciado: Se todos os salários de uma carreira auditada sofrerem um reajuste linear da forma Y = 1,10 X + 500, então a nova média salarial será Ȳ = 1,10 X̄ + 500, o novo desvio-padrão será s(Y) = 1,10 s(X) (pois somar constante não altera a dispersão) e a nova variância será s²(Y) = (1,10)² s²(X) = 1,21 s²(X).
-comentario: Certo. Propriedade fundamental e campeã de cobrança: para Y = aX + b, tem-se E(Y) = aE(X) + b, DP(Y) = |a| · DP(X) e Var(Y) = a² · Var(X). A constante aditiva b = 500 desloca a posição, mas não altera a variância nem o desvio-padrão!
+comentario: Certo. Para Y = aX + b, tem-se E(Y) = aE(X) + b, DP(Y) = |a| · DP(X) e Var(Y) = a² · Var(X). A constante aditiva b = 500 desloca a posição, mas não altera a variância nem o desvio-padrão.
 
 === tcu-est-102
 bloco: economia
@@ -137,4 +137,4 @@ ref: doutrina Economia da regulação e estatística
 armadilha: conceito
 dif: 2
 enunciado: Em uma tabela de contingência com L = 3 linhas e C = 4 colunas utilizada para testar a independência entre a modalidade licitatória e a região geográfica do órgão, a estatística qui-quadrado de Pearson segue assintoticamente, sob a hipótese nula de independência, uma distribuição qui-quadrado com (L-1)(C-1) = 2 × 3 = 6 graus de liberdade.
-comentario: Certo. No teste qui-quadrado de independência em tabela L × C (cobrado na FGV TCU 2021), o número de graus de liberdade é gl = (L - 1)(C - 1).
+comentario: Certo. No teste qui-quadrado de independência em tabela L × C, o número de graus de liberdade é gl = (L - 1)(C - 1).
