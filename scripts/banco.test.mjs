@@ -157,6 +157,16 @@ test('itens certos: todo número do enunciado está na norma citada (ou foi conf
   assert.equal(auditarNumeros({ questoes: [falso], leis: v.leis }).length, 1);
 });
 
+test('comentários: todo prazo ou percentual está em alguma norma anexada ou no enunciado (ou foi conferido à mão)', async () => {
+  const { auditarPrazosComentarios } = await import('./auditar-numeros.mjs');
+  const v = validar({ silencioso: true });
+  assert.deepEqual(auditarPrazosComentarios(v).map((s) => s.id + ' ' + s.faltam.join(',')), []);
+  // e a auditoria pega um prazo inventado no comentário
+  const q = v.questoes.find((x) => /\b15 dias\b/.test(x.comentario) && !/\b17 dias\b/.test(x.enunciado));
+  const falso = { ...q, id: 'teste', comentario: q.comentario.replace(/\b15 dias\b/, '17 dias') };
+  assert.equal(auditarPrazosComentarios({ questoes: [falso], leis: v.leis }).length, 1);
+});
+
 test('item autoral não copia 60% ou mais do trecho da norma (padrão Cebraspe)', () => {
   const copiados = validar({ silencioso: true }).questoes
     .filter((q) => q.origem !== 'real' && q.trecho && q.trecho.length && copiaDoTrecho(q.enunciado, q.trecho) >= 0.6)
