@@ -73,13 +73,13 @@ enunciado: Situação hipotética: a ANPD realizou auditoria em um controlador s
 comentario: Art. 5º, § 4º. O dever de submeter-se a auditorias está no art. 5º, IV; o acompanhamento é faculdade com duas ressalvas (incompatibilidade com a natureza da apuração e sigilo necessário à eficácia).
 
 === r1-08
-gab: E
+gab: C
 ref: res1 8
 trecho: Os prazos definidos neste regulamento começam a correr a partir da ciência oficial e são contados em dias úteis, excluído o dia do começo e incluído o dia de vencimento.
-armadilha: numero
-dif: 1
-enunciado: Os prazos do Regulamento de Fiscalização da ANPD são contados em dias corridos, a partir da expedição da intimação, incluído o dia do começo.
-comentario: Art. 8º: os prazos correm da ciência oficial, em dias úteis, excluído o dia do começo e incluído o do vencimento. Três erros no item: dias corridos, termo inicial (expedição) e inclusão do dia do começo. Compare: a Lei 9.784 (art. 66) conta prazos em dias corridos, contínuos.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: intimada por meio eletrônico, a empresa só consultou o documento três dias depois do envio. Assertiva: o prazo começa a correr da consulta e é contado em dias úteis, excluído o dia do começo.
+comentario: Certo. A ciência oficial da intimação eletrônica ocorre na data da consulta (art. 12, I, da Resolução CD/ANPD nº 1/2021), e o art. 8º conta os prazos a partir dela, em dias úteis, excluído o dia do começo e incluído o do vencimento.
 pesquisar: Contagem de prazos: Lei 9.784 (art. 66, dias corridos) × Regulamento da ANPD (dias úteis)
 
 === r1-09
@@ -230,10 +230,10 @@ ref: res1 32
 trecho: divulgação de informações
 trecho: solicitação de regularização ou informe
 trecho: plano de conformidade
-armadilha: rol
-dif: 1
-enunciado: São medidas preventivas previstas no Regulamento de Fiscalização da ANPD a divulgação de informações, o aviso, a advertência e o plano de conformidade.
-comentario: Art. 32: as medidas preventivas são divulgação de informações, aviso, solicitação de regularização ou informe e plano de conformidade. Advertência é sanção (LGPD, art. 52, I), aplicada só em processo sancionador. As medidas preventivas não constituem sanção (art. 31).
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em atividade preventiva, a ANPD emitiu aviso a um agente de tratamento e, na mesma ocasião, aplicou-lhe advertência. Assertiva: as duas providências são medidas preventivas do Regulamento de Fiscalização.
+comentario: Errado. O art. 32 lista como medidas preventivas divulgação de informações, aviso, solicitação de regularização ou informe e plano de conformidade. A advertência é sanção (art. 52, I, da LGPD) e depende de processo sancionador.
 
 === r1-25
 gab: C

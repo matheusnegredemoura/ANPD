@@ -17,6 +17,12 @@ test('toda questão de LGPD cita trecho literal', () => {
   assert.deepEqual(semTrecho.map((q) => q.id), []);
 });
 
+test('situação hipotética nunca é dificuldade 1 (docs/padrao-cebraspe.md, protocolo 5)', () => {
+  const { questoes } = validar({ silencioso: true });
+  const faceis = questoes.filter((q) => q.origem !== 'real' && q.dif === '1' && /^situação hipotética/i.test(q.enunciado || ''));
+  assert.deepEqual(faceis.map((q) => q.id), []);
+});
+
 test('dados do build cobrem blocos, lei e cronograma', () => {
   const d = montarDados();
   const blocos = new Set(d.blocos.map((b) => b.id));
