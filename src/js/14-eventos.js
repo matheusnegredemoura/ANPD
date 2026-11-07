@@ -81,6 +81,12 @@ async function executar(a, alvo) {
       salvarUI(); renderQuestoes(); break;
     }
     case 'comecar': comecarConfigurado(); break;
+    case 'treinar-busca-q': {
+      const ids = embaralhar(buscarQuestoes(UI.buscaQ).map((q) => q.id)).slice(0, BUSCA_Q_MAX);
+      if (ids.length) iniciarSessao({ modo: 'treino', ids, titulo: 'Busca: ' + UI.buscaQ.trim() });
+      break;
+    }
+    case 'limpar-busca-q': UI.buscaQ = ''; renderQuestoes(); break;
     case 'simulado-semana': iniciarSessao({ modo: 'simulado', n: SIM_SEMANA_N, prova: true, minutos: Math.round(SIM_SEMANA_N * RITMO_PROVA_S / 60), titulo: 'Simulado da semana', chave: 'sim:' + semanaAtual() }); break;
     case 'simulado-oficial-120': iniciarSessao({ modo: 'simulado', n: TOTAL_PROVA, prova: true, minutos: minutosProva(), titulo: 'Simulado · prova inteira (' + TOTAL_PROVA + ' itens)', chave: 'sim:prova' }); break;
     case 'simulado-prova': {
@@ -500,9 +506,10 @@ document.addEventListener('input', (ev) => {
     timerDisc = setTimeout(() => Store.salvar('discursivas'), 1000);
     return;
   }
-  if (id !== 'busca-lei' && id !== 'busca-gloss' && id !== 'busca-edital') return;
+  if (id !== 'busca-lei' && id !== 'busca-gloss' && id !== 'busca-edital' && id !== 'busca-questoes') return;
   const pos = ev.target.selectionStart;
   if (id === 'busca-lei') { UI.busca = ev.target.value; renderLei(); }
+  else if (id === 'busca-questoes') { UI.buscaQ = ev.target.value; renderQuestoes(); }
   else if (id === 'busca-edital') { UI.edBusca = ev.target.value; renderMais(); }
   else { UI.buscaGloss = ev.target.value; renderMais(); }
   const novo = document.getElementById(id);

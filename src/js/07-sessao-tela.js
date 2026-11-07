@@ -6,7 +6,7 @@ function renderQuestoes() {
   const sel = new Set(UI.blocos);
   const pool = poolDe(UI.blocos, UI.filtroBanca);
   const usarProva = modo === 'simulado' && UI.prova === 'prova';
-  let html = cartaoPausas() +
+  let html = cartaoPausas() + cartaoBuscaQuestoes() +
     '<div class="secao"><div class="secao-cab"><h2>Montar sessão</h2><span class="mudo pequeno mono">' + Q.length + ' questões no banco</span></div>' +
     '<div class="chips" role="group" aria-label="Modo">' +
     ['treino', 'simulado', 'relampago'].map((m) => '<button class="chip" data-acao="set-modo" data-modo="' + m + '" aria-pressed="' + (modo === m) + '">' + esc({ treino: 'Treino comentado', simulado: 'Simulado Cebraspe', relampago: 'Relâmpago 90 s' }[m]) + '</button>').join('') + '</div>' +
@@ -48,6 +48,29 @@ function renderQuestoes() {
   if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais de prova</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas de 2021 a 2026, com comentário: ' + (REAIS.length - conferidos - prelim) + ' com gabarito oficial definitivo, ' + conferidos + ' avulsos, com o gabarito conferido na lei ou no texto da prova' + (prelim ? ', e ' + prelim + ' com o gabarito preliminar da banca, conferido na lei e a revisar quando sair o definitivo' : '') + '. ' + (nIades ? nIades + ' são da seleção da própria ANPD (IADES, 2025). ' : '') + '</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
   if (!usarProva && !UI.blocos.length) html += '<p class="mudo pequeno">Nenhum bloco marcado: a sessão usa o banco inteiro.</p>';
   document.getElementById('vista-questoes').innerHTML = html;
+}
+// Busca por código ou palavra do enunciado. A lista não mostra o gabarito, para o treino que vem depois valer;
+// tocar num item abre o comentário, para quem quer só consultar.
+let enunciadosSemAcento = null;
+function buscarQuestoes(termo) {
+  const t = semAcento(String(termo || '').trim());
+  if (t.length < 3) return [];
+  if (!enunciadosSemAcento) enunciadosSemAcento = new Map(Q.map((q) => [q.id, semAcento(q.e)]));
+  return Q.filter((q) => q.id.toLowerCase().includes(t) || enunciadosSemAcento.get(q.id).includes(t));
+}
+const BUSCA_Q_MAX = 50;
+function cartaoBuscaQuestoes() {
+  const termo = UI.buscaQ || '', achadas = buscarQuestoes(termo);
+  let html = '<div class="secao busca-q"><input class="busca" id="busca-questoes" type="search" autocomplete="off" placeholder="Procurar questão por palavra ou código (ex.: legítimo interesse, tce-rn)" value="' + esc(termo) + '" aria-label="Procurar questão">';
+  if (semAcento(termo.trim()).length >= 3) {
+    if (!achadas.length) html += '<p class="mudo pequeno">Nenhuma questão com esse termo no enunciado ou no código.</p>';
+    else {
+      html += '<p class="mudo pequeno">' + pl(achadas.length, 'questão encontrada', 'questões encontradas') + '. Tocar num item mostra o gabarito e o comentário.</p>' +
+        '<div class="lista-busca-q">' + achadas.slice(0, 10).map((q) => '<button class="item-busca-q" data-acao="revisar-item" data-q="' + esc(q.id) + '"><span class="mono pequeno">' + esc(q.id) + ' · ' + esc(nomeBloco(q.b)) + '</span><span>' + esc(q.e.length > 140 ? q.e.slice(0, 140) + '…' : q.e) + '</span></button>').join('') + '</div>' +
+        '<div class="linha-btns"><button class="btn primario" data-acao="treinar-busca-q">Treinar ' + (achadas.length > BUSCA_Q_MAX ? BUSCA_Q_MAX + ' delas, sorteadas' : pl(achadas.length, 'item', 'itens')) + '</button><button class="btn" data-acao="limpar-busca-q">Limpar</button></div>';
+    }
+  }
+  return html + '</div>';
 }
 function listaBlocos(sel, acao, itensDe, dominioDe) {
   let html = '';

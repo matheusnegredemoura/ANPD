@@ -14,6 +14,20 @@ const REFS_SEM_TEXTO = new Set(['doutrina', 'stf', 'stj', 'tjue', 'texto', 'ecib
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 
+// Citação entre aspas no comentário de item de lei tem de existir em alguma norma anexada (ou no próprio item).
+// Só conta citação de 6 palavras ou mais (as curtas costumam ser rótulo, não texto da lei). Reticências e colchetes
+// marcam cortes; cada pedaço com 4 palavras ou mais é conferido.
+export function citacoesSemFonte(q, textoNormas, minusc) {
+  const doItem = minusc([q.enunciado, q.apoio, (q.alt || []).join(' ')].join(' \n '));
+  const faltam = [];
+  for (const m of String(q.comentario || '').matchAll(/[“"]([^“”"]+)[”"]/g)) {
+    if (minusc(m[1]).split(' ').length < 6) continue;
+    const pedacos = m[1].split(/\.\.\.|…|\(\s*\.*\s*\)|\[[^\]]*\]/).map(minusc).map((x) => x.replace(/^[\s,;:.]+|[\s,;:.]+$/g, '')).filter((x) => x.split(' ').length >= 4);
+    if (pedacos.some((x) => !textoNormas.includes(x) && !doItem.includes(x))) faltam.push(m[1].trim());
+  }
+  return faltam;
+}
+
 export function validar({ silencioso = false } = {}) {
   const { blocos } = JSON.parse(readFileSync(join(RAIZ, 'questoes', 'blocos.json'), 'utf8'));
   const idsBlocos = new Set(blocos.map((b) => b.id));
@@ -22,6 +36,10 @@ export function validar({ silencioso = false } = {}) {
     const lei = carregarLei(RAIZ, id);
     if (lei) leis[id] = { lei, idx: indicePorArtigo(lei) };
   }
+
+  // Texto de todas as normas anexadas, para conferir as citações entre aspas dos comentários
+  const minusc = (x) => normalizar(String(x || '')).toLowerCase();
+  const textoNormas = Object.values(leis).map(({ lei }) => minusc(lei.artigos.map((a) => a.texto).join(' '))).join(' \n ');
 
   const questoes = lerTodas(RAIZ);
   const erros = [];
@@ -73,6 +91,7 @@ export function validar({ silencioso = false } = {}) {
       for (const t of q.trecho) {
         if (!alvo.includes(normalizar(t))) err(q, `trecho não encontrado no ${art.rotulo}: «${t}»`);
       }
+      for (const c of citacoesSemFonte(q, textoNormas, minusc)) err(q, `citação entre aspas no comentário não está em nenhuma norma anexada: “${c}” (redação antiga ou texto de outra prova vai entre « »)`);
     } else if (q.trecho.length && LEIS[ref.lei]) {
       avisos.push(`${q.id}: ${ref.lei} ainda não tem texto em fontes/ — trecho não conferido`);
     } else if (!LEIS[ref.lei] && !REFS_SEM_TEXTO.has(ref.lei)) {

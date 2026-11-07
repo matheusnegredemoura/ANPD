@@ -7,7 +7,7 @@ const S = { perfil: perfilPadrao(), itens: {}, cards: {}, simulados: [], pesquis
 let golpeRecente = null, pendCache = null;
 const UI = Object.assign({ lei: 'lgpd', vista: 'hoje', modo: 'treino', n: 20, filtro: 'mistas', prova: 'blocos', blocos: P1.slice(), blocosCards: [], faseAberta: null, camadas: { cai: true, num: true, alerta: true, verbo: true, erro: true } }, lerLS(CHAVE_UI) || {});
 UI.discTema = null; UI.discFase = null; UI.discAval = {}; UI.discNE = 0; UI.det = {};
-UI.artSel = null; UI.busca = ''; UI.mais = 'menu'; UI.leiFila = null; UI.ranking = false; UI.filtroPesq = 'pendentes'; UI.buscaGloss = ''; UI.artInline = null;
+UI.artSel = null; UI.busca = ''; UI.mais = 'menu'; UI.leiFila = null; UI.ranking = false; UI.filtroPesq = 'pendentes'; UI.buscaGloss = ''; UI.buscaQ = ''; UI.artInline = null;
 if (!UI.camadas) UI.camadas = { cai: true, num: true, alerta: true, verbo: true, erro: true };
 let sessao = null;
 // Preferências que acompanham a conta (vão no documento do perfil), para não se perderem quando o navegador

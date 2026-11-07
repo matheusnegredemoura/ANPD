@@ -421,6 +421,124 @@
    ]
   },
   {
+   "id": "parecer-incidente",
+   "titulo": "Parecer técnico: incidente com biometria e comunicação tardia",
+   "linhas": 30,
+   "pontos": 20,
+   "fatorErro": 4,
+   "minutos": 60,
+   "comando": "Uma plataforma de comércio eletrônico sofreu incidente de segurança com exfiltração de dados cadastrais e de registros biométricos faciais de 500 mil titulares. A empresa soube em 1º/10/2026 que o incidente afetou dados pessoais, mas só o comunicou à ANPD em 20/10/2026, alegando que aguardava a conclusão de perícia interna; por prudência, decidiu não avisar os titulares, para evitar pânico no mercado. Na condição de especialista em regulação da ANPD, redija parecer técnico que aborde, necessariamente, os seguintes aspectos:",
+   "aspectos": [
+    "tempestividade da comunicação à ANPD e dever de comunicar os titulares, à luz da LGPD e da Resolução CD/ANPD nº 15/2024;",
+    "classificação da infração segundo o Regulamento de Dosimetria (Resolução CD/ANPD nº 4/2023), considerando a natureza dos dados afetados;",
+    "providências que a ANPD pode determinar e sanções cabíveis no processo sancionador."
+   ],
+   "quesitos": [
+    {
+     "titulo": "Prazo e comunicação aos titulares",
+     "max": 3,
+     "esperado": [
+      "A comunicação à ANPD foi intempestiva: o art. 6º da Resolução CD/ANPD nº 15/2024 fixa três dias úteis, contados do conhecimento pelo controlador de que o incidente afetou dados pessoais (§ 1º). A perícia interna não suspende o prazo, porque as informações podem ser complementadas depois, de maneira fundamentada, em vinte dias úteis (art. 6º, § 3º).",
+      "O incidente envolve dado sensível (biometria, art. 5º, II, da LGPD) e pode afetar significativamente direitos dos titulares, o que configura risco ou dano relevante (art. 5º, I, da Res. 15/2024). Por isso a comunicação aos titulares é obrigatória (art. 48 da LGPD), também em três dias úteis (art. 9º da Res. 15/2024); o receio de abalo comercial não a dispensa."
+     ],
+     "conceitos": [
+      "Não abordou o prazo nem a comunicação aos titulares.",
+      "Afirmou que a comunicação foi tardia, mas errou o prazo ou aceitou a omissão perante os titulares.",
+      "Indicou o prazo de três dias úteis e a obrigação de avisar os titulares, sem afastar o argumento da perícia ou sem fundamentar o risco relevante.",
+      "Demonstrou a intempestividade (três dias úteis, com complementação posterior), afastou o argumento da perícia e fundamentou a comunicação obrigatória aos titulares no risco relevante do dado biométrico."
+     ]
+    },
+    {
+     "titulo": "Classificação da infração (Res. CD/ANPD nº 4/2023)",
+     "max": 4,
+     "esperado": [
+      "A infração é grave (art. 8º, § 3º, I, da Res. 4/2023): está presente a hipótese do § 2º, de afetar significativamente interesses e direitos fundamentais dos titulares, e, cumulativamente, ao menos uma das alíneas do inciso I. No caso há duas: dados sensíveis (alínea d) e tratamento em larga escala, com 500 mil titulares (alínea a).",
+      "A natureza do dado pesa na dosimetria: a biometria não pode ser trocada como uma senha, e o risco de fraude de identidade se prolonga. Isso se liga aos parâmetros do art. 52, § 1º, da LGPD, como a gravidade e a natureza das infrações e dos direitos pessoais afetados."
+     ],
+     "conceitos": [
+      "Não classificou a infração.",
+      "Disse que a infração é grave, sem apoio na Resolução nº 4/2023.",
+      "Classificou a infração como grave citando dados sensíveis ou larga escala, mas sem a hipótese do § 2º que a classificação exige.",
+      "Classificou a infração como grave com a hipótese do § 2º e uma alínea do § 3º, I, sem explorar a natureza do dado biométrico.",
+      "Classificou a infração como grave com a hipótese do § 2º somada às alíneas de dados sensíveis e de larga escala e relacionou a natureza do dado biométrico aos parâmetros do art. 52, § 1º, da LGPD."
+     ]
+    },
+    {
+     "titulo": "Providências e sanções",
+     "max": 3,
+     "esperado": [
+      "A ANPD verifica a gravidade do incidente e pode determinar ao controlador ampla divulgação do fato em meios de comunicação e medidas para reverter ou mitigar seus efeitos (art. 48, § 2º, da LGPD).",
+      "Apurada a infração em processo com ampla defesa, cabem as sanções do art. 52: multa simples de até 2% do faturamento no Brasil, limitada a R$ 50 milhões por infração, e publicização da infração após apurada e confirmada. A suspensão do banco de dados ou da atividade de tratamento só vem depois de imposta, no mesmo caso, ao menos uma das sanções dos incisos II a VI (art. 52, § 6º, I)."
+     ],
+     "conceitos": [
+      "Não propôs providências nem sanções.",
+      "Citou sanções genéricas, sem fundamento na LGPD.",
+      "Indicou as providências do art. 48, § 2º, e a multa simples, sem a publicização ou sem a condição das sanções mais gravosas.",
+      "Indicou as providências do art. 48, § 2º, a multa simples com seus limites, a publicização e a condição do art. 52, § 6º, para a suspensão."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "caso-decisao-automatizada",
+   "titulo": "Estudo de caso: crédito negado por decisão automatizada",
+   "linhas": 30,
+   "pontos": 20,
+   "fatorErro": 4,
+   "minutos": 60,
+   "comando": "Uma instituição financeira adotou sistema de inteligência artificial para pontuar o risco de crédito e decidir pedidos de financiamento habitacional. Um cliente teve o pedido negado por decisão tomada unicamente pelo sistema e pediu informações sobre os critérios usados e a revisão da decisão. O banco respondeu que (1) os parâmetros do modelo são segredo comercial e não podem ser revelados; e (2) a LGPD não exige revisão humana, de modo que basta o próprio sistema reprocessar o pedido. Diante de reclamação do cliente à ANPD, redija nota técnica que aborde, necessariamente, os seguintes aspectos:",
+   "aspectos": [
+    "alcance do direito à revisão de decisões automatizadas (art. 20 da LGPD) e o histórico da exigência de revisão por pessoa natural;",
+    "dever de informar critérios e procedimentos e limite dos segredos comercial e industrial;",
+    "atuação da ANPD diante da recusa de informações."
+   ],
+   "quesitos": [
+    {
+     "titulo": "Direito à revisão",
+     "max": 3,
+     "esperado": [
+      "O art. 20, caput, da LGPD garante ao titular o direito de solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado que afetem seus interesses, incluídas as que definem seu perfil de crédito.",
+      "A redação original da LGPD previa revisão por pessoa natural; a MP nº 869/2018 retirou a expressão; na conversão, o Congresso incluiu o § 3º exigindo de novo a revisão por pessoa natural, e esse parágrafo foi vetado (Lei nº 13.853/2019). A lei hoje não exige revisão humana, mas é sustentável que a revisão seja efetiva: reprocessar o mesmo pedido no mesmo modelo, sem reexame, esvazia o direito e se choca com os princípios da transparência (art. 6º, VI) e da não discriminação (art. 6º, IX)."
+     ],
+     "conceitos": [
+      "Não tratou do direito à revisão.",
+      "Citou o direito à revisão, mas aceitou a resposta do banco.",
+      "Explicou o art. 20 e contestou a resposta do banco, sem o histórico da revisão por pessoa natural ou com histórico errado.",
+      "Explicou o art. 20, narrou corretamente o histórico (MP nº 869/2018 e veto ao § 3º) e mostrou por que o mero reprocessamento não atende ao direito."
+     ]
+    },
+    {
+     "titulo": "Dever de informação e segredo comercial",
+     "max": 4,
+     "esperado": [
+      "O art. 20, § 1º, obriga o controlador a fornecer, sempre que solicitadas, informações claras e adequadas sobre os critérios e os procedimentos usados na decisão automatizada, observados os segredos comercial e industrial.",
+      "O segredo limita o que se revela (código, pesos e parâmetros do modelo), mas não afasta o dever: o banco pode explicar quais fatores pesaram na decisão e de que modo, sem abrir o modelo. A recusa total não se sustenta."
+     ],
+     "conceitos": [
+      "Não tratou do dever de informação.",
+      "Concluiu que o segredo comercial dispensa o banco de informar.",
+      "Afirmou o dever de informar, sem citar o § 1º ou sem tratar do segredo.",
+      "Citou o § 1º e o limite do segredo, mas não distinguiu o que deve ser explicado do que pode ser preservado.",
+      "Citou o § 1º e distinguiu os critérios e fatores da decisão, que devem ser informados, do código e dos parâmetros do modelo, que o segredo protege."
+     ]
+    },
+    {
+     "titulo": "Atuação da ANPD",
+     "max": 3,
+     "esperado": [
+      "Se o controlador não oferece as informações com base em segredo comercial e industrial, a ANPD pode realizar auditoria para verificar aspectos discriminatórios no tratamento automatizado (art. 20, § 2º, da LGPD).",
+      "A ANPD também pode determinar ao controlador que elabore relatório de impacto à proteção de dados pessoais (art. 38) e, apurada infração, instaurar processo sancionador e aplicar as sanções do art. 52 (art. 55-J, IV)."
+     ],
+     "conceitos": [
+      "Não tratou da atuação da ANPD.",
+      "Citou atuação genérica da ANPD, sem a auditoria do art. 20, § 2º.",
+      "Indicou a auditoria do art. 20, § 2º, sem ligá-la à recusa fundada em segredo ou à verificação de discriminação.",
+      "Indicou a auditoria do art. 20, § 2º, com seu pressuposto e finalidade, e acrescentou o relatório de impacto (art. 38) e a via sancionadora."
+     ]
+    }
+   ]
+  },
+  {
    "id": "poder-publico",
    "titulo": "Tratamento de dados pessoais pelo Poder Público",
    "linhas": 30,
