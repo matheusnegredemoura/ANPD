@@ -121,7 +121,7 @@ def: Direito de levar os dados a outro fornecedor de serviço ou produto, median
 busca: portabilidade de dados LGPD regulamentação ANPD concorrência
 
 === Decisão automatizada
-padroes: decisão automatizada | decisões automatizadas | tratamento automatizado
+padroes: decisão automatizada | decisões automatizadas | tratamento automatizado | explicabilidade
 def: Decisão tomada unicamente por sistema, sem intervenção humana relevante. O titular pode pedir revisão e informações sobre critérios (art. 20). A revisão por pessoa natural foi vetada.
 busca: decisão automatizada art. 20 LGPD explicabilidade revisão humana veto
 
@@ -724,3 +724,163 @@ busca: Procuradoria Federal Especializada agência reguladora PGF AGU Lei 10.480
 padroes: gestão estratégica | indicadores de desempenho
 def: A gestão estratégica traduz missão e visão em objetivos, metas e planos e acompanha a execução por indicadores. Os três mais cobrados: eficiência (recursos usados para o resultado obtido), eficácia (metas alcançadas) e efetividade (impacto real no problema que motivou a ação). Nas agências reguladoras, o plano estratégico é quadrienal e o plano de gestão, anual (Lei 13.848/2019, arts. 17 e 18).
 busca: gestão estratégica indicadores eficiência eficácia efetividade plano estratégico agência reguladora
+
+=== Prazos da Lei 9.784/1999
+padroes: prazos da Lei 9.784
+def: 3 dias úteis: antecedência mínima da intimação para comparecer ou para prova (arts. 26, § 2º, e 41). 5 dias: prazo geral para atos sem prazo próprio, dobrável com justificativa (art. 24), e reconsideração antes de o recurso subir (art. 56, § 1º); 5 dias úteis para os demais interessados alegarem no recurso (art. 62). 10 dias: alegações finais (art. 44) e interposição de recurso (art. 59). 15 dias: parecer obrigatório (art. 42). 30 dias: decidir após a instrução e decidir o recurso, prorrogáveis por igual período (arts. 49 e 59, §§ 1º e 2º). 5 anos: decadência para anular ato favorável, salvo má-fé (art. 54).
+busca: prazos Lei 9.784 1999 recurso administrativo 10 dias decisão 30 dias decadência 5 anos
+
+=== Princípios do art. 2º da Lei 9.784/1999
+padroes: princípios do art. 2º da Lei 9.784
+def: Legalidade, finalidade, motivação, razoabilidade, proporcionalidade, moralidade, ampla defesa, contraditório, segurança jurídica, interesse público e eficiência, “dentre outros” (rol exemplificativo). Publicidade e impessoalidade não estão no caput, mas aparecem nos critérios do parágrafo único: divulgação oficial dos atos (V) e objetividade no atendimento do interesse público, vedada a promoção pessoal (III).
+busca: princípios Lei 9.784 art. 2º processo administrativo federal critérios parágrafo único
+
+=== Transparência ativa × passiva
+padroes: transparência ativa | transparência passiva
+def: Ativa: o órgão divulga por iniciativa própria, sem pedido, informações de interesse coletivo ou geral, com divulgação obrigatória na internet (LAI, art. 8º). Passiva: responde a pedido de acesso de qualquer interessado (art. 10), na hora se a informação estiver disponível ou em até 20 dias, prorrogáveis por mais 10 com justificativa (art. 11). Não se pode exigir o motivo do pedido (art. 10, § 3º).
+busca: transparência ativa passiva Lei de Acesso à Informação art. 8º art. 10 prazo 20 dias
+
+=== LAI × LGPD
+padroes: LAI × LGPD | Lei de Acesso à Informação × LGPD
+def: As duas convivem. A LAI garante acesso a informações públicas, mas restringe as pessoais ligadas à intimidade, vida privada, honra e imagem: acesso só a agentes autorizados e à própria pessoa, por até 100 anos, salvo previsão legal ou consentimento expresso (LAI, art. 31, § 1º). A LGPD manda o poder público tratar dados para sua finalidade pública e no interesse público (art. 23), e o acesso público a um dado não dispensa finalidade, boa-fé e interesse público (art. 7º, § 3º).
+busca: LAI LGPD informação pessoal art. 31 Lei 12.527 art. 23 LGPD transparência
+
+=== Créditos adicionais
+padroes: créditos adicionais | créditos suplementares | créditos especiais | créditos extraordinários | crédito extraordinário
+def: Autorizações de despesa não computadas ou insuficientemente dotadas na lei de orçamento (Lei 4.320, art. 40). Suplementares reforçam dotação que existe; especiais criam dotação para despesa sem dotação específica; extraordinários atendem despesas urgentes e imprevistas, como guerra, comoção interna ou calamidade pública (art. 41). Suplementares e especiais são autorizados por lei e abertos por decreto (art. 42), com recursos disponíveis e exposição justificativa (art. 43); na União, o extraordinário é aberto por medida provisória (CF, art. 167, § 3º, e art. 62).
+busca: créditos adicionais suplementares especiais extraordinários Lei 4.320 art. 41 CF art. 167
+
+=== Estágios da despesa
+padroes: estágios da despesa | empenho da despesa | prévio empenho | liquidação da despesa
+def: Empenho: ato da autoridade que cria para o Estado obrigação de pagamento, pendente ou não de condição (Lei 4.320, art. 58); é vedada despesa sem prévio empenho (art. 60). Liquidação: verificação do direito do credor com base nos títulos e documentos (art. 63). Pagamento: só depois da regular liquidação (art. 62), por ordem da autoridade competente (art. 64).
+busca: estágios da despesa pública empenho liquidação pagamento Lei 4.320
+
+=== Prazo de retenção e eliminação de dados
+padroes: prazo de retenção | término do tratamento
+def: A LGPD não fixa prazo único de guarda. O tratamento termina quando a finalidade é alcançada ou os dados deixam de ser necessários, no fim do período de tratamento, por comunicação do titular ou por determinação da ANPD (art. 15). Depois, os dados são eliminados, salvo conservação para obrigação legal ou regulatória, estudo por órgão de pesquisa, transferência a terceiro dentro da lei ou uso exclusivo do controlador com dados anonimizados (art. 16).
+busca: término do tratamento eliminação conservação LGPD art. 15 art. 16 prazo de retenção
+
+=== Exceção jornalística
+padroes: exceção jornalística | fins exclusivamente jornalísticos | fins jornalísticos
+def: A LGPD não se aplica ao tratamento feito para fins exclusivamente jornalísticos e artísticos, nem aos acadêmicos, embora nestes se apliquem os arts. 7º e 11 (art. 4º, II, a e b). A palavra que decide o item é “exclusivamente”: havendo outra finalidade, como a comercial, a lei volta a valer.
+busca: LGPD art. 4º II exceção jornalística artística acadêmica
+
+=== Estatais em regime de concorrência
+padroes: regime de concorrência
+def: Empresas públicas e sociedades de economia mista que atuam em regime de concorrência (CF, art. 173) têm na LGPD o tratamento das pessoas jurídicas de direito privado particulares; quando operacionalizam políticas públicas, têm o tratamento do poder público (art. 24 e parágrafo único).
+busca: LGPD art. 24 empresas públicas sociedades de economia mista regime de concorrência art. 173
+
+=== Adequação da União Europeia (Resolução CD/ANPD 32/2026)
+padroes: Resolução CD/ANPD 32/2026 | adequação da União Europeia
+def: A ANPD reconheceu a União Europeia como organismo internacional com grau de proteção adequado, o que permite transferir dados a todos os Estados-membros com base no art. 33, I, da LGPD (art. 1º). Não vale para fins exclusivos de segurança pública, defesa nacional, segurança do Estado ou investigação e repressão penal (art. 2º). A ANPD monitora continuamente, e a decisão é reavaliada em 4 anos (art. 4º); os outros mecanismos do art. 33 continuam disponíveis (art. 5º).
+busca: Resolução CD/ANPD 32/2026 decisão de adequação União Europeia transferência internacional
+
+=== EC 115/2022
+padroes: EC 115/2022 | Emenda Constitucional nº 115 | Emenda Constitucional 115
+def: Pôs a proteção de dados na Constituição: direito fundamental à proteção dos dados pessoais, inclusive nos meios digitais, nos termos da lei (art. 5º, LXXIX); competência da União para organizar e fiscalizar a proteção e o tratamento de dados (art. 21, XXVI); competência privativa da União para legislar sobre o tema (art. 22, XXX).
+busca: EC 115 2022 proteção de dados direito fundamental art. 5º LXXIX art. 22 XXX
+
+=== ADI 6.387
+padroes: ADI 6.387 | ADI 6387 | MP 954/2020
+def: Em 2020, o STF suspendeu a MP 954/2020, que mandava as operadoras de telefonia repassarem ao IBGE nomes, telefones e endereços de seus clientes durante a pandemia, por falta de finalidade delimitada e de garantias de segurança. O julgamento reconheceu a proteção de dados pessoais como direito fundamental autônomo, antes da EC 115/2022.
+busca: ADI 6387 STF MP 954 IBGE proteção de dados direito fundamental autônomo
+
+=== Lei 13.460/2017
+padroes: Lei 13.460 | Carta de Serviços
+def: Código de defesa do usuário de serviços públicos. Lista direitos básicos do usuário (art. 6º), obriga os órgãos a divulgar Carta de Serviços ao Usuário (art. 7º) e organiza as manifestações (reclamações, denúncias, sugestões, elogios) e as ouvidorias.
+busca: Lei 13.460 2017 direitos do usuário de serviço público Carta de Serviços ouvidoria
+
+=== Neutralidade de rede
+padroes: neutralidade de rede | neutralidade da rede | zero rating
+def: Quem transmite, comuta ou roteia deve tratar de forma isonômica todos os pacotes de dados, sem distinção por conteúdo, origem e destino, serviço, terminal ou aplicação (Marco Civil da Internet, art. 9º). Zero rating (não cobrar o tráfego de certos aplicativos) é o caso mais debatido de possível quebra dessa isonomia.
+busca: neutralidade de rede Marco Civil art. 9º zero rating Decreto 8.771
+
+=== LRF: despesa com pessoal e relatórios
+padroes: RREO | RGF | Relatório de Gestão Fiscal | relatório resumido da execução orçamentária
+def: A despesa total com pessoal não pode passar de 50% da receita corrente líquida na União e de 60% nos Estados e nos Municípios (LC 101/2000, art. 19). O Relatório Resumido da Execução Orçamentária (RREO) sai até 30 dias após o fim de cada bimestre (CF, art. 165, § 3º; LRF, art. 52); o Relatório de Gestão Fiscal (RGF), ao fim de cada quadrimestre (LRF, art. 54).
+busca: LRF limites despesa com pessoal art. 19 RREO bimestral RGF quadrimestral
+
+=== NIST Cybersecurity Framework 2.0
+padroes: NIST CSF 2.0 | Cybersecurity Framework 2.0 | CSF 2.0
+def: Organiza resultados de cibersegurança em seis funções: Governar (GV), nova na versão 2.0, Identificar (ID), Proteger (PR), Detectar (DE), Responder (RS) e Recuperar (RC). O núcleo desce de função para categoria e subcategoria; perfis e níveis (tiers) descrevem o estado atual e o desejado. Não é lista de verificação de ações.
+busca: NIST Cybersecurity Framework 2.0 funções Govern Identify Protect Detect Respond Recover
+
+=== Falhas de mercado
+padroes: falhas de mercado | falha de mercado
+def: Situações em que o mercado sozinho não leva a um resultado eficiente e que justificam regular: poder de mercado e monopólio natural, externalidades, bens públicos e assimetria de informação. A regulação também pode falhar (captura, busca de renda), por isso se exige análise de impacto antes de agir.
+busca: falhas de mercado justificativa da regulação externalidade bens públicos assimetria de informação
+
+=== Códigos de conduta e selos
+padroes: códigos de conduta e selos | selos de certificação | selos, certificados e códigos de conduta
+def: Selos, certificados e códigos de conduta são mecanismos de transferência internacional (LGPD, art. 33, II, d) cujo conteúdo é verificado pela ANPD (art. 35). Fora da transferência, controladores e operadores, sozinhos ou por associações, podem formular regras de boas práticas e de governança (art. 50).
+busca: LGPD códigos de conduta selos certificados art. 33 II d art. 35 art. 50 boas práticas
+
+=== Responsabilidade civil na LGPD
+padroes: responsabilidade civil na LGPD
+def: Quem causa dano patrimonial ou moral, individual ou coletivo, “em violação à legislação de proteção de dados” deve reparar (art. 42). Por essa exigência de violação de um dever, parte da doutrina vê responsabilidade subjetiva; outra parte vê objetiva, pelo risco da atividade. O operador responde solidariamente quando descumpre a lei ou as instruções lícitas do controlador (art. 42, § 1º, I); as excludentes estão no art. 43, e nas relações de consumo vale o CDC (art. 45).
+busca: responsabilidade civil LGPD objetiva subjetiva art. 42 art. 43 doutrina
+
+=== Atributos do ato administrativo
+padroes: atributos do ato administrativo | autoexecutoriedade | imperatividade | presunção de legitimidade
+def: Presunção de legitimidade e veracidade (o ato vale até prova em contrário, que cabe a quem o contesta); imperatividade (impõe obrigações a terceiros sem a concordância deles); autoexecutoriedade (a Administração executa sem ordem judicial, quando a lei permite ou há urgência); tipicidade (o ato corresponde a figura prevista em lei). Nem todo ato tem todos: a autoexecutoriedade não alcança, por exemplo, a cobrança de multa.
+busca: atributos do ato administrativo presunção de legitimidade imperatividade autoexecutoriedade tipicidade
+
+=== Controle da administração
+padroes: controle da administração | controle externo
+def: Interno: cada Poder controla os próprios atos, com sistema de controle interno integrado (CF, art. 74), e a Administração anula ou revoga seus atos pela autotutela. Externo: o Legislativo, com auxílio do Tribunal de Contas, faz a fiscalização contábil, financeira, orçamentária, operacional e patrimonial (arts. 70 e 71). Judicial: o Judiciário examina a legalidade, sem entrar no mérito administrativo.
+busca: controle da administração pública interno externo judicial Tribunal de Contas autotutela
+
+=== Reidentificação
+padroes: reidentificação | reidentificar | reidentificados
+def: Descobrir a quem pertence um dado que se supunha anônimo, cruzando-o com outras bases. Casos clássicos de 2006: a AOL publicou buscas de usuários com número no lugar do nome, e jornalistas identificaram uma usuária pelas próprias buscas; no Netflix Prize, pesquisadores reidentificaram usuários comparando as notas anônimas de filmes com avaliações públicas no IMDb. Por isso a LGPD trata como pessoal o dado anonimizado cuja anonimização pode ser revertida com esforço razoável (art. 12).
+busca: reidentificação Netflix Prize AOL search logs Narayanan Shmatikov anonimização
+
+=== Lei 15.352/2026
+padroes: Lei 15.352 | Lei nº 15.352
+def: Converteu a MP 1.317/2025 e fez da ANPD a Agência Nacional de Proteção de Dados: autarquia de natureza especial vinculada ao Ministério da Justiça e Segurança Pública, com autonomia funcional, técnica, decisória, administrativa e financeira, nos termos da Lei 13.848/2019 (LGPD, art. 55-A). Pôs Procuradoria e Auditoria na estrutura (art. 55-C, V-A e V-B), fixou a transição dos mandatos pela regra de não coincidência das agências (art. 17) e criou a carreira de Regulação e Fiscalização de Proteção de Dados, com o cargo de Especialista em Regulação de Proteção de Dados.
+busca: Lei 15.352 2026 ANPD agência reguladora carreira Especialista em Regulação de Proteção de Dados
+
+=== Regulação baseada em risco
+padroes: regulação baseada em risco | baseada em evidências e riscos | riscos regulatórios
+def: O regulador concentra fiscalização e recursos onde o risco (probabilidade × impacto do dano) é maior, em vez de tratar todos igual. Na ANPD, a fiscalização prioriza a atuação “baseada em evidências e riscos regulatórios” e adota medidas proporcionais ao risco e à postura do agente (Resolução CD/ANPD 1/2021, art. 17, II e IV).
+busca: regulação baseada em risco risk-based regulation fiscalização ANPD Resolução 1/2021 art. 17
+
+=== Acordo de leniência (Lei 12.846/2013)
+padroes: acordo de leniência | acordos de leniência
+def: Acordo com a pessoa jurídica que colabora efetivamente com a investigação, identificando os demais envolvidos e entregando provas (art. 16). Requisitos cumulativos: ser a primeira a manifestar interesse, cessar o envolvimento e admitir a participação, cooperando plenamente (§ 1º). Isenta da publicação extraordinária e da proibição de receber incentivos e reduz a multa em até 2/3 (§ 2º), mas não exime de reparar integralmente o dano (§ 3º). Programa de integridade efetivo é critério de dosimetria da sanção (art. 7º, VIII).
+busca: acordo de leniência Lei Anticorrupção 12.846 art. 16 requisitos programa de integridade
+
+=== Efeito Bruxelas
+padroes: efeito Bruxelas | Brussels effect
+def: Expressão de Anu Bradford para a capacidade da União Europeia de exportar suas regras: empresas que querem vender no mercado europeu adotam o padrão da UE no mundo todo, e outros países copiam a norma. O GDPR é o exemplo mais citado, com influência sobre leis como a LGPD.
+busca: efeito Bruxelas Anu Bradford GDPR influência global
+
+=== Ciclo de políticas públicas
+padroes: ciclo de políticas públicas | ciclo de política pública
+def: Modelo que divide a política pública em fases. Em Leonardo Secchi: identificação do problema, formação da agenda, formulação de alternativas, tomada de decisão, implementação, avaliação e extinção. É um esquema didático: na prática as fases se misturam e se repetem.
+busca: ciclo de políticas públicas Secchi agenda formulação implementação avaliação extinção
+
+=== Modelo das três linhas (IIA, 2020)
+padroes: modelo das três linhas | três linhas de defesa
+def: Órgão de governança presta contas às partes interessadas. A gestão fica com a primeira linha (quem entrega produtos e serviços e gerencia os riscos dessa atividade) e a segunda (funções especializadas que apoiam e questionam a gestão de riscos, como conformidade e riscos). A auditoria interna é a terceira linha: avaliação e assessoria independentes, reportando ao órgão de governança. A versão de 2020 tirou a palavra “defesa” e enfatiza colaboração.
+busca: modelo das três linhas IIA 2020 auditoria interna primeira segunda terceira linha
+
+=== Gestão de riscos (ISO 31000)
+padroes: ISO 31000 | apetite a risco | apetite ao risco | matriz de probabilidade e impacto | matriz de riscos
+def: A ISO 31000 se organiza em princípios, estrutura e processo. O processo: comunicação e consulta; escopo, contexto e critérios; processo de avaliação de riscos (identificação, análise e avaliação); tratamento; monitoramento e análise crítica; registro e relato. Na matriz, o nível de risco combina probabilidade e impacto. Apetite a risco é quanto risco a organização aceita buscar para atingir seus objetivos.
+busca: ISO 31000 processo de gestão de riscos matriz probabilidade impacto apetite a risco
+
+=== Provisão × passivo contingente (CPC 25)
+padroes: passivo contingente | passivos contingentes | ativo contingente | ativos contingentes | CPC 25
+def: Provisão é passivo de prazo ou valor incertos, reconhecida quando há obrigação presente, saída de recursos provável e estimativa confiável. Passivo contingente (obrigação possível, ou presente sem saída provável ou sem estimativa confiável) não é reconhecido: é divulgado em nota, salvo se a saída for remota. Ativo contingente não é reconhecido; é divulgado quando a entrada for provável e só vai ao balanço quando for praticamente certa.
+busca: CPC 25 provisão passivo contingente ativo contingente reconhecimento divulgação
+
+=== Hierarquia do valor justo (CPC 46)
+padroes: valor justo | CPC 46
+def: Nível 1: preços cotados, sem ajuste, em mercado ativo para itens idênticos. Nível 2: outros dados observáveis, direta ou indiretamente (ex.: preço de item semelhante). Nível 3: dados não observáveis, de premissas da própria entidade. Dá-se prioridade ao nível 1 e o mínimo ao nível 3.
+busca: CPC 46 hierarquia do valor justo nível 1 2 3 dados observáveis
+
+=== Características qualitativas (CPC 00 R2)
+padroes: características qualitativas | representação fidedigna | CPC 00
+def: Fundamentais: relevância (inclui materialidade) e representação fidedigna (completa, neutra e livre de erro). De melhoria: comparabilidade, verificabilidade, tempestividade e compreensibilidade. As de melhoria não tornam útil uma informação que não seja relevante ou fidedigna.
+busca: CPC 00 R2 características qualitativas fundamentais de melhoria relevância representação fidedigna
