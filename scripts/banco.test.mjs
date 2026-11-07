@@ -24,6 +24,13 @@ test('situação hipotética e item de reescrita nunca são dificuldade 1 (docs/
   assert.deepEqual(faceis.map((q) => q.id), []);
 });
 
+test('item errado autoral tem um único erro: o comentário não admite dois (docs/padrao-cebraspe.md, protocolo 2)', () => {
+  const { questoes } = validar({ silencioso: true });
+  const re = /errad[oa] duas vezes|erra duas vezes|dois erros|errad[oa] nas duas partes|erra nas duas partes/i;
+  const duplos = questoes.filter((q) => q.origem !== 'real' && q.gab === 'E' && re.test(q.comentario || ''));
+  assert.deepEqual(duplos.map((q) => q.id), []);
+});
+
 test('dados do build cobrem blocos, lei e cronograma', () => {
   const d = montarDados();
   const blocos = new Set(d.blocos.map((b) => b.id));
