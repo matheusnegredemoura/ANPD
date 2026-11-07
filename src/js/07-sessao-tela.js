@@ -242,12 +242,27 @@ function renderItem(q) {
   }
   return dupla ? '<article class="item dupla"><div class="item-esq">' + esq + '</div><div class="item-dir">' + html + '</div></article>' : '<article class="item">' + esq + html + '</article>';
 }
+// O trecho do item dentro do seu dispositivo (a linha do inciso, do parágrafo ou do caput), grifado: um trecho como
+// "salvo comprovada má-fé" sozinho não diz a que regra pertence. Sem as notas de alteração do Planalto; num dispositivo
+// longo, só o entorno
+function trechoEmContexto(q, t, pos) {
+  const texto = TEXTO_ART.get(q.l + ':' + q.art) || '';
+  const i = pos >= 0 && texto.slice(pos, pos + t.length) === t ? pos : texto.indexOf(t);
+  if (i < 0) return esc(t);
+  const fimLinha = texto.indexOf('\n', i + t.length);
+  let antes = texto.slice(texto.lastIndexOf('\n', i) + 1, i).replace(/^Art\.\s*[\dA-Za-zº°ª.-]+\s+/, '');
+  let depois = texto.slice(i + t.length, fimLinha < 0 ? texto.length : fimLinha).replace(/\s*\((Inclu[íi]d[oa]|Reda[çc][ãa]o dada|Vide|Promulga[çc][ãa]o|Acrescentad[oa])[^)]*\)\s*\.?\s*$/i, '');
+  if (antes.length > 160) antes = '…' + antes.slice(-140).replace(/^\S*\s/, '');
+  if (depois.length > 200) depois = depois.slice(0, 180).replace(/\s\S*$/, '') + '…';
+  if (!antes.trim() && !depois.trim()) return esc(t);
+  return esc(antes) + '<mark>' + esc(t) + '</mark>' + esc(depois);
+}
 function renderExplicacao(q) {
   let html = '<div class="explica"><span class="gab">Gabarito' + (q.o ? (/preliminar/.test(q.pv) ? ' preliminar da banca' : gabConferido(q) ? (/na lei/.test(q.pv) ? ' conferido na lei' : ' conferido no texto') : ' oficial') : '') + ': ' + nomeGab(q) + ' · armadilha: ' + esc(D.armadilhas[q.a] || q.a) + '</span>';
   if (q.o || (q.ad && q.pv)) html += '<p class="pequeno mudo">' + esc(q.pv) + '</p>';
   html += '<p>' + marcarTermos(q.c, 3) + '</p>';
   if (q.t && q.t.length) {
-    html += '<div class="citacao">' + q.t.map((t) => '<q>' + esc(t) + '</q>').join('') + '<span class="fonte">' + esc(q.r) + '</span>' +
+    html += '<div class="citacao">' + q.t.map((t, k) => '<q>' + trechoEmContexto(q, t, (TRECHO_POS.get(q.id) || [])[k]) + '</q>').join('') + '<span class="fonte">' + esc(q.r) + '</span>' +
       (q.art && ARTI.get(chave(q.l, q.art)) ? '<div>' + botaoArt(chave(q.l, q.art), q.id) + '</div>' : '') + '</div>';
   } else html += '<div class="citacao"><span class="fonte">Fonte: ' + esc(q.r) + '</span></div>';
   if (q.v === 0) html += '<p class="aviso-conferir">Texto oficial ainda não anexado ao app: confira esta referência na fonte antes de confiar nela.</p>';

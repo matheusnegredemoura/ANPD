@@ -20,6 +20,9 @@ await passo('erro na sessão aparece por armadilha no resultado', async () => {
   await p.waitForSelector('#sessao:not([hidden])');
   await p.click('.bolha.c');
   await p.waitForSelector('.veredito');
+  // O trecho aparece dentro do dispositivo, grifado (aqui, o § 1º do art. 13 da Res. 4/2023)
+  const cit = (await p.locator('#sessao .citacao q').first().innerText()).replace(/\s+/g, ' ');
+  conferir('trecho grifado dentro do dispositivo', (await p.locator('#sessao .citacao q mark').count()) === 1 && /Para efeitos dos incisos I e III/.test(cit) && !/Inclu[íi]do/.test(cit), cit.slice(0, 120));
   await p.click('[data-acao="proximo"]');
   await p.waitForSelector('#sessao .armadilhas-sessao');
   const txt = (await p.textContent('#sessao .armadilhas-sessao')).replace(/\s+/g, ' ');

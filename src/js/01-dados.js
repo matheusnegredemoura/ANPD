@@ -27,6 +27,7 @@ if (typeof DecompressionStream !== 'function') {
 const D = JSON.parse(await lerDados());
 // O pacote chega enxuto (scripts/build.mjs, empacotar); aqui volta à forma completa antes de qualquer uso
 const TEXTO_ART = new Map();
+const TRECHO_POS = new Map();
 for (const [id, l] of Object.entries(D.lei || {})) {
   let est = [];
   for (const a of l.artigos) { if (a.estrutura) est = a.estrutura; else a.estrutura = est; if (!a.rotulo) a.rotulo = 'Art. ' + a.id; TEXTO_ART.set(id + ':' + a.id, a.texto); }
@@ -36,7 +37,9 @@ function deTabela(o) { for (const k in TAB) if (typeof o[k] === 'number') o[k] =
 for (const q of D.questoes) {
   deTabela(q);
   if (q.art === undefined) q.art = null;
-  // Trecho guardado como [início, tamanho] no texto do artigo
+  // Trecho guardado como [início, tamanho] no texto do artigo. A posição fica à parte (o item não muda): a explicação
+  // mostra o dispositivo inteiro com o trecho grifado
+  if ((q.t || []).some(Array.isArray)) TRECHO_POS.set(q.id, q.t.map((t) => (Array.isArray(t) ? t[0] : -1)));
   q.t = (q.t || []).map((t) => (Array.isArray(t) ? (TEXTO_ART.get(q.l + ':' + q.art) || '').slice(t[0], t[0] + t[1]) : t));
 }
 for (const c of D.cloze || []) deTabela(c);

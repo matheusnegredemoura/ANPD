@@ -88,7 +88,13 @@ test('pacote compactado volta igual ao original no app', async () => {
   assert.ok(ini > 0 && fim > ini);
   new Function('D', js.slice(ini, fim))(pacote);
   delete pacote.tab;
-  assert.deepEqual(pacote, JSON.parse(JSON.stringify(d)));
+  const esperado = JSON.parse(JSON.stringify(d));
+  // A diferença do banco inteiro de uma vez estoura a memória do processo: aponta o primeiro elemento que difere
+  for (const k of Object.keys(esperado)) {
+    const a = pacote[k], b = esperado[k];
+    if (Array.isArray(b)) b.forEach((x, i) => { if (JSON.stringify(a && a[i]) !== JSON.stringify(x)) assert.deepEqual(a && a[i], x, k + '[' + i + ']'); });
+  }
+  assert.deepEqual(pacote, esperado);
 });
 
 // Um erro de sintaxe em qualquer parte de src/js derruba o painel inteiro; o build não roda o JS e não percebe
