@@ -339,6 +339,8 @@ function registrar(q, resp, duvida) {
   const pontual = eraManutencao && hoje - r[4] <= 1.5 * Math.max(1, r[1] - r[4]);
   // Responder de novo no mesmo dia não é revisão espaçada: o acerto repetido não sobe de nível
   const jaRespondidoHoje = antes >= 0 && r[4] === hoje;
+  // Item da lista curta que já tinha vencido: conta como revisão feita no dia, venha de qual sessão vier
+  const revisaoVencida = estavaNaLista && r[1] <= hoje && !jaRespondidoHoje;
   let ok = null;
   if (resp === BRANCO) r[0] = 0;
   else {
@@ -369,6 +371,7 @@ function registrar(q, resp, duvida) {
     d.sq = ((d.sq || '') + (sabia ? (ok ? 'k' : 'l') : ok ? 'c' : 'e')).slice(-30);
   }
   if (antes < 0 && resp !== BRANCO) d.ni = (d.ni || 0) + 1;
+  if (revisaoVencida && resp !== BRANCO) d.rv = (d.rv || 0) + 1;
   // O chefão só sente o primeiro acerto do dia em cada item: repetir o mesmo item não é golpe novo
   if (ok && !jaRespondidoHoje) golpeChefe(q);
   if (eraManutencao) { d.m = (d.m || 0) + 1; if (ok && !duvida) d.mc = (d.mc || 0) + 1; }

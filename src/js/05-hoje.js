@@ -92,7 +92,9 @@ function roteiroHoje() {
   const longo = !!dia && (metaMin(dia.data) || 0) > 60;
 
   // Revisão espaçada (~10 min): questões vencidas e manutenção
-  const revFeita = venc === 0 && manut === 0;
+  // Feita quando a fila zera ou quando já se revisou uma sessão inteira hoje: com fila longa, o passo de ~10 min não
+  // pode exigir várias sessões no mesmo dia, senão o roteiro fica parado nele
+  const revistos = (d.rv || 0) + (d.m || 0), revFeita = (venc === 0 && manut === 0) || revistos >= REV_SESSAO;
   passos.push({
     titulo: 'Revisão espaçada (~10 min)',
     feito: revFeita,
