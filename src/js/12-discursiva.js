@@ -203,7 +203,6 @@ function renderAjustes() {
   const linha = (rot, val, ok) => '<tr><td>' + rot + '</td><td class="' + (ok === true ? 'ok' : ok === false ? 'no' : '') + '">' + esc(val) + '</td></tr>';
   const st = (v) => (v === 'ok' ? true : v === '—' ? null : false);
   return '<div class="secao-cab"><h2>Ajustes</h2></div>' +
-    '<div class="cartao destaque"><h2>Sincronizar com o Painel TCU</h2><p class="pequeno">Traz as respostas, cards e artigos lidos do tronco comum (Constitucional, Administrativo, LAI, Línguas, Gestão, Economia e Contabilidade) feitos no Painel TCU. Fica o registro mais recente de cada item; nada é apagado.</p><div class="campo"><label for="arquivo-tcu">Arquivo de backup do Painel TCU (.json)</label><input id="arquivo-tcu" type="file" accept=".json,application/json" data-acao="tcu-arquivo"></div><p class="pequeno mudo">No claude.ai cada painel guarda o progresso só para si, então o caminho é o arquivo: no Painel TCU, Ajustes → salvar progresso em arquivo. Com os dois abertos como arquivo no mesmo navegador, o botão abaixo lê direto.</p><div class="linha-btns"><button class="btn" data-acao="sync-tcu">⇄ Ler do mesmo navegador</button></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Tema</span><div class="chips">' + TEMAS.map(([v, t]) => '<button class="chip" data-acao="tema" data-tema="' + v + '" aria-pressed="' + (UI.tema === v) + '">' + t + '</button>').join('') + '</div><p class="pequeno mudo">Automático segue o aparelho e o claude.ai. Noturno pelo horário fica escuro das 19h às 6h. A escolha fica salva na sua conta, como as demais preferências.</p></div></div>' +
     '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' +
       '<button class="chip" data-acao="meta" data-meta="auto" aria-pressed="' + !S.perfil.metaFixa + '">Pelo meu ritmo' + (auto ? ' · ' + auto : '') + '</button>' +
@@ -258,32 +257,5 @@ function htmlEsqueletos() {
   if (!ests.length) return '';
   return '<div class="cartao esq"><h2>Esqueletos de peça e parecer (ANPD)</h2><p class="pequeno mudo">Domine os três moldes antes de treinar velocidade. Copie e preencha os colchetes com os fatos do enunciado.</p>' +
     ests.map((e) => '<details><summary><b>' + esc(e.nome) + '</b></summary><p class="pequeno"><b>Quando usar:</b> ' + esc(e.uso) + '</p><pre>' + esc(e.modelo) + '</pre></details>').join('') + '</div>';
-}
-
-// Sincronização inversa: traz do Painel TCU as respostas, cards e leituras do tronco comum. Pelo armazenamento do
-// navegador só funciona com os dois abertos como arquivo no mesmo navegador: no claude.ai cada painel tem a própria
-// origem e não enxerga o do outro. Por isso também aceita o arquivo de backup (.json) salvo no Painel TCU.
-function sincronizarDoTCU(origem) {
-  if (origem === undefined) origem = lerLS('painel-tcu-v1');
-  if (origem && !origem.itens && origem.dados) origem = origem.dados;
-  if (!origem || (!origem.itens && !origem.perfil)) { avisar('!', 'Progresso do Painel TCU não encontrado', 'No claude.ai, salve o backup em arquivo no Painel TCU (Ajustes) e escolha esse arquivo aqui.'); return; }
-  let nItens = 0, nCards = 0, nLidos = 0;
-  const num = (x) => Number(x) || 0;
-  for (const [id, r] of Object.entries(origem.itens || {})) {
-    if (!QI.has(id) || !Array.isArray(r)) continue;
-    const at = S.itens[id];
-    if (!at || num(r[4]) > num(at[4]) || (num(r[4]) === num(at[4]) && num(r[2]) + num(r[3]) > num(at[2]) + num(at[3]))) { S.itens[id] = r.map(num); nItens++; }
-  }
-  for (const [id, c] of Object.entries(origem.cards || {})) {
-    if (!CI.has(id) || !Array.isArray(c)) continue;
-    const at = S.cards[id];
-    if (!at || num(c[5]) > num(at[5])) { S.cards[id] = c.map(num); nCards++; }
-  }
-  S.perfil.lidos ||= {};
-  for (const [k, dt] of Object.entries((origem.perfil && origem.perfil.lidos) || {})) {
-    if (ARTI.has(k) && /^\d{4}-\d\d-\d\d$/.test(dt) && (!S.perfil.lidos[k] || dt < S.perfil.lidos[k])) { S.perfil.lidos[k] = dt; nLidos++; }
-  }
-  Store.salvarTudo(); renderTudo();
-  avisar('⇄', 'Tronco comum trazido do Painel TCU', pl(nItens, 'questão', 'questões') + ', ' + pl(nCards, 'card', 'cards') + ' e ' + pl(nLidos, 'artigo lido', 'artigos lidos') + ' aproveitados.');
 }
 

@@ -432,7 +432,7 @@ function cartaoFaseANPD() {
     [['f1', 'Etapa 1 · Base ANPD + Tronco TCU'], ['f2', 'Etapa 2 · Ciclo e 6 Degraus'], ['f3', 'Etapa 3 · Reta final pós-edital']].map(([id, rot]) => '<button class="chip" data-acao="anpd-set-fase" data-fase="' + id + '" aria-pressed="' + (f === id) + '">' + rot + '</button>').join('') +
     '</div>';
   if (f === 'f1') {
-    html += '<p class="pequeno mudo">Pré-edital, construção de base: o seu plano tem <b>{horasPre} por semana</b> (1 h nos dias úteis e um bloco longo no sábado), e é ele que o roteiro do dia segue; o mentor sugere 18 a 25 h para quem tem esse tempo. As horas se dividem entre o Núcleo Duro da ANPD (LGPD, Resoluções, ECA Digital e Regulação) e o <b>Tronco Comum</b> com o TCU (Constitucional, Administrativo, Gestão, Economia e Português), cujo progresso vem do Painel TCU pelo arquivo de backup dele (Ajustes).</p>';
+    html += '<p class="pequeno mudo">Pré-edital, construção de base: o seu plano tem <b>{horasPre} por semana</b> (1 h nos dias úteis e um bloco longo no sábado), e é ele que o roteiro do dia segue; o mentor sugere 18 a 25 h para quem tem esse tempo. As horas se dividem entre o Núcleo Duro da ANPD (LGPD, Resoluções, ECA Digital e Regulação) e o <b>Tronco Comum</b> com o TCU (Constitucional, Administrativo, Gestão, Economia e Português).</p>';
   } else if (f === 'f2') {
     html += '<p class="pequeno mudo">Tração e fechamento de lacunas: as horas do seu plano (<b>{horasPre} por semana</b>) no ciclo rotativo, nas proporções do ciclo de 25 h do mentor, com foco na subida dos <b>6 Degraus de Prioridade</b>. Só avance para o próximo degrau quando atingir a nota líquida de saída (≥ +0,60).</p>';
   } else {
