@@ -82,6 +82,22 @@ await passo('relógio do dia conta o tempo de questões e pausa quando o app fic
   await ctx.close();
 });
 
+await passo('fila maior que uma sessão: o botão diz quantos vêm agora e quantos estão na fila', async () => {
+  // 35 itens de LGPD vencidos (de ontem para trás); a sessão traz 30, primeiro os vencidos há mais tempo
+  const fs = await import('node:fs'), dir = new URL('../../questoes/', import.meta.url);
+  const ids = fs.readdirSync(dir).filter((f) => /^lgpd-\d/.test(f)).sort().flatMap((f) => fs.readFileSync(new URL(f, dir), 'utf8').match(/^=== (\S+)$/gm) || []).map((l) => l.slice(4)).slice(0, 35);
+  const itens = Object.fromEntries(ids.map((id, i) => [id, [0, -1 - i, 0, 1, -2 - i]]));
+  const { ctx, p } = await abrir(itens);
+  const botao = p.locator('.roteiro [data-acao="iniciar-revisao"]');
+  const t = (await botao.textContent()).trim();
+  conferir('botão com o tamanho da sessão e da fila', t === 'Revisar 30 de 35', t);
+  await botao.click();
+  await p.waitForSelector('#sessao:not([hidden])');
+  const tit = await p.locator('#sessao .sessao-topo .tit span').innerText();
+  conferir('a sessão traz 30', /de 30\b/.test(tit), tit);
+  await ctx.close();
+});
+
 await browser.close();
 conferir('sem erro de página', !erros.length, erros.join(' | '));
 fim();

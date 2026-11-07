@@ -582,6 +582,8 @@ function cardsNovos(blocos) {
   return CARDS.filter((c) => (!set || set.has(c.nota.b)) && cardNovo(c.id)).sort((a, b) => (b.nota.nu || 0) - (a.nota.nu || 0));
 }
 const REV_MAX = 60;
+// Itens por sessão de revisão de questões (cerca de 10 minutos no ritmo de prova)
+const REV_SESSAO = 30;
 function novosRestantesHoje() { return Math.max(0, (S.perfil.novosCards || 20) - (diaLog().nc || 0)); }
 
 /* ================= Pesquisa e glossário ================= */

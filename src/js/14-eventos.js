@@ -50,7 +50,7 @@ async function executar(a, alvo) {
       break;
     }
     case 'equipar': { const it = IR.get(alvo.dataset.item); if (it && rpg().inv[it.id]) { rpg().eq[it.slot] = it.id; Store.salvar('perfil'); renderMais(); } break; }
-    case 'iniciar-revisao': iniciarSessao({ modo: 'revisao', n: 30, chave: 'rev' }); break;
+    case 'iniciar-revisao': iniciarSessao({ modo: 'revisao', n: REV_SESSAO, chave: 'rev' }); break;
     case 'intercaladas': if (retomarPausa('i:' + hojeISO())) break; iniciarSessao({ modo: 'treino', intercalado: true, n: nIntercaladas(), titulo: 'Questões intercaladas', dia: 'i:' + hojeISO() }); break;
     case 'treino-rapido': iniciarSessao({ modo: 'treino', n: Number(alvo.dataset.n) || 20, blocos: [], filtro: 'mistas', chave: 'rapido', dia: alvo.dataset.pre ? 'r:' + hojeISO() : undefined }); break;
     case 'abrir-modo': UI.modo = alvo.dataset.modo; if (UI.modo === 'simulado') UI.prova = 'prova'; ir('questoes'); break;
