@@ -17,8 +17,8 @@ prova: procedência não confirmada nos cadernos oficiais (veio como FGV · TCU 
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: caso
 dif: 2
-enunciado: Em uma auditoria de contratações no TCU, um auditor analisa a tabela `empenhos(id_empenho, cnpj_fornecedor, ug_emitente, valor, ano)` com milhões de registros. Ele deseja listar apenas os `cnpj_fornecedor` que receberam, no ano de 2026, mais de 5 empenhos distintos e cuja soma de `valor` no referido ano ultrapasse R$ 1.000.000,00, ordenados do maior valor total para o menor. Assinale a consulta SQL correta.
-comentario: Letra C. Na ordem lógica e sintática do SQL: `WHERE ano = 2026` filtra as linhas individuais antes do agrupamento; `GROUP BY cnpj_fornecedor` agrupa por fornecedor; `HAVING COUNT(DISTINCT id_empenho) > 5 AND SUM(valor) > 1000000` filtra os grupos com base nas funções de agregação (que não podem aparecer na cláusula `WHERE`); e `ORDER BY total DESC` ordena do maior para o menor.
+enunciado: Em uma auditoria de contratações no TCU, um auditor analisa a tabela empenhos(id_empenho, cnpj_fornecedor, ug_emitente, valor, ano) com milhões de registros. Ele deseja listar apenas os cnpj_fornecedor que receberam, no ano de 2026, mais de 5 empenhos distintos e cuja soma de valor no referido ano ultrapasse R$ 1.000.000,00, ordenados do maior valor total para o menor. Assinale a consulta SQL correta.
+comentario: Letra C. Na ordem lógica e sintática do SQL: WHERE ano = 2026 filtra as linhas individuais antes do agrupamento; GROUP BY cnpj_fornecedor agrupa por fornecedor; HAVING COUNT(DISTINCT id_empenho) > 5 AND SUM(valor) > 1000000 filtra os grupos com base nas funções de agregação (que não podem aparecer na cláusula WHERE); e ORDER BY total DESC ordena do maior para o menor.
 
 === tcu-dad-002
 bloco: dados-bi
@@ -39,8 +39,8 @@ prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe ·
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: Para identificar em uma base relacional todos os servidores ativos da tabela `servidores(cpf, nome)` que também figuram como sócios administradores na tabela `socios_empresas(cpf_socio, cnpj)`, mantendo apenas a interseção entre ambas as tabelas, o auditor pode utilizar um `INNER JOIN` com a condição `servidores.cpf = socios_empresas.cpf_socio`; já para encontrar servidores que NÃO figuram na tabela `socios_empresas`, pode utilizar um `LEFT JOIN` combinado com `WHERE socios_empresas.cpf_socio IS NULL`.
-comentario: Certo. É o cruzamento típico de bases em auditoria: `INNER JOIN` retorna a interseção; `LEFT JOIN ... WHERE B.chave IS NULL` (anti-join) retorna os registros de A sem correspondência em B.
+enunciado: Para identificar em uma base relacional todos os servidores ativos da tabela servidores(cpf, nome) que também figuram como sócios administradores na tabela socios_empresas(cpf_socio, cnpj), mantendo apenas a interseção entre ambas as tabelas, o auditor pode utilizar um INNER JOIN com a condição servidores.cpf = socios_empresas.cpf_socio; já para encontrar servidores que NÃO figuram na tabela socios_empresas, pode utilizar um LEFT JOIN combinado com WHERE socios_empresas.cpf_socio IS NULL.
+comentario: Certo. É o cruzamento típico de bases em auditoria: INNER JOIN retorna a interseção; LEFT JOIN ... WHERE B.chave IS NULL (anti-join) retorna os registros de A sem correspondência em B.
 
 === tcu-dad-004
 bloco: dados-bi
@@ -71,8 +71,8 @@ prova: procedência não confirmada nos cadernos oficiais (veio como FGV · TCU 
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: caso
 dif: 2
-enunciado: Um auditor do TCU utiliza a biblioteca `pandas` em Python para analisar um DataFrame `df` contendo as colunas `['orgao', 'modalidade', 'valor', 'anomalia']`. Para preencher valores ausentes (`NaN`) da coluna `'valor'` com a mediana de `'valor'` calculada dentro de cada `'modalidade'` e, em seguida, selecionar apenas as linhas cuja coluna `'anomalia'` seja igual a `1`, o código idiomático em `pandas` é:
-comentario: Letra D. Em `pandas`, `df.groupby('modalidade')['valor'].transform('median')` retorna uma Series alinhada ao índice original de `df` com a mediana do respectivo grupo, permitindo a imputação direta via `.fillna(...)`. Em seguida, `df.loc[df['anomalia'] == 1]` realiza a indexação booleana correta.
+enunciado: Um auditor do TCU utiliza a biblioteca pandas em Python para analisar um DataFrame df contendo as colunas ['orgao', 'modalidade', 'valor', 'anomalia']. Para preencher valores ausentes (NaN) da coluna 'valor' com a mediana de 'valor' calculada dentro de cada 'modalidade' e, em seguida, selecionar apenas as linhas cuja coluna 'anomalia' seja igual a 1, o código idiomático em pandas é:
+comentario: Letra D. Em pandas, df.groupby('modalidade')['valor'].transform('median') retorna uma Series alinhada ao índice original de df com a mediana do respectivo grupo, permitindo a imputação direta via .fillna(...). Em seguida, df.loc[df['anomalia'] == 1] realiza a indexação booleana correta.
 
 === tcu-dad-006
 bloco: ia
@@ -93,8 +93,8 @@ prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe ·
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 3
-enunciado: Em SQL, a expressão `AVG(valor) OVER (PARTITION BY cod_orgao)` calcula a média da coluna `valor` para cada `cod_orgao` sem colapsar as linhas individuais da consulta em uma única linha por grupo, diferentemente do que ocorre quando se utiliza `GROUP BY cod_orgao`.
-comentario: Certo. As funções de janela (`OVER (PARTITION BY ... ORDER BY ...)`) preservam todas as linhas do conjunto de resultados original enquanto acrescentam métricas agregadas ou de ranqueamento (`ROW_NUMBER`, `RANK`, `DENSE_RANK`, `LAG`, `LEAD`, `SUM`, `AVG`) calculadas sobre a janela de cada partição.
+enunciado: Em SQL, a expressão AVG(valor) OVER (PARTITION BY cod_orgao) calcula a média da coluna valor para cada cod_orgao sem colapsar as linhas individuais da consulta em uma única linha por grupo, diferentemente do que ocorre quando se utiliza GROUP BY cod_orgao.
+comentario: Certo. As funções de janela (OVER (PARTITION BY ... ORDER BY ...)) preservam todas as linhas do conjunto de resultados original enquanto acrescentam métricas agregadas ou de ranqueamento (ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD, SUM, AVG) calculadas sobre a janela de cada partição.
 
 === tcu-dad-102
 bloco: dados-bi
@@ -109,8 +109,8 @@ prova: procedência não confirmada nos cadernos oficiais (veio como FGV · TCU 
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: caso
 dif: 2
-enunciado: Considere quatro contratos de um mesmo órgão com valores de R$ 100 mil, R$ 80 mil, R$ 80 mil e R$ 50 mil. Se um auditor aplicar, em SQL, as funções de janela `RANK() OVER (ORDER BY valor DESC)` e `DENSE_RANK() OVER (ORDER BY valor DESC)`, as sequências de posições atribuídas aos quatro contratos serão, respectivamente:
-comentario: Letra B. Em caso de empate no 2º lugar (dois contratos de R$ 80 mil): `RANK()` atribui 2 para ambos e pula a posição seguinte, indo para 4 → (1, 2, 2, 4); já `DENSE_RANK()` atribui 2 para ambos e não pula posição → (1, 2, 2, 3); enquanto `ROW_NUMBER()` nunca empata → (1, 2, 3, 4).
+enunciado: Considere quatro contratos de um mesmo órgão com valores de R$ 100 mil, R$ 80 mil, R$ 80 mil e R$ 50 mil. Se um auditor aplicar, em SQL, as funções de janela RANK() OVER (ORDER BY valor DESC) e DENSE_RANK() OVER (ORDER BY valor DESC), as sequências de posições atribuídas aos quatro contratos serão, respectivamente:
+comentario: Letra B. Em caso de empate no 2º lugar (dois contratos de R$ 80 mil): RANK() atribui 2 para ambos e pula a posição seguinte, indo para 4 → (1, 2, 2, 4); já DENSE_RANK() atribui 2 para ambos e não pula posição → (1, 2, 2, 3); enquanto ROW_NUMBER() nunca empata → (1, 2, 3, 4).
 
 === tcu-dad-103
 bloco: dados-bi
@@ -120,8 +120,8 @@ prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe ·
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: Nas propriedades ACID de uma transação em SGBD relacional, a Atomicidade garante que transações concorrentes não interfiram umas nas outras, enquanto o Isolamento assegura que ou todas as operações da transação são efetivadas (`COMMIT`) ou nenhuma o é (`ROLLBACK`).
-comentario: Errado. Os conceitos foram trocados. Atomicidade é a regra do 'tudo ou nada' (`COMMIT` ou `ROLLBACK`). Isolamento é a propriedade que garante que a execução concorrente de múltiplas transações produza o mesmo efeito de uma execução serial sem interferência mútua. (Consistência preserva as regras de integridade do banco, e Durabilidade garante persistência após o commit mesmo em caso de queda de energia).
+enunciado: Nas propriedades ACID de uma transação em SGBD relacional, a Atomicidade garante que transações concorrentes não interfiram umas nas outras, enquanto o Isolamento assegura que ou todas as operações da transação são efetivadas (COMMIT) ou nenhuma o é (ROLLBACK).
+comentario: Errado. Os conceitos foram trocados. Atomicidade é a regra do 'tudo ou nada' (COMMIT ou ROLLBACK). Isolamento é a propriedade que garante que a execução concorrente de múltiplas transações produza o mesmo efeito de uma execução serial sem interferência mútua. (Consistência preserva as regras de integridade do banco, e Durabilidade garante persistência após o commit mesmo em caso de queda de energia).
 
 === tcu-dad-104
 bloco: dados-bi
@@ -131,14 +131,14 @@ prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe ·
 ref: doutrina Dados, qualidade de dados, BI e governança de dados
 armadilha: conceito
 dif: 2
-enunciado: Em SQL padrão, o operador `UNION` elimina linhas duplicadas entre os resultados das duas consultas combinadas, enquanto `UNION ALL` mantém todas as linhas, inclusive as duplicadas; além disso, funções de agregação como `AVG(coluna)` e `COUNT(coluna)` ignoram valores `NULL`, ao passo que `COUNT(*)` conta todas as linhas, inclusive aquelas com valores `NULL`.
-comentario: Certo. São dois comportamentos do SQL padrão: `UNION` remove duplicatas (`UNION ALL` as preserva), e `COUNT(coluna)` e `AVG(coluna)` ignoram `NULL`, enquanto `COUNT(*)` conta todas as linhas.
+enunciado: Em SQL padrão, o operador UNION elimina linhas duplicadas entre os resultados das duas consultas combinadas, enquanto UNION ALL mantém todas as linhas, inclusive as duplicadas; além disso, funções de agregação como AVG(coluna) e COUNT(coluna) ignoram valores NULL, ao passo que COUNT(*) conta todas as linhas, inclusive aquelas com valores NULL.
+comentario: Certo. São dois comportamentos do SQL padrão: UNION remove duplicatas (UNION ALL as preserva), e COUNT(coluna) e AVG(coluna) ignoram NULL, enquanto COUNT(*) conta todas as linhas.
 
 === tcu-dad-105
 bloco: ia
 gab: A
-alt: A | Encapsular o `SimpleImputer`, o `StandardScaler` e o classificador dentro de um objeto `Pipeline`, de modo que os parâmetros (média e desvio-padrão) sejam ajustados (`fit`) apenas nos dados de treino de cada dobra (*fold*) e apenas aplicados (`transform`) na respectiva dobra de validação.
-alt: B | Ajustar (`fit_transform`) o `StandardScaler` e o `SimpleImputer` sobre a totalidade do dataset completo antes de dividir os dados entre treino e teste.
+alt: A | Encapsular o SimpleImputer, o StandardScaler e o classificador dentro de um objeto Pipeline, de modo que os parâmetros (média e desvio-padrão) sejam ajustados (fit) apenas nos dados de treino de cada dobra (fold) e apenas aplicados (transform) na respectiva dobra de validação.
+alt: B | Ajustar (fit_transform) o StandardScaler e o SimpleImputer sobre a totalidade do dataset completo antes de dividir os dados entre treino e teste.
 alt: C | Calcular a média e o desvio-padrão exclusivamente no conjunto de teste final e aplicá-los ao conjunto de treino.
 alt: D | Remover todas as variáveis numéricas do modelo, pois algoritmos de árvore de decisão exigem obrigatoriamente normalização Z-score para convergir.
 alt: E | Treinar e avaliar o modelo exatamente no mesmo conjunto de dados sem separação de validação.
@@ -147,8 +147,8 @@ prova: procedência não confirmada nos cadernos oficiais (veio como FGV · TCU 
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: caso
 dif: 2
-enunciado: Ao construir um pipeline de aprendizado de máquina com `scikit-learn` para prever risco de inadimplência em contratos públicos usando validação cruzada em k pastas (k-fold cross-validation), um auditor deseja aplicar padronização (`StandardScaler`) e imputação de valores faltantes (`SimpleImputer`). Para evitar o vazamento de dados (*data leakage*) entre treino e validação, o procedimento correto é:
-comentario: Letra A. Ajustar (`fit`) transformadores de pré-processamento na base inteira antes da divisão treino/validação causa *data leakage* (informação da distribuição do conjunto de validação vaza para o treino), produzindo métricas artificialmente otimistas. O uso de `sklearn.pipeline.Pipeline` garante que o `fit` ocorra apenas nos folds de treino.
+enunciado: Ao construir um pipeline de aprendizado de máquina com scikit-learn para prever risco de inadimplência em contratos públicos usando validação cruzada em k pastas (k-fold cross-validation), um auditor deseja aplicar padronização (StandardScaler) e imputação de valores faltantes (SimpleImputer). Para evitar o vazamento de dados (data leakage) entre treino e validação, o procedimento correto é:
+comentario: Letra A. Ajustar (fit) transformadores de pré-processamento na base inteira antes da divisão treino/validação causa data leakage (informação da distribuição do conjunto de validação vaza para o treino), produzindo métricas artificialmente otimistas. O uso de sklearn.pipeline.Pipeline garante que o fit ocorra apenas nos folds de treino.
 
 === tcu-dad-106
 bloco: ia
@@ -158,7 +158,7 @@ prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe ·
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: extrapolacao
 dif: 2
-enunciado: Em modelos lineares regularizados, o aumento do hiperparâmetro de penalização λ (ou a redução de C na regressão logística do `scikit-learn`) aumenta a variância do modelo e reduz o seu viés, aumentando o risco de sobreajuste (*overfitting*).
+enunciado: Em modelos lineares regularizados, o aumento do hiperparâmetro de penalização λ (ou a redução de C na regressão logística do scikit-learn) aumenta a variância do modelo e reduz o seu viés, aumentando o risco de sobreajuste (overfitting).
 comentario: Errado. O aumento da força da regularização (λ maior) restringe a magnitude dos coeficientes, o que reduz a variância (combate o overfitting) e aumenta o viés (podendo levar ao underfitting se λ for excessivamente alto).
 
 === tcu-dad-107
@@ -169,5 +169,5 @@ prova: procedência não confirmada nos cadernos oficiais (veio como Cebraspe ·
 ref: doutrina Inteligência artificial e proteção de dados
 armadilha: conceito
 dif: 2
-enunciado: No pareamento probabilístico de bases de dados sem chave única compartilhada (*record linkage* / deduplicação de cadastros), utiliza-se a técnica de blocagem (*blocking*) para reduzir o espaço quadrático de comparações O(N × M), aplicando-se métricas de similaridade textual (como Jaro-Winkler ou distância de Levenshtein) apenas entre pares de registros que compartilham a mesma chave de bloco.
-comentario: Certo. *Record linkage* (pareamento de dados) consta expressamente do edital do TCU: a blocagem (*blocking*) particiona as bases (ex.: mesmo UF e ano de nascimento) para evitar comparar todos contra todos, e métricas como Jaro-Winkler (ótima para nomes próprios) medem a similaridade entre strings com erros de digitação.
+enunciado: No pareamento probabilístico de bases de dados sem chave única compartilhada (record linkage / deduplicação de cadastros), utiliza-se a técnica de blocagem (blocking) para reduzir o espaço quadrático de comparações O(N × M), aplicando-se métricas de similaridade textual (como Jaro-Winkler ou distância de Levenshtein) apenas entre pares de registros que compartilham a mesma chave de bloco.
+comentario: Certo. Record linkage (pareamento de dados) consta expressamente do edital do TCU: a blocagem (blocking) particiona as bases (ex.: mesmo UF e ano de nascimento) para evitar comparar todos contra todos, e métricas como Jaro-Winkler (ótima para nomes próprios) medem a similaridade entre strings com erros de digitação.

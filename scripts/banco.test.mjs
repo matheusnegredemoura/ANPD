@@ -206,6 +206,11 @@ test('fonte de doutrina com nome de bloco é o bloco do próprio item (o rótulo
   assert.deepEqual(trocadas, []);
 });
 
+test('sem marcação de markdown no texto do item (crase de código, *ênfase*): o painel mostra como texto', () => {
+  const marcados = validar({ silencioso: true }).questoes.filter((q) => [q.enunciado, q.comentario, ...(q.alt || [])].some((t) => /`|(^|[\s(])\*[^*\s][^*]*\*(?=[\s,.;:)]|$)/.test(t))).map((q) => q.id);
+  assert.deepEqual(marcados, []);
+});
+
 test('glossário: cada padrão marca uma entrada só (o termo grifado não abre a definição de outra)', () => {
   const { glossario } = validar({ silencioso: true });
   const sem = (x) => x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
