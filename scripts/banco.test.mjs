@@ -199,6 +199,13 @@ test('item real é da prova: "molde", "inédita" ou "adaptada" na prova vão com
   assert.deepEqual(falsos, []);
 });
 
+test('fonte de doutrina com nome de bloco é o bloco do próprio item (o rótulo "Fonte" não aponta outro assunto)', () => {
+  const blocos = JSON.parse(readFileSync(new URL('../questoes/blocos.json', import.meta.url), 'utf8')).blocos;
+  const nome = new Map(blocos.map((b) => [b.id, b.nome])), nomes = new Set(blocos.map((b) => b.nome));
+  const trocadas = validar({ silencioso: true }).questoes.filter((q) => /^doutrina /.test(q.ref || '') && nomes.has(q.ref.slice(9).trim()) && q.ref.slice(9).trim() !== nome.get(q.bloco)).map((q) => q.id);
+  assert.deepEqual(trocadas, []);
+});
+
 test('glossário: cada padrão marca uma entrada só (o termo grifado não abre a definição de outra)', () => {
   const { glossario } = validar({ silencioso: true });
   const sem = (x) => x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
