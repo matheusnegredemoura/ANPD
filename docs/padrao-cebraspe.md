@@ -147,3 +147,13 @@ Ao explicar (tutor):
 1. Núcleo conceitual exigido.
 2. A palavra, conectivo, sujeito ou prazo que decide o item.
 3. O mecanismo da armadilha, para o estudante reconhecer o padrão na próxima vez.
+
+Item real (origem: real):
+1. Só é real o item que está no caderno oficial. Banco de terceiros traz item "no molde" ou com procedência inventada:
+   o que não aparece no caderno vira autoral (origem: original), com a procedência anotada como não confirmada.
+2. O gabarito vem do definitivo da banca, conferido pelo número do item. No Cebraspe, a lista de arquivos de um
+   concurso sai em `https://apis.cebraspe.org.br/cebraspe/eventos/<EVENTO>` (ex.: `ANVISA_24`, `TCU_25_AUFC`,
+   `IRBR_26_DIPLOMACIA`; a lista de encerrados em `.../eventos/tipo/concursos/fase/encerrado`), e cada arquivo em
+   `https://cdn.cebraspe.org.br/concursos/<EVENTO>/arquivos/<nomeArquivo>`. Com `pdftotext -layout`, as linhas
+   "Item"/"Questão" e "Gabarito" dão o par número e resposta; o código do caderno (ex.: 956_ANVISA_CB1_01) está no PDF.
+3. Gabarito preliminar fica marcado como tal na linha `prova:` até sair o definitivo.
