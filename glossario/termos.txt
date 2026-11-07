@@ -436,7 +436,7 @@ def: Mandatos que vencem em datas diferentes, para que o colegiado se renove aos
 busca: mandatos não coincidentes agências reguladoras autonomia
 
 === Consequencialismo (LINDB)
-padroes: consequências práticas | valores jurídicos abstratos | consequencialismo
+padroes: consequências práticas | valores jurídicos abstratos | consequencialismo | LINDB, arts. 20 a 22
 def: Dever de considerar as consequências práticas da decisão e de não decidir com base apenas em valores jurídicos abstratos (LINDB, arts. 20 e 21, incluídos pela Lei 13.655/2018).
 busca: LINDB art. 20 consequências práticas valores jurídicos abstratos Lei 13.655
 
@@ -556,7 +556,7 @@ def: Microempresas, empresas de pequeno porte, startups, pessoas jurídicas de d
 busca: agente de tratamento de pequeno porte Resolução CD/ANPD 2/2022 regime diferenciado
 
 === Tratamento de alto risco
-padroes: tratamento de alto risco | tratamentos de alto risco
+padroes: tratamento de alto risco | tratamentos de alto risco | critérios gerais e específicos | alto risco no regulamento
 def: Na Res. CD/ANPD 2/2022, é o tratamento que reúne, cumulativamente, um critério geral (larga escala ou possibilidade de afetar significativamente interesses e direitos fundamentais) e um específico (tecnologias emergentes, vigilância de zonas acessíveis ao público, decisões só automatizadas, dados sensíveis ou de crianças, adolescentes e idosos) (art. 4º).
 busca: tratamento de alto risco Resolução 2/2022 critérios gerais e específicos ANPD
 
@@ -566,7 +566,7 @@ def: Averiguação preliminar da área de fiscalização da ANPD quando os indí
 busca: procedimento preparatório ANPD Resolução 1/2021 fiscalização averiguação preliminar
 
 === Termo de ajustamento de conduta (TAC)
-padroes: termo de ajustamento de conduta | termos de ajustamento de conduta
+padroes: termo de ajustamento de conduta | termos de ajustamento de conduta | TAC na ANPD
 def: Acordo proposto pelo autuado e deliberado pelo Conselho Diretor no processo sancionador da ANPD. O processo fica suspenso a partir da assinatura e é arquivado depois de verificado o cumprimento integral (Res. CD/ANPD 1/2021, art. 43).
 busca: termo de ajustamento de conduta ANPD processo sancionador Resolução 1/2021
 
@@ -924,3 +924,53 @@ busca: business intelligence business analytics descritiva diagnóstica preditiv
 padroes: NoSQL | orientado a documentos | orientados a documentos
 def: Guarda cada registro como documento autocontido, em geral JSON ou BSON, com esquema flexível: documentos da mesma coleção podem ter campos diferentes. Serve bem a dados semiestruturados lidos por inteiro (MongoDB é o exemplo clássico). Os outros tipos NoSQL são chave-valor, família de colunas e grafo.
 busca: NoSQL banco de dados de documentos MongoDB JSON esquema flexível chave-valor colunar grafo
+
+=== Contagem de prazos
+padroes: contagem de prazos | contagem dos prazos
+def: Na Lei 9.784/1999, os prazos começam a correr da cientificação oficial, excluído o dia do começo e incluído o do vencimento (art. 66), e são contínuos (art. 66, § 2º), prorrogando-se o vencimento para o primeiro dia útil se cair em dia sem expediente (§ 1º). No processo de fiscalização e sancionador da ANPD, a regra própria é outra: prazos contados em dias úteis, a partir da ciência oficial (Resolução CD/ANPD 1/2021, art. 8º).
+busca: contagem de prazos Lei 9.784 art. 66 dias corridos Resolução CD/ANPD 1/2021 art. 8º dias úteis
+
+=== Providências acauteladoras
+padroes: providências acauteladoras | medidas acautelatórias | medida acautelatória
+def: Em caso de risco iminente, a Administração pode, motivadamente, adotar providências acauteladoras sem ouvir antes o interessado (Lei 9.784/1999, art. 45). O contraditório fica diferido: a pessoa se manifesta depois. Na ANPD, a mesma lógica aparece nas medidas preventivas adotadas antes do procedimento em caso de risco iminente.
+busca: providências acauteladoras Lei 9.784 art. 45 risco iminente contraditório diferido
+
+=== Abuso do poder regulatório
+padroes: abuso do poder regulatório
+def: Lista de condutas vedadas à Administração ao regulamentar atividade econômica, salvo em estrito cumprimento de lei (Lei 13.874/2019, art. 4º): criar reserva de mercado, impedir a entrada de concorrentes, exigir especificação técnica desnecessária, redigir enunciados que impeçam ou retardem a inovação, aumentar custos sem demonstração de benefício, entre outras.
+busca: abuso do poder regulatório Lei de Liberdade Econômica 13.874 art. 4º
+
+=== Classificação das infrações (Resolução CD/ANPD 4/2023)
+padroes: infração é grave | infração leve | infração média | infrações leves | infrações médias | infrações graves
+def: Leve é a que não se enquadra como média nem grave. Média é a que pode afetar significativamente interesses e direitos fundamentais dos titulares. Grave é a média somada a pelo menos uma destas: larga escala, vantagem econômica, risco à vida, dados sensíveis ou de crianças, adolescentes ou idosos, tratamento sem hipótese legal, efeitos discriminatórios ilícitos ou abusivos, ou práticas irregulares sistemáticas; ou, sozinha, a obstrução à fiscalização (art. 8º).
+busca: Resolução CD/ANPD 4/2023 art. 8º infração leve média grave larga escala
+
+=== Ciclo de monitoramento da ANPD
+padroes: ciclo de monitoramento | Mapa de Temas Prioritários
+def: O Relatório de Ciclo de Monitoramento e o Mapa de Temas Prioritários são os instrumentos de monitoramento da fiscalização (Resolução CD/ANPD 1/2021, art. 19). O ciclo seria anual, mas o Conselho Diretor pode fixar prazo maior (parágrafo único), e a Resolução CD/ANPD 30/2025 o tornou bianual, com o biênio 2026-2027 (art. 2º).
+busca: ciclo de monitoramento ANPD Mapa de Temas Prioritários Resolução 30/2025 bianual
+
+=== Guarda de registros no Marco Civil
+padroes: registros de conexão | registros de acesso a aplicações | guarda de registros
+def: O administrador de sistema autônomo guarda os registros de conexão por 1 ano (MCI, art. 13); o provedor de aplicações constituído como pessoa jurídica, com atividade organizada, profissional e com fins econômicos, guarda os registros de acesso a aplicações por 6 meses (art. 15). Em ambos, sob sigilo e em ambiente controlado e seguro, e a entrega depende de ordem judicial.
+busca: Marco Civil da Internet guarda de registros de conexão 1 ano registros de acesso 6 meses arts. 13 15
+
+=== Prova emprestada
+padroes: prova emprestada
+def: Prova produzida em outro processo e trazida para o processo administrativo. O STJ a admite no processo disciplinar, desde que autorizada pelo juízo competente e respeitados o contraditório e a ampla defesa (Súmula 591). A parte contra quem ela é usada precisa ter tido chance de contestá-la.
+busca: prova emprestada processo administrativo Súmula 591 STJ contraditório
+
+=== Balanced Scorecard
+padroes: Balanced Scorecard | BSC
+def: Modelo de Kaplan e Norton que traduz a estratégia em objetivos e indicadores em quatro perspectivas: financeira, clientes, processos internos e aprendizado e crescimento, ligadas por relações de causa e efeito no mapa estratégico. No setor público, a perspectiva da sociedade ou do cidadão costuma ir para o topo, e a financeira vira meio.
+busca: Balanced Scorecard perspectivas mapa estratégico setor público Kaplan Norton
+
+=== Abordagem estatista × multicêntrica
+padroes: abordagem estatista | abordagem multicêntrica | estatista × multicêntrica
+def: Na estatista, só é política pública a que tem o Estado como protagonista. Na multicêntrica (defendida por Leonardo Secchi), o que define a política pública é o problema ser público, e ela pode nascer também de organizações privadas, ONGs e redes de atores.
+busca: abordagem estatista multicêntrica políticas públicas Secchi
+
+=== Mercados de dois lados
+padroes: mercados de dois lados | mercado de dois lados | preço zero
+def: Plataformas que atendem dois grupos que dependem um do outro (usuários e anunciantes, por exemplo), com efeitos de rede cruzados. Por isso um lado costuma ter preço zero, subsidiado pelo outro: o usuário “paga” com atenção e dados, o que leva a proteção de dados para dentro da análise concorrencial.
+busca: mercados de dois lados plataformas preço zero efeitos de rede dados concorrência
