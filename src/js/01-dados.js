@@ -1,6 +1,9 @@
 (async function () {
 'use strict';
 
+// O artifact chega sem lang no <html>: sem ele, leitor de tela e voz do navegador leem o português com pronúncia errada
+if (!document.documentElement.lang) document.documentElement.lang = 'pt-BR';
+
 // Fontes do Google pelo script, sem bloquear: como <link> no topo, o navegador só rodaria o painel depois de baixar o
 // CSS delas (no celular com rede lenta, a abertura esperava a rede). Até chegarem, vale a fonte de reserva.
 { const f = document.createElement('link'); f.rel = 'stylesheet'; f.href = 'https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap'; document.head.appendChild(f); }

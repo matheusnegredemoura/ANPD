@@ -306,6 +306,8 @@ button.alt{cursor:pointer;transition:border-color .15s}
 .art-btn .pontos i.no{background:var(--errado)}
 .art-btn .pontos i.nv{background:var(--line)}
 .art-btn.lido{background:var(--accent-2)}
+/* Artigo vetado ou revogado: apagado pela cor e pela borda tracejada, sem opacidade, para o número manter contraste de leitura */
+.art-btn.vetado{color:var(--ink-2);border-style:dashed;background:transparent}
 .texto-lei{font-family:var(--f-titulo);font-size:1.04rem;line-height:1.65;display:flex;flex-direction:column;gap:6px}
 .texto-lei p.caput{font-weight:500}
 .texto-lei p.inc{padding-left:18px}
@@ -382,7 +384,9 @@ button.alt{cursor:pointer;transition:border-color .15s}
 .dia-linha{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}
 .dia-linha:last-child{border-bottom:0}
 .dia-linha.hoje{background:var(--gold-bg);margin-inline:-10px;padding-inline:10px;border-radius:10px;border-bottom:0}
-.dia-linha.passado{opacity:.62}
+/* Dia passado: tom mais apagado pela cor, não por opacidade, para manter o contraste de leitura */
+.dia-linha.passado{color:var(--ink-2)}
+.dia-linha.passado :is(b,span,.selo){color:var(--ink-2)}
 .data-sel{flex:0 0 46px;text-align:center;font-family:var(--f-mono);border:1px solid var(--line);border-radius:8px;padding:5px 2px;background:var(--surface-2)}
 .data-sel b{display:block;font-size:1.05rem;font-variant-numeric:tabular-nums}
 .data-sel span{display:block;font-size:.62rem;color:var(--ink-2);text-transform:uppercase}
@@ -434,11 +438,14 @@ button.alt{cursor:pointer;transition:border-color .15s}
 .camadas{display:flex;flex-wrap:wrap;gap:6px}
 .camada{appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 10px;font-size:.78rem;font-weight:700;cursor:pointer;color:var(--ink-2);display:inline-flex;align-items:center;gap:6px}
 .camada i{width:14px;height:10px;border-radius:3px;display:inline-block}
-.camada[aria-pressed="false"]{opacity:.55;text-decoration:line-through}
+.camada[aria-pressed="false"]{border-style:dashed;background:transparent;text-decoration:line-through}
+.camada[aria-pressed="false"] i{opacity:.45}
 .g-cai{background:var(--mark);border-radius:3px}
 .g-erro{background:var(--errado-bg);box-shadow:inset 0 -2px 0 var(--errado);border-radius:3px}
 .g-num{font-weight:700;color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
 .g-alerta{color:var(--errado);font-weight:600;text-decoration:underline wavy;text-decoration-thickness:1px;text-underline-offset:3px}
+/* Alerta dentro de trecho que cai: o fundo marcado tira contraste do vermelho; o texto fica na cor normal e o sublinhado ondulado continua vermelho */
+.g-cai.g-alerta,.g-cai .g-alerta,.g-alerta .g-cai{color:inherit;text-decoration-color:var(--errado)}
 .g-verbo{font-style:italic;text-decoration:underline dotted;text-underline-offset:3px}
 .neg{font-weight:700;color:var(--ink)}
 .ref-dispo{font-family:var(--f-mono);font-size:.88em;color:var(--ink-2);white-space:nowrap}

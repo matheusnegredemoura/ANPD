@@ -386,7 +386,7 @@ function renderLei() {
       const est = estrelas(a.k);
       const dArt = diag.get(a.k);
       const termoCls = dArt.nivel === 'vermelho' ? ' termo-verm' : dArt.nivel === 'amarelo' ? ' termo-amar' : dArt.nivel === 'verde' ? ' termo-verd' : '';
-      html += '<button class="art-btn' + (S.perfil.lidos && S.perfil.lidos[a.k] ? ' lido' : '') + termoCls + '" data-acao="abrir-art" data-art="' + esc(a.k) + '"' + (vetado ? ' style="opacity:.5"' : '') + ' aria-label="' + esc(rotuloArt(a.k)) + '" title="' + esc(rotuloArt(a.k)) + (dArt.taxa != null ? ' · ' + dArt.taxa + '% acerto' : '') + '">' + esc(a.id) + (est ? '<span class="estrelas">' + '★'.repeat(est) + '</span>' : '') + '<span class="pontos">' + pontos + '</span></button>';
+      html += '<button class="art-btn' + (S.perfil.lidos && S.perfil.lidos[a.k] ? ' lido' : '') + termoCls + (vetado ? ' vetado' : '') + '" data-acao="abrir-art" data-art="' + esc(a.k) + '"' + ' aria-label="' + esc(rotuloArt(a.k)) + '" title="' + esc(rotuloArt(a.k)) + (dArt.taxa != null ? ' · ' + dArt.taxa + '% acerto' : '') + '">' + esc(a.id) + (est ? '<span class="estrelas">' + '★'.repeat(est) + '</span>' : '') + '<span class="pontos">' + pontos + '</span></button>';
     }
     if (aberto) html += '</div></div>';
   }

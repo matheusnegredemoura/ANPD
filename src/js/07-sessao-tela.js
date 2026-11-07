@@ -145,7 +145,7 @@ function renderSessao() {
 }
 function renderTira() {
   const atual = sessao.ids[sessao.i];
-  return '<div class="tira" aria-label="Folha de respostas">' + sessao.ids.map((id, k) => {
+  return '<div class="tira" role="group" aria-label="Folha de respostas">' + sessao.ids.map((id, k) => {
     const r = sessao.resp[id];
     let cls = '';
     if (sessao.modo === 'simulado') cls = r ? (r === BRANCO ? 'B' : 'R') : '';
