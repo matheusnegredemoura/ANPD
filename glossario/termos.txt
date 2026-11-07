@@ -111,7 +111,7 @@ def: Incorporar proteção de dados ao projeto do produto ou serviço desde o in
 busca: privacy by design privacy by default sete princípios Ann Cavoukian
 
 === Incidente de segurança
-padroes: incidente de segurança | incidentes de segurança | vazamento | vazamentos
+padroes: incidente de segurança | incidentes de segurança | vazamento | vazamentos | comunicação de incidente
 def: Evento que compromete a confidencialidade, integridade ou disponibilidade de dados pessoais. Se puder causar risco ou dano relevante, o controlador comunica à ANPD e ao titular (art. 48), no prazo fixado pela Resolução CD/ANPD 15/2024.
 busca: comunicação de incidente de segurança Resolução CD/ANPD 15/2024 prazo
 
@@ -176,7 +176,7 @@ def: Órgão da estrutura da ANPD (art. 55-C, II) com 23 representantes do poder
 busca: CNPD composição 23 membros competências art. 58-B
 
 === Sabatina
-padroes: aprovação pelo Senado Federal | aprovação do Senado | Senado Federal
+padroes: aprovação pelo Senado Federal | aprovação do Senado | Senado Federal | sabatina | sabatinado | sabatinados
 def: Aprovação prévia, pelo Senado, por voto secreto e após arguição pública, de autoridades que a lei indicar (CF, art. 52, III, f). Vale para os diretores da ANPD.
 busca: sabatina Senado art. 52 III f Constituição dirigentes agências
 
@@ -186,7 +186,7 @@ def: Impedimento temporário de atuar no setor regulado após deixar o cargo, pr
 busca: quarentena Lei 12.813/2013 art. 6º conflito de interesses porta giratória
 
 === Improbidade administrativa
-padroes: improbidade administrativa
+padroes: improbidade administrativa | Lei de Improbidade
 def: Ato ilícito de agente público que viola a probidade (Lei 8.429/1992, alterada pela Lei 14.230/2021). A violação da quarentena por ex-diretor da ANPD caracteriza improbidade (art. 55-F, parágrafo único).
 busca: improbidade administrativa Lei 8.429/1992 Lei 14.230/2021 dolo
 
@@ -201,7 +201,7 @@ def: Estudo prévio (ex ante) dos efeitos das alternativas regulatórias antes d
 busca: análise de impacto regulatório Decreto 10.411/2020 metodologias ARR
 
 === Consulta pública × audiência pública
-padroes: consulta pública | audiência pública | consulta e audiência públicas
+padroes: consulta pública | audiência pública | consulta e audiência públicas | consultas públicas | audiências públicas
 def: Consulta pública recebe contribuições por escrito sobre minuta de norma; audiência pública é sessão presencial ou virtual de debate oral. A LGPD exige ambas antes dos regulamentos da ANPD (art. 55-J, § 2º).
 busca: consulta pública audiência pública diferença Lei 13.848/2019 prazo
 
@@ -211,8 +211,8 @@ def: Situação em que o regulador passa a servir aos interesses dos regulados. 
 busca: teoria da captura Stigler 1971 captura regulatória tipos
 
 === Regulação responsiva
-padroes: regulação responsiva | pirâmide
-def: Modelo de Ayres e Braithwaite (1992): o regulador começa pela persuasão e orientação e só escala para sanções severas diante de descumprimento persistente.
+padroes: regulação responsiva | pirâmide | fiscalização responsiva
+def: Modelo de Ayres e Braithwaite (1992): o regulador começa pela persuasão e orientação e só escala para sanções severas diante de descumprimento persistente. A fiscalização da ANPD segue essa lógica: monitoramento, orientação, prevenção e, por último, repressão (Resolução CD/ANPD 1/2021, art. 15).
 busca: regulação responsiva Ayres Braithwaite pirâmide de enforcement
 
 === Sandbox regulatório
@@ -316,8 +316,8 @@ def: Pilares da segurança da informação: confidencialidade (só acessa quem p
 busca: tríade CID confidencialidade integridade disponibilidade exemplos
 
 === Criptografia assimétrica
-padroes: criptografia assimétrica | chave pública | chave privada
-def: Usa par de chaves: o que uma cifra, só a outra decifra. Cifrar com a chave pública do destinatário dá confidencialidade; assinar com a própria chave privada dá autenticidade e não repúdio.
+padroes: criptografia assimétrica | chave pública | chave privada | simétrica × assimétrica
+def: Usa par de chaves: o que uma cifra, só a outra decifra. Cifrar com a chave pública do destinatário dá confidencialidade; assinar com a própria chave privada dá autenticidade e não repúdio. Na simétrica, a mesma chave cifra e decifra: é mais rápida, mas exige combinar a chave em segredo (AES é o exemplo clássico).
 busca: criptografia simétrica assimétrica assinatura digital diferença
 
 === Hash
@@ -396,8 +396,8 @@ def: Atividade estatal que limita direitos individuais em favor do interesse pú
 busca: poder de polícia ciclo ordem consentimento fiscalização sanção delegação STF
 
 === Motivação
-padroes: motivação | motivados | fundamentado | fundamentação
-def: Indicação dos fatos e fundamentos jurídicos da decisão. É obrigatória em atos que neguem, limitem ou afetem direitos (Lei 9.784/1999, art. 50) e nas decisões das agências (Lei 13.848/2019, art. 5º).
+padroes: motivação | motivados | fundamentado | fundamentação | aliunde
+def: Indicação dos fatos e fundamentos jurídicos da decisão. É obrigatória em atos que neguem, limitem ou afetem direitos (Lei 9.784/1999, art. 50) e nas decisões das agências (Lei 13.848/2019, art. 5º). Pode ser aliunde: a decisão declara que concorda com parecer, informação ou proposta anterior, que passa a integrar o ato (Lei 9.784, art. 50, § 1º).
 busca: motivação dos atos administrativos art. 50 Lei 9.784 teoria dos motivos determinantes
 
 === Contraditório e ampla defesa
@@ -664,3 +664,63 @@ busca: administração direta e indireta diferença autarquia fundação empresa
 padroes: autodeterminação informativa
 def: O direito de cada pessoa decidir sobre o uso dos próprios dados: saber quem trata, para quê, e poder controlar esse uso. É fundamento da LGPD (art. 2º, II) e está na base do direito fundamental à proteção de dados (CF, art. 5º, LXXIX).
 busca: autodeterminação informativa LGPD fundamento STF ADI 6387
+
+=== Aplicação subsidiária × supletiva
+padroes: aplicação subsidiária | aplicação supletiva | supletiva e subsidiariamente
+def: Subsidiária: a lei geral entra quando a lei especial é omissa sobre o ponto. Supletiva: a lei geral completa uma disciplina especial que existe, mas é incompleta. A Lei 9.784/1999 vale para os processos administrativos com lei própria só subsidiariamente (art. 69), e o STJ admite aplicá-la a estados e municípios sem norma local sobre o tema (Súmula 633).
+busca: aplicação subsidiária supletiva Lei 9.784 art. 69 Súmula 633 STJ
+
+=== Escalonamento das sanções (art. 52, § 6º)
+padroes: escalonamento das sanções | incisos X a XII entraram no art. 52
+def: As três sanções mais duras do art. 52 da LGPD foram incluídas pela Lei 13.853/2019: suspensão parcial do banco de dados (X) e suspensão da atividade de tratamento (XI), ambas por até 6 meses prorrogáveis por igual período, e proibição parcial ou total de atividades de tratamento (XII). Só podem ser aplicadas depois de ao menos uma das sanções dos incisos II a VI no mesmo caso concreto (§ 6º, I), ouvidos os outros órgãos com poder sancionador sobre o controlador (§ 6º, II).
+busca: art. 52 § 6º LGPD suspensão banco de dados proibição tratamento gradação sanções
+
+=== Credit scoring
+padroes: credit scoring | score de crédito | pontuação de crédito
+def: Nota de risco de crédito calculada com dados do consumidor. Na LGPD, a proteção do crédito é base legal própria (art. 7º, X), e o titular pode pedir revisão da decisão tomada só por tratamento automatizado, inclusive a que define seu perfil de crédito (art. 20), e informações claras sobre os critérios (art. 20, § 1º). A proteção do crédito não está entre as hipóteses do art. 11 para dados sensíveis.
+busca: credit scoring LGPD proteção do crédito art. 7º X art. 20 cadastro positivo
+
+=== Dados em trânsito (art. 4º, IV)
+padroes: dados em trânsito
+def: A LGPD não se aplica a dados vindos de fora do Brasil que não sejam comunicados nem compartilhados com agentes de tratamento brasileiros nem transferidos a país diferente do de origem, desde que o país de origem dê proteção adequada (art. 4º, IV). Exemplo comum em prova: data center no Brasil que só hospeda dados de clientes estrangeiros.
+busca: LGPD art. 4º IV dados em trânsito data center exceção territorial
+
+=== Confirmação de existência × acesso
+padroes: confirmação de existência | confirmação da existência
+def: Confirmação de existência (art. 18, I) responde só se há tratamento de dados do titular; acesso (art. 18, II) entrega os próprios dados. Os dois saem, a pedido do titular, em formato simplificado e na hora, ou por declaração clara e completa (origem, critérios e finalidade) em até 15 dias do requerimento (art. 19).
+busca: LGPD art. 18 I II art. 19 confirmação de existência acesso prazo 15 dias
+
+=== Finalidade × adequação
+padroes: finalidade e adequação | finalidade × adequação | princípio da adequação
+def: Finalidade (art. 6º, I) olha para o propósito: legítimo, específico, explícito e informado ao titular, sem tratamento posterior incompatível. Adequação (art. 6º, II) olha para o tratamento: compatível com as finalidades informadas, de acordo com o contexto. A primeira fixa o porquê; a segunda confere se o que se faz bate com ele.
+busca: princípio da finalidade adequação LGPD art. 6º I II diferença
+
+=== Poder constituinte
+padroes: poder constituinte | constituinte originário | constituinte derivado | poder reformador
+def: Originário: cria a Constituição; é inicial, autônomo e incondicionado. Derivado: nasce da Constituição e é limitado por ela. Pode ser reformador (emendas, art. 60, com limites formais, circunstanciais e materiais, como as cláusulas pétreas), decorrente (constituições estaduais, art. 25 e ADCT, art. 11) ou revisor (revisão do ADCT, art. 3º, já feita e esgotada).
+busca: poder constituinte originário derivado reformador decorrente revisor
+
+=== Eficácia das normas constitucionais
+padroes: eficácia das normas constitucionais | eficácia plena | eficácia contida | eficácia limitada
+def: Classificação de José Afonso da Silva. Plena: produz todos os efeitos desde logo, sem depender de lei. Contida: produz efeitos desde logo, mas a lei pode restringi-los (ex.: liberdade de profissão, art. 5º, XIII). Limitada: precisa de lei para produzir os efeitos principais; inclui as de princípio institutivo e as programáticas.
+busca: eficácia plena contida limitada José Afonso da Silva normas programáticas
+
+=== Responsabilidade civil do Estado
+padroes: responsabilidade civil do Estado | responsabilidade objetiva do Estado | risco administrativo
+def: As pessoas jurídicas de direito público e as de direito privado prestadoras de serviço público respondem pelos danos que seus agentes, nessa qualidade, causarem a terceiros, sem prova de culpa (responsabilidade objetiva, teoria do risco administrativo), com regresso contra o agente que agiu com dolo ou culpa (CF, art. 37, § 6º). Culpa exclusiva da vítima, caso fortuito e força maior afastam o dever de indenizar; culpa concorrente o reduz.
+busca: responsabilidade civil do Estado art. 37 § 6º risco administrativo excludentes direito de regresso
+
+=== Agravantes e atenuantes (Resolução CD/ANPD 4/2023)
+padroes: agravantes e atenuantes | circunstâncias agravantes | circunstâncias atenuantes
+def: Incidem sobre o valor-base da multa simples (art. 14), e os percentuais se somam. Agravantes (art. 12): reincidência específica, 10% cada, até 40%; genérica, 5% cada, até 20%; medida de orientação ou preventiva descumprida, 20% cada, até 80%; medida corretiva descumprida, 30% cada, até 90%. Atenuantes (art. 13): cessação da infração, 75%, 50% ou 30% conforme o momento; boas práticas e governança, 20%; reversão ou mitigação dos efeitos, 20% ou 10%; cooperação ou boa-fé, 5%.
+busca: Resolução CD/ANPD 4/2023 dosimetria agravantes atenuantes percentuais
+
+=== Procuradoria Federal Especializada
+padroes: procuradoria federal | procuradorias federais | Procuradoria-Geral Federal
+def: Órgão de execução da Procuradoria-Geral Federal, vinculada à AGU, que atua junto a cada autarquia: representa a entidade em juízo e fora dele e presta consultoria e assessoramento jurídicos. Na ANPD, a Procuradoria está no art. 55-C, V-A, da LGPD e na Estrutura Regimental (Decreto 12.881/2026, Anexo I, art. 17).
+busca: Procuradoria Federal Especializada agência reguladora PGF AGU Lei 10.480
+
+=== Gestão estratégica e indicadores
+padroes: gestão estratégica | indicadores de desempenho
+def: A gestão estratégica traduz missão e visão em objetivos, metas e planos e acompanha a execução por indicadores. Os três mais cobrados: eficiência (recursos usados para o resultado obtido), eficácia (metas alcançadas) e efetividade (impacto real no problema que motivou a ação). Nas agências reguladoras, o plano estratégico é quadrienal e o plano de gestão, anual (Lei 13.848/2019, arts. 17 e 18).
+busca: gestão estratégica indicadores eficiência eficácia efetividade plano estratégico agência reguladora

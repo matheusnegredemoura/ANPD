@@ -32,7 +32,18 @@ const PERGUNTAS_GUIA = [
   'Com que conceito vizinho a banca costuma trocá-lo? Qual diferença decide o item?',
   'Monte um caso concreto, de preferência da atuação da ANPD, em que ele muda o resultado.',
 ];
-function glossDe(t) { return GLOSS.find((g) => g.t === t) || GLOSS.find((g) => g.re.test(t)) || null; }
+// Sem nome igual, vale o termo que aparece primeiro no tema e, no empate, o mais longo: em "Mandatos escalonados
+// e não coincidentes em agências reguladoras" o assunto é o mandato, não a agência reguladora do fim da frase
+function glossDe(t) {
+  const igual = GLOSS.find((g) => g.t === t);
+  if (igual) return igual;
+  let melhor = null, pos = Infinity, tam = 0;
+  for (const g of GLOSS) {
+    const m = g.re.exec(t);
+    if (m && (m.index < pos || (m.index === pos && m[0].length > tam))) { melhor = g; pos = m.index; tam = m[0].length; }
+  }
+  return melhor;
+}
 function regrasInv(inv) {
   const g = glossDe(inv.t);
   // O que é fixo vem primeiro e o tema por último, para o começo do pedido ser igual de um tema para outro
