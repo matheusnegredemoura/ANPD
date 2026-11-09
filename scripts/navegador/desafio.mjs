@@ -55,7 +55,9 @@ await passo('desafio: errados do tipo em que mais erra primeiro, certos e errado
   const base = Math.round(100 * sujeitoE.length / autorais.filter((q) => q.g === 'E').length);
   conferir('a sessão trouxe autorais inéditos', novosAut.length >= 8, novosAut.length + ' de ' + vistos.length);
   conferir('errados de sujeito trocado à frente', nE.length > 0 && sujeito / nE.length >= 0.5, sujeito + ' de ' + nE.length + ' (no banco, ' + base + '% dos errados) ' + nE.filter((q) => q.a !== 'sujeito').map((q) => q.id + ':' + q.a + ':' + q.b).join(' '));
-  conferir('certos e errados intercalados', Math.abs(nC - nE.length) <= 2, nC + ' certos, ' + nE.length + ' errados');
+  // Itens de um mesmo texto-base vêm juntos (emBlocosDeTexto), com o gabarito que o texto tiver: a intercalação se mede nos avulsos
+  const avulsos = novosAut.filter((q) => q.ap == null), aE = avulsos.filter((q) => q.g === 'E').length, aC = avulsos.length - aE;
+  conferir('certos e errados intercalados', Math.abs(aC - aE) <= 2, aC + ' certos, ' + aE + ' errados (avulsos)');
 });
 
 conferir('sem erro de página', !erros.length, erros.join(' | '));
