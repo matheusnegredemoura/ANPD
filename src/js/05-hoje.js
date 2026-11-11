@@ -311,7 +311,8 @@ function calcularPendencias() {
     const sessao = !S.perfil.feitos[dia.data] && dia.modo !== 'revisao' && !diaCompensado(dia);
     const ler = leituraAtrasadaDoDia(dia, lidos);
     const disc = !!dia.disc && !discFeita(dia);
-    if (sessao || ler.length || disc) out.push({ dia, sessao, ler, disc });
+    // Dia com as questões feitas e só leitura por fazer não conta como atraso (11/2026): a leitura segue na lei seca
+    if (sessao || disc) out.push({ dia, sessao, ler, disc });
   }
   return out;
 }
