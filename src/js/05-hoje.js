@@ -364,13 +364,15 @@ function notaForaDoAtraso() {
 function cartaoPendencias() {
   const p = pendencias();
   if (!p.length) {
-    const nota = notaForaDoAtraso();
+    const rcs = recomecosValidos(), ult = rcs[rcs.length - 1];
+    const nota = notaForaDoAtraso() + (ult ? '<p class="pequeno mudo">Plano recomeçado em ' + esc(fmtData(ult.para, { day: '2-digit', month: '2-digit' })) + ' (o que estava parado desde ' + esc(fmtData(ult.de, { day: '2-digit', month: '2-digit' })) + ' andou para a frente). <button class="btn pequeno" data-acao="recomeco-desfazer">Desfazer</button></p>' : '');
     return nota ? '<div class="cartao pendencias vazio"><div class="secao-cab"><h2>Atraso do plano</h2><span class="mono pequeno mudo">0</span></div><p class="pequeno mudo">Nada ficou para trás desde ' + esc(fmtData(inicioAtraso(), { day: '2-digit', month: '2-digit' })) + '.</p>' + nota + '</div>' : '';
   }
   const bs = blocosAtrasados(p), ler = leituraAtrasada(p), sims = p.filter((x) => x.sessao && x.dia.modo === 'simulado');
   const dias = p.filter((x) => x.sessao).length;
   let h = '<div class="cartao pendencias"><div class="secao-cab"><h2>Atraso do plano</h2><span class="mono pequeno mudo">' + p.length + '</span></div>' +
-    '<p class="pequeno mudo">Nada sai daqui sozinho: o dia só sai quando você estuda a matéria dele, por qualquer caminho, ou o dispensa.</p>';
+    '<p class="pequeno mudo">Nada sai daqui sozinho: o dia só sai quando você estuda a matéria dele, por qualquer caminho, ou o dispensa. Ficou dias sem estudar? Recomece amanhã: o que não foi feito anda para a frente, na mesma ordem.</p>' +
+    '<div class="linha-btns"><button class="btn pequeno" data-acao="recomecar">Recomeçar o plano amanhã</button></div>';
   if (bs.length) h += '<div class="atraso-materias">' + bs.slice(0, 6).map((x) => '<span class="chip-atraso">' + esc(nomeBloco(x.b)) + (x.dias > 1 ? ' <b>×' + x.dias + '</b>' : '') + '</span>').join('') + (bs.length > 6 ? '<span class="chip-atraso mais">+' + pl(bs.length - 6, 'matéria', 'matérias') + '</span>' : '') + '</div>' +
     '<div class="linha-btns">' + botaoRecuperar(p) + (ler.length ? '<button class="btn pequeno" data-acao="ler-atraso">Ler ' + Math.min(ler.length, LEITURA_MAX) + (ler.length > LEITURA_MAX ? ' de ' + ler.length : '') + (ler.length === 1 ? ' artigo' : ' artigos') + '</button>' : '') + '</div>';
   else if (ler.length) h += '<div class="linha-btns"><button class="btn pequeno primario" data-acao="ler-atraso">Ler ' + Math.min(ler.length, LEITURA_MAX) + (ler.length > LEITURA_MAX ? ' de ' + ler.length : '') + ' artigos atrasados</button></div>';

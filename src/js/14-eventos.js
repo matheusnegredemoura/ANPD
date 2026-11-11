@@ -315,6 +315,19 @@ async function executar(a, alvo) {
       avisar('✓', 'Plano encaixado até ' + fmtData(prova, { day: '2-digit', month: '2-digit' }), pl(r.cortes.length, 'semana saiu', 'semanas saíram') + ' do plano; o resto foi adiantado.');
       break;
     }
+    // Recomeço: o primeiro dia de questões ou simulado não feito nas últimas três semanas (até hoje) e tudo o que vem
+    // depois dele e não foi feito recomeçam amanhã (segunda, se amanhã for domingo)
+    case 'recomecar': {
+      const h = hojeISO(), am = isoDeNum(diaNum(h) + 1), para = diaSemana(am) === 0 ? isoDeNum(diaNum(am) + 1) : am, disp = S.perfil.dispensados || {};
+      const feito = (d) => !!(S.perfil.feitos[d.data] || disp[d.data] || (d.modo === 'treino' && diaCompensado(d)));
+      const ini = DIAS.find((d) => d.data >= isoDeNum(diaNum(h) - 21) && d.data <= h && d.modo !== 'revisao' && !feito(d));
+      if (!ini) { avisar('✓', 'Nada a recomeçar', 'Os dias recentes do plano estão em dia.'); break; }
+      (S.perfil.recomecos ||= []).push({ de: ini.data, para, em: h, pular: DIAS.filter((d) => d.data >= ini.data && d.data <= h && feito(d)).map((d) => d.data) });
+      Store.salvar('perfil'); aplicarPlano(); renderTudo();
+      avisar('✓', 'O plano recomeça ' + fmtData(para, { weekday: 'short', day: '2-digit', month: '2-digit' }), 'O que estava parado desde ' + fmtData(ini.data, { day: '2-digit', month: '2-digit' }) + ' andou para a frente, na mesma ordem. Dá para desfazer no cartão do atraso.');
+      break;
+    }
+    case 'recomeco-desfazer': (S.perfil.recomecos || []).pop(); Store.salvar('perfil'); aplicarPlano(); renderTudo(); avisar('✓', 'Recomeço desfeito', 'O plano voltou às datas anteriores.'); break;
     case 'plano-original': S.perfil.encaixe = null; Store.salvar('perfil'); renderTudo(); avisar('✓', 'Plano original', 'O cronograma voltou a ser o da projeção.'); break;
     case 'backup-baixar': {
       const r = await salvarArquivo('painel-anpd-backup-' + hojeISO() + '.json', backupTexto());

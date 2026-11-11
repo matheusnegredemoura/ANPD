@@ -155,13 +155,39 @@ function encaixarPlano(prova, desde, cortes) {
   const cortada = (w) => w.s.titulo + ' (' + w.s.periodo + ')' + (w.novo ? ', com conteúdo novo' : '') + (w.sim ? ', com simulado' : '');
   return { fases, cortes: ordem.map((w) => w.ini), cortadas: ordem.map(cortada), novo: ordem.some((w) => w.novo), simulados: ordem.reduce((a, w) => a + w.sim, 0), curto: !Array.isArray(cortes) && cand.length < falta };
 }
+// Recomeço (11/2026): depois de dias sem estudo, o que não foi feito desde o primeiro dia de questões pendente anda
+// para a frente e recomeça na data marcada, na mesma ordem, de segunda a sábado (fora 25/12 e 1º/1). O que já foi feito
+// fica onde estava. Os recomeços se aplicam em sequência, cada um sobre o plano deixado pelo anterior.
+const ISO_RE = /^\d{4}-\d{2}-\d{2}$/;
+function recomecosValidos() { return (S.perfil.recomecos || []).filter((x) => x && ISO_RE.test(x.de) && ISO_RE.test(x.para) && x.para > x.de); }
+function recomecarFases(fases, rc) {
+  const pular = new Set(rc.pular || []), dm = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit' });
+  const fs = fases.map((f) => Object.assign({}, f, { semanas: f.semanas.map((s) => Object.assign({}, s, { dias: s.dias.map((d) => Object.assign({}, d)) })) }));
+  const mov = fs.flatMap((f) => f.semanas.flatMap((s) => s.dias)).filter((d) => d.data >= rc.de && !pular.has(d.data)).sort((a, b) => (a.data < b.data ? -1 : 1));
+  let n = diaNum(rc.para);
+  for (const d of mov) {
+    while (diaSemana(isoDeNum(n)) === 0 || /-(12-25|01-01)$/.test(isoDeNum(n))) n++;
+    const nova = isoDeNum(n++);
+    if (nova !== d.data && /natal|ano-novo/i.test(d.atividade)) d.atividade = 'Revisão leve: o que venceu na revisão espaçada e o que ficou para trás';
+    d.data = nova;
+  }
+  for (const f of fs) {
+    for (const s of f.semanas) { s.dias.sort((a, b) => (a.data < b.data ? -1 : 1)); if (s.dias.length) s.periodo = dm(s.dias[0].data) + ' a ' + dm(s.dias[s.dias.length - 1].data); }
+    const ds = f.semanas.flatMap((s) => s.dias).sort((a, b) => (a.data < b.data ? -1 : 1));
+    if (ds.length) f.periodo = dm(ds[0].data) + ' a ' + dm(ds[ds.length - 1].data);
+  }
+  return fs;
+}
 let PLANO_CHAVE = '';
 function aplicarPlano() {
-  const e = encaixeValido(S.perfil.encaixe), chave = e ? e.prova + '|' + e.desde + '|' + (e.cortes || []).join(',') : '';
+  const e = encaixeValido(S.perfil.encaixe), rcs = recomecosValidos();
+  const chave = (e ? e.prova + '|' + e.desde + '|' + (e.cortes || []).join(',') : '') + '#' + rcs.map((x) => x.de + '>' + x.para).join(';');
   if (chave === PLANO_CHAVE) return;
   PLANO_CHAVE = chave;
   const r = e ? encaixarPlano(e.prova, e.desde, e.cortes) : null;
-  D.cronograma.fases = r ? r.fases : FASES_BASE;
+  let fases = r ? r.fases : FASES_BASE;
+  for (const rc of rcs) fases = recomecarFases(fases, rc);
+  D.cronograma.fases = fases;
   montarDias();
 }
 
