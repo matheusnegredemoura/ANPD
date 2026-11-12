@@ -1,0 +1,500 @@
+bloco: seginfo
+// Itens reais de múltipla escolha de segurança da informação (Cebraspe, provas de 2025 e 2026). Enunciado e
+// alternativas na ordem da prova; o gabarito de cada questão foi conferido, em 12/11/2026, no gabarito definitivo do
+// mesmo caderno. Ficou de fora uma questão cujo gabarito troca confidencialidade por confiabilidade. Comentários
+// escritos para o banco.
+
+=== rv-q35
+gab: E
+origem: real
+prova: Cebraspe · TCE-MS (edital 2025) · cargo 5 · questão 57 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 1
+enunciado: No que concerne aos dispositivos de segurança, assinale a opção correta.
+alt: A | O firewall local, no host, substitui a necessidade de proxies, IDS e IPS, já que é suficiente, por si mesmo, para prover segurança completa em uma rede corporativa.
+alt: B | O IPS (intrusion prevention system) apenas registra tentativas de ataque, sem possibilidade de reação em tempo real.
+alt: C | O proxy garante a confidencialidade do tráfego entre usuários e servidores, pois utiliza exclusivamente criptografia de ponta a ponta.
+alt: D | O firewall tem como função principal analisar o conteúdo de mensagens de email para identificar vírus e removê-los automaticamente.
+alt: E | O IDS (intrusion detection system) monitora o tráfego de rede para identificar padrões suspeitos ou maliciosos.
+comentario: Letra E. O IDS monitora o tráfego e alerta sobre padrões suspeitos; o IPS vai além e bloqueia em tempo real. Firewall filtra tráfego por regras (não é antivírus de e-mail), proxy intermedeia conexões sem garantir cifra de ponta a ponta, e nenhum dispositivo sozinho dá segurança completa.
+
+=== rv-q36
+gab: D
+origem: real
+prova: Cebraspe · TCE-MS (edital 2025) · cargo 5 · questão 51 · gabarito definitivo conferido
+ref: doutrina segurança física e lógica
+armadilha: conceito
+dif: 2
+enunciado: Considerando os conceitos de segurança física e segurança lógica, assinale a opção em que são apresentadas medidas que correspondem à aplicação simultânea desses dois tipos de segurança.
+alt: A | implementação de backups diários em nuvem pública e criptografia dos dados antes da transmissão
+alt: B | utilização de senhas complexas e renovação periódica dos patches de segurança dos servidores
+alt: C | reforço da estrutura predial contra incêndios e instalação de nobreaks que mantenham os servidores ativos em caso de falha elétrica
+alt: D | instalação de câmeras de vigilância nos corredores e restrição do acesso a áreas sensíveis por meio de autenticação biométrica integrada ao controle de login do sistema
+alt: E | implementação de um firewall de última geração e monitoramento da rede por meio de sistemas de detecção de intrusos (IDS)
+comentario: Letra D. Câmeras e restrição de acesso a áreas sensíveis são segurança física; a biometria integrada ao login do sistema é segurança lógica. As outras opções ficam em um só campo: A, B e E são lógicas; C é física.
+
+=== rv-q37
+gab: C
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 2 · questão 93 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: conceito
+dif: 1
+enunciado: Um servidor web de uma instituição pública recebeu um fluxo massivo e coordenado de dados, proveniente de milhares de computadores infectados geograficamente distribuídos, o que resultou na indisponibilidade total do serviço. A modalidade de ataque descrita na situação hipotética apresentada é denominada
+alt: A | brute force.
+alt: B | port scanning.
+alt: C | DDoS.
+alt: D | phishing.
+alt: E | eavesdropping.
+comentario: Letra C. Fluxo massivo e coordenado, vindo de milhares de máquinas infectadas (botnet), que derruba o serviço: negação de serviço distribuída (DDoS). O alvo é a disponibilidade.
+
+=== rv-q38
+gab: A
+origem: real
+prova: Cebraspe · TCE-MS (edital 2025) · cargo 5 · questão 53 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: conceito
+dif: 2
+enunciado: No que se refere a phishing, pharming e hoax, assinale a opção correta.
+alt: A | O phishing caracteriza-se pelo envio de mensagens enganosas que simulam comunicações legítimas para a obtenção de dados confidenciais do usuário.
+alt: B | O pharming é um golpe baseado em correntes de email que disseminam boatos ou informações falsas para enganar o usuário.
+alt: C | O hoax consiste na captura de senhas e dados bancários por meio de formulários fraudulentos em sites clonados.
+alt: D | No furto de identidade, criminosos criam sites falsos que redirecionam o usuário para páginas aparentemente legítimas a fim de capturar credenciais de acesso.
+alt: E | Na fraude de antecipação de recursos, a vítima é induzida a fornecer informações pessoais em troca de supostos prêmios inexistentes.
+comentario: Letra A. Phishing: mensagem que imita comunicação legítima para obter dados. Pharming redireciona o usuário para site falso (em geral, por DNS adulterado); hoax é boato; a descrição da letra D é de pharming, não de furto de identidade; e na fraude de antecipação de recursos a vítima paga adiantado por um benefício que não existe.
+
+=== rv-q39
+gab: B
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 8 · questão 65 · gabarito definitivo conferido
+ref: doutrina gestão de segurança da informação
+armadilha: conceito
+dif: 1
+enunciado: Se, ao estruturar seu programa de segurança da informação, uma empresa decidir integrar gestão de riscos, controles técnicos, políticas internas e requisitos da LGPD, essa decisão reforçará a
+alt: A | eliminação da dependência de pessoas nos processos de segurança.
+alt: B | abordagem da segurança como processo contínuo, multidisciplinar e alinhado ao negócio.
+alt: C | substituição da governança corporativa por normas técnicas.
+alt: D | centralização da segurança exclusivamente na área de TI.
+alt: E | abordagem da segurança como ciência exata e previsível.
+comentario: Letra B. Integrar riscos, controles técnicos, políticas e requisitos legais trata a segurança como processo contínuo, multidisciplinar e alinhado ao negócio. Ela não elimina o fator humano nem se resume à área de TI.
+
+=== rv-q40
+gab: C
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 8 · questão 64 · gabarito definitivo conferido
+ref: doutrina gestão de segurança da informação
+armadilha: conceito
+dif: 2
+enunciado: Determinada organização tem documentação completa de políticas de segurança, alinhadas às normas ISO e à LGPD, mas não realiza treinamento, monitoramento contínuo nem testes de controles. Essa situação hipotética, segundo a abordagem de Sêmola, evidencia
+alt: A | eliminação das vulnerabilidades humanas.
+alt: B | nível elevado de maturidade em segurança da informação.
+alt: C | abordagem de segurança da informação baseada apenas em conformidade formal.
+alt: D | atendimento pleno ao princípio da accountability da LGPD.
+alt: E | redução automática do risco organizacional.
+comentario: Letra C. Política no papel, sem treinamento, monitoramento nem teste de controles, é conformidade apenas formal: não reduz o risco nem demonstra a eficácia das medidas, que é o que a responsabilização e prestação de contas da LGPD exige (art. 6º, X).
+
+=== rv-q41
+gab: E
+origem: real
+prova: Cebraspe · Banrisul (edital 2025) · conhecimentos específicos · questão 43 · gabarito definitivo conferido
+ref: doutrina redes sem fio
+armadilha: conceito
+dif: 2
+enunciado: Considerando os protocolos de segurança empregados nas redes sem fio que utilizam o padrão IEEE 802.11, assinale a opção correta.
+alt: A | As redes cabeadas não utilizam mecanismos de autenticação e criptografia em seus dispositivos, pois são naturalmente seguras.
+alt: B | O WEP é mais seguro que o WPA2, pois utiliza chaves criptográficas estáticas que não se alteram durante a conexão.
+alt: C | O protocolo IEEE 802.1x é utilizado exclusivamente em redes cabeadas, não se aplicando a redes sem fio.
+alt: D | O EAP é um método de criptografia usado exclusivamente para proteger dados transmitidos via rede sem fio.
+alt: E | O WPA2, ao contrário do WEP, oferece autenticação robusta e criptografia forte baseada no protocolo AES.
+comentario: Letra E. O WPA2 usa AES (CCMP) e autenticação robusta; o WEP, com RC4 e chaves estáticas, é inseguro. O 802.1X vale para redes cabeadas e sem fio, e o EAP é um arcabouço de autenticação, não um método de criptografia.
+
+=== rv-q42
+gab: A
+origem: real
+prova: Cebraspe · UNIVESP (edital 2025) · conhecimentos específicos · questão 32 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 2
+enunciado: Assinale a opção em que é corretamente apresentado um algoritmo de criptografia que utiliza cifra de fluxo.
+alt: A | CHACHA20
+alt: B | 3DES
+alt: C | RSA
+alt: D | AES
+alt: E | SHA256
+comentario: Letra A. ChaCha20 é cifra de fluxo. 3DES e AES são cifras de bloco, RSA é algoritmo assimétrico e SHA-256 é função de resumo (hash).
+
+=== rv-q43
+gab: A
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 2 · questão 84 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27001
+armadilha: conceito
+dif: 2
+enunciado: Conforme os fundamentos da NBR ISO/IEC 27001:2013, a política de segurança da informação cumpre adequadamente seu papel quando
+alt: A | estabelece diretrizes gerais alinhadas aos objetivos organizacionais e define responsabilidades relacionadas à segurança da informação.
+alt: B | é elaborada exclusivamente para atender exigências formais de auditoria, dispensando ampla divulgação interna.
+alt: C | permanece inalterada ao longo do tempo, independentemente de mudanças no contexto organizacional ou nos riscos associados à informação.
+alt: D | define regras técnicas de segurança, sendo sua aplicação delegada exclusivamente à área de tecnologia da informação.
+alt: E | descreve de forma detalhada procedimentos operacionais e controles técnicos específicos para todos os sistemas da organização.
+comentario: Letra A. A política de segurança da informação dá diretrizes gerais alinhadas aos objetivos da organização e define responsabilidades. Deve ser comunicada, revista quando o contexto muda e vale para toda a organização; procedimentos detalhados ficam em documentos próprios.
+
+=== rv-q44
+gab: D
+origem: real
+prova: Cebraspe · TCE-MS (edital 2025) · cargo 5 · questão 43 · gabarito definitivo conferido
+ref: doutrina backup
+armadilha: conceito
+dif: 1
+enunciado: Considerando o contexto das práticas de segurança da informação em órgãos públicos, assinale a opção correta acerca de procedimentos de segurança, pragas virtuais, aplicativos de proteção, backup e armazenamento em nuvem.
+alt: A | Firewalls são projetados exclusivamente para filtrar tráfego de rede em servidores, não possuindo aplicação em estações de trabalho.
+alt: B | Ransomware é um tipo de worm que utiliza exclusivamente falhas de hardware para se propagar e criptografar dados.
+alt: C | Rootkits são utilizados para impedir a propagação de worms, pois reforçam o sistema operacional com mecanismos nativos de defesa.
+alt: D | O modelo 3-2-1 de backup recomenda que sejam feitas três cópias dos dados, em dois tipos diferentes de mídia, estando pelo menos uma dessas cópias fora do ambiente físico principal.
+alt: E | Antivírus e antispywares modernos utilizam apenas assinaturas estáticas para detectar ameaças, o que limita sua eficácia contra malwares desconhecidos.
+comentario: Letra D. Regra 3-2-1: três cópias, em dois tipos de mídia, uma fora do local principal. Firewall também protege estações (firewall pessoal); ransomware não é worm nem depende de falha de hardware; rootkit esconde o invasor; e antimalware moderno combina assinaturas com heurística e análise de comportamento.
+
+=== rv-q45
+gab: E
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 8 · questão 63 · gabarito definitivo conferido
+ref: doutrina segurança da informação
+armadilha: conceito
+dif: 1
+enunciado: Considere que, em determinado órgão público, tenha-se identificado que os servidores utilizavam senhas fracas, sem que houvesse registro de acesso indevido ou dano às informações. Essa situação, segundo os conceitos de segurança da informação, caracteriza
+alt: A | um risco inexistente, por ausência de dano.
+alt: B | um incidente de segurança da informação.
+alt: C | um impacto operacional já materializado.
+alt: D | uma ameaça externa concretizada.
+alt: E | uma vulnerabilidade ainda não explorada.
+comentario: Letra E. Senha fraca é uma fraqueza que pode ser explorada: vulnerabilidade. Sem exploração, não há incidente nem impacto, mas o risco existe, porque há ameaça capaz de explorá-la.
+
+=== rv-q46
+gab: B
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 8 · questão 56 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 1
+enunciado: Suponha que, em um centro de operações de segurança, tenham sido implantadas soluções para detectar tentativas de intrusão, bloquear ataques automaticamente e correlacionar eventos de múltiplas fontes. Considerando esse caso hipotético, assinale a opção em que estão corretamente descritas as associações entre as tecnologias necessárias para a implantação das soluções em apreço e suas funções.
+alt: A | Antivírus centraliza logs, IDS protege túneis e IPS valida certificados.
+alt: B | IDS detecta intrusões, IPS atua na prevenção e SIEM realiza correlação de eventos.
+alt: C | IPS correlaciona eventos, SIEM bloqueia tráfego e IDS autentica usuários.
+alt: D | VPN detecta ataques, firewall correlaciona eventos e SIEM previne intrusões.
+alt: E | Firewall detecta intrusões, IDS bloqueia ataques e SIEM cifra logs.
+comentario: Letra B. IDS detecta, IPS previne (bloqueia em linha) e SIEM centraliza e correlaciona eventos de várias fontes.
+
+=== rv-q47
+gab: A
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 2 · questão 94 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: Na criptografia de chave pública, as entidades utilizam pares de chaves matematicamente relacionados. Para que um remetente consiga enviar uma mensagem cifrada garantindo que apenas o destinatário pretendido possa realizar a leitura do conteúdo original, o remetente deve realizar a cifragem utilizando a chave
+alt: A | pública do destinatário.
+alt: B | privada do destinatário.
+alt: C | pública do remetente.
+alt: D | privada do remetente.
+alt: E | simétrica de sessão.
+comentario: Letra A. Para sigilo, cifra-se com a chave pública do destinatário: só a chave privada dele decifra. Cifrar com a chave privada do remetente serve para assinar, não para esconder o conteúdo.
+
+=== rv-q48
+gab: A
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 11 · questão 59 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: O método de criptografia que utiliza uma mesma chave na origem e no destino para codificar e decodificar mensagens é denominado
+alt: A | criptografia simétrica.
+alt: B | criptografia de curvas elípticas.
+alt: C | criptografia híbrida.
+alt: D | criptografia de chaves públicas.
+alt: E | função hash.
+comentario: Letra A. Mesma chave para cifrar e decifrar: criptografia simétrica (AES, 3DES). A de chaves públicas usa um par de chaves; a híbrida combina as duas; hash não cifra, resume.
+
+=== rv-q49
+gab: D
+origem: real
+prova: Cebraspe · CGM de Porto Velho (edital 2026) · cargo 3 · questão 35 · gabarito definitivo conferido
+ref: doutrina gestão de riscos
+armadilha: conceito
+dif: 2
+enunciado: É diretamente relacionada à gestão de riscos de segurança da informação nas organizações a identificação de ameaça relativa
+alt: A | a conflitos de interesse decorrentes da segregação inapropriada de funções e atividades entre os integrantes da organização.
+alt: B | à inobservância de regras que delimitam a atuação do setor e ao descumprimento de normativos internos da organização.
+alt: C | à ausência de controle financeiro, à presença de operações sem lastro, à ausência de fluxo de caixa adequado e ao endividamento exagerado.
+alt: D | a vulnerabilidades dos ativos da organização, capazes de comprometer a confidencialidade, integridade e disponibilidade de suas informações.
+alt: E | a fraudes, extrapolação de autoridade dos empregados, desempenho insatisfatório, incêndios e crises sistêmicas.
+comentario: Letra D. Risco de segurança da informação é a possibilidade de uma ameaça explorar vulnerabilidades de ativos e comprometer confidencialidade, integridade e disponibilidade. As outras opções descrevem riscos de integridade, de conformidade, financeiros e operacionais.
+
+=== rv-q50
+gab: E
+origem: real
+prova: Cebraspe · IPAAM (edital 2025) · cargo 2 · questão 66 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27002:2022
+armadilha: conceito
+dif: 1
+enunciado: Assinale a opção que descreve corretamente uma prática recomendada pela ISO 27002 para segurança da informação.
+alt: A | realizar treinamentos apenas no momento da admissão de colaboradores
+alt: B | restringir treinamentos a áreas técnicas
+alt: C | focar treinamentos apenas caso aconteçam incidentes
+alt: D | tratar conscientização como atividade opcional
+alt: E | oferecer conscientização contínua em segurança da informação
+comentario: Letra E. A norma recomenda conscientização, educação e treinamento contínuos em segurança da informação para todo o pessoal, não só na admissão, nem só para áreas técnicas ou depois de incidentes.
+
+=== rv-q51
+gab: E
+origem: real
+prova: Cebraspe · TCE-MS (edital 2025) · cargo 5 · questão 59 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27001
+armadilha: conceito
+dif: 1
+enunciado: A respeito das normas técnicas ABNT NBR ISO/IEC 27001 e ABNT NBR ISO/IEC 27002, assinale a opção correta.
+alt: A | Ambas as normas aplicam-se obrigatoriamente a todas as instituições educacionais brasileiras.
+alt: B | A ABNT NBR ISO/IEC 27002 substitui a necessidade de outras normas de gestão de riscos em TI; a aplicação da ABNT NBR ISO/IEC 27001 é obrigatória apenas para universidades públicas.
+alt: C | A ABNT NBR ISO/IEC 27001 trata de criptografia de dados acadêmicos; a ABNT NBR ISO/IEC 27002 foca auditoria financeira.
+alt: D | A ABNT NBR ISO/IEC 27001 define controles técnicos de segurança da informação; a ABNT NBR ISO/IEC 27002 trata exclusivamente da gestão da qualidade em instituições educacionais.
+alt: E | A norma ABNT NBR ISO/IEC 27002 fornece diretrizes de boas práticas de proteção de ativos de informação.
+comentario: Letra E. A ISO/IEC 27002 traz diretrizes e boas práticas para os controles de segurança da informação. A ISO/IEC 27001 define os requisitos do sistema de gestão (SGSI), contra os quais se certifica. Nenhuma delas é obrigatória por lei.
+
+=== rv-q52
+gab: A
+origem: real
+prova: Cebraspe · Banrisul (edital 2025) · conhecimentos específicos · questão 73 · gabarito definitivo conferido
+ref: doutrina segurança em nuvem
+armadilha: conceito
+dif: 1
+enunciado: Um dos principais desafios para empresas que utilizam serviços baseados na nuvem é a segurança dos dados. Uma estratégia eficaz para a mitigação de riscos consiste em
+alt: A | implementar autenticação multifator, criptografia de dados e monitoramento contínuo, para a proteção contra acessos não autorizados.
+alt: B | utilizar eventualmente um único fator de autenticação, para facilitar o acesso dos usuários.
+alt: C | manter os dados em servidores locais, para evitar a necessidade de criptografia na nuvem.
+alt: D | compartilhar credenciais administrativas entre múltiplos usuários, para garantir rapidez ao gerenciamento.
+alt: E | evitar ferramentas de monitoramento de segurança, pois sua utilização pode impactar o desempenho da infraestrutura em nuvem.
+comentario: Letra A. Autenticação multifator, criptografia e monitoramento contínuo são as medidas básicas na nuvem, onde a responsabilidade é compartilhada entre provedor e cliente. Compartilhar credenciais e dispensar monitoramento aumentam o risco.
+
+=== rv-q53
+gab: C
+origem: real
+prova: Cebraspe · Prefeitura de Boa Vista (edital 2025) · conhecimentos gerais (cargos 1 a 44) · questão 39 · gabarito definitivo conferido
+ref: doutrina backup
+armadilha: conceito
+dif: 1
+enunciado: Com o objetivo de proteger os dados corporativos armazenados em servidores na nuvem, um analista de sistemas decidiu implementar uma rotina automatizada que copiasse periodicamente os dados para outro ambiente seguro. Nesse caso, o analista utilizou-se de uma prática conhecida como
+alt: A | controle de acesso.
+alt: B | firewall de perímetro.
+alt: C | backup.
+alt: D | criptografia de dados.
+alt: E | espelhamento de disco.
+comentario: Letra C. Copiar os dados periodicamente para outro ambiente seguro é backup. Espelhamento replica em tempo real e não protege contra exclusão ou corrupção: o erro é copiado junto.
+
+=== rv-q54
+gab: A
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 8 · questão 59 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 2
+enunciado: Considere um sistema de troca segura de informações em que um usuário utiliza a chave pública do destinatário para cifrar uma mensagem enviada pela rede. Nesse modelo de criptografia,
+alt: A | a confidencialidade é garantida porque apenas o destinatário possui a chave privada correspondente.
+alt: B | o mesmo par de chaves é utilizado para cifrar grandes volumes de dados.
+alt: C | a necessidade de algoritmos simétricos é eliminada.
+alt: D | a chave pública deve ser mantida em sigilo absoluto.
+alt: E | a integridade da mensagem é assegurada automaticamente pela criptografia.
+comentario: Letra A. Só o destinatário tem a chave privada que decifra: confidencialidade. A chave pública é divulgada livremente; o modelo é lento para grandes volumes, por isso se combina com simétrica; e integridade exige hash ou assinatura.
+
+=== rv-q55
+gab: D
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 8 · questão 58 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: Considere que, para a transmissão de grandes volumes de dados sensíveis entre servidores de um tribunal, tenha-se optado por utilizar um algoritmo criptográfico que oferecesse alta eficiência computacional e baixo custo de processamento. Nessa situação, o tipo de criptografia mais adequado para atender à finalidade pretendida é a
+alt: A | esteganografia, que oculta a existência da informação.
+alt: B | assinatura digital, que protege o conteúdo contra acesso indevido.
+alt: C | função de hash criptográfica, que assegura confidencialidade dos dados.
+alt: D | criptografia simétrica, em razão do uso de uma única chave compartilhada.
+alt: E | criptografia assimétrica, devido à inexistência de chaves secretas.
+comentario: Letra D. Para grandes volumes, a criptografia simétrica é muito mais rápida. A assimétrica entra para trocar a chave de sessão. Hash e assinatura não dão confidencialidade, e esteganografia apenas esconde a existência da mensagem.
+
+=== rv-q56
+gab: E
+origem: real
+prova: Cebraspe · CGM de Porto Velho (edital 2026) · cargo 3 · questão 72 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: No âmbito da segurança da informação, as funções de criptografia unidirecional, também denominadas funções hash, executam cálculos de natureza matemática irreversível sobre um conjunto de dados. Considerando-se as propriedades operacionais desse mecanismo, é correto afirmar que o processo de verificação e comparação dos valores numéricos gerados visa garantir a
+alt: A | disponibilidade das credenciais de acesso no servidor.
+alt: B | irretratabilidade da mensagem enviada pelo remetente.
+alt: C | reversibilidade do dado original por usuários administradores.
+alt: D | confidencialidade do canal de comunicação.
+alt: E | integridade do dado transmitido ou armazenado.
+comentario: Letra E. Comparar o hash calculado com o hash de referência mostra se o dado foi alterado: integridade. Sozinho, o hash não dá confidencialidade nem não repúdio (para isso, assinatura digital), e não é reversível.
+
+=== rv-q57
+gab: E
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 8 · questão 60 · gabarito definitivo conferido
+ref: doutrina certificação digital
+armadilha: conceito
+dif: 1
+enunciado: Se um documento eletrônico for assinado digitalmente e validado por meio de um certificado emitido por uma autoridade certificadora confiável, esse procedimento assegurará que o documento
+alt: A | impeça qualquer forma de acesso não autorizado ao sistema.
+alt: B | esteja protegido contra a hipótese de indisponibilidade do sistema.
+alt: C | utilize exclusivamente criptografia simétrica.
+alt: D | permaneça confidencial durante todo o seu ciclo de vida.
+alt: E | mantenha os atributos de integridade, autenticidade do autor e não repúdio.
+comentario: Letra E. A assinatura digital com certificado válido garante integridade, autenticidade e não repúdio. Não garante confidencialidade (o documento assinado continua legível) nem disponibilidade.
+
+=== rv-q58
+gab: E
+origem: real
+prova: Cebraspe · TCE-MS (edital 2025) · cargo 5 · questão 56 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 2
+enunciado: Assinale a opção correta no que diz respeito às VPN (virtual private networks).
+alt: A | As VPN IPSec operam apenas no modo transporte e garante a segurança de cabeçalhos e payloads embora não permita tunelamento entre redes inteiras.
+alt: B | Uma VPN de acesso remoto garante a confidencialidade apenas se a rede do usuário final for segura, pois não utiliza protocolos de criptografia para proteger o tráfego de dados.
+alt: C | O uso de VPN substitui totalmente a necessidade de firewalls, já que o túnel criptografado estabelecido por ela impede qualquer ataque externo.
+alt: D | As VPN baseadas em SSL/TLS são restritas ao transporte de tráfego de email corporativo, não suportando aplicações web.
+alt: E | A VPN do tipo site-to-site estabelece túneis criptografados entre redes distintas, sendo frequentemente utilizada para conectar filiais de uma mesma organização.
+comentario: Letra E. VPN site a site liga redes inteiras, como matriz e filiais, por túnel cifrado. O IPsec tem modos transporte e túnel; VPN de acesso remoto cifra o tráfego; VPN não substitui firewall; e a VPN SSL/TLS atende aplicações web em geral.
+
+=== rv-q59
+gab: E
+origem: real
+prova: Cebraspe · Banrisul (edital 2025) · conhecimentos específicos · questão 65 · gabarito definitivo conferido
+ref: doutrina backup
+armadilha: conceito
+dif: 2
+enunciado: Na política de backup, o procedimento que permite recuperar o banco de dados em um ponto específico do tempo é conhecido como
+alt: A | log recovery.
+alt: B | full restore.
+alt: C | incremental backup.
+alt: D | automatic backup.
+alt: E | point-in-time recovery.
+comentario: Letra E. Point-in-time recovery: restaura-se o backup completo e reaplicam-se os registros de transações (logs) até o instante desejado.
+
+=== rv-q60
+gab: A
+origem: real
+prova: Cebraspe · Banrisul (edital 2025) · conhecimentos específicos · questão 31 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27002:2022
+armadilha: conceito
+dif: 2
+enunciado: A classificação de informações fornece às pessoas que lidam com a informação organizacional
+alt: A | uma indicação concisa de como manusear e proteger a informação organizacional.
+alt: B | um arcabouço jurídico completo para lidar com incidentes de segurança da informação.
+alt: C | uma relação de pessoas da organização capazes de prover as informações necessárias aos processos.
+alt: D | uma estrutura organizacional apropriada para lidar com a tecnologia e a segurança da informação.
+alt: E | um método de classes sobre como decriptar informações sensíveis da organização previamente criptografadas.
+comentario: Letra A. A classificação e a rotulagem dão a quem lida com a informação uma indicação concisa de como manuseá-la e protegê-la, conforme o nível de proteção exigido.
+
+=== rv-q61
+gab: E
+origem: real
+prova: Cebraspe · Banrisul (edital 2025) · conhecimentos específicos · questão 33 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 2
+enunciado: A respeito de algoritmos de criptografia simétrica e criptografia assimétrica, assinale a opção correta.
+alt: A | Uma das principais vantagens dos algoritmos assimétricos, como RSA e ECC, é o desempenho de processamento superior em relação aos algoritmos simétricos para cifragem de grandes volumes de dados.
+alt: B | O AES (Advanced Encryption Standard) é considerado um algoritmo de chave pública por utilizar blocos de 128 bits e chaves de até 256 bits.
+alt: C | Os algoritmos de criptografia assimétrica, por utilizarem pares de chaves distintas, são menos suscetíveis a ataques de força bruta que os de criptografia simétrica, independentemente do tamanho da chave.
+alt: D | Algoritmos de criptografia simétrica, como DES e 3DES, baseiam-se em aritmética de curvas elípticas para garantirem segurança contra fatoração de inteiros em larga escala.
+alt: E | O algoritmo RSA permite tanto a confidencialidade quanto a autenticação de mensagens, podendo ser usado para criptografar dados e assinar digitalmente documentos.
+comentario: Letra E. O RSA serve para cifrar (confidencialidade) e para assinar (autenticação e não repúdio). Algoritmos assimétricos são mais lentos que os simétricos; AES é simétrico; curvas elípticas são da criptografia assimétrica (ECC), não do DES; e a resistência à força bruta depende do tamanho da chave.
+
+=== rv-q62
+gab: E
+origem: real
+prova: Cebraspe · Banrisul (edital 2025) · conhecimentos específicos · questão 45 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 3
+enunciado: O protocolo IEEE 802.1x, empregado para controle de acesso à rede de comunicação, especialmente em redes sem fio,
+alt: A | é um protocolo proprietário da Cisco, sendo utilizado apenas em redes com equipamentos dessa marca.
+alt: B | realiza autenticação de dispositivos na camada de aplicação, utilizando exclusivamente senhas pré-compartilhadas (PSK).
+alt: C | usa o ICMP para negociar chaves de criptografia entre o cliente e o servidor de autenticação.
+alt: D | depende de um servidor de autenticação chamado supplicant, o qual valida os dispositivos que solicitam acesso à rede.
+alt: E | utiliza um modelo com três entidades: supplicant, authenticator e authentication server; este último é geralmente implementado via servidor Radius.
+comentario: Letra E. O 802.1X é padrão aberto do IEEE, com três papéis: suplicante (o dispositivo que pede acesso), autenticador (switch ou ponto de acesso) e servidor de autenticação, em geral RADIUS. O transporte usa EAP.
+
+=== rv-q63
+gab: E
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 2 · questão 91 · gabarito definitivo conferido
+ref: doutrina certificação digital
+armadilha: conceito
+dif: 1
+enunciado: Considerando que, na infraestrutura de chaves públicas brasileira, o certificado digital funciona como uma identidade virtual, assinale a opção em que é apresentada a tecnologia que permite vincular uma chave pública a uma pessoa, assegurando que uma mensagem eletrônica provém de um remetente específico e que o seu conteúdo permanece íntegro desde a sua emissão.
+alt: A | herança de permissões
+alt: B | barramento de serviços
+alt: C | tunelamento de dados
+alt: D | espelhamento de disco
+alt: E | assinatura digital
+comentario: Letra E. A assinatura digital, apoiada em certificado da ICP-Brasil, liga a chave pública ao titular e garante autoria e integridade da mensagem.
+
+=== rv-q64
+gab: B
+origem: real
+prova: Cebraspe · Prefeitura de Boa Vista (edital 2025) · conhecimentos gerais (cargos 45 a 53) · questão 38 · gabarito definitivo conferido
+ref: doutrina malware
+armadilha: conceito
+dif: 1
+enunciado: Durante auditoria de segurança em uma rede corporativa, no computador de um usuário foi identificado um programa malicioso que se disfarça de software legítimo, com o objetivo de enganar o usuário e obter acesso ao sistema. Esse tipo de ameaça é classificada como
+alt: A | spyware.
+alt: B | cavalo de troia.
+alt: C | ransomware.
+alt: D | rootkit.
+alt: E | worm.
+comentario: Letra B. Programa que se disfarça de software legítimo para enganar o usuário é cavalo de troia. Spyware espiona, ransomware cifra e cobra resgate, rootkit esconde a invasão e worm se propaga sozinho.
+
+=== rv-q65
+gab: B
+origem: real
+prova: Cebraspe · IPAAM (edital 2025) · cargo 2 · questão 65 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27001
+armadilha: conceito
+dif: 2
+enunciado: A ISO 27001 estabelece que a segurança da informação deve ser considerada desde o ingresso de um colaborador na organização. De acordo com essa norma, assinale a opção que representa uma medida alinhada aos controles de segurança da informação no processo de admissão de colaboradores em uma organização.
+alt: A | conceder acessos apenas após o primeiro mês de trabalho
+alt: B | formalizar responsabilidades de segurança antes do início das atividades
+alt: C | restringir treinamentos de segurança a cargos de liderança
+alt: D | permitir acessos amplos durante o período de experiência
+alt: E | avaliar requisitos de segurança somente se acontecerem incidentes
+comentario: Letra B. Nos controles de pessoas, as responsabilidades de segurança da informação são definidas e aceitas antes do início das atividades (termos e condições de contratação), com acesso mínimo necessário e treinamento para todos.
+
+=== rv-q66
+gab: C
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 2 · questão 98 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27005
+armadilha: conceito
+dif: 2
+enunciado: Com base na norma ABNT NBR ISO/IEC 27005, assinale a opção na qual é corretamente apresentada a atividade de gestão de segurança da informação em que, a partir de uma lista de riscos com níveis de valores designados, o nível dos riscos é comparado com os critérios de avaliação e de aceitação do risco.
+alt: A | monitoramento de riscos
+alt: B | identificação de riscos
+alt: C | avaliação de riscos
+alt: D | tratamento de riscos
+alt: E | estimativa de riscos
+comentario: Letra C. Na avaliação de riscos, o nível de cada risco já estimado é comparado com os critérios de avaliação e de aceitação, para priorizar o tratamento. A identificação lista os riscos; a análise (estimativa) atribui os níveis.
+
+=== rv-q67
+gab: D
+origem: real
+prova: Cebraspe · SEMA-AM (edital 2025) · cargo 8 · questão 46 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 1
+enunciado: A respeito dos protocolos HTTP e HTTPS, assinale a opção correta.
+alt: A | O HTTPS dispensa certificados digitais para seu funcionamento.
+alt: B | Ambos operam na camada de transporte.
+alt: C | O HTTP garante a confidencialidade dos dados.
+alt: D | O HTTPS adiciona criptografia por meio do SSL/TLS.
+alt: E | Ambos não necessitam do TCP.
+comentario: Letra D. HTTPS é HTTP sobre SSL/TLS: cifra o tráfego e autentica o servidor com certificado digital. Os dois são da camada de aplicação e usam TCP (o HTTP/3 usa QUIC sobre UDP); HTTP puro não dá confidencialidade.
