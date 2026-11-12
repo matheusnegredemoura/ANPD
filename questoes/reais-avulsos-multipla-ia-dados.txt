@@ -1,0 +1,211 @@
+// Itens reais de múltipla escolha (Cebraspe, provas de 2025 e 2026): inteligência artificial, mineração de dados,
+// big data e governança de dados. Enunciado e alternativas na ordem da prova; o gabarito de cada questão foi conferido, em
+// 12/11/2026, no gabarito definitivo do mesmo caderno. Comentários escritos para o banco.
+
+=== rv-q102
+gab: C
+origem: real
+prova: Cebraspe · Banrisul (edital 2025) · conhecimentos específicos · questão 78 · gabarito definitivo conferido
+bloco: ia
+ref: doutrina agentes inteligentes
+armadilha: conceito
+dif: 1
+enunciado: De acordo com os conceitos que dão base à inteligência artificial (IA), existe uma entidade autônoma que se caracteriza por perceber seu ambiente através de sensores, atuar sobre esse ambiente por meio de atuadores, processar internamente dados percebidos e conhecimentos armazenados, e selecionar ações específicas que maximizam sua medida de desempenho esperada, conforme definido pela sequência de percepções e seu conhecimento interno. Essa entidade é definida na IA como
+alt: A | processo de decisão sequencial.
+alt: B | rede neural.
+alt: C | agente racional.
+alt: D | algoritmo evolutivo.
+alt: E | modelagem cognitiva.
+comentario: Letra C. Perceber o ambiente por sensores, agir por atuadores e escolher a ação que maximiza a medida de desempenho esperada, dadas as percepções e o conhecimento que tem: é a definição de agente racional de Russell e Norvig. Rede neural e algoritmo evolutivo são técnicas, não a entidade que percebe e age.
+
+=== rv-q103
+gab: B
+origem: real
+prova: Cebraspe · Banrisul (edital 2025) · conhecimentos específicos · questão 80 · gabarito definitivo conferido
+bloco: ia
+ref: doutrina processamento de linguagem natural
+armadilha: conceito
+dif: 2
+enunciado: Nas IA generativas baseadas em arquiteturas transformer, com mecanismo de atenção, o modelo consegue relacionar diferentes palavras para produzir texto coerente; ao gerar, por exemplo, a frase “Maria foi ao mercado porque ela precisava comprar leite”, o modelo deve lembrar que “ela” se refere a “Maria”. Com base nesse contexto, assinale a opção correta.
+alt: A | Modelos de IA que geram texto processam simultaneamente todas as palavras de saída, sem considerar a ordem em que elas aparecem.
+alt: B | Na geração de texto palavra por palavra, a cada nova palavra gerada, o modelo de IA deve dedicar a atenção às palavras que já foram geradas anteriormente.
+alt: C | A principal função do mecanismo de atenção é verificar a gramática do texto, não suas relações semânticas.
+alt: D | O mecanismo de atenção distribui o mesmo peso para todas as palavras anteriores, sem priorizar palavras quanto à relevância no contexto.
+alt: E | O mecanismo de atenção cria conexões para relações entre palavras adjacentes, não conectando palavras que estão distantes entre si no texto.
+comentario: Letra B. A geração é autorregressiva: uma palavra (token) por vez, e a cada passo o mecanismo de atenção pesa as palavras já geradas, com pesos diferentes conforme a relevância, o que liga termos distantes, como o pronome ao nome a que se refere. Por isso erram A (a ordem importa), C (a atenção capta relações semânticas), D (os pesos não são iguais) e E (ela alcança palavras distantes).
+
+=== rv-q104
+gab: D
+origem: real
+prova: Cebraspe · CGM de Porto Velho (edital 2026) · cargo 3 · questão 70 · gabarito definitivo conferido
+bloco: ia
+ref: doutrina aprendizado de máquina
+armadilha: conceito
+dif: 2
+enunciado: Uma equipe de ciência de dados recebeu a tarefa de implantar uma solução de aprendizado não supervisionado para apoiar a auditoria contínua da execução orçamentária. O objetivo dessa solução é agrupar empenhos históricos com características semelhantes e, posteriormente, identificar registros potencialmente atípicos a partir de sua relação com os agrupamentos formados, sem utilizar uma base histórica previamente rotulada. Para esse cenário, foi escolhido o algoritmo k-means. No caso precedente, a capacidade do algoritmo k-means de apoiar a identificação de registros potencialmente atípicos decorre da
+alt: A | validação estrutural dos dados executada diretamente pelo sistema operacional hospedeiro.
+alt: B | aplicação de funções hash unidirecionais para anonimizar os registros antes da formação dos agrupamentos.
+alt: C | definição de regras determinísticas de negócio para segmentar automaticamente os registros em categorias predefinidas.
+alt: D | análise da distância das observações em relação aos centroides dos agrupamentos, o que permite identificar registros significativamente mais afastados do que os demais elementos do grupo.
+alt: E | dependência de treinamento supervisionado com um conjunto histórico de empenhos previamente classificados por auditores humanos.
+comentario: Letra D. O k-means agrupa as observações em torno de centroides, sem rótulos. Um registro muito mais distante do centroide do que os demais do grupo é candidato a atípico. Não há treinamento supervisionado (E) nem regras de negócio predefinidas (C).
+
+=== rv-q105
+gab: C
+origem: real
+prova: Cebraspe · Sefaz-RN (edital 2025) · questão 58 · gabarito definitivo conferido
+bloco: ia
+ref: doutrina aprendizado de máquina
+armadilha: conceito
+dif: 3
+enunciado: No âmbito do aprendizado de máquina não supervisionado, os algoritmos de agrupamento (clustering) apresentam diferentes abordagens para a organização de dados sem rótulos. Considerando as propriedades operacionais dos algoritmos k-means, DBSCAN e SOM (self-organizing maps), assinale a opção correta.
+alt: A | O DBSCAN e o SOM operam sob a mesma função de custo baseada na minimização da soma dos erros quadráticos (SSE) em relação a um ponto central fixo.
+alt: B | O k-means é um algoritmo de particionamento que minimiza a variância intracluster, sendo inerentemente robusto quanto à presença de outliers devido ao uso da média aritmética para o cálculo dos centroides.
+alt: C | O DBSCAN fundamenta-se na densidade local de pontos, permitindo a identificação de agrupamentos de formas geométricas arbitrárias e a segregação de ruído, prescindindo da especificação prévia do número de clusters.
+alt: D | O SOM utiliza uma arquitetura de rede neural competitiva para realizar a redução de dimensionalidade e o agrupamento, garantindo a preservação da topologia global sem a necessidade de definir uma vizinhança entre os neurônios.
+alt: E | O k-means apresenta desempenho superior ao DBSCAN na detecção de agrupamentos não convexos ou com densidades significativamente distintas.
+comentario: Letra C. O DBSCAN agrupa por densidade: acha grupos de forma arbitrária, marca como ruído os pontos isolados e não pede o número de grupos de antemão. O k-means é sensível a outliers, justamente por usar a média, e vai mal com grupos não convexos ou de densidades diferentes. O SOM depende de uma função de vizinhança entre neurônios, e nem ele nem o DBSCAN minimizam a soma dos erros quadráticos em torno de um centro fixo.
+
+=== rv-q106
+gab: E
+origem: real
+prova: Cebraspe · Sefaz-RN (edital 2025) · questão 61 · gabarito definitivo conferido
+bloco: ia
+ref: doutrina aprendizado de máquina
+armadilha: conceito
+dif: 2
+enunciado: Suponha que, em determinada secretaria de fazenda estadual, se esteja avaliando a aplicação de arquiteturas de deep learning para otimizar processos de fiscalização e gestão. Considerando essa situação hipotética e as propriedades das redes neurais convolucionais (CNNs), cuja arquitetura é baseada em camadas de filtragem para a extração de hierarquias de características espaciais, assinale a opção que indica uma aplicação tecnicamente adequada das CNNs, seguida de sua descrição.
+alt: A | redução de dimensionalidade — aplicação de camadas convolucionais para o cálculo de indicadores fiscais sintéticos a partir de variáveis estatísticas descorrelacionadas em ambiente Big Data
+alt: B | análise econométrica — estimativa da elasticidade-preço da demanda e impacto do PIB na receita estadual por meio do treinamento de filtros convolucionais em variáveis macroeconômicas agregadas
+alt: C | agrupamento de contribuintes — utilização de CNNs para a segmentação de empresas por comportamento de crédito, utilizando como entrada bases de dados relacionais e tabelas de histórico de pagamentos
+alt: D | modelagem preditiva de receita — aplicação de CNNs para o ajuste de modelos autorregressivos de séries temporais de arrecadação baseados estritamente em dados numéricos tabelados
+alt: E | auditoria de documentos fiscais — reconhecimento de padrões e classificação automática de documentos digitalizados (como notas fiscais, faturas ou contratos), com vistas a identificar fraudes ou inconsistências em elementos visuais
+comentario: Letra E. Redes convolucionais extraem padrões espaciais, por isso servem a imagens: classificar documentos digitalizados e achar inconsistências visuais. As outras opções tratam de dados tabulares, séries numéricas e econometria, para os quais há técnicas mais adequadas.
+
+=== rv-q107
+gab: A
+origem: real
+prova: Cebraspe · TCE-MS (edital 2025) · cargo 5 · questão 47 · gabarito definitivo conferido
+bloco: ia
+ref: doutrina aprendizado de máquina
+armadilha: conceito
+dif: 1
+enunciado: No contexto dos algoritmos de classificação em inteligência artificial, a técnica caracterizada por construir hiperplanos de separação em espaços de alta dimensão, visando maximizar a margem entre classes, é denominada
+alt: A | support vector machine.
+alt: B | random forest.
+alt: C | k-nearest neighbors.
+alt: D | naive Bayes.
+alt: E | decision tree.
+comentario: Letra A. Máquina de vetores de suporte (SVM): busca o hiperplano que separa as classes com a maior margem e pode usar funções de kernel para trabalhar em espaços de alta dimensão. Random forest combina árvores de decisão; k-NN classifica pelos vizinhos mais próximos; naive Bayes usa probabilidades condicionais com hipótese de independência.
+
+=== rv-q108
+gab: E
+origem: real
+prova: Cebraspe · TCE-MS (edital 2025) · cargo 5 · questão 48 · gabarito definitivo conferido
+bloco: ia
+ref: doutrina processamento de linguagem natural
+armadilha: conceito
+dif: 1
+enunciado: Em LLM (large language models), como o GPT, o mecanismo principal que permite gerar um texto coerente e contextualizado é denominado
+alt: A | algoritmos de busca por vizinhos mais próximos.
+alt: B | redes neurais convolucionais.
+alt: C | modelos de Markov de alta ordem.
+alt: D | árvores de decisão com bagging.
+alt: E | redes transformer baseadas em atenção.
+comentario: Letra E. Os grandes modelos de linguagem usam a arquitetura transformer, cujo mecanismo de atenção pesa a relação de cada palavra com as demais do contexto. Redes convolucionais são típicas de imagens; modelos de Markov e árvores de decisão não sustentam contexto longo.
+
+=== rv-q109
+gab: A
+origem: real
+prova: Cebraspe · CGM de Porto Velho (edital 2026) · conhecimentos gerais (cargos 2 e 3) · questão 28 · gabarito definitivo conferido
+bloco: dados-bi
+ref: doutrina mineração de dados
+armadilha: conceito
+dif: 2
+enunciado: Considerando a aplicação de regras de associação ao contexto de mineração de dados, assinale a opção correta.
+alt: A | A confiança de uma regra A → B corresponde à probabilidade condicional de uma transação conter o conjunto de itens B, dado que essa transação contém o conjunto de itens A.
+alt: B | O algoritmo Apriori gera todas as regras de associação possíveis antes de aplicar qualquer critério de suporte mínimo.
+alt: C | A adoção de um valor elevado para o suporte mínimo tende a aumentar a quantidade de regras de associação geradas.
+alt: D | O suporte de um conjunto de itens aumenta à medida que novos itens são adicionados a esse conjunto.
+alt: E | A confiança de uma regra de associação corresponde à proporção de transações da base de dados que contêm o consequente, independentemente do antecedente.
+comentario: Letra A. Confiança de A → B é a proporção das transações com A que também têm B, isto é, a probabilidade condicional de B dado A. Suporte é a frequência do conjunto na base e nunca aumenta quando se acrescentam itens. O Apriori poda pelo suporte mínimo desde o início, e um suporte mínimo mais alto reduz o número de regras.
+
+=== rv-q110
+gab: B
+origem: real
+prova: Cebraspe · CGM de Porto Velho (edital 2026) · conhecimentos gerais (cargo 1) · questão 29 · gabarito definitivo conferido
+bloco: dados-bi
+ref: doutrina mineração de dados
+armadilha: conceito
+dif: 1
+enunciado: A respeito de mineração de dados, assinale a opção correta.
+alt: A | Regras de associação são empregadas para prever valores contínuos a partir de variáveis explicativas, sendo, por isso, uma técnica típica de modelagem preditiva supervisionada.
+alt: B | Na mineração de dados, técnicas de pré-processamento, como limpeza, transformação e seleção de atributos, influenciam diretamente o desempenho de tarefas como classificação e clusterização.
+alt: C | Na mineração de dados, a clusterização depende necessariamente de classes previamente rotuladas, razão pela qual se insere exclusivamente no aprendizado supervisionado.
+alt: D | No modelo CRISP-DM, a etapa de modelagem antecede a preparação dos dados, pois a definição prévia do algoritmo elimina a necessidade de transformação ou limpeza.
+alt: E | Classificação e detecção de anomalias são tarefas equivalentes, pois ambas têm por finalidade atribuir rótulos previamente conhecidos aos registros.
+comentario: Letra B. Limpeza, transformação e seleção de atributos condicionam o resultado de qualquer tarefa de mineração. Regras de associação descobrem coocorrências, não preveem valores contínuos (isso é regressão); a clusterização é não supervisionada; no CRISP-DM a preparação dos dados vem antes da modelagem; e detectar anomalias não é atribuir rótulos conhecidos.
+
+=== rv-q111
+gab: D
+origem: real
+prova: Cebraspe · SEED-SE (edital 2025) · cargo 9 · questão 60 · gabarito definitivo conferido
+bloco: dados-bi
+ref: doutrina big data
+armadilha: conceito
+dif: 1
+enunciado: Em big data, a característica relacionada aos diferentes formatos de informações é denominada
+alt: A | volume.
+alt: B | velocidade.
+alt: C | veracidade.
+alt: D | variedade.
+alt: E | valor.
+comentario: Letra D. Variedade: dados estruturados, semiestruturados e não estruturados, em formatos diversos. Volume é a quantidade; velocidade, o ritmo de geração e processamento; veracidade, a confiabilidade; valor, o benefício extraído.
+
+=== rv-q112
+gab: E
+origem: real
+prova: Cebraspe · Sefaz-RN (edital 2025) · questão 66 · gabarito definitivo conferido
+bloco: dados-bi
+ref: doutrina CRISP-DM
+armadilha: conceito
+dif: 2
+enunciado: O framework CRISP-DM organiza o ciclo de vida de um projeto de análise de dados em seis fases interconectadas e iterativas. A respeito da dinâmica funcional entre essas fases, assinale a opção tecnicamente correta.
+alt: A | A fase de modelagem precede cronologicamente a fase de entendimento de dados, uma vez que a escolha prévia do algoritmo de aprendizado de máquina é o que define quais fontes de dados deverão ser coletadas.
+alt: B | A etapa de avaliação (evaluation) restringe-se à mensuração de métricas estatísticas e de performance técnica do modelo (como acurácia ou erro), sendo o marco final de encerramento do projeto, sem possibilidade de retorno às fases anteriores.
+alt: C | O fluxo do CRISP-DM é estritamente linear, assegurando que eventuais inconsistências na fase de entendimento de dados (data understanding) sejam mitigadas por meio de ajustes automáticos durante a implantação (deployment).
+alt: D | A fase de entendimento do negócio (business understanding) deve ser encerrada de forma definitiva e imutável antes do início da exploração de dados, a fim de garantir a integridade do escopo do projeto.
+alt: E | A fase de preparação de dados (data preparation) é, frequentemente, a que consome maior esforço cronológico no ciclo e mantém uma relação de interdependência cíclica com a fase de modelagem (modeling), visto que os requisitos específicos de um algoritmo podem demandar novas transformações ou seleções de atributos.
+comentario: Letra E. A preparação dos dados costuma tomar a maior parte do esforço e vai e volta com a modelagem, porque cada algoritmo pede os dados de um jeito. O CRISP-DM é iterativo, não linear: começa pelo entendimento do negócio, que pode ser revisto; o entendimento dos dados vem antes da modelagem; e a avaliação confronta o modelo com os objetivos do negócio, podendo devolver o projeto a fases anteriores.
+
+=== rv-q113
+gab: C
+origem: real
+prova: Cebraspe · Sefaz-RN (edital 2025) · questão 75 · gabarito definitivo conferido
+bloco: dados-bi
+ref: doutrina big data
+armadilha: conceito
+dif: 1
+enunciado: Assinale a opção que corresponde ao modelo, em Big Data, utilizado para processar paralelamente grandes volumes de dados.
+alt: A | process control
+alt: B | data break
+alt: C | map reduce
+alt: D | file management
+alt: E | volume parallel
+comentario: Letra C. MapReduce: o trabalho é dividido em tarefas de mapeamento, executadas em paralelo nos nós do cluster, e de redução, que consolidam os resultados. É o modelo de processamento do Hadoop.
+
+=== rv-q114
+gab: D
+origem: real
+prova: Cebraspe · Sefaz-RN (edital 2025) · questão 64 · gabarito definitivo conferido
+bloco: dados-bi
+ref: doutrina governança de dados
+armadilha: conceito
+dif: 2
+enunciado: Com base nos fundamentos da governança de dados, assinale a opção tecnicamente correta.
+alt: A | A definição de princípios éticos para o uso de dados é uma preocupação restrita a modelos de aprendizado de máquina, não integrando o escopo fundamental ou as áreas de conhecimento de um programa de governança de dados.
+alt: B | A função primordial da governança de dados é a execução de atividades operacionais e técnicas, como processos de carga (ETL) e armazenamento, enquanto os comitês de governança atuam meramente como instâncias consultivas sem poder deliberativo.
+alt: C | Os gestores de dados (data stewards) devem ser, preferencialmente, especialistas externos à organização, atuando de forma independente das áreas de negócio produtoras da informação para assegurar a neutralidade técnica e a padronização.
+alt: D | A governança de dados estabelece o tratamento dos dados como ativos organizacionais, exigindo responsabilidade formal (accountability), definição clara de papéis e procedimentos de controle análogos aos aplicados a ativos físicos e financeiros, garantindo-se o alinhamento com os objetivos estratégicos do negócio.
+alt: E | A governança de dados é um programa de natureza estritamente tecnológica, sob o qual a área de tecnologia da informação (TI) centraliza as decisões sobre o significado e o uso dos dados, cabendo às unidades de negócio apenas o consumo das informações.
+comentario: Letra D. Governar dados é tratá-los como ativo da organização, com responsáveis definidos, papéis claros e controles. Não é atividade operacional de TI (B, E): quem decide sobre significado e uso é o negócio, com os gestores de dados (data stewards) vindos das próprias áreas (C). A ética no uso de dados integra o programa (A).
