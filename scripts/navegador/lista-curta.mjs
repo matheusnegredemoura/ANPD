@@ -103,6 +103,28 @@ await passo('fila maior que uma sessão: o botão diz quantos vêm agora e quant
   await ctx.close();
 });
 
+await passo('fila maior que a sessão: entram primeiro os mais frescos em relação ao intervalo', async () => {
+  // 30 erros antigos (nível 0, parados há 12 dias ou mais) e 5 itens de nível 2 respondidos há 4 dias: os 5 entram
+  const fs = await import('node:fs'), dir = new URL('../../questoes/', import.meta.url);
+  const ids = fs.readdirSync(dir).filter((f) => /^lgpd-\d/.test(f)).sort().flatMap((f) => fs.readFileSync(new URL(f, dir), 'utf8').match(/^=== (\S+)$/gm) || []).map((l) => l.slice(4)).slice(0, 35);
+  const frescos = ids.slice(30);
+  const itens = Object.fromEntries(ids.map((id, i) => [id, i < 30 ? [0, -11 - i, 0, 1, -12 - i] : [2, -1, 2, 1, -4]]));
+  const { ctx, p } = await abrir(itens);
+  await p.locator('.roteiro [data-acao="iniciar-revisao"]').click();
+  await p.waitForSelector('#sessao:not([hidden])');
+  const vistos = [];
+  for (let i = 0; i < 30; i++) {
+    await p.waitForSelector('#sessao .item-num');
+    vistos.push((await p.textContent('#sessao .item-num')).trim());
+    await p.click('.bolha.c');
+    await p.waitForSelector('.veredito');
+    if (!(await p.locator('[data-acao="proximo"]').count())) break;
+    await p.click('[data-acao="proximo"]');
+  }
+  conferir('os 5 itens de nível 2 recentes vieram na sessão de 30', frescos.every((id) => vistos.includes(id)), frescos.filter((id) => !vistos.includes(id)).join(' ') + ' fora; vistos ' + vistos.length);
+  await ctx.close();
+});
+
 await passo('com uma sessão de revisão feita hoje, o passo conta como feito mesmo com fila', async () => {
   const fs = await import('node:fs'), dir = new URL('../../questoes/', import.meta.url);
   const ids = fs.readdirSync(dir).filter((f) => /^lgpd-\d/.test(f)).sort().flatMap((f) => fs.readFileSync(new URL(f, dir), 'utf8').match(/^=== (\S+)$/gm) || []).map((l) => l.slice(4)).slice(0, 35);

@@ -35,7 +35,18 @@ function manutencaoHoje() {
   const resta = Math.max(0, tetoManutencao() - manutencaoFeitaHoje());
   return resta ? Q.filter((q) => dominadoVencido(q.id)).sort((a, b) => rec(a.id)[1] - rec(b.id)[1]).slice(0, resta) : [];
 }
-function listaVencida() { return Q.filter((q) => vencida(q.id)).sort((a, b) => rec(a.id)[1] - rec(b.id)[1]); }
+// Ordem da fila (11/2026): primeiro o que está mais fresco em relação ao intervalo do nível (dias desde a última
+// resposta ÷ 1, 2 ou 4 nos níveis 0, 1 e 2), e não o vencido há mais tempo. Com fila maior que a sessão, o mais antigo
+// é o mais esquecido: revê-lo primeiro rende menos saídas por resposta e deixa o erro de ontem esperando atrás dos de
+// semanas atrás. Na simulação (10 semanas, 4 dias de estudo por semana, 30 revisões por dia, fila crescendo), a ordem
+// nova tirou da lista cerca do dobro de itens com o mesmo número de respostas e deixou mais itens lembrados um mês
+// depois; com a fila cabendo na sessão, as duas ordens empatam. Dar nível por intervalo real (sair da lista com um
+// acerto tardio) encurtava mais a fila, mas deixava menos itens lembrados: os três acertos espaçados ficam.
+function porFrescor(a, b) {
+  const h = HOJE(), f = (r) => (h - r[4]) / [1, 2, 4][Math.max(0, Math.min(2, r[0]))], x = rec(a.id), y = rec(b.id);
+  return f(x) - f(y) || x[1] - y[1];
+}
+function listaVencida() { return Q.filter((q) => vencida(q.id)).sort(porFrescor); }
 function nivelDe(xp) {
   let i = 0;
   while (i + 1 < NIVEIS.length && xp >= NIVEIS[i + 1][0]) i++;
@@ -697,7 +708,7 @@ function selecionar(pool, n, filtro) {
     else if (r[1] <= hoje) domV.push(q);
     else resto.push(q);
   }
-  embaralhar(venc); embaralhar(lista);
+  venc.sort(porFrescor); embaralhar(lista);
   // Inéditas com pelo menos REAIS_TREINO de itens reais (ou a proporção natural do bloco, se for maior), intercalados
   {
     const reaisN = embaralhar(novas.filter((q) => q.o)), bancoN = embaralhar(novas.filter((q) => !q.o));

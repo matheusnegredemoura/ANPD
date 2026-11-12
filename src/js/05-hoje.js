@@ -99,7 +99,7 @@ function roteiroHoje() {
     titulo: 'Revisão espaçada (~10 min)',
     feito: revFeita,
     texto: (venc || manut)
-      ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'item de manutenção', 'itens de manutenção') : ''].filter(Boolean).join(', ') + '.' + (venc + manut > REV_SESSAO ? ' Cada sessão traz ' + REV_SESSAO + ', primeiro os vencidos há mais tempo; o resto vem na próxima.' : '')
+      ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'item de manutenção', 'itens de manutenção') : ''].filter(Boolean).join(', ') + '.' + (venc + manut > REV_SESSAO ? ' Cada sessão traz ' + REV_SESSAO + ', primeiro os erros mais recentes e os que estão perto de sair da lista; o resto vem na próxima.' : '')
       : 'Memória em dia! Nenhum item pendente de revisão para agora.',
     // A sessão traz até REV_SESSAO itens: com fila maior, o botão diz isso, para a revisão não parecer um bloco só
     botoes: venc + manut ? '<button class="btn pequeno primario" data-acao="iniciar-revisao">' + (venc + manut > REV_SESSAO ? 'Revisar ' + REV_SESSAO + ' de ' + (venc + manut) : 'Revisar questões (' + (venc + manut) + ')') + '</button>' : ''
