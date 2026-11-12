@@ -361,6 +361,13 @@ function notaForaDoAtraso() {
   if (ontem && ontem.modo === 'revisao' && !S.perfil.feitos[ontem.data] && ontem.data >= inicioAtraso()) t += '<p class="pequeno mudo">A revisão de ontem não vira atraso: o que venceu continua na lista curta e entra na próxima revisão.</p>';
   return t;
 }
+// Dia em que o recomeço põe o primeiro dia parado: hoje, se ainda não houve estudo hoje (e não é domingo); senão amanhã
+function diaDoRecomeco() {
+  const h = hojeISO(), d = (S.perfil.dias || {})[h], estudou = !!d && ((Number(d.r) || 0) + (Number(d.k) || 0) + (Number(d.b) || 0)) > 0;
+  let n = diaNum(h) + (estudou ? 1 : 0);
+  while (diaSemana(isoDeNum(n)) === 0) n++;
+  return isoDeNum(n);
+}
 function cartaoPendencias() {
   const p = pendencias();
   if (!p.length) {
@@ -371,8 +378,8 @@ function cartaoPendencias() {
   const bs = blocosAtrasados(p), ler = leituraAtrasada(p), sims = p.filter((x) => x.sessao && x.dia.modo === 'simulado');
   const dias = p.filter((x) => x.sessao).length;
   let h = '<div class="cartao pendencias"><div class="secao-cab"><h2>Atraso do plano</h2><span class="mono pequeno mudo">' + p.length + '</span></div>' +
-    '<p class="pequeno mudo">Nada sai daqui sozinho: o dia só sai quando você estuda a matéria dele, por qualquer caminho, ou o dispensa. Ficou dias sem estudar? Recomece amanhã: o que não foi feito anda para a frente, na mesma ordem.</p>' +
-    '<div class="linha-btns"><button class="btn pequeno" data-acao="recomecar">Recomeçar o plano amanhã</button></div>';
+    '<p class="pequeno mudo">Nada sai daqui sozinho: o dia só sai quando você estuda a matéria dele, por qualquer caminho, ou o dispensa. Ficou dias sem estudar? Recomece: o que não foi feito anda para a frente, na mesma ordem.</p>' +
+    '<div class="linha-btns"><button class="btn pequeno" data-acao="recomecar">Recomeçar o plano ' + (diaDoRecomeco() === hojeISO() ? 'hoje' : 'amanhã') + '</button></div>';
   if (bs.length) h += '<div class="atraso-materias">' + bs.slice(0, 6).map((x) => '<span class="chip-atraso">' + esc(nomeBloco(x.b)) + (x.dias > 1 ? ' <b>×' + x.dias + '</b>' : '') + '</span>').join('') + (bs.length > 6 ? '<span class="chip-atraso mais">+' + pl(bs.length - 6, 'matéria', 'matérias') + '</span>' : '') + '</div>' +
     '<div class="linha-btns">' + botaoRecuperar(p) + (ler.length ? '<button class="btn pequeno" data-acao="ler-atraso">Ler ' + Math.min(ler.length, LEITURA_MAX) + (ler.length > LEITURA_MAX ? ' de ' + ler.length : '') + (ler.length === 1 ? ' artigo' : ' artigos') + '</button>' : '') + '</div>';
   else if (ler.length) h += '<div class="linha-btns"><button class="btn pequeno primario" data-acao="ler-atraso">Ler ' + Math.min(ler.length, LEITURA_MAX) + (ler.length > LEITURA_MAX ? ' de ' + ler.length : '') + ' artigos atrasados</button></div>';

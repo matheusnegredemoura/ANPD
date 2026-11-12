@@ -164,15 +164,21 @@ function recomecarFases(fases, rc) {
   const pular = new Set(rc.pular || []), dm = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit' });
   const fs = fases.map((f) => Object.assign({}, f, { semanas: f.semanas.map((s) => Object.assign({}, s, { dias: s.dias.map((d) => Object.assign({}, d)) })) }));
   const mov = fs.flatMap((f) => f.semanas.flatMap((s) => s.dias)).filter((d) => d.data >= rc.de && !pular.has(d.data)).sort((a, b) => (a.data < b.data ? -1 : 1));
+  // Enquanto o plano está atrasado em relação às datas originais, os dias de pôr o plano em dia (sem discursiva) saem e
+  // absorvem o atraso; alcançadas as datas originais, o resto fica onde estava. O dia da prova nunca anda.
   let n = diaNum(rc.para);
+  const fora = new Set();
   for (const d of mov) {
+    if (/^Prova/.test(d.atividade)) break;
     while (diaSemana(isoDeNum(n)) === 0 || /-(12-25|01-01)$/.test(isoDeNum(n))) n++;
+    if (n > diaNum(d.data) && d.modo === 'revisao' && !d.disc && /pôr o plano em dia/i.test(d.atividade)) { fora.add(d); continue; }
+    if (n <= diaNum(d.data)) break;
     const nova = isoDeNum(n++);
-    if (nova !== d.data && /natal|ano-novo/i.test(d.atividade)) d.atividade = 'Revisão leve: o que venceu na revisão espaçada e o que ficou para trás';
+    if (/natal|ano-novo/i.test(d.atividade)) d.atividade = 'Revisão leve: o que venceu na revisão espaçada e o que ficou para trás';
     d.data = nova;
   }
   for (const f of fs) {
-    for (const s of f.semanas) { s.dias.sort((a, b) => (a.data < b.data ? -1 : 1)); if (s.dias.length) s.periodo = dm(s.dias[0].data) + ' a ' + dm(s.dias[s.dias.length - 1].data); }
+    for (const s of f.semanas) { s.dias = s.dias.filter((d) => !fora.has(d)); s.dias.sort((a, b) => (a.data < b.data ? -1 : 1)); if (s.dias.length) s.periodo = dm(s.dias[0].data) + ' a ' + dm(s.dias[s.dias.length - 1].data); }
     const ds = f.semanas.flatMap((s) => s.dias).sort((a, b) => (a.data < b.data ? -1 : 1));
     if (ds.length) f.periodo = dm(ds[0].data) + ' a ' + dm(ds[ds.length - 1].data);
   }
