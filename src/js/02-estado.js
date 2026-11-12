@@ -103,12 +103,23 @@ function mesclarDoc(n, nuvem, local, localNovo) {
     return { lista };
   }
   if (n === 'pesquisa') return { p: mesclarMapa(velho.p, novo.p, (a, b) => b) };
-  // Discursiva: fica o rascunho mais novo que não esteja vazio (um aparelho com o texto em branco não apaga o do outro)
-  // e a lista de tentativas mais longa
+  // Discursiva, tema a tema: vale o rascunho mexido por último (ts, gravado a cada alteração do texto), mesmo que a
+  // cópia como um todo seja a mais antiga; sem essa marca dos dois lados, fica o da cópia mais nova que não esteja vazio
+  // (um aparelho com o texto em branco não apaga o do outro). As tentativas dos dois aparelhos são unidas, sem repetir,
+  // e ficam as 8 mais recentes (antes ficava só a lista mais longa, e a tentativa feita no outro aparelho se perdia)
   if (n === 'discursivas') return { d: mesclarMapa(velho.d, novo.d, (a, b) => {
-    const ras = b && b.rascunho && b.rascunho.trim() ? b.rascunho : (a && a.rascunho) || '';
-    const tA = (a && a.tentativas) || [], tB = (b && b.tentativas) || [];
-    return Object.assign({}, a, b, { rascunho: ras, tentativas: tB.length >= tA.length ? tB : tA });
+    if (!a || !b) return a || b;
+    const tsA = num(a.ts), tsB = num(b.ts);
+    const ras = tsA !== tsB ? (tsB > tsA ? b : a).rascunho || '' : b.rascunho && b.rascunho.trim() ? b.rascunho : a.rascunho || '';
+    const vistos = new Set(), tentativas = [];
+    for (const t of (b.tentativas || []).concat(a.tentativas || [])) {
+      const k = [t.d, t.nc, t.ne, t.tl, t.nq].join('|');
+      if (!vistos.has(k)) { vistos.add(k); tentativas.push(t); }
+    }
+    tentativas.sort((x, y) => (x.d < y.d ? 1 : x.d > y.d ? -1 : 0));
+    const r = Object.assign({}, a, b, { rascunho: ras, tentativas: tentativas.slice(0, 8) });
+    if (tsA || tsB) r.ts = Math.max(tsA, tsB);
+    return r;
   }) };
   const atividade = (d) => num(d && d.r) + num(d && d.k) + num(d && d.b);
   const p = Object.assign(perfilPadrao(), velho, novo);
@@ -134,6 +145,10 @@ function mesclarDoc(n, nuvem, local, localNovo) {
   p.conq = Object.assign({}, velho.conq, novo.conq);
   // Dia, aula ou discursiva dados como feitos num aparelho continuam feitos no outro
   p.feitos = Object.assign({}, velho.feitos, novo.feitos);
+  // Dia dispensado num aparelho continua dispensado no outro (antes valia só a lista da cópia mais nova). O recomeço
+  // do plano (recomecos) segue a regra do que se liga e desliga: vale a lista da cópia mais nova, e a outra completa
+  // quando a mais nova não tem nenhuma
+  p.dispensados = Object.assign({}, velho.dispensados, novo.dispensados);
   p.recuperados = Object.assign({}, velho.recuperados, novo.recuperados);
   // Sessões pausadas: cada uma fica com o registro mais recente dos dois aparelhos (um simulado pela metade num deles
   // não some porque o outro gravou depois); a marca de encerrada, mais nova, vence a pausa antiga

@@ -6,7 +6,9 @@ function linhasEstimadas(texto) {
 function guardarRascunhoDisc() {
   const area = document.getElementById('disc-texto');
   if (!area || !area.dataset.tema || area.readOnly) return;
-  estadoDisc(area.dataset.tema).rascunho = area.value;
+  // ts: quando o texto mudou pela última vez, para a junção de dois aparelhos ficar com o mais recente, tema a tema
+  const st = estadoDisc(area.dataset.tema);
+  if (st.rascunho !== area.value) { st.rascunho = area.value; st.ts = Date.now(); }
   clearTimeout(timerDisc);
   Store.salvar('discursivas');
 }

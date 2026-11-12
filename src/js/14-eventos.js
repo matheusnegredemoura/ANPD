@@ -216,7 +216,7 @@ async function executar(a, alvo) {
     case 'disc-dia': fecharFolha(); UI.mais = 'discursiva'; UI.discTema = alvo.dataset.t; UI.discFase = 'escrita'; UI.discAval = {}; UI.discNE = 0; UI.discIA = null; if (UI.vista !== 'mais') ir('mais'); else renderMais(); window.scrollTo(0, 0); break;
     case 'disc-editar': UI.discFase = 'escrita'; UI.discIA = null; renderMais(); break;
     case 'disc-limpar': alvo.outerHTML = '<button class="btn" data-acao="disc-limpar-ok">Apagar mesmo o texto</button>'; break;
-    case 'disc-limpar-ok': { const t = estadoDisc(UI.discTema); t.rascunho = ''; Store.salvar('discursivas'); renderMais(); break; }
+    case 'disc-limpar-ok': { const t = estadoDisc(UI.discTema); t.rascunho = ''; t.ts = Date.now(); Store.salvar('discursivas'); renderMais(); break; }
     case 'disc-salvar': {
       const t = TEMAS_DISC.find((x) => x.id === UI.discTema);
       if (!t) break;
@@ -502,7 +502,7 @@ document.addEventListener('input', (ev) => {
     const t = TEMAS_DISC.find((x) => x.id === UI.discTema);
     if (!t) return;
     if (id === 'disc-ne') { UI.discNE = ev.target.value; const el = document.getElementById('disc-res'); if (el) el.innerHTML = resultadoDisc(t); return; }
-    estadoDisc(t.id).rascunho = ev.target.value;
+    { const st = estadoDisc(t.id); st.rascunho = ev.target.value; st.ts = Date.now(); }
     crescerDisc(ev.target);
     const c = document.getElementById('disc-cont');
     if (c) c.innerHTML = contadorDisc(t);

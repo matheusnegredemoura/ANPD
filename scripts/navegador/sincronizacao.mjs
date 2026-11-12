@@ -169,6 +169,45 @@ await cenario('Conta mais nova com o dia de hoje: leitura e baixa de dia ficam g
   conferir('nenhum erro guardado no diagnóstico', !erros.length, erros.join(' | '));
 });
 
+// Discursiva escrita em dois aparelhos: a conta é a cópia mais nova como um todo, mas o tema T1 foi mexido por último
+// no navegador. Vale o rascunho mais recente de cada tema, e as tentativas dos dois lados ficam
+{
+  const tl = (x) => ({ perfil: x, itens: x, cards: x, simulados: x, pesquisa: x, discursivas: x });
+  await cenario('Discursiva em dois aparelhos: rascunho mais recente por tema e tentativas unidas', {
+    nuvem: Object.assign({}, nuvemBase, { discursivas: { d: {
+      T1: { rascunho: 'texto antigo da conta', ts: agora - 7200e3, tentativas: [{ d: '2026-10-01', nc: 5, ne: 2, tl: 20, nq: 4.8 }] },
+      T2: { rascunho: 'só na conta', ts: agora - 3600e3, tentativas: [] },
+      T3: { rascunho: 'sem marca, da conta', tentativas: [] },
+    } } }), tNuvem: agora - 600e3,
+    local: { perfil: perfil({ xp: 100 }), itens: {}, cards: {}, simulados: [], pesquisa: {}, disc: {
+      T1: { rascunho: 'texto novo do navegador', ts: agora - 1800e3, tentativas: [{ d: '2026-10-03', nc: 6, ne: 1, tl: 22, nq: 5.9 }, { d: '2026-10-01', nc: 5, ne: 2, tl: 20, nq: 4.8 }] },
+      T3: { rascunho: '', tentativas: [] },
+    }, t: tl(agora - 86400e3) },
+  }, (r) => {
+    const d = r.nuvem.discursivas.d, l = r.local.disc;
+    conferir('T1: fica o rascunho mexido por último (o do navegador)', d.T1.rascunho === 'texto novo do navegador' && l.T1.rascunho === 'texto novo do navegador', d.T1.rascunho);
+    conferir('T1: tentativas dos dois aparelhos, sem repetir, a mais recente primeiro', d.T1.tentativas.length === 2 && d.T1.tentativas[0].d === '2026-10-03', JSON.stringify(d.T1.tentativas));
+    conferir('T2: o tema que só existe na conta chega ao navegador', l.T2 && l.T2.rascunho === 'só na conta');
+    conferir('T3: sem marca de hora, o texto em branco não apaga o do outro', d.T3.rascunho === 'sem marca, da conta' && l.T3.rascunho === 'sem marca, da conta');
+  });
+
+  // Recomeço do plano e dia dispensado feitos em outro aparelho chegam aqui; o dia dispensado aqui não se perde
+  const rc = { de: '2026-10-01', para: '2026-10-06', em: '2026-10-06', pular: [] };
+  await cenario('Recomeço e dia dispensado em outro aparelho', {
+    nuvem: Object.assign({}, nuvemBase, { perfil: perfil({ xp: 500, recomecos: [rc], dispensados: { '2026-09-02': 1 } }) }), tNuvem: agora - 600e3,
+    local: { perfil: perfil({ xp: 100, dispensados: { '2026-09-03': 1 } }), itens: {}, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: tl(agora - 86400e3) },
+  }, (r) => {
+    conferir('o recomeço feito no outro aparelho chega ao navegador', (r.local.perfil.recomecos || []).length === 1 && r.local.perfil.recomecos[0].para === rc.para, JSON.stringify(r.local.perfil.recomecos));
+    conferir('dias dispensados nos dois aparelhos ficam todos', ['2026-09-02', '2026-09-03'].every((k) => r.local.perfil.dispensados[k] && r.nuvem.perfil.dispensados[k]), JSON.stringify(r.local.perfil.dispensados));
+  });
+  await cenario('Navegador mais novo sem recomeço: o da conta continua valendo', {
+    nuvem: Object.assign({}, nuvemBase, { perfil: perfil({ xp: 500, recomecos: [rc] }) }), tNuvem: agora - 86400e3,
+    local: { perfil: perfil({ xp: 650 }), itens: {}, cards: {}, simulados: [], pesquisa: {}, disc: {}, t: tl(agora - 600e3) },
+  }, (r) => {
+    conferir('o recomeço da conta não some', (r.local.perfil.recomecos || []).length === 1 && (r.nuvem.perfil.recomecos || []).length === 1, JSON.stringify(r.local.perfil.recomecos));
+  });
+}
+
 await browser.close();
 console.log('');
 fim();
