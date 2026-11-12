@@ -30,8 +30,7 @@ await passo('sessão aberta: fundo inerte e foco dentro do diálogo', async () =
 });
 
 await passo('Cmd+C, Ctrl+C, Ctrl+E e Cmd+B não respondem o item', async () => {
-  // O item precisa ser certo/errado: na múltipla escolha a letra é a alternativa
-  if (await p.locator('button.alt').count()) throw new Error('primeiro item é de múltipla escolha');
+  // Vale para os dois formatos: no certo/errado as letras são C, E e B (branco); na múltipla escolha, as alternativas
   await p.evaluate(() => document.activeElement.blur());
   for (const k of ['Meta+c', 'Control+c', 'Control+e', 'Meta+b']) await p.keyboard.press(k);
   await p.waitForTimeout(150);
