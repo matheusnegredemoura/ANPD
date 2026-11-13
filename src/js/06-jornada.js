@@ -460,7 +460,11 @@ function iniciarDia(data) {
   }
   if (dia.modo === 'simulado') {
     const n = nItensDoDia(dia);
-    iniciarSessao({ modo: 'simulado', n, blocos: dia.blocos, prova: !dia.blocos.length, titulo, dia: dia.data, minutos: Math.round(n * RITMO_PROVA_MIN) });
+    // Simulado da matéria já estudada: mesma escolha do simulado da prova (cotas no peso da prova, só certo/errado, metade
+    // de itens reais inéditos, inéditos antes dos já vistos), restrita aos blocos do dia. Antes saía de selecionar('mistas'),
+    // que põe a lista curta vencida na frente: com 160 itens vencidos, o simulado longo nº 1 vinha com 60 itens de revisão
+    // e 10 inéditos, e media a memória dos erros recentes, não o nível de prova
+    iniciarSessao({ modo: 'simulado', n, blocos: dia.blocos, prova: !dia.blocos.length, cotas: !!dia.blocos.length, titulo, dia: dia.data, minutos: Math.round(n * RITMO_PROVA_MIN) });
     return;
   }
   const st = stDoDia(dia);

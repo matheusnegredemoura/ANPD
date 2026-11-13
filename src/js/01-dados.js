@@ -342,9 +342,12 @@ function pesoItem(q) { return parteProva(q) === 'b' ? PESO_BASICA : PESO_ESPECIF
 // Quanto vale cada item com os pesos em vigor ("1" ou "1 na básica e 2 na específica")
 function valorDosItens() { const f = (x) => String(x).replace('.', ','); return PESO_BASICA === PESO_ESPECIFICA ? f(PESO_BASICA) : f(PESO_BASICA) + ' na básica e ' + f(PESO_ESPECIFICA) + ' na específica'; }
 // Fatias da prova (parte + disciplina) para n itens, pelo método do maior resto (a soma dá exatamente n)
-function cotasProva(n) {
-  const fatias = Object.entries(PROVA_BASICA).map(([d, k]) => ['b', d, k]).concat(Object.entries(PROVA_ESPECIFICA).map(([d, k]) => ['e', d, k]));
-  const base = fatias.map(([p, d, k]) => { const x = (n * k) / TOTAL_PROVA; return [p, d, Math.floor(x), x - Math.floor(x)]; });
+// Com "so" (conjunto de blocos), entram só as fatias que têm itens certo/errado nesses blocos, e os pesos se refazem entre elas
+function cotasProva(n, so) {
+  let fatias = Object.entries(PROVA_BASICA).map(([d, k]) => ['b', d, k]).concat(Object.entries(PROVA_ESPECIFICA).map(([d, k]) => ['e', d, k]));
+  if (so) fatias = fatias.filter(([p, d]) => Q.some((q) => so.has(q.b) && !q.al && (BI.get(q.b) || {}).disciplina === d && parteProva(q) === p));
+  const tot = fatias.reduce((a, f) => a + f[2], 0) || 1;
+  const base = fatias.map(([p, d, k]) => { const x = (n * k) / tot; return [p, d, Math.floor(x), x - Math.floor(x)]; });
   let falta = n - base.reduce((a, b) => a + b[2], 0);
   base.slice().sort((a, b) => b[3] - a[3]).forEach((b) => { if (falta > 0) { b[2]++; falta--; } });
   return base.map(([p, d, k]) => [p, d, k]);

@@ -730,19 +730,21 @@ function selecionar(pool, n, filtro) {
   else ordem = venc.concat(domV.slice(0, cota), novas, lista, domV.slice(cota), resto);
   return embaralhar(ordem.slice(0, n));
 }
-function selecionarProva(n) {
+// blocos (opcional): o simulado do plano, que cobre só a matéria já estudada, segue as mesmas regras dentro desses blocos
+function selecionarProva(n, blocos) {
   const escolhidos = [];
   const usados = new Set();
-  for (const [parte, disc, k] of cotasProva(n)) {
-    const pool = Q.filter((q) => { const b = BI.get(q.b); return b && b.disciplina === disc && parteProva(q) === parte && !q.al; });
+  const so = blocos && blocos.length ? new Set(blocos) : null;
+  for (const [parte, disc, k] of cotasProva(n, so)) {
+    const pool = Q.filter((q) => { const b = BI.get(q.b); return b && b.disciplina === disc && parteProva(q) === parte && !q.al && (!so || so.has(q.b)); });
     // Metade da fatia vem de itens reais inéditos, que medem o nível da banca melhor que os escritos para o banco.
     // Depois agrupa por texto dentro da fatia: os irmãos do mesmo texto são da mesma disciplina, e a cota não muda; como
     // os irmãos de um item real também são reais, a parte real pode passar da metade.
     const reais = embaralhar(pool.filter((q) => q.o && inedito(q))).slice(0, Math.ceil(k / 2));
     const sorteio = reais.concat(selecionar(pool.filter((q) => !reais.includes(q)), Math.min(pool.length, k) - reais.length, 'novas'));
-    emBlocosDeTexto(sorteio, true, null).forEach((q) => { if (!usados.has(q.id)) { escolhidos.push(q); usados.add(q.id); } });
+    emBlocosDeTexto(sorteio, true, so).forEach((q) => { if (!usados.has(q.id)) { escolhidos.push(q); usados.add(q.id); } });
   }
-  if (escolhidos.length < n) selecionar(Q.filter((q) => !usados.has(q.id) && !q.al), n - escolhidos.length, 'novas').forEach((q) => escolhidos.push(q));
+  if (escolhidos.length < n) selecionar(Q.filter((q) => !usados.has(q.id) && !q.al && (!so || so.has(q.b))), n - escolhidos.length, 'novas').forEach((q) => escolhidos.push(q));
   return embaralhar(escolhidos.slice(0, n));
 }
 

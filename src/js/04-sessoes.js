@@ -160,10 +160,11 @@ function iniciarSessao(cfg) {
   } else if (cfg.ids) itens = cfg.ids.map((id) => QI.get(id)).filter(Boolean);
   else if (cfg.intercalado) itens = selecionarIntercaladas(cfg.n || 30);
   else if (cfg.prova) itens = selecionarProva(cfg.n || 60);
+  else if (cfg.cotas) itens = selecionarProva(cfg.n || 60, cfg.blocos);
   else if (cfg.modo === 'relampago') itens = embaralhar(poolDe(cfg.blocos).filter((q) => !q.al));
   else itens = selecionar(poolDe(cfg.blocos, cfg.banca), cfg.n || 20, cfg.filtro || 'mistas');
   if (!itens.length) { avisar('!', 'Sem itens', 'Nenhuma questão disponível com esse filtro.'); return; }
-  if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && !cfg.prova && !cfg.intercalado && cfg.modo !== 'revisao', cfg.blocos && cfg.blocos.length && !cfg.prova && !cfg.intercalado ? new Set(cfg.blocos) : null);
+  if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && !cfg.prova && !cfg.cotas && !cfg.intercalado && cfg.modo !== 'revisao', cfg.blocos && cfg.blocos.length && !cfg.prova && !cfg.cotas && !cfg.intercalado ? new Set(cfg.blocos) : null);
   sessao = novaSessao(cfg, itens.map((q) => q.id));
   abrirSessao();
 }
