@@ -188,6 +188,13 @@ async function executar(a, alvo) {
       if (ids.length) iniciarSessao({ modo: 'treino', ids, titulo: 'Itens reais inéditos', chave: 'reais:ineditos' });
       break;
     }
+    case 'treinar-erradas': iniciarSessao({ modo: 'treino', n: 20, blocos: [], filtro: 'erradas', titulo: 'Minhas erradas', chave: 'erradas' }); break;
+    case 'treinar-tema': {
+      // O tema do dia de questões do plano; em dia de revisão, folga ou fora do plano, os temas da semana
+      const ctx = contextoHoje(), bs = ctx.tipo === 'dia' ? (blocosDoDia(ctx.dia).length ? blocosDoDia(ctx.dia) : blocosDaSemana(ctx.dia)) : P1.slice();
+      iniciarSessao({ modo: 'treino', n: 20, blocos: bs, filtro: 'mistas', titulo: ctx.tipo === 'dia' && blocosDoDia(ctx.dia).length ? 'Tema de hoje' : 'Temas da semana', chave: 'tema:' + hojeISO() });
+      break;
+    }
     case 'reais-disc': {
       const d = (D.cebraspe ? D.cebraspe.disciplinas : []).find((x) => x.id === alvo.dataset.d);
       const ids = d ? reaisDaDisc(d.id).map((q) => q.id) : [];

@@ -6,7 +6,7 @@ function renderQuestoes() {
   const sel = new Set(UI.blocos);
   const pool = poolDe(UI.blocos, UI.filtroBanca);
   const usarProva = modo === 'simulado' && UI.prova === 'prova';
-  let html = cartaoPausas() + cartaoBuscaQuestoes() +
+  let html = cartaoPausas() + cartaoBuscaQuestoes() + cartaoInicioRapido() +
     '<div class="secao"><div class="secao-cab"><h2>Montar sessão</h2><span class="mudo pequeno mono">' + Q.length + ' questões no banco</span></div>' +
     '<div class="chips" role="group" aria-label="Modo">' +
     ['treino', 'simulado', 'relampago'].map((m) => '<button class="chip" data-acao="set-modo" data-modo="' + m + '" aria-pressed="' + (modo === m) + '">' + esc({ treino: 'Treino comentado', simulado: 'Simulado Cebraspe', relampago: 'Relâmpago 90 s' }[m]) + '</button>').join('') + '</div>' +
@@ -48,6 +48,18 @@ function renderQuestoes() {
   if (REAIS.length) html += '<div class="cartao reais"><h2>Itens reais de prova</h2><p class="mudo pequeno">' + REAIS.length + ' itens de provas de 2021 a 2026, com comentário: ' + (REAIS.length - conferidos - prelim) + ' com gabarito oficial definitivo, ' + conferidos + ' avulsos, com o gabarito conferido na lei ou no texto da prova' + (prelim ? ', e ' + prelim + ' com o gabarito preliminar da banca, conferido na lei e a revisar quando sair o definitivo' : '') + '. ' + (nIades ? nIades + ' são da seleção da própria ANPD (IADES, 2025). ' : '') + '</p><div class="linha-btns"><button class="btn" data-acao="reais" data-modo="treino">Treinar com comentário</button><button class="btn" data-acao="reais" data-modo="simulado">Fazer como prova</button><button class="btn" data-acao="mais" data-sub="cebraspe">Como o Cebraspe cobra</button></div></div>';
   if (!usarProva && !UI.blocos.length) html += '<p class="mudo pequeno">Nenhum bloco marcado: a sessão usa o banco inteiro.</p>';
   document.getElementById('vista-questoes').innerHTML = html;
+}
+// Início rápido: as três sessões mais pedidas, num toque, sem montar filtro (o mesmo que os chips abaixo fazem em
+// três passos). A sessão guardada de cada uma aparece como Continuar.
+function cartaoInicioRapido() {
+  const nErr = Q.filter((q) => { const r = rec(q.id); return r && r[3] > 0 && !SEM_REPETICAO.has(q.id); }).length;
+  const nReais = REAIS.filter((q) => !q.al && inedito(q)).length;
+  const ctx = contextoHoje(), doDia = ctx.tipo === 'dia' && blocosDoDia(ctx.dia).length > 0;
+  const b = (acao, chave, txt, n) => '<button class="btn pequeno" data-acao="' + acao + '"' + (n === 0 ? ' disabled' : '') + '>' + esc(rotuloPausa(chave === 'tema' ? 'tema:' + hojeISO() : chave, txt)) + '</button>';
+  return '<div class="secao inicio-rapido"><div class="secao-cab"><h2>Início rápido</h2><span class="mudo pequeno">um toque, 20 itens</span></div><div class="linha-btns">' +
+    b('treinar-erradas', 'erradas', 'Minhas erradas · ' + nErr, nErr) +
+    b('treinar-reais', 'reais:ineditos', 'Itens de prova inéditos · ' + nReais, nReais) +
+    b('treinar-tema', 'tema', doDia ? 'Tema de hoje' : 'Temas da semana') + '</div></div>';
 }
 // Busca por código ou palavra do enunciado. A lista não mostra o gabarito, para o treino que vem depois valer;
 // tocar num item abre o comentário, para quem quer só consultar.
@@ -127,7 +139,7 @@ function renderSessao() {
   const el = document.getElementById('sessao');
   UI.artInline = null;
   if (!sessao) return;
-  if (sessao.fim) { el.innerHTML = '<div class="sessao-corpo">' + (sessao.modo === 'cards' ? renderResultadoCards() : renderResultado()) + '</div>'; return; }
+  if (sessao.fim) { vistaSessao(el).innerHTML = '<div class="sessao-corpo">' + (sessao.modo === 'cards' ? renderResultadoCards() : renderResultado()) + '</div>'; anunciar(''); return; }
   const total = sessao.modo === 'relampago' ? null : sessao.ids.length;
   if (comTempoItem() && sessao.itemDe !== sessao.ids[sessao.i]) { sessao.itemDe = sessao.ids[sessao.i]; sessao.itemIni = Date.now(); }
   const relogio = sessao.limite ? fmtTempo(sessao.limite - decorrido()) : fmtTempo(decorrido());
@@ -140,8 +152,33 @@ function renderSessao() {
   if (sessao.confirmar) html += renderConfirmacao();
   if (sessao.modo === 'cards') html += barra(sessao.i / sessao.ids.length) + renderCardSessao(CI.get(sessao.ids[sessao.i]));
   else { html += renderArena(QI.get(sessao.ids[sessao.i])); if (total) html += renderTira() + resumoSimulado(); html += renderItem(QI.get(sessao.ids[sessao.i])); }
-  el.innerHTML = html + '</div>';
+  const v = vistaSessao(el);
+  v.innerHTML = html + '</div>';
+  anunciarVeredito(v);
   centrarTira();
+}
+// A sessão é redesenhada inteira a cada resposta, e uma região viva criada junto com o conteúdo nem sempre é lida.
+// Por isso o diálogo tem duas partes: a vista, trocada a cada desenho, e um anúncio fixo (#anuncio-sessao), que o leitor
+// de tela lê quando o texto muda. Fica dentro do diálogo: fora dele, o aria-modal esconde a região do leitor.
+function vistaSessao(el) {
+  let v = el.querySelector(':scope > .sessao-vista');
+  if (!v) {
+    el.innerHTML = '<div class="sessao-vista"></div><p class="so-leitor" id="anuncio-sessao" role="status" aria-live="polite"></p>';
+    v = el.firstChild;
+  }
+  return v;
+}
+function anunciar(t) {
+  const an = document.getElementById('anuncio-sessao');
+  if (an && an.textContent !== t) an.textContent = t;
+}
+// Só o veredito (sem o XP), uma vez por item: o mesmo texto não é repetido quando a sessão é redesenhada
+function anunciarVeredito(v) {
+  const s = v.querySelector('.veredito > span'), t = s ? s.textContent.replace(/\s+/g, ' ').trim() : '';
+  const an = document.getElementById('anuncio-sessao');
+  if (!an) return;
+  const k = t ? sessao.ids[sessao.i] + '|' + t : '';
+  if (k !== (an.dataset.k || '')) { an.dataset.k = k; an.textContent = t; }
 }
 function renderTira() {
   const atual = sessao.ids[sessao.i];
@@ -455,7 +492,10 @@ function renderResultado() {
     ordenada.map((x) => '<button data-acao="revisar-item" data-q="' + esc(x.q.id) + '" data-r="' + esc(sessao.resp[x.q.id] || BRANCO) + '"><span class="marca-res ' + x.cls + '">' + ({ C: '✓', E: '✗', B: '–' }[x.cls]) + '</span><span class="txt">' + esc(x.q.e) + '</span></button>').join('') + '</div></div>';
   let proximoAcaoBtn = '';
   if (sessao.st && sessao.tipoSubtema === 'pre') {
-    proximoAcaoBtn = '<button class="btn primario" data-acao="st-lei" data-st="' + esc(sessao.st) + '">2. Ler Lei Seca do Subtema ›</button>';
+    // Subtema sem artigo de lei (matéria doutrinária): o passo seguinte é a aula
+    proximoAcaoBtn = artsDoSubtema(SUBTEMAS.get(sessao.st) || {}).length
+      ? '<button class="btn primario" data-acao="st-lei" data-st="' + esc(sessao.st) + '">2. Ler Lei Seca do Subtema ›</button>'
+      : '<button class="btn primario" data-acao="st-aula" data-st="' + esc(sessao.st) + '">2. Abrir a aula do subtema ›</button>';
   } else if (sessao.st && sessao.tipoSubtema === 'pratica') {
     proximoAcaoBtn = '<button class="btn primario" data-acao="subtema" data-st="' + esc(sessao.st) + '">Voltar ao Subtema ›</button>';
   }

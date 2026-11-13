@@ -139,8 +139,12 @@ function roteiroHoje() {
 
   // Lei seca com grifos (~15 min)
   const metaLeitura = arts.length ? Math.min(arts.length, metaArtigos()) : 0;
-  const leiFeita = arts.length ? lidosHoje >= metaLeitura : (d.a || []).length >= 3;
-  passos.push({
+  // Matéria nova sem lei seca (segurança da informação, inglês, contabilidade): o passo de leitura sai do roteiro, e a
+  // aula vem logo depois das questões. Antes aparecia "Ler os artigos", que abria o subtema sem nenhum artigo, e o
+  // passo só se cumpria lendo 3 artigos quaisquer
+  const semLei = !!stPlano && !arts.length;
+  const leiFeita = semLei || (arts.length ? lidosHoje >= metaLeitura : (d.a || []).length >= 3);
+  if (!semLei) passos.push({
     titulo: 'Lei seca com grifos (~' + (longo ? 15 : 10) + ' min)',
     feito: leiFeita,
     texto: arts.length

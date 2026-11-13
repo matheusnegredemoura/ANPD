@@ -172,7 +172,11 @@ await passo('leitura do dia até o fim da fila', async () => {
   await p.click('.aba[data-vista="hoje"]');
   // dia de matéria nova: a leitura sai pela página do subtema; nos outros dias, pela fila do dia
   if (await p.locator('[data-acao="ler-dia"]').count()) await p.click('[data-acao="ler-dia"]');
-  else {
+  else if (!(await p.locator('[data-acao="st-lei"]').count())) {
+    // Matéria sem lei seca (segurança da informação, inglês): o passo de leitura sai e a aula fica à mão
+    if (!(await p.locator('[data-acao="st-aula"]').count())) throw new Error('dia sem lei seca e sem botão de aula');
+    return;
+  } else {
     // "Ler os artigos" já abre o primeiro artigo do subtema
     await p.click('[data-acao="st-lei"]');
     await p.waitForSelector('#vista-mais .art-inline:not([hidden]) .art-inline-cab');
