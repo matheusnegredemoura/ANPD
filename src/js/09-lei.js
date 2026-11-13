@@ -19,7 +19,24 @@ function importancia(id) {
   const bonus = b ? (b.prioridade === 1 ? 4 : b.prioridade === 2 ? 2 : 0) : 0;
   return qs * 2 + reais * 3 + cs + bonus;
 }
-function estrelas(id) { const s = importancia(id); return s >= 16 ? 3 : s >= 8 ? 2 : s >= 3 ? 1 : 0; }
+// Estrelas: vale o menor entre o corte fixo e a posição do artigo na própria norma (★★★ só no quinto mais cobrado dela,
+// ★★ até a metade). Com o banco em 10 mil itens, o corte fixo sozinho dava ★★★ a 58 dos 80 artigos da LGPD, e a estrela
+// deixou de dizer qual artigo pesa mais; o corte fixo continua impedindo ★★★ em norma com poucos itens
+const CORTES_EST = new Map();
+function cortesDaNorma(lei) {
+  if (!CORTES_EST.has(lei)) {
+    const v = [...ARTI.values()].filter((a) => a.lei === lei).map((a) => importancia(a.k)).filter((s) => s >= 3).sort((x, y) => y - x);
+    const em = (f) => (v.length ? v[Math.max(0, Math.ceil(v.length * f) - 1)] : Infinity);
+    CORTES_EST.set(lei, { tres: em(0.2), dois: em(0.5) });
+  }
+  return CORTES_EST.get(lei);
+}
+function estrelas(id) {
+  const s = importancia(id), fixo = s >= 16 ? 3 : s >= 8 ? 2 : s >= 3 ? 1 : 0, a = ARTI.get(id);
+  if (fixo < 2 || !a) return fixo;
+  const c = cortesDaNorma(a.lei);
+  return Math.min(fixo, s >= c.tres ? 3 : s >= c.dois ? 2 : 1);
+}
 // Os grifos também reconhecem o inglês do GDPR (EUR, %, prazos em horas e anos, shall/may, unless, only...)
 const RE_NUM = /(?:R\$\s?)?\d[\d.,]*%?\s\([^)]+\)(?:\s(?:dias|meses|anos|horas))?|\d{1,2}º? de [a-zç]+ de \d{4}|\d{1,3}(?: \d{3})+ EUR|\d+ %|\b\d+ (?:hours|days|weeks|months|years)\b|\d{1,2} (?:January|February|March|April|May|June|July|August|September|October|November|December) \d{4}/g;
 const RE_ALERTA = /(?<![\p{L}])(?:somente|exclusivamente|exclusiva|exclusivos|vedad[oa]s?|salvo|exceto|ressalvad[oa]s?|desde que|em nenhuma hipótese|em nenhum caso|em circunstância alguma|independentemente|não se aplica|sem prejuízo|só não|apenas|sempre que possível|a qualquer momento|imediatamente|nul[oa]s?|gratuita|sem custos|only|solely|exclusively|unless|except|prohibited|shall not|not apply|without prejudice|in any case|regardless|irrespective|free of charge|without undue delay)(?![\p{L}])/giu;
@@ -305,9 +322,9 @@ function renderLei() {
     '<div class="secao-cab"><h2>' + esc(L.nome) + '</h2><a class="pequeno" href="' + esc(L.url) + '" target="_blank" rel="noopener">Fonte oficial ↗</a></div>' +
     (L.aviso ? '<p class="aviso-conferir">' + esc(L.aviso) + '</p>' : '') +
     '<p class="pequeno mudo">' + pl(arts.length, 'unidade', 'unidades') + ' · ' + lidos + ' lida' + (lidos === 1 ? '' : 's') + ' · ' + pl((arts.reduce((n, a) => n + (POR_ART.get(a.k) || []).length, 0)), 'questão ligada', 'questões ligadas') + '</p>' +
-    '<input class="busca" aria-keyshortcuts="/" id="busca-lei" type="search" placeholder="Buscar em todas as normas (ex.: quinze dias, encarregado, Senado)" value="' + esc(UI.busca) + '" aria-label="Buscar em todas as normas">' +
+    '<input class="busca" aria-keyshortcuts="/" id="busca-lei" type="search" placeholder="Buscar em todas as normas" title="Ex.: quinze dias, encarregado, Senado" value="' + esc(UI.busca) + '" aria-label="Buscar em todas as normas">' +
     '<div class="chips"><button class="chip" data-acao="ranking" aria-pressed="' + (UI.ranking && !UI.termometro) + '">Mais importantes primeiro</button><button class="chip" data-acao="ler-tudo">Ler do início</button><button class="chip" data-acao="toggle-termometro" aria-pressed="' + !!UI.termometro + '">Termômetro de Vulnerabilidades</button></div>' +
-    '<p class="pequeno mudo">Estrelas: quanto o artigo pesa no banco. Pontos: acertos e erros. Borda termossensível: Crítico, Atenção, Dominado.</p></div>';
+    '<p class="pequeno mudo">Estrelas: quanto o artigo pesa no banco, comparado com os outros desta norma. Pontos: acertos e erros. Borda termossensível: Crítico, Atenção, Dominado.</p></div>';
   // Um diagnóstico por artigo, reaproveitado no termômetro, no ranking de vulnerabilidades e na grade de artigos
   const diag = new Map(arts.map((a) => [a.k, diagnosticoArtigo(a.k)]));
   const diagArts = [...diag.values()];

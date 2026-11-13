@@ -73,7 +73,7 @@ function buscarQuestoes(termo) {
 const BUSCA_Q_MAX = 50;
 function cartaoBuscaQuestoes() {
   const termo = UI.buscaQ || '', achadas = buscarQuestoes(termo);
-  let html = '<div class="secao busca-q"><input class="busca" aria-keyshortcuts="/" id="busca-questoes" type="search" autocomplete="off" placeholder="Procurar questão por palavra ou código (ex.: legítimo interesse, tce-rn)" value="' + esc(termo) + '" aria-label="Procurar questão">';
+  let html = '<div class="secao busca-q"><input class="busca" aria-keyshortcuts="/" id="busca-questoes" type="search" autocomplete="off" placeholder="Buscar por palavra ou código" value="' + esc(termo) + '" aria-label="Procurar questão">';
   if (semAcento(termo.trim()).length >= 3) {
     if (!achadas.length) html += '<p class="mudo pequeno">Nenhuma questão com esse termo no enunciado ou no código.</p>';
     else {

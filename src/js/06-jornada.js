@@ -398,8 +398,11 @@ function renderHoje() {
   // Só o próximo passo traz a explicação aberta; nos outros ela fica recolhida em "detalhes" (a tela Hoje passava de
   // cinco telas de celular, e o roteiro sozinho era um terço dela)
   const atual = rt.passos.find((p) => !p.feito);
+  // Um só botão em destaque, o do passo atual: cada passo destacava o seu quando o anterior estava feito, e com a revisão,
+  // as questões, o atraso e a aula pendentes a tela chegava a ter quatro botões cheios, sem dizer por onde começar
+  const sóAtual = (p) => (p === atual ? p.botoes : p.botoes.replace(/ primario(?=")/g, ''));
   rt.passos.forEach((p, i) => {
-    roteiro += '<div class="passo' + (p.feito ? ' feito' : '') + (p === atual ? ' atual' : '') + '"><div class="marca-passo">' + (p.feito ? '✓' : (/^(\d+)\./.exec(p.titulo) || [, '•'])[1]) + '</div><div class="corpo-passo"><b>' + esc(p.titulo) + '</b>' + (p.feito || !p.texto ? '' : p === atual ? '<p>' + esc(p.texto) + '</p>' : '<details class="passo-mais"><summary>detalhes</summary><p>' + esc(p.texto) + '</p></details>') + '<div class="linha-btns">' + p.botoes + (p.extra || '') + '</div></div></div>';
+    roteiro += '<div class="passo' + (p.feito ? ' feito' : '') + (p === atual ? ' atual' : '') + '"><div class="marca-passo">' + (p.feito ? '✓' : (/^(\d+)\./.exec(p.titulo) || [, '•'])[1]) + '</div><div class="corpo-passo"><b>' + esc(p.titulo) + '</b>' + (p.feito || !p.texto ? '' : p === atual ? '<p>' + esc(p.texto) + '</p>' : '<details class="passo-mais"><summary>detalhes</summary><p>' + esc(p.texto) + '</p></details>') + '<div class="linha-btns">' + sóAtual(p) + (p.extra || '') + '</div></div></div>';
   });
   roteiro += '</div><p class="pequeno mudo">' + (stDoDia(rt.dia) ? 'Matéria nova: revisão do que venceu, pré-teste, lei, aula e questões do mesmo tema, nessa ordem; depois as intercaladas e as lacunas.' : 'A ordem é o método: revisão primeiro, depois questão, depois a lei onde você errou, depois a memorização com lacunas.') + ' <button class="linkish" data-acao="mais" data-sub="metodo">Entenda o método</button></p></div>';
   const modos = '<div class="secao"><div class="secao-cab"><h2>Modos de jogo</h2></div><div class="grade-modos">' +

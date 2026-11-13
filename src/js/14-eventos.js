@@ -289,14 +289,6 @@ async function executar(a, alvo) {
       iniciarSessao({ modo: 'treino', ids, dia: 'curto:' + hojeISO(), titulo: 'Dia curto' });
       break;
     }
-    case 'cards-revisao': iniciarSessao({ modo: 'cards', soRevisao: true, soNumero: !!alvo.dataset.num, titulo: 'Cards vencidos' }); break;
-    // Cards do roteiro: 5 de número e prazo, dos blocos do dia quando eles têm; senão, de qualquer bloco
-    case 'cards-dia': {
-      const ctx = contextoHoje();
-      const bs = blocosDoDia(ctx.tipo === 'dia' ? ctx.dia : null).filter((b) => (CARDS_POR_BLOCO.get(b) || []).some((c) => c.nota.nu));
-      iniciarSessao({ modo: 'cards', blocos: bs.length ? bs : null, soNumero: true, novos: Math.min(5, novosRestantesHoje()), titulo: 'Cards de número e prazo' });
-      break;
-    }
     case 'fase': UI.faseAberta = UI.faseAberta === alvo.dataset.fase ? '' : alvo.dataset.fase; renderMais(); break;
     case 'status': { const b = alvo.dataset.bloco; S.perfil.status[b] = STATUS_CICLO[S.perfil.status[b] || 'nao']; Store.salvar('perfil'); renderMais(); break; }
     case 'tema': UI.tema = alvo.dataset.tema; salvarUI(); aplicarTema(); renderTudo(); break;

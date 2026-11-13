@@ -64,7 +64,8 @@ const nuvemBase = {
 // 1) Navegador limpo (app do Claude, outro aparelho, versão nova) e toque antes de a conta carregar
 await cenario('Navegador limpo + toque no tema antes de carregar a conta', {
   nuvem: nuvemBase, tNuvem: agora - 3600e3, local: null, ui: null, atrasoMs: 1500,
-  acao: async (p) => { await p.waitForTimeout(200); await p.click('[data-acao="tema-alternar"]').catch(() => {}); },
+  // O botão de tema fica escondido no topo em celular (segue em Ajustes); o clique direto mantém o toque antes da conta
+  acao: async (p) => { await p.waitForTimeout(200); await p.evaluate(() => { const b = document.querySelector('[data-acao="tema-alternar"]'); if (b) b.click(); }); },
 }, (r) => {
   conferir('meta da conta mantida (60)', r.nuvem.perfil.meta === 60, 'meta=' + r.nuvem.perfil.meta);
   conferir('intercaladas mantidas (40)', r.nuvem.perfil.intercaladas === 40);

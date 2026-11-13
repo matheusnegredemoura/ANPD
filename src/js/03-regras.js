@@ -598,7 +598,6 @@ function cardsNovos(blocos) {
 const REV_MAX = 60;
 // Itens por sessão de revisão de questões (cerca de 10 minutos no ritmo de prova)
 const REV_SESSAO = 30;
-function novosRestantesHoje() { return Math.max(0, (S.perfil.novosCards || 20) - (diaLog().nc || 0)); }
 
 /* ================= Pesquisa e glossário ================= */
 function termosDe(texto, limite, maxFreq) {

@@ -111,6 +111,8 @@ await passo('dia curto: até 20 itens, e o dia conta', async () => {
     conferir('é o dia de segurança da informação', /segurança da informação/i.test(t), t.slice(0, 160));
     conferir('sem "Ler os artigos" nem passo de lei seca', !(await p2.locator('[data-acao="st-lei"]').count()) && !/Lei seca com grifos/.test(t));
     conferir('botão da aula presente', (await p2.locator('[data-acao="st-aula"]').count()) > 0);
+    conferir('um só botão em destaque no roteiro (o do passo atual)', (await p2.locator('.roteiro .btn.primario').count()) <= 1, String(await p2.locator('.roteiro .btn.primario').count()));
+    conferir('a aula não fica em destaque antes das questões do tema', !(await p2.locator('.roteiro [data-acao="st-aula"].primario').count()));
   });
   await c2.close();
 }

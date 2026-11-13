@@ -113,7 +113,7 @@ function cartaoProntidao() {
     '<div class="dom-linha"><span class="nome">Itens reais de prova · ' + pl(real.n, 'primeira resposta', 'primeiras respostas') + '</span>' + barra(real.n ? real.c / real.n : 0) + '<span class="val">' + taxa(real) + '</span></div>' +
     '<div class="dom-linha"><span class="nome">Itens escritos para o banco · ' + pl(banco.n, 'primeira resposta', 'primeiras respostas') + '</span>' + barra(banco.n ? banco.c / banco.n : 0) + '<span class="val">' + taxa(banco) + '</span></div></div>';
   if (pr.nota != null && pr.cobre >= 0.5) {
-    html += '<div class="nota-final"><span class="grande">' + Math.round(pr.nota) + '</span><span class="mudo">de ' + PONTOS_PROVA + ' pontos líquidos, se marcasse a prova inteira hoje' + (pr.faixa ? '; com 95% de confiança, entre ' + pr.faixa[0] + ' e ' + pr.faixa[1] + ' (a faixa estreita conforme você responde itens reais)' : '') + (pr.cobre < 0.99 ? ' (estimativa sobre ' + Math.round(pr.cobre * 100) + '% da nota; o resto ainda não tem respostas)' : '') + (pr.semReais ? '. ' + pl(pr.semReais, 'disciplina é estimada', 'disciplinas são estimadas') + ' pelo banco, por ter menos de 10 itens reais respondidos' : '') + '</span></div>';
+    html += '<div class="nota-final"><span class="grande">' + Math.round(pr.nota) + '</span><span class="mudo">de ' + PONTOS_PROVA + ' pontos líquidos, se marcasse a prova inteira hoje' + (pr.faixa ? '; com 95% de confiança, entre ' + pr.faixa[0] + ' e ' + pr.faixa[1] + '. A faixa estreita conforme você responde itens reais' : '') + (pr.cobre < 0.99 ? '. A estimativa cobre ' + Math.round(pr.cobre * 100) + '% da nota; o resto ainda não tem respostas' : '') + (pr.semReais ? '. ' + pl(pr.semReais, 'disciplina é estimada', 'disciplinas são estimadas') + ' pelo banco, por ter menos de 10 itens reais respondidos' : '') + '.</span></div>';
   }
   let leitura;
   if (real.n < 30) leitura = 'Com ' + pl(real.n, 'item real respondido', 'itens reais respondidos') + ', ainda não dá para comparar. A medida fica confiável perto de 100 itens reais: faltam ' + Math.max(0, 100 - real.n) + '. Até lá, a estimativa usa os itens do banco, que tendem a ser mais fáceis que os da banca.';
@@ -605,7 +605,7 @@ function renderEditalANPD() {
   html += '<div class="cartao"><div class="campo"><span class="rot">Filtrar por prioridade</span><div class="chips">' +
     [['todas', 'Todas (' + topicos.length + ')'], ...['A', 'B', 'C'].map((v) => [v, 'Prioridade ' + v + ' (' + topicos.filter((t) => t.prio === v).length + ')'])].map(([v, t]) => '<button class="chip" data-acao="ed-prio" data-v="' + v + '" aria-pressed="' + (fPrio === v) + '">' + t + '</button>').join('') +
     '</div></div>' +
-    '<input class="busca" aria-keyshortcuts="/" id="busca-edital" type="search" placeholder="Filtrar tópico, norma ou conceito no edital (ex.: legítimo interesse, encarregado, AIR, NIST, DPO)" value="' + esc(UI.edBusca || '') + '"></div>';
+    '<input class="busca" aria-keyshortcuts="/" id="busca-edital" type="search" placeholder="Filtrar tópico, norma ou conceito" title="Ex.: legítimo interesse, encarregado, AIR, NIST, DPO" value="' + esc(UI.edBusca || '') + '"></div>';
 
   const porMat = new Map();
   for (const t of topicos) {

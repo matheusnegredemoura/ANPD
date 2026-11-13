@@ -92,7 +92,9 @@ p{margin:0}
 .marca span{font-size:.78rem;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .status{display:flex;align-items:center;gap:8px;flex-shrink:0}
 /* Celular estreito: o botão de tema sai do topo (continua em Ajustes) para o título não ficar por baixo das pílulas */
-@media (max-width:380px){.topo{gap:8px}.status{gap:5px}.status .pilula{padding:4px 7px}.marca b{font-size:1.12rem}.status [data-acao="tema-alternar"]{display:none}}
+@media (max-width:380px){.topo{gap:8px}.status{gap:5px}.status .pilula{padding:4px 7px}.marca b{font-size:1.12rem}}
+/* Até 440 px (a maioria dos celulares) o botão de tema sai do topo, que cortava o nome do painel em "Painel A…"; o tema continua em Ajustes */
+@media (max-width:440px){.status [data-acao="tema-alternar"]{display:none}.marca b{overflow:visible}}
 .pilula{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-family:var(--f-mono);font-size:.8rem;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
 .pilula svg{width:15px;height:15px}
 .pilula.fogo{color:var(--gold)}
@@ -186,7 +188,7 @@ p{margin:0}
 .sessao-corpo{max-width:760px;margin:0 auto;padding:calc(env(safe-area-inset-top,0px) + 12px) 16px calc(env(safe-area-inset-bottom,0px) + 32px);display:flex;flex-direction:column;gap:14px}
 .sessao-topo{display:flex;align-items:center;gap:10px}
 .sessao-topo .tit{flex:1;min-width:0;display:flex;flex-direction:column}
-.sessao-topo .tit b{font-family:var(--f-titulo);font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sessao-topo .tit b{font-family:var(--f-titulo);font-size:1.05rem;line-height:1.2;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere}
 .sessao-topo .tit span{font-size:.78rem;color:var(--ink-2)}
 .relogio{font-family:var(--f-mono);font-weight:600;font-size:1rem;padding:4px 10px;border-radius:8px;background:var(--surface);border:1px solid var(--line);font-variant-numeric:tabular-nums}
 .relogio.urgente{color:var(--errado);border-color:var(--errado)}
@@ -227,7 +229,7 @@ details.apoio-det summary{cursor:pointer;font-weight:700;color:var(--accent);fon
 details.apoio-det[open] summary{margin-bottom:8px}
 
 .respostas{display:flex;gap:12px;flex-wrap:wrap}
-.passo-mais summary{cursor:pointer;font-size:.8rem;color:var(--ink-3);width:max-content}
+.passo-mais summary{cursor:pointer;font-size:.8rem;color:var(--ink-3);width:max-content;padding:7px 12px 7px 0}
 .passo-mais p{margin-top:4px}
 /* No celular, "Em branco" desce para uma linha própria: ao lado de CERTO e ERRADO a linha passava da tela */
 @media (max-width:480px){.respostas .bolha.b{flex:1 1 100%;min-height:44px}}

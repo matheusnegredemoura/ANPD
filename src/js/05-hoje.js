@@ -162,7 +162,7 @@ function roteiroHoje() {
     titulo: 'Aula da trilha & jurisprudência (~10 min)',
     feito: aulaFeita,
     texto: (nomeTrilha(stH.trilha) || 'Trilha do zero') + ': ' + stH.nome + '. Mapa mental, exemplos e as armadilhas da banca.',
-    botoes: stPlano ? '<button class="btn pequeno' + (leiFeita && !aulaFeita ? ' primario' : '') + '" data-acao="st-aula" data-st="' + esc(stPlano.id) + '">Abrir a aula</button>'
+    botoes: stPlano ? '<button class="btn pequeno' + ((semLei ? qTemaFeita : leiFeita) && !aulaFeita ? ' primario' : '') + '" data-acao="st-aula" data-st="' + esc(stPlano.id) + '">Abrir a aula</button>'
       : '<button class="btn pequeno' + (leiFeita && !aulaFeita ? ' primario' : '') + '" data-acao="aula-folha" data-st="' + esc(stH.id) + '" data-marca="1">Abrir aula da trilha</button>'
   });
 
