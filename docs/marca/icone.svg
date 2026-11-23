@@ -1,22 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="t">
   <title id="t">Painel ANPD</title>
-  <!-- Bolha de resposta marcada (C), em forma de espelho de fechadura, ao lado da bolha vazia (E), sobre o verde-petróleo do app -->
+  <!-- Escudo (proteção e autoridade) com as linhas de uma impressão digital (o dado pessoal) e a fechadura no centro -->
   <defs>
     <linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#11807a"/>
       <stop offset="1" stop-color="#083d3a"/>
     </linearGradient>
-    <mask id="fechadura">
+    <mask id="recorte">
       <rect width="512" height="512" fill="#fff"/>
-      <circle cx="168" cy="186" r="28" fill="#000"/>
-      <path d="M157 203 L148 266 Q146 277 157 277 L179 277 Q190 277 188 266 L179 203 Z" fill="#000"/>
+      <path d="M207.1 258.5 A50 60 0 1 1 304.9 258.5 M191.5 297.7 A76 90 0 0 1 245.4 160.9 M270.5 161.7 A76 90 0 0 1 320.5 297.7 M154.2 262.4 A102 120 0 0 1 310.1 152.2 M331.8 173.7 A102 120 0 0 1 357.4 266.5 M180.2 334.3 A102 120 0 0 1 160.2 295.0" fill="none" stroke="#000" stroke-width="12" stroke-linecap="round"/>
+      <circle cx="256" cy="236" r="24" fill="#000"/><path d="M246 250.4 L237.4 299 Q236.5 308 245.5 308 L266.5 308 Q275.5 308 274.6 299 L266 250.4 Z" fill="#000"/>
     </mask>
   </defs>
   <rect width="512" height="512" rx="112" fill="url(#fundo)"/>
-  <ellipse cx="168" cy="208" rx="72" ry="110" fill="#eaf4f0" mask="url(#fechadura)"/>
-  <ellipse cx="344" cy="208" rx="65.5" ry="103.5" fill="none" stroke="#8fdccf" stroke-width="13"/>
-  <g fill="none" stroke="#cfe9e1" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M182.1 375.1 A22 22 0 1 0 182.1 408.9"/>
-    <path d="M358 370 H330 V414 H358 M330 392 H354"/>
-  </g>
+  <path d="M256 88 L396 138 V244 C396 334 338 398 256 430 C174 398 116 334 116 244 V138 Z" fill="#eaf4f0" mask="url(#recorte)"/>
 </svg>
