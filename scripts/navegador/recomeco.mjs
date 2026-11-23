@@ -11,7 +11,7 @@ const plano = JSON.parse(readFileSync(new URL('../../dados/cronograma.json', imp
 const dias = plano.fases.flatMap((f) => f.semanas.flatMap((s) => s.dias)).sort((a, b) => (a.data < b.data ? -1 : 1));
 // Três dias de questões seguidos, sem discursiva (discursiva pendente de um dia feito continua no atraso, de propósito):
 // o perfil nasce no primeiro, que fica feito, e o teste volta dois dias depois do terceiro
-const k = dias.findIndex((d, i) => i > 20 && [0, 1, 2].every((j) => dias[i + j] && dias[i + j].modo === 'treino' && !dias[i + j].disc));
+const k = dias.findIndex((d, i) => i > 20 && d.data > (plano.replanejado || '') && [0, 1, 2].every((j) => dias[i + j] && dias[i + j].modo === 'treino' && !dias[i + j].disc));
 const A = dias[k].data, prox = dias[k + 1], num = (iso) => Date.parse(iso + 'T10:00:00'), iso = (t) => new Date(t).toISOString().slice(0, 10);
 const B = iso(num(dias[k + 2].data) + 864e5 * 2);
 const ddmm = (s) => s.slice(8, 10) + '/' + s.slice(5, 7);

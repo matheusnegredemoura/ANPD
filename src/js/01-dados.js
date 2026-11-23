@@ -84,7 +84,7 @@ function montarDias() {
 }
 montarDias();
 // Plano B: a ANPD disse querer antecipar o concurso; quatro semanas antes da prova provável do cronograma
-const PLANO_B = '2027-02-28';
+const PLANO_B = isoDeNum(diaNum(D.cronograma.prova) - 28);
 function encaixeValido(x) {
   const iso = (v) => typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v);
   return x && typeof x === 'object' && iso(x.prova) && iso(x.desde) && x.prova > x.desde ? x : null;
@@ -159,7 +159,8 @@ function encaixarPlano(prova, desde, cortes) {
 // para a frente e recomeça na data marcada, na mesma ordem, de segunda a sábado (fora 25/12 e 1º/1). O que já foi feito
 // fica onde estava. Os recomeços se aplicam em sequência, cada um sobre o plano deixado pelo anterior.
 const ISO_RE = /^\d{4}-\d{2}-\d{2}$/;
-function recomecosValidos() { return (S.perfil.recomecos || []).filter((x) => x && ISO_RE.test(x.de) && ISO_RE.test(x.para) && x.para > x.de); }
+// Recomeços feitos até a data em que o cronograma foi refeito (replanejado) já estão nas datas novas e não se aplicam de novo
+function recomecosValidos() { const r = D.cronograma.replanejado || ''; return (S.perfil.recomecos || []).filter((x) => x && ISO_RE.test(x.de) && ISO_RE.test(x.para) && x.para > x.de && !(r && x.em && x.em <= r)); }
 function recomecarFases(fases, rc) {
   const pular = new Set(rc.pular || []), dm = (iso) => fmtData(iso, { day: '2-digit', month: '2-digit' });
   const fs = fases.map((f) => Object.assign({}, f, { semanas: f.semanas.map((s) => Object.assign({}, s, { dias: s.dias.map((d) => Object.assign({}, d)) })) }));

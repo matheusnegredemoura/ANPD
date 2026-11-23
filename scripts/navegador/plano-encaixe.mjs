@@ -29,23 +29,23 @@ if (hoje < '2027-02-01') {
   await passo('plano B pronto e trocado com um clique', async () => {
     await abrirPlano();
     const t = (await p.textContent('#vista-mais')).replace(/\s+/g, ' ');
-    conferir('cartão do plano B', /Plano B: prova em 28\/02\/2027/.test(t), t.match(/Plano B[^.]{0,120}/)?.[0]);
+    conferir('cartão do plano B', /Plano B: prova em 21\/03\/2027/.test(t), t.match(/Plano B[^.]{0,120}/)?.[0]);
     const n = Number(t.match(/tira (\d+) semanas? de revisão/)?.[1]);
     conferir('quatro semanas saem', n === 4, String(n));
-    conferir('o cartão diz que um simulado sai junto e qual semana o tinha', /1 simulado sai junto/.test(t) && /\(15\/03 a 21\/03\), com simulado/.test(t) && !/mantém os simulados/.test(t), t.match(/tira[^:]{0,160}/)?.[0]);
+    conferir('o cartão diz que um simulado sai junto e qual semana o tinha', /1 simulado sai junto/.test(t) && /\(05\/04 a 11\/04\), com simulado/.test(t) && !/mantém os simulados/.test(t), t.match(/tira[^:]{0,160}/)?.[0]);
     await p.click('details[data-det="plano-b"] summary');
     await p.click('[data-acao="plano-b"]');
     const e = (await perfil()).encaixe;
-    conferir('encaixe gravado com as semanas cortadas', e && e.prova === '2027-02-28' && e.desde === hoje && e.cortes.length === 4, JSON.stringify(e));
+    conferir('encaixe gravado com as semanas cortadas', e && e.prova === '2027-03-21' && e.desde === hoje && e.cortes.length === 4, JSON.stringify(e));
     const f6 = await textoFase('f6');
-    conferir('prova no dia 28/02', /Prova \(domingo, 28\/02\)/.test(f6), f6.match(/Prova \([^)]*\)/)?.[0]);
-    conferir('nada depois de 28/02', !/2[2-8]\/03|0[1-9]\/03 a/.test(f6), f6.match(/\d\d\/03[^ ]*/)?.[0]);
-    conferir('semanas renumeradas, sem a 25', !/Semana 25/.test(f6) && /Semana 20/.test(f6));
+    conferir('prova no dia 21/03', /Prova \(domingo, 21\/03\)/.test(f6), f6.match(/Prova \([^)]*\)/)?.[0]);
+    conferir('nada depois de 21/03', !/2[2-9]\/03|3[01]\/03|\d\d\/04/.test(f6), f6.match(/\d\d\/0[34][^ ]*/)?.[0]);
+    conferir('semanas renumeradas, sem a 27', !/Semana 2[4-7]/.test(f6) && /Semana 23/.test(f6));
     const c = (await p.textContent('#vista-mais')).replace(/\s+/g, ' ');
-    conferir('cartão do plano encaixado', /Plano encaixado na prova de 28\/02\/2027/.test(c) && /4 semanas saíram/.test(c), c.match(/Plano encaixado[^:]{0,160}/)?.[0]);
+    conferir('cartão do plano encaixado', /Plano encaixado na prova de 21\/03\/2027/.test(c) && /4 semanas saíram/.test(c), c.match(/Plano encaixado[^:]{0,160}/)?.[0]);
     await p.click('.aba[data-vista="hoje"]');
     const h = (await p.textContent('#vista-hoje')).replace(/\s+/g, ' ');
-    conferir('contagem até 28/02/2027, sem a estimativa de três meses', /dias até a prova do plano encaixado, 28\/02\/2027/.test(h) && !/três meses depois/.test(h), h.match(/.{4}dias até a prova[^.]*/)?.[0]);
+    conferir('contagem até 21/03/2027, sem a estimativa de três meses', /dias até a prova do plano encaixado, 21\/03\/2027/.test(h) && !/três meses depois/.test(h), h.match(/.{4}dias até a prova[^.]*/)?.[0]);
   });
 
   await passo('volta ao plano original', async () => {
@@ -53,7 +53,7 @@ if (hoje < '2027-02-01') {
     await p.click('[data-acao="plano-original"]');
     conferir('encaixe apagado', (await perfil()).encaixe === null);
     const f6 = await textoFase('f6');
-    conferir('prova provável de volta a 28/03', /Prova provável \(domingo\)/.test(f6) && /28\/03/.test(f6));
+    conferir('prova de volta a 18/04', /Prova \(domingo\): objetiva e discursiva/.test(f6) && /18\/04/.test(f6));
   });
 }
 

@@ -98,10 +98,10 @@ await passo('dia curto: até 20 itens, e o dia conta', async () => {
   conferir('o roteiro avisa que o dia contou', /Dia curto feito/.test(await p.textContent('#vista-hoje')));
 });
 
-// Sábado de matéria sem lei seca (segurança da informação do zero, 14/11): o roteiro não pede leitura de artigos
+// Sábado de matéria sem lei seca (segurança da informação do zero, 05/12): o roteiro não pede leitura de artigos
 {
   const c2 = await browser.newContext({ viewport: { width: 390, height: 844 } });
-  await c2.clock.install({ time: new Date('2026-11-14T09:00:00') });
+  await c2.clock.install({ time: new Date('2026-12-05T09:00:00') });
   const p2 = await c2.newPage();
   vigiarErros(p2, erros);
   await p2.goto(APP);

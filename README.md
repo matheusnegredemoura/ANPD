@@ -2,7 +2,7 @@
 
 # Painel ANPD
 
-Aplicativo de estudo para o concurso de **Especialista em Regulação de Proteção de Dados** da ANPD (Lei nº 15.352/2026), no formato certo/errado do Cebraspe. O cronograma mira o edital até 22/12/2026 e a prova provável em 28/03/2027.
+Aplicativo de estudo para o concurso de **Especialista em Regulação de Proteção de Dados** da ANPD (Lei nº 15.352/2026), no formato certo/errado do Cebraspe. O cronograma segue o termo de referência do concurso (TR 111/2026, no PNCP): edital previsto para 18/12/2026 e provas objetiva e discursiva em 18/04/2027, no mesmo turno.
 
 O app publicado fica em <https://claude.ai/artifact/J5WjnHRjrWxyMfa9fL7xpw> e salva o progresso na conta de quem abre, com cópia no navegador e backup em arquivo. O arquivo `dist/index.html` funciona sozinho em qualquer navegador (o progresso fica no próprio navegador).
 
@@ -18,7 +18,7 @@ Os totais atuais saem no fim do `npm run build`. A página Mais → Método expl
 
 ## Quando sair o edital
 
-Os pesos, a divisão dos itens entre as disciplinas e a cadência do plano são hipóteses montadas sobre as provas da Anatel e da ANAC de 2024. O plano espera o edital até 22/12/2026. Antes dele, as áreas pequenas não ganham mais itens. Quando ele sair, recalibre nesta ordem:
+Os pesos, a divisão dos itens entre as disciplinas e a cadência do plano são hipóteses montadas sobre as provas da Anatel e da ANAC de 2024. O plano espera o edital em 18/12/2026. Antes dele, as áreas pequenas não ganham mais itens. Quando ele sair, recalibre nesta ordem:
 
 1. No app, em Mais → Ajustes → Edital e prova: data da prova, itens por disciplina em cada parte, pesos e cortes (ficam no perfil; o padrão `PADRAO_EDITAL` está em `src/js/01-dados.js`). Os blocos de regulação que caem na parte básica estão em `REG_NA_BASICA`, no mesmo arquivo.
    Se a data informada cai antes do fim do plano, o cartão do Plano oferece encaixar: saem as semanas cheias de menor peso ainda não estudadas, o resto é adiantado e a reta final termina no dia da prova (`encaixarPlano` em `src/js/01-dados.js`; o corte fica em `perfil.encaixe`, e "Voltar ao plano original" desfaz). Sem data informada, o mesmo cartão traz o plano B, com prova em 28/02/2027.

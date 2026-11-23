@@ -26,6 +26,8 @@ const isoLocal = (dt) => dt.getFullYear() + '-' + String(dt.getMonth() + 1).padS
 async function abrir(perfilExtra, pesquisa) {
   // As funções de semente viram texto dentro do script: addInitScript não serializa funções passadas como argumento
   const ctx2 = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  // Data fixa depois do replanejamento de 23/11/2026: os seis dias antes dela têm dias no plano (de 17 a 22/11 não há mais)
+  await ctx2.clock.install({ time: new Date('2026-12-02T10:00:00') });
   await ctx2.addInitScript(`(() => {
     if (sessionStorage.getItem('semeado')) return;
     sessionStorage.setItem('semeado', '1');
@@ -66,7 +68,7 @@ await passo('missões cumpridas pelo que já foi feito no dia abrem o baú', asy
   const card = await p.textContent('.cartao.jornada');
   if (!/Baú aberto/.test(card)) throw new Error('baú não abriu: ' + card.slice(0, 200));
   const d = await salvo(p);
-  const h = isoLocal(new Date());
+  const h = '2026-12-02';
   const m = d.perfil.rpg.m[h];
   if (!m || !m.bau || Object.keys(m.ok).length !== 3) throw new Error('estado das missões: ' + JSON.stringify(m));
   if (!(d.perfil.xp >= 50 + 3 * 30)) throw new Error('XP não somado: ' + d.perfil.xp);

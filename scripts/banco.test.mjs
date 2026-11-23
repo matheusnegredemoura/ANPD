@@ -44,7 +44,9 @@ test('dados do build cobrem blocos, lei e cronograma', () => {
   const porSemana = new Map();
   for (const x of discs) porSemana.set(semana(x.data), (porSemana.get(semana(x.data)) || 0) + 1);
   const ultima = semana(d.cronograma.prova);
-  for (let w = semana(discs[0].data); w <= ultima; w++) assert.ok((porSemana.get(w) || 0) >= (ultima - w < 6 ? 2 : 1), 'semana ' + w + ': ' + (porSemana.get(w) || 0));
+  // Só as semanas que têm dias no plano: o replanejamento de 23/11/2026 deixou sem dias as semanas que andaram para a frente
+  const comDias = new Set(d.cronograma.fases.flatMap((f) => f.semanas.flatMap((s) => s.dias)).map((x) => semana(x.data)));
+  for (let w = semana(discs[0].data); w <= ultima; w++) if (comDias.has(w) && w >= semana(d.cronograma.replanejado || '2000-01-01')) assert.ok((porSemana.get(w) || 0) >= (ultima - w < 6 ? 2 : 1), 'semana ' + w + ': ' + (porSemana.get(w) || 0));
   assert.equal(d.lei.lgpd.artigos.length, 80);
 });
 
