@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/marca/icone.svg" width="128" height="128" alt=""></p>
+
 # Painel ANPD
 
 Aplicativo de estudo para o concurso de **Especialista em Regulação de Proteção de Dados** da ANPD (Lei nº 15.352/2026), no formato certo/errado do Cebraspe. O cronograma mira o edital até 22/12/2026 e a prova provável em 28/03/2027.
