@@ -1975,9 +1975,12 @@ function ritmo() {
   const h = hojeISO(), chave = h + '|' + Object.keys(S.perfil.dias || {}).length;
   if (ritmoCache && ritmoCache.chave === chave) return ritmoCache.v;
   const mediana = (xs) => { const o = xs.filter((x) => x > 0).sort((a, b) => a - b); return o.length ? o[Math.floor((o.length - 1) / 2)] : 0; };
-  const desde = isoDeNum(HOJE() - 14);
-  const dias = Object.entries(S.perfil.dias || {}).filter(([iso]) => iso >= desde && iso < h && ativo(iso)).map(([, d]) => d);
-  const v = dias.length < 5 ? null : {
+  // Duas semanas; com estudo espaçado (menos de 5 dias ativos nelas), os 5 últimos dias ativos dos 45 dias anteriores,
+  // e a partir de 3: com pausas, a meta caía no piso de 20 para quem faz mais de 100 itens por dia (24/11/2026: 130 de 20)
+  const ativos = Object.entries(S.perfil.dias || {}).filter(([iso]) => iso < h && iso >= isoDeNum(HOJE() - 45) && ativo(iso)).sort((a, b) => (a[0] < b[0] ? 1 : -1));
+  const recentes = ativos.filter(([iso]) => iso >= isoDeNum(HOJE() - 14));
+  const dias = (recentes.length >= 5 ? recentes : ativos.slice(0, 5)).map(([, d]) => d);
+  const v = dias.length < 3 ? null : {
     r: mediana(dias.map((d) => d.r || 0)), ni: mediana(dias.map((d) => d.ni || 0)),
     a: mediana(dias.map((d) => (d.a || []).length)), min: Math.round(mediana(dias.map((d) => segundosEstudo(d) / 60))),
     s: mediana(dias.map((d) => (d.r && d.t && d.t.q ? d.t.q / d.r : 0))),
@@ -3448,7 +3451,9 @@ function roteiroHoje() {
       ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'item de manutenção', 'itens de manutenção') : ''].filter(Boolean).join(', ') + '.' + (venc + manut > REV_SESSAO ? ' Cada sessão traz ' + REV_SESSAO + ', primeiro os erros mais recentes e os que estão perto de sair da lista; o resto vem na próxima.' : '')
       : 'Memória em dia! Nenhum item pendente de revisão para agora.',
     // A sessão traz até REV_SESSAO itens: com fila maior, o botão diz isso, para a revisão não parecer um bloco só
-    botoes: venc + manut ? '<button class="btn pequeno primario" data-acao="iniciar-revisao">' + (venc + manut > REV_SESSAO ? 'Revisar ' + REV_SESSAO + ' de ' + (venc + manut) : 'Revisar questões (' + (venc + manut) + ')') + '</button>' : ''
+    // Sessão do dia feita com fila sobrando: o resto fica para amanhã, e o roteiro manda seguir (o uso mostrou dias
+    // inteiros só revisando, sem chegar ao tema); revisar mais continua possível, sem destaque
+    botoes: venc + manut ? (revFeita ? '<p class="pequeno mudo">Revisão de hoje feita. As ' + (venc + manut) + ' restantes voltam nos próximos dias: siga para as questões do tema.</p><button class="btn pequeno" data-acao="iniciar-revisao">Revisar mais (opcional)</button>' : '<button class="btn pequeno primario" data-acao="iniciar-revisao">' + (venc + manut > REV_SESSAO ? 'Revisar ' + REV_SESSAO + ' de ' + (venc + manut) : 'Revisar questões (' + (venc + manut) + ')') + '</button>') : ''
   });
 
   // Questões do tema / pré-teste (~15 min)
@@ -3778,8 +3783,10 @@ function metaLei() { const r = ritmo(); return r && r.a ? limitar(r.a, 5, 12) : 
 function metaMin60() { const r = ritmo(); return r && r.min ? limitar(Math.round(r.min / 15) * 15, 60, 180) : 60; }
 const valM = (v) => (typeof v === 'function' ? v() : v);
 // Chefão: com 300 de vida, o uso real mostrou o chefão no chão em dois ou três dias (de 13 a 22 golpes). Com 1.500 e o
-// teto de um quinto por dia (cerca de uma batalha), ele cai no quinto dia de estudo da semana, no mais cedo.
-const BAU_XP = 50, CHEFE_VIDA = 1500, CHEFE_DIAS = 5, CHEFE_XP = 500, CORACOES = 5, BATALHA_N = 15;
+// teto de um quinto por dia (cerca de uma batalha), ele cai no quinto dia de estudo da semana, no mais cedo. Em
+// 24/11/2026 o uso mostrou o contrário: estudando 2 ou 3 dias por semana, nenhum chefão de 1.500 caía (cerca de 85
+// acertos no bloco dele). Com 600 e um terço por dia (cerca de 11 acertos), cai no terceiro dia de estudo da semana.
+const BAU_XP = 50, CHEFE_VIDA = 600, CHEFE_DIAS = 3, CHEFE_XP = 500, CORACOES = 5, BATALHA_N = 15;
 const CHEFES = { lgpd: 'O Vazador de Dados', regulacao: 'O Regulador Capturado', direito: 'O Burocrata Sem Motivação', linguas: 'A Esfinge dos Conectivos', seginfo: 'O Ransomware', gestao: 'O Risco Sem Dono', eca: 'O Algoritmo Viciante', economia: 'O Monopolista', comparado: 'O Exportador Sem Adequação', contabil: 'O Rombo nas Contas' };
 // Brasão de cada chefão: um escudo com o símbolo da disciplina
 const SIMBOLOS = {
@@ -3797,7 +3804,7 @@ const SIMBOLOS = {
 function brasao(disc) { return '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="escudo" d="M12 2.5 19.5 5v6.2c0 4.6-3.2 8.3-7.5 10.3-4.3-2-7.5-5.7-7.5-10.3V5z"/>' + (SIMBOLOS[disc] || SIMBOLOS.lgpd) + '</svg>'; }
 function coracao(cheio, cls) { return '<svg class="cor' + (cheio ? ' cheio' : '') + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>'; }
 
-// Saque: quatro raridades e três encaixes, com três itens em cada par (36 no total). Arma aumenta o dano, armadura dá corações extras na batalha e amuleto dá
+// Saque: quatro raridades e três encaixes, com nove itens em cada par (108 no total; eram 36 até 24/11/2026). Arma aumenta o dano, armadura dá corações extras na batalha e amuleto dá
 // chance de crítico. A descrição é o texto da lei.
 const RARIDADES = { comum: { nome: 'Comum', ordem: 0 }, raro: { nome: 'Raro', ordem: 1 }, epico: { nome: 'Épico', ordem: 2 }, lendario: { nome: 'Lendário', ordem: 3 } };
 const ENCAIXES = { arma: 'Arma', armadura: 'Armadura', amuleto: 'Amuleto' };
@@ -3839,6 +3846,78 @@ const ITENS_RPG = [
   { id: 'prestacao-contas', slot: 'amuleto', rar: 'lendario', nome: 'Coroa da Prestação de Contas', lore: 'demonstração, pelo agente, da adoção de medidas eficazes e capazes de comprovar a observância e o cumprimento das normas', ref: 'LGPD, art. 6º, X' },
   { id: 'autodeterminacao', slot: 'amuleto', rar: 'lendario', nome: 'Estrela da Autodeterminação', lore: 'a autodeterminação informativa', ref: 'LGPD, art. 2º, II' },
   { id: 'zelo', slot: 'amuleto', rar: 'lendario', nome: 'Olho da Autoridade Nacional', lore: 'zelar pela proteção dos dados pessoais, nos termos da legislação', ref: 'LGPD, art. 55-J, I' },
+  { id: 'titular', slot: 'arma', rar: 'comum', nome: 'Faca do Titular', lore: 'titular: pessoa natural a quem se referem os dados pessoais que são objeto de tratamento', ref: 'LGPD, art. 5º, V' },
+  { id: 'operador', slot: 'arma', rar: 'comum', nome: 'Estilete do Operador', lore: 'operador: pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do controlador', ref: 'LGPD, art. 5º, VII' },
+  { id: 'obrigacao-legal', slot: 'arma', rar: 'comum', nome: 'Cutelo da Obrigação Legal', lore: 'para o cumprimento de obrigação legal ou regulatória pelo controlador', ref: 'LGPD, art. 7º, II' },
+  { id: 'contrato', slot: 'arma', rar: 'comum', nome: 'Sabre do Contrato', lore: 'quando necessário para a execução de contrato ou de procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados', ref: 'LGPD, art. 7º, V' },
+  { id: 'credito', slot: 'arma', rar: 'comum', nome: 'Florete do Crédito', lore: 'para a proteção do crédito, inclusive quanto ao disposto na legislação pertinente', ref: 'LGPD, art. 7º, X' },
+  { id: 'publicizacao', slot: 'arma', rar: 'comum', nome: 'Azagaia da Publicização', lore: 'publicização da infração após devidamente apurada e confirmada a sua ocorrência', ref: 'LGPD, art. 52, IV' },
+  { id: 'exercicio-direitos', slot: 'arma', rar: 'raro', nome: 'Montante do Exercício de Direitos', lore: 'para o exercício regular de direitos em processo judicial, administrativo ou arbitral', ref: 'LGPD, art. 7º, VI' },
+  { id: 'vida', slot: 'arma', rar: 'raro', nome: 'Espada da Incolumidade', lore: 'para a proteção da vida ou da incolumidade física do titular ou de terceiro', ref: 'LGPD, art. 7º, VII' },
+  { id: 'saude', slot: 'arma', rar: 'raro', nome: 'Bisturi da Tutela da Saúde', lore: 'para a tutela da saúde, exclusivamente, em procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária', ref: 'LGPD, art. 7º, VIII' },
+  { id: 'pesquisa', slot: 'arma', rar: 'raro', nome: 'Arco do Órgão de Pesquisa', lore: 'para a realização de estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais', ref: 'LGPD, art. 7º, IV' },
+  { id: 'multa-diaria', slot: 'arma', rar: 'raro', nome: 'Mangual da Multa Diária', lore: 'multa diária, observado o limite total a que se refere o inciso II', ref: 'LGPD, art. 52, III' },
+  { id: 'desnecessarios', slot: 'arma', rar: 'raro', nome: 'Tesoura dos Dados Excessivos', lore: 'anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade com o disposto nesta Lei', ref: 'LGPD, art. 18, IV' },
+  { id: 'suspensao-banco', slot: 'arma', rar: 'epico', nome: 'Tridente da Suspensão do Banco', lore: 'suspensão parcial do funcionamento do banco de dados a que se refere a infração pelo período máximo de 6 (seis) meses, prorrogável por igual período, até a regularização da atividade de tratamento pelo controlador', ref: 'LGPD, art. 52, X' },
+  { id: 'suspensao-atividade', slot: 'arma', rar: 'epico', nome: 'Lança da Suspensão da Atividade', lore: 'suspensão do exercício da atividade de tratamento dos dados pessoais a que se refere a infração pelo período máximo de 6 (seis) meses, prorrogável por igual período', ref: 'LGPD, art. 52, XI' },
+  { id: 'oposicao', slot: 'arma', rar: 'epico', nome: 'Balestra da Oposição', lore: 'O titular pode opor-se a tratamento realizado com fundamento em uma das hipóteses de dispensa de consentimento, em caso de descumprimento ao disposto nesta Lei', ref: 'LGPD, art. 18, § 2º' },
+  { id: 'revogacao', slot: 'arma', rar: 'epico', nome: 'Cimitarra da Revogação', lore: 'O consentimento pode ser revogado a qualquer momento mediante manifestação expressa do titular, por procedimento gratuito e facilitado', ref: 'LGPD, art. 8º, § 5º' },
+  { id: 'reparacao', slot: 'arma', rar: 'epico', nome: 'Martelo da Reparação', lore: 'em razão do exercício de atividade de tratamento de dados pessoais, causar a outrem dano patrimonial, moral, individual ou coletivo, em violação à legislação de proteção de dados pessoais, é obrigado a repará-lo', ref: 'LGPD, art. 42' },
+  { id: 'solidaria', slot: 'arma', rar: 'epico', nome: 'Correntes da Solidariedade', lore: 'o operador responde solidariamente pelos danos causados pelo tratamento quando descumprir as obrigações da legislação de proteção de dados', ref: 'LGPD, art. 42, § 1º, I' },
+  { id: 'faturamento', slot: 'arma', rar: 'lendario', nome: 'Lâmina dos Cinquenta Milhões', lore: 'limitada, no total, a R$ 50.000.000,00 (cinquenta milhões de reais) por infração', ref: 'LGPD, art. 52, II' },
+  { id: 'eliminacao-sancao', slot: 'arma', rar: 'lendario', nome: 'Machado da Eliminação Final', lore: 'eliminação dos dados pessoais a que se refere a infração', ref: 'LGPD, art. 52, VI' },
+  { id: 'inversao', slot: 'arma', rar: 'lendario', nome: 'Cetro da Inversão do Ônus', lore: 'O juiz, no processo civil, poderá inverter o ônus da prova a favor do titular dos dados quando, a seu juízo, for verossímil a alegação, houver hipossuficiência para fins de produção de prova ou quando a produção de prova pelo titular resultar-lhe excessivamente onerosa', ref: 'LGPD, art. 42, § 2º' },
+  { id: 'coletiva', slot: 'arma', rar: 'lendario', nome: 'Estandarte da Tutela Coletiva', lore: 'As ações de reparação por danos coletivos que tenham por objeto a responsabilização nos termos do caput deste artigo podem ser exercidas coletivamente em juízo', ref: 'LGPD, art. 42, § 3º' },
+  { id: 'fiscalizar', slot: 'arma', rar: 'lendario', nome: 'Espada da Fiscalização', lore: 'fiscalizar e aplicar sanções em caso de tratamento de dados realizado em descumprimento à legislação', ref: 'LGPD, art. 55-J, IV' },
+  { id: 'regulamentos', slot: 'arma', rar: 'lendario', nome: 'Pena dos Regulamentos', lore: 'editar regulamentos e procedimentos sobre proteção de dados pessoais e privacidade', ref: 'LGPD, art. 55-J, XIII' },
+  { id: 'banco', slot: 'armadura', rar: 'comum', nome: 'Baú-Couraça do Banco de Dados', lore: 'banco de dados: conjunto estruturado de dados pessoais, estabelecido em um ou em vários locais, em suporte eletrônico ou físico', ref: 'LGPD, art. 5º, IV' },
+  { id: 'bloqueio-def', slot: 'armadura', rar: 'comum', nome: 'Manta do Bloqueio', lore: 'bloqueio: suspensão temporária de qualquer operação de tratamento, mediante guarda do dado pessoal ou do banco de dados', ref: 'LGPD, art. 5º, XIII' },
+  { id: 'eliminacao-def', slot: 'armadura', rar: 'comum', nome: 'Avental da Eliminação', lore: 'eliminação: exclusão de dado ou de conjunto de dados armazenados em banco de dados, independentemente do procedimento empregado', ref: 'LGPD, art. 5º, XIV' },
+  { id: 'agentes', slot: 'armadura', rar: 'comum', nome: 'Uniforme dos Agentes', lore: 'agentes de tratamento: o controlador e o operador', ref: 'LGPD, art. 5º, IX' },
+  { id: 'controlador', slot: 'armadura', rar: 'comum', nome: 'Toga do Controlador', lore: 'controlador: pessoa natural ou jurídica, de direito público ou privado, a quem competem as decisões referentes ao tratamento de dados pessoais', ref: 'LGPD, art. 5º, VI' },
+  { id: 'termino', slot: 'armadura', rar: 'comum', nome: 'Capuz do Término', lore: 'verificação de que a finalidade foi alcançada ou de que os dados deixaram de ser necessários ou pertinentes ao alcance da finalidade específica almejada', ref: 'LGPD, art. 15, I' },
+  { id: 'sensivel', slot: 'armadura', rar: 'raro', nome: 'Peitoral do Dado Sensível', lore: 'dado pessoal sensível: dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político', ref: 'LGPD, art. 5º, II' },
+  { id: 'transferencia', slot: 'armadura', rar: 'raro', nome: 'Manto da Transferência Internacional', lore: 'transferência internacional de dados: transferência de dados pessoais para país estrangeiro ou organismo internacional do qual o país seja membro', ref: 'LGPD, art. 5º, XV' },
+  { id: 'compartilhado', slot: 'armadura', rar: 'raro', nome: 'Cota do Uso Compartilhado', lore: 'uso compartilhado de dados: comunicação, difusão, transferência internacional, interconexão de dados pessoais ou tratamento compartilhado de bancos de dados pessoais', ref: 'LGPD, art. 5º, XVI' },
+  { id: 'orgao-pesquisa', slot: 'armadura', rar: 'raro', nome: 'Jaleco do Órgão de Pesquisa', lore: 'órgão de pesquisa: órgão ou entidade da administração pública direta ou indireta ou pessoa jurídica de direito privado sem fins lucrativos legalmente constituída sob as leis brasileiras', ref: 'LGPD, art. 5º, XVIII' },
+  { id: 'conservacao', slot: 'armadura', rar: 'raro', nome: 'Elmo da Conservação', lore: 'uso exclusivo do controlador, vedado seu acesso por terceiro, e desde que anonimizados os dados', ref: 'LGPD, art. 16, IV' },
+  { id: 'intimidade', slot: 'armadura', rar: 'raro', nome: 'Véu da Intimidade', lore: 'o respeito à privacidade', ref: 'LGPD, art. 2º, I' },
+  { id: 'dignidade', slot: 'armadura', rar: 'epico', nome: 'Couraça da Dignidade', lore: 'os direitos humanos, o livre desenvolvimento da personalidade, a dignidade e o exercício da cidadania pelas pessoas naturais', ref: 'LGPD, art. 2º, VII' },
+  { id: 'liberdade', slot: 'armadura', rar: 'epico', nome: 'Armadura da Liberdade de Expressão', lore: 'a liberdade de expressão, de informação, de comunicação e de opinião', ref: 'LGPD, art. 2º, III' },
+  { id: 'inovacao', slot: 'armadura', rar: 'epico', nome: 'Exoesqueleto da Inovação', lore: 'o desenvolvimento econômico e tecnológico e a inovação', ref: 'LGPD, art. 2º, V' },
+  { id: 'consumidor', slot: 'armadura', rar: 'epico', nome: 'Broquel do Consumidor', lore: 'a livre iniciativa, a livre concorrência e a defesa do consumidor', ref: 'LGPD, art. 2º, VI' },
+  { id: 'segredos', slot: 'armadura', rar: 'epico', nome: 'Cofre dos Segredos Comerciais', lore: 'observados os segredos comercial e industrial', ref: 'LGPD, art. 6º, VI' },
+  { id: 'criancas-consent', slot: 'armadura', rar: 'epico', nome: 'Escudo dos Pais', lore: 'consentimento específico e em destaque dado por pelo menos um dos pais ou pelo responsável legal', ref: 'LGPD, art. 14, § 1º' },
+  { id: 'fundamento-liberdade', slot: 'armadura', rar: 'lendario', nome: 'Égide dos Direitos Fundamentais', lore: 'com o objetivo de proteger os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural', ref: 'LGPD, art. 1º' },
+  { id: 'interesse-nacional', slot: 'armadura', rar: 'lendario', nome: 'Muralha do Interesse Nacional', lore: 'As normas gerais contidas nesta Lei são de interesse nacional e devem ser observadas pela União, Estados, Distrito Federal e Municípios', ref: 'LGPD, art. 1º, parágrafo único' },
+  { id: 'cnpd', slot: 'armadura', rar: 'lendario', nome: 'Armadura dos Vinte e Três', lore: 'O Conselho Nacional de Proteção de Dados Pessoais e da Privacidade será composto de 23 (vinte e três) representantes, titulares e suplentes', ref: 'LGPD, art. 58-A' },
+  { id: 'sigilo', slot: 'armadura', rar: 'lendario', nome: 'Cofre do Segredo Empresarial', lore: 'zelar pela observância dos segredos comercial e industrial', ref: 'LGPD, art. 55-J, II' },
+  { id: 'seguranca-publica', slot: 'armadura', rar: 'lendario', nome: 'Muralha da Segurança Pública', lore: 'segurança pública', ref: 'LGPD, art. 4º, III' },
+  { id: 'defesa-nacional', slot: 'armadura', rar: 'lendario', nome: 'Fortaleza da Defesa Nacional', lore: 'defesa nacional', ref: 'LGPD, art. 4º, III' },
+  { id: 'informacao-compartilhamento', slot: 'amuleto', rar: 'comum', nome: 'Pergaminho do Compartilhamento', lore: 'informação das entidades públicas e privadas com as quais o controlador realizou uso compartilhado de dados', ref: 'LGPD, art. 18, VII' },
+  { id: 'negativa', slot: 'amuleto', rar: 'comum', nome: 'Medalhão da Negativa', lore: 'informação sobre a possibilidade de não fornecer consentimento e sobre as consequências da negativa', ref: 'LGPD, art. 18, VIII' },
+  { id: 'forma-duracao', slot: 'amuleto', rar: 'comum', nome: 'Ampulheta da Duração', lore: 'forma e duração do tratamento, observados os segredos comercial e industrial', ref: 'LGPD, art. 9º, II' },
+  { id: 'identificacao', slot: 'amuleto', rar: 'comum', nome: 'Crachá do Controlador', lore: 'identificação do controlador', ref: 'LGPD, art. 9º, III' },
+  { id: 'contato', slot: 'amuleto', rar: 'comum', nome: 'Cartão de Contato', lore: 'informações de contato do controlador', ref: 'LGPD, art. 9º, IV' },
+  { id: 'finalidade-especifica', slot: 'amuleto', rar: 'comum', nome: 'Bússola da Finalidade Específica', lore: 'finalidade específica do tratamento', ref: 'LGPD, art. 9º, I' },
+  { id: 'anonimizado', slot: 'amuleto', rar: 'raro', nome: 'Máscara do Dado Anonimizado', lore: 'Os dados anonimizados não serão considerados dados pessoais para os fins desta Lei', ref: 'LGPD, art. 12' },
+  { id: 'comportamental', slot: 'amuleto', rar: 'raro', nome: 'Espelho do Perfil Comportamental', lore: 'aqueles utilizados para formação do perfil comportamental de determinada pessoa natural, se identificada', ref: 'LGPD, art. 12, § 2º' },
+  { id: 'publico-acesso', slot: 'amuleto', rar: 'raro', nome: 'Lanterna do Acesso Público', lore: 'O tratamento de dados pessoais cujo acesso é público deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização', ref: 'LGPD, art. 7º, § 3º' },
+  { id: 'manifestamente', slot: 'amuleto', rar: 'raro', nome: 'Prisma da Publicidade Manifesta', lore: 'É dispensada a exigência do consentimento previsto no caput deste artigo para os dados tornados manifestamente públicos pelo titular', ref: 'LGPD, art. 7º, § 4º' },
+  { id: 'formato-claro', slot: 'amuleto', rar: 'raro', nome: 'Lupa do Formato Claro', lore: 'em formato simplificado, imediatamente', ref: 'LGPD, art. 19, I' },
+  { id: 'gratuidade', slot: 'amuleto', rar: 'raro', nome: 'Moeda da Gratuidade', lore: 'O titular dos dados pessoais tem direito a obter do controlador', ref: 'LGPD, art. 18' },
+  { id: 'ouvidoria', slot: 'amuleto', rar: 'epico', nome: 'Corneta da Petição', lore: 'O titular dos dados pessoais tem o direito de peticionar em relação aos seus dados contra o controlador perante a autoridade nacional', ref: 'LGPD, art. 18, § 1º' },
+  { id: 'explicacao', slot: 'amuleto', rar: 'epico', nome: 'Lente da Explicação', lore: 'informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada', ref: 'LGPD, art. 20, § 1º' },
+  { id: 'auditoria', slot: 'amuleto', rar: 'epico', nome: 'Olho da Auditoria', lore: 'a autoridade nacional poderá realizar auditoria para verificação de aspectos discriminatórios em tratamento automatizado de dados pessoais', ref: 'LGPD, art. 20, § 2º' },
+  { id: 'adequacao-pais', slot: 'amuleto', rar: 'epico', nome: 'Globo da Adequação', lore: 'para países ou organismos internacionais que proporcionem grau de proteção de dados pessoais adequado ao previsto nesta Lei', ref: 'LGPD, art. 33, I' },
+  { id: 'clausulas', slot: 'amuleto', rar: 'epico', nome: 'Selo das Cláusulas-Padrão', lore: 'cláusulas-padrão contratuais', ref: 'LGPD, art. 33, II' },
+  { id: 'normas-corporativas', slot: 'amuleto', rar: 'epico', nome: 'Sinete das Normas Corporativas', lore: 'normas corporativas globais', ref: 'LGPD, art. 33, II' },
+  { id: 'cooperacao', slot: 'amuleto', rar: 'lendario', nome: 'Coroa da Cooperação Internacional', lore: 'quando a transferência for necessária para a cooperação jurídica internacional entre órgãos públicos de inteligência, de investigação e de persecução', ref: 'LGPD, art. 33, III' },
+  { id: 'consulta-publica', slot: 'amuleto', rar: 'lendario', nome: 'Trombeta da Consulta Pública', lore: 'consulta e audiência públicas', ref: 'LGPD, art. 55-J, § 2º' },
+  { id: 'proporcionalidade', slot: 'amuleto', rar: 'lendario', nome: 'Balança da Proporcionalidade', lore: 'proporcionalidade entre a gravidade da falta e a intensidade da sanção', ref: 'LGPD, art. 52, § 1º, XI' },
+  { id: 'boa-fe', slot: 'amuleto', rar: 'lendario', nome: 'Pedra da Boa-Fé', lore: 'a boa-fé do infrator', ref: 'LGPD, art. 52, § 1º, II' },
+  { id: 'cooperacao-infrator', slot: 'amuleto', rar: 'lendario', nome: 'Gema da Cooperação', lore: 'a cooperação do infrator', ref: 'LGPD, art. 52, § 1º, VII' },
+  { id: 'pronta-adocao', slot: 'amuleto', rar: 'lendario', nome: 'Relíquia da Pronta Correção', lore: 'a pronta adoção de medidas corretivas', ref: 'LGPD, art. 52, § 1º, X' },
 ];
 const IR = new Map(ITENS_RPG.map((x) => [x.id, x]));
 const XP_REPETIDO = { comum: 20, raro: 40, epico: 80, lendario: 150 };
@@ -3953,6 +4032,8 @@ function normalizarChefe(c) {
   // Chefões das primeiras versões tinham 15 de vida
   if (c && !c.vencido && (c.max || 15) < 100) { c.vida = Math.round((c.vida / (c.max || 15)) * CHEFE_VIDA); c.max = CHEFE_VIDA; }
   else if (c && !c.max) c.max = CHEFE_VIDA;
+  // Chefão vivo da escala de 1.500: mesma proporção na escala atual
+  else if (c && !c.vencido && c.max > CHEFE_VIDA) { c.vida = Math.round((c.vida / c.max) * CHEFE_VIDA); c.max = CHEFE_VIDA; }
   return c;
 }
 // Teto do dia: o golpe que passa dele conta inteiro, e o chefão recua até amanhã
@@ -6662,7 +6743,7 @@ function renderAjustes() {
     '<div class="cartao"><div class="campo"><span class="rot">Meta diária de questões</span><div class="chips">' +
       '<button class="chip" data-acao="meta" data-meta="auto" aria-pressed="' + !S.perfil.metaFixa + '">Pelo meu ritmo' + (auto ? ' · ' + auto : '') + '</button>' +
       metas.map((m) => '<button class="chip" data-acao="meta" data-meta="' + m + '" aria-pressed="' + (!!S.perfil.metaFixa && S.perfil.meta === m) + '">' + m + '</button>').join('') + '</div>' +
-      '<p class="pequeno mudo">Pelo meu ritmo: 90% da mediana de itens por dia de estudo nas duas últimas semanas, recalculada a cada dia' + (auto ? '' : ' (começa depois de 5 dias de estudo; até lá vale ' + metaDia() + ')') + '. As missões do dia e a leitura do roteiro também seguem o seu ritmo.</p></div>' +
+      '<p class="pequeno mudo">Pelo meu ritmo: 90% da mediana de itens por dia de estudo nas duas últimas semanas (com estudo espaçado, nos 5 últimos dias de estudo), recalculada a cada dia' + (auto ? '' : ' (começa depois de 3 dias de estudo; até lá vale ' + metaDia() + ')') + '. As missões do dia e a leitura do roteiro também seguem o seu ritmo.</p></div>' +
     '<div class="campo"><span class="rot">Cards novos por sessão</span><div class="chips">' + novos.map((m) => '<button class="chip" data-acao="novos-cards" data-n="' + m + '" aria-pressed="' + ((S.perfil.novosCards || 20) === m) + '">' + m + '</button>').join('') + '</div><p class="pequeno mudo">Cada card novo volta várias vezes nos dias seguintes. Entram primeiro os de prazo, número e quórum; com mais de 60 revisões vencidas, os novos esperam a fila baixar.</p></div></div>' +
     cartaoEdital() +
     '<div class="cartao"><h2>Backup do progresso</h2><p class="pequeno">Salve um arquivo com todo o seu progresso. Se a gravação na conta falhar, ou se você trocar de aparelho, é só restaurar.</p>' +

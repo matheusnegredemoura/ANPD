@@ -102,7 +102,9 @@ function roteiroHoje() {
       ? [venc ? pl(venc, 'questão da lista curta', 'questões da lista curta') : '', manut ? pl(manut, 'item de manutenção', 'itens de manutenção') : ''].filter(Boolean).join(', ') + '.' + (venc + manut > REV_SESSAO ? ' Cada sessão traz ' + REV_SESSAO + ', primeiro os erros mais recentes e os que estão perto de sair da lista; o resto vem na próxima.' : '')
       : 'Memória em dia! Nenhum item pendente de revisão para agora.',
     // A sessão traz até REV_SESSAO itens: com fila maior, o botão diz isso, para a revisão não parecer um bloco só
-    botoes: venc + manut ? '<button class="btn pequeno primario" data-acao="iniciar-revisao">' + (venc + manut > REV_SESSAO ? 'Revisar ' + REV_SESSAO + ' de ' + (venc + manut) : 'Revisar questões (' + (venc + manut) + ')') + '</button>' : ''
+    // Sessão do dia feita com fila sobrando: o resto fica para amanhã, e o roteiro manda seguir (o uso mostrou dias
+    // inteiros só revisando, sem chegar ao tema); revisar mais continua possível, sem destaque
+    botoes: venc + manut ? (revFeita ? '<p class="pequeno mudo">Revisão de hoje feita. As ' + (venc + manut) + ' restantes voltam nos próximos dias: siga para as questões do tema.</p><button class="btn pequeno" data-acao="iniciar-revisao">Revisar mais (opcional)</button>' : '<button class="btn pequeno primario" data-acao="iniciar-revisao">' + (venc + manut > REV_SESSAO ? 'Revisar ' + REV_SESSAO + ' de ' + (venc + manut) : 'Revisar questões (' + (venc + manut) + ')') + '</button>') : ''
   });
 
   // Questões do tema / pré-teste (~15 min)
