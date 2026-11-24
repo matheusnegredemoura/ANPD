@@ -376,6 +376,8 @@ function build() {
     '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">' +
     '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">' +
     '<meta name="theme-color" content="#0c6b66"><meta name="apple-mobile-web-app-title" content="Painel ANPD">' +
+    // Ícone da tela inicial do iPhone e da aba; caminhos relativos ao index.html da raiz do repositório (GitHub Pages)
+    '<link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/svg+xml" href="docs/marca/icone.svg">' +
     '</head><body>' + pagina + '</body></html>';
   writeFileSync(join(RAIZ, 'dist', 'index.html'), completo);
   const kb = (Buffer.byteLength(pagina) / 1024).toFixed(0);
