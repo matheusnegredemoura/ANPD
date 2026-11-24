@@ -1,0 +1,324 @@
+bloco: constitucional
+// Trilha de direito constitucional do zero, recorte ANPD: remédios constitucionais (habeas data em destaque),
+// direitos fundamentais ligados a dados e repartição de competências sobre proteção de dados.
+// Itens escritos para o banco no padrão Cebraspe. Trechos conferidos em fontes/cf88.txt, fontes/lei9507.txt e fontes/lgpd.txt.
+
+=== dc-rem-01
+gab: C
+tema: const-remedios
+ref: cf88 5, LXXII
+trecho: para assegurar o conhecimento de informações relativas à pessoa do impetrante, constantes de registros ou bancos de dados de entidades governamentais ou de caráter público
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: cidadão quer conhecer informações sobre si mantidas em banco de dados de entidade governamental, e o acesso lhe foi negado. Assertiva: o habeas data é o remédio constitucional adequado.
+comentario: Art. 5º, LXXII, “a”. Banco de dados privado pode ser “de caráter público” quando suas informações são ou podem ser transmitidas a terceiros, como os cadastros de proteção ao crédito (Lei 9.507, art. 1º, parágrafo único).
+
+=== dc-rem-02
+gab: E
+tema: const-remedios
+ref: lei9507 1
+trecho: Considera-se de caráter público todo registro ou banco de dados contendo informações que sejam ou que possam ser transmitidas a terceiros
+armadilha: absoluto
+dif: 2
+enunciado: O habeas data só pode ser impetrado contra órgãos e entidades da administração pública, pois bancos de dados mantidos por empresas privadas não se sujeitam a esse remédio.
+comentario: Cabe também contra registros de caráter público mantidos por particulares: todo banco cujas informações sejam ou possam ser transmitidas a terceiros, ou que não seja de uso privativo de quem o mantém (Lei 9.507, art. 1º, parágrafo único). Cadastros de crédito são o exemplo clássico.
+
+=== dc-rem-03
+gab: E
+tema: const-remedios
+ref: cf88 5, LXXII
+trecho: para a retificação de dados, quando não se prefira fazê-lo por processo sigiloso, judicial ou administrativo
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: entidade governamental recusou o pedido de um cidadão para corrigir dado incorreto sobre ele mantido em seu banco de dados. Assertiva: o habeas data é incabível, pois serve apenas para assegurar o conhecimento das informações, não a sua retificação.
+comentario: Errado. O art. 5º, LXXII, prevê o habeas data para assegurar o conhecimento de informações relativas ao impetrante (alínea a) e para a retificação de dados, quando não se prefira fazê-lo por processo sigiloso, judicial ou administrativo (alínea b). A Lei 9.507/1997 exige, em regra, prova da recusa administrativa, que existe no caso.
+
+=== dc-rem-04
+gab: E
+tema: const-remedios
+ref: lei9507 8, parágrafo único
+trecho: da recusa ao acesso às informações ou do decurso de mais de dez dias sem decisão;
+armadilha: numero
+dif: 2
+enunciado: Situação hipotética: cidadão pediu acesso a informações sobre si a entidade governamental e, passados mais de dez dias, não obteve decisão. Assertiva: ele ainda não pode impetrar habeas data, pois a lei exige o decurso de mais de trinta dias sem decisão.
+comentario: Errado. A inicial do habeas data deve ser instruída com prova da recusa ao acesso às informações ou do decurso de mais de dez dias sem decisão (Lei 9.507/1997, art. 8º, parágrafo único, I). Para retificação ou anotação, o prazo é de quinze dias (II e III).
+
+=== dc-rem-05
+gab: C
+tema: const-remedios
+ref: lei9507 2
+trecho: será deferido ou indeferido no prazo de quarenta e oito horas
+armadilha: numero
+dif: 2
+enunciado: O requerimento administrativo de acesso a dados, prévio ao habeas data, deve ser deferido ou indeferido pelo órgão depositário em quarenta e oito horas.
+comentario: Art. 2º da Lei 9.507/1997; a decisão é comunicada ao requerente em vinte e quatro horas (parágrafo único).
+
+=== dc-rem-06
+gab: C
+tema: const-remedios
+ref: lei9507 7, III
+trecho: para a anotação nos assentamentos do interessado, de contestação ou explicação sobre dado verdadeiro mas justificável e que esteja sob pendência judicial ou amigável.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: cadastro de caráter público registra corretamente dívida do interessado, que a discute em ação judicial. Assertiva: pela Lei nº 9.507/1997, cabe habeas data para anotar nos assentamentos sua contestação ou explicação sobre o dado.
+comentario: Art. 7º, III. A lei ampliou as hipóteses constitucionais (conhecimento e retificação) com a anotação. Os três verbos: conhecer, retificar, anotar.
+
+=== dc-rem-07
+gab: E
+tema: const-remedios
+ref: cf88 5, LXXVII
+trecho: são gratuitas as ações de "habeas-corpus" e "habeas-data"
+armadilha: rol
+dif: 3
+enunciado: A Constituição assegura gratuidade ao habeas corpus, ao habeas data e ao mandado de segurança, além de prever, na forma da lei, a gratuidade dos atos necessários ao exercício da cidadania.
+comentario: Errado. O art. 5º, LXXVII, garante a gratuidade só do habeas corpus e do habeas data, além dos atos necessários ao exercício da cidadania, na forma da lei. O mandado de segurança não está no rol. A ação popular tem regra própria: o autor fica isento de custas e de sucumbência, salvo má-fé (LXXIII).
+
+=== dc-rem-08
+gab: E
+tema: const-remedios
+ref: lgpd 22
+trecho: A defesa dos interesses e dos direitos dos titulares de dados poderá ser exercida em juízo, individual ou coletivamente
+armadilha: comparacao
+dif: 3
+enunciado: Com a edição da LGPD, o habeas data passou a ser o único meio judicial para o titular exigir de um controlador privado o acesso a seus dados pessoais.
+comentario: A LGPD prevê que a defesa dos direitos do titular pode ser feita em juízo, individual ou coletivamente, na forma da legislação (art. 22), além da petição ao controlador e à ANPD (art. 18, § 1º). Habeas data continua cabível contra bancos governamentais ou de caráter público, mas não é o único caminho.
+
+=== dc-rem-09
+gab: C
+tema: const-remedios
+ref: cf88 5, LXIX
+trecho: conceder-se-á mandado de segurança para proteger direito líquido e certo, não amparado por "habeas-corpus" ou "habeas-data"
+armadilha: conceito
+dif: 2
+enunciado: Agente regulado que tenha direito líquido e certo violado por ato ilegal de dirigente da ANPD pode impetrar mandado de segurança, desde que o direito não seja amparado por habeas corpus ou habeas data.
+comentario: Art. 5º, LXIX. O mandado de segurança cabe contra ilegalidade ou abuso de poder de autoridade pública, e os dirigentes de autarquias federais o são. A prova deve ser pré-constituída: não há instrução probatória.
+
+=== dc-rem-10
+gab: C
+tema: const-remedios
+ref: cf88 5, LXX
+trecho: associação legalmente constituída e em funcionamento há pelo menos um ano
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: associação legalmente constituída e em funcionamento há vários anos impetrou mandado de segurança coletivo em defesa de interesses de seus associados, sem colher a autorização de cada um deles. Assertiva: a associação tem legitimidade para a impetração.
+comentario: Certo. O art. 5º, LXX, b, legitima a associação legalmente constituída e em funcionamento há pelo menos um ano, em defesa dos interesses de seus membros ou associados. Pela Súmula 629 do STF, a impetração por entidade de classe em favor dos associados independe da autorização destes.
+
+=== dc-rem-11
+gab: C
+tema: const-remedios
+ref: cf88 5, LXXI
+trecho: conceder-se-á mandado de injunção sempre que a falta de norma regulamentadora torne inviável o exercício dos direitos e liberdades constitucionais
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: a falta de norma regulamentadora impede o exercício de uma prerrogativa inerente à cidadania prevista na Constituição. Assertiva: cabe mandado de injunção, cujo objeto não se restringe aos direitos e liberdades constitucionais e abrange as prerrogativas ligadas à nacionalidade, à soberania e à cidadania.
+comentario: Certo. Art. 5º, LXXI: o mandado de injunção cabe quando a falta de norma regulamentadora inviabiliza o exercício dos direitos e liberdades constitucionais e das prerrogativas inerentes à nacionalidade, à soberania e à cidadania. A Lei 13.300/2016 o regulamenta e admite a forma coletiva.
+
+=== dc-rem-12
+gab: E
+tema: const-remedios
+ref: cf88 5, LXXIII
+trecho: qualquer cidadão é parte legítima para propor ação popular
+armadilha: sujeito
+dif: 2
+enunciado: A ação popular, isenta de custas judiciais e do ônus da sucumbência salvo comprovada má-fé, destina-se a anular ato lesivo ao patrimônio público ou à moralidade administrativa, e pessoa jurídica de direito privado tem legitimidade para propô-la.
+comentario: A ação popular é do cidadão, ou seja, do eleitor (art. 5º, LXXIII). Pessoa jurídica não tem legitimidade (Súmula 365 do STF).
+
+=== dc-rem-13
+gab: E
+tema: const-remedios
+ref: cf88 5, LXXIII
+trecho: ficando o autor, salvo comprovada má-fé, isento de custas judiciais e do ônus da sucumbência
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: cidadão propôs ação popular para anular ato lesivo ao patrimônio histórico, e o pedido foi julgado improcedente, sem que se comprovasse má-fé do autor. Assertiva: ele fica isento das custas judiciais, mas responde pelo ônus da sucumbência.
+comentario: Errado. O art. 5º, LXXIII, isenta o autor da ação popular tanto das custas judiciais quanto do ônus da sucumbência, salvo comprovada má-fé. Sem má-fé, a improcedência não lhe impõe nenhum dos dois encargos.
+
+=== dc-rem-14
+gab: E
+tema: const-remedios
+ref: cf88 5, LXVIII
+trecho: sempre que alguém sofrer ou se achar ameaçado de sofrer violência ou coação em sua liberdade de locomoção, por ilegalidade ou abuso de poder
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: cidadão sofre ameaça concreta e iminente de prisão ilegal, ainda não consumada. Assertiva: não cabe habeas corpus, pois a coação à liberdade de locomoção não se consumou.
+comentario: Cabe também de forma preventiva, quando alguém “se achar ameaçado de sofrer” a coação (art. 5º, LXVIII). Nesse caso, o juiz expede salvo-conduto.
+
+=== dc-dir-03
+gab: C
+tema: const-direitos
+ref: stfsum ADI6387
+trecho: Reconheceu a proteção de dados pessoais e a autodeterminação informativa como direitos fundamentais autônomos
+armadilha: conceito
+dif: 2
+enunciado: Antes mesmo da Emenda Constitucional n.º 115/2022, o STF já havia reconhecido a proteção de dados pessoais como direito fundamental autônomo, ao suspender norma que determinava o compartilhamento de dados de usuários de telefonia com o IBGE durante a pandemia.
+comentario: ADI 6.387 (2020), relatoria da Ministra Rosa Weber. O STF extraiu o direito da dignidade, da inviolabilidade da intimidade e do habeas data. A EC 115 positivou o que a jurisprudência já afirmava.
+
+=== dc-dir-04
+gab: E
+tema: const-direitos
+ref: cf88 5, X
+trecho: são invioláveis a intimidade, a vida privada, a honra e a imagem das pessoas, assegurado o direito a indenização pelo dano material ou moral decorrente de sua violação
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: pessoa teve a vida privada violada e sofreu dano material e moral. Assertiva: a Constituição lhe assegura indenização pelo dano moral, mas não admite cumulá-la com a do dano material.
+comentario: O art. 5º, X, assegura indenização pelo dano material ou moral, e o STJ admite cumulá-los (Súmula 37). A LGPD também prevê reparação de dano patrimonial, moral, individual ou coletivo (art. 42).
+
+=== dc-dir-05
+gab: C
+tema: const-direitos
+ref: cf88 5, XXXIII
+trecho: ressalvadas aquelas cujo sigilo seja imprescindível à segurança da sociedade e do Estado
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: cidadão pediu a órgão público informação de interesse coletivo cujo sigilo não é imprescindível à segurança da sociedade e do Estado. Assertiva: a Constituição assegura-lhe o direito de recebê-la.
+comentario: Art. 5º, XXXIII, regulamentado pela LAI. A proteção das informações pessoais (LAI, art. 31; LGPD) também limita o acesso, sem contrariar a Constituição: decorre da proteção da intimidade (art. 5º, X).
+
+=== dc-dir-06
+gab: E
+tema: const-direitos
+ref: cf88 5, XIV
+trecho: é assegurado a todos o acesso à informação e resguardado o sigilo da fonte, quando necessário ao exercício profissional
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: cidadão sem atividade jornalística invocou o sigilo da fonte para não revelar quem lhe passou certa informação. Assertiva: a garantia constitucional o alcança, pois não depende do exercício profissional.
+comentario: O art. 5º, XIV, resguarda o sigilo da fonte “quando necessário ao exercício profissional”, típico dos jornalistas. A LGPD não se aplica ao tratamento para fins exclusivamente jornalísticos (art. 4º, II, “a”).
+
+=== dc-dir-07
+gab: C
+tema: const-direitos
+ref: cf88 5, LV
+trecho: aos litigantes, em processo judicial ou administrativo, e aos acusados em geral são assegurados o contraditório e ampla defesa, com os meios e recursos a ela inerentes
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: empresa autuada pela ANPD foi impedida de produzir provas antes da sanção. Assertiva: o procedimento viola o contraditório e a ampla defesa, assegurados também no processo administrativo.
+comentario: Art. 5º, LV: vale em processo judicial ou administrativo. O Regulamento de Fiscalização e do Processo Administrativo Sancionador da ANPD (Res. CD/ANPD 1/2021) concretiza essas garantias, e a LGPD exige procedimento que assegure ampla defesa antes das sanções (art. 52, § 1º).
+
+=== dc-dir-08
+gab: E
+tema: const-direitos
+ref: cf88 5, XII
+trecho: é inviolável o sigilo da correspondência e das comunicações telegráficas, de dados e das comunicações telefônicas
+armadilha: extrapolacao
+dif: 3
+enunciado: Com base no sigilo de dados previsto no art. 5.º, XII, da Constituição Federal, nenhum órgão público pode ter acesso a dados pessoais sem ordem judicial.
+comentario: O STF entende que o inciso XII protege a comunicação de dados, não os dados em si armazenados. O acesso a dados por órgãos públicos é possível quando houver base legal (LGPD, arts. 7º, III, e 23), com proporcionalidade e segurança, como afirmou o STF na ADI 6.649 sobre o Cadastro Base do Cidadão.
+
+=== dc-dir-09
+gab: C
+tema: const-direitos
+ref: cf88 5, XXXV
+trecho: a lei não excluirá da apreciação do Poder Judiciário lesão ou ameaça a direito
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: empresa multada pela ANPD decide não recorrer administrativamente e leva a decisão diretamente ao Judiciário. Assertiva: a via judicial está aberta, pois a lei não excluirá da apreciação do Poder Judiciário lesão ou ameaça a direito.
+comentario: Certo. Art. 5º, XXXV. Em regra, não se exige esgotar a via administrativa; a exceção constitucional expressa é a da justiça desportiva (art. 217, § 1º).
+
+=== dc-dir-10
+gab: E
+tema: const-direitos
+ref: cf88 5, XXXVI
+trecho: a lei não prejudicará o direito adquirido, o ato jurídico perfeito e a coisa julgada
+armadilha: absoluto
+dif: 2
+enunciado: A proteção ao direito adquirido impede que nova regulamentação da ANPD imponha a agentes de tratamento obrigações aplicáveis a tratamentos de dados em curso.
+comentario: O art. 5º, XXXVI, protege situações já consolidadas, não a manutenção de um regime jurídico: não há direito adquirido a regime jurídico, segundo o STF. Novas obrigações podem valer para tratamentos em curso, com regime de transição quando necessário (LINDB, art. 23).
+
+=== dc-org-03
+gab: E
+tema: const-organizacao
+ref: cf88 21
+trecho: organizar e fiscalizar a proteção e o tratamento de dados pessoais, nos termos da lei
+armadilha: sujeito
+dif: 3
+enunciado: A organização e a fiscalização da proteção e do tratamento de dados pessoais, nos termos da lei, são competência comum da União, dos Estados, do Distrito Federal e dos Municípios, por se tratar de direito fundamental.
+comentario: Errado. Organizar e fiscalizar a proteção e o tratamento de dados pessoais, nos termos da lei, é competência material exclusiva da União (art. 21, XXVI), e não comum (art. 23). Ser direito fundamental não transfere a matéria à competência comum.
+
+=== dc-org-04
+gab: C
+tema: const-organizacao
+ref: cf88 18
+trecho: A organização político-administrativa da República Federativa do Brasil compreende a União, os Estados, o Distrito Federal e os Municípios, todos autônomos, nos termos desta Constituição.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: afirmou-se que os Municípios, por não terem Poder Judiciário próprio, não são entes autônomos da Federação. Assertiva: a afirmação é incorreta, pois a Constituição inclui os Municípios, ao lado da União, dos Estados e do Distrito Federal, na organização político-administrativa, todos autônomos.
+comentario: Art. 18. Os territórios federais integram a União e não são entes autônomos (§ 2º). Autonomia é diferente de soberania, que pertence à República.
+
+=== dc-org-05
+gab: E
+tema: const-organizacao
+ref: cf88 18
+trecho: todos autônomos, nos termos desta Constituição
+armadilha: conceito
+dif: 2
+enunciado: A organização político-administrativa da República compreende a União, os estados, o Distrito Federal e os municípios, e os territórios federais, que integram a União e cuja criação é regulada em lei complementar, são também entes federativos dotados de autonomia política.
+comentario: Territórios são descentralizações administrativas da União (art. 18, § 2º), sem autonomia política. Hoje não existe nenhum.
+
+=== dc-org-06
+gab: C
+tema: const-organizacao
+ref: cf88 22, IV
+trecho: águas, energia, informática, telecomunicações e radiodifusão;
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: lei estadual passou a disciplinar a outorga de serviços de radiodifusão no estado. Assertiva: a lei invade competência legislativa privativa da União.
+comentario: Art. 22, IV. Por isso o Marco Civil da Internet, a LGPD e a lei das telecomunicações são leis federais.
+
+=== dc-org-07
+gab: C
+tema: const-organizacao
+ref: cf88 24, § 3º
+trecho: Inexistindo lei federal sobre normas gerais, os Estados exercerão a competência legislativa plena, para atender a suas peculiaridades.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em matéria de competência concorrente, não há lei federal de normas gerais, e o estado editou lei completa sobre o tema. Assertiva: o estado exerceu validamente a competência legislativa plena, para atender a suas peculiaridades.
+comentario: Art. 24, § 3º. Sobrevindo lei federal, fica suspensa a eficácia da lei estadual no que lhe for contrário (§ 4º): não há revogação.
+
+=== dc-org-08
+gab: E
+tema: const-organizacao
+ref: cf88 24, § 4º
+trecho: A superveniência de lei federal sobre normas gerais suspende a eficácia da lei estadual, no que lhe for contrário.
+armadilha: conceito
+dif: 2
+enunciado: No âmbito da legislação concorrente, a competência da União limita-se a estabelecer normas gerais, e, inexistindo lei federal, os estados exercem a competência legislativa plena; a superveniência de lei federal sobre normas gerais revoga a lei estadual no que lhe for contrário.
+comentario: Suspende a eficácia, no que for contrário (art. 24, § 4º). Lei federal não revoga lei estadual: são de entes diferentes. Se a lei federal for revogada, a estadual volta a produzir efeitos.
+
+=== dc-org-09
+gab: C
+tema: const-organizacao
+ref: cf88 24, § 1º
+trecho: Inexistindo lei federal sobre normas gerais, os Estados exercerão a competência legislativa plena
+armadilha: conceito
+dif: 3
+enunciado: Na competência legislativa concorrente, inexistindo lei federal sobre normas gerais, o Estado exerce a competência legislativa plena; sobrevindo a lei federal, a lei estadual tem a eficácia suspensa no que lhe for contrário.
+comentario: Certo. Art. 24, §§ 3º e 4º. A lei federal superveniente suspende a eficácia da estadual, e não a revoga.
+
+=== dc-org-10
+gab: E
+tema: const-organizacao
+ref: cf88 23
+trecho: É competência comum da União, dos Estados, do Distrito Federal e dos Municípios:
+armadilha: conceito
+dif: 2
+enunciado: A competência comum do art. 23 da Constituição, de natureza administrativa, abrange tarefas como proteger o meio ambiente e cuidar da saúde e da assistência pública, e dela não participam os municípios, cabendo à União, aos estados e ao Distrito Federal.
+comentario: O art. 23 trata de competências materiais (administrativas) comuns a todos os entes, inclusive os municípios. A competência legislativa concorrente (art. 24) é que não menciona os municípios, que legislam sobre interesse local (art. 30, I).
+
+=== dc-org-11
+gab: C
+tema: const-organizacao
+ref: cf88 30, I
+trecho: legislar sobre assuntos de interesse local;
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: município editou lei sobre horário de funcionamento do comércio local. Assertiva: a matéria é de interesse local, de competência legislativa municipal.
+comentario: Art. 30, I e II. O STF usa o critério da predominância do interesse: horário de funcionamento do comércio local, por exemplo, é matéria municipal (Súmula Vinculante 38).
+
+=== dc-org-12
+gab: C
+tema: const-organizacao
+ref: cf88 21, XI
+trecho: explorar, diretamente ou mediante autorização, concessão ou permissão, os serviços de telecomunicações, nos termos da lei, que disporá sobre a organização dos serviços, a criação de um órgão regulador e outros aspectos institucionais
+armadilha: conceito
+dif: 2
+enunciado: Diferentemente do que ocorre com a maioria dos setores regulados, as telecomunicações têm a criação de seu órgão regulador prevista expressamente na Constituição.
+comentario: Art. 21, XI (EC 8/1995): base da Anatel. O petróleo tem previsão semelhante (art. 177, § 2º, III). As demais agências, incluída a ANPD, foram criadas por lei, sem previsão constitucional expressa.

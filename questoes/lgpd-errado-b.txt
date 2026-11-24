@@ -1,0 +1,108 @@
+bloco: lgpd-5-11
+// Itens ERRADO de conceitos e definições, para equilibrar o gabarito do banco (o Cebraspe distribui C e E de forma parecida).
+
+=== lgpd3-5-01
+gab: E
+ref: lgpd 5, X
+trecho: tratamento: toda operação realizada com dados pessoais, como as que se referem a coleta, produção, recepção, classificação, utilização, acesso, reprodução, transmissão, distribuição, processamento, arquivamento, armazenamento, eliminação
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: empresa mantém em arquivo, sem consultá-los, dados pessoais de ex-clientes. Assertiva: como não há uso ativo, não há tratamento para os fins da LGPD.
+comentario: Arquivamento e armazenamento estão expressamente no conceito de tratamento (art. 5º, X), que abrange “toda operação realizada com dados pessoais”. Até a eliminação é tratamento.
+
+=== lgpd3-5-02
+gab: C
+ref: lgpd 5, IV
+trecho: banco de dados: conjunto estruturado de dados pessoais, estabelecido em um ou em vários locais, em suporte eletrônico ou físico
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma clínica guarda as fichas dos pacientes em pastas de papel organizadas por nome, num arquivo de aço. Assertiva: esse arquivo é banco de dados para a LGPD.
+comentario: Certo. Art. 5º, IV: banco de dados é o conjunto estruturado de dados pessoais, estabelecido em um ou em vários locais, em suporte eletrônico ou físico. Papel organizado por nome é conjunto estruturado.
+
+=== lgpd3-5-03
+gab: E
+ref: lgpd 5, IX
+trecho: agentes de tratamento: o controlador e o operador
+armadilha: conceito
+dif: 2
+enunciado: Na LGPD, o encarregado, indicado pelo controlador e pelo operador para atuar como canal de comunicação com os titulares e a ANPD, é, ao lado deles, agente de tratamento.
+comentario: Agentes de tratamento são só o controlador e o operador (art. 5º, IX). O encarregado é canal de comunicação (VIII), não agente.
+
+=== lgpd3-5-04
+gab: E
+ref: lgpd 5, VII
+trecho: operador: pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do controlador
+armadilha: conceito
+dif: 2
+enunciado: O operador é quem toma as decisões referentes ao tratamento de dados pessoais, ainda que o realize em nome do controlador.
+comentario: Errado. Decidir sobre o tratamento é o que define o controlador (art. 5º, VI); o operador trata dados em nome dele (VII).
+
+=== lgpd3-1-01
+gab: E
+ref: lgpd 1, parágrafo único
+bloco: lgpd-1-4-14
+trecho: As normas gerais contidas nesta Lei são de interesse nacional
+armadilha: fecho
+dif: 2
+enunciado: As normas gerais da LGPD, que disciplinam o tratamento de dados pessoais por pessoa natural e por pessoa jurídica de direito público ou privado, inclusive nos meios digitais, são de interesse da União e, por isso, vinculam apenas a administração pública federal, cabendo a Estados, Distrito Federal e Municípios disciplinar a matéria por lei própria.
+comentario: Errado. Art. 1º, parágrafo único (incluído pela Lei 13.853/2019): as normas gerais da LGPD são de interesse nacional e devem ser observadas pela União, pelos Estados, pelo Distrito Federal e pelos Municípios. O começo do item reproduz o caput; o erro está no fecho.
+
+=== lgpd3-1-02
+gab: E
+ref: lgpd 1, parágrafo único
+bloco: lgpd-1-4-14
+trecho: As normas gerais contidas nesta Lei são de interesse nacional e devem ser observadas pela União, Estados, Distrito Federal e Municípios.
+armadilha: sujeito
+dif: 2
+enunciado: As normas gerais da LGPD são de interesse nacional e devem ser observadas pela União, pelos Estados, pelo Distrito Federal e pelos Municípios, cabendo a cada ente federativo editar a própria lei geral de proteção de dados.
+comentario: Errado. A primeira parte está certa (art. 1º, parágrafo único, da LGPD). O erro está no fim: legislar sobre proteção e tratamento de dados pessoais é competência privativa da União (art. 22, XXX, da Constituição, incluído pela EC 115/2022); os demais entes não editam leis gerais próprias sobre o tema.
+
+=== lgpd3-14-01
+gab: E
+ref: lgpd 14, § 3º
+bloco: lgpd-1-4-14
+trecho: quando a coleta for necessária para contatar os pais ou o responsável legal, utilizados uma única vez e sem armazenamento
+armadilha: excecao
+dif: 2
+enunciado: Os dados de criança coletados sem consentimento parental para contatar os pais podem ser armazenados pelo controlador para contatos futuros, desde que não sejam repassados a terceiros.
+comentario: O § 3º do art. 14 exige uso uma única vez e sem armazenamento. A outra exceção é a coleta para a proteção da criança.
+
+=== lgpd3-14-02
+gab: E
+ref: lgpd 14, § 5º
+bloco: lgpd-1-4-14
+trecho: O controlador deve realizar todos os esforços razoáveis para verificar que o consentimento a que se refere o § 1º deste artigo foi dado pelo responsável pela criança, consideradas as tecnologias disponíveis.
+armadilha: absoluto
+dif: 2
+enunciado: O controlador responde objetivamente se não garantir, de forma absoluta e infalível, que o consentimento para tratamento de dados de criança foi dado pelo responsável legal.
+comentario: A LGPD exige “todos os esforços razoáveis”, consideradas as tecnologias disponíveis (art. 14, § 5º): dever de meio, não garantia absoluta. Para serviços digitais, veja também o ECA Digital.
+
+=== lgpd3-14-03
+gab: E
+ref: lgpd 14, § 6º
+bloco: lgpd-1-4-14
+trecho: de forma a proporcionar a informação necessária aos pais ou ao responsável legal e adequada ao entendimento da criança
+armadilha: extrapolacao
+dif: 2
+enunciado: Os controladores não devem condicionar a participação de crianças em jogos e aplicações ao fornecimento de dados além dos estritamente necessários, e as informações sobre o tratamento devem ser dirigidas exclusivamente aos pais, dispensada sua adaptação ao entendimento da criança.
+comentario: O § 6º manda informar os pais e, também, de forma adequada ao entendimento da criança, com recursos audiovisuais quando adequado.
+
+=== lgpd3-55m-01
+gab: E
+ref: lgpd 55-M, I
+bloco: lgpd-55
+trecho: que lhe forem transferidos pelos órgãos da Presidência da República
+armadilha: sujeito
+dif: 3
+enunciado: Na literalidade da LGPD, constituem o patrimônio da ANPD os bens e os direitos que lhe forem transferidos pelo Ministério da Justiça e Segurança Pública e os que venha a adquirir ou a incorporar.
+comentario: O art. 55-M, I, fala em bens transferidos “pelos órgãos da Presidência da República”, memória da época em que a ANPD integrava a Presidência. A vinculação atual ao MJSP (art. 55-A) não mudou esse inciso.
+
+=== lgpd3-58a-01
+gab: E
+ref: lgpd 58-A
+bloco: lgpd-55
+trecho: VII - 3 (três) de entidades da sociedade civil com atuação relacionada a proteção de dados pessoais
+armadilha: numero
+dif: 3
+enunciado: O Conselho Nacional de Proteção de Dados Pessoais e da Privacidade tem composição mista, mas a maioria de seus membros é formada por representantes do poder público, indicados pelos titulares dos respectivos órgãos.
+comentario: Dos 23 membros, 13 vêm de fora do poder público: sociedade civil (3), instituições científicas (3), confederações sindicais (3), setor empresarial (2) e setor laboral (2).

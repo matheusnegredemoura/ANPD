@@ -1,0 +1,283 @@
+bloco: marco-civil
+// Decreto nº 12.976/2026 (proteção de mulheres na internet; a ANPD regula e fiscaliza) e artigos novos do Decreto
+// nº 8.771/2016 incluídos pelo Decreto nº 12.975/2026, na versão que faltava. Conferidas com fontes/dec12976.txt e
+// fontes/dec8771.txt (textos colados pelo usuário).
+
+=== d76-01
+gab: C
+ref: dec12976 14
+trecho: A regulação, a fiscalização e a apuração de infrações de que trata este Decreto competem à Agência Nacional de Proteção de Dados
+armadilha: sujeito
+dif: 2
+enunciado: Pelo Decreto 12.976/2026, a regulação, a fiscalização e a apuração de infrações aos deveres dos provedores na proteção de mulheres no ambiente digital competem à ANPD, que assim atua para além da proteção de dados pessoais.
+comentario: Certo. Decreto 12.976/2026, art. 14, que remete ao art. 19-A do Decreto 8.771/2016, incluído pelo Decreto 12.975/2026.
+
+=== d76-02
+gab: E
+ref: dec12976 14
+trecho: competem à Agência Nacional de Proteção de Dados
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: mulher teve fotos íntimas divulgadas em rede social e quer saber a que órgão cabe fiscalizar os deveres da plataforma previstos no Decreto n.º 12.976/2026. Assertiva: essa fiscalização compete ao Ministério das Mulheres.
+comentario: Errado. Compete à ANPD (art. 14). O Ministério das Mulheres aparece no grupo de trabalho interministerial do art. 11, que propõe um sistema de acolhimento às vítimas.
+
+=== d76-03
+gab: C
+ref: dec12976 7
+trecho: A indisponibilização de que trata o caput deverá ocorrer no prazo de até duas horas, contado da notificação
+armadilha: numero
+dif: 2
+enunciado: Notificado pela vítima ou por seu representante, o provedor de aplicações deve indisponibilizar a exibição não autorizada de conteúdo íntimo gerado por terceiros no prazo de até duas horas.
+comentario: Certo: art. 7º, § 1º. É o prazo mais curto do decreto; os outros casos têm seis ou vinte e quatro horas até a regulamentação (art. 12).
+
+=== d76-04
+gab: E
+ref: dec12976 7
+trecho: no prazo de até duas horas, contado da notificação
+armadilha: numero
+dif: 2
+enunciado: Situação hipotética: vítima notificou o provedor de que um vídeo íntimo seu era exibido na plataforma sem sua autorização. Assertiva: o provedor tem até vinte e quatro horas, contadas da notificação, para tornar o conteúdo indisponível.
+comentario: Errado. São até duas horas (art. 7º, § 1º). Vinte e quatro horas é o prazo transitório para os demais casos de violência contra a mulher em ambiente digital (art. 12, II).
+
+=== d76-05
+gab: C
+ref: dec12976 12
+trecho: seis horas, nos casos de conteúdo manifestamente ilegal
+armadilha: numero
+dif: 3
+enunciado: Até a regulamentação pela autoridade competente, o provedor tem seis horas, contadas da notificação, para remover conteúdo manifestamente ilegal que caracterize os crimes do art. 4º do decreto, ou informar o fundamento da manutenção.
+comentario: Certo: art. 12, I. O art. 4º lista crimes contra a mulher em razão da condição do sexo feminino (Código Penal, Lei Maria da Penha, Lei 14.192/2021 e Lei 10.446/2002).
+
+=== d76-06
+gab: E
+ref: dec12976 12
+trecho: vinte e quatro horas, nos demais casos de violência contra a mulher em ambiente digital
+armadilha: numero
+dif: 2
+enunciado: Até a regulamentação, nos casos de violência contra a mulher em ambiente digital que não sejam conteúdo íntimo nem conteúdo manifestamente ilegal, o provedor tem quarenta e oito horas para agir após a notificação.
+comentario: Errado. O prazo é de vinte e quatro horas (art. 12, II). Recebida contestação, o provedor tem outras vinte e quatro horas para restaurar ou remover e comunicar a decisão (parágrafo único).
+
+=== d76-07
+gab: E
+ref: dec12976 7
+trecho: Em representação da vítima, poderão realizar a notificação
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: pessoa legitimada a representar mulher vítima de divulgação de conteúdo íntimo notificou o provedor em nome dela. Assertiva: a notificação é inválida, pois somente a própria vítima pode fazê-la.
+comentario: Errado. Podem notificar em representação da vítima advogados constituídos, autoridades policiais, o MPF, os Ministérios Públicos dos estados e do DF e Territórios, as Defensorias dos estados e do DF e a DPU (art. 7º, § 3º).
+
+=== d76-08
+gab: C
+ref: dec12976 7
+trecho: marcado digitalmente para que o seu reenvio seja automaticamente bloqueado
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: provedor indisponibilizou conteúdo íntimo da vítima e, dias depois, outro usuário tentou reenviar o mesmo arquivo. Assertiva: o conteúdo deveria ter sido marcado digitalmente para que esse reenvio fosse bloqueado automaticamente.
+comentario: Certo: art. 7º, § 4º, na forma de regulamento da autoridade competente. O § 5º exige ainda canal específico, gratuito e de fácil acesso para essas denúncias.
+
+=== d76-09
+gab: C
+ref: dec12976 3
+trecho: ainda que produzido e manipulado, no todo ou em parte, por sistema de inteligência artificial
+armadilha: conceito
+dif: 2
+enunciado: Para o Decreto nº 12.976/2026, é conteúdo íntimo o que expõe nudez, seminudez, ato sexual ou contexto sexualizante, ainda que produzido ou manipulado, no todo ou em parte, por inteligência artificial.
+comentario: Certo: art. 3º, I. Deepfakes sexuais entram no conceito, e o art. 9º proíbe os provedores de gerar ou modificar esse tipo de conteúdo de terceiro.
+
+=== d76-10
+gab: E
+ref: dec12976 3
+trecho: imagem, vídeo, áudio, mensagem de texto ou qualquer conteúdo por escrito
+armadilha: rol
+dif: 2
+enunciado: Para o Decreto n.º 12.976/2026, que trata da proteção de mulheres contra a violência na internet, o conceito de conteúdo íntimo restringe-se a imagens e vídeos, excluídos áudios, mensagens de texto e outros conteúdos escritos.
+comentario: Errado. Abrange imagem, vídeo, áudio, mensagem de texto ou qualquer conteúdo escrito, ou combinação deles (art. 3º, I).
+
+=== d76-11
+gab: C
+ref: dec12976 8
+trecho: aplica-se independentemente de notificação ou denúncia prévia pela vítima
+armadilha: conceito
+dif: 2
+enunciado: O dever de reduzir o alcance e a visibilidade de ataques coordenados contra mulheres aplica-se independentemente de notificação prévia da vítima, devendo o provedor agir de ofício ao identificar os indicadores.
+comentario: Certo: art. 8º, § 1º. É um dever proativo, diferente da remoção em resposta a notificação (arts. 5º e 7º).
+
+=== d76-12
+gab: E
+ref: dec12976 8
+trecho: aplica-se independentemente de notificação ou denúncia prévia pela vítima
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: uma jornalista passou a sofrer ataques coordenados de perfis em uma plataforma, sem ter feito denúncia. Assertiva: o provedor fica obrigado a reduzir o alcance desses ataques a partir da denúncia formal da vítima, e não antes dela.
+comentario: Errado. O dever existe independentemente de notificação ou denúncia, e o provedor deve agir de ofício (art. 8º, § 1º).
+
+=== d76-13
+gab: C
+ref: dec12976 8
+trecho: como profissionais da imprensa
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: jornalista sofreu violência digital em razão de sua atuação profissional. Assertiva: as medidas de mitigação de alcance devem ser adotadas em regime prioritário.
+comentario: Certo: art. 8º, § 2º, sobretudo quando o ataque visa constranger, silenciar ou restringir a participação pública ou o exercício profissional.
+
+=== d76-14
+gab: C
+ref: dec12976 9
+trecho: são vedadas a geração e a modificação de conteúdo íntimo de terceiro
+armadilha: conceito
+dif: 3
+enunciado: É vedado aos provedores gerar ou modificar conteúdo íntimo de terceiro por inteligência artificial, e os provedores baseados em IA devem implementar salvaguardas para identificar e bloquear esses pedidos, de forma escalonada conforme o volume de acessos e o risco.
+comentario: Certo. Decreto 12.976/2026, arts. 9º e 10, com parágrafo único. O conteúdo íntimo divulgado sem autorização deve ser retirado em até duas horas da notificação (art. 7º, § 1º).
+
+=== d76-15
+gab: E
+ref: dec12976 10
+trecho: de forma escalonada e proporcional ao volume de acessos e ao nível de risco da aplicação
+armadilha: conceito
+dif: 2
+enunciado: As salvaguardas para bloquear pedidos de geração de conteúdo íntimo por IA devem ser implementadas de imediato e de modo uniforme por todos os provedores, qualquer que seja o volume de acessos.
+comentario: Errado. A implementação é escalonada e proporcional ao volume de acessos e ao nível de risco da aplicação (art. 10, parágrafo único), conforme regulamento.
+
+=== d76-16
+gab: C
+ref: dec12976 5
+trecho: Central de Atendimento à Mulher
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: mulher acessou o canal de uma rede social para notificar violência sofrida na plataforma. Assertiva: nesse espaço, o provedor deve exibir aviso com o número e os canais da Central de Atendimento à Mulher.
+comentario: Certo: art. 5º, § 1º. É um exemplo do princípio da centralidade da vítima (art. 2º, II).
+
+=== d76-17
+gab: E
+ref: dec12976 4
+trecho: A existência de conteúdo criminoso ou ilícito de forma isolada não caracteriza, por si só, falha sistêmica
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: em uma plataforma que adota medidas adequadas de prevenção, foi encontrado um único vídeo com conteúdo criminoso contra uma mulher. Assertiva: a presença isolada desse conteúdo caracteriza, por si só, falha sistêmica do provedor.
+comentario: Errado. O conteúdo isolado não caracteriza, por si só, falha sistêmica (art. 4º, § 2º). Falha sistêmica é não comprovar medidas adequadas de prevenção ou remoção, conforme o estado da técnica (§ 1º).
+
+=== d76-18
+gab: C
+ref: dec12976 4
+trecho: forneçam, conforme o estado da técnica, os níveis mais elevados de segurança para o tipo de serviço que oferecem
+armadilha: conceito
+dif: 3
+enunciado: Incorre em falha sistêmica o provedor que não comprovar a adoção de medidas que forneçam, conforme o estado da técnica, os níveis mais elevados de segurança para seu tipo de serviço e que inibam a circulação massiva de conteúdos criminosos contra mulheres.
+comentario: Certo: art. 4º, § 1º, I e II, que repete a lógica do art. 16-B do Decreto nº 8.771/2016. O provedor deve fornecer às autoridades os dados que permitam verificar essas medidas (§ 3º).
+
+=== d76-19
+gab: C
+ref: dec12976 5
+trecho: concluir existir dúvida razoável sobre o caráter criminoso ou ilícito do conteúdo
+armadilha: excecao
+dif: 3
+enunciado: Após análise diligente e fundamentada, o provedor pode manter o conteúdo notificado se concluir haver dúvida razoável sobre seu caráter criminoso ou ilícito, comunicando ao notificante as razões.
+comentario: Certo: art. 5º, § 5º, considerada a proporcionalidade entre a dúvida e a gravidade do crime. O Decreto nº 8.771/2016 tem regra igual no art. 16-G, § 1º.
+
+=== d76-20
+gab: C
+ref: dec12976 2
+trecho: vedadas novas exposições da mulher pelas autoridades competentes e pelos provedores de aplicações de internet
+armadilha: conceito
+dif: 2
+enunciado: O princípio da não revitimização impede que autoridades e provedores, ao adotar medidas de cessação ou de mitigação do dano, exponham novamente a mulher.
+comentario: Certo: art. 2º, IV. Os outros princípios são não discriminação, centralidade da vítima, proteção de dados e da privacidade e reconhecimento da discriminação por múltiplos critérios.
+
+=== d76-21
+gab: E
+ref: dec12976 2
+trecho: reconhecimento da discriminação por múltiplos critérios como fator de agravamento
+armadilha: conceito
+dif: 2
+enunciado: O Decreto nº 12.976/2026 considera irrelevante, para a gravidade da violência contra a mulher no ambiente digital, que a vítima sofra discriminação por mais de um critério.
+comentario: Errado. A discriminação por múltiplos critérios é reconhecida como fator de agravamento da violência (art. 2º, V).
+
+=== d76-22
+gab: E
+ref: dec12976 11
+trecho: Ato do Ministro de Estado da Justiça e Segurança Pública instituirá grupo de trabalho interministerial
+armadilha: sujeito
+dif: 2
+enunciado: O grupo de trabalho que vai propor o sistema integrado de prevenção, proteção e acolhimento de mulheres vítimas de violência digital será instituído por resolução do Conselho Diretor da ANPD.
+comentario: Errado. Será instituído por ato do Ministro da Justiça e Segurança Pública, garantida a participação do Ministério das Mulheres e da Secom (art. 11, § 2º).
+
+=== d76-23
+gab: E
+ref: dec12976 15
+trecho: Este Decreto entra em vigor sessenta dias após a data de sua publicação
+armadilha: numero
+dif: 2
+enunciado: Situação hipotética: provedor foi autuado por descumprir o Decreto nº 12.976/2026 duas semanas depois de sua publicação. Assertiva: a autuação é regular, pois o decreto vigora desde a publicação.
+comentario: Errado. Teve vacância de sessenta dias (art. 15), o mesmo prazo do Decreto nº 12.975/2026, publicado no mesmo dia.
+
+=== d76-24
+gab: C
+ref: dec12976 3
+trecho: perseguição da mulher realizada por meios digitais
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um ex-companheiro monitora as redes sociais de uma mulher, envia-lhe mensagens repetidas e usa aplicativo de rastreamento para saber onde ela está. Assertiva: a conduta pode configurar violência contra mulheres em ambiente digital, na forma de perseguição.
+comentario: Certo. O art. 3º, II, d, cita a perseguição por meios digitais (art. 147-A do Código Penal), inclusive por monitoramento de redes, mensagens reiteradas e tecnologias de rastreamento.
+
+=== d76-25
+gab: E
+ref: dec12976 13
+trecho: assegurar a guarda e o encaminhamento das informações necessárias à identificação da sua autoria e sua materialidade ao Poder Público
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: plataforma identificou publicação com ameaça de morte contra uma mulher. Assertiva: além de agir sobre o conteúdo, ela fica dispensada de guardar as informações necessárias para identificar a autoria, tarefa exclusiva das autoridades policiais.
+comentario: Errado. Pelo art. 13 do Decreto 12.976/2026, além de agir sobre o conteúdo, a plataforma deve assegurar a guarda e o encaminhamento ao Poder Público das informações necessárias para identificar autoria e materialidade. A forma de cumprimento será disciplinada por ato do Ministro da Justiça e Segurança Pública.
+
+=== d71-01
+gab: C
+ref: dec8771 16-K
+trecho: adotarão medidas adequadas para vedar a contratação de conteúdo que configure crime ou ato ilícito
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: plataforma que vende impulsionamento recebeu pedido de contratação de anúncio com oferta de produto falsificado. Assertiva: a plataforma deve ter medidas adequadas para vedar a contratação desse conteúdo.
+comentario: Certo: art. 16-K do Decreto nº 8.771/2016, incluído pelo Decreto nº 12.975/2026. Para conteúdo ilícito pago, a responsabilidade do provedor é presumida (art. 16-L).
+
+=== d71-02
+gab: C
+ref: dec8771 16-J
+trecho: independentemente de novas decisões judiciais, a partir de notificação judicial ou extrajudicial
+armadilha: excecao
+dif: 3
+enunciado: Reconhecido por decisão judicial o fato ofensivo à honra, as replicações sucessivas com conteúdo idêntico devem ser removidas por todos os provedores que intermedeiam conteúdo de terceiros, independentemente de novas decisões, a partir de notificação judicial ou extrajudicial.
+comentario: Certo: art. 16-J, parágrafo único. A regra geral para crimes contra a honra continua sendo a ordem judicial específica (art. 16-J, I, e art. 19 do Marco Civil).
+
+=== d71-03
+gab: E
+ref: dec8771 16-L
+trecho: independentemente de notificação
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: anúncio pago e impulsionado em uma plataforma veiculava golpe financeiro, e o provedor ainda não havia recebido notificação de usuários ou de autoridades. Assertiva: a responsabilidade do provedor por esse conteúdo ilícito depende de prévia notificação.
+comentario: Errado. Ela é presumida, independentemente de notificação (art. 16-L). O provedor só se exime se provar que agiu com diligência e em tempo razoável para indisponibilizar o conteúdo (parágrafo único).
+
+=== d71-04
+gab: C
+ref: dec8771 16-M
+trecho: pelo prazo de um ano, contado da data do encerramento da veiculação
+armadilha: numero
+dif: 2
+enunciado: Os provedores que vendem anúncio ou impulsionamento devem manter, por um ano contado do encerramento da veiculação, as informações de cada anúncio e dos respectivos anunciantes.
+comentario: Certo: art. 16-M. A regulamentação do acesso a essas informações deve respeitar as competências da Secretaria Nacional do Consumidor (parágrafo único).
+
+=== d71-05
+gab: E
+ref: dec8771 15-A
+trecho: independerá de prévia requisição e recairá autonomamente sobre cada provedor
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: provedor de aplicação guarda os registros de acesso com o endereço IP, mas não a porta lógica de origem, por não ter recebido requisição a respeito. Assertiva: a conduta é regular, pois o dever de guardar a porta lógica depende de prévia requisição.
+comentario: Errado. Independe de prévia requisição e recai autonomamente sobre cada provedor (art. 15-A, § 1º). O fornecimento dos dados é que segue os arts. 10 e 22 do Marco Civil (§ 2º).
+
+=== d71-06
+gab: E
+ref: dec8771 16-G
+trecho: excetuados os crimes contra a honra
+armadilha: excecao
+dif: 2
+enunciado: Situação hipotética: provedor foi notificado por usuário de que um post de terceiro o difamava, imputando-lhe fato ofensivo à reputação. Assertiva: o dever de indisponibilizar, após notificação, conteúdo de terceiros que configure crime alcança esse caso.
+comentario: Errado. O art. 16-G exclui os crimes contra a honra, que seguem dependendo de ordem judicial específica (art. 16-J, I).

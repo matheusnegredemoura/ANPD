@@ -1,0 +1,144 @@
+bloco: res-19-2024
+// Resolução CD/ANPD nº 19/2024 (Regulamento de Transferência Internacional), lote X10: caracterização e alcance
+// (arts. 5º e 7º), procedimento de adequação (arts. 13 e 14), cláusulas-padrão e equivalência (arts. 15, 18 a 20) e
+// cláusulas específicas (art. 21). Evitados os arts. 27, VII e VIII, e 33. Conferidas com fontes/res19.txt.
+
+=== t19j-01
+gab: C
+tema: an-transferencia
+ref: res19 5
+trecho: A transferência internacional de dados será caracterizada quando o exportador transferir dados pessoais para o importador
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma loja virtual brasileira enviou sua base de clientes a um parceiro de logística sediado no Chile. Assertiva: há transferência internacional de dados, em que a loja atua como exportadora e o parceiro, como importador.
+comentario: Certo. Art. 5º e definições do art. 3º: exportador é quem transfere, importador é o agente em país estrangeiro (ou organismo internacional) que recebe os dados.
+
+=== t19j-02
+gab: E
+tema: an-transferencia
+ref: res19 7
+trecho: independe do meio utilizado para sua realização, do país de sede dos agentes de tratamento ou do país onde estejam localizados os dados
+armadilha: excecao
+dif: 2
+enunciado: A legislação brasileira só se aplica à transferência internacional de dados quando ela é feita por meio eletrônico e por agente sediado no Brasil.
+comentario: Errado. A aplicação independe do meio, do país da sede dos agentes e do local dos dados (art. 7º, parágrafo único), bastando uma das hipóteses do caput, como a coleta no território nacional.
+
+=== t19j-03
+gab: C
+tema: an-transferencia
+ref: res19 13
+trecho: poderá ser instaurado por decisão do Conselho Diretor, de ofício ou após solicitação das pessoas jurídicas de direito público
+armadilha: sujeito
+dif: 3
+enunciado: O procedimento para emitir decisão de adequação pode ser instaurado pelo Conselho Diretor da ANPD de ofício ou após solicitação de pessoas jurídicas de direito público.
+comentario: Certo. Art. 13, I. A área técnica instrui, a Procuradoria se manifesta e o Conselho Diretor delibera (II e III).
+
+=== t19j-04
+gab: E
+tema: an-transferencia
+ref: res19 13
+trecho: após solicitação das pessoas jurídicas de direito público referidas no parágrafo único do art. 1º da Lei nº 12.527, de 18 de novembro de 2011
+armadilha: sujeito
+dif: 3
+enunciado: Situação hipotética: uma associação empresarial requereu à ANPD que instaurasse procedimento para declarar adequado o nível de proteção de dados de um país. Assertiva: o regulamento confere a qualquer interessado privado legitimidade para esse requerimento.
+comentario: Errado. A instauração ocorre de ofício ou após solicitação de pessoas jurídicas de direito público (art. 13, I). Já o reconhecimento de equivalência de cláusulas-padrão estrangeiras admite requerimento dos interessados (art. 18, § 1º, I).
+
+=== t19j-05
+gab: C
+tema: an-transferencia
+ref: res19 13
+trecho: A decisão de adequação será proferida por Resolução do Conselho Diretor e publicada na página da ANPD na Internet
+armadilha: conceito
+dif: 2
+enunciado: A ANPD formaliza o reconhecimento de que um país estrangeiro tem nível adequado de proteção de dados por meio de ato do seu órgão colegiado de direção, divulgado em sua página na internet.
+comentario: Certo. Art. 13, § 2º: a decisão de adequação é proferida por Resolução do Conselho Diretor e publicada na página da ANPD. Foi o caso da Resolução CD/ANPD nº 32/2026, sobre a União Europeia.
+
+=== t19j-06
+gab: E
+tema: an-transferencia
+ref: res19 14
+trecho: observarão os procedimentos descritos no art. 13 deste Regulamento
+armadilha: conceito
+dif: 3
+enunciado: Os atos da ANPD destinados ao reconhecimento do Brasil como país adequado por outro país ou organismo internacional seguem rito livre, sem relação com o procedimento das decisões de adequação.
+comentario: Errado. O art. 14 manda observar os mesmos procedimentos do art. 13 nesses processos.
+
+=== t19j-07
+gab: C
+tema: an-transferencia
+ref: res19 18
+trecho: poderá ser instaurado por decisão do Conselho Diretor, de ofício ou a requerimento dos interessados
+armadilha: conceito
+dif: 2
+enunciado: O procedimento para reconhecer a equivalência de cláusulas-padrão contratuais de outros países pode ser instaurado de ofício pelo Conselho Diretor ou a requerimento dos interessados.
+comentario: Certo. Art. 18, § 1º, I. O Conselho Diretor pode ainda determinar consulta à sociedade (§ 2º).
+
+=== t19j-08
+gab: E
+tema: an-transferencia
+ref: res19 18
+trecho: inteiro teor das cláusulas-padrão contratuais traduzidas para o português
+armadilha: conceito
+dif: 2
+enunciado: O requerimento de equivalência de cláusulas-padrão estrangeiras pode ser instruído só com o texto original das cláusulas, no idioma do país de origem.
+comentario: Errado. O art. 18, § 4º, exige o inteiro teor traduzido para o português, a legislação e os documentos pertinentes e uma análise de compatibilidade com a LGPD e o regulamento, com comparativo entre as cláusulas.
+
+=== t19j-09
+gab: C
+tema: an-transferencia
+ref: res19 19
+trecho: a ANPD priorizará a aprovação de cláusulas que possam ser utilizadas por outros agentes de tratamento que realizam transferências internacionais de dados em circunstâncias similares
+armadilha: conceito
+dif: 3
+enunciado: Ao decidir sobre a equivalência de cláusulas-padrão estrangeiras, a ANPD prioriza as que possam ser usadas por outros agentes que fazem transferências em circunstâncias semelhantes.
+comentario: Certo. Art. 19, parágrafo único. A decisão pesa compatibilidade com a LGPD e riscos e benefícios, inclusive impactos no fluxo internacional de dados (I e II).
+
+=== t19j-10
+gab: E
+tema: an-transferencia
+ref: res19 18
+trecho: O Conselho Diretor poderá determinar a realização de consulta à sociedade durante o procedimento
+armadilha: conceito
+dif: 2
+enunciado: No procedimento de reconhecimento de equivalência de cláusulas-padrão, é vedada a consulta à sociedade.
+comentario: Errado. O Conselho Diretor pode determinar consulta à sociedade (art. 18, § 2º), e órgãos públicos com competência no tema podem ser cientificados e se manifestar (§ 3º).
+
+=== t19j-11
+gab: C
+tema: an-transferencia
+ref: res19 21
+trecho: somente serão aprovadas quando a transferência internacional de dados não puder ser realizada por meio das cláusulas-padrão contratuais
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um controlador pediu à ANPD que aprovasse cláusulas contratuais específicas, embora sua transferência pudesse ser feita normalmente com as cláusulas-padrão. Assertiva: o pedido não deve ser aprovado.
+comentario: Certo. As cláusulas específicas só são aprovadas quando a transferência não puder usar as cláusulas-padrão, por circunstâncias excepcionais de fato ou de direito comprovadas pelo controlador (art. 21, § 1º).
+
+=== t19j-12
+gab: E
+tema: an-transferencia
+ref: res19 21
+trecho: deverão prever a aplicação da legislação nacional de proteção de dados pessoais à transferência internacional de dados e a sua submissão à fiscalização da ANPD
+armadilha: excecao
+dif: 3
+enunciado: As cláusulas contratuais específicas podem afastar a aplicação da legislação brasileira de proteção de dados, se o importador estiver sujeito a lei estrangeira de proteção equivalente.
+comentario: Errado. Em qualquer hipótese, as cláusulas específicas devem prever a aplicação da legislação nacional à transferência e a submissão à fiscalização da ANPD (art. 21, § 2º).
+
+=== t19j-13
+gab: C
+tema: an-transferencia
+ref: res19 20
+trecho: constituem mecanismo válido para a realização de transferências internacionais de dados
+armadilha: conceito
+dif: 2
+enunciado: As cláusulas-padrão estrangeiras reconhecidas como equivalentes pela ANPD passam a ser mecanismo válido de transferência internacional, observadas as condicionantes da decisão.
+comentario: Certo. Art. 20 e parágrafo único: são aprovadas por Resolução do Conselho Diretor, publicadas na página da ANPD, e equiparam-se às cláusulas-padrão do art. 33, II, b, da LGPD.
+
+=== t19j-14
+gab: E
+tema: an-transferencia
+ref: res19 15
+trecho: estabelecem garantias mínimas e condições válidas para a realização de transferências internacionais de dados
+armadilha: conceito
+dif: 2
+enunciado: As cláusulas-padrão contratuais aprovadas pela ANPD fixam o nível máximo de proteção que pode ser exigido nas transferências internacionais, e não garantias mínimas.
+comentario: Errado. O art. 15 diz que elas estabelecem garantias mínimas e condições válidas para a transferência, e o art. 16 exige sua adoção integral e sem alteração do texto do Anexo II.

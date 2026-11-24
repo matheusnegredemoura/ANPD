@@ -1,0 +1,110 @@
+// Teoria dos jogos e informação assimétrica aplicadas à regulação: equilíbrio de Nash, estratégia dominante,
+// dilema do prisioneiro, jogos repetidos e regulação responsiva, compromisso crível, indução retroativa,
+// principal-agente, risco moral e seleção adversa. O edital do processo seletivo da ANPD listou teoria dos jogos
+// em teoria da regulação. Itens escritos para o banco.
+
+bloco: regulacao-teoria
+
+=== tj-01
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Em jogos não cooperativos, há equilíbrio de Nash quando a estratégia de cada jogador é a melhor resposta às dos demais, sem incentivo a desvio unilateral, ainda que o resultado seja ineficiente para o grupo.
+comentario: Certo. O dilema dos prisioneiros é o exemplo clássico de equilíbrio de Nash ineficiente.
+
+=== tj-02
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: no dilema dos prisioneiros, ambos os jogadores confessam, embora ambos ganhassem se ficassem calados. Assertiva: o resultado em que ambos confessam, por ser equilíbrio de Nash, é eficiente no sentido de Pareto.
+comentario: Errado. O dilema do prisioneiro é o contraexemplo clássico: o equilíbrio (ambos delatam) é pior para os dois do que a cooperação (ambos calam).
+
+=== tj-03
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: No dilema do prisioneiro jogado uma única vez, delatar é estratégia dominante para cada jogador, e o equilíbrio de Nash resultante coincide com o resultado eficiente no sentido de Pareto.
+comentario: Errado. Delatar é dominante e leva ao equilíbrio de Nash, mas esse resultado é ineficiente: ambos ficariam melhor se cooperassem. É o exemplo clássico de equilíbrio de Nash que não é ótimo de Pareto.
+
+=== tj-04
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Em teoria dos jogos, estratégia dominante é a que dá ao jogador o melhor resultado apenas quando os demais jogadores escolhem cooperar.
+comentario: Errado. Estratégia dominante é a melhor para o jogador qualquer que seja a escolha dos demais. Muitos jogos nem a têm.
+
+=== tj-05
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Em jogo de soma zero, o ganho de um jogador corresponde exatamente à perda do outro, de modo que a cooperação aumenta o total a repartir.
+comentario: Errado. Em soma zero, o ganho de um é exatamente a perda do outro. Jogos em que ambos podem ganhar são de soma não nula.
+
+=== tj-06
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Em jogos repetidos indefinidamente, a cooperação pode surgir como resultado estável, porque a perspectiva de interações futuras permite punir desvios, como na estratégia olho por olho.
+comentario: Certo. A sombra do futuro muda os incentivos: trair hoje custa a cooperação de amanhã. Axelrod mostrou a força da estratégia olho por olho (tit for tat) em torneios.
+
+=== tj-07
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A pirâmide da regulação responsiva, de Ayres e Braithwaite, inspira-se na lógica do olho por olho: o regulador começa por medidas cooperativas e escala para sanções mais severas diante do descumprimento.
+comentario: Certo. A base da pirâmide é persuasão e orientação; o topo, sanções graves. A Resolução CD/ANPD 1/2021 adota atuação responsiva, com atividades de monitoramento, orientação, prevenção e repressão.
+
+=== tj-08
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: Na regulação responsiva, o regulador começa pela sanção mais grave da pirâmide, para obter o máximo efeito dissuasório, e desce para a persuasão quando o regulado coopera.
+comentario: Errado. Começa-se pela base da pirâmide (diálogo, orientação, advertência) e só se escala diante de descumprimento. A capacidade de chegar ao topo, porém, precisa ser crível.
+
+=== tj-09
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A ameaça de sanção só tem efeito dissuasório se for crível: regulador sem capacidade efetiva de fiscalizar e punir perde poder de influenciar o comportamento dos regulados.
+comentario: Certo. Na linguagem dos jogos, ameaças não críveis são ignoradas pelos jogadores racionais; daí a importância de fiscalização efetiva e de sanções aplicadas com previsibilidade.
+
+=== tj-10
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Jogos sequenciais de informação completa podem ser resolvidos por indução retroativa, analisando a melhor escolha na última etapa e retrocedendo até a primeira.
+comentario: Certo. O resultado é o equilíbrio perfeito em subjogos, que descarta ameaças não críveis.
+
+=== tj-11
+gab: E
+ref: doutrina
+armadilha: comparacao
+dif: 3
+enunciado: Em jogos simultâneos, como o dilema dos prisioneiros, os jogadores decidem sem conhecer a escolha do outro, razão pela qual esses jogos se representam usualmente na forma extensiva, por árvore de decisão.
+comentario: Errado. Em jogos simultâneos, ninguém observa a escolha do outro antes de decidir. Observar antes é característica dos jogos sequenciais.
+
+=== tj-12
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: No problema principal-agente, a assimetria de informação pode gerar risco moral, quando o agente adota ação oculta após o contrato, e seleção adversa, quando há informação oculta antes da contratação.
+comentario: Certo. Na regulação, o regulado conhece custos e práticas melhor que o regulador; daí o uso de incentivos, auditorias e obrigações de reporte, como a comunicação de incidentes.
+
+=== tj-13
+gab: E
+ref: doutrina
+armadilha: comparacao
+dif: 2
+enunciado: Situação hipotética: depois de contratar seguro de automóvel, o segurado passou a dirigir com menos cuidado. Assertiva: o caso exemplifica seleção adversa.
+comentario: Errado. Ação oculta depois do contrato é risco moral. A seleção adversa vem de informação oculta antes do contrato, como no mercado de carros usados de Akerlof, em que o vendedor conhece a qualidade e o comprador não.

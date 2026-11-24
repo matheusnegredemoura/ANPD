@@ -1,0 +1,486 @@
+bloco: constitucional
+// Trilha de direito constitucional do zero, subtemas 1 e 2: eficácia, poder constituinte e emendas; princípios fundamentais.
+// Itens escritos para o banco no padrão Cebraspe. Trechos conferidos em fontes/cf88.txt e fontes/lgpd.txt.
+
+=== dc-efi-01
+gab: C
+tema: const-eficacia
+ref: cf88 60, I
+trecho: de um terço, no mínimo, dos membros da Câmara dos Deputados ou do Senado Federal
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: proposta de emenda constitucional foi apresentada com assinaturas de um terço dos membros do Senado Federal. Assertiva: a iniciativa é válida.
+comentario: Art. 60, I. As outras iniciativas são do Presidente da República (II) e de mais da metade das Assembleias Legislativas, cada uma pela maioria relativa de seus membros (III).
+
+=== dc-efi-02
+gab: E
+tema: const-eficacia
+ref: cf88 60
+trecho: A Constituição poderá ser emendada mediante proposta:
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um movimento reuniu assinaturas de um por cento do eleitorado nacional, distribuído por cinco estados, e apresentou à Câmara dos Deputados proposta de emenda à Constituição. Assertiva: a iniciativa tem amparo constitucional.
+comentario: Errado. O art. 60 não prevê iniciativa popular de emenda. Esse requisito de assinaturas vale para projeto de lei (art. 61, § 2º).
+
+=== dc-efi-03
+gab: E
+tema: const-eficacia
+ref: cf88 60, III
+trecho: manifestando-se, cada uma delas, pela maioria relativa de seus membros
+armadilha: numero
+dif: 2
+enunciado: Pode propor emenda à Constituição mais da metade das Assembleias Legislativas das unidades da Federação, manifestando-se cada uma delas pela maioria absoluta de seus membros.
+comentario: O art. 60, III, exige maioria relativa em cada Assembleia, não absoluta. Troca de quórum é das armadilhas mais comuns em itens sobre processo legislativo.
+
+=== dc-efi-04
+gab: C
+tema: const-eficacia
+ref: cf88 60, II
+trecho: A Constituição poderá ser emendada mediante proposta:
+trecho: II - do Presidente da República;
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: o Presidente da República apresentou proposta de emenda à Constituição. Assertiva: a iniciativa é constitucionalmente admitida.
+comentario: Art. 60, II. Embora proponha, o Presidente não sanciona nem veta a emenda: depois de aprovada, ela é promulgada pelas Mesas da Câmara e do Senado (§ 3º).
+
+=== dc-efi-05
+gab: E
+tema: const-eficacia
+ref: cf88 60, § 2º
+trecho: A proposta será discutida e votada em cada Casa do Congresso Nacional, em dois turnos, considerando-se aprovada se obtiver, em ambos, três quintos dos votos dos respectivos membros.
+armadilha: extrapolacao
+dif: 1
+enunciado: A proposta de emenda à Constituição é discutida e votada em sessão conjunta do Congresso Nacional, em turno único, considerando-se aprovada se obtiver três quintos dos votos.
+comentario: A votação é em cada Casa, separadamente, em dois turnos, com três quintos dos votos dos respectivos membros em ambos (art. 60, § 2º). Sessão conjunta é para outras matérias, como a apreciação de vetos.
+
+=== dc-efi-06
+gab: C
+tema: const-eficacia
+ref: cf88 60, § 2º
+trecho: considerando-se aprovada se obtiver, em ambos, três quintos dos votos dos respectivos membros
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: numa das Casas do Congresso, a proposta de emenda alcançou três quintos dos votos dos presentes, mas não três quintos dos membros. Assertiva: a proposta não foi aprovada nessa Casa.
+comentario: Certo. O art. 60, § 2º, exige três quintos dos votos dos respectivos membros, em cada Casa e nos dois turnos. O quórum se calcula sobre o total de membros, não sobre os presentes.
+
+=== dc-efi-07
+gab: E
+tema: const-eficacia
+ref: cf88 60, § 3º
+trecho: A emenda à Constituição será promulgada pelas Mesas da Câmara dos Deputados e do Senado Federal, com o respectivo número de ordem.
+armadilha: sujeito
+dif: 2
+enunciado: A proposta de emenda à Constituição é discutida e votada em cada Casa do Congresso Nacional, em dois turnos, e, considerada aprovada se obtiver três quintos dos votos dos respectivos membros, é encaminhada ao presidente da República para sanção ou veto.
+comentario: Emenda constitucional não passa por sanção nem veto: é promulgada pelas Mesas da Câmara e do Senado (art. 60, § 3º). Sanção e veto são próprios dos projetos de lei (art. 66).
+
+=== dc-efi-08
+gab: E
+tema: const-eficacia
+ref: cf88 60, § 1º
+trecho: A Constituição não poderá ser emendada na vigência de intervenção federal, de estado de defesa ou de estado de sítio.
+armadilha: excecao
+dif: 2
+enunciado: Durante a vigência de estado de sítio, a Constituição pode ser emendada, desde que a proposta não trate de matéria protegida por cláusula pétrea.
+comentario: A vedação circunstancial do art. 60, § 1º, é total: na vigência de intervenção federal, estado de defesa ou estado de sítio, nenhuma emenda pode ser aprovada. A ressalva sobre cláusulas pétreas foi inventada pelo item.
+
+=== dc-efi-09
+gab: E
+tema: const-eficacia
+ref: cf88 60, § 4º
+trecho: a separação dos Poderes;
+trecho: os direitos e garantias individuais.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma proposta de emenda pretende abolir o voto secreto, mantido o voto direto, universal e periódico. Assertiva: a proposta pode ser deliberada, pois só o caráter direto do voto é cláusula pétrea.
+comentario: Errado. O art. 60, § 4º, II, protege o voto direto, secreto, universal e periódico. Proposta tendente a abolir qualquer dessas características não pode ser objeto de deliberação.
+
+=== dc-efi-10
+gab: E
+tema: const-eficacia
+ref: cf88 60, § 4º
+trecho: o voto direto, secreto, universal e periódico;
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: proposta de emenda constitucional pretende tornar o voto facultativo. Assertiva: a proposta não pode ser deliberada, pois o voto obrigatório é cláusula pétrea expressa.
+comentario: A cláusula pétrea é o voto direto, secreto, universal e periódico (art. 60, § 4º, II). A obrigatoriedade do voto (art. 14, § 1º) não está protegida e poderia ser alterada por emenda.
+
+=== dc-efi-11
+gab: E
+tema: const-eficacia
+ref: cf88 60, § 4º
+trecho: § 4º Não será objeto de deliberação a proposta de emenda tendente a abolir:
+trecho: I - a forma federativa de Estado;
+armadilha: rol
+dif: 3
+enunciado: Não será objeto de deliberação a proposta de emenda tendente a abolir o voto direto, secreto, universal e periódico ou a separação dos Poderes, e figuram expressamente nesse rol de cláusulas pétreas a forma federativa de Estado e a forma republicana de governo.
+comentario: O § 4º do art. 60 protege a forma federativa de Estado, não a forma republicana de governo. A república foi confirmada pelo plebiscito de 1993 (ADCT, art. 2º), mas não está no rol expresso. Não confunda forma de Estado com forma de governo.
+
+=== dc-efi-12
+gab: C
+tema: const-eficacia
+ref: cf88 60, § 5º
+trecho: A matéria constante de proposta de emenda rejeitada ou havida por prejudicada não pode ser objeto de nova proposta na mesma sessão legislativa.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: proposta de emenda constitucional foi rejeitada em março, e em junho do mesmo ano apresentou-se nova proposta sobre a mesma matéria. Assertiva: a nova proposta não pode ser apresentada nessa mesma sessão legislativa.
+comentario: Certo. Art. 60, § 5º: matéria de proposta de emenda rejeitada ou prejudicada não pode ser objeto de nova proposta na mesma sessão legislativa, sem exceção. Para projeto de lei é diferente: a reapresentação na mesma sessão é possível por proposta da maioria absoluta dos membros de qualquer das Casas (art. 67).
+
+=== dc-efi-13
+gab: E
+tema: const-eficacia
+ref: cf88 60, § 5º
+trecho: não pode ser objeto de nova proposta na mesma sessão legislativa
+armadilha: comparacao
+dif: 3
+enunciado: A matéria de proposta de emenda à Constituição rejeitada pode ser reapresentada na mesma sessão legislativa, desde que mediante proposta da maioria absoluta dos membros de qualquer das Casas do Congresso Nacional.
+comentario: Essa exceção existe só para projeto de lei rejeitado (art. 67). Para proposta de emenda, a reapresentação na mesma sessão legislativa é vedada sem exceção (art. 60, § 5º). Regra de lei aplicada à emenda é armadilha clássica.
+
+=== dc-efi-14
+gab: C
+tema: const-eficacia
+ref: cf88 60, § 4º
+trecho: Não será objeto de deliberação a proposta de emenda tendente a abolir:
+armadilha: conceito
+dif: 2
+enunciado: As cláusulas pétreas não impedem toda e qualquer alteração dos temas que protegem, mas vedam a deliberação de proposta de emenda tendente a aboli-los.
+comentario: O texto fala em proposta “tendente a abolir”. O STF admite emendas que alterem a disciplina dessas matérias sem esvaziar seu núcleo essencial. A vedação alcança até a deliberação: a proposta nem pode ser votada.
+
+=== dc-efi-15
+gab: E
+tema: const-eficacia
+ref: doutrina poder constituinte
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: num debate, alguém sustentou que o poder de emendar a Constituição, por ser também poder constituinte, é ilimitado e incondicionado como o originário. Assertiva: a tese está correta.
+comentario: Errado. Só o poder constituinte originário é tido como inicial, ilimitado juridicamente e incondicionado. O derivado reformador é limitado e condicionado: segue o procedimento e respeita as cláusulas pétreas do art. 60 da Constituição.
+
+=== dc-efi-16
+gab: E
+tema: const-eficacia
+ref: doutrina poder constituinte
+armadilha: comparacao
+dif: 3
+enunciado: O poder constituinte derivado decorrente é o que o Congresso Nacional exerce ao aprovar emendas à Constituição Federal, ao passo que o reformador é o que os Estados exercem ao elaborar suas constituições.
+comentario: Emendar a Constituição Federal é poder derivado reformador. O decorrente é o dos estados para elaborar suas Constituições, respeitando os princípios da Constituição Federal (art. 25 e ADCT, art. 11).
+
+=== dc-efi-17
+gab: C
+tema: const-eficacia
+ref: doutrina classificação das constituições
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: para mudar uma regra da Constituição, o Congresso precisou de dois turnos de votação em cada Casa e de três quintos dos votos, ao passo que uma lei ordinária seria aprovada por maioria simples. Assertiva: a diferença expressa a rigidez da Constituição Federal.
+comentario: Certo. Constituição rígida é a que exige, para ser alterada, processo mais solene e difícil que o das leis (art. 60, § 2º). Alguns autores a chamam de super-rígida por causa das cláusulas pétreas.
+
+=== dc-efi-18
+gab: E
+tema: const-eficacia
+ref: doutrina eficácia das normas constitucionais
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: norma constitucional de eficácia limitada ainda não foi regulamentada, e editou-se lei contrária a ela. Assertiva: a lei não pode ser questionada com base nessa norma, que ainda não produz efeito jurídico.
+comentario: Mesmo antes da lei, a norma de eficácia limitada produz efeitos mínimos: revoga a legislação anterior incompatível, impede leis contrárias e serve de parâmetro de controle de constitucionalidade. O que ela não produz são os efeitos principais.
+
+=== dc-efi-19
+gab: C
+tema: const-eficacia
+ref: cf88 37, VII
+trecho: o direito de greve será exercido nos termos e nos limites definidos em lei específica
+armadilha: conceito
+dif: 2
+enunciado: A norma constitucional segundo a qual o direito de greve dos servidores públicos será exercido nos termos e nos limites definidos em lei específica é exemplo de norma de eficácia limitada.
+comentario: O exercício do direito depende da lei específica. Diante da omissão do Congresso, o STF determinou, em mandados de injunção (MI 670, 708 e 712), a aplicação da lei de greve do setor privado aos servidores, no que couber.
+
+=== dc-efi-20
+gab: C
+tema: const-eficacia
+ref: cf88 5, XIII
+trecho: é livre o exercício de qualquer trabalho, ofício ou profissão, atendidas as qualificações profissionais que a lei estabelecer
+armadilha: conceito
+dif: 2
+enunciado: As normas de eficácia contida produzem efeitos imediatos, mas podem ter seu alcance restringido pelo legislador, como ocorre com a liberdade de exercício de profissão.
+comentario: A liberdade profissional vale desde já para todos; a lei pode exigir qualificações (como o exame da OAB) e, assim, conter o alcance da norma. O TRF6 2025 cobrou o mesmo exemplo num item errado, que o chamava de eficácia plena.
+
+=== dc-efi-21
+gab: E
+tema: const-eficacia
+ref: cf88 5, § 1º
+trecho: As normas definidoras dos direitos e garantias fundamentais têm aplicação imediata.
+armadilha: extrapolacao
+dif: 2
+enunciado: Os direitos e garantias expressos na Constituição não excluem outros decorrentes do regime e dos princípios por ela adotados, e as normas definidoras desses direitos e garantias fundamentais dependem, em regra, de lei regulamentadora para produzir efeitos.
+comentario: O art. 5º, § 1º, diz o contrário: aplicação imediata. Algumas normas de direitos fundamentais dependem de lei (são de eficácia limitada), mas a regra constitucional é a aplicação imediata.
+
+=== dc-efi-22
+gab: C
+tema: const-eficacia
+ref: doutrina controle de emendas constitucionais
+armadilha: conceito
+dif: 2
+enunciado: Emenda à Constituição pode ser declarada inconstitucional pelo Supremo Tribunal Federal se violar cláusula pétrea ou desrespeitar o procedimento previsto no art. 60 da Constituição Federal.
+comentario: Emenda é obra do poder constituinte derivado, que é limitado. O STF já declarou inconstitucionais dispositivos de emendas, como na ADI 939, sobre o IPMF, por violação a garantias do contribuinte. Normas originárias, ao contrário, não podem ser declaradas inconstitucionais.
+
+=== dc-efi-23
+gab: E
+tema: const-eficacia
+ref: cf88 60, § 1º
+trecho: A Constituição não poderá ser emendada na vigência de intervenção federal
+armadilha: excecao
+dif: 2
+enunciado: A Constituição pode ser emendada mediante proposta de um terço, no mínimo, dos membros da Câmara ou do Senado ou do presidente da República, e, na vigência de intervenção federal, a emenda é admitida desde que a proposta seja de iniciativa presidencial.
+comentario: Não há exceção de iniciativa: na vigência de intervenção federal, estado de defesa ou estado de sítio, a Constituição não pode ser emendada (art. 60, § 1º).
+
+=== dc-efi-24
+gab: C
+tema: const-eficacia
+ref: cf88 60, § 3º
+trecho: A emenda à Constituição será promulgada pelas Mesas da Câmara dos Deputados e do Senado Federal, com o respectivo número de ordem.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: aprovada proposta de emenda nas Casas do Congresso, discute-se se ela segue para sanção presidencial. Assertiva: não há sanção, pois a emenda é promulgada pelas Mesas da Câmara dos Deputados e do Senado Federal.
+comentario: Art. 60, § 3º. As emendas são numeradas em sequência própria (EC 115/2022, por exemplo, incluiu a proteção de dados como direito fundamental).
+
+=== dc-pri-01
+gab: C
+tema: const-principios
+ref: cf88 1
+trecho: A República Federativa do Brasil, formada pela união indissolúvel dos Estados e Municípios e do Distrito Federal, constitui-se em Estado Democrático de Direito e tem como fundamentos:
+trecho: I - a soberania;
+trecho: V - o pluralismo político.
+armadilha: comparacao
+dif: 3
+enunciado: A soberania e o pluralismo político são fundamentos da República Federativa do Brasil, ao lado da cidadania, da dignidade da pessoa humana e dos valores sociais do trabalho e da livre iniciativa, enquanto garantir o desenvolvimento nacional é objetivo fundamental.
+comentario: Certo. Os cinco fundamentos estão no art. 1º, I a V; o desenvolvimento nacional, no art. 3º, II.
+
+=== dc-pri-02
+gab: E
+tema: const-principios
+ref: cf88 4, I
+trecho: A República Federativa do Brasil rege-se nas suas relações internacionais pelos seguintes princípios:
+trecho: I - independência nacional;
+armadilha: sujeito
+dif: 2
+enunciado: São fundamentos da República Federativa do Brasil, previstos no art. 1º da Constituição Federal, entre outros, a cidadania, a dignidade da pessoa humana, os valores sociais do trabalho e da livre iniciativa, o pluralismo político e a independência nacional.
+comentario: A independência nacional é princípio das relações internacionais (art. 4º, I). Não confunda com a soberania, esta sim fundamento (art. 1º, I).
+
+=== dc-pri-03
+gab: C
+tema: const-principios
+ref: cf88 3, III
+trecho: erradicar a pobreza e a marginalização e reduzir as desigualdades sociais e regionais;
+armadilha: comparacao
+dif: 3
+enunciado: A redução das desigualdades sociais e regionais aparece na Constituição tanto entre os objetivos fundamentais da República quanto entre os princípios da ordem econômica.
+comentario: Certo. O art. 3º, III, inclui entre os objetivos fundamentais erradicar a pobreza e a marginalização e reduzir as desigualdades sociais e regionais, e o art. 170, VII, repete a redução das desigualdades regionais e sociais como princípio da ordem econômica. Não é, porém, fundamento da República (art. 1º).
+
+=== dc-pri-04
+gab: C
+tema: const-principios
+ref: cf88 1, parágrafo único
+trecho: Todo o poder emana do povo, que o exerce por meio de representantes eleitos ou diretamente, nos termos desta Constituição.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: lei convocou plebiscito para consultar a população sobre tema relevante. Assertiva: a medida concretiza o exercício direto do poder pelo povo, previsto ao lado do exercício por representantes eleitos.
+comentario: Art. 1º, parágrafo único: democracia semidireta (ou participativa), que combina representação com instrumentos diretos, como plebiscito, referendo e iniciativa popular (art. 14).
+
+=== dc-pri-05
+gab: E
+tema: const-principios
+ref: cf88 1
+trecho: formada pela união indissolúvel dos Estados e Municípios e do Distrito Federal
+armadilha: extrapolacao
+dif: 2
+enunciado: A República Federativa do Brasil é formada pela união indissolúvel dos Estados, dos Municípios e do Distrito Federal, mas a Constituição admite que um Estado se desligue da Federação se a população interessada aprovar a medida em plebiscito.
+comentario: Errado. O vínculo federativo é indissolúvel (art. 1º). O plebiscito do art. 18, § 3º, serve para Estados se incorporarem entre si, se subdividirem ou se desmembrarem dentro da Federação, nunca para a secessão.
+
+=== dc-pri-06
+gab: C
+tema: const-principios
+ref: cf88 2
+trecho: São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário.
+armadilha: conceito
+dif: 2
+enunciado: Legislativo, Executivo e Judiciário são Poderes da União independentes e harmônicos entre si, e não será objeto de deliberação proposta de emenda tendente a abolir a separação entre eles.
+comentario: Certo. Art. 2º e art. 60, § 4º, III. A separação dos Poderes é cláusula pétrea.
+
+=== dc-pri-07
+gab: E
+tema: const-principios
+ref: cf88 2
+trecho: São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário.
+armadilha: rol
+dif: 2
+enunciado: A Constituição de 1988 adota a separação de Poderes, cláusula pétrea, e reconhece o Ministério Público como quarto Poder da União, ao lado do Legislativo, do Executivo e do Judiciário, todos independentes e harmônicos entre si.
+comentario: São só três Poderes (art. 2º). O Ministério Público é instituição permanente e função essencial à justiça (art. 127), com autonomia funcional e administrativa, mas não é Poder.
+
+=== dc-pri-08
+gab: C
+tema: const-principios
+ref: cf88 3, IV
+trecho: Constituem objetivos fundamentais da República Federativa do Brasil
+armadilha: comparacao
+dif: 2
+enunciado: Promover o bem de todos, sem preconceitos de origem, raça, sexo, cor, idade e quaisquer outras formas de discriminação, figura entre os objetivos fundamentais da República, e não entre os princípios das relações internacionais.
+comentario: Certo. Art. 3º, IV. Os princípios das relações internacionais estão no art. 4º.
+
+=== dc-pri-09
+gab: E
+tema: const-principios
+ref: cf88 3, IV
+trecho: promover o bem de todos, sem preconceitos de origem, raça, sexo, cor, idade e quaisquer outras formas de discriminação.
+armadilha: conceito
+dif: 3
+enunciado: Promover o bem de todos, sem preconceito de idade ou de qualquer outra natureza, é um dos princípios que regem o Brasil nas relações internacionais.
+comentario: Errado. É objetivo fundamental da República (art. 3º, IV). Os princípios das relações internacionais estão no art. 4º, como a prevalência dos direitos humanos.
+
+=== dc-pri-10
+gab: E
+tema: const-principios
+ref: cf88 4, X
+trecho: A República Federativa do Brasil rege-se nas suas relações internacionais pelos seguintes princípios:
+trecho: X - concessão de asilo político.
+armadilha: sujeito
+dif: 3
+enunciado: Entre os princípios que regem o Brasil nas relações internacionais estão a concessão de asilo político, o repúdio ao terrorismo e ao racismo e a garantia do desenvolvimento nacional.
+comentario: Errado. Garantir o desenvolvimento nacional é objetivo fundamental da República (art. 3º, II). O art. 4º traz, entre outros, a independência nacional, a concessão de asilo político e o repúdio ao terrorismo e ao racismo.
+
+=== dc-pri-11
+gab: E
+tema: const-principios
+ref: cf88 4, parágrafo único
+trecho: A República Federativa do Brasil buscará a integração econômica, política, social e cultural dos povos da América Latina, visando à formação de uma comunidade latino-americana de nações.
+armadilha: extrapolacao
+dif: 2
+enunciado: Entre os princípios que regem o Brasil nas relações internacionais está a concessão de asilo político, e a Constituição manda buscar a integração dos povos de todas as Américas, com vistas a uma comunidade continental de nações.
+comentario: Errado. O asilo está certo (art. 4º, X), mas o parágrafo único fala dos povos da América Latina e de uma comunidade latino-americana de nações.
+
+=== dc-pri-12
+gab: C
+tema: const-principios
+ref: cf88 4
+trecho: buscará a integração econômica, política, social e cultural dos povos da América Latina
+armadilha: rol
+dif: 2
+enunciado: A Constituição orienta o Brasil a buscar a integração econômica, política, social e cultural com os povos da América Latina, com vistas à formação de uma comunidade latino-americana de nações, e não apenas de um bloco sul-americano.
+comentario: Certo. Art. 4º, parágrafo único.
+
+=== dc-pri-13
+gab: E
+tema: const-principios
+ref: doutrina pluralismo político
+armadilha: conceito
+dif: 2
+enunciado: O pluralismo político, fundamento da República, equivale ao pluripartidarismo assegurado no art. 17 da Constituição e não alcança a diversidade de ideias, crenças e formas de organização da sociedade.
+comentario: Errado. O pluralismo político (art. 1º, V) é mais amplo: abrange a convivência de opiniões, crenças e formas de organização social. O pluripartidarismo é uma de suas expressões.
+
+=== dc-pri-14
+gab: C
+tema: const-principios
+ref: lgpd 2, VII
+trecho: os direitos humanos, o livre desenvolvimento da personalidade, a dignidade e o exercício da cidadania pelas pessoas naturais.
+armadilha: comparacao
+dif: 2
+enunciado: A dignidade, valor que também fundamenta a República Federativa do Brasil, figura entre os fundamentos da disciplina da proteção de dados pessoais previstos na LGPD.
+comentario: A LGPD (art. 2º, VII) lista os direitos humanos, o livre desenvolvimento da personalidade, a dignidade e o exercício da cidadania pelas pessoas naturais. É a ponte entre os fundamentos do art. 1º da Constituição e a proteção de dados.
+
+=== dc-pri-15
+gab: E
+tema: const-principios
+ref: doutrina forma e sistema de governo
+armadilha: comparacao
+dif: 1
+enunciado: No Brasil, a república é o sistema de governo, e o presidencialismo, a forma de governo.
+comentario: Inverteu. República é forma de governo; presidencialismo é sistema de governo. A forma de Estado é a federação. A PF 2025 cobrou essa distinção (item 18).
+
+=== dc-pri-16
+gab: C
+tema: const-principios
+ref: doutrina forma e sistema de governo
+armadilha: conceito
+dif: 2
+enunciado: No Brasil, a federação é a forma de Estado, a república é a forma de governo e o presidencialismo é o sistema de governo, de modo que o Presidente da República acumula a chefia de Estado e a de governo.
+comentario: Certo. Federação: poder político distribuído entre entes autônomos. República: governantes eleitos, por tempo determinado e responsáveis por seus atos. No presidencialismo, o Presidente é chefe de Estado e de governo (art. 76 e art. 84 da Constituição).
+
+=== dc-pri-17
+gab: E
+tema: const-principios
+ref: cf88 3, III
+trecho: reduzir as desigualdades sociais e regionais
+armadilha: sujeito
+dif: 2
+enunciado: A Constituição enumera, entre os princípios que regem a República em suas relações internacionais, a prevalência dos direitos humanos, a autodeterminação dos povos e a não intervenção, além da redução das desigualdades sociais e regionais.
+comentario: É objetivo fundamental (art. 3º, III). A redução das desigualdades regionais e sociais reaparece como princípio da ordem econômica (art. 170, VII).
+
+=== dc-pri-18
+gab: C
+tema: const-principios
+ref: cf88 4
+trecho: A República Federativa do Brasil rege-se nas suas relações internacionais pelos seguintes princípios:
+trecho: IV - não-intervenção;
+trecho: V - igualdade entre os Estados;
+armadilha: caso
+dif: 2
+enunciado: Ao defender, em organismo internacional, a solução pacífica de uma controvérsia entre países vizinhos, sem interferir em seus assuntos internos, o Brasil age conforme os princípios da não intervenção e da solução pacífica dos conflitos.
+comentario: Certo. Art. 4º, IV (não intervenção) e VII (solução pacífica dos conflitos). Também regem as relações internacionais a igualdade entre os Estados (V) e a defesa da paz (VI).
+
+=== dc-pri-19
+gab: C
+tema: const-principios
+ref: cf88 14
+trecho: A soberania popular será exercida pelo sufrágio universal e pelo voto direto e secreto, com valor igual para todos, e, nos termos da lei, mediante:
+armadilha: conceito
+dif: 2
+enunciado: Além do voto direto e secreto, com valor igual para todos, a Constituição prevê, nos termos da lei, o plebiscito, o referendo e a iniciativa popular como formas de exercício da soberania popular.
+comentario: Certo. Art. 14, I a III. Todo o poder emana do povo, que o exerce por representantes ou diretamente (art. 1º, parágrafo único).
+
+=== dc-pri-20
+gab: E
+tema: const-principios
+ref: cf88 49, XV
+trecho: autorizar referendo e convocar plebiscito
+armadilha: sujeito
+dif: 2
+enunciado: Ao lado do voto direto e secreto, de valor igual para todos, a Constituição prevê o plebiscito, o referendo e a iniciativa popular como formas de exercício da soberania popular, cabendo ao Presidente da República convocar plebiscito e autorizar referendo.
+comentario: Errado. As três formas estão no art. 14, I a III, nos termos da lei, mas autorizar referendo e convocar plebiscito é competência exclusiva do Congresso Nacional (art. 49, XV).
+
+=== dc-pri-21
+gab: E
+tema: const-principios
+ref: cf88 1, I
+trecho: A República Federativa do Brasil, formada pela união indissolúvel dos Estados e Municípios e do Distrito Federal, constitui-se em Estado Democrático de Direito e tem como fundamentos:
+trecho: I - a soberania;
+armadilha: conceito
+dif: 2
+enunciado: A República Federativa do Brasil, formada pela união indissolúvel dos estados, dos municípios e do Distrito Federal, tem como fundamentos a cidadania e a soberania, atributo que cada um desses entes federados exerce ao lado da União.
+comentario: Soberania é atributo da República Federativa do Brasil, no plano internacional e interno. Os entes federados têm autonomia (auto-organização, autogoverno, autoadministração e autolegislação), não soberania.
+
+=== dc-pri-22
+gab: C
+tema: const-principios
+ref: cf88 2
+trecho: independentes e harmônicos entre si
+armadilha: caso
+dif: 2
+enunciado: Ao processar e julgar o Presidente da República por crime de responsabilidade, o Senado Federal exerce função atípica, de natureza jurisdicional, compatível com a separação de Poderes adotada pela Constituição.
+comentario: Certo. Art. 2º e art. 52, I. Cada Poder tem função típica e exerce, nos casos previstos, funções atípicas.
+
+=== dc-pri-23
+gab: C
+tema: const-principios
+ref: cf88 4, IX
+trecho: cooperação entre os povos para o progresso da humanidade;
+armadilha: comparacao
+dif: 3
+enunciado: Garantir o desenvolvimento nacional é objetivo fundamental da República, ao passo que a cooperação entre os povos para o progresso da humanidade é princípio que rege o Brasil nas relações internacionais.
+comentario: Certo. O desenvolvimento nacional está no art. 3º, II (objetivos fundamentais), e a cooperação entre os povos para o progresso da humanidade, no art. 4º, IX (princípios das relações internacionais). A banca costuma trocar os róis.
+
+=== dc-pri-24
+gab: C
+tema: const-principios
+ref: cf88 4
+trecho: defesa da paz;
+trecho: solução pacífica dos conflitos;
+armadilha: comparacao
+dif: 3
+enunciado: A independência nacional, a defesa da paz e a cooperação entre os povos para o progresso da humanidade estão entre os princípios que regem as relações internacionais do Brasil, enquanto a soberania figura entre os fundamentos da República.
+comentario: Certo. Art. 4º, I, VI e IX, e art. 1º, I.

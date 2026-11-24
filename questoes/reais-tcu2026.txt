@@ -1,0 +1,490 @@
+// Itens reais: Cebraspe, TCU (Edital nº 1 – TCU/AUFC, de 2025, aplicação em 22/02/2026), Auditor Federal de Controle
+// Externo, orientação Auditoria de Tecnologia da Informação, Conhecimentos Específicos (142_TCUAUFC_001_01).
+// Gabarito oficial definitivo.
+// Ficaram os assuntos que caem na ANPD: governança de dados e nuvem (121, 123 e 124), segurança da informação
+// (137 a 154), nuvem no governo federal com LGPD (162), IA, PLN, MLOps e aprendizado de máquina (163 a 176) e LGPD em
+// contratos de TI (189). Fora: infraestrutura, ITIL, DevOps, programação, contratações e COBIT, e os anulados 122 e 165.
+// O caderno usa fonte com codificação própria; o texto foi decodificado e os parênteses e o “&” perdidos na extração
+// foram repostos.
+
+apoio_TCUIA: Segundo relatório da McKinsey de 2024, 78% das organizações entrevistadas afirmam já usar IA em pelo menos uma função de negócio.
+Apesar do entusiasmo, essa inserção de tecnologia disruptiva implica sérios riscos, como imprecisão dos resultados, quebra de privacidade e violação de propriedade intelectual. Esses riscos são tão evidentes que, segundo o mesmo estudo, cerca de 27% dos entrevistados afirmam que 100% dos resultados da IA generativa são revisados por humanos antes do uso. Ainda, o relatório aponta que não há uma propensão a abordar riscos relacionados à precisão ou explicabilidade dos resultados da IA.
+(Ivette Luna. Da predição à compreensão: o papel da explicabilidade na implementação de IA em políticas públicas. In: Jornal da UNICAMP, 29 de setembro de 2025. Internet: <jornal.unicamp.br>, com adaptações.)
+
+apoio_TCUCNJ: O Conselho Nacional de Justiça (CNJ) e a Universidade de Brasília (UnB) desenvolvem, no âmbito do Programa Justiça 4.0, um modelo de IA que irá permitir a verificação automática de precedentes qualificados. A partir do texto da petição inicial, o modelo será capaz de identificar os precedentes qualificados dos tribunais superiores e listá-los em ordem decrescente de similaridade, até o limite mínimo de 70% de correspondência.
+O modelo adota o método não supervisionado, que consiste no aprendizado de máquina de forma mais autônoma a partir da inclusão de novos dados, que não precisam ser categorizados previamente.
+(Vanessa Maeji. Parceria com a UnB desenvolve modelo de IA de verificação automática de precedentes qualificados. In: Agência CNJ de Notícias, 24 de junho de 2023. Internet: <www.cnj.jus.br>, com adaptações.)
+
+=== tcu26-121
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 121
+bloco: dados-bi
+ref: doutrina governança de dados
+comando: Julgue os próximos itens, relativos a governança de dados e processamento em nuvem.
+armadilha: conceito
+dif: 2
+enunciado: A governança de dados está relacionada à prevenção de eventos de risco, incluindo a mitigação da reincidência de incidentes já ocorridos.
+comentario: Governança de dados não é só catálogo e política: define responsabilidades, padrões e controles que reduzem riscos de qualidade, segurança e conformidade, e aprende com o que já deu errado para não repetir. A ligação com a LGPD é direta: a prevenção é princípio (art. 6º, VIII) e o programa de governança em privacidade do art. 50 inclui planos de resposta e remediação.
+
+=== tcu26-123
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 123
+bloco: dados-bi
+ref: doutrina governança de dados
+comando: Julgue os próximos itens, relativos a governança de dados e processamento em nuvem.
+armadilha: sujeito
+dif: 2
+enunciado: A equipe da governança de dados de uma organização deve estabelecer políticas e diretrizes corporativas para governança dos dados, enquanto cabe à alta administração a atribuição de papéis e responsabilidades.
+comentario: A divisão não é essa. Definir papéis e responsabilidades sobre os dados (donos, curadores ou stewards, custodiantes) é tarefa central do próprio programa de governança de dados, ao lado das políticas e dos padrões, como descreve o DAMA-DMBOK. A alta administração patrocina, aprova e cobra resultados, mas a atribuição de papéis não é reservada a ela.
+
+=== tcu26-124
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 124
+bloco: seginfo
+tema: si-nuvem
+ref: doutrina modelos de serviço em nuvem
+comando: Julgue os próximos itens, relativos a governança de dados e processamento em nuvem.
+armadilha: conceito
+dif: 1
+enunciado: Na arquitetura PaaS (Platform as a Service) da computação em nuvem, o provedor é o responsável pelos recursos de sistema operacional e pelas aplicações.
+comentario: No PaaS, o provedor cuida da infraestrutura, do sistema operacional e do ambiente de execução; as aplicações e os dados são do cliente. Aplicação gerida pelo provedor é SaaS. Na responsabilidade compartilhada, quanto mais alto o modelo (IaaS, PaaS, SaaS), mais camadas passam ao provedor, mas o cliente segue responsável pelos dados e pelos acessos.
+
+=== tcu26-137
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 137
+bloco: seginfo
+tema: si-controles
+ref: doutrina malware fileless
+comando: Acerca de gestão de identidade e de acesso, privacidade, segurança por padrão e malware, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: Backdoors incorporados a campanhas de malware fileless podem estabelecer canais de comando e controle a partir de código que permanece apenas em memória, utilizando mecanismos nativos do sistema para evitar detecção baseada em arquivos.
+comentario: É a definição de ataque sem arquivo: o código roda em memória e usa ferramentas legítimas do próprio sistema (PowerShell, WMI, o chamado living off the land), o que escapa do antivírus que procura arquivos maliciosos no disco. A defesa passa por monitorar comportamento (EDR) e restringir essas ferramentas.
+
+=== tcu26-138
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 138
+bloco: seginfo
+tema: si-controles
+ref: doutrina SAML e OAuth 2.0
+comando: Acerca de gestão de identidade e de acesso, privacidade, segurança por padrão e malware, julgue os itens a seguir.
+armadilha: comparacao
+dif: 3
+enunciado: Em uma arquitetura corporativa que adota SSO via SAML 2.0, o authorization server do fluxo OAuth2 atua como identity provider responsável pela emissão das assertions SAML utilizadas no processo de autenticação entre o usuário e o service provider.
+comentario: Mistura dois protocolos. No SAML 2.0, quem emite as assertions é o identity provider (IdP), e quem as consome é o service provider. O authorization server do OAuth 2.0 emite tokens de acesso para autorização, não assertions SAML. Uma mesma plataforma pode oferecer os dois papéis, mas um não é o outro.
+
+=== tcu26-139
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 139
+bloco: seginfo
+ref: lgpd 6
+trecho: necessidade: limitação do tratamento ao mínimo necessário para a realização de suas finalidades
+comando: Acerca de gestão de identidade e de acesso, privacidade, segurança por padrão e malware, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: A adoção de privacidade por padrão em um serviço digital legitima que as configurações iniciais favoreçam a coleta ampliada de dados, desde que os mecanismos de segurança por padrão estejam habilitados para proteger essas informações.
+comentario: Privacidade por padrão é o contrário: a configuração inicial deve ser a mais protetiva e coletar só o mínimo necessário, e ampliar a coleta depende de escolha ativa do usuário. Segurança boa não compensa coleta excessiva, porque proteger bem um dado desnecessário continua violando a necessidade (LGPD, art. 6º, III). A privacidade desde a concepção aparece no art. 46, § 2º.
+
+=== tcu26-140
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 140
+bloco: seginfo
+tema: si-controles
+ref: doutrina malware fileless
+comando: Acerca de gestão de identidade e de acesso, privacidade, segurança por padrão e malware, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 3
+enunciado: Um keylogger fileless depende da instalação prévia de um rootkit no sistema para registrar com sucesso os eventos de teclado, devido à necessidade de persistência em nível de kernel.
+comentario: Não depende. Um keylogger pode capturar teclas em modo usuário, com funções comuns do sistema operacional, rodando só em memória. Rootkit serve para esconder e persistir, e não é pré-requisito para registrar teclas. O malware sem arquivo, aliás, costuma evitar o kernel.
+
+=== tcu26-141
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 141
+bloco: seginfo
+tema: si-controles
+ref: doutrina SIEM e proxy
+comando: A respeito de controles e testes de segurança para aplicações web, múltiplos fatores de autenticação e soluções para segurança da informação, julgue os itens subsequentes.
+armadilha: conceito
+dif: 1
+enunciado: Em arquiteturas corporativas, o uso combinado de um proxy e de um SIEM tem potencial para ampliar a capacidade de detecção de atividades anômalas, uma vez que os registros de navegação tratados pelo proxy podem ser correlacionados pelo SIEM a eventos provenientes de firewalls, IDS e controles de acesso.
+comentario: O SIEM centraliza e correlaciona registros de várias fontes; o proxy contribui com o histórico de navegação. Juntos, revelam padrões que nenhuma fonte mostra sozinha, como um acesso a domínio suspeito logo depois de um alerta do IDS. Note o “tem potencial”, formulação típica de item certo.
+
+=== tcu26-142
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 142
+bloco: seginfo
+tema: si-controles
+ref: doutrina validação de entrada e injeção
+comando: A respeito de controles e testes de segurança para aplicações web, múltiplos fatores de autenticação e soluções para segurança da informação, julgue os itens subsequentes.
+armadilha: absoluto
+dif: 1
+enunciado: A validação de segurança realizada no cliente é suficiente para eliminar os riscos de injeção em aplicações web baseadas em APIs REST, desde que o tráfego esteja protegido por TLS.
+comentario: A validação no cliente é contornável: o atacante chama a API direto, sem passar pelo navegador. A defesa contra injeção exige validação no servidor e consultas parametrizadas. TLS protege o canal contra interceptação, não o conteúdo malicioso que o próprio cliente envia. “Suficiente para eliminar” já denuncia o erro.
+
+=== tcu26-143
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 143
+bloco: seginfo
+tema: si-controles
+ref: doutrina autenticação multifator
+comando: A respeito de controles e testes de segurança para aplicações web, múltiplos fatores de autenticação e soluções para segurança da informação, julgue os itens subsequentes.
+armadilha: conceito
+dif: 1
+enunciado: Em um sistema corporativo, a exigência de senha e de código gerado por aplicativo autenticador atende aos requisitos de múltiplos fatores de autenticação, pois combina um fator de conhecimento e um fator de posse.
+comentario: Senha é algo que você sabe; o código do aplicativo (TOTP) prova que você tem o aparelho. Fatores de categorias diferentes caracterizam a autenticação multifator. Duas senhas, por exemplo, seriam duas etapas do mesmo fator.
+
+=== tcu26-144
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 144
+bloco: seginfo
+tema: si-controles
+ref: doutrina SIEM e IPS
+comando: A respeito de controles e testes de segurança para aplicações web, múltiplos fatores de autenticação e soluções para segurança da informação, julgue os itens subsequentes.
+armadilha: absoluto
+dif: 2
+enunciado: O uso de um SIEM devidamente configurado para correlação em tempo real elimina a necessidade de mecanismos de prevenção de um IPS, já que os eventos consolidados permitem bloquear as atividades maliciosas diretamente a partir da análise centralizada.
+comentario: SIEM detecta e correlaciona; IPS fica no caminho do tráfego e bloqueia na hora. São camadas complementares (defesa em profundidade). Mesmo com automação de resposta, o SIEM age depois do registro do evento, enquanto o IPS impede o pacote de passar.
+
+=== tcu26-145
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 145
+bloco: seginfo
+tema: si-controles
+ref: doutrina MITRE ATT&CK
+comando: No que se refere a frameworks de segurança da informação e a tratamento de incidentes cibernéticos, julgue os itens que se seguem.
+armadilha: conceito
+dif: 2
+enunciado: No MITRE ATT&CK, as técnicas associadas à fase de exfiltração são classificadas como táticas do domínio Enterprise que representam objetivos estratégicos e substituem a necessidade de técnicas específicas na matriz.
+comentario: Confunde os níveis. No ATT&CK, tática é o objetivo do adversário (a coluna da matriz, como Exfiltração); técnica é o como (cada célula, por exemplo exfiltração por serviço web). Técnicas ficam dentro das táticas e não são substituídas por elas.
+
+=== tcu26-146
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 146
+bloco: seginfo
+tema: si-controles
+ref: nistcsf ID.AM
+trecho: Inventories of hardware managed by the organization are maintained
+comando: No que se refere a frameworks de segurança da informação e a tratamento de incidentes cibernéticos, julgue os itens que se seguem.
+armadilha: comparacao
+dif: 2
+enunciado: Em um cenário corporativo no qual o framework NIST CSF é utilizado para organização das funções de segurança, a implementação de inventário e controle de ativos prevista nos CIS controls pode apoiar diretamente a função Identify do framework, já que ambos exigem visibilidade consistente de recursos tecnológicos.
+comentario: Os primeiros CIS Controls são inventário e controle de ativos (hardware e software), e a função Identificar do CSF tem a categoria Gestão de Ativos (ID.AM). Os frameworks se complementam: o CSF diz o que alcançar, os CIS Controls dão ações concretas.
+
+=== tcu26-147
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 147
+bloco: seginfo
+tema: si-controles
+ref: doutrina tratamento de incidentes
+comando: No que se refere a frameworks de segurança da informação e a tratamento de incidentes cibernéticos, julgue os itens que se seguem.
+armadilha: conceito
+dif: 1
+enunciado: Durante o tratamento de um incidente cibernético, a fase de contenção pode incluir o isolamento temporário de ativos afetados, para limitar o impacto do incidente.
+comentario: Contenção é exatamente limitar o estrago: isolar máquinas, bloquear contas, segmentar a rede. Vem depois da detecção e antes da erradicação e da recuperação. Para a LGPD, as medidas de contenção entram na comunicação do incidente à ANPD (art. 48, § 1º, VI: medidas para reverter ou mitigar os efeitos).
+
+=== tcu26-148
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 148
+bloco: seginfo
+tema: si-nuvem
+ref: doutrina privilégio mínimo
+comando: Julgue os itens a seguir, referentes a assinaturas digitais, segurança em nuvens e ataques a redes de computadores.
+armadilha: conceito
+dif: 1
+enunciado: Em ambientes de nuvem pública, a configuração de controles de acesso baseada em princípio de privilégio mínimo no nível dos serviços gerenciados contribui para reduzir superfícies de ataque.
+comentario: Cada identidade e cada serviço com só as permissões de que precisa: se uma credencial vaza, o atacante alcança menos. Permissão excessiva é uma das causas mais comuns de incidente em nuvem. “Contribui para reduzir” é formulação modesta, típica de item certo.
+
+=== tcu26-149
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 149
+bloco: seginfo
+tema: si-controles
+ref: doutrina criptografia
+comando: Julgue os itens a seguir, referentes a assinaturas digitais, segurança em nuvens e ataques a redes de computadores.
+armadilha: conceito
+dif: 2
+enunciado: Em um sistema que utiliza assinatura digital para garantir integridade e autenticidade de documentos, é adequado que a proteção dos dados em trânsito seja apoiada por protocolos como o TLS, enquanto a proteção dos dados em repouso seja realizada por criptografia simétrica.
+comentario: Cada camada tem sua ferramenta. A assinatura (assimétrica) garante integridade e autoria do documento; o TLS protege o canal; a criptografia simétrica (como AES) é a escolha usual para dados armazenados, por ser rápida para grandes volumes. Assinatura não dá sigilo, por isso as outras camadas.
+
+=== tcu26-150
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 150
+bloco: seginfo
+tema: si-controles
+ref: doutrina ARP spoofing
+comando: Julgue os itens a seguir, referentes a assinaturas digitais, segurança em nuvens e ataques a redes de computadores.
+armadilha: conceito
+dif: 2
+enunciado: Em ataques de ARP spoofing, o atacante depende de técnicas de IP spoofing para alterar o mapeamento entre endereços MAC e IP na tabela ARP da vítima.
+comentario: O ARP spoofing envenena a tabela ARP com respostas ARP falsas que associam o IP de outro (geralmente o gateway) ao MAC do atacante. Não precisa forjar pacotes IP: o ataque acontece na camada de enlace, dentro da rede local, e abre caminho para o homem no meio.
+
+=== tcu26-151
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 151
+bloco: seginfo
+tema: si-nuvem
+ref: doutrina contêineres
+comando: Em relação à computação em nuvem e a tecnologias de contêineres, julgue os itens a seguir.
+armadilha: absoluto
+dif: 1
+enunciado: Docker e Kubernetes são software intercambiáveis em qualquer ambiente, pois ambos criam, executam e orquestram contêineres de forma idêntica.
+comentario: Têm papéis diferentes e complementares. Docker cria imagens e executa contêineres; Kubernetes orquestra contêineres em grupos de máquinas (escala, distribui, reinicia). “Em qualquer ambiente” e “de forma idêntica” já denunciam o erro.
+
+=== tcu26-152
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 152
+bloco: seginfo
+tema: si-nuvem
+ref: doutrina serverless
+comando: Em relação à computação em nuvem e a tecnologias de contêineres, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: Em arquiteturas serverless, operam servidores físicos, porém a gestão da infraestrutura — incluídos o provisionamento, a manutenção e a escalabilidade — é totalmente abstraída dos desenvolvedores, que focam exclusivamente a lógica da aplicação, permitindo rápida adaptação a demandas variáveis, sem preocupações com recursos subjacentes.
+comentario: “Sem servidor” é sem servidor para gerenciar: as máquinas existem, mas o provedor cuida delas e escala sozinho conforme a demanda. Apesar do “totalmente” e do “exclusivamente”, a banca deu certo, porque é a definição corrente do modelo. Lição: palavra forte não torna o item errado quando descreve o próprio conceito.
+
+=== tcu26-153
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 153
+bloco: seginfo
+tema: si-controles
+ref: doutrina Zero Trust
+comando: Acerca de modelos de controle de acesso e das arquiteturas de segurança RBAC (Role-Based Access Control) e Zero Trust, julgue os próximos itens.
+armadilha: conceito
+dif: 1
+enunciado: Na arquitetura Zero Trust, usuários conectados por VPN corporativa são tratados como confiáveis por padrão, uma vez que, nesse modelo, a confiança é eliminada independentemente da origem da conexão, incluído o perímetro da rede interna, exigindo-se autenticação contínua e validação de acesso a cada recurso.
+comentario: O item se contradiz: se a confiança é eliminada independentemente da origem, a VPN não dá confiança automática. No Zero Trust, estar dentro da rede ou na VPN não basta; cada acesso é verificado pela identidade, pelo dispositivo e pelo contexto.
+
+=== tcu26-154
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 154
+bloco: seginfo
+tema: si-controles
+ref: doutrina controle de acesso
+comando: Acerca de modelos de controle de acesso e das arquiteturas de segurança RBAC (Role-Based Access Control) e Zero Trust, julgue os próximos itens.
+armadilha: conceito
+dif: 2
+enunciado: O modelo RBAC não é eficaz para a implementação do princípio do menor privilégio, pois suas funções tendem a conceder permissões amplas e não limitam o acesso somente ao necessário para tarefas específicas, o que compromete a segurança em ambientes de computação em nuvem.
+comentario: O RBAC é um dos meios clássicos de aplicar o menor privilégio: cada papel recebe só as permissões da função, e o usuário só os papéis de que precisa. Papéis amplos demais são falha de desenho, não do modelo. Em nuvem, o RBAC é usado justamente para isso.
+
+=== tcu26-162
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 162
+bloco: seginfo
+tema: si-nuvem
+ref: lgpd 37
+trecho: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem
+comando: Com base nas normas relativas à computação em nuvem no governo federal, julgue o próximo item.
+armadilha: conceito
+dif: 2
+enunciado: O uso de computação em nuvem no governo federal deve obedecer à Lei Geral de Proteção de Dados Pessoais (LGPD), com garantia dos direitos fundamentais de titularidade, guarda de registros das operações de tratamento e adoção de responsabilidades compartilhadas entre órgãos e provedores.
+comentario: Levar dados à nuvem não tira o órgão da LGPD: ele segue controlador, o provedor atua em regra como operador, e ambos mantêm registro das operações (art. 37). A titularidade e os direitos fundamentais vêm do art. 17, e a divisão de responsabilidades com o provedor é o modelo de responsabilidade compartilhada que as normas federais de nuvem adotam.
+
+=== tcu26-163
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 163
+bloco: ia
+tema: dados-ia
+ref: doutrina explicabilidade
+apoio: @TCUIA
+comando: No que se refere a ética, transparência e responsabilidade no uso de IA, julgue os próximos itens.
+armadilha: conceito
+dif: 1
+enunciado: Explicabilidade e interpretabilidade tratam do desafio de entender como os modelos de aprendizado de máquina funcionam, devido especialmente à natureza de “caixa-preta” de muitos modelos, que pode tornar difícil ou impossível a capacidade de explicar uma previsão ou decisão.
+comentario: Redes neurais profundas e conjuntos de muitos modelos acertam bem, mas não mostram por que decidiram. Interpretabilidade e explicabilidade tentam abrir essa caixa, com modelos mais simples ou técnicas como LIME e SHAP. Na LGPD, isso dialoga com o direito a informações sobre critérios de decisões automatizadas (art. 20, § 1º).
+
+=== tcu26-164
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 164
+bloco: ia
+tema: dados-ia
+ref: lgpd 6
+trecho: não discriminação: impossibilidade de realização do tratamento para fins discriminatórios ilícitos ou abusivos
+apoio: @TCUIA
+comando: No que se refere a ética, transparência e responsabilidade no uso de IA, julgue os próximos itens.
+armadilha: conceito
+dif: 2
+enunciado: Há discriminação algorítmica quando um sistema de IA usa, para uma tomada de decisão, sem justificativa válida, a informação de que alguém pertence a um grupo social ou características que funcionam como proxies, de modo a gerar desvantagens sistemáticas para esse grupo em contextos em que esse critério não deveria influenciar a decisão.
+comentario: O ponto fino são as proxies: tirar a variável “raça” do modelo não basta se o CEP ou o sobrenome carregam a mesma informação. A discriminação está no efeito sistemático sem justificativa, não na intenção. Na LGPD, é o princípio da não discriminação (art. 6º, IX), e a ANPD pode auditar aspectos discriminatórios de decisões automatizadas (art. 20, § 2º).
+
+=== tcu26-166
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 166
+bloco: ia
+tema: dados-ia
+ref: doutrina sistemas multiagentes
+comando: Acerca de aplicações do processamento de linguagem natural (PLN) e da teoria de sistemas multiagentes, julgue os itens subsequentes.
+armadilha: conceito
+dif: 3
+enunciado: Emergência é uma propriedade-chave de sistemas multiagentes que deve ser intencionalmente projetada pelo desenvolvedor como parte central do comportamento coletivo desejado para os agentes inteligentes.
+comentario: Comportamento emergente é o que surge das interações locais entre os agentes sem ter sido programado diretamente no conjunto, como o padrão de um cardume. Se fosse projetado de forma central e intencional, não seria emergência. O desenvolvedor define as regras de cada agente; o comportamento coletivo emerge.
+
+=== tcu26-167
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 167
+bloco: ia
+tema: dados-ia
+ref: doutrina processamento de linguagem natural
+comando: Acerca de aplicações do processamento de linguagem natural (PLN) e da teoria de sistemas multiagentes, julgue os itens subsequentes.
+armadilha: conceito
+dif: 1
+enunciado: Modelos supervisionados de reconhecimento de entidades nomeadas dependem de textos previamente anotados com categorias como pessoa, organização e local para que o algoritmo aprenda a identificar esses tipos de informação em novos textos.
+comentario: Supervisionado é isso: aprender com exemplos rotulados. No reconhecimento de entidades nomeadas, os rótulos são as marcações de pessoa, organização, local. É a técnica que permite, por exemplo, achar nomes e CPFs em documentos para anonimizá-los antes de publicar.
+
+=== tcu26-168
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 168
+bloco: ia
+tema: dados-ia
+ref: doutrina processamento de linguagem natural
+comando: Acerca de aplicações do processamento de linguagem natural (PLN) e da teoria de sistemas multiagentes, julgue os itens subsequentes.
+armadilha: absoluto
+dif: 2
+enunciado: Modelos de PLN como transformers eliminam a necessidade de pré-processamento do texto, pois operam diretamente sobre o texto original.
+comentario: Transformers dispensam boa parte do pré-processamento clássico (como remover palavras vazias), mas não operam sobre o texto cru: o texto passa por tokenização em subpalavras, conversão em identificadores numéricos, truncamento e preenchimento. “Eliminam a necessidade” é absoluto e falso.
+
+=== tcu26-169
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 169
+bloco: ia
+tema: dados-ia
+ref: doutrina sistemas multiagentes
+comando: Acerca de aplicações do processamento de linguagem natural (PLN) e da teoria de sistemas multiagentes, julgue os itens subsequentes.
+armadilha: conceito
+dif: 1
+enunciado: Sistemas multiagentes são adequados para problemas que exigem solução distribuída, autonomia local e coordenação entre entidades independentes, como logística, simulação social e controle de tráfego.
+comentario: É o uso típico: vários agentes autônomos, cada um com informação local, que cooperam ou competem. Logística, tráfego e simulações sociais são os exemplos clássicos dos manuais.
+
+=== tcu26-170
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 170
+bloco: ia
+tema: dados-ia
+ref: doutrina processamento de linguagem natural
+comando: Acerca de aplicações do processamento de linguagem natural (PLN) e da teoria de sistemas multiagentes, julgue os itens subsequentes.
+armadilha: comparacao
+dif: 3
+enunciado: O Word2Vec é um modelo de aprendizado profundo que utiliza redes neurais com várias camadas e mecanismos de atenção para aprender representações distribuídas de palavras a partir de grandes corpora textuais.
+comentario: O Word2Vec (2013) é uma rede rasa, com uma única camada oculta, nas variantes CBOW e skip-gram, e não usa atenção. Atenção e muitas camadas são marcas dos transformers (2017). O item atribui ao Word2Vec as características do modelo que veio depois.
+
+=== tcu26-171
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 171
+bloco: ia
+tema: dados-ia
+ref: doutrina MLOps
+comando: Em relação a MLOps (machine learning operations), julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: A orquestração em MLOps concentra-se principalmente na etapa de treinamento dos modelos, não tendo relação direta com o deploy nem com o monitoramento de serviços em produção.
+comentario: MLOps cobre o ciclo inteiro: dados, treinamento, validação, implantação, monitoramento e retreinamento. A orquestração encadeia essas etapas em pipelines, e monitorar o modelo em produção (desvio dos dados, queda de desempenho) é uma das razões de ser do MLOps.
+
+=== tcu26-172
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 172
+bloco: ia
+tema: dados-ia
+ref: doutrina MLOps
+comando: Em relação a MLOps (machine learning operations), julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: MLOps é um conjunto de práticas de engenharia que padronizam, automatizam e monitoram o ciclo de vida de modelos de aprendizado de máquina com o objetivo de garantir reprodutibilidade, escalabilidade, governança e operação contínua dos sistemas de IA.
+comentario: É a definição: levar ao aprendizado de máquina as práticas de DevOps (automação, versionamento, integração e entrega contínuas, monitoramento), somando o cuidado com dados e modelos. Reprodutibilidade e governança importam também para prestar contas de decisões automatizadas.
+
+=== tcu26-173
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 173
+bloco: ia
+tema: dados-ia
+ref: doutrina MLOps
+comando: Em relação a MLOps (machine learning operations), julgue os itens a seguir.
+armadilha: conceito
+dif: 1
+enunciado: A construção de um repositório estruturado de versionamento e governança de modelos é uma prática recomendada em MLOps para garantir rastreabilidade, controle de implantação e execução segura de rollbacks.
+comentario: É o registro de modelos (model registry): guarda cada versão com seus dados de treino, métricas e aprovações. Permite saber qual modelo decidiu o quê, promover versões com controle e voltar à anterior se a nova falhar.
+
+=== tcu26-174
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 174
+bloco: ia
+tema: dados-ia
+ref: doutrina aprendizado de máquina
+apoio: @TCUCNJ
+comando: Tendo o texto como referência inicial, julgue os itens subsecutivos, a respeito de aprendizado de máquina.
+armadilha: comparacao
+dif: 1
+enunciado: O aprendizado por reforço é essencialmente uma forma de aprendizagem não supervisionada, pois seu objetivo principal é descobrir padrões ocultos e agrupamento nos dados, sem uso de rótulos; nesse paradigma, a recompensa funciona como um critério secundário de avaliação.
+comentario: Reforço é um terceiro paradigma, ao lado do supervisionado e do não supervisionado. Um agente age num ambiente e aprende pela recompensa, que é o centro do método, e não critério secundário. Descobrir padrões e agrupar sem rótulos é o não supervisionado, o método do texto.
+
+=== tcu26-175
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 175
+bloco: ia
+tema: dados-ia
+ref: doutrina aprendizado de máquina
+apoio: @TCUCNJ
+comando: Tendo o texto como referência inicial, julgue os itens subsecutivos, a respeito de aprendizado de máquina.
+armadilha: comparacao
+dif: 2
+enunciado: A aprendizagem por reforço se diferencia da aprendizagem supervisionada, pois se baseia em feedback avaliativo, em vez de exemplos rotulados ou especificação da ação correta por um supervisor externo, para julgar a qualidade das ações.
+comentario: No supervisionado, o modelo recebe a resposta certa de cada exemplo (feedback instrutivo). No reforço, recebe só uma nota para a ação que tomou (feedback avaliativo) e precisa descobrir, por tentativa e erro, quais ações rendem mais ao longo do tempo.
+
+=== tcu26-176
+gab: E
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 176
+bloco: ia
+tema: dados-ia
+ref: doutrina aprendizado de máquina
+apoio: @TCUCNJ
+comando: Tendo o texto como referência inicial, julgue os itens subsecutivos, a respeito de aprendizado de máquina.
+armadilha: conceito
+dif: 1
+enunciado: Modelos preditivos dispensam validação em um conjunto separado de dados porque a acurácia calculada durante o treinamento já representa a capacidade real do modelo de prever eventos futuros.
+comentario: A acurácia no treino é otimista: o modelo pode ter decorado os exemplos (sobreajuste). Só dados que ele não viu, num conjunto de validação ou teste, ou por validação cruzada, estimam o desempenho real.
+
+=== tcu26-189
+gab: C
+origem: real
+prova: Cebraspe · TCU 2026 · Conhecimentos Específicos (Auditoria de TI) · item 189
+bloco: lgpd-37-45
+ref: lgpd 37
+trecho: O controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem
+comando: Julgue os itens subsequentes com base na Lei n.º 14.133/2021, na Lei Geral de Proteção de Dados Pessoais (LGPD), no Decreto n.º 10.024/2019 e na Instrução Normativa SGD/ME n.º 94/2022.
+armadilha: literal
+dif: 1
+enunciado: No que tange ao tratamento de dados pessoais em contratos de TI, o controlador e o operador devem manter o registro das operações de tratamento de dados pessoais que realizarem, além de adotar medidas de segurança contra acessos não autorizados a tais dados.
+comentario: Junta dois artigos da LGPD: o registro das operações cabe ao controlador e ao operador (art. 37), e as medidas de segurança contra acessos não autorizados cabem aos agentes de tratamento (art. 46). Em contrato de TI, a empresa contratada que trata dados por conta do órgão costuma ser operadora, e as duas obrigações valem para ela.

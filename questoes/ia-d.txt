@@ -1,0 +1,86 @@
+// Inteligência artificial, lote D: avaliação de classificadores (matriz de confusão, falso negativo, limiar de
+// decisão), separação entre treino, validação e teste, validação cruzada, subajuste, hiperparâmetros, regressão
+// logística, embeddings e alucinação em modelos generativos. Pontos que o banco ainda não cobria ou cobria uma vez só.
+// Itens escritos para o banco em 13/11/2026.
+
+bloco: ia
+
+=== ia4-01
+gab: C
+ref: doutrina métricas de classificação
+armadilha: conceito
+dif: 1
+enunciado: Em classificação binária, a matriz de confusão cruza a classe real com a classe prevista pelo modelo e separa os acertos e os erros em verdadeiros positivos, falsos positivos, verdadeiros negativos e falsos negativos.
+comentario: Certo. A matriz de confusão é a base das demais métricas: acurácia, precisão (dos que o modelo apontou como positivos, quantos eram) e revocação (dos positivos reais, quantos o modelo achou) saem das quatro células dela.
+
+=== ia4-02
+gab: E
+ref: doutrina métricas de classificação
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: o modelo que faz a triagem de alertas de segurança de um órgão deixou de sinalizar um ataque que de fato ocorreu. Assertiva: o erro do modelo foi um falso positivo.
+comentario: Errado. O ataque existia (positivo real) e o modelo disse que não: é falso negativo. Falso positivo é o alarme sem ataque. Em segurança e em fraude, o falso negativo costuma ser o erro mais caro, porque o problema passa sem ninguém ver.
+
+=== ia4-03
+gab: C
+ref: doutrina métricas de classificação
+armadilha: causalidade
+dif: 3
+enunciado: Baixar o limiar de decisão de um classificador de fraudes, para que transações menos suspeitas também sejam sinalizadas, tende a aumentar a revocação e a reduzir a precisão.
+comentario: Certo. Com limiar mais baixo, o modelo sinaliza mais casos: acha mais fraudes reais (sobe a revocação), mas também mais transações legítimas entram nos alertas (cai a precisão). Precisão e revocação costumam andar em sentidos opostos quando se mexe no limiar; a escolha depende do custo de cada erro.
+
+=== ia4-04
+gab: E
+ref: doutrina avaliação de modelos
+armadilha: conceito
+dif: 2
+enunciado: Por ser o que melhor representa os dados reais, o conjunto de teste deve ser usado repetidamente durante o desenvolvimento para escolher os hiperparâmetros do modelo.
+comentario: Errado. Hiperparâmetros se ajustam no conjunto de validação ou por validação cruzada. O conjunto de teste fica guardado para a avaliação final: usá-lo no ajuste faz o modelo se adaptar a ele, e o desempenho medido deixa de valer para dados novos (vazamento de informação).
+
+=== ia4-05
+gab: C
+ref: doutrina avaliação de modelos
+armadilha: conceito
+dif: 2
+enunciado: Na validação cruzada com k partições, o modelo é treinado k vezes, cada vez avaliado em uma partição diferente e treinado nas demais, e o desempenho estimado é a média das k avaliações.
+comentario: Certo. Cada observação é usada uma vez para avaliar e k menos uma vezes para treinar. A média das k rodadas dá uma estimativa mais estável que uma única divisão, o que ajuda quando há poucos dados.
+
+=== ia4-06
+gab: E
+ref: doutrina aprendizado de máquina
+armadilha: comparacao
+dif: 1
+enunciado: Ocorre subajuste (underfitting) quando o modelo, complexo demais para a amostra, passa a decorar os dados de treinamento, inclusive os ruídos.
+comentario: Errado. A descrição é de sobreajuste (overfitting). No subajuste o modelo é simples demais para o padrão dos dados e erra muito tanto no treinamento quanto em dados novos; costuma melhorar com modelo mais flexível ou atributos mais informativos.
+
+=== ia4-07
+gab: C
+ref: doutrina processamento de linguagem natural
+armadilha: conceito
+dif: 2
+enunciado: Embeddings representam palavras, frases ou documentos como vetores numéricos, de modo que textos de significado parecido fiquem próximos no espaço vetorial, o que permite buscar por sentido, e não só por palavra exata.
+comentario: Certo. É o que sustenta a busca semântica e a recuperação de documentos na geração aumentada por recuperação (RAG): a pergunta vira vetor, e os trechos de vetor mais próximo são entregues ao modelo como contexto.
+
+=== ia4-08
+gab: E
+ref: doutrina aprendizado de máquina
+armadilha: literal
+dif: 2
+enunciado: Por ter regressão no nome, a regressão logística serve apenas para prever valores contínuos, como preço ou temperatura, e não se presta a tarefas de classificação.
+comentario: Errado. Apesar do nome, a regressão logística é um método de classificação: estima a probabilidade de um caso pertencer a uma classe (fraude ou não, aprovado ou não) e decide com base num limiar. Valores contínuos são o campo da regressão linear e de outros modelos de regressão.
+
+=== ia4-09
+gab: C
+ref: doutrina IA generativa
+armadilha: conceito
+dif: 2
+enunciado: Modelos de linguagem podem produzir respostas fluentes e convincentes, porém inventadas ou factualmente erradas, e ancorar a resposta em documentos recuperados, exigindo a indicação das fontes, reduz esse risco sem eliminá-lo.
+comentario: Certo. É a chamada alucinação: o modelo gera o texto mais provável, não o verdadeiro. Recuperar documentos confiáveis (RAG) e pedir citação diminuem o problema, mas a conferência humana continua necessária, sobretudo em decisões que afetam pessoas.
+
+=== ia4-10
+gab: E
+ref: doutrina aprendizado de máquina
+armadilha: conceito
+dif: 2
+enunciado: Hiperparâmetros, como a taxa de aprendizado e a profundidade máxima de uma árvore de decisão, são aprendidos pelo próprio algoritmo a partir dos dados durante o treinamento.
+comentario: Errado. Hiperparâmetros são escolhidos antes do treinamento e ajustados por validação. O que o algoritmo aprende dos dados são os parâmetros, como os pesos de uma rede neural ou os pontos de corte de uma árvore.

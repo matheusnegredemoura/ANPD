@@ -1,0 +1,846 @@
+bloco: seginfo
+// Itens reais avulsos de segurança da informação (Cebraspe, 2017 a 2026): ISO/IEC 27001, 27002 e 27005, NIST CSF,
+// malware, criptografia, certificação digital, redes, engenharia social, autenticação e backup. O enunciado é o da
+// prova; o gabarito de cada item foi conferido, em 8/11/2026, no gabarito definitivo do mesmo caderno. Ficaram de fora
+// os itens de produto (Windows, MySQL e afins), os que dependem de figura ou texto e os de gabarito discutível.
+// Comentários escritos para o banco.
+
+=== rv-s01
+gab: E
+origem: real
+prova: Cebraspe · Funpresp-Exe (edital 2024) · cargo 9 · item 63 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27002:2022
+armadilha: excecao
+dif: 2
+enunciado: De acordo com a NBR ISO/IEC 27002:2022, é relevante que a política de segurança da informação organizacional contenha declarações explícitas de veto a quaisquer isenções e exceções.
+comentario: Errado. A norma orienta a política a prever como tratar isenções e exceções, não a vetá-las todas. Exceções existem; o que se exige é que sejam formalizadas, aprovadas e acompanhadas.
+
+=== rv-s02
+gab: C
+origem: real
+prova: Cebraspe · Ebserh (edital 2018) · cargo 10 · item 44 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27002:2022
+armadilha: conceito
+dif: 1
+enunciado: De acordo com a norma ISO 27002, é conveniente que, na política de segurança da informação, seja incluída atribuição de responsabilidades, gerais e específicas, para o gerenciamento da segurança da informação.
+comentario: Certo. A política de segurança da informação deve atribuir responsabilidades gerais e específicas pela gestão da segurança a papéis definidos, ao lado dos objetivos e do compromisso com a melhoria contínua.
+
+=== rv-s03
+gab: C
+origem: real
+prova: Cebraspe · UDESC (edital 2026) · cargo 2 · item 114 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27001:2022
+armadilha: conceito
+dif: 1
+enunciado: No contexto da ISO/IEC 27001, os requisitos das partes interessadas podem incluir obrigações legais, regulatórias e contratuais relevantes para o sistema de gestão da segurança da informação.
+comentario: Certo. Na cláusula 4.2, a organização determina as partes interessadas e seus requisitos, que podem incluir obrigações legais, regulatórias e contratuais. É o ponto de partida do escopo do SGSI.
+
+=== rv-s04
+gab: C
+origem: real
+prova: Cebraspe · UDESC (edital 2026) · cargo 2 · item 115 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27002:2022
+armadilha: conceito
+dif: 2
+enunciado: Na ISO/IEC 27002, os temas organizam estruturalmente os controles, sendo cada controle classificado em um único tema principal — pessoas, físico, tecnológico ou organizacional —, de acordo com seu foco principal.
+comentario: Certo. A edição de 2022 agrupa os 93 controles em quatro temas (organizacionais, pessoas, físicos e tecnológicos), e cada controle fica em um só tema; os atributos permitem outras visões transversais.
+
+=== rv-s05
+gab: E
+origem: real
+prova: Cebraspe · TRF da 6ª Região (edital 2024) · cargo 27 · item 118 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27005
+armadilha: absoluto
+dif: 2
+enunciado: As organizações devem adotar a abordagem sistemática de gestão de riscos conforme método específico estipulado na norma NBR ISO 27005:2019.
+comentario: Errado. A ISO/IEC 27005 orienta a gestão de riscos de segurança da informação sem impor um método específico: a organização escolhe a abordagem adequada ao seu contexto.
+
+=== rv-s06
+gab: E
+origem: real
+prova: Cebraspe · TRT da 10ª Região (edital 2024) · cargo 11 · item 97 · gabarito definitivo conferido
+ref: doutrina gestão de riscos
+armadilha: absoluto
+dif: 1
+enunciado: A implementação de um processo de gestão de riscos de segurança da informação conforme as normas ISO 31000, 31010 e 27005 garante que todas as vulnerabilidades de um sistema sejam eliminadas.
+comentario: Errado. Gestão de riscos reduz e trata riscos a um nível aceitável; não garante que todas as vulnerabilidades sejam eliminadas. Sempre há risco residual.
+
+=== rv-s07
+gab: E
+origem: real
+prova: Cebraspe · Susep (edital 2025) · cargo 4 · item 77 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27005
+armadilha: comparacao
+dif: 2
+enunciado: De acordo com a NBR ISO/IEC 27005:2023, o tipo de controle que se destina à limitação das consequências de um evento de segurança da informação é denominado controle detectivo.
+comentario: Errado. Controle detectivo identifica a ocorrência de um evento. O que limita ou corrige as consequências depois do evento é o controle corretivo; o preventivo atua antes.
+
+=== rv-s08
+gab: E
+origem: real
+prova: Cebraspe · TCE-AC (edital 2024) · cargo 10 · item 55 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27002:2022
+armadilha: rol
+dif: 2
+enunciado: Na NBR ISO/IEC 27002:2022, no atributo propriedades de segurança da informação incluem-se as visões de controle #Confidencialidade, #Integridade, #Disponibilidade e #Autenticidade.
+comentario: Errado. O atributo propriedades de segurança da informação tem só três valores: confidencialidade, integridade e disponibilidade. Autenticidade não é um deles.
+
+=== rv-s09
+gab: C
+origem: real
+prova: Cebraspe · ANM (edital 2024) · cargo 24 · item 84 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27002:2022
+armadilha: conceito
+dif: 2
+enunciado: Conforme a ABNT NBR ISO/IEC 27002, a resposta a incidentes de segurança da informação deve incluir, quando necessária, a análise forense de segurança da informação.
+comentario: Certo. A resposta a incidentes inclui, quando necessário, a análise forense, com coleta e preservação de evidências, além de contenção, comunicação e registro das lições aprendidas.
+
+=== rv-s10
+gab: E
+origem: real
+prova: Cebraspe · Ebserh (edital 2018) · cargo 10 · item 45 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27001:2022
+armadilha: absoluto
+dif: 2
+enunciado: De acordo com a norma ISO 27001, a classificação da informação tem por objetivo oferecer à informação o mais alto nível de proteção disponível, considerando o seu valor, a fonte da informação e o público-alvo.
+comentario: Errado. Classificar a informação serve para dar a cada uma o nível de proteção adequado ao seu valor, à criticidade e aos requisitos legais, não o mais alto nível disponível a todas.
+
+=== rv-s11
+gab: C
+origem: real
+prova: Cebraspe · TCE-AC (edital 2024) · cargo 6 · item 94 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27002:2022
+armadilha: rol
+dif: 1
+enunciado: Conforme a NBR ISO/IEC 27002, os requisitos legais, estatuários, regulamentares e contratuais constituem uma das principais fontes de requisitos de segurança da informação.
+comentario: Certo. As três fontes clássicas de requisitos de segurança são a avaliação de riscos, os requisitos legais, estatutários, regulamentares e contratuais e os princípios e requisitos de negócio da organização.
+
+=== rv-s12
+gab: E
+origem: real
+prova: Cebraspe · Codevasf (edital 2024) · cargo 11 · item 55 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27005
+armadilha: conceito
+dif: 2
+enunciado: De acordo com a ABNT NBR ISO/IEC 27005, um risco é a fonte de um potencial dano, ou uma situação com a capacidade potencial para causar uma perda.
+comentario: Errado. Para as normas da família ISO, risco é o efeito da incerteza sobre os objetivos. A fonte potencial de dano é a ameaça (ou o perigo), não o risco.
+
+=== rv-s13
+gab: E
+origem: real
+prova: Cebraspe · MP-TO (edital 2024) · cargo 3 · item 94 · gabarito definitivo conferido
+ref: doutrina NIST Cybersecurity Framework
+armadilha: comparacao
+dif: 3
+enunciado: O núcleo do framework NIST Cybersecurity contém o alinhamento exclusivo de uma organização com seus requisitos e objetivos organizacionais, usando os resultados desejados de seus níveis de implementação.
+comentario: Errado. O alinhamento da organização com seus requisitos, objetivos, tolerância a risco e recursos é o perfil (profile). O núcleo (core) é o conjunto comum de funções, categorias e subcategorias de resultados.
+
+=== rv-s14
+gab: E
+origem: real
+prova: Cebraspe · TCE-AC (edital 2024) · cargo 10 · item 58 · gabarito definitivo conferido
+ref: doutrina NIST Cybersecurity Framework
+armadilha: comparacao
+dif: 2
+enunciado: No framework do NIST, a função proteção desenvolve e implementa as atividades adequadas para manter os planos de resiliência contra um evento de segurança cibernética.
+comentario: Errado. Manter planos de resiliência e restaurar capacidades após um evento é a função recuperar (recover). Proteger cuida de salvaguardas para garantir a entrega dos serviços.
+
+=== rv-s15
+gab: E
+origem: real
+prova: Cebraspe · Dataprev (edital 2023) · cargo 20 · item 85 · gabarito definitivo conferido
+ref: doutrina computação em nuvem
+armadilha: literal
+dif: 1
+enunciado: Entre os modelos de serviço da computação em nuvem definidos pelo National Institute of Standards and Technology (NIST), inclui-se o denominado service as a software (SaaS).
+comentario: Errado. Os modelos de serviço do NIST são IaaS, PaaS e SaaS, e SaaS é software as a service (software como serviço), não “service as a software”.
+
+=== rv-s16
+gab: C
+origem: real
+prova: Cebraspe · Dataprev (edital 2023) · cargo 19 · item 84 · gabarito definitivo conferido
+ref: doutrina NIST Cybersecurity Framework
+armadilha: conceito
+dif: 1
+enunciado: Das cinco funções do framework de segurança cibernética do NIST, a função identificar é aquela que é destinada a desenvolver um entendimento organizacional para a gestão dos riscos de segurança cibernética.
+comentario: Certo. A função identificar desenvolve o entendimento organizacional para gerenciar riscos a sistemas, pessoas, ativos, dados e capacidades. Na versão 2.0 do framework, a governança virou uma função própria.
+
+=== rv-s17
+gab: E
+origem: real
+prova: Cebraspe · MP-TO (edital 2024) · cargo 16 · item 113 · gabarito definitivo conferido
+ref: doutrina malware
+armadilha: comparacao
+dif: 1
+enunciado: Hijacker é um tipo de malware que invade o computador e criptografa os dados de forma que o usuário perde o acesso aos próprios dados.
+comentario: Errado. Hijacker sequestra o navegador, alterando página inicial e buscas. Quem cifra os dados para cobrar resgate é o ransomware.
+
+=== rv-s18
+gab: E
+origem: real
+prova: Cebraspe · TCE-RN (edital 2025) · cargo 12 · item 73 · gabarito definitivo conferido
+ref: doutrina malware
+armadilha: comparacao
+dif: 2
+enunciado: Um rootkit é um tipo de malware cuja principal função é integrar múltiplos computadores comprometidos em uma botnet controlada remotamente por um servidor de comando e controle (C2).
+comentario: Errado. Rootkit é conjunto de ferramentas para esconder e manter a presença do invasor no sistema. Quem integra a máquina a uma rede controlada remotamente é o bot, formando a botnet.
+
+=== rv-s19
+gab: E
+origem: real
+prova: Cebraspe · TRF da 6ª Região (edital 2024) · cargo 22 · item 59 · gabarito definitivo conferido
+ref: doutrina malware
+armadilha: absoluto
+dif: 2
+enunciado: Os sistemas antimalware baseados em métodos heurísticos têm como principal característica a imunidade à sinalização de falsos positivos, o que os torna superiores em eficácia aos sistemas baseados em assinaturas.
+comentario: Errado. A heurística detecta comportamento suspeito e pega ameaças novas, mas gera mais falsos positivos que a detecção por assinatura. Nenhum método é imune a eles.
+
+=== rv-s20
+gab: E
+origem: real
+prova: Cebraspe · CAU/BR (edital 2023) · conhecimentos específicos · item 99 · gabarito definitivo conferido
+ref: doutrina malware
+armadilha: absoluto
+dif: 1
+enunciado: O firewall de borda é o único mecanismo de proteção de rede apto a impedir ataques de spyware.
+comentario: Errado. O firewall controla o tráfego, mas spyware chega por downloads, anexos e programas legítimos. A defesa é em camadas: antimalware, atualizações, privilégios mínimos e conscientização.
+
+=== rv-s21
+gab: C
+origem: real
+prova: Cebraspe · MP-TO (edital 2024) · cargo 16 · item 114 · gabarito definitivo conferido
+ref: doutrina malware
+armadilha: conceito
+dif: 1
+enunciado: Um tipo muito comum de malware são os chamados worms, programas com capacidade de se replicar, enviando cópias do próprio worm de um computador para outro computador e explorando pontos de vulnerabilidade dos sistemas.
+comentario: Certo. O worm se propaga sozinho pela rede, explorando vulnerabilidades, sem precisar infectar outro arquivo nem de ação do usuário. É o que o diferencia do vírus.
+
+=== rv-s22
+gab: E
+origem: real
+prova: Cebraspe · INPI (edital 2023) · cargos 9, 10 e 11 · item 87 · gabarito definitivo conferido
+ref: doutrina segurança da informação
+armadilha: comparacao
+dif: 2
+enunciado: São exemplos de vulnerabilidade em segurança da informação nas empresas públicas brasileiras: falhas humanas; malware; ransomware e spyware.
+comentario: Errado. Malware, ransomware e spyware são ameaças. Vulnerabilidade é a fraqueza explorada por elas, como falhas humanas, software desatualizado e configuração ruim. Só o primeiro exemplo é vulnerabilidade.
+
+=== rv-s23
+gab: C
+origem: real
+prova: Cebraspe · Banrisul (edital 2022) · cargo 1 · item 66 · gabarito definitivo conferido
+ref: doutrina ISO/IEC 27002:2022
+armadilha: conceito
+dif: 2
+enunciado: O gerenciamento de vulnerabilidades técnicas e as análises críticas regulares dos softwares que suportam processos críticos de negócio são exemplos de controles contra malware.
+comentario: Certo. A proteção contra malware não se limita ao antivírus: inclui gestão de vulnerabilidades técnicas, atualizações e análise crítica regular do software que sustenta processos críticos.
+
+=== rv-s24
+gab: E
+origem: real
+prova: Cebraspe · UDESC (edital 2026) · conhecimentos gerais (cargos 1 a 10) · item 50 · gabarito definitivo conferido
+ref: doutrina malware
+armadilha: conceito
+dif: 1
+enunciado: Ataques de ransomware têm como objetivo o sequestro físico de mídias com dados, com objetivo exclusivo de obter vantagem financeira da empresa afetada.
+comentario: Errado. O ransomware sequestra dados de forma lógica, cifrando-os, e hoje costuma também ameaçar vazar o que copiou (dupla extorsão). Não há sequestro físico de mídias.
+
+=== rv-s25
+gab: E
+origem: real
+prova: Cebraspe · TCE-AC (edital 2024) · cargo 20 · item 113 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: comparacao
+dif: 1
+enunciado: Os ataques de DoS e DDoS utilizam apenas um único computador para sobrecarregar um servidor de rede, tornando-o indisponível, sendo necessário apenas um software antivírus para prevenir e combater esses ataques.
+comentario: Errado. O DoS parte de uma origem; o DDoS usa muitas máquinas, em geral uma botnet. Antivírus não resolve: a defesa envolve filtragem, mitigação na rede e capacidade de absorver tráfego.
+
+=== rv-s26
+gab: E
+origem: real
+prova: Cebraspe · Embrapa (edital 2024) · conhecimentos específicos · item 63 · gabarito definitivo conferido
+ref: doutrina malware
+armadilha: conceito
+dif: 1
+enunciado: Um keylogger é um tipo de vírus de computador que não é detectado pelos antivírus.
+comentario: Errado. Keylogger é spyware que registra o que se digita, e antimalware atualizado costuma detectá-lo. Não é vírus nem indetectável.
+
+=== rv-s27
+gab: E
+origem: real
+prova: Cebraspe · CAU/BR (edital 2023) · conhecimentos específicos · item 118 · gabarito definitivo conferido
+ref: doutrina malware
+armadilha: conceito
+dif: 1
+enunciado: Embora exiba anúncios indesejados, muitas vezes integrando-se a programas gratuitos, o adware não é considerado um malware.
+comentario: Errado. Adware exibe propaganda sem consentimento e muitas vezes coleta dados de navegação: é classificado como malware, em geral potencialmente indesejado.
+
+=== rv-s28
+gab: C
+origem: real
+prova: Cebraspe · TRF da 6ª Região (edital 2024) · cargo 13 · item 78 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 3
+enunciado: Atualmente, o algoritmo AES com chave de 256 bits é considerado resistente a ataques de criptografia quântica.
+comentario: Certo. O algoritmo de Grover reduz pela metade a força efetiva de uma cifra simétrica, e o AES-256 ainda fica com segurança equivalente a 128 bits. Quem cai com computação quântica (algoritmo de Shor) é a criptografia assimétrica, como RSA.
+
+=== rv-s29
+gab: C
+origem: real
+prova: Cebraspe · Banrisul (edital 2022) · cargo 1 · item 78 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 2
+enunciado: A cifra de bloco é uma das classes gerais de técnicas de criptografia simétrica utilizada em muitos protocolos seguros da Internet, como o PGP e o SSL.
+comentario: Certo. A criptografia simétrica divide-se em cifras de bloco e de fluxo. As de bloco, como AES, cifram a carga útil em protocolos como TLS/SSL e PGP, que combinam chave simétrica de sessão com assimétrica.
+
+=== rv-s30
+gab: C
+origem: real
+prova: Cebraspe · Dataprev (edital 2023) · cargo 19 · item 61 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 2
+enunciado: Utilizando algoritmo de chave pública, a criptografia pode implementar o princípio da autenticidade e o da irretratabilidade ou não repúdio.
+comentario: Certo. Assinar com a chave privada permite a qualquer um verificar, com a chave pública, quem assinou (autenticidade) e impede o autor de negar a autoria (irretratabilidade).
+
+=== rv-s31
+gab: E
+origem: real
+prova: Cebraspe · Banrisul (edital 2022) · cargo 6 · item 96 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 2
+enunciado: A criptografia de chave pública envolve uma chave pública, criada para gerar a mensagem, e uma chave privada, usada pelo destinatário para abrir a mensagem.
+comentario: Errado. Para sigilo, cifra-se com a chave pública do destinatário e só a chave privada dele decifra. A chave pública não “gera a mensagem”, e cada usuário tem o seu par de chaves.
+
+=== rv-s32
+gab: E
+origem: real
+prova: Cebraspe · Telebras (edital 2025) · cargo 2 · item 97 · gabarito definitivo conferido
+ref: doutrina certificação digital
+armadilha: absoluto
+dif: 2
+enunciado: Um certificado digital válido garante que a chave privada correspondente nunca foi comprometida.
+comentario: Errado. O certificado vincula a chave pública a um titular; se a chave privada for comprometida, o certificado deve ser revogado. Estar válido não garante que isso nunca aconteceu.
+
+=== rv-s33
+gab: E
+origem: real
+prova: Cebraspe · MP-CE (edital 2025) · cargo 5 · item 103 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: conceito
+dif: 1
+enunciado: Um ataque de dicionário é comumente empregado contra criptografias que utilizam chaves longas e complexas.
+comentario: Errado. Ataque de dicionário testa palavras e senhas comuns: funciona contra senhas fracas. Chaves longas e aleatórias o tornam inútil.
+
+=== rv-s34
+gab: E
+origem: real
+prova: Cebraspe · TCE-AC (edital 2024) · cargo 6 · item 111 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: numero
+dif: 2
+enunciado: No caso de um certificado digital com o algoritmo RSA, o tamanho adequado e seguro da chave é de 512 bits.
+comentario: Errado. RSA de 512 bits é quebrável há décadas. Hoje o mínimo aceito é 2.048 bits, e a ICP-Brasil exige chaves de 2.048 ou 4.096 bits.
+
+=== rv-s35
+gab: E
+origem: real
+prova: Cebraspe · Dataprev (edital 2023) · cargo 20 · item 79 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: comparacao
+dif: 1
+enunciado: A criptografia que utiliza as duas chaves (pública e privada) é também conhecida como criptografia simétrica.
+comentario: Errado. Par de chaves pública e privada é criptografia assimétrica. Na simétrica, a mesma chave cifra e decifra.
+
+=== rv-s36
+gab: E
+origem: real
+prova: Cebraspe · Embrapa (edital 2024) · item 66 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: absoluto
+dif: 1
+enunciado: O uso de criptografia simétrica é sempre preferível ao uso de criptografia assimétrica, pois oferece maior segurança e desempenho.
+comentario: Errado. A simétrica é mais rápida, mas tem o problema de distribuir a chave; a assimétrica resolve a troca de chaves e permite assinatura. Na prática se combinam (criptografia híbrida).
+
+=== rv-s37
+gab: C
+origem: real
+prova: Cebraspe · ABIN (edital 2017) · cargo 2 · item 142 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: Para verificar a integridade de uma mensagem com assinatura digital, a pessoa que a recebeu deverá conhecer a chave pública do usuário que a enviou.
+comentario: Certo. A assinatura é gerada com a chave privada do remetente sobre o hash da mensagem; quem recebe verifica com a chave pública dele e confirma integridade e autoria.
+
+=== rv-s38
+gab: C
+origem: real
+prova: Cebraspe · Prefeitura de Cachoeiro de Itapemirim (edital 2024) · cargo 1 · item 84 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 2
+enunciado: SSL é uma tecnologia obsoleta que permite o estabelecimento de links autenticados e criptografados entre computadores em rede.
+comentario: Certo. O SSL criou canais autenticados e cifrados, mas suas versões estão obsoletas e inseguras; foi substituído pelo TLS, embora o nome SSL continue em uso.
+
+=== rv-s39
+gab: E
+origem: real
+prova: Cebraspe · Seplag-AL (edital 2026) · cargo 2 · item 110 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: O MD5 é um algoritmo de criptografia assimétrico, já que sua saída é medida em bits.
+comentario: Errado. MD5 é função de resumo (hash), não algoritmo de cifração, e já é considerado inseguro por colisões. O tamanho da saída em bits nada diz sobre ser simétrico ou assimétrico.
+
+=== rv-s40
+gab: E
+origem: real
+prova: Cebraspe · Dataprev (edital 2023) · cargo 19 · item 65 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: comparacao
+dif: 1
+enunciado: Em algoritmo de criptografia simétrica, a mensagem cifrada com chave pública pode somente ser decifrada pela sua chave privada correspondente.
+comentario: Errado. Chave pública e chave privada correspondente são da criptografia assimétrica. Na simétrica, a mesma chave secreta cifra e decifra.
+
+=== rv-s41
+gab: C
+origem: real
+prova: Cebraspe · TCE-RN (edital 2025) · cargo 5 · item 64 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: conceito
+dif: 1
+enunciado: Protocolos como TLS garantem confidencialidade dos dados em trânsito, enquanto a criptografia de armazenamento protege dados em repouso contra acessos não autorizados.
+comentario: Certo. TLS protege dados em trânsito; cifrar discos e bancos protege dados em repouso. São camadas complementares.
+
+=== rv-s42
+gab: E
+origem: real
+prova: Cebraspe · STM (edital 2025) · cargo 6 · item 76 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: comparacao
+dif: 2
+enunciado: Por padrão, em criptografia assimétrica, a chave pública é utilizada para cifrar uma mensagem sempre que se deseja preservar a integridade da informação.
+comentario: Errado. Cifrar com a chave pública do destinatário preserva a confidencialidade. Integridade e autenticidade vêm da assinatura com a chave privada do emissor.
+
+=== rv-s43
+gab: C
+origem: real
+prova: Cebraspe · ABIN (edital 2017) · cargo 1 · item 70 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 2
+enunciado: Um IDS (Intrusion Detection System) pode ser usado para detectar varreduras de porta e de pilha TCP, além de ataques de DoS, de inundação de largura de banda, de worms e de vírus.
+comentario: Certo. O IDS monitora o tráfego e alerta sobre varreduras de portas, ataques de negação de serviço, worms e outras assinaturas ou anomalias. Ele detecta; quem bloqueia em linha é o IPS.
+
+=== rv-s44
+gab: E
+origem: real
+prova: Cebraspe · Banrisul (edital 2022) · cargo 1 · item 120 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 1
+enunciado: Uma VPN é utilizada em redes de pequeno porte, sendo configurada no firewall, e tem como desvantagem a falta de autenticação e criptografia.
+comentario: Errado. VPN existe justamente para oferecer autenticação e criptografia sobre rede pública, e é usada por organizações de qualquer porte.
+
+=== rv-s45
+gab: C
+origem: real
+prova: Cebraspe · Câmara dos Deputados (edital 2026) · conhecimentos gerais · item 85 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 1
+enunciado: Um dos princípios de uma VPN é garantir a privacidade do usuário, ocultando o endereço IP de seu computador e protegendo com criptografia as informações enviadas.
+comentario: Certo. A VPN cria um túnel cifrado; para os sites de destino, aparece o IP do servidor da VPN, não o do usuário.
+
+=== rv-s46
+gab: E
+origem: real
+prova: Cebraspe · FUB (edital 2025) · cargo 18 · item 44 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: absoluto
+dif: 1
+enunciado: A filtragem por pacote, oferecida exclusivamente nos firewalls de hardware, compara cada pacote a uma lista de permissões.
+comentario: Errado. Filtragem de pacotes existe em firewalls de hardware e de software (inclusive no próprio sistema operacional). O “exclusivamente” erra.
+
+=== rv-s47
+gab: E
+origem: real
+prova: Cebraspe · MP-GO (edital 2024) · cargo 5 · item 85 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: comparacao
+dif: 2
+enunciado: Entre os componentes de um IDS (intrusion detection system), o sensor é responsável por analisar as informações coletadas e compará-las com um padrão conhecido, para determinar se um evento é normal ou malicioso.
+comentario: Errado. O sensor coleta os dados do tráfego ou do host; quem os analisa e compara com padrões é o analisador (motor de detecção). O console apresenta os alertas.
+
+=== rv-s48
+gab: E
+origem: real
+prova: Cebraspe · Embrapa (edital 2024) · conhecimentos específicos · item 84 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: absoluto
+dif: 1
+enunciado: A implantação de um firewall em uma rede garante proteção completa contra todos os tipos de ataques cibernéticos.
+comentario: Errado. Firewall é uma camada de defesa, não proteção completa: não impede phishing, malware em tráfego permitido, ataques internos nem exploração de aplicações autorizadas.
+
+=== rv-s49
+gab: E
+origem: real
+prova: Cebraspe · MPO (edital 2024) · cargo 3 · item 44 · gabarito definitivo conferido
+ref: doutrina segurança da informação
+armadilha: comparacao
+dif: 1
+enunciado: Um ataque de negação de serviço capaz de parar um serviço de tecnologia da informação impacta na autenticidade dos dados.
+comentario: Errado. Parar um serviço atinge a disponibilidade. Autenticidade diz respeito à origem da informação.
+
+=== rv-s50
+gab: E
+origem: real
+prova: Cebraspe · Embrapa (edital 2024) · item 45 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 3
+enunciado: Um firewall configurado com o critério de filtragem baseado em regras independentes para cada pacote faz distinção do tráfego HTTP usado para navegação web e o tráfego HTTP usado para compartilhamento de arquivos peer-to-peer.
+comentario: Errado. Filtro de pacotes sem estado olha cabeçalhos (endereços, portas, protocolo) de cada pacote isoladamente e não distingue usos diferentes do mesmo HTTP. Isso exige inspeção na camada de aplicação.
+
+=== rv-s51
+gab: C
+origem: real
+prova: Cebraspe · Banrisul (edital 2022) · cargo 3 · item 57 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 1
+enunciado: A função de validar endereçamento IP e portas para depois permitir, ou não, o acesso a outros computadores caracteriza um firewall de rede ou filtro de pacotes na camada de rede.
+comentario: Certo. O filtro de pacotes decide com base em endereço IP, porta e protocolo, nas camadas de rede e transporte.
+
+=== rv-s52
+gab: E
+origem: real
+prova: Cebraspe · TCE-AC (edital 2024) · cargo 10 · item 70 · gabarito definitivo conferido
+ref: doutrina segurança da informação
+armadilha: comparacao
+dif: 1
+enunciado: A principal consequência de um ataque DDoS é a perda de integralidade dos dados armazenados no servidor atacado.
+comentario: Errado. O DDoS tira o serviço do ar: atinge a disponibilidade, não a integridade dos dados.
+
+=== rv-s53
+gab: C
+origem: real
+prova: Cebraspe · TRT da 10ª Região (edital 2024) · cargo 11 · item 107 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: conceito
+dif: 1
+enunciado: Os ataques DoS e DDoS visam indisponibilizar recursos, enquanto técnicas de sniffing e spoofing interceptam e manipulam dados.
+comentario: Certo. DoS e DDoS buscam indisponibilizar recursos; sniffing captura o tráfego e spoofing falsifica identidade (IP, e-mail, DNS) para interceptar ou manipular a comunicação.
+
+=== rv-s54
+gab: E
+origem: real
+prova: Cebraspe · Banrisul (edital 2022) · cargo 6 · item 82 · gabarito definitivo conferido
+ref: doutrina segurança da informação
+armadilha: comparacao
+dif: 1
+enunciado: O ataque de negação de serviço DOS (denial of service) afeta a integridade dos dados, tornando-os indisponíveis aos usuários.
+comentario: Errado. DoS afeta a disponibilidade. O item mistura os pilares: tornar indisponível não é violar a integridade.
+
+=== rv-s55
+gab: C
+origem: real
+prova: Cebraspe · FUB (edital 2022) · cargo 16 · item 67 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 1
+enunciado: A utilização de firewall em uma rede de computadores não inviabiliza a implementação da solução de DMZ.
+comentario: Certo. A DMZ é, em geral, montada com firewalls, que separam a rede interna da zona onde ficam os servidores expostos à Internet.
+
+=== rv-s56
+gab: C
+origem: real
+prova: Cebraspe · CAPES (edital 2023) · cargo 5 · item 87 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: rol
+dif: 1
+enunciado: VPN (virtual private network) pode utilizar protocolos como IPSEC e PPTP.
+comentario: Certo. VPNs usam protocolos como IPsec, SSL/TLS, L2TP e o antigo PPTP, este hoje considerado inseguro.
+
+=== rv-s57
+gab: C
+origem: real
+prova: Cebraspe · Banrisul (edital 2022) · cargo 6 · item 87 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: conceito
+dif: 2
+enunciado: Habilitar filtro antispoofing e desabilitar serviços desnecessários são técnicas de prevenção contra ataques de DDoS.
+comentario: Certo. Filtros antispoofing descartam pacotes com origem forjada, e desligar serviços desnecessários reduz a superfície de ataque, inclusive contra ataques de amplificação.
+
+=== rv-s58
+gab: C
+origem: real
+prova: Cebraspe · FUB (edital 2018) · cargo 15 · item 71 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 2
+enunciado: Uma SSL VPN provê acesso de rede virtual privada por meio das funções de criptografia SSL embutidas em navegadores web padrão, sem exigir a instalação de software cliente específico na estação de trabalho do usuário final.
+comentario: Certo. A VPN SSL usa o TLS do próprio navegador e dá acesso a aplicações sem cliente específico, ao contrário da VPN IPsec, que em geral exige cliente instalado.
+
+=== rv-s59
+gab: C
+origem: real
+prova: Cebraspe · Banrisul (edital 2022) · cargo 6 · item 78 · gabarito definitivo conferido
+ref: doutrina redes e segurança
+armadilha: conceito
+dif: 1
+enunciado: VPN (Virtual Private Network) é uma rede privada virtual restrita que usa a Internet como infraestrutura para estabelecer tráfego seguro sobre uma rede pública.
+comentario: Certo. A VPN usa a infraestrutura pública da Internet e cria sobre ela um canal privado, autenticado e cifrado.
+
+=== rv-s60
+gab: E
+origem: real
+prova: Cebraspe · Banrisul (edital 2022) · cargo 6 · item 88 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: comparacao
+dif: 1
+enunciado: O phishing é uma técnica explorada por um invasor que tenta obter o endereço IP do usuário para enviar uma quantidade volumosa de requisições e aumentar o consumo da banda.
+comentario: Errado. Phishing é fraude que engana a vítima, por e-mail, mensagem ou site falso, para obter credenciais e dados. Inundar o alvo com requisições é negação de serviço.
+
+=== rv-s61
+gab: C
+origem: real
+prova: Cebraspe · TCE-RN (edital 2025) · conhecimentos gerais (cargo 9) · item 29 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: conceito
+dif: 2
+enunciado: O pharming é uma variante do phishing, pois redireciona o browser do usuário para um site falso, visando roubar identidade digital e informação sensível.
+comentario: Certo. No pharming, a vítima digita o endereço certo e é desviada para o site falso, por envenenamento de DNS ou adulteração do arquivo hosts.
+
+=== rv-s62
+gab: E
+origem: real
+prova: Cebraspe · TCE-AC (edital 2024) · cargo 10 · item 82 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: conceito
+dif: 2
+enunciado: A melhor contramedida contra o phishing seria usar algoritmos de criptografia mais robustos nas comunicações de email efetuadas na empresa.
+comentario: Errado. Phishing explora a pessoa, não a cifra: a mensagem falsa pode vir perfeitamente cifrada. As contramedidas são conscientização, filtros, autenticação de remetente (SPF, DKIM, DMARC) e MFA.
+
+=== rv-s63
+gab: E
+origem: real
+prova: Cebraspe · Dataprev (edital 2023) · cargo 20 · item 82 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: comparacao
+dif: 1
+enunciado: Denomina-se phishing a ação de o agente do ataque colocar-se entre a comunicação de dois usuários válidos, interceptar as mensagens enviadas, passando-se por uma das partes, e poder alterá-las ou bloqueá-las.
+comentario: Errado. Colocar-se entre dois usuários, interceptar e se passar por um deles é ataque man-in-the-middle. Phishing é isca enganosa para a própria vítima entregar dados.
+
+=== rv-s64
+gab: E
+origem: real
+prova: Cebraspe · TCE-AC (edital 2024) · cargo 6 · item 99 · gabarito definitivo conferido
+ref: doutrina autenticação
+armadilha: conceito
+dif: 2
+enunciado: Na notificação por push, os métodos de autenticação de dois fatores (2FA) exigem uma senha para aprovar o acesso a um sítio ou aplicativo.
+comentario: Errado. Na autenticação por push, o segundo fator é aprovar a notificação no dispositivo cadastrado (algo que se possui), sem digitar senha nesse passo; a senha é o primeiro fator.
+
+=== rv-s65
+gab: C
+origem: real
+prova: Cebraspe · TCE-RN (edital 2025) · cargo 5 · item 51 · gabarito definitivo conferido
+ref: doutrina autenticação
+armadilha: conceito
+dif: 1
+enunciado: A autenticação multifator (MFA) exige o uso de, no mínimo, dois mecanismos de autenticação pertencentes a fatores distintos.
+comentario: Certo. MFA exige pelo menos dois fatores de categorias distintas: algo que se sabe, algo que se tem, algo que se é. Duas senhas não são MFA.
+
+=== rv-s66
+gab: E
+origem: real
+prova: Cebraspe · ABIN (edital 2017) · cargo 2 · item 144 · gabarito definitivo conferido
+ref: doutrina criptografia
+armadilha: comparacao
+dif: 2
+enunciado: As múltiplas chaves produzidas pelo 3DES são vulneráveis a ataques de força bruta; uma alternativa para evitar essa vulnerabilidade é o uso do DES.
+comentario: Errado. O DES (chave efetiva de 56 bits) é muito mais vulnerável à força bruta que o 3DES. O substituto recomendado é o AES.
+
+=== rv-s67
+gab: E
+origem: real
+prova: Cebraspe · Câmara dos Deputados (edital 2025) · cargo 2 · item 146 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: conceito
+dif: 1
+enunciado: No spear phishing, a personalização da mensagem é irrelevante para o sucesso do ataque, uma vez que a credibilidade decorre principalmente do uso de canais e identidades aparentemente legítimos.
+comentario: Errado. No spear phishing, a personalização é o que dá credibilidade: a mensagem usa nome, cargo e contexto reais do alvo.
+
+=== rv-s68
+gab: E
+origem: real
+prova: Cebraspe · PREF-CACHOEIRO (edital 2024) · conhecimentos gerais (cargos 23 ao 26) · item 27 · gabarito definitivo conferido
+ref: doutrina autenticação
+armadilha: conceito
+dif: 1
+enunciado: O procedimento de associar a autenticação de dois fatores (2FA) ao uso de senha contribui muito pouco para o ganho de segurança da informação.
+comentario: Errado. Somar o 2FA à senha reduz muito o risco: mesmo com a senha vazada, o invasor precisa do segundo fator.
+
+=== rv-s69
+gab: C
+origem: real
+prova: Cebraspe · Embrapa (edital 2024) · item 65 · gabarito definitivo conferido
+ref: doutrina autenticação
+armadilha: conceito
+dif: 1
+enunciado: A utilização de autenticação multifatorial (MFA) é uma prática recomendada para fortalecer a segurança dos sistemas de informação, pois combina múltiplos métodos de verificação para garantir a identidade do usuário.
+comentario: Certo. A MFA combina fatores independentes; comprometer um só não basta para entrar.
+
+=== rv-s70
+gab: C
+origem: real
+prova: Cebraspe · Embrapa (edital 2024) · conhecimentos específicos · item 83 · gabarito definitivo conferido
+ref: doutrina autenticação
+armadilha: conceito
+dif: 1
+enunciado: A implementação de autenticação multifator (MFA) reduz significativamente o risco de acesso não autorizado ao sistema.
+comentario: Certo. A MFA reduz muito o acesso não autorizado por senha vazada, adivinhada ou obtida por phishing, embora não elimine todo risco.
+
+=== rv-s71
+gab: C
+origem: real
+prova: Cebraspe · TRT da 10ª Região (edital 2024) · cargo 11 · item 108 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: conceito
+dif: 2
+enunciado: SPF (sender policy framework) e DKIM (domain keys identified mail) aumentam a proteção de emails contra phishing e spamming, verificando a autenticidade do remetente.
+comentario: Certo. SPF diz quais servidores podem enviar pelo domínio e DKIM assina a mensagem; com DMARC, ajudam a barrar remetentes falsificados.
+
+=== rv-s72
+gab: C
+origem: real
+prova: Cebraspe · TCE-AC (edital 2024) · cargo 10 · item 83 · gabarito definitivo conferido
+ref: doutrina autenticação
+armadilha: conceito
+dif: 1
+enunciado: A implantação de autenticação multifator (2FA) poderia ajudar a mitigar o ataque de phishing.
+comentario: Certo. Se a vítima entregar a senha num site falso, o segundo fator ainda impede o acesso; métodos resistentes a phishing, como chaves FIDO2, são os mais fortes.
+
+=== rv-s73
+gab: E
+origem: real
+prova: Cebraspe · MP-CE (edital 2025) · cargo 5 · item 106 · gabarito definitivo conferido
+ref: doutrina autenticação
+armadilha: conceito
+dif: 2
+enunciado: A autenticação de dois fatores (MFA) utiliza apenas uma camada de segurança, que resulta da combinação de um fator de conhecimento com um fator de posse, como uma senha e um token físico.
+comentario: Errado. A combinação de algo que se sabe (senha) com algo que se tem (token) dá duas camadas, uma por fator. A sigla correta de dois fatores é 2FA, espécie de MFA.
+
+=== rv-s74
+gab: E
+origem: real
+prova: Cebraspe · Prefeitura de Cachoeiro de Itapemirim (edital 2024) · cargo 1 · item 100 · gabarito definitivo conferido
+ref: doutrina ataques
+armadilha: absoluto
+dif: 1
+enunciado: O phishing pode ser caracterizado como um tipo de ataque de engenharia social que é realizado apenas por telefone.
+comentario: Errado. Phishing é feito sobretudo por e-mail, sites e mensagens; por telefone é vishing, e por SMS é smishing.
+
+=== rv-s75
+gab: E
+origem: real
+prova: Cebraspe · MP-TO (edital 2024) · cargo 16 · item 118 · gabarito definitivo conferido
+ref: doutrina backup
+armadilha: comparacao
+dif: 1
+enunciado: O tipo de backup de dados que mais consome espaço de armazenamento no computador é o backup incremental.
+comentario: Errado. O que mais ocupa espaço é o backup completo. O incremental copia só o que mudou desde o último backup de qualquer tipo e é o mais enxuto.
+
+=== rv-s76
+gab: C
+origem: real
+prova: Cebraspe · TCE-AC (edital 2024) · cargo 10 · item 104 · gabarito definitivo conferido
+ref: doutrina backup
+armadilha: conceito
+dif: 2
+enunciado: Os backups ou cópias dos dados contidos em um sistema de informação compõem estratégias de recuperação em caso de desastres, mas não garantem a recuperação da infraestrutura de TI.
+comentario: Certo. Backup recupera dados, mas recuperar o serviço exige também infraestrutura, configurações, pessoas e procedimentos previstos no plano de recuperação de desastres.
+
+=== rv-s77
+gab: C
+origem: real
+prova: Cebraspe · Banrisul (edital 2022) · cargo 5 · item 54 · gabarito definitivo conferido
+ref: doutrina segurança da informação
+armadilha: conceito
+dif: 1
+enunciado: Ataque de DoS, política de backup não implementada e falha nos discos violam a disponibilidade.
+comentario: Certo. Os três tiram ou ameaçam o acesso à informação quando é preciso: atingem a disponibilidade.
+
+=== rv-s78
+gab: C
+origem: real
+prova: Cebraspe · UDESC (edital 2026) · conhecimentos gerais (cargos 1 a 10) · item 48 · gabarito definitivo conferido
+ref: doutrina backup
+armadilha: conceito
+dif: 1
+enunciado: A prática de backup 3-2-1 consiste em manter três cópias dos dados, em duas mídias diferentes e uma cópia armazenada remotamente.
+comentario: Certo. Regra 3-2-1: três cópias, em dois tipos de mídia, uma fora do local. Versões recentes acrescentam uma cópia imutável ou desconectada contra ransomware.
+
+=== rv-s79
+gab: E
+origem: real
+prova: Cebraspe · FUB (edital 2025) · cargo 18 · item 26 · gabarito definitivo conferido
+ref: doutrina backup
+armadilha: conceito
+dif: 1
+enunciado: Um backup incremental copia novamente todos os arquivos do sistema, independentemente de terem sido modificados.
+comentario: Errado. Copiar tudo de novo é o backup completo. O incremental copia só o que mudou desde o último backup.
+
+=== rv-s80
+gab: E
+origem: real
+prova: Cebraspe · Codevasf (edital 2024) · conhecimentos básicos · item 36 · gabarito definitivo conferido
+ref: doutrina backup
+armadilha: conceito
+dif: 2
+enunciado: O backup incremental, uma vez configurado e executado, fará uma cópia exata de arquivos e pastas selecionados, sendo especialmente útil quando se precisa de uma recuperação rápida e completa de dados em casos de falha de hardware.
+comentario: Errado. O incremental não faz cópia exata de tudo, e a restauração é mais lenta: exige o último completo e todos os incrementais seguintes.
+
+=== rv-s81
+gab: C
+origem: real
+prova: Cebraspe · Embrapa (edital 2024) · conhecimentos específicos · item 68 · gabarito definitivo conferido
+ref: doutrina backup
+armadilha: conceito
+dif: 1
+enunciado: O backup completo é o tipo de rotina de backup que copia todos os arquivos de um computador, mesmo se o arquivo estiver marcado como copiado anteriormente.
+comentario: Certo. O completo copia tudo, com ou sem marcação de arquivamento, e depois marca os arquivos como copiados.
+
+=== rv-s82
+gab: C
+origem: real
+prova: Cebraspe · TJ-PA (edital 2025) · cargo 4 · item 85 · gabarito definitivo conferido
+ref: doutrina backup
+armadilha: conceito
+dif: 1
+enunciado: Um backup incremental faz cópias apenas dos dados alterados desde o último backup e tem como desvantagem a restauração mais demorada, requerendo todos os backups incrementais anteriores.
+comentario: Certo. O incremental é rápido e econômico, mas a restauração pede o último completo mais toda a cadeia de incrementais.
+
+=== rv-s83
+gab: E
+origem: real
+prova: Cebraspe · Banrisul (edital 2022) · cargo 6 · item 118 · gabarito definitivo conferido
+ref: doutrina backup
+armadilha: conceito
+dif: 1
+enunciado: O backup incremental é a cópia de todo o conteúdo do espaço de armazenamento e das alterações realizadas nos processos de atualização.
+comentario: Errado. Cópia de todo o conteúdo é o backup completo. O incremental copia só as alterações desde o último backup.
+
+=== rv-s84
+gab: C
+origem: real
+prova: Cebraspe · MP-TO (edital 2024) · cargo 16 · item 120 · gabarito definitivo conferido
+ref: doutrina backup
+armadilha: conceito
+dif: 2
+enunciado: Algumas empresas, em razão das características de seus sistemas, fazem uso dos chamados hot backups, em que as cópias são feitas sem que o sistema interrompa o seu funcionamento.
+comentario: Certo. No hot backup a cópia é feita com o sistema em funcionamento; no cold backup, com ele parado.

@@ -1,0 +1,168 @@
+// LGPD, lote X35: casos e itens sobre as hipóteses de transferência internacional (art. 33) e as competências da ANPD
+// (art. 55-J). Conferidas com fontes/lgpd.txt.
+
+=== lx35-01
+bloco: lgpd-33-36
+gab: C
+tema: pd-transferencia
+ref: lgpd 33
+trecho: II - quando o controlador oferecer e comprovar garantias de cumprimento dos princípios, dos direitos do titular e do regime de proteção de dados previstos nesta Lei, na forma de:
+trecho: b) cláusulas-padrão contratuais;
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa brasileira envia os dados de seus clientes à matriz no exterior, em país sem decisão de adequação, com base nas cláusulas-padrão contratuais aprovadas pela ANPD. Assertiva: a transferência tem amparo na LGPD.
+comentario: Certo. Art. 33, II, b. As cláusulas-padrão são uma das garantias que o controlador pode oferecer e comprovar; a Resolução CD/ANPD 19/2024 aprovou o modelo a ser adotado.
+
+=== lx35-02
+gab: E
+bloco: lgpd-33-36
+tema: pd-transferencia
+ref: lgpd 33
+trecho: consentimento específico e em destaque para a transferência, com informação prévia sobre o caráter internacional da operação
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um aplicativo transfere dados de usuários para servidores no exterior com base em cláusula genérica dos termos de uso, que não menciona o caráter internacional da operação. Assertiva: o consentimento assim obtido ampara a transferência.
+comentario: Errado. O consentimento para transferência internacional deve ser específico e em destaque, com informação prévia sobre o caráter internacional da operação, distinguida de outras finalidades (art. 33, VIII).
+
+=== lx35-03
+bloco: lgpd-33-36
+gab: C
+tema: pd-transferencia
+ref: lgpd 33
+trecho: quando a transferência for necessária para a proteção da vida ou da incolumidade física do titular ou de terceiro
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: turista brasileiro sofreu acidente grave no exterior, e o hospital onde ele se tratava no Brasil enviou ao hospital estrangeiro seu histórico de alergias. Assertiva: a transferência é admitida pela LGPD.
+comentario: Certo. Art. 33, IV: a transferência necessária à proteção da vida ou da incolumidade física do titular ou de terceiro é uma das hipóteses autorizadas.
+
+=== lx35-05
+bloco: lgpd-33-36
+gab: C
+tema: pd-transferencia
+ref: lgpd 33
+trecho: necessária para a cooperação jurídica internacional entre órgãos públicos de inteligência, de investigação e de persecução
+armadilha: conceito
+dif: 2
+enunciado: A transferência internacional de dados é permitida quando necessária para a cooperação jurídica internacional entre órgãos públicos de investigação e persecução, conforme os instrumentos de direito internacional.
+comentario: Certo. Art. 33, III, que inclui também os órgãos de inteligência.
+
+=== lx35-06
+bloco: lgpd-33-36
+gab: E
+tema: pd-transferencia
+ref: lgpd 33
+trecho: sendo dada publicidade nos termos do inciso I do caput do art. 23 desta Lei
+armadilha: excecao
+dif: 3
+enunciado: A transferência internacional necessária à execução de política pública dispensa qualquer publicidade, por se tratar de atuação do poder público.
+comentario: Errado. A hipótese do art. 33, VII, exige que se dê publicidade nos termos do art. 23, I: informações claras e atualizadas sobre a previsão legal, a finalidade, os procedimentos e as práticas, de preferência no sítio eletrônico.
+
+=== lx35-07
+bloco: lgpd-33-36
+gab: C
+tema: pd-transferencia
+ref: lgpd 33
+trecho: quando a autoridade nacional autorizar a transferência
+armadilha: conceito
+dif: 2
+enunciado: A autorização da autoridade nacional figura entre as hipóteses que permitem a transferência internacional de dados, de modo que a transferência pode ser autorizada pela ANPD mesmo para país que não tenha sido reconhecido como de grau de proteção adequado.
+comentario: Certo. Art. 33, V. As hipóteses do art. 33 são alternativas: a transferência pode apoiar-se na adequação do país (I), em garantias oferecidas pelo controlador (II), na autorização da ANPD (V) ou no consentimento específico e em destaque (VIII), entre outras.
+
+=== lx35-08
+bloco: lgpd-33-36
+gab: E
+tema: pd-transferencia
+ref: lgpd 33
+trecho: A transferência internacional de dados pessoais somente é permitida nos seguintes casos
+armadilha: absoluto
+dif: 2
+enunciado: O rol de hipóteses de transferência internacional do art. 33 da LGPD é exemplificativo, de modo que o controlador pode adotar outra justificativa que considere equivalente.
+comentario: Errado. A transferência “somente é permitida” nos casos listados no art. 33: o rol é taxativo.
+
+=== lx35-09
+bloco: lgpd-55
+gab: C
+tema: pd-anpd
+ref: lgpd 55-J
+trecho: poderão ser analisadas de forma agregada, e as eventuais providências delas decorrentes poderão ser adotadas de forma padronizada
+armadilha: conceito
+dif: 3
+enunciado: As petições de titulares contra controladores, apreciadas pela ANPD depois de comprovada reclamação não solucionada no prazo regulamentar, podem ser analisadas de forma agregada, com providências adotadas de modo padronizado.
+comentario: Certo. O inciso V do art. 55-J condiciona a apreciação da petição à prova de reclamação ao controlador não solucionada no prazo regulamentar, e o § 6º permite analisar de forma agregada as reclamações colhidas nesse inciso e adotar providências padronizadas.
+
+=== lx35-10
+bloco: lgpd-55
+gab: E
+tema: pd-anpd
+ref: lgpd 55-J
+trecho: após comprovada pelo titular a apresentação de reclamação ao controlador
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: insatisfeito com o uso de seus dados, um titular peticionou à ANPD contra a empresa sem antes ter procurado o controlador. Assertiva: a petição deve ser apreciada mesmo assim, pois o titular pode escolher a quem se dirigir primeiro.
+comentario: Errado. A ANPD aprecia a petição depois de comprovada a reclamação prévia ao controlador, não solucionada no prazo regulamentar (art. 55-J, V). O regulamento de fiscalização admite a autodeclaração do titular quando não houver outro meio de comprovar (Resolução 1/2021, art. 25, § 1º).
+
+=== lx35-11
+bloco: lgpd-55
+gab: C
+tema: pd-anpd
+ref: lgpd 55-J
+trecho: Os regulamentos e as normas editados pela ANPD devem ser precedidos de consulta e audiência públicas, bem como de análises de impacto regulatório.
+armadilha: conceito
+dif: 2
+enunciado: A exigência de que os regulamentos da ANPD sejam precedidos de consulta e audiência públicas e de análise de impacto regulatório decorre da própria LGPD, e não apenas da lei geral das agências reguladoras.
+comentario: Certo. Art. 55-J, § 2º. A Lei 13.848/2019, que passou a abranger a ANPD com a Lei 15.352/2026, também exige AIR e consulta pública para atos normativos de interesse geral.
+
+=== lx35-12
+bloco: lgpd-55
+gab: C
+tema: pd-anpd
+ref: lgpd 55-J
+trecho: deliberar, na esfera administrativa, em caráter terminativo, sobre a interpretação desta Lei
+armadilha: conceito
+dif: 3
+enunciado: A última palavra administrativa sobre a interpretação da LGPD, sobre as competências da ANPD e sobre os casos omissos cabe à própria ANPD, o que não afasta a revisão judicial de suas decisões.
+comentario: Certo. O inciso XX do art. 55-J restringe o caráter terminativo à esfera administrativa e abrange a interpretação da lei, as competências da ANPD e os casos omissos. O controle judicial continua garantido pelo art. 5º, XXXV, da Constituição.
+
+=== lx35-13
+bloco: lgpd-55
+gab: E
+tema: pd-anpd
+ref: lgpd 55-J
+trecho: que se autodeclarem startups ou empresas de inovação
+armadilha: rol
+dif: 3
+enunciado: A ANPD pode editar normas e procedimentos simplificados e diferenciados para que microempresas e empresas de pequeno porte se adequem à LGPD, mas a lei não estende esse tratamento às startups, para não comprometer a proteção dos titulares em modelos de negócio inovadores.
+comentario: Errado. O inciso XVIII do art. 55-J alcança também as iniciativas empresariais de caráter incremental ou disruptivo que se autodeclarem startups ou empresas de inovação, e admite diferenciação inclusive quanto aos prazos.
+
+=== lx35-14
+bloco: lgpd-55
+gab: E
+tema: pd-anpd
+ref: lgpd 55-J
+trecho: a ANPD deve observar a exigência de mínima intervenção
+armadilha: conceito
+dif: 3
+enunciado: Ao impor limites, encargos ou sujeições ao tratamento de dados por agentes privados, a ANPD atua com ampla liberdade, sem parâmetro legal de contenção.
+comentario: Errado. Ao impor condicionantes administrativas a agentes privados, a ANPD deve observar a exigência de mínima intervenção, assegurados os fundamentos, os princípios e os direitos dos titulares (art. 55-J, § 1º).
+
+=== lx35-15
+bloco: lgpd-55
+gab: C
+tema: pd-anpd
+ref: lgpd 55-J
+trecho: garantir que o tratamento de dados de idosos seja efetuado de maneira simples, clara, acessível e adequada ao seu entendimento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um banco passou a explicar o uso dos dados aos clientes idosos com avisos longos e técnicos, em letra miúda. Assertiva: a prática contraria competência da ANPD de garantir que o tratamento de dados de idosos lhes seja compreensível.
+comentario: Certo. Pelo art. 55-J, XIX, a ANPD deve garantir que o tratamento de dados de idosos seja simples, claro, acessível e adequado ao seu entendimento, nos termos da LGPD e do Estatuto da Pessoa Idosa (Lei 10.741/2003).
+
+=== lx35-16
+bloco: lgpd-55
+gab: E
+tema: pd-anpd
+ref: lgpd 55-J
+trecho: comunicar aos órgãos de controle interno o descumprimento do disposto nesta Lei por órgãos e entidades da administração pública federal
+armadilha: sujeito
+dif: 3
+enunciado: A ANPD deve comunicar às autoridades competentes as infrações penais de que tiver conhecimento e, quanto ao descumprimento da LGPD por órgãos e entidades da administração pública federal, cabe-lhe comunicar o fato ao Ministério Público Federal.
+comentario: Errado. O inciso XXI do art. 55-J manda comunicar as infrações penais às autoridades competentes, mas o inciso XXII prevê que o descumprimento da LGPD por órgãos e entidades da administração federal seja comunicado aos órgãos de controle interno.

@@ -1,0 +1,193 @@
+bloco: res-2-2022
+// Resolução CD/ANPD nº 2/2022 (agentes de tratamento de pequeno porte), lote X5: definições, exclusões, alto risco,
+// registro simplificado, canal sem encarregado, política simplificada e prazos em dobro. Conferidas com fontes/res2.txt.
+
+=== lx5-01
+gab: C
+tema: an-pequeno-porte
+ref: res2 1
+trecho: não se aplica ao tratamento de dados pessoais realizado por pessoa natural para fins exclusivamente particulares e não econômicos
+armadilha: conceito
+dif: 2
+enunciado: O regulamento dos agentes de tratamento de pequeno porte foi editado com base na competência da ANPD para fixar normas simplificadas para micro e pequenas empresas e startups, e não se aplica ao tratamento por pessoa natural para fins particulares e não econômicos.
+comentario: Certo. Resolução 2/2022, art. 1º e parágrafo único, com base no art. 55-J, XVIII, da LGPD.
+
+=== lx5-03
+gab: C
+tema: an-pequeno-porte
+ref: res2 2
+trecho: praças, centros comerciais, vias públicas, estações de ônibus, de metrô e de trem, aeroportos
+armadilha: conceito
+dif: 3
+enunciado: Para a Resolução CD/ANPD 2/2022, a vigilância de zonas acessíveis ao público, como estações de metrô e centros comerciais, é critério específico de alto risco, que só caracteriza o tratamento como de alto risco se combinado com ao menos um critério geral.
+comentario: Certo. Res. 2/2022, art. 2º, IV (zonas acessíveis ao público) e art. 4º, II, b: o alto risco exige, cumulativamente, ao menos um critério geral (larga escala ou afetação significativa de direitos) e um específico.
+
+=== lx5-04
+gab: E
+tema: an-pequeno-porte
+ref: res2 3
+trecho: pertençam a grupo econômico de fato ou de direito, cuja receita global ultrapasse os limites
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: microempresa pertence a grupo econômico cuja receita global supera o limite legal, embora sua própria receita fique abaixo dele. Assertiva: ela pode usufruir do tratamento diferenciado, porque conta a receita individual.
+comentario: Errado. O art. 3º, III, da Resolução CD/ANPD 2/2022 exclui do tratamento diferenciado quem pertence a grupo econômico, de fato ou de direito, cuja receita global ultrapassa os limites.
+
+=== lx5-05
+gab: C
+tema: an-pequeno-porte
+ref: res2 4
+trecho: atender cumulativamente a pelo menos um critério geral e um critério específico
+armadilha: conceito
+dif: 2
+enunciado: Para a Resolução CD/ANPD 2/2022, o tratamento é de alto risco quando atende, cumulativamente, a pelo menos um critério geral e um critério específico.
+comentario: Certo. Art. 4º. Critérios gerais: larga escala ou possibilidade de afetar significativamente interesses e direitos fundamentais. Específicos: tecnologias emergentes, vigilância de zonas públicas, decisões automatizadas e dados sensíveis ou de crianças, adolescentes e idosos.
+
+=== lx5-06
+gab: E
+tema: an-pequeno-porte
+ref: res2 4
+trecho: atender cumulativamente a pelo menos um critério geral e um critério específico
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: pequena clínica trata dados de saúde de poucos pacientes, sem larga escala e sem possibilidade de afetar significativamente direitos fundamentais. Assertiva: por envolver dados sensíveis, o tratamento é, por si só, de alto risco para a Resolução CD/ANPD 2/2022.
+comentario: Errado. O dado sensível é critério específico, mas o alto risco exige também um critério geral (art. 4º). Sem larga escala nem impacto significativo sobre direitos, falta a combinação.
+
+=== lx5-07
+gab: C
+tema: an-pequeno-porte
+ref: res2 4
+trecho: decisões tomadas unicamente com base em tratamento automatizado de dados pessoais
+armadilha: rol
+dif: 2
+enunciado: Decisões tomadas unicamente com base em tratamento automatizado, inclusive para definir o perfil de crédito do titular, estão entre os critérios específicos de alto risco da Resolução CD/ANPD 2/2022.
+comentario: Certo. Art. 4º, II, c, da Resolução CD/ANPD 2/2022, que inclui perfis pessoal, profissional, de saúde, de consumo e de crédito.
+
+=== lx5-08
+gab: E
+tema: an-pequeno-porte
+ref: res2 4
+trecho: considerando-se, ainda, o volume de dados envolvidos, bem como a duração, a frequência e a extensão geográfica
+armadilha: conceito
+dif: 2
+enunciado: Para a Resolução CD/ANPD 2/2022, a larga escala caracteriza-se só pelo número de titulares, sem considerar o volume de dados, a duração ou a extensão geográfica do tratamento.
+comentario: Errado. O art. 4º, § 1º, considera o número significativo de titulares e também o volume de dados, a duração, a frequência e a extensão geográfica.
+
+=== lx5-09
+gab: C
+tema: an-pequeno-porte
+ref: res2 5
+trecho: quando solicitado pela ANPD, comprovar que se enquadra nas disposições do art. 2º e do art. 3º deste regulamento em até quinze dias
+armadilha: numero
+dif: 2
+enunciado: Quando solicitado pela ANPD, o agente de pequeno porte deve comprovar seu enquadramento em até quinze dias.
+comentario: Certo. Art. 5º da Resolução CD/ANPD 2/2022. O ônus de demonstrar o enquadramento é do próprio agente.
+
+=== lx5-10
+gab: E
+tema: an-pequeno-porte
+ref: res2 6
+trecho: não isenta os agentes de tratamento de pequeno porte do cumprimento dos demais dispositivos da LGPD, inclusive das bases legais e dos princípios
+armadilha: conceito
+dif: 2
+enunciado: A flexibilização dada aos agentes de pequeno porte libera-os de observar as bases legais e os princípios da LGPD.
+comentario: Errado. Pelo art. 6º da Resolução CD/ANPD 2/2022, a dispensa ou flexibilização não isenta do cumprimento dos demais dispositivos da LGPD, inclusive bases legais e princípios.
+
+=== lx5-11
+gab: C
+tema: an-pequeno-porte
+ref: res2 8
+trecho: inclusive àqueles que realizem tratamento de alto risco, organizarem-se por meio de entidades de representação
+armadilha: excecao
+dif: 3
+enunciado: Agentes de pequeno porte, inclusive os que realizam tratamento de alto risco, podem organizar-se em entidades de representação para negociar, mediar e conciliar reclamações de titulares.
+comentario: Certo. Art. 8º da Resolução CD/ANPD 2/2022. É a exceção ressalvada no art. 3º, I: o alto risco afasta o tratamento diferenciado, menos essa faculdade.
+
+=== lx5-12
+gab: C
+tema: an-pequeno-porte
+ref: res2 9
+trecho: podem cumprir a obrigação de elaboração e manutenção de registro das operações de tratamento de dados pessoais, constante do art. 37 da LGPD, de forma simplificada
+armadilha: conceito
+dif: 3
+enunciado: A possibilidade de manter o registro das operações de tratamento de forma simplificada, conforme modelo da ANPD, beneficia o agente de pequeno porte desde que ele não realize tratamento de alto risco nem ultrapasse os limites de receita fixados.
+comentario: Certo. Res. 2/2022, art. 9º (registro simplificado, que atende ao art. 37 da LGPD) e art. 3º (quem realiza tratamento de alto risco ou ultrapassa os limites de receita, inclusive pelo grupo econômico, não se beneficia do tratamento diferenciado).
+
+=== lx5-13
+gab: C
+tema: an-pequeno-porte
+ref: res2 14
+trecho: Aos agentes de tratamento de pequeno porte será concedido prazo em dobro
+armadilha: rol
+dif: 3
+enunciado: Ao agente de tratamento de pequeno porte concede-se prazo em dobro para atender às solicitações dos titulares, para comunicar à ANPD e ao titular incidente de segurança que possa acarretar risco ou dano relevante e para fornecer a declaração clara e completa do art. 19, II, da LGPD.
+comentario: Certo. Art. 14, I, II e III, da Resolução CD/ANPD 2/2022. O inciso IV dobra também os prazos para apresentar informações, documentos e relatórios solicitados pela ANPD.
+
+=== lx5-14
+gab: C
+tema: an-pequeno-porte
+ref: res2 11
+trecho: será considerada política de boas práticas e governança para fins do disposto no art. 52, § 1º, IX da LGPD
+armadilha: conceito
+dif: 3
+enunciado: A indicação voluntária de encarregado por agente de pequeno porte é considerada política de boas práticas e governança na dosimetria das sanções.
+comentario: Certo. Art. 11, § 2º, da Resolução CD/ANPD 2/2022, com remissão ao art. 52, § 1º, IX, da LGPD.
+
+=== lx5-15
+gab: E
+tema: an-pequeno-porte
+ref: res2 13
+trecho: podem estabelecer política simplificada de segurança da informação
+armadilha: conceito
+dif: 2
+enunciado: Os agentes de pequeno porte são obrigados a elaborar política simplificada de segurança da informação.
+comentario: Errado. O art. 13 da Resolução CD/ANPD 2/2022 diz que eles “podem” estabelecer a política simplificada. O que é obrigatório é adotar medidas de segurança essenciais e necessárias (art. 12).
+
+=== lx5-16
+gab: C
+tema: an-pequeno-porte
+ref: res2 13
+trecho: deve levar em consideração os custos de implementação, bem como a estrutura, a escala e o volume das operações
+armadilha: conceito
+dif: 2
+enunciado: A política simplificada de segurança da informação do agente de pequeno porte deve considerar os custos de implementação e a estrutura, a escala e o volume das operações.
+comentario: Certo. Art. 13, § 1º, da Resolução CD/ANPD 2/2022. A ANPD considera a existência da política na dosimetria (§ 2º).
+
+=== lx5-17
+gab: E
+tema: an-pequeno-porte
+ref: res2 14
+trecho: será concedido prazo em dobro
+armadilha: excecao
+dif: 3
+enunciado: Os agentes de pequeno porte têm prazo em dobro para atender às solicitações dos titulares e para fornecer a declaração clara e completa, mas não para comunicar incidente de segurança à ANPD, que segue o prazo comum.
+comentario: Errado. Res. 2/2022, art. 14: o prazo em dobro vale para as solicitações dos titulares (I), a comunicação de incidente à ANPD e ao titular (II, na redação da Res. 15/2024), a declaração clara e completa (III) e as informações pedidas pela ANPD (IV).
+
+=== lx5-19
+gab: E
+tema: an-pequeno-porte
+ref: res2 15
+trecho: podem fornecer a declaração simplificada de que trata o art. 19, I, da LGPD no prazo de até quinze dias
+armadilha: comparacao
+dif: 3
+enunciado: O agente de pequeno porte deve fornecer imediatamente a declaração simplificada de confirmação de existência ou de acesso, como os demais agentes.
+comentario: Errado. Pelo art. 15 da Resolução CD/ANPD 2/2022, o agente de pequeno porte pode fornecer a declaração simplificada em até quinze dias. Para os demais, ela é imediata (LGPD, art. 19, I).
+
+=== lx5-20
+gab: E
+tema: an-pequeno-porte
+ref: res2 16
+trecho: considerando as circunstâncias relevantes da situação, tais como a natureza ou o volume das operações, bem como os riscos para os titulares
+armadilha: extrapolacao
+dif: 3
+enunciado: A ANPD pode determinar ao agente de pequeno porte o cumprimento de obrigações dispensadas ou flexibilizadas, mas só depois de instaurar processo administrativo sancionador contra ele.
+comentario: Errado. O art. 16 permite à ANPD determinar o cumprimento das obrigações dispensadas ou flexibilizadas considerando as circunstâncias relevantes, como a natureza ou o volume das operações e os riscos para os titulares, sem condicionar a medida à abertura de processo sancionador.
+
+=== lx5-21
+gab: E
+tema: an-pequeno-porte
+ref: res2 3
+trecho: no caso de startups, no art. 4º, § 1º, I, da Lei Complementar nº 182, de 2021
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: startup cuja receita bruta supera o limite da Lei Complementar 182/2021 alega ser agente de pequeno porte. Assertiva: ela continua enquadrada e mantém o tratamento diferenciado.
+comentario: Errado. O art. 3º, II, da Resolução CD/ANPD 2/2022 exclui quem aufere receita bruta acima do limite da LC 123/2006 ou, para startups, da LC 182/2021.

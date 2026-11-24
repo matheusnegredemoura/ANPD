@@ -1,0 +1,197 @@
+bloco: ingles
+// Textos originais escritos para o banco, em inglês, oitava leva: corretores de dados, configurações protetivas por
+// padrão para crianças e transparência das decisões do regulador. Itens em inglês, como nas provas recentes da banca, com
+// foco no nível 3: hipótese tomada como fato, quantificadores, comparativos e a ideia que o texto recusa.
+
+apoio_EN11A: Most people have never heard of the companies that know the most about them. Data brokers buy information from apps, loyalty programmes and public records, combine it into detailed profiles and sell those profiles to advertisers, insurers and, increasingly, to anyone willing to pay. Because they rarely deal with consumers directly, they face little of the pressure that keeps better-known firms in check.
+Regulators have struggled to respond. Each piece of data may have been collected lawfully, with some form of consent buried in a privacy notice, yet the combined profile can reveal far more than any individual source: a person's health condition, religion or financial distress. The harm, in other words, often lies not in the collection but in the aggregation.
+Some lawmakers now propose registries that would require brokers to disclose who they are and allow people to opt out of all of them at once. Critics warn that such registries could themselves become a target for attackers. Supporters reply that the alternative, a market no one can see, is riskier still.
+apoio_EN11B: For years, online safety for children meant warning parents and asking teenagers to be careful. The new approach shifts the burden to the companies that design the services. Instead of expecting a twelve-year-old to navigate dozens of privacy settings, it requires that the most protective options be switched on by default.
+The idea draws on a simple observation: few users ever change default settings, and children are even less likely to do so. A feature that is off unless someone turns it on will reach only a small minority; a feature that is on unless someone turns it off will reach almost everyone. Design, in short, is policy by other means.
+Not everyone is convinced. Some developers argue that strict defaults make products less engaging and push young users towards services that ignore the rules. Regulators counter that engagement has often been the problem rather than the goal, and that a service unable to attract children without exploiting them should not be targeting them at all.
+apoio_EN11C: An independent regulator is only as credible as its decisions are understandable. When an authority publishes the reasoning behind a fine, explains which factors weighed most and shows how the amount was calculated, companies can predict how rules will be applied and adjust before problems arise. When it does not, even a correct decision may look arbitrary.
+Transparency also disciplines the regulator itself. Officials who know that their reasoning will be read by courts, journalists and the regulated industry tend to write more carefully and to treat similar cases alike. Secrecy, by contrast, makes inconsistency easier to hide.
+There is a cost, of course. Detailed explanations take time, and some information, such as trade secrets or details of ongoing investigations, cannot be disclosed. The challenge is not to choose between openness and confidentiality but to draw the line between them in a way that can itself be explained.
+
+=== en11-01
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN11A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: It can be inferred from the first paragraph that data brokers face little pressure from consumers because they seldom deal with them directly.
+comentario: Certo. O texto diz: “Because they rarely deal with consumers directly, they face little of the pressure that keeps better-known firms in check”. “Because” marca a causa; “keep in check” é manter sob controle.
+
+=== en11-02
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN11A
+armadilha: interpretacao
+dif: 3
+enunciado: According to the text, the main problem with data brokers is that the information they sell has been collected unlawfully.
+comentario: Errado. O texto admite que cada dado pode ter sido coletado de forma lícita (“may have been collected lawfully”) e conclui que o dano “lies not in the collection but in the aggregation”: está na combinação dos dados, que revela mais do que cada fonte isolada.
+
+=== en11-03
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN11A
+armadilha: interpretacao
+dif: 3
+enunciado: In the last sentence, “riskier still” means even riskier, and “the alternative” refers to a data broker market that no one can see.
+comentario: Certo. “Still” depois do comparativo intensifica (“riskier still” = ainda mais arriscado). E o aposto explica a alternativa ao registro: “a market no one can see”. Para os defensores, o risco do registro é menor que o de um mercado invisível.
+
+=== en11-04
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN11A
+armadilha: interpretacao
+dif: 3
+enunciado: In the last paragraph, “opt out of all of them at once” indicates that people could choose, one by one, which brokers would be allowed to sell their data.
+comentario: Errado. “Opt out” é recusar, sair; “all of them at once” é de todos de uma vez. A proposta é permitir a saída de todos os corretores num único ato, e não a escolha individual de quais podem vender os dados.
+
+=== en11-05
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN11A
+armadilha: causalidade
+dif: 2
+enunciado: According to the text, critics of the registries oppose them because disclosing the brokers' identities would breach trade secrets.
+comentario: Errado. Os críticos alertam que os próprios registros poderiam virar alvo de ataques (“could themselves become a target for attackers”). Segredo comercial não é mencionado; o item atribui aos críticos um motivo que o texto não dá.
+
+=== en11-06
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN11A
+armadilha: interpretacao
+dif: 3
+enunciado: According to the text, a profile built from several sources may reveal sensitive information, such as a health condition or religion, that no single source would show on its own.
+comentario: Certo. O texto diz que “the combined profile can reveal far more than any individual source: a person's health condition, religion or financial distress”. É o argumento da agregação: o todo revela mais que a soma das partes.
+
+=== en11-07
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN11B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the text, the new approach to children's online safety shifts the main burden of protection from families and young people to companies.
+comentario: Certo. Antes, segurança era alertar os pais e pedir cuidado aos adolescentes; agora, “The new approach shifts the burden to the companies that design the services”. “Shift the burden” é transferir o ônus.
+
+=== en11-08
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN11B
+armadilha: comparacao
+dif: 3
+enunciado: In the second paragraph, the author states that children change default settings more often than other users do.
+comentario: Errado. O texto diz que poucos usuários mudam as configurações padrão e que as crianças “are even less likely to do so”: são ainda menos propensas a mudá-las. O comparativo foi invertido.
+
+=== en11-09
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN11B
+armadilha: interpretacao
+dif: 3
+enunciado: The sentence “Design, in short, is policy by other means” suggests that design choices have effects comparable to those of a rule, since they determine what most users will actually get.
+comentario: Certo. O parágrafo mostra que a configuração padrão decide o alcance de um recurso: ligado por padrão, chega a quase todos; desligado, a poucos. Daí a conclusão (“in short”): o design faz política por outros meios, como uma regra faria.
+
+=== en11-10
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN11B
+armadilha: extrapolacao
+dif: 3
+enunciado: In the last paragraph, regulators agree that strict defaults make products less engaging, but they consider this effect acceptable.
+comentario: Errado. Os reguladores não concedem o argumento dos desenvolvedores: respondem (“counter”) que o engajamento muitas vezes foi o problema, e não o objetivo. O texto não registra concordância sobre a perda de atratividade; o item a acrescenta.
+
+=== en11-11
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN11B
+armadilha: interpretacao
+dif: 3
+enunciado: It can be inferred from the last sentence that, for regulators, a service that can attract children only by exploiting them should not be aimed at them.
+comentario: Certo. É o que diz o fim do texto: “a service unable to attract children without exploiting them should not be targeting them at all”. “Unable to ... without” equivale a só conseguir atrair explorando.
+
+=== en11-12
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN11B
+armadilha: interpretacao
+dif: 2
+enunciado: In the first paragraph, “switched on by default” indicates that the most protective options should be made available so that users can decide whether to activate them.
+comentario: Errado. “Switched on by default” é ligado por padrão: as opções protetivas já vêm ativadas, e quem quiser deve desligá-las. O item descreve o contrário (desligado até alguém ligar), justamente o que o texto quer evitar.
+
+=== en11-13
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN11C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: According to the first paragraph, a correct decision by a regulator cannot look arbitrary, even if its reasoning is not published.
+comentario: Errado. O texto diz o contrário: quando a autoridade não explica o raciocínio, “even a correct decision may look arbitrary”. Estar certa não basta; a decisão precisa ser compreensível.
+
+=== en11-14
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN11C
+armadilha: interpretacao
+dif: 2
+enunciado: It can be inferred from the second paragraph that transparency tends to make the regulator's own decisions in similar cases more consistent.
+comentario: Certo. O texto diz que os servidores que sabem que serão lidos por tribunais, jornalistas e regulados “tend to write more carefully and to treat similar cases alike”. Tratar casos semelhantes de forma igual é coerência.
+
+=== en11-15
+gab: C
+tema: en-gramatica
+ref: texto
+apoio: @EN11C
+armadilha: interpretacao
+dif: 2
+enunciado: In the second paragraph, “by contrast” introduces an opposition between the effects of transparency and those of secrecy.
+comentario: Certo. Depois de mostrar que a transparência disciplina o regulador, o texto opõe a ela o sigilo, que “makes inconsistency easier to hide”. “By contrast” equivale a em contrapartida, por outro lado.
+
+=== en11-16
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN11C
+armadilha: interpretacao
+dif: 3
+enunciado: For the author, the challenge facing regulators is to choose between transparency and confidentiality, giving priority to one of them.
+comentario: Errado. O texto recusa essa escolha: “The challenge is not to choose between openness and confidentiality but to draw the line between them”. A estrutura “not ... but” nega a primeira ideia e afirma a segunda.
+
+=== en11-17
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN11C
+armadilha: interpretacao
+dif: 3
+enunciado: In the last sentence, “in a way that can itself be explained” indicates that the very criterion used to separate what is disclosed from what is kept confidential must be justifiable.
+comentario: Certo. “Itself” refere-se à maneira de traçar a linha entre abertura e sigilo: também ela deve ser explicável. O texto aplica ao limite da transparência a mesma exigência de explicação que faz às decisões.
+
+=== en11-18
+gab: E
+tema: en-gramatica
+ref: texto
+apoio: @EN11C
+armadilha: comparacao
+dif: 3
+enunciado: In the first sentence, “only as credible as its decisions are understandable” means that a regulator's credibility depends on whether its decisions are correct, whether or not they are understood.
+comentario: Errado. A comparação de igualdade (“as ... as”) liga a credibilidade do regulador à compreensibilidade de suas decisões: ele só é tão crível quanto suas decisões são compreensíveis. O parágrafo confirma: sem explicação, até a decisão correta pode parecer arbitrária.

@@ -1,0 +1,461 @@
+bloco: administrativo
+// Trilha de direito administrativo, recorte ANPD: agentes públicos (Lei 8.112), ética e conflito de interesses
+// (Lei 12.813 e Decreto 1.171), serviços públicos e direitos do usuário (CF, art. 175, e Lei 13.460) e licitações
+// (Lei 14.133, peso baixo). Itens escritos para o banco no padrão Cebraspe. Trechos conferidos em fontes/lei8112.txt,
+// lei12813.txt, dec1171.txt, lei13460.txt e cf88.txt. As Leis 8.987/1995 e 14.133/2021 não estão anexadas ao app:
+// nesses itens, o comentário pede para conferir na lei.
+
+apoio_POSSE: Joana foi aprovada no concurso para o cargo de Especialista em Regulação de Proteção de Dados. O ato de nomeação foi publicado no Diário Oficial da União em 2 de março.
+
+=== da-age-01
+gab: C
+tema: adm-agentes
+ref: lei8112 13, § 6º
+trecho: Será tornado sem efeito o ato de provimento se a posse não ocorrer no prazo previsto
+apoio: @POSSE
+comando: Com base nessa situação hipotética e na Lei n.º 8.112/1990, julgue os itens a seguir.
+armadilha: caso
+dif: 3
+enunciado: Se Joana não tomar posse no prazo legal, o ato de nomeação será tornado sem efeito; se tomar posse e não entrar em exercício no prazo, será exonerada.
+comentario: Certo. Sem posse no prazo, o ato de provimento é tornado sem efeito (art. 13, § 6º). Empossada e sem exercício no prazo, é exonerada de ofício (arts. 15, § 2º, e 34, parágrafo único, II).
+
+=== da-age-02
+gab: C
+tema: adm-agentes
+ref: lei8112 15, § 1º
+trecho: É de quinze dias o prazo para o servidor empossado em cargo público entrar em exercício, contados da data da posse
+apoio: @POSSE
+comando: Com base nessa situação hipotética e na Lei n.º 8.112/1990, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: O prazo de Joana para entrar em exercício será contado da data da posse, e não da publicação do ato de nomeação.
+comentario: Certo. Art. 15, § 1º: o prazo de exercício corre da posse; o da posse é que corre da publicação do ato de provimento (art. 13, § 1º).
+
+=== da-age-03
+gab: E
+tema: adm-agentes
+ref: lei8112 13, § 6º
+trecho: Será tornado sem efeito o ato de provimento se a posse não ocorrer no prazo previsto no § 1o deste artigo
+apoio: @POSSE
+comando: Com base nessa situação hipotética e na Lei n.º 8.112/1990, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: Se Joana não tomar posse no prazo legal, será exonerada do cargo.
+comentario: Sem posse, Joana nunca chegou a ser servidora; por isso o ato de provimento é tornado sem efeito (art. 13, § 6º). Exoneração é para quem tomou posse e não entrou em exercício no prazo (art. 15, § 2º). Diferença sutil e cobrada.
+
+=== da-age-04
+gab: C
+tema: adm-agentes
+ref: lei8112 13, § 3º
+trecho: A posse poderá dar-se mediante procuração específica
+apoio: @POSSE
+comando: Com base nessa situação hipotética e na Lei n.º 8.112/1990, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Se estiver impossibilitada de comparecer, Joana poderá tomar posse mediante procuração específica.
+comentario: Art. 13, § 3º. No ato da posse, ela apresentará declaração de bens e valores e declaração sobre o exercício de outro cargo, emprego ou função pública (§ 5º).
+
+=== da-age-05
+gab: C
+tema: adm-agentes
+ref: lei8112 13, § 4º
+trecho: Só haverá posse nos casos de provimento de cargo por nomeação
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: servidor foi reintegrado ao cargo por decisão administrativa. Assertiva: não há nova posse, pois só há posse no provimento de cargo por nomeação.
+comentario: Art. 13, § 4º. Nas demais formas de provimento (promoção, readaptação, reversão, aproveitamento, reintegração, recondução), o servidor já tem vínculo e não toma posse de novo.
+
+=== da-age-06
+gab: E
+tema: adm-agentes
+ref: lei8112 20, § 3º
+trecho: O servidor em estágio probatório poderá exercer quaisquer cargos de provimento em comissão ou funções de direção, chefia ou assessoramento no órgão ou entidade de lotação
+armadilha: extrapolacao
+dif: 2
+enunciado: O servidor nomeado para cargo efetivo fica sujeito a estágio probatório, durante o qual sua aptidão é avaliada, e, nesse período, não pode exercer cargo de provimento em comissão nem função de direção, chefia ou assessoramento.
+comentario: Pode, no órgão ou entidade de lotação (art. 20, § 3º). A restrição é para a cessão a outro órgão, permitida só para cargos de Natureza Especial ou de alto nível de direção e assessoramento.
+
+=== da-age-07
+gab: C
+tema: adm-agentes
+ref: lei8112 131
+trecho: As penalidades de advertência e de suspensão terão seus registros cancelados, após o decurso de 3 (três) e 5 (cinco) anos de efetivo exercício, respectivamente
+armadilha: numero
+dif: 2
+enunciado: O registro da penalidade de advertência é cancelado após três anos de efetivo exercício, se o servidor não praticar nova infração disciplinar nesse período.
+comentario: Art. 131 da Lei 8.112/1990: três anos para a advertência e cinco para a suspensão. O cancelamento não surte efeitos retroativos (parágrafo único).
+
+=== da-age-08
+gab: E
+tema: adm-agentes
+ref: lei8112 145, II
+trecho: aplicação de penalidade de advertência ou suspensão de até 30 (trinta) dias
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: concluída sindicância, a autoridade aplicou ao servidor suspensão de quarenta e cinco dias, sem instaurar processo disciplinar. Assertiva: a penalidade é cabível como resultado da sindicância.
+comentario: A sindicância pode resultar em arquivamento, advertência ou suspensão de até trinta dias, ou na instauração de PAD (art. 145). Suspensão maior, até noventa dias, exige PAD.
+
+=== da-age-09
+gab: C
+tema: adm-agentes
+ref: lei8112 147
+trecho: poderá determinar o seu afastamento do exercício do cargo, pelo prazo de até 60 (sessenta) dias, sem prejuízo da remuneração
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: para evitar que servidor influísse na apuração, a autoridade instauradora do processo disciplinar o afastou do cargo por sessenta dias, mantida a remuneração. Assertiva: a medida é admitida pela Lei nº 8.112/1990.
+comentario: Art. 147. O afastamento é cautelar, não punição: por isso a remuneração continua. Pode ser prorrogado por igual prazo, e depois cessa mesmo que o processo não tenha terminado (parágrafo único).
+
+=== da-age-10
+gab: E
+tema: adm-agentes
+ref: lei8112 149
+trecho: O processo disciplinar será conduzido por comissão composta de três servidores estáveis
+armadilha: sujeito
+dif: 2
+enunciado: Na Lei n.º 8.112/1990, o processo disciplinar é conduzido por comissão de três servidores designados pela autoridade competente, que pode ser integrada por servidores em estágio probatório, desde que ocupantes de cargo efetivo.
+comentario: O art. 149 exige três servidores estáveis. Servidor em estágio probatório ainda não é estável. O presidente deve ter cargo efetivo superior ou de mesmo nível, ou escolaridade igual ou superior à do indiciado.
+
+=== da-age-11
+gab: E
+tema: adm-agentes
+ref: lei8112 142, § 1º
+trecho: O prazo de prescrição começa a correr da data em que o fato se tornou conhecido
+armadilha: numero
+dif: 3
+enunciado: Situação hipotética: infração disciplinar praticada em 2018 só se tornou conhecida da administração em 2022. Assertiva: o prazo de prescrição da ação disciplinar começou a correr em 2018.
+comentario: Conta-se da data em que o fato se tornou conhecido (art. 142, § 1º). Infração escondida por anos não prescreve enquanto a Administração não souber dela.
+
+=== da-age-12
+gab: C
+tema: adm-agentes
+ref: lei8112 142, § 3º
+trecho: A abertura de sindicância ou a instauração de processo disciplinar interrompe a prescrição, até a decisão final proferida por autoridade competente
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a administração instaurou processo disciplinar contra servidor pouco antes de consumada a prescrição. Assertiva: pela letra da Lei nº 8.112/1990, a instauração interrompe a prescrição até a decisão final da autoridade competente.
+comentario: Certo. Art. 142, § 3º; cessada a interrupção, o prazo recomeça a correr por inteiro (§ 4º). Atenção à jurisprudência: pela Súmula 635 do STJ, a interrupção não dura até a decisão final, e o prazo volta a correr por inteiro depois de 140 dias da instauração, que é o prazo legal do PAD. Por isso o item fala em letra da lei.
+
+=== da-age-13
+gab: C
+tema: adm-agentes
+ref: lei8112 117, XI
+trecho: atuar, como procurador ou intermediário, junto a repartições públicas, salvo quando se tratar de benefícios previdenciários ou assistenciais de parentes até o segundo grau, e de cônjuge ou companheiro
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: servidor público federal atuou como procurador da mãe junto ao INSS para pedir benefício previdenciário. Assertiva: a conduta é admitida pela Lei nº 8.112/1990.
+comentario: Art. 117, XI, com a exceção no lugar certo. A Lei 12.813 vai além para o Executivo federal: atuar, ainda que informalmente, como intermediário de interesses privados em qualquer órgão configura conflito de interesses (art. 5º, IV).
+
+=== da-age-14
+gab: C
+tema: adm-agentes
+ref: lei8112 117, VIII
+trecho: manter sob sua chefia imediata, em cargo ou função de confiança, cônjuge, companheiro ou parente até o segundo grau civil
+armadilha: numero
+dif: 3
+enunciado: Pela Lei nº 8.112/1990, o servidor não pode ter como subordinado imediato, em cargo ou função de confiança, seu cônjuge, companheiro ou parente até o segundo grau civil.
+comentario: Art. 117, VIII, da Lei 8.112/1990. A Súmula Vinculante 13 vai além, até o terceiro grau, e alcança a nomeação em qualquer dos Poderes.
+
+=== da-age-15
+gab: C
+tema: adm-agentes
+ref: lei8112 117, X
+trecho: exceto na qualidade de acionista, cotista ou comanditário
+armadilha: excecao
+dif: 2
+enunciado: Segundo a Lei n.º 8.112/1990, o servidor pode ser cotista de sociedade empresária, desde que não participe de sua gerência ou administração.
+comentario: O art. 117, X, proíbe gerir ou administrar sociedade privada e exercer o comércio, mas ressalva a condição de acionista, cotista ou comanditário. Para o servidor da ANPD, atenção extra: participar de empresa regulada pode configurar conflito de interesses (Lei 12.813).
+
+=== da-age-16
+gab: C
+tema: adm-agentes
+ref: lei8112 132, XII
+trecho: acumulação ilegal de cargos, empregos ou funções públicas
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: apurou-se em processo disciplinar que servidor acumulava ilegalmente cargos públicos. Assertiva: a infração está entre as hipóteses de demissão previstas na Lei nº 8.112/1990.
+comentario: Art. 132, XII. Antes da demissão, porém, o servidor é notificado para optar por um dos cargos; a opção até o último dia de prazo para defesa caracteriza boa-fé e converte a situação em exoneração do outro cargo (art. 133).
+
+=== da-eti-01
+gab: C
+tema: adm-etica
+ref: lei12813 3, I
+trecho: conflito de interesses: a situação gerada pelo confronto entre interesses públicos e privados, que possa comprometer o interesse coletivo ou influenciar, de maneira imprópria, o desempenho da função pública
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: servidor responsável por fiscalizar empresa recebeu dela proposta de emprego durante a fiscalização. Assertiva: há confronto entre interesse público e privado capaz de influenciar de forma imprópria o desempenho da função, o que caracteriza conflito de interesses.
+comentario: Certo. É a definição do art. 3º, I, da Lei 12.813/2013, que fala em situação que “possa” comprometer o interesse coletivo ou influenciar o desempenho da função: basta o risco, sem dano nem vantagem (art. 4º, § 2º).
+
+=== da-eti-02
+gab: E
+tema: adm-etica
+ref: lei12813 3, II
+trecho: que não seja de amplo conhecimento público
+armadilha: conceito
+dif: 2
+enunciado: Para a Lei de Conflito de Interesses, informação privilegiada é a que diz respeito a assunto sigiloso ou relevante ao processo de decisão no Poder Executivo federal e que seja de amplo conhecimento público, com repercussão econômica ou financeira.
+comentario: É justamente a que não é de amplo conhecimento público: assunto sigiloso ou relevante para o processo decisório do Executivo federal, com repercussão econômica ou financeira (art. 3º, II). Uma minuta de resolução da ANPD ainda não publicada, por exemplo.
+
+=== da-eti-03
+gab: C
+tema: adm-etica
+ref: lei12813 6, II
+trecho: no período de 6 (seis) meses, contado da data da dispensa, exoneração, destituição, demissão ou aposentadoria
+armadilha: numero
+dif: 2
+enunciado: Após deixar o cargo no Poder Executivo federal, o agente público fica impedido, por seis meses, de prestar serviço a pessoa jurídica com quem tenha estabelecido relacionamento relevante em razão do cargo, salvo autorização expressa.
+comentario: Art. 6º, II, “a”, da Lei 12.813/2013. A autorização é da Comissão de Ética Pública ou da CGU, conforme o caso, e os seis meses contam da dispensa, exoneração, destituição, demissão ou aposentadoria.
+
+=== da-eti-04
+gab: E
+tema: adm-etica
+ref: lei12813 6, II
+trecho: salvo quando expressamente autorizado, conforme o caso, pela Comissão de Ética Pública ou pela Controladoria-Geral da União
+armadilha: sujeito
+dif: 2
+enunciado: As restrições dos seis meses seguintes à saída do cargo podem ser afastadas por autorização expressa do Tribunal de Contas da União ou da Controladoria-Geral da União, conforme o caso.
+comentario: Errado no sujeito. A autorização é da Comissão de Ética Pública ou da CGU, conforme o caso (art. 6º, II, da Lei 12.813/2013).
+
+=== da-eti-05
+gab: E
+tema: adm-etica
+ref: lei12813 5, VI
+trecho: receber presente de quem tenha interesse em decisão do agente público ou de colegiado do qual este participe fora dos limites e condições estabelecidos em regulamento
+armadilha: absoluto
+dif: 2
+enunciado: Situação hipotética: servidor de agência reguladora recebeu de empresa regulada um brinde sem valor comercial, distribuído a título de divulgação. Assertiva: há conflito de interesses, pois é vedado receber presente de qualquer valor de quem tenha interesse em decisão do agente.
+comentario: Errado. O art. 5º, VI, veda receber presente de quem tenha interesse em decisão do agente “fora dos limites e condições estabelecidos em regulamento”, e o regulamento admite, por exemplo, brindes de baixo valor e distribuição generalizada. Proibir presente “de qualquer valor” derruba o item.
+
+=== da-eti-06
+gab: C
+tema: adm-etica
+ref: lei12813 5, parágrafo único
+trecho: aplicam-se aos ocupantes dos cargos ou empregos mencionados no art. 2º ainda que em gozo de licença ou em período de afastamento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: agente público em licença passou a prestar consultoria a empresa que atua na área de competência de seu cargo. Assertiva: estar licenciado não afasta o conflito de interesses.
+comentario: Parágrafo único do art. 5º. Licença para tratar de interesses particulares não libera o servidor da ANPD para prestar consultoria a empresa regulada.
+
+=== da-eti-07
+gab: C
+tema: adm-etica
+ref: lei12813 5, IV
+trecho: atuar, ainda que informalmente, como procurador, consultor, assessor ou intermediário de interesses privados nos órgãos ou entidades da administração pública direta ou indireta de qualquer dos Poderes da União, dos Estados, do Distrito Federal e dos Municípios
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: servidor do Executivo federal passou a intermediar, informalmente e sem procuração, interesses de empresa privada em secretaria estadual. Assertiva: a conduta configura conflito de interesses.
+comentario: Art. 5º, IV. O alcance é amplo: qualquer Poder, qualquer ente, mesmo informalmente. É mais rigoroso que a proibição do art. 117, XI, da Lei 8.112, que tem exceções familiares.
+
+=== da-eti-08
+gab: C
+tema: adm-etica
+ref: dec1171 VI
+trecho: poderão acrescer ou diminuir o seu bom conceito na vida funcional
+armadilha: conceito
+dif: 3
+enunciado: Para o Código de Ética do servidor federal, a função pública integra-se à vida particular do servidor, de modo que fatos de sua vida privada podem tanto acrescer quanto diminuir seu bom conceito na vida funcional.
+comentario: Certo. Decreto 1.171/1994, anexo, regra deontológica VI.
+
+=== da-eti-09
+gab: C
+tema: adm-etica
+ref: dec1171 III
+trecho: A moralidade da Administração Pública não se limita à distinção entre o bem e o mal, devendo ser acrescida da idéia de que o fim é sempre o bem comum
+armadilha: conceito
+dif: 2
+enunciado: Para o Código de Ética do servidor federal, a moralidade administrativa não se esgota em distinguir o bem do mal: exige ter o bem comum como fim e equilibrar legalidade e finalidade na conduta do servidor.
+comentario: Certo. Item III. É esse equilíbrio que consolida a moralidade do ato administrativo.
+
+=== da-eti-10
+gab: C
+tema: adm-etica
+ref: dec1171 II
+trecho: não terá que decidir somente entre o legal e o ilegal, o justo e o injusto, o conveniente e o inconveniente, o oportuno e o inoportuno, mas principalmente entre o honesto e o desonesto
+armadilha: causalidade
+dif: 2
+enunciado: Segundo o Código de Ética do servidor do Executivo federal, não basta ao servidor decidir entre o legal e o ilegal, pois deve decidir, principalmente, entre o honesto e o desonesto.
+comentario: Item II do Decreto 1.171/1994. Legalidade não esgota a ética; é a mesma ideia da moralidade como princípio autônomo.
+
+=== da-ser-01
+gab: C
+tema: adm-servicos
+ref: cf88 175
+trecho: diretamente ou sob regime de concessão ou permissão, sempre através de licitação
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: município pretende delegar serviço de transporte por permissão, vínculo de natureza precária. Assertiva: a precariedade da permissão não dispensa a realização de licitação para a escolha do permissionário.
+comentario: Art. 175 da Constituição: concessão e permissão, “sempre através de licitação”. A precariedade diz respeito à possibilidade de revogação, não à forma de escolha do permissionário.
+
+=== da-ser-02
+gab: E
+tema: adm-servicos
+ref: lei8987 2, II
+trecho: a pessoa jurídica ou consórcio de empresas que demonstre capacidade para seu desempenho, por sua conta e risco e por prazo determinado
+armadilha: sujeito
+dif: 2
+enunciado: A concessão de serviço público é a delegação de sua prestação, feita pelo poder concedente mediante licitação, na modalidade concorrência ou diálogo competitivo, e pode ser outorgada a pessoa física que demonstre capacidade para o seu desempenho.
+comentario: Concessão é delegação a pessoa jurídica ou consórcio de empresas (Lei 8.987, art. 2º, II). Pessoa física só pode ser permissionária (art. 2º, IV).
+
+=== da-ser-03
+gab: C
+tema: adm-servicos
+ref: lei8987 2, IV
+trecho: a delegação, a título precário, mediante licitação, da prestação de serviços públicos, feita pelo poder concedente à pessoa física ou jurídica que demonstre capacidade para seu desempenho, por sua conta e risco
+armadilha: comparacao
+dif: 2
+enunciado: A permissão de serviço público distingue-se da concessão, entre outros pontos, por ser delegação a título precário que admite pessoa física como permissionária.
+comentario: Definição da Lei 8.987, art. 2º, IV, formalizada por contrato de adesão (art. 40). Compare: concessão vai a pessoa jurídica ou consórcio, por prazo determinado.
+
+=== da-ser-04
+gab: E
+tema: adm-servicos
+ref: lei8987 37
+trecho: Considera-se encampação a retomada do serviço pelo poder concedente durante o prazo da concessão, por motivo de interesse público
+armadilha: comparacao
+dif: 3
+enunciado: Situação hipotética: no curso do contrato, o poder concedente retomou o serviço por motivo de interesse público, com lei autorizativa específica e prévio pagamento de indenização. Assertiva: o caso é de caducidade.
+comentario: Errado. Retomar o serviço por interesse público, com lei autorizativa específica e indenização prévia, é encampação (Lei 8.987/1995, art. 37). Caducidade é a extinção por inexecução total ou parcial do contrato pela concessionária (art. 38), declarada por decreto, após processo administrativo com ampla defesa. Encampação: culpa de ninguém, interesse público. Caducidade: culpa da concessionária.
+
+=== da-ser-05
+gab: C
+tema: adm-servicos
+ref: lei8987 6, § 4º
+trecho: não poderá iniciar-se na sexta-feira, no sábado ou no domingo, nem em feriado ou no dia anterior a feriado
+armadilha: excecao
+dif: 3
+enunciado: A interrupção do serviço por inadimplemento do usuário, feita após aviso prévio, não caracteriza descontinuidade, mas não pode começar em sexta-feira, sábado, domingo, feriado ou véspera de feriado.
+comentario: Certo. Art. 6º, § 3º, II, e § 4º, da Lei 8.987/1995; a restrição de dias foi incluída pela Lei 14.015/2020.
+
+=== da-ser-06
+gab: E
+tema: adm-servicos
+ref: lei8987 6, § 3º
+trecho: por inadimplemento do usuário, considerado o interesse da coletividade
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: concessionária de energia elétrica, após aviso prévio, interrompeu o fornecimento a usuário residencial inadimplente havia três meses. Assertiva: a interrupção é ilegal, porque o princípio da continuidade veda a interrupção do serviço público por inadimplemento do usuário.
+comentario: A Lei 8.987 (art. 6º, § 3º, II) diz que não caracteriza descontinuidade a interrupção, após aviso prévio, por inadimplemento do usuário, considerado o interesse da coletividade. A Lei 13.460 só proíbe que o corte comece na sexta-feira, no fim de semana, em feriado ou na véspera de feriado. Lei 8.
+
+=== da-ser-07
+bloco: lei-13460
+gab: C
+tema: adm-servicos
+ref: lei13460 6, parágrafo único
+trecho: É vedada a suspensão da prestação de serviço em virtude de inadimplemento por parte do usuário que se inicie na sexta-feira, no sábado ou no domingo, bem como em feriado ou no dia anterior a feriado
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: concessionária de água comunicou ao usuário inadimplente, em horário comercial, o desligamento e o dia a partir do qual ele ocorreria, uma terça-feira, sem feriado no dia seguinte. Assertiva: quanto à comunicação prévia e ao dia de início, a suspensão observa a Lei 13.460/2017.
+comentario: Certo. A comunicação prévia deve informar o desligamento e o dia a partir do qual ele será feito, em horário comercial (art. 5º, XVI), e a suspensão não pode iniciar-se na sexta-feira, no sábado, no domingo, em feriado ou na véspera de feriado (art. 6º, parágrafo único). A terça-feira sem feriado no dia seguinte não esbarra em nenhuma dessas vedações.
+
+=== da-ser-08
+bloco: lei-13460
+gab: C
+tema: adm-servicos
+ref: lei13460 7, § 3º, II
+trecho: previsão de tempo de espera para atendimento
+armadilha: conceito
+dif: 2
+enunciado: A Carta de Serviços ao Usuário deve informar, para cada serviço, a previsão do prazo máximo de prestação e, entre os padrões de qualidade do atendimento, a previsão de tempo de espera.
+comentario: Certo. Art. 7º, § 2º, IV, e § 3º, II, da Lei 13.460/2017. A Carta é atualizada periodicamente e publicada no sítio do órgão (§ 4º).
+
+=== da-ser-09
+bloco: lei-13460
+gab: E
+tema: adm-servicos
+ref: lei13460 7, § 2º, VI
+trecho: locais e formas para o usuário apresentar eventual manifestação sobre a prestação do serviço
+armadilha: rol
+dif: 2
+enunciado: A Carta de Serviços ao Usuário deve conter os requisitos e documentos para acessar cada serviço e as principais etapas de seu processamento, mas a indicação dos locais para o usuário apresentar manifestação fica a critério do órgão.
+comentario: Errado. Os locais e formas de manifestação são conteúdo mínimo da Carta (art. 7º, § 2º, VI), ao lado dos requisitos e das etapas.
+
+=== da-ser-10
+bloco: lei-13460
+gab: C
+tema: adm-servicos
+ref: lei13460 6, IV
+trecho: proteção de suas informações pessoais, nos termos da Lei nº 12.527, de 18 de novembro de 2011
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: servidor de órgão público divulgou a terceiros dados pessoais de usuário obtidos no atendimento. Assertiva: a conduta viola direito básico do usuário, o de ter suas informações pessoais protegidas nos termos da Lei de Acesso à Informação.
+comentario: Art. 6º, IV, da Lei 13.460. O inciso III garante ainda o acesso às informações relativas à própria pessoa em registros e bancos de dados. Hoje a LGPD reforça esses direitos (art. 18).
+
+=== da-ser-11
+bloco: lei-13460
+gab: C
+tema: adm-servicos
+ref: lei13460 6, III
+trecho: acesso e obtenção de informações relativas à sua pessoa constantes de registros ou bancos de dados
+armadilha: conceito
+dif: 3
+enunciado: O direito básico do usuário de acessar informações sobre si constantes de registros ou bancos de dados não é absoluto na Lei 13.460/2017, que manda observar, no seu exercício, a proteção constitucional da intimidade e da vida privada e a Lei de Acesso à Informação.
+comentario: Certo. O art. 6º, III, assegura o acesso e a obtenção de informações relativas à pessoa do usuário, observado o art. 5º, X, da Constituição (intimidade, vida privada, honra e imagem) e a Lei 12.527/2011. O inciso IV garante, por sua vez, a proteção dessas informações pessoais.
+
+=== da-ser-12
+gab: C
+tema: adm-servicos
+ref: lei8987 2, IV
+trecho: feita pelo poder concedente à pessoa física ou jurídica que demonstre capacidade para seu desempenho
+armadilha: comparacao
+dif: 3
+enunciado: Ao contrário da concessão, que só pode ser outorgada a pessoa jurídica ou consórcio de empresas, a permissão de serviço público pode ter pessoa física como delegatária.
+comentario: Certo. Art. 2º, II e IV, da Lei 8.987/1995. A permissão é delegação a título precário.
+
+=== da-lic-01
+gab: E
+tema: adm-licitacoes
+ref: lei14133 28
+trecho: É vedada a criação de outras modalidades de licitação
+armadilha: revogado
+dif: 2
+enunciado: Situação hipotética: órgão federal abriu, em 2025, licitação na modalidade convite com base na Lei nº 14.133/2021. Assertiva: a modalidade é prevista nessa lei.
+comentario: As modalidades da Lei 14.133 são pregão, concorrência, concurso, leilão e diálogo competitivo (art. 28). Tomada de preços e convite eram da Lei 8.666/1993 e não existem mais.
+
+=== da-lic-02
+gab: C
+tema: adm-licitacoes
+ref: lei14133 6, XLII
+trecho: a Administração Pública realiza diálogos com licitantes previamente selecionados mediante critérios objetivos, com o intuito de desenvolver uma ou mais alternativas capazes de atender às suas necessidades
+armadilha: conceito
+dif: 2
+enunciado: No diálogo competitivo, a administração conversa com licitantes escolhidos antes por critérios objetivos para chegar a soluções para sua necessidade, e as propostas finais só vêm depois de encerrados os diálogos.
+comentario: Certo. Lei 14.133/2021, art. 6º, XLII, e art. 32. Serve a contratações em que a administração não consegue definir sozinha a solução.
+
+=== da-lic-03
+gab: E
+tema: adm-licitacoes
+ref: lei14133 74
+trecho: É inexigível a licitação quando inviável a competição, em especial nos casos de
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: órgão contratou diretamente, por inexigibilidade, serviço em situação de inviabilidade de competição não listada nos incisos do art. 74 da Lei nº 14.133/2021. Assertiva: a contratação é ilegal, pois o rol de inexigibilidade é taxativo.
+comentario: A inexigibilidade decorre da inviabilidade de competição, e o art. 74 usa “em especial”: o rol é exemplificativo. Taxativo é o rol de dispensa (art. 75), em que a competição seria possível, mas a lei a afasta.
+
+=== da-lic-04
+gab: C
+tema: adm-licitacoes
+ref: lei14133 74, § 1º
+trecho: vedada a preferência por marca específica
+armadilha: excecao
+dif: 2
+enunciado: Na contratação por inexigibilidade com fornecedor exclusivo, a exclusividade deve ser comprovada por documento idôneo, vedada a preferência por marca específica.
+comentario: Art. 74, I e § 1º, da Lei 14.133. Exclusividade comprovada, sim; preferência por marca, não.
+
+=== da-lic-05
+gab: E
+tema: adm-licitacoes
+ref: lei14133 29
+trecho: O pregão não se aplica às contratações de serviços técnicos especializados de natureza predominantemente intelectual e de obras e serviços de engenharia
+armadilha: conceito
+dif: 2
+enunciado: O pregão, obrigatório para a aquisição de bens e serviços comuns, adota o critério de julgamento de menor preço ou de maior desconto e é também a modalidade adequada para a contratação de obras e de serviços especiais de engenharia.
+comentario: O pregão serve a bens e serviços comuns, inclusive serviços comuns de engenharia; não se aplica a obras nem a serviços técnicos especializados de natureza predominantemente intelectual (art. 29, parágrafo único). Obras e serviços especiais vão para a concorrência.
+
+=== da-lic-06
+gab: C
+tema: adm-licitacoes
+ref: lei14133 6, XL
+trecho: leilão: modalidade de licitação para alienação de bens imóveis ou de bens móveis inservíveis ou legalmente apreendidos a quem oferecer o maior lance
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: órgão pretende vender veículos inservíveis a quem oferecer o maior lance. Assertiva: a modalidade adequada é o leilão.
+comentario: Lei 14.133, art. 6º, XL. Concurso, por sua vez, é para trabalho técnico, científico ou artístico, com prêmio ou remuneração ao vencedor.

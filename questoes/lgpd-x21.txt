@@ -1,0 +1,136 @@
+// LGPD, lote X21: casos com cenários novos na vigência escalonada (art. 65), alterações do Marco Civil (art. 60),
+// término do tratamento (art. 16), revisão de decisão automatizada (art. 20), uso compartilhado pelo poder público
+// (art. 26), relatório de impacto (art. 38), encarregado (art. 41), responsabilidade e ressarcimento (arts. 42 a 45)
+// e comunicação de incidente (art. 48). Conferidas com fontes/lgpd.txt.
+
+=== lx21-01
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 65
+trecho: dia 1º de agosto de 2021, quanto aos arts. 52, 53 e 54
+armadilha: numero
+dif: 3
+enunciado: As sanções administrativas da LGPD entraram em vigor junto com os demais artigos da lei, 24 meses após a sua publicação.
+comentario: Errado. Os arts. 52 a 54 só vigoraram em 1º de agosto de 2021 (art. 65, I-A, incluído pela Lei 14.010/2020). Os dispositivos da ANPD vigoraram em 28 de dezembro de 2018 (I), e os demais, 24 meses após a publicação (II).
+
+=== lx21-02
+bloco: lgpd-1-4-14
+gab: C
+tema: pd-alcance
+ref: lgpd 65
+trecho: quanto aos arts. 55-A, 55-B, 55-C, 55-D, 55-E, 55-F, 55-G, 55-H, 55-I, 55-J, 55-K, 55-L, 58-A e 58-B
+armadilha: comparacao
+dif: 3
+enunciado: A LGPD teve vigência escalonada: os dispositivos que estruturam a autoridade nacional e o Conselho Nacional vigoraram antes das regras gerais de tratamento, e as sanções administrativas vigoraram por último.
+comentario: Certo. Art. 65: dispositivos da ANPD e do CNPD em 28/12/2018 (I), demais artigos 24 meses após a publicação (II) e sanções em 1º/8/2021 (I-A). A ordem permitiu montar a autoridade antes de aplicar as regras e dar prazo de adaptação antes das multas.
+
+=== lx21-03
+bloco: lgpd-1-4-14
+gab: E
+tema: pd-alcance
+ref: lgpd 60
+trecho: ressalvadas as hipóteses de guarda obrigatória de registros previstas nesta Lei e na que dispõe sobre a proteção de dados pessoais
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: ao encerrar sua conta em uma rede social, um usuário pediu a exclusão definitiva dos dados que havia fornecido. Assertiva: o provedor deve apagar também os registros de acesso que a lei o obriga a guardar.
+comentario: Errado. O art. 60 da LGPD deu nova redação ao art. 7º, X, do Marco Civil: a exclusão definitiva ao término da relação ressalva as hipóteses de guarda obrigatória de registros previstas no próprio Marco Civil e na LGPD.
+
+=== lx21-04
+bloco: lgpd-12-16
+gab: C
+tema: pd-anonimizacao
+ref: lgpd 16
+trecho: cumprimento de obrigação legal ou regulatória pelo controlador
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: encerrada a relação com seus clientes, uma loja manteve as notas fiscais com os dados deles pelo prazo exigido pela legislação tributária. Assertiva: a conservação é autorizada pela LGPD.
+comentario: Certo. A regra é eliminar os dados após o término do tratamento, mas o art. 16, I, autoriza a conservação para cumprimento de obrigação legal ou regulatória pelo controlador.
+
+=== lx21-10
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 38
+trecho: nos termos de regulamento, observados os segredos comercial e industrial
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD determinou a um controlador que elaborasse relatório de impacto sobre operações com dados sensíveis. O documento entregue descreveu os dados, a metodologia de coleta e de segurança e as salvaguardas, mas omitiu detalhes de um processo industrial sigiloso. Assertiva: a omissão é compatível com a LGPD.
+comentario: Certo. O art. 38 manda observar os segredos comercial e industrial. O parágrafo único fixa o conteúdo mínimo do relatório: tipos de dados, metodologia de coleta e de segurança e análise das medidas de mitigação de risco.
+
+=== lx21-11
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 41
+trecho: orientar os funcionários e os contratados da entidade a respeito das práticas a serem tomadas em relação à proteção de dados pessoais
+armadilha: extrapolacao
+dif: 2
+enunciado: Entre as atividades que a LGPD atribui ao encarregado está aplicar sanções disciplinares aos empregados que descumprirem as práticas de proteção de dados da entidade.
+comentario: Errado. O art. 41, § 2º, atribui ao encarregado orientar funcionários e contratados, receber reclamações dos titulares e comunicações da ANPD e executar outras atribuições do controlador ou de normas complementares. Punir empregados não está entre elas.
+
+=== lx21-12
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 42
+trecho: o operador responde solidariamente pelos danos causados pelo tratamento quando descumprir as obrigações da legislação de proteção de dados ou quando não tiver seguido as instruções lícitas do controlador
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um operador desobedeceu às instruções lícitas do controlador e causou dano a titulares. Assertiva: nessa hipótese, a responsabilidade passa a ser exclusiva do operador.
+comentario: Errado. O art. 42, § 1º, I, faz o operador responder solidariamente e equiparar-se ao controlador, salvo as exclusões do art. 43. Responsabilidade solidária não é exclusiva: o titular pode cobrar de um ou de outro.
+
+=== lx21-13
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 42
+trecho: Aquele que reparar o dano ao titular tem direito de regresso contra os demais responsáveis, na medida de sua participação no evento danoso
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: condenado a indenizar sozinho um titular por vazamento em sistema que outra empresa também operava, o controlador pagou toda a indenização. Assertiva: ele pode cobrar da outra empresa a parte que corresponde à participação dela no evento.
+comentario: Certo. Art. 42, § 4º: quem repara o dano tem direito de regresso contra os demais responsáveis, na medida da participação de cada um.
+
+=== lx21-14
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 42
+trecho: quando, a seu juízo, for verossímil a alegação, houver hipossuficiência para fins de produção de prova ou quando a produção de prova pelo titular resultar-lhe excessivamente onerosa
+armadilha: rol
+dif: 3
+enunciado: No processo civil, o juiz só pode inverter o ônus da prova a favor do titular quando houver, ao mesmo tempo, verossimilhança da alegação e hipossuficiência para produzir a prova.
+comentario: Errado. As hipóteses do art. 42, § 2º, são alternativas: alegação verossímil, hipossuficiência para a prova ou prova excessivamente onerosa para o titular. Basta uma delas, a juízo do juiz.
+
+=== lx21-16
+bloco: lgpd-37-45
+gab: C
+tema: pd-agentes
+ref: lgpd 44
+trecho: Responde pelos danos decorrentes da violação da segurança dos dados o controlador ou o operador que, ao deixar de adotar as medidas de segurança previstas no art. 46 desta Lei, der causa ao dano
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma clínica não adotou medidas de segurança adequadas, e por isso terceiros acessaram prontuários de pacientes. Assertiva: a clínica responde pelos danos decorrentes da violação de segurança.
+comentario: Certo. Art. 44, parágrafo único, com o art. 46. O tratamento também é irregular quando não oferece a segurança que o titular pode esperar, considerados o modo, os riscos esperados e as técnicas disponíveis à época (art. 44, I a III).
+
+=== lx21-19
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 48
+trecho: será avaliada eventual comprovação de que foram adotadas medidas técnicas adequadas que tornem os dados pessoais afetados ininteligíveis
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: furtaram um notebook com base de clientes criptografada, e a chave não estava no aparelho. Assertiva: ao avaliar a gravidade do incidente, a ANPD considerará a prova de que os dados ficaram ininteligíveis para terceiros não autorizados.
+comentario: Certo. Art. 48, § 3º. A criptografia não dispensa a análise, mas pesa no juízo de gravidade, porque reduz o risco para os titulares.
+
+=== lx21-20
+bloco: lgpd-46-51
+gab: E
+tema: pd-seguranca
+ref: lgpd 48
+trecho: ampla divulgação do fato em meios de comunicação
+armadilha: conceito
+dif: 3
+enunciado: A ampla divulgação de incidente de segurança em meios de comunicação, que a ANPD pode determinar ao controlador, tem natureza de sanção administrativa e, por isso, só pode ser imposta ao fim de processo sancionador.
+comentario: Errado. A ampla divulgação do art. 48, § 2º, I, é providência que a ANPD pode determinar, depois de verificar a gravidade do incidente, para salvaguardar os direitos dos titulares. Não se confunde com a sanção de publicização da infração do art. 52, IV, aplicada após a infração ser apurada e confirmada.

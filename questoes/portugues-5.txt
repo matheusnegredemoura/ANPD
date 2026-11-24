@@ -1,0 +1,409 @@
+bloco: portugues
+// Textos originais escritos para o banco, segunda leva (consentimento, inteligência artificial no serviço público,
+// ouvidorias), com reescrita, coesão, concordância, regência, crase, pontuação, sintaxe e interpretação.
+
+apoio_PT5A: Há quem veja no consentimento a solução definitiva para a proteção de dados: basta perguntar ao titular, e ele decidirá o que é melhor para si. A ideia é sedutora, mas parte de uma premissa frágil. Para que uma escolha seja livre, é preciso que quem escolhe compreenda o que está em jogo, e poucas pessoas dispõem de tempo ou de conhecimento técnico para avaliar as consequências de cada autorização que concedem.
+Os termos de uso agravam o problema. Redigidos em linguagem jurídica e extensos a ponto de exigir horas de leitura, eles transformam o consentimento em um ritual: o usuário clica em “aceito” porque não lhe resta alternativa senão desistir do serviço. Nessas condições, o que se apresenta como manifestação de vontade é, muitas vezes, mera resignação.
+Não se conclui daí que o consentimento deva ser abandonado. Ele continua a ser instrumento valioso quando o titular tem, de fato, condições de recusar sem prejuízo. O que se exige é que não seja tratado como a única garantia e que as obrigações do controlador, como a de coletar apenas o necessário, valham independentemente de qualquer autorização.
+apoio_PT5B: Órgãos públicos de vários países têm recorrido a sistemas de inteligência artificial para triar pedidos, detectar fraudes e prever demandas. Os ganhos de eficiência são reais, sobretudo onde faltam servidores para analisar milhares de processos. Contudo, quando o Estado delega a uma máquina parte de suas decisões, não delega com ela a responsabilidade por seus efeitos.
+O cidadão que tem um benefício negado precisa saber por que o foi, e o servidor que confirma a decisão precisa entender o que o sistema considerou. Sem isso, a revisão humana se reduz a uma assinatura sobre conclusões alheias. Por essa razão, especialistas recomendam que os órgãos documentem os dados usados no treinamento dos modelos, testem periodicamente se há vieses e mantenham canais acessíveis para contestação.
+Nada disso dispensa uma pergunta anterior, que costuma ser esquecida: o problema exige mesmo inteligência artificial? Em muitos casos, regras simples e transparentes resolvem melhor, e a custo menor, aquilo que se pretendia automatizar.
+apoio_PT5C: Durante muito tempo, reclamar de um serviço público era tarefa para os persistentes. Era preciso descobrir a quem se dirigir, enfrentar filas e, não raro, ouvir que o problema pertencia a outro setor. As ouvidorias surgiram para encurtar esse caminho: um canal único, que recebe a manifestação, encaminha-a a quem deve resolvê-la e cobra uma resposta.
+O valor de uma ouvidoria, porém, não se mede apenas pelo número de casos que soluciona. Cada reclamação é também um dado. Quando centenas de cidadãos relatam a mesma dificuldade, o problema deixa de ser individual e passa a indicar uma falha de desenho do próprio serviço. Ouvidorias que consolidam essas informações e as levam aos gestores contribuem para mudanças que beneficiam inclusive quem nunca reclamou.
+Para isso, contudo, é necessário que o cidadão confie no canal. Ninguém se dispõe a relatar um problema se teme represálias ou se suspeita de que sua mensagem cairá no vazio. Daí a importância de proteger a identidade de quem se manifesta e de responder em prazo razoável, ainda que a resposta não seja a desejada.
+
+=== pt5-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT5A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Depreende-se do primeiro parágrafo que, para o autor, a liberdade de uma escolha pressupõe que quem escolhe compreenda o que está em jogo.
+comentario: Certo. “Para que uma escolha seja livre, é preciso que quem escolhe compreenda o que está em jogo”. A oração introduzida por “para que” expressa a finalidade; a principal, a condição.
+
+=== pt5-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT5A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: Ao mostrar, no segundo parágrafo, que a extensão e a linguagem jurídica dos termos de uso convertem a manifestação de vontade em mera resignação, o autor conclui que o consentimento deve deixar de ser hipótese que autoriza o tratamento de dados pessoais.
+comentario: Errado. O terceiro parágrafo diz que não se conclui daí que o consentimento deva ser abandonado; ele só não pode ser a única garantia.
+
+=== pt5-03
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT5A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Em “Redigidos em linguagem jurídica e extensos a ponto de exigir horas de leitura, eles transformam o consentimento em um ritual”, tanto “Redigidos” e “extensos” quanto o pronome “eles” referem-se a “Os termos de uso”.
+comentario: Certo. Os adjetivos antepostos e o pronome concordam com o sujeito do período anterior.
+
+=== pt5-04
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT5A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: No segundo parágrafo, a expressão “a ponto de” introduz ideia de consequência, associada à intensidade expressa por “extensos”: os termos de uso são tão longos que exigem horas de leitura.
+comentario: Certo. “Extensos a ponto de exigir horas de leitura” equivale a “tão extensos que exigem horas de leitura”: a locução expressa a consequência da intensidade, e não finalidade.
+
+=== pt5-05
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT5A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, o pronome “lhe”, em “não lhe resta alternativa”, retoma “o usuário”.
+comentario: Certo. Ao usuário não resta alternativa senão desistir do serviço. O “lhe” equivale a “a ele”.
+
+=== pt5-06
+gab: C
+tema: pt-reescrita
+ref: texto
+apoio: @PT5A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: Seriam preservados a correção gramatical e o sentido do texto caso o período “Não se conclui daí que o consentimento deva ser abandonado” fosse reescrito da seguinte forma: Disso não se conclui que o consentimento deva ser abandonado.
+comentario: Certo. “Daí”, nesse contexto, equivale a “disso”, isto é, do que foi dito antes. A próclise continua obrigatória por causa do advérbio de negação “não”.
+
+=== pt5-07
+gab: E
+tema: pt-verbos
+ref: texto
+apoio: @PT5A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, as formas verbais “deva”, em “que o consentimento deva ser abandonado”, e “tem”, em “quando o titular tem, de fato, condições de recusar”, estão no modo subjuntivo e indicam fatos hipotéticos.
+comentario: Errado. “Deva” é presente do subjuntivo; “tem” é presente do indicativo.
+
+=== pt5-08
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT5A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo período do segundo parágrafo, os dois-pontos depois de “em um ritual” introduzem a explicação desse ritual: o usuário clica em “aceito” porque a alternativa seria desistir do serviço.
+comentario: Certo. O que vem depois dos dois-pontos desdobra a metáfora do ritual.
+
+=== pt5-09
+gab: E
+tema: pt-concordancia
+ref: texto
+apoio: @PT5A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, a forma verbal “dispõem” poderia ser flexionada no singular, dispõe, para concordar com o núcleo “tempo”.
+comentario: Errado. O sujeito de “dispõem” é “poucas pessoas”; “tempo ou [...] conhecimento técnico” é o complemento regido por “de”. O singular quebraria a concordância.
+
+=== pt5-10
+gab: C
+tema: pt-crase
+ref: texto
+apoio: @PT5A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: Caso, no primeiro parágrafo, o trecho “avaliar as consequências” fosse substituído por chegar às consequências, o emprego do sinal indicativo de crase seria obrigatório.
+comentario: Certo. “Chegar” rege a preposição “a”, que se funde com o artigo feminino plural “as”: “chegar às consequências”. Com “avaliar”, transitivo direto, não há preposição e, portanto, não há crase.
+
+=== pt5-11
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT5A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o último parágrafo, o consentimento mantém seu valor desde que o titular possa recusar sem prejuízo e que as obrigações do controlador, como coletar apenas o necessário, valham independentemente de autorização.
+comentario: Certo. São as duas condições dos períodos finais do texto.
+
+=== pt5-12
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT5A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, o vocábulo “resignação” poderia ser substituído por insurgência, sem prejuízo do sentido do texto.
+comentario: Errado. “Resignação” é conformismo, aceitação do que não se pode evitar; “insurgência” é revolta. O sentido se inverte.
+
+=== pt5-13
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT5B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No último período do primeiro parágrafo, introduzido por “Contudo”, o autor ressalva os ganhos de eficiência ao afirmar que o Estado, ao delegar a uma máquina parte de suas decisões, não transfere a responsabilidade pelos efeitos delas.
+comentario: Certo. A eficiência é real, mas a responsabilidade continua com o Estado.
+
+=== pt5-14
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT5B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do primeiro e do terceiro parágrafos que o autor considera ilusórios os ganhos de eficiência da inteligência artificial no setor público, mesmo nos órgãos em que faltam servidores para analisar grandes volumes de processos.
+comentario: Errado. O autor diz que os ganhos são reais, sobretudo onde faltam servidores. A crítica é à falta de explicação e ao uso de IA onde regras simples bastariam.
+
+=== pt5-15
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT5B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: No segundo parágrafo, em “precisa saber por que o foi”, o pronome “o” retoma o termo “negado”.
+comentario: Certo. O cidadão precisa saber por que o benefício foi negado. O pronome demonstrativo “o”, invariável, retoma o predicativo e evita repetir “negado”.
+
+=== pt5-16
+gab: C
+tema: pt-ortografia
+ref: texto
+apoio: @PT5B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: Em “precisa saber por que o foi”, a expressão “por que” está corretamente grafada em duas palavras, por equivaler a “por qual razão”.
+comentario: Certo. É interrogativa indireta: saber por qual razão o benefício foi negado. “Porque” junto é conjunção (explicação ou causa); “porquê” é substantivo.
+
+=== pt5-17
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT5B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No terceiro período do primeiro parágrafo, a conjunção “Contudo” introduz uma consequência dos ganhos de eficiência mencionados no período anterior e poderia ser substituída por Por conseguinte sem prejuízo da coerência.
+comentario: Errado. “Contudo” é adversativo e faz ressalva aos ganhos; “por conseguinte” é conclusivo.
+
+=== pt5-18
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @PT5B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: Em “Órgãos públicos de vários países têm recorrido a sistemas de inteligência artificial”, o acento de “têm” marca a terceira pessoa do plural, em concordância com “Órgãos”, e a locução com o particípio “recorrido” indica ação repetida que vem do passado até o presente.
+comentario: Certo. Pretérito perfeito composto: processo que se repete e continua. O circunflexo distingue o plural (têm) do singular (tem).
+
+=== pt5-19
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT5B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: No primeiro parágrafo, em “onde faltam servidores para analisar milhares de processos”, o termo “servidores” é sujeito posposto de “faltam”, e “onde” poderia ser substituído por aonde, sem prejuízo da correção gramatical.
+comentario: Errado. “Servidores” é de fato sujeito posposto de “faltam”, mas “aonde” só se usa com verbos que indicam movimento, como em ir aonde. Aqui, sem ideia de destino, cabe “onde” (ou “em que”).
+
+=== pt5-20
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT5B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, a vírgula empregada imediatamente antes de “e o servidor” justifica-se por separar orações coordenadas com sujeitos diferentes.
+comentario: Certo. Os sujeitos são “O cidadão que tem um benefício negado” e “o servidor que confirma a decisão”. Com sujeitos diferentes, a vírgula antes do “e” é recomendada para evitar ambiguidade.
+
+=== pt5-21
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT5B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: A afirmação de que, sem compreensão do sistema, “a revisão humana se reduz a uma assinatura sobre conclusões alheias” sugere que essa revisão seria apenas formal.
+comentario: Certo. Assinar conclusões que não se entende é chancelar, não revisar. É a crítica à revisão humana meramente simbólica.
+
+=== pt5-22
+gab: E
+tema: pt-regencia
+ref: texto
+apoio: @PT5B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No primeiro período, a preposição “a”, em “têm recorrido a sistemas”, poderia ser suprimida sem prejuízo da correção gramatical.
+comentario: Errado. “Recorrer”, no sentido de valer-se de, é transitivo indireto e exige a preposição “a”: recorrer a algo.
+
+=== pt5-23
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT5B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No último parágrafo, ao perguntar se o problema exige mesmo inteligência artificial, o autor indica que as cautelas listadas no parágrafo anterior, como documentar dados de treino e testar vieses, não dispensam avaliar antes se a própria ferramenta é necessária.
+comentario: Certo. “Nada disso dispensa uma pergunta anterior”: às vezes regras simples resolvem melhor e mais barato.
+
+=== pt5-24
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT5B
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, o vocábulo “periodicamente” poderia ser substituído por esporadicamente, sem prejuízo do sentido do texto.
+comentario: Errado. “Periodicamente” é em intervalos regulares; “esporadicamente” é de vez em quando, sem regularidade. A recomendação perderia o caráter sistemático.
+
+=== pt5-25
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT5C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: No primeiro parágrafo, “esse caminho” retoma os obstáculos descritos no período anterior, como descobrir a quem se dirigir e enfrentar filas, e os dois-pontos introduzem a descrição da ouvidoria como canal único que recebe, encaminha e cobra resposta.
+comentario: Certo. Anáfora resumitiva seguida de explicação.
+
+=== pt5-26
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT5C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: absoluto
+dif: 2
+enunciado: Segundo o segundo parágrafo, o valor de uma ouvidoria mede-se exclusivamente pelos casos individuais que ela resolve, e consolidar reclamações para redesenhar serviços escapa às suas atribuições.
+comentario: Errado. O valor não se mede apenas pelos casos solucionados: cada reclamação é um dado, e consolidá-las leva a mudanças que beneficiam até quem nunca reclamou.
+
+=== pt5-27
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT5C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Em “recebe a manifestação, encaminha-a a quem deve resolvê-la e cobra uma resposta”, os pronomes de “encaminha-a” e de “resolvê-la” retomam “a manifestação” e funcionam como objeto direto dos respectivos verbos.
+comentario: Certo. Encaminha a manifestação; resolve a manifestação. “A quem deve resolvê-la” é o complemento indireto de encaminhar.
+
+=== pt5-28
+gab: E
+tema: pt-crase
+ref: texto
+apoio: @PT5C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No trecho “encaminha-a a quem deve resolvê-la”, seria obrigatório o emprego do sinal indicativo de crase no “a” que antecede “quem”.
+comentario: Errado. “Quem” é pronome que não admite artigo; o “a” é só preposição, exigida por “encaminhar [algo] a”. Sem artigo, não há crase.
+
+=== pt5-29
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT5C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: No segundo período do primeiro parágrafo, a expressão “não raro” equivale a frequentemente, e a forma “Era”, no pretérito imperfeito, situa no passado uma situação que se repetia.
+comentario: Certo. “Não raro” (lítotes) significa com frequência, e o imperfeito “Era preciso” descreve situação habitual do passado, contraposta ao presente em que as ouvidorias encurtam o caminho.
+
+=== pt5-30
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT5C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: Na oração “Cada reclamação é também um dado”, o termo “um dado” exerce a função de predicativo do sujeito.
+comentario: Certo. O verbo de ligação “é” une o sujeito “Cada reclamação” a uma característica atribuída a ele, “um dado”.
+
+=== pt5-31
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT5C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do segundo parágrafo que reclamações recorrentes podem revelar falhas no desenho do próprio serviço.
+comentario: Certo. Quando centenas relatam a mesma dificuldade, “o problema deixa de ser individual e passa a indicar uma falha de desenho do próprio serviço”.
+
+=== pt5-32
+gab: E
+tema: pt-reescrita
+ref: texto
+apoio: @PT5C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: Em “contribuem para mudanças que beneficiam inclusive quem nunca reclamou”, a palavra “inclusive” tem valor restritivo e poderia ser substituída por somente sem prejuízo da coerência do texto.
+comentario: Errado. “Inclusive” acrescenta: as mudanças beneficiam quem reclamou e também quem nunca reclamou. “Somente” excluiria os reclamantes.
+
+=== pt5-33
+gab: E
+tema: pt-concordancia
+ref: texto
+apoio: @PT5C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: Em “Quando centenas de cidadãos relatam a mesma dificuldade”, a forma verbal deveria estar no singular, relata, para concordar com o núcleo do sujeito.
+comentario: Errado. O núcleo do sujeito é “centenas”, plural, e o verbo concorda com ele: “centenas [...] relatam”. O plural é o correto.
+
+=== pt5-34
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT5C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: Em “Ninguém se dispõe a relatar um problema”, o pronome “se” integra a forma verbal pronominal dispor-se, e o trecho “a relatar um problema” é complemento nominal de “Ninguém”.
+comentario: Errado. O “se” integra o verbo dispor-se, mas “a relatar um problema” completa o verbo (dispor-se a algo), como oração reduzida objetiva indireta, e não o pronome “Ninguém”, que é o sujeito.
+
+=== pt5-35
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT5C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: No último período do texto, “Daí” introduz conclusão tirada do período anterior, e “ainda que a resposta não seja a desejada” é oração de valor concessivo.
+comentario: Certo. Por isso é importante proteger a identidade e responder no prazo, mesmo quando a resposta for negativa.
+
+=== pt5-36
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT5C
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: De acordo com o último período do texto, para preservar a confiança no canal, o órgão deve responder em prazo razoável apenas às manifestações cujo pedido possa ser atendido.
+comentario: Errado. A concessiva diz o contrário: deve responder ainda que a resposta não seja a desejada.

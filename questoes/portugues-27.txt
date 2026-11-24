@@ -1,0 +1,148 @@
+bloco: portugues
+// Texto original escrito para o banco (inteligência artificial e responsabilidade no serviço público), com itens de
+// interpretação, coesão, semântica, pontuação, concordância, crase, sintaxe e verbos.
+
+apoio_PT27A: A promessa de que a inteligência artificial tornará o serviço público mais rápido tem fundamento. Sistemas capazes de ler milhares de requerimentos por hora já ajudam órgãos a separar pedidos simples dos que exigem análise cuidadosa. O ganho de tempo, contudo, não dispensa uma pergunta incômoda: quem responde quando a máquina erra?
+Diferentemente de um servidor, o algoritmo não assina decisões nem pode ser chamado a explicá-las. Se um benefício é negado por um critério mal calibrado, o cidadão precisa saber a quem recorrer e com base em quê. Por essa razão, muitos especialistas sustentam que a palavra final, nos casos que afetam direitos, deve continuar com uma pessoa.
+A tecnologia, portanto, não substitui a responsabilidade; apenas a desloca. Cabe à administração decidir onde ela recai e deixar isso claro para quem é atendido.
+
+=== pt27-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT27A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: literal
+dif: 2
+enunciado: No primeiro parágrafo, o autor sustenta que a promessa de um serviço público mais rápido tem fundamento e a ilustra com a triagem automatizada que separa requerimentos simples dos que pedem exame cuidadoso.
+comentario: Certo. A promessa “tem fundamento”, e os sistemas que leem milhares de requerimentos por hora são o exemplo.
+
+=== pt27-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT27A
+armadilha: interpretacao
+dif: 2
+enunciado: Segundo o texto, o ganho de rapidez proporcionado pelos sistemas de inteligência artificial reduz a importância de definir quem responde pelas falhas das decisões automatizadas.
+comentario: Errado. O ganho de tempo “não dispensa” a pergunta sobre quem responde quando a máquina erra; a tecnologia só desloca a responsabilidade.
+
+=== pt27-03
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT27A
+armadilha: interpretacao
+dif: 3
+enunciado: No terceiro parágrafo, o pronome “a”, em “apenas a desloca”, retoma “a responsabilidade”, e o pronome “ela”, em “onde ela recai”, retoma “A tecnologia”.
+comentario: Errado. Os dois pronomes retomam “a responsabilidade”: a tecnologia apenas desloca a responsabilidade, e cabe à administração decidir onde a responsabilidade recai.
+
+=== pt27-04
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT27A
+armadilha: conceito
+dif: 3
+enunciado: No segundo parágrafo, o pronome em “explicá-las” retoma “decisões”, e a forma “-las” resulta da adaptação do pronome “as” ao infinitivo terminado em r.
+comentario: Certo. O algoritmo não assina decisões nem pode ser chamado a explicar as decisões. Com infinitivo, cai o r e o pronome “as” assume a forma “las” (explicar + as = explicá-las).
+
+=== pt27-05
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT27A
+armadilha: interpretacao
+dif: 3
+enunciado: No segundo período do segundo parágrafo, “quê”, em “com base em quê”, recebe acento por ser monossílabo tônico em final de frase e remete aos critérios que fundamentaram a negativa do benefício.
+comentario: Certo. O “que” no fim da frase fica tônico e leva circunflexo; o sentido é saber em que critério se apoiou a decisão para poder contestá-la.
+
+=== pt27-06
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT27A
+armadilha: literal
+dif: 2
+enunciado: No início do segundo parágrafo, “Diferentemente de” poderia ser substituído por À semelhança de sem prejuízo da coerência do parágrafo.
+comentario: Errado. O parágrafo contrapõe o servidor, que assina e explica, ao algoritmo, que não faz nada disso; “à semelhança de” igualaria os dois.
+
+=== pt27-07
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT27A
+armadilha: conceito
+dif: 2
+enunciado: No primeiro parágrafo, os dois-pontos empregados após “incômoda” introduzem a pergunta que especifica o termo anterior.
+comentario: Certo. Os dois-pontos anunciam qual é a “pergunta incômoda”: quem responde quando a máquina erra.
+
+=== pt27-08
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT27A
+armadilha: literal
+dif: 3
+enunciado: No primeiro parágrafo, a conjunção “contudo” poderia ser deslocada para o início do período, escrevendo-se Contudo, o ganho de tempo não dispensa uma pergunta incômoda, sem prejuízo da correção e do sentido.
+comentario: Certo. “Contudo” é conjunção adversativa de posição móvel: no meio do período, vem entre vírgulas; no início, seguida de vírgula. O valor de oposição ao período anterior se mantém.
+
+=== pt27-09
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @PT27A
+armadilha: sujeito
+dif: 3
+enunciado: No último período do segundo parágrafo, a forma verbal “afetam” está no plural porque concorda com o pronome relativo “que”, cujo antecedente é “casos”.
+comentario: Certo. Os casos afetam direitos: o relativo “que” é o sujeito de “afetam” e leva o verbo a concordar com seu antecedente plural, “casos”. “Direitos” é objeto direto.
+
+=== pt27-10
+gab: E
+tema: pt-crase
+ref: texto
+apoio: @PT27A
+armadilha: conceito
+dif: 2
+enunciado: No terceiro parágrafo, em “Cabe à administração”, o acento grave poderia ser retirado sem prejuízo da correção, pois o termo é complemento de verbo transitivo direto.
+comentario: Errado. “Caber”, nesse sentido, é transitivo indireto e rege a preposição “a”, que se funde com o artigo de “administração”. A crase é obrigatória.
+
+=== pt27-11
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT27A
+armadilha: conceito
+dif: 3
+enunciado: No segundo parágrafo, a oração “Se um benefício é negado por um critério mal calibrado” expressa condição e poderia ser reescrita como Caso um benefício é negado por um critério mal calibrado, sem prejuízo da correção.
+comentario: Errado. A oração é de fato condicional, mas a conjunção “caso” exige o verbo no subjuntivo: Caso um benefício seja negado por um critério mal calibrado. Com o indicativo, a reescrita fica incorreta.
+
+=== pt27-12
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT27A
+armadilha: sujeito
+dif: 3
+enunciado: No segundo parágrafo, em “um benefício é negado por um critério mal calibrado”, a expressão “um benefício” exerce a função de agente da passiva.
+comentario: Errado. “Um benefício” é sujeito paciente da voz passiva analítica; o agente da passiva é “por um critério mal calibrado”.
+
+=== pt27-13
+gab: C
+tema: pt-verbos
+ref: texto
+apoio: @PT27A
+armadilha: conceito
+dif: 2
+enunciado: No primeiro período do texto, o futuro do presente em “tornará” projeta o efeito prometido, ao passo que o presente em “tem” exprime o juízo atual do autor sobre a plausibilidade dessa promessa.
+comentario: Certo. A promessa olha para frente; a avaliação de que ela tem fundamento é feita agora.
+
+=== pt27-14
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT27A
+armadilha: extrapolacao
+dif: 2
+enunciado: Infere-se do texto que os especialistas mencionados defendem a proibição do uso de algoritmos em decisões que afetem direitos.
+comentario: Errado. Eles defendem que a palavra final, nesses casos, fique com uma pessoa, não que os algoritmos sejam proibidos.

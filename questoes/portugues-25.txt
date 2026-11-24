@@ -1,0 +1,158 @@
+bloco: portugues
+// Texto original escrito para o banco (consultas públicas e participação social na regulação), com itens de
+// interpretação, coesão, semântica, pontuação, concordância, crase, sintaxe, reescrita e regência.
+
+apoio_PT25A: Antes de aprovar uma norma, muitas agências abrem consulta pública para ouvir empresas, especialistas e cidadãos. Em tese, o mecanismo melhora as regras: quem conhece o problema de perto aponta efeitos que o regulador não previu. Na prática, porém, as contribuições costumam vir quase todas das grandes empresas, que dispõem de equipes jurídicas para ler documentos técnicos extensos.
+O cidadão comum raramente participa, e não por desinteresse. Faltam-lhe tempo, informação e, muitas vezes, a certeza de que sua opinião será lida. Quando a agência não responde às sugestões recebidas, a consulta vira formalidade, e a desconfiança aumenta.
+Algumas iniciativas simples podem mudar esse quadro: resumos em linguagem acessível, prazos compatíveis com a complexidade do tema e relatórios que expliquem por que cada contribuição foi aceita ou recusada. Participação só existe de fato quando quem participa percebe que foi ouvido.
+
+=== pt25-01
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT25A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: literal
+dif: 2
+enunciado: No primeiro parágrafo, o autor sustenta que a consulta pública, na prática, equilibra a participação de grandes empresas e de cidadãos comuns.
+comentario: Errado. Em tese a consulta melhora as regras; na prática, as contribuições vêm quase todas das grandes empresas, que têm equipes jurídicas.
+
+=== pt25-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT25A
+armadilha: literal
+dif: 2
+enunciado: O autor atribui a baixa participação do cidadão comum nas consultas públicas ao desinteresse pelo tema.
+comentario: Errado. O texto afirma que o cidadão raramente participa “e não por desinteresse”, mas por falta de tempo, de informação e da certeza de ser lido.
+
+=== pt25-03
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT25A
+armadilha: extrapolacao
+dif: 3
+enunciado: Depreende-se do texto que as grandes empresas participam mais das consultas, entre outros motivos, porque têm equipes capazes de ler documentos técnicos extensos, e que esse desequilíbrio decorre de as agências restringirem a participação a especialistas.
+comentario: Errado. A primeira parte está no texto, mas as agências abrem a consulta a empresas, especialistas e cidadãos. O desequilíbrio vem da falta de tempo, informação e confiança do cidadão comum, e não de restrição imposta pelas agências.
+
+=== pt25-04
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT25A
+armadilha: extrapolacao
+dif: 2
+enunciado: O texto defende que as agências deixem de realizar consultas públicas, por serem meras formalidades.
+comentario: Errado. O autor propõe melhorar as consultas, com resumos acessíveis, prazos adequados e respostas às contribuições, e não extingui-las.
+
+=== pt25-05
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT25A
+armadilha: conceito
+dif: 3
+enunciado: Em “Faltam-lhe tempo, informação e, muitas vezes, a certeza de que sua opinião será lida”, o pronome “lhe” retoma “O cidadão comum” e exerce a função de objeto direto de “Faltam”.
+comentario: Errado. “Lhe” retoma de fato “O cidadão comum”, mas é objeto indireto: as coisas faltam a alguém (faltam ao cidadão). O sujeito de “Faltam” é composto e vem posposto: tempo, informação e a certeza.
+
+=== pt25-06
+gab: C
+tema: pt-coesao
+ref: texto
+apoio: @PT25A
+armadilha: sujeito
+dif: 3
+enunciado: No primeiro parágrafo, o pronome relativo “que”, em “que dispõem de equipes jurídicas”, retoma “das grandes empresas”, razão pela qual a forma verbal “dispõem” está no plural.
+comentario: Certo. Quem dispõe de equipes jurídicas são as grandes empresas, e o relativo, sujeito de “dispõem”, leva o verbo a concordar com esse antecedente plural.
+
+=== pt25-07
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT25A
+armadilha: literal
+dif: 3
+enunciado: No primeiro parágrafo, a conjunção “porém” marca a oposição entre o que se espera da consulta “Em tese” e o que ocorre “Na prática”, e o advérbio “quase”, em “quase todas”, poderia ser suprimido sem alteração do sentido.
+comentario: Errado. A leitura de “porém” está correta, mas suprimir “quase” mudaria o sentido: o texto diz que as contribuições vêm quase todas das grandes empresas, e não todas. Sem o advérbio, a afirmação passaria a excluir qualquer outra participação.
+
+=== pt25-08
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT25A
+armadilha: literal
+dif: 2
+enunciado: Em “O cidadão comum raramente participa, e não por desinteresse”, a substituição de “raramente” por não raro preservaria o sentido do período.
+comentario: Errado. “Não raro” quer dizer frequentemente; a troca inverte a afirmação.
+
+=== pt25-09
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT25A
+armadilha: conceito
+dif: 2
+enunciado: No primeiro período do terceiro parágrafo, os dois-pontos depois de “quadro” introduzem a enumeração que especifica as “iniciativas simples” anunciadas na oração anterior.
+comentario: Certo. Resumos acessíveis, prazos compatíveis e relatórios de resposta são as iniciativas.
+
+=== pt25-10
+gab: E
+tema: pt-pontuacao
+ref: texto
+apoio: @PT25A
+armadilha: literal
+dif: 2
+enunciado: No segundo parágrafo, a inserção de vírgula logo após “Faltam-lhe” preservaria a correção gramatical do texto.
+comentario: Errado. A vírgula separaria o verbo de seu sujeito (“tempo, informação e (...) a certeza”), o que é incorreto.
+
+=== pt25-11
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @PT25A
+armadilha: sujeito
+dif: 2
+enunciado: A flexão de “Faltam” no plural, no segundo parágrafo, deve-se à concordância com os vários núcleos do sujeito, que aparece depois do verbo.
+comentario: Certo. O sujeito é “tempo, informação e (...) a certeza de que sua opinião será lida”, que vem depois do verbo.
+
+=== pt25-12
+gab: E
+tema: pt-crase
+ref: texto
+apoio: @PT25A
+armadilha: literal
+dif: 2
+enunciado: No terceiro parágrafo, na expressão “compatíveis com a complexidade do tema”, o “a” deveria receber acento grave.
+comentario: Errado. A preposição exigida por “compatíveis” é “com”; o “a” é apenas artigo, e não há crase.
+
+=== pt25-13
+gab: C
+tema: pt-sintaxe
+ref: texto
+apoio: @PT25A
+armadilha: sujeito
+dif: 3
+enunciado: Em “Em tese, o mecanismo melhora as regras: quem conhece o problema de perto aponta efeitos que o regulador não previu”, “o mecanismo” é sujeito de “melhora”, e a oração “quem conhece o problema de perto” é sujeito de “aponta”.
+comentario: Certo. Depois dos dois-pontos, a oração iniciada por “quem” funciona como sujeito oracional de “aponta”.
+
+=== pt25-14
+gab: C
+tema: pt-reescrita
+ref: texto
+apoio: @PT25A
+armadilha: literal
+dif: 2
+enunciado: O trecho “Quando a agência não responde às sugestões recebidas, a consulta vira formalidade” poderia ser reescrito como A consulta vira formalidade quando a agência não responde às sugestões recebidas, sem prejuízo do sentido e da correção.
+comentario: Certo. Com a oração adverbial depois da principal, a vírgula deixa de ser necessária, e o sentido se mantém.
+
+=== pt25-15
+gab: E
+tema: pt-regencia
+ref: texto
+apoio: @PT25A
+armadilha: conceito
+dif: 3
+enunciado: No segundo parágrafo, em “Faltam-lhe”, o pronome “lhe” exerce a função de objeto direto do verbo “faltar”.
+comentario: Errado. “Lhe” é objeto indireto: algo falta “a ele”. O verbo “faltar”, nesse sentido, é transitivo indireto.

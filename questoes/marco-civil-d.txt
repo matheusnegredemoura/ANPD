@@ -1,0 +1,140 @@
+bloco: marco-civil
+// Marco Civil da Internet (Lei nº 12.965/2014), lote D: fundamentos e objetivos (arts. 2º e 4º), interpretação (art. 6º),
+// alcance da lei brasileira (art. 11), sanções (art. 12), guarda vedada (art. 16), sigilo judicial (art. 23), diretrizes
+// do poder público (arts. 24, 26 a 28) e controle parental (art. 29). Ficam de fora os arts. 19 a 21, cujo regime de
+// responsabilidade foi reinterpretado pelo STF em 2025. Conferidas com fontes/mci.txt.
+
+=== mc5-01
+gab: E
+ref: mci 2
+trecho: tem como fundamento o respeito à liberdade de expressão
+armadilha: comparacao
+dif: 3
+enunciado: A disciplina do uso da internet no Brasil tem como fundamento o respeito à liberdade de expressão e, entre outros, a pluralidade e a diversidade, a abertura e a colaboração e a neutralidade de rede.
+comentario: Errado. A neutralidade de rede é princípio (art. 3º, IV), e não fundamento. Os fundamentos do art. 2º incluem a liberdade de expressão, a escala mundial da rede, os direitos humanos e a cidadania em meios digitais, a pluralidade e a diversidade, a abertura e a colaboração, a livre iniciativa, a livre concorrência e a defesa do consumidor e a finalidade social da rede.
+
+=== mc5-02
+gab: E
+ref: mci 4
+trecho: da adesão a padrões tecnológicos abertos que permitam a comunicação, a acessibilidade e a interoperabilidade entre aplicações e bases de dados
+armadilha: conceito
+dif: 2
+enunciado: Entre os objetivos do Marco Civil está a adoção de padrões tecnológicos proprietários e fechados, para proteger os investimentos das empresas.
+comentario: Errado. O art. 4º, IV, busca a adesão a padrões tecnológicos abertos, que permitam comunicação, acessibilidade e interoperabilidade. Os demais objetivos são acesso à internet a todos, acesso à informação e à cultura e inovação.
+
+=== mc5-03
+gab: E
+ref: mci 6
+trecho: a natureza da internet, seus usos e costumes particulares e sua importância para a promoção do desenvolvimento humano, econômico, social e cultural
+armadilha: conceito
+dif: 3
+enunciado: Na interpretação do Marco Civil, a natureza da internet e seus usos e costumes particulares só podem ser considerados quando os fundamentos, princípios e objetivos da lei forem insuficientes.
+comentario: Errado. O art. 6º manda levar em conta esses elementos “além dos” fundamentos, princípios e objetivos, sem relação de subsidiariedade.
+
+=== mc5-04
+gab: C
+ref: mci 11
+trecho: mesmo que as atividades sejam realizadas por pessoa jurídica sediada no exterior, desde que oferte serviço ao público brasileiro
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma rede social sediada no exterior, sem filial no Brasil, oferece seu serviço em português ao público brasileiro e coleta dados de usuários aqui. Assertiva: ela deve respeitar a legislação brasileira e os direitos à privacidade e ao sigilo das comunicações.
+comentario: Certo. Art. 11, caput e § 2º: a lei brasileira se aplica se ao menos um ato de coleta ou tratamento ocorrer no território nacional, ainda que a empresa esteja no exterior, desde que oferte serviço ao público brasileiro ou tenha integrante do grupo econômico com estabelecimento no Brasil.
+
+=== mc5-05
+gab: E
+ref: mci 12
+trecho: multa de até 10% (dez por cento) do faturamento do grupo econômico no Brasil no seu último exercício
+armadilha: numero
+dif: 3
+enunciado: As infrações às regras de guarda de registros e de dados do Marco Civil sujeitam o infrator a multa de até 2% do faturamento do grupo econômico no Brasil, limitada a R$ 50 milhões por infração.
+comentario: Errado. O Marco Civil prevê multa de até 10% do faturamento do grupo econômico no Brasil, excluídos os tributos (art. 12, II). Os 2% limitados a R$ 50 milhões são da LGPD (art. 52, II).
+
+=== mc5-06
+gab: E
+ref: mci 12
+trecho: responde solidariamente pelo pagamento da multa de que trata o caput sua filial, sucursal, escritório ou estabelecimento situado no País
+armadilha: numero
+dif: 3
+enunciado: Tratando-se de empresa estrangeira, sua filial ou escritório no País responde solidariamente pelo pagamento da multa por infração aos arts. 10 e 11 do Marco Civil, multa que pode chegar a 10% do faturamento global do grupo econômico no último exercício.
+comentario: Errado. A solidariedade da filial, sucursal ou escritório no País está no parágrafo único do art. 12, mas o teto da multa é de 10% do faturamento do grupo econômico no Brasil no último exercício, excluídos os tributos, e não do faturamento global.
+
+=== mc5-07
+gab: E
+ref: mci 16
+trecho: dos registros de acesso a outras aplicações de internet sem que o titular dos dados tenha consentido previamente
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um aplicativo gratuito de jogos passou a guardar o histórico de outros aplicativos usados pelo usuário, sem consentimento prévio, alegando que o serviço não é cobrado. Assertiva: por ser gratuito, o aplicativo pode guardar esses registros.
+comentario: Errado. Na provisão de aplicações, onerosa ou gratuita, é vedada a guarda de registros de acesso a outras aplicações sem consentimento prévio do titular (art. 16, I).
+
+=== mc5-08
+gab: C
+ref: mci 16
+trecho: de dados pessoais que sejam excessivos em relação à finalidade para a qual foi dado consentimento pelo seu titular
+armadilha: conceito
+dif: 2
+enunciado: Na provisão de aplicações de internet, é vedada a guarda de dados pessoais excessivos em relação à finalidade para a qual o titular consentiu, ressalvadas as hipóteses da LGPD.
+comentario: Certo. Art. 16, II, na redação da LGPD (art. 60). É a aplicação do princípio da necessidade ao ambiente das aplicações de internet.
+
+=== mc5-09
+gab: C
+ref: mci 23
+trecho: podendo determinar segredo de justiça, inclusive quanto aos pedidos de guarda de registro
+armadilha: conceito
+dif: 3
+enunciado: O juiz que recebe registros de internet deve proteger o sigilo dessas informações e a privacidade do usuário e pode impor segredo de justiça até sobre os pedidos de guarda.
+comentario: Certo. O art. 23 incumbe o juiz das providências para garantir o sigilo das informações recebidas e preservar a intimidade, a vida privada, a honra e a imagem do usuário, podendo determinar segredo de justiça, inclusive quanto aos pedidos de guarda de registro.
+
+=== mc5-10
+gab: C
+ref: mci 24
+trecho: estabelecimento de mecanismos de governança multiparticipativa, transparente, colaborativa e democrática
+armadilha: rol
+dif: 2
+enunciado: Entre as diretrizes do Marco Civil para a atuação dos entes federativos estão a governança multiparticipativa da internet, com governo, empresas, sociedade civil e academia, e a adoção preferencial de tecnologias e formatos abertos e livres.
+comentario: Certo. Art. 24, I e V. O modelo multiparticipativo se expressa no Comitê Gestor da Internet no Brasil (CGI.br), citado no inciso II.
+
+=== mc5-11
+gab: E
+ref: mci 24
+trecho: publicidade e disseminação de dados e informações públicos, de forma aberta e estruturada
+armadilha: conceito
+dif: 2
+enunciado: O Marco Civil orienta o poder público a divulgar dados e informações públicos apenas em formatos fechados, para evitar o uso indevido.
+comentario: Errado. A diretriz do art. 24, VI, é a publicidade e a disseminação de dados públicos de forma aberta e estruturada, em linha com a LAI e a política de dados abertos.
+
+=== mc5-12
+gab: C
+ref: mci 26
+trecho: para o uso seguro, consciente e responsável da internet como ferramenta para o exercício da cidadania
+armadilha: conceito
+dif: 2
+enunciado: O dever constitucional do Estado de prestar educação inclui, em todos os níveis de ensino, a capacitação para o uso seguro, consciente e responsável da internet.
+comentario: Certo. Art. 26. A capacitação é integrada a outras práticas educacionais e serve à cidadania, à cultura e ao desenvolvimento tecnológico.
+
+=== mc5-13
+gab: E
+ref: mci 27
+trecho: fomentar a produção e circulação de conteúdo nacional
+armadilha: rol
+dif: 2
+enunciado: As iniciativas públicas de fomento à cultura digital previstas no Marco Civil devem limitar-se a ampliar a infraestrutura de conexão, sem preocupação com desigualdades regionais ou com conteúdo nacional.
+comentario: Errado. O art. 27 exige promover a inclusão digital, reduzir desigualdades, sobretudo entre regiões, no acesso e no uso das tecnologias, e fomentar a produção e a circulação de conteúdo nacional.
+
+=== mc5-14
+gab: C
+ref: mci 29
+trecho: O usuário terá a opção de livre escolha na utilização de programa de computador em seu terminal para exercício do controle parental
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: pais instalaram no computador da família programa de controle parental para bloquear conteúdos que consideram impróprios aos filhos. Assertiva: o Marco Civil assegura a livre escolha desse tipo de programa, respeitados seus princípios e os do ECA.
+comentario: Certo. Art. 29. Cabe ao poder público, com provedores e sociedade civil, promover educação e informação sobre esses programas e boas práticas de inclusão digital de crianças e adolescentes (parágrafo único).
+
+=== mc5-15
+gab: E
+ref: mci 28
+trecho: O Estado deve, periodicamente, formular e fomentar estudos, bem como fixar metas, estratégias, planos e cronogramas
+armadilha: conceito
+dif: 2
+enunciado: O Marco Civil deixa o desenvolvimento da internet exclusivamente ao mercado, sem atribuir ao Estado o dever de fixar metas, planos ou cronogramas.
+comentario: Errado. O art. 28 impõe ao Estado formular e fomentar estudos periodicamente e fixar metas, estratégias, planos e cronogramas sobre o uso e o desenvolvimento da internet no País.

@@ -1,0 +1,109 @@
+bloco: res-15-2024
+// Resoluções CD/ANPD nº 15/2024 (comunicação de incidente) e nº 18/2024 (encarregado), parte B: artigos que não
+// tinham item (dever de comunicar, canal exclusivo, natureza das providências, medidas de mitigação, aplicação aos
+// processos em curso, definição de conflito de interesse, divulgação do contato, responsabilidade pela conformidade,
+// conduta do encarregado). Conferidas com fontes/res15.txt e fontes/res18.txt.
+
+=== r15b-01
+gab: C
+ref: res15 4
+trecho: O controlador deverá comunicar à ANPD e ao titular a ocorrência de incidente de segurança que possa acarretar risco ou dano relevante aos titulares
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: o operador que presta serviço de nuvem a um varejista detectou incidente com dados de clientes deste. Assertiva: o dever de comunicar o incidente à ANPD e aos titulares, quando houver risco ou dano relevante, recai sobre o varejista, na condição de controlador.
+comentario: Certo: art. 4º, que reproduz o art. 48 da LGPD. Quem comunica é o controlador, e não o operador nem o encarregado.
+
+=== r15b-02
+gab: E
+ref: res15 18
+trecho: A comunicação do incidente será recebida, exclusivamente, por meio de canal específico
+armadilha: conceito
+dif: 2
+enunciado: A comunicação de incidente de segurança pode ser enviada à ANPD por qualquer meio, inclusive por mensagem eletrônica a servidor da área técnica, desde que dentro do prazo.
+comentario: Errado. A comunicação é recebida exclusivamente por canal específico, conforme orientação publicada no sítio da ANPD (art. 18, parágrafo único), e o procedimento começa com o recebimento da comunicação devidamente formalizada (caput).
+
+=== r15b-03
+gab: E
+ref: res15 22
+trecho: não constituem sanções ao agente regulado, sendo equiparadas às medidas decorrentes da atividade preventiva
+armadilha: conceito
+dif: 2
+enunciado: As providências que a ANPD determina ao controlador depois de avaliar a gravidade de um incidente, como a ampla divulgação, constituem sanções e dependem de processo administrativo sancionador prévio.
+comentario: Errado. Não constituem sanções: equiparam-se às medidas da atividade preventiva do regulamento de fiscalização (art. 22). Por isso a ampla divulgação não se confunde com a publicização da infração do art. 52, IV, da LGPD (art. 19, § 6º).
+
+=== r15b-04
+gab: C
+ref: res15 19
+trecho: serão consideradas aquelas que possam garantir a confidencialidade, a integridade, a disponibilidade e a autenticidade dos dados pessoais afetados
+armadilha: conceito
+dif: 2
+enunciado: Ao determinar medidas para reverter ou mitigar os efeitos de incidente, a ANPD leva em conta as que garantam a confidencialidade, a integridade, a disponibilidade e a autenticidade dos dados afetados, desde que tenham relação direta com o incidente.
+comentario: Certo: art. 19, § 7º. As providências precisam ter relação direta com o incidente (§ 2º).
+
+=== r15b-05
+gab: E
+ref: res15 24
+trecho: aplicam-se aos processos de comunicação de incidentes de segurança em curso quando da sua entrada em vigor
+armadilha: conceito
+dif: 2
+enunciado: O regulamento de comunicação de incidentes não se aplica aos processos de comunicação que estavam em curso quando entrou em vigor, que seguem integralmente a disciplina anterior.
+comentario: Errado. Aplica-se aos processos em curso, respeitados os atos processuais praticados e consolidados (art. 24). É a regra do tempus regit actum para normas de procedimento.
+
+=== r15b-06
+gab: E
+ref: res15 19
+trecho: deverá ser compatível com a abrangência de atuação do controlador e a localização dos titulares dos dados pessoais afetados
+armadilha: absoluto
+dif: 2
+enunciado: Determinada pela ANPD a ampla divulgação do incidente, às expensas do controlador, ela deve ocorrer em veículo de alcance nacional, ainda que o controlador atue em um único município e os titulares afetados residam nele.
+comentario: Errado. Res. CD/ANPD 15/2024, art. 19, § 3º (às expensas do controlador, certo) e § 4º: a divulgação deve ser compatível com a abrangência de atuação do controlador e com a localização dos titulares afetados.
+
+=== r18b-01
+gab: C
+bloco: res-18-2024
+ref: res18 2
+trecho: a situação que possa comprometer, influenciar ou afetar, de maneira imprópria, a objetividade e o julgamento técnico no desempenho das atribuições do encarregado
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: o encarregado de uma empresa passou a receber bônus atrelado ao volume de dados vendidos a parceiros, o que pode afetar sua objetividade técnica, embora nenhum prejuízo tenha ocorrido ainda. Assertiva: a situação já caracteriza conflito de interesse, segundo o regulamento do encarregado.
+comentario: Certo: art. 2º, II, da Resolução CD/ANPD nº 18/2024. Basta a possibilidade de comprometer: não é preciso que o prejuízo tenha ocorrido.
+
+=== r18b-02
+gab: E
+bloco: res-18-2024
+ref: res18 19
+trecho: entre as atribuições exercidas internamente em um agente de tratamento ou no exercício da atividade de encarregado em agentes de tratamento distintos
+armadilha: rol
+dif: 3
+enunciado: Pelo regulamento do encarregado, conflito de interesse é a situação que possa comprometer, influenciar ou afetar, de maneira imprópria, a objetividade e o julgamento técnico do encarregado, e só se configura quando ele acumula a função em agentes de tratamento distintos.
+comentario: Errado. A definição do art. 2º, II, está correta, mas o § 1º do art. 19 admite o conflito também entre atribuições exercidas internamente em um mesmo agente e no acúmulo com atividades de decisão estratégica sobre o tratamento pelo controlador.
+
+=== r18b-03
+gab: C
+bloco: res-18-2024
+ref: res18 8
+trecho: deverá divulgar e manter atualizadas a identidade e as informações de contato do encarregado
+armadilha: conceito
+dif: 2
+enunciado: Não basta ao agente de tratamento informar uma única vez quem é o encarregado: a identidade e o contato dele devem ser divulgados e mantidos atualizados.
+comentario: Certo: art. 8º. Na LGPD, a divulgação deve ser clara e objetiva, de preferência no sítio eletrônico do controlador (art. 41, § 1º).
+
+=== r18b-04
+gab: E
+bloco: res-18-2024
+ref: res18 11
+trecho: O agente de tratamento é o responsável pela conformidade do tratamento dos dados pessoais
+armadilha: sujeito
+dif: 2
+enunciado: Com a indicação do encarregado, o agente de tratamento transfere a ele a responsabilidade pela conformidade do tratamento perante a ANPD, embora conserve a responsabilidade civil perante os titulares.
+comentario: Errado. Res. 18/2024, art. 11: o agente de tratamento é o responsável pela conformidade, e o art. 17 afirma que as atribuições do encarregado não lhe conferem essa responsabilidade perante a ANPD.
+
+=== r18b-05
+gab: C
+bloco: res-18-2024
+ref: res18 18
+trecho: O encarregado deverá atuar com ética, integridade e autonomia técnica, evitando situações que possam configurar conflito de interesse
+armadilha: conceito
+dif: 2
+enunciado: O regulamento do encarregado exige dele atuação com ética, integridade e autonomia técnica, o que inclui evitar situações capazes de configurar conflito de interesse.
+comentario: Certo: art. 18. A autonomia técnica não o torna independente do agente de tratamento, mas protege seu julgamento profissional.

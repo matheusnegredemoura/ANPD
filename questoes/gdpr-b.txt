@@ -1,0 +1,121 @@
+bloco: gdpr
+// Segunda leva de direito comparado: GDPR e transferências.
+
+=== gd2-01
+gab: E
+ref: gdpr 5
+trecho: (‘data minimisation’)
+trecho: (‘storage limitation’)
+trecho: The controller shall be responsible for, and be able to demonstrate compliance with, paragraph 1 (‘accountability’).
+armadilha: sujeito
+dif: 2
+enunciado: Entre os princípios do art. 5º do GDPR estão a minimização dos dados, a limitação da conservação e a responsabilidade, pela qual cabe à autoridade de controle comprovar que o responsável cumpre os demais princípios.
+comentario: Errado no sujeito. Pela responsabilidade (accountability), o próprio responsável pelo tratamento deve ser capaz de comprovar o cumprimento dos princípios (art. 5º, 2).
+
+=== gd2-02
+gab: E
+ref: gdpr 5
+trecho: (‘storage limitation’)
+armadilha: comparacao
+dif: 3
+enunciado: O GDPR enumera expressamente, entre os princípios do tratamento, a minimização dos dados e a limitação da conservação, e esta última também figura nominalmente no rol de princípios do art. 6º da LGPD, ao lado da necessidade.
+comentario: O art. 6º da LGPD não nomeia esse princípio. A lógica aparece nas regras de término e eliminação (arts. 15 e 16) e no princípio da necessidade.
+
+=== gd2-03
+gab: E
+ref: gdpr 20
+trecho: (a) the processing is based on consent pursuant to point (a) of Article 6(1) or point (a) of Article 9(2) or on a contract pursuant to point (b) of Article 6(1); and
+trecho: (b) the processing is carried out by automated means.
+armadilha: rol
+dif: 2
+enunciado: No GDPR, o direito à portabilidade aplica-se quando o tratamento se basear no consentimento ou no interesse legítimo do responsável e for realizado por meios automatizados.
+comentario: Errado no rol. A portabilidade vale para tratamento baseado no consentimento ou em contrato, realizado por meios automatizados (art. 20, 1, a e b). Interesse legítimo não está entre as bases.
+
+=== gd2-04
+gab: C
+ref: gdpr 9
+trecho: racial or ethnic origin
+trecho: data concerning health
+trecho: shall be prohibited
+trecho: (a) the data subject has given explicit consent to the processing of those personal data for one or more specified purposes
+armadilha: conceito
+dif: 2
+enunciado: O GDPR proíbe, como regra, o tratamento de categorias especiais de dados, como os relativos à saúde e à origem racial ou étnica, mas admite exceções expressas, como o consentimento explícito do titular.
+comentario: Art. 9º do GDPR. A LGPD adota estrutura parecida no art. 11, com rol de hipóteses.
+
+=== gd2-05
+gab: E
+ref: gdpr 56
+trecho: shall be competent to act as lead supervisory authority for the cross-border processing carried out by that controller or processor in accordance with the procedure provided in Article 60
+armadilha: conceito
+dif: 3
+enunciado: No mecanismo de balcão único do GDPR, cada autoridade nacional decide isoladamente os casos transfronteiriços que lhe são apresentados, sem cooperação com as demais.
+comentario: No balcão único, a autoridade do estabelecimento principal atua como autoridade de controlo principal, em cooperação com as autoridades interessadas (arts. 56 e 60) e sob o mecanismo de coerência (art. 63).
+pesquisar: One-stop-shop do GDPR e autoridade de controlo principal
+
+=== gd2-06
+gab: E
+ref: gdpr 27
+trecho: Where Article 3(2) applies, the controller or the processor shall designate in writing a representative in the Union.
+armadilha: extrapolacao
+dif: 3
+enunciado: O responsável pelo tratamento não estabelecido na União, mas sujeito ao GDPR por oferecer bens ou serviços a pessoas na União, deve, em regra, designar por escrito um representante em cada Estado-Membro onde estejam os titulares.
+comentario: Errado. Designa-se um representante na União (art. 27, 1), estabelecido em um dos Estados-Membros onde se encontram os titulares (art. 27, 3), e não um por Estado.
+
+=== gd2-07
+gab: C
+ref: gdpr 83
+trecho: up to 10 000 000 EUR, or in the case of an undertaking, up to 2 % of the total worldwide annual turnover of the preceding financial year, whichever is higher
+armadilha: numero
+dif: 2
+enunciado: No GDPR, determinadas infrações estão sujeitas a coimas de até 10 milhões de euros ou, no caso de empresa, até 2% do volume de negócios anual a nível mundial do exercício anterior, consoante o montante mais elevado.
+comentario: Art. 83, n.º 4. As infrações mais graves chegam a 20 milhões de euros ou 4% (n.º 5). Na LGPD, 2% do faturamento no Brasil, limitado a R$ 50 milhões por infração.
+
+=== gd2-08
+gab: C
+ref: stfsum SCHREMS
+trecho: invalidou o acordo Safe Harbor
+trecho: invalidou a decisão de adequação Privacy Shield
+armadilha: conceito
+dif: 2
+enunciado: O Tribunal de Justiça da União Europeia invalidou o Safe Harbor em 2015, no caso Schrems I, e o Privacy Shield em 2020, no caso Schrems II.
+comentario: Depois de Schrems II, a Comissão Europeia adotou, em julho de 2023, decisão de adequação para o EU-US Data Privacy Framework.
+pesquisar: EU-US Data Privacy Framework (2023)
+
+=== gd2-09
+gab: E
+ref: stfsum SCHREMS
+trecho: manteve a validade das Cláusulas Contratuais-Padrão (SCCs), exigindo que o exportador avalie caso a caso
+armadilha: conceito
+dif: 3
+enunciado: No caso Schrems II, o TJUE invalidou o Escudo de Proteção da Privacidade UE-EUA, e, após essa decisão, as cláusulas contratuais-padrão passaram a dispensar qualquer avaliação do exportador sobre a legislação do país de destino.
+comentario: Ao contrário: o TJUE manteve as cláusulas-padrão, mas exigiu verificar, caso a caso, se o país de destino assegura proteção essencialmente equivalente, com medidas suplementares quando preciso.
+pesquisar: Avaliação de impacto da transferência (TIA) após Schrems II
+
+=== gd2-10
+gab: C
+ref: gdpr 30
+trecho: shall not apply to an enterprise or an organisation employing fewer than 250 persons unless the processing it carries out is likely to result in a risk to the rights and freedoms of data subjects, the processing is not occasional, or the processing includes special categories of data
+armadilha: excecao
+dif: 3
+enunciado: O GDPR dispensa, em regra, organizações com menos de 250 trabalhadores do dever de manter registro das atividades de tratamento, salvo se o tratamento implicar risco, não for ocasional ou abranger categorias especiais de dados.
+comentario: Art. 30, n.º 5. Na prática, as exceções à dispensa são amplas. Compare com a flexibilização para agentes de pequeno porte no Brasil (Resolução CD/ANPD nº 2/2022).
+
+=== gd2-11
+gab: E
+ref: gdpr 4
+trecho: ‘controller’ means the natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data
+trecho: ‘processor’ means a natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller
+armadilha: comparacao
+dif: 2
+enunciado: Situação hipotética: empresa europeia contratou outra para processar sua folha de pagamento, por conta dela e conforme suas instruções. Assertiva: no RGPD, a contratada é a responsável pelo tratamento, por executar as operações, e a contratante, subcontratante.
+comentario: Errado. Quem determina as finalidades e os meios é o responsável pelo tratamento (a contratante), e quem trata os dados por conta dele é o subcontratante (a contratada) (art. 4.º, 7 e 8). Na LGPD, controlador e operador; em inglês, controller e processor.
+
+=== gd2-12
+gab: E
+ref: gdpr 37
+trecho: The controller and the processor shall designate a data protection officer in any case where:
+armadilha: comparacao
+dif: 2
+enunciado: No GDPR, o encarregado da proteção de dados deve ter conhecimentos especializados no direito e nas práticas de proteção de dados, e, assim como na LGPD, todo responsável pelo tratamento, sem exceção, deve designá-lo.
+comentario: O GDPR exige o encarregado em hipóteses específicas (autoridades públicas, monitorização sistemática em grande escala, categorias especiais em grande escala). A LGPD impõe o dever ao controlador em geral, admitindo dispensa por norma da ANPD (art. 41, § 3º).

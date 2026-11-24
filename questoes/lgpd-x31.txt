@@ -1,0 +1,124 @@
+bloco: lgpd-5-11
+// LGPD, lote X31: casos sobre as bases legais do art. 7º (contrato, exercício de direitos, vida, saúde, crédito e
+// dados públicos), consentimento (art. 8º) e acesso facilitado às informações (art. 9º). Conferidas com fontes/lgpd.txt.
+
+=== lx31-01
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma marcenaria usou, meses depois e sem pedido do cliente, o endereço e as medidas informados num orçamento recusado para enviar-lhe catálogos. Assertiva: o tratamento continua amparado na execução de procedimentos preliminares relacionados a contrato.
+comentario: Errado. Essa base legal exige que o tratamento seja necessário à execução de contrato ou de procedimentos preliminares a ele relacionados, a pedido do titular (art. 7º, V). Recusado o orçamento e sem pedido do cliente, o envio de catálogos não se apoia nela.
+
+=== lx31-02
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: O tratamento de dados pessoais somente poderá ser realizado nas seguintes hipóteses:
+trecho: V - quando necessário para a execução de contrato ou de procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados;
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma corretora comprou lista de contatos e passou a enviar propostas de seguro a pessoas que nunca a procuraram, invocando procedimentos preliminares de contrato. Assertiva: a base legal invocada é adequada.
+comentario: Errado. Os procedimentos preliminares de contrato só servem de base quando realizados a pedido do titular (art. 7º, V). Aqui não houve pedido; a empresa teria de buscar outra base, como o consentimento ou, com teste de balanceamento, o legítimo interesse.
+
+=== lx31-03
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: para o exercício regular de direitos em processo judicial, administrativo ou arbitral
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: processada por um ex-empregado, uma empresa usou registros de ponto e mensagens corporativas dele para se defender na Justiça do Trabalho. Assertiva: o tratamento pode fundar-se no exercício regular de direitos, mas, por se tratar de processo judicial, exige também o consentimento do titular.
+comentario: Errado. O exercício regular de direitos em processo judicial, administrativo ou arbitral é base legal autônoma (art. 7º, VI), que dispensa o consentimento. Exigi-lo inviabilizaria a defesa contra o próprio titular.
+
+=== lx31-04
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: exclusivamente, em procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária
+armadilha: sujeito
+dif: 3
+enunciado: Situação hipotética: uma rede de academias, sem profissionais de saúde envolvidos, coleta a frequência cardíaca dos alunos pelo aplicativo e alega a tutela da saúde como base legal. Assertiva: a base legal invocada é adequada.
+comentario: Errado. A tutela da saúde só ampara tratamento feito exclusivamente em procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária (art. 7º, VIII, e art. 11, II, f). Frequência cardíaca é dado de saúde, portanto sensível.
+
+=== lx31-05
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: para a proteção da vida ou da incolumidade física do titular ou de terceiro
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um hotel encontrou um hóspede desacordado no quarto e informou ao serviço de emergência o nome, a idade e os medicamentos que ele havia declarado no cadastro. Assertiva: embora a informação sobre os medicamentos seja dado pessoal sensível, o repasse pode fundar-se na proteção da vida do titular, hipótese prevista também entre as que permitem o tratamento de dados sensíveis sem consentimento.
+comentario: Certo. Dado referente à saúde é sensível (art. 5º, II), e o seu tratamento segue o art. 11, que repete, no inciso II, alínea e, a proteção da vida ou da incolumidade física do titular ou de terceiro prevista no art. 7º, VII. A urgência explica a dispensa do consentimento.
+
+=== lx31-06
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: para a proteção do crédito, inclusive quanto ao disposto na legislação pertinente
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: uma financeira passou a repassar a lojas parceiras o histórico de compras de seus clientes, para envio de ofertas, alegando a proteção do crédito. Assertiva: a base legal invocada ampara o repasse.
+comentario: Errado. A proteção do crédito (art. 7º, X) ampara tratamentos ligados à análise e à concessão de crédito, como a consulta a cadastros de inadimplentes, e não o marketing de terceiros. O desvio de finalidade fere também o princípio da finalidade (art. 6º, I).
+
+=== lx31-08
+gab: E
+tema: pd-bases
+ref: lgpd 7
+trecho: A eventual dispensa da exigência do consentimento não desobriga os agentes de tratamento das demais obrigações previstas nesta Lei
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: uma empresa que trata dados para cumprir obrigação legal deixou de informar aos titulares a finalidade do tratamento, sob o argumento de que não precisa do consentimento deles. Assertiva: dispensado o consentimento, dispensa-se também o dever de transparência.
+comentario: Errado. A dispensa do consentimento não desobriga o agente das demais obrigações da LGPD, em especial dos princípios gerais, como a transparência, e da garantia dos direitos do titular (art. 7º, § 6º).
+
+=== lx31-09
+gab: C
+tema: pd-bases
+ref: lgpd 7
+trecho: poderá ser realizado para novas finalidades, desde que observados os propósitos legítimos e específicos para o novo tratamento e a preservação dos direitos do titular
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um pesquisador usou dados de doações eleitorais publicados oficialmente para estudar o financiamento de campanhas, finalidade diversa da que motivou a publicação. Assertiva: o tratamento posterior para nova finalidade é admitido, observados propósitos legítimos e específicos e os direitos dos titulares.
+comentario: Certo. Art. 7º, § 7º. Além disso, o tratamento de dados de acesso público deve considerar a finalidade, a boa-fé e o interesse público que justificaram sua disponibilização (§ 3º).
+
+=== lx31-10
+gab: E
+tema: pd-bases
+ref: lgpd 8
+trecho: Caso o consentimento seja fornecido por escrito, esse deverá constar de cláusula destacada das demais cláusulas contratuais.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em contrato de vinte páginas, a autorização para tratar dados pessoais aparece no meio de uma cláusula sobre foro, sem nenhum destaque. Assertiva: o consentimento escrito assim obtido atende à LGPD.
+comentario: Errado. O consentimento dado por escrito deve constar de cláusula destacada das demais cláusulas contratuais (art. 8º, § 1º). Diluído em cláusula sobre outro assunto, ele não atende ao requisito.
+
+=== lx31-11
+gab: C
+tema: pd-bases
+ref: lgpd 8
+trecho: Cabe ao controlador o ônus da prova de que o consentimento foi obtido em conformidade com o disposto nesta Lei.
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em processo na ANPD, um titular nega ter consentido com o envio de mensagens publicitárias, e a empresa responde que cabe a ele provar o contrário. Assertiva: a defesa da empresa não procede, pois o ônus de provar o consentimento é do controlador.
+comentario: Certo. Art. 8º, § 2º. Por isso, os controladores precisam registrar quando, como e para quê o consentimento foi dado.
+
+=== lx31-13
+gab: C
+tema: pd-bases
+ref: lgpd 8
+trecho: o controlador deverá informar ao titular, com destaque de forma específica do teor das alterações
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um aplicativo cujo tratamento se baseia no consentimento foi vendido a outra empresa, que passou a ser a controladora dos dados. Assertiva: os usuários devem ser informados, com destaque, da mudança na identificação do controlador e podem revogar o consentimento se discordarem.
+comentario: Certo. Art. 8º, § 6º: alteradas as informações sobre finalidade, forma e duração, identificação do controlador ou uso compartilhado (art. 9º, I, II, III e V), o controlador informa o titular com destaque, e este pode revogar o consentimento.
+
+=== lx31-16
+gab: E
+tema: pd-direitos
+ref: lgpd 9
+trecho: que deverão ser disponibilizadas de forma clara, adequada e ostensiva
+armadilha: conceito
+dif: 2
+enunciado: O direito ao acesso facilitado às informações sobre o tratamento considera-se atendido quando o controlador as fornece mediante requerimento formal do titular, desde que o faça de forma clara e adequada.
+comentario: Errado. Art. 9º: as informações sobre finalidade, forma e duração, identificação e contato do controlador, uso compartilhado, responsabilidades e direitos devem ser disponibilizadas de forma clara, adequada e ostensiva, isto é, à vista, sem depender de requerimento. O item omite “ostensiva”, que é o ponto.

@@ -1,0 +1,516 @@
+// Textos originais escritos para o banco, em inglês, sobre temas da ANPD (verificação de idade, corretores de dados,
+// transferência internacional, independência e captura regulatória, padrões obscuros nos avisos de cookies). Itens em
+// inglês, como nas provas recentes da banca (TCU 2026, Anvisa 2024): compreensão, inferência, sinônimo e referência.
+
+bloco: ingles
+
+apoio_EN4A: Few issues unite parents and legislators as quickly as the safety of children online. Over the last few years, a growing number of countries have passed laws requiring digital platforms to verify, or at least estimate, the age of their users before granting access to certain content. On the surface, the idea seems uncontroversial: if a website sells alcohol or shows violent material, it should make sure that its visitors are adults.
+The practical picture is less simple. The most reliable ways of checking age, such as uploading an identity document or scanning a face, require collecting precisely the kind of sensitive information that privacy advocates would rather keep out of corporate hands. Less intrusive methods, such as asking users to type their date of birth, are trivially easy to bypass.
+Regulators have therefore started to talk about proportionality. A service aimed at small children, or one that hosts gambling, may justify stricter checks; a news website probably does not. What most experts agree on is that age assurance should not become an excuse to build vast databases of identity documents, which would themselves become attractive targets for criminals.
+apoio_EN4B: Most people have never heard of the companies that know the most about them. Data brokers rarely deal with consumers directly. Instead, they gather information from public records, loyalty programmes, mobile applications and other brokers, combine it into detailed profiles and sell those profiles to advertisers, insurers, landlords and, in some countries, government agencies.
+Because the trade happens out of sight, individuals find it hard to exercise rights that the law formally grants them. How can someone ask a company to delete their data if they do not know that the company exists? Some legislators have responded by creating public registries in which brokers must enrol, while others have proposed a single mechanism through which a person could send one deletion request to every registered broker at once.
+The industry argues that its products help prevent fraud and allow small businesses to reach customers they could not otherwise afford to find. Critics counter that the same profiles can be used to infer health conditions, financial distress or political views, and that consent obtained through lengthy terms of service, which almost nobody reads, is hardly meaningful.
+apoio_EN4C: Data, unlike goods, do not stop at customs. A message sent from São Paulo to Lisbon may pass through servers in several other countries before reaching its destination, and a single cloud contract can spread a company's files across three continents. For data protection authorities, this raises a basic question: how can rights granted under national law survive once information leaves the national territory?
+The answers vary, but most regimes share a common structure. Transfers are generally allowed to countries whose level of protection has been formally recognised as adequate. Where no such recognition exists, companies may rely on contractual safeguards, such as standard clauses approved by the regulator, or on binding rules adopted within a corporate group. A narrow set of exceptions, including the protection of a person's life, covers situations in which none of these instruments is available.
+Adequacy decisions are attractive because they reduce paperwork, but they are also political. Negotiations can take years, and a decision may be reviewed if the foreign country changes its laws. Mutual recognition, in which two jurisdictions declare each other adequate, has become a diplomatic goal in its own right.
+apoio_EN4D: Independent agencies were created on the premise that some decisions are too technical, or too tempting to manipulate, to be left to elected politicians. By granting officials fixed terms of office and protecting them from dismissal at will, legislators hoped to insulate regulation from the electoral cycle and to reassure investors that the rules would not change every four years.
+Independence, however, does not guarantee impartiality. Economists have long warned of regulatory capture, a process through which an agency gradually comes to serve the interests of the industry it was meant to oversee. Capture rarely involves outright corruption. More often it results from subtler forces: regulators depend on companies for information, share their technical vocabulary and may hope to work for them after leaving office.
+Several safeguards have been designed to counter these pressures. Cooling-off periods prevent former directors from joining regulated firms immediately after their terms end; public consultations open the rule-making process to consumers and civil society; and regulatory impact analyses force agencies to justify their choices with evidence rather than with the preferences of the loudest participants.
+apoio_EN4E: Anyone who browses the web has met the banner: a box that slides up from the bottom of the screen, announces that the site values your privacy and offers a large, brightly coloured button to accept all cookies. The option to refuse, when it exists, is often hidden behind a second screen or written in pale grey letters.
+Designers call these techniques dark patterns, interface choices that steer users towards decisions they would not otherwise make. They exploit well-documented features of human behaviour, such as our tendency to stick with default settings and our impatience when a task stands between us and the content we want.
+Data protection authorities have begun to treat such designs as a legal problem rather than a matter of taste. If refusing is harder than accepting, they argue, consent cannot be considered freely given. Some regulators now expect the two options to appear on the same screen and with equal prominence. Others go further and question whether consent is the right legal basis at all for practices that most users neither understand nor want.
+
+=== en4-01
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: The text reports that, in recent years, more and more countries have made access to certain online content conditional on platforms checking or estimating how old their users are.
+comentario: Primeiro parágrafo: “a growing number of countries have passed laws requiring digital platforms to verify, or at least estimate, the age of their users”. No Brasil, o ECA Digital (Lei 15.211/2025) exige mecanismos confiáveis de verificação de idade para conteúdo impróprio a menores de 18 anos (art. 9º, § 1º).
+
+=== en4-02
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 3
+enunciado: The first sentence of the text suggests that legislators reach agreement on children's online safety more quickly than parents do.
+comentario: Errado. A frase compara temas, não pessoas: poucos assuntos unem pais e legisladores tão depressa quanto a segurança das crianças on-line (“Few issues unite parents and legislators as quickly as...”). O item inventa que um dos grupos chega ao consenso antes do outro.
+
+=== en4-03
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: The text indicates that the most reliable age-checking methods depend on collecting exactly the kind of data that privacy advocates would prefer companies not to hold.
+comentario: Segundo parágrafo: “The most reliable ways of checking age [...] require collecting precisely the kind of sensitive information that privacy advocates would rather keep out of corporate hands”. “Would rather” expressa preferência.
+
+=== en4-04
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: According to the text, asking users to type their date of birth is less intrusive than scanning their face, but harder to get around than uploading an identity document.
+comentario: Errado na segunda parte. A primeira confere: digitar a data de nascimento é um dos métodos “less intrusive”. Mas o texto diz que esses métodos são “trivially easy to bypass”, facílimos de contornar, enquanto o envio de documento está entre os meios “most reliable”. O ECA Digital veda a autodeclaração como verificação de idade (art. 9º, § 1º).
+
+=== en4-05
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN4A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: The word “bypass” (second paragraph) could be correctly replaced with circumvent, without altering the meaning of the text.
+comentario: “Bypass” e “circumvent” significam contornar, driblar uma barreira. A troca mantém o sentido.
+
+=== en4-06
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN4A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: The expression “On the surface” (first paragraph) could be replaced with In practice without changing the meaning of the text.
+comentario: Errado. “On the surface” é à primeira vista; “in practice” (na prática) diz o contrário do que o texto quer, porque é justamente na prática que a ideia deixa de ser simples (“The practical picture is less simple”). Uma troca possível seria at first glance.
+
+=== en4-07
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: It can be inferred from the third paragraph that, for regulators, how strict an age check should be depends on the kind of service being offered.
+comentario: É a ideia de proporcionalidade: serviço para crianças pequenas ou de apostas pode justificar checagem mais rígida; um site de notícias provavelmente não (“a news website probably does not”).
+
+=== en4-08
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 3
+enunciado: According to the text, most experts agree that age assurance should rely on identity documents, provided that these are not kept in large databases.
+comentario: Errado. O único consenso que o texto atribui à maioria dos especialistas é negativo: a verificação de idade não deve virar pretexto para construir “vast databases of identity documents”, que atrairiam criminosos. O texto não diz que eles defendem o uso de documentos de identidade; o segundo parágrafo, aliás, aponta o custo de privacidade desse método.
+
+=== en4-09
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN4A
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: In the last sentence of the text, “which” refers to “vast databases of identity documents”.
+comentario: São as bases de documentos que “would themselves become attractive targets for criminals”. O “themselves” reforça o mesmo referente.
+
+=== en4-10
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: The text suggests that one reason why most people have never heard of data brokers is that these companies seldom deal with consumers directly.
+comentario: “Data brokers rarely deal with consumers directly”. Por isso a maioria das pessoas nunca ouviu falar deles, como diz a primeira frase.
+
+=== en4-11
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: absoluto
+dif: 2
+enunciado: According to the text, data brokers sell their profiles to advertisers, insurers and landlords and, in every country where they operate, to government agencies as well.
+comentario: Errado no alcance. A venda a órgãos de governo ocorre “in some countries”, não em todos. O resto confere: anunciantes, seguradoras e locadores (“landlords”) também compram os perfis.
+
+=== en4-12
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: The question asked in the second paragraph illustrates why individuals struggle to exercise rights that the law formally grants them.
+comentario: A pergunta retórica “How can someone ask a company to delete their data if they do not know that the company exists?” ilustra a dificuldade afirmada logo antes: “individuals find it hard to exercise rights”.
+
+=== en4-13
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: According to the text, the single mechanism for deletion requests mentioned in the second paragraph has already been put in place by some legislators.
+comentario: Errado. O que alguns legisladores já fizeram foi criar registros públicos (“have responded by creating public registries”); o mecanismo único de pedidos de eliminação foi apenas proposto por outros (“others have proposed”). O item troca proposta por medida implantada.
+
+=== en4-14
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: One of the proposals described in the text would allow a person to reach every registered broker by means of a single deletion request.
+comentario: “a single mechanism through which a person could send one deletion request to every registered broker at once”. “At once” é de uma só vez.
+
+=== en4-15
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN4B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: In the second paragraph, the verb “enrol” could be replaced with register without changing the meaning of the text.
+comentario: “Enrol” (grafia britânica; no inglês americano, “enroll”) é inscrever-se, matricular-se. Em “registries in which brokers must enrol”, “register” mantém o sentido.
+
+=== en4-16
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN4B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: In the third paragraph, the word “counter” could be correctly replaced with concede, without changing the meaning of the text.
+comentario: Errado. “Counter” é rebater, contrapor; “concede” é admitir, dar razão em parte ao outro lado. Os críticos não concedem nada à indústria: respondem com objeções (perfis que revelam saúde, dificuldade financeira e opiniões políticas). Trocas possíveis: retort, reply.
+
+=== en4-17
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: The critics quoted in the text argue that consent obtained through lengthy terms of service is hardly meaningful because such terms are written in deliberately obscure language.
+comentario: Errado na causa. Os críticos dizem que esse consentimento “is hardly meaningful” porque quase ninguém lê os termos (“which almost nobody reads”), e não por causa de linguagem obscura, que o texto não menciona. “Hardly” é dificilmente, quase nada.
+
+=== en4-18
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN4B
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: In the first paragraph, “it”, in “combine it into detailed profiles”, refers to “information”.
+comentario: Os corretores reúnem informação de várias fontes e a combinam em perfis. “Information” é incontável em inglês e, por isso, é retomado por “it”, no singular.
+
+=== en4-19
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: In the first paragraph, the author contrasts goods, which stop at customs, with data, noting that a single cloud contract can spread a company's files across three continents.
+comentario: Certo. “Data, unlike goods, do not stop at customs.”
+
+=== en4-20
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN4C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: In the first sentence of the text, “unlike” could be replaced with as, without changing the meaning of the sentence.
+comentario: Errado. “Unlike” marca contraste: ao contrário das mercadorias, os dados não param na alfândega. Com “as”, a frase trataria dados e mercadorias como semelhantes e passaria a dizer que as mercadorias também não param, o oposto do que o texto pressupõe.
+
+=== en4-21
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: According to the second paragraph, when a destination country has not been recognised as adequate, international transfers are prohibited, even in situations involving the protection of a person's life.
+comentario: Errado. Sem adequação, há cláusulas-padrão e normas corporativas; e, se nada disso estiver disponível, exceções estreitas, entre elas a proteção da vida.
+
+=== en4-22
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: absoluto
+dif: 3
+enunciado: According to the text, when a country has not been recognised as adequate, companies may still transfer data to it, but only by adopting binding rules within their corporate group.
+comentario: Errado. Na falta de adequação, as empresas podem recorrer a cláusulas-padrão aprovadas pelo regulador “or” a regras vinculantes do grupo, e ainda há um conjunto estreito de exceções. O “only” corta as outras vias. É a estrutura do art. 33 da LGPD.
+
+=== en4-23
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: It can be inferred from the text that the exceptions available when none of the transfer instruments can be used, such as protecting a person's life, are limited in scope.
+comentario: “A narrow set of exceptions, including the protection of a person's life, covers situations in which none of these instruments is available”. “Narrow” é estreito, restrito.
+
+=== en4-24
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN4C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: In the second paragraph, “narrow” could be replaced with limited without changing the meaning of the text.
+comentario: Em “a narrow set of exceptions”, “narrow” qualifica um conjunto pequeno, de alcance restrito; “limited” preserva o sentido.
+
+=== en4-25
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: According to the text, adequacy decisions are attractive mainly because they shorten negotiations between jurisdictions.
+comentario: Errado. O atrativo apontado é outro: as decisões de adequação “reduce paperwork”. Quanto às negociações, o texto diz o contrário: podem levar anos (“Negotiations can take years”). A decisão ainda pode ser revista se o outro país mudar suas leis.
+
+=== en4-26
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: The text presents mutual recognition of adequacy as something that is now pursued by diplomacy for its own sake.
+comentario: “Mutual recognition [...] has become a diplomatic goal in its own right”. “In its own right” é por si só, independentemente de outra coisa.
+
+=== en4-27
+gab: E
+tema: en-referencia
+ref: texto
+apoio: @EN4C
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: In the third paragraph, “they”, in “but they are also political”, refers to “Negotiations”.
+comentario: “They” retoma “Adequacy decisions”, sujeito da oração anterior: as decisões são atraentes porque reduzem a papelada, mas também são políticas. “Negotiations” só aparece na frase seguinte.
+
+=== en4-28
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the first paragraph, fixed terms and protection from dismissal at will were meant to insulate regulation from the electoral cycle and to reassure investors that the rules would not change every four years.
+comentario: Certo. É a paráfrase do segundo período.
+
+=== en4-29
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: The text implies that granting regulators fixed terms of office is enough to protect agencies from regulatory capture.
+comentario: Errado. Mandatos fixos e proteção contra demissão buscam independência, e o texto avisa logo depois: “Independence, however, does not guarantee impartiality”. Contra a captura, lista outras salvaguardas (quarentena, consultas públicas, AIR), o que mostra que o mandato não basta.
+
+=== en4-30
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the text, fixed terms and protection from dismissal at will were intended, among other things, to give investors confidence that the rules would remain stable beyond a single electoral term.
+comentario: “By granting officials fixed terms of office and protecting them from dismissal at will, legislators hoped to insulate regulation from the electoral cycle and to reassure investors”. No Brasil, é o que fazem os arts. 55-D e 55-E da LGPD para o Conselho Diretor da ANPD.
+
+=== en4-31
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: According to the text, regulatory capture rarely involves outright corruption because regulators no longer depend on companies for information.
+comentario: Errado. A primeira parte confere (“Capture rarely involves outright corruption”), mas a explicação é inventada e contrária ao texto: a captura resulta de forças sutis, entre elas justamente a dependência dos reguladores em relação às empresas para obter informação (“regulators depend on companies for information”).
+
+=== en4-32
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: According to the second paragraph, regulatory capture usually occurs through outright bribery rather than through dependence on industry information or career expectations.
+comentario: Errado. “Capture rarely involves outright corruption”: decorre de dependência de informação, vocabulário comum e expectativa de emprego.
+
+=== en4-33
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN4D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: In the first paragraph, “insulate” could be replaced with shield without changing the meaning of the text.
+comentario: Em “insulate regulation from the electoral cycle”, “insulate” é isolar, proteger de influência externa; “shield” (blindar, proteger) mantém o sentido.
+
+=== en4-34
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN4D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: In the third paragraph, “Cooling-off periods” refers to the time agencies are given to review their own decisions.
+comentario: Errado. É a quarentena: o período em que ex-diretores não podem ir para empresas reguladas (“prevent former directors from joining regulated firms immediately after their terms end”). Para a ANPD, art. 55-F da LGPD.
+
+=== en4-35
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: The third paragraph presents cooling-off periods, public consultations and regulatory impact analyses as safeguards against regulatory capture.
+comentario: Certo. São as três salvaguardas listadas.
+
+=== en4-36
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4D
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: According to the text, public consultations were designed to give regulated companies a formal channel through which to influence rule-making.
+comentario: Errado. O texto apresenta a consulta pública como salvaguarda contra a captura: ela abre o processo normativo “to consumers and civil society”, para equilibrar a influência das empresas, e não para dar a elas mais um canal.
+
+=== en4-37
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: absoluto
+dif: 3
+enunciado: According to the third paragraph, data protection authorities agree that showing the two options on the same screen, with equal prominence, makes consent the appropriate legal basis for any online tracking.
+comentario: Errado. Alguns exigem as opções lado a lado; outros vão além e questionam se o consentimento é sequer a base legal adequada.
+
+=== en4-38
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: According to the text, dark patterns are interface choices used to push users towards decisions they would make anyway, only more quickly.
+comentario: Errado. Os dark patterns levam o usuário a decisões “they would not otherwise make”, que ele não tomaria por conta própria; não se trata de acelerar decisões que ele tomaria de qualquer modo.
+
+=== en4-39
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: It can be inferred from the second paragraph that some interface designs take advantage of people's tendency to keep default settings.
+comentario: “They exploit well-documented features of human behaviour, such as our tendency to stick with default settings”. “Stick with” é manter, ficar com.
+
+=== en4-40
+gab: E
+tema: en-compreensao
+ref: texto
+apoio: @EN4E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: absoluto
+dif: 3
+enunciado: According to the text, data protection authorities now treat cookie banner design as a legal problem, and all of them question whether consent is the right legal basis for such practices.
+comentario: Errado no alcance. A primeira parte confere (“a legal problem rather than a matter of taste”). Mas só parte dos reguladores vai além e questiona se o consentimento é a base legal adequada (“Others go further”); o “all of them” generaliza.
+
+=== en4-41
+gab: C
+tema: en-compreensao
+ref: texto
+apoio: @EN4E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: For the authorities mentioned in the text, consent cannot be regarded as freely given when refusing takes more effort than accepting.
+comentario: “If refusing is harder than accepting, they argue, consent cannot be considered freely given”. Na LGPD, consentimento é manifestação livre, informada e inequívoca (art. 5º, XII).
+
+=== en4-42
+gab: C
+tema: en-vocabulario
+ref: texto
+apoio: @EN4E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 2
+enunciado: In the second paragraph, “steer” could be replaced with guide without changing the meaning of the text.
+comentario: “Steer users towards decisions” é conduzir, direcionar o usuário; “guide” mantém o sentido.
+
+=== en4-43
+gab: E
+tema: en-vocabulario
+ref: texto
+apoio: @EN4E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: conceito
+dif: 3
+enunciado: In the third paragraph, “with equal prominence” means that the two options should be offered at the same time, though not necessarily with the same visibility.
+comentario: Errado. “Prominence” é destaque, visibilidade; “equal prominence” é o mesmo destaque para aceitar e recusar. Aparecer ao mesmo tempo corresponde a outra exigência da frase, a de que as opções fiquem “on the same screen”.
+
+=== en4-44
+gab: E
+tema: en-referencia
+ref: texto
+apoio: @EN4E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 3
+enunciado: In the third paragraph, “Others” refers to data protection authorities that are more lenient than those mentioned in the previous sentence.
+comentario: Errado. “Others” retoma, sim, outros reguladores (“Some regulators... Others...”), mas eles não são mais brandos: “go further”, vão além, a ponto de questionar se o consentimento é a base legal adequada.
+
+=== en4-45
+gab: C
+tema: en-referencia
+ref: texto
+apoio: @EN4E
+comando: Considerando as ideias e os aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: interpretacao
+dif: 2
+enunciado: In the first paragraph, “it”, in “when it exists”, refers to “The option to refuse”.
+comentario: A opção de recusar, quando existe, costuma ficar escondida. O “it” não retoma “the banner” nem “the site”.

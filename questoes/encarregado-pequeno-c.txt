@@ -1,0 +1,251 @@
+// Resoluções da ANPD, lote C: encarregado (Resolução CD/ANPD 18/2024), agentes de tratamento de pequeno porte
+// (Resolução CD/ANPD 2/2022) e adequação da União Europeia (Resolução CD/ANPD 32/2026), com caso de pequena
+// empresa. Trechos conferidos em fontes/res18.txt, res2.txt e res32.txt.
+
+bloco: res-18-2024
+
+apoio_LOJA: Uma microempresa de comércio eletrônico de roupas, com receita dentro do limite do Simples Nacional e sem integrar grupo econômico, trata dados cadastrais e de compra de cerca de oito mil clientes. Ela não indicou encarregado e mantém um formulário de contato no site para os clientes. Recentemente, passou a usar ferramenta que define automaticamente, sem intervenção humana, quais clientes podem comprar a prazo, com base em perfil de consumo e de crédito.
+
+=== enc-01
+gab: C
+ref: res18 3
+trecho: documento escrito, datado e assinado, que, de maneira clara e inequívoca, demonstre a intenção do agente de tratamento em designar como encarregado uma pessoa natural ou uma pessoa jurídica
+armadilha: conceito
+dif: 2
+enunciado: A indicação do encarregado deve ser feita por ato formal, entendido como documento escrito, datado e assinado, que demonstre de maneira clara e inequívoca a intenção de designar como encarregado uma pessoa natural ou jurídica.
+comentario: Certo: Resolução 18/2024, art. 3º, § 1º. O documento é apresentado à ANPD quando solicitado (§ 2º).
+
+=== enc-03
+gab: E
+ref: res18 5
+trecho: a depender da esfera de atuação do agente de tratamento
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma autarquia estadual indicou como encarregado servidor efetivo de reputação ilibada e publicou a indicação no Diário Oficial da União, por considerar que a LGPD é lei federal. Assertiva: a publicação atende ao regulamento do encarregado.
+comentario: Errado. O § 1º do art. 5º manda publicar a indicação no Diário Oficial da União, do Estado, do Distrito Federal ou do Município, a depender da esfera de atuação do agente. A autarquia estadual publica no Diário Oficial do Estado; o caráter federal da LGPD não muda isso.
+
+=== enc-04
+gab: C
+ref: res18 6
+trecho: A indicação de encarregado por operadores é facultativa e será considerada política de boas práticas de governança
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um operador, embora não estivesse obrigado a isso, indicou encarregado. Assertiva: a indicação será considerada política de boas práticas de governança, com reflexo na dosimetria de eventual sanção.
+comentario: Certo. Art. 6º da Resolução CD/ANPD 18/2024: para o operador, indicar encarregado é facultativo e conta como política de boas práticas de governança. Na dosimetria, a implementação de boas práticas e de governança é atenuante de 20% (Resolução 4/2023, art. 13, II).
+
+=== enc-05
+gab: E
+ref: res18 14
+trecho: não pressupõe a inscrição em qualquer entidade nem qualquer certificação ou formação profissional específica
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: uma empresa que trata dados de saúde em grande volume indicou como encarregado profissional sem certificação em privacidade, mas com sólido conhecimento da legislação, escolhido depois de avaliar o contexto, o volume e o risco de suas operações. Assertiva: a indicação é irregular, porque o regulamento exige certificação específica quando o tratamento envolve dados sensíveis.
+comentario: Errado. O art. 14 diz que a atividade de encarregado não pressupõe inscrição em entidade, certificação ou formação profissional específica, sem exceção para dados sensíveis. Pelo art. 7º, cabe ao agente definir as qualificações, considerando o conhecimento da legislação e o contexto, o volume e o risco das operações, como fez a empresa.
+
+=== enc-06
+gab: E
+ref: res18 9
+trecho: o nome empresarial ou o título do estabelecimento, bem como o nome completo da pessoa natural responsável
+armadilha: rol
+dif: 2
+enunciado: Se o encarregado for pessoa jurídica, é suficiente divulgar o nome empresarial ou o título do estabelecimento, dispensado o nome da pessoa natural responsável.
+comentario: Errado. A divulgação inclui também o nome completo da pessoa natural responsável (Resolução 18/2024, art. 9º, § 1º, II).
+
+=== enc-07
+gab: C
+ref: res18 13
+trecho: de forma clara e precisa e em língua portuguesa
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma multinacional indicou como encarregado no Brasil profissional que não se comunica em português. Assertiva: a indicação não atende ao regulamento do encarregado, que exige comunicação clara e precisa, em língua portuguesa, com os titulares e a ANPD.
+comentario: Certo: art. 13. Um encarregado estrangeiro que não se comunique em português não atende à regra.
+
+=== enc-08
+gab: E
+ref: res18 17
+trecho: não confere ao encarregado a responsabilidade, perante a ANPD, pela conformidade do tratamento dos dados pessoais realizado pelo controlador
+armadilha: sujeito
+dif: 3
+enunciado: Embora o agente de tratamento seja o responsável pela conformidade do tratamento, o encarregado passa a responder perante a ANPD pelos atos de assistência e orientação que presta na elaboração do relatório de impacto e do registro das operações.
+comentario: Errado. O art. 17 afirma que o desempenho das atividades e atribuições dos arts. 15 e 16, entre elas a assistência no relatório de impacto e no registro das operações, não confere ao encarregado a responsabilidade, perante a ANPD, pela conformidade do tratamento. O art. 11 a atribui ao agente de tratamento.
+
+=== enc-09
+gab: C
+ref: res18 10
+trecho: garantir ao encarregado acesso direto às pessoas de maior nível hierárquico dentro da organização
+armadilha: rol
+dif: 2
+enunciado: Entre os deveres do agente de tratamento em relação ao encarregado estão prover-lhe os meios necessários, assegurar-lhe autonomia técnica e garantir-lhe acesso direto às pessoas de maior nível hierárquico da organização.
+comentario: Certo: art. 10, I, III e V. O encarregado precisa de recursos, independência técnica e voz junto à alta direção.
+
+=== enc-10
+gab: C
+ref: res18 19
+trecho: desde que seja possível o pleno atendimento de suas atribuições relacionadas a cada agente de tratamento e inexista conflito de interesse
+armadilha: excecao
+dif: 2
+enunciado: O encarregado pode acumular funções e atuar para mais de um agente de tratamento, desde que consiga atender plenamente às atribuições de cada um e não haja conflito de interesse.
+comentario: Certo: art. 19. O conflito pode surgir, por exemplo, quando o encarregado também toma decisões estratégicas sobre o tratamento (§ 1º, II).
+
+=== enc-11
+gab: E
+ref: res18 19
+trecho: com o acúmulo das atividades de encarregado com outras que envolvam a tomada de decisões estratégicas sobre o tratamento de dados pessoais pelo controlador
+armadilha: conceito
+dif: 3
+enunciado: Não há conflito de interesse quando o diretor responsável por definir as finalidades e os meios de tratamento de dados de uma empresa acumula a função de encarregado, pois ninguém conhece melhor os tratamentos.
+comentario: Errado. Acumular a função com a tomada de decisões estratégicas sobre o tratamento pode configurar conflito de interesse (art. 19, § 1º, II), e o agente pode ser sancionado (§ 2º). Constatado o risco, deve não indicar, afastar o conflito ou substituir o encarregado (art. 21, parágrafo único).
+
+=== enc-12
+gab: C
+ref: res18 16
+trecho: relatório de impacto à proteção de dados pessoais
+armadilha: rol
+dif: 2
+enunciado: Cabe ao encarregado prestar assistência e orientação ao agente de tratamento na elaboração de instrumentos como o registro e a comunicação de incidentes, o relatório de impacto, os contratos sobre dados pessoais e as transferências internacionais.
+comentario: Certo: art. 16, I, III, VII e VIII. O encarregado orienta; a decisão e a responsabilidade continuam com o agente.
+
+=== enc-13
+gab: C
+ref: res18 9
+trecho: em local de destaque e de fácil acesso, no sítio eletrônico do agente de tratamento
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa sem sítio eletrônico divulga a identidade e o contato de seu encarregado nos canais que usa habitualmente para falar com os clientes. Assertiva: a prática é admitida pelo regulamento do encarregado.
+comentario: Certo: art. 9º. Sem sítio eletrônico, pode-se usar outros meios usualmente empregados para contato com os titulares (§ 3º).
+
+=== pq-01
+gab: E
+bloco: res-2-2022
+ref: res2 11
+trecho: Os agentes de tratamento de pequeno porte não são obrigados a indicar o encarregado
+armadilha: fecho
+dif: 3
+enunciado: O agente de tratamento de pequeno porte que deixa de indicar encarregado deve disponibilizar canal de comunicação com o titular, e a eventual indicação voluntária de encarregado não produz efeito algum na dosimetria de sanções.
+comentario: Errado. Res. CD/ANPD 2/2022, art. 11: a primeira parte está certa (§ 1º), mas a indicação de encarregado pelo pequeno porte é considerada política de boas práticas e governança para fins do art. 52, § 1º, IX, da LGPD (§ 2º), parâmetro da dosimetria.
+
+=== pq-02
+gab: E
+bloco: res-2-2022
+ref: res2 3
+trecho: realizem tratamento de alto risco para os titulares
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: microempresa realiza tratamento de alto risco em larga escala. Assertiva: ainda assim, por seu porte, ela faz jus ao tratamento diferenciado da Resolução CD/ANPD nº 2/2022.
+comentario: Errado. Ficam de fora os que realizam tratamento de alto risco, os que ultrapassam o limite de receita e os que pertencem a grupo com receita global acima do limite (art. 3º), ressalvado o art. 8º.
+
+=== pq-03
+gab: C
+bloco: res-2-2022
+ref: res2 4
+trecho: será considerado de alto risco o tratamento de dados pessoais que atender cumulativamente a pelo menos um critério geral e um critério específico
+armadilha: conceito
+dif: 2
+enunciado: Para a Resolução nº 2/2022, é de alto risco o tratamento que atende, cumulativamente, a pelo menos um critério geral, como larga escala, e a pelo menos um critério específico, como uso de dados sensíveis ou decisões unicamente automatizadas.
+comentario: Certo: art. 4º. Critérios gerais: larga escala ou afetação significativa de direitos; específicos: tecnologias emergentes, vigilância de zonas públicas, decisões automatizadas e dados sensíveis ou de crianças, adolescentes e idosos.
+
+=== pq-05
+gab: E
+bloco: res-2-2022
+ref: res2 15
+trecho: podem fornecer a declaração simplificada de que trata o art. 19, I, da LGPD no prazo de até quinze dias
+armadilha: numero
+dif: 3
+enunciado: Situação hipotética: titular pediu a uma microempresa, agente de pequeno porte, a declaração simplificada de confirmação de existência de tratamento. Assertiva: a declaração deve ser fornecida imediatamente, sem flexibilização de prazo para esses agentes.
+comentario: Errado. Para eles, a declaração simplificada do art. 19, I, da LGPD pode ser dada em até quinze dias do requerimento (art. 15), e não imediatamente.
+
+=== pq-06
+gab: C
+bloco: res-2-2022
+ref: res2 6
+trecho: não isenta os agentes de tratamento de pequeno porte do cumprimento dos demais dispositivos da LGPD, inclusive das bases legais e dos princípios
+armadilha: extrapolacao
+dif: 2
+enunciado: A flexibilização de obrigações conferida aos agentes de pequeno porte alcança a forma de cumprir certas obrigações, como o registro das operações de tratamento, mas não os isenta de observar as bases legais, os princípios e os direitos dos titulares.
+comentario: Certo. Res. 2/2022, art. 6º (a dispensa ou flexibilização não isenta dos demais dispositivos da LGPD) e art. 9º (registro simplificado, conforme modelo da ANPD). A resolução simplifica a forma de cumprir; não cria zona livre da LGPD.
+
+=== pq-07
+gab: E
+bloco: res-2-2022
+ref: res2 9
+trecho: podem cumprir a obrigação de elaboração e manutenção de registro das operações de tratamento de dados pessoais, constante do art. 37 da LGPD, de forma simplificada
+armadilha: excecao
+dif: 2
+enunciado: Situação hipotética: uma microempresa enquadrada como agente de tratamento de pequeno porte mantém o registro das operações em versão simplificada, conforme modelo da ANPD. Assertiva: a prática descumpre o art. 37 da LGPD, que exige registro completo também desses agentes.
+comentario: Errado. Agentes de pequeno porte podem cumprir a obrigação de registro do art. 37 da LGPD de forma simplificada, com modelo fornecido pela ANPD (art. 9º da Resolução CD/ANPD 2/2022).
+
+=== pq-08
+gab: E
+bloco: res-2-2022
+ref: res2 5
+trecho: comprovar que se enquadra nas disposições do art. 2º e do art. 3º deste regulamento em até quinze dias
+armadilha: sujeito
+dif: 2
+enunciado: Quando solicitado pelo titular dos dados, o agente de pequeno porte deve comprovar, em até quinze dias, que se enquadra nos requisitos do regulamento.
+comentario: Errado no sujeito. A comprovação é feita quando solicitada pela ANPD (art. 5º da Resolução CD/ANPD 2/2022).
+
+=== pq-09
+gab: C
+bloco: res-2-2022
+ref: res2 11
+trecho: deve disponibilizar um canal de comunicação com o titular de dados
+apoio: @LOJA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD para agentes de tratamento de pequeno porte, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Antes da nova ferramenta, a microempresa podia deixar de indicar encarregado, desde que mantivesse canal de comunicação com os titulares, como o formulário do site.
+comentario: Certo. Microempresa dentro do limite de receita, sem grupo econômico e sem tratamento de alto risco se enquadra na Resolução 2/2022 e está dispensada de encarregado (art. 11), mas deve manter canal de comunicação (§ 1º).
+
+=== pq-10
+gab: C
+bloco: res-2-2022
+ref: res2 4
+trecho: decisões tomadas unicamente com base em tratamento automatizado de dados pessoais
+apoio: @LOJA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD para agentes de tratamento de pequeno porte, julgue os itens a seguir.
+armadilha: caso
+dif: 3
+enunciado: A adoção da ferramenta de decisão automatizada sobre compra a prazo pode levar a empresa a perder o tratamento diferenciado, se o tratamento também puder afetar significativamente interesses e direitos fundamentais dos clientes.
+comentario: Certo. Decisão unicamente automatizada é critério específico de alto risco; somada a um critério geral, como a afetação significativa de direitos (negar crédito pode impedir a utilização de um serviço), o tratamento passa a ser de alto risco (art. 4º) e afasta o regime diferenciado (art. 3º, I).
+
+=== pq-11
+gab: E
+bloco: res-2-2022
+ref: res2 6
+trecho: inclusive das bases legais e dos princípios
+apoio: @LOJA
+comando: Considerando essa situação hipotética e a regulamentação da ANPD para agentes de tratamento de pequeno porte, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 2
+enunciado: Por ser microempresa, a loja está dispensada de garantir aos clientes o direito de revisão das decisões tomadas pela ferramenta automatizada.
+comentario: Errado. O regime diferenciado não afasta os direitos do titular nem os princípios (art. 6º). O direito de revisão do art. 20 da LGPD vale para a loja.
+
+=== ad-01
+gab: C
+bloco: res-32-2026
+ref: res32 4
+trecho: serão consideradas, dentre outros aspectos, alterações na legislação de proteção de dados pessoais posteriores à emissão da presente decisão de adequação
+armadilha: numero
+dif: 3
+enunciado: A decisão de adequação da União Europeia será reavaliada no prazo de quatro anos contados da entrada em vigor da resolução, e nessa reavaliação serão considerados, entre outros aspectos, os ajustes na legislação europeia de proteção de dados feitos depois da decisão.
+comentario: Certo. O § 1º do art. 4º fixa a reavaliação em quatro anos a contar da entrada em vigor da resolução, e o § 2º manda considerar, entre outros aspectos, alterações na legislação de proteção de dados posteriores à decisão. Pelo art. 6º, a resolução vigora desde a publicação.
+
+=== ad-02
+gab: E
+bloco: res-32-2026
+ref: res32 3
+trecho: monitoramento contínuo do nível de proteção mantido pela União Europeia
+armadilha: rol
+dif: 3
+enunciado: Entre as finalidades dos mecanismos de cooperação que a ANPD pode firmar com a Comissão Europeia e as autoridades europeias estão o intercâmbio de informações e a harmonização de práticas, mas não o monitoramento do nível de proteção, atribuição exclusiva da Comissão Europeia.
+comentario: Errado. O art. 3º, III, inclui o monitoramento contínuo do nível de proteção mantido pela União Europeia entre as finalidades da cooperação, e o art. 4º atribui à própria ANPD esse monitoramento, com pedidos de informação e avaliações periódicas.
+
+=== ad-03
+gab: C
+bloco: res-32-2026
+ref: res32 2
+trecho: não se aplica às transferências internacionais de dados realizadas para fins exclusivos de segurança pública, defesa nacional, segurança do Estado ou atividades de investigação e repressão de infrações penais
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: autarquia federal de pesquisa vai enviar a uma universidade da Alemanha, para estudo epidemiológico, dados pessoais de participantes. Assertiva: a transferência pode apoiar-se na decisão de adequação da Resolução CD/ANPD nº 32/2026, que só exclui as transferências para fins exclusivos de segurança pública, defesa nacional, segurança do Estado ou investigação e repressão de infrações penais.
+comentario: Certo. O art. 2º afasta a decisão de adequação somente das transferências para fins exclusivos de segurança pública, defesa nacional, segurança do Estado ou investigação e repressão de infrações penais. Pesquisa epidemiológica não está entre essas finalidades, e a Alemanha é Estado membro da União Europeia.

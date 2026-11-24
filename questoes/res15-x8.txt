@@ -1,0 +1,145 @@
+bloco: res-15-2024
+// Resolução CD/ANPD nº 15/2024 (comunicação de incidente de segurança), lote X8: casos sobre risco ou dano relevante
+// (art. 5º), prazo, conteúdo, complementação e representação na comunicação à ANPD (art. 6º), informações adicionais
+// (art. 8º), comunicação aos titulares (art. 9º), registro (art. 10) e análise agregada (art. 14).
+// Conferidas com fontes/res15.txt.
+
+=== i15j-01
+gab: C
+tema: an-incidentes-app
+ref: res15 5
+trecho: dados de autenticação em sistemas
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um vazamento expôs logins e senhas de milhares de usuários de um serviço de streaming, o que permitia acessar as contas e os cartões cadastrados. Assertiva: o incidente pode acarretar risco ou dano relevante aos titulares.
+comentario: Certo. O art. 5º exige impacto significativo em interesses e direitos e, cumulativamente, ao menos um critério, como dados de autenticação (IV), dados financeiros (III) ou larga escala (VI). Aqui há os três.
+
+=== i15j-02
+gab: E
+tema: an-incidentes-app
+ref: res15 5
+trecho: quando puder afetar significativamente interesses e direitos fundamentais dos titulares e, cumulativamente, envolver, pelo menos, um dos seguintes critérios
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um incidente atingiu poucos registros de nomes e e-mails corporativos, sem dados sensíveis, financeiros, de autenticação, sigilosos ou de pessoas vulneráveis, e sem potencial de dano significativo. Assertiva: por envolver dados pessoais, o incidente deve ser comunicado à ANPD.
+comentario: Errado. A comunicação é devida quando o incidente pode acarretar risco ou dano relevante (art. 48 da LGPD e art. 5º do regulamento). Sem esse risco, não há dever de comunicar, mas o controlador deve registrar o incidente (art. 10).
+
+=== i15j-03
+gab: C
+tema: an-incidentes-app
+ref: res15 6
+trecho: será contado do conhecimento pelo controlador de que o incidente afetou dados pessoais
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: o operador detectou uma invasão numa sexta-feira e só avisou o controlador na terça seguinte, quando este soube que dados pessoais tinham sido afetados. Assertiva: o prazo de três dias úteis para o controlador comunicar a ANPD conta a partir dessa terça-feira.
+comentario: Certo. O prazo conta do conhecimento, pelo controlador, de que o incidente afetou dados pessoais (art. 6º, § 1º). A demora do operador pode, porém, ser apurada à parte, e eventual atraso do controlador deve ser justificado (§ 2º, V).
+
+=== i15j-04
+gab: E
+tema: an-incidentes-app
+ref: res15 6
+trecho: são contados em dobro para os agentes de pequeno porte
+armadilha: excecao
+dif: 2
+enunciado: Agentes de tratamento de pequeno porte comunicam incidente à ANPD no mesmo prazo de três dias úteis aplicável aos demais controladores.
+comentario: Errado. Para eles, os prazos de comunicação e de complementação são contados em dobro (art. 6º, § 8º), em linha com o regulamento dos agentes de pequeno porte.
+
+=== i15j-05
+gab: E
+tema: an-incidentes-app
+ref: res15 9
+trecho: ocorrer de forma direta e individualizada, caso seja possível identificá-los
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um banco que costuma falar com os clientes por aplicativo e e-mail limitou-se a publicar uma nota em seu sítio sobre incidente que afetou clientes identificados. Assertiva: a comunicação aos titulares foi adequada.
+comentario: Errado. Se é possível identificar os titulares, a comunicação deve ser direta e individualizada, pelos meios usuais de contato (art. 9º, §§ 1º, II, e 2º). A divulgação em sítio só cabe quando a comunicação individual é inviável (§ 3º).
+
+=== i15j-06
+gab: C
+tema: an-incidentes-app
+ref: res15 9
+trecho: não seja possível identificar, parcial ou integralmente, os titulares afetados
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: após o vazamento de uma base antiga, a empresa não conseguiu identificar parte dos titulares afetados. Assertiva: para esses titulares, ela deve comunicar o incidente pelos meios de divulgação disponíveis, como seu sítio eletrônico, no mesmo prazo e com as mesmas informações.
+comentario: Certo. Art. 9º, § 3º. Os titulares identificáveis continuam a receber comunicação direta e individualizada (§ 1º, II).
+
+=== i15j-07
+gab: E
+tema: an-incidentes-app
+ref: res15 10
+trecho: inclusive daquele não comunicado à ANPD e aos titulares, pelo prazo mínimo de cinco anos
+armadilha: excecao
+dif: 2
+enunciado: Os incidentes que não foram comunicados à ANPD nem aos titulares dispensam registro pelo controlador.
+comentario: Errado. O controlador registra todo incidente, inclusive os não comunicados, e guarda o registro por no mínimo cinco anos (art. 10).
+
+=== i15j-08
+gab: C
+tema: an-incidentes-app
+ref: res15 10
+trecho: os motivos da ausência de comunicação, quando for o caso
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: após avaliar que um incidente não gerava risco relevante, o controlador decidiu não comunicá-lo. Assertiva: no registro desse incidente, ele deve indicar os motivos da ausência de comunicação.
+comentario: Certo. Art. 10, § 1º, VIII. O registro traz ainda a data de conhecimento, as circunstâncias, os dados e titulares afetados, a avaliação de risco e as medidas adotadas.
+
+=== i15j-09
+gab: E
+tema: an-incidentes-app
+ref: res15 11
+trecho: Aplicam-se ao processo de comunicação de incidente de segurança regido por este Regulamento, no que couber, as disposições do Regulamento do Processo de Fiscalização
+armadilha: conceito
+dif: 3
+enunciado: O processo de comunicação de incidente de segurança é regido exclusivamente pelo regulamento de incidentes, sem aplicação das regras do regulamento de fiscalização e do processo sancionador da ANPD.
+comentario: Errado. O art. 11, parágrafo único, manda aplicar, no que couber, o regulamento da Resolução CD/ANPD nº 1/2021. O processo fiscaliza o tratamento e a resposta ao incidente para proteger os titulares (caput).
+
+=== i15j-10
+gab: C
+tema: an-incidentes-app
+ref: res15 9
+trecho: a inclusão, na comunicação ao titular, de recomendações aptas a reverter ou mitigar os efeitos do incidente
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: ao comunicar um vazamento aos clientes, uma loja incluiu orientações para trocar senhas e desconfiar de mensagens que pedissem dados. Assertiva: a medida pode ser considerada boa prática na dosimetria de eventual sanção.
+comentario: Certo. Art. 9º, § 5º, com o art. 52, § 1º, IX, da LGPD.
+
+=== i15j-11
+gab: E
+tema: an-incidentes-app
+ref: res15 6
+trecho: deverá ser realizada pelo controlador, por meio do encarregado, acompanhada de documento comprobatório de vínculo contratual, empregatício ou funcional
+armadilha: conceito
+dif: 2
+enunciado: A comunicação de incidente à ANPD pode ser feita por qualquer empregado do controlador, sem necessidade de comprovar vínculo ou poderes de representação.
+comentario: Errado. A comunicação é feita por meio do encarregado, com prova do vínculo, ou por representante com poderes perante a ANPD (art. 6º, § 5º), e os documentos acompanham a comunicação (§ 6º). Sem eles, a ANPD pode abrir procedimento de apuração (§ 7º).
+
+=== i15j-12
+gab: C
+tema: an-incidentes-app
+ref: res15 14
+trecho: poderão ser analisados de forma agregada, e as eventuais providências deles decorrentes poderão ser adotadas de forma padronizada
+armadilha: conceito
+dif: 2
+enunciado: Os processos de comunicação de incidente de segurança podem ser analisados de forma agregada, e as providências deles decorrentes, adotadas de forma padronizada, conforme o planejamento da fiscalização.
+comentario: Certo. Art. 14. É útil, por exemplo, quando um mesmo fornecedor afeta vários controladores.
+
+=== i15j-13
+gab: E
+tema: an-incidentes-app
+ref: res15 10
+trecho: Os prazos de guarda previstos neste artigo não se aplicam às entidades previstas no art. 23 da LGPD
+armadilha: excecao
+dif: 3
+enunciado: O prazo mínimo de guarda do registro de incidentes aplica-se igualmente aos órgãos e entidades públicos, sem nenhuma ressalva.
+comentario: Errado. O art. 10, § 2º, afasta esses prazos para as pessoas jurídicas de direito público do art. 23 da LGPD, desde que observem as regras de guarda permanente da tabela de temporalidade ou do Conselho Nacional de Arquivos.
+
+=== i15j-14
+gab: C
+tema: an-incidentes-app
+ref: res15 6
+trecho: discriminando, quando aplicável, o número de crianças, de adolescentes ou de idosos
+armadilha: rol
+dif: 2
+enunciado: Na comunicação de incidente à ANPD, o controlador informa o número de titulares afetados, discriminando, quando for o caso, quantos são crianças, adolescentes ou idosos.
+comentario: Certo. Art. 6º, § 2º, II. A comunicação também traz o total de titulares das atividades afetadas (XII) e a identificação do operador, quando houver (X).

@@ -1,0 +1,158 @@
+bloco: portugues
+// Texto original escrito para o banco (decisões de crédito por algoritmo), com itens de interpretação, coesão,
+// semântica, pontuação, concordância, crase, sintaxe, reescrita e verbos.
+
+apoio_PT23A: Quando um banco recusa um empréstimo, o cliente costuma querer saber por quê. Hoje, a resposta muitas vezes vem de um algoritmo que cruza centenas de variáveis, do histórico de pagamentos ao horário em que a pessoa costuma usar o aplicativo. A decisão é rápida e, em média, mais precisa do que a de um analista humano. O problema surge quando ninguém, nem mesmo o banco, consegue explicá-la.
+A falta de explicação não é apenas um incômodo. Sem saber quais fatores pesaram contra si, o cliente não tem como corrigir um dado errado nem como contestar um critério injusto. Pior: variáveis aparentemente neutras, como o bairro de residência, podem reproduzir discriminações antigas sem que ninguém perceba.
+Exigir que todo modelo seja simples a ponto de caber numa frase seria abrir mão de ganhos reais. O que se pode exigir é que o banco saiba dizer, em linguagem compreensível, quais critérios orientaram a decisão e que ofereça a quem foi recusado um caminho efetivo para pedir revisão.
+
+=== pt23-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT23A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: literal
+dif: 2
+enunciado: Embora reconheça que a decisão automatizada de crédito é rápida e, em média, mais precisa que a de um analista humano, o autor aponta como problema a situação em que nem o próprio banco consegue explicá-la.
+comentario: Certo. A concessão está no terceiro período do primeiro parágrafo; a ressalva, no quarto.
+
+=== pt23-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT23A
+armadilha: extrapolacao
+dif: 3
+enunciado: No último parágrafo, o autor rejeita a exigência de que todo modelo seja simples a ponto de caber numa frase, mas admite que essa simplicidade seja imposta aos modelos usados em decisões de crédito.
+comentario: Errado. O autor rejeita exigir simplicidade extrema de todo modelo, porque isso seria abrir mão de ganhos reais, e propõe outra exigência: que o banco saiba explicar, em linguagem compreensível, os critérios da decisão e ofereça caminho efetivo de revisão. Ele não abre exceção para o crédito, que é justamente o tema do texto.
+
+=== pt23-03
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT23A
+armadilha: interpretacao
+dif: 2
+enunciado: Depreende-se do texto que a falta de explicação da decisão dificulta que o cliente corrija informações erradas a seu respeito.
+comentario: Certo. O segundo parágrafo afirma que, sem saber quais fatores pesaram, o cliente “não tem como corrigir um dado errado”.
+
+=== pt23-04
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT23A
+armadilha: interpretacao
+dif: 3
+enunciado: No segundo parágrafo, o advérbio “aparentemente”, em “variáveis aparentemente neutras”, indica que a neutralidade do bairro de residência é só aparente, já que essa variável pode reproduzir discriminações antigas.
+comentario: Certo. O advérbio relativiza a neutralidade: a variável parece neutra, mas pode reproduzir discriminações sem que ninguém perceba. O texto não diz que ela seja sempre discriminatória.
+
+=== pt23-05
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT23A
+armadilha: interpretacao
+dif: 3
+enunciado: No último período do primeiro parágrafo, o pronome em “explicá-la” retoma “A decisão”, e o termo “nem mesmo o banco” tem valor de inclusão, reforçando que o banco é o primeiro a conseguir explicar a decisão.
+comentario: Errado. O pronome retoma de fato “A decisão”, mas “nem mesmo o banco” reforça a negação: ninguém consegue explicar a decisão, nem sequer o banco, que seria o primeiro a saber fazê-lo.
+
+=== pt23-06
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT23A
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, o pronome “si”, em “pesaram contra si”, refere-se ao banco.
+comentario: Errado. “Si” remete ao sujeito da oração principal, “o cliente”: são os fatores que pesaram contra o próprio cliente.
+
+=== pt23-07
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT23A
+armadilha: interpretacao
+dif: 2
+enunciado: No segundo parágrafo, o termo “Pior” introduz uma informação que agrava o problema descrito no período anterior.
+comentario: Certo. Depois de dizer que o cliente não consegue corrigir dados nem contestar critérios, o autor acrescenta algo mais grave: a reprodução silenciosa de discriminações.
+
+=== pt23-08
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT23A
+armadilha: sujeito
+dif: 3
+enunciado: Em “a resposta muitas vezes vem de um algoritmo”, a locução “muitas vezes” poderia ser substituída por frequentemente, sem alteração de sentido, e a forma verbal “vem” poderia ser flexionada no plural, vêm, por concordar com “muitas vezes”.
+comentario: Errado. A troca por frequentemente preserva o sentido, mas “vem” concorda com o sujeito “a resposta”, no singular. “Muitas vezes” é adjunto adverbial e não determina a concordância.
+
+=== pt23-09
+gab: C
+tema: pt-pontuacao
+ref: texto
+apoio: @PT23A
+armadilha: literal
+dif: 2
+enunciado: Isolar “nem mesmo o banco” com travessões, no lugar das vírgulas do primeiro parágrafo, manteria a correção do texto, já que a expressão é intercalada.
+comentario: Certo. A expressão é uma intercalação, que pode ser marcada por vírgulas ou por travessões duplos.
+
+=== pt23-10
+gab: E
+tema: pt-pontuacao
+ref: texto
+apoio: @PT23A
+armadilha: literal
+dif: 2
+enunciado: No segundo parágrafo, os dois-pontos empregados logo após “Pior” poderiam ser substituídos por ponto e vírgula, sem prejuízo da correção gramatical.
+comentario: Errado. Os dois-pontos anunciam o que é “pior”; com ponto e vírgula, “Pior” ficaria isolado, sem ligação sintática com o que segue, e o período perderia a correção.
+
+=== pt23-11
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @PT23A
+armadilha: sujeito
+dif: 2
+enunciado: Em “Sem saber quais fatores pesaram contra si, o cliente não tem como corrigir um dado errado”, a oração “quais fatores pesaram contra si” é interrogativa indireta que completa “saber”, e nela a forma verbal “pesaram” concorda com o sujeito “quais fatores”.
+comentario: Certo. É objeto direto oracional de “saber”; dentro dela, o sujeito plural leva o verbo ao plural.
+
+=== pt23-12
+gab: C
+tema: pt-crase
+ref: texto
+apoio: @PT23A
+armadilha: conceito
+dif: 3
+enunciado: No terceiro parágrafo, em “ofereça a quem foi recusado”, o “a” é preposição exigida por “ofereça”, e a substituição de “quem” por aquele que obrigaria o emprego do acento grave.
+comentario: Certo. Oferecer algo a alguém: o “a” é preposição, sem acento porque “quem” não admite artigo. Com aquele que, a preposição se funde ao “a” inicial do pronome: ofereça àquele que foi recusado.
+
+=== pt23-13
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT23A
+armadilha: sujeito
+dif: 3
+enunciado: No primeiro parágrafo, em “que cruza centenas de variáveis”, o pronome relativo “que” retoma “um algoritmo”, e “centenas de variáveis” é o sujeito de “cruza”.
+comentario: Errado. O relativo “que” retoma “um algoritmo” e é ele o sujeito de “cruza”: o algoritmo cruza centenas de variáveis. “Centenas de variáveis” é objeto direto.
+
+=== pt23-14
+gab: C
+tema: pt-reescrita
+ref: texto
+apoio: @PT23A
+armadilha: literal
+dif: 3
+enunciado: O primeiro período do terceiro parágrafo poderia ser reescrito como Seria abrir mão de ganhos reais exigir que todo modelo fosse simples a ponto de caber numa frase, sem prejuízo do sentido e da correção.
+comentario: Certo. A ordem muda, mas a ideia é a mesma; com “seria” no início, o subjuntivo passa a “fosse”, conforme a correlação de tempos.
+
+=== pt23-15
+gab: E
+tema: pt-verbos
+ref: texto
+apoio: @PT23A
+armadilha: conceito
+dif: 3
+enunciado: No terceiro parágrafo, em “O que se pode exigir”, o “se” é pronome reflexivo, indicando que o sujeito pratica e sofre a ação.
+comentario: Errado. O “se” é partícula apassivadora: “o que se pode exigir” equivale a “o que pode ser exigido”.

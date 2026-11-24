@@ -1,0 +1,102 @@
+// LGPD, lote X32: casos sobre registro das operações e instruções ao operador (arts. 37 e 39), encarregado (art. 41),
+// dever de segurança de quem intervém no tratamento (art. 47), boas práticas e programa de governança (art. 50) e
+// sanções (art. 52). Conferidas com fontes/lgpd.txt.
+
+=== lx32-02
+gab: C
+bloco: lgpd-37-45
+tema: pd-agentes
+ref: lgpd 39
+trecho: que verificará a observância das próprias instruções e das normas sobre a matéria
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um hospital contratou empresa para digitalizar prontuários e passou a auditá-la periodicamente, conferindo se ela segue as instruções contratuais e as normas de proteção de dados. Assertiva: a auditoria corresponde a um dever do controlador.
+comentario: Certo. Pelo art. 39, o operador trata os dados segundo as instruções do controlador, que verifica a observância dessas instruções e das normas sobre a matéria.
+
+=== lx32-03
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 41
+trecho: aceitar reclamações e comunicações dos titulares, prestar esclarecimentos e adotar providências
+armadilha: rol
+dif: 2
+enunciado: Entre as atividades do encarregado está receber as comunicações da ANPD, mas não as reclamações dos titulares, que cabem ao serviço de atendimento ao consumidor.
+comentario: Errado. O encarregado aceita reclamações e comunicações dos titulares, presta esclarecimentos e adota providências (art. 41, § 2º, I), além de receber as comunicações da ANPD (II) e orientar funcionários e contratados (III).
+
+=== lx32-04
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 41
+trecho: inclusive hipóteses de dispensa da necessidade de sua indicação, conforme a natureza e o porte da entidade ou o volume de operações de tratamento de dados
+armadilha: rol
+dif: 3
+enunciado: Por norma complementar, a ANPD pode dispensar certos agentes de indicar encarregado, considerando a natureza e o porte da entidade, mas não o volume de operações de tratamento, critério que a lei não admite.
+comentario: Errado. O § 3º do art. 41 admite hipóteses de dispensa conforme a natureza e o porte da entidade ou o volume de operações de tratamento de dados. O volume é critério expresso.
+
+=== lx32-05
+bloco: lgpd-46-51
+gab: E
+tema: pd-seguranca
+ref: lgpd 47
+trecho: obriga-se a garantir a segurança da informação prevista nesta Lei em relação aos dados pessoais, mesmo após o seu término
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: encerrado o contrato, uma empresa de suporte técnico manteve cópias de dados de um cliente sem nenhuma proteção, alegando que o dever de segurança acabou com o fim do tratamento. Assertiva: a alegação procede.
+comentario: Errado. Quem intervém em qualquer fase do tratamento se obriga a garantir a segurança dos dados mesmo após o seu término (art. 47). Além disso, terminado o tratamento, os dados deveriam ter sido eliminados ou devolvidos, salvo hipótese de conservação (art. 16).
+
+=== lx32-06
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 47
+trecho: Os agentes de tratamento ou qualquer outra pessoa que intervenha em uma das fases do tratamento
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma empresa de transporte de documentos contratada por um cartório só leva as caixas de um endereço a outro, sem consultar o conteúdo. Assertiva: mesmo assim, ela se obriga a garantir a segurança dos dados pessoais contidos nos documentos.
+comentario: Certo. O art. 47 alcança os agentes de tratamento e qualquer outra pessoa que intervenha em uma das fases do tratamento. O conceito de tratamento é amplo e abrange operações como recepção, distribuição e arquivamento (art. 5º, X); levar os documentos de um lugar a outro integra esse ciclo.
+
+=== lx32-08
+bloco: lgpd-46-51
+gab: C
+tema: pd-seguranca
+ref: lgpd 50
+trecho: demonstrar a efetividade de seu programa de governança em privacidade quando apropriado e, em especial, a pedido da autoridade nacional
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em fiscalização, a ANPD pediu a uma operadora de saúde que comprovasse que seu programa de governança em privacidade funciona na prática, e não apenas no papel. Assertiva: a LGPD prevê que o controlador demonstre a efetividade do programa, em especial a pedido da ANPD.
+comentario: Certo. Art. 50, § 2º, II. A efetividade pode ser demonstrada também a outra entidade responsável por promover boas práticas ou códigos de conduta. Programa que só existe no papel não atende à responsabilização e prestação de contas (art. 6º, X).
+
+=== lx32-09
+bloco: lgpd-46-51
+gab: E
+tema: pd-seguranca
+ref: lgpd 50
+trecho: As regras de boas práticas e de governança deverão ser publicadas e atualizadas periodicamente
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: uma associação de bancos elaborou regras de boas práticas em proteção de dados e decidiu mantê-las em sigilo, para não expor seus procedimentos internos. Assertiva: a LGPD admite que essas regras permaneçam sigilosas.
+comentario: Errado. As regras de boas práticas e de governança devem ser publicadas e atualizadas periodicamente e podem ser reconhecidas e divulgadas pela ANPD (art. 50, § 3º).
+
+=== lx32-10
+bloco: lgpd-52-54
+gab: C
+tema: pd-sancoes
+ref: lgpd 52
+trecho: a pronta adoção de medidas corretivas
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: ao detectar a infração, uma empresa corrigiu de imediato a falha e já mantinha política de boas práticas e governança. Assertiva: esses fatores devem ser considerados pela ANPD na definição da sanção.
+comentario: Certo. Entre os parâmetros do art. 52, § 1º, estão a adoção de política de boas práticas e governança (IX) e a pronta adoção de medidas corretivas (X), ao lado da boa-fé, da cooperação e da reincidência, entre outros.
+
+=== lx32-12
+bloco: lgpd-52-54
+gab: C
+tema: pd-sancoes
+ref: lgpd 52
+trecho: O disposto nos incisos I, IV, V, VI, X, XI e XII do caput deste artigo poderá ser aplicado às entidades e aos órgãos públicos
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD apurou infração cometida por uma secretaria municipal de saúde. Assertiva: a secretaria pode receber advertência e publicização da infração, mas não multa simples.
+comentario: Certo. O art. 52, § 3º, permite aplicar a órgãos e entidades públicos as sanções dos incisos I, IV, V, VI, X, XI e XII, o que exclui as multas simples e diária, sem prejuízo da Lei 8.112/1990, da Lei de Improbidade e da LAI.

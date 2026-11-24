@@ -1,0 +1,173 @@
+bloco: seginfo
+// Segurança da informação, parte G: ataques a aplicações (injeção de SQL, XSS), intermediário e Diffie-Hellman,
+// negação de serviço, armazenamento de senhas, tokenização × anonimização, tipos de malware (cartilha CERT.br),
+// forense e cadeia de custódia, teste de intrusão, VPN e as normas ISO/IEC 27005 e ISO 22301. Itens de doutrina
+// escritos para o banco, temas que tinham de zero a dois itens.
+
+=== si7-01
+gab: C
+ref: doutrina segurança de aplicações
+armadilha: conceito
+dif: 2
+tema: sg-ameacas
+enunciado: Na injeção de SQL, o atacante insere comandos no dado de entrada que a aplicação concatena a uma consulta ao banco de dados; consultas parametrizadas são a defesa primária contra esse ataque.
+comentario: Certo. Com a consulta parametrizada (prepared statement), o banco recebe o comando e os dados separadamente, e a entrada nunca é interpretada como código. Validação de entrada e menor privilégio da conta do banco complementam.
+
+=== si7-02
+gab: E
+ref: doutrina segurança de aplicações
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: para evitar injeção de SQL, a equipe passou a cifrar o banco de dados em repouso. Assertiva: a medida impede esse tipo de ataque.
+comentario: Errado. A injeção chega pela própria aplicação, que tem acesso legítimo aos dados já decifrados. A cifração em repouso protege contra o roubo de discos e arquivos, não contra consultas maliciosas feitas pela aplicação.
+
+=== si7-03
+gab: C
+ref: doutrina segurança de aplicações
+armadilha: conceito
+dif: 2
+tema: sg-ameacas
+enunciado: No cross-site scripting (XSS), o atacante faz o navegador da vítima executar script malicioso no contexto de um site confiável; a codificação adequada da saída é uma das medidas de defesa.
+comentario: Certo. O script roda com as permissões do site e pode, por exemplo, roubar cookies de sessão. Codificar a saída conforme o contexto (HTML, atributo, JavaScript) e adotar política de segurança de conteúdo (CSP) reduzem o risco.
+
+=== si7-04
+gab: E
+ref: doutrina ataques
+armadilha: conceito
+dif: 2
+enunciado: O ataque man-in-the-middle caracteriza-se pelo envio massivo de pacotes inválidos para esgotar a tabela de conexões do servidor, sem que o atacante se interponha na comunicação entre as partes.
+comentario: Errado. No man-in-the-middle o atacante se interpõe no canal e pode ler ou alterar o que passa. Esgotar recursos do servidor é negação de serviço.
+
+=== si7-05
+gab: C
+ref: doutrina criptografia
+armadilha: conceito
+dif: 3
+enunciado: O protocolo Diffie-Hellman permite que duas partes estabeleçam uma chave secreta compartilhada por um canal inseguro, sem transmiti-la; sem autenticação das partes, porém, fica vulnerável a ataque de intermediário.
+comentario: Certo. Cada parte combina seu segredo com o valor público da outra e ambas chegam à mesma chave. Se ninguém autentica os valores trocados (por certificados ou assinaturas), um intermediário pode negociar uma chave com cada lado.
+
+=== si7-06
+gab: E
+ref: doutrina criptografia
+armadilha: causalidade
+dif: 3
+enunciado: O Diffie-Hellman permite que duas partes estabeleçam chave secreta comum por canal inseguro e, por isso, é empregado diretamente para cifrar grandes volumes de dados.
+comentario: Errado. É protocolo de acordo de chaves, de criptografia de chave pública. A chave que ele estabelece é que costuma alimentar uma cifra simétrica, como o AES, para cifrar os dados.
+
+=== si7-07
+gab: C
+ref: doutrina ataques
+armadilha: conceito
+dif: 2
+enunciado: O DDoS usa muitos sistemas distribuídos, muitas vezes de uma botnet, para esgotar recursos de rede, processamento ou memória do alvo, comprometendo sobretudo a disponibilidade e exigindo contramedidas como limitação de taxa, capacidade elástica e serviços de mitigação de tráfego.
+comentario: Certo. A dispersão das origens impede o bloqueio simples por endereço, daí as defesas específicas.
+
+=== si7-08
+gab: C
+ref: doutrina ataques
+armadilha: conceito
+dif: 3
+enunciado: O ataque de negação de serviço que torna indisponíveis dados pessoais pode configurar incidente de segurança para fins de proteção de dados, pois a disponibilidade também integra a segurança da informação.
+comentario: Certo. A disponibilidade compõe a tríade confidencialidade, integridade e disponibilidade, e a Resolução CD/ANPD 15/2024 trata como incidente o evento adverso que comprometa qualquer dessas propriedades. Se o incidente pode acarretar risco ou dano relevante, deve ser comunicado.
+
+=== si7-09
+gab: E
+ref: doutrina criptografia
+armadilha: extrapolacao
+dif: 3
+enunciado: O uso de sal (salt) aleatório e único por senha antes do cálculo do hash inviabiliza ataques com tabelas pré-computadas, como as rainbow tables, e, por isso, torna dispensável o uso de funções de derivação lentas, como bcrypt e Argon2.
+comentario: Errado. O sal impede o reaproveitamento de tabelas pré-computadas e faz senhas iguais gerarem hashes diferentes, mas não encarece a tentativa de cada senha: com um hash rápido, a força bruta contra cada hash continua barata. Por isso se combinam sal e funções de derivação lentas, como bcrypt, scrypt, Argon2 e PBKDF2.
+
+=== si7-10
+gab: E
+ref: doutrina criptografia
+armadilha: conceito
+dif: 3
+enunciado: Para armazenar senhas, recomenda-se aplicar função hash rápida, como o SHA-256, porque a velocidade de cálculo dificulta ataques de força bruta contra a base vazada.
+comentario: Errado. A rapidez favorece o atacante, que testa bilhões de candidatas por segundo. Para senhas recomendam-se funções de derivação propositalmente lentas e com sal, como bcrypt, scrypt, Argon2 e PBKDF2.
+
+=== si7-11
+gab: C
+ref: doutrina proteção de dados
+armadilha: conceito
+dif: 2
+tema: sg-privacidade
+enunciado: Na tokenização, um dado como o número do cartão é substituído por valor sem significado próprio (token), e a correspondência fica guardada em cofre separado; o token, isoladamente, não revela o dado original.
+comentario: Certo. É técnica comum no setor de pagamentos: sistemas que só precisam identificar a transação trabalham com o token e saem do alcance do dado real.
+
+=== si7-12
+gab: E
+ref: doutrina proteção de dados
+armadilha: conceito
+dif: 3
+enunciado: Dados tokenizados são considerados anonimizados, para os fins da LGPD, em relação ao controlador que mantém o cofre de tokens.
+comentario: Errado. Quem guarda o cofre reverte o token com meios próprios. É pseudonimização (LGPD, art. 13, § 4º): o dado continua pessoal para esse controlador (art. 12).
+
+=== si7-14
+gab: E
+ref: doutrina malware
+armadilha: comparacao
+dif: 2
+enunciado: A diferença entre worm e vírus está em que o worm não se autorreplica pela rede, dependendo de infectar um arquivo hospedeiro e de ser acionado pelo usuário.
+comentario: Errado. Está invertido: o vírus depende de hospedeiro e de execução; o worm se propaga sozinho pela rede, explorando vulnerabilidades.
+
+=== si7-15
+gab: C
+ref: doutrina malware
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: programa instalado sem conhecimento do usuário registra tudo o que ele digita e envia a terceiros. Assertiva: trata-se de keylogger, tipo de spyware.
+comentario: Certo. A Cartilha do CERT.br classifica o keylogger, o screenlogger e o adware entre os tipos de spyware. Teclados virtuais e autenticação multifator reduzem o estrago das senhas capturadas.
+
+=== si7-16
+gab: C
+ref: doutrina resposta a incidentes
+armadilha: conceito
+dif: 2
+tema: sg-nist
+enunciado: Na resposta a incidentes, a preservação das evidências e o registro da cadeia de custódia permitem demonstrar que o material coletado não foi alterado desde a coleta.
+comentario: Certo. Registra-se quem coletou, quando, como e por onde a evidência passou; o hash calculado na coleta permite provar depois que a cópia é idêntica.
+
+=== si7-17
+gab: E
+ref: doutrina resposta a incidentes
+armadilha: absoluto
+dif: 2
+tema: sg-nist
+enunciado: Diante de servidor comprometido, o primeiro passo para preservar evidências deve ser sempre desligá-lo da tomada, pois os dados em memória volátil não têm valor forense.
+comentario: Errado. A memória volátil guarda processos, conexões e chaves que somem ao desligar. A boa prática é coletar primeiro o que é mais volátil (ordem de volatilidade, RFC 3227); isolar o equipamento da rede costuma vir antes de desligá-lo.
+
+=== si7-18
+gab: C
+ref: doutrina gestão de vulnerabilidades
+armadilha: comparacao
+dif: 2
+enunciado: O teste de intrusão simula ataques reais, com autorização e escopo definidos, para verificar se vulnerabilidades podem ser exploradas; difere da varredura de vulnerabilidades, que as identifica sem necessariamente explorá-las.
+comentario: Certo. A varredura é automatizada e frequente; o teste de intrusão é mais profundo, conduzido por especialistas e mostra o impacto real de uma exploração.
+
+=== si7-19
+gab: E
+ref: doutrina gestão de vulnerabilidades
+armadilha: comparacao
+dif: 2
+tema: sg-ameacas
+enunciado: Situação hipotética: em teste de intrusão, a empresa contratada recebeu documentação completa, código-fonte e credenciais do ambiente. Assertiva: trata-se de teste de caixa-preta.
+comentario: Errado. Com documentação, código-fonte e credenciais, o teste é de caixa-branca. Na caixa-preta, o testador parte sem conhecimento interno, como um atacante externo; na caixa-cinza, recebe informação parcial.
+
+=== si7-20
+gab: E
+ref: doutrina segurança de redes
+armadilha: extrapolacao
+dif: 2
+tema: sg-ameacas
+enunciado: Situação hipotética: usuário passou a navegar por VPN comercial. Assertiva: a VPN lhe garante anonimato completo, inclusive perante o provedor do serviço.
+comentario: Errado. A VPN cria túnel cifrado entre o dispositivo e o servidor da VPN e protege o tráfego na rede local e no provedor de acesso. O provedor da VPN, porém, vê o tráfego que sai do túnel e pode registrá-lo.
+
+=== si7-21
+gab: E
+ref: doutrina ISO/IEC 27005 e ISO 22301
+armadilha: conceito
+dif: 2
+tema: sg-iso
+enunciado: Na família de normas ISO, a ISO 22301 trata do sistema de gestão da continuidade de negócios, a ISO/IEC 27005 dá diretrizes para a gestão de riscos de segurança da informação e a ISO/IEC 27701 trata da gestão de incidentes de segurança da informação.
+comentario: Errado. A ISO 22301 (continuidade de negócios) e a ISO/IEC 27005 (gestão de riscos de segurança da informação) estão certas. A ISO/IEC 27701 trata da gestão da privacidade da informação, como extensão da 27001 e da 27002; incidentes de segurança são tema da ISO/IEC 27035.

@@ -1,0 +1,207 @@
+bloco: economia
+// Quinta leva de economia: monopólio natural e tarifa em duas partes, Peltzman e falhas de governo, mercado relevante
+// (SSNIP e mercados de preço zero), autopreferência, barreiras à entrada, bens de credibilidade, maldição do vencedor,
+// análise custo-benefício (sensibilidade, multicritério, valor estatístico da vida), Bayes, avaliação de impacto e
+// econometria. Itens de doutrina escritos para o banco.
+
+=== ec6-01
+gab: C
+ref: doutrina Monopólio natural
+armadilha: conceito
+dif: 2
+enunciado: Há monopólio natural quando a função de custo é subaditiva: uma única empresa produz a quantidade demandada a custo total menor do que o de duas ou mais empresas.
+comentario: Certo. Subaditividade é a definição técnica. Custo médio decrescente em toda a faixa relevante de produção é a causa típica, mas não a única. É o caso clássico das redes (água, energia, gás).
+
+=== ec6-02
+gab: E
+ref: doutrina Monopólio natural
+armadilha: conceito
+dif: 3
+enunciado: Em monopólio natural com custo médio decrescente, fixar o preço igual ao custo marginal garante, por si só, que a empresa cubra todos os seus custos, sem necessidade de subsídio nem de tarifa em duas partes.
+comentario: Errado. Com custo médio decrescente, o custo marginal fica abaixo do custo médio. Preço igual ao custo marginal gera prejuízo, e é por isso que o regulador recorre a subsídio, tarifa em duas partes ou preços de Ramsey.
+
+=== ec6-03
+gab: C
+ref: doutrina Monopólio natural
+armadilha: conceito
+dif: 2
+enunciado: A tarifa em duas partes, com uma parcela fixa e outra por unidade consumida, permite cobrar por unidade um preço próximo do custo marginal e cobrir os custos fixos com a parcela fixa.
+comentario: Certo. É a saída clássica para o problema do item anterior: a parcela variável preserva a eficiência no consumo, e a fixa paga a infraestrutura.
+
+=== ec6-04
+gab: C
+ref: doutrina Teoria da regulação
+armadilha: conceito
+dif: 3
+enunciado: Na formulação de Sam Peltzman, o regulador busca maximizar seu apoio político e, por isso, distribui benefícios entre produtores e consumidores, em vez de atender exclusivamente a um dos grupos.
+comentario: Certo. Peltzman generaliza a teoria de Stigler: o regulador equilibra os grupos até o ponto em que o ganho de apoio de um se iguala à perda de apoio do outro. A captura pura é o caso extremo.
+
+=== ec6-05
+gab: E
+ref: doutrina Falhas de governo
+armadilha: extrapolacao
+dif: 2
+enunciado: Delegar a regulação a agência com autonomia decisória e mandatos fixos dos dirigentes elimina a assimetria de informação entre regulador e regulado, que deixa de ser fonte de falhas de governo.
+comentario: Errado. A autonomia reduz a interferência política de curto prazo, mas a empresa regulada continua conhecendo melhor seus custos que o regulador; por isso seguem necessários AIR, consulta pública e controle.
+
+=== ec6-06
+gab: C
+ref: doutrina Concorrência
+armadilha: conceito
+dif: 2
+tema: ec-estruturas
+enunciado: No teste do monopolista hipotético, o mercado relevante é o menor conjunto de produtos e de área geográfica no qual um monopolista hipotético conseguiria impor, com lucro, um aumento de preço pequeno, mas significativo e não transitório.
+comentario: Certo. É o teste SSNIP (small but significant and non-transitory increase in price), em geral de 5% a 10%. Se os consumidores migrarem para outros produtos e o aumento não compensar, o mercado é ampliado até incluí-los.
+
+=== ec6-07
+gab: C
+ref: doutrina Concorrência
+armadilha: conceito
+dif: 3
+tema: ec-estruturas
+enunciado: Em mercados de preço zero, como o de redes sociais financiadas por publicidade, o teste do monopolista hipotético precisa ser adaptado, por exemplo para medir a reação dos usuários a uma piora pequena e não transitória de qualidade, como menos privacidade ou mais publicidade.
+comentario: Certo. Do lado do usuário não há preço a aumentar, e a literatura de defesa da concorrência propõe adaptar o teste (SSNDQ, piora pequena e não transitória de qualidade). Privacidade pode ser dimensão de qualidade nesses mercados.
+
+=== ec6-08
+gab: C
+ref: doutrina Plataformas digitais
+armadilha: conceito
+dif: 2
+tema: ec-estruturas
+enunciado: Em plataformas digitais que intermedeiam a oferta de terceiros e também vendem produtos próprios, a autopreferência (self-preferencing) ocorre quando a plataforma usa o ranqueamento, a busca ou o acesso a dados para favorecer as próprias ofertas em detrimento dos concorrentes que dependem dela.
+comentario: Certo. A conduta decorre do duplo papel da plataforma, intermediária e concorrente, e está no centro do debate antitruste sobre mercados digitais.
+
+=== ec6-09
+gab: E
+ref: doutrina Concorrência
+armadilha: conceito
+dif: 2
+enunciado: Na análise concorrencial, economias de escala acentuadas, custos de troca elevados e fortes efeitos de rede reduzem as barreiras à entrada e facilitam a contestação das plataformas já estabelecidas por pequenos entrantes.
+comentario: Errado. Os três são barreiras à entrada: o entrante pequeno tem custo médio maior, precisa convencer o usuário a trocar e começa com uma rede de menor valor.
+
+=== ec6-10
+gab: C
+ref: doutrina Assimetria de informação
+armadilha: conceito
+dif: 2
+tema: rg-por-que
+enunciado: Bens de credibilidade são aqueles cuja qualidade o consumidor não consegue avaliar nem depois de consumi-los, como certos serviços médicos ou o nível real de proteção de dados de um aplicativo, o que justifica certificações e regulação de informação.
+comentario: Certo. Há três tipos: bens de busca (qualidade observável antes da compra), de experiência (observável depois) e de credibilidade (nunca observável pelo consumidor). Nos últimos, o mercado sozinho não premia a qualidade.
+
+=== ec6-11
+gab: E
+ref: doutrina Leilões
+armadilha: conceito
+dif: 3
+tema: ec-estruturas
+enunciado: A maldição do vencedor, nos leilões de valor comum, consiste em o vencedor pagar menos do que o valor real do bem, porque os demais participantes superestimam esse valor.
+comentario: Errado. É o contrário: quem vence tende a ser quem mais superestimou o valor, e por isso paga mais do que o bem vale. Licitantes racionais reduzem os lances para compensar esse efeito.
+
+=== ec6-12
+gab: C
+ref: doutrina Análise custo-benefício
+armadilha: conceito
+dif: 2
+enunciado: Na análise custo-benefício feita em uma AIR, a análise de sensibilidade testa como o valor presente líquido e a ordem das alternativas reagem a variações plausíveis em parâmetros incertos, como a taxa de desconto ou a adesão esperada, para aferir a robustez da recomendação.
+comentario: Certo. Serve para ver se a alternativa recomendada continua a melhor ou se inverte quando as premissas incertas mudam.
+
+=== ec6-13
+gab: E
+ref: doutrina Análise custo-benefício
+armadilha: conceito
+dif: 2
+tema: ec-avaliacao
+enunciado: Situação hipotética: para comparar alternativas de política, analista atribuiu pesos a critérios como custo, impacto ambiental e aceitação social, sem converter tudo em dinheiro. Assertiva: o método não é análise multicritério, que exige monetizar os impactos.
+comentario: Errado. A análise multicritério é usada justamente quando monetizar é difícil: atribui pesos e notas a critérios diversos, inclusive qualitativos. Converter tudo em dinheiro é próprio da análise custo-benefício.
+
+=== ec6-14
+gab: C
+ref: doutrina Análise custo-benefício
+armadilha: conceito
+dif: 3
+enunciado: O valor estatístico da vida, usado em análises custo-benefício, não é o preço de uma vida específica: é estimado a partir da disposição a pagar por pequenas reduções no risco de morte de uma população.
+comentario: Certo. Se mil pessoas pagariam, cada uma, R$ 5 mil para reduzir em 1 em mil o risco de morte, o conjunto paga R$ 5 milhões por uma morte estatística evitada.
+
+=== ec6-15
+gab: C
+ref: doutrina Probabilidade
+armadilha: conceito
+dif: 3
+tema: ec-estatistica
+enunciado: Um sistema detecta 99% das transações fraudulentas e acusa, por engano, 1% das legítimas. Se 1 em cada 1.000 transações é fraudulenta, a maior parte das transações sinalizadas pelo sistema é legítima.
+comentario: Certo. Em 100 mil transações, 100 são fraudes, e o sistema acusa 99. Das 99.900 legítimas, acusa 999. Das 1.098 sinalizadas, só 99 (cerca de 9%) são fraude. É o teorema de Bayes: com evento raro, o falso positivo domina.
+
+=== ec6-16
+gab: E
+ref: doutrina Probabilidade
+armadilha: numero
+dif: 3
+tema: ec-estatistica
+enunciado: Um sistema detecta 99% das transações fraudulentas e acusa, por engano, 1% das legítimas. Se 1 em cada 1.000 transações é fraudulenta, a probabilidade de uma transação sinalizada ser de fato fraudulenta é de 99%.
+comentario: Errado. É de cerca de 9%: 99 fraudes verdadeiras entre 1.098 sinalizações, em cada 100 mil transações. Confundir P(sinal | fraude) com P(fraude | sinal) é a falácia da taxa-base.
+
+=== ec6-17
+gab: C
+ref: doutrina Avaliação de impacto
+armadilha: conceito
+dif: 3
+enunciado: Na regressão descontínua, estima-se o efeito de uma política comparando unidades logo acima e logo abaixo de um ponto de corte que define quem a recebe, como um limite de faturamento para o enquadramento como agente de pequeno porte.
+comentario: Certo. Perto do corte, as unidades são parecidas em tudo, menos no tratamento recebido, o que se aproxima de um experimento. O efeito estimado vale para quem está perto do corte.
+
+=== ec6-18
+gab: E
+ref: doutrina Avaliação de impacto
+armadilha: extrapolacao
+dif: 3
+enunciado: O pareamento por escore de propensão elimina o viés causado por características não observadas que influenciam tanto a participação no programa quanto o resultado.
+comentario: Errado. O pareamento só equilibra os grupos nas características observadas e incluídas no escore. O que não se observa (motivação, cultura de conformidade) continua podendo enviesar a comparação.
+
+=== ec6-19
+gab: C
+ref: doutrina Econometria
+armadilha: conceito
+dif: 2
+enunciado: Há viés de variável omitida quando se deixa fora do modelo de regressão uma variável relevante, correlacionada com a variável explicativa incluída, o que distorce o coeficiente estimado.
+comentario: Certo. O coeficiente passa a captar também o efeito da variável omitida. Exemplo: estimar o efeito do treinamento em privacidade sobre incidentes sem controlar pelo porte da empresa.
+
+=== ec6-20
+gab: E
+ref: doutrina Econometria
+armadilha: conceito
+dif: 3
+enunciado: Há heterocedasticidade quando a variância do termo de erro muda ao longo das observações das variáveis explicativas; nesse caso, os estimadores de mínimos quadrados ordinários dos coeficientes tornam-se viesados e inconsistentes.
+comentario: Errado. A definição está certa, a consequência não: com heterocedasticidade os estimadores de MQO dos coeficientes seguem não viesados e consistentes; o que se perde é a validade dos erros-padrão usuais e dos testes t e F, que pedem erros-padrão robustos.
+
+=== ec6-21
+gab: C
+ref: doutrina Econometria
+armadilha: conceito
+dif: 3
+tema: ec-estatistica
+enunciado: Uma variável instrumental válida deve ser correlacionada com a variável explicativa endógena e afetar o resultado apenas por meio dela.
+comentario: Certo. São as condições de relevância e de exclusão. A segunda não pode ser testada diretamente e depende de argumento sobre o caso.
+
+=== ec6-22
+gab: E
+ref: doutrina Probabilidade
+armadilha: numero
+dif: 2
+tema: ec-estatistica
+enunciado: Considere que o número de processos com indício de irregularidade em uma amostra de 10 processos independentes siga distribuição binomial com probabilidade 0,2 em cada um. Nesse caso, o valor esperado e a variância desse número são ambos iguais a 2.
+comentario: Errado. A média é n·p = 10 × 0,2 = 2, mas a variância é n·p·(1 − p) = 10 × 0,2 × 0,8 = 1,6.
+
+=== ec6-23
+gab: C
+ref: doutrina Amostragem
+armadilha: conceito
+dif: 2
+enunciado: Mantidos os demais fatores, a margem de erro de uma estimativa é inversamente proporcional à raiz quadrada do tamanho da amostra: para reduzi-la à metade, é preciso quadruplicar a amostra.
+comentario: Certo. O erro-padrão da média é σ/√n. Dobrar a amostra reduz a margem a cerca de 71% da original, e não à metade.
+
+=== ec6-24
+gab: E
+ref: doutrina Plataformas digitais
+armadilha: conceito
+dif: 2
+enunciado: A portabilidade de dados tende a elevar os custos de troca dos usuários e, assim, a reforçar o aprisionamento (lock-in) em plataformas já estabelecidas.
+comentario: Errado. A portabilidade (LGPD, art. 18, V) reduz os custos de troca: o usuário leva seus dados para o concorrente. Por isso ela é vista também como instrumento de concorrência, e não só de proteção de dados.

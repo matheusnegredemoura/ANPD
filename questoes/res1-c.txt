@@ -1,0 +1,331 @@
+// Resolução CD/ANPD nº 1/2021 (fiscalização e processo administrativo sancionador), lote C: artigos que ainda não
+// tinham item (atuação da ANPD, obstrução, intimação, interessados, prioridade, monitoramento, orientação, prevenção,
+// instauração, princípios, auto de infração, prova pericial, julgamento conjunto, arquivamento, conhecimento do recurso,
+// revisão) e um caso integrado que percorre o processo do monitoramento à cobrança. Trechos conferidos em fontes/res1.txt.
+// Os §§ 4º do art. 35 e 3º do art. 36 foram revogados pela Resolução 4/2023; a regra deles está no art. 32, § 2º.
+
+bloco: res-1-2021
+
+apoio_FISC: No Relatório de Ciclo de Monitoramento, a ANPD registrou dezenas de petições de titulares contra um aplicativo de telemedicina, todas sobre a recusa em atender pedidos de acesso. Os indícios não bastavam para abrir de imediato o processo sancionador, e a Coordenação-Geral de Fiscalização instaurou procedimento preparatório. Concluída a apuração, lavrou auto de infração e intimou a empresa. A empresa apresentou defesa e pediu perícia no sistema de atendimento aos titulares; uma associação de pacientes pediu para participar do processo. Depois da defesa, a ANPD juntou novo laudo técnico. Ao final, a área de fiscalização aplicou multa simples e determinou a correção do sistema em 60 dias. A empresa recorreu apenas da multa.
+
+=== fs-01
+gab: C
+ref: res1 3
+trecho: A ANPD atuará para a proteção dos direitos dos titulares de dados, para promover a implementação da legislação de proteção de dados pessoais, e para zelar pelo seu cumprimento
+armadilha: conceito
+dif: 2
+enunciado: Na disciplina da fiscalização da ANPD, zelar pelo cumprimento da legislação é apenas uma das frentes de atuação, ao lado da proteção dos direitos dos titulares e da promoção da implementação das normas de proteção de dados pessoais.
+comentario: Certo: Resolução 1/2021, art. 3º. Repare que fiscalizar não é só punir: proteger e promover vêm antes de zelar pelo cumprimento, e isso se reflete nas três atividades (orientativa, preventiva e repressiva).
+
+=== fs-02
+gab: C
+ref: res1 6
+trecho: O não cumprimento dos deveres estabelecidos no art. 5º poderá caracterizar obstrução à atividade de fiscalização, sujeitando o infrator a medidas repressivas
+armadilha: conceito
+dif: 2
+enunciado: O agente regulado que deixa de fornecer documentos e informações à fiscalização da ANPD pode incorrer em obstrução à atividade de fiscalização, sujeita a medidas repressivas, sem prejuízo de a ANPD adotar as medidas necessárias para concluir a ação obstruída.
+comentario: Certo: art. 6º, que remete aos deveres do art. 5º (fornecer cópia de documentos e informações, permitir acesso a instalações e sistemas, submeter-se a auditorias, entre outros). A obstrução não paralisa a ANPD: ela segue com as medidas necessárias para concluir a fiscalização.
+
+=== fs-03
+gab: E
+ref: res1 6
+trecho: sem prejuízo da adoção das medidas necessárias com o objetivo de concluir a ação de fiscalização obstruída por parte da ANPD
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: durante inspeção, empresa recusou-se a dar à ANPD acesso aos sistemas que tratam dados de clientes. Assertiva: caracterizada a obstrução, a ANPD deve encerrar a ação fiscalizatória e limitar-se a sancionar a conduta obstrutiva.
+comentario: Errado. A obstrução sujeita o infrator a medidas repressivas sem prejuízo das medidas necessárias para concluir a ação de fiscalização obstruída (art. 6º). As duas frentes correm juntas.
+
+=== fs-04
+gab: C
+ref: res1 10
+trecho: a finalidade da intimação e a informação de continuidade do processo independentemente do seu comparecimento
+armadilha: rol
+dif: 2
+enunciado: A intimação expedida pela ANPD deve informar a finalidade do ato e que o processo continuará independentemente do comparecimento do intimado, além de indicar os fatos e fundamentos legais pertinentes.
+comentario: Certo: art. 10, II e V. O rol traz ainda a identificação do intimado, a data, hora e local ou o prazo, e o que o intimado deve fazer (incisos I, III e IV).
+
+=== fs-05
+gab: E
+ref: res1 11
+trecho: Os atos administrativos serão realizados, preferencialmente, por meio eletrônico
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: em processo de fiscalização, a ANPD realizou reunião com o regulado por videoconferência. Assertiva: o ato é irregular, pois os atos desse processo devem ser praticados em meio físico.
+comentario: Errado. Os atos são realizados preferencialmente por meio eletrônico, inclusive por videoconferência; a comunicação em suporte físico é a exceção (art. 11 e parágrafo único).
+
+=== fs-06
+gab: C
+ref: res1 13
+trecho: as pessoas ou as associações legalmente constituídas quanto a direitos ou interesses difusos, incluindo as instituições acadêmicas
+armadilha: rol
+dif: 2
+enunciado: São interessados nos processos da ANPD também aqueles que, sem os ter iniciado, possam ter direitos ou interesses afetados pela decisão, e as instituições acadêmicas, quanto a interesses difusos.
+comentario: Certo. Resolução 1/2021, art. 13, II e IV, na lógica do art. 9º da Lei 9.784/1999.
+
+=== fs-07
+gab: E
+ref: res1 14
+trecho: sempre que requerida pelo interessado e comprovado o atendimento aos requisitos aplicáveis
+armadilha: excecao
+dif: 2
+enunciado: Situação hipotética: titular com deficiência é parte em processo na ANPD, mas não requereu prioridade de tramitação nem comprovou sua condição. Assertiva: pelo Regulamento de Fiscalização, a prioridade deve ser concedida de ofício.
+comentario: Errado. A prioridade depende de requerimento do interessado e de comprovação dos requisitos (art. 14). Deferida, os autos recebem identificação própria (§ 2º).
+
+=== fs-08
+gab: C
+ref: res1 18
+trecho: considerar o risco regulatório em função do comportamento dos agentes de tratamento, de modo a alocar recursos e adotar ações compatíveis com o risco
+armadilha: conceito
+dif: 2
+enunciado: Ao monitorar os agentes de tratamento, a ANPD leva em conta o risco regulatório associado ao comportamento de cada um, o que lhe permite distribuir recursos e escolher ações proporcionais a esse risco.
+comentario: Certo: art. 18, III. É a fiscalização baseada em risco, ligada à premissa da atuação responsiva (art. 17).
+
+=== fs-09
+gab: E
+ref: res1 20
+trecho: O Relatório de Ciclo de Monitoramento será submetido à deliberação do Conselho Diretor ao final do ciclo
+armadilha: sujeito
+dif: 2
+enunciado: Na atividade de monitoramento da ANPD, os resultados de cada ciclo são consolidados no Relatório de Ciclo de Monitoramento, aprovado em definitivo pela Coordenação-Geral de Fiscalização, sem deliberação do Conselho Diretor.
+comentario: Errado. O relatório vai à deliberação do Conselho Diretor ao final do ciclo e pode indicar outras necessidades de atuação da ANPD (art. 20, § 2º). Ele avalia o ciclo, direciona a estratégia e consolida requerimentos e comunicações de incidentes (§ 1º).
+
+=== fs-10
+gab: E
+ref: res1 21
+trecho: O Mapa de Temas Prioritários será bianual
+armadilha: numero
+dif: 2
+enunciado: No regulamento de fiscalização da ANPD, tanto o ciclo de monitoramento, como regra, quanto o Mapa de Temas Prioritários têm periodicidade anual, razão pela qual ambos são revistos ao mesmo tempo.
+comentario: Errado. O Mapa de Temas Prioritários é bianual (art. 21). O ciclo de monitoramento é, em regra, anual, com possibilidade de prazo superior por decisão do Conselho Diretor (art. 19, parágrafo único); para 2026-2027, a Resolução CD/ANPD nº 30/2025 o fixou em dois anos (art. 2º). O erro do item está em dizer que o Mapa é anual.
+
+=== fs-11
+gab: C
+ref: res1 29
+trecho: elaboração e disponibilização de ferramentas de autoavaliação de conformidade e de avaliação de riscos a serem utilizadas pelos agentes de tratamento
+armadilha: rol
+dif: 2
+enunciado: O reconhecimento e a divulgação de regras de boas práticas e de governança figuram entre as medidas de orientação da ANPD, rol que admite outras medidas compatíveis com os objetivos da atividade de orientação.
+comentario: Certo. Res. 1/2021, art. 29, IV, e § 1º (outras medidas compatíveis com os arts. 27 e 28). Os agentes ou suas associações podem sugerir a adoção dessas medidas, sujeita à avaliação da ANPD (§ 2º).
+
+=== fs-12
+gab: E
+ref: res1 31
+trecho: As medidas aplicadas pela Coordenação-Geral de Fiscalização ao longo da atividade preventiva não constituem sanção ao agente regulado
+armadilha: conceito
+dif: 3
+enunciado: Por constituírem sanção, ainda que de natureza leve, as medidas aplicadas pela Coordenação-Geral de Fiscalização na atividade preventiva, como o aviso e a solicitação de regularização, só podem ser impostas depois de instaurado processo administrativo sancionador.
+comentario: Errado. As medidas da atividade preventiva não constituem sanção (art. 31). Sanções são as do art. 52 da LGPD, aplicadas em processo sancionador. O descumprimento da medida preventiva, porém, é agravante se houver processo (art. 32, § 2º, II).
+
+=== fs-13
+gab: C
+ref: res1 32
+trecho: será considerado circunstância agravante em caso de instauração de processo administrativo sancionador
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: um controlador deixou de atender solicitação de regularização que lhe fora dirigida pela ANPD, e a Agência, em seguida, instaurou processo administrativo sancionador. Assertiva: o descumprimento da medida preventiva poderá agravar a sanção eventualmente aplicada nesse processo.
+comentario: Certo: art. 32, § 2º, incluído pela Resolução 4/2023. A mesma regra estava nos §§ 4º do art. 35 e 3º do art. 36, que foram revogados e concentrados aqui.
+
+=== fs-14
+gab: E
+ref: res1 35
+trecho: O agente de tratamento poderá requerer prorrogação do prazo uma única vez por igual período
+armadilha: numero
+dif: 2
+enunciado: Na solicitação de regularização, a ANPD fixa prazo para que o agente de tratamento corrija a situação, e esse prazo pode ser prorrogado uma única vez, pela metade do prazo original.
+comentario: Errado. A prorrogação é uma única vez, mas por igual período, com justificativa da não regularização no prazo (art. 35, § 3º, da Resolução CD/ANPD nº 1/2021).
+
+=== fs-15
+gab: C
+ref: res1 33
+trecho: A ANPD poderá divulgar informações e dados setoriais agregados e de desempenho em seu sítio eletrônico como medida preventiva
+armadilha: conceito
+dif: 2
+enunciado: Como medida preventiva, a ANPD pode divulgar em seu sítio eletrônico dados setoriais agregados e de desempenho, como a taxa de resolução de problemas e de pedidos de titulares atendidos.
+comentario: Certo: art. 33. É regulação pela transparência: expor o desempenho do setor estimula a correção sem sanção. A ANPD pode ainda determinar ao agente que ele mesmo divulgue esses dados (parágrafo único).
+
+=== fs-16
+gab: C
+ref: res1 37
+trecho: diante de requerimento em que a Coordenação-Geral de Fiscalização, após efetuar a análise de admissibilidade, deliberar pela abertura imediata de processo sancionador
+armadilha: rol
+dif: 2
+enunciado: O processo administrativo sancionador pode ser instaurado de ofício, em decorrência do monitoramento ou diante de requerimento, quando a área de fiscalização, após a análise de admissibilidade, deliberar pela abertura imediata.
+comentario: Certo: art. 37, I a III. A instauração cabe à Coordenação-Geral de Fiscalização, com contraditório e ampla defesa (art. 45).
+
+=== fs-17
+gab: E
+ref: res1 39
+trecho: interpretação da norma administrativa da forma que melhor garanta o atendimento do fim público a que se dirige, vedada aplicação retroativa de nova interpretação
+armadilha: extrapolacao
+dif: 2
+enunciado: Nos processos sancionadores, a ANPD deve observar critérios como a adequação entre meios e fins, e pode aplicar retroativamente nova interpretação de norma administrativa quando ela atender melhor ao interesse público.
+comentario: Errado. É vedada a aplicação retroativa de nova interpretação (art. 39, VI), garantia de segurança jurídica que repete o art. 2º, parágrafo único, XIII, da Lei 9.784/1999.
+
+=== fs-18
+gab: C
+ref: res1 39
+trecho: adequação entre meios e fins, vedada a imposição de obrigações, restrições e sanções em medida superior àquelas estritamente necessárias ao atendimento do interesse público
+armadilha: conceito
+dif: 2
+enunciado: Entre os critérios que a ANPD deve observar nos processos sancionadores está a adequação entre meios e fins, vedadas sanções em medida superior à estritamente necessária ao interesse público.
+comentario: Certo: art. 39, II, expressão do princípio da proporcionalidade, que também aparece no caput.
+
+=== fs-19
+gab: E
+ref: res1 46
+trecho: dispositivo legal ou regulamentar relacionado à suposta infração
+armadilha: rol
+dif: 2
+enunciado: O auto de infração lavrado pela ANPD deve conter a identificação do autuado, a descrição da conduta imputada e o dispositivo relacionado à suposta infração, e, sob pena de nulidade, também o valor da multa a ser aplicada.
+comentario: Errado. O auto contém a identificação do infrator, a conduta imputada com os fatos a apurar e o dispositivo relacionado à suposta infração (art. 46). A sanção só vem na decisão, depois da defesa e da instrução.
+
+=== fs-20
+gab: C
+ref: res1 51
+trecho: Os pedidos de produção de prova serão analisados pela Coordenação-Geral de Fiscalização e poderão ser indeferidos
+armadilha: conceito
+dif: 2
+enunciado: No processo administrativo sancionador da ANPD, o autuado que requer a produção de provas não tem garantido o deferimento do pedido, que é examinado pela Coordenação-Geral de Fiscalização e pode ser indeferido.
+comentario: Certo: art. 51. Na Lei 9.784/1999, a recusa exige que as provas sejam ilícitas, impertinentes, desnecessárias ou protelatórias, mediante decisão fundamentada (art. 38, § 2º).
+
+=== fs-21
+gab: E
+ref: res1 52
+trecho: o autuado poderá formular quesitos suplementares e requerer esclarecimentos ao perito
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: em processo sancionador da ANPD, foi deferida prova pericial sobre a segurança dos sistemas do autuado. Assertiva: os quesitos são definidos exclusivamente pela ANPD, vedado ao autuado formular quesitos suplementares.
+comentario: Errado. A ANPD define os quesitos relevantes, mas o autuado pode formular quesitos suplementares, pedir esclarecimentos ao perito e indicar assistente técnico (art. 52, I a III).
+
+=== fs-22
+gab: C
+ref: res1 57
+trecho: É possível a reunião para julgamento conjunto dos processos que possam gerar risco de prolação de decisões conflitantes ou contraditórias caso decididos separadamente, mesmo sem conexão entre eles, seja na fase de decisão em primeira instância ou recursal.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: tramitam na ANPD processos sancionadores, sem conexão entre si, sobre condutas semelhantes de empresas distintas, e o julgamento em separado pode levar a decisões contraditórias. Assertiva: os processos podem ser reunidos para julgamento conjunto, ainda que já estejam em fase recursal.
+comentario: Certo: art. 57. O critério é o risco de decisões contraditórias, não a conexão formal.
+
+=== fs-23
+gab: E
+ref: res1 59
+trecho: que poderão recorrer ao Conselho Diretor no prazo de até dez dias úteis da notificação
+armadilha: fecho
+dif: 3
+enunciado: Arquivado o processo administrativo sancionador, a área de fiscalização da ANPD deve informar os terceiros interessados habilitados, aos quais, por não serem parte, não se abre a via recursal contra o arquivamento.
+comentario: Errado. Arquivado o processo, a área de fiscalização informa os terceiros interessados habilitados, que podem recorrer ao Conselho Diretor em até dez dias úteis da notificação (art. 59).
+
+=== fs-24
+gab: C
+ref: res1 61
+trecho: O não conhecimento do recurso não impede a ANPD de rever de ofício o ato ilegal
+armadilha: excecao
+dif: 2
+enunciado: Ainda que não conheça recurso interposto fora do prazo, a ANPD pode rever de ofício o ato ilegal.
+comentario: Certo: art. 61, parágrafo único, que repete a lógica do art. 63, § 2º, da Lei 9.784/1999. Não se conhece recurso intempestivo, de quem não é legitimado, sem interesse recursal, após exaurida a esfera ou contra mero expediente.
+
+=== fs-25
+gab: E
+ref: res1 61
+trecho: contra atos de mero expediente ou preparatórios de decisões, bem como em face de análises técnicas e pareceres ou decisões irrecorríveis
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: em processo sancionador, a área técnica da ANPD emitiu parecer que subsidiará a decisão de primeira instância, e o autuado discordou de suas conclusões. Assertiva: cabe recurso ao Conselho Diretor contra esse parecer.
+comentario: Errado. Não se conhece recurso contra atos de mero expediente ou preparatórios, nem contra análises técnicas e pareceres (art. 61, V). Recorre-se da decisão.
+
+=== fs-26
+gab: C
+ref: res1 68
+trecho: quando surgirem fatos novos ou circunstâncias relevantes suscetíveis de justificar a inadequação da sanção aplicada
+armadilha: conceito
+dif: 2
+enunciado: Os processos que resultaram em sanção podem ser revistos a qualquer tempo, a pedido ou de ofício, quando surgirem fatos novos ou circunstâncias relevantes que justifiquem a inadequação da sanção.
+comentario: Certo: art. 68. A revisão é processo novo, distribuído a diretor que não foi relator, não suspende a sanção e não pode agravá-la (art. 69, §§ 1º, 2º e 4º).
+
+=== fs-27
+gab: E
+ref: res1 43
+trecho: A suspensão do processo terá início após a assinatura do termo de ajustamento de conduta
+armadilha: conceito
+dif: 2
+apoio: @FISC
+comando: Com base na situação hipotética apresentada e na Resolução CD/ANPD nº 1/2021, julgue os itens a seguir.
+enunciado: Se a empresa tivesse apresentado proposta de termo de ajustamento de conduta logo após a intimação do auto de infração, o processo sancionador ficaria suspenso desde o protocolo da proposta.
+comentario: Errado. A proposta vai à deliberação do Conselho Diretor, e a suspensão só começa com a assinatura do termo; cumprido integralmente, o processo é arquivado (art. 43, §§ 1º a 3º).
+
+=== fs-28
+gab: E
+ref: res1 47
+trecho: para apresentar defesa no prazo máximo de dez dias úteis
+armadilha: numero
+dif: 2
+apoio: @FISC
+comando: Com base na situação hipotética apresentada e na Resolução CD/ANPD nº 1/2021, julgue os itens a seguir.
+enunciado: Situação hipotética: lavrado o auto de infração, a Coordenação-Geral de Fiscalização intimou a empresa e lhe deu vinte dias úteis para a defesa, por considerar o caso complexo. Assertiva: o prazo concedido respeita o regulamento do processo sancionador da ANPD.
+comentario: Errado. Pelo art. 47 da Resolução CD/ANPD nº 1/2021, a defesa é apresentada no prazo máximo de dez dias úteis.
+
+=== fs-29
+gab: E
+ref: res1 49
+trecho: O terceiro interessado receberá o processo no estado em que se encontra e terá acesso apenas aos documentos e peças processuais públicas
+armadilha: extrapolacao
+dif: 2
+apoio: @FISC
+comando: Com base na situação hipotética apresentada e na Resolução CD/ANPD nº 1/2021, julgue os itens a seguir.
+enunciado: Admitida como terceira interessada, a associação de pacientes passa a ter acesso a todos os documentos do processo, inclusive aos protegidos por segredo comercial, e pode exigir a repetição dos atos anteriores.
+comentario: Errado. O terceiro recebe o processo no estado em que se encontra e só acessa documentos e peças públicas; seus poderes e prazos são definidos em decisão irrecorrível (art. 49, §§ 2º e 3º).
+
+=== fs-30
+gab: C
+ref: res1 53
+trecho: É facultado prazo de dez dias úteis para manifestação do autuado antes da elaboração do Relatório de instrução, se entre a defesa e a instrução processual forem produzidas novas provas
+armadilha: caso
+dif: 2
+apoio: @FISC
+comando: Com base na situação hipotética apresentada e na Resolução CD/ANPD nº 1/2021, julgue os itens a seguir.
+enunciado: Como o novo laudo técnico foi juntado depois da defesa, é facultado à empresa prazo de dez dias úteis para se manifestar antes do relatório de instrução.
+comentario: Certo: art. 53. O contraditório acompanha a prova nova; depois vem o relatório de instrução, que encerra a fase (art. 54).
+
+=== fs-31
+gab: C
+ref: res1 55
+trecho: o prazo para execução e as condições de aferição pela ANPD, ou de demonstração pelo infrator, do cumprimento das medidas impostas
+armadilha: caso
+dif: 3
+apoio: @FISC
+comando: Com base na situação hipotética apresentada e na Resolução CD/ANPD nº 1/2021, julgue os itens a seguir.
+enunciado: Ao determinar a correção do sistema de atendimento, a decisão de primeira instância deveria indicar o prazo de execução e as condições de aferição pela ANPD, ou de demonstração pela empresa, do cumprimento da medida.
+comentario: Certo: art. 55, § 2º, I, incluído pela Resolução 4/2023. Obrigação de fazer sem prazo e sem critério de aferição não tem como ser fiscalizada.
+
+=== fs-32
+gab: E
+ref: res1 60
+trecho: O recurso administrativo terá efeito suspensivo limitado à matéria contestada da decisão
+armadilha: extrapolacao
+dif: 2
+apoio: @FISC
+comando: Com base na situação hipotética apresentada e na Resolução CD/ANPD nº 1/2021, julgue os itens a seguir.
+enunciado: Interposto o recurso contra a multa, também fica suspenso o prazo de 60 dias para a correção do sistema.
+comentario: Errado. O efeito suspensivo se limita à matéria contestada (art. 60). A empresa recorreu só da multa; a obrigação de corrigir o sistema segue exigível. A ressalva do artigo é o fundado receio de prejuízo de difícil ou incerta reparação, que o caso não menciona.
+
+=== fs-33
+gab: E
+ref: res1 62
+trecho: Do exercício do juízo de reconsideração não poderá resultar agravamento da sanção originalmente aplicada
+armadilha: conceito
+dif: 2
+apoio: @FISC
+comando: Com base na situação hipotética apresentada e na Resolução CD/ANPD nº 1/2021, julgue os itens a seguir.
+enunciado: Ao receber o recurso, a área de fiscalização pode reconsiderar a decisão para aumentar a multa, se entender que a dosimetria ficou branda.
+comentario: Errado. A reconsideração não pode agravar a sanção (art. 62, § 2º). O agravamento só é possível no Conselho Diretor, com intimação prévia do recorrente para alegações em dez dias úteis (art. 65, § 1º).
+
+=== fs-34
+gab: C
+ref: res1 67
+trecho: no prazo de setenta e cinco dias contados dessa intimação
+armadilha: caso
+dif: 3
+apoio: @FISC
+comando: Com base na situação hipotética apresentada e na Resolução CD/ANPD nº 1/2021, julgue os itens a seguir.
+enunciado: Mantida a multa e não paga no vencimento, a empresa será intimada sobre o débito e sobre a inscrição no Cadin no prazo de setenta e cinco dias e, restando o débito vencido e não pago, o processo será encaminhado ao órgão competente da Advocacia-Geral da União.
+comentario: Certo: art. 67, §§ 2º e 3º. A inscrição em dívida ativa e a cobrança ficam com a Procuradoria-Geral Federal, vinculada à AGU, que cobra os créditos das autarquias federais; o produto das multas vai ao Fundo de Defesa de Direitos Difusos (LGPD, art. 52, § 5º).

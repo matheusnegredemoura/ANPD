@@ -1,0 +1,148 @@
+bloco: seginfo
+// Segunda leva de segurança da informação e técnicas de privacidade.
+
+=== si2-01
+gab: E
+ref: doutrina criptografia
+armadilha: comparacao
+dif: 2
+enunciado: Na criptografia simétrica, a exemplo do RSA, cada participante tem um par de chaves matematicamente relacionadas, uma pública e outra privada, o que dispensa o compartilhamento prévio de segredo.
+comentario: Errado. Par de chaves pública e privada, como no RSA, caracteriza a criptografia assimétrica. Na simétrica, como no AES, uma única chave secreta compartilhada cifra e decifra.
+
+=== si2-02
+gab: E
+ref: doutrina criptografia
+armadilha: extrapolacao
+dif: 3
+enunciado: O protocolo TLS protege dados em trânsito, garantindo confidencialidade e integridade entre as pontas da conexão, de modo que os dados continuam cifrados depois de recebidos e gravados no servidor de destino.
+comentario: Errado. O TLS protege a comunicação entre as pontas; ao chegar ao destino, os dados são decifrados para uso. A proteção dos dados em repouso exige outra medida, como a criptografia de disco, de arquivo ou de banco de dados.
+
+=== si2-03
+gab: E
+ref: doutrina pseudonimização
+armadilha: comparacao
+dif: 3
+enunciado: Situação hipotética: empresa substituiu nomes por códigos e manteve em separado a tabela que permite reidentificar os titulares. Assertiva: os dados passaram a ser anonimizados e ficam fora do alcance da LGPD.
+comentario: A pseudonimização mantém informação adicional que permite a reassociação, guardada pelo controlador (LGPD, art. 13, § 4º). O dado continua pessoal. No GDPR é igual (considerando 26).
+
+=== si2-04
+gab: C
+ref: doutrina privacidade diferencial
+armadilha: conceito
+dif: 3
+tema: sg-privacidade
+enunciado: A privacidade diferencial adiciona ruído calibrado aos resultados de consultas ou análises, de modo a limitar o que se pode inferir sobre a presença ou os dados de um indivíduo específico na base.
+comentario: Técnica usada, por exemplo, pelo Censo dos EUA de 2020. O parâmetro épsilon controla o equilíbrio entre privacidade e utilidade.
+pesquisar: Privacidade diferencial e o parâmetro épsilon
+
+=== si2-05
+gab: E
+ref: doutrina anonimização
+armadilha: conceito
+dif: 3
+tema: sg-privacidade
+enunciado: Uma base que atende ao k-anonimato está protegida contra o ataque de homogeneidade, ainda que todos os registros de um mesmo grupo compartilhem o mesmo valor sensível.
+comentario: Se todos os k registros do grupo têm o mesmo diagnóstico, o atacante descobre o dado sensível sem saber qual é o registro. A l-diversidade e a t-proximidade surgiram para tratar essa falha.
+
+=== si2-06
+gab: C
+ref: doutrina anonimização
+armadilha: conceito
+dif: 2
+enunciado: A reidentificação por ligação ocorre quando uma base supostamente anonimizada é cruzada com outra base que contém quase-identificadores, como CEP, data de nascimento e sexo.
+comentario: Caso clássico de Latanya Sweeney, que reidentificou o prontuário de um governador combinando dados de saúde com o cadastro eleitoral. Por isso a LGPD fala em meios técnicos razoáveis (art. 12).
+pesquisar: Latanya Sweeney e a reidentificação por quase-identificadores
+
+=== si2-07
+gab: C
+ref: doutrina ameaças
+armadilha: conceito
+dif: 2
+enunciado: O phishing é técnica de engenharia social em que o atacante se passa por pessoa ou instituição confiável para obter credenciais e dados ou levar a vítima a executar código malicioso, com variantes como spear phishing, whaling, smishing e vishing.
+comentario: Certo. As variantes mudam o alvo (spear phishing, dirigido; whaling, altos executivos) ou o canal (smishing, SMS; vishing, voz).
+
+=== si2-08
+gab: E
+ref: doutrina backup
+armadilha: comparacao
+dif: 3
+tema: sg-principios
+enunciado: Situação hipotética: faz-se backup completo no domingo e, nos demais dias, copiam-se apenas os arquivos alterados desde o backup anterior, qualquer que seja seu tipo. Assertiva: o esquema descreve backup diferencial.
+comentario: Errado. Copiar, nos demais dias, só o que mudou desde o backup anterior (de qualquer tipo) é o backup incremental. O diferencial copia tudo o que mudou desde o último backup completo, e por isso cresce a cada dia até o próximo completo.
+
+=== si2-09
+gab: C
+ref: doutrina backup
+armadilha: conceito
+dif: 2
+tema: sg-principios
+enunciado: Para restaurar um ambiente a partir de backups diferenciais, bastam o último backup completo e o último backup diferencial.
+comentario: O diferencial acumula as mudanças desde o último completo. No incremental, é preciso o completo e todos os incrementais posteriores, em ordem.
+
+=== si2-10
+gab: C
+ref: doutrina zero trust
+armadilha: conceito
+dif: 2
+tema: sg-principios
+enunciado: O modelo de confiança zero parte da premissa de que nenhum usuário ou dispositivo deve ser considerado confiável apenas por estar dentro do perímetro da rede corporativa.
+comentario: Certo. O modelo de confiança zero (zero trust, NIST SP 800-207) não presume confiança por localização na rede: cada acesso é autenticado, autorizado e verificado continuamente. O lema é nunca confiar, sempre verificar; o perímetro deixa de ser a fronteira da confiança.
+
+=== si2-11
+gab: E
+ref: doutrina redes
+armadilha: conceito
+dif: 2
+tema: sg-ameacas
+enunciado: O firewall de filtragem de pacotes sem estado inspeciona a carga útil das mensagens na camada de aplicação para identificar e bloquear comandos de injeção de SQL.
+comentario: Errado. O filtro sem estado olha cabeçalhos (endereços, portas, protocolo) de cada pacote isolado. Inspecionar conteúdo na camada de aplicação é papel do WAF ou de firewalls de nova geração.
+
+=== si2-12
+gab: C
+ref: doutrina ameaças
+armadilha: conceito
+dif: 2
+tema: sg-ameacas
+enunciado: A injeção de SQL explora entradas não validadas para executar comandos no banco de dados, e o uso de consultas parametrizadas é medida eficaz de prevenção.
+comentario: Certo. A injeção de SQL insere comandos em entradas não validadas que a aplicação concatena na consulta ao banco. Consultas parametrizadas separam código de dados e neutralizam o ataque. A categoria Injection aparece há anos no OWASP Top 10.
+
+=== si2-13
+gab: E
+ref: doutrina hash
+armadilha: causalidade
+dif: 3
+enunciado: Ao armazenar senhas com uma única aplicação de SHA-256, sem sal, senhas iguais de usuários diferentes geram resumos diferentes, o que impede ataques com tabelas pré-computadas.
+comentario: Errado. Sem sal, a mesma senha gera sempre o mesmo resumo, o que expõe a base a tabelas pré-computadas (rainbow tables) e revela quais usuários usam a mesma senha. Recomenda-se sal aleatório e funções lentas próprias para senhas, como bcrypt, scrypt ou Argon2.
+
+=== si2-14
+gab: C
+ref: doutrina normas ISO
+armadilha: conceito
+dif: 2
+enunciado: A norma ISO/IEC 27701 estende os requisitos das normas ISO/IEC 27001 e 27002 para a gestão da privacidade da informação.
+comentario: Especifica o sistema de gestão da privacidade da informação (SGPI ou PIMS), útil para demonstrar conformidade com LGPD e GDPR.
+
+=== si2-16
+gab: C
+ref: doutrina DLP
+armadilha: conceito
+dif: 2
+tema: sg-ameacas
+enunciado: Ferramentas de prevenção de perda de dados (DLP) monitoram e podem bloquear a saída não autorizada de informações sensíveis por e-mail, nuvem ou dispositivos removíveis.
+comentario: DLP ajuda a prevenir incidentes de vazamento, ligando-se ao princípio da prevenção (LGPD, art. 6º, VIII).
+
+=== si2-17
+gab: E
+ref: doutrina ameaças
+armadilha: conceito
+dif: 2
+enunciado: O ataque distribuído de negação de serviço (DDoS) tem como efeito primário a violação da confidencialidade, pela exfiltração silenciosa de bases de dados do servidor-alvo.
+comentario: Errado. O DDoS atinge a disponibilidade, esgotando recursos do alvo. Pode servir de cortina de fumaça para outro ataque, mas sua finalidade própria não é extrair dados.
+
+=== si2-18
+gab: C
+ref: doutrina minimização
+armadilha: conceito
+dif: 2
+enunciado: Coletar e reter apenas os dados pessoais estritamente necessários à finalidade reduz tanto a superfície de exposição quanto o impacto potencial de um incidente de segurança.
+comentario: Certo. Dado que não foi coletado, ou que já foi eliminado, não vaza. É a ligação entre o princípio da necessidade (LGPD, art. 6º, III) e a gestão de riscos.

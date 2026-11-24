@@ -1,0 +1,127 @@
+bloco: constitucional
+// Proteção de dados na Constituição Federal. Texto da CF ainda não anexado em fontes/: referências conferidas de memória, sem trecho literal.
+
+=== cf-01
+gab: C
+tema: const-direitos
+ref: cf88 5, LXXIX
+trecho: é assegurado, nos termos da lei, o direito à proteção dos dados pessoais, inclusive nos meios digitais. (Incluído pela Emenda Constitucional nº 115, de 2022)
+armadilha: conceito
+dif: 3
+enunciado: A proteção dos dados pessoais, inclusive nos meios digitais, é direito fundamental assegurado nos termos da lei, e compete privativamente à União legislar sobre proteção e tratamento de dados pessoais.
+comentario: Certo. A EC 115/2022 incluiu o inciso LXXIX no art. 5º, o inciso XXVI no art. 21 (organizar e fiscalizar a proteção de dados) e o inciso XXX no art. 22 (competência legislativa privativa da União).
+
+=== cf-02
+gab: E
+tema: const-direitos
+ref: cf88 5, LXXIX
+trecho: é assegurado, nos termos da lei, o direito à proteção dos dados pessoais, inclusive nos meios digitais
+armadilha: conceito
+dif: 2
+enunciado: A Emenda Constitucional n.º 115/2022 atribuiu à União competência privativa para legislar sobre proteção e tratamento de dados pessoais e incluiu a proteção de dados na Constituição como princípio geral da atividade econômica, no art. 170, e não como direito fundamental.
+comentario: A EC nº 115/2022 inseriu a proteção de dados no art. 5º (inciso LXXIX), entre os direitos e garantias fundamentais. O art. 170 aparece na LGPD por outro motivo: o dever de mínima intervenção da ANPD (art. 55-J, § 1º).
+
+=== cf-03
+gab: C
+tema: const-organizacao
+ref: cf88 22, XXX
+trecho: Compete privativamente à União legislar sobre
+trecho: XXX - proteção e tratamento de dados pessoais
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: deputado estadual propôs lei para disciplinar o tratamento de dados pessoais em todo o estado. Assertiva: legislar sobre proteção e tratamento de dados pessoais é competência privativa da União.
+comentario: Art. 22, XXX, incluído pela EC nº 115/2022. Por isso leis estaduais ou municipais não podem criar regras gerais de proteção de dados; o parágrafo único do art. 1º da LGPD já dizia que suas normas gerais são de interesse nacional.
+
+=== cf-04
+gab: E
+tema: const-organizacao
+ref: cf88 22, XXX
+trecho: Compete privativamente à União legislar sobre
+trecho: XXX - proteção e tratamento de dados pessoais
+armadilha: sujeito
+dif: 2
+enunciado: A competência para legislar sobre proteção e tratamento de dados pessoais é concorrente entre a União, os Estados e o Distrito Federal, cabendo à União estabelecer normas gerais.
+comentario: Errado. Legislar sobre proteção e tratamento de dados pessoais é competência privativa da União (art. 22, XXX), e não concorrente (art. 24). A EC 115/2022, que incluiu esse inciso, também pôs a proteção dos dados pessoais entre os direitos fundamentais (art. 5º, LXXIX) e deu à União organizar e fiscalizar o tema (art. 21, XXVI).
+
+=== cf-05
+gab: C
+tema: const-organizacao
+ref: cf88 21, XXVI
+trecho: XXVI - organizar e fiscalizar a proteção e o tratamento de dados pessoais, nos termos da lei
+armadilha: conceito
+dif: 2
+enunciado: Cabe à União, nos termos da lei, organizar a proteção dos dados pessoais e fiscalizar o seu tratamento, competência material que a Constituição lhe atribui.
+comentario: Art. 21, XXVI, incluído pela EC nº 115/2022. É a competência material que a ANPD exerce em nome da União.
+
+=== cf-06
+gab: E
+tema: const-organizacao
+ref: cf88 21, XXVI
+trecho: Compete à União
+trecho: XXVI - organizar e fiscalizar a proteção e o tratamento de dados pessoais, nos termos da lei
+armadilha: causalidade
+dif: 2
+enunciado: A organização e a fiscalização da proteção e do tratamento de dados pessoais, nos termos da lei, cabem aos Municípios, por se tratar de assunto de interesse local.
+comentario: Errado. Organizar e fiscalizar a proteção e o tratamento de dados pessoais, nos termos da lei, é competência material da União (art. 21, XXVI, incluído pela EC 115/2022), exercida pela ANPD. Não se trata de assunto de interesse local (art. 30, I); legislar sobre o tema também é privativo da União (art. 22, XXX).
+
+=== cf-07
+gab: C
+tema: const-direitos
+ref: stfsum ADI6387
+trecho: Suspendeu a MP 954/2020
+trecho: como direitos fundamentais autônomos
+armadilha: caso
+dif: 2
+enunciado: Em 2020, o Supremo Tribunal Federal suspendeu a eficácia de medida provisória que obrigava empresas de telefonia a compartilhar dados de usuários com o IBGE, reconhecendo a proteção de dados pessoais como direito fundamental autônomo.
+comentario: ADI 6.387 e ações conexas, relatora Ministra Rosa Weber, sobre a MP nº 954/2020. O julgamento é marco do reconhecimento do direito antes da EC nº 115/2022.
+
+=== cf-09
+gab: C
+tema: const-remedios
+ref: cf88 5, LXXII
+trecho: para a retificação de dados, quando não se prefira fazê-lo por processo sigiloso, judicial ou administrativo
+armadilha: conceito
+dif: 3
+enunciado: Além de dar ao impetrante acesso a informações sobre si em bancos de dados governamentais ou de caráter público, o habeas data serve à correção desses dados, a menos que o interessado opte por corrigi-los em processo sigiloso, judicial ou administrativo.
+comentario: Certo. Art. 5º, LXXII: alínea “a” (conhecimento de informações relativas à pessoa do impetrante) e alínea “b” (retificação, quando não se prefira fazê-la por processo sigiloso, judicial ou administrativo). Os dados têm de ser do próprio impetrante; para informações de terceiros, o caminho é outro, como o pedido de acesso pela LAI.
+
+=== cf-10
+gab: C
+tema: const-direitos
+ref: cf88 5, XII
+trecho: é inviolável o sigilo da correspondência e das comunicações telegráficas, de dados e das comunicações telefônicas, salvo, no último caso, por ordem judicial, nas hipóteses e na forma que a lei estabelecer para fins de investigação criminal ou instrução processual penal
+armadilha: excecao
+dif: 3
+enunciado: Das comunicações protegidas pelo inciso XII do art. 5º da Constituição, apenas as telefônicas têm previsão expressa de quebra do sigilo por ordem judicial, para investigação criminal ou instrução processual penal.
+comentario: Art. 5º, XII. A ressalva expressa (ordem judicial) refere-se às comunicações telefônicas.
+
+=== cf-11
+gab: C
+tema: const-legislativo
+ref: cf88 52, III, f
+trecho: aprovar previamente, por voto secreto, após argüição pública, a escolha de
+trecho: f) titulares de outros cargos que a lei determinar
+armadilha: sujeito
+dif: 2
+enunciado: A aprovação prévia, pelo Senado Federal, dos membros do Conselho Diretor da ANPD tem fundamento na competência privativa do Senado para aprovar a escolha de titulares de outros cargos que a lei determinar.
+comentario: Art. 52, III, “f”, da Constituição, citado expressamente no art. 55-D, § 1º, da LGPD.
+
+=== cf-12
+gab: E
+tema: const-direitos
+ref: cf88 5, X
+trecho: assegurado o direito a indenização pelo dano material ou moral decorrente de sua violação
+armadilha: extrapolacao
+dif: 3
+enunciado: A Constituição declara invioláveis a intimidade, a vida privada, a honra e a imagem das pessoas e assegura indenização pelo dano moral decorrente da violação, desde que haja também dano material comprovado.
+comentario: Errado. O art. 5º, X, assegura indenização pelo dano material ou moral decorrente da violação. O dano moral é indenizável por si, sem depender de prejuízo material, e a Súmula 37 do STJ admite ainda a cumulação das duas indenizações.
+
+=== cf-13
+gab: C
+tema: const-eficacia
+ref: cf88 60, § 4º, IV
+trecho: IV - os direitos e garantias individuais
+armadilha: conceito
+dif: 2
+enunciado: Por integrar o rol dos direitos e garantias individuais, o direito à proteção de dados pessoais não pode ser objeto de proposta de emenda constitucional tendente a aboli-lo.
+comentario: Art. 60, § 4º, IV: não será objeto de deliberação a proposta de emenda tendente a abolir os direitos e garantias individuais. O inciso LXXIX está no art. 5º.

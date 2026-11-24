@@ -1,0 +1,473 @@
+bloco: lgpd-5-11
+// Conceitos, princípios, bases legais, consentimento, legítimo interesse e dados sensíveis (arts. 5º a 11).
+
+=== lgpd-5-01
+gab: E
+ref: lgpd 5, I
+trecho: dado pessoal: informação relacionada a pessoa natural identificada ou identificável
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: uma loja guarda registros de compra associados apenas ao número do celular dos clientes, sem o nome deles. Assertiva: esses registros não são dados pessoais, porque a LGPD protege a informação relacionada a pessoa natural identificada pelo nome.
+comentario: Errado. Dado pessoal é a informação relacionada a pessoa natural identificada ou identificável (art. 5º, I). O número do celular permite identificar o cliente com meios razoáveis, mesmo sem nome no registro.
+
+=== lgpd-5-02
+gab: E
+ref: lgpd 5, II
+trecho: dado pessoal sensível: dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural
+armadilha: rol
+dif: 3
+enunciado: Integram o rol legal de dados pessoais sensíveis, ao lado dos dados referentes à saúde e à vida sexual, os dados genéticos, os biométricos e os financeiros, quando vinculados a uma pessoa natural.
+comentario: O rol do art. 5º, II, não inclui dados financeiros. Eles são dados pessoais comuns, ainda que mereçam cuidado (sigilo bancário, proteção do crédito).
+
+=== lgpd-5-03
+gab: C
+ref: lgpd 5, II
+trecho: dado genético ou biométrico, quando vinculado a uma pessoa natural
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: uma academia passou a liberar a catraca pela leitura da impressão digital de cada aluno cadastrado. Assertiva: o dado biométrico assim tratado, por estar vinculado a pessoa natural, é dado pessoal sensível.
+comentario: Art. 5º, II. A ressalva “quando vinculado a uma pessoa natural” vale para o dado genético e para o biométrico. Biometria abre o Mapa de Temas Prioritários 2026-2027 da ANPD.
+
+=== lgpd-5-04
+gab: C
+ref: lgpd 5, II
+trecho: filiação a sindicato ou a organização de caráter religioso, filosófico ou político
+armadilha: rol
+dif: 2
+enunciado: A filiação de alguém a organização de caráter filosófico é dado pessoal sensível para a LGPD, assim como a filiação a sindicato ou a organização de caráter religioso ou político.
+comentario: Art. 5º, II: filiação a sindicato ou a organização de caráter religioso, filosófico ou político.
+
+=== lgpd-5-06
+gab: C
+ref: lgpd 5, VI
+trecho: controlador: pessoa natural ou jurídica, de direito público ou privado
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um médico que atende em consultório próprio, como pessoa física, decide sozinho como tratar os dados de seus pacientes. Assertiva: ele pode ser controlador, pois a LGPD não reserva essa condição a pessoas jurídicas.
+comentario: O art. 5º, VI, admite pessoa natural ou jurídica como controlador. O que a lei exclui (art. 4º, I) é o tratamento por pessoa natural para fins exclusivamente particulares e não econômicos.
+
+=== lgpd-5-07
+gab: C
+ref: lgpd 5, VIII
+trecho: encarregado: pessoa indicada pelo controlador e operador para atuar como canal de comunicação
+armadilha: conceito
+dif: 2
+enunciado: Segundo a definição legal, o encarregado é pessoa indicada pelo controlador e operador para atuar como canal de comunicação entre o controlador, os titulares dos dados e a ANPD.
+comentario: Art. 5º, VIII, com a redação da Lei nº 15.352/2026. Atenção: o art. 41 fala só em dever do controlador de indicar encarregado. A definição do art. 5º menciona controlador e operador.
+
+=== lgpd-5-08
+gab: E
+ref: lgpd 5, III
+trecho: dado anonimizado: dado relativo a titular que não possa ser identificado, considerando a utilização de meios técnicos razoáveis e disponíveis na ocasião de seu tratamento
+armadilha: absoluto
+dif: 2
+enunciado: Para a LGPD, dado anonimizado é aquele relativo a titular que não possa ser identificado por nenhum meio técnico existente, ainda que de custo desproporcional, e anonimização é o processo pelo qual o dado perde a possibilidade de associação a um indivíduo.
+comentario: O art. 5º, III, adota padrão de razoabilidade: meios técnicos razoáveis e disponíveis na ocasião do tratamento. Não se exige anonimização impossível de reverter por qualquer meio.
+
+=== lgpd-5-09
+gab: C
+ref: lgpd 5, XIII
+trecho: bloqueio: suspensão temporária de qualquer operação de tratamento, mediante guarda do dado pessoal ou do banco de dados
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: durante a apuração de reclamação de um titular, uma empresa interrompeu temporariamente todas as operações com os dados dele, mantendo-os armazenados. Assertiva: a medida corresponde ao bloqueio, que, diferentemente da eliminação, preserva a guarda do dado.
+comentario: Art. 5º, XIII. O bloqueio é temporário e mantém o dado guardado; a eliminação (inciso XIV) exclui o dado.
+
+=== lgpd-5-10
+gab: E
+ref: lgpd 5, XIV
+trecho: eliminação: exclusão de dado ou de conjunto de dados armazenados em banco de dados, independentemente do procedimento empregado
+trecho: bloqueio: suspensão temporária de qualquer operação de tratamento
+armadilha: comparacao
+dif: 2
+enunciado: Diferentemente da eliminação, que é a suspensão temporária de qualquer operação de tratamento com a guarda do dado, o bloqueio consiste na exclusão de dado armazenado em banco de dados, qualquer que seja o procedimento empregado.
+comentario: Errado: as definições estão trocadas. Eliminação (art. 5º, XIV) é a exclusão de dado ou de conjunto de dados armazenados em banco de dados, qualquer que seja o procedimento; bloqueio (XIII) é a suspensão temporária de qualquer operação de tratamento, com a guarda do dado. O item dá a cada uma a definição da outra.
+
+=== lgpd-5-11
+gab: C
+ref: lgpd 5, XII
+trecho: consentimento: manifestação livre, informada e inequívoca pela qual o titular concorda com o tratamento de seus dados pessoais para uma finalidade determinada
+armadilha: conceito
+dif: 2
+enunciado: O consentimento, na LGPD, não se presume do silêncio do titular: deve ser manifestação livre, informada e inequívoca, e sua validade depende de estar vinculado a finalidade determinada.
+comentario: Art. 5º, XII. Os três adjetivos (livre, informada, inequívoca) e a finalidade determinada são os pontos de troca.
+
+=== lgpd-5-12
+gab: E
+ref: lgpd 8
+trecho: deverá ser fornecido por escrito ou por outro meio que demonstre a manifestação de vontade do titular
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: em aplicativo, o titular consentiu com o tratamento de seus dados marcando caixa de seleção que não vinha pré-marcada. Assertiva: o consentimento é nulo, porque a LGPD exige que ele seja fornecido por escrito.
+comentario: O art. 8º admite consentimento por escrito “ou por outro meio que demonstre a manifestação de vontade do titular”, como um clique em caixa de seleção não pré-marcada.
+
+=== lgpd-5-13
+gab: C
+ref: lgpd 5, XVIII
+trecho: pessoa jurídica de direito privado sem fins lucrativos legalmente constituída sob as leis brasileiras, com sede e foro no País
+armadilha: conceito
+dif: 2
+enunciado: Pessoa jurídica de direito privado sem fins lucrativos, constituída sob as leis brasileiras e com sede e foro no País, pode ser considerada órgão de pesquisa, desde que inclua a pesquisa em sua missão institucional ou objetivo social.
+comentario: Certo. Art. 5º, XVIII, da LGPD (redação da Lei 13.853/2019): órgão de pesquisa pode ser órgão ou entidade da administração pública ou pessoa jurídica de direito privado sem fins lucrativos constituída sob as leis brasileiras, com sede e foro no País, que inclua a pesquisa básica ou aplicada em sua missão ou objetivo social. Empresa com fins lucrativos fica fora.
+
+=== lgpd-5-14
+gab: E
+ref: lgpd 5, XVIII
+trecho: órgão de pesquisa: órgão ou entidade da administração pública direta ou indireta ou pessoa jurídica de direito privado sem fins lucrativos
+armadilha: fecho
+dif: 3
+enunciado: Pela LGPD, pode ser órgão de pesquisa a pessoa jurídica de direito privado constituída sob as leis brasileiras, com sede e foro no País, que inclua em sua missão a pesquisa básica ou aplicada de caráter histórico, científico, tecnológico ou estatístico, ainda que tenha fins lucrativos.
+comentario: O art. 5º, XVIII, também admite pessoa jurídica de direito privado sem fins lucrativos. Empresa com fins lucrativos é que não entra.
+
+=== lgpd-5-15
+gab: C
+ref: lgpd 5, XVI
+trecho: uso compartilhado de dados: comunicação, difusão, transferência internacional, interconexão de dados pessoais ou tratamento compartilhado de bancos de dados pessoais
+armadilha: conceito
+dif: 3
+enunciado: O conceito legal de uso compartilhado de dados abrange a comunicação, a difusão, a transferência internacional e a interconexão de dados pessoais, entre outras operações.
+comentario: Art. 5º, XVI. O conceito alcança relações entre órgãos públicos, entre estes e entes privados e também entre entes privados.
+
+=== lgpd-5-16
+gab: C
+ref: lgpd 5, XVII
+trecho: documentação do controlador que contém a descrição dos processos de tratamento de dados pessoais que podem gerar riscos às liberdades civis e aos direitos fundamentais
+armadilha: conceito
+dif: 2
+enunciado: O relatório de impacto à proteção de dados pessoais é documentação do controlador que descreve os processos de tratamento que podem gerar riscos às liberdades civis e aos direitos fundamentais, bem como as medidas e salvaguardas de mitigação de risco.
+comentario: Art. 5º, XVII. O relatório é do controlador; a ANPD pode exigi-lo (arts. 10, § 3º, e 38).
+
+=== lgpd-6-01
+gab: C
+ref: lgpd 6, III
+trecho: necessidade: limitação do tratamento ao mínimo necessário para a realização de suas finalidades
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: no cadastro do programa de pontos, uma farmácia deixou de pedir estado civil e profissão, que não usava, e passou a exigir apenas nome, CPF e e-mail. Assertiva: a mudança aplica o princípio da necessidade.
+comentario: Certo. O art. 6º, III, limita o tratamento ao mínimo necessário para as finalidades, com dados pertinentes, proporcionais e não excessivos. Dado que não serve à finalidade é excessivo.
+
+=== lgpd-6-02
+gab: E
+ref: lgpd 6, II
+trecho: adequação: compatibilidade do tratamento com as finalidades informadas ao titular, de acordo com o contexto do tratamento
+armadilha: conceito
+dif: 2
+enunciado: As atividades de tratamento devem observar a boa-fé e princípios como finalidade e adequação, e este último consiste na limitação do tratamento ao mínimo necessário para a realização de suas finalidades.
+comentario: Errado no fecho. A limitação do tratamento ao mínimo necessário para as finalidades é o princípio da necessidade (art. 6º, III). Adequação é a compatibilidade do tratamento com as finalidades informadas ao titular, de acordo com o contexto (II).
+
+=== lgpd-6-03
+gab: E
+ref: lgpd 6, IV
+trecho: livre acesso: garantia, aos titulares, de consulta facilitada e gratuita sobre a forma e a duração do tratamento, bem como sobre a integralidade de seus dados pessoais
+armadilha: comparacao
+dif: 2
+enunciado: Situação hipotética: um titular pediu, sem pagar nada, informações sobre por quanto tempo e de que forma seus dados seriam tratados por uma empresa. Assertiva: o pedido concretiza o princípio da transparência, que garante consulta facilitada e gratuita sobre a forma e a duração do tratamento e sobre a integralidade dos dados.
+comentario: Errado. A consulta facilitada e gratuita sobre a forma e a duração do tratamento e sobre a integralidade dos dados é o princípio do livre acesso (art. 6º, IV). A transparência (VI) garante informações claras, precisas e facilmente acessíveis sobre o tratamento e os agentes.
+
+=== lgpd-6-04
+gab: E
+ref: lgpd 6, V
+trecho: qualidade dos dados: garantia, aos titulares, de exatidão, clareza, relevância e atualização dos dados
+armadilha: conceito
+dif: 1
+enunciado: O princípio da transparência garante aos titulares a exatidão, a clareza, a relevância e a atualização dos dados, de acordo com a necessidade.
+comentario: Exatidão, clareza, relevância e atualização são da qualidade dos dados (inciso V). Transparência (inciso VI) trata de informações claras, precisas e acessíveis sobre o tratamento e os agentes.
+
+=== lgpd-6-05
+gab: C
+ref: lgpd 6, X
+trecho: responsabilização e prestação de contas: demonstração, pelo agente, da adoção de medidas eficazes e capazes de comprovar a observância e o cumprimento das normas de proteção de dados pessoais e, inclusive, da eficácia dessas medidas
+armadilha: conceito
+dif: 2
+enunciado: Pelo princípio da responsabilização e prestação de contas, não basta ao agente de tratamento cumprir as normas de proteção de dados: ele deve ser capaz de demonstrar que adotou medidas eficazes para isso e que essas medidas funcionam.
+comentario: Art. 6º, X. É o accountability: não basta cumprir, é preciso conseguir demonstrar o cumprimento.
+
+=== lgpd-6-06
+gab: E
+ref: lgpd 6, VII
+trecho: segurança: utilização de medidas técnicas e administrativas aptas a proteger os dados pessoais de acessos não autorizados
+trecho: prevenção: adoção de medidas para prevenir a ocorrência de danos em virtude do tratamento de dados pessoais
+armadilha: comparacao
+dif: 3
+enunciado: Enquanto o princípio da segurança impõe a adoção de medidas para prevenir a ocorrência de danos em virtude do tratamento, o princípio da prevenção exige medidas técnicas e administrativas aptas a proteger os dados de acessos não autorizados e de situações acidentais ou ilícitas.
+comentario: Errado: as definições estão trocadas. Segurança (art. 6º, VII) é usar medidas técnicas e administrativas aptas a proteger os dados de acessos não autorizados e de situações acidentais ou ilícitas; prevenção (VIII) é adotar medidas para prevenir danos em virtude do tratamento. O item dá a cada princípio a definição do outro.
+
+=== lgpd-6-07
+gab: C
+ref: lgpd 6
+trecho: As atividades de tratamento de dados pessoais deverão observar a boa-fé e os seguintes princípios
+armadilha: conceito
+dif: 2
+enunciado: Além dos princípios enumerados no art. 6º da LGPD, as atividades de tratamento de dados pessoais devem observar a boa-fé, que o dispositivo menciona no caput, fora da lista numerada.
+comentario: Caput do art. 6º. A boa-fé aparece no caput, fora da lista numerada de dez princípios.
+
+=== lgpd-6-08
+gab: E
+ref: lgpd 6, IX
+trecho: não discriminação: impossibilidade de realização do tratamento para fins discriminatórios ilícitos ou abusivos
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: uma seguradora usa a idade do titular, quando a legislação do setor o permite, para calcular o preço de seguro de vida. Assertiva: a prática viola o princípio da não discriminação, que proíbe qualquer tratamento de dados que diferencie titulares entre si.
+comentario: O inciso IX do art. 6º veda fins discriminatórios ilícitos ou abusivos. Diferenciações lícitas (por exemplo, preço de seguro conforme idade, quando permitido) não são alcançadas.
+
+=== lgpd-6-09
+gab: C
+ref: lgpd 6, I
+trecho: finalidade: realização do tratamento para propósitos legítimos, específicos, explícitos e informados ao titular, sem possibilidade de tratamento posterior de forma incompatível com essas finalidades
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: dados coletados para a emissão de nota fiscal passaram a ser usados pela loja para fim compatível com o propósito original, informado ao cliente. Assertiva: o princípio da finalidade não impede, por si, esse tratamento posterior, pois o que ele veda é o tratamento posterior incompatível com as finalidades iniciais.
+comentario: Art. 6º, I. Repare que a lei não proíbe o tratamento posterior; proíbe o tratamento posterior incompatível.
+
+=== lgpd-7-01
+gab: C
+ref: lgpd 7, X
+trecho: para a proteção do crédito, inclusive quanto ao disposto na legislação pertinente
+armadilha: comparacao
+dif: 3
+enunciado: Diferentemente do que ocorre com os dados sensíveis, para os quais a hipótese não é prevista, a proteção do crédito figura na LGPD como base legal para o tratamento de dados pessoais.
+comentario: Art. 7º, X. É uma base legal brasileira que não existe no GDPR. Para dados sensíveis, ela não aparece no art. 11.
+
+=== lgpd-7-02
+gab: E
+ref: lgpd 7, VIII
+trecho: para a tutela da saúde, exclusivamente, em procedimento realizado por profissionais de saúde, serviços de saúde ou autoridade sanitária
+armadilha: sujeito
+dif: 2
+enunciado: A tutela da saúde autoriza o tratamento de dados pessoais por qualquer pessoa que preste auxílio ao titular, ainda que não seja profissional de saúde.
+comentario: O art. 7º, VIII, restringe a tutela da saúde a procedimento realizado “exclusivamente” por profissionais de saúde, serviços de saúde ou autoridade sanitária.
+
+=== lgpd-7-03
+gab: C
+ref: lgpd 7, § 4º
+trecho: É dispensada a exigência do consentimento previsto no caput deste artigo para os dados tornados manifestamente públicos pelo titular, resguardados os direitos do titular e os princípios previstos nesta Lei
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um empresário divulgou, por iniciativa própria, seu telefone comercial em perfil público de rede social. Assertiva: o tratamento desse dado dispensa o consentimento, mas continua sujeito aos princípios da LGPD e aos direitos do titular.
+comentario: Art. 7º, § 4º. A dispensa do consentimento não libera o tratamento de todo o resto da lei (§ 6º).
+
+=== lgpd-7-04
+gab: E
+ref: lgpd 7, § 5º
+trecho: deverá obter consentimento específico do titular para esse fim, ressalvadas as hipóteses de dispensa do consentimento previstas nesta Lei
+armadilha: excecao
+dif: 2
+enunciado: O controlador que obteve o consentimento do titular pode compartilhar os dados com outros controladores sem novo consentimento, desde que mantida a mesma finalidade.
+comentario: O § 5º do art. 7º exige consentimento específico para comunicar ou compartilhar com outros controladores, ressalvadas as hipóteses de dispensa.
+
+=== lgpd-7-05
+gab: C
+ref: lgpd 7, § 6º
+trecho: A eventual dispensa da exigência do consentimento não desobriga os agentes de tratamento das demais obrigações previstas nesta Lei
+armadilha: conceito
+dif: 2
+enunciado: Quando a LGPD dispensa o consentimento, o agente de tratamento não fica liberado das demais obrigações legais: continuam valendo os princípios do art. 6º e os direitos do titular, inclusive o de oposição em caso de descumprimento da lei.
+comentario: Art. 7º, § 6º. Sem consentimento, continuam valendo os princípios do art. 6º e os direitos do art. 18, inclusive o de oposição em caso de descumprimento (art. 18, § 2º).
+
+=== lgpd-7-06
+gab: E
+ref: lgpd 7, V
+trecho: quando necessário para a execução de contrato ou de procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados
+armadilha: sujeito
+dif: 3
+enunciado: Situação hipotética: antes de fechar contrato de financiamento, um banco consultou dados do interessado por iniciativa própria, sem que este o tivesse pedido. Assertiva: a consulta se apoia na base legal dos procedimentos preliminares relacionados a contrato, que a LGPD admite a pedido do controlador.
+comentario: O art. 7º, V, exige que os procedimentos preliminares sejam a pedido do titular.
+
+=== lgpd-7-07
+gab: C
+ref: lgpd 7, § 7º
+trecho: poderá ser realizado para novas finalidades, desde que observados os propósitos legítimos e específicos para o novo tratamento e a preservação dos direitos do titular
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma startup quer reutilizar, para nova finalidade, dados que os próprios titulares tornaram manifestamente públicos. Assertiva: o novo tratamento é possível, desde que observados propósitos legítimos e específicos para ele e preservados os direitos dos titulares.
+comentario: Certo. Art. 7º, § 7º, da LGPD (incluído pela Lei 13.853/2019): os dados de acesso público e os tornados manifestamente públicos pelo titular (§§ 3º e 4º) podem ser tratados para novas finalidades, desde que observados propósitos legítimos e específicos para o novo tratamento e preservados os direitos do titular.
+
+=== lgpd-7-08
+gab: E
+ref: lgpd 7, III
+trecho: pela administração pública, para o tratamento e uso compartilhado de dados necessários à execução de políticas públicas previstas em leis e regulamentos ou respaldadas em contratos, convênios ou instrumentos congêneres
+armadilha: excecao
+dif: 2
+enunciado: Situação hipotética: ministério trata dados de beneficiários de programa social previsto em lei para executar a política pública correspondente. Assertiva: esse tratamento depende de consentimento dos beneficiários, colhido no cadastramento.
+comentario: Execução de políticas públicas é base legal própria (art. 7º, III), independente de consentimento.
+
+=== lgpd-8-01
+gab: C
+ref: lgpd 8, § 2º
+trecho: Cabe ao controlador o ônus da prova de que o consentimento foi obtido em conformidade com o disposto nesta Lei
+armadilha: sujeito
+dif: 2
+enunciado: Em disputa sobre a validade do consentimento, quem deve demonstrar que ele foi obtido conforme a LGPD é o controlador, razão pela qual lhe convém guardar prova de como e quando o colheu.
+comentario: Art. 8º, § 2º. Na dúvida sobre se houve consentimento válido, quem perde é o controlador, que precisa guardar prova de como e quando o obteve.
+
+=== lgpd-8-02
+gab: E
+ref: lgpd 8, § 4º
+trecho: as autorizações genéricas para o tratamento de dados pessoais serão nulas
+armadilha: conceito
+dif: 3
+enunciado: O consentimento deve referir-se a finalidades determinadas, e, segundo a LGPD, as autorizações genéricas para o tratamento de dados pessoais são anuláveis, de modo que produzem efeitos até que se peça a sua anulação.
+comentario: Errado. O art. 8º, § 4º, diz que as autorizações genéricas “serão nulas”, e nulo não é o mesmo que anulável. O ato nulo não produz efeito válido desde a origem e não pode ser confirmado depois (Código Civil, art. 169); o anulável produz efeitos até ser anulado e pode ser confirmado (arts. 172 e 177). Quem quiser tratar os dados com base em consentimento precisa obter outro, para finalidades determinadas: ele vale dali em diante e não salva a autorização genérica.
+
+=== lgpd-8-03
+gab: C
+ref: lgpd 8, § 5º
+trecho: O consentimento pode ser revogado a qualquer momento mediante manifestação expressa do titular, por procedimento gratuito e facilitado, ratificados os tratamentos realizados sob amparo do consentimento anteriormente manifestado
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: o titular revogou, por procedimento gratuito, o consentimento que dera a um clube de vantagens. Assertiva: os tratamentos feitos antes da revogação continuam válidos, pois a LGPD os ratifica enquanto não houver requerimento de eliminação.
+comentario: Certo. Art. 8º, § 5º, da LGPD: o consentimento pode ser revogado a qualquer momento, por procedimento gratuito e facilitado, ratificados os tratamentos feitos antes, enquanto não houver requerimento de eliminação (art. 18, VI). A revogação produz efeitos para frente.
+
+=== lgpd-8-04
+gab: E
+ref: lgpd 8, § 5º
+trecho: ratificados os tratamentos realizados sob amparo do consentimento anteriormente manifestado
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: após revogar o consentimento, um titular exigiu que a empresa fosse punida pelos tratamentos feitos antes da revogação. Assertiva: a revogação do consentimento produz efeitos retroativos, tornando ilícitos os tratamentos realizados com base nele.
+comentario: Errado. Pelo art. 8º, § 5º, da LGPD, a revogação do consentimento vale para frente: ficam ratificados os tratamentos feitos sob o consentimento anterior, enquanto não houver requerimento de eliminação. Tratar com base nele, antes da revogação, foi lícito.
+
+=== lgpd-8-05
+gab: E
+ref: lgpd 8, § 1º
+trecho: Caso o consentimento seja fornecido por escrito, esse deverá constar de cláusula destacada das demais cláusulas contratuais
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: em contrato de adesão, a autorização para uso de dados dos clientes aparecia no meio das demais cláusulas, sem nenhum destaque. Assertiva: o consentimento assim obtido atende à LGPD, pois a forma escrita dispensa o destaque da cláusula.
+comentario: Errado. Se o consentimento for fornecido por escrito, deve constar de cláusula destacada das demais cláusulas contratuais (art. 8º, § 1º). Cláusula escondida no meio do contrato não vale.
+
+=== lgpd-9-01
+gab: E
+ref: lgpd 9, § 1º
+trecho: esse será considerado nulo caso as informações fornecidas ao titular tenham conteúdo enganoso ou abusivo ou não tenham sido apresentadas previamente com transparência, de forma clara e inequívoca
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: um aplicativo só exibiu ao titular a finalidade do tratamento depois de ele já ter clicado em “aceito”. Assertiva: o consentimento é válido, pois a informação prévia sobre a finalidade só é exigida para dados pessoais sensíveis.
+comentario: Errado. Quando o consentimento é requerido, ele é nulo se as informações tiverem conteúdo enganoso ou abusivo ou não tiverem sido apresentadas previamente com transparência, de forma clara e inequívoca (art. 9º, § 1º). A regra vale para qualquer dado pessoal.
+
+=== lgpd-9-02
+gab: E
+ref: lgpd 9, § 3º
+trecho: Quando o tratamento de dados pessoais for condição para o fornecimento de produto ou de serviço ou para o exercício de direito, o titular será informado com destaque sobre esse fato
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: um aplicativo de transporte só presta o serviço a quem permite o tratamento de dados de localização e informa isso com destaque, explicando como o titular pode exercer seus direitos. Assertiva: a prática é vedada, pois a LGPD proíbe condicionar o fornecimento de serviço ao tratamento de dados pessoais.
+comentario: O § 3º do art. 9º admite que o tratamento seja condição para o fornecimento, desde que o titular seja informado com destaque sobre isso e sobre como exercer seus direitos.
+
+=== lgpd-9-03
+gab: E
+ref: lgpd 9
+trecho: identificação do controlador
+trecho: direitos do titular, com menção explícita aos direitos contidos no art. 18 desta Lei
+armadilha: excecao
+dif: 3
+enunciado: Entre as informações que devem ser disponibilizadas ao titular de forma clara, adequada e ostensiva estão a identificação do controlador e a forma e a duração do tratamento, estas sem ressalva alguma, ainda que envolvam segredo comercial ou industrial.
+comentario: Errado. O art. 9º, II, exige informar a forma e a duração do tratamento, observados os segredos comercial e industrial. A identificação do controlador (III) também integra o rol.
+
+=== lgpd-10-01
+gab: E
+ref: lgpd 10, § 1º
+trecho: somente os dados pessoais estritamente necessários para a finalidade pretendida poderão ser tratados
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: um varejista, com base em legítimo interesse, pretende coletar, para campanha de fidelidade, dados que não são necessários a esse fim, mas poderiam ser úteis no futuro. Assertiva: a coleta é compatível com a LGPD, pois o legítimo interesse admite tratar dados que possam ser úteis a finalidades futuras do controlador.
+comentario: Errado. Quando o tratamento se basear no legítimo interesse, só os dados pessoais estritamente necessários para a finalidade pretendida podem ser tratados (art. 10, § 1º). É o princípio da necessidade aplicado com mais rigor.
+
+=== lgpd-10-02
+gab: E
+ref: lgpd 10, § 2º
+trecho: O controlador deverá adotar medidas para garantir a transparência do tratamento de dados baseado em seu legítimo interesse
+armadilha: extrapolacao
+dif: 2
+enunciado: O legítimo interesse do controlador pode fundamentar o tratamento para finalidades legítimas, consideradas a partir de situações concretas, como o apoio às atividades do controlador, e esse tratamento dispensa medidas específicas de transparência, por não depender da vontade do titular.
+comentario: O § 2º do art. 10 exige medidas de transparência no tratamento baseado em legítimo interesse.
+
+=== lgpd-10-03
+gab: C
+ref: lgpd 10, § 3º
+trecho: A autoridade nacional poderá solicitar ao controlador relatório de impacto à proteção de dados pessoais, quando o tratamento tiver como fundamento seu interesse legítimo
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: a ANPD pediu a uma operadora de programa de fidelidade, que trata dados de clientes com fundamento em seu legítimo interesse, o relatório de impacto à proteção de dados pessoais. Assertiva: o pedido tem amparo na LGPD, que faculta à autoridade nacional exigir esse relatório quando o tratamento se basear no interesse legítimo do controlador.
+comentario: Art. 10, § 3º. O legítimo interesse também é a base citada no art. 37 para o registro das operações.
+
+=== lgpd-10-04
+gab: E
+ref: lgpd 10
+trecho: para finalidades legítimas, consideradas a partir de situações concretas, que incluem, mas não se limitam a
+armadilha: rol
+dif: 3
+enunciado: O apoio e a promoção de atividades do controlador e a proteção do exercício regular de direitos do titular são as únicas finalidades que podem fundamentar o legítimo interesse.
+comentario: O caput do art. 10 diz que as finalidades legítimas “incluem, mas não se limitam a” esses dois exemplos. O rol é exemplificativo.
+
+=== lgpd-11-01
+gab: E
+ref: lgpd 11
+trecho: O tratamento de dados pessoais sensíveis somente poderá ocorrer nas seguintes hipóteses
+armadilha: rol
+dif: 2
+enunciado: Os dados pessoais sensíveis podem ser tratados sem consentimento do titular em hipóteses como o cumprimento de obrigação legal e a tutela da saúde, e também com base no legítimo interesse do controlador, desde que não prevaleçam direitos fundamentais do titular.
+comentario: O legítimo interesse não está entre as hipóteses do art. 11 para dados sensíveis.
+
+=== lgpd-11-02
+gab: E
+ref: lgpd 11, II
+trecho: sem fornecimento de consentimento do titular, nas hipóteses em que for indispensável para
+armadilha: rol
+dif: 3
+enunciado: Assim como ocorre com os dados pessoais comuns, a proteção do crédito figura entre as hipóteses em que a LGPD autoriza o tratamento de dados pessoais sensíveis sem o consentimento do titular.
+comentario: A proteção do crédito é base do art. 7º, X, para dados comuns, mas não está nas alíneas do art. 11, II.
+
+=== lgpd-11-03
+gab: C
+ref: lgpd 11, I
+trecho: quando o titular ou seu responsável legal consentir, de forma específica e destacada, para finalidades específicas
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: para usar aplicativo de dieta, um titular concordou, em cláusula destacada do termo e de forma específica, com o tratamento de dados sobre sua saúde para finalidade determinada. Assertiva: esse consentimento atende ao requisito da LGPD para o tratamento de dados pessoais sensíveis.
+comentario: Art. 11, I. Repare que o consentimento para dado sensível precisa ser específico e destacado, além dos atributos gerais do art. 5º, XII.
+
+=== lgpd-11-04
+gab: E
+ref: lgpd 11, II, g
+trecho: garantia da prevenção à fraude e à segurança do titular, nos processos de identificação e autenticação de cadastro em sistemas eletrônicos
+armadilha: rol
+dif: 3
+enunciado: Situação hipotética: um banco usa a biometria facial do cliente para autenticar o acesso ao aplicativo e evitar fraudes, sem colher consentimento para esse fim. Assertiva: o tratamento é ilegítimo, porque a autenticação por biometria exige consentimento específico e destacado do titular.
+comentario: Errado. A LGPD dispensa o consentimento para dados sensíveis quando indispensável à garantia da prevenção à fraude e à segurança do titular, nos processos de identificação e autenticação de cadastro em sistemas eletrônicos, resguardados os direitos do art. 9º (art. 11, II, g).
+
+=== lgpd-11-05
+gab: E
+ref: lgpd 11, § 5º
+trecho: É vedado às operadoras de planos privados de assistência à saúde o tratamento de dados de saúde para a prática de seleção de riscos na contratação de qualquer modalidade
+armadilha: extrapolacao
+dif: 3
+enunciado: A vedação de tratar dados de saúde para seleção de riscos alcança as operadoras de planos de saúde na contratação de beneficiários, mas não na exclusão deles.
+comentario: Errado. O art. 11, § 5º, veda a seleção de riscos na contratação de qualquer modalidade e também na contratação e na exclusão de beneficiários.
+
+=== lgpd-11-06
+gab: E
+ref: lgpd 11, § 4º
+trecho: exceto nas hipóteses relativas a prestação de serviços de saúde, de assistência farmacêutica e de assistência à saúde
+armadilha: absoluto
+dif: 3
+enunciado: A LGPD veda, sem exceção, a comunicação ou o uso compartilhado entre controladores de dados de saúde com o objetivo de obter vantagem econômica.
+comentario: O § 4º do art. 11 traz exceções: prestação de serviços de saúde, assistência farmacêutica e assistência à saúde, em benefício dos titulares, para permitir a portabilidade solicitada pelo titular ou as transações financeiras e administrativas decorrentes.
+
+=== lgpd-11-07
+gab: C
+ref: lgpd 11, § 2º
+trecho: será dada publicidade à referida dispensa de consentimento, nos termos do inciso I do caput do art. 23 desta Lei
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma secretaria estadual de saúde passou a tratar dados sensíveis de pacientes, sem consentimento, para executar política pública prevista em lei. Assertiva: a dispensa de consentimento, nesse caso, deve ser tornada pública pelo órgão.
+comentario: Certo. Art. 11, § 2º, da LGPD: quando órgãos públicos tratam dados sensíveis sem consentimento para cumprir obrigação legal ou regulatória ou executar políticas públicas (inciso II, a e b), a dispensa de consentimento é tornada pública nos termos do art. 23, I, preferencialmente no sítio eletrônico do órgão.
+
+=== lgpd-11-08
+gab: E
+ref: lgpd 11, § 1º
+trecho: Aplica-se o disposto neste artigo a qualquer tratamento de dados pessoais que revele dados pessoais sensíveis e que possa causar dano ao titular
+armadilha: conceito
+dif: 3
+enunciado: Dados comuns, como o histórico de compras em farmácia, atraem o regime dos dados sensíveis sempre que o tratamento os revelar, ainda que esse tratamento não possa causar dano ao titular.
+comentario: Errado. O art. 11, § 1º, aplica o regime dos dados sensíveis ao tratamento que revele dados sensíveis e que possa causar dano ao titular, ressalvada a legislação específica. As duas condições são cumulativas.

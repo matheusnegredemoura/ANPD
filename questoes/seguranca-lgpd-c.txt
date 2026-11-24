@@ -1,0 +1,195 @@
+// LGPD prioridade 1 e 2, lote C: segurança, incidentes e governança (arts. 46 a 51), dados de crianças e
+// adolescentes (art. 14 e Enunciado CD/ANPD 1/2023), anonimização e término do tratamento (arts. 12 a 16),
+// com caso de incidente em plataforma escolar. Trechos conferidos em fontes/lgpd.txt, res15.txt e enunciado1.txt.
+
+bloco: lgpd-46-51
+
+apoio_ESCOLA: Uma plataforma de reforço escolar usada por 200 mil alunos de 8 a 14 anos descobriu que um terceiro acessou indevidamente sua base de dados. Foram copiados nomes, escolas, notas e e-mails dos responsáveis; as senhas estavam armazenadas com algoritmo de hash robusto, com salt. A empresa corrigiu a falha no mesmo dia, contratou perícia e identificou que os dados começaram a circular em fóruns da internet.
+
+=== sg-01
+gab: C
+ref: lgpd 47
+trecho: obriga-se a garantir a segurança da informação prevista nesta Lei em relação aos dados pessoais, mesmo após o seu término
+armadilha: sujeito
+dif: 2
+enunciado: Os agentes de tratamento e qualquer outra pessoa que intervenha em uma das fases do tratamento obrigam-se a garantir a segurança da informação em relação aos dados pessoais, mesmo após o término do tratamento.
+comentario: Certo: art. 47. O dever alcança, por exemplo, o técnico terceirizado que fez manutenção no sistema.
+
+=== sg-02
+gab: E
+ref: lgpd 47
+trecho: Os agentes de tratamento ou qualquer outra pessoa que intervenha em uma das fases do tratamento obriga-se a garantir a segurança da informação prevista nesta Lei em relação aos dados pessoais, mesmo após o seu término.
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: após encerrar o tratamento, uma empresa conservou dados para cumprir obrigação legal e deixou de protegê-los. Assertiva: a conduta é lícita, pois o dever de garantir a segurança dos dados termina com o fim do tratamento.
+comentario: Errado. O art. 47 estende o dever para depois do término, enquanto houver dados guardados, por exemplo nas hipóteses de conservação do art. 16.
+
+=== sg-04
+gab: E
+ref: lgpd 48
+trecho: que possa acarretar risco ou dano relevante aos titulares
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: incidente de segurança com dados pessoais, sem possibilidade de risco ou dano relevante aos titulares, ocorreu em empresa. Assertiva: ainda assim, ele deve ser comunicado à ANPD e aos titulares.
+comentario: Errado. Comunica-se o incidente que possa acarretar risco ou dano relevante (art. 48). Os demais devem ser registrados pelo controlador, que mantém o registro de incidentes previsto na Resolução 15/2024.
+
+=== sg-05
+gab: C
+ref: lgpd 48
+trecho: os motivos da demora, no caso de a comunicação não ter sido imediata
+armadilha: rol
+dif: 2
+enunciado: A comunicação do incidente deve mencionar, no mínimo, a natureza dos dados afetados, os titulares envolvidos, as medidas de segurança utilizadas, os riscos, os motivos da demora, se a comunicação não for imediata, e as medidas de reversão ou mitigação.
+comentario: Certo: art. 48, § 1º, I a VI. A indicação das medidas de segurança observa os segredos comercial e industrial.
+
+=== sg-06
+gab: C
+ref: lgpd 48
+trecho: ampla divulgação do fato em meios de comunicação
+armadilha: sujeito
+dif: 2
+enunciado: Conforme a gravidade do incidente, a ANPD pode determinar ao controlador a ampla divulgação do fato em meios de comunicação e a adoção de medidas para reverter ou mitigar os efeitos.
+comentario: Certo: art. 48, § 2º. É providência para salvaguardar os titulares, distinta da sanção de publicização do art. 52, IV.
+
+=== sg-07
+gab: E
+ref: lgpd 48
+trecho: medidas técnicas adequadas que tornem os dados pessoais afetados ininteligíveis
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: dados pessoais vazados estavam cifrados, mas a chave da cifra foi exposta no mesmo incidente. Assertiva: o simples fato de os dados estarem criptografados assegura que, no juízo de gravidade, sejam tidos como ininteligíveis para terceiros não autorizados.
+comentario: Errado. O § 3º do art. 48 avalia a comprovação de medidas técnicas adequadas que tornem os dados ininteligíveis para terceiros não autorizados. Cifra cuja chave vazou junto não produz esse efeito: o que conta é a ininteligibilidade efetiva, não o rótulo da medida.
+
+=== sg-13
+gab: C
+bloco: lgpd-1-4-14
+ref: lgpd 14
+trecho: deverá ser realizado com o consentimento específico e em destaque dado por pelo menos um dos pais ou pelo responsável legal
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: para tratar dados de uma criança com base em consentimento, uma escola de idiomas obteve autorização específica e destacada apenas da mãe. Assertiva: o consentimento de um só dos pais basta para a LGPD.
+comentario: Certo: art. 14, § 1º. Pelo Enunciado CD/ANPD 1/2023, outras hipóteses legais também podem amparar o tratamento, desde que prevaleça o melhor interesse.
+
+=== sg-14
+gab: E
+bloco: lgpd-1-4-14
+ref: lgpd 14
+trecho: por pelo menos um dos pais ou pelo responsável legal
+armadilha: fecho
+dif: 2
+enunciado: Quando o tratamento de dados de criança se apoiar em consentimento, a LGPD exige que este seja específico e em destaque e que seja dado por ambos os pais, em conjunto.
+comentario: Errado. Pelo art. 14, § 1º, da LGPD, o consentimento para tratar dados de crianças é específico e em destaque, dado por pelo menos um dos pais ou pelo responsável legal. A lei não exige ambos os pais.
+
+=== sg-15
+gab: C
+bloco: lgpd-1-4-14
+ref: enun1 1
+trecho: poderá ser realizado com base nas hipóteses legais previstas no art. 7º ou no art. 11
+armadilha: excecao
+dif: 2
+enunciado: Segundo enunciado da ANPD, o tratamento de dados de crianças e adolescentes pode fundar-se nas hipóteses legais dos arts. 7º ou 11 da LGPD, desde que observado e prevalecente o seu melhor interesse, avaliado no caso concreto.
+comentario: Certo: Enunciado CD/ANPD 1/2023. O consentimento parental do art. 14, § 1º, deixa de ser a única porta de entrada, mas o melhor interesse sempre prevalece.
+
+=== sg-16
+gab: C
+bloco: lgpd-1-4-14
+ref: lgpd 14
+trecho: utilizados uma única vez e sem armazenamento, ou para sua proteção, e em nenhum caso poderão ser repassados a terceiro sem o consentimento
+armadilha: excecao
+dif: 2
+enunciado: Dados de criança podem ser coletados sem o consentimento parental quando necessários para contatar os pais ou o responsável, usados uma única vez e sem armazenamento, ou para sua proteção, e nunca podem ser repassados a terceiro sem esse consentimento.
+comentario: Certo: art. 14, § 3º. São exceções estreitas: o dado coletado para contatar os pais é usado uma vez e descartado.
+
+=== sg-17
+gab: E
+bloco: lgpd-1-4-14
+ref: lgpd 14
+trecho: não deverão condicionar a participação dos titulares de que trata o § 1º deste artigo em jogos, aplicações de internet ou outras atividades ao fornecimento de informações pessoais além das estritamente necessárias
+armadilha: excecao
+dif: 2
+enunciado: O controlador pode condicionar a participação da criança em jogo on-line ao fornecimento de dados pessoais além dos estritamente necessários, desde que informe previamente os pais.
+comentario: Errado. O art. 14, § 4º, veda esse condicionamento, com ou sem aviso aos pais. É aplicação do princípio da necessidade.
+
+=== sg-19
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 15
+trecho: determinação da autoridade nacional, quando houver violação ao disposto nesta Lei
+armadilha: excecao
+dif: 2
+enunciado: O término do tratamento ocorre quando a finalidade é alcançada, ao fim do período de tratamento, por determinação da ANPD em caso de violação da lei e por comunicação do titular, que põe fim ao tratamento ainda que haja interesse público a resguardar.
+comentario: Errado. O art. 15, III, prevê o término por comunicação do titular, inclusive ao revogar o consentimento, resguardado o interesse público. O item inverte a ressalva.
+
+=== sg-20
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 15
+trecho: inclusive no exercício de seu direito de revogação do consentimento conforme disposto no § 5º do art. 8º desta Lei, resguardado o interesse público
+armadilha: excecao
+dif: 3
+enunciado: O término do tratamento ocorre, entre outras hipóteses, com o fim do período de tratamento e com a comunicação do titular, inclusive a revogação do consentimento, que põe fim ao tratamento ainda que haja interesse público a resguardar.
+comentario: Errado. O art. 15, III, prevê o término por comunicação do titular, inclusive revogação do consentimento, resguardado o interesse público. O fim do período de tratamento está no inciso II.
+
+=== sg-22
+gab: E
+bloco: lgpd-12-16
+ref: lgpd 16
+trecho: desde que anonimizados os dados
+armadilha: excecao
+dif: 2
+enunciado: Situação hipotética: encerrado o tratamento, empresa decidiu conservar os dados identificados de antigos clientes para estudos internos, sem compartilhá-los com terceiros. Assertiva: a conservação é permitida, pois o uso exclusivo do controlador, vedado o acesso de terceiros, dispensa a anonimização.
+comentario: Errado. A conservação para uso exclusivo do controlador exige anonimização (art. 16, IV). Dados identificados só ficam nas outras hipóteses do art. 16.
+
+=== sg-23
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 12
+trecho: Poderão ser igualmente considerados como dados pessoais, para os fins desta Lei, aqueles utilizados para formação do perfil comportamental de determinada pessoa natural, se identificada
+armadilha: excecao
+dif: 3
+enunciado: Dados anonimizados ficam fora da LGPD, salvo se a anonimização puder ser revertida com esforços razoáveis, medidos por fatores objetivos como custo e tempo, ou se forem usados para formar o perfil de pessoa identificada.
+comentario: Certo. LGPD, art. 12, caput e §§ 1º e 2º.
+
+=== sg-25
+gab: C
+ref: res15 5
+trecho: dados de crianças, de adolescentes ou de idosos
+apoio: @ESCOLA
+comando: Considerando essa situação hipotética, a LGPD e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: Se o incidente puder afetar significativamente interesses e direitos fundamentais dos alunos, deverá ser comunicado à ANPD e aos titulares, já que envolve dados de crianças e de adolescentes e dados em larga escala.
+comentario: Certo: Resolução 15/2024, art. 5º, II e VI. A circulação dos dados em fóruns aumenta o risco de exposição e assédio, o que pesa para afetação significativa.
+
+=== sg-26
+gab: C
+ref: lgpd 48
+trecho: medidas técnicas adequadas que tornem os dados pessoais afetados ininteligíveis
+apoio: @ESCOLA
+comando: Considerando essa situação hipotética, a LGPD e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: O armazenamento das senhas com hash robusto e salt será considerado no juízo de gravidade do incidente, por dificultar que terceiros as tornem inteligíveis.
+comentario: Certo: art. 48, § 3º. A medida reduz o risco quanto às senhas, mas não alcança nomes, escolas, notas e e-mails, que foram expostos.
+
+=== sg-27
+gab: E
+ref: lgpd 48
+trecho: a indicação das medidas técnicas e de segurança utilizadas para a proteção dos dados
+apoio: @ESCOLA
+comando: Considerando essa situação hipotética, a LGPD e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: a falha que expôs dados de clientes foi corrigida no mesmo dia, mas o incidente podia acarretar risco relevante aos titulares. Assertiva: a correção imediata afasta o dever de comunicar o incidente à ANPD e aos titulares, que só existe quando o problema persiste.
+comentario: Errado. O dever de comunicar decorre da possibilidade de risco ou dano relevante aos titulares (art. 48, caput), e não da persistência da falha. A correção rápida é informação relevante para a comunicação (medidas de reversão ou mitigação), mas não a dispensa.
+
+=== sg-28
+gab: C
+ref: lgpd 47
+trecho: Os agentes de tratamento ou qualquer outra pessoa que intervenha em uma das fases do tratamento
+apoio: @ESCOLA
+comando: Considerando essa situação hipotética, a LGPD e a regulamentação da ANPD sobre incidentes de segurança, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: A empresa de perícia contratada pela plataforma, ao acessar a base para investigar o incidente, também se obriga a garantir a segurança dos dados pessoais a que tiver acesso.
+comentario: Certo: art. 47. Quem intervém em qualquer fase do tratamento assume o dever de segurança, que persiste depois do término.

@@ -1,0 +1,404 @@
+bloco: lgpd-55
+// A ANPD como agência reguladora: Lei nº 15.352/2026, Decreto nº 12.881/2026 e Estrutura Regimental (Anexo I).
+// Conferidas com fontes/lei15352.txt, fontes/dec12881.txt e fontes/estrutura-anpd.txt. Onde a LGPD compilada
+// e a Estrutura divergem (mandato de 4 × 5 anos; PAD pela Casa Civil × MJSP), o comentário indica as duas leituras.
+
+=== l15352-01
+gab: E
+ref: lei15352 1
+trecho: Fica criada a Agência Nacional de Proteção de Dados (ANPD), autarquia de natureza especial vinculada ao Ministério da Justiça e Segurança Pública, dotada de autonomia funcional, técnica, decisória, administrativa e financeira, com patrimônio próprio e com sede e foro no Distrito Federal, nos termos da Lei nº 13.848, de 25 de junho de 2019.
+armadilha: extrapolacao
+dif: 2
+enunciado: Com a redação que a Lei nº 15.352/2026 deu ao art. 55-A da LGPD, a ANPD passou a ser autarquia especial vinculada ao Ministério da Justiça e Segurança Pública, com autonomia funcional, técnica, decisória, administrativa e financeira, sujeita à revisão ministerial de suas decisões.
+comentario: Errado no fecho. A ANPD segue o regime da Lei 13.848/2019, que afasta tutela e subordinação hierárquica das agências (art. 3º). Vinculação ministerial não é revisão das decisões.
+pesquisar: Linha do tempo da ANPD: MP 869/2018, Lei 13.853/2019, Lei 14.460/2022, MP 1.317/2025 e Lei 15.352/2026
+
+=== l15352-02
+gab: E
+ref: lei15352 1
+trecho: autarquia de natureza especial vinculada ao Ministério da Justiça e Segurança Pública
+armadilha: sujeito
+dif: 2
+enunciado: Na redação dada pela Lei nº 15.352/2026, a ANPD é autarquia de natureza especial, dotada de autonomia técnica e decisória, com patrimônio próprio e sede e foro no Distrito Federal, vinculada à Casa Civil da Presidência da República.
+comentario: Errado. O art. 55-A da LGPD, na redação da Lei 15.352/2026, vincula a ANPD ao Ministério da Justiça e Segurança Pública. A ANPD já era autarquia de natureza especial desde a Lei 14.460/2022; na origem (Lei 13.853/2019), era órgão da Presidência da República.
+
+=== l15352-03
+gab: C
+ref: lei15352 2
+trecho: Regulação e Fiscalização de Proteção de Dados, composta de cargos de nível superior de Especialista em Regulação de Proteção de Dados, com atribuições direcionadas às atividades especializadas de regulação, inspeção, fiscalização e controle de proteção dos dados pessoais
+armadilha: conceito
+dif: 2
+enunciado: A carreira de Regulação e Fiscalização de Proteção de Dados, de nível superior e formada por cargos de Especialista em Regulação de Proteção de Dados, foi incluída pela Lei nº 15.352/2026 na Lei nº 10.871/2004, que organiza as carreiras das agências reguladoras.
+comentario: Art. 2º da Lei 15.352, que acrescentou o inciso XXI ao art. 1º da Lei 10.871/2004. As atribuições do cargo vão da regulação, inspeção, fiscalização e controle à implementação de políticas e a estudos e pesquisas.
+pesquisar: Lei 10.871/2004: atribuições, prerrogativas e vedações dos cargos das agências reguladoras
+
+=== l15352-04
+gab: E
+ref: lei15352 2
+trecho: Fará parte obrigatória do concurso, para os cargos de que tratam os incisos I a IX, XIX e XXI do caput do art. 1º desta Lei, curso de formação específica, com efeito eliminatório e classificatório.
+armadilha: fecho
+dif: 3
+enunciado: No concurso para Especialista em Regulação de Proteção de Dados, o curso de formação específica, a exemplo do que ocorre com outros cargos das agências reguladoras, é etapa obrigatória, mas de caráter apenas classificatório.
+comentario: Pela Lei 10.871, art. 14, § 6º (redação da Lei 15.352), o curso de formação é parte obrigatória do concurso, com efeito eliminatório e classificatório, para os cargos dos incisos I a IX, XIX e XXI, que inclui o novo cargo da ANPD.
+
+=== l15352-05
+gab: E
+ref: lei15352 9
+trecho: Ficam transformados, na forma do Anexo III desta Lei, no âmbito do Poder Executivo federal, 797 (setecentos e noventa e sete) cargos efetivos vagos em
+trecho: 200 (duzentos) cargos efetivos vagos de Especialista em Regulação de Proteção de Dados
+armadilha: numero
+dif: 2
+enunciado: Na Lei nº 15.352/2026, a transformação de 797 cargos efetivos vagos em 200 cargos de Especialista em Regulação de Proteção de Dados e 18 cargos em comissão e funções de confiança pôde gerar aumento de despesa, a ser compensado no exercício seguinte.
+comentario: Errado. O parágrafo único do art. 9º manda fazer a transformação sem aumento de despesa, por compensação entre a remuneração dos cargos criados e a dos transformados, vedados efeitos retroativos. Os números estão certos: 797 cargos vagos viraram 200 de Especialista e 18 cargos em comissão e funções de confiança.
+
+=== l15352-06
+gab: E
+ref: lei15352 8
+trecho: a Agência Nacional de Proteção de Dados (ANPD)
+armadilha: extrapolacao
+dif: 2
+enunciado: Com a inclusão da ANPD, confirmada pela Lei nº 15.352/2026, no rol de agências reguladoras da Lei nº 13.848/2019, passam a valer para ela as normas gerais dessa lei sobre gestão e controle social, mas não as de processo decisório.
+comentario: Errado no fecho. Incluída no rol do art. 2º da Lei 13.848/2019, a ANPD se submete também às regras de processo decisório, como AIR, consulta pública e decisão colegiada.
+
+=== l15352-07
+gab: E
+ref: lei15352 12
+trecho: Os mandatos dos membros do Conselho Diretor da ANPD em curso na data de entrada em vigor desta Lei serão mantidos e exercidos até o seu término original, e as nomeações subsequentes à extinção desses mandatos deverão observar o disposto nas Leis nºs 9.986
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: diretor da ANPD nomeado antes da Lei nº 15.352/2026 questiona se seu mandato foi afetado pela nova lei. Assertiva: o mandato foi interrompido, e o diretor deve ser novamente nomeado, observadas as Leis n.º 9.986/2000, n.º 13.709/2018 e n.º 13.848/2019.
+comentario: Errado. Pelo art. 12 da Lei 15.352/2026, os mandatos em curso são mantidos até o término original, e só as nomeações posteriores observam as Leis 9.986/2000, 13.709/2018 e 13.848/2019. As novas nomeações seguem o mandato de 5 anos, vedada a recondução (Lei 9.986, art. 6º).
+pesquisar: Mandato do Conselho Diretor da ANPD: LGPD (4 anos) × Lei 9.986 e Decreto 12.881 (5 anos)
+
+=== l15352-08
+gab: E
+ref: lei15352 15
+trecho: A ANPD será sucessora das obrigações, dos direitos, das receitas da Autoridade Nacional de Proteção de Dados, das lides em curso e daquelas ajuizadas posteriormente à data de entrada em vigor desta Lei, afastada a legitimidade passiva da União.
+armadilha: sujeito
+dif: 3
+enunciado: Situação hipotética: ação judicial questiona ato da antiga Autoridade Nacional de Proteção de Dados. Assertiva: a União permanece no polo passivo, e a nova agência atua como assistente.
+comentario: Art. 15, parágrafo único: a agência sucede a Autoridade nas obrigações, direitos, receitas e lides em curso e futuras, afastada a legitimidade passiva da União. Os acervos técnico, documental e patrimonial foram transferidos (caput).
+
+=== l15352-09
+gab: C
+ref: lei15352 19
+trecho: Esta Lei entra em vigor em 17 de março de 2026.
+armadilha: numero
+dif: 2
+enunciado: Por alteração feita pela Lei nº 15.352/2026, o Estatuto Digital da Criança e do Adolescente (Lei nº 15.211/2025) entra em vigor em 17 de março de 2026.
+comentario: Art. 19 da Lei 15.352, que incluiu o art. 41-A na Lei 15.211. A data coincide, na prática, com a nova Estrutura Regimental da ANPD (Decreto 12.881, de 18/3/2026), que lhe deu competência para zelar pelo ECA Digital.
+
+=== l15352-10
+gab: C
+ref: lei15352 14
+trecho: Ficam mantidos a Estrutura Regimental e o Quadro Demonstrativo dos Cargos em Comissão e das Funções de Confiança estabelecidos pelo Decreto nº 10.474, de 26 de agosto de 2020, enquanto não for editado o ato a que se refere o caput deste artigo.
+armadilha: revogado
+dif: 3
+enunciado: A Lei nº 15.352/2026 manteve a Estrutura Regimental do Decreto nº 10.474/2020 até a edição de nova estrutura por ato do Presidente da República, o que ocorreu com o Decreto nº 12.881/2026, que revogou o Decreto nº 10.474/2020.
+comentario: Art. 14 e parágrafo único da Lei 15.352; o Decreto 12.881/2026 aprovou a nova Estrutura (art. 1º) e revogou o Decreto 10.474/2020 (art. 7º, II). Cuidado com material antigo que cita a estrutura de 2020.
+
+=== l15352-11
+gab: E
+ref: lei15352 18
+trecho: até 31 de dezembro de 2028, a Agência Nacional de Proteção de Dados (ANPD)
+armadilha: numero
+dif: 3
+enunciado: A Lei nº 15.352/2026 vedou à ANPD a requisição de pessoal civil e militar, exigindo que seus quadros sejam formados apenas por servidores da nova carreira.
+comentario: Art. 18: a ANPD pode requisitar pessoal até 31 de dezembro de 2028 (art. 56, II, da Lei 14.600/2023), regra repetida na Estrutura Regimental (art. 28). E os agentes em exercício na data da lei podem permanecer sem nova autorização do órgão de origem (art. 13).
+
+=== l15352-12
+gab: E
+ref: lei15352 2
+trecho: com atribuições direcionadas às atividades especializadas de regulação, inspeção, fiscalização e controle de proteção dos dados pessoais
+armadilha: rol
+dif: 2
+enunciado: Além das atividades especializadas de regulação, inspeção, fiscalização e controle da proteção de dados pessoais, cabem ao Especialista em Regulação de Proteção de Dados a implementação de políticas e a representação judicial da ANPD.
+comentario: Errado no rol. O art. 1º, XXI, da Lei 10.871/2004, incluído pela Lei 15.352/2026, soma às atividades de regulação a implementação de políticas e a realização de estudos e pesquisas. A representação judicial cabe à procuradoria.
+
+=== l15352-13
+gab: C
+ref: lei15352 2
+trecho: as prerrogativas de promover a interdição de estabelecimentos, instalações ou equipamentos e a apreensão de bens ou produtos
+armadilha: rol
+dif: 3
+enunciado: No exercício de atribuições de natureza fiscal ou decorrentes do poder de polícia, o Especialista em Regulação de Proteção de Dados tem as prerrogativas de promover a interdição de estabelecimentos, instalações ou equipamentos e a apreensão de bens ou produtos.
+comentario: Certo: Lei 10.871/2004, art. 3º, parágrafo único, estendido ao novo cargo (inciso XXI) pela Lei 15.352/2026. Pode também requisitar força policial em caso de desacato ou embaraço.
+
+=== l15352-14
+gab: E
+ref: lei15352 2
+trecho: requisitar, quando necessário, o auxílio de força policial federal ou estadual, em caso de desacato ou embaraço ao exercício de suas funções
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: Especialista em Regulação de Proteção de Dados sofreu embaraço ao exercício de suas funções e requisitou auxílio de força policial estadual. Assertiva: a requisição é indevida, pois cabe requisitar a Polícia Federal.
+comentario: Errado. Pode requisitar o auxílio de força policial federal ou estadual (Lei 10.871/2004, art. 3º, parágrafo único, na redação da Lei 15.352/2026).
+
+=== l15352-15
+gab: C
+ref: lei15352 4
+trecho: IX - um representante da Agência Nacional de Proteção de Dados
+armadilha: sujeito
+dif: 3
+enunciado: A Lei nº 15.352/2026 incluiu um representante da ANPD no colegiado previsto no art. 2º da Lei nº 9.008/1995, que gere o Fundo de Defesa de Direitos Difusos.
+comentario: Certo: art. 4º. Faz sentido: o produto das multas aplicadas pela ANPD vai para esse fundo (LGPD, art. 52, § 5º).
+
+=== l15352-16
+gab: C
+ref: lei15352 11
+trecho: serão realizados nos termos do § 1º do art. 169 da Constituição Federal, conforme as necessidades do serviço
+armadilha: conceito
+dif: 2
+enunciado: O provimento dos cargos de Especialista em Regulação de Proteção de Dados criados pela Lei nº 15.352/2026 observa o art. 169, § 1º, da Constituição, que exige prévia dotação orçamentária e autorização específica na lei de diretrizes orçamentárias.
+comentario: Certo: art. 11, conforme as necessidades do serviço. Para o candidato, o ponto prático é que a nomeação depende de orçamento e de autorização na LDO, não só da existência dos cargos.
+
+=== l15352-17
+gab: C
+ref: lei15352 16
+trecho: no prazo de até 30 (trinta) dias, contado da data de publicação do ato de que trata o art. 14 desta Lei
+armadilha: numero
+dif: 3
+enunciado: A ANPD tem até trinta dias, contados da publicação do ato de que trata o art. 14 da Lei nº 15.352/2026, para divulgar o planejamento de adequação de sua regulamentação à nova lei.
+comentario: Art. 16 da Lei 15.352/2026: até 30 dias, contados da publicação do ato do Presidente da República que aprova a nova estrutura regimental (art. 14), para a ANPD divulgar o planejamento de adequação da sua regulamentação.
+
+=== l15352-18
+gab: E
+ref: lei15352 13
+trecho: poderão permanecer em exercício na Agência, independentemente de nova autorização do seu órgão de origem
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: servidora cedida à ANPD por outro órgão estava em exercício na Agência quando a Lei nº 15.352/2026 entrou em vigor. Assertiva: ela pôde permanecer em exercício na ANPD, desde que renovada a autorização do órgão de origem.
+comentario: Errado. Os servidores e empregados em exercício na ANPD puderam permanecer na Agência independentemente de nova autorização do órgão de origem (art. 13 da Lei 15.352/2026).
+
+=== l15352-19
+gab: C
+ref: lei15352 17
+trecho: observará a regra de transição prevista no art. 50 da Lei nº 13.848, de 25 de junho de 2019
+armadilha: conceito
+dif: 3
+enunciado: Em razão da regra de não coincidência dos mandatos, a duração dos mandatos dos membros do Conselho Diretor da ANPD nomeados após a Lei nº 15.352/2026 observa a regra de transição do art. 50 da Lei nº 13.848/2019.
+comentario: Certo: art. 17, que remete ao art. 4º da Lei 9.986/2000 (mandatos não coincidentes). Os mandatos em curso foram mantidos até o término original (art. 12).
+
+=== est-01
+gab: E
+ref: estrutura 1
+trecho: tem o objetivo de garantir a proteção dos dados pessoais e a proteção dos direitos de crianças e de adolescentes em ambientes digitais
+armadilha: extrapolacao
+dif: 2
+enunciado: A missão da ANPD, segundo sua Estrutura Regimental de 2026, abrange a proteção de dados pessoais e a dos direitos de crianças e adolescentes em ambientes digitais, além da defesa da concorrência nos mercados digitais.
+comentario: Errado no fecho. O art. 1º da Estrutura Regimental fala em proteção dos dados pessoais e dos direitos de crianças e adolescentes em ambientes digitais. Defesa da concorrência é do CADE.
+
+=== est-02
+gab: E
+ref: estrutura 3
+trecho: Conselho Nacional de Proteção de Dados Pessoais e da Privacidade, como órgão consultivo
+trecho: O Conselho Diretor é o órgão máximo de decisão da ANPD.
+armadilha: comparacao
+dif: 3
+enunciado: A Estrutura Regimental da ANPD distingue o Conselho Diretor, de caráter consultivo, do Conselho Nacional de Proteção de Dados Pessoais e da Privacidade, ao qual cabe decidir como órgão máximo da Agência.
+comentario: Art. 3º: o CNPD é órgão consultivo (inciso II); o Conselho Diretor é o órgão máximo de decisão (parágrafo único). A estrutura tem ainda órgãos seccionais (Corregedoria, Ouvidoria, Procuradoria Federal Especializada e Auditoria) e Superintendências.
+
+=== est-03
+gab: C
+ref: estrutura 2, § 2º
+trecho: Os regulamentos e as normas editados pela ANPD deverão ser precedidos de consulta e audiência públicas, e de análises de impacto regulatório
+armadilha: conceito
+dif: 2
+enunciado: Antes de editar regulamentos e normas, a ANPD deve realizar consulta e audiência públicas e análise de impacto regulatório, exigência que sua Estrutura Regimental extrai da LGPD.
+comentario: Art. 2º, § 2º, da Estrutura Regimental, que remete ao art. 55-J, § 2º, da LGPD. A AIR segue o Decreto 10.411/2020 e o art. 6º da Lei 13.848/2019.
+
+=== est-04
+gab: E
+ref: estrutura 2, § 7º
+trecho: A aplicação das sanções previstas na Lei nº 13.709, de 14 de agosto de 2018, compete exclusivamente à ANPD e suas competências prevalecerão, no que se refere à proteção de dados pessoais, sobre as competências correlatas de outras entidades ou órgãos da administração pública.
+armadilha: sujeito
+dif: 2
+enunciado: A aplicação das sanções previstas na LGPD é competência concorrente da ANPD e dos órgãos de defesa do consumidor, prevalecendo a atuação de quem primeiro instaurar o processo.
+comentario: Art. 2º, § 7º (e LGPD, art. 55-K): as sanções da LGPD competem exclusivamente à ANPD, cujas competências prevalecem em proteção de dados. Isso não impede sanções do CDC e de outras leis (LGPD, art. 52, § 2º); a ANPD articula-se com os demais órgãos (§ 8º).
+
+=== est-05
+gab: E
+ref: estrutura 2, § 1º
+trecho: A ANPD observará o princípio da intervenção mínima ao impor condicionantes administrativas ao tratamento de dados pessoais por agente de tratamento privado
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: ao fiscalizar uma startup, a ANPD avalia impor condicionantes administrativas ao tratamento de dados que ela realiza. Assertiva: o princípio da intervenção mínima, previsto na Estrutura Regimental, impede a imposição de condicionantes a startups.
+comentario: Errado. A Estrutura Regimental manda observar o princípio da intervenção mínima ao impor condicionantes ao tratamento por agente privado (art. 2º, § 1º), mas não impede impô-las.
+
+=== est-06
+gab: C
+ref: estrutura 2
+trecho: celebrar, a qualquer momento, compromisso com agentes de tratamento para eliminar irregularidade, incerteza jurídica ou situação contenciosa, no âmbito de processos administrativos, de acordo com o previsto no Decreto-Lei nº 4.657, de 4 de setembro de 1942
+armadilha: conceito
+dif: 2
+enunciado: A ANPD pode firmar, em qualquer fase, compromisso com agente de tratamento para pôr fim a irregularidade, incerteza jurídica ou situação contenciosa em processo administrativo, na forma prevista na Lei de Introdução às Normas do Direito Brasileiro.
+comentario: Art. 2º, XVII. O Decreto-Lei 4.657/1942 é a LINDB; o compromisso segue o art. 26 dela (com a Lei 13.655/2018). No processo sancionador, o instrumento é o termo de ajustamento de conduta (Res. 1/2021, art. 43).
+pesquisar: Compromisso do art. 26 da LINDB e TAC na ANPD
+
+=== est-07
+gab: E
+ref: estrutura 2
+trecho: deliberar, na esfera administrativa e em caráter terminativo, sobre a interpretação da Lei nº 13.709, de 14 de agosto de 2018, as suas competências e os casos omissos
+armadilha: sujeito
+dif: 2
+enunciado: As deliberações da ANPD sobre a interpretação da LGPD têm caráter consultivo e podem ser revistas, na esfera administrativa, pelo Ministro da Justiça e Segurança Pública.
+comentario: Art. 2º, XX: a ANPD delibera, na esfera administrativa, em caráter terminativo sobre a interpretação da LGPD, suas competências e os casos omissos. Como agência, não há tutela ou subordinação hierárquica (Lei 13.848, art. 3º).
+
+=== est-08
+gab: C
+ref: estrutura 2
+trecho: atualizar anualmente e publicar na imprensa oficial, por ato próprio, os valores das multas previstas no art. 35, caput, inciso II, da Lei nº 15.211, de 17 de setembro de 2025, de acordo com o Índice Nacional de Preços ao Consumidor Amplo
+armadilha: sujeito
+dif: 2
+enunciado: A atualização anual dos valores das multas previstas no ECA Digital, feita pelo IPCA e publicada por ato próprio na imprensa oficial, é competência da ANPD.
+comentario: Art. 2º, XXVII. As competências ligadas ao ECA Digital vão do inciso XXV ao XXXVI (verificação de idade, supervisão parental, acesso a dados para pesquisa, suspensão de contas), sempre com abordagem responsiva e atenção às assimetrias regulatórias (§ 10).
+
+=== est-09
+gab: E
+ref: estrutura 6
+trecho: admitida a recondução se tal prazo for igual ou inferior a dois anos
+armadilha: excecao
+dif: 3
+enunciado: Pela Estrutura Regimental da ANPD, o diretor que assume vaga aberta no curso de mandato completa o prazo remanescente e não pode ser reconduzido, qualquer que seja a duração desse prazo.
+comentario: Errado. O sucessor completa o mandato pelo prazo remanescente, mas a recondução é admitida se esse prazo for igual ou inferior a dois anos (art. 6º, § 3º). Fora dessa hipótese, vale a regra geral de mandatos de cinco anos, não coincidentes, vedada a recondução (caput).
+pesquisar: Mandato do Conselho Diretor da ANPD: LGPD (4 anos) × Lei 9.986 e Decreto 12.881 (5 anos)
+
+=== est-10
+gab: E
+ref: estrutura 6, § 3º
+trecho: será completado por sucessor investido na forma do caput e exercido pelo prazo remanescente, admitida a recondução se tal prazo for igual ou inferior a dois anos
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: diretor da ANPD foi nomeado para completar mandato vago, restando um ano e meio do prazo. Assertiva: terminado esse período, ele não pode ser reconduzido, por se tratar de mandato fixo e não coincidente.
+comentario: Art. 6º, § 3º: o sucessor completa o prazo remanescente e pode ser reconduzido se esse prazo for igual ou inferior a dois anos. É a mesma exceção do art. 5º, § 7º, da Lei 9.986.
+
+=== est-11
+gab: C
+ref: estrutura 6, § 2º
+trecho: O início da fluência do prazo do mandato ocorrerá imediatamente após o término do mandato anterior, independentemente da data de indicação, aprovação ou posse do membro do colegiado.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: terminou o mandato de diretor da ANPD, e o sucessor só tomou posse meses depois, por atraso na aprovação de seu nome pelo Senado Federal. Assertiva: o mandato do sucessor é contado desde o término do mandato anterior, e não da posse.
+comentario: Certo. O prazo do mandato começa a fluir imediatamente após o término do mandato anterior, independentemente da data de indicação, aprovação ou posse (art. 6º, § 2º). A regra preserva a não coincidência dos mandatos.
+
+=== est-12
+gab: C
+ref: estrutura 7
+trecho: A lista de substituição de que trata o caput será formada por três servidores ocupantes dos cargos de Superintendente, Gerente-Geral ou equivalente hierárquico
+trecho: O mesmo substituto não exercerá interinamente o cargo por mais de cento e oitenta dias consecutivos
+armadilha: numero
+dif: 3
+enunciado: Na vacância de cargo do Conselho Diretor da ANPD, exerce o cargo um integrante da lista de substituição, formada por três servidores, e o mesmo substituto não pode exercê-lo por mais de cento e oitenta dias consecutivos.
+comentario: Art. 7º da Estrutura Regimental: a lista é formada por três servidores ocupantes dos cargos de Superintendente, Gerente-Geral ou equivalente.
+
+=== est-13
+gab: E
+ref: estrutura 8
+trecho: A perda de mandato dos membros do Conselho Diretor poderá ocorrer somente em decorrência de renúncia, condenação judicial transitada em julgado ou pena de demissão decorrente de processo administrativo disciplinar.
+trecho: cabe ao Ministro de Estado da Justiça e Segurança Pública instaurar processo administrativo disciplinar
+armadilha: rol
+dif: 2
+enunciado: Na Estrutura Regimental, a perda do mandato de diretor da ANPD ocorre por renúncia, condenação judicial transitada em julgado, pena de demissão em processo administrativo disciplinar ou decisão fundamentada do Ministro da Justiça e Segurança Pública.
+comentario: Errado no rol. A perda do mandato ocorre somente por renúncia, condenação judicial transitada em julgado ou pena de demissão em PAD (art. 8º da Estrutura Regimental). Ao Ministro cabe instaurar o PAD, não decidir a perda.
+
+=== est-14
+gab: C
+ref: estrutura 9
+trecho: qualquer outra atividade profissional, ressalvado o exercício do magistério, desde que haja compatibilidade de horários
+armadilha: fecho
+dif: 3
+enunciado: Os membros do Conselho Diretor da ANPD não podem exercer outra atividade profissional, mas o exercício do magistério lhes é permitido, ainda que remunerado, desde que haja compatibilidade de horários.
+comentario: Art. 9º, II, “a”, da estrutura regimental da ANPD. A ressalva do magistério não distingue atividade remunerada. Continuam vedadas atividade sindical e político-partidária, participação societária como controlador ou administrador e emissão de parecer sobre matéria da especialidade.
+
+=== est-15
+gab: E
+ref: estrutura 9
+trecho: assegurada a remuneração compensatória
+armadilha: conceito
+dif: 3
+enunciado: Nos seis meses seguintes à exoneração ou ao término do mandato, o ex-diretor da ANPD fica impedido de exercer atividade ou prestar serviço no setor regulado e, nesse período, não recebe remuneração da Agência.
+comentario: Errado. A quarentena de seis meses é acompanhada de remuneração compensatória, nos termos da Lei 9.986/2000 (art. 9º, parágrafo único). O impedimento de atuar no setor regulado está correto.
+
+=== est-16
+gab: C
+ref: estrutura 10
+trecho: O Conselho Diretor da ANPD deliberará por maioria absoluta dos votos de seus membros, entre eles o Diretor-Presidente
+trecho: Caberá ao Diretor-Presidente, além do voto ordinário, o voto de qualidade.
+armadilha: conceito
+dif: 2
+enunciado: Nas deliberações do Conselho Diretor da ANPD, exige-se maioria absoluta dos votos dos membros, computado o do Diretor-Presidente, a quem cabe ainda o voto de qualidade.
+comentario: Art. 10, §§ 1º e 2º. O processo decisório da atividade regulatória é colegiado (caput), e as decisões ficam registradas em ata disponível para conhecimento geral (§ 3º).
+
+=== est-17
+gab: E
+ref: estrutura 10, § 5º
+trecho: É facultado à ANPD adotar processo de delegação interna de decisão, assegurado ao Conselho Diretor o direito de reexame das decisões delegadas.
+armadilha: absoluto
+dif: 2
+enunciado: Situação hipotética: o Conselho Diretor da ANPD, órgão máximo de direção, delegou à Coordenação-Geral de Fiscalização a decisão de processos de menor complexidade, reservando-se o reexame. Assertiva: a delegação é vedada, porque o processo decisório da ANPD é colegiado.
+comentario: Art. 10, § 5º: a delegação interna é facultada, assegurado ao Conselho Diretor o reexame das decisões delegadas. É o mesmo desenho do art. 7º, § 2º, da Lei 13.848.
+
+=== est-18
+gab: C
+ref: estrutura 13
+trecho: se reunirá, em caráter ordinário, quadrimestralmente
+trecho: O quórum de reunião do Conselho Nacional de Proteção de Dados Pessoais e da Privacidade é de dezesseis membros e o quórum de aprovação é de maioria simples.
+armadilha: numero
+dif: 2
+enunciado: O Conselho Nacional de Proteção de Dados Pessoais e da Privacidade reúne-se ordinariamente de forma quadrimestral, preferencialmente por videoconferência, com pauta divulgada no mínimo sete dias antes.
+comentario: Certo. Art. 13 e §§ 2º e 3º da Estrutura Regimental. O quórum de reunião é de dezesseis membros, e o de aprovação, maioria simples (§ 1º).
+
+=== est-19
+gab: E
+ref: estrutura 12, § 9º
+trecho: § 9º  O Presidente do Conselho Nacional de Proteção de Dados Pessoais e da Privacidade poderá convidar representantes de outros órgãos e entidades da administração pública federal para participar de suas reuniões, sem direito a voto.
+armadilha: conceito
+dif: 2
+enunciado: A participação no Conselho Nacional de Proteção de Dados é serviço público relevante, não remunerado, e o Presidente pode convidar representantes de outros órgãos federais para as reuniões, com direito a voto.
+comentario: Errado. Os convidados participam sem direito a voto (art. 12, § 9º). A primeira parte está certa (§ 8º).
+
+=== est-20
+gab: C
+ref: estrutura 12, § 4º
+trecho: terão mandato de dois anos, permitida uma recondução por igual período
+trecho: não poderão ser membros do Comitê Gestor da Internet no Brasil
+armadilha: numero
+dif: 2
+enunciado: No CNPD, o mandato dos representantes da sociedade civil é de dois anos, admitida uma recondução por igual período, e eles não podem integrar o Comitê Gestor da Internet no Brasil.
+comentario: Certo. Art. 12, § 4º, da Estrutura Regimental (Anexo I do Decreto 12.881/2026): os membros dos incisos XI a XV do CNPD (sociedade civil, instituições científicas, confederações do setor produtivo, setor empresarial e setor laboral) têm mandato de dois anos, com uma recondução por igual período, e não podem ser membros do Comitê Gestor da Internet. A banca troca o prazo ou o número de reconduções.
+
+=== est-21
+gab: E
+ref: estrutura 4
+trecho: decidir, em última instância administrativa, sobre recursos e matérias de sua competência
+trecho: o regimento interno da ANPD
+armadilha: extrapolacao
+dif: 2
+enunciado: Cabe ao Conselho Diretor da ANPD aprovar o regimento interno da Agência e julgar os recursos e as matérias de sua competência, cabendo de suas decisões recurso hierárquico ao Ministro da Justiça e Segurança Pública.
+comentario: Errado no fecho. O Conselho Diretor decide em última instância administrativa (art. 4º da Estrutura Regimental); não há recurso hierárquico impróprio ao Ministro.
+
+=== est-22
+gab: E
+ref: dec12881 6
+trecho: A partir da data de entrada em vigor deste Decreto, a Agência Nacional de Proteção de Dados – ANPD passará a exercer suas atribuições de forma plena, e ficará extinta a Autoridade Nacional de Proteção de Dados – ANPD.
+armadilha: fecho
+dif: 3
+enunciado: Com a vigência do Decreto nº 12.881/2026, a Agência Nacional de Proteção de Dados passou a exercer plenamente suas atribuições, convivendo com a Autoridade Nacional de Proteção de Dados, que permaneceu responsável pela fiscalização da LGPD.
+comentario: Art. 6º: com a vigência do decreto (21 dias após a publicação, art. 8º), a Agência passou a exercer suas atribuições de forma plena e a Autoridade foi extinta. Não há duas ANPDs.
+
+=== est-23
+gab: E
+ref: estrutura 5
+trecho: Os órgãos e as entidades da administração pública federal, direta, autárquica e fundacional prestarão toda a assistência e colaboração solicitada pela ANPD, inclusive por meio da elaboração de pareceres técnicos sobre as matérias de sua competência, sob pena de responsabilidade.
+armadilha: sujeito
+dif: 2
+enunciado: Órgãos e entidades da administração pública federal, estadual e municipal devem colaborar com a ANPD quando solicitados, inclusive elaborando pareceres técnicos, sob pena de responsabilidade.
+comentario: Errado no sujeito. O art. 5º da Estrutura Regimental, decreto federal, alcança os órgãos e as entidades da administração pública federal, direta, autárquica e fundacional.
+
+=== est-24
+gab: E
+ref: estrutura 2
+trecho: apreciar petições de titular contra controlador após comprovada pelo titular a apresentação de reclamação ao controlador não solucionada no prazo estabelecido em regulamentação
+armadilha: extrapolacao
+dif: 2
+enunciado: Situação hipotética: um titular apresentou reclamação ao controlador, que não a resolveu no prazo previsto em regulamentação. Assertiva: comprovada essa tentativa, o titular pode peticionar à ANPD, que, se a petição proceder, fixará a indenização devida ao titular.
+comentario: Errado no fecho. A ANPD aprecia a petição e pode fiscalizar e sancionar (art. 2º da Estrutura Regimental; art. 55-J, V, da LGPD), mas não fixa indenização: a reparação de danos é buscada em juízo (art. 22 da LGPD).

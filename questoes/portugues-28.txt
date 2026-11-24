@@ -1,0 +1,148 @@
+bloco: portugues
+// Texto original escrito para o banco (transparência ativa e dados abertos), com itens de interpretação, coesão,
+// semântica, pontuação, concordância e sintaxe.
+
+apoio_PT28A: Publicar dados na internet não é o mesmo que torná-los acessíveis. Muitas prefeituras disponibilizam planilhas extensas, em formatos que só programas específicos conseguem abrir, e consideram cumprido o dever de transparência. O cidadão que procura saber quanto se gastou na escola do bairro, porém, raramente encontra a resposta sem ajuda.
+A transparência que interessa é aquela que permite compreender. Para isso, os dados precisam vir acompanhados de explicações simples, de ferramentas de busca e de séries históricas que mostrem como os números evoluíram. Nada disso exige grandes investimentos; exige, antes, a disposição de enxergar o portal pelos olhos de quem não é especialista.
+Há ainda um cuidado que não pode ser esquecido: dados abertos sobre gastos públicos não se confundem com exposição de informações pessoais. Divulgar o salário de um cargo é diferente de publicar o endereço de quem o ocupa.
+
+=== pt28-01
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT28A
+comando: Com relação às ideias e aos aspectos linguísticos do texto precedente, julgue os itens a seguir.
+armadilha: literal
+dif: 2
+enunciado: Nos dois primeiros parágrafos, o autor distingue a transparência meramente formal, limitada a disponibilizar arquivos em formatos de difícil abertura, da transparência que permite compreender, a qual pressupõe explicações simples, ferramentas de busca e séries históricas.
+comentario: Certo. “Publicar dados na internet não é o mesmo que torná-los acessíveis”; a transparência que interessa é a que permite compreender.
+
+=== pt28-02
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT28A
+armadilha: literal
+dif: 2
+enunciado: Segundo o segundo parágrafo, o principal obstáculo para que as prefeituras apresentem dados compreensíveis, com séries históricas, é a falta de recursos para comprar programas de visualização.
+comentario: Errado. O parágrafo diz que nada disso exige grandes investimentos, e sim a disposição de enxergar o portal pelos olhos de quem não é especialista.
+
+=== pt28-03
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT28A
+armadilha: interpretacao
+dif: 3
+enunciado: No segundo parágrafo, a expressão “Nada disso” retoma as explicações, as ferramentas de busca e as séries históricas, e o termo “antes”, em “exige, antes, a disposição”, tem valor temporal, equivalente a previamente.
+comentario: Errado. “Nada disso” retoma de fato os três elementos, mas “antes” não tem valor temporal: equivale a mais propriamente, pelo contrário. O autor diz que essas medidas não exigem grandes investimentos; exigem, isto sim, a disposição de enxergar o portal pelos olhos do leigo.
+
+=== pt28-04
+gab: E
+tema: pt-coesao
+ref: texto
+apoio: @PT28A
+armadilha: interpretacao
+dif: 2
+enunciado: No primeiro período do texto, o pronome em “torná-los” antecipa “Muitas prefeituras”, sujeito do período seguinte.
+comentario: Errado. É anáfora de “dados”: publicar dados não é o mesmo que tornar os dados acessíveis.
+
+=== pt28-05
+gab: C
+tema: pt-semantica
+ref: texto
+apoio: @PT28A
+armadilha: interpretacao
+dif: 3
+enunciado: No segundo parágrafo, em “exige, antes, a disposição”, o vocábulo “antes” não tem valor temporal, mas o sentido de em vez disso.
+comentario: Certo. “Antes” marca retificação: o que se exige não são investimentos, mas, sobretudo, disposição.
+
+=== pt28-06
+gab: E
+tema: pt-semantica
+ref: texto
+apoio: @PT28A
+armadilha: literal
+dif: 2
+enunciado: No terceiro parágrafo, a substituição de “não se confundem com” por prescindem de manteria a relação de distinção estabelecida entre dados sobre gastos públicos e exposição de informações pessoais.
+comentario: Errado. Prescindir é dispensar; o texto afirma que uma coisa não é a outra, não que uma dispense a outra.
+
+=== pt28-07
+gab: C
+tema: pt-regencia
+ref: texto
+apoio: @PT28A
+armadilha: conceito
+dif: 2
+enunciado: No segundo parágrafo, em “acompanhados de explicações simples”, a preposição “de” introduz o complemento exigido por “acompanhados”.
+comentario: Certo. Quem é acompanhado é acompanhado de algo; a preposição se repete diante de “ferramentas” e de “séries históricas”.
+
+=== pt28-08
+gab: E
+tema: pt-pontuacao
+ref: texto
+apoio: @PT28A
+armadilha: literal
+dif: 2
+enunciado: No terceiro parágrafo, os dois-pontos empregados após “esquecido” poderiam ser substituídos por vírgula, sem prejuízo da correção gramatical do texto.
+comentario: Errado. Os dois-pontos introduzem a explicação do cuidado mencionado; com vírgula, duas orações independentes ficariam ligadas de forma inadequada.
+
+=== pt28-09
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @PT28A
+armadilha: sujeito
+dif: 3
+enunciado: Em “em formatos que só programas específicos conseguem abrir”, o pronome relativo “que”, retomando “formatos”, é objeto direto de “abrir”, e “só programas específicos” é o sujeito da locução “conseguem abrir”.
+comentario: Certo. Os programas conseguem abrir os formatos; o relativo ocupa o lugar do objeto.
+
+=== pt28-10
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT28A
+armadilha: conceito
+dif: 3
+enunciado: No terceiro parágrafo, em “Divulgar o salário de um cargo é diferente de publicar o endereço de quem o ocupa”, a oração “Divulgar o salário de um cargo” exerce a função de objeto direto.
+comentario: Errado. A oração reduzida de infinitivo é o sujeito de “é”: divulgar o salário é diferente de publicar o endereço.
+
+=== pt28-11
+gab: E
+tema: pt-sintaxe
+ref: texto
+apoio: @PT28A
+armadilha: conceito
+dif: 3
+enunciado: No primeiro parágrafo, a oração “que procura saber quanto se gastou na escola do bairro” restringe o sentido de “O cidadão”, razão por que deveria estar isolada por vírgulas.
+comentario: Errado. A oração é de fato adjetiva restritiva, mas por isso mesmo não se isola por vírgulas. Com vírgulas, ela passaria a explicativa e mudaria o sentido: o texto fala do cidadão que procura essa informação, e não de todo cidadão.
+
+=== pt28-12
+gab: E
+tema: pt-interpretacao
+ref: texto
+apoio: @PT28A
+armadilha: extrapolacao
+dif: 2
+enunciado: No último período do texto, em que o pronome “o”, de “quem o ocupa”, retoma “um cargo”, o autor admite que, em nome da transparência, se publique também o endereço de quem ocupa cargo público.
+comentario: Errado. A leitura do pronome está certa; a do sentido, não. O autor separa a divulgação do salário do cargo da exposição do endereço de quem o ocupa.
+
+=== pt28-13
+gab: C
+tema: pt-interpretacao
+ref: texto
+apoio: @PT28A
+armadilha: interpretacao
+dif: 2
+enunciado: Infere-se do texto que os portais de transparência devem ser pensados a partir do ponto de vista de quem não é especialista.
+comentario: Certo. O segundo parágrafo pede “a disposição de enxergar o portal pelos olhos de quem não é especialista”.
+
+=== pt28-14
+gab: C
+tema: pt-concordancia
+ref: texto
+apoio: @PT28A
+armadilha: sujeito
+dif: 3
+enunciado: No segundo parágrafo, a forma verbal “mostrem” está no subjuntivo e no plural, em concordância com “séries históricas”, termo retomado pelo pronome relativo “que”.
+comentario: Certo. As séries históricas mostram a evolução dos números: o relativo “que”, sujeito de “mostrem”, retoma “séries históricas”, e o verbo concorda no plural. O subjuntivo se explica pelo valor de finalidade ou requisito da oração.

@@ -1,0 +1,1041 @@
+// Glossário: definições curtas, escritas para o estudo. Os padrões marcam o termo nas questões e nos cards.
+
+=== Autarquia de natureza especial
+padroes: autarquia de natureza especial | autarquia de regime especial | agência reguladora | agências reguladoras
+def: Pessoa jurídica de direito público da administração indireta com garantias reforçadas de autonomia: dirigentes com mandato fixo e estabilidade, ausência de subordinação hierárquica ao ministério e autonomia administrativa e financeira. É o regime das agências reguladoras (Lei 13.848/2019) e, desde a Lei 15.352/2026, da ANPD.
+busca: autarquia de regime especial agência reguladora características mandato estabilidade
+
+=== Vinculação × subordinação
+padroes: vinculada | vinculação
+def: A autarquia é vinculada a um ministério, que exerce supervisão (tutela) nos limites da lei, mas não é subordinada a ele: não há hierarquia nem recurso hierárquico próprio contra suas decisões técnicas.
+busca: vinculação subordinação autarquia tutela supervisão ministerial recurso hierárquico impróprio
+
+=== Rol taxativo
+padroes: rol taxativo | taxativo | taxativa
+def: Lista fechada: só valem as hipóteses enumeradas. Na LGPD, palavras como “somente” e “só” indicam rol taxativo (arts. 7º, 11, 33, 43). Em prova, qualquer hipótese a mais torna o item errado.
+busca: rol taxativo exemplificativo LGPD bases legais
+
+=== Rol exemplificativo
+padroes: rol exemplificativo | exemplificativa | exemplificativo | entre outras | tais como
+def: Lista aberta: os itens são exemplos. Expressões como “entre outros”, “tais como” e “que incluem, mas não se limitam a” (art. 10) indicam rol exemplificativo.
+busca: rol exemplificativo tais como entre outros interpretação
+
+=== Dado pessoal
+padroes: dado pessoal | dados pessoais
+def: Informação relacionada a pessoa natural identificada ou identificável (art. 5º, I). O conceito é expansionista: basta que a pessoa possa ser identificada com meios razoáveis, mesmo sem nome no registro.
+busca: conceito expansionista dado pessoal identificável LGPD
+
+=== Dado pessoal sensível
+padroes: dado pessoal sensível | dados pessoais sensíveis | dados sensíveis | dado sensível
+def: Rol do art. 5º, II: origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou organização religiosa, filosófica ou política, dado de saúde ou vida sexual, dado genético ou biométrico vinculado a pessoa natural. Tem bases legais próprias e mais restritas (art. 11).
+busca: dados pessoais sensíveis LGPD art. 11 bases legais
+
+=== Titular
+padroes: titular dos dados | titulares de dados | titular de dados
+def: Pessoa natural a quem se referem os dados pessoais tratados (art. 5º, V). Pessoa jurídica não é titular para a LGPD.
+busca: titular de dados pessoais direitos LGPD
+
+=== Controlador
+padroes: controlador | controladores
+def: Quem toma as decisões sobre o tratamento, isto é, define finalidades e meios essenciais (art. 5º, VI). Pode ser pessoa natural ou jurídica, de direito público ou privado.
+busca: controlador e operador guia ANPD agentes de tratamento
+
+=== Operador
+padroes: operador | operadores
+def: Quem realiza o tratamento em nome do controlador (art. 5º, VII), seguindo suas instruções (art. 39). Se descumpre a lei ou as instruções lícitas, responde solidariamente como se fosse controlador (art. 42, § 1º, I).
+busca: operador de dados responsabilidade solidária LGPD guia ANPD
+
+=== Encarregado
+padroes: encarregado | encarregados | DPO
+def: Pessoa indicada para ser o canal de comunicação entre controlador, titulares e ANPD (art. 5º, VIII). Equivale ao DPO do GDPR. A Resolução CD/ANPD 18/2024 detalha sua atuação.
+busca: encarregado de dados Resolução CD/ANPD 18/2024 atribuições conflito de interesses
+
+=== Agentes de tratamento
+padroes: agentes de tratamento | agente de tratamento
+def: Controlador e operador (art. 5º, IX). O encarregado não é agente de tratamento.
+busca: agentes de tratamento controlador operador encarregado diferença
+
+=== Tratamento
+padroes: tratamento de dados | operação de tratamento | operações de tratamento
+def: Toda operação realizada com dados pessoais: coleta, armazenamento, uso, compartilhamento, eliminação e outras (art. 5º, X). A lista do inciso é exemplificativa (“como as que se referem a”).
+busca: conceito de tratamento de dados LGPD art. 5º X
+
+=== Anonimização
+padroes: anonimização | anonimizados | anonimizado | anonimizadas
+def: Uso de meios técnicos razoáveis para que o dado perca a possibilidade de associação a uma pessoa (art. 5º, XI). Dado anonimizado não é dado pessoal, salvo se a anonimização puder ser revertida com esforços razoáveis (art. 12).
+busca: anonimização técnicas guia ANPD reversibilidade esforços razoáveis
+
+=== Pseudonimização
+padroes: pseudonimização | pseudonimizados | pseudonimizado
+def: Tratamento em que o dado só pode ser associado à pessoa com uma informação adicional guardada à parte pelo controlador (art. 13, § 4º). Continua sendo dado pessoal.
+busca: pseudonimização × anonimização diferença exemplos
+
+=== Consentimento
+padroes: consentimento
+def: Manifestação livre, informada e inequívoca de concordância com o tratamento para finalidade determinada (art. 5º, XII). Pode ser revogado a qualquer momento (art. 8º, § 5º). É uma das dez bases legais, não a principal.
+busca: consentimento LGPD requisitos revogação vício de consentimento
+
+=== Legítimo interesse
+padroes: legítimo interesse | interesses legítimos | interesse legítimo
+def: Base legal (art. 7º, IX) que exige finalidade legítima, situação concreta, dados estritamente necessários e transparência (art. 10). Não vale para dados sensíveis. A ANPD publicou guia com teste de balanceamento.
+busca: legítimo interesse teste de balanceamento guia ANPD
+
+=== Bases legais
+padroes: base legal | bases legais | hipóteses legais | hipóteses de tratamento
+def: Hipóteses que autorizam o tratamento: dez no art. 7º (dados comuns) e as do art. 11 (dados sensíveis). Sem base legal, o tratamento é ilícito.
+busca: bases legais LGPD art. 7º art. 11 comparação
+
+=== Uso compartilhado de dados
+padroes: uso compartilhado | compartilhamento de dados | tratamento compartilhado
+def: Comunicação, difusão, transferência internacional, interconexão ou tratamento compartilhado de bancos de dados, entre órgãos públicos, entre estes e privados ou entre privados (art. 5º, XVI).
+busca: uso compartilhado de dados Poder Público LGPD art. 26 art. 27
+
+=== Relatório de impacto à proteção de dados (RIPD)
+padroes: relatório de impacto | relatórios de impacto | RIPD | avaliação de impacto
+def: Documento do controlador que descreve tratamentos que podem gerar riscos a liberdades e direitos fundamentais e as medidas de mitigação (art. 5º, XVII). A ANPD pode exigi-lo (arts. 10, § 3º, 32 e 38). Equivale à DPIA do GDPR (art. 35).
+busca: relatório de impacto à proteção de dados RIPD modelo ANPD quando exigir
+
+=== Princípio da necessidade
+padroes: princípio da necessidade | minimização | mínimo necessário
+def: Limitar o tratamento ao mínimo necessário, com dados pertinentes, proporcionais e não excessivos (art. 6º, III). É a minimização de dados do GDPR.
+busca: princípio da necessidade minimização de dados LGPD
+
+=== Accountability
+padroes: responsabilização e prestação de contas | accountability
+def: Princípio do art. 6º, X: não basta cumprir a lei, o agente precisa demonstrar que adotou medidas eficazes e que elas funcionam.
+busca: princípio da responsabilização e prestação de contas accountability LGPD
+
+=== Privacidade desde a concepção
+padroes: privacidade desde a concepção | privacy by design | desde a fase de concepção | desde a concepção
+def: Incorporar proteção de dados ao projeto do produto ou serviço desde o início, e não depois (art. 46, § 2º). Por padrão (by default), a configuração mais protetiva vem ativada.
+busca: privacy by design privacy by default sete princípios Ann Cavoukian
+
+=== Incidente de segurança
+padroes: incidente de segurança | incidentes de segurança | vazamento | vazamentos | comunicação de incidente
+def: Evento que compromete a confidencialidade, integridade ou disponibilidade de dados pessoais. Se puder causar risco ou dano relevante, o controlador comunica à ANPD e ao titular (art. 48), no prazo fixado pela Resolução CD/ANPD 15/2024.
+busca: comunicação de incidente de segurança Resolução CD/ANPD 15/2024 prazo
+
+=== Portabilidade
+padroes: portabilidade
+def: Direito de levar os dados a outro fornecedor de serviço ou produto, mediante requisição expressa e conforme regulamentação da ANPD (art. 18, V). Não inclui dados já anonimizados (art. 18, § 7º).
+busca: portabilidade de dados LGPD regulamentação ANPD concorrência
+
+=== Decisão automatizada
+padroes: decisão automatizada | decisões automatizadas | tratamento automatizado | explicabilidade
+def: Decisão tomada unicamente por sistema, sem intervenção humana relevante. O titular pode pedir revisão e informações sobre critérios (art. 20). A revisão por pessoa natural foi vetada.
+busca: decisão automatizada art. 20 LGPD explicabilidade revisão humana veto
+
+=== Transferência internacional
+padroes: transferência internacional
+def: Envio de dados pessoais para país estrangeiro ou organismo internacional (art. 5º, XV). Só é permitida nas hipóteses do art. 33. A Resolução CD/ANPD 19/2024 a regulamenta.
+busca: transferência internacional de dados Resolução CD/ANPD 19/2024 mecanismos
+
+=== Decisão de adequação
+padroes: decisão de adequação | decisões de adequação | grau de proteção de dados pessoais adequado | nível de proteção adequado | nível adequado de proteção
+def: Reconhecimento de que um país ou organismo oferece proteção de dados adequada, o que libera a transferência (art. 33, I). No Brasil decide a ANPD; na UE, a Comissão Europeia.
+busca: decisão de adequação ANPD União Europeia Resolução 32/2026
+
+=== Cláusulas-padrão contratuais
+padroes: cláusulas-padrão contratuais | cláusulas-padrão | cláusulas contratuais-padrão
+def: Modelo de cláusulas aprovado pela autoridade para transferências internacionais (art. 33, II, b). Na ANPD, estão na Resolução 19/2024 e devem ser adotadas sem alteração.
+busca: cláusulas-padrão contratuais ANPD Resolução 19/2024 anexo II
+
+=== Normas corporativas globais
+padroes: normas corporativas globais
+def: Regras internas de proteção de dados de um grupo econômico, aprovadas pela autoridade, que autorizam transferências entre empresas do grupo (art. 33, II, c). Equivalem às binding corporate rules do GDPR (art. 47).
+busca: normas corporativas globais binding corporate rules aprovação
+
+=== Sanções administrativas da LGPD
+padroes: sanções administrativas | advertência | multa simples | multa diária | publicização
+def: Lista do art. 52, aplicada só pela ANPD (art. 55-K), de forma gradativa, isolada ou cumulativa. Multas não se aplicam a órgãos públicos (art. 52, § 3º).
+busca: sanções LGPD art. 52 dosimetria Resolução CD/ANPD 4/2023
+
+=== Dosimetria
+padroes: dosimetria | valor-base
+def: Método de cálculo da sanção conforme gravidade, vantagem, condição econômica, reincidência, cooperação e outros critérios (art. 52, § 1º). O regulamento é a Resolução CD/ANPD 4/2023.
+busca: dosimetria Resolução CD/ANPD 4/2023 valor-base agravantes atenuantes
+
+=== Reincidência
+padroes: reincidência
+def: Nova infração cometida depois de condenação definitiva por infração anterior, dentro do prazo do regulamento. É critério de dosimetria (art. 52, § 1º, V).
+busca: reincidência específica genérica Resolução CD/ANPD 4/2023
+
+=== Fundo de Defesa de Direitos Difusos
+padroes: Fundo de Defesa de Direitos Difusos
+def: Fundo criado pela Lei da Ação Civil Pública (Lei 7.347/1985, art. 13) que recebe o produto das multas aplicadas pela ANPD (art. 52, § 5º). As multas não são receita da agência.
+busca: Fundo de Defesa de Direitos Difusos Lei 7.347/1985 destinação multas
+
+=== Conselho Diretor
+padroes: Conselho Diretor
+def: Órgão máximo de direção da ANPD (art. 55-C, I), com 5 diretores, incluído o Diretor-Presidente, nomeados pelo Presidente da República após aprovação do Senado (art. 55-D). O texto da LGPD fala em mandato de 4 anos (art. 55-D, § 3º), mas a Lei 15.352/2026 (art. 12) manda as novas nomeações seguirem a Lei 9.986/2000, e o Decreto 12.881/2026 (Anexo I, art. 6º) fixa 5 anos, vedada a recondução.
+busca: Conselho Diretor ANPD composição mandato sabatina
+
+=== CNPD
+padroes: Conselho Nacional de Proteção de Dados Pessoais e da Privacidade | CNPD
+def: Órgão da estrutura da ANPD (art. 55-C, II) com 23 representantes do poder público, da sociedade civil, da academia e dos setores produtivo e laboral (art. 58-A). Propõe diretrizes e sugere ações (art. 58-B).
+busca: CNPD composição 23 membros competências art. 58-B
+
+=== Sabatina
+padroes: aprovação pelo Senado Federal | aprovação do Senado | Senado Federal | sabatina | sabatinado | sabatinados
+def: Aprovação prévia, pelo Senado, por voto secreto e após arguição pública, de autoridades que a lei indicar (CF, art. 52, III, f). Vale para os diretores da ANPD.
+busca: sabatina Senado art. 52 III f Constituição dirigentes agências
+
+=== Quarentena
+padroes: quarentena | Lei nº 12.813
+def: Impedimento temporário de atuar no setor regulado após deixar o cargo, previsto na Lei de Conflito de Interesses (Lei 12.813/2013). Aplica-se aos ex-diretores da ANPD (art. 55-F). Combate a porta giratória.
+busca: quarentena Lei 12.813/2013 art. 6º conflito de interesses porta giratória
+
+=== Improbidade administrativa
+padroes: improbidade administrativa | Lei de Improbidade
+def: Ato ilícito de agente público que viola a probidade (Lei 8.429/1992, alterada pela Lei 14.230/2021). A violação da quarentena por ex-diretor da ANPD caracteriza improbidade (art. 55-F, parágrafo único).
+busca: improbidade administrativa Lei 8.429/1992 Lei 14.230/2021 dolo
+
+=== Compromisso do art. 26 da LINDB
+padroes: compromisso | Decreto-Lei nº 4.657
+def: Acordo entre a autoridade e o interessado para eliminar irregularidade, incerteza jurídica ou situação contenciosa, previsto no art. 26 da LINDB. A ANPD pode celebrá-lo a qualquer momento (art. 55-J, XVII).
+busca: compromisso art. 26 LINDB termo de ajustamento de conduta administração
+
+=== Análise de impacto regulatório (AIR)
+padroes: análise de impacto regulatório | análises de impacto regulatório | impacto regulatório | AIR
+def: Estudo prévio (ex ante) dos efeitos das alternativas regulatórias antes de editar a norma. Exigido pela LGPD (art. 55-J, § 2º), pela Lei 13.848/2019 (art. 6º) e regulamentado pelo Decreto 10.411/2020.
+busca: análise de impacto regulatório Decreto 10.411/2020 metodologias ARR
+
+=== Consulta pública × audiência pública
+padroes: consulta pública | audiência pública | consulta e audiência públicas | consultas públicas | audiências públicas
+def: Consulta pública recebe contribuições por escrito sobre minuta de norma; audiência pública é sessão presencial ou virtual de debate oral. A LGPD exige ambas antes dos regulamentos da ANPD (art. 55-J, § 2º).
+busca: consulta pública audiência pública diferença Lei 13.848/2019 prazo
+
+=== Captura regulatória
+padroes: captura | captura regulatória
+def: Situação em que o regulador passa a servir aos interesses dos regulados. Pode ocorrer sem corrupção: por dependência de informação, afinidade de visão ou porta giratória.
+busca: teoria da captura Stigler 1971 captura regulatória tipos
+
+=== Regulação responsiva
+padroes: regulação responsiva | pirâmide | fiscalização responsiva
+def: Modelo de Ayres e Braithwaite (1992): o regulador começa pela persuasão e orientação e só escala para sanções severas diante de descumprimento persistente. A fiscalização da ANPD segue essa lógica: monitoramento, orientação, prevenção e, por último, repressão (Resolução CD/ANPD 1/2021, art. 15).
+busca: regulação responsiva Ayres Braithwaite pirâmide de enforcement
+
+=== Sandbox regulatório
+padroes: sandbox | ambiente regulatório experimental
+def: Ambiente experimental com regras flexibilizadas temporariamente para testar inovações sob supervisão do regulador. Definido na Lei Complementar 182/2021 (Marco Legal das Startups).
+busca: sandbox regulatório LC 182/2021 ANPD inteligência artificial
+
+=== Mínima intervenção
+padroes: mínima intervenção
+def: Dever da ANPD de impor ao agente privado apenas as restrições necessárias, respeitando a livre iniciativa (art. 55-J, § 1º, com remissão ao art. 170 da CF).
+busca: princípio da intervenção mínima regulação Lei de Liberdade Econômica
+
+=== Habeas data
+padroes: habeas data
+def: Ação constitucional para conhecer ou retificar informações sobre o próprio impetrante em bancos de dados governamentais ou de caráter público (CF, art. 5º, LXXII; Lei 9.507/1997).
+busca: habeas data Lei 9.507/1997 cabimento recusa administrativa prévia
+
+=== Cláusula pétrea
+padroes: cláusula pétrea | cláusulas pétreas
+def: Matéria que não pode ser abolida por emenda constitucional (CF, art. 60, § 4º), como os direitos e garantias individuais, entre eles a proteção de dados (art. 5º, LXXIX).
+busca: cláusulas pétreas art. 60 § 4º direitos individuais proteção de dados
+
+=== Competência privativa
+padroes: competência privativa | privativamente
+def: Competência legislativa da União listada no art. 22 da CF, que pode ser delegada aos Estados por lei complementar. Inclui proteção e tratamento de dados pessoais (art. 22, XXX).
+busca: competência privativa art. 22 Constituição delegação lei complementar
+
+=== Interesse público
+padroes: interesse público | finalidade pública
+def: No tratamento de dados pelo Poder Público, o tratamento deve atender à finalidade pública e executar competências legais (art. 23).
+busca: supremacia do interesse público tratamento de dados Poder Público LGPD art. 23
+
+=== Responsabilidade solidária
+padroes: solidariamente | solidária
+def: Cada responsável pode ser cobrado pela dívida inteira; quem paga cobra a parte dos outros (direito de regresso). Na LGPD, operador que descumpre a lei e controladores envolvidos respondem solidariamente (art. 42).
+busca: responsabilidade solidária direito de regresso LGPD art. 42
+
+=== Inversão do ônus da prova
+padroes: ônus da prova
+def: O juiz pode transferir ao agente o dever de provar, quando a alegação do titular for verossímil, houver hipossuficiência ou a prova for excessivamente onerosa (art. 42, § 2º).
+busca: inversão do ônus da prova LGPD art. 42 § 2º CDC art. 6º VIII
+
+=== Culpa exclusiva
+padroes: culpa exclusiva
+def: Excludente de responsabilidade: o dano decorre só da conduta da vítima ou de terceiro (art. 43, III). Culpa concorrente não exclui a responsabilidade.
+busca: culpa exclusiva da vítima culpa concorrente excludentes de responsabilidade
+
+=== Programa de governança em privacidade
+padroes: programa de governança | governança em privacidade | boas práticas e de governança
+def: Conjunto de políticas, processos e controles para cumprir a LGPD de forma demonstrável (art. 50, § 2º). Pode atenuar sanções (art. 52, § 1º, IX).
+busca: programa de governança em privacidade elementos auditoria ISO 27701
+
+=== Princípio da finalidade
+padroes: princípio da finalidade | propósitos legítimos, específicos, explícitos e informados
+def: Tratamento para propósitos legítimos, específicos, explícitos e informados, sem tratamento posterior incompatível (art. 6º, I).
+busca: princípio da finalidade compatibilidade de tratamento posterior
+
+=== Melhor interesse
+padroes: melhor interesse
+def: Princípio do Direito da Criança e do Adolescente: decisões que os afetam devem priorizar seu bem-estar. A LGPD o adota no art. 14, e o ECA Digital o reforça no ambiente digital.
+busca: princípio do melhor interesse da criança LGPD art. 14 ECA Digital
+
+=== ECA Digital
+padroes: ECA Digital | Lei nº 15.211 | Lei 15.211
+def: Estatuto Digital da Criança e do Adolescente (Lei 15.211/2025), em vigor desde 17/03/2026. Vale para produtos e serviços digitais direcionados a crianças e adolescentes ou de acesso provável por eles; a ANPD fiscaliza.
+busca: ECA Digital Lei 15.211/2025 obrigações fornecedores ANPD
+
+=== Verificação etária
+padroes: verificação de idade | verificação etária | autodeclaração
+def: Mecanismo confiável para aferir a idade do usuário. O ECA Digital proíbe a mera autodeclaração; o Decreto 12.880/2026 prevê sinais de idade fornecidos por lojas de aplicativos e sistemas operacionais.
+busca: verificação etária ECA Digital Decreto 12.880/2026 sinais de idade
+
+=== Loot boxes
+padroes: caixas de recompensa | loot boxes | loot box
+def: Itens virtuais pagos com conteúdo aleatório em jogos eletrônicos. O ECA Digital veda sua oferta em jogos direcionados a crianças e adolescentes ou de acesso provável por eles.
+busca: loot boxes ECA Digital vedação jogos eletrônicos
+
+=== Perfilamento
+padroes: perfilamento | perfil comportamental | perfil pessoal
+def: Tratamento automatizado para avaliar ou prever aspectos de uma pessoa (gostos, comportamento, crédito). A LGPD trata do tema nos arts. 12, § 2º, e 20; o ECA Digital veda o perfilamento de crianças e adolescentes para publicidade.
+busca: perfilamento LGPD art. 20 ECA Digital publicidade direcionada
+
+=== GDPR
+padroes: GDPR | Regulamento Geral sobre a Proteção de Dados
+def: Regulamento (UE) 2016/679, aplicável desde 25/05/2018. Inspirou a LGPD; diferenças cobradas: 6 bases legais, multa de até 4% do faturamento mundial, notificação em 72 horas.
+busca: GDPR LGPD diferenças comparação quadro
+
+=== Schrems II
+padroes: Schrems II | Privacy Shield
+def: Decisão do TJUE (C-311/18, 2020) que invalidou o Privacy Shield (adequação dos EUA) e manteve as cláusulas-padrão, exigindo avaliação caso a caso do país de destino.
+busca: Schrems II C-311/18 Privacy Shield cláusulas-padrão avaliação de impacto da transferência
+
+=== One-stop-shop
+padroes: autoridade de controle principal | balcão único | one-stop-shop
+def: Mecanismo do GDPR (art. 56) em que a autoridade do estabelecimento principal da empresa lidera casos transfronteiriços, em cooperação com as demais.
+busca: one-stop-shop GDPR art. 56 autoridade principal
+
+=== Tríade CID
+padroes: confidencialidade, integridade e disponibilidade | confidencialidade | tríade CID | integridade e disponibilidade | integridade dos dados | disponibilidade dos dados | disponibilidade da informação
+def: Pilares da segurança da informação: confidencialidade (só acessa quem pode), integridade (sem alteração indevida) e disponibilidade (acessível quando preciso).
+busca: tríade CID confidencialidade integridade disponibilidade exemplos
+
+=== Criptografia assimétrica
+padroes: criptografia assimétrica | chave pública | chave privada | simétrica × assimétrica
+def: Usa par de chaves: o que uma cifra, só a outra decifra. Cifrar com a chave pública do destinatário dá confidencialidade; assinar com a própria chave privada dá autenticidade e não repúdio. Na simétrica, a mesma chave cifra e decifra: é mais rápida, mas exige combinar a chave em segredo (AES é o exemplo clássico).
+busca: criptografia simétrica assimétrica assinatura digital diferença
+
+=== Hash
+padroes: hash | resumo criptográfico
+def: Função que gera um resumo de tamanho fixo, projetada para não ser invertida. Serve para verificar integridade. Hash de dado com poucas combinações (CPF) não equivale a anonimização.
+busca: função hash SHA-256 integridade hash não é anonimização
+
+=== Autenticação multifator
+padroes: dois fatores | multifator | autenticação
+def: Combina fatores de categorias diferentes: algo que você sabe (senha), algo que você tem (token, celular) e algo que você é (biometria). Dois segredos do mesmo tipo não contam como dois fatores.
+busca: autenticação multifator fatores de autenticação exemplos
+
+=== k-anonimato
+padroes: k-anonimato | quase identificadores
+def: Propriedade de uma base em que cada registro é indistinguível de pelo menos k−1 outros nos atributos quase identificadores (CEP, nascimento, sexo).
+busca: k-anonimato l-diversidade t-proximidade privacidade diferencial
+
+=== ISO/IEC 27001 e 27701
+padroes: ISO/IEC 27001 | 27001 | 27701 | 27002
+def: 27001: requisitos certificáveis do sistema de gestão de segurança da informação. 27002: guia de controles. 27701: extensão para gestão da privacidade.
+busca: ISO 27001 27002 27701 diferenças certificação
+
+=== Não repúdio
+padroes: não repúdio | não-repúdio | irretratabilidade
+def: Serviço de segurança que impede o emissor de negar que enviou, ou o receptor de negar que recebeu, uma mensagem ou transação; obtém-se com assinatura digital e registros. Não confundir com autenticação, que confirma a identidade de quem se comunica.
+busca: não repúdio autenticação diferença X.800 assinatura digital
+
+=== Exfiltração de dados
+padroes: exfiltração | exfiltrar
+def: Retirada não autorizada de dados de um sistema ou de uma organização, feita para não ser percebida: pequenos volumes, tráfego disfarçado, canais cifrados. Se atinge dados pessoais, é incidente de segurança.
+busca: exfiltração de dados técnicas detecção prevenção de perda de dados
+
+=== Força bruta × preenchimento de credenciais
+padroes: força bruta | credential stuffing | preenchimento de credenciais
+def: Força bruta testa sistematicamente combinações de senha até acertar. O preenchimento de credenciais (credential stuffing) testa pares de usuário e senha já vazados em outros serviços, explorando a reutilização de senhas.
+busca: ataque de força bruta credential stuffing diferença defesa
+
+=== Nuvem pública e IaaS
+padroes: nuvem pública | IaaS | infraestrutura como serviço
+def: Na nuvem pública, o provedor atende vários clientes com recursos compartilhados, acessados pela Internet, e cobra pelo uso. No IaaS, o cliente recebe máquinas virtuais, rede e armazenamento e administra o que roda sobre eles; no PaaS recebe a plataforma; no SaaS usa o software pronto.
+busca: nuvem pública privada híbrida IaaS PaaS SaaS responsabilidade compartilhada
+
+=== Firewall de filtragem de pacotes
+padroes: firewall | filtragem de pacotes | filtro de pacotes
+def: Equipamento ou software que aceita ou descarta pacotes conforme regras sobre endereço IP, porta e protocolo, nas camadas de rede e de transporte. O firewall com estado acompanha as conexões; o de aplicação inspeciona o conteúdo.
+busca: firewall filtragem de pacotes stateful proxy de aplicação camadas
+
+=== Certificado digital
+padroes: certificado digital | certificados digitais | autoridade certificadora | ICP-Brasil
+def: Documento eletrônico, assinado por uma autoridade certificadora, que liga uma chave pública aos dados do titular e permite verificar quem assinou. No Brasil, a assinatura eletrônica qualificada usa certificado da ICP-Brasil (Lei 14.063/2020).
+busca: certificado digital ICP-Brasil autoridade certificadora assinatura qualificada
+
+=== Avaliação de riscos (ISO 27005)
+padroes: avaliação de riscos | ISO 27005 | 27005
+def: Processo que reúne identificação, análise e avaliação de riscos: levanta ativos, ameaças e vulnerabilidades, estima probabilidade e consequência para chegar ao nível de cada risco e compara o resultado com os critérios da organização para decidir o tratamento.
+busca: ISO 27005 avaliação de riscos identificação análise tratamento
+
+=== Ransomware
+padroes: ransomware
+def: Código malicioso que cifra os dados e exige resgate; variantes atuais também copiam os dados e ameaçam publicá-los (dupla extorsão).
+busca: ransomware dupla extorsão resposta a incidente comunicação ANPD
+
+=== Engenharia social
+padroes: engenharia social | phishing
+def: Manipulação de pessoas para obter acesso ou informação, explorando confiança, urgência ou medo. Phishing é o exemplo mais comum.
+busca: engenharia social phishing tipos prevenção
+
+=== Externalidade
+padroes: externalidade | externalidades
+def: Efeito de uma atividade sobre terceiros que não é refletido no preço. Vazamento de dados é externalidade negativa: o custo recai sobre os titulares.
+busca: externalidades negativas positivas falhas de mercado regulação
+
+=== Assimetria de informação
+padroes: assimetria de informação | assimetrias de informação
+def: Uma parte sabe mais que a outra. Seleção adversa ocorre antes do contrato (informação oculta); risco moral, depois (ação oculta).
+busca: assimetria de informação seleção adversa risco moral Akerlof
+
+=== Bens públicos
+padroes: bens públicos | bem público
+def: Bens não rivais (o uso de um não reduz o do outro) e não excludentes (não dá para impedir quem não paga). O mercado tende a ofertá-los abaixo do ótimo.
+busca: bens públicos não rivalidade não exclusividade problema do carona
+
+=== Valor-p
+padroes: valor-p | p-valor | hipótese nula | erro do tipo I | erro do tipo II
+def: Probabilidade de observar resultado tão ou mais extremo que o obtido, supondo verdadeira a hipótese nula. Erro tipo I: rejeitar H0 verdadeira; erro tipo II: não rejeitar H0 falsa.
+busca: valor-p interpretação erro tipo I tipo II nível de significância
+
+=== Diferenças em diferenças
+padroes: diferenças em diferenças | tendências paralelas | experimentos aleatorizados | grupo de controle
+def: Método de avaliação de impacto que compara a variação do grupo tratado com a do grupo de controle, supondo tendências paralelas sem a intervenção.
+busca: diferenças em diferenças tendências paralelas avaliação de políticas públicas
+
+=== Autotutela
+padroes: autotutela | Súmula 473
+def: Poder da administração de anular seus atos ilegais e revogar os inconvenientes ou inoportunos, respeitados os direitos adquiridos (Súmula 473 do STF; Lei 9.784/1999, arts. 53 e 54).
+busca: autotutela Súmula 473 STF anulação revogação prazo decadencial 5 anos
+
+=== Decadência administrativa
+padroes: decadência | decai
+def: Perda do direito da administração de anular atos favoráveis ao destinatário após 5 anos, salvo má-fé (Lei 9.784/1999, art. 54).
+busca: decadência administrativa art. 54 Lei 9.784/1999 má-fé
+
+=== Reformatio in pejus
+padroes: reformatio in pejus | agravamento | gravame
+def: Piora da situação do recorrente. Na Lei 9.784/1999, o recurso pode agravar a situação desde que o recorrente seja cientificado para alegar antes da decisão (art. 64); na revisão, o agravamento é proibido (art. 65).
+busca: reformatio in pejus recurso administrativo revisão Lei 9.784 arts. 64 e 65
+
+=== Poder de polícia
+padroes: poder de polícia
+def: Atividade estatal que limita direitos individuais em favor do interesse público (CTN, art. 78). Ciclo: ordem, consentimento, fiscalização e sanção. A fiscalização da ANPD é exercício de poder de polícia.
+busca: poder de polícia ciclo ordem consentimento fiscalização sanção delegação STF
+
+=== Motivação
+padroes: motivação | motivados | fundamentado | fundamentação | aliunde
+def: Indicação dos fatos e fundamentos jurídicos da decisão. É obrigatória em atos que neguem, limitem ou afetem direitos (Lei 9.784/1999, art. 50) e nas decisões das agências (Lei 13.848/2019, art. 5º). Pode ser aliunde: a decisão declara que concorda com parecer, informação ou proposta anterior, que passa a integrar o ato (Lei 9.784, art. 50, § 1º).
+busca: motivação dos atos administrativos art. 50 Lei 9.784 teoria dos motivos determinantes
+
+=== Contraditório e ampla defesa
+padroes: contraditório | ampla defesa
+def: Garantias do processo (CF, art. 5º, LV): ser informado e poder reagir, com os meios e recursos inerentes. A LGPD as exige no processo sancionador (art. 55-J, IV).
+busca: contraditório ampla defesa processo administrativo sancionador Súmula Vinculante 5
+
+=== Nota líquida (Cebraspe)
+padroes: nota líquida | anula uma certa | uma errada anula
+def: Nas provas certo/errado do Cebraspe, cada item errado anula um certo; em branco vale zero. Chutar só compensa quando a chance de acerto passa de 50%.
+busca: nota líquida Cebraspe estratégia chute deixar em branco
+
+=== Delegação × avocação
+padroes: delegação | delegar | avocação | avocar
+def: Delegação transfere parte da competência a outro órgão, mesmo sem hierarquia, e é revogável a qualquer tempo; não se delegam atos normativos, decisão de recursos e competências exclusivas. Avocação puxa para o superior, em caráter temporário e excepcional, a competência de órgão hierarquicamente inferior (Lei 9.784/1999, arts. 11 a 15).
+busca: delegação avocação competência Lei 9.784 art. 13 vedações
+
+=== Agenda regulatória
+padroes: agenda regulatória
+def: Instrumento de planejamento da atividade normativa da agência, com os temas prioritários a regulamentar no período, alinhado ao plano estratégico e integrado ao plano de gestão anual (Lei 13.848/2019, art. 21).
+busca: agenda regulatória ANPD vigente temas
+
+=== Plano estratégico e plano de gestão
+padroes: plano estratégico | plano de gestão
+def: O plano estratégico da agência reguladora é quadrienal e fixa objetivos, metas e resultados esperados; o plano de gestão anual consolida o planejamento do ano, alinhado ao estratégico (Lei 13.848/2019, arts. 17 e 18).
+busca: plano estratégico quadrienal plano de gestão anual Lei 13.848
+
+=== Lista tríplice
+padroes: lista tríplice | pré-seleção
+def: Lista de três nomes. Para dirigentes de agências reguladoras, o projeto da Lei 13.848/2019 previa pré-seleção por comissão com lista tríplice, mas esses parágrafos (art. 5º, §§ 1º a 4º, da Lei 9.986/2000) foram vetados: hoje o Presidente indica e nomeia, após aprovação do Senado. Lista tríplice existe, por exemplo, na escolha dos membros do CNPD (Decreto 12.881/2026, Anexo I, art. 12, § 6º).
+busca: veto lista tríplice agências reguladoras Lei 13.848/2019 mensagem de veto
+
+=== Mandatos não coincidentes
+padroes: não coincidentes | não coincidência | escalonados | coincidência dos mandatos
+def: Mandatos que vencem em datas diferentes, para que o colegiado se renove aos poucos e nenhum governo nomeie todos os dirigentes de uma vez. A LGPD escalonou os primeiros mandatos da ANPD em 2, 3, 4, 5 e 6 anos (art. 55-D, § 4º); a Lei 9.986/2000 (art. 4º) exige mandatos não coincidentes nas agências, e a Estrutura Regimental da ANPD fixa mandatos não coincidentes de 5 anos (Decreto 12.881/2026, Anexo I, art. 6º).
+busca: mandatos não coincidentes agências reguladoras autonomia
+
+=== Consequencialismo (LINDB)
+padroes: consequências práticas | valores jurídicos abstratos | consequencialismo | LINDB, arts. 20 a 22
+def: Dever de considerar as consequências práticas da decisão e de não decidir com base apenas em valores jurídicos abstratos (LINDB, arts. 20 e 21, incluídos pela Lei 13.655/2018).
+busca: LINDB art. 20 consequências práticas valores jurídicos abstratos Lei 13.655
+
+=== Erro grosseiro
+padroes: erro grosseiro
+def: Erro manifesto, evidente e inescusável, praticado com culpa grave. Pelo art. 28 da LINDB, o agente público só responde pessoalmente por decisões ou opiniões técnicas em caso de dolo ou erro grosseiro.
+busca: erro grosseiro art. 28 LINDB TCU culpa grave
+
+=== Convalidação
+padroes: convalidação | convalidados | convalidar
+def: Correção de ato com defeito sanável, com efeitos retroativos, quando não houver lesão ao interesse público nem prejuízo a terceiros (Lei 9.784/1999, art. 55). Vícios de competência (não exclusiva) e de forma (não essencial) costumam ser sanáveis.
+busca: convalidação atos administrativos vícios sanáveis competência forma
+
+=== Teoria dos motivos determinantes
+padroes: motivos determinantes | motivo falso | motivo inexistente
+def: Os motivos declarados vinculam a validade do ato: se forem falsos ou inexistentes, o ato é nulo, ainda que a motivação não fosse obrigatória.
+busca: teoria dos motivos determinantes exoneração ad nutum
+
+=== Efeito suspensivo
+padroes: efeito suspensivo
+def: Efeito do recurso que impede a execução da decisão até o julgamento. No processo administrativo federal, a regra é o recurso sem efeito suspensivo, que a autoridade pode conceder diante de justo receio de prejuízo de difícil reparação (Lei 9.784/1999, art. 61).
+busca: efeito suspensivo recurso administrativo art. 61 Lei 9.784
+
+=== Reserva de jurisdição
+padroes: reserva de jurisdição | interceptação
+def: Matérias que só o Judiciário pode decidir, como interceptação telefônica, busca domiciliar e prisão (fora o flagrante). CPIs podem quebrar sigilos bancário, fiscal e de registros telefônicos, mas não determinar interceptação.
+busca: reserva de jurisdição CPI interceptação telefônica STF
+
+=== Privacidade diferencial
+padroes: privacidade diferencial
+def: Técnica que adiciona ruído calibrado aos resultados de consultas para limitar o que se pode inferir sobre qualquer indivíduo da base; o parâmetro épsilon mede o equilíbrio entre privacidade e utilidade.
+busca: privacidade diferencial épsilon exemplo censo
+
+=== Backup completo, incremental e diferencial
+padroes: backup incremental | backup diferencial | backups diferenciais | backup completo
+def: Completo copia tudo; incremental copia o que mudou desde o último backup de qualquer tipo (restauração exige toda a cadeia); diferencial copia o que mudou desde o último completo (basta o completo e o último diferencial).
+busca: backup completo incremental diferencial diferença restauração
+
+=== Confiança zero
+padroes: confiança zero | zero trust
+def: Modelo de segurança em que nenhum usuário ou dispositivo é confiável por estar dentro da rede: toda solicitação é autenticada e autorizada (NIST SP 800-207).
+busca: zero trust NIST 800-207 princípios
+
+=== Seleção adversa × risco moral
+padroes: seleção adversa | risco moral
+def: Seleção adversa vem de informação oculta antes do contrato (quem compra seguro sabe mais do próprio risco). Risco moral vem de ação oculta depois do contrato (quem tem seguro se descuida).
+busca: seleção adversa risco moral diferença exemplos
+
+=== Acesso provável
+padroes: acesso provável | likely to be accessed
+def: Critério do ECA Digital e do código de design do Reino Unido: a lei alcança não só serviços feitos para crianças, mas também os que elas provavelmente usam, como redes sociais e jogos de uso geral.
+busca: acesso provável ECA Digital likely to be accessed children code
+
+=== Avaliação de resultado regulatório (ARR)
+padroes: avaliação de resultado regulatório | ARR
+def: Avaliação, depois da vigência, dos efeitos de um ato normativo, para verificar se atingiu os objetivos. Completa a AIR, que é prévia (Decreto 10.411/2020).
+busca: avaliação de resultado regulatório ARR Decreto 10.411
+
+=== Monopólio natural
+padroes: monopólio natural | monopólios naturais | subaditiva | subaditividade
+def: Mercado em que uma única firma atende à demanda a custo menor que duas ou mais, porque o custo é subaditivo (custos fixos altos e economias de escala, como redes de água e energia). A concorrência duplicaria custos; por isso se regulam preço, qualidade e entrada, ou se faz competição pelo mercado, por licitação.
+busca: monopólio natural subaditividade de custos regulação economias de escala
+
+=== Preço-teto (price cap)
+padroes: preço-teto | price cap | fator X
+def: Regulação tarifária em que o preço é reajustado por um índice de inflação menos um fator X de produtividade. Entre revisões, a firma fica com os ganhos de eficiência que superar a meta, o que dá incentivo a reduzir custos. Contrasta com a regulação por taxa de retorno.
+busca: price cap RPI-X fator X regulação por incentivos
+
+=== Taxa de retorno e efeito Averch-Johnson
+padroes: taxa de retorno | custo do serviço | Averch-Johnson
+def: Na regulação por taxa de retorno (ou custo do serviço), a tarifa cobre os custos e remunera o capital investido a uma taxa considerada justa. O efeito Averch-Johnson é o incentivo a investir capital além do eficiente quando a taxa permitida supera o custo do capital.
+busca: regulação por taxa de retorno efeito Averch-Johnson sobreinvestimento
+
+=== Regulação por comparação (yardstick)
+padroes: yardstick | regulação por comparação | competição por comparação
+def: O desempenho de cada firma regulada é medido pelo de firmas semelhantes, criando concorrência virtual entre monopólios regionais e reduzindo a dependência do regulador das informações de custo da própria regulada (Shleifer, 1985).
+busca: yardstick competition regulação por comparação Shleifer
+
+=== Teorema de Coase
+padroes: Coase | custos de transação
+def: Com direitos de propriedade bem definidos e custos de transação baixos, as partes negociam e chegam ao resultado eficiente sem regulação. Quando os custos de transação são altos, como entre milhões de titulares e uma plataforma, a negociação privada falha e a regulação volta a fazer sentido.
+busca: teorema de Coase custos de transação externalidades
+
+=== Busca de renda (rent-seeking)
+padroes: busca de renda | rent-seeking
+def: Gasto de recursos para obter, pelo processo político ou regulatório, vantagem que não decorre da criação de valor, como uma barreira à entrada de concorrentes. Conceito da teoria da escolha pública; a Lei de Liberdade Econômica trata como abuso regulatório criar reserva de mercado (art. 4º, I).
+busca: rent-seeking busca de renda escolha pública Tullock
+
+=== Porta giratória
+padroes: porta giratória | revolving door
+def: Trânsito de pessoas entre o regulador e o setor regulado, em qualquer direção, fator clássico de captura. A quarentena de ex-diretores é a resposta institucional (para a ANPD, art. 55-F da LGPD, com a Lei 12.813/2013).
+busca: porta giratória revolving door captura regulatória quarentena
+
+=== Corregulação e meta-regulação
+padroes: corregulação | meta-regulação | autorregulação regulada
+def: Na corregulação, regras feitas pelo setor privado são reconhecidas ou supervisionadas pelo Estado, como as boas práticas que a ANPD pode reconhecer e divulgar (LGPD, art. 50, § 3º). Na meta-regulação, o regulador fiscaliza os sistemas internos de controle e gestão de riscos das empresas, em vez de cada conduta.
+busca: corregulação meta-regulação autorregulação regulada proteção de dados
+
+=== Padrões obscuros (dark patterns)
+padroes: dark patterns | padrões obscuros | padrão obscuro
+def: Escolhas de desenho de interface que conduzem o usuário a decisões que ele não tomaria por conta própria, como esconder a opção de recusar cookies ou dar destaque desigual a aceitar e recusar. Comprometem o caráter livre do consentimento (LGPD, art. 5º, XII).
+busca: dark patterns padrões obscuros consentimento cookies autoridade de proteção de dados
+
+=== Regime de transição (LINDB)
+padroes: regime de transição
+def: Prazo e condições para cumprir um novo dever criado por interpretação ou orientação nova sobre norma de conteúdo indeterminado, exigidos quando indispensáveis ao cumprimento proporcional, equânime e eficiente (LINDB, art. 23; Decreto 9.830/2019, arts. 6º e 7º).
+busca: regime de transição LINDB art 23 Decreto 9.830 interpretação nova
+
+=== Orientação geral (LINDB)
+padroes: orientações gerais | orientação geral
+def: Interpretações contidas em atos públicos de caráter geral, jurisprudência judicial ou administrativa majoritária e prática administrativa reiterada e de amplo conhecimento. A revisão da validade de ato já completado leva em conta as orientações da época, vedado invalidar situações plenamente constituídas por mudança posterior (LINDB, art. 24).
+busca: orientação geral LINDB art 24 segurança jurídica mudança de entendimento
+
+=== Agente de tratamento de pequeno porte
+padroes: agente de tratamento de pequeno porte | agentes de tratamento de pequeno porte | agente de pequeno porte | agentes de pequeno porte
+def: Microempresas, empresas de pequeno porte, startups, pessoas jurídicas de direito privado (inclusive sem fins lucrativos), pessoas naturais e entes despersonalizados que tratam dados como controlador ou operador (Res. CD/ANPD 2/2022, art. 2º). Têm regime simplificado, que não alcança quem faz tratamento de alto risco ou supera os limites de receita (art. 3º).
+busca: agente de tratamento de pequeno porte Resolução CD/ANPD 2/2022 regime diferenciado
+
+=== Tratamento de alto risco
+padroes: tratamento de alto risco | tratamentos de alto risco | critérios gerais e específicos | alto risco no regulamento
+def: Na Res. CD/ANPD 2/2022, é o tratamento que reúne, cumulativamente, um critério geral (larga escala ou possibilidade de afetar significativamente interesses e direitos fundamentais) e um específico (tecnologias emergentes, vigilância de zonas acessíveis ao público, decisões só automatizadas, dados sensíveis ou de crianças, adolescentes e idosos) (art. 4º).
+busca: tratamento de alto risco Resolução 2/2022 critérios gerais e específicos ANPD
+
+=== Procedimento preparatório
+padroes: procedimento preparatório | procedimentos preparatórios
+def: Averiguação preliminar da área de fiscalização da ANPD quando os indícios ainda não bastam para instaurar processo sancionador; pode tramitar em sigilo e termina em arquivamento ou instauração do processo (Res. CD/ANPD 1/2021, arts. 40 a 42).
+busca: procedimento preparatório ANPD Resolução 1/2021 fiscalização averiguação preliminar
+
+=== Termo de ajustamento de conduta (TAC)
+padroes: termo de ajustamento de conduta | termos de ajustamento de conduta | TAC na ANPD
+def: Acordo proposto pelo autuado e deliberado pelo Conselho Diretor no processo sancionador da ANPD. O processo fica suspenso a partir da assinatura e é arquivado depois de verificado o cumprimento integral (Res. CD/ANPD 1/2021, art. 43).
+busca: termo de ajustamento de conduta ANPD processo sancionador Resolução 1/2021
+
+=== Medidas preventivas (fiscalização da ANPD)
+padroes: medidas preventivas | medida preventiva
+def: Divulgação de informações, aviso, solicitação de regularização ou informe e plano de conformidade, entre outras compatíveis (Res. CD/ANPD 1/2021, art. 32). Não são sanção; o descumprimento faz a atuação progredir e é agravante em eventual processo sancionador.
+busca: medidas preventivas ANPD aviso plano de conformidade solicitação de regularização
+
+=== Declaração de aplicabilidade
+padroes: declaração de aplicabilidade | Statement of Applicability
+def: Documento exigido pela ISO/IEC 27001 que lista os controles necessários para tratar os riscos, justifica a inclusão de cada um, diz se estão implementados e justifica a exclusão de controles do Anexo A. Liga a avaliação de riscos aos controles escolhidos; é o primeiro documento que o auditor pede.
+busca: declaração de aplicabilidade ISO 27001 Anexo A controles
+
+=== Risco inerente × risco residual
+padroes: risco residual | riscos residuais | risco inerente
+def: Inerente é o risco antes de qualquer controle; residual é o que sobra depois do tratamento. A ISO/IEC 27001 exige que os responsáveis pelos riscos aprovem o plano de tratamento e aceitem formalmente o risco residual.
+busca: risco inerente risco residual aceitação gestão de riscos
+
+=== Tática × técnica (MITRE ATT&CK)
+padroes: MITRE ATT&CK | ATT&CK
+def: Base pública de comportamentos de adversários observados em ataques reais. Tática é o objetivo (o porquê: acesso inicial, persistência, exfiltração); técnica é o modo de alcançá-lo (o como); procedimento é a forma concreta com que um grupo aplica a técnica. Não é norma de certificação.
+busca: MITRE ATT&CK táticas técnicas procedimentos matriz
+
+=== Identidade federada (SAML, OAuth, OpenID Connect)
+padroes: SAML | OAuth | OpenID Connect
+def: No SAML, o provedor de identidade autentica o usuário e emite asserções que o provedor de serviço aceita (acesso único). O OAuth 2.0 trata de autorização delegada: o servidor de autorização emite tokens de acesso. O OpenID Connect acrescenta ao OAuth a autenticação, com o token de identidade.
+busca: SAML identity provider OAuth 2.0 authorization server OpenID Connect diferença
+
+=== Princípio de Kerckhoffs
+padroes: Kerckhoffs
+def: Um sistema criptográfico deve continuar seguro mesmo que tudo, menos a chave, seja público. Por isso se preferem algoritmos abertos e testados, e a segurança depende da gestão das chaves (geração, guarda, rotação, revogação).
+busca: princípio de Kerckhoffs criptografia segurança pela chave
+
+=== Discriminação de preços
+padroes: discriminação de preços
+def: Cobrar preços diferentes pelo mesmo produto. De primeiro grau (perfeita): cada um paga sua disposição máxima, e a empresa captura todo o excedente. De segundo: preço varia por quantidade ou versão, e o consumidor se autosseleciona. De terceiro: preços por grupo com elasticidades diferentes. O perfilamento com dados aproxima o mercado do primeiro grau.
+busca: discriminação de preços primeiro segundo terceiro grau dados pessoais
+
+=== Múltipla filiação e tipping
+padroes: múltipla filiação | multi-homing | tipping
+def: Múltipla filiação é usar ao mesmo tempo plataformas concorrentes; reduz o poder de cada uma. Tipping é a virada do mercado: com efeitos de rede fortes, quem sai na frente atrai cada vez mais usuários, e o mercado se concentra. A portabilidade de dados facilita a múltipla filiação.
+busca: multi-homing tipping efeitos de rede plataformas concorrência
+
+=== Aquisição predatória (killer acquisition)
+padroes: aquisições predatórias | aquisição predatória | killer acquisitions
+def: Compra de empresa nascente para descontinuar seu produto e eliminar concorrência futura. Como a comprada costuma faturar pouco, a operação pode ficar abaixo dos limites que obrigam a notificação à autoridade de concorrência.
+busca: killer acquisitions aquisições predatórias controle de concentrações plataformas
+
+=== Sinalização × triagem
+padroes: sinalização | screening
+def: Respostas à assimetria de informação. Na sinalização, a parte mais informada toma ação custosa para revelar sua qualidade (certificação, garantia). Na triagem (screening), a parte menos informada oferece um cardápio de contratos para que a outra se revele ao escolher.
+busca: sinalização Spence screening triagem assimetria de informação
+
+=== Comissão Mista de Reavaliação de Informações (CMRI)
+padroes: Comissão Mista de Reavaliação de Informações | CMRI
+def: Decide sobre o tratamento e a classificação de informações sigilosas no Executivo federal: revê a classificação de informações secretas e ultrassecretas, pode prorrogar uma única vez o sigilo da ultrassecreta e julga em última instância os recursos contra negativas já apreciadas pela CGU e contra indeferimentos de desclassificação (LAI, arts. 16, § 3º, 17, § 2º, e 35, § 1º).
+busca: CMRI Comissão Mista de Reavaliação de Informações recurso LAI
+
+=== Centro Nacional de Triagem de Notificações
+padroes: Centro Nacional de Triagem de Notificações
+def: Unidade da Polícia Federal cuja criação o Decreto 12.880/2026 autorizou (art. 37). Cabe a ela receber, validar e triar os relatórios de notificação de conteúdo de exploração e abuso sexual de crianças e adolescentes enviados pelos fornecedores e repassá-los às polícias judiciárias. Não funciona na ANPD.
+busca: Centro Nacional de Triagem de Notificações Polícia Federal ECA Digital
+
+=== Limitação do tratamento × bloqueio
+padroes: limitação do tratamento | bloqueio dos dados | bloqueio de dados
+def: No GDPR, a limitação (art. 18) mantém os dados guardados, mas restringe seu uso, por exemplo enquanto se verifica a exatidão contestada. Na LGPD, o bloqueio é a suspensão temporária de qualquer operação, com guarda do dado (art. 5º, XIII), e o titular pode pedi-lo para dados desnecessários, excessivos ou tratados em desconformidade (art. 18, IV).
+busca: limitação do tratamento GDPR bloqueio LGPD diferença
+
+=== Lei seca
+padroes: lei seca
+def: O texto da lei como ele é, sem comentário de doutrina. O Cebraspe cobra muito a literalidade: troca uma palavra, um prazo ou um sujeito do artigo e pergunta se o item continua certo.
+busca: como estudar lei seca concurso Cebraspe literalidade
+
+=== Caput, parágrafo, inciso e alínea
+padroes: caput | inciso | incisos | alínea | alíneas
+def: As partes de um artigo de lei. Caput é a cabeça, o texto principal logo depois do número; o parágrafo (§) completa ou excepciona o caput; os incisos (I, II, III…) enumeram itens; as alíneas (a, b, c…) dividem um inciso.
+busca: estrutura do artigo de lei caput parágrafo inciso alínea Lei Complementar 95/1998
+
+=== Pessoa natural × pessoa jurídica
+padroes: pessoa natural | pessoas naturais | pessoa física | pessoas físicas
+def: Pessoa natural (ou física) é o ser humano; pessoa jurídica é a entidade que o direito cria, como empresas, associações, autarquias e os próprios entes públicos. A LGPD protege só os dados da pessoa natural, mas obriga pessoas naturais e jurídicas que tratam dados.
+busca: diferença pessoa natural pessoa jurídica LGPD titular de dados
+
+=== Pessoa jurídica de direito público × de direito privado
+padroes: pessoa jurídica de direito público | pessoas jurídicas de direito público | pessoa jurídica de direito privado | pessoas jurídicas de direito privado
+def: De direito público são a União, os Estados, o Distrito Federal, os Municípios, as autarquias (como a ANPD e as agências reguladoras) e as fundações públicas de direito público: agem com as prerrogativas e as sujeições do Estado. De direito privado são as empresas e associações e também as empresas estatais, que seguem, em regra, o regime das empresas privadas.
+busca: pessoa jurídica de direito público e de direito privado exemplos administração indireta
+
+=== Administração direta e indireta
+padroes: administração direta | administração indireta | administração pública direta | administração pública indireta
+def: Administração direta são os próprios entes (União, Estados, Distrito Federal e Municípios) e seus órgãos sem personalidade própria, como ministérios e secretarias. Indireta são as entidades criadas ou autorizadas por lei, com personalidade própria: autarquias (a ANPD é uma), fundações públicas, empresas públicas e sociedades de economia mista.
+busca: administração direta e indireta diferença autarquia fundação empresa pública Decreto-Lei 200/1967
+
+=== Autodeterminação informativa
+padroes: autodeterminação informativa
+def: O direito de cada pessoa decidir sobre o uso dos próprios dados: saber quem trata, para quê, e poder controlar esse uso. É fundamento da LGPD (art. 2º, II) e está na base do direito fundamental à proteção de dados (CF, art. 5º, LXXIX).
+busca: autodeterminação informativa LGPD fundamento STF ADI 6387
+
+=== Aplicação subsidiária × supletiva
+padroes: aplicação subsidiária | aplicação supletiva | supletiva e subsidiariamente
+def: Subsidiária: a lei geral entra quando a lei especial é omissa sobre o ponto. Supletiva: a lei geral completa uma disciplina especial que existe, mas é incompleta. A Lei 9.784/1999 vale para os processos administrativos com lei própria só subsidiariamente (art. 69), e o STJ admite aplicá-la a estados e municípios sem norma local sobre o tema (Súmula 633).
+busca: aplicação subsidiária supletiva Lei 9.784 art. 69 Súmula 633 STJ
+
+=== Escalonamento das sanções (art. 52, § 6º)
+padroes: escalonamento das sanções | incisos X a XII entraram no art. 52
+def: As três sanções mais duras do art. 52 da LGPD foram incluídas pela Lei 13.853/2019: suspensão parcial do banco de dados (X) e suspensão da atividade de tratamento (XI), ambas por até 6 meses prorrogáveis por igual período, e proibição parcial ou total de atividades de tratamento (XII). Só podem ser aplicadas depois de ao menos uma das sanções dos incisos II a VI no mesmo caso concreto (§ 6º, I), ouvidos os outros órgãos com poder sancionador sobre o controlador (§ 6º, II).
+busca: art. 52 § 6º LGPD suspensão banco de dados proibição tratamento gradação sanções
+
+=== Credit scoring
+padroes: credit scoring | score de crédito | pontuação de crédito
+def: Nota de risco de crédito calculada com dados do consumidor. Na LGPD, a proteção do crédito é base legal própria (art. 7º, X), e o titular pode pedir revisão da decisão tomada só por tratamento automatizado, inclusive a que define seu perfil de crédito (art. 20), e informações claras sobre os critérios (art. 20, § 1º). A proteção do crédito não está entre as hipóteses do art. 11 para dados sensíveis.
+busca: credit scoring LGPD proteção do crédito art. 7º X art. 20 cadastro positivo
+
+=== Dados em trânsito (art. 4º, IV)
+padroes: dados em trânsito
+def: A LGPD não se aplica a dados vindos de fora do Brasil que não sejam comunicados nem compartilhados com agentes de tratamento brasileiros nem transferidos a país diferente do de origem, desde que o país de origem dê proteção adequada (art. 4º, IV). Exemplo comum em prova: data center no Brasil que só hospeda dados de clientes estrangeiros.
+busca: LGPD art. 4º IV dados em trânsito data center exceção territorial
+
+=== Confirmação de existência × acesso
+padroes: confirmação de existência | confirmação da existência
+def: Confirmação de existência (art. 18, I) responde só se há tratamento de dados do titular; acesso (art. 18, II) entrega os próprios dados. Os dois saem, a pedido do titular, em formato simplificado e na hora, ou por declaração clara e completa (origem, critérios e finalidade) em até 15 dias do requerimento (art. 19).
+busca: LGPD art. 18 I II art. 19 confirmação de existência acesso prazo 15 dias
+
+=== Finalidade × adequação
+padroes: finalidade e adequação | finalidade × adequação | princípio da adequação
+def: Finalidade (art. 6º, I) olha para o propósito: legítimo, específico, explícito e informado ao titular, sem tratamento posterior incompatível. Adequação (art. 6º, II) olha para o tratamento: compatível com as finalidades informadas, de acordo com o contexto. A primeira fixa o porquê; a segunda confere se o que se faz bate com ele.
+busca: princípio da finalidade adequação LGPD art. 6º I II diferença
+
+=== Poder constituinte
+padroes: poder constituinte | constituinte originário | constituinte derivado | poder reformador
+def: Originário: cria a Constituição; é inicial, autônomo e incondicionado. Derivado: nasce da Constituição e é limitado por ela. Pode ser reformador (emendas, art. 60, com limites formais, circunstanciais e materiais, como as cláusulas pétreas), decorrente (constituições estaduais, art. 25 e ADCT, art. 11) ou revisor (revisão do ADCT, art. 3º, já feita e esgotada).
+busca: poder constituinte originário derivado reformador decorrente revisor
+
+=== Eficácia das normas constitucionais
+padroes: eficácia das normas constitucionais | eficácia plena | eficácia contida | eficácia limitada
+def: Classificação de José Afonso da Silva. Plena: produz todos os efeitos desde logo, sem depender de lei. Contida: produz efeitos desde logo, mas a lei pode restringi-los (ex.: liberdade de profissão, art. 5º, XIII). Limitada: precisa de lei para produzir os efeitos principais; inclui as de princípio institutivo e as programáticas.
+busca: eficácia plena contida limitada José Afonso da Silva normas programáticas
+
+=== Responsabilidade civil do Estado
+padroes: responsabilidade civil do Estado | responsabilidade objetiva do Estado | risco administrativo
+def: As pessoas jurídicas de direito público e as de direito privado prestadoras de serviço público respondem pelos danos que seus agentes, nessa qualidade, causarem a terceiros, sem prova de culpa (responsabilidade objetiva, teoria do risco administrativo), com regresso contra o agente que agiu com dolo ou culpa (CF, art. 37, § 6º). Culpa exclusiva da vítima, caso fortuito e força maior afastam o dever de indenizar; culpa concorrente o reduz.
+busca: responsabilidade civil do Estado art. 37 § 6º risco administrativo excludentes direito de regresso
+
+=== Agravantes e atenuantes (Resolução CD/ANPD 4/2023)
+padroes: agravantes e atenuantes | circunstâncias agravantes | circunstâncias atenuantes
+def: Incidem sobre o valor-base da multa simples (art. 14), e os percentuais se somam. Agravantes (art. 12): reincidência específica, 10% cada, até 40%; genérica, 5% cada, até 20%; medida de orientação ou preventiva descumprida, 20% cada, até 80%; medida corretiva descumprida, 30% cada, até 90%. Atenuantes (art. 13): cessação da infração, 75%, 50% ou 30% conforme o momento; boas práticas e governança, 20%; reversão ou mitigação dos efeitos, 20% ou 10%; cooperação ou boa-fé, 5%.
+busca: Resolução CD/ANPD 4/2023 dosimetria agravantes atenuantes percentuais
+
+=== Procuradoria Federal Especializada
+padroes: procuradoria federal | procuradorias federais | Procuradoria-Geral Federal
+def: Órgão de execução da Procuradoria-Geral Federal, vinculada à AGU, que atua junto a cada autarquia: representa a entidade em juízo e fora dele e presta consultoria e assessoramento jurídicos. Na ANPD, a Procuradoria está no art. 55-C, V-A, da LGPD e na Estrutura Regimental (Decreto 12.881/2026, Anexo I, art. 17).
+busca: Procuradoria Federal Especializada agência reguladora PGF AGU Lei 10.480
+
+=== Gestão estratégica e indicadores
+padroes: gestão estratégica | indicadores de desempenho
+def: A gestão estratégica traduz missão e visão em objetivos, metas e planos e acompanha a execução por indicadores. Os três mais cobrados: eficiência (recursos usados para o resultado obtido), eficácia (metas alcançadas) e efetividade (impacto real no problema que motivou a ação). Nas agências reguladoras, o plano estratégico é quadrienal e o plano de gestão, anual (Lei 13.848/2019, arts. 17 e 18).
+busca: gestão estratégica indicadores eficiência eficácia efetividade plano estratégico agência reguladora
+
+=== Prazos da Lei 9.784/1999
+padroes: prazos da Lei 9.784
+def: 3 dias úteis: antecedência mínima da intimação para comparecer ou para prova (arts. 26, § 2º, e 41). 5 dias: prazo geral para atos sem prazo próprio, dobrável com justificativa (art. 24), e reconsideração antes de o recurso subir (art. 56, § 1º); 5 dias úteis para os demais interessados alegarem no recurso (art. 62). 10 dias: alegações finais (art. 44) e interposição de recurso (art. 59). 15 dias: parecer obrigatório (art. 42). 30 dias: decidir após a instrução e decidir o recurso, prorrogáveis por igual período (arts. 49 e 59, §§ 1º e 2º). 5 anos: decadência para anular ato favorável, salvo má-fé (art. 54).
+busca: prazos Lei 9.784 1999 recurso administrativo 10 dias decisão 30 dias decadência 5 anos
+
+=== Princípios do art. 2º da Lei 9.784/1999
+padroes: princípios do art. 2º da Lei 9.784
+def: Legalidade, finalidade, motivação, razoabilidade, proporcionalidade, moralidade, ampla defesa, contraditório, segurança jurídica, interesse público e eficiência, “dentre outros” (rol exemplificativo). Publicidade e impessoalidade não estão no caput, mas aparecem nos critérios do parágrafo único: divulgação oficial dos atos (V) e objetividade no atendimento do interesse público, vedada a promoção pessoal (III).
+busca: princípios Lei 9.784 art. 2º processo administrativo federal critérios parágrafo único
+
+=== Transparência ativa × passiva
+padroes: transparência ativa | transparência passiva
+def: Ativa: o órgão divulga por iniciativa própria, sem pedido, informações de interesse coletivo ou geral, com divulgação obrigatória na internet (LAI, art. 8º). Passiva: responde a pedido de acesso de qualquer interessado (art. 10), na hora se a informação estiver disponível ou em até 20 dias, prorrogáveis por mais 10 com justificativa (art. 11). Não se pode exigir o motivo do pedido (art. 10, § 3º).
+busca: transparência ativa passiva Lei de Acesso à Informação art. 8º art. 10 prazo 20 dias
+
+=== LAI × LGPD
+padroes: LAI × LGPD | Lei de Acesso à Informação × LGPD
+def: As duas convivem. A LAI garante acesso a informações públicas, mas restringe as pessoais ligadas à intimidade, vida privada, honra e imagem: acesso só a agentes autorizados e à própria pessoa, por até 100 anos, salvo previsão legal ou consentimento expresso (LAI, art. 31, § 1º). A LGPD manda o poder público tratar dados para sua finalidade pública e no interesse público (art. 23), e o acesso público a um dado não dispensa finalidade, boa-fé e interesse público (art. 7º, § 3º).
+busca: LAI LGPD informação pessoal art. 31 Lei 12.527 art. 23 LGPD transparência
+
+=== Créditos adicionais
+padroes: créditos adicionais | créditos suplementares | créditos especiais | créditos extraordinários | crédito extraordinário
+def: Autorizações de despesa não computadas ou insuficientemente dotadas na lei de orçamento (Lei 4.320, art. 40). Suplementares reforçam dotação que existe; especiais criam dotação para despesa sem dotação específica; extraordinários atendem despesas urgentes e imprevistas, como guerra, comoção interna ou calamidade pública (art. 41). Suplementares e especiais são autorizados por lei e abertos por decreto (art. 42), com recursos disponíveis e exposição justificativa (art. 43); na União, o extraordinário é aberto por medida provisória (CF, art. 167, § 3º, e art. 62).
+busca: créditos adicionais suplementares especiais extraordinários Lei 4.320 art. 41 CF art. 167
+
+=== Estágios da despesa
+padroes: estágios da despesa | empenho da despesa | prévio empenho | liquidação da despesa
+def: Empenho: ato da autoridade que cria para o Estado obrigação de pagamento, pendente ou não de condição (Lei 4.320, art. 58); é vedada despesa sem prévio empenho (art. 60). Liquidação: verificação do direito do credor com base nos títulos e documentos (art. 63). Pagamento: só depois da regular liquidação (art. 62), por ordem da autoridade competente (art. 64).
+busca: estágios da despesa pública empenho liquidação pagamento Lei 4.320
+
+=== Prazo de retenção e eliminação de dados
+padroes: prazo de retenção | término do tratamento
+def: A LGPD não fixa prazo único de guarda. O tratamento termina quando a finalidade é alcançada ou os dados deixam de ser necessários, no fim do período de tratamento, por comunicação do titular ou por determinação da ANPD (art. 15). Depois, os dados são eliminados, salvo conservação para obrigação legal ou regulatória, estudo por órgão de pesquisa, transferência a terceiro dentro da lei ou uso exclusivo do controlador com dados anonimizados (art. 16).
+busca: término do tratamento eliminação conservação LGPD art. 15 art. 16 prazo de retenção
+
+=== Exceção jornalística
+padroes: exceção jornalística | fins exclusivamente jornalísticos | fins jornalísticos
+def: A LGPD não se aplica ao tratamento feito para fins exclusivamente jornalísticos e artísticos, nem aos acadêmicos, embora nestes se apliquem os arts. 7º e 11 (art. 4º, II, a e b). A palavra que decide o item é “exclusivamente”: havendo outra finalidade, como a comercial, a lei volta a valer.
+busca: LGPD art. 4º II exceção jornalística artística acadêmica
+
+=== Estatais em regime de concorrência
+padroes: regime de concorrência
+def: Empresas públicas e sociedades de economia mista que atuam em regime de concorrência (CF, art. 173) têm na LGPD o tratamento das pessoas jurídicas de direito privado particulares; quando operacionalizam políticas públicas, têm o tratamento do poder público (art. 24 e parágrafo único).
+busca: LGPD art. 24 empresas públicas sociedades de economia mista regime de concorrência art. 173
+
+=== Adequação da União Europeia (Resolução CD/ANPD 32/2026)
+padroes: Resolução CD/ANPD 32/2026 | adequação da União Europeia
+def: A ANPD reconheceu a União Europeia como organismo internacional com grau de proteção adequado, o que permite transferir dados a todos os Estados-membros com base no art. 33, I, da LGPD (art. 1º). Não vale para fins exclusivos de segurança pública, defesa nacional, segurança do Estado ou investigação e repressão penal (art. 2º). A ANPD monitora continuamente, e a decisão é reavaliada em 4 anos (art. 4º); os outros mecanismos do art. 33 continuam disponíveis (art. 5º).
+busca: Resolução CD/ANPD 32/2026 decisão de adequação União Europeia transferência internacional
+
+=== EC 115/2022
+padroes: EC 115/2022 | Emenda Constitucional nº 115 | Emenda Constitucional 115
+def: Pôs a proteção de dados na Constituição: direito fundamental à proteção dos dados pessoais, inclusive nos meios digitais, nos termos da lei (art. 5º, LXXIX); competência da União para organizar e fiscalizar a proteção e o tratamento de dados (art. 21, XXVI); competência privativa da União para legislar sobre o tema (art. 22, XXX).
+busca: EC 115 2022 proteção de dados direito fundamental art. 5º LXXIX art. 22 XXX
+
+=== ADI 6.387
+padroes: ADI 6.387 | ADI 6387 | MP 954/2020
+def: Em 2020, o STF suspendeu a MP 954/2020, que mandava as operadoras de telefonia repassarem ao IBGE nomes, telefones e endereços de seus clientes durante a pandemia, por falta de finalidade delimitada e de garantias de segurança. O julgamento reconheceu a proteção de dados pessoais como direito fundamental autônomo, antes da EC 115/2022.
+busca: ADI 6387 STF MP 954 IBGE proteção de dados direito fundamental autônomo
+
+=== Lei 13.460/2017
+padroes: Lei 13.460 | Carta de Serviços
+def: Código de defesa do usuário de serviços públicos. Lista direitos básicos do usuário (art. 6º), obriga os órgãos a divulgar Carta de Serviços ao Usuário (art. 7º) e organiza as manifestações (reclamações, denúncias, sugestões, elogios) e as ouvidorias.
+busca: Lei 13.460 2017 direitos do usuário de serviço público Carta de Serviços ouvidoria
+
+=== Neutralidade de rede
+padroes: neutralidade de rede | neutralidade da rede | zero rating
+def: Quem transmite, comuta ou roteia deve tratar de forma isonômica todos os pacotes de dados, sem distinção por conteúdo, origem e destino, serviço, terminal ou aplicação (Marco Civil da Internet, art. 9º). Zero rating (não cobrar o tráfego de certos aplicativos) é o caso mais debatido de possível quebra dessa isonomia.
+busca: neutralidade de rede Marco Civil art. 9º zero rating Decreto 8.771
+
+=== LRF: despesa com pessoal e relatórios
+padroes: RREO | RGF | Relatório de Gestão Fiscal | relatório resumido da execução orçamentária
+def: A despesa total com pessoal não pode passar de 50% da receita corrente líquida na União e de 60% nos Estados e nos Municípios (LC 101/2000, art. 19). O Relatório Resumido da Execução Orçamentária (RREO) sai até 30 dias após o fim de cada bimestre (CF, art. 165, § 3º; LRF, art. 52); o Relatório de Gestão Fiscal (RGF), ao fim de cada quadrimestre (LRF, art. 54).
+busca: LRF limites despesa com pessoal art. 19 RREO bimestral RGF quadrimestral
+
+=== NIST Cybersecurity Framework 2.0
+padroes: NIST CSF 2.0 | Cybersecurity Framework 2.0 | CSF 2.0
+def: Organiza resultados de cibersegurança em seis funções: Governar (GV), nova na versão 2.0, Identificar (ID), Proteger (PR), Detectar (DE), Responder (RS) e Recuperar (RC). O núcleo desce de função para categoria e subcategoria; perfis e níveis (tiers) descrevem o estado atual e o desejado. Não é lista de verificação de ações.
+busca: NIST Cybersecurity Framework 2.0 funções Govern Identify Protect Detect Respond Recover
+
+=== Falhas de mercado
+padroes: falhas de mercado | falha de mercado
+def: Situações em que o mercado sozinho não leva a um resultado eficiente e que justificam regular: poder de mercado e monopólio natural, externalidades, bens públicos e assimetria de informação. A regulação também pode falhar (captura, busca de renda), por isso se exige análise de impacto antes de agir.
+busca: falhas de mercado justificativa da regulação externalidade bens públicos assimetria de informação
+
+=== Códigos de conduta e selos
+padroes: códigos de conduta e selos | selos de certificação | selos, certificados e códigos de conduta
+def: Selos, certificados e códigos de conduta são mecanismos de transferência internacional (LGPD, art. 33, II, d) cujo conteúdo é verificado pela ANPD (art. 35). Fora da transferência, controladores e operadores, sozinhos ou por associações, podem formular regras de boas práticas e de governança (art. 50).
+busca: LGPD códigos de conduta selos certificados art. 33 II d art. 35 art. 50 boas práticas
+
+=== Responsabilidade civil na LGPD
+padroes: responsabilidade civil na LGPD
+def: Quem causa dano patrimonial ou moral, individual ou coletivo, “em violação à legislação de proteção de dados” deve reparar (art. 42). Por essa exigência de violação de um dever, parte da doutrina vê responsabilidade subjetiva; outra parte vê objetiva, pelo risco da atividade. O operador responde solidariamente quando descumpre a lei ou as instruções lícitas do controlador (art. 42, § 1º, I); as excludentes estão no art. 43, e nas relações de consumo vale o CDC (art. 45).
+busca: responsabilidade civil LGPD objetiva subjetiva art. 42 art. 43 doutrina
+
+=== Atributos do ato administrativo
+padroes: atributos do ato administrativo | autoexecutoriedade | imperatividade | presunção de legitimidade
+def: Presunção de legitimidade e veracidade (o ato vale até prova em contrário, que cabe a quem o contesta); imperatividade (impõe obrigações a terceiros sem a concordância deles); autoexecutoriedade (a Administração executa sem ordem judicial, quando a lei permite ou há urgência); tipicidade (o ato corresponde a figura prevista em lei). Nem todo ato tem todos: a autoexecutoriedade não alcança, por exemplo, a cobrança de multa.
+busca: atributos do ato administrativo presunção de legitimidade imperatividade autoexecutoriedade tipicidade
+
+=== Controle da administração
+padroes: controle da administração | controle externo
+def: Interno: cada Poder controla os próprios atos, com sistema de controle interno integrado (CF, art. 74), e a Administração anula ou revoga seus atos pela autotutela. Externo: o Legislativo, com auxílio do Tribunal de Contas, faz a fiscalização contábil, financeira, orçamentária, operacional e patrimonial (arts. 70 e 71). Judicial: o Judiciário examina a legalidade, sem entrar no mérito administrativo.
+busca: controle da administração pública interno externo judicial Tribunal de Contas autotutela
+
+=== Reidentificação
+padroes: reidentificação | reidentificar | reidentificados
+def: Descobrir a quem pertence um dado que se supunha anônimo, cruzando-o com outras bases. Casos clássicos de 2006: a AOL publicou buscas de usuários com número no lugar do nome, e jornalistas identificaram uma usuária pelas próprias buscas; no Netflix Prize, pesquisadores reidentificaram usuários comparando as notas anônimas de filmes com avaliações públicas no IMDb. Por isso a LGPD trata como pessoal o dado anonimizado cuja anonimização pode ser revertida com esforço razoável (art. 12).
+busca: reidentificação Netflix Prize AOL search logs Narayanan Shmatikov anonimização
+
+=== Lei 15.352/2026
+padroes: Lei 15.352 | Lei nº 15.352
+def: Converteu a MP 1.317/2025 e fez da ANPD a Agência Nacional de Proteção de Dados: autarquia de natureza especial vinculada ao Ministério da Justiça e Segurança Pública, com autonomia funcional, técnica, decisória, administrativa e financeira, nos termos da Lei 13.848/2019 (LGPD, art. 55-A). Pôs Procuradoria e Auditoria na estrutura (art. 55-C, V-A e V-B), fixou a transição dos mandatos pela regra de não coincidência das agências (art. 17) e criou a carreira de Regulação e Fiscalização de Proteção de Dados, com o cargo de Especialista em Regulação de Proteção de Dados.
+busca: Lei 15.352 2026 ANPD agência reguladora carreira Especialista em Regulação de Proteção de Dados
+
+=== Regulação baseada em risco
+padroes: regulação baseada em risco | baseada em evidências e riscos | riscos regulatórios
+def: O regulador concentra fiscalização e recursos onde o risco (probabilidade × impacto do dano) é maior, em vez de tratar todos igual. Na ANPD, a fiscalização prioriza a atuação “baseada em evidências e riscos regulatórios” e adota medidas proporcionais ao risco e à postura do agente (Resolução CD/ANPD 1/2021, art. 17, II e IV).
+busca: regulação baseada em risco risk-based regulation fiscalização ANPD Resolução 1/2021 art. 17
+
+=== Acordo de leniência (Lei 12.846/2013)
+padroes: acordo de leniência | acordos de leniência
+def: Acordo com a pessoa jurídica que colabora efetivamente com a investigação, identificando os demais envolvidos e entregando provas (art. 16). Requisitos cumulativos: ser a primeira a manifestar interesse, cessar o envolvimento e admitir a participação, cooperando plenamente (§ 1º). Isenta da publicação extraordinária e da proibição de receber incentivos e reduz a multa em até 2/3 (§ 2º), mas não exime de reparar integralmente o dano (§ 3º). Programa de integridade efetivo é critério de dosimetria da sanção (art. 7º, VIII).
+busca: acordo de leniência Lei Anticorrupção 12.846 art. 16 requisitos programa de integridade
+
+=== Efeito Bruxelas
+padroes: efeito Bruxelas | Brussels effect
+def: Expressão de Anu Bradford para a capacidade da União Europeia de exportar suas regras: empresas que querem vender no mercado europeu adotam o padrão da UE no mundo todo, e outros países copiam a norma. O GDPR é o exemplo mais citado, com influência sobre leis como a LGPD.
+busca: efeito Bruxelas Anu Bradford GDPR influência global
+
+=== Ciclo de políticas públicas
+padroes: ciclo de políticas públicas | ciclo de política pública | Secchi
+def: Modelo que divide a política pública em fases. Em Leonardo Secchi: identificação do problema, formação da agenda, formulação de alternativas, tomada de decisão, implementação, avaliação e extinção. É um esquema didático: na prática as fases se misturam e se repetem.
+busca: ciclo de políticas públicas Secchi agenda formulação implementação avaliação extinção
+
+=== Modelo das três linhas (IIA, 2020)
+padroes: modelo das três linhas | três linhas de defesa
+def: Órgão de governança presta contas às partes interessadas. A gestão fica com a primeira linha (quem entrega produtos e serviços e gerencia os riscos dessa atividade) e a segunda (funções especializadas que apoiam e questionam a gestão de riscos, como conformidade e riscos). A auditoria interna é a terceira linha: avaliação e assessoria independentes, reportando ao órgão de governança. A versão de 2020 tirou a palavra “defesa” e enfatiza colaboração.
+busca: modelo das três linhas IIA 2020 auditoria interna primeira segunda terceira linha
+
+=== Gestão de riscos (ISO 31000)
+padroes: ISO 31000 | apetite a risco | apetite ao risco | matriz de probabilidade e impacto | matriz de riscos
+def: A ISO 31000 se organiza em princípios, estrutura e processo. O processo: comunicação e consulta; escopo, contexto e critérios; processo de avaliação de riscos (identificação, análise e avaliação); tratamento; monitoramento e análise crítica; registro e relato. Na matriz, o nível de risco combina probabilidade e impacto. Apetite a risco é quanto risco a organização aceita buscar para atingir seus objetivos.
+busca: ISO 31000 processo de gestão de riscos matriz probabilidade impacto apetite a risco
+
+=== Provisão × passivo contingente (CPC 25)
+padroes: passivo contingente | passivos contingentes | ativo contingente | ativos contingentes | CPC 25
+def: Provisão é passivo de prazo ou valor incertos, reconhecida quando há obrigação presente, saída de recursos provável e estimativa confiável. Passivo contingente (obrigação possível, ou presente sem saída provável ou sem estimativa confiável) não é reconhecido: é divulgado em nota, salvo se a saída for remota. Ativo contingente não é reconhecido; é divulgado quando a entrada for provável e só vai ao balanço quando for praticamente certa.
+busca: CPC 25 provisão passivo contingente ativo contingente reconhecimento divulgação
+
+=== Hierarquia do valor justo (CPC 46)
+padroes: valor justo | CPC 46
+def: Nível 1: preços cotados, sem ajuste, em mercado ativo para itens idênticos. Nível 2: outros dados observáveis, direta ou indiretamente (ex.: preço de item semelhante). Nível 3: dados não observáveis, de premissas da própria entidade. Dá-se prioridade ao nível 1 e o mínimo ao nível 3.
+busca: CPC 46 hierarquia do valor justo nível 1 2 3 dados observáveis
+
+=== Características qualitativas (CPC 00 R2)
+padroes: características qualitativas | representação fidedigna | CPC 00
+def: Fundamentais: relevância (inclui materialidade) e representação fidedigna (completa, neutra e livre de erro). De melhoria: comparabilidade, verificabilidade, tempestividade e compreensibilidade. As de melhoria não tornam útil uma informação que não seja relevante ou fidedigna.
+busca: CPC 00 R2 características qualitativas fundamentais de melhoria relevância representação fidedigna
+
+=== Crase
+padroes: crase
+def: Obrigatória quando a preposição “a” pedida por um termo se funde com o artigo “a” de palavra feminina (refiro-me à norma), em locuções femininas (às vezes, à medida que, à custa de) e na indicação de horas (às 10h). Proibida antes de palavra masculina, de verbo, da maioria dos pronomes (ela, esta, qualquer, Vossa Senhoria), com “a” no singular diante de plural (a empresas) e entre palavras repetidas (cara a cara). Teste: troque por um masculino; se virar “ao”, há crase.
+busca: crase casos obrigatórios proibidos facultativos regra prática
+
+=== Colocação pronominal
+padroes: colocação pronominal | próclise | ênclise | mesóclise
+def: Próclise (pronome antes do verbo) é obrigatória diante de palavra atrativa: negativa (não, nunca), pronome relativo, pronome indefinido, advérbio sem vírgula e conjunção subordinativa; também em frases optativas (Deus o abençoe) e com “em” + gerúndio. Sem palavra atrativa, a ênclise é a colocação padrão, mas a próclise é aceita depois de sujeito expresso (o diretor se manifestou); no início de frase, a norma culta não admite pronome átono. Mesóclise só com futuro do presente ou do pretérito sem palavra atrativa (far-se-á); nesses tempos não cabe ênclise.
+busca: colocação pronominal próclise obrigatória palavras atrativas ênclise mesóclise
+
+=== Pronome relativo “que”
+padroes: pronome relativo | pronomes relativos
+def: Retoma um antecedente e abre oração adjetiva, dentro da qual tem função própria: sujeito (a norma que vigora), objeto direto (a norma que a ANPD editou) ou, com a preposição que o verbo pede, objeto indireto, complemento nominal ou adjunto adverbial (a lei a que me refiro; a sala em que trabalho). Teste: troque por “o qual” e flexões. Não confunda com a conjunção integrante, que abre oração substantiva (espera-se que…).
+busca: pronome relativo que funções sintáticas o qual conjunção integrante
+
+=== Falsos cognatos
+padroes: falsos cognatos | falso cognato
+def: Palavras do inglês parecidas com o português, mas de outro sentido. Os que mais caem em texto de regulação: actually (na verdade), actual (real, efetivo), eventually (por fim), pretend (fingir), intend (pretender), comprehensive (abrangente), sensible (sensato), policy (política no sentido de diretriz; politics é a atividade política), assist (ajudar) e attend (comparecer).
+busca: false friends falsos cognatos inglês actually eventually policy comprehensive
+
+=== Plano de gerenciamento do projeto (PMBOK)
+padroes: plano de gerenciamento do projeto | planos de gerenciamento
+def: Documento que integra os planos auxiliares (escopo, requisitos, cronograma, custos, qualidade, recursos, comunicações, riscos, aquisições e engajamento das partes interessadas) e as linhas de base de escopo, cronograma e custos, além dos planos de mudanças e de configuração (PMBOK, 6ª edição).
+busca: PMBOK plano de gerenciamento do projeto planos auxiliares linhas de base
+
+=== Dimensões da qualidade de dados
+padroes: qualidade de dados | qualidade dos dados | DAMA-DMBOK
+def: Qualidade é adequação ao uso, medida por dimensões que a organização escolhe. As mais citadas: completude (não falta o que deveria estar lá), unicidade (sem duplicidade), tempestividade (atual quando preciso), validade (dentro do formato e das regras), exatidão (corresponde à realidade) e consistência (igual entre sistemas). A exatidão também é princípio da LGPD sob o nome de qualidade dos dados (art. 6º, V).
+busca: dimensões da qualidade de dados DAMA DMBOK completude unicidade tempestividade validade exatidão consistência
+
+=== Business intelligence × business analytics
+padroes: business intelligence | business analytics
+def: BI olha para o que aconteceu e está acontecendo: relatórios, painéis e consultas (análise descritiva). Business analytics usa estatística e modelos para explicar por que aconteceu e prever ou recomendar o que fazer (análise diagnóstica, preditiva e prescritiva).
+busca: business intelligence business analytics descritiva diagnóstica preditiva prescritiva
+
+=== Banco NoSQL de documentos
+padroes: NoSQL | orientado a documentos | orientados a documentos
+def: Guarda cada registro como documento autocontido, em geral JSON ou BSON, com esquema flexível: documentos da mesma coleção podem ter campos diferentes. Serve bem a dados semiestruturados lidos por inteiro (MongoDB é o exemplo clássico). Os outros tipos NoSQL são chave-valor, família de colunas e grafo.
+busca: NoSQL banco de dados de documentos MongoDB JSON esquema flexível chave-valor colunar grafo
+
+=== Contagem de prazos
+padroes: contagem de prazos | contagem dos prazos
+def: Na Lei 9.784/1999, os prazos começam a correr da cientificação oficial, excluído o dia do começo e incluído o do vencimento (art. 66), e são contínuos (art. 66, § 2º), prorrogando-se o vencimento para o primeiro dia útil se cair em dia sem expediente (§ 1º). No processo de fiscalização e sancionador da ANPD, a regra própria é outra: prazos contados em dias úteis, a partir da ciência oficial (Resolução CD/ANPD 1/2021, art. 8º).
+busca: contagem de prazos Lei 9.784 art. 66 dias corridos Resolução CD/ANPD 1/2021 art. 8º dias úteis
+
+=== Providências acauteladoras
+padroes: providências acauteladoras | medidas acautelatórias | medida acautelatória
+def: Em caso de risco iminente, a Administração pode, motivadamente, adotar providências acauteladoras sem ouvir antes o interessado (Lei 9.784/1999, art. 45). O contraditório fica diferido: a pessoa se manifesta depois. Na ANPD, a mesma lógica aparece nas medidas preventivas adotadas antes do procedimento em caso de risco iminente.
+busca: providências acauteladoras Lei 9.784 art. 45 risco iminente contraditório diferido
+
+=== Abuso do poder regulatório
+padroes: abuso do poder regulatório
+def: Lista de condutas vedadas à Administração ao regulamentar atividade econômica, salvo em estrito cumprimento de lei (Lei 13.874/2019, art. 4º): criar reserva de mercado, impedir a entrada de concorrentes, exigir especificação técnica desnecessária, redigir enunciados que impeçam ou retardem a inovação, aumentar custos sem demonstração de benefício, entre outras.
+busca: abuso do poder regulatório Lei de Liberdade Econômica 13.874 art. 4º
+
+=== Classificação das infrações (Resolução CD/ANPD 4/2023)
+padroes: infração é grave | infração leve | infração média | infrações leves | infrações médias | infrações graves
+def: Leve é a que não se enquadra como média nem grave. Média é a que pode afetar significativamente interesses e direitos fundamentais dos titulares. Grave é a média somada a pelo menos uma destas: larga escala, vantagem econômica, risco à vida, dados sensíveis ou de crianças, adolescentes ou idosos, tratamento sem hipótese legal, efeitos discriminatórios ilícitos ou abusivos, ou práticas irregulares sistemáticas; ou, sozinha, a obstrução à fiscalização (art. 8º).
+busca: Resolução CD/ANPD 4/2023 art. 8º infração leve média grave larga escala
+
+=== Ciclo de monitoramento da ANPD
+padroes: ciclo de monitoramento | Mapa de Temas Prioritários
+def: O Relatório de Ciclo de Monitoramento e o Mapa de Temas Prioritários são os instrumentos de monitoramento da fiscalização (Resolução CD/ANPD 1/2021, art. 19). O ciclo seria anual, mas o Conselho Diretor pode fixar prazo maior (parágrafo único), e a Resolução CD/ANPD 30/2025 o tornou bianual, com o biênio 2026-2027 (art. 2º).
+busca: ciclo de monitoramento ANPD Mapa de Temas Prioritários Resolução 30/2025 bianual
+
+=== Guarda de registros no Marco Civil
+padroes: registros de conexão | registros de acesso a aplicações | guarda de registros
+def: O administrador de sistema autônomo guarda os registros de conexão por 1 ano (MCI, art. 13); o provedor de aplicações constituído como pessoa jurídica, com atividade organizada, profissional e com fins econômicos, guarda os registros de acesso a aplicações por 6 meses (art. 15). Em ambos, sob sigilo e em ambiente controlado e seguro, e a entrega depende de ordem judicial.
+busca: Marco Civil da Internet guarda de registros de conexão 1 ano registros de acesso 6 meses arts. 13 15
+
+=== Prova emprestada
+padroes: prova emprestada
+def: Prova produzida em outro processo e trazida para o processo administrativo. O STJ a admite no processo disciplinar, desde que autorizada pelo juízo competente e respeitados o contraditório e a ampla defesa (Súmula 591). A parte contra quem ela é usada precisa ter tido chance de contestá-la.
+busca: prova emprestada processo administrativo Súmula 591 STJ contraditório
+
+=== Balanced Scorecard
+padroes: Balanced Scorecard | BSC
+def: Modelo de Kaplan e Norton que traduz a estratégia em objetivos e indicadores em quatro perspectivas: financeira, clientes, processos internos e aprendizado e crescimento, ligadas por relações de causa e efeito no mapa estratégico. No setor público, a perspectiva da sociedade ou do cidadão costuma ir para o topo, e a financeira vira meio.
+busca: Balanced Scorecard perspectivas mapa estratégico setor público Kaplan Norton
+
+=== Abordagem estatista × multicêntrica
+padroes: abordagem estatista | abordagem multicêntrica | estatista × multicêntrica
+def: Na estatista, só é política pública a que tem o Estado como protagonista. Na multicêntrica (defendida por Leonardo Secchi), o que define a política pública é o problema ser público, e ela pode nascer também de organizações privadas, ONGs e redes de atores.
+busca: abordagem estatista multicêntrica políticas públicas Secchi
+
+=== Mercados de dois lados
+padroes: mercados de dois lados | mercado de dois lados | preço zero
+def: Plataformas que atendem dois grupos que dependem um do outro (usuários e anunciantes, por exemplo), com efeitos de rede cruzados. Por isso um lado costuma ter preço zero, subsidiado pelo outro: o usuário “paga” com atenção e dados, o que leva a proteção de dados para dentro da análise concorrencial.
+busca: mercados de dois lados plataformas preço zero efeitos de rede dados concorrência
+
+=== Enunciado CD/ANPD 1/2023
+padroes: Enunciado CD/ANPD 1/2023 | Enunciado CD/ANPD nº 1
+def: Fixou que dados de crianças e adolescentes podem ser tratados com base em qualquer hipótese legal do art. 7º ou do art. 11 da LGPD, desde que observado e prevalecente o seu melhor interesse, avaliado no caso concreto (art. 14). Resolveu o debate sobre se o consentimento de um dos pais (art. 14, § 1º) seria a única base possível para dados de crianças.
+busca: Enunciado CD/ANPD 1/2023 crianças adolescentes hipóteses legais art. 14 melhor interesse
+
+=== PAD contra diretor da ANPD
+padroes: PAD contra diretor
+def: Diretor da ANPD só perde o cargo por renúncia, condenação judicial transitada em julgado ou pena de demissão em processo administrativo disciplinar (LGPD, art. 55-E) e, como dirigente de agência reguladora, também por violar as vedações do art. 8º-B da Lei 9.986/2000 (art. 9º, III). Quem instaura o PAD tem divergência: a letra do art. 55-E, § 1º, ainda fala no Ministro-Chefe da Casa Civil, de quando a ANPD era ligada à Presidência; a Estrutura Regimental de 2026 fala no Ministro da Justiça e Segurança Pública (Decreto 12.881/2026, Anexo I, art. 8º, § 1º). Nos dois textos, a comissão especial é de servidores federais estáveis.
+busca: perda de mandato diretor ANPD art. 55-E processo administrativo disciplinar Casa Civil Ministério da Justiça
+
+=== Quem se submete à LAI
+padroes: art. 1º da Lei de Acesso à Informação | quem se submete à LAI
+def: Os órgãos da administração direta dos três Poderes, incluídos os Tribunais de Contas, e o Ministério Público (LAI, art. 1º, parágrafo único, I), além de autarquias, fundações públicas, empresas públicas, sociedades de economia mista e demais entidades controladas pelos entes federativos (II). Entidades privadas sem fins lucrativos que recebem recursos públicos também se sujeitam, no que couber, quanto à parcela desses recursos e à sua destinação (art. 2º).
+busca: Lei de Acesso à Informação abrangência art. 1º parágrafo único art. 2º entidades privadas sem fins lucrativos
+
+=== Tema 1.199 do STF
+padroes: Tema 1199 | Tema 1.199
+def: Teses do STF (ARE 843.989, 2022) sobre a reforma da Lei de Improbidade (Lei 14.230/2021): exige-se dolo para os atos dos arts. 9º, 10 e 11; a revogação da modalidade culposa não retroage sobre a coisa julgada nem sobre a execução das penas; ela se aplica aos atos culposos anteriores ainda sem condenação transitada em julgado, cabendo ao juiz examinar se houve dolo; e o novo regime de prescrição não retroage, valendo os novos marcos a partir da publicação da lei.
+busca: Tema 1199 STF ARE 843989 Lei 14.230 retroatividade dolo prescrição improbidade
+
+=== Dados de acesso público
+padroes: dados de acesso público | dados públicos | raspagem de dados | web scraping | manifestamente públicos
+def: Dado acessível ao público continua sendo dado pessoal. Seu tratamento deve considerar a finalidade, a boa-fé e o interesse público que justificaram a disponibilização (LGPD, art. 7º, § 3º); se foi o titular quem o tornou manifestamente público, dispensa-se o consentimento, mas não os direitos dele nem os princípios (§ 4º). Usar esses dados para nova finalidade exige propósito legítimo e específico e preservação dos direitos do titular (§ 7º). É o quadro em que se analisa a raspagem (web scraping).
+busca: dados pessoais de acesso público raspagem web scraping LGPD art. 7º § 3º § 4º § 7º
+
+=== Interoperabilidade de dados no governo
+padroes: formato interoperável | interoperabilidade de dados
+def: No poder público, os dados devem ser mantidos em formato interoperável e estruturado para o uso compartilhado, com vistas à execução de políticas públicas, à prestação de serviços públicos, à descentralização da atividade pública e à disseminação e ao acesso das informações pelo público em geral (LGPD, art. 25). Interoperabilidade não dispensa base legal, finalidade nem as regras de comunicação a entes privados (arts. 26 e 27).
+busca: interoperabilidade dados governo LGPD art. 25 uso compartilhado formato estruturado

@@ -1,0 +1,169 @@
+bloco: seginfo
+// Normas federais de segurança da informação: Decreto nº 12.572/2025 (PNSI), Decreto nº 11.856/2023 (PNCiber),
+// Decreto nº 10.748/2021 (Rede Federal de Gestão de Incidentes) e IN GSI/PR nº 1/2020. Conferidas com fontes/.
+
+=== sin-01
+gab: C
+ref: dec12572 1
+trecho: Fica instituída a Política Nacional de Segurança da Informação, no âmbito da administração pública federal, com a finalidade de assegurar a disponibilidade, a integridade, a confidencialidade e a autenticidade da informação no País.
+armadilha: literal
+dif: 2
+enunciado: Instituída pelo Decreto 12.572/2025, a Política Nacional de Segurança da Informação vale para a administração pública federal e busca assegurar não só a confidencialidade, a integridade e a disponibilidade, mas também a autenticidade da informação.
+comentario: Certo. Art. 1º do Decreto 12.572/2025, que substituiu a PNSI do Decreto 9.637/2018 (revogado pelo art. 12, I).
+pesquisar: PNSI de 2025 (Decreto 12.572) × PNSI de 2018 (Decreto 9.637)
+
+=== sin-02
+gab: C
+ref: dec12572 2
+trecho: dos dados, dos ativos de informação e dos processos organizacionais
+trecho: do pessoal envolvido no ciclo de vida da informação
+armadilha: rol
+dif: 3
+tema: sg-nist
+enunciado: Pelo Decreto 12.572/2025, proteger a informação inclui cuidar não só dos dados e dos processos, mas também dos espaços físicos e digitais onde ela está e das pessoas que lidam com ela ao longo de seu ciclo de vida.
+comentario: Certo. O art. 2º diz que a segurança da informação abrange a segurança dos dados, dos ativos de informação e dos processos organizacionais (I), do ambiente físico e eletrônico que contenha ativos de informação (II) e do pessoal envolvido no ciclo de vida da informação (III).
+
+=== sin-03
+gab: C
+ref: dec12572 3
+trecho: a garantia dos direitos fundamentais, em especial a liberdade de expressão, a proteção de dados pessoais, a privacidade e o acesso à informação, ressalvadas as hipóteses de sigilo previstas em lei
+trecho: o foco na gestão de riscos
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: órgão federal priorizou seus investimentos em segurança da informação a partir de análise de riscos. Assertiva: a prática reflete princípio da Política Nacional de Segurança da Informação, o foco na gestão de riscos.
+comentario: Art. 3º, III e VI. Os demais: soberania nacional, responsabilidade do poder público, educação e atuação colaborativa.
+
+=== sin-04
+gab: C
+ref: dec12572 5
+trecho: O Gabinete de Segurança Institucional da Presidência da República coordenará as ações do Governo federal relativas à segurança da informação.
+armadilha: sujeito
+dif: 3
+tema: sg-nist
+enunciado: Pela Política Nacional de Segurança da Informação de 2025, o GSI coordena as ações do Governo federal na área, e a auditoria da execução dessas ações pelos órgãos federais compete ao Sistema de Controle Interno do Poder Executivo federal.
+comentario: Certo. O art. 5º do Decreto 12.572/2025 atribui ao Gabinete de Segurança Institucional a coordenação das ações do Governo federal em segurança da informação, e o art. 9º dá ao Sistema de Controle Interno do Executivo federal a auditoria da execução das ações da política pelos órgãos e entidades. A ANPD não coordena essa política.
+
+=== sin-05
+gab: C
+ref: dec12572 10
+trecho: coordenar as atividades desenvolvidas pelo gestor de segurança da informação, pelo encarregado pelo tratamento de dados pessoais, pelo gestor de segurança e credenciamento e pelo titular da unidade de tecnologia da informação
+armadilha: conceito
+dif: 3
+tema: sg-nist
+enunciado: A coordenação entre o gestor de segurança da informação, o encarregado pelo tratamento de dados pessoais, o gestor de segurança e credenciamento e o titular da unidade de tecnologia da informação é atribuída pelo Decreto nº 12.572/2025 a cada órgão federal.
+comentario: Art. 10, VIII. Também compete ao órgão instituir comitê interno de segurança da informação, designar o gestor e publicar e revisar sua política de segurança (II a IV).
+
+=== sin-06
+gab: C
+ref: dec11856 1
+trecho: Fica instituída a Política Nacional de Cibersegurança - PNCiber, com a finalidade de orientar a atividade de segurança cibernética no País.
+armadilha: comparacao
+dif: 2
+enunciado: Enquanto a Política Nacional de Segurança da Informação do Decreto 12.572/2025 é instituída no âmbito da administração pública federal, a Política Nacional de Cibersegurança do Decreto 11.856/2023 tem a finalidade de orientar a atividade de segurança cibernética no País.
+comentario: Certo. Art. 1º de cada decreto. A PNCiber tem por instrumentos a Estratégia Nacional e o Plano Nacional de Cibersegurança (Decreto 11.856/2023, art. 4º).
+
+=== sin-07
+gab: E
+ref: dec11856 7
+trecho: um do Gabinete de Segurança Institucional da Presidência da República, que o presidirá
+trecho: um da Agência Nacional de Telecomunicações - Anatel
+armadilha: sujeito
+dif: 2
+enunciado: O Comitê Nacional de Cibersegurança é presidido pelo representante do Ministério da Justiça e Segurança Pública e tem entre seus membros um representante da ANPD.
+comentario: Art. 7º: o CNCiber é presidido pelo representante do GSI. Entre as entidades da administração indireta, a lista traz o Banco Central e a Anatel; a ANPD não consta da composição. Há ainda três representantes da sociedade civil, três de instituições científicas e três do setor empresarial (XVII a XIX).
+
+=== sin-08
+gab: C
+ref: dec11856 7, § 5º
+trecho: para mandato de três anos, permitida apenas uma recondução
+armadilha: numero
+dif: 3
+tema: sg-nist
+enunciado: Os representantes da sociedade civil, das instituições científicas e do setor empresarial no Comitê Nacional de Cibersegurança têm mandato de três anos, permitida apenas uma recondução.
+comentario: Art. 7º, § 5º. Compare: no CNPD da ANPD, os representantes da sociedade têm mandato de dois anos (Estrutura Regimental, art. 12, § 4º).
+
+=== sin-09
+gab: E
+ref: dec11856 9
+trecho: O CNCiber se reunirá, em caráter ordinário, trimestralmente
+trecho: O quórum de reunião do CNCiber é de maioria absoluta e o quórum de aprovação é de maioria simples.
+armadilha: numero
+dif: 3
+tema: sg-nist
+enunciado: O Comitê Nacional de Cibersegurança reúne-se ordinariamente a cada quatro meses, e suas reuniões exigem quórum de maioria absoluta, com aprovação por maioria simples e voto de qualidade do presidente em caso de empate.
+comentario: Art. 9º: reuniões ordinárias trimestrais; quórum de reunião de maioria absoluta e de aprovação de maioria simples, com voto de qualidade do Presidente. Quem se reúne quadrimestralmente é o CNPD (Estrutura Regimental da ANPD, art. 13).
+
+=== sin-10
+gab: C
+ref: dec11856 3
+trecho: fortalecer a atuação diligente no ciberespaço, especialmente das crianças, dos adolescentes e dos idosos
+trecho: desenvolver mecanismos de regulação, fiscalização e controle destinados a aprimorar a segurança e a resiliência cibernéticas nacionais
+armadilha: caso
+dif: 2
+tema: sg-nist
+enunciado: Situação hipotética: campanha federal ensina idosos e adolescentes a identificar golpes digitais. Assertiva: a iniciativa concretiza objetivo da PNCiber, o de fortalecer a atuação diligente no ciberespaço, especialmente de crianças, adolescentes e idosos.
+comentario: Art. 3º, III e X. Outro objetivo é garantir a confidencialidade, a integridade, a autenticidade e a disponibilidade das soluções e dos dados (II).
+
+=== sin-11
+gab: E
+ref: dec10748 1
+trecho: na condição de órgão central do Sistema de Administração dos Recursos de Tecnologia da Informação
+armadilha: sujeito
+dif: 3
+tema: sg-nist
+enunciado: A participação das estatais federais e de suas subsidiárias na Rede Federal de Gestão de Incidentes Cibernéticos é voluntária, por adesão, e a Secretaria de Governo Digital atua na Rede como sua coordenadora, por ser o órgão central do Sisp.
+comentario: Errado. A Secretaria de Governo Digital participa da Rede na condição de órgão central do Sisp (Decreto 10.748/2021, art. 1º, § 3º), mas não a coordena. A coordenação cabe ao Departamento de Segurança da Informação do GSI, por meio do CTIR Gov (art. 5º, § 1º). A participação voluntária das estatais está correta (art. 1º, § 2º).
+
+=== sin-12
+gab: C
+ref: dec10748 4
+trecho: equipe de coordenação setorial - equipe de prevenção, tratamento e resposta a incidentes cibernéticos das agências reguladoras, do Banco Central do Brasil ou da Comissão Nacional de Energia Nuclear
+armadilha: conceito
+dif: 3
+tema: sg-nist
+enunciado: No Decreto nº 10.748/2021, as agências reguladoras, o Banco Central e a Comissão Nacional de Energia Nuclear instituem ou designam equipe de coordenação setorial, que coordena a segurança cibernética e centraliza as notificações de incidentes do setor regulado.
+comentario: Art. 4º, II, e art. 13, I. A rede é coordenada pelo GSI, por meio do Centro de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos de Governo (art. 5º, § 1º).
+
+=== sin-13
+gab: C
+ref: ingsi1 12, § 1º
+trecho: A periodicidade para a revisão da Política de Segurança da Informação não deve exceder 4 (quatro) anos.
+armadilha: numero
+dif: 2
+tema: sg-nist
+enunciado: Pela IN GSI/PR nº 1/2020, a Política de Segurança da Informação dos órgãos federais deve ser revista em periodicidade não superior a quatro anos.
+comentario: Art. 12, § 1º. A política é obrigatória em todo órgão e entidade, aprovada pela autoridade máxima (art. 9º), e deve ter escopo, conceitos, princípios, diretrizes gerais, competências, penalidades e política de atualização (art. 12, I a VII).
+
+=== sin-14
+gab: E
+ref: ingsi1 18
+trecho: não ser o responsável pela unidade de tecnologia da informação ou seu subordinado, salvo quando não houver no órgão ou na entidade outro servidor, empregado ou militar apto ao exercício do encargo
+armadilha: excecao
+dif: 3
+tema: sg-nist
+enunciado: Pela IN GSI/PR nº 1/2020, o gestor de segurança da informação deve ser, preferencialmente, o próprio responsável pela unidade de tecnologia da informação do órgão, para garantir alinhamento técnico.
+comentario: Art. 18, III: o gestor não deve ser o responsável pela TI nem seu subordinado (segregação de funções), salvo se não houver outro apto, com justificativa formal. Deve ser servidor efetivo ou militar, ocupar CCE/FCE 15 ou superior e ter conhecimento em segurança da informação.
+pesquisar: Segregação de funções e as três linhas de defesa
+
+=== sin-15
+gab: E
+ref: ingsi1 19
+trecho: cooperar com o Encarregado pelo Tratamento de Dados Pessoais nas ações relativas à segurança da informação quando envolver dados pessoais
+trecho: atuar como segunda linha de defesa no âmbito do Sistema de Controle Interno
+armadilha: conceito
+dif: 3
+tema: sg-nist
+enunciado: Situação hipotética: incidente de segurança em órgão federal envolveu dados pessoais. Assertiva: o gestor deve cooperar com o encarregado nas ações de segurança e atua, no sistema de controle interno, como terceira linha de defesa.
+comentario: Errado. Pelo art. 19, VII e X, da IN GSI 1/2020, o gestor de segurança da informação coopera com o encarregado e atua como segunda linha de defesa; a terceira é a auditoria interna. Também lhe cabe avaliar riscos antes da adoção de tecnologias emergentes (IV) e acompanhar a ETIR (VI).
+
+=== sin-16
+gab: C
+ref: ingsi1 16
+trecho: o Gestor de Segurança da Informação
+trecho: o Comitê de Segurança da Informação ou estrutura equivalente; e
+trecho: uma Equipe de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos (ETIR) ou estrutura equivalente
+armadilha: caso
+dif: 3
+tema: sg-nist
+enunciado: Situação hipotética: órgão federal designou gestor de segurança da informação e instituiu comitê de segurança, mas não tem equipe de prevenção, tratamento e resposta a incidentes nem estrutura equivalente. Assertiva: a estrutura mínima exigida pela IN GSI nº 1/2020 está incompleta.
+comentario: Art. 16 da IN GSI 1/2020. A ETIR integra a rede de equipes coordenada pelo centro de incidentes do GSI (art. 15, IV; Decreto 10.748/2021).

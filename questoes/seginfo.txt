@@ -1,0 +1,163 @@
+bloco: seginfo
+// Segurança da informação e técnicas de proteção da privacidade.
+
+=== si-01
+gab: C
+ref: doutrina CID
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: ataque deixou sistema público fora do ar por horas, sem vazamento nem alteração de dados. Assertiva: foi atingida a disponibilidade, um dos pilares clássicos da segurança da informação, ao lado da confidencialidade e da integridade.
+comentario: A tríade CID. Autenticidade e não repúdio costumam ser acrescentados. O princípio da segurança da LGPD (art. 6º, VII) protege contra acesso não autorizado (confidencialidade), alteração (integridade) e perda ou destruição (disponibilidade).
+
+=== si-02
+gab: E
+ref: doutrina CID
+armadilha: conceito
+dif: 2
+enunciado: Na tríade da segurança da informação, integridade é a garantia de que sistemas e dados estarão acessíveis aos usuários autorizados quando solicitados, e disponibilidade é a proteção do dado contra alterações não autorizadas.
+comentario: Errado. Está invertido: acesso quando necessário é disponibilidade; proteção contra alteração indevida é integridade.
+
+=== si-03
+gab: E
+ref: doutrina criptografia
+armadilha: conceito
+dif: 3
+enunciado: Na criptografia assimétrica, o remetente que deseja confidencialidade cifra a mensagem com a chave pública do destinatário; e, como as duas chaves do par são matematicamente relacionadas, a chave privada pode ser obtida a partir da pública de forma computacionalmente viável.
+comentario: Errado. A primeira parte está correta, mas a segurança da criptografia assimétrica depende justamente de ser computacionalmente inviável derivar a chave privada a partir da pública, apesar da relação matemática entre elas (no RSA, por exemplo, isso exigiria fatorar números muito grandes).
+
+=== si-04
+gab: C
+ref: doutrina criptografia
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: para enviar documento sigiloso e assinado, o remetente assinou-o com sua chave privada e, em seguida, cifrou o conjunto com a chave pública do destinatário. Assertiva: o procedimento soma autenticidade, integridade e não repúdio, obtidos pela assinatura, à confidencialidade, obtida pela cifragem.
+comentario: Certo. A assinatura com a chave privada do remetente garante autenticidade, integridade e não repúdio, mas não sigilo. A cifragem com a chave pública do destinatário garante a confidencialidade, pois só a chave privada dele decifra o conteúdo. Combinadas, as duas operações cobrem as quatro propriedades.
+
+=== si-05
+gab: C
+ref: doutrina hash
+armadilha: conceito
+dif: 2
+enunciado: As funções hash, como o SHA-256, transformam entradas de qualquer tamanho em saídas de tamanho fixo e são projetadas para ser unidirecionais e resistentes a colisões, de modo que qualquer mudança no dado altera o resumo e permite aferir a integridade.
+comentario: Certo. Essas propriedades fazem do hash a ferramenta padrão de verificação de integridade.
+
+=== si-06
+gab: E
+ref: doutrina hash
+armadilha: conceito
+dif: 3
+enunciado: Embora as funções hash não tenham inversa computável, aplicar um hash puro, sem chave nem sal, a identificadores de espaço pequeno e previsível, como CPF ou telefone, é anonimização irreversível, imune a força bruta e a tabelas pré-computadas.
+comentario: Errado. Com poucos valores possíveis, o atacante calcula o hash de todos e reidentifica os titulares. O resultado é, no máximo, pseudonimização frágil, não anonimização.
+
+=== si-07
+gab: C
+ref: doutrina ISO 27001
+armadilha: conceito
+dif: 2
+tema: sg-iso
+enunciado: A norma ABNT NBR ISO/IEC 27001 especifica requisitos para estabelecer, implementar, manter e melhorar continuamente um sistema de gestão da segurança da informação, e a ISO/IEC 27701 a estende para a gestão da privacidade.
+comentario: A 27001 é a norma certificável de requisitos. A 27002 é o guia de controles. A 27701 acrescenta o sistema de gestão da privacidade da informação.
+
+=== si-08
+gab: E
+ref: doutrina ISO 27002
+armadilha: conceito
+dif: 2
+enunciado: A ABNT NBR ISO/IEC 27002 estabelece as cláusulas obrigatórias de estrutura, avaliação de desempenho e melhoria exigidas na auditoria de terceira parte para certificar o sistema de gestão da segurança da informação.
+comentario: Errado. A certificação se baseia nos requisitos da ISO/IEC 27001 (cláusulas 4 a 10). A 27002 é código de prática dos controles.
+
+=== si-09
+gab: C
+ref: doutrina privacy by design
+armadilha: conceito
+dif: 2
+enunciado: Entre os princípios da privacidade desde a concepção estão a atuação proativa, e não reativa, e a privacidade como configuração padrão.
+comentario: São dois dos sete princípios de Ann Cavoukian: proativo e preventivo; privacidade por padrão; privacidade incorporada ao projeto; funcionalidade total (soma positiva); segurança de ponta a ponta; visibilidade e transparência; respeito à privacidade do usuário.
+
+=== si-10
+gab: E
+ref: doutrina privacy by design
+armadilha: conceito
+dif: 2
+enunciado: Entre os sete princípios do Privacy by Design, de Ann Cavoukian, está o da soma zero, segundo o qual mais privacidade exige, necessariamente, menos funcionalidade ou menos segurança.
+comentario: Errado. O princípio é o oposto: funcionalidade total, soma positiva e não soma zero, que rejeita a falsa escolha entre privacidade e segurança ou funcionalidade.
+
+=== si-11
+gab: E
+ref: lgpd 46, § 2º
+trecho: deverão ser observadas desde a fase de concepção do produto ou do serviço até a sua execução
+armadilha: excecao
+dif: 2
+enunciado: As medidas de segurança do art. 46 da LGPD, destinadas a proteger dados pessoais de acessos não autorizados e de situações acidentais ou ilícitas, tornam-se exigíveis quando o sistema entra em operação, sendo facultativas na fase de concepção do produto ou serviço.
+comentario: Errado. O § 2º do art. 46 exige as medidas desde a fase de concepção do produto ou do serviço até a sua execução: é a segurança desde a concepção.
+
+=== si-12
+gab: E
+ref: lgpd 13, § 4º
+trecho: senão pelo uso de informação adicional mantida separadamente pelo controlador em ambiente controlado e seguro
+armadilha: conceito
+dif: 2
+enunciado: A substituição do CPF por um código aleatório, com a tabela de correspondência guardada pelo próprio controlador, torna os dados anonimizados para fins da LGPD.
+comentario: Isso é pseudonimização (art. 13, § 4º): a associação ao titular continua possível com a informação adicional. Dado pseudonimizado continua sendo dado pessoal.
+
+=== si-13
+gab: C
+ref: doutrina k-anonimato
+armadilha: conceito
+dif: 3
+tema: sg-privacidade
+enunciado: Uma base de dados atende ao k-anonimato quando cada registro é indistinguível de pelo menos k − 1 outros registros em relação aos atributos quase identificadores.
+comentario: Quase identificadores são atributos que, combinados, identificam alguém (CEP, data de nascimento, sexo). O k-anonimato não protege contra todos os ataques, por isso surgiram variantes como l-diversidade.
+
+=== si-14
+gab: C
+ref: doutrina controle de acesso
+armadilha: conceito
+dif: 2
+tema: sg-principios
+enunciado: O princípio do menor privilégio, pelo qual cada usuário, processo ou serviço recebe só as permissões necessárias às suas tarefas, é o correlato, no controle de acesso, do princípio da necessidade da LGPD e contém o impacto de erros, abusos internos e credenciais comprometidas.
+comentario: Certo. Menos permissões, menos dano possível quando algo dá errado.
+
+=== si-15
+gab: E
+ref: doutrina autenticação
+armadilha: conceito
+dif: 2
+tema: sg-principios
+enunciado: Um fluxo de acesso que pede senha alfanumérica na primeira tela e, na seguinte, um PIN numérico definido no cadastro implementa autenticação de dois fatores, por combinar dois segredos independentes.
+comentario: Errado. Senha e PIN memorizado são o mesmo fator, conhecimento. Dois fatores exigem categorias diferentes, como conhecimento e posse ou conhecimento e inerência.
+
+=== si-16
+gab: C
+ref: doutrina resposta a incidentes
+armadilha: rol
+dif: 2
+tema: sg-nist
+enunciado: No ciclo clássico de resposta a incidentes descrito pelo NIST (SP 800-61, revisão 2), as fases são preparação; detecção e análise; contenção, erradicação e recuperação; e atividades pós-incidente.
+comentario: A revisão 3 (2025) reorganizou o guia em torno das funções do NIST Cybersecurity Framework 2.0, mas o ciclo da revisão 2 continua sendo o mais cobrado.
+
+=== si-17
+gab: E
+ref: doutrina backup
+armadilha: numero
+dif: 2
+tema: sg-principios
+enunciado: Pela regra 3-2-1 de backup, mantêm-se ao menos três cópias dos dados, em dois tipos diferentes de mídia, e todas devem permanecer no mesmo local físico dos servidores, para agilizar a restauração.
+comentario: Errado. A regra exige ao menos uma cópia fora do local principal, de preferência isolada ou imutável, justamente para resistir a ransomware e a desastres no local.
+
+=== si-18
+gab: E
+ref: doutrina engenharia social
+armadilha: conceito
+dif: 2
+tema: sg-ameacas
+enunciado: Situação hipotética: criminoso telefonou para servidor fingindo ser do suporte técnico e obteve sua senha. Assertiva: o ataque explorou principalmente vulnerabilidade técnica de software.
+comentario: Engenharia social explora o fator humano (confiança, urgência, medo). Phishing é o exemplo mais comum.
+
+=== si-19
+gab: C
+ref: doutrina ransomware
+armadilha: conceito
+dif: 2
+enunciado: O ransomware compromete a disponibilidade ao tornar os dados inacessíveis para exigir resgate, e a dupla extorsão, com exfiltração e ameaça de divulgação, agrega violação de confidencialidade e pode configurar incidente comunicável à ANPD e aos titulares.
+comentario: Certo. A comunicação é devida quando o incidente pode acarretar risco ou dano relevante aos titulares (LGPD, art. 48).

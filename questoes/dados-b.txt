@@ -1,0 +1,284 @@
+// Dados: governança de dados (DAMA-DMBOK), papéis, metadados, dados mestres e de referência, qualidade,
+// BI e modelagem dimensional, data lake e lakehouse, dados abertos e compartilhamento de dados no governo
+// federal (Decreto 10.046/2019 e o julgamento do STF), grão e dimensões de variação lenta, e noções de aprendizado
+// de máquina. Itens escritos para o banco.
+
+bloco: dados-bi
+
+=== dd-01
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: No DAMA-DMBOK, a governança de dados ocupa o centro da roda de funções de gerenciamento de dados e orienta as demais áreas, como qualidade, metadados, segurança e arquitetura.
+comentario: Certo. As áreas em volta incluem arquitetura, modelagem, armazenamento e operações, segurança, integração e interoperabilidade, documentos e conteúdo, dados mestres e de referência, data warehousing e BI, metadados e qualidade.
+
+=== dd-02
+gab: C
+ref: doutrina
+armadilha: comparacao
+dif: 3
+enunciado: No DAMA-DMBOK, a governança de dados exerce autoridade e controle, com planejamento, monitoramento e fiscalização, sobre a gestão dos ativos de dados, e por isso se distingue do gerenciamento de dados, que executa essas funções no dia a dia.
+comentario: Certo. Para o DMBOK, governança é o exercício de autoridade, controle e tomada de decisão compartilhada sobre a gestão dos ativos de dados; o gerenciamento executa as funções (arquitetura, qualidade, metadados, segurança e outras). A governança fica no centro da roda e orienta as demais áreas.
+
+=== dd-03
+gab: C
+ref: doutrina
+armadilha: sujeito
+dif: 2
+enunciado: O curador de dados (data steward) responde, no dia a dia, pela qualidade, pela definição e pelo uso adequado dos dados de determinado domínio de negócio.
+comentario: Certo. O proprietário (data owner) responde pelo domínio e decide sobre acesso; o curador cuida da qualidade e das definições; a TI opera a infraestrutura.
+
+=== dd-04
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Na governança de dados, o dicionário de dados e o glossário de negócios são artefatos complementares de gestão de metadados, que podem ser técnicos (tipo e tamanho das colunas), de negócio (definições e regras) ou operacionais (histórico de cargas e acessos).
+comentario: Certo. Metadados são dados sobre os dados: dizem o que significam, de onde vêm e como são usados.
+
+=== dd-05
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: numa agência, a tabela com o cadastro das empresas reguladas (CNPJ, razão social, setor) é usada por vários sistemas, e outra tabela registra cada multa aplicada, com data e valor. Assertiva: a tabela das multas contém os dados mestres, e a das empresas, os dados transacionais.
+comentario: Errado. O item inverte as duas tabelas. Dados mestres descrevem as entidades centrais do negócio, estáveis e compartilhadas por vários sistemas (o cadastro das empresas reguladas); dados transacionais registram os eventos do dia a dia (cada multa aplicada, com data e valor).
+
+=== dd-06
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Dados de referência são conjuntos de valores permitidos usados para classificar outros dados, como listas de países, de unidades da federação ou de códigos de atividade econômica.
+comentario: Certo. Mudam pouco e, quando padronizados, permitem integrar e comparar bases diferentes.
+
+=== dd-07
+gab: C
+ref: doutrina
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em auditoria na base de usuários de um serviço público, achou-se o mesmo titular em dois registros ativos com o mesmo CPF, mas com grafias diferentes do nome. Assertiva: a falha afeta sobretudo a dimensão da unicidade da qualidade dos dados e também a da consistência.
+comentario: Certo. Duplicidade fere a unicidade; o mesmo atributo registrado de formas conflitantes fere a consistência.
+
+=== dd-08
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: no cadastro de titulares, o campo data de nascimento só aceita datas reais no formato DD/MM/AAAA, e todos os registros obedecem ao formato; ainda assim, uma pessoa nascida em 1980 aparece como nascida em 1908. Assertiva: o problema é de validade do dado.
+comentario: Errado. A data obedece ao formato e é uma data possível: o dado é válido. O problema é de acurácia (exatidão), a correspondência entre o registro e a realidade. Validade é a conformidade com formato, tipo e regras de domínio; uma data de 31 de fevereiro seria inválida.
+
+=== dd-10
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: a equipe carrega os dados brutos no repositório em nuvem e só depois os transforma, usando o poder de processamento do próprio repositório. Assertiva: a abordagem adotada é a ELT, e não a ETL.
+comentario: Certo. No ETL, os dados são extraídos, transformados e então carregados; no ELT, a carga vem antes da transformação, feita no destino. O ELT é comum em data lakes e na nuvem, onde o repositório tem capacidade de processamento para transformar sob demanda.
+
+=== dd-11
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: num modelo estrela sobre fiscalizações, uma tabela guarda, para cada fiscalização, o valor da multa e o número de titulares afetados, além das chaves que apontam para as tabelas de empresa, data e setor. Assertiva: a tabela descrita é uma tabela de dimensão.
+comentario: Errado. É a tabela fato: guarda as métricas (valor da multa, titulares afetados) e as chaves das dimensões. As tabelas de empresa, data e setor são as dimensões, com os atributos descritivos usados para filtrar e agrupar.
+
+=== dd-12
+gab: E
+ref: doutrina
+armadilha: comparacao
+dif: 3
+enunciado: O esquema floco de neve normaliza as tabelas de dimensão, o que reduz a redundância e, em regra, torna as consultas analíticas mais simples e rápidas que no esquema estrela.
+comentario: Errado. A normalização das dimensões reduz a redundância, mas aumenta o número de junções, o que tende a tornar as consultas mais complexas e, em regra, mais lentas que no esquema estrela, cujas dimensões desnormalizadas favorecem a leitura analítica.
+
+=== dd-13
+gab: C
+ref: doutrina
+armadilha: comparacao
+dif: 3
+enunciado: Situação hipotética: o sistema que registra, a cada minuto, centenas de protocolos de reclamação precisa de respostas rápidas a inserções curtas; já o painel gerencial roda consultas pesadas sobre anos de histórico. Assertiva: o primeiro é típico de OLTP, e o segundo, de OLAP.
+comentario: Certo. OLTP é otimizado para muitas transações curtas de inserção e atualização; OLAP, para consultas analíticas complexas sobre grandes volumes históricos. Por isso o data warehouse é alimentado a partir dos sistemas transacionais, sem disputar recursos com eles.
+
+=== dd-14
+gab: E
+ref: doutrina
+armadilha: comparacao
+dif: 3
+enunciado: Na análise OLAP, a operação slice fixa valores em duas ou mais dimensões do cubo, gerando um subcubo, ao passo que a operação dice fixa um único valor de uma só dimensão, como as vendas de um único ano.
+comentario: Errado. As definições estão trocadas. O slice fixa um valor de uma dimensão e gera uma fatia do cubo (por exemplo, só o ano de 2024); o dice seleciona intervalos ou valores em duas ou mais dimensões e gera um subcubo.
+
+=== dd-15
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Em business intelligence, o data mart é repositório analítico voltado a uma área ou tema específico e pode ser dependente, quando alimentado pelo data warehouse corporativo, ou independente, quando extraído direto das fontes transacionais.
+comentario: Certo. São as duas arquiteturas clássicas de data mart.
+
+=== dd-16
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A arquitetura lakehouse busca combinar o armazenamento flexível e de baixo custo do data lake com recursos de gestão, transações e desempenho típicos do data warehouse.
+comentario: Certo. A ideia é evitar manter duas cópias dos dados, uma bruta e outra tratada, em plataformas separadas.
+
+=== dd-17
+gab: E
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: prefeitura publicou na internet, em formato aberto, planilha com a execução orçamentária do município, sem dados pessoais. Assertiva: não se trata de dados abertos, pois estes são, necessariamente, dados pessoais publicados com autorização dos titulares.
+comentario: Errado. Dados abertos são dados públicos disponibilizados para livre uso, em formato aberto e legível por máquina. Dados pessoais, em regra, não são abertos, e sua divulgação exige base legal, além do respeito à LAI e à LGPD.
+
+=== dd-18
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: Para serem considerados abertos, os dados governamentais devem estar estruturados em formato aberto, ser processáveis por máquina, referenciados na internet e disponibilizados sob licença aberta que permita sua livre utilização, consumo ou cruzamento, limitada a exigência à citação da autoria ou da fonte.
+comentario: Certo. É o conceito do Decreto 8.777/2016 (Política de Dados Abertos do Poder Executivo federal), alinhado aos princípios internacionais de dados abertos. PDF digitalizado por imagem não é processável por máquina, e licença restrita a fins não comerciais não é aberta.
+
+=== dd-19
+gab: C
+ref: dec10046 4
+trecho: A categorização do nível de compartilhamento será feita pelo gestor de dados, com base na legislação
+armadilha: sujeito
+dif: 3
+enunciado: No Decreto 10.046/2019, cabe ao gestor de dados categorizar o nível de compartilhamento com base na legislação; não feita a categorização, ele a fará ao responder a pedido de acesso, e ela será revista a cada cinco anos ou quando mudarem as diretrizes que a motivaram.
+comentario: Certo. Art. 4º, § 1º (categorização pelo gestor de dados), § 5º (categorização ao responder ao pedido de acesso) e § 6º (revisão a cada cinco anos ou quando mudarem as diretrizes). O § 7º manda priorizar a categoria de maior abertura.
+
+=== dd-20
+gab: E
+ref: dec10046 4, II
+trecho: cujo mecanismo de compartilhamento e regras sejam simplificados e estabelecidos pelo Comitê Central de Governança de Dados
+armadilha: sujeito
+dif: 3
+enunciado: No compartilhamento restrito do Decreto 10.046/2019, os dados protegidos por sigilo podem ser acessados por todos os órgãos e entidades abrangidos, para a execução de políticas públicas, com mecanismo e regras definidos pelo gestor de dados de cada base.
+comentario: Errado. No compartilhamento restrito, o mecanismo e as regras são simplificados e estabelecidos pelo Comitê Central de Governança de Dados (art. 4º, II). É no compartilhamento específico, com acesso apenas a órgãos determinados nas hipóteses legais, que as regras são definidas pelo gestor de dados (III).
+
+=== dd-21
+gab: C
+bloco: lgpd-23-32
+ref: stfsum ADI6649
+trecho: finalidade legítima, específica e explícita
+trecho: limitação ao mínimo necessário
+armadilha: conceito
+dif: 3
+enunciado: Ao julgar a ADI 6.649 e a ADPF 695, o STF admitiu o compartilhamento de dados pessoais entre órgãos públicos, mas o condicionou a propósitos legítimos, específicos e explícitos, ao mínimo necessário e às garantias da LGPD, com interpretação conforme do Decreto nº 10.046/2019.
+comentario: Certo. A decisão de 2022 exigiu, entre outros pontos, transparência sobre o compartilhamento, mecanismos de segurança e responsabilização por uso indevido. O Decreto 11.266/2022 levou essas exigências ao texto do Decreto 10.046 (art. 3º, VII a IX; art. 5º, § 4º; art. 15-A).
+
+=== dd-22
+gab: E
+ref: doutrina
+armadilha: comparacao
+dif: 3
+enunciado: Na mineração de dados, classificação e regressão são técnicas supervisionadas, e diferem porque a classificação prevê valores numéricos contínuos, enquanto a regressão atribui os registros a classes predefinidas.
+comentario: Errado. As duas são supervisionadas, mas as funções estão trocadas: a classificação atribui registros a classes (categorias) predefinidas, e a regressão prevê valores numéricos contínuos. O agrupamento (clustering) é técnica não supervisionada.
+
+=== dd-23
+gab: E
+ref: doutrina
+armadilha: causalidade
+dif: 2
+enunciado: Situação hipotética: estudo mostrou forte correlação entre a venda de sorvetes e os afogamentos nas praias. Assertiva: a correlação demonstra que o consumo de sorvete causa afogamentos.
+comentario: Errado. Correlação não implica causalidade: pode haver terceira variável influenciando ambas, causalidade reversa ou coincidência. Causalidade exige desenho de pesquisa adequado, como experimentos.
+
+=== dd-24
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 2
+enunciado: A linhagem de dados documenta a origem dos dados e as transformações por que passaram até chegar a um relatório, o que apoia a auditoria e a confiança nos indicadores.
+comentario: Certo. Num painel de fiscalização, a linhagem permite saber de que sistema saiu cada número e que regras o alteraram.
+
+=== dd-25
+gab: C
+ref: doutrina
+armadilha: conceito
+dif: 3
+enunciado: A abordagem de data mesh descentraliza a responsabilidade pelos dados para os domínios de negócio, que passam a tratá-los como produtos, com governança federada.
+comentario: Certo. É resposta aos gargalos de equipes centrais de dados; exige padrões comuns de interoperabilidade e qualidade.
+
+=== dd-26
+gab: C
+ref: lgpd 12
+trecho: Os dados anonimizados não serão considerados dados pessoais para os fins desta Lei
+armadilha: excecao
+dif: 2
+enunciado: A anonimização efetiva das bases usadas em painéis gerenciais retira esses dados do alcance da LGPD, desde que o processo não possa ser revertido com esforços razoáveis.
+comentario: Certo: art. 12. Se a reidentificação for possível com meios próprios ou esforço razoável, o dado continua pessoal. Agregação e supressão de campos raros ajudam a evitar reidentificação em painéis.
+
+=== dd-27
+gab: E
+ref: doutrina
+armadilha: comparacao
+dif: 3
+enunciado: Situação hipotética: a equipe de dados guarda os registros brutos de vários sistemas, sem definir estrutura prévia, para decidir depois, conforme cada análise, como interpretá-los. Assertiva: o repositório adotado é típico de data warehouse, que exige esquema definido antes da carga.
+comentario: Errado. Guardar dados brutos e aplicar o esquema só na leitura (schema on read) é a lógica do data lake. O data warehouse trabalha com esquema definido na escrita (schema on write): os dados entram já tratados e estruturados.
+
+=== dd-28
+gab: E
+ref: doutrina OLAP
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: num cubo de incidentes, o analista restringe a consulta, ao mesmo tempo, a dois setores econômicos e ao último trimestre. Assertiva: a operação OLAP realizada é o pivot.
+comentario: Errado. Restringir valores em duas ou mais dimensões, obtendo um subcubo, é o dice. Pivot (rotação) é girar o cubo para trocar a posição das dimensões na visualização; slice fixa um valor em uma única dimensão.
+
+=== dd-29
+gab: E
+ref: doutrina Modelagem dimensional
+armadilha: conceito
+dif: 3
+enunciado: No modelo dimensional, a granularidade da tabela fato é definida depois da escolha das métricas e não influencia o nível de detalhe das análises possíveis.
+comentario: Errado. Declarar o grão é passo central, anterior à escolha de dimensões e fatos: ele diz o que cada linha da tabela fato representa e, portanto, até que nível de detalhe se pode analisar.
+
+=== dd-30
+gab: E
+ref: doutrina Dados não estruturados
+armadilha: absoluto
+dif: 2
+enunciado: Por não terem esquema prévio em linhas e colunas, os dados não estruturados, como textos livres, áudios, vídeos e imagens, não admitem tratamento analítico automatizado e precisam ser convertidos manualmente em tabelas antes de qualquer análise.
+comentario: Errado. Há técnicas próprias para analisá-los diretamente, como processamento de linguagem natural e visão computacional, embora com maior custo computacional.
+
+=== dd-31
+gab: E
+ref: doutrina Qualidade de dados
+armadilha: conceito
+dif: 2
+enunciado: Na qualidade de dados, a tempestividade mede o preenchimento de atributos obrigatórios sem valores nulos, e a completude verifica se a informação reflete o estado atual da realidade no momento em que é usada.
+comentario: Errado. Está invertido: ausência de nulos em campos necessários é completude; dado atualizado e disponível a tempo é tempestividade.
+
+=== dd-32
+gab: E
+ref: doutrina Modelagem dimensional
+armadilha: comparacao
+dif: 3
+enunciado: As dimensões de variação lenta do tipo 1 preservam o histórico completo das alterações, criando nova linha a cada mudança do atributo.
+comentario: Errado. No tipo 1, o valor antigo é sobrescrito e o histórico se perde. É o tipo 2 que cria nova linha, em geral com datas de vigência, para guardar o histórico.
+
+=== dd-33
+gab: E
+ref: doutrina Metadados
+armadilha: conceito
+dif: 2
+enunciado: Num banco de dados de gestão de pessoas, os metadados são o conteúdo das tabelas, como nome, remuneração e endereço de cada servidor, e a definição dos campos, o tipo de dado, a linhagem e a data da última carga são os dados primários.
+comentario: Errado. Está invertido: nome, remuneração e endereço são os dados; definição, tipo, linhagem e data de carga são metadados.
+
+=== dd-34
+gab: E
+ref: doutrina Aprendizado de máquina
+armadilha: comparacao
+dif: 2
+enunciado: O sobreajuste (overfitting) ocorre quando o modelo é simples demais para captar os padrões dos dados de treinamento e tem desempenho ruim tanto no treino quanto em dados novos.
+comentario: Errado. Isso é o subajuste (underfitting). No sobreajuste, o modelo se ajusta demais aos dados de treinamento, inclusive ao ruído, e erra ao generalizar para dados novos.
+
+=== dd-35
+gab: E
+ref: doutrina Aprendizado de máquina
+armadilha: comparacao
+dif: 2
+enunciado: Situação hipotética: algoritmo recebeu dados de clientes sem rótulo e os agrupou por semelhança de comportamento. Assertiva: trata-se de aprendizado supervisionado.
+comentario: Errado. O supervisionado aprende com exemplos rotulados (classificação e regressão). Descobrir grupos sem rótulos é o aprendizado não supervisionado, como no agrupamento.

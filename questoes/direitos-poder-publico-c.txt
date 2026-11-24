@@ -1,0 +1,297 @@
+// LGPD prioridade 1, lote C: direitos do titular (arts. 18 a 22) e tratamento pelo Poder Público (arts. 23 a 32),
+// com caso integrado de compartilhamento de cadastro de programa social. Trechos conferidos em fontes/lgpd.txt.
+
+bloco: lgpd-17-22
+
+apoio_PREF: Uma prefeitura pretende compartilhar o cadastro de beneficiários de um programa municipal de transferência de renda (nome, CPF, endereço, renda e composição familiar) com a empresa privada contratada, mediante licitação, para emitir e operar o cartão do benefício. Uma fundação privada pediu os mesmos dados para pesquisa de mercado sobre hábitos de consumo de famílias de baixa renda. Um beneficiário protocolou na prefeitura pedido de acesso a todos os dados que o município mantém sobre ele.
+
+=== dt-01
+gab: C
+ref: lgpd 19, § 4º
+trecho: A autoridade nacional poderá dispor de forma diferenciada acerca dos prazos
+armadilha: numero
+dif: 3
+enunciado: Os prazos para a confirmação de existência ou o acesso a dados pessoais — imediato, no formato simplificado, e de até quinze dias contados do requerimento, na declaração clara e completa — podem ser disciplinados de forma diferenciada pela autoridade nacional para setores específicos.
+comentario: Certo. Art. 19, I e II, e § 4º. A declaração completa indica a origem dos dados, a inexistência de registro, os critérios e a finalidade, observados os segredos comercial e industrial. A banca costuma dizer que os prazos são fixos e não admitem regulamentação setorial.
+
+=== dt-02
+gab: E
+ref: lgpd 19
+trecho: A autoridade nacional poderá dispor de forma diferenciada acerca dos prazos previstos nos incisos I e II do caput deste artigo para os setores específicos
+armadilha: excecao
+dif: 3
+enunciado: Requisitada pelo titular a declaração clara e completa sobre o tratamento, o controlador deve fornecê-la em até quinze dias do requerimento, prazo que a ANPD não pode alterar, por estar fixado na própria lei.
+comentario: Errado. O prazo de quinze dias está no art. 19, II, mas o § 4º permite que a autoridade nacional disponha de forma diferenciada sobre os prazos dos incisos I e II para setores específicos.
+
+=== dt-03
+gab: E
+ref: lgpd 19
+trecho: Quando o tratamento tiver origem no consentimento do titular ou em contrato, o titular poderá solicitar cópia eletrônica integral de seus dados pessoais
+armadilha: fecho
+dif: 3
+enunciado: Situação hipotética: cliente de academia, cujo contrato fundamenta o tratamento de seus dados, pede cópia eletrônica integral deles. Assertiva: o pedido tem amparo legal, mas a cópia pode ser fornecida em formato fechado, que impeça a utilização posterior dos dados.
+comentario: Errado. Quando o tratamento tiver origem no consentimento ou em contrato, o titular pode pedir cópia eletrônica integral de seus dados, em formato que permita sua utilização subsequente, inclusive em outras operações de tratamento (art. 19, § 3º), observados os segredos comercial e industrial.
+
+=== dt-04
+gab: E
+ref: lgpd 19
+trecho: Quando o tratamento tiver origem no consentimento do titular ou em contrato
+armadilha: extrapolacao
+dif: 2
+enunciado: O titular pode exigir cópia eletrônica integral de seus dados qualquer que seja a hipótese legal do tratamento, inclusive o cumprimento de obrigação legal.
+comentario: Errado. A cópia eletrônica integral do art. 19, § 3º, é garantida quando o tratamento se origina no consentimento ou em contrato. O acesso aos dados (art. 18, II) existe em qualquer caso, mas a cópia integral em formato reutilizável tem esse recorte.
+
+=== dt-05
+gab: C
+ref: lgpd 18
+trecho: A portabilidade dos dados pessoais a que se refere o inciso V do caput deste artigo não inclui dados que já tenham sido anonimizados pelo controlador
+armadilha: conceito
+dif: 2
+enunciado: Dados que o controlador já anonimizou ficam de fora da portabilidade, o que é coerente com a regra segundo a qual dado anonimizado, em princípio, não é considerado dado pessoal para os fins da LGPD.
+comentario: Certo: art. 18, § 7º. Faz sentido: anonimizado, o dado deixou de ser pessoal (art. 12).
+
+=== dt-06
+gab: E
+ref: lgpd 18
+trecho: portabilidade dos dados a outro fornecedor de serviço ou produto, mediante requisição expressa, de acordo com a regulamentação da autoridade nacional, observados os segredos comercial e industrial
+armadilha: extrapolacao
+dif: 2
+enunciado: A portabilidade dos dados a outro fornecedor de serviço ou produto é direito do titular, exercido mediante requisição expressa e conforme a regulamentação da ANPD, e abrange inclusive os segredos comerciais e industriais do controlador.
+comentario: Errado. A portabilidade exige requisição expressa, segue a regulamentação da ANPD e observa os segredos comercial e industrial (art. 18, V).
+
+=== dt-07
+gab: E
+ref: lgpd 16
+trecho: cumprimento de obrigação legal ou regulatória pelo controlador
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: titular revogou o consentimento e pediu a eliminação de seus dados, alguns dos quais o controlador precisa conservar para cumprir obrigação legal. Assertiva: o controlador deve eliminar também esses dados.
+comentario: Errado. A eliminação dos dados tratados com consentimento ressalva as hipóteses do art. 16 (art. 18, VI): cumprimento de obrigação legal ou regulatória, estudo por órgão de pesquisa, transferência a terceiro conforme a lei e uso exclusivo do controlador com dados anonimizados.
+
+=== dt-08
+gab: E
+ref: lgpd 18
+trecho: O titular pode opor-se a tratamento realizado com fundamento em uma das hipóteses de dispensa de consentimento, em caso de descumprimento ao disposto nesta Lei
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: uma empresa trata dados de clientes com base na execução de contrato, mas passou a usá-los também para fins não informados, em desacordo com a LGPD. Assertiva: o titular não pode se opor a esse tratamento, pois o direito de oposição pressupõe tratamento fundado no consentimento.
+comentario: Errado. O titular pode opor-se a tratamento realizado com fundamento em uma das hipóteses de dispensa de consentimento, em caso de descumprimento da LGPD (art. 18, § 2º). No GDPR, o direito de oposição ao legítimo interesse é mais amplo.
+
+=== dt-10
+gab: C
+ref: lgpd 18
+trecho: comunicar que não é agente de tratamento dos dados e indicar, sempre que possível, o agente
+armadilha: conceito
+dif: 2
+enunciado: Quando não puder atender de imediato ao pedido do titular, o controlador não pode simplesmente silenciar: deve responder, seja informando que não é o agente de tratamento e, se possível, indicando quem é, seja expondo as razões de fato ou de direito que impedem a providência.
+comentario: Certo. Art. 18, § 4º: sem poder adotar a providência de imediato, o controlador responde ao titular comunicando que não é agente de tratamento (e indicando, sempre que possível, quem é) ou expondo as razões de fato ou de direito que impedem a adoção imediata. O silêncio não é opção.
+
+=== dt-11
+gab: C
+ref: lgpd 18
+trecho: será atendido sem custos para o titular
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma operadora de telefonia passou a cobrar tarifa administrativa para atender pedidos de correção de dados cadastrais. Assertiva: a cobrança contraria a LGPD, que manda atender sem custos os requerimentos do titular, nos prazos e termos do regulamento.
+comentario: Certo: art. 18, § 5º. Cobrar taxa para atender pedido de acesso ou correção viola a LGPD.
+
+=== dt-13
+gab: E
+ref: lgpd 18
+trecho: O titular dos dados pessoais tem o direito de peticionar em relação aos seus dados contra o controlador perante a autoridade nacional
+armadilha: fecho
+dif: 3
+enunciado: O titular pode peticionar à ANPD contra o controlador em relação aos seus dados, direito cujo exercício, segundo a LGPD, pressupõe o prévio ajuizamento de ação judicial sobre o mesmo pedido.
+comentario: Errado. O direito de petição à ANPD (art. 18, § 1º) não depende de ação judicial. A regulamentação exige, em regra, que o titular demonstre ter procurado antes o controlador, mas nunca o esgotamento do Judiciário.
+
+=== dt-14
+gab: C
+ref: lgpd 21
+trecho: Os dados pessoais referentes ao exercício regular de direitos pelo titular não podem ser utilizados em seu prejuízo
+armadilha: caso
+dif: 2
+enunciado: Viola a LGPD a empresa que recusa contratar candidato por descobrir que, em emprego anterior, ele havia exercido o direito de acesso aos próprios dados.
+comentario: Certo: art. 21. Dados sobre o exercício regular de direitos (pedidos de acesso, reclamações, ações judiciais) não podem ser usados contra o titular.
+
+=== dt-15
+gab: C
+ref: lgpd 22
+trecho: poderá ser exercida em juízo, individual ou coletivamente
+armadilha: conceito
+dif: 2
+enunciado: A tutela dos direitos dos titulares de dados pode ser buscada em juízo tanto por ação individual quanto por instrumentos de tutela coletiva, conforme a legislação pertinente.
+comentario: Certo: art. 22. Ação civil pública, ações do Ministério Público, da Defensoria e de associações são caminhos coletivos; o art. 42, § 3º, trata das ações de reparação por danos coletivos.
+
+=== dt-16
+gab: E
+ref: lgpd 20
+trecho: incluídas as decisões destinadas a definir o seu perfil pessoal, profissional, de consumo e de crédito ou os aspectos de sua personalidade
+armadilha: extrapolacao
+dif: 3
+enunciado: Situação hipotética: uma plataforma de entregas classifica automaticamente o perfil profissional dos entregadores e, com base nisso, distribui as corridas, sem intervenção humana. Assertiva: o entregador não pode pedir a revisão dessa decisão, porque a LGPD só assegura revisão de decisões automatizadas sobre concessão de crédito.
+comentario: Errado. Alcança decisões tomadas unicamente com base em tratamento automatizado que afetem os interesses do titular, incluídas as que definem perfil pessoal, profissional, de consumo e de crédito ou aspectos da personalidade (art. 20).
+
+=== dt-17
+gab: C
+ref: lgpd 18
+trecho: confirmação da existência de tratamento
+armadilha: comparacao
+dif: 2
+enunciado: Situação hipotética: Júlio pergunta a uma rede de farmácias apenas se ela trata dados seus; a rede responde que sim, sem informar quais dados mantém. Assertiva: a resposta atende ao direito de confirmação da existência de tratamento, mas não ao de acesso aos dados, que Júlio poderá requerer à parte.
+comentario: Certo. Art. 18, I e II: a confirmação diz se há tratamento; o acesso mostra os dados tratados. São direitos distintos, e ambos seguem os formatos e prazos do art. 19. A banca troca um pelo outro.
+
+=== dt-18
+gab: E
+ref: lgpd 18
+trecho: informação das entidades públicas e privadas com as quais o controlador realizou uso compartilhado de dados
+armadilha: rol
+dif: 2
+enunciado: Entre os direitos do titular estão a confirmação da existência de tratamento e o acesso aos dados, e ele pode saber com quais entidades privadas o controlador compartilhou seus dados, mas não com quais entidades públicas.
+comentario: Errado. O direito alcança as entidades públicas e privadas com as quais houve uso compartilhado (art. 18, VII).
+
+=== dt-19
+gab: E
+ref: lgpd 18
+trecho: O responsável deverá informar, de maneira imediata, aos agentes de tratamento com os quais tenha realizado uso compartilhado de dados a correção, a eliminação, a anonimização ou o bloqueio dos dados
+armadilha: conceito
+dif: 3
+enunciado: Situação hipotética: a pedido de um cliente, uma rede varejista bloqueou dados dele que havia compartilhado com duas empresas parceiras. Assertiva: a rede não precisa comunicar o bloqueio às parceiras, pois cada agente responde pelos dados que mantém, sem dever de comunicar os demais.
+comentario: Errado. O responsável deve informar, de maneira imediata, aos agentes com os quais tenha compartilhado os dados a correção, a eliminação, a anonimização ou o bloqueio, para que repitam o procedimento, salvo comunicação comprovadamente impossível ou de esforço desproporcional (art. 18, § 6º).
+
+=== pp-02
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 23
+trecho: seja indicado um encarregado quando realizarem operações de tratamento de dados pessoais
+armadilha: comparacao
+dif: 3
+enunciado: O tratamento de dados pelo Poder Público deve atender à sua finalidade pública e exige que os órgãos indiquem encarregado, razão pela qual a LGPD os dispensa de instituir as autoridades de monitoramento previstas na Lei de Acesso à Informação.
+comentario: Errado. A indicação do encarregado está no art. 23, III, mas o § 2º diz expressamente que a LGPD não dispensa essas pessoas jurídicas de instituir as autoridades da Lei de Acesso à Informação. As duas exigências convivem.
+
+=== pp-04
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 23
+trecho: terão o mesmo tratamento dispensado às pessoas jurídicas referidas no caput deste artigo
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: cartório de registro de imóveis, exercido em caráter privado por delegação do Poder Público, trata dados pessoais dos usuários. Assertiva: por isso, ele se submete às regras da LGPD aplicáveis aos agentes privados, e não às do Poder Público.
+comentario: Errado. Embora exercidos em caráter privado, por delegação, recebem o mesmo tratamento das pessoas jurídicas de direito público (art. 23, § 4º) e devem fornecer acesso eletrônico aos dados à administração (§ 5º).
+
+=== pp-05
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 23
+trecho: O disposto nesta Lei não dispensa as pessoas jurídicas mencionadas no caput deste artigo de instituir as autoridades de que trata a Lei nº 12.527
+armadilha: comparacao
+dif: 2
+enunciado: A designação do encarregado da LGPD não dispensa o órgão público de instituir as autoridades de monitoramento previstas na Lei de Acesso à Informação.
+comentario: Certo. Art. 23, § 2º: a LGPD não dispensa os órgãos públicos de instituir as autoridades da Lei de Acesso à Informação, como a autoridade de monitoramento (Lei 12.527/2011, art. 40). Encarregado e autoridade de monitoramento convivem; um não substitui o outro.
+
+=== pp-07
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 26
+trecho: É vedado ao Poder Público transferir a entidades privadas dados pessoais constantes de bases de dados a que tenha acesso, exceto
+armadilha: excecao
+dif: 2
+enunciado: O uso compartilhado de dados pessoais pelo Poder Público deve atender a finalidades específicas de execução de políticas públicas, e é livre a transferência de dados de bases públicas a entidades privadas, desde que para executar políticas públicas.
+comentario: Errado. A regra é a vedação (art. 26, § 1º), com exceções: execução descentralizada de atividade pública, dados acessíveis publicamente, previsão legal ou contrato e convênio, e prevenção de fraudes ou proteção do titular.
+
+=== pp-08
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 27
+trecho: será informado à autoridade nacional e dependerá de consentimento do titular
+armadilha: excecao
+dif: 3
+enunciado: A comunicação de dados pessoais de pessoa jurídica de direito público a pessoa de direito privado deve ser informada à ANPD e depende de consentimento do titular, salvo, entre outras hipóteses, nas de dispensa de consentimento previstas na LGPD e nas exceções do art. 26, § 1º.
+comentario: Certo. O art. 27 exige informar a ANPD e obter o consentimento do titular, ressalvadas as hipóteses de dispensa de consentimento da LGPD (I), o uso compartilhado com a publicidade do art. 23, I (II), e as exceções do § 1º do art. 26 (III).
+
+=== pp-09
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 27
+trecho: será informado à autoridade nacional e dependerá de consentimento do titular, exceto
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: autarquia pretende compartilhar dados pessoais com empresa privada contratada para executar política pública prevista em lei. Assertiva: o compartilhamento depende de consentimento do titular.
+comentario: Errado. O art. 27 exige consentimento, mas com exceções: hipóteses de dispensa de consentimento da LGPD, uso compartilhado com publicidade nos termos do art. 23, I, e as exceções do art. 26, § 1º. Em qualquer caso, a ANPD deve ser informada.
+
+=== pp-10
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 29
+trecho: poderá solicitar, a qualquer momento, aos órgãos e às entidades do poder público a realização de operações de tratamento de dados pessoais, informações específicas
+armadilha: sujeito
+dif: 2
+enunciado: A ANPD pode solicitar, a qualquer momento, aos órgãos e entidades do Poder Público informações específicas sobre o âmbito, a natureza e outros detalhes do tratamento de dados, e emitir parecer técnico complementar.
+comentario: Certo: art. 29. Também pode pedir a publicação de relatórios de impacto (art. 32) e enviar informe com medidas para cessar violação (art. 31).
+
+=== pp-11
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 31
+trecho: a autoridade nacional poderá enviar informe com medidas cabíveis para fazer cessar a violação
+armadilha: excecao
+dif: 3
+enunciado: Situação hipotética: a ANPD constatou que uma autarquia estadual tratou dados em desacordo com a LGPD. Assertiva: a Agência deve aplicar-lhe multa simples, proporcional ao orçamento da entidade, sem prejuízo do envio de informe com medidas para cessar a violação.
+comentario: Errado. O art. 31 prevê o envio de informe com medidas cabíveis para cessar a violação, e as multas não se aplicam a órgãos e entidades públicos (art. 52, § 3º). Cabem advertência, publicização, bloqueio, eliminação, suspensões e proibição.
+
+=== pp-12
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 32
+trecho: A autoridade nacional poderá solicitar a agentes do Poder Público a publicação de relatórios de impacto à proteção de dados pessoais
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: a ANPD pediu a um ministério que publicasse o relatório de impacto de seu programa de reconhecimento facial e sugeriu-lhe boas práticas. Assertiva: a solicitação tem amparo na LGPD.
+comentario: Certo: art. 32. Para o setor privado, o art. 38 fala em determinar a elaboração do relatório; para o público, em solicitar sua publicação.
+
+=== pp-13
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 26
+trecho: em casos de execução descentralizada de atividade pública que exija a transferência, exclusivamente para esse fim específico e determinado
+apoio: @PREF
+comando: Considerando essa situação hipotética e o regime da LGPD para o Poder Público, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: A prefeitura pode transferir os dados dos beneficiários à empresa contratada para operar o cartão, exclusivamente para essa finalidade, por se tratar de execução descentralizada de atividade pública amparada em contrato.
+comentario: Certo: art. 26, § 1º, I e IV. A empresa atua para a prefeitura e não pode usar os dados para outros fins; o contrato deve ser comunicado à ANPD (§ 2º).
+
+=== pp-14
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 26
+trecho: É vedado ao Poder Público transferir a entidades privadas dados pessoais constantes de bases de dados a que tenha acesso
+apoio: @PREF
+comando: Considerando essa situação hipotética e o regime da LGPD para o Poder Público, julgue os itens a seguir.
+armadilha: excecao
+dif: 2
+enunciado: Como os dados se referem a programa público, a prefeitura pode entregá-los à fundação privada para a pesquisa de mercado, desde que a fundação se comprometa a mantê-los em sigilo.
+comentario: Errado. Pesquisa de mercado não se enquadra em nenhuma exceção do art. 26, § 1º, e é finalidade incompatível com a da coleta (art. 6º, I). Sigilo prometido não supre a falta de base.
+
+=== pp-15
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 23
+trecho: Os prazos e procedimentos para exercício dos direitos do titular perante o Poder Público observarão o disposto em legislação específica
+apoio: @PREF
+comando: Considerando essa situação hipotética e o regime da LGPD para o Poder Público, julgue os itens a seguir.
+armadilha: caso
+dif: 2
+enunciado: O pedido de acesso do beneficiário segue os prazos e procedimentos da legislação específica, como a Lei de Acesso à Informação, o habeas data e as normas de processo administrativo.
+comentario: Certo: art. 23, § 3º. Na LAI, por exemplo, o prazo de resposta é de até 20 dias, prorrogáveis por 10.
+
+=== pp-16
+gab: E
+bloco: lgpd-23-32
+ref: lgpd 52
+trecho: O disposto nos incisos I, IV, V, VI, X, XI e XII do caput deste artigo poderá ser aplicado às entidades e aos órgãos públicos
+apoio: @PREF
+comando: Considerando essa situação hipotética e o regime da LGPD para o Poder Público, julgue os itens a seguir.
+armadilha: excecao
+dif: 2
+enunciado: Se a prefeitura repassar os dados à fundação, a ANPD poderá aplicar-lhe multa simples de até 2% de sua receita corrente.
+comentario: Errado. Multas simples e diárias não se aplicam a órgãos e entidades públicos (art. 52, § 3º). A prefeitura sujeita-se a advertência, publicização, bloqueio, eliminação, suspensões e proibição, sem prejuízo da responsabilização dos agentes pela Lei 8.112, pela Lei de Improbidade e pela LAI.

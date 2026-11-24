@@ -1,0 +1,69 @@
+// LGPD, lote X38: estudos em saúde pública e pseudonimização (art. 13), término do tratamento (art. 15), titularidade
+// (art. 17), proteção de quem exerce direitos (art. 21), defesa em juízo (art. 22) e relações de consumo (art. 45).
+// Conferidas com fontes/lgpd.txt.
+
+=== lx38-01
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 13
+trecho: serão tratados exclusivamente dentro do órgão e estritamente para a finalidade de realização de estudos e pesquisas e mantidos em ambiente controlado e seguro
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um órgão de pesquisa que recebeu dados de saúde para estudo de saúde pública repassou a base a uma empresa parceira, para que ela fizesse parte das análises. Assertiva: o repasse é compatível com a LGPD, desde que mantida a finalidade de pesquisa.
+comentario: Errado. Pelo art. 13, os dados são tratados exclusivamente dentro do órgão de pesquisa, e o § 2º não permite, em circunstância alguma, a transferência dos dados a terceiro.
+
+=== lx38-02
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 13
+trecho: em nenhuma hipótese poderá revelar dados pessoais
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: pesquisadores de um órgão de saúde publicaram artigo com tabela que, cruzando idade, bairro e diagnóstico, permite identificar pacientes de uma cidade pequena. Assertiva: a divulgação é admitida, pois os resultados de estudos em saúde pública podem revelar dados pessoais quando isso for útil à ciência.
+comentario: Errado. A divulgação dos resultados ou de qualquer excerto do estudo em nenhuma hipótese pode revelar dados pessoais (art. 13, § 1º). Tabelas que permitem reidentificar pessoas violam a regra.
+
+=== lx38-03
+bloco: lgpd-12-16
+gab: E
+tema: pd-anonimizacao
+ref: lgpd 13
+trecho: não permitida, em circunstância alguma, a transferência dos dados a terceiro
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma universidade pública que conduz estudo de saúde pública repassou a base de dados dos participantes a uma empresa de tecnologia parceira, para acelerar as análises estatísticas. Assertiva: o repasse é lícito, pois a finalidade continua sendo a pesquisa.
+comentario: Errado. O órgão de pesquisa é responsável pela segurança dos dados, e a transferência a terceiro não é permitida em circunstância alguma (art. 13, § 2º).
+
+=== lx38-10
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 21
+trecho: Os dados pessoais referentes ao exercício regular de direitos pelo titular não podem ser utilizados em seu prejuízo.
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: uma empresa passou a negar crédito a clientes que já haviam pedido a eliminação ou a correção de seus dados, por considerá-los “problemáticos”. Assertiva: a prática é lícita, pois o histórico de requisições é dado verdadeiro sobre o cliente.
+comentario: Errado. Os dados referentes ao exercício regular de direitos pelo titular não podem ser usados em seu prejuízo (art. 21). Punir quem exerce direitos esvaziaria a própria lei.
+
+=== lx38-12
+bloco: lgpd-37-45
+gab: E
+tema: pd-agentes
+ref: lgpd 45
+trecho: permanecem sujeitas às regras de responsabilidade previstas na legislação pertinente
+armadilha: comparacao
+dif: 3
+enunciado: Situação hipotética: um consumidor teve os dados vazados por uma loja virtual e buscou indenização com base no Código de Defesa do Consumidor. Assertiva: a pretensão não procede, porque a LGPD afastou o CDC nas violações de dados ocorridas em relações de consumo.
+comentario: Errado. As violações do direito do titular no âmbito das relações de consumo permanecem sujeitas às regras de responsabilidade da legislação pertinente (art. 45), o que inclui o CDC.
+
+=== lx38-13
+bloco: lgpd-17-22
+gab: E
+tema: pd-direitos
+ref: lgpd 22
+trecho: A defesa dos interesses e dos direitos dos titulares de dados poderá ser exercida em juízo
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: um titular teve pedido de eliminação ignorado e ajuizou ação contra a empresa, que alegou que ele deveria antes reclamar à ANPD, única via prevista na LGPD. Assertiva: a alegação da empresa procede.
+comentario: Errado. A LGPD prevê a defesa dos direitos em juízo, individual ou coletivamente (art. 22), e o acesso ao Judiciário não depende de prévia reclamação à ANPD (CF, art. 5º, XXXV). A petição à ANPD é caminho adicional (art. 18, § 1º).
