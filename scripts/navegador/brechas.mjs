@@ -12,7 +12,10 @@ const browser = await abrirNavegador();
 const { passo, fim } = placar();
 const erros = [];
 const d = montarDados();
-const q = d.questoes.find((x) => x.l === 'lgpd' && !x.al && !x.o && (x.g === 'C' || x.g === 'E'));
+// Item do bloco padrão do treino sem gêmeo (nenhum outro cobra a mesma referência): as erradas devolvem ele mesmo
+const refs = new Map();
+for (const x of d.questoes) refs.set(x.l + '|' + x.r, (refs.get(x.l + '|' + x.r) || 0) + 1);
+const q = d.questoes.find((x) => x.b === 'lgpd-55' && !x.al && !x.o && (x.g === 'C' || x.g === 'E') && refs.get(x.l + '|' + x.r) === 1);
 const nota = d.cloze[0], card = { id: nota.id + '.1', b: nota.b };
 const salvo = (p) => p.evaluate(() => JSON.parse(localStorage.getItem('painel-anpd-v3')));
 

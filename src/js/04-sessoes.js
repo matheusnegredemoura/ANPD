@@ -65,7 +65,8 @@ function chavePausa(s) { return s && MODOS_PAUSA.has(s.modo) ? s.chave || null :
 function pausaDe(k) {
   const p = k && S.perfil.pausas && S.perfil.pausas[k];
   if (!p || !Array.isArray(p.ids) || !p.data || HOJE() - diaNum(p.data) > PAUSA_DIAS) return null;
-  const ids = p.ids.filter((id) => QI.has(id) && (p.modo !== 'revisao' || vencida(id) || dominadoVencido(id)));
+  // Na revisão, o gêmeo inédito fica enquanto o item original dele continuar vencido
+  const ids = p.ids.filter((id) => QI.has(id) && (p.modo !== 'revisao' || vencida(id) || dominadoVencido(id) || (p.gm && p.gm[id] && !rec(id) && (vencida(p.gm[id]) || dominadoVencido(p.gm[id])))));
   if (!ids.length) return null;
   const x = Object.assign({}, p, { ids });
   if (p.modo === 'simulado') x.resp = Object.fromEntries(Object.entries(p.resp || {}).filter(([id]) => QI.has(id)));
@@ -90,7 +91,7 @@ function atualizarPausa() {
   else {
     pausas[k] = Object.assign({ modo: sessao.modo, titulo: sessao.titulo, dia: sessao.dia, data: hojeISO(), ts: Date.now(), st: sessao.st || undefined, tipoSubtema: sessao.tipoSubtema || undefined }, sim
       ? { ids: sessao.ids, resp: sessao.resp, duv: sessao.duv, i: sessao.i, gasto: Math.round(decorrido()), limite: sessao.limite, total: sessao.ids.length, prova: sessao.prova || undefined }
-      : { ids: faltam, feitas: (sessao.feitasAntes || 0) + sessao.ids.length - faltam.length, total: sessao.totalOrig || sessao.ids.length },
+      : { ids: faltam, feitas: (sessao.feitasAntes || 0) + sessao.ids.length - faltam.length, total: sessao.totalOrig || sessao.ids.length, gm: sessao.gemeos || undefined },
       sessao.batalha ? { cor: sessao.coracoes, dano: sessao.danoTotal || 0, crit: sessao.criticos || 0, cmb: sessao.comboMax, per: sessao.perdas || 0, def: sessao.defesas || 0 } : {});
   }
   const recentes = Object.entries(pausas).filter(([, v]) => v && v.data && HOJE() - diaNum(v.data) <= PAUSA_DIAS);
@@ -119,6 +120,7 @@ function retomarPausa(k) {
   } else {
     sessao.feitasAntes = p.feitas || 0;
     sessao.totalOrig = p.total || p.ids.length;
+    if (p.gm) sessao.gemeos = p.gm;
     // Batalha retomada continua com os corações e o placar de quando você saiu
     if (sessao.batalha && p.cor != null) { sessao.coracoes = Math.max(1, Math.min(p.cor, sessao.coracoesMax)); sessao.danoTotal = p.dano || 0; sessao.criticos = p.crit || 0; sessao.comboMax = p.cmb || 0; sessao.perdas = p.per || 0; sessao.defesas = p.def || 0; }
   }
@@ -164,8 +166,11 @@ function iniciarSessao(cfg) {
   else if (cfg.modo === 'relampago') itens = embaralhar(poolDe(cfg.blocos).filter((q) => !q.al));
   else itens = selecionar(poolDe(cfg.blocos, cfg.banca), cfg.n || 20, cfg.filtro || 'mistas');
   if (!itens.length) { avisar('!', 'Sem itens', 'Nenhuma questão disponível com esse filtro.'); return; }
+  let gemeos = null;
+  if (cfg.modo === 'revisao' || (cfg.modo === 'treino' && (!cfg.ids || cfg.gemeos))) ({ itens, gemeos } = trocarPorGemeos(itens));
   if (cfg.modo !== 'relampago') itens = emBlocosDeTexto(itens, !cfg.ids && !cfg.prova && !cfg.cotas && !cfg.intercalado && cfg.modo !== 'revisao', cfg.blocos && cfg.blocos.length && !cfg.prova && !cfg.cotas && !cfg.intercalado ? new Set(cfg.blocos) : null);
   sessao = novaSessao(cfg, itens.map((q) => q.id));
+  if (gemeos && Object.keys(gemeos).length) sessao.gemeos = gemeos;
   abrirSessao();
 }
 // Erros e brancos da sessão, fora a interpretação de texto (refazer logo o mesmo texto só treina a memória do gabarito)
@@ -298,11 +303,13 @@ function responder(resp) {
   if (resp === BRANCO) { defender(q, id); return; }
   // Virada: acertar um item cuja última resposta foi erro. É onde o aprendizado aparece: se o erro foi em outro dia,
   // o XP dobra; no mesmo dia (logo depois de ler o comentário), ganha só um pouco a mais
-  const ant = rec(id), virada = ant && ant[0] === 0 && ant[3] > 0 ? (ant[4] < HOJE() ? 'plena' : 'mesmo-dia') : null;
+  // No gêmeo, a virada se mede pelo item original: acertar a regra que você tinha errado, agora numa questão nova
+  const ant = rec(id), antV = rec((sessao.gemeos && sessao.gemeos[id]) || id), virada = antV && antV[0] === 0 && antV[3] > 0 ? (antV[4] < HOJE() ? 'plena' : 'mesmo-dia') : null;
   // Acerto repetido no mesmo dia (sem ser a virada logo depois do erro) vale 1 XP: o filtro "só as que já errei"
   // devolve o mesmo item quantas vezes se quiser, e o XP cheio a cada volta premiaria repetir, não aprender
   const repetidoHoje = ant && ant[0] >= 0 && ant[4] === HOJE() && !virada;
   const ok = registrar(q, resp, !!sessao.duv[id]);
+  if (sessao.gemeos && sessao.gemeos[id]) creditarPorGemeo(sessao.gemeos[id], ok, !!sessao.duv[id]);
   sessao.golpe = golpeRecente;
   sessao.cansaco = sessao.modo === 'relampago' ? null : avaliarCansaco();
   sessao.resp[id] = resp;
@@ -343,6 +350,7 @@ function responder(resp) {
 // ganha pouco XP, o item volta na revisão e o comentário abre para aprender
 function defender(q, id) {
   registrar(q, BRANCO, !!sessao.duv[id]);
+  if (sessao.gemeos && sessao.gemeos[id]) creditarPorGemeo(sessao.gemeos[id], null, false);
   sessao.golpe = null;
   sessao.virada = null;
   sessao.resp[id] = BRANCO;

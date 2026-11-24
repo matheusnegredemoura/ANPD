@@ -3,6 +3,9 @@
 // desenho da sessão.
 import { APP, abrirNavegador, placar, responder, sairDaSessao, vigiarErros } from './comum.mjs';
 import { readFileSync } from 'node:fs';
+import { montarDados } from '../build.mjs';
+
+const GAB = new Map(montarDados().questoes.map((q) => [q.id, q.g]));
 
 const plano = JSON.parse(readFileSync(new URL('../../dados/cronograma.json', import.meta.url), 'utf8'));
 const dia = plano.fases.flatMap((f) => f.semanas.flatMap((s) => s.dias)).filter((d) => d.modo === 'treino' && d.blocos && d.blocos.length && d.data > '2026-11-01').sort((a, b) => (a.data < b.data ? -1 : 1))[0];
@@ -44,7 +47,8 @@ await passo('minhas erradas abre só os itens errados, e o veredito é anunciado
   const an = p.locator('#sessao #anuncio-sessao[role="status"]');
   conferir('anúncio fixo dentro do diálogo, vazio antes da resposta', (await an.count()) === 1 && !(await an.textContent()));
   await p.evaluate(() => { window.__anuncio = document.getElementById('anuncio-sessao'); });
-  await responder(p, 'e');
+  // O item errado pode voltar trocado pelo gêmeo (mesma regra, gabarito oposto): responde o gabarito do que aparece
+  await responder(p, GAB.get((await p.textContent('#sessao .item-num')).trim()).toLowerCase());
   await p.waitForSelector('#sessao .veredito');
   const t = await an.textContent();
   conferir('anuncia o veredito, sem o XP', /acertou/.test(t) && !/XP/.test(t), t);

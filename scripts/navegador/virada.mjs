@@ -1,5 +1,9 @@
-// Virada: acertar no dia seguinte um item que você errou vale XP em dobro e aparece no resultado da sessão.
+// Virada: acertar no dia seguinte um item que você errou vale XP em dobro e aparece no resultado da sessão. Vale também
+// para o gêmeo (outro item da mesma regra), que volta no lugar do item errado quando há um inédito.
 import { APP, abrirNavegador, placar, vigiarErros } from './comum.mjs';
+import { montarDados } from '../build.mjs';
+
+const GAB = new Map(montarDados().questoes.map((q) => [q.id, q.g]));
 
 const browser = await abrirNavegador();
 const { conferir, fim } = placar();
@@ -49,15 +53,10 @@ await treino('erradas');
 let achou = false, ganho = '';
 for (let i = 0; i < 10 && !achou; i++) {
   const num = (await p.textContent('.item-num')).trim();
-  if (num === errado) {
-    await p.click('.bolha.e');
-    await p.waitForSelector('.veredito');
-    ganho = ((await p.textContent('.veredito .ganho').catch(() => '')) || '').replace(/\s+/g, ' ');
-    achou = true;
-  } else {
-    if (await p.locator('button.alt').count()) await p.locator('button.alt').first().click(); else await p.click('.bolha.c');
-    await p.waitForSelector('.veredito');
-  }
+  if (await p.locator('button.alt').count()) await p.locator('button.alt').first().click(); else await p.click(GAB.get(num) === 'E' ? '.bolha.e' : '.bolha.c');
+  await p.waitForSelector('.veredito');
+  const orig = await p.locator('#sessao .gemeo [data-q]').getAttribute('data-q').catch(() => null);
+  if (num === errado || orig === errado) { ganho = ((await p.textContent('.veredito .ganho').catch(() => '')) || '').replace(/\s+/g, ' '); achou = true; }
   await p.click('[data-acao="proximo"]');
 }
 conferir('o item errado voltou no treino de erros', achou);

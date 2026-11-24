@@ -251,6 +251,8 @@ function renderItem(q) {
   html += renderComando(q);
   html += '<p class="enunciado">' + (sessao.revelado ? marcarPolaridade(marcarTermos(q.e, 3)) : esc(q.e)) + '</p>';
   html += renderAlternativas(q, marcada, sessao.revelado || !!sessao.flash);
+  // Gêmeo: só depois da resposta, para o aviso não virar pista
+  if (sessao.revelado && sessao.gemeos && sessao.gemeos[id]) html += '<p class="gemeo pequeno mudo">Esta questão cobra a mesma regra de uma que você errou e veio no lugar dela. <button class="btn pequeno" data-acao="revisar-item" data-q="' + esc(sessao.gemeos[id]) + '">Ver a que você errou</button></p>';
   // Depois da resposta, em tela larga, o item fica à esquerda e o gabarito comentado à direita
   const esq = html, dupla = !sessao.flash && sessao.revelado;
   html = '';

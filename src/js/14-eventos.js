@@ -126,7 +126,7 @@ async function executar(a, alvo) {
     case 'fechar-sessao': fecharSessao(); break;
     case 'refazer-erros': {
       const ids = idsParaRefazer();
-      trocarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Refazer erros' });
+      trocarSessao({ modo: 'treino', ids: embaralhar(ids), titulo: 'Refazer erros', gemeos: true });
       break;
     }
     case 'revisar-item': folhaItem(alvo.dataset.q, alvo.dataset.r); break;
@@ -160,7 +160,7 @@ async function executar(a, alvo) {
     case 'neutralizar-vulnerabilidades': {
       const L = LEIS[UI.lei || 'lgpd'], ids = idsVulneraveis(L.artigos.map((x) => diagnosticoArtigo(x.k)));
       if (!ids.length) { avisar('✓', 'Nenhuma vulnerabilidade crítica', 'Parabéns! Você não tem artigos com desempenho crítico nesta norma.'); break; }
-      iniciarSessao({ modo: 'treino', ids: embaralhar(ids).slice(0, VULN_MAX), titulo: 'Neutralizar Vulnerabilidades · ' + (L.curto || L.nome), chave: 'vuln:' + (UI.lei || 'lgpd') });
+      iniciarSessao({ modo: 'treino', ids: embaralhar(ids).slice(0, VULN_MAX), gemeos: true, titulo: 'Neutralizar Vulnerabilidades · ' + (L.curto || L.nome), chave: 'vuln:' + (UI.lei || 'lgpd') });
       break;
     }
     case 'camada':
