@@ -1,0 +1,45 @@
+// Gêmeos (11/2026): itens novos que cobram o mesmo dispositivo de itens errados que não tinham par inédito no banco.
+// O painel troca o item errado pelo gêmeo na revisão, para o acerto vir da regra e não da lembrança da questão.
+// Mesma referência do original e, quando dá, gabarito oposto. Cada item traz o bloco do original. Trechos conferidos
+// em fontes/dl200.txt, fontes/lgpd.txt e fontes/res1.txt.
+bloco: administrativo
+
+=== dl-07-g
+gab: E
+tema: adm-organizacao
+ref: dl200 5, § 3º
+trecho: não se lhes aplicando as demais disposições do Código Civil concernentes às fundações
+armadilha: fecho
+dif: 2
+enunciado: Pelo Decreto-Lei 200/1967, a fundação pública ganha personalidade jurídica quando inscrita, no Registro Civil de Pessoas Jurídicas, a escritura pública que a constitui, regendo-se, no mais, pelas normas do Código Civil sobre fundações.
+comentario: Errado. O momento da personalidade jurídica está certo, mas o mesmo § 3º do art. 5º afasta as demais disposições do Código Civil sobre fundações.
+
+=== lgpd-12-05-g
+gab: C
+bloco: lgpd-12-16
+ref: lgpd 12, § 3º
+trecho: A autoridade nacional poderá dispor sobre padrões e técnicas utilizados em processos de anonimização e realizar verificações acerca de sua segurança, ouvido o Conselho Nacional de Proteção de Dados Pessoais
+armadilha: sujeito
+dif: 2
+enunciado: Situação hipotética: a ANPD pretende editar norma com padrões técnicos de anonimização e, depois, verificar a segurança das técnicas adotadas pelos controladores. Assertiva: a LGPD admite a iniciativa, desde que ouvido o Conselho Nacional de Proteção de Dados Pessoais.
+comentario: Certo. A autoridade nacional pode dispor sobre padrões e técnicas de anonimização e verificar sua segurança, ouvido o Conselho Nacional de Proteção de Dados Pessoais (art. 12, § 3º). O Comitê Gestor da Internet não aparece nesse dispositivo.
+
+=== lgpd2-27-02-g
+gab: C
+bloco: lgpd-23-32
+ref: lgpd 27, parágrafo único
+trecho: A informação à autoridade nacional de que trata o caput deste artigo será objeto de regulamentação.
+armadilha: extrapolacao
+dif: 2
+enunciado: A LGPD remete a regulamento a disciplina da informação a ser prestada à autoridade nacional quando pessoa jurídica de direito público comunica dados pessoais a pessoa de direito privado ou os compartilha com ela.
+comentario: Certo. A comunicação ou o uso compartilhado de dados pessoais de pessoa jurídica de direito público a pessoa de direito privado deve ser informado à autoridade nacional (art. 27, caput), e essa informação será objeto de regulamentação (parágrafo único). A lei não fixa prazo nem forma.
+
+=== r1-03-g
+gab: E
+bloco: res-1-2021
+ref: res1 4, III
+trecho: denúncia: comunicação feita à ANPD por qualquer pessoa, natural ou jurídica, de suposta infração cometida contra a legislação de proteção de dados pessoais do País, que não seja uma petição de titular
+armadilha: sujeito
+dif: 2
+enunciado: No Regulamento de Fiscalização da ANPD, denúncia é a comunicação de suposta infração à legislação de proteção de dados pessoais que somente o titular dos dados afetados pode apresentar.
+comentario: Errado. A denúncia pode ser feita por qualquer pessoa, natural ou jurídica, e não é petição de titular (art. 4º, III). Denúncia e petição de titular são as duas espécies de requerimento (inciso VI).
