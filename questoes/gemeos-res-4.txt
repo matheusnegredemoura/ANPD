@@ -1,0 +1,104 @@
+// Gêmeos (11/2026): itens novos que cobram o mesmo dispositivo de itens errados que não tinham par inédito no banco.
+// O painel troca o item errado pelo gêmeo na revisão, para o acerto vir da regra e não da lembrança da questão.
+// Mesma referência do original e, quando dá, gabarito oposto. Trechos conferidos em fontes/res4.txt.
+bloco: res-4-2023
+
+=== r4-05-g
+gab: E
+ref: res4 3, § 1º
+trecho: As sanções previstas nos incisos VII, VIII e IX do caput deste artigo somente serão aplicadas após já ter sido imposta ao menos uma das sanções de que tratam os incisos II, III, IV, V e VI do caput deste artigo para o mesmo caso concreto.
+armadilha: rol
+dif: 3
+enunciado: Situação hipotética: a ANPD já aplicou a publicização da infração a um controlador e, no mesmo caso concreto, avalia agora a suspensão parcial do funcionamento do banco de dados. Assertiva: a suspensão ainda não é possível, pois a publicização não está entre as sanções que precisam ter sido impostas antes.
+comentario: Errado. A publicização (art. 3º, IV) está entre as sanções prévias que abrem caminho para as dos incisos VII, VIII e IX, ao lado da multa simples, da multa diária, do bloqueio e da eliminação dos dados (incisos II a VI). Só a advertência fica fora dessa lista (§ 1º).
+
+=== r4-06-g
+gab: C
+ref: res4 3, § 1º
+trecho: somente serão aplicadas após já ter sido imposta ao menos uma das sanções
+armadilha: excecao
+dif: 2
+enunciado: Para chegar à proibição parcial ou total do exercício de atividades de tratamento, a ANPD precisa ter imposto antes, no mesmo caso concreto, ao menos uma sanção entre a multa simples, a multa diária, a publicização da infração, o bloqueio e a eliminação dos dados.
+comentario: Certo. Suspensão parcial do banco de dados, suspensão da atividade de tratamento e proibição (incisos VII a IX) só vêm depois de imposta, no mesmo caso, ao menos uma das sanções dos incisos II a VI (art. 3º, § 1º). A gravidade da infração não dispensa esse degrau.
+
+=== r4-07-g
+gab: C
+ref: res4 3, § 3º
+trecho: após o qual o processo poderá ter prosseguimento e ser decidido mesmo sem a manifestação
+armadilha: caso
+dif: 2
+enunciado: Situação hipotética: em processo que pode levar à suspensão da atividade de tratamento de um banco, a ANPD deu ciência ao regulador setorial, que obteve a prorrogação do prazo, mas não se manifestou até o fim dela. Assertiva: o processo pode seguir e ser decidido sem a manifestação.
+comentario: Certo. O regulador setorial tem até 20 dias úteis, prorrogáveis uma única vez por igual período; depois disso, o processo pode prosseguir e ser decidido mesmo sem a manifestação (art. 3º, § 3º). Ele não fica suspenso à espera da resposta.
+
+=== sc-05-g
+gab: E
+ref: res4 3
+trecho: O órgão ou entidade reguladora setorial terá prazo de até 20 (vinte) dias úteis, prorrogável uma única vez por igual período
+armadilha: numero
+dif: 2
+enunciado: Antes de aplicar a suspensão ou a proibição de atividade a controlador sujeito a regulação setorial, a ANPD dá ciência ao principal regulador do setor, que dispõe de até dez dias úteis, prorrogáveis uma única vez por igual período, para se manifestar.
+comentario: Errado. O prazo do regulador setorial é de até 20 dias úteis, prorrogável uma única vez por igual período (art. 3º, § 3º). A ciência é dada durante a fase de instrução (§ 2º).
+
+=== r4-18-g
+gab: C
+ref: res4 12
+trecho: 5% (cinco por cento) para cada caso de reincidência genérica, até o limite de 20% (vinte por cento)
+trecho: 10% (dez por cento) para cada caso de reincidência específica, até o limite de 40% (quarenta por cento)
+armadilha: numero
+dif: 2
+enunciado: Na dosimetria da ANPD, cada caso de reincidência genérica acresce 5% ao valor da multa simples, até o limite de 20%, percentual menor que o aplicado a cada caso de reincidência específica.
+comentario: Certo. Reincidência genérica: 5% por caso, até 20% (art. 12, II). Reincidência específica: 10% por caso, até 40% (inciso I).
+
+=== sc-15-g
+gab: C
+ref: res4 12
+trecho: 20% (vinte por cento) para cada medida de orientação ou preventiva descumprida no processo de fiscalização
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: no processo de fiscalização que precedeu o sancionador, o agente de tratamento descumpriu duas medidas preventivas determinadas pela ANPD. Assertiva: por essa circunstância, o valor da multa simples será acrescido de 40%, sem prejuízo de outros agravantes que incidam.
+comentario: Certo. Cada medida de orientação ou preventiva descumprida acresce 20%, até 80% (art. 12, III): duas medidas dão 40%. Os percentuais de agravantes distintos se somam (§ 1º).
+
+=== r4x-06-g
+gab: E
+ref: res4 12
+trecho: Na hipótese de incidência de mais de um dos incisos deste artigo, deverão ser somados os percentuais relativos a cada fator
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: infrator com um caso de reincidência específica descumpriu uma medida corretiva. Assertiva: incide sobre a multa simples apenas o agravante de maior percentual, de 30%, porque os percentuais de fatores distintos não se acumulam.
+comentario: Errado. Quando incide mais de um inciso do art. 12, os percentuais são somados (§ 1º): 10% pela reincidência específica (inciso I) e 30% pela medida corretiva descumprida (inciso IV), 40% no total.
+
+=== sc-16-g
+gab: E
+ref: res4 12
+trecho: os excedentes ingressarão na categoria de reincidência genérica
+armadilha: excecao
+dif: 2
+enunciado: Os registros de reincidência específica que excederem o necessário para atingir o agravamento máximo de 40% deixam de ser considerados no cálculo da multa simples.
+comentario: Errado. Os registros excedentes de reincidência específica passam para a categoria de reincidência genérica e geram o acréscimo do inciso II (art. 12, § 2º).
+
+=== r4c-08-g
+gab: C
+ref: res4 13
+trecho: 50% (cinquenta por cento), se após a instauração de procedimento preparatório e até a instauração de processo administrativo sancionador
+armadilha: caso
+dif: 3
+enunciado: Situação hipotética: depois de instaurado o procedimento preparatório, e antes de qualquer ordem da ANPD ou do Judiciário, o agente de tratamento cessou por iniciativa própria a conduta infrativa; só depois foi instaurado o processo sancionador. Assertiva: a multa simples será reduzida em 50% por essa atenuante.
+comentario: Certo. A cessação depois da instauração do procedimento preparatório e até a do processo sancionador reduz a multa em 50% (art. 13, I, b). Como não decorreu de determinação administrativa ou judicial, a atenuante vale (§ 1º).
+
+=== sc-02-g
+gab: C
+ref: res4 2
+trecho: no período de 5 (cinco) anos, contado do trânsito em julgado do processo administrativo sancionador até a data do cometimento da nova infração
+armadilha: numero
+dif: 2
+enunciado: Para a reincidência genérica, conta-se o prazo de cinco anos a partir do trânsito em julgado do processo sancionador anterior até a data em que se cometeu a nova infração, qualquer que seja o dispositivo violado.
+comentario: Certo. Reincidência genérica é nova infração do mesmo infrator, independentemente do dispositivo, no período de 5 anos contado do trânsito em julgado do processo sancionador até o cometimento da nova infração (art. 2º, IX).
+
+=== sc-04-g
+gab: C
+ref: res4 2
+trecho: devendo ser aplicadas conjuntamente com a sanção de advertência
+armadilha: conceito
+dif: 2
+enunciado: Situação hipotética: ao concluir processo sancionador, a ANPD determinou ao infrator medidas para corrigir a infração e reconduzi-lo à conformidade com a LGPD, aplicando-lhe também advertência. Assertiva: a combinação segue o regulamento de dosimetria, que prevê as medidas corretivas em conjunto com a advertência.
+comentario: Certo. Medidas corretivas são as determinadas para corrigir a infração e reconduzir o infrator à plena conformidade, aplicadas conjuntamente com a sanção de advertência (art. 2º, V).

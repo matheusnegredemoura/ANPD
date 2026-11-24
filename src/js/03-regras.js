@@ -695,6 +695,46 @@ function ordemDesafio(lista) {
   while (c.length || e.length) { if (c.length) out.push(c.shift()); if (e.length) out.push(e.shift()); }
   return out.concat(lista.filter((q) => !ce(q)));
 }
+// Gêmeo (11/2026): item que você já errou volta, quando dá, trocado por um item inédito que cobra o mesmo dispositivo
+// (mesma norma e mesma referência), de preferência com o gabarito oposto. Nas voltas do mesmo item, o acerto passa a
+// vir da lembrança da questão (a frase, o gabarito), e não da regra: nos dados de 24/11/2026, dos 221 itens errados de
+// primeira, 166 já tinham dois acertos depois, com volta no mesmo dia ou no seguinte. O resultado no gêmeo move a
+// agenda do item original (acertou a regra numa questão nova: ele sobe; errou: volta ao começo), sem somar acerto ou
+// erro nele. Sem gêmeo inédito, volta o próprio item. Fora: itens presos a texto e os da reserva de medida.
+const POR_REF = new Map();
+for (const q of Q) if (q.l && q.r && !q.al && q.ap == null && !SEM_REPETICAO.has(q.id)) { const k = q.l + '|' + q.r; (POR_REF.get(k) || POR_REF.set(k, []).get(k)).push(q); }
+function gemeoDe(q, usados) {
+  const r = rec(q.id);
+  if (!r || !(r[3] > 0) || !q.l || !q.r) return null;
+  const c = (POR_REF.get(q.l + '|' + q.r) || []).filter((x) => x.id !== q.id && !usados.has(x.id) && !RESERVA_MEDIDA.has(x.id) && !(rec(x.id) && rec(x.id)[0] >= 0));
+  return c.find((x) => x.g !== q.g) || c[0] || null;
+}
+function trocarPorGemeos(itens) {
+  const usados = new Set(itens.map((q) => q.id)), gemeos = {};
+  const out = itens.map((q) => { const g = gemeoDe(q, usados); if (!g) return q; usados.add(g.id); gemeos[g.id] = q.id; return g; });
+  return { itens: out, gemeos };
+}
+// ok: true, false ou null (em branco)
+function creditarPorGemeo(id, ok, duvida) {
+  const r = rec(id);
+  if (!r) return;
+  const x = r.slice(), hoje = HOJE(), antes = x[0];
+  if (!ok) x[0] = 0;
+  else if (duvida) x[0] = Math.max(1, Math.min(antes, 2));
+  else x[0] = x[4] === hoje ? Math.max(1, antes) : Math.min(5, antes + 1);
+  // Errou o gêmeo: o original volta amanhã (o gêmeo errado já fica para hoje), e não os dois no mesmo dia
+  x[1] = hoje + Math.max(1, intervalo(x));
+  x[4] = hoje;
+  S.itens[id] = x;
+  Store.itensSujos.add(parteItem(id));
+  if (antes >= 0 && antes < 3 && x[0] >= 3 && !SEM_REPETICAO.has(id)) S.perfil.saidos = (S.perfil.saidos || 0) + 1;
+  // Conta no dia como a revisão do original: vencida da lista curta (rv) ou manutenção (m, mc). A retenção medida
+  // (mp, mpc), que calibra os intervalos, fica só com o próprio item
+  if (ok === null || r[1] > hoje || r[4] === hoje) return;
+  const d = diaLog();
+  if (antes < 3) d.rv = (d.rv || 0) + 1;
+  else { d.m = (d.m || 0) + 1; if (ok && !duvida) d.mc = (d.mc || 0) + 1; }
+}
 function selecionar(pool, n, filtro) {
   const hoje = HOJE();
   const venc = [], novas = [], lista = [], domV = [], resto = [];

@@ -3,6 +3,12 @@
 // - item de interpretação de texto (português e inglês) errado não entra na lista curta;
 // - o relógio do dia conta o tempo em uso por atividade e pausa quando o app fica parado.
 import { APP, abrirNavegador, placar, vigiarErros } from './comum.mjs';
+import { montarDados } from '../build.mjs';
+// Gabarito de cada item: o item errado pode voltar trocado pelo gêmeo (mesmo dispositivo, gabarito oposto)
+const GAB = new Map(montarDados().questoes.map((q) => [q.id, q.g]));
+const acertar = async (p) => p.click(GAB.get((await p.textContent('#sessao .item-num')).trim()) === 'E' ? '.bolha.e' : '.bolha.c');
+// O item original de um gêmeo, ou o próprio item
+const original = async (p) => (await p.locator('#sessao .gemeo [data-q]').getAttribute('data-q').catch(() => null)) || (await p.textContent('#sessao .item-num')).trim();
 
 const browser = await abrirNavegador();
 const { conferir, passo, fim } = placar();
@@ -45,7 +51,7 @@ await passo('revisão traz só o vencido e não repete o que já foi revisto hoj
   await p.waitForSelector('#sessao:not([hidden])');
   const tit = (await p.textContent('#sessao .sessao-topo .tit span')).trim();
   if (!/^Item 1 de 1\b/.test(tit)) throw new Error('revisão com mais de um item: ' + tit);
-  await p.click('.bolha.c');
+  await acertar(p);
   await p.waitForSelector('.veredito');
   await p.click('[data-acao="proximo"]');
   if (await p.locator('[data-acao="fechar-sessao"]').count()) await p.click('[data-acao="fechar-sessao"]');
@@ -115,9 +121,9 @@ await passo('fila maior que a sessão: entram primeiro os mais frescos em relaç
   const vistos = [];
   for (let i = 0; i < 30; i++) {
     await p.waitForSelector('#sessao .item-num');
-    vistos.push((await p.textContent('#sessao .item-num')).trim());
     await p.click('.bolha.c');
     await p.waitForSelector('.veredito');
+    vistos.push(await original(p));
     if (!(await p.locator('[data-acao="proximo"]').count())) break;
     await p.click('[data-acao="proximo"]');
   }
