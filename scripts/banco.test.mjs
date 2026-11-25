@@ -256,7 +256,7 @@ test('palavras-sinal não entregam o gabarito', () => {
   assert.deepEqual(fora, [], 'palavras que entregam o gabarito: ' + fora.join('; '));
 });
 
-test('itens do RPG: três por raridade e encaixe, com o texto literal da LGPD', () => {
+test('itens do RPG: nove por raridade e encaixe, com o texto literal da LGPD', () => {
   const src = readFileSync(new URL('../src/js/06-jornada.js', import.meta.url), 'utf8');
   const lista = src.slice(src.indexOf('const ITENS_RPG = ['), src.indexOf('];', src.indexOf('const ITENS_RPG = [')));
   const itens = [...lista.matchAll(/id: '([^']+)', slot: '(\w+)', rar: '(\w+)', nome: '([^']+)', lore: '([^']+)', ref: '([^']+)'/g)].map((m) => ({ id: m[1], slot: m[2], rar: m[3], lore: m[5], ref: m[6] }));
@@ -264,7 +264,7 @@ test('itens do RPG: três por raridade e encaixe, com o texto literal da LGPD', 
   assert.equal(new Set(itens.map((x) => x.id)).size, itens.length, 'id repetido');
   const pares = {};
   for (const x of itens) pares[x.slot + '/' + x.rar] = (pares[x.slot + '/' + x.rar] || 0) + 1;
-  assert.deepEqual(Object.values(pares), Array(12).fill(3), JSON.stringify(pares));
+  assert.deepEqual(Object.values(pares), Array(12).fill(9), JSON.stringify(pares));
   const fora = itens.filter((x) => !/^LGPD, art\./.test(x.ref) || !lgpd.includes(x.lore)).map((x) => x.id);
   assert.deepEqual(fora, [], 'lore fora do texto da LGPD');
 });

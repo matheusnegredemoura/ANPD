@@ -105,9 +105,12 @@ function ritmo() {
   const h = hojeISO(), chave = h + '|' + Object.keys(S.perfil.dias || {}).length;
   if (ritmoCache && ritmoCache.chave === chave) return ritmoCache.v;
   const mediana = (xs) => { const o = xs.filter((x) => x > 0).sort((a, b) => a - b); return o.length ? o[Math.floor((o.length - 1) / 2)] : 0; };
-  const desde = isoDeNum(HOJE() - 14);
-  const dias = Object.entries(S.perfil.dias || {}).filter(([iso]) => iso >= desde && iso < h && ativo(iso)).map(([, d]) => d);
-  const v = dias.length < 5 ? null : {
+  // Duas semanas; com estudo espaçado (menos de 5 dias ativos nelas), os 5 últimos dias ativos dos 45 dias anteriores,
+  // e a partir de 3: com pausas, a meta caía no piso de 20 para quem faz mais de 100 itens por dia (24/11/2026: 130 de 20)
+  const ativos = Object.entries(S.perfil.dias || {}).filter(([iso]) => iso < h && iso >= isoDeNum(HOJE() - 45) && ativo(iso)).sort((a, b) => (a[0] < b[0] ? 1 : -1));
+  const recentes = ativos.filter(([iso]) => iso >= isoDeNum(HOJE() - 14));
+  const dias = (recentes.length >= 5 ? recentes : ativos.slice(0, 5)).map(([, d]) => d);
+  const v = dias.length < 3 ? null : {
     r: mediana(dias.map((d) => d.r || 0)), ni: mediana(dias.map((d) => d.ni || 0)),
     a: mediana(dias.map((d) => (d.a || []).length)), min: Math.round(mediana(dias.map((d) => segundosEstudo(d) / 60))),
     s: mediana(dias.map((d) => (d.r && d.t && d.t.q ? d.t.q / d.r : 0))),

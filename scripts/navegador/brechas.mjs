@@ -1,7 +1,7 @@
 // Brechas fechadas (pistas da análise de 25/10):
 // - acerto repetido no mesmo dia, pelo treino "só as que já errei", vale 1 XP, não o XP cheio;
 // - desmarcar e remarcar uma meta do checklist semanal não paga os 15 XP de novo;
-// - chefão que surge na quinta vem com a vida dos dias que restam (1200), e não fica invencível com o teto diário;
+// - chefão que surge na quinta vem com a vida dos dias que restam (até 600), e não fica invencível com o teto diário;
 // - "Substituir tudo" do backup pede confirmação antes de apagar o progresso da conta;
 // - números do edital vindos de um backup não entram crus no HTML;
 // - card "Difícil" com 1 dia de intervalo passa a 2 dias, em vez de ficar preso em 1.
@@ -106,9 +106,9 @@ p2.setDefaultTimeout(5000);
 vigiarErros(p2, erros);
 await p2.goto(APP);
 await p2.waitForTimeout(400);
-await passo('chefão que surge na quinta tem 1200 de vida', async () => {
+await passo('chefão que surge na quinta tem 600 de vida', async () => {
   const v = (await p2.textContent('.chefe .chefe-cab .mono')).trim();
-  if (v !== 'HP 1200/1200') throw new Error(v);
+  if (v !== 'HP 600/600') throw new Error(v);
 });
 
 await browser.close();

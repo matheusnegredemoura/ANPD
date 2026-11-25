@@ -5,7 +5,7 @@
 // - as três missões do dia são cumpridas pelo que já foi feito no dia, e o baú abre com o XP somado e um item;
 // - na batalha contra o chefão, acerto causa dano e erro custa um coração; sem corações, derrota (o dano fica);
 // - o golpe final derruba o chefão, registra o troféu e dá um item, que vai para o inventário e é equipado;
-// - passado o teto do dia (um quinto da vida), o chefão recua: a batalha acaba e o botão some até amanhã;
+// - passado o teto do dia (um terço da vida), o chefão recua: a batalha acaba e o botão some até amanhã;
 // - o cartão do dia não herda o estilo do herói; dia de várias matérias só dá baixa com cada uma estudada, e a
 //   recuperação traz o que falta; batalha retomada mantém os corações;
 // - a sequência de dias não zera com uma folga por semana (de segunda a sábado), e domingo não quebra.
@@ -89,8 +89,8 @@ async function responder(p, certo) {
 
 await passo('na batalha, acerto causa dano no chefão e erro custa um coração', async () => {
   const { ctx, p } = await abrir(() => ({}), () => ({}));
-  // Chefão novo: 1500 de vida de segunda a quarta; a partir de quinta, proporcional aos dias que restam até domingo
-  const restam = Math.min(5, 7 - ((new Date().getDay() + 6) % 7)), vidaIni = Math.round((1500 * restam) / 5);
+  // Chefão novo: 600 de vida até sexta; no sábado e no domingo, proporcional aos dias que restam
+  const restam = Math.min(3, 7 - ((new Date().getDay() + 6) % 7)), vidaIni = Math.round((600 * restam) / 3);
   const vida0 = (await p.textContent('.chefe .chefe-cab .mono')).trim();
   if (vida0 !== 'HP ' + vidaIni + '/' + vidaIni) throw new Error('vida inicial: ' + vida0 + ' (esperado ' + vidaIni + ')');
   await abrirJornada(p);
@@ -121,7 +121,7 @@ await passo('golpe final derruba o chefão e dá um item, que é equipado', asyn
   const { ctx, p } = await abrir((h) => {
     const d = new Date(h + 'T12:00:00'), seg = new Date(d - ((d.getDay() + 6) % 7) * 864e5);
     const sem = seg.getFullYear() + '-' + String(seg.getMonth() + 1).padStart(2, '0') + '-' + String(seg.getDate()).padStart(2, '0');
-    return { rpg: { chefe: { sem, bloco: 'lgpd-5-11', vida: 5, max: 1500 } } };
+    return { rpg: { chefe: { sem, bloco: 'lgpd-5-11', vida: 5, max: 600 } } };
   }, () => ({}));
   await abrirJornada(p);
   await p.click('[data-acao="enfrentar-chefe"]');
@@ -142,11 +142,11 @@ await passo('golpe final derruba o chefão e dá um item, que é equipado', asyn
 });
 
 await passo('passado o teto do dia, o chefão recua até amanhã', async () => {
-  // Teto de 300 (1.500 / 5): com 295 de dano hoje, qualquer acerto passa dele
+  // Teto de 200 (600 / 3): com 195 de dano hoje, qualquer acerto passa dele
   const { ctx, p } = await abrir((h) => {
     const d = new Date(h + 'T12:00:00'), seg = new Date(d - ((d.getDay() + 6) % 7) * 864e5);
     const sem = seg.getFullYear() + '-' + String(seg.getMonth() + 1).padStart(2, '0') + '-' + String(seg.getDate()).padStart(2, '0');
-    return { rpg: { chefe: { sem, bloco: 'lgpd-5-11', vida: 905, max: 1500, dia: h, danoDia: 295 } } };
+    return { rpg: { chefe: { sem, bloco: 'lgpd-5-11', vida: 405, max: 600, dia: h, danoDia: 195 } } };
   }, () => ({}));
   await abrirJornada(p);
   await p.click('[data-acao="enfrentar-chefe"]');
@@ -159,7 +159,7 @@ await passo('passado o teto do dia, o chefão recua até amanhã', async () => {
   if (fim !== 'O chefão recuou') throw new Error('fim da batalha: ' + fim);
   if (await p.locator('.batalha-fim [data-acao="enfrentar-chefe"]').count()) throw new Error('botão de batalhar de novo depois do recuo');
   const c = (await salvo(p)).perfil.rpg.chefe;
-  if (!(c.vida < 905) || c.vencido || !(c.danoDia > 295)) throw new Error('estado do chefão: ' + JSON.stringify(c));
+  if (!(c.vida < 405) || c.vencido || !(c.danoDia > 195)) throw new Error('estado do chefão: ' + JSON.stringify(c));
   await ctx.close();
 });
 
